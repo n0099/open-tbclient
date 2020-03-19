@@ -137,7 +137,7 @@ public class a {
         public Object doInBackground(String... strArr) {
             x xVar = new x(TbConfig.SERVER_ADDRESS + "c/s/splashSchedule");
             String postNetData = xVar.postNetData();
-            if (!xVar.aGk().aGM().isRequestSuccess() || Jw(postNetData)) {
+            if (!xVar.aGk().aGM().isRequestSuccess() || Jx(postNetData)) {
                 return null;
             }
             com.baidu.tieba.tbadvert.a.a aVar = new com.baidu.tieba.tbadvert.a.a();
@@ -157,7 +157,7 @@ public class a {
             }
         }
 
-        private boolean Jw(String str) {
+        private boolean Jx(String str) {
             if (str != null) {
                 try {
                     ErrorData errorData = new ErrorData();

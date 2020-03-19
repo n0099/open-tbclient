@@ -39,7 +39,7 @@ public final class d implements l, Loader.a<p<com.google.android.exoplayer2.sour
     private Handler mzU;
 
     static {
-        com.google.android.exoplayer2.l.Pl("goog.exo.smoothstreaming");
+        com.google.android.exoplayer2.l.Pm("goog.exo.smoothstreaming");
     }
 
     public d(Uri uri, e.a aVar, b.a aVar2, Handler handler, com.google.android.exoplayer2.source.b bVar) {
@@ -59,7 +59,7 @@ public final class d implements l, Loader.a<p<com.google.android.exoplayer2.sour
         this.mzP = aVar;
         if (uri == null) {
             uri = null;
-        } else if (!v.QB(uri.getLastPathSegment()).matches("manifest(\\(.+\\))?")) {
+        } else if (!v.QC(uri.getLastPathSegment()).matches("manifest(\\(.+\\))?")) {
             uri = Uri.withAppendedPath(uri, "Manifest");
         }
         this.mwd = uri;

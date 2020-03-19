@@ -255,22 +255,22 @@ public class b {
         });
     }
 
-    public void KZ(String str) {
+    public void La(String str) {
         int i;
         int i2 = 0;
-        Bitmap IB = IB(str);
-        if (IB != null && IB.getHeight() != 0) {
-            if (IB.getHeight() <= 0) {
+        Bitmap IC = IC(str);
+        if (IC != null && IC.getHeight() != 0) {
+            if (IC.getHeight() <= 0) {
                 i = 0;
-            } else if (IB.getWidth() / IB.getHeight() > l.getEquipmentWidth(this.kSl) / l.getDimens(this.kSl, R.dimen.ds440)) {
+            } else if (IC.getWidth() / IC.getHeight() > l.getEquipmentWidth(this.kSl) / l.getDimens(this.kSl, R.dimen.ds440)) {
                 i = l.getEquipmentWidth(this.kSl);
-                if (IB.getWidth() > 0) {
-                    i2 = (int) ((i / IB.getWidth()) * IB.getHeight());
+                if (IC.getWidth() > 0) {
+                    i2 = (int) ((i / IC.getWidth()) * IC.getHeight());
                 }
             } else {
                 int dimens = l.getDimens(this.kSl, R.dimen.ds440);
-                if (IB.getWidth() > 0) {
-                    i = (int) ((dimens / IB.getHeight()) * IB.getWidth());
+                if (IC.getWidth() > 0) {
+                    i = (int) ((dimens / IC.getHeight()) * IC.getWidth());
                     i2 = dimens;
                 } else {
                     i = 0;
@@ -281,11 +281,11 @@ public class b {
             layoutParams.height = i2;
             layoutParams.width = i;
             this.kBI.setLayoutParams(layoutParams);
-            this.kBI.setImageBitmap(IB);
+            this.kBI.setImageBitmap(IC);
         }
     }
 
-    private Bitmap IB(String str) {
+    private Bitmap IC(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
@@ -367,7 +367,7 @@ public class b {
             String videoPath = videoInfo.getVideoPath();
             String thumbPath = videoInfo.getThumbPath();
             if (!StringUtils.isNull(thumbPath)) {
-                KZ(thumbPath);
+                La(thumbPath);
                 this.kBI.setVisibility(0);
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.write.video.b.8
                     @Override // java.lang.Runnable
@@ -411,7 +411,7 @@ public class b {
         }
     }
 
-    public void La(String str) {
+    public void Lb(String str) {
         if (StringUtils.isNull(str)) {
             this.mNavigationBar.setCenterTextTitle(this.kSl.getResources().getString(R.string.post_to_home_page));
         } else {
@@ -427,7 +427,7 @@ public class b {
     public void j(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             this.kSs.aU(postWriteCallBackData.getSensitiveWords());
-            this.kSs.KK(postWriteCallBackData.getErrorString());
+            this.kSs.KL(postWriteCallBackData.getErrorString());
             if (!v.isEmpty(this.kSs.cUx())) {
                 tW(true);
             }

@@ -79,7 +79,7 @@ public class s {
             }
         }
         this.iIK.setReplyId(str);
-        this.iIK.vs(str2);
+        this.iIK.vt(str2);
         if (this.iIK.aPm()) {
             this.iIK.a((PostWriteCallBackData) null);
         }

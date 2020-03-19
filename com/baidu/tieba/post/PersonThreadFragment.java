@@ -71,7 +71,7 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && PersonThreadFragment.this.jBY != null) {
-                PersonThreadFragment.this.jBY.Hl((String) customResponsedMessage.getData());
+                PersonThreadFragment.this.jBY.Hm((String) customResponsedMessage.getData());
             }
         }
     };

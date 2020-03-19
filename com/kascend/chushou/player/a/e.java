@@ -178,7 +178,7 @@ public class e extends a {
                 bVar.dRv();
                 e.this.b(1);
             }
-        }).Td(this.c.getString(a.i.alert_dialog_cancel)).Tf(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_forbid_check, this.mRY.mUserNickname));
+        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_forbid_check, this.mRY.mUserNickname));
         x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
         x.show();
     }
@@ -196,7 +196,7 @@ public class e extends a {
                 bVar.dRv();
                 e.this.b(2);
             }
-        }).Td(this.c.getString(a.i.alert_dialog_cancel)).Tf(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_forbid_forever_check, this.mRY.mUserNickname));
+        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_forbid_forever_check, this.mRY.mUserNickname));
         x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
         x.show();
     }
@@ -272,7 +272,7 @@ public class e extends a {
                 bVar.dRv();
                 com.kascend.chushou.c.c.dCo().c(e.this.mQN, e.this.j, null, e.this.a(i) + "");
             }
-        }).Td(this.c.getString(a.i.alert_dialog_cancel)).Tf(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_report_user, this.k));
+        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_report_user, this.k));
         x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
         x.show();
     }
@@ -314,7 +314,7 @@ public class e extends a {
                     }
                 });
             }
-        }).Td(this.c.getString(a.i.alert_dialog_cancel)).Tf(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_add_admin_check, this.mRY.mUserNickname));
+        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_add_admin_check, this.mRY.mUserNickname));
         x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
         x.show();
     }
@@ -332,7 +332,7 @@ public class e extends a {
                 bVar.dRv();
                 e.this.k();
             }
-        }).Td(this.c.getString(a.i.alert_dialog_cancel)).Tf(this.c.getString(a.i.alert_dialog_add_to_blacklist_confirm)).x(this.c.getString(a.i.alert_dialog_add_to_blacklist));
+        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_add_to_blacklist_confirm)).x(this.c.getString(a.i.alert_dialog_add_to_blacklist));
         x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
         x.show();
     }

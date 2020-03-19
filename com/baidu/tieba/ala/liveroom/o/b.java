@@ -10,32 +10,32 @@ public class b {
     private a fkd;
     private a.b fke = new a.b() { // from class: com.baidu.tieba.ala.liveroom.o.b.1
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
-        public void zk(String str) {
+        public void zl(String str) {
             b.this.eLt.l(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
-        public void zl(String str) {
+        public void zm(String str) {
             b.this.eLt.m(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
-        public void zm(String str) {
+        public void zn(String str) {
             b.this.eLt.n(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
-        public void zn(String str) {
+        public void zo(String str) {
             b.this.eLt.o(str, b.this.mGroupId, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
-        public void zo(String str) {
+        public void zp(String str) {
             b.this.eLt.ac(str, b.this.mLiveId);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.o.a.b
-        public void zp(String str) {
+        public void zq(String str) {
             b.this.eLt.ad(str, b.this.mLiveId);
         }
 

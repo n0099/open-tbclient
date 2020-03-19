@@ -91,7 +91,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.rv(kVar.position + 1);
-        com.baidu.tieba.card.r.bvm().e(kVar.Aa("c12351"));
+        com.baidu.tieba.card.r.bvm().e(kVar.Ab("c12351"));
         afVar.nk().setPosition(i);
         if (afVar.nk() instanceof com.baidu.tieba.a.e) {
             afVar.nk().setPage(this.LC);
@@ -103,7 +103,7 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 }

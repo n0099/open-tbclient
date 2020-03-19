@@ -41,7 +41,7 @@ public class QRCodeStatic {
                 if (data.type == 0) {
                     str = com.baidu.tieba.qrcode.lib.zxing.a.D(data.kjq);
                 } else if (data.type == 1) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.HC(data.kjr);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.HD(data.kjr);
                 }
                 if (TextUtils.isEmpty(str)) {
                     data.kjs = "qr_none";

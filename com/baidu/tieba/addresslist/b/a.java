@@ -58,7 +58,7 @@ public class a {
             String aMt = aVar.aMt();
             if (TextUtils.isEmpty(aMt)) {
                 aMt = "#";
-                aVar.uv("#");
+                aVar.uw("#");
             }
             String str = aMt;
             String userName = aVar.getUserName();
@@ -73,7 +73,7 @@ public class a {
             if (!z) {
                 if (!z2) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar3 = new com.baidu.tbadk.coreExtra.relationship.a();
-                    aVar3.uv(str);
+                    aVar3.uw(str);
                     this.ebA.add(aVar3);
                 }
                 this.ebA.add(aVar);

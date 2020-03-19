@@ -49,17 +49,17 @@ public class f {
             dpZ = jSONObject.optString("android_debug_type");
             if (!StringUtils.isNull(dpZ)) {
                 com.baidu.tbadk.core.sharedPref.b.aFH().putString(SharedPrefConfig.KEY_REPORT_PLAY_DEBUG_TYPE, dpZ);
-                ut(dpZ);
+                uu(dpZ);
             }
             dpT = jSONObject.optString("step_cache_strategy");
             if (!StringUtils.isNull(dpT)) {
                 com.baidu.tbadk.core.sharedPref.b.aFH().putString(SharedPrefConfig.KEY_STEP_CHACHE_STRATEGY, dpT);
-                uu(dpT);
+                uv(dpT);
             }
         }
     }
 
-    private static void ut(String str) {
+    private static void uu(String str) {
         if (!StringUtils.isNull(str)) {
             if (mDebugParamsMap == null) {
                 mDebugParamsMap = new HashMap();
@@ -75,7 +75,7 @@ public class f {
         }
     }
 
-    private static void uu(String str) {
+    private static void uv(String str) {
         if (!StringUtils.isNull(str)) {
             if (dpU == null) {
                 dpU = new HashMap();
@@ -114,7 +114,7 @@ public class f {
         if (StringUtils.isNull(string)) {
             return "";
         }
-        ut(string);
+        uu(string);
         return string;
     }
 
@@ -149,7 +149,7 @@ public class f {
         if (StringUtils.isNull(string)) {
             return "";
         }
-        uu(string);
+        uv(string);
         return string;
     }
 

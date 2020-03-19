@@ -100,7 +100,7 @@ public class v extends a<bj> implements com.baidu.tieba.a.e {
             if (buM() != null) {
                 buM().a(view, (View) this.KJ, (Object) this.fMz);
             }
-            l.zU(this.KJ.getTid());
+            l.zV(this.KJ.getTid());
             l.a(this.fMy, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             bvn();
         }

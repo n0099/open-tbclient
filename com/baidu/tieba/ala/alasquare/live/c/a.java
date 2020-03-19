@@ -154,7 +154,7 @@ public class a {
                 str = "prefer_key_activity";
                 break;
         }
-        if (xI(str) < j) {
+        if (xJ(str) < j) {
             view.setVisibility(0);
         } else {
             view.setVisibility(8);
@@ -167,7 +167,7 @@ public class a {
         view.setVisibility(8);
     }
 
-    private long xI(String str) {
+    private long xJ(String str) {
         return b.aFH().getLong(str, 0L);
     }
 

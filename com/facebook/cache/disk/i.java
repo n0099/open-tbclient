@@ -39,7 +39,7 @@ public class i implements com.facebook.cache.common.a {
         return this;
     }
 
-    public i OO(String str) {
+    public i OP(String str) {
         this.jyy = str;
         return this;
     }

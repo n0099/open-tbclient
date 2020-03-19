@@ -20,11 +20,11 @@ public class ALaCharmInitialize {
                     if (aVar.awh != null && aVar.awh.context != null) {
                         TbPageContext tbPageContext = (TbPageContext) IScrollableHelper.getBbPageContext(aVar.awh.context);
                         if (aVar.awh.awj != null && aVar.awh.awj.mLiveInfo != null) {
-                            com.baidu.tieba.ala.charm.a.a yb = new com.baidu.tieba.ala.charm.a.a(tbPageContext).ya(String.valueOf(aVar.awh.awj.mLiveInfo.group_id)).yb(String.valueOf(aVar.awh.awj.mLiveInfo.live_id));
+                            com.baidu.tieba.ala.charm.a.a yc = new com.baidu.tieba.ala.charm.a.a(tbPageContext).yb(String.valueOf(aVar.awh.awj.mLiveInfo.group_id)).yc(String.valueOf(aVar.awh.awj.mLiveInfo.live_id));
                             if (aVar.awh.awj.Ya != null) {
-                                yb.yd(String.valueOf(aVar.awh.awj.Ya.charmCount)).yc(String.valueOf(String.valueOf(aVar.awh.awj.Ya.userId)));
+                                yc.ye(String.valueOf(aVar.awh.awj.Ya.charmCount)).yd(String.valueOf(String.valueOf(aVar.awh.awj.Ya.userId)));
                             }
-                            aVar.a(yb);
+                            aVar.a(yc);
                         }
                     }
                 }

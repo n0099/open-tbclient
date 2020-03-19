@@ -100,7 +100,7 @@ public abstract class a {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (b.this.kMN != null) {
-                            b.this.kMN.KN(b.this.kMN.bKH());
+                            b.this.kMN.KO(b.this.kMN.bKH());
                         }
                     }
                 });
@@ -221,7 +221,7 @@ public abstract class a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (C0631a.this.kMN != null) {
-                        C0631a.this.kMN.KN(C0631a.this.kMN.bKH());
+                        C0631a.this.kMN.KO(C0631a.this.kMN.bKH());
                     }
                 }
             });

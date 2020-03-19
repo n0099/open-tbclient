@@ -46,7 +46,7 @@ public class e {
     }
 
     public static void a() {
-        tv.chushou.basis.c.c.SJ("chushou_player_prefs").putBoolean("key_only_play_when_wifi", h.dCs().u());
+        tv.chushou.basis.c.c.SK("chushou_player_prefs").putBoolean("key_only_play_when_wifi", h.dCs().u());
     }
 
     public static boolean b() {
@@ -54,11 +54,11 @@ public class e {
     }
 
     public static int c() {
-        return tv.chushou.basis.c.c.SJ("chushou_player_prefs").getInt("key_user_4g_choice", -1);
+        return tv.chushou.basis.c.c.SK("chushou_player_prefs").getInt("key_user_4g_choice", -1);
     }
 
     public static void a(int i) {
-        tv.chushou.basis.c.c.SJ("chushou_player_prefs").putInt("key_user_4g_choice", i);
+        tv.chushou.basis.c.c.SK("chushou_player_prefs").putInt("key_user_4g_choice", i);
     }
 
     public static Uri aA(String str, String str2, String str3) {
@@ -86,7 +86,7 @@ public class e {
                     if (generalTabGift != null && !tv.chushou.zues.utils.h.isEmpty(generalTabGift.mGeneralGifts)) {
                         for (GeneralGift generalGift : generalTabGift.mGeneralGifts) {
                             if (generalGift != null && !tv.chushou.zues.utils.h.isEmpty(generalGift.mIcon)) {
-                                tv.chushou.zues.utils.h.SZ(generalGift.mIcon);
+                                tv.chushou.zues.utils.h.Ta(generalGift.mIcon);
                             }
                         }
                     }
@@ -265,7 +265,7 @@ public class e {
             if (e instanceof FragmentActivity) {
                 fragmentActivity = (FragmentActivity) e;
                 if (fragmentActivity == null && !fragmentActivity.isFinishing()) {
-                    com.kascend.chushou.player.ui.h5.a.ndU.QW(str).show(fragmentActivity.getSupportFragmentManager(), "fixedDialog");
+                    com.kascend.chushou.player.ui.h5.a.ndU.QX(str).show(fragmentActivity.getSupportFragmentManager(), "fixedDialog");
                     return;
                 }
             }
@@ -497,7 +497,7 @@ public class e {
     }
 
     public static void a(FragmentActivity fragmentActivity, String str) {
-        com.kascend.chushou.view.b.b.Rb(str).show(fragmentActivity.getSupportFragmentManager(), "RechargeDialog");
+        com.kascend.chushou.view.b.b.Rc(str).show(fragmentActivity.getSupportFragmentManager(), "RechargeDialog");
     }
 
     public static void a(Context context, String str, b.a aVar) {
@@ -506,7 +506,7 @@ public class e {
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                 bVar.dismiss();
             }
-        }).b(aVar).Td(context.getString(a.i.alert_dialog_cancel)).Tf(context.getString(a.i.alert_dialog_ok)).x(context.getString(a.i.manage_follow_confirm, str)).show();
+        }).b(aVar).Te(context.getString(a.i.alert_dialog_cancel)).Tg(context.getString(a.i.alert_dialog_ok)).x(context.getString(a.i.manage_follow_confirm, str)).show();
     }
 
     public static void d(FragmentManager fragmentManager) {
@@ -564,7 +564,7 @@ public class e {
     public static void b(OkHttpClient okHttpClient, String str) {
         HttpExecutor.initialize(okHttpClient);
         UploadManager.a(HttpExecutor.getOkHttpClient());
-        tv.chushou.common.a.SK(str);
+        tv.chushou.common.a.SL(str);
     }
 
     public static void i() {

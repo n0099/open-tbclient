@@ -200,14 +200,14 @@ public class CoverPendantDragView extends FrameLayout {
                     }
                 } else if (ad.getTextLengthAllOne(obj) < 20) {
                     if (obj.length() > CoverPendantDragView.this.kzt.getText().length()) {
-                        CoverPendantDragView.this.Kd(obj);
+                        CoverPendantDragView.this.Ke(obj);
                     } else {
-                        CoverPendantDragView.this.Kc(obj);
+                        CoverPendantDragView.this.Kd(obj);
                     }
                 } else {
                     String subStringWithAllOne = ad.subStringWithAllOne(obj, 20);
                     editable.delete(subStringWithAllOne.length(), obj.length());
-                    CoverPendantDragView.this.Kd(subStringWithAllOne);
+                    CoverPendantDragView.this.Ke(subStringWithAllOne);
                     l.showToast(CoverPendantDragView.this.getContext(), (int) R.string.cover_pendant_length_max_tips);
                 }
                 CoverPendantDragView.this.kzt.setText(editable.toString());
@@ -238,7 +238,7 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kc(String str) {
+    public void Kd(String str) {
         TextPaint paint = this.kzu.getPaint();
         float measureText = paint.measureText(str);
         while (this.kzu.getLineCount() == 1 && this.kzu.getTextSize() < this.aCb * this.jMj && measureText < this.kzT * this.jMj) {
@@ -251,7 +251,7 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Kd(String str) {
+    public void Ke(String str) {
         TextPaint paint = this.kzu.getPaint();
         float measureText = paint.measureText(str);
         while (this.kzu.getTextSize() > ((this.kzS * this.jMj) / 2.0f) - (this.kzV * this.jMj) && measureText > this.kzT * this.jMj) {
@@ -511,8 +511,8 @@ public class CoverPendantDragView extends FrameLayout {
                     break;
                 default:
                     hideSoftKeyPad();
-                    String Kb = com.baidu.tieba.video.editvideo.model.b.cQw().Kb(pendantData.resource);
-                    if (TextUtils.isEmpty(Kb)) {
+                    String Kc = com.baidu.tieba.video.editvideo.model.b.cQw().Kc(pendantData.resource);
+                    if (TextUtils.isEmpty(Kc)) {
                         if (view != null && (view.getTag() instanceof a.b)) {
                             a.b bVar = (a.b) view.getTag();
                             bVar.kys.setVisibility(0);
@@ -520,7 +520,7 @@ public class CoverPendantDragView extends FrameLayout {
                             break;
                         }
                     } else {
-                        a(Kb, pendantData);
+                        a(Kc, pendantData);
                         break;
                     }
                     break;
@@ -698,7 +698,7 @@ public class CoverPendantDragView extends FrameLayout {
                     this.kzu.setText(text);
                     this.kzt.setText(text);
                 }
-                Kd(text);
+                Ke(text);
             }
         }
         this.kzt.setIncludeFontPadding(false);
@@ -793,7 +793,7 @@ public class CoverPendantDragView extends FrameLayout {
         }
 
         @Override // com.baidu.tieba.video.editvideo.model.b.a
-        public void JT(String str) {
+        public void JU(String str) {
             if (this.kAc != null && this.kAc.get() != null) {
                 this.kAc.get().kys.setVisibility(8);
             }

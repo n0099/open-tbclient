@@ -6,10 +6,10 @@ import tv.chushou.zues.utils.h;
 public interface a {
     public static final a nYC = new a() { // from class: tv.chushou.zues.toolkit.b.a.1
         @Override // tv.chushou.zues.toolkit.b.a
-        public String SR(String str) {
+        public String SS(String str) {
             return h.isEmpty(str) ? "" : b.encrypt(str);
         }
     };
 
-    String SR(String str);
+    String SS(String str);
 }

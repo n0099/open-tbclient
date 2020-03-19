@@ -77,7 +77,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                 if (hVar != null && (dOh = hVar.dOh()) != null) {
                     while (dOh.hasNext()) {
                         String next = dOh.next();
-                        hashMap.put(next, hVar.Sw(next));
+                        hashMap.put(next, hVar.Sx(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
@@ -119,13 +119,13 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             int intValue = connectionLostTimeout.intValue();
             a aVar6 = this.webSocketClient;
             if (aVar6 == null) {
-                q.Sg("webSocketClient");
+                q.Sh("webSocketClient");
             }
             aVar6.setConnectionLostTimeout(intValue);
         }
         a aVar7 = this.webSocketClient;
         if (aVar7 == null) {
-            q.Sg("webSocketClient");
+            q.Sh("webSocketClient");
         }
         aVar7.connect();
     }
@@ -135,7 +135,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.j(str, TiebaInitialize.LogFields.REASON);
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            q.Sg("webSocketClient");
+            q.Sh("webSocketClient");
         }
         aVar.close();
     }
@@ -145,7 +145,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.j(str, "message");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            q.Sg("webSocketClient");
+            q.Sh("webSocketClient");
         }
         aVar.send(str);
     }
@@ -155,7 +155,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         q.j(byteBuffer, "data");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            q.Sg("webSocketClient");
+            q.Sh("webSocketClient");
         }
         aVar.send(byteBuffer);
     }

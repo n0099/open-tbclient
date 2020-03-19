@@ -57,7 +57,7 @@ public class e extends a {
 
     @Override // com.baidu.tieba.im.settingcache.a
     protected l<String> bYr() {
-        return com.baidu.tbadk.core.c.a.aEF().sP("tb.im_personal_chat_setting");
+        return com.baidu.tbadk.core.c.a.aEF().sQ("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a

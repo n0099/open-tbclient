@@ -52,7 +52,7 @@ public class y {
                 this.cPf = jSONObject.optString("obj_id");
                 this.mTagName = jSONObject.optString("tag_name");
                 this.cPg = jSONObject.optString("tag_name_url");
-                sv(jSONObject.optString("tag_name_wh"));
+                sw(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -70,11 +70,11 @@ public class y {
             this.cPf = banner.obj_id;
             this.mTagName = banner.tag_name;
             this.cPg = banner.tag_name_url;
-            sv(banner.tag_name_wh);
+            sw(banner.tag_name_wh);
         }
     }
 
-    private void sv(String str) {
+    private void sw(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);

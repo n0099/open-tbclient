@@ -74,7 +74,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int wL(String str) {
+    public static int wM(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -169,7 +169,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String wM(String str) {
+    public static String wN(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }

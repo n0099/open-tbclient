@@ -35,7 +35,7 @@ public class a {
         }
     }
 
-    public void xJ(String str) {
+    public void xK(String str) {
         if (str != null) {
             if (this.dYi == null) {
                 this.dYi = new ArrayList();

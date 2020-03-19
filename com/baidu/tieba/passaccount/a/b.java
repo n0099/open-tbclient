@@ -59,17 +59,17 @@ public class b {
         if (iVar == null || session == null) {
             a((i.c) null);
         } else if (iVar.getType() == 0) {
-            Fx(iVar.getAuthToken());
+            Fy(iVar.getAuthToken());
         } else if (iVar.getType() == 1) {
             loadModifyPwd(session.bduss);
         } else if (iVar.getType() == 2) {
-            Fy(session.bduss);
+            Fz(session.bduss);
         } else if (iVar.getType() == 3) {
             cjS();
         }
     }
 
-    private void Fx(String str) {
+    private void Fy(String str) {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
         Intent intent = new Intent(context, AuthActivity.class);
         intent.putExtra("EXTRA_TYPE", 0);
@@ -87,7 +87,7 @@ public class b {
         context.startActivity(intent);
     }
 
-    private void Fy(String str) {
+    private void Fz(String str) {
         Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
         Intent intent = new Intent(context, AuthActivity.class);
         intent.putExtra("EXTRA_TYPE", 2);
@@ -165,7 +165,7 @@ public class b {
             handler.sendMessage(handler.obtainMessage(1));
             return;
         }
-        com.baidu.tbadk.core.a.b.sq(currentAccountObj.getID());
+        com.baidu.tbadk.core.a.b.ss(currentAccountObj.getID());
         if (ReloginManager.aFA().aFD() && !TextUtils.isEmpty(currentAccountObj.getID()) && (aIY = com.baidu.tbadk.coreExtra.a.a.aIY()) != null) {
             aIY.f(currentAccountObj);
         }

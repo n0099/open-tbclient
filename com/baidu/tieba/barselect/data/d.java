@@ -79,7 +79,7 @@ public class d {
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
         dVar.re(electionList.forum_level.intValue());
-        dVar.zP(electionList.apply_declaration);
+        dVar.zQ(electionList.apply_declaration);
         dVar.rf(electionList.rank.intValue());
         dVar.rd(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
@@ -100,7 +100,7 @@ public class d {
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
         dVar.re(myrecord.forum_level.intValue());
-        dVar.zP(myrecord.apply_declaration);
+        dVar.zQ(myrecord.apply_declaration);
         dVar.rf(myrecord.rank.intValue());
         dVar.rd(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
@@ -119,7 +119,7 @@ public class d {
         this.fEj = i;
     }
 
-    public void zP(String str) {
+    public void zQ(String str) {
         this.apply_declaration = str;
     }
 

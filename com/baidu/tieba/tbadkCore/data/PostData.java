@@ -200,7 +200,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         }
     }
 
-    public void Jb(String str) {
+    public void Jc(String str) {
         if (this.kiy != null && !StringUtils.isNull(str)) {
             Iterator<PostData> it = this.kiy.iterator();
             while (it.hasNext()) {
@@ -500,7 +500,7 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
         bVar.fP(true);
         if (" 吧主".equals(str) || " 小吧主".equals(str) || " 楼主".equals(str) || " 品牌官".equals(str)) {
             bVar.kV(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds6));
-            bVar.tR(str);
+            bVar.tS(str);
             return bVar;
         }
         return bVar;
@@ -593,10 +593,10 @@ public class PostData implements com.baidu.adp.widget.ListView.m, ae {
                     } else if (next.getType() == 6) {
                         sb.append(context.getString(R.string.voice_str));
                     } else if (next.getType() == 2) {
-                        String vd = TbFaceManager.aPU().vd(next.getText());
-                        if (vd != null) {
+                        String ve = TbFaceManager.aPU().ve(next.getText());
+                        if (ve != null) {
                             sb.append("[");
-                            sb.append(vd);
+                            sb.append(ve);
                             sb.append("]");
                         }
                     } else if (next.getType() == 11 && !aq.isEmpty(next.cLf())) {

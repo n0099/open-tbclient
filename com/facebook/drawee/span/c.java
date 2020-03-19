@@ -34,7 +34,7 @@ public class c extends CharacterStyle implements UpdateAppearance {
                         break;
                     }
                     try {
-                        this.mColors[i2] = Color.parseColor(Pa(arrayList.get(i2)));
+                        this.mColors[i2] = Color.parseColor(Pb(arrayList.get(i2)));
                     } catch (Exception e) {
                     }
                     i = i2 + 1;
@@ -48,7 +48,7 @@ public class c extends CharacterStyle implements UpdateAppearance {
             return this;
         }
 
-        private String Pa(String str) {
+        private String Pb(String str) {
             if (str.indexOf("#") == -1) {
                 return null;
             }

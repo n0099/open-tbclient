@@ -57,7 +57,7 @@ public class a implements TbCheckBox.b {
         return this.dqe;
     }
 
-    public void uv(String str) {
+    public void uw(String str) {
         this.dqf = str;
     }
 
@@ -114,7 +114,7 @@ public class a implements TbCheckBox.b {
         this.mUserType = i;
     }
 
-    public void uw(String str) {
+    public void ux(String str) {
         this.dqh = str;
     }
 

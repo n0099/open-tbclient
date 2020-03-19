@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a uc(String str) {
+    public static a ud(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;

@@ -12,7 +12,7 @@ import java.util.Random;
 public final class UserAgent {
     private static UserAgent npB = new UserAgent();
     public final String id = dGx();
-    public final String ua = Ro(this.id);
+    public final String ua = Rp(this.id);
 
     private UserAgent() {
     }
@@ -25,7 +25,7 @@ public final class UserAgent {
         return System.currentTimeMillis() + "" + new Random().nextInt(999);
     }
 
-    static String Ro(String str) {
+    static String Rp(String str) {
         return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", dGy(), dGz(), str);
     }
 
@@ -35,7 +35,7 @@ public final class UserAgent {
             if (str == null) {
                 return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return StringUtils.Ru(str.trim());
+            return StringUtils.Rv(str.trim());
         } catch (Throwable th) {
             return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
@@ -52,7 +52,7 @@ public final class UserAgent {
             if (fv == null) {
                 fv = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return StringUtils.Ru(sb.append(fv).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
+            return StringUtils.Rv(sb.append(fv).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
         } catch (Throwable th) {
             return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
@@ -66,7 +66,7 @@ public final class UserAgent {
         return str;
     }
 
-    public String Rp(String str) {
+    public String Rq(String str) {
         String trim = ("" + str).trim();
         return new String((this.ua + "; " + trim.substring(0, Math.min(16, trim.length())) + ")").getBytes(Charset.forName("ISO-8859-1")));
     }

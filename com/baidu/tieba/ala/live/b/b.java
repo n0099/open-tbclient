@@ -64,7 +64,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.live.b.a
-    public void yG(String str) {
+    public void yH(String str) {
     }
 
     private static void tj() {

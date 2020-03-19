@@ -120,7 +120,7 @@ public class b {
         return this.kNt;
     }
 
-    public void KK(String str) {
+    public void KL(String str) {
         this.cBs = str;
     }
 

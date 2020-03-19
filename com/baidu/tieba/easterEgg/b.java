@@ -81,7 +81,7 @@ public class b {
         }
     }
 
-    public void Ai(final String str) {
+    public void Aj(final String str) {
         Activity currentActivity;
         if (!aq.isEmpty(str) && (currentActivity = com.baidu.adp.base.a.eH().currentActivity()) != null && currentActivity.getWindow() != null && currentActivity.getWindow().getDecorView() != null) {
             if (am(currentActivity)) {
@@ -89,7 +89,7 @@ public class b {
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            b.this.Ai(str);
+                            b.this.Aj(str);
                         } catch (Throwable th) {
                             b.this.bxk();
                         }

@@ -190,7 +190,7 @@ public class c implements d, l, a.InterfaceC0739a, com.tb.airbnb.lottie.model.f 
     public void a(com.tb.airbnb.lottie.model.e eVar, int i, List<com.tb.airbnb.lottie.model.e> list, com.tb.airbnb.lottie.model.e eVar2) {
         if (eVar.c(getName(), i)) {
             if (!"__container".equals(getName())) {
-                eVar2 = eVar2.Rx(getName());
+                eVar2 = eVar2.Ry(getName());
                 if (eVar.e(getName(), i)) {
                     list.add(eVar2.a(this));
                 }

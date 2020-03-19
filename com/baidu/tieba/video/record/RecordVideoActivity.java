@@ -234,7 +234,7 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
             this.kyh.cancelLoadData();
         }
         if (this.kjC != null) {
-            this.kjC.Fb("record");
+            this.kjC.Fc("record");
         }
         com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(com.baidu.tieba.video.c.kwD));
     }
@@ -377,7 +377,7 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
                 }
 
                 @Override // com.baidu.tieba.video.record.l.a
-                public void JT(String str) {
+                public void JU(String str) {
                     if (RecordVideoActivity.this.kEk != null) {
                         StickerItem stickerItem = new StickerItem();
                         stickerItem.id = -1;
@@ -414,7 +414,7 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
             cQZ();
         }
         if (this.kjC != null) {
-            this.kjC.Fa("album");
+            this.kjC.Fb("album");
         }
     }
 
@@ -968,7 +968,7 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
     public void a(StickerItem stickerItem) {
         if (stickerItem != null) {
             this.kEG = stickerItem;
-            this.kEF.Kr(stickerItem.resource);
+            this.kEF.Ks(stickerItem.resource);
             if (stickerItem.id == -1) {
                 if (this.kCN != null) {
                     this.kCN.setSticker(null);
@@ -981,9 +981,9 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
                 this.kEs.setViewChoosed(1, false);
                 return;
             }
-            String Ko = this.kEF.Ko(stickerItem.resource);
-            if (!StringUtils.isNull(Ko)) {
-                a(stickerItem, Ko);
+            String Kp = this.kEF.Kp(stickerItem.resource);
+            if (!StringUtils.isNull(Kp)) {
+                a(stickerItem, Kp);
                 if (this.kEk != null) {
                     this.kEk.setDownLoadSticker(null);
                 }
@@ -991,7 +991,7 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
                 if (this.kEk != null) {
                     this.kEk.setDownLoadSticker(stickerItem);
                 }
-                this.kEF.Kp(stickerItem.resource);
+                this.kEF.Kq(stickerItem.resource);
             }
             this.kEs.setViewChoosed(1, true);
         }
@@ -1039,9 +1039,9 @@ public class RecordVideoActivity extends BaseActivity implements GLVideoPreviewV
             String stringExtra = intent.getStringExtra("music_resource");
             String stringExtra2 = intent.getStringExtra("music_id");
             if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
-                String Ka = com.baidu.tieba.video.editvideo.model.a.cQt().Ka(stringExtra);
-                if (this.kEH != null && !TextUtils.isEmpty(Ka)) {
-                    this.kEH.eI(Ka, stringExtra2);
+                String Kb = com.baidu.tieba.video.editvideo.model.a.cQt().Kb(stringExtra);
+                if (this.kEH != null && !TextUtils.isEmpty(Kb)) {
+                    this.kEH.eI(Kb, stringExtra2);
                     this.kEk.cRu();
                 }
             }

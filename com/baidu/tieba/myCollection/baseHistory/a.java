@@ -205,7 +205,7 @@ public class a implements f {
         return this.postID;
     }
 
-    public void Fo(String str) {
+    public void Fp(String str) {
         this.postID = str;
     }
 
@@ -260,7 +260,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public boolean vA(String str) {
+    public boolean vB(String str) {
         if (str != null) {
             try {
                 return dc(new JSONObject(str));

@@ -50,7 +50,7 @@ public class PersonCardInitialize {
                                     dVar.a((d.a) null);
                                 }
                             });
-                            dVar.zD(data.userId);
+                            dVar.zE(data.userId);
                         }
                     });
                     aVar.show();

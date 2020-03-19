@@ -47,7 +47,7 @@ public class TbVideoViewSet {
         return jyU;
     }
 
-    public com.baidu.tieba.play.a.a He(String str) {
+    public com.baidu.tieba.play.a.a Hf(String str) {
         if (aq.isEmpty(str) || !this.jyT.containsKey(str)) {
             return null;
         }
@@ -81,7 +81,7 @@ public class TbVideoViewSet {
         this.jyT.put(str, aVar);
     }
 
-    public void Hf(String str) {
+    public void Hg(String str) {
         com.baidu.tieba.play.a.a aVar;
         if (!this.jyV && this.jyT.containsKey(str) && (aVar = (com.baidu.tieba.play.a.a) this.jyT.remove(str)) != null) {
             aVar.stopPlayback();

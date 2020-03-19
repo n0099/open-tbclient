@@ -20,25 +20,25 @@ public class a extends com.baidu.tieba.ad.download.mvp.a<b, AdDownloadData> {
     public void a(AdDownloadData adDownloadData) {
         if (adDownloadData != null) {
             DownloadStatus currentState = adDownloadData.getCurrentState();
-            DownloadCacheKey xb = d.aYp().xb(adDownloadData.adId());
+            DownloadCacheKey xc = d.aYp().xc(adDownloadData.adId());
             switch (currentState) {
                 case STATUS_NONE:
-                    if (xb != null) {
-                        d.aYp().c(xb, null);
+                    if (xc != null) {
+                        d.aYp().c(xc, null);
                         return;
                     }
                     return;
                 case STATUS_DOWNLOADING:
-                    d.aYp().wY(adDownloadData.adId());
-                    return;
-                case STATUS_PAUSED:
                     d.aYp().wZ(adDownloadData.adId());
                     return;
+                case STATUS_PAUSED:
+                    d.aYp().xa(adDownloadData.adId());
+                    return;
                 case STATUS_SUCCESS:
-                    if (xb != null) {
+                    if (xc != null) {
                         String downloadFilePath = adDownloadData.extra().getDownloadFilePath();
                         if (!TextUtils.isEmpty(downloadFilePath) && new File(downloadFilePath).exists()) {
-                            d.aYp().a(aYr().getRealView().getContext(), xb, adDownloadData.extra().getDownloadFilePath());
+                            d.aYp().a(aYr().getRealView().getContext(), xc, adDownloadData.extra().getDownloadFilePath());
                             return;
                         }
                         adDownloadData.extra().setStatus(DownloadStatus.STATUS_NONE);

@@ -556,8 +556,8 @@ public class b implements View.OnClickListener {
         if (shareItem != null && !TextUtils.isEmpty(shareItem.content) && !TextUtils.isEmpty(shareItem.title) && (this.mContext instanceof Activity)) {
             Activity activity = (Activity) this.mContext;
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-            aVar.sQ(shareItem.title);
-            aVar.sR(shareItem.content);
+            aVar.sR(shareItem.title);
+            aVar.sS(shareItem.content);
             aVar.setAutoNight(false);
             aVar.fH(true);
             aVar.setTitleShowCenter(true);

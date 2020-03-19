@@ -68,7 +68,7 @@ public class a {
                 SplashAdView splashAdView2 = (SplashAdView) a.this.ecQ.get();
                 if (splashAdView2 != null) {
                     a.this.ecP = splashAdView.aZx();
-                    a.this.xx(a.this.ecP);
+                    a.this.xy(a.this.ecP);
                 }
                 an anVar = new an("c13319");
                 if (splashAdView2 != null && (entryInfoData = splashAdView2.getEntryInfoData()) != null) {
@@ -94,7 +94,7 @@ public class a {
             }
 
             @Override // com.baidu.tieba.advert.sdk.a.a
-            public void xy(String str) {
+            public void xz(String str) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, str));
                 an anVar = new an("c13320");
                 anVar.cx("obj_source", str);
@@ -180,9 +180,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xx(String str) {
+    public void xy(String str) {
         if (this.ecO != null && !TextUtils.isEmpty(str)) {
-            this.ecO.xz(str);
+            this.ecO.xA(str);
         }
     }
 
@@ -196,7 +196,7 @@ public class a {
             this.ecT = new WeakReference<>(countDownTextView);
         }
 
-        public void xz(String str) {
+        public void xA(String str) {
             CountDownTextView countDownTextView = this.ecT.get();
             if (countDownTextView != null) {
                 countDownTextView.al(str, 0);

@@ -94,7 +94,7 @@ public class d {
                 com.baidu.live.guardclub.a aVar = ((GuardClubInfoRenameResponseMessage) httpResponsedMessage).aqi;
                 if (aVar != null && d.this.aqi != null && d.this.aqi.id == aVar.id) {
                     if (d.this.eER != null) {
-                        d.this.eER.yv(aVar.apW);
+                        d.this.eER.yw(aVar.apW);
                         return;
                     }
                     return;

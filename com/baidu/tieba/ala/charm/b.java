@@ -125,7 +125,7 @@ public class b {
         this.ewA.setVisibility(8);
     }
 
-    public void xW(String str) {
+    public void xX(String str) {
         this.mListView.setNextPage(this.ewD);
         this.ewD.endLoadDataWithNoMore(str);
     }

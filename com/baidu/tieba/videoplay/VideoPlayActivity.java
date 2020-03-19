@@ -173,8 +173,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             }
         });
         this.kHC.a(this.kHD, this.kHE, this.mRect);
-        this.kHC.KD(this.mFrom);
-        this.kHC.KG(this.cPf);
+        this.kHC.KE(this.mFrom);
+        this.kHC.KH(this.cPf);
     }
 
     private void initData() {

@@ -183,7 +183,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
                         writeData.setVcodeMD5(aaVar.getVcode_md5());
                         writeData.setVcodeUrl(aaVar.getVcode_pic_url());
                         writeData.setVcodeExtra(aaVar.aJL());
-                        if (com.baidu.tbadk.s.a.wb(aaVar.aJK())) {
+                        if (com.baidu.tbadk.s.a.wc(aaVar.aJK())) {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(WriteVideoActivity.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, false, aaVar.aJK())));
                         } else {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(WriteVideoActivity.this.getPageContext().getPageActivity(), writeData, RequestResponseCode.REQUEST_VCODE)));
@@ -257,14 +257,14 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
             });
         }
         if (this.jYy.getVideoInfo() != null && !StringUtils.isNull(this.jYy.getVideoInfo().getVideoPath())) {
-            KX(this.jYy.getVideoInfo().getVideoPath());
+            KY(this.jYy.getVideoInfo().getVideoPath());
         }
     }
 
-    private void KX(String str) {
+    private void KY(String str) {
         if (f.aMe()) {
             if (this.kmg != null) {
-                this.jwv = this.kmg.Fi(str);
+                this.jwv = this.kmg.Fj(str);
             }
             if (this.jwv != null) {
                 this.jwv.a(this.isE);
@@ -316,9 +316,9 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
                 this.kyc = (FrsTabInfoData) getIntent().getSerializableExtra("tab_list");
             }
             if (!StringUtils.isNull(this.iMe)) {
-                this.kSb.La(this.iMe + getResources().getString(R.string.forum));
+                this.kSb.Lb(this.iMe + getResources().getString(R.string.forum));
             } else {
-                this.kSb.La(this.iMe);
+                this.kSb.Lb(this.iMe);
             }
             this.gPr = intent.getStringExtra("KEY_CALL_FROM");
             cVz();
@@ -361,7 +361,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
     private void aPt() {
         cIn();
         showLoadingDialog();
-        this.kSf = KY(this.jYy != null ? this.jYy.getTitle() : "");
+        this.kSf = KZ(this.jYy != null ? this.jYy.getTitle() : "");
         if (this.dyM == null) {
             this.dyM = new NewWriteModel(this);
         }
@@ -675,7 +675,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
         this.kSb.tX(z);
     }
 
-    public VideoTitleData KY(String str) {
+    public VideoTitleData KZ(String str) {
         if (!StringUtils.isNull(str) && !v.isEmpty(this.kye)) {
             Matcher matcher = Pattern.compile("#(.+)#.*").matcher(str);
             if (matcher.find()) {

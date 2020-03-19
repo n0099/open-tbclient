@@ -15,11 +15,11 @@ import java.util.List;
 public class a {
     private static final List<String> kfD = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
-    public static String IO(String str) {
+    public static String IP(String str) {
         return "enterfourm_att_" + str;
     }
 
-    public static String IP(String str) {
+    public static String IQ(String str) {
         return "enterfourm_rec_" + str;
     }
 

@@ -110,7 +110,7 @@ public class b {
                 dVar.fbg = 5;
                 dVar.fbh = 50;
                 dVar.fbi = 50;
-                dVar.yW(com.baidu.live.c.pw().getString("ala_beauty_5.4_config_str", ""));
+                dVar.yX(com.baidu.live.c.pw().getString("ala_beauty_5.4_config_str", ""));
                 ((AlaLiveMultiBeautyView) this.fay).setViewData(dVar, alaLiveVideoConfig);
             }
         }
@@ -128,7 +128,7 @@ public class b {
                 }
             } else if (an.a(com.baidu.live.v.a.zs().axR)) {
                 com.baidu.tieba.ala.liveroom.data.d dVar = new com.baidu.tieba.ala.liveroom.data.d();
-                dVar.yW(com.baidu.live.c.pw().getString("ala_beauty_5.4_config_str", ""));
+                dVar.yX(com.baidu.live.c.pw().getString("ala_beauty_5.4_config_str", ""));
                 this.faz.onBlurLevelSelected(dVar.fbg);
                 this.faz.onFilterSelected(dVar.mFilterName);
                 this.faz.onColorLevelSelected((dVar.fbe * 1.0f) / 100.0f);

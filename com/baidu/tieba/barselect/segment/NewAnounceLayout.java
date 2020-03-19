@@ -93,10 +93,10 @@ public class NewAnounceLayout extends CardBasicLayout {
             this.fGQ.setPadding(0, 0, 0, 0);
             this.fGR.setPadding(0, 0, 0, 0);
         }
-        zS(this.fGM.bud());
+        zT(this.fGM.bud());
     }
 
-    private void zS(String str) {
+    private void zT(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             this.fGP.setVisibility(8);
             this.fGO.setText(getResources().getString(R.string.empty_announce));

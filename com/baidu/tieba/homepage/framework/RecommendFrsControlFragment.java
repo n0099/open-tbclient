@@ -208,12 +208,12 @@ public class RecommendFrsControlFragment extends BaseFragment {
     private ConcernPageView.a hau = new ConcernPageView.a() { // from class: com.baidu.tieba.homepage.framework.RecommendFrsControlFragment.3
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.a
         public void onPullToRefresh() {
-            RecommendFrsControlFragment.this.hah.Ce("");
+            RecommendFrsControlFragment.this.hah.Cf("");
         }
 
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.a
-        public void Cd(String str) {
-            RecommendFrsControlFragment.this.hah.Ce(str);
+        public void Ce(String str) {
+            RecommendFrsControlFragment.this.hah.Cf(str);
         }
 
         @Override // com.baidu.tieba.homepage.concern.ConcernPageView.a

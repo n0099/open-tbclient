@@ -44,7 +44,7 @@ public class a extends BaseAdapter {
     private boolean fUk = true;
     private f.a fUn = new f.a() { // from class: com.baidu.tieba.enterForum.a.a.7
         @Override // com.baidu.tieba.tbadkCore.util.f.a
-        public void Ao(String str) {
+        public void Ap(String str) {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.f.a
@@ -52,7 +52,7 @@ public class a extends BaseAdapter {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.f.a
-        public void Ap(String str) {
+        public void Aq(String str) {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.f.a

@@ -335,15 +335,15 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         }
                         if (v.getCount(arrayList) == 0 || (v.getCount(arrayList) == 1 && arrayList.get(0) != null && arrayList.get(0).cLv() == 1)) {
                             if (VideoPbFragment.this.ctp().cny()) {
-                                VideoPbFragment.this.ctp().Gd(VideoPbFragment.this.getResources().getString(R.string.pb_no_host_reply));
+                                VideoPbFragment.this.ctp().Ge(VideoPbFragment.this.getResources().getString(R.string.pb_no_host_reply));
                             } else {
-                                VideoPbFragment.this.ctp().Gd(VideoPbFragment.this.getResources().getString(R.string.pb_no_replay));
+                                VideoPbFragment.this.ctp().Ge(VideoPbFragment.this.getResources().getString(R.string.pb_no_replay));
                             }
                         } else {
-                            VideoPbFragment.this.ctp().Gc(VideoPbFragment.this.getResources().getString(R.string.list_no_more_new));
+                            VideoPbFragment.this.ctp().Gd(VideoPbFragment.this.getResources().getString(R.string.list_no_more_new));
                         }
                     } else {
-                        VideoPbFragment.this.ctp().Gc("");
+                        VideoPbFragment.this.ctp().Gd("");
                     }
                     VideoPbFragment.this.ctp().endLoadData();
                 } else {
@@ -528,7 +528,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = VideoPbFragment.this.getResources().getString(R.string.mute_error_beyond_limit);
                     }
-                    VideoPbFragment.this.jas.vq(errorString);
+                    VideoPbFragment.this.jas.vr(errorString);
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 1990043) {
                     VideoPbFragment.this.jas.cnx();
                 } else {
@@ -598,7 +598,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             }
             if (z) {
                 if (PbReplySwitch.getInOn() && VideoPbFragment.this.clX() != null && postWriteCallBackData != null && !StringUtils.isNull(postWriteCallBackData.getPostId())) {
-                    VideoPbFragment.this.clX().FX(postWriteCallBackData.getPostId());
+                    VideoPbFragment.this.clX().FY(postWriteCallBackData.getPostId());
                     if (VideoPbFragment.this.ctp() != null) {
                         VideoPbFragment.this.iJQ = VideoPbFragment.this.ctp().cqf();
                         VideoPbFragment.this.jau = VideoPbFragment.this.ctp().cud();
@@ -881,7 +881,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         if (view.getId() == R.id.owner_reply) {
                             v = VideoPbFragment.this.clX().v(true, VideoPbFragment.this.cnn());
                         } else {
-                            v = view.getId() == R.id.all_reply ? VideoPbFragment.this.clX().v(false, VideoPbFragment.this.cnn()) : VideoPbFragment.this.clX().FU(VideoPbFragment.this.cnn());
+                            v = view.getId() == R.id.all_reply ? VideoPbFragment.this.clX().v(false, VideoPbFragment.this.cnn()) : VideoPbFragment.this.clX().FV(VideoPbFragment.this.cnn());
                         }
                         view.setTag(Boolean.valueOf(v));
                         if (v) {
@@ -937,7 +937,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     if (VideoPbFragment.this.clX() != null && VideoPbFragment.this.clX().getPbData() != null && VideoPbFragment.this.clX().getPbData().ckP() != null) {
                         VideoPbFragment.this.jas.arX();
                         TiebaStatic.log(new an("c13062"));
-                        VideoPbFragment.this.jas.FP(VideoPbFragment.this.clX().getPbData().ckP().aCH());
+                        VideoPbFragment.this.jas.FQ(VideoPbFragment.this.clX().getPbData().ckP().aCH());
                     }
                 } else if (VideoPbFragment.this.jas != null && VideoPbFragment.this.jas.cry() != null && view == VideoPbFragment.this.jas.cry().cpk()) {
                     int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -1042,9 +1042,9 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                             VideoPbFragment.this.bEu();
                             TiebaStatic.log("c11742");
                             if (VideoPbFragment.this.ctp() != null && VideoPbFragment.this.ctp().cuc() != null) {
-                                PbActivity.a FS = VideoPbFragment.this.ctp().cuc().FS(id3);
-                                if (postData2 != null && VideoPbFragment.this.clX() != null && VideoPbFragment.this.clX().getPbData() != null && FS != null) {
-                                    SubPbActivityConfig addBigImageData = new SubPbActivityConfig(VideoPbFragment.this.getPageContext().getPageActivity()).createSubPbActivityConfig(cnU, id3, "pb", true, null, false, null, clb, postData2.csv(), VideoPbFragment.this.clX().getPbData().getAnti(), false, postData2.aCr().getIconInfo()).addBigImageData(FS.iGa, FS.iGb, FS.iGc, FS.index);
+                                PbActivity.a FT = VideoPbFragment.this.ctp().cuc().FT(id3);
+                                if (postData2 != null && VideoPbFragment.this.clX() != null && VideoPbFragment.this.clX().getPbData() != null && FT != null) {
+                                    SubPbActivityConfig addBigImageData = new SubPbActivityConfig(VideoPbFragment.this.getPageContext().getPageActivity()).createSubPbActivityConfig(cnU, id3, "pb", true, null, false, null, clb, postData2.csv(), VideoPbFragment.this.clX().getPbData().getAnti(), false, postData2.aCr().getIconInfo()).addBigImageData(FT.iGa, FT.iGb, FT.iGc, FT.index);
                                     addBigImageData.setKeyFromForumId(VideoPbFragment.this.clX().getForumId());
                                     addBigImageData.setBjhData(VideoPbFragment.this.clX().coc());
                                     addBigImageData.setKeyPageStartFrom(VideoPbFragment.this.clX().coD());
@@ -1313,7 +1313,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             if (bVar.mErrCode == 1211066) {
                 hideProgressBar();
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                aVar.sR(string);
+                aVar.sS(string);
                 aVar.a(R.string.dialog_known, new a.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.15
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1368,7 +1368,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                                 break;
                             }
                         }
-                        ckR2.get(i2).Jb(bVar.mPostId);
+                        ckR2.get(i2).Jc(bVar.mPostId);
                         i2++;
                         z3 = z2;
                     }
@@ -1402,7 +1402,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     break;
                 }
             }
-            list.get(i).Jb(bVar.mPostId);
+            list.get(i).Jc(bVar.mPostId);
             i++;
             z2 = z;
         }
@@ -1482,7 +1482,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     return true;
                 } else {
                     final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getBaseFragmentActivity());
-                    aVar.sR(getPageContext().getString(R.string.alert_update_mark));
+                    aVar.sS(getPageContext().getString(R.string.alert_update_mark));
                     aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.17
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1976,12 +1976,12 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         registerListener(this.iJX);
         registerListener(this.gqu);
         if (!clX().coa()) {
-            this.iJD.vl(clX().cnU());
+            this.iJD.vm(clX().cnU());
         }
         if (clX().coB()) {
-            this.iJD.vk(getPageContext().getString(R.string.pb_reply_hint_from_smart_frs));
+            this.iJD.vl(getPageContext().getString(R.string.pb_reply_hint_from_smart_frs));
         } else {
-            this.iJD.vk(cpI());
+            this.iJD.vl(cpI());
         }
         this.iJu = new ap();
         if (this.iJD.aOX() != null) {
@@ -2466,7 +2466,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         if (spannableStringBuilder != null && textView != null && tbRichTextView != null && !spannableStringBuilder.toString().contains("#4%2&@#907$12#@96476)w7we9e~@$%&&")) {
             Object[] objArr = (com.baidu.tbadk.widget.richText.f[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), com.baidu.tbadk.widget.richText.f.class);
             for (int i = 0; i < objArr.length; i++) {
-                if (as.Gh(objArr[i].getLink()) && (drawable = am.getDrawable(R.drawable.icon_pb_wenxue)) != null) {
+                if (as.Gi(objArr[i].getLink()) && (drawable = am.getDrawable(R.drawable.icon_pb_wenxue)) != null) {
                     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                     SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder("#4%2&@#907$12#@96476)w7we9e~@$%&&");
                     spannableStringBuilder2.setSpan(new com.baidu.tbadk.widget.c(drawable), 0, "#4%2&@#907$12#@96476)w7we9e~@$%&&".length(), 33);
@@ -2735,7 +2735,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             }
         } else if (i == 230277) {
             if (this.jas != null) {
-                this.jas.vq(str);
+                this.jas.vr(str);
             }
         } else {
             showToast(str);
@@ -2758,12 +2758,12 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 this.iJD.aOy().gC(true);
                 setEditorTools(this.iJD.aOy());
                 if (!clX().coa()) {
-                    this.iJD.vl(clX().cnU());
+                    this.iJD.vm(clX().cnU());
                 }
                 if (clX().coB()) {
-                    this.iJD.vk(getPageContext().getString(R.string.pb_reply_hint_from_smart_frs));
+                    this.iJD.vl(getPageContext().getString(R.string.pb_reply_hint_from_smart_frs));
                 } else {
-                    this.iJD.vk(cpI());
+                    this.iJD.vl(cpI());
                 }
             }
         }
@@ -3153,14 +3153,14 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         if (postData == null || postData.aCr() == null) {
             return "";
         }
-        if (clX().FV(postData.aCr().getUserId())) {
+        if (clX().FW(postData.aCr().getUserId())) {
             return postData.getId();
         }
         for (int i2 = i - 1; i2 != 0; i2--) {
             PostData postData2 = (PostData) v.getItem(ckR, i2);
             if (postData2 == null || postData2.aCr() == null || postData2.aCr().getUserId() == null) {
                 break;
-            } else if (clX().FV(postData2.aCr().getUserId())) {
+            } else if (clX().FW(postData2.aCr().getUserId())) {
                 return postData2.getId();
             }
         }
@@ -3169,7 +3169,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             if (postData3 == null || postData3.aCr() == null || postData3.aCr().getUserId() == null) {
                 return "";
             }
-            if (clX().FV(postData3.aCr().getUserId())) {
+            if (clX().FW(postData3.aCr().getUserId())) {
                 return postData3.getId();
             }
         }
@@ -3182,7 +3182,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             com.baidu.tieba.pb.data.e pbData = clX().getPbData();
             clX().qd(true);
             if (this.iJo != null) {
-                pbData.FI(this.iJo.ayN());
+                pbData.FJ(this.iJo.ayN());
             }
             if (ctp() != null) {
                 ctp().cua();
@@ -3232,7 +3232,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                             if (postData.getUserMap() != null && next != null && next.aCr() != null && (metaData = postData.getUserMap().get(next.aCr().getUserId())) != null) {
                                 next.a(metaData);
                                 next.sU(true);
-                                next.a(getPageContext(), clX().FV(metaData.getUserId()));
+                                next.a(getPageContext(), clX().FW(metaData.getUserId()));
                             }
                         }
                         boolean z2 = clF.size() != postData.cLs().size();
@@ -3253,7 +3253,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cna() {
-        if (clX() != null && TbadkCoreApplication.isLogin() && AddExperiencedModel.Iw(clX().getForumId()) && clX().getPbData() != null && clX().getPbData().getForum() != null) {
+        if (clX() != null && TbadkCoreApplication.isLogin() && AddExperiencedModel.Ix(clX().getForumId()) && clX().getPbData() != null && clX().getPbData().getForum() != null) {
             if (clX().getPbData().getForum().isLike() == 1) {
                 clX().coz().et(clX().getForumId(), clX().cnU());
             }
@@ -3641,7 +3641,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             if (obj instanceof PostData) {
                 PostData postData = (PostData) obj;
                 if (!TextUtils.isEmpty(postData.getBimg_url()) && i.azR().isShowImages()) {
-                    return FR(postData.getId());
+                    return FS(postData.getId());
                 }
                 if (checkUpIsLogin()) {
                     if (clX() == null || clX().getPbData() == null) {
@@ -3678,7 +3678,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         this.jas.cqu();
     }
 
-    private boolean FR(String str) {
+    private boolean FS(String str) {
         if (!StringUtils.isNull(str) && bc.checkUpIsLogin(getPageContext().getPageActivity())) {
             String string = com.baidu.tbadk.core.sharedPref.b.aFH().getString("bubble_link", "");
             if (StringUtils.isNull(string)) {
@@ -3740,7 +3740,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             if (eVar.ckP().aCi() == 0) {
                 valueOf = "";
             }
-            this.jab.wj(valueOf);
+            this.jab.wk(valueOf);
         }
     }
 
@@ -3770,7 +3770,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue();
                         int intValue3 = ((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue();
                         if (jSONArray != null) {
-                            this.fLt.Jg(aq.O(jSONArray));
+                            this.fLt.Jh(aq.O(jSONArray));
                         }
                         this.fLt.a(clX().getPbData().getForum().getId(), clX().getPbData().getForum().getName(), clX().getPbData().ckP().getId(), str, intValue3, intValue2, booleanValue, clX().getPbData().ckP().getBaijiahaoData());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DEL_THREAD_SUCCESS, true));
@@ -4080,7 +4080,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     @Override // com.baidu.tbadk.widget.richText.h
     public void e(Context context, String str, boolean z) {
-        if (as.Gh(str) && clX() != null && clX().cnU() != null) {
+        if (as.Gi(str) && clX() != null && clX().cnU() != null) {
             TiebaStatic.log(new an("c11664").X("obj_param1", 1).cx("post_id", clX().cnU()));
         }
         if (z) {

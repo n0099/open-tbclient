@@ -19,7 +19,7 @@ public class c extends com.facebook.imagepipeline.h.a {
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.producers.am
     public void D(String str, String str2, boolean z) {
         if (this.lMa != null) {
-            this.lMa.g(this.lLZ, d.OW(str2), z);
+            this.lMa.g(this.lLZ, d.OX(str2), z);
         }
     }
 }

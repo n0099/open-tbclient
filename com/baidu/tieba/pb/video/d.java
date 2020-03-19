@@ -216,7 +216,7 @@ public class d {
                     this.iYH.setVisibility(0);
                     this.iYG.setVisibility(0);
                     this.iYG.setOnClickListener(this.mOnClickListener);
-                    this.iYG.setText(am.Gb(str));
+                    this.iYG.setText(am.Gc(str));
                     this.iYG.setTag(str);
                 } else {
                     this.iYG.setVisibility(8);

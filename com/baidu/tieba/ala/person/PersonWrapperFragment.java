@@ -68,13 +68,13 @@ public class PersonWrapperFragment extends BaseFragment implements ViewPager.OnP
         this.fra.setOnPageChangeListener(this);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
             this.fre.add(PersonPlayBacksListFragment.s(this.userId, null));
-            this.fra.zE(getString(a.i.ala_person_playbacks));
+            this.fra.zF(getString(a.i.ala_person_playbacks));
         }
         this.fre.add(PersonListFragment.a(0, this.userId, this.metaKey, this.fqY));
-        this.fra.zE(getString(a.i.ala_person_fans));
+        this.fra.zF(getString(a.i.ala_person_fans));
         this.frf = PersonListFragment.a(1, this.userId, this.metaKey, this.fqZ);
         this.fre.add(this.frf);
-        this.fra.zE(getString(a.i.ala_person_attentions));
+        this.fra.zF(getString(a.i.ala_person_attentions));
         this.fqW = new PersonViewPagerAdapter(getChildFragmentManager());
         this.fqW.setData(this.fre);
         this.fqX.setAdapter(this.fqW);

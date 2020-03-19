@@ -88,14 +88,14 @@ public class a extends Draft {
             return Draft.HandshakeState.NOT_MATCHED;
         }
         Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
-        String Sw = aVar.Sw("Sec-WebSocket-Extensions");
+        String Sx = aVar.Sx("Sec-WebSocket-Extensions");
         Iterator<b> it = this.nOr.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             b next = it.next();
-            if (next.Ss(Sw)) {
+            if (next.St(Sx)) {
                 this.nOq = next;
                 Draft.HandshakeState handshakeState3 = Draft.HandshakeState.MATCHED;
                 bY("acceptHandshakeAsServer - Matching extension found: " + this.nOq.toString());
@@ -104,7 +104,7 @@ public class a extends Draft {
             }
         }
         Draft.HandshakeState handshakeState4 = Draft.HandshakeState.NOT_MATCHED;
-        String Sw2 = aVar.Sw("Sec-WebSocket-Protocol");
+        String Sx2 = aVar.Sx("Sec-WebSocket-Protocol");
         Iterator<org.java_websocket.d.a> it2 = this.nOt.iterator();
         while (true) {
             if (!it2.hasNext()) {
@@ -112,7 +112,7 @@ public class a extends Draft {
                 break;
             }
             org.java_websocket.d.a next2 = it2.next();
-            if (next2.Sy(Sw2)) {
+            if (next2.Sz(Sx2)) {
                 this.nOs = next2;
                 handshakeState = Draft.HandshakeState.MATCHED;
                 bY("acceptHandshakeAsServer - Matching protocol found: " + this.nOs.toString());
@@ -132,23 +132,23 @@ public class a extends Draft {
         if (!b(hVar)) {
             bY("acceptHandshakeAsClient - Missing/wrong upgrade or connection in handshake.");
             return Draft.HandshakeState.NOT_MATCHED;
-        } else if (!aVar.Sx("Sec-WebSocket-Key") || !hVar.Sx("Sec-WebSocket-Accept")) {
+        } else if (!aVar.Sy("Sec-WebSocket-Key") || !hVar.Sy("Sec-WebSocket-Accept")) {
             bY("acceptHandshakeAsClient - Missing Sec-WebSocket-Key or Sec-WebSocket-Accept");
             return Draft.HandshakeState.NOT_MATCHED;
         } else {
-            if (!Sr(aVar.Sw("Sec-WebSocket-Key")).equals(hVar.Sw("Sec-WebSocket-Accept"))) {
+            if (!Ss(aVar.Sx("Sec-WebSocket-Key")).equals(hVar.Sx("Sec-WebSocket-Accept"))) {
                 bY("acceptHandshakeAsClient - Wrong key for Sec-WebSocket-Key.");
                 return Draft.HandshakeState.NOT_MATCHED;
             }
             Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
-            String Sw = hVar.Sw("Sec-WebSocket-Extensions");
+            String Sx = hVar.Sx("Sec-WebSocket-Extensions");
             Iterator<b> it = this.nOr.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 b next = it.next();
-                if (next.St(Sw)) {
+                if (next.Su(Sx)) {
                     this.nOq = next;
                     Draft.HandshakeState handshakeState3 = Draft.HandshakeState.MATCHED;
                     bY("acceptHandshakeAsClient - Matching extension found: " + this.nOq.toString());
@@ -157,7 +157,7 @@ public class a extends Draft {
                 }
             }
             Draft.HandshakeState handshakeState4 = Draft.HandshakeState.NOT_MATCHED;
-            String Sw2 = hVar.Sw("Sec-WebSocket-Protocol");
+            String Sx2 = hVar.Sx("Sec-WebSocket-Protocol");
             Iterator<org.java_websocket.d.a> it2 = this.nOt.iterator();
             while (true) {
                 if (!it2.hasNext()) {
@@ -165,7 +165,7 @@ public class a extends Draft {
                     break;
                 }
                 org.java_websocket.d.a next2 = it2.next();
-                if (next2.Sy(Sw2)) {
+                if (next2.Sz(Sx2)) {
                     this.nOs = next2;
                     handshakeState = Draft.HandshakeState.MATCHED;
                     bY("acceptHandshakeAsClient - Matching protocol found: " + this.nOs.toString());
@@ -234,19 +234,19 @@ public class a extends Draft {
     @Override // org.java_websocket.drafts.Draft
     public c a(org.java_websocket.c.a aVar, i iVar) throws InvalidHandshakeException {
         iVar.put("Upgrade", "websocket");
-        iVar.put(HTTP.CONN_DIRECTIVE, aVar.Sw(HTTP.CONN_DIRECTIVE));
-        String Sw = aVar.Sw("Sec-WebSocket-Key");
-        if (Sw == null) {
+        iVar.put(HTTP.CONN_DIRECTIVE, aVar.Sx(HTTP.CONN_DIRECTIVE));
+        String Sx = aVar.Sx("Sec-WebSocket-Key");
+        if (Sx == null) {
             throw new InvalidHandshakeException("missing Sec-WebSocket-Key");
         }
-        iVar.put("Sec-WebSocket-Accept", Sr(Sw));
+        iVar.put("Sec-WebSocket-Accept", Ss(Sx));
         if (dNQ().dNX().length() != 0) {
             iVar.put("Sec-WebSocket-Extensions", dNQ().dNX());
         }
         if (dNS() != null && dNS().dOi().length() != 0) {
             iVar.put("Sec-WebSocket-Protocol", dNS().dOi());
         }
-        iVar.Sv("Web Socket Protocol Handshake");
+        iVar.Sw("Web Socket Protocol Handshake");
         iVar.put("Server", "TooTallNate Java-WebSocket");
         iVar.put("Date", dNU());
         return iVar;
@@ -469,7 +469,7 @@ public class a extends Draft {
     @Override // org.java_websocket.drafts.Draft
     public List<Framedata> aU(String str, boolean z) {
         org.java_websocket.framing.i iVar = new org.java_websocket.framing.i();
-        iVar.u(ByteBuffer.wrap(org.java_websocket.e.c.Sz(str)));
+        iVar.u(ByteBuffer.wrap(org.java_websocket.e.c.SA(str)));
         iVar.xf(z);
         try {
             iVar.dNZ();
@@ -496,7 +496,7 @@ public class a extends Draft {
         return simpleDateFormat.format(calendar.getTime());
     }
 
-    private String Sr(String str) {
+    private String Ss(String str) {
         try {
             return org.java_websocket.e.a.encodeBytes(MessageDigest.getInstance("SHA1").digest((str.trim() + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11").getBytes()));
         } catch (NoSuchAlgorithmException e) {

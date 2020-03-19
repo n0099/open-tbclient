@@ -291,8 +291,8 @@ public class d implements ah {
             ArrayList<com.baidu.adp.widget.ListView.m> arrayList = new ArrayList<>();
             h hVar = new h();
             if (!z) {
-                hVar.De(TbadkCoreApplication.getInst().getResources().getString(R.string.login_see_more));
-                hVar.Dd(TbadkCoreApplication.getInst().getResources().getString(R.string.not_login));
+                hVar.Df(TbadkCoreApplication.getInst().getResources().getString(R.string.login_see_more));
+                hVar.De(TbadkCoreApplication.getInst().getResources().getString(R.string.not_login));
                 hVar.c(NoDataViewFactory.ImgType.NODATA);
                 hVar.wA(1);
                 hVar.setExtraData(obj);
@@ -300,9 +300,9 @@ public class d implements ah {
             } else if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                 arrayList.add(new o());
             } else {
-                hVar.De(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_hot_create_group));
-                hVar.Dd(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_hot_create_group_tip));
-                hVar.Dc(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_no_hot_tip));
+                hVar.Df(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_hot_create_group));
+                hVar.De(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_hot_create_group_tip));
+                hVar.Dd(TbadkCoreApplication.getInst().getResources().getString(R.string.frsgroup_no_hot_tip));
                 hVar.c(NoDataViewFactory.ImgType.CREATE);
                 hVar.wA(0);
                 hVar.setExtraData(obj);

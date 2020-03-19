@@ -47,7 +47,7 @@ public class b implements Closeable, Flushable {
         this.mPo = writer;
     }
 
-    public final void QP(String str) {
+    public final void QQ(String str) {
         if (str.length() == 0) {
             this.indent = null;
             this.separator = ":";
@@ -145,7 +145,7 @@ public class b implements Closeable, Flushable {
         this.mPj[this.mNe - 1] = i;
     }
 
-    public b QL(String str) throws IOException {
+    public b QM(String str) throws IOException {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
@@ -167,7 +167,7 @@ public class b implements Closeable, Flushable {
         }
     }
 
-    public b QM(String str) throws IOException {
+    public b QN(String str) throws IOException {
         if (str == null) {
             return dBG();
         }
@@ -177,7 +177,7 @@ public class b implements Closeable, Flushable {
         return this;
     }
 
-    public b QQ(String str) throws IOException {
+    public b QR(String str) throws IOException {
         if (str == null) {
             return dBG();
         }

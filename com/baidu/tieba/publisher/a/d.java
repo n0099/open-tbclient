@@ -26,7 +26,7 @@ public class d implements CookieManager {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.jDp || !Hq(str2);
+        return this.jDp || !Hr(str2);
     }
 
     @Override // com.baidu.searchbox.http.cookie.CookieManager
@@ -84,7 +84,7 @@ public class d implements CookieManager {
         com.baidu.tbadk.data.h.dvV = true;
     }
 
-    public static boolean Hq(String str) {
+    public static boolean Hr(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

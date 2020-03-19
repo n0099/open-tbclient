@@ -50,7 +50,7 @@ public class m extends BaseAdapter {
                 aVar.bTe().setVisibility(0);
             }
         }
-        aVar.CC(getItem(i).toString());
+        aVar.CD(getItem(i).toString());
         if (this.hzc.getSelectedPosition() == i) {
             aVar.ns(true);
         } else {

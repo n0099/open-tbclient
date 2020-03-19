@@ -33,7 +33,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        return c.aPV().vx(ai(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
+        return c.aPV().vy(ai(str, Boolean.valueOf(String.valueOf(objArr[2])).booleanValue()));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,13 +61,13 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
         }
         com.baidu.adp.widget.ImageView.a aVar5 = null;
         ArrayList<com.baidu.tbadk.editortools.emotiontool.c> bxH = com.baidu.tieba.emotion.editortool.e.bxF().bxH();
-        if (com.baidu.tieba.emotion.editortool.e.bxF().Al(valueOf2) && valueOf3.booleanValue() && !new File(com.baidu.tieba.emotion.editortool.e.bxF().aj(valueOf2, true)).exists()) {
+        if (com.baidu.tieba.emotion.editortool.e.bxF().Am(valueOf2) && valueOf3.booleanValue() && !new File(com.baidu.tieba.emotion.editortool.e.bxF().aj(valueOf2, true)).exists()) {
             valueOf3 = false;
         }
         boolean booleanValue = valueOf3.booleanValue();
-        if (com.baidu.tieba.emotion.editortool.e.bxF().An(valueOf2) && valueOf3.booleanValue()) {
+        if (com.baidu.tieba.emotion.editortool.e.bxF().Ao(valueOf2) && valueOf3.booleanValue()) {
             String aj = com.baidu.tieba.emotion.editortool.e.bxF().aj(valueOf2, true);
-            valueOf = com.baidu.tieba.emotion.editortool.e.bxF().Am(valueOf2);
+            valueOf = com.baidu.tieba.emotion.editortool.e.bxF().An(valueOf2);
             if (!new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/.emotions/" + valueOf + "/" + aj).exists()) {
                 valueOf3 = false;
                 str3 = valueOf;
@@ -80,9 +80,9 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                             break;
                         }
                         com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                        if (next.ve(valueOf2)) {
+                        if (next.vf(valueOf2)) {
                             if (next.aOM()) {
-                                aVar4 = next.vg(valueOf2);
+                                aVar4 = next.vh(valueOf2);
                             } else {
                                 aVar4 = a(next.getGroupId(), aj2, aVar);
                             }
@@ -94,7 +94,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                     return aVar4;
                 }
                 String aj3 = com.baidu.tieba.emotion.editortool.e.bxF().aj(valueOf2, false);
-                String replaceFirst = (booleanValue && com.baidu.tieba.emotion.editortool.e.bxF().An(valueOf2)) ? aj3.replaceFirst("s_", "d_") : aj3;
+                String replaceFirst = (booleanValue && com.baidu.tieba.emotion.editortool.e.bxF().Ao(valueOf2)) ? aj3.replaceFirst("s_", "d_") : aj3;
                 Iterator<com.baidu.tbadk.editortools.emotiontool.c> it2 = bxH.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
@@ -102,10 +102,10 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                         break;
                     }
                     com.baidu.tbadk.editortools.emotiontool.c next2 = it2.next();
-                    if (!next2.ve(valueOf2)) {
+                    if (!next2.vf(valueOf2)) {
                         aVar3 = aVar5;
                     } else if (next2.aOM()) {
-                        aVar3 = next2.vf(valueOf2);
+                        aVar3 = next2.vg(valueOf2);
                     } else {
                         Bitmap b2 = b(next2.getGroupId(), replaceFirst, aVar);
                         if (b2 == null) {
@@ -170,7 +170,7 @@ public class a implements e<com.baidu.adp.widget.ImageView.a> {
                         break;
                     }
                     com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                    if (next.ve(valueOf2)) {
+                    if (next.vf(valueOf2)) {
                         aVar2 = a(next.getGroupId(), aj, aVar);
                         break;
                     }

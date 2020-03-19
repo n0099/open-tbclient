@@ -20,7 +20,7 @@ public class AssortView extends View {
     public interface a {
         void aYG();
 
-        void xi(String str);
+        void xj(String str);
     }
 
     public AssortView(Context context) {
@@ -81,7 +81,7 @@ public class AssortView extends View {
                 case 0:
                     this.mPosition = y;
                     if (this.ecN != null) {
-                        this.ecN.xi(c.dqi[this.mPosition]);
+                        this.ecN.xj(c.dqi[this.mPosition]);
                         return true;
                     }
                     return true;
@@ -95,7 +95,7 @@ public class AssortView extends View {
                     if (this.mPosition != y) {
                         this.mPosition = y;
                         if (this.ecN != null) {
-                            this.ecN.xi(c.dqi[this.mPosition]);
+                            this.ecN.xj(c.dqi[this.mPosition]);
                             return true;
                         }
                         return true;

@@ -60,7 +60,7 @@ public class b {
                 if ((mVar instanceof com.baidu.tieba.card.data.c) && (aAj = (cVar = (com.baidu.tieba.card.data.c) mVar).aAj()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.f.b.toLong(aAj.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.zW(threadPersonalized.abtest_tag);
+                    cVar.zX(threadPersonalized.abtest_tag);
                     aAj.mRecomAbTag = threadPersonalized.abtest_tag;
                     aAj.mRecomSource = threadPersonalized.source;
                     aAj.mRecomWeight = threadPersonalized.weight;

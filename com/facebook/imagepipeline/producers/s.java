@@ -26,18 +26,18 @@ public class s implements aj<com.facebook.imagepipeline.g.e> {
         try {
             if (bn != null) {
                 com.facebook.imagepipeline.g.e eVar = new com.facebook.imagepipeline.g.e(bn);
-                drW.a(id, "EncodedMemoryCacheProducer", drW.Pd(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+                drW.a(id, "EncodedMemoryCacheProducer", drW.Pe(id) ? ImmutableMap.of("cached_value_found", "true") : null);
                 drW.D(id, "EncodedMemoryCacheProducer", true);
                 kVar.aK(1.0f);
                 kVar.g(eVar, 1);
                 com.facebook.imagepipeline.g.e.e(eVar);
             } else if (akVar.drX().getValue() >= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue()) {
-                drW.a(id, "EncodedMemoryCacheProducer", drW.Pd(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+                drW.a(id, "EncodedMemoryCacheProducer", drW.Pe(id) ? ImmutableMap.of("cached_value_found", "false") : null);
                 drW.D(id, "EncodedMemoryCacheProducer", false);
                 kVar.g(null, 1);
             } else {
                 a aVar = new a(kVar, this.lLL, c, akVar.drV().dsV());
-                drW.a(id, "EncodedMemoryCacheProducer", drW.Pd(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+                drW.a(id, "EncodedMemoryCacheProducer", drW.Pe(id) ? ImmutableMap.of("cached_value_found", "false") : null);
                 this.lWS.c(aVar, akVar);
             }
         } finally {

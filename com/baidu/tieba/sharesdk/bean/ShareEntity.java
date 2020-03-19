@@ -19,7 +19,7 @@ public class ShareEntity implements Parcelable {
             shareEntity.setTitle(parcel.readString());
             shareEntity.setContent(parcel.readString());
             shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.Ix(parcel.readString());
+            shareEntity.Iy(parcel.readString());
             shareEntity.BS(parcel.readInt());
             shareEntity.setVideoUrl(parcel.readString());
             shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
@@ -28,7 +28,7 @@ public class ShareEntity implements Parcelable {
             shareEntity.BU(parcel.readInt());
             shareEntity.setTid(parcel.readString());
             shareEntity.BT(parcel.readInt());
-            shareEntity.Iy(parcel.readString());
+            shareEntity.Iz(parcel.readString());
             shareEntity.topic = parcel.readString();
             shareEntity.taskCompleteId = parcel.readString();
             shareEntity.diskPicOperate = parcel.readBundle();
@@ -121,7 +121,7 @@ public class ShareEntity implements Parcelable {
         this.linkUrl = str;
     }
 
-    public void Ix(String str) {
+    public void Iy(String str) {
         this.localFile = str;
     }
 
@@ -165,7 +165,7 @@ public class ShareEntity implements Parcelable {
         return this.tid;
     }
 
-    public void Iy(String str) {
+    public void Iz(String str) {
         this.fName = str;
     }
 

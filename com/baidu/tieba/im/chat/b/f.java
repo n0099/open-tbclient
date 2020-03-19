@@ -19,11 +19,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    public static boolean CA(String str) {
+    public static boolean CB(String str) {
         return !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str);
     }
 
-    public static boolean CB(String str) {
+    public static boolean CC(String str) {
         return !TextUtils.isEmpty(str) && str.equals("apply_join_group");
     }
 
@@ -44,7 +44,7 @@ public class f {
                         j = parseLong;
                     }
                     if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().a(next)) {
-                        if (CA(next.getCmd())) {
+                        if (CB(next.getCmd())) {
                             linkedList.add(next);
                             if (groupNewsPojo2 == null) {
                                 GroupNewsPojo groupNewsPojo4 = groupNewsPojo3;
@@ -62,7 +62,7 @@ public class f {
                             groupNewsPojo2 = groupNewsPojo;
                             groupNewsPojo3 = next;
                         } else {
-                            if (CB(next.getCmd())) {
+                            if (CC(next.getCmd())) {
                                 linkedList.add(next);
                                 if (groupNewsPojo3 == null) {
                                     groupNewsPojo = groupNewsPojo2;
@@ -162,7 +162,7 @@ public class f {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.f.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean Cz(String str) {
+            public boolean CA(String str) {
                 return true;
             }
         }, false);

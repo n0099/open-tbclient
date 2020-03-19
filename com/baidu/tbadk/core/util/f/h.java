@@ -33,9 +33,9 @@ public class h {
                 if (this.ddD.get(str) == null) {
                     if (this.ddD.size() < e.aHq().aHr()) {
                         g.log("put loadingQueue  url: " + str);
-                        f tQ = tQ(str);
-                        this.ddD.put(str, tQ);
-                        tQ.load();
+                        f tR = tR(str);
+                        this.ddD.put(str, tR);
+                        tR.load();
                     } else {
                         g.log("put waitingQueue  url: " + str);
                         this.ddE.push(str);
@@ -48,7 +48,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tP(String str) {
+    public void tQ(String str) {
         f remove = this.ddD.remove(str);
         g.log("processCallback remove loadingQueue  url: " + str);
         if (remove != null) {
@@ -56,32 +56,32 @@ public class h {
         }
         if (this.ddE != null && this.ddE.size() > 0) {
             String pop = this.ddE.pop();
-            f tQ = tQ(pop);
-            this.ddD.put(pop, tQ);
+            f tR = tR(pop);
+            this.ddD.put(pop, tR);
             g.log("processCallback put loadingQueue  url: " + pop);
-            tQ.load();
+            tR.load();
         }
         g.log("processCallback  mWaitingQueue.size() =  " + this.ddE.size() + " mLoadingQueue.size()  " + this.ddD.size());
     }
 
-    private f tQ(String str) {
+    private f tR(String str) {
         return new f(str, new b() { // from class: com.baidu.tbadk.core.util.f.h.1
             @Override // com.baidu.tbadk.core.util.f.b
             public void onSuccess(String str2) {
                 g.log("onSuccess  url = " + str2);
-                h.this.tP(str2);
+                h.this.tQ(str2);
             }
 
             @Override // com.baidu.tbadk.core.util.f.b
             public void cy(String str2, String str3) {
                 g.log("onFail  url = " + str2);
-                h.this.tP(str2);
+                h.this.tQ(str2);
             }
 
             @Override // com.baidu.tbadk.core.util.f.b
-            public void tN(String str2) {
+            public void tO(String str2) {
                 g.log("onCancle  url = " + str2);
-                h.this.tP(str2);
+                h.this.tQ(str2);
             }
         });
     }

@@ -156,7 +156,7 @@ public class CardPersonDynamicThreadData extends b {
                 this.cRt.aCr().parserProtobuf(user);
                 this.cRt.aCP();
             }
-            this.cRt.sN(threadInfo.article_cover);
+            this.cRt.sO(threadInfo.article_cover);
             this.cRt.a(this.videoInfo);
             if (this.cRt.aEm()) {
                 this.cRt.jT(1);
@@ -275,14 +275,14 @@ public class CardPersonDynamicThreadData extends b {
             this.cRt.setId(this.threadId);
             this.cRt.setTid(this.threadId);
             this.cRt.setFid(postInfoList.forum_id.longValue());
-            this.cRt.sF(this.forumName);
+            this.cRt.sG(this.forumName);
             this.cRt.jJ(this.TA);
             this.cRt.jK(this.fOA);
             this.cRt.bv(this.fOx);
             this.cRt.setTitle(this.title);
             this.cRt.ax(this.rich_title);
             this.cRt.ay(this.rich_abstract);
-            this.cRt.sI(this.fOy);
+            this.cRt.sJ(this.fOy);
             this.cRt.setThreadType((int) this.fOz);
             this.cRt.aw(postInfoList.first_post_content);
             if (this.fOG != null) {
@@ -297,7 +297,7 @@ public class CardPersonDynamicThreadData extends b {
                 this.cRt.aCr().parserProtobuf(user);
                 this.cRt.aCP();
             }
-            this.cRt.sN(postInfoList.article_cover);
+            this.cRt.sO(postInfoList.article_cover);
             this.cRt.a(this.videoInfo);
             if (this.cRt.aEm()) {
                 this.cRt.jT(1);

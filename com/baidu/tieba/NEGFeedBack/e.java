@@ -249,7 +249,7 @@ public class e {
         }
     }
 
-    public void wn(String str) {
+    public void wo(String str) {
         if (this.mContext != null) {
             this.mFrom = str;
             View view = getView();

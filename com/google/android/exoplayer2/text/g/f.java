@@ -64,11 +64,11 @@ public final class f {
                 if ("line".equals(group)) {
                     b(group2, aVar);
                 } else if ("align".equals(group)) {
-                    aVar.b(Qh(group2));
+                    aVar.b(Qi(group2));
                 } else if ("position".equals(group)) {
                     c(group2, aVar);
                 } else if (TiebaInitialize.LogFields.SIZE.equals(group)) {
-                    aVar.bB(h.Qk(group2));
+                    aVar.bB(h.Ql(group2));
                 } else {
                     Log.w("WebvttCueParser", "Unknown cue setting " + group + ":" + group2);
                 }
@@ -116,16 +116,16 @@ public final class f {
                         int bJ = bJ(str2, i + 1);
                         boolean z2 = str2.charAt(bJ + (-2)) == '/';
                         String substring = str2.substring((z ? 2 : 1) + i, z2 ? bJ - 2 : bJ - 1);
-                        String Qi = Qi(substring);
-                        if (Qi != null) {
-                            if (!PX(Qi)) {
+                        String Qj = Qj(substring);
+                        if (Qj != null) {
+                            if (!PY(Qj)) {
                                 i = bJ;
                                 break;
                             } else if (z) {
                                 while (!stack.isEmpty()) {
                                     a aVar2 = (a) stack.pop();
                                     a(str, aVar2, spannableStringBuilder, list, arrayList);
-                                    if (aVar2.name.equals(Qi)) {
+                                    if (aVar2.name.equals(Qj)) {
                                         i = bJ;
                                         break;
                                     }
@@ -155,7 +155,7 @@ public final class f {
 
     private static boolean a(String str, Matcher matcher, l lVar, e.a aVar, StringBuilder sb, List<d> list) {
         try {
-            aVar.gA(h.Qj(matcher.group(1))).gB(h.Qj(matcher.group(2)));
+            aVar.gA(h.Qk(matcher.group(1))).gB(h.Qk(matcher.group(2)));
             a(matcher.group(3), aVar);
             sb.setLength(0);
             while (true) {
@@ -179,13 +179,13 @@ public final class f {
     private static void b(String str, e.a aVar) throws NumberFormatException {
         int indexOf = str.indexOf(44);
         if (indexOf != -1) {
-            aVar.LK(Qg(str.substring(indexOf + 1)));
+            aVar.LK(Qh(str.substring(indexOf + 1)));
             str = str.substring(0, indexOf);
         } else {
             aVar.LK(Integer.MIN_VALUE);
         }
         if (str.endsWith("%")) {
-            aVar.bz(h.Qk(str)).LJ(0);
+            aVar.bz(h.Ql(str)).LJ(0);
             return;
         }
         int parseInt = Integer.parseInt(str);
@@ -198,15 +198,15 @@ public final class f {
     private static void c(String str, e.a aVar) throws NumberFormatException {
         int indexOf = str.indexOf(44);
         if (indexOf != -1) {
-            aVar.LL(Qg(str.substring(indexOf + 1)));
+            aVar.LL(Qh(str.substring(indexOf + 1)));
             str = str.substring(0, indexOf);
         } else {
             aVar.LL(Integer.MIN_VALUE);
         }
-        aVar.bA(h.Qk(str));
+        aVar.bA(h.Ql(str));
     }
 
-    private static int Qg(String str) {
+    private static int Qh(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -1364013995:
@@ -248,7 +248,7 @@ public final class f {
         }
     }
 
-    private static Layout.Alignment Qh(String str) {
+    private static Layout.Alignment Qi(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -1364013995:
@@ -356,7 +356,7 @@ public final class f {
         }
     }
 
-    private static boolean PX(String str) {
+    private static boolean PY(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case 98:
@@ -523,7 +523,7 @@ public final class f {
         }
     }
 
-    private static String Qi(String str) {
+    private static String Qj(String str) {
         String trim = str.trim();
         if (trim.isEmpty()) {
             return null;

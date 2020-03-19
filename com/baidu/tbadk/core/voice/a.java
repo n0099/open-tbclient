@@ -13,7 +13,7 @@ public class a {
         return q.guid();
     }
 
-    public static String ua(String str) {
+    public static String ub(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -24,8 +24,8 @@ public class a {
         return m.getStoreFile(str, 1);
     }
 
-    public static String ub(String str) {
-        return f.getFilePath(ua(str));
+    public static String uc(String str) {
+        return f.getFilePath(ub(str));
     }
 
     public static boolean delFile(String str) {

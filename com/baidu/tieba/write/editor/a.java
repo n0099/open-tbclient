@@ -24,9 +24,9 @@ public class a {
                     @Override // com.baidu.tbadk.util.ab
                     public Integer doInBackground() {
                         int i2 = i;
-                        l<String> sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.write_privacy_state_space" + currentAccount);
-                        if (sP != null) {
-                            i2 = com.baidu.adp.lib.f.b.toInt(sP.get(str), i);
+                        l<String> sQ = com.baidu.tbadk.core.c.a.aEF().sQ("tb.write_privacy_state_space" + currentAccount);
+                        if (sQ != null) {
+                            i2 = com.baidu.adp.lib.f.b.toInt(sQ.get(str), i);
                         }
                         return Integer.valueOf(i2);
                     }
@@ -45,11 +45,11 @@ public class a {
     }
 
     public static void bA(String str, int i) {
-        l<String> sP;
+        l<String> sQ;
         if (!StringUtils.isNull(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!StringUtils.isNull(currentAccount) && (sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.write_privacy_state_space" + currentAccount)) != null) {
-                sP.asyncSetForever(str, String.valueOf(i));
+            if (!StringUtils.isNull(currentAccount) && (sQ = com.baidu.tbadk.core.c.a.aEF().sQ("tb.write_privacy_state_space" + currentAccount)) != null) {
+                sQ.asyncSetForever(str, String.valueOf(i));
             }
         }
     }

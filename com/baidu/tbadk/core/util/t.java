@@ -35,7 +35,7 @@ public class t {
         return this.cZu;
     }
 
-    public String to(String str) {
+    public String tp(String str) {
         try {
             String host = new URL(str).getHost();
             if (!TextUtils.isEmpty(host)) {
@@ -47,7 +47,7 @@ public class t {
         return null;
     }
 
-    public String tp(String str) {
+    public String tq(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.cZt > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");

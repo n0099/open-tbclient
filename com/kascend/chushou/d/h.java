@@ -313,7 +313,7 @@ public class h {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private <T> T QT(String str) {
+    private <T> T QU(String str) {
         Throwable th;
         ObjectInputStream objectInputStream;
         T t = null;
@@ -423,7 +423,7 @@ public class h {
     }
 
     public Object dCu() {
-        return dCs().QT("hotword");
+        return dCs().QU("hotword");
     }
 
     public void b(boolean z) {

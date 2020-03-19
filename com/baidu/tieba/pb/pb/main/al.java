@@ -23,13 +23,13 @@ public class al extends com.baidu.tbadk.core.view.userLike.c {
         this.iPs = i;
         this.mPageContext = tbPageContext;
         if (this.iPs == 1) {
-            super.sD("4");
+            super.sE("4");
         } else if (this.iPs == 3) {
-            super.sD("5");
+            super.sE("5");
         } else if (i == 4 || i == 5 || i == 6) {
-            super.sD("4");
+            super.sE("4");
         } else {
-            super.sD("0");
+            super.sE("0");
         }
     }
 

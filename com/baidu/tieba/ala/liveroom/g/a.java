@@ -51,7 +51,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         super.onDestroy();
     }
 
-    public void yT(String str) {
+    public void yU(String str) {
         this.fav = str;
     }
 }

@@ -18,10 +18,10 @@ public final class k {
         this.schemeType = str;
         this.mmw = i;
         this.mmx = bArr2;
-        this.mhS = new m.a(Pt(str), bArr, i2, i3);
+        this.mhS = new m.a(Pu(str), bArr, i2, i3);
     }
 
-    private static int Pt(@Nullable String str) {
+    private static int Pu(@Nullable String str) {
         if (str == null) {
             return 1;
         }

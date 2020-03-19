@@ -36,7 +36,7 @@ final class f {
 
     public final synchronized SQLiteDatabase cXQ() {
         if (this.kXG.incrementAndGet() == 1) {
-            com.baidu.ubs.analytics.d.b.Lr("***************新建立了 一个数据库的实例****************");
+            com.baidu.ubs.analytics.d.b.Ls("***************新建立了 一个数据库的实例****************");
             this.kXH = kXF.getWritableDatabase();
         }
         return this.kXH;

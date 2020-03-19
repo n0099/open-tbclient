@@ -178,8 +178,8 @@ public class PersonalizePageView extends FrameLayout {
         oVar.ee(floatInfo.dynamic_url);
         oVar.setEndTime(floatInfo.end_time.longValue() * 1000);
         oVar.setStartTime(floatInfo.start_time.longValue() * 1000);
-        oVar.Jd(floatInfo.float_url);
-        oVar.Jc(floatInfo.jump_url);
+        oVar.Je(floatInfo.float_url);
+        oVar.Jd(floatInfo.jump_url);
         oVar.setType(floatInfo.show_type.intValue());
         return oVar;
     }
@@ -352,7 +352,7 @@ public class PersonalizePageView extends FrameLayout {
         this.hdJ = new g.c() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.17
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                com.baidu.tieba.a.d.aXK().wO("page_recommend");
+                com.baidu.tieba.a.d.aXK().wP("page_recommend");
                 PersonalizePageView.this.hdz.update();
                 PersonalizePageView.this.hdz.mJ(false);
                 PersonalizePageView.this.hdG = true;
@@ -660,7 +660,7 @@ public class PersonalizePageView extends FrameLayout {
         this.hdJ = new g.c() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.17
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                com.baidu.tieba.a.d.aXK().wO("page_recommend");
+                com.baidu.tieba.a.d.aXK().wP("page_recommend");
                 PersonalizePageView.this.hdz.update();
                 PersonalizePageView.this.hdz.mJ(false);
                 PersonalizePageView.this.hdG = true;
@@ -968,7 +968,7 @@ public class PersonalizePageView extends FrameLayout {
         this.hdJ = new g.c() { // from class: com.baidu.tieba.homepage.personalize.PersonalizePageView.17
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                com.baidu.tieba.a.d.aXK().wO("page_recommend");
+                com.baidu.tieba.a.d.aXK().wP("page_recommend");
                 PersonalizePageView.this.hdz.update();
                 PersonalizePageView.this.hdz.mJ(false);
                 PersonalizePageView.this.hdG = true;

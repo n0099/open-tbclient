@@ -25,7 +25,7 @@ import java.util.List;
 @TargetApi(16)
 /* loaded from: classes6.dex */
 public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a {
-    private static final byte[] mrh = v.QF("0000016742C00BDA259000000168CE0F13200000016588840DCE7118A0002FBF1C31C3275D78");
+    private static final byte[] mrh = v.QG("0000016742C00BDA259000000168CE0F13200000016588840DCE7118A0002FBF1C31C3275D78");
     @Nullable
     private final com.google.android.exoplayer2.drm.a<c> maj;
     private Format mbs;
@@ -162,7 +162,7 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
                     return;
                 }
                 MediaCrypto dvn = dvm.dvn();
-                z = dvm.Pr(str);
+                z = dvm.Ps(str);
                 mediaCrypto = dvn;
             } else {
                 z = false;
@@ -186,12 +186,12 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
             }
             if (a(this.mrs)) {
                 String str2 = this.mrs.name;
-                this.mrt = Py(str2);
+                this.mrt = Pz(str2);
                 this.mru = a(str2, this.mbs);
-                this.mrv = Px(str2);
-                this.mrw = Pz(str2);
-                this.mrx = PA(str2);
-                this.mry = PB(str2);
+                this.mrv = Py(str2);
+                this.mrw = PA(str2);
+                this.mrx = PB(str2);
+                this.mry = PC(str2);
                 this.mrz = b(str2, this.mbs);
                 try {
                     long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -770,11 +770,11 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
         return false;
     }
 
-    private static boolean Px(String str) {
+    private static boolean Py(String str) {
         return v.SDK_INT < 18 || (v.SDK_INT == 18 && ("OMX.SEC.avc.dec".equals(str) || "OMX.SEC.avc.dec.secure".equals(str))) || (v.SDK_INT == 19 && v.MODEL.startsWith("SM-G800") && ("OMX.Exynos.avc.dec".equals(str) || "OMX.Exynos.avc.dec.secure".equals(str)));
     }
 
-    private int Py(String str) {
+    private int Pz(String str) {
         if (v.SDK_INT <= 25 && "OMX.Exynos.avc.dec.secure".equals(str) && (v.MODEL.startsWith("SM-T585") || v.MODEL.startsWith("SM-A510") || v.MODEL.startsWith("SM-A520") || v.MODEL.startsWith("SM-J700"))) {
             return 2;
         }
@@ -788,15 +788,15 @@ public abstract class MediaCodecRenderer extends com.google.android.exoplayer2.a
         return v.SDK_INT < 21 && format.initializationData.isEmpty() && "OMX.MTK.VIDEO.DECODER.AVC".equals(str);
     }
 
-    private static boolean Pz(String str) {
+    private static boolean PA(String str) {
         return v.SDK_INT <= 17 && ("OMX.rk.video_decoder.avc".equals(str) || "OMX.allwinner.video.decoder.avc".equals(str));
     }
 
-    private static boolean PA(String str) {
+    private static boolean PB(String str) {
         return (v.SDK_INT <= 23 && "OMX.google.vorbis.decoder".equals(str)) || (v.SDK_INT <= 19 && "hb2000".equals(v.mJI) && ("OMX.amlogic.avc.decoder.awesome".equals(str) || "OMX.amlogic.avc.decoder.awesome.secure".equals(str)));
     }
 
-    private static boolean PB(String str) {
+    private static boolean PC(String str) {
         return v.SDK_INT == 21 && "OMX.google.aac.decoder".equals(str);
     }
 

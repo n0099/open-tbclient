@@ -243,7 +243,7 @@ public class o {
                 TbConfig.setBigPhotoAdress(this.dmH);
                 TbConfig.setSmallPhotoAdress(this.dmI);
                 TbConfig.setFeedBack(this.mYijianfankuiFname, this.dmJ);
-                com.baidu.tbadk.core.util.f.e.aHq().tO(jSONObject.optString("android_preload_conf"));
+                com.baidu.tbadk.core.util.f.e.aHq().tP(jSONObject.optString("android_preload_conf"));
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("duxiaoman_url");
                 if (optJSONObject10 != null) {
                     this.dmS = optJSONObject10.optString("cash_pay");

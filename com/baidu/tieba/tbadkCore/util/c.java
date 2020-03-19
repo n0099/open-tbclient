@@ -28,7 +28,7 @@ public class c extends d {
         this.klf = new HashMap<>();
     }
 
-    public long Jm(String str) {
+    public long Jn(String str) {
         long longValue;
         try {
             synchronized (this) {

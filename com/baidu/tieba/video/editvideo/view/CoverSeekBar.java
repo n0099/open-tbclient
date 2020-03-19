@@ -105,8 +105,8 @@ public class CoverSeekBar extends FrameLayout {
                         CoverSeekBar.this.kAf.seekTo(0);
                     }
                 });
+                Kg(str);
                 Kf(str);
-                Ke(str);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -128,7 +128,7 @@ public class CoverSeekBar extends FrameLayout {
         }
     }
 
-    private void Ke(final String str) {
+    private void Kf(final String str) {
         this.mThread = new Thread(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.CoverSeekBar.3
             @Override // java.lang.Runnable
             public void run() {
@@ -153,7 +153,7 @@ public class CoverSeekBar extends FrameLayout {
         this.mThread.start();
     }
 
-    public void Kf(String str) {
+    public void Kg(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 boolean z = this.mImagesContainer.getChildCount() > 0;

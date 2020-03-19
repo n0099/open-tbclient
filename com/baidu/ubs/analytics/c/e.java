@@ -8,11 +8,11 @@ public final class e {
         return kXR;
     }
 
-    public final void Li(String str) {
-        this.kXS.Li(str);
-    }
-
     public final void Lj(String str) {
         this.kXS.Lj(str);
+    }
+
+    public final void Lk(String str) {
+        this.kXS.Lk(str);
     }
 }

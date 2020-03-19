@@ -233,7 +233,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = currentAccountObj.getID() + Constants.WAVE_SEPARATOR;
             }
-            this.gIm = com.baidu.tieba.frs.f.g.BM("1~" + str + this.gpb);
+            this.gIm = com.baidu.tieba.frs.f.g.BN("1~" + str + this.gpb);
             tT(this.gIk);
         }
         this.gHV.setSortType(getSortType());
@@ -304,7 +304,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.gHW.sI(i);
         this.gGP.a(frsRequestData);
         this.mType = i;
-        frsRequestData.IS(this.gHP.bEC() ? "1" : "2");
+        frsRequestData.IT(this.gHP.bEC() ? "1" : "2");
         if (this.gIn) {
             frsRequestData.setObjSource(String.valueOf(com.baidu.tieba.frs.f.g.ul(this.gIl)));
         } else {
@@ -671,7 +671,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         public Void doInBackground(Object... objArr) {
             int i;
             CustomResponsedMessage runTask;
-            if (this.needCache && com.baidu.tieba.tbadkCore.e.cKw().IQ(this.gIy)) {
+            if (this.needCache && com.baidu.tieba.tbadkCore.e.cKw().IR(this.gIy)) {
                 if (!com.baidu.tieba.tbadkCore.e.cKw().isSameDay(TbadkCoreApplication.getCurrentAccount() + this.gIy)) {
                     com.baidu.tieba.tbadkCore.e.cKw().getResponseData().getForum().getSignData().is_signed = 0;
                 }
@@ -1018,7 +1018,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.gHP.sendMessage(requestIncrForumAccessCountNetMessage);
     }
 
-    public void BD(final String str) {
+    public void BE(final String str) {
         ac.a(new ab<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.2
             @Override // com.baidu.tbadk.util.ab
             public Object doInBackground() {
@@ -1028,7 +1028,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }, null);
     }
 
-    public void BE(final String str) {
+    public void BF(final String str) {
         ac.a(new ab<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.3
             @Override // com.baidu.tbadk.util.ab
             public Object doInBackground() {
@@ -1038,7 +1038,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }, null);
     }
 
-    public void BF(final String str) {
+    public void BG(final String str) {
         ac.a(new ab<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.4
             @Override // com.baidu.tbadk.util.ab
             public Object doInBackground() {

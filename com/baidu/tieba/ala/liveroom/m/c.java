@@ -1210,7 +1210,7 @@ public class c extends BdBaseModel implements d.a {
             aVar.c(address.getLongitude(), address.getLatitude());
         }
         aVar.setForumName(str2);
-        aVar.sD(str);
+        aVar.sE(str);
         aVar.setLiveId(j);
         aVar.setParams();
         sendMessage(aVar);
@@ -1223,13 +1223,13 @@ public class c extends BdBaseModel implements d.a {
             aVar.c(address.getLongitude(), address.getLatitude());
         }
         aVar.setForumName(str3);
-        aVar.sD(str2);
-        aVar.zi(str);
+        aVar.sE(str2);
+        aVar.zj(str);
         aVar.setParams();
         sendMessage(aVar);
     }
 
-    public void zj(String str) {
+    public void zk(String str) {
         Address address = BdLocationMananger.getInstance().getAddress(false);
         com.baidu.tieba.ala.liveroom.messages.a aVar = new com.baidu.tieba.ala.liveroom.messages.a();
         if (address != null) {

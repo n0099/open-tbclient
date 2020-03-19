@@ -258,7 +258,7 @@ public class j extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
         }
         pD(oe(1));
         onChangeSkinType(this.cVv, TbadkCoreApplication.getInst().getSkinType());
-        if (l.zV(this.fJZ.cRt.getId())) {
+        if (l.zW(this.fJZ.cRt.getId())) {
             am.setViewTextColor(this.mTextTitle, R.color.cp_cont_d, 1);
         } else {
             am.setViewTextColor(this.mTextTitle, R.color.cp_cont_b, 1);
@@ -320,7 +320,7 @@ public class j extends a<com.baidu.tieba.card.data.j> implements com.baidu.tieba
             buM().a(view, this.fJZ);
         }
         if (this.fJZ != null && this.fJZ.aAj() != null && this.fJZ.aAj().aCK() != null) {
-            l.zU(this.fJZ.cRt.getId());
+            l.zV(this.fJZ.cRt.getId());
             l.a(this.mTextTitle, this.fJZ.cRt.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
             alaLiveInfoCoreData.fillWithInfoData(this.fJZ.aAj().aCK());

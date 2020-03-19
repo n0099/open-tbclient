@@ -159,7 +159,7 @@ public class c {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void Cc(String str);
+        void Cd(String str);
 
         void S(boolean z, boolean z2);
 
@@ -221,7 +221,7 @@ public class c {
     public void bck() {
         if (!isLoading() && this.hasMore && this.gYu != null) {
             setIsLoading(true);
-            this.gYu.Cc(this.pageTag);
+            this.gYu.Cd(this.pageTag);
         }
     }
 

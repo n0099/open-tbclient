@@ -86,8 +86,8 @@ public class d {
         this.drk = cVar;
         this.grn = onClickListener;
         int dimens = l.getDimens(this.iFL.getContext(), R.dimen.tbds6);
-        this.Nv = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(dimens).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(dimens).tM("#4D000000").aHi()});
-        this.Nw = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(dimens).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(dimens).tM("#4D000000").aHi()});
+        this.Nv = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(dimens).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(dimens).tN("#4D000000").aHi()});
+        this.Nw = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(dimens).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(dimens).tN("#4D000000").aHi()});
         initView();
     }
 
@@ -277,7 +277,7 @@ public class d {
                     this.iSM.getHeadView().setFid(eVar == null ? eVar.getForumId() : "");
                     this.iSM.getHeadView().setOnClickListener(onClickListener);
                     if (!z) {
-                        this.iSM.tT(aCr.getAvater());
+                        this.iSM.tU(aCr.getAvater());
                     } else {
                         this.iSM.a(aCr);
                     }

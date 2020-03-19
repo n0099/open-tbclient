@@ -12,11 +12,11 @@ public class a {
 
     private void ava() {
         if (this.gkR == null) {
-            this.gkR = com.baidu.tbadk.core.c.a.aEF().sO("tb.god_square");
+            this.gkR = com.baidu.tbadk.core.c.a.aEF().sP("tb.god_square");
         }
     }
 
-    public byte[] AV(String str) {
+    public byte[] AW(String str) {
         l.b<byte[]> bVar;
         if (str != null) {
             ava();

@@ -44,12 +44,12 @@ public class a extends Drawable implements b {
         this.mFrameCount = -1;
         this.mLoopCount = -1;
         this.lNu = null;
-        OX(null);
+        OY(null);
         this.lNB = -1L;
         invalidateSelf();
     }
 
-    public void OX(@Nullable String str) {
+    public void OY(@Nullable String str) {
         if (str == null) {
             str = "none";
         }

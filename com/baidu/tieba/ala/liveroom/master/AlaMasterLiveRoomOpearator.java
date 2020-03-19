@@ -296,7 +296,7 @@ public class AlaMasterLiveRoomOpearator {
                 if (TextUtils.isEmpty(str)) {
                     str = AlaMasterLiveRoomOpearator.this.eUL.pageContext.getPageActivity().getResources().getString(a.i.ala_forbid_send_msg_txt);
                 }
-                AlaMasterLiveRoomOpearator.this.yO(str);
+                AlaMasterLiveRoomOpearator.this.yP(str);
             }
         }
     };
@@ -378,7 +378,7 @@ public class AlaMasterLiveRoomOpearator {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (AlaMasterLiveRoomOpearator.this.fgh != null) {
-                    AlaMasterLiveRoomOpearator.this.fgh.yS(str);
+                    AlaMasterLiveRoomOpearator.this.fgh.yT(str);
                 }
             }
         }
@@ -478,7 +478,7 @@ public class AlaMasterLiveRoomOpearator {
                                     e.printStackTrace();
                                 }
                             }
-                            AlaMasterLiveRoomOpearator.this.eSM.yS(o.a(valueOf2, valueOf, j, true, 1, str3, str4, str5, str6, str7));
+                            AlaMasterLiveRoomOpearator.this.eSM.yT(o.a(valueOf2, valueOf, j, true, 1, str3, str4, str5, str6, str7));
                         }
                     }
                 } else {
@@ -852,7 +852,7 @@ public class AlaMasterLiveRoomOpearator {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yO(String str) {
+    public void yP(String str) {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(bkm().pageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setMessage(str);
@@ -1483,7 +1483,7 @@ public class AlaMasterLiveRoomOpearator {
         } else if (i == -5) {
             boq();
         } else if (i == -2) {
-            zf(bkm().pageContext.getResources().getString(a.i.preview_init_failed_dialog_msg));
+            zg(bkm().pageContext.getResources().getString(a.i.preview_init_failed_dialog_msg));
             bkm().fbt.stopRecord();
         } else if (i == -3 && this.ffj != null) {
             this.ffj.jo(false);
@@ -1509,7 +1509,7 @@ public class AlaMasterLiveRoomOpearator {
         bjM();
         if (i == 12001) {
             if (i2 == -1) {
-                zg(ac(intent));
+                zh(ac(intent));
             }
         } else if (i == 12009) {
             if (i2 == -1) {
@@ -2328,7 +2328,7 @@ public class AlaMasterLiveRoomOpearator {
         bdAlertDialog.create(bkm().pageContext).show();
     }
 
-    private void zf(String str) {
+    private void zg(String str) {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(bkm().pageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle(a.i.sdk_prompt);
@@ -2482,11 +2482,11 @@ public class AlaMasterLiveRoomOpearator {
         }
     }
 
-    private void zg(String str) {
-        zh(str);
+    private void zh(String str) {
+        zi(str);
     }
 
-    private void zh(String str) {
+    private void zi(String str) {
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
             EditHeadActivityConfig editHeadActivityConfig = new EditHeadActivityConfig((Context) bkm().pageContext.getPageActivity(), (int) RequestResponseCode.REQUEST_ALBUM_IMAGE, (int) RequestResponseCode.REQUEST_ALBUM_IMAGE_VIEW, (Uri) null, 3, str, 1.0f, false);
             editHeadActivityConfig.setPreviewImageHeightScale(1.0f);
@@ -2514,7 +2514,7 @@ public class AlaMasterLiveRoomOpearator {
     private void ad(Intent intent) {
         PhotoUrlData fromJson;
         if (intent != null && (fromJson = PhotoUrlData.fromJson(intent.getStringExtra(EditHeadActivityConfig.PIC_INFO))) != null && this.ffj != null) {
-            this.ffj.yV(fromJson.getSmallurl());
+            this.ffj.yW(fromJson.getSmallurl());
         }
     }
 
@@ -2778,7 +2778,7 @@ public class AlaMasterLiveRoomOpearator {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:143:0x0468, code lost:
-        yL(r6);
+        yM(r6);
      */
     /* JADX WARN: Removed duplicated region for block: B:26:0x0079  */
     /* JADX WARN: Removed duplicated region for block: B:29:0x0089  */
@@ -2990,7 +2990,7 @@ public class AlaMasterLiveRoomOpearator {
                                 t.b(optString5, Integer.parseInt(optString6), optString7, optString8, xt2.userId, xt2.portrait, xt2.getNameShow(), String.valueOf(j3), String.valueOf(j2), true, String.valueOf(j), str7, optString9, str4, str3);
                             }
                         }
-                        yL(optString5);
+                        yM(optString5);
                         com.baidu.tieba.ala.liveroom.e.d dVar = new com.baidu.tieba.ala.liveroom.e.d();
                         dVar.fam = optLong4;
                         dVar.liveId = j3;
@@ -3008,7 +3008,7 @@ public class AlaMasterLiveRoomOpearator {
                 if (TextUtils.isEmpty(optString10)) {
                 }
                 t.b(optString5, Integer.parseInt(optString6), optString7, optString8, xt2.userId, xt2.portrait, xt2.getNameShow(), String.valueOf(j3), String.valueOf(j2), true, String.valueOf(j), str7, optString9, str4, str3);
-                yL(optString5);
+                yM(optString5);
                 com.baidu.tieba.ala.liveroom.e.d dVar2 = new com.baidu.tieba.ala.liveroom.e.d();
                 dVar2.fam = optLong4;
                 dVar2.liveId = j3;
@@ -3018,9 +3018,9 @@ public class AlaMasterLiveRoomOpearator {
         }
     }
 
-    private void yL(String str) {
+    private void yM(String str) {
         if (this.eRH != null) {
-            this.eRH.yL(str);
+            this.eRH.yM(str);
         }
     }
 

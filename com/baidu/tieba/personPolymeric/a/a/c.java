@@ -184,9 +184,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 if (view != null && fVar != null && fVar.aAj() != null) {
                     int id = view.getId();
                     if (id == R.id.thread_card_root) {
-                        an zY = fVar.zY("c13543");
-                        zY.X("obj_type", fVar.ae(fVar.cRt));
-                        TiebaStatic.log(zY);
+                        an zZ = fVar.zZ("c13543");
+                        zZ.X("obj_type", fVar.ae(fVar.cRt));
+                        TiebaStatic.log(zZ);
                         com.baidu.tieba.personPolymeric.a.a(view, fVar, 2);
                     } else if (view instanceof TbImageView) {
                         com.baidu.tieba.personPolymeric.a.a(view, fVar, 3);
@@ -281,7 +281,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 

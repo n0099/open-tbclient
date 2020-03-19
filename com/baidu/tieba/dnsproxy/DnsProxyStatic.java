@@ -62,9 +62,9 @@ public class DnsProxyStatic {
 
             @Override // com.baidu.adp.lib.network.http.a
             public String ak(String str) {
-                if (f.bxa().Af(str)) {
+                if (f.bxa().Ag(str)) {
                     try {
-                        return e.bwT().ag(new URL(str).getHost(), f.bxa().Ag(str));
+                        return e.bwT().ag(new URL(str).getHost(), f.bxa().Ah(str));
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                         return null;

@@ -59,7 +59,7 @@ public class b {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof String) {
-                b.this.yu((String) customResponsedMessage.getData());
+                b.this.yv((String) customResponsedMessage.getData());
             } else {
                 b.this.bnh();
             }
@@ -287,11 +287,11 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bnh() {
-        yu(null);
+        yv(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yu(String str) {
+    public void yv(String str) {
         if (this.mContext != null && this.fdO != null && this.fdO.Ya != null && this.fdO.mLiveInfo != null) {
             long j = this.fdO.Ya.userId;
             long j2 = this.fdO.mLiveInfo.live_id;

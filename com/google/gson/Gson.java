@@ -236,7 +236,7 @@ public final class Gson {
                 if (number == null) {
                     bVar.dBG();
                 } else {
-                    bVar.QM(number.toString());
+                    bVar.QN(number.toString());
                 }
             }
         };
@@ -438,7 +438,7 @@ public final class Gson {
         }
         com.google.gson.stream.b bVar = new com.google.gson.stream.b(writer);
         if (this.prettyPrinting) {
-            bVar.QP("  ");
+            bVar.QQ("  ");
         }
         bVar.wn(this.serializeNulls);
         return bVar;

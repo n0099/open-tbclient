@@ -243,7 +243,7 @@ public class y implements q {
         return bArr;
     }
 
-    public void tr(String str) {
+    public void ts(String str) {
         this.cZA.aGM().mServerErrorCode = -1;
         if (str != null) {
             try {
@@ -282,7 +282,7 @@ public class y implements q {
             e = e4;
         }
         try {
-            tr(str);
+            ts(str);
             return str;
         } catch (Exception e5) {
             e2 = e5;
@@ -327,7 +327,7 @@ public class y implements q {
             sb.append("tiebaclient!!!");
             addPostData("sign", com.baidu.adp.lib.util.s.toMd5(sb.toString()));
             if (this.cZA.aGL().cZD) {
-                addPostData("sig", StringU.wo(sb.toString()));
+                addPostData("sig", StringU.wp(sb.toString()));
             }
         }
         if (TbConfig.getDebugSwitch()) {
@@ -363,7 +363,7 @@ public class y implements q {
                 str = new String(fY.retBytes, "utf-8");
                 try {
                     if (this.cZA.aGL().aGO().mIsBaiduServer && this.cZA.aGL().aGO().mIsJson) {
-                        tr(str);
+                        ts(str);
                     }
                     aa.a aVar = new aa.a();
                     aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
@@ -478,7 +478,7 @@ public class y implements q {
             } else {
                 str = new String(a.retBytes, "UTF-8");
                 try {
-                    tr(str);
+                    ts(str);
                     TiebaStatic.net(this.cZA);
                     return str;
                 } catch (BdHttpCancelException e4) {
@@ -572,7 +572,7 @@ public class y implements q {
                             bVar.setErrorCode(i4);
                             bVar.mQ(this.cZA.aGM().mNetErrorCode);
                             bVar.aq(dVar.exception);
-                            bVar.vH(dVar.qV + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.qC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.qR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.qS + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.qT);
+                            bVar.vI(dVar.qV + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.qC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.qR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.qS + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar.qT);
                             bVar.setUrl(dVar.url);
                             bVar.qZ = dVar.qZ;
                             bVar.ra = dVar.ra;
@@ -597,7 +597,7 @@ public class y implements q {
                             bVar2.setErrorCode(i5);
                             bVar2.mQ(this.cZA.aGM().mNetErrorCode);
                             bVar2.aq(dVar2.exception);
-                            bVar2.vH(dVar2.qV + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.qC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.qR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.qS + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.qT);
+                            bVar2.vI(dVar2.qV + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.qC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.qR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.qS + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar2.qT);
                             bVar2.setUrl(dVar2.url);
                             bVar2.qZ = dVar2.qZ;
                             bVar2.ra = dVar2.ra;
@@ -622,7 +622,7 @@ public class y implements q {
                             bVar3.setErrorCode(i6);
                             bVar3.mQ(this.cZA.aGM().mNetErrorCode);
                             bVar3.aq(dVar3.exception);
-                            bVar3.vH(dVar3.qV + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.qC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.qR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.qS + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.qT);
+                            bVar3.vI(dVar3.qV + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.qC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.qR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.qS + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar3.qT);
                             bVar3.setUrl(dVar3.url);
                             bVar3.qZ = dVar3.qZ;
                             bVar3.ra = dVar3.ra;
@@ -644,7 +644,7 @@ public class y implements q {
                         bVar4.setErrorCode(i7);
                         bVar4.mQ(this.cZA.aGM().mNetErrorCode);
                         bVar4.aq(dVar4.exception);
-                        bVar4.vH(dVar4.qV + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.qC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.qR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.qS + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.qT);
+                        bVar4.vI(dVar4.qV + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.qC + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.qR + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.qS + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + dVar4.qT);
                         bVar4.setUrl(dVar4.url);
                         bVar4.qZ = dVar4.qZ;
                         bVar4.ra = dVar4.ra;

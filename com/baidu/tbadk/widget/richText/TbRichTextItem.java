@@ -182,7 +182,7 @@ public class TbRichTextItem extends OrmObject {
         }
         SpannableString spannableString = new SpannableString(text);
         f fVar = new f(this.mType, text);
-        fVar.wg(this.dPz.getLink());
+        fVar.wh(this.dPz.getLink());
         spannableString.setSpan(fVar, 0, text.length() - 1, 33);
         return spannableString;
     }
@@ -196,25 +196,25 @@ public class TbRichTextItem extends OrmObject {
 
     private SpannableString M(ArrayList<d> arrayList) {
         String text;
-        int vb;
+        int vc;
         String str;
-        a.C0391a vu;
-        if (this.mType != 4 || this.dPz == null || this.dPz.getText() == null || this.dPz.getLink() == null || (vb = TbFaceManager.aPU().vb((text = this.dPz.getText()))) == 0) {
+        a.C0391a vv;
+        if (this.mType != 4 || this.dPz == null || this.dPz.getText() == null || this.dPz.getLink() == null || (vc = TbFaceManager.aPU().vc((text = this.dPz.getText()))) == 0) {
             return null;
         }
-        String vd = TbFaceManager.aPU().vd(text);
+        String ve = TbFaceManager.aPU().ve(text);
         if (!TextUtils.isEmpty(text) && text.startsWith("shoubai_emoji_")) {
-            str = "[" + vd + "]";
+            str = "[" + ve + "]";
         } else {
-            str = "#(" + vd + ")";
+            str = "#(" + ve + ")";
         }
         SpannableString spannableString = new SpannableString(str + HanziToPinyin.Token.SEPARATOR);
-        d dVar = new d(TbadkCoreApplication.getInst().getContext(), vb);
+        d dVar = new d(TbadkCoreApplication.getInst().getContext(), vc);
         if (arrayList != null) {
             arrayList.add(dVar);
         }
-        if (TbFaceManager.aPU().vu(text) != null) {
-            int width = (int) (vu.getWidth() * 0.5d);
+        if (TbFaceManager.aPU().vv(text) != null) {
+            int width = (int) (vv.getWidth() * 0.5d);
             dVar.setBounds(new Rect(0, 0, width, width));
         } else {
             dVar.setBounds(new Rect(0, 0, 0, 0));
@@ -236,7 +236,7 @@ public class TbRichTextItem extends OrmObject {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.TbRichTextItem.1
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    TbRichTextItem.this.wh(str2);
+                    TbRichTextItem.this.wi(str2);
                 }
             };
         } else {
@@ -351,7 +351,7 @@ public class TbRichTextItem extends OrmObject {
                     }
                     this.dPz = new TbRichTextCommInfo(pbContent);
                     if (this.mType == 4) {
-                        if (TbFaceManager.aPU().vb(this.dPz.getText()) <= 0) {
+                        if (TbFaceManager.aPU().vc(this.dPz.getText()) <= 0) {
                             this.mType = 1;
                             if (StringUtils.isNull(pbContent.c)) {
                                 str = "[" + TbadkCoreApplication.getInst().getString(R.string.editor_express) + "]";
@@ -410,9 +410,9 @@ public class TbRichTextItem extends OrmObject {
             } else {
                 this.dPz = new TbRichTextCommInfo(jSONObject);
                 if (this.mType == 4) {
-                    int vb = TbFaceManager.aPU().vb(this.dPz.getText());
+                    int vc = TbFaceManager.aPU().vc(this.dPz.getText());
                     String optString = jSONObject.optString("c");
-                    if (vb <= 0) {
+                    if (vc <= 0) {
                         this.mType = 1;
                         if (StringUtils.isNull(optString)) {
                             str = "[" + TbadkCoreApplication.getInst().getString(R.string.editor_express) + "]";
@@ -440,7 +440,7 @@ public class TbRichTextItem extends OrmObject {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wh(String str) {
+    public void wi(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tbadk.data.l lVar = new com.baidu.tbadk.data.l();
             lVar.mLink = str;

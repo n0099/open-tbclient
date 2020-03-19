@@ -10,7 +10,7 @@ public class e extends g implements i {
     }
 
     @Override // org.java_websocket.c.i
-    public void Sv(String str) {
+    public void Sw(String str) {
         this.nOH = str;
     }
 

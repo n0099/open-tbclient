@@ -274,7 +274,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.c.g> 
                     return;
                 case 36:
                     TiebaStatic.log(new an("c12524").X("obj_locate", this.jkx.itemId));
-                    GC(this.jkx.cMd);
+                    GD(this.jkx.cMd);
                     return;
                 case 37:
                     TiebaStatic.log(new an("c12523").X("obj_locate", 24));
@@ -334,7 +334,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.c.g> 
                     if (!TextUtils.isEmpty(this.jkx.cMd)) {
                         com.baidu.tbadk.browser.a.startWebActivity(this.mContext, this.jkx.cMd);
                     }
-                    an.tu("c13548").aGD();
+                    an.tv("c13548").aGD();
                     return;
                 case 46:
                     ba.aGK().a(this.mTbPageContext, new String[]{this.jkx.cMd}, true);
@@ -363,7 +363,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.c.g> 
         }
     }
 
-    private void GB(String str) {
+    private void GC(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
@@ -379,10 +379,10 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.c.g> 
         }
     }
 
-    private void GC(String str) {
+    private void GD(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                GB(str);
+                GC(str);
             } else if (str.startsWith("nohead:url")) {
                 ba.aGK().b(this.mTbPageContext, new String[]{str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, "") + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
             } else {

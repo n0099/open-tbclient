@@ -17,7 +17,7 @@ public class HotForumModel extends BdBaseModel {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void En(String str);
+        void Eo(String str);
 
         void a(List<b> list, List<c> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
@@ -38,14 +38,14 @@ public class HotForumModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (!(responsedMessage instanceof HotForumSocketResponseMessage) && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    HotForumModel.this.igE.En(HotForumModel.this.cVR.getString(R.string.neterror));
+                    HotForumModel.this.igE.Eo(HotForumModel.this.cVR.getString(R.string.neterror));
                 } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-                    HotForumModel.this.igE.En(HotForumModel.this.cVR.getString(R.string.neterror));
+                    HotForumModel.this.igE.Eo(HotForumModel.this.cVR.getString(R.string.neterror));
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        HotForumModel.this.igE.En(responsedMessage.getErrorString());
+                        HotForumModel.this.igE.Eo(responsedMessage.getErrorString());
                     } else {
-                        HotForumModel.this.igE.En(HotForumModel.this.cVR.getString(R.string.neterror));
+                        HotForumModel.this.igE.Eo(HotForumModel.this.cVR.getString(R.string.neterror));
                     }
                 } else {
                     if (responsedMessage instanceof HotForumHttpResponseMessage) {

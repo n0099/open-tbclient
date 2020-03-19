@@ -211,7 +211,7 @@ public class PersonalizeFragment extends BaseFragment implements VoiceManager.c,
     public com.baidu.tbadk.m.d getPageStayDurationItem() {
         com.baidu.tbadk.m.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            pageStayDurationItem.vF(TbadkCoreApplication.getInst().getAdAdSense().dmy);
+            pageStayDurationItem.vG(TbadkCoreApplication.getInst().getAdAdSense().dmy);
         }
         return pageStayDurationItem;
     }

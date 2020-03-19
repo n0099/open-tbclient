@@ -120,7 +120,7 @@ public class e {
             case 2:
                 return a(bjVar, pbContent.type.intValue(), pbContent.text, pbContent.link);
             case 4:
-                return wc(pbContent.text);
+                return wd(pbContent.text);
             case 16:
                 return b(bjVar, pbContent.text, String.valueOf(pbContent.uid));
             case 18:
@@ -157,7 +157,7 @@ public class e {
             fVar = new f(i, str2) { // from class: com.baidu.tbadk.widget.richText.e.3
                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                 public void onClick(View view) {
-                    e.wd(str2);
+                    e.we(str2);
                 }
             };
         }
@@ -185,25 +185,25 @@ public class e {
         return a(bjVar, i, str, str2, 0);
     }
 
-    private static SpannableString wc(String str) {
-        int vb;
+    private static SpannableString wd(String str) {
+        int vc;
         String str2;
-        a.C0391a vu;
-        if (str == null || (vb = TbFaceManager.aPU().vb(str)) == 0) {
+        a.C0391a vv;
+        if (str == null || (vc = TbFaceManager.aPU().vc(str)) == 0) {
             return null;
         }
-        String vd = TbFaceManager.aPU().vd(str);
+        String ve = TbFaceManager.aPU().ve(str);
         if (!TextUtils.isEmpty(str) && str.startsWith("shoubai_emoji_")) {
-            str2 = "[" + vd + "]";
-            vu = TbFaceManager.aPU().vu("image_emoticon");
+            str2 = "[" + ve + "]";
+            vv = TbFaceManager.aPU().vv("image_emoticon");
         } else {
-            str2 = "#(" + vd + ")";
-            vu = TbFaceManager.aPU().vu(str);
+            str2 = "#(" + ve + ")";
+            vv = TbFaceManager.aPU().vv(str);
         }
         SpannableString spannableString = new SpannableString(str2 + HanziToPinyin.Token.SEPARATOR);
-        d dVar = new d(TbadkCoreApplication.getInst().getContext(), vb);
-        if (vu != null) {
-            int width = (int) (0.4d * vu.getWidth());
+        d dVar = new d(TbadkCoreApplication.getInst().getContext(), vc);
+        if (vv != null) {
+            int width = (int) (0.4d * vv.getWidth());
             dVar.setBounds(new Rect(0, 0, width, width));
         } else {
             dVar.setBounds(new Rect(0, 0, 0, 0));
@@ -321,7 +321,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void wd(String str) {
+    public static void we(String str) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (!TextUtils.isEmpty(str) && (currentActivity instanceof TbPageContextSupport)) {
             ba.aGK().b(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{str});

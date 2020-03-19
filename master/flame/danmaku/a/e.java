@@ -60,9 +60,9 @@ public class e implements h {
         Boolean valueOf = Boolean.valueOf(this.nGr.dMS());
         if (valueOf != null) {
             if (valueOf.booleanValue()) {
-                this.nGr.nJA.Sk("1017_Filter");
-            } else {
                 this.nGr.nJA.Sl("1017_Filter");
+            } else {
+                this.nGr.nJA.Sm("1017_Filter");
             }
         }
     }
@@ -373,9 +373,9 @@ public class e implements h {
             Boolean bool2 = (Boolean) objArr[0];
             if (bool2 != null) {
                 if (bool2.booleanValue()) {
-                    this.nGr.nJA.Sk("1017_Filter");
-                } else {
                     this.nGr.nJA.Sl("1017_Filter");
+                } else {
+                    this.nGr.nJA.Sm("1017_Filter");
                 }
                 z = true;
             } else {

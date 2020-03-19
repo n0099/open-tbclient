@@ -50,7 +50,7 @@ public class n implements d {
             if (n.this.czv()) {
                 s.aH(n.this.mContext, n.this.jxl);
             } else if (!n.this.jxm) {
-                s.wH(n.this.jxl);
+                s.wI(n.this.jxl);
             }
         }
     };
@@ -75,7 +75,7 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public String wF(String str) {
+    public String wG(String str) {
         this.jxu = com.baidu.tbadk.coreExtra.model.f.aMm();
         this.jxv = com.baidu.tbadk.coreExtra.model.f.aMn();
         this.jxw = com.baidu.tbadk.coreExtra.model.f.aMo();
@@ -165,10 +165,10 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public void GY(String str) {
+    public void GZ(String str) {
         com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jxA);
         com.baidu.adp.lib.f.e.gx().removeCallbacks(this.jxz);
-        wK(str);
+        wL(str);
         if (this.mStartTime > 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
             this.gvr += currentTimeMillis;
@@ -233,7 +233,7 @@ public class n implements d {
                     this.jxj.f(anVar);
                 }
                 com.baidu.tbadk.pageInfo.c.a(this.mContext, anVar);
-                if (!anVar.tt("obj_param5") && this.jxq.aAj() != null) {
+                if (!anVar.tu("obj_param5") && this.jxq.aAj() != null) {
                     if (this.jxq.aAj().getBaijiahaoData() != null) {
                         if (this.jxq.aAj().getBaijiahaoData().oriUgcType == 2) {
                             anVar.X("obj_param5", 3);
@@ -315,14 +315,14 @@ public class n implements d {
 
     @Override // com.baidu.tieba.play.d
     public boolean cyS() {
-        return s.wG(this.jxl) != null;
+        return s.wH(this.jxl) != null;
     }
 
     public void czs() {
         this.jxm = true;
     }
 
-    public void Hb(String str) {
+    public void Hc(String str) {
         this.jxk = str;
     }
 
@@ -362,7 +362,7 @@ public class n implements d {
     }
 
     @Override // com.baidu.tieba.play.d
-    public void wK(String str) {
+    public void wL(String str) {
         if (czv()) {
             s.aI(this.mContext, str);
         }

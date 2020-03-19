@@ -236,9 +236,9 @@ public class c {
 
     private void a(SVG.ah ahVar, Path path) {
         if (this.lHq.lEL.lGj instanceof SVG.s) {
-            SVG.ak NP = this.lHc.NP(((SVG.s) this.lHq.lEL.lGj).Tv);
-            if (NP instanceof SVG.w) {
-                a(ahVar, path, (SVG.w) NP);
+            SVG.ak NQ = this.lHc.NQ(((SVG.s) this.lHq.lEL.lGj).Tv);
+            if (NQ instanceof SVG.w) {
+                a(ahVar, path, (SVG.w) NQ);
                 return;
             }
         }
@@ -393,8 +393,8 @@ public class c {
             this.lHr.push(this.lHq);
             this.lHq = (g) this.lHq.clone();
             if (this.lHq.lEL.lGN != null && this.lHq.lHO) {
-                SVG.ak NP = this.lHc.NP(this.lHq.lEL.lGN);
-                if (NP == null || !(NP instanceof SVG.q)) {
+                SVG.ak NQ = this.lHc.NQ(this.lHq.lEL.lGN);
+                if (NQ == null || !(NQ instanceof SVG.q)) {
                     k("Mask reference '%s' not found", this.lHq.lEL.lGN);
                     this.lHq.lEL.lGN = null;
                     return true;
@@ -409,9 +409,9 @@ public class c {
 
     private void b(SVG.ah ahVar) {
         if (this.lHq.lEL.lGN != null && this.lHq.lHO) {
-            SVG.ak NP = this.lHc.NP(this.lHq.lEL.lGN);
+            SVG.ak NQ = this.lHc.NQ(this.lHq.lEL.lGN);
             djp();
-            a((SVG.q) NP, ahVar);
+            a((SVG.q) NQ, ahVar);
             Bitmap djq = djq();
             this.lHm = this.lHu.pop();
             this.lHm.save();
@@ -510,7 +510,7 @@ public class c {
                     if (djd != null) {
                         if (!djd.isEmpty() && diU != null) {
                             for (String str : djd) {
-                                if (!diU.NV(str)) {
+                                if (!diU.NW(str)) {
                                     break;
                                 }
                             }
@@ -564,8 +564,8 @@ public class c {
             if (baVar.lFJ == null || !baVar.lFJ.isZero()) {
                 a(this.lHq, baVar);
                 if (djt()) {
-                    SVG.ak NP = baVar.lHc.NP(baVar.Tv);
-                    if (NP == null) {
+                    SVG.ak NQ = baVar.lHc.NQ(baVar.Tv);
+                    if (NQ == null) {
                         k("Use reference '%s' not found", baVar.Tv);
                         return;
                     }
@@ -578,19 +578,19 @@ public class c {
                     d((SVG.ah) baVar);
                     boolean djn = djn();
                     a((SVG.ag) baVar);
-                    if (NP instanceof SVG.ac) {
+                    if (NQ instanceof SVG.ac) {
                         djk();
-                        SVG.ac acVar = (SVG.ac) NP;
+                        SVG.ac acVar = (SVG.ac) NQ;
                         a(acVar, baVar.lFI != null ? baVar.lFI : acVar.lFI, baVar.lFJ != null ? baVar.lFJ : acVar.lFJ);
                         djl();
-                    } else if (NP instanceof SVG.aq) {
+                    } else if (NQ instanceof SVG.aq) {
                         SVG.n nVar = baVar.lFI != null ? baVar.lFI : new SVG.n(100.0f, SVG.Unit.percent);
                         SVG.n nVar2 = baVar.lFJ != null ? baVar.lFJ : new SVG.n(100.0f, SVG.Unit.percent);
                         djk();
-                        a((SVG.aq) NP, nVar, nVar2);
+                        a((SVG.aq) NQ, nVar, nVar2);
                         djl();
                     } else {
-                        b(NP);
+                        b(NQ);
                     }
                     djm();
                     if (djn) {
@@ -903,7 +903,7 @@ public class c {
         }
 
         @Override // com.caverock.androidsvg.c.i
-        public void NT(String str) {
+        public void NU(String str) {
             c.debug("TextSequence render", new Object[0]);
             if (c.this.dju()) {
                 if (c.this.lHq.lHK) {
@@ -920,7 +920,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public abstract class i {
-        public abstract void NT(String str);
+        public abstract void NU(String str);
 
         private i() {
         }
@@ -937,7 +937,7 @@ public class c {
             while (it.hasNext()) {
                 SVG.ak next = it.next();
                 if (next instanceof SVG.az) {
-                    iVar.NT(n(((SVG.az) next).text, z, !it.hasNext()));
+                    iVar.NU(n(((SVG.az) next).text, z, !it.hasNext()));
                 } else {
                     a(next, iVar);
                 }
@@ -992,12 +992,12 @@ public class c {
                 a(this.lHq, arVar);
                 if (djt()) {
                     c((SVG.ah) arVar.djf());
-                    SVG.ak NP = akVar.lHc.NP(arVar.Tv);
-                    if (NP != null && (NP instanceof SVG.av)) {
+                    SVG.ak NQ = akVar.lHc.NQ(arVar.Tv);
+                    if (NQ != null && (NQ instanceof SVG.av)) {
                         StringBuilder sb = new StringBuilder();
-                        a((SVG.av) NP, sb);
+                        a((SVG.av) NQ, sb);
                         if (sb.length() > 0) {
-                            iVar.NT(sb.toString());
+                            iVar.NU(sb.toString());
                         }
                     } else {
                         k("Tref reference '%s' not found", arVar.Tv);
@@ -1013,12 +1013,12 @@ public class c {
         debug("TextPath render", new Object[0]);
         a(this.lHq, awVar);
         if (djt() && dju()) {
-            SVG.ak NP = awVar.lHc.NP(awVar.Tv);
-            if (NP == null) {
+            SVG.ak NQ = awVar.lHc.NQ(awVar.Tv);
+            if (NQ == null) {
                 k("TextPath reference '%s' not found", awVar.Tv);
                 return;
             }
-            SVG.t tVar = (SVG.t) NP;
+            SVG.t tVar = (SVG.t) NQ;
             Path bG = new C0652c(tVar.lFY).bG();
             if (tVar.lFF != null) {
                 bG.transform(tVar.lFF);
@@ -1055,7 +1055,7 @@ public class c {
         }
 
         @Override // com.caverock.androidsvg.c.e, com.caverock.androidsvg.c.i
-        public void NT(String str) {
+        public void NU(String str) {
             if (c.this.dju()) {
                 if (c.this.lHq.lHK) {
                     c.this.lHm.drawTextOnPath(str, this.path, this.x, this.y, c.this.lHq.jH);
@@ -1085,7 +1085,7 @@ public class c {
         }
 
         @Override // com.caverock.androidsvg.c.i
-        public void NT(String str) {
+        public void NU(String str) {
             this.x += c.this.lHq.jH.measureText(str);
         }
     }
@@ -1108,12 +1108,12 @@ public class c {
         public boolean b(SVG.av avVar) {
             if (avVar instanceof SVG.aw) {
                 SVG.aw awVar = (SVG.aw) avVar;
-                SVG.ak NP = avVar.lHc.NP(awVar.Tv);
-                if (NP == null) {
+                SVG.ak NQ = avVar.lHc.NQ(awVar.Tv);
+                if (NQ == null) {
                     c.k("TextPath path reference '%s' not found", awVar.Tv);
                     return false;
                 }
-                SVG.t tVar = (SVG.t) NP;
+                SVG.t tVar = (SVG.t) NQ;
                 Path bG = new C0652c(tVar.lFY).bG();
                 if (tVar.lFF != null) {
                     bG.transform(tVar.lFF);
@@ -1127,7 +1127,7 @@ public class c {
         }
 
         @Override // com.caverock.androidsvg.c.i
-        public void NT(String str) {
+        public void NU(String str) {
             if (c.this.dju()) {
                 Rect rect = new Rect();
                 c.this.lHq.jH.getTextBounds(str, 0, str.length(), rect);
@@ -1196,16 +1196,16 @@ public class c {
         debug("Image render", new Object[0]);
         if (mVar.lFI != null && !mVar.lFI.isZero() && mVar.lFJ != null && !mVar.lFJ.isZero() && mVar.Tv != null) {
             PreserveAspectRatio preserveAspectRatio = mVar.lHe != null ? mVar.lHe : PreserveAspectRatio.lFa;
-            Bitmap NS = NS(mVar.Tv);
-            if (NS == null) {
+            Bitmap NT = NT(mVar.Tv);
+            if (NT == null) {
                 com.caverock.androidsvg.d diU = this.lHc.diU();
                 if (diU != null) {
-                    bitmap = diU.NU(mVar.Tv);
+                    bitmap = diU.NV(mVar.Tv);
                 } else {
                     return;
                 }
             } else {
-                bitmap = NS;
+                bitmap = NT;
             }
             if (bitmap == null) {
                 k("Could not locate image '%s'", mVar.Tv);
@@ -1234,7 +1234,7 @@ public class c {
         }
     }
 
-    private Bitmap NS(String str) {
+    private Bitmap NT(String str) {
         int indexOf;
         if (str.startsWith("data:") && str.length() >= 14 && (indexOf = str.indexOf(44)) != -1 && indexOf >= 12 && ";base64".equals(str.substring(indexOf - 7, indexOf))) {
             byte[] decode = Base64.decode(str.substring(indexOf + 1), 0);
@@ -1926,17 +1926,17 @@ public class c {
         int size;
         if (this.lHq.lEL.lGF != null || this.lHq.lEL.lGG != null || this.lHq.lEL.lGH != null) {
             if (this.lHq.lEL.lGF != null) {
-                SVG.ak NP = jVar.lHc.NP(this.lHq.lEL.lGF);
-                if (NP != null) {
-                    pVar = (SVG.p) NP;
+                SVG.ak NQ = jVar.lHc.NQ(this.lHq.lEL.lGF);
+                if (NQ != null) {
+                    pVar = (SVG.p) NQ;
                     if (this.lHq.lEL.lGG != null) {
-                        SVG.ak NP2 = jVar.lHc.NP(this.lHq.lEL.lGG);
-                        if (NP2 != null) {
-                            pVar2 = (SVG.p) NP2;
+                        SVG.ak NQ2 = jVar.lHc.NQ(this.lHq.lEL.lGG);
+                        if (NQ2 != null) {
+                            pVar2 = (SVG.p) NQ2;
                             if (this.lHq.lEL.lGH != null) {
-                                SVG.ak NP3 = jVar.lHc.NP(this.lHq.lEL.lGH);
-                                if (NP3 != null) {
-                                    pVar3 = (SVG.p) NP3;
+                                SVG.ak NQ3 = jVar.lHc.NQ(this.lHq.lEL.lGH);
+                                if (NQ3 != null) {
+                                    pVar3 = (SVG.p) NQ3;
                                     if (!(jVar instanceof SVG.t)) {
                                         b2 = new a(((SVG.t) jVar).lFY).djA();
                                     } else if (jVar instanceof SVG.o) {
@@ -2167,8 +2167,8 @@ public class c {
     }
 
     private void a(boolean z, SVG.a aVar, SVG.s sVar) {
-        SVG.ak NP = this.lHc.NP(sVar.Tv);
-        if (NP == null) {
+        SVG.ak NQ = this.lHc.NQ(sVar.Tv);
+        if (NQ == null) {
             Object[] objArr = new Object[2];
             objArr[0] = z ? "Fill" : "Stroke";
             objArr[1] = sVar.Tv;
@@ -2184,14 +2184,14 @@ public class c {
                 return;
             }
         }
-        if (NP instanceof SVG.aj) {
-            a(z, aVar, (SVG.aj) NP);
+        if (NQ instanceof SVG.aj) {
+            a(z, aVar, (SVG.aj) NQ);
         }
-        if (NP instanceof SVG.an) {
-            a(z, aVar, (SVG.an) NP);
+        if (NQ instanceof SVG.an) {
+            a(z, aVar, (SVG.an) NQ);
         }
-        if (NP instanceof SVG.aa) {
-            a(z, (SVG.aa) NP);
+        if (NQ instanceof SVG.aa) {
+            a(z, (SVG.aa) NQ);
         }
     }
 
@@ -2373,15 +2373,15 @@ public class c {
     }
 
     private void a(SVG.i iVar, String str) {
-        SVG.ak NP = iVar.lHc.NP(str);
-        if (NP == null) {
+        SVG.ak NQ = iVar.lHc.NQ(str);
+        if (NQ == null) {
             j("Gradient reference '%s' not found", str);
-        } else if (!(NP instanceof SVG.i)) {
+        } else if (!(NQ instanceof SVG.i)) {
             k("Gradient href attributes must point to other gradient elements", new Object[0]);
-        } else if (NP == iVar) {
+        } else if (NQ == iVar) {
             k("Circular reference in gradient href attribute '%s'", str);
         } else {
-            SVG.i iVar2 = (SVG.i) NP;
+            SVG.i iVar2 = (SVG.i) NQ;
             if (iVar.lFC == null) {
                 iVar.lFC = iVar2.lFC;
             }
@@ -2396,9 +2396,9 @@ public class c {
             }
             try {
                 if (iVar instanceof SVG.aj) {
-                    a((SVG.aj) iVar, (SVG.aj) NP);
+                    a((SVG.aj) iVar, (SVG.aj) NQ);
                 } else {
-                    a((SVG.an) iVar, (SVG.an) NP);
+                    a((SVG.an) iVar, (SVG.an) NQ);
                 }
             } catch (ClassCastException e2) {
             }
@@ -2474,12 +2474,12 @@ public class c {
 
     private void a(SVG.ah ahVar, SVG.a aVar) {
         if (this.lHq.lEL.clipPath != null) {
-            SVG.ak NP = ahVar.lHc.NP(this.lHq.lEL.clipPath);
-            if (NP == null) {
+            SVG.ak NQ = ahVar.lHc.NQ(this.lHq.lEL.clipPath);
+            if (NQ == null) {
                 k("ClipPath reference '%s' not found", this.lHq.lEL.clipPath);
                 return;
             }
-            SVG.d dVar = (SVG.d) NP;
+            SVG.d dVar = (SVG.d) NQ;
             if (dVar.UM.isEmpty()) {
                 this.lHm.clipRect(0, 0, 0, 0);
                 return;
@@ -2601,13 +2601,13 @@ public class c {
             if (baVar.lFF != null) {
                 matrix.preConcat(baVar.lFF);
             }
-            SVG.ak NP = baVar.lHc.NP(baVar.Tv);
-            if (NP == null) {
+            SVG.ak NQ = baVar.lHc.NQ(baVar.Tv);
+            if (NQ == null) {
                 k("Use reference '%s' not found", baVar.Tv);
                 return;
             }
             d((SVG.ah) baVar);
-            a(NP, false, path, matrix);
+            a(NQ, false, path, matrix);
         }
     }
 
@@ -2669,7 +2669,7 @@ public class c {
         }
 
         @Override // com.caverock.androidsvg.c.i
-        public void NT(String str) {
+        public void NU(String str) {
             if (c.this.dju()) {
                 Path path = new Path();
                 c.this.lHq.jH.getTextPath(str, 0, str.length(), this.x, this.y, path);
@@ -2905,15 +2905,15 @@ public class c {
     }
 
     private void a(SVG.w wVar, String str) {
-        SVG.ak NP = wVar.lHc.NP(str);
-        if (NP == null) {
+        SVG.ak NQ = wVar.lHc.NQ(str);
+        if (NQ == null) {
             j("Pattern reference '%s' not found", str);
-        } else if (!(NP instanceof SVG.w)) {
+        } else if (!(NQ instanceof SVG.w)) {
             k("Pattern href attributes must point to other pattern elements", new Object[0]);
-        } else if (NP == wVar) {
+        } else if (NQ == wVar) {
             k("Circular reference in pattern href attribute '%s'", str);
         } else {
-            SVG.w wVar2 = (SVG.w) NP;
+            SVG.w wVar2 = (SVG.w) NQ;
             if (wVar.lGe == null) {
                 wVar.lGe = wVar2.lGe;
             }

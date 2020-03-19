@@ -14,7 +14,7 @@ public class g implements c {
     }
 
     @Override // org.java_websocket.c.f
-    public String Sw(String str) {
+    public String Sx(String str) {
         String str2 = this.nOI.get(str);
         if (str2 == null) {
             return "";
@@ -33,7 +33,7 @@ public class g implements c {
     }
 
     @Override // org.java_websocket.c.f
-    public boolean Sx(String str) {
+    public boolean Sy(String str) {
         return this.nOI.containsKey(str);
     }
 }

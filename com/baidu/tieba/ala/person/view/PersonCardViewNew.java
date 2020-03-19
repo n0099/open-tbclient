@@ -195,7 +195,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
         if (personUserData != null) {
             boolean z = (personUserData.location_info == null || TextUtils.isEmpty(personUserData.location_info.location)) ? false : true;
             boolean z2 = (personUserData.user_info == null || personUserData.user_info.ala_id == 0) ? false : true;
-            this.YB = personUserData.user_info != null && this.ftx.zB(personUserData.user_info.user_id);
+            this.YB = personUserData.user_info != null && this.ftx.zC(personUserData.user_info.user_id);
             this.uid = personUserData.user_info != null ? personUserData.user_info.user_id : "";
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             this.ftW = (currentAccount == null || "".equals(currentAccount) || !currentAccount.equals(personUserData.user_info.user_id)) ? false : true;
@@ -285,7 +285,7 @@ public class PersonCardViewNew implements ViewPager.OnPageChangeListener, View.O
             if (personUserData.user_info == null || JavaTypesHelper.toLong(personUserData.user_info.user_id, 0L) == 0 || (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(personUserData.user_info.user_id))) {
                 this.fty.setVisibility(8);
                 this.ftJ.setVisibility(8);
-            } else if (this.ftx.zB(TbadkCoreApplication.getCurrentAccount())) {
+            } else if (this.ftx.zC(TbadkCoreApplication.getCurrentAccount())) {
                 this.ftJ.setVisibility(8);
                 this.fty.setPadding(ftw, eZO, 0, 0);
                 this.fty.setVisibility(0);

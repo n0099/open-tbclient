@@ -270,11 +270,11 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
             } else if (this.jbz && Config.BAWU_TYPE_MANAGER.equals(this.jbA)) {
                 bVar.jcW.setText(R.string.bawu_member_bazhu_tip);
                 bVar.jcW.setVisibility(0);
-                bVar.Gx(this.jbA);
+                bVar.Gy(this.jbA);
             } else if (this.jbz && Config.BAWU_TYPE_ASSIST.equals(this.jbA)) {
                 bVar.jcW.setText(R.string.bawu_member_xbazhu_tip);
                 bVar.jcW.setVisibility(0);
-                bVar.Gx(this.jbA);
+                bVar.Gy(this.jbA);
             } else {
                 bVar.jcW.setVisibility(8);
             }
@@ -362,7 +362,7 @@ public class c extends com.baidu.adp.widget.ListView.a<PostData, com.baidu.tieba
     public void b(com.baidu.tieba.pb.videopb.e.b bVar) {
         if (bVar != null) {
             if (this.jbz) {
-                bVar.Gx(this.jbA);
+                bVar.Gy(this.jbA);
             }
             bVar.zI(this.iSY);
             bVar.rh(this.jbE || this.jbF);

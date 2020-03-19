@@ -34,12 +34,12 @@ public class c extends v.a {
             this.jia = mVar;
             n nVar = (n) mVar;
             if (nVar.aOf()) {
-                String tm = o.tm(nVar.getSmallUrl());
+                String tn = o.tn(nVar.getSmallUrl());
                 this.jib.setVisibility(0);
-                if (StringUtils.isNull(tm)) {
+                if (StringUtils.isNull(tn)) {
                     this.EB.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
-                    this.EB.startLoad(tm, 25, false);
+                    this.EB.startLoad(tn, 25, false);
                 }
             } else {
                 this.EB.setDefaultResource(R.drawable.img_default_100);

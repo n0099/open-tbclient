@@ -68,11 +68,11 @@ public class e {
         this.forumGameLabel = str;
     }
 
-    public void sK(String str) {
+    public void sL(String str) {
         this.cSr = str;
     }
 
-    public void sL(String str) {
+    public void sM(String str) {
         this.cSs = str;
     }
 }

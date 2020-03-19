@@ -93,7 +93,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
-    public void tX(String str) {
+    public void tY(String str) {
         if (this.KJ != null && !TextUtils.isEmpty(str) && str.equals(this.KJ.getTid())) {
             com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
             dVar.cNP = 4;

@@ -21,7 +21,7 @@ public class KSDevice {
     public String getDS() {
         if (this.mCache != null) {
             String dKv = this.mCache.dKv();
-            this.mCache.Sb(dKv);
+            this.mCache.Sc(dKv);
             return dKv;
         }
         return getDeviceId();

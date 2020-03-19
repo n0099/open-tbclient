@@ -198,7 +198,7 @@ public class a implements KeyboardEventLayout.a {
                         String str2 = (String) sparseArray.get(R.id.tag_photo_userid);
                         if (str != null) {
                             a.this.hRt.setReplyId(str2);
-                            a.this.hRt.vs(str);
+                            a.this.hRt.vt(str);
                         }
                     }
                     a.this.crO();
@@ -538,7 +538,7 @@ public class a implements KeyboardEventLayout.a {
             alVar.setFeedBackReasonMap(sparseArray2);
             this.gRC.setDefaultReasonArray(new String[]{this.iWK.getString(R.string.delete_thread_reason_1), this.iWK.getString(R.string.delete_thread_reason_2), this.iWK.getString(R.string.delete_thread_reason_3), this.iWK.getString(R.string.delete_thread_reason_4), this.iWK.getString(R.string.delete_thread_reason_5)});
             this.gRC.setData(alVar);
-            this.gRC.wn("4");
+            this.gRC.wo("4");
             this.gRC.a(new e.b() { // from class: com.baidu.tieba.pb.pb.sub.a.12
                 @Override // com.baidu.tieba.NEGFeedBack.e.b
                 public void S(JSONArray jSONArray) {
@@ -996,7 +996,7 @@ public class a implements KeyboardEventLayout.a {
         this.iXj.setVisibility(8);
     }
 
-    public void zO(String str) {
+    public void zP(String str) {
         b(NoDataViewFactory.d.cz(str, this.iWK.getPageContext().getString(R.string.refresh_view_title_text)));
         this.iXj.setVisibility(8);
     }

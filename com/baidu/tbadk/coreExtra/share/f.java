@@ -155,7 +155,7 @@ public class f {
         }
         if (shareItem.imageUri != null && !shareItem.imageUri.equals("")) {
             String uri = shareItem.imageUri.toString();
-            if (!uy(uri) && !uz(uri)) {
+            if (!uz(uri) && !uA(uri)) {
                 shareItem.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 shareItem.imageUri = Uri.parse(uri);
@@ -169,7 +169,7 @@ public class f {
         return shareItem;
     }
 
-    protected boolean uy(String str) {
+    protected boolean uz(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("file://")) {
             try {
                 File file = new File(new URI(str));
@@ -207,7 +207,7 @@ public class f {
         return str + str3 + str2;
     }
 
-    private boolean uz(String str) {
+    private boolean uA(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
         if (ba.aGK().UrlValidated(str)) {
             if (split == null || split.length <= 0) {

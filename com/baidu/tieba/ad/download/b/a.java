@@ -16,12 +16,12 @@ public interface a {
         }
 
         @Override // com.baidu.tieba.ad.download.b.a
-        public void xe(String str) {
+        public void xf(String str) {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
 
         @Override // com.baidu.tieba.ad.download.b.a
-        public void xf(String str) {
+        public void xg(String str) {
             throw new IllegalArgumentException("IDownloaderProxy 无有效实例");
         }
 
@@ -35,7 +35,7 @@ public interface a {
 
     void b(@NonNull DownloadCacheKey downloadCacheKey, @Nullable AdDownloadData adDownloadData);
 
-    void xe(String str);
-
     void xf(String str);
+
+    void xg(String str);
 }

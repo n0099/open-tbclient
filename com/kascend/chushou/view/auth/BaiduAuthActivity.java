@@ -287,9 +287,9 @@ public final class BaiduAuthActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final String a(String str) {
-        Uri QU = i.QU(str);
-        if (QU != null) {
-            return QU.getQueryParameter("code");
+        Uri QV = i.QV(str);
+        if (QV != null) {
+            return QV.getQueryParameter("code");
         }
         return null;
     }

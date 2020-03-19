@@ -723,7 +723,7 @@ public class e implements View.OnClickListener {
         }
     }
 
-    public void yv(String str) {
+    public void yw(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.eFi.avA.setText(str);
             this.eFt.setText("");
@@ -775,8 +775,8 @@ public class e implements View.OnClickListener {
     public void f(int i, String str, String str2) {
         com.baidu.tieba.ala.guardclub.model.c cVar = new com.baidu.tieba.ala.guardclub.model.c();
         cVar.cM(i);
-        cVar.yx(str);
-        cVar.yy(str2);
+        cVar.yy(str);
+        cVar.yz(str2);
         cVar.setParams();
         MessageManager.getInstance().sendMessage(cVar);
     }

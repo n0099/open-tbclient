@@ -15,18 +15,18 @@ public class b {
     }
 
     public void aNv() {
-        uL("kLCSError=1");
+        uM("kLCSError=1");
     }
 
     public void mh(int i) {
-        uL("kNetStatus=" + i);
+        uM("kNetStatus=" + i);
     }
 
-    public void uK(String str) {
-        uL("kNewIpResult=" + str);
+    public void uL(String str) {
+        uM("kNewIpResult=" + str);
     }
 
-    private void uL(String str) {
+    private void uM(String str) {
         com.baidu.adp.framework.client.socket.i.debug("IpReconnLogHelper", 0, 0, null, com.baidu.tbadk.core.g.RETRY_IPLIST, str);
     }
 }

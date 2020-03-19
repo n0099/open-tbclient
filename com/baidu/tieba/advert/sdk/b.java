@@ -151,7 +151,7 @@ public class b {
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdFailed(String str) {
                         if (azh != null) {
-                            azh.rH(str);
+                            azh.rI(str);
                         }
                     }
 
@@ -192,7 +192,7 @@ public class b {
                 }, "4776976", true);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                azh.rH("oom");
+                azh.rI("oom");
             }
         }
     }

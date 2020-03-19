@@ -42,7 +42,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
         this.emD.hideRefreshButton();
         this.emD.mG(R.drawable.new_pic_emotion_03);
-        this.emD.vy(this.mContext.getResources().getString(R.string.no_data_common_txt));
+        this.emD.vz(this.mContext.getResources().getString(R.string.no_data_common_txt));
         this.emD.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         if (this.emD.getAttachedView() != null && this.emD.getAttachedView().getParent() == null) {

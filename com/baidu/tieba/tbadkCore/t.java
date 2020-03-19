@@ -120,7 +120,7 @@ public class t {
         return arrayList;
     }
 
-    public static boolean IU(String str) {
+    public static boolean IV(String str) {
         return str != null && str.startsWith("tieba://deeplink?");
     }
 

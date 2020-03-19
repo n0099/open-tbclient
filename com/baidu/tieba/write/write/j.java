@@ -72,7 +72,7 @@ public class j {
                 String cXB = j.this.kWs.cXB();
                 if (j.kWr.matcher(cXB).matches()) {
                     j.this.cXn();
-                    j.this.kWt.KR(cXB);
+                    j.this.kWt.KS(cXB);
                     j.this.kWs.a(null, true);
                     return;
                 }
@@ -152,7 +152,7 @@ public class j {
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     j.this.cVv.showToast(postWriteCallBackData.getErrorString());
                     j.this.hiD.aU(postWriteCallBackData.getSensitiveWords());
-                    j.this.hiD.KK(postWriteCallBackData.getErrorString());
+                    j.this.hiD.KL(postWriteCallBackData.getErrorString());
                     if (!v.isEmpty(j.this.hiD.cUx())) {
                         j.this.tW(true);
                     }
@@ -162,7 +162,7 @@ public class j {
                     writeData.setVcodeMD5(aaVar.getVcode_md5());
                     writeData.setVcodeUrl(aaVar.getVcode_pic_url());
                     writeData.setVcodeExtra(aaVar.aJL());
-                    if (!com.baidu.tbadk.s.a.wb(aaVar.aJK())) {
+                    if (!com.baidu.tbadk.s.a.wc(aaVar.aJK())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(j.this.cVv.getPageActivity(), writeData, RequestResponseCode.REQUEST_VCODE)));
                         return;
                     }

@@ -11,7 +11,7 @@ public final class c implements com.google.android.exoplayer2.extractor.e {
             return new com.google.android.exoplayer2.extractor.e[]{new c()};
         }
     };
-    private static final int moi = com.google.android.exoplayer2.util.v.QE("ID3");
+    private static final int moi = com.google.android.exoplayer2.util.v.QF("ID3");
     private final long moj;
     private boolean mom;
     private final d mou;

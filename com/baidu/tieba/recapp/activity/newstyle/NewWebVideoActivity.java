@@ -74,7 +74,7 @@ public class NewWebVideoActivity extends NewAdTbWebViewActivity {
             String stringExtra3 = intent.getStringExtra("tail_frame");
             if (!TextUtils.isEmpty(stringExtra3)) {
                 this.jHX = new AdCard.f();
-                this.jHX.HP(stringExtra3);
+                this.jHX.HQ(stringExtra3);
             }
         } else if (bundle != null) {
             this.mVideoUrl = bundle.getString("video_url");

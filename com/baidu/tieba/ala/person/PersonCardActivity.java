@@ -303,7 +303,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
         return (TextUtils.isEmpty(this.appId) || this.userId == null || this.userId.equals(this.alO)) ? false : true;
     }
 
-    public boolean zB(String str) {
+    public boolean zC(String str) {
         return (TextUtils.isEmpty(this.alO) || TextUtils.isEmpty(str) || !str.equals(this.alO)) ? false : true;
     }
 
@@ -353,7 +353,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
     }
 
     public void brV() {
-        this.fqA.zD(this.userId);
+        this.fqA.zE(this.userId);
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity

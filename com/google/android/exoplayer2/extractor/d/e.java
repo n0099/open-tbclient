@@ -7,7 +7,7 @@ import java.io.EOFException;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 final class e {
-    private static final int mnm = v.QE("OggS");
+    private static final int mnm = v.QF("OggS");
     public int miK;
     public int mnn;
     public long mno;

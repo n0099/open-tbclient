@@ -118,7 +118,7 @@ public class b {
                 accountData2.setPassword("");
                 accountData2.setID(ahVar.getUser().getUserId());
                 String str = this.iri;
-                if (this.irk && (a = d.a(com.baidu.tbadk.core.a.a.azS().sp(str))) != null) {
+                if (this.irk && (a = d.a(com.baidu.tbadk.core.a.a.azS().sq(str))) != null) {
                     str = a.mBduss + "|" + a.mPtoken;
                 }
                 accountData2.setBDUSS(str);

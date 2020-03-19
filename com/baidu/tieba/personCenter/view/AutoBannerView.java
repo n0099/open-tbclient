@@ -84,7 +84,7 @@ public class AutoBannerView extends RelativeLayout {
         return i > 0 && i <= v.getCount(this.mData);
     }
 
-    public void GG(String str) {
+    public void GH(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ba.aGK().b((TbPageContext) i.ab(getContext()), new String[]{str});

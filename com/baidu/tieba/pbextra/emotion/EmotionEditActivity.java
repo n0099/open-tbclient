@@ -237,7 +237,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     break;
                 case 3:
                     if (!TextUtils.isEmpty(this.jfg) && this.jfg.equals(text) && !TextUtils.isEmpty(this.jfd)) {
-                        Gz(this.jfd);
+                        GA(this.jfd);
                         return;
                     }
                     break;
@@ -257,7 +257,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     private void cuH() {
-        this.jfc.GA(this.jfb.getText());
+        this.jfc.GB(this.jfb.getText());
     }
 
     private void cuI() {
@@ -437,7 +437,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
-    public void Gy(String str) {
+    public void Gz(String str) {
         showToast(str);
         this.jfh = 1;
         bKb();
@@ -454,7 +454,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     }
 
     @Override // com.baidu.tieba.pbextra.emotion.model.EmotionEditModel.a
-    public void Gz(String str) {
+    public void GA(String str) {
         this.jfb.getTextView().setBackgroundResource(R.drawable.bg_emotion_edit);
         if (TextUtils.isEmpty(str)) {
             bKb();

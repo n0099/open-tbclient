@@ -112,7 +112,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
 
     public void G(bj bjVar) {
         if (bjVar != null && !StringUtils.isNull(this.KJ.aCr().getName_show())) {
-            this.diG.setText(getContext().getString(R.string.user_name_and_publish, tY(this.KJ.aCr().getName_show())));
+            this.diG.setText(getContext().getString(R.string.user_name_and_publish, tZ(this.KJ.aCr().getName_show())));
             this.diG.setVisibility(0);
         }
     }
@@ -146,7 +146,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         }
     }
 
-    protected String tY(String str) {
+    protected String tZ(String str) {
         return aq.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 

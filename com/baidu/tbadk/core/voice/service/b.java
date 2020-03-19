@@ -27,7 +27,7 @@ public class b {
         this.dlD = str2;
     }
 
-    public m ue(String str) {
+    public m uf(String str) {
         try {
             File file = new File(str);
             if (file == null || !file.exists()) {
@@ -47,21 +47,21 @@ public class b {
         if (md5 != null && md5.length() > 0) {
             md5 = md5.toLowerCase();
         }
-        l tf = com.baidu.tbadk.core.util.c.tf(md5);
-        if (tf == null) {
-            tf = new l();
-            tf.setMd5(md5);
-            tf.setChunkNo(0);
-            tf.setTotalLength(file.length());
+        l tg = com.baidu.tbadk.core.util.c.tg(md5);
+        if (tg == null) {
+            tg = new l();
+            tg.setMd5(md5);
+            tg.setChunkNo(0);
+            tg.setTotalLength(file.length());
         }
-        this.dlA = new a(str, tf, TbConfig.SERVER_ADDRESS + this.dlC, md5);
+        this.dlA = new a(str, tg, TbConfig.SERVER_ADDRESS + this.dlC, md5);
         this.dlB = this.dlA.aIS();
-        if (this.dlB.isSuccess() && (a2 = a(md5, tf)) != null && !a2.equals("")) {
+        if (this.dlB.isSuccess() && (a2 = a(md5, tg)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                tf.setMd5(audioInfoData.getVoiceId());
-                this.dlB.b(tf);
+                tg.setMd5(audioInfoData.getVoiceId());
+                this.dlB.b(tg);
             } else {
                 this.dlB.setErrorCode(audioInfoData.getErrorCode());
                 this.dlB.setErrorString(audioInfoData.getErrorUserMsg());
@@ -90,7 +90,7 @@ public class b {
             this.dlB.setIsSuccess(false);
             return null;
         }
-        com.baidu.tbadk.core.util.c.te(str);
+        com.baidu.tbadk.core.util.c.tf(str);
         return postNetData;
     }
 

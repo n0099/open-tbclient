@@ -210,7 +210,7 @@ public class d extends b {
                         }
                     }, 3000L);
                 } else {
-                    d.this.yQ(str);
+                    d.this.yR(str);
                 }
             }
         }
@@ -231,7 +231,7 @@ public class d extends b {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (d.this.eST != null) {
-                    d.this.eST.yS(str);
+                    d.this.eST.yT(str);
                 }
             }
         }
@@ -402,7 +402,7 @@ public class d extends b {
                                 e.printStackTrace();
                             }
                         }
-                        d.this.eSM.yS(o.a(valueOf3, j + "", j2, false, 1, str3, str4, str5, str6, str7));
+                        d.this.eSM.yT(o.a(valueOf3, j + "", j2, false, 1, str3, str4, str5, str6, str7));
                         o.aEf = j;
                         if (!ILiveGoodsLogger.displayGoodsListMap.contains(Long.valueOf(j))) {
                             ILiveGoodsLogger.displayGoodsListMap.add(Long.valueOf(j));
@@ -525,7 +525,7 @@ public class d extends b {
             this.eRH.updateView();
             if (mVar != null && this.eSY != null && !this.eSY.hasInit && !TextUtils.isEmpty(this.eSY.adw)) {
                 this.eSY.hasInit = true;
-                this.eRH.yM(this.eSY.adw);
+                this.eRH.yN(this.eSY.adw);
             }
         }
     }
@@ -553,7 +553,7 @@ public class d extends b {
             this.eRL = new com.baidu.tieba.ala.liveroom.attentionpop.b(bjO().pageContext);
         }
         if (bjO().faT != null && bjO().faT.yT() != null && bjO().faT.yT().mLiveInfo != null) {
-            this.eRL.yN(String.valueOf(bjO().faT.yT().mLiveInfo.user_id));
+            this.eRL.yO(String.valueOf(bjO().faT.yT().mLiveInfo.user_id));
         }
     }
 
@@ -816,7 +816,7 @@ public class d extends b {
             this.eTp = new com.baidu.tieba.ala.liveroom.h.e(bjO().pageContext);
         }
         this.eTp.setRoomId(bjO().faT.yT().mLiveInfo.room_id);
-        this.eTp.zb("");
+        this.eTp.zc("");
         this.eTp.a(bjO().faT.yT(), this.eTN);
         if (this.eRW == null) {
             this.eRW = new com.baidu.tieba.ala.liveroom.h.b(bjO().pageContext, xC(), this.eTp, new b.a() { // from class: com.baidu.tieba.ala.liveroom.c.d.8
@@ -871,7 +871,7 @@ public class d extends b {
                     } else {
                         BdUtilHelper.hideSoftKeyPad(d.this.bjO().pageContext.getPageActivity(), d.this.bjO().faS.getLiveContainerView());
                     }
-                    d.this.yP(str);
+                    d.this.yQ(str);
                 }
 
                 @Override // com.baidu.live.im.i.a
@@ -1001,7 +1001,7 @@ public class d extends b {
         }
     }
 
-    protected void yQ(String str) {
+    protected void yR(String str) {
         if (this.eTo == null) {
             this.eTo = new com.baidu.tieba.ala.liveroom.q.b(bjO().pageContext);
         }
@@ -1352,9 +1352,9 @@ public class d extends b {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.c.b
-    protected void yL(String str) {
+    protected void yM(String str) {
         if (this.eRH != null) {
-            this.eRH.yL(str);
+            this.eRH.yM(str);
         }
     }
 

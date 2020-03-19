@@ -61,7 +61,7 @@ public class d extends a {
                 bVar.dRv();
                 com.kascend.chushou.c.c.dCo().c(d.this.mQN, null, d.this.mRV.mRoomID, d.this.a(i) + "");
             }
-        }).Td(this.c.getString(a.i.alert_dialog_cancel)).Tf(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_report_room, this.mRV.mName));
+        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_report_room, this.mRV.mName));
         x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
         x.show();
     }

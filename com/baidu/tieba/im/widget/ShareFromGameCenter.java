@@ -107,7 +107,7 @@ public class ShareFromGameCenter extends LinearLayout {
         this.hMB.setDefaultResource(R.drawable.tb_launcher_icon);
         this.hMB.setAutoChangeStyle(false);
         this.hMB.startLoad(this.hMs.getShareSourceIcon(), 10, false);
-        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", com.baidu.tieba.tbadkCore.util.b.Jl(this.hMs.getShareSourceUrl()), "ref_id", "2000801");
+        TiebaStatic.eventStat(this.mContext, "game_show", "show", 1, "dev_id", com.baidu.tieba.tbadkCore.util.b.Jm(this.hMs.getShareSourceUrl()), "ref_id", "2000801");
     }
 
     public LinearLayout getTail() {

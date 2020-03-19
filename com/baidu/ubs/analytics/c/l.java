@@ -11,7 +11,7 @@ public final class l {
     private final LinkedHashMap<String, Long> kYe = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Li(String str) {
+    public final void Lj(String str) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (this.kYe) {
                 this.kYe.put(str, Long.valueOf(System.currentTimeMillis()));
@@ -22,7 +22,7 @@ public final class l {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Lj(String str) {
+    public final void Lk(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
@@ -37,8 +37,8 @@ public final class l {
                         lVar.setPath(dVar.cXV());
                         lVar.x(m.cYe().I());
                     } catch (Exception e) {
-                        com.baidu.ubs.analytics.d.j.Lz(e.toString());
-                        com.baidu.ubs.analytics.d.b.Ls(e.toString());
+                        com.baidu.ubs.analytics.d.j.LA(e.toString());
+                        com.baidu.ubs.analytics.d.b.Lt(e.toString());
                     }
                     com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.l.1
                         @Override // com.baidu.ubs.analytics.d.d

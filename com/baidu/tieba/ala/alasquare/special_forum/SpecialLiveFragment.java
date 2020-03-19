@@ -821,7 +821,7 @@ public class SpecialLiveFragment extends BaseFragment {
                 } else if (i == 1) {
                     oM = RecommendTabFragment.oP(1);
                 } else if (i < this.mData.size() && this.mData.get(i) != null && this.mData.get(i).tabId == 1108) {
-                    oM = GameTabFragment.xK(this.mData.get(i).tabName);
+                    oM = GameTabFragment.xL(this.mData.get(i).tabName);
                 } else {
                     oM = OtherSubTabFragment.a(i, this.mData.get(i));
                 }

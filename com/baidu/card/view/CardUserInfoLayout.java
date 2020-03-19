@@ -643,8 +643,8 @@ public class CardUserInfoLayout extends LinearLayout implements n {
 
     private void nw() {
         this.tbds6 = l.getDimens(this.mContext, R.dimen.tbds6);
-        this.Nv = new LayerDrawable(new Drawable[]{b.aHg().kB(0).af(this.tbds6).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHi(), b.aHg().kB(0).af(this.tbds6).tM("#4D000000").aHi()});
-        this.Nw = new LayerDrawable(new Drawable[]{b.aHg().kB(0).af(this.tbds6).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHi(), b.aHg().kB(0).af(this.tbds6).tM("#4D000000").aHi()});
+        this.Nv = new LayerDrawable(new Drawable[]{b.aHg().kB(0).af(this.tbds6).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHi(), b.aHg().kB(0).af(this.tbds6).tN("#4D000000").aHi()});
+        this.Nw = new LayerDrawable(new Drawable[]{b.aHg().kB(0).af(this.tbds6).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHi(), b.aHg().kB(0).af(this.tbds6).tN("#4D000000").aHi()});
     }
 
     public RelativeLayout getSuffixContainer() {

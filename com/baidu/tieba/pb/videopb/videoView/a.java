@@ -371,7 +371,7 @@ public class a extends d {
             boolean z = (131072 & i) > 0;
             this.jcv.setVisibility(z ? 0 : 8);
             if (z) {
-                TiebaStatic.log(zY("c13600"));
+                TiebaStatic.log(zZ("c13600"));
             }
         }
         if (!this.iFB && !this.jay && (this.mContext instanceof Activity)) {
@@ -493,13 +493,13 @@ public class a extends d {
             startPlay();
             return true;
         } else {
-            this.jzH.setCurrentDuration(x.czM().Hd(this.mVideoUrl), false);
+            this.jzH.setCurrentDuration(x.czM().He(this.mVideoUrl), false);
             zG(this.jcy);
             return true;
         }
     }
 
-    private an zY(String str) {
+    private an zZ(String str) {
         an cx = new an(str).cx("tid", this.Pk).s("fid", this.mFid).cx("uid", TbadkCoreApplication.getCurrentAccount());
         if (this.baijiahaoData != null) {
             cx.cx("obj_param4", this.baijiahaoData.oriUgcNid);
@@ -527,13 +527,13 @@ public class a extends d {
                 TiebaStatic.log(new an("c13599"));
             }
         } else if (i == R.id.video_replay) {
-            TiebaStatic.log(zY("c13602"));
+            TiebaStatic.log(zZ("c13602"));
         } else if (i == R.id.video_play) {
             TiebaStatic.log(new an("c13597"));
         } else if (i == R.id.video_pause) {
             TiebaStatic.log(new an("c13596"));
         } else if (i == R.id.video_next_layout) {
-            TiebaStatic.log(zY("c13601").X("obj_type", this.jcv.jcl ? 1 : 2));
+            TiebaStatic.log(zZ("c13601").X("obj_type", this.jcv.jcl ? 1 : 2));
         }
     }
 

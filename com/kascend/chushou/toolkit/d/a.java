@@ -532,10 +532,10 @@ public class a {
         tv.chushou.basis.a.c gZ = tv.chushou.basis.a.c.gZ(context);
         gZ.aV(str3, false);
         String str4 = "com.kascend.chushouplugin.animplug" + str;
-        tv.chushou.basis.a.d SF = gZ.SF(str4);
+        tv.chushou.basis.a.d SG = gZ.SG(str4);
         try {
-            Class loadClass = SF.nWI.loadClass(str4 + ".PluginInterface");
-            view2 = (View) loadClass.getMethod("startAnimation", Context.class, View.class, Resources.class, Animation.AnimationListener.class, Object.class).invoke(loadClass.newInstance(), context, view, SF.resources, animationListener, obj);
+            Class loadClass = SG.nWI.loadClass(str4 + ".PluginInterface");
+            view2 = (View) loadClass.getMethod("startAnimation", Context.class, View.class, Resources.class, Animation.AnimationListener.class, Object.class).invoke(loadClass.newInstance(), context, view, SG.resources, animationListener, obj);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
             view2 = null;
@@ -568,11 +568,11 @@ public class a {
         tv.chushou.basis.a.c gZ = tv.chushou.basis.a.c.gZ(context);
         gZ.aV(str2, false);
         String str3 = "com.kascend.chushouplugin.animplug" + str;
-        tv.chushou.basis.a.d SF = gZ.SF(str3);
+        tv.chushou.basis.a.d SG = gZ.SG(str3);
         Class<?>[] clsArr = {Context.class, View.class, Resources.class, View.class};
         try {
-            Class loadClass = SF.nWI.loadClass(str3 + ".PluginInterface");
-            loadClass.getMethod("stopAnimation", clsArr).invoke(loadClass.newInstance(), context, view, SF.resources, view2);
+            Class loadClass = SG.nWI.loadClass(str3 + ".PluginInterface");
+            loadClass.getMethod("stopAnimation", clsArr).invoke(loadClass.newInstance(), context, view, SG.resources, view2);
             e.d("AnimPluginManager", "stopAnimation()---->");
             return true;
         } catch (ClassNotFoundException e) {

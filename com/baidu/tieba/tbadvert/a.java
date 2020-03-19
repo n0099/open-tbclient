@@ -74,7 +74,7 @@ public class a implements com.baidu.tbadk.r.a {
                     a.this.kml.V(String.valueOf(cMT.id), cMT.aZn());
                 }
                 if (!TextUtils.isEmpty(cMT.linkUrl)) {
-                    if (!a.this.Jv(cMT.linkUrl)) {
+                    if (!a.this.Jw(cMT.linkUrl)) {
                         ba.aGK().a((TbPageContext) i.ab(a.this.mContext), new String[]{cMT.linkUrl}, true);
                         return;
                     }
@@ -105,7 +105,7 @@ public class a implements com.baidu.tbadk.r.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Jv(String str) {
+    public boolean Jw(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

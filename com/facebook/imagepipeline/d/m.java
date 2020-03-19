@@ -107,7 +107,7 @@ public class m {
             case 3:
                 return dqx();
             case 4:
-                if (com.facebook.common.d.a.OQ(this.mContentResolver.getType(dsO))) {
+                if (com.facebook.common.d.a.OR(this.mContentResolver.getType(dsO))) {
                     return dqy();
                 }
                 return dqz();

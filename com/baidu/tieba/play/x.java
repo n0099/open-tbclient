@@ -47,7 +47,7 @@ public class x {
         }
     }
 
-    public int Hd(String str) {
+    public int He(String str) {
         Integer num = this.jyp.get(str);
         if (num != null) {
             return num.intValue();

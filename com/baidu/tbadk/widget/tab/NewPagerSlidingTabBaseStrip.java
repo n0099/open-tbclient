@@ -268,7 +268,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         }
     }
 
-    public void wj(String str) {
+    public void wk(String str) {
         if (this.deM != null && this.deM.getAdapter() != null && this.deM.getAdapter().getCount() != 0 && this.dQz && this.dQN != null) {
             this.dQN.setText(str);
         }

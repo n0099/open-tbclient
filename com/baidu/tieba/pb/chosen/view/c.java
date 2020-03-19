@@ -23,7 +23,7 @@ public class c {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void FF(String str);
+        void FG(String str);
     }
 
     public c(Context context, a aVar) {

@@ -57,7 +57,7 @@ public final class v {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static ExecutorService Qy(final String str) {
+    public static ExecutorService Qz(final String str) {
         return Executors.newSingleThreadExecutor(new ThreadFactory() { // from class: com.google.android.exoplayer2.util.v.1
             @Override // java.util.concurrent.ThreadFactory
             public Thread newThread(@NonNull Runnable runnable) {
@@ -84,14 +84,14 @@ public final class v {
         }
     }
 
-    public static String Qz(String str) {
+    public static String QA(String str) {
         if (str == null) {
             return null;
         }
         return new Locale(str).getLanguage();
     }
 
-    public static byte[] QA(String str) {
+    public static byte[] QB(String str) {
         return str.getBytes(Charset.forName("UTF-8"));
     }
 
@@ -99,7 +99,7 @@ public final class v {
         return i == 10 || i == 13;
     }
 
-    public static String QB(String str) {
+    public static String QC(String str) {
         if (str == null) {
             return null;
         }
@@ -197,7 +197,7 @@ public final class v {
         return z2 ? Math.max(0, i) : i;
     }
 
-    public static long QC(String str) {
+    public static long QD(String str) {
         Matcher matcher = mJL.matcher(str);
         if (matcher.matches()) {
             boolean z = TextUtils.isEmpty(matcher.group(1)) ? false : true;
@@ -218,7 +218,7 @@ public final class v {
         return (long) (Double.parseDouble(str) * 3600.0d * 1000.0d);
     }
 
-    public static long QD(String str) throws ParserException {
+    public static long QE(String str) throws ParserException {
         int i;
         Matcher matcher = mJK.matcher(str);
         if (!matcher.matches()) {
@@ -327,7 +327,7 @@ public final class v {
         return iArr;
     }
 
-    public static int QE(String str) {
+    public static int QF(String str) {
         int length = str.length();
         a.checkArgument(length <= 4);
         int i = 0;
@@ -337,7 +337,7 @@ public final class v {
         return i;
     }
 
-    public static byte[] QF(String str) {
+    public static byte[] QG(String str) {
         byte[] bArr = new byte[str.length() / 2];
         for (int i = 0; i < bArr.length; i++) {
             int i2 = i * 2;
@@ -429,18 +429,18 @@ public final class v {
         if (path == null) {
             return 3;
         }
-        return QG(path);
+        return QH(path);
     }
 
-    public static int QG(String str) {
-        String QB = QB(str);
-        if (QB.endsWith(".mpd")) {
+    public static int QH(String str) {
+        String QC = QC(str);
+        if (QC.endsWith(".mpd")) {
             return 0;
         }
-        if (QB.endsWith(".m3u8")) {
+        if (QC.endsWith(".m3u8")) {
             return 2;
         }
-        if (QB.matches(".*\\.ism(l)?(/manifest(\\(.+\\))?)?")) {
+        if (QC.matches(".*\\.ism(l)?(/manifest(\\(.+\\))?)?")) {
             return 1;
         }
         return 3;

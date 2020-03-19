@@ -61,7 +61,7 @@ public class h extends a {
         }
     }
 
-    public void vy(String str) {
+    public void vz(String str) {
         if (str != null) {
             this.dBy.setText(str);
             this.dBy.setVisibility(0);

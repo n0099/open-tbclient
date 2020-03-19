@@ -137,7 +137,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                     ScrollFragmentTabHost.this.hby.cl(i);
                     ScrollFragmentTabHost.this.hby.kB(true);
                     ScrollFragmentTabHost.this.hby.rB(0);
-                    ScrollFragmentTabHost.this.hby.Ae(fixedText);
+                    ScrollFragmentTabHost.this.hby.Af(fixedText);
                     return new CustomResponsedMessage<>(2921409, true);
                 }
                 return null;
@@ -235,7 +235,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
                     ScrollFragmentTabHost.this.hby.cl(i);
                     ScrollFragmentTabHost.this.hby.kB(true);
                     ScrollFragmentTabHost.this.hby.rB(0);
-                    ScrollFragmentTabHost.this.hby.Ae(fixedText);
+                    ScrollFragmentTabHost.this.hby.Af(fixedText);
                     return new CustomResponsedMessage<>(2921409, true);
                 }
                 return null;
@@ -390,7 +390,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
         });
         this.hbx.setEntranceJumpListener(new NestedScrollHeader.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.11
             @Override // com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.a
-            public void Cf(String str) {
+            public void Cg(String str) {
                 if (ScrollFragmentTabHost.this.hby != null) {
                     ScrollFragmentTabHost.this.hby.zG();
                     ScrollFragmentTabHost.this.hby = null;
@@ -405,7 +405,7 @@ public class ScrollFragmentTabHost extends RelativeLayout {
             this.hbn.setMissionEntranceVisibility(true);
             this.hbn.setEntranceJumpListener(new NestedScrollHeader.a() { // from class: com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost.12
                 @Override // com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.a
-                public void Cf(String str) {
+                public void Cg(String str) {
                     if (ScrollFragmentTabHost.this.hby != null) {
                         ScrollFragmentTabHost.this.hby.zG();
                         ScrollFragmentTabHost.this.hby = null;

@@ -69,8 +69,8 @@ public class e {
         }
         String filePath = imageFileInfo.getFilePath();
         boolean checkIsLongImage = m.checkIsLongImage(filePath);
-        boolean th = m.th(filePath);
-        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !th)) {
+        boolean ti = m.ti(filePath);
+        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !ti)) {
             if (checkIsLongImage) {
                 dVar = this.dBo;
             } else {

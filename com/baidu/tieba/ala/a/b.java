@@ -60,7 +60,7 @@ public class b extends d {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 b.this.eyw = (g) b.this.eyv.get(i);
                 b.this.eyH = b.this.eyw.rC();
-                b.this.eyu.yg(b.this.eyH);
+                b.this.eyu.yh(b.this.eyH);
             }
         });
         this.ewA = (CommonEmptyView) this.mRootView.findViewById(a.g.choose_gift_empty_view);
@@ -173,7 +173,7 @@ public class b extends d {
         }
         this.eyu = new a(this.eyF.getPageContext());
         this.eyt.setAdapter((ListAdapter) this.eyu);
-        this.eyu.yf(this.eyH);
+        this.eyu.yg(this.eyH);
         this.eyu.setData(this.eyv);
     }
 
@@ -188,11 +188,11 @@ public class b extends d {
             this.mContext = tbPageContext.getPageActivity();
         }
 
-        public void yf(String str) {
+        public void yg(String str) {
             this.ehr = str;
         }
 
-        public void yg(String str) {
+        public void yh(String str) {
             if (this.ehr == null || !this.ehr.equals(str)) {
                 this.ehr = str;
                 notifyDataSetChanged();

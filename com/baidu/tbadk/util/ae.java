@@ -64,7 +64,7 @@ public class ae implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public static String vY(String str) {
+    public static String vZ(String str) {
         BufferedReader bufferedReader;
         StringBuilder sb = new StringBuilder();
         try {
@@ -124,7 +124,7 @@ public class ae implements Thread.UncaughtExceptionHandler {
         }
         if (isOOM(th)) {
             try {
-                Exception exc = new Exception(((th.getMessage() + vY("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n") + vY("cat proc/" + Process.myPid() + "/maps"));
+                Exception exc = new Exception(((th.getMessage() + vZ("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n") + vZ("cat proc/" + Process.myPid() + "/maps"));
                 this.dHw = new ExceptionData();
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {

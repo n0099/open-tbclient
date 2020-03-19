@@ -110,7 +110,7 @@ public class b extends com.baidu.tieba.card.a<l> implements e {
                         b.this.buM().a(view, b.this.fKn);
                     }
                     if (b.this.fKn.cRt != null && view != b.this.eOJ.diw) {
-                        com.baidu.tieba.card.l.zU(b.this.fKn.cRt.getId());
+                        com.baidu.tieba.card.l.zV(b.this.fKn.cRt.getId());
                         b.this.bNE();
                     }
                 }
@@ -315,7 +315,7 @@ public class b extends com.baidu.tieba.card.a<l> implements e {
         }
         if (this.fKn != null && this.fKn.cRt != null) {
             if (!buX()) {
-                com.baidu.tieba.card.l.zU(this.fKn.cRt.getId());
+                com.baidu.tieba.card.l.zV(this.fKn.cRt.getId());
                 com.baidu.tieba.card.l.a(this.mTextTitle, this.fKn.cRt.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             }
             PbActivityConfig addLocateParam = new PbActivityConfig(this.cVv.getPageActivity()).createFromThreadCfg(this.fKn.cRt, null, com.baidu.tieba.card.l.aCd(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false).addLocateParam(this.fKn.aAm());
@@ -347,7 +347,7 @@ public class b extends com.baidu.tieba.card.a<l> implements e {
                     b.this.buM().a(view, b.this.fKn);
                 }
                 if (b.this.fKn != null && b.this.fKn.cRt != null) {
-                    com.baidu.tieba.card.l.zU(b.this.fKn.cRt.getId());
+                    com.baidu.tieba.card.l.zV(b.this.fKn.cRt.getId());
                     b.this.bNE();
                 }
             }
@@ -377,7 +377,7 @@ public class b extends com.baidu.tieba.card.a<l> implements e {
             }
         }
         bvb();
-        if (!buX() && com.baidu.tieba.card.l.zV(this.fKn.cRt.getId())) {
+        if (!buX() && com.baidu.tieba.card.l.zW(this.fKn.cRt.getId())) {
             com.baidu.tieba.card.l.a(this.mTextTitle, this.fKn.cRt.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             com.baidu.tieba.card.l.a(this.fKj.getGodReplyContent(), this.fKn.aAj().getId(), (int) R.color.cp_cont_f, (int) R.color.cp_cont_d);
         }
@@ -424,7 +424,7 @@ public class b extends com.baidu.tieba.card.a<l> implements e {
         this.fKj.setData(this.fKn.aAj().aDQ());
         this.fKj.onChangeSkinType();
         onChangeSkinType(this.cVv, TbadkCoreApplication.getInst().getSkinType());
-        if (com.baidu.tieba.card.l.zV(this.fKn.cRt.getId())) {
+        if (com.baidu.tieba.card.l.zW(this.fKn.cRt.getId())) {
             am.setViewTextColor(this.mTextTitle, R.color.cp_cont_d, 1);
         } else {
             am.setViewTextColor(this.mTextTitle, R.color.cp_cont_b, 1);

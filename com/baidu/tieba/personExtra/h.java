@@ -29,7 +29,7 @@ public class h extends RecyclerView.Adapter<a> {
         this.mDataList = list;
     }
 
-    public SmartApp GQ(String str) {
+    public SmartApp GR(String str) {
         if (v.isEmpty(this.mDataList)) {
             return null;
         }
@@ -57,9 +57,9 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void b(SmartApp smartApp) {
-        SmartApp GQ = GQ(smartApp.id);
-        if (GQ != null && this.mDataList != null) {
-            v.add(this.mDataList, 0, GQ);
+        SmartApp GR = GR(smartApp.id);
+        if (GR != null && this.mDataList != null) {
+            v.add(this.mDataList, 0, GR);
         }
     }
 

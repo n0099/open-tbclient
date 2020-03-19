@@ -391,7 +391,7 @@ final class h implements com.google.android.exoplayer2.extractor.g, k, o.b, Load
                 Format dwX = this.mtv[i].dwX();
                 tVarArr[i] = new t(dwX);
                 String str = dwX.sampleMimeType;
-                boolean z = com.google.android.exoplayer2.util.i.OQ(str) || com.google.android.exoplayer2.util.i.Qo(str);
+                boolean z = com.google.android.exoplayer2.util.i.OR(str) || com.google.android.exoplayer2.util.i.Qp(str);
                 this.mtF[i] = z;
                 this.mtG = z | this.mtG;
             }

@@ -435,7 +435,7 @@ public class SubPbModel extends DataModel {
         return true;
     }
 
-    public void Gs(String str) {
+    public void Gt(String str) {
         if (!TextUtils.isEmpty(str) && this.iVr != null && this.iVr.clF() != null) {
             ArrayList<PostData> clF = this.iVr.clF();
             int size = clF.size();
@@ -608,7 +608,7 @@ public class SubPbModel extends DataModel {
         return this.iXT;
     }
 
-    public void Gt(String str) {
+    public void Gu(String str) {
         this.iXT = str;
     }
 
@@ -617,7 +617,7 @@ public class SubPbModel extends DataModel {
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public WriteData vi(String str) {
+    public WriteData vj(String str) {
         if (this.iVr == null || this.iVr.aPr() == null || this.iVr.aAj() == null || this.iVr.clB() == null) {
             return null;
         }

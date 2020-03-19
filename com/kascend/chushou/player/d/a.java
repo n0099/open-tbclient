@@ -1197,7 +1197,7 @@ public class a extends d implements ViewPager.OnPageChangeListener, View.OnClick
                                         dDT().a(this.mTr.mWq.mMode, "1");
                                     }
                                     com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(5, 0);
-                                    aVar.QV(this.mUZ);
+                                    aVar.QW(this.mUZ);
                                     tv.chushou.zues.a.a.post(aVar);
                                 } else if (pkNotifyInfo.mAction == 2) {
                                     this.w = -1;
@@ -1219,7 +1219,7 @@ public class a extends d implements ViewPager.OnPageChangeListener, View.OnClick
                                     this.mTr.mWq = new PkNotifyInfo();
                                     this.u = null;
                                     com.kascend.chushou.player.ui.button.a aVar2 = new com.kascend.chushou.player.ui.button.a(5, 8);
-                                    aVar2.QV(this.mUZ);
+                                    aVar2.QW(this.mUZ);
                                     tv.chushou.zues.a.a.post(aVar2);
                                 } else if (pkNotifyInfo.mAction == 8) {
                                     this.mTr.mWq.copySpecial(pkNotifyInfo);
@@ -2417,7 +2417,7 @@ public class a extends d implements ViewPager.OnPageChangeListener, View.OnClick
                         if (privilegeInfo != null) {
                             ColorPrivileges colorPrivileges = privilegeInfo.mColorPrivileges;
                             if (colorPrivileges != null && !h.isEmpty(colorPrivileges.mColors)) {
-                                chatInfo.mContentRichText = tv.chushou.zues.toolkit.richtext.b.SS(tv.chushou.zues.toolkit.richtext.b.a(chatInfo.mContent, colorPrivileges.mColors, colorPrivileges.mWholeColor, new Random().nextInt(colorPrivileges.mColors.size())));
+                                chatInfo.mContentRichText = tv.chushou.zues.toolkit.richtext.b.ST(tv.chushou.zues.toolkit.richtext.b.a(chatInfo.mContent, colorPrivileges.mColors, colorPrivileges.mWholeColor, new Random().nextInt(colorPrivileges.mColors.size())));
                             }
                             chatInfo.mCoolNickname = privilegeInfo.mCoolNickname;
                             if (chatInfo.mCoolNickname != null) {
@@ -3115,13 +3115,13 @@ public class a extends d implements ViewPager.OnPageChangeListener, View.OnClick
                 }
                 dDS();
                 com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(5, 0);
-                aVar.QV(str);
+                aVar.QW(str);
                 tv.chushou.zues.a.a.post(aVar);
             } else {
                 this.mTr.mWq.mInPKMode = false;
                 dDS();
                 com.kascend.chushou.player.ui.button.a aVar2 = new com.kascend.chushou.player.ui.button.a(5, 8);
-                aVar2.QV(str);
+                aVar2.QW(str);
                 tv.chushou.zues.a.a.post(aVar2);
             }
         }

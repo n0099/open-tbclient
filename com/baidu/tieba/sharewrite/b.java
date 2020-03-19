@@ -27,7 +27,7 @@ public class b {
         cIh();
     }
 
-    public void IG(String str) {
+    public void IH(String str) {
         if (this.mActivity != null) {
             HttpMessage httpMessage = new HttpMessage(1002701);
             httpMessage.addParam("fname", str);

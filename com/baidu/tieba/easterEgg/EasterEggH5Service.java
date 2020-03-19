@@ -52,7 +52,7 @@ public class EasterEggH5Service extends Service {
             String str;
             if (customResponsedMessage.getData() instanceof String) {
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.Aj("reindeer_search");
+                    str = EasterEggH5Service.this.mHttpRule.Ak("reindeer_search");
                 } else {
                     str = null;
                 }
@@ -75,7 +75,7 @@ public class EasterEggH5Service extends Service {
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.Aj(gVar.mUrl);
+                    str = EasterEggH5Service.this.mHttpRule.Ak(gVar.mUrl);
                 } else {
                     str = null;
                 }

@@ -238,7 +238,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
                 public void onClick(View view) {
                     final com.baidu.c.a.c.a cA;
                     if (CriusAdCardView.this.criusData != null && (cA = CriusAdCardView.this.criusData.cA("viewbtn")) != null) {
-                        if (!t.IU(cA.Tv) && CriusAdCardView.this.iaq != null) {
+                        if (!t.IV(cA.Tv) && CriusAdCardView.this.iaq != null) {
                             CriusAdCardView.this.iaq.b(cA.Tw, cA.Tx, null);
                         }
                         if (TextUtils.isEmpty(cA.Ty)) {
@@ -250,7 +250,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
                             return;
                         }
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(CriusAdCardView.this.cVv.getPageActivity());
-                        aVar.sR(cA.Ty);
+                        aVar.sS(cA.Ty);
                         aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.4.1
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -437,20 +437,20 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
     }
 
     private void a(CriusAdCard criusAdCard, AdvertAppInfo advertAppInfo) {
-        DownloadCacheKey xc;
+        DownloadCacheKey xd;
         if (criusAdCard != null && advertAppInfo != null) {
             String scheme = criusAdCard.getScheme();
             String str = advertAppInfo.cNk;
             if (!TextUtils.isEmpty(str)) {
-                xc = com.baidu.tieba.ad.download.d.aYp().xb(str);
+                xd = com.baidu.tieba.ad.download.d.aYp().xc(str);
             } else {
-                xc = com.baidu.tieba.ad.download.d.aYp().xc(scheme);
+                xd = com.baidu.tieba.ad.download.d.aYp().xd(scheme);
             }
-            if (xc == null) {
-                xc = DownloadCacheKey.create(str, advertAppInfo.apkUrl, advertAppInfo.cNn);
-                com.baidu.tieba.ad.download.d.aYp().a(xc, null);
+            if (xd == null) {
+                xd = DownloadCacheKey.create(str, advertAppInfo.apkUrl, advertAppInfo.cNn);
+                com.baidu.tieba.ad.download.d.aYp().a(xd, null);
             }
-            i(xc);
+            i(xd);
         }
     }
 
@@ -577,7 +577,7 @@ public class CriusAdCardView extends BaseLegoCardView<CriusAdCard> implements k 
                     str = this.cVv.getString(R.string.frs_network_tips);
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cVv.getPageActivity());
-                aVar.sR(str);
+                aVar.sS(str);
                 aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.lego.view.CriusAdCardView.6
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

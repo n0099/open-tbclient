@@ -13,7 +13,7 @@ public class c {
         }
     }
 
-    public static void te(String str) {
+    public static void tf(String str) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
@@ -35,7 +35,7 @@ public class c {
         return mainDBDatabaseManager.execSQLNoException("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{lVar.getMd5(), Long.valueOf(lVar.getTotalLength()), Integer.valueOf(lVar.getChunkNo()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.l tf(String str) {
+    public static com.baidu.tbadk.coreExtra.data.l tg(String str) {
         Cursor cursor;
         Exception e;
         com.baidu.tbadk.coreExtra.data.l lVar;

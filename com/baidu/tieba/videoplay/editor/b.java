@@ -51,7 +51,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                     if (aVar != null && aVar.aOy() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.vm((String) aVar2.data);
+                                aVar.vn((String) aVar2.data);
                                 return;
                             case 5:
                             case 6:

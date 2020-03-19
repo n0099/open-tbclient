@@ -46,7 +46,7 @@ public class TiebaStatic {
     public interface a {
         void b(an anVar);
 
-        void tA(String str);
+        void tB(String str);
     }
 
     static {
@@ -533,7 +533,7 @@ public class TiebaStatic {
         if (!statisticCallbacks.isEmpty()) {
             for (a aVar : statisticCallbacks) {
                 if (aVar != null) {
-                    aVar.tA(str);
+                    aVar.tB(str);
                 }
             }
         }

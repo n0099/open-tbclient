@@ -29,7 +29,7 @@ public class q {
         return this.pname;
     }
 
-    public void ui(String str) {
+    public void uj(String str) {
         this.pname = str;
     }
 

@@ -293,7 +293,7 @@ public class b implements View.OnClickListener {
         }
         this.gnh.fDM.setVisibility(0);
         this.gnk = this.gnh.gny.getText().toString();
-        this.gni.Bc(this.gnk);
+        this.gni.Bd(this.gnk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

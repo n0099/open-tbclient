@@ -278,7 +278,7 @@ public class p extends l<PostData, q> {
                         this.iHm.setThreadData(this.iGv.ckP());
                     }
                 }
-                this.iHm.Gr(postData.getId());
+                this.iHm.Gs(postData.getId());
             }
             qVar.iIp.setLinkTextColor(com.baidu.tbadk.core.util.am.getColor(R.color.cp_link_tip_c));
             if (this.iGw) {
@@ -457,7 +457,7 @@ public class p extends l<PostData, q> {
                 layoutParams.leftMargin = 0;
                 layoutParams.rightMargin = 0;
                 qVar.iIp.setLayoutParams(layoutParams);
-                qVar.iIp.wi(null);
+                qVar.iIp.wj(null);
                 this.iIh = false;
                 a(qVar, postData, view, i);
             } else {

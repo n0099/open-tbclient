@@ -4,7 +4,7 @@ import android.view.View;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes10.dex */
 public interface a {
-    void Dx(String str);
+    void Dy(String str);
 
     void b(a.b bVar);
 

@@ -59,8 +59,8 @@ public class c {
         if (aq.isEmpty(oi)) {
             return 0;
         }
-        SampleResult Lk = com.baidu.ubs.analytics.a.Lk(oi);
-        return (Lk == SampleResult.T1 || Lk == SampleResult.T2 || Lk == SampleResult.T3 || Lk == SampleResult.T4 || Lk == SampleResult.T5) ? 1 : 0;
+        SampleResult Ll = com.baidu.ubs.analytics.a.Ll(oi);
+        return (Ll == SampleResult.T1 || Ll == SampleResult.T2 || Ll == SampleResult.T3 || Ll == SampleResult.T4 || Ll == SampleResult.T5) ? 1 : 0;
     }
 
     private String oi(int i) {

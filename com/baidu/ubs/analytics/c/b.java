@@ -14,7 +14,7 @@ public final class b {
     public static synchronized void c(Context context) {
         synchronized (b.class) {
             if (!ad) {
-                com.baidu.ubs.analytics.d.b.Ls(" ActivityLifeTask   add  " + new Date().toLocaleString());
+                com.baidu.ubs.analytics.d.b.Lt(" ActivityLifeTask   add  " + new Date().toLocaleString());
                 kXN = new c();
                 kXO = new m();
                 a.cXR().cXT();
@@ -23,7 +23,7 @@ public final class b {
                 a.cXR().c(context);
                 ad = true;
             } else {
-                com.baidu.ubs.analytics.d.b.Ls(" ActivityLifeTask  is added  " + new Date().toLocaleString());
+                com.baidu.ubs.analytics.d.b.Lt(" ActivityLifeTask  is added  " + new Date().toLocaleString());
             }
         }
     }

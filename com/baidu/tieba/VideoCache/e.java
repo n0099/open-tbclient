@@ -70,7 +70,7 @@ public class e {
         return z;
     }
 
-    public synchronized boolean ws(String str) {
+    public synchronized boolean wt(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
@@ -81,7 +81,7 @@ public class e {
                         break;
                     }
                     Map.Entry<String, c> next = it.next();
-                    if (next != null && (next.getKey() instanceof String) && str.equals(m.wD(next.getKey()))) {
+                    if (next != null && (next.getKey() instanceof String) && str.equals(m.wE(next.getKey()))) {
                         z = true;
                         break;
                     }
@@ -108,7 +108,7 @@ public class e {
         this.dXv.remove(cVar);
     }
 
-    public synchronized void wt(String str) {
+    public synchronized void wu(String str) {
         if (str != null) {
             if (!str.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
@@ -145,7 +145,7 @@ public class e {
         return z;
     }
 
-    public synchronized boolean wu(String str) {
+    public synchronized boolean wv(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
@@ -156,7 +156,7 @@ public class e {
                         break;
                     }
                     c next = it.next();
-                    if (next != null && str.equals(m.wD(next.getVideoUrl()))) {
+                    if (next != null && str.equals(m.wE(next.getVideoUrl()))) {
                         z = true;
                         break;
                     }
@@ -175,7 +175,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void wv(String str) {
+    public synchronized void ww(String str) {
         if (str != null) {
             Iterator<Map.Entry<String, c>> it = this.dXt.entrySet().iterator();
             while (true) {

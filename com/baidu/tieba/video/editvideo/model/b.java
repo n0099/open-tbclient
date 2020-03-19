@@ -16,7 +16,7 @@ public class b {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void JT(String str);
+        void JU(String str);
 
         void cPL();
 
@@ -37,7 +37,7 @@ public class b {
         return kyY;
     }
 
-    public String Kb(String str) {
+    public String Kc(String str) {
         String nameMd5FromUrl = as.getNameMd5FromUrl(str);
         if (nameMd5FromUrl == null) {
             return null;
@@ -135,7 +135,7 @@ public class b {
                         b.this.kyU = null;
                     }
                     if (aVar != null) {
-                        aVar.JT(str3);
+                        aVar.JU(str3);
                     }
                 }
             });

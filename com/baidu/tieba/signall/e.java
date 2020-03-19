@@ -24,7 +24,7 @@ public class e {
         return this.cLQ.postNetData();
     }
 
-    public String IH(String str) {
+    public String II(String str) {
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str2 = null;
         if (currentAccountObj != null) {

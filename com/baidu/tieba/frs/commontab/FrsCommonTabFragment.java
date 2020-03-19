@@ -99,7 +99,7 @@ public class FrsCommonTabFragment extends BaseFragment implements g.c, VoiceMana
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (!StringUtils.isNull(str)) {
-                    FrsCommonTabFragment.this.gwv.Bm(str);
+                    FrsCommonTabFragment.this.gwv.Bn(str);
                 }
             }
         }
@@ -371,7 +371,7 @@ public class FrsCommonTabFragment extends BaseFragment implements g.c, VoiceMana
                         com.baidu.tbadk.core.sharedPref.b.aFH().putBoolean("first_into_tab_profession", false);
                         bGO();
                     }
-                    new com.baidu.tieba.frs.profession.permission.c(getPageContext()).BH(this.forumId);
+                    new com.baidu.tieba.frs.profession.permission.c(getPageContext()).BI(this.forumId);
                     onLazyLoad();
                 }
                 if (this.tabId == 503 || this.tabId == 504) {
@@ -527,7 +527,7 @@ public class FrsCommonTabFragment extends BaseFragment implements g.c, VoiceMana
                     String stringExtra = intent.getStringExtra("tid");
                     int intExtra = intent.getIntExtra("type", -1);
                     if (!StringUtils.isNull(stringExtra) && intExtra == 0) {
-                        this.gwv.Bm(stringExtra);
+                        this.gwv.Bn(stringExtra);
                         return;
                     }
                     return;

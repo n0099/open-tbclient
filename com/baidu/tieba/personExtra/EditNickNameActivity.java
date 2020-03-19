@@ -75,14 +75,14 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (i == 1 || i == 4) {
-            this.mWebView.loadUrl(yj(this.mUrl));
+            this.mWebView.loadUrl(yk(this.mUrl));
         } else {
             this.mWebView.loadUrl(this.mUrl);
         }
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 
-    private String yj(String str) {
+    private String yk(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -100,7 +100,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GI(String str) {
+    public void GJ(String str) {
         if (this.mWebView != null && this.mWebView.canGoBack()) {
             this.mWebView.goBack();
             return;
@@ -116,7 +116,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         if (this.mLoadSuccess && this.mWebView != null && !TextUtils.isEmpty(this.mWebView.getUrl()) && this.mWebView.getUrl().contains("https://tieba.baidu.com/n/interact/modifyname")) {
             this.mWebView.loadUrl("javascript:__js_bridge_modify_name_back_action()");
         } else {
-            GI(null);
+            GJ(null);
         }
     }
 
@@ -192,7 +192,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             if (!StringUtils.isNull(str)) {
-                if (EditNickNameActivity.this.yl(str)) {
+                if (EditNickNameActivity.this.ym(str)) {
                     return true;
                 }
                 int a = ba.aGK().a(EditNickNameActivity.this.mPageContext, new String[]{str});
@@ -237,11 +237,11 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean yl(String str) {
-        return GJ(str);
+    public boolean ym(String str) {
+        return GK(str);
     }
 
-    private boolean GJ(String str) {
+    private boolean GK(String str) {
         String urlDecode = k.getUrlDecode(str);
         if (urlDecode.contains(UrlSchemaHelper.SCHEMA_TYPE_MODIFY_NAME) && urlDecode.contains("data=")) {
             try {
@@ -249,7 +249,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                 boolean z = jSONObject.optInt("isclose") == 1;
                 String optString = jSONObject.optString("nickname");
                 if (z) {
-                    GI(optString);
+                    GJ(optString);
                 } else {
                     showDialog();
                 }
@@ -264,7 +264,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     private void showDialog() {
         if (this.FR == null) {
             this.FR = new com.baidu.tbadk.core.dialog.a(getActivity());
-            this.FR.sR(getPageContext().getResources().getString(R.string.modify_user_dialog_msg));
+            this.FR.sS(getPageContext().getResources().getString(R.string.modify_user_dialog_msg));
             this.FR.a(R.string.save, new a.b() { // from class: com.baidu.tieba.personExtra.EditNickNameActivity.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -276,7 +276,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    EditNickNameActivity.this.GI(null);
+                    EditNickNameActivity.this.GJ(null);
                 }
             });
             this.FR.b(getPageContext());

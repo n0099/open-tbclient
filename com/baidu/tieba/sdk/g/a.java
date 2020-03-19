@@ -12,7 +12,7 @@ public class a implements CustomMessageTask.CustomRunnable {
             String str = (String) customMessage.getData();
             g cEN = com.baidu.tieba.sdk.c.a.cEH().cEN();
             if (cEN != null) {
-                cEN.Ek(str);
+                cEN.El(str);
                 return null;
             }
             return null;

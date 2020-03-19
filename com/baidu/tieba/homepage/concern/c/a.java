@@ -59,9 +59,9 @@ public class a {
                         d.a(aB);
                     }
                     if (k.ab(bjVar)) {
-                        aB.zX("1");
+                        aB.zY("1");
                     } else if (l.ab(bjVar)) {
-                        aB.zX("2");
+                        aB.zY("2");
                     }
                     if (aB != null && aB.isValid()) {
                         linkedList.add(aB);
@@ -87,9 +87,9 @@ public class a {
                         }
                     }
                     if (k.ab(bjVar)) {
-                        aA.zX("1");
+                        aA.zY("1");
                     } else if (l.ab(bjVar)) {
-                        aA.zX("2");
+                        aA.zY("2");
                     }
                     if (aA != null && aA.isValid()) {
                         linkedList.add(aA);
@@ -101,9 +101,9 @@ public class a {
                         d.g(aB2);
                     }
                     if (k.ab(bjVar)) {
-                        aB2.zX("1");
+                        aB2.zY("1");
                     } else if (l.ab(bjVar)) {
-                        aB2.zX("2");
+                        aB2.zY("2");
                     }
                     if (aB2 != null && !StringUtils.isNull(bjVar.aCw())) {
                         linkedList.add(aB2);
@@ -116,9 +116,9 @@ public class a {
                             d.i(aB3);
                         }
                         if (k.ab(bjVar)) {
-                            aB3.zX("1");
+                            aB3.zY("1");
                         } else if (l.ab(bjVar)) {
-                            aB3.zX("2");
+                            aB3.zY("2");
                         }
                         if (aB3 != null && aB3.isValid()) {
                             linkedList.add(aB3);
@@ -131,9 +131,9 @@ public class a {
                         d.j(aB4);
                     }
                     if (bjVar.getType() == bj.cRx) {
-                        aB4.zX("1");
+                        aB4.zY("1");
                     } else if (l.ab(bjVar)) {
-                        aB4.zX("2");
+                        aB4.zY("2");
                     }
                     if (aB4 != null && aB4.isValid()) {
                         linkedList.add(aB4);
@@ -154,7 +154,7 @@ public class a {
                     j jVar = new j(bjVar);
                     if (jVar != null) {
                         jVar.tid = bjVar.getTid();
-                        jVar.zX("3");
+                        jVar.zY("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
@@ -166,7 +166,7 @@ public class a {
                 } else {
                     k kVar2 = new k();
                     kVar2.cRt = bjVar;
-                    kVar2.zX(kVar2.cRt.isLinkThread() ? "4" : "1");
+                    kVar2.zY(kVar2.cRt.isLinkThread() ? "4" : "1");
                     kVar2.position = i3;
                     kVar2.isLinkThread = false;
                     kVar2.rw(concernData.source.intValue());

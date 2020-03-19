@@ -25,7 +25,7 @@ public class a {
         public int hxs = 0;
     }
 
-    public static C0528a Cx(String str) {
+    public static C0528a Cy(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

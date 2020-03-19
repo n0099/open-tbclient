@@ -243,14 +243,14 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         a(this.jJS.getHeaderImg(), adCard.portraitClick, bVar);
         String str2 = adCard.threadTitle;
         if (!TextUtils.isEmpty(str2)) {
-            String HQ = HQ(str2);
+            String HR = HR(str2);
             this.hST.setMaxLines(adCard.titleLines <= 0 ? 4 : adCard.titleLines);
             if (4 == getBusinessType()) {
                 this.hST.setTextSize(0, getContext().getResources().getDimension(R.dimen.tbfontsize42));
             } else {
                 this.hST.setTextSize(0, getContext().getResources().getDimension(R.dimen.tbfontsize44));
             }
-            this.hST.setText(HQ);
+            this.hST.setText(HR);
             this.hST.setVisibility(0);
         } else {
             this.hST.setVisibility(8);
@@ -299,7 +299,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                         this.jJH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.2
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                if (AdCardBaseView.this.iaq != null && adCard.buttonClick != null && !t.IU(adCard.buttonClick.scheme)) {
+                                if (AdCardBaseView.this.iaq != null && adCard.buttonClick != null && !t.IV(adCard.buttonClick.scheme)) {
                                     AdCardBaseView.this.iaq.b(adCard.buttonClick.Tw, adCard.buttonClick.Tx, null);
                                 }
                                 if (!AdCardBaseView.this.b(adCard.buttonClick)) {
@@ -312,7 +312,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                                         return;
                                     }
                                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(AdCardBaseView.this.cVv.getPageActivity());
-                                    aVar.sR(adCard.popWindowText);
+                                    aVar.sS(adCard.popWindowText);
                                     aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.2.1
                                         @Override // com.baidu.tbadk.core.dialog.a.b
                                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -346,7 +346,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         a(adCard);
         x(i.azR().isShowImages(), getBusinessType());
         if (!TextUtils.isEmpty(adCard.getPreLoadData())) {
-            HR(adCard.getPreLoadData());
+            HS(adCard.getPreLoadData());
         }
         if (advertAppInfo != null && advertAppInfo.cNt != null && advertAppInfo.cNt.adCloseInfo != null && advertAppInfo.cNt.adCloseInfo.support_close.intValue() > 0) {
             this.jJJ.setVisibility(0);
@@ -388,7 +388,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         a(adCard, this.fKI, getBusinessType());
         AdvertAppInfo advertAppInfo2 = adCard.getAdvertAppInfo();
         if (advertAppInfo2 instanceof AdvertAppInfo) {
-            advertAppInfo2.sC(aq.bD(adCard.time));
+            advertAppInfo2.sD(aq.bD(adCard.time));
         }
         this.jJS.setData(advertAppInfo2);
         ((TextView) this.jJS.getUserName()).setText(adCard.userName);
@@ -466,20 +466,20 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     private void a(AdCard adCard, AdvertAppInfo advertAppInfo) {
-        DownloadCacheKey xc;
+        DownloadCacheKey xd;
         if (!adCard.directDownload && advertAppInfo != null && advertAppInfo.aAt()) {
             String scheme = adCard.getScheme();
             String str = advertAppInfo.cNk;
             if (!TextUtils.isEmpty(str)) {
-                xc = com.baidu.tieba.ad.download.d.aYp().xb(str);
+                xd = com.baidu.tieba.ad.download.d.aYp().xc(str);
             } else {
-                xc = com.baidu.tieba.ad.download.d.aYp().xc(scheme);
+                xd = com.baidu.tieba.ad.download.d.aYp().xd(scheme);
             }
-            if (xc == null) {
-                xc = DownloadCacheKey.create(str, advertAppInfo.apkUrl, advertAppInfo.cNn);
-                com.baidu.tieba.ad.download.d.aYp().a(xc, null);
+            if (xd == null) {
+                xd = DownloadCacheKey.create(str, advertAppInfo.apkUrl, advertAppInfo.cNn);
+                com.baidu.tieba.ad.download.d.aYp().a(xd, null);
             }
-            i(xc);
+            i(xd);
         }
     }
 
@@ -581,7 +581,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String HQ(String str) {
+    public String HR(String str) {
         if (!StringUtils.isNull(str)) {
             String replaceAll = str.replaceAll("，", "， ").replaceAll("。", "。 ").replaceAll("？", "？ ").replaceAll("！", "！ ").replaceAll("、", "、 ").replaceAll("‘", "’ ").replaceAll("“", "” ").replaceAll("【", "【 ").replaceAll("】", "】 ").replaceAll("；", "； ").replaceAll("：", "： ").replaceAll("（", "（ ").replaceAll("）", "） ").replaceAll("·", "· ").replaceAll(HanziToPinyin.Token.SEPARATOR, "  ");
             if (replaceAll.charAt(replaceAll.length() - 1) == ' ') {
@@ -595,17 +595,17 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     protected void a(AdCard.b bVar) {
         int b2;
         if (bVar != null) {
-            if (b(bVar) && !t.IU(bVar.scheme)) {
+            if (b(bVar) && !t.IV(bVar.scheme)) {
                 if (this.iaq != null) {
                     this.iaq.b(bVar.Tw, bVar.Tx, null);
                 }
             } else if (this.jJQ != null && this.jJQ.getAdvertAppInfo() != null) {
-                String HS = HS(bVar.scheme);
+                String HT = HT(bVar.scheme);
                 String str = this.jJQ.getAdvertAppInfo().cNk;
                 if (!this.jJQ.directDownload && this.jJQ.getAdvertAppInfo().aAt()) {
-                    b2 = s.c(this.cVv, HS, str);
+                    b2 = s.c(this.cVv, HT, str);
                 } else {
-                    b2 = s.b(this.cVv, HS, str);
+                    b2 = s.b(this.cVv, HT, str);
                 }
                 if (b2 == 1 || b2 == 2) {
                     if (this.iaq != null) {
@@ -670,7 +670,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
         this.hYR.rect = rect;
     }
 
-    private void HR(String str) {
+    private void HS(String str) {
         int i = 0;
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
@@ -720,7 +720,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
                     str = this.cVv.getString(R.string.frs_network_tips);
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cVv.getPageActivity());
-                aVar.sR(str);
+                aVar.sS(str);
                 aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.lego.view.AdCardBaseView.8
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -817,7 +817,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
             }
             if (this.jKj.hasAnimation()) {
             }
-            int e = s.e(AdCardBaseView.this.cVv, AdCardBaseView.this.HS(scheme));
+            int e = s.e(AdCardBaseView.this.cVv, AdCardBaseView.this.HT(scheme));
             if (AdCardBaseView.this.iaq != null) {
                 AdCardBaseView.this.iaq.b(e, null);
             }
@@ -854,7 +854,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> implements
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String HS(String str) {
+    public String HT(String str) {
         StringBuilder sb = new StringBuilder(str);
         if (this.hYR != null && this.hYR.isValid()) {
             String c0547a = this.hYR.toString();

@@ -44,7 +44,7 @@ public class LocationModel extends BdBaseModel {
     public interface b {
         void aPq();
 
-        void vp(String str);
+        void vq(String str);
     }
 
     private void cMd() {
@@ -126,7 +126,7 @@ public class LocationModel extends BdBaseModel {
                         LocationModel.this.sW(false);
                         LocationModel.this.eE(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
                         if (LocationModel.this.kkG != null) {
-                            LocationModel.this.kkG.vp(responsedSelectLocation.getName());
+                            LocationModel.this.kkG.vq(responsedSelectLocation.getName());
                             return;
                         }
                         return;
@@ -193,15 +193,15 @@ public class LocationModel extends BdBaseModel {
             }
             if (StringUtils.isNull(aVar.cLZ())) {
                 if (cMa.size() >= 1) {
-                    aVar.Je(cMa.get(0).getName());
-                    aVar.Jf(cMa.get(0).getSn());
+                    aVar.Jf(cMa.get(0).getName());
+                    aVar.Jg(cMa.get(0).getSn());
                     return;
                 }
                 return;
             }
             for (a.C0614a c0614a : cMa) {
                 if (aVar.cLZ().equals(c0614a.getName())) {
-                    aVar.Jf(c0614a.getSn());
+                    aVar.Jg(c0614a.getSn());
                     return;
                 }
             }
@@ -225,8 +225,8 @@ public class LocationModel extends BdBaseModel {
     public void eE(String str, String str2) {
         com.baidu.tieba.tbadkCore.location.a locationData = c.cMb().getLocationData();
         if (locationData != null) {
-            locationData.Je(str);
-            locationData.Jf(str2);
+            locationData.Jf(str);
+            locationData.Jg(str2);
         }
     }
 

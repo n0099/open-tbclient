@@ -166,7 +166,7 @@ public class i extends b<com.baidu.tieba.card.data.i> {
         }
     }
 
-    private com.baidu.tieba.card.data.g zT(String str) {
+    private com.baidu.tieba.card.data.g zU(String str) {
         if (com.baidu.tbadk.core.util.v.getCount(this.fJT) > 0) {
             for (com.baidu.tieba.horizonalList.widget.c cVar : this.fJT) {
                 if (cVar != null && (cVar instanceof com.baidu.tieba.card.data.g)) {
@@ -182,9 +182,9 @@ public class i extends b<com.baidu.tieba.card.data.i> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(long j, boolean z) {
-        com.baidu.tieba.card.data.g zT = zT(String.valueOf(j));
-        if (zT != null) {
-            zT.isLiked = z;
+        com.baidu.tieba.card.data.g zU = zU(String.valueOf(j));
+        if (zU != null) {
+            zU.isLiked = z;
         }
         if (this.fJQ != null) {
             this.fJQ.setData(this.fJT);

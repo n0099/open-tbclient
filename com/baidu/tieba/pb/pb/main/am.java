@@ -37,7 +37,7 @@ public class am {
         return iPu[new Random().nextInt(iPu.length)];
     }
 
-    public static String Gb(String str) {
+    public static String Gc(String str) {
         return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
     }
 

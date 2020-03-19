@@ -168,7 +168,7 @@ public class b {
         return this.mDataList;
     }
 
-    public void BB(String str) {
+    public void BC(String str) {
         if (!v.isEmpty(this.mDataList)) {
             Iterator<m> it = this.mDataList.iterator();
             while (it.hasNext()) {
@@ -183,7 +183,7 @@ public class b {
         }
     }
 
-    public void Cg(String str) {
+    public void Ch(String str) {
         if (this.hcG != null && !v.isEmpty(this.hcG.thread_list)) {
             long j = com.baidu.adp.lib.f.b.toLong(str, 0L);
             int i = 0;

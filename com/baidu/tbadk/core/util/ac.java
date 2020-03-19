@@ -57,11 +57,11 @@ public class ac {
             ap.aGE().copyFile(str2, nameMd5FromUrl);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int tw = ap.aGE().tw(nameMd5FromUrl);
-                    if (tw > 0) {
+                    int tx = ap.aGE().tx(nameMd5FromUrl);
+                    if (tx > 0) {
                         if (z) {
                             Bitmap image = ap.aGE().getImage(nameMd5FromUrl);
-                            com.baidu.tbadk.imageManager.c.aPV().freePicCache(tw);
+                            com.baidu.tbadk.imageManager.c.aPV().freePicCache(tx);
                             if (image != null) {
                                 a(str, image, z2, ap.aGE().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                             }

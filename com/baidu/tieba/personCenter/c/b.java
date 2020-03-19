@@ -18,7 +18,7 @@ public class b {
         return this.jiT;
     }
 
-    public void GF(String str) {
+    public void GG(String str) {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);

@@ -18,7 +18,7 @@ public class a {
         return this.poi_info;
     }
 
-    public void Je(String str) {
+    public void Jf(String str) {
         this.formatted_address = str;
     }
 
@@ -26,7 +26,7 @@ public class a {
         return this.sn;
     }
 
-    public void Jf(String str) {
+    public void Jg(String str) {
         this.sn = str;
     }
 

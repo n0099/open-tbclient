@@ -17,12 +17,12 @@ public class q {
         throw ((KotlinNullPointerException) O(new KotlinNullPointerException()));
     }
 
-    public static void Sf(String str) {
+    public static void Sg(String str) {
         throw ((UninitializedPropertyAccessException) O(new UninitializedPropertyAccessException(str)));
     }
 
-    public static void Sg(String str) {
-        Sf("lateinit property " + str + " has not been initialized");
+    public static void Sh(String str) {
+        Sg("lateinit property " + str + " has not been initialized");
     }
 
     public static void i(Object obj, String str) {
@@ -33,11 +33,11 @@ public class q {
 
     public static void j(Object obj, String str) {
         if (obj == null) {
-            Sh(str);
+            Si(str);
         }
     }
 
-    private static void Sh(String str) {
+    private static void Si(String str) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
         String className = stackTraceElement.getClassName();
         throw ((IllegalArgumentException) O(new IllegalArgumentException("Parameter specified as non-null is null: method " + className + "." + stackTraceElement.getMethodName() + ", parameter " + str)));
@@ -48,10 +48,10 @@ public class q {
     }
 
     public static void dKX() {
-        Si("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
+        Sj("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
-    public static void Si(String str) {
+    public static void Sj(String str) {
         throw new UnsupportedOperationException(str);
     }
 

@@ -133,7 +133,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                 writeData.setVcodeUrl(aaVar.getVcode_pic_url());
                 writeData.setVcodeExtra(aaVar.aJL());
                 WriteShareActivity.this.jYC = true;
-                if (com.baidu.tbadk.s.a.wb(aaVar.aJK())) {
+                if (com.baidu.tbadk.s.a.wc(aaVar.aJK())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, false, aaVar.aJK())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(WriteShareActivity.this.getPageContext().getPageActivity(), writeData, RequestResponseCode.REQUEST_VCODE)));
@@ -304,7 +304,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
     private void cIk() {
         this.jYA.cIt();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.jYB.IG(this.jYy.getForumName());
+        this.jYB.IH(this.jYy.getForumName());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -82,7 +82,7 @@ public class CSSParser {
             this.lEQ.add(new a(str, attribOp, str2));
         }
 
-        public void NO(String str) {
+        public void NP(String str) {
             if (this.lER == null) {
                 this.lER = new ArrayList();
             }
@@ -252,7 +252,7 @@ public class CSSParser {
         this.lEG = mediaType;
     }
 
-    public d NM(String str) throws SAXException {
+    public d NN(String str) throws SAXException {
         b bVar = new b(str);
         bVar.skipWhitespace();
         return c(bVar);
@@ -398,10 +398,10 @@ public class CSSParser {
                                 skipWhitespace();
                                 if (g('=')) {
                                     attribOp = AttribOp.EQUALS;
-                                } else if (OC("~=")) {
+                                } else if (OD("~=")) {
                                     attribOp = AttribOp.INCLUDES;
                                 } else {
-                                    attribOp = OC("|=") ? AttribOp.DASHMATCH : null;
+                                    attribOp = OD("|=") ? AttribOp.DASHMATCH : null;
                                 }
                                 if (attribOp != null) {
                                     skipWhitespace();
@@ -433,7 +433,7 @@ public class CSSParser {
                                             }
                                         }
                                     }
-                                    fVar.NO(this.lIh.substring(i2, this.position));
+                                    fVar.NP(this.lIh.substring(i2, this.position));
                                     eVar.diL();
                                 }
                             }
@@ -556,7 +556,7 @@ public class CSSParser {
     private d c(b bVar) throws SAXException {
         d dVar = new d();
         while (!bVar.djC()) {
-            if (!bVar.OC("<!--") && !bVar.OC("-->")) {
+            if (!bVar.OD("<!--") && !bVar.OD("-->")) {
                 if (bVar.g('@')) {
                     a(dVar, bVar);
                 } else if (!b(dVar, bVar)) {
@@ -618,7 +618,7 @@ public class CSSParser {
             bVar.skipWhitespace();
             if (bVar.g('!')) {
                 bVar.skipWhitespace();
-                if (!bVar.OC("important")) {
+                if (!bVar.OD("important")) {
                     throw new SAXException("Malformed rule set in <style> element: found unexpected '!'");
                 }
                 bVar.skipWhitespace();
@@ -634,7 +634,7 @@ public class CSSParser {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static List<String> NN(String str) throws SAXException {
+    public static List<String> NO(String str) throws SAXException {
         b bVar = new b(str);
         ArrayList arrayList = null;
         while (!bVar.djC()) {

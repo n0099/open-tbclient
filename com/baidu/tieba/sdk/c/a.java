@@ -165,7 +165,7 @@ public class a implements BdPageContextCreator {
         cEO();
         cEP();
         cEQ();
-        com.baidu.tieba.sdk.verify.a.cFc().Iv(application.getPackageName());
+        com.baidu.tieba.sdk.verify.a.cFc().Iw(application.getPackageName());
         cEI();
     }
 
@@ -314,7 +314,7 @@ public class a implements BdPageContextCreator {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void Im(String str) {
+    public void In(String str) {
         JSONException e;
         String str2;
         String str3 = null;
@@ -447,7 +447,7 @@ public class a implements BdPageContextCreator {
             @Override // com.baidu.live.tbadk.core.util.UrlManager.UrlWebDealListener
             public void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlManager.UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2) {
                 if (a.this.jRC != null) {
-                    a.this.jRC.Ek(str2);
+                    a.this.jRC.El(str2);
                 }
             }
         });
@@ -580,11 +580,11 @@ public class a implements BdPageContextCreator {
         return SchemeUtils.openScheme(context, str, schemeCallback);
     }
 
-    public void In(String str) {
+    public void Io(String str) {
         TbConfig.setFromHost(str);
     }
 
-    public void Io(String str) {
+    public void Ip(String str) {
         TbConfig.setCurrentFromHost(str);
     }
 

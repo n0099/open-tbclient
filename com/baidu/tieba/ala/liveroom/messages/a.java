@@ -21,11 +21,11 @@ public class a extends HttpMessage {
         this.fhq = d2;
     }
 
-    public void sD(String str) {
+    public void sE(String str) {
         this.awC = str;
     }
 
-    public void zi(String str) {
+    public void zj(String str) {
         this.fhr = str;
     }
 

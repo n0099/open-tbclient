@@ -68,14 +68,14 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
                 if (this.diy != null && list.get(0) != null && !aq.isEmpty(list.get(0).getForumName())) {
                     bj bjVar2 = new bj();
                     bjVar2.setId(bjVar.getId());
-                    bjVar2.sF(list.get(0).getForumName());
+                    bjVar2.sG(list.get(0).getForumName());
                     bjVar2.setFid(com.baidu.adp.lib.f.b.toLong(list.get(0).getForumId(), 0L));
                     this.diy.a(bjVar2, this.diC);
                 }
                 if (this.diz != null && list.get(1) != null && !aq.isEmpty(list.get(1).getForumName())) {
                     bj bjVar3 = new bj();
                     bjVar3.setId(bjVar.getId());
-                    bjVar3.sF(list.get(1).getForumName());
+                    bjVar3.sG(list.get(1).getForumName());
                     bjVar3.setFid(com.baidu.adp.lib.f.b.toLong(list.get(1).getForumId(), 0L));
                     this.diz.a(bjVar3, this.diC);
                 }
@@ -87,21 +87,21 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
                 if (this.diy != null && list.get(0) != null && !aq.isEmpty(list.get(0).getForumName())) {
                     bj bjVar4 = new bj();
                     bjVar4.setId(bjVar.getId());
-                    bjVar4.sF(list.get(0).getForumName());
+                    bjVar4.sG(list.get(0).getForumName());
                     bjVar4.setFid(com.baidu.adp.lib.f.b.toLong(list.get(0).getForumId(), 0L));
                     this.diy.a(bjVar4, this.diD);
                 }
                 if (this.diz != null && list.get(1) != null && !aq.isEmpty(list.get(1).getForumName())) {
                     bj bjVar5 = new bj();
                     bjVar5.setId(bjVar.getId());
-                    bjVar5.sF(list.get(1).getForumName());
+                    bjVar5.sG(list.get(1).getForumName());
                     bjVar5.setFid(com.baidu.adp.lib.f.b.toLong(list.get(1).getForumId(), 0L));
                     this.diz.a(bjVar5, this.diD);
                 }
                 if (this.diA != null && list.get(2) != null && !aq.isEmpty(list.get(2).getForumName())) {
                     bj bjVar6 = new bj();
                     bjVar6.setId(bjVar.getId());
-                    bjVar6.sF(list.get(2).getForumName());
+                    bjVar6.sG(list.get(2).getForumName());
                     bjVar6.setFid(com.baidu.adp.lib.f.b.toLong(list.get(2).getForumId(), 0L));
                     this.diA.a(bjVar6, this.diD);
                 }

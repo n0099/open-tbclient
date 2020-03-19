@@ -3,5 +3,5 @@ package com.baidu.tbadk.core.hybrid;
 interface i {
     void aFp();
 
-    void sW(String str);
+    void sX(String str);
 }

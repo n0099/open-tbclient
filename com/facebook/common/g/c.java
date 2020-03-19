@@ -26,11 +26,11 @@ public class c {
         sIsExtendedWebpSupported = isExtendedWebpSupported();
         lKX = null;
         lKY = false;
-        lKZ = OU("RIFF");
-        lLa = OU("WEBP");
-        lLb = OU("VP8 ");
-        lLc = OU("VP8L");
-        lLd = OU("VP8X");
+        lKZ = OV("RIFF");
+        lLa = OV("WEBP");
+        lLb = OV("VP8 ");
+        lLc = OV("VP8L");
+        lLd = OV("VP8X");
     }
 
     @Nullable
@@ -48,7 +48,7 @@ public class c {
         return bVar;
     }
 
-    private static byte[] OU(String str) {
+    private static byte[] OV(String str) {
         try {
             return str.getBytes(HTTP.ASCII);
         } catch (UnsupportedEncodingException e) {

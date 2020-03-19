@@ -79,7 +79,7 @@ public class l extends c implements com.baidu.tbadk.core.util.f.a {
         return this.cRt.cTK;
     }
 
-    public an Aa(String str) {
+    public an Ab(String str) {
         an anVar = new an(str);
         if (this.cRt != null) {
             anVar.s("fid", this.cRt.getFid());

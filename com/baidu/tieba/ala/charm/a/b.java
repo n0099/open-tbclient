@@ -126,7 +126,7 @@ public class b {
         this.mListView.setPullRefresh(this.exi);
     }
 
-    public void ye(String str) {
+    public void yf(String str) {
         String format = String.format(this.mPageContext.getString(a.i.ala_charm_game_live_name), StringHelper.formatTosepara(JavaTypesHelper.toLong(str, 0L)));
         if (this.exg != null) {
             this.exg.setText(format);

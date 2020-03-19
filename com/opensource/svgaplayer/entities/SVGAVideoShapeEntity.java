@@ -69,7 +69,7 @@ public final class SVGAVideoShapeEntity {
             return this.strokeWidth;
         }
 
-        public final void Rg(String str) {
+        public final void Rh(String str) {
             q.j(str, "<set-?>");
             this.nob = str;
         }
@@ -78,7 +78,7 @@ public final class SVGAVideoShapeEntity {
             return this.nob;
         }
 
-        public final void Rh(String str) {
+        public final void Ri(String str) {
             q.j(str, "<set-?>");
             this.noc = str;
         }
@@ -278,10 +278,10 @@ public final class SVGAVideoShapeEntity {
             aVar.bE((float) optJSONObject.optDouble("strokeWidth", 0.0d));
             String optString = optJSONObject.optString("lineCap", "butt");
             q.i(optString, "it.optString(\"lineCap\", \"butt\")");
-            aVar.Rg(optString);
+            aVar.Rh(optString);
             String optString2 = optJSONObject.optString("lineJoin", "miter");
             q.i(optString2, "it.optString(\"lineJoin\", \"miter\")");
-            aVar.Rh(optString2);
+            aVar.Ri(optString2);
             aVar.Ns(optJSONObject.optInt("miterLimit", 0));
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("lineDash");
             if (optJSONArray3 != null) {
@@ -327,13 +327,13 @@ public final class SVGAVideoShapeEntity {
             if (lineCap != null) {
                 switch (d.nog[lineCap.ordinal()]) {
                     case 1:
-                        aVar.Rg("butt");
+                        aVar.Rh("butt");
                         break;
                     case 2:
-                        aVar.Rg("round");
+                        aVar.Rh("round");
                         break;
                     case 3:
-                        aVar.Rg("square");
+                        aVar.Rh("square");
                         break;
                 }
             }
@@ -341,13 +341,13 @@ public final class SVGAVideoShapeEntity {
             if (lineJoin != null) {
                 switch (d.noh[lineJoin.ordinal()]) {
                     case 1:
-                        aVar.Rh("bevel");
+                        aVar.Ri("bevel");
                         break;
                     case 2:
-                        aVar.Rh("miter");
+                        aVar.Ri("miter");
                         break;
                     case 3:
-                        aVar.Rh("round");
+                        aVar.Ri("round");
                         break;
                 }
             }

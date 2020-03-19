@@ -67,10 +67,10 @@ public class h implements g.a {
         }
     }
 
-    public void Bl(String str) {
+    public void Bm(String str) {
         this.st_type = str;
         if (this.gPZ != null) {
-            this.gPZ.Bl(str);
+            this.gPZ.Bm(str);
         }
     }
 

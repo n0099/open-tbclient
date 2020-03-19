@@ -22,7 +22,7 @@ public final class m implements a.InterfaceC0643a {
         @Override // com.baidu.ubs.analytics.c.m.a
         public final void cYj() {
             long currentTimeMillis = System.currentTimeMillis();
-            com.baidu.ubs.analytics.d.b.Ls("app   went foreground ");
+            com.baidu.ubs.analytics.d.b.Lt("app   went foreground ");
             if (currentTimeMillis - m.kYi > m.kXy) {
                 m.this.d(currentTimeMillis);
             }
@@ -30,7 +30,7 @@ public final class m implements a.InterfaceC0643a {
                 com.baidu.ubs.analytics.d.c.a(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.1.1
                     @Override // com.baidu.ubs.analytics.d.d
                     protected final void a() {
-                        com.baidu.ubs.analytics.d.b.Ls("记录一次app启动事件");
+                        com.baidu.ubs.analytics.d.b.Lt("记录一次app启动事件");
                         com.baidu.ubs.analytics.a.a("power_on", "", "", null);
                         com.baidu.ubs.analytics.d.cXN().a(false);
                     }
@@ -43,12 +43,12 @@ public final class m implements a.InterfaceC0643a {
             d dVar;
             dVar = d.a.kXQ;
             if (dVar.cXU().size() == 0) {
-                com.baidu.ubs.analytics.d.b.Ls("后台应用退出了 了               ");
+                com.baidu.ubs.analytics.d.b.Lt("后台应用退出了 了               ");
                 com.baidu.ubs.analytics.d.cXN().a(true);
                 long unused = m.kYi = 0L;
                 return;
             }
-            com.baidu.ubs.analytics.d.b.Ls("进入后台但没退出                  ");
+            com.baidu.ubs.analytics.d.b.Lt("进入后台但没退出                  ");
         }
     };
 
@@ -83,7 +83,7 @@ public final class m implements a.InterfaceC0643a {
             try {
                 this.kYm.cYj();
             } catch (Exception e) {
-                com.baidu.ubs.analytics.d.j.Ls("Listener threw exception!:" + e.toString());
+                com.baidu.ubs.analytics.d.j.Lt("Listener threw exception!:" + e.toString());
             }
         }
     }
@@ -104,10 +104,10 @@ public final class m implements a.InterfaceC0643a {
                 try {
                     m.kYh.A(String.valueOf(currentTimeMillis - Long.parseLong(m.kYh.N())));
                 } catch (NumberFormatException e) {
-                    com.baidu.ubs.analytics.d.b.Ls(e.getLocalizedMessage());
+                    com.baidu.ubs.analytics.d.b.Lt(e.getLocalizedMessage());
                 }
                 p pVar = new p();
-                if (pVar.Ln(m.kYh.I())) {
+                if (pVar.Lo(m.kYh.I())) {
                     pVar.b(m.kYh);
                 } else {
                     pVar.c(m.kYh);
@@ -123,7 +123,7 @@ public final class m implements a.InterfaceC0643a {
                     try {
                         m.this.kYm.cYk();
                     } catch (Exception e) {
-                        com.baidu.ubs.analytics.d.j.Ls("Listener threw exception!:" + e.toString());
+                        com.baidu.ubs.analytics.d.j.Lt("Listener threw exception!:" + e.toString());
                     }
                 }
             }
@@ -149,7 +149,7 @@ public final class m implements a.InterfaceC0643a {
         com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.4
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
-                com.baidu.ubs.analytics.d.b.Ls("超时了……………… 一个新的session");
+                com.baidu.ubs.analytics.d.b.Lt("超时了……………… 一个新的session");
                 new p().c(m.kYh);
             }
         });

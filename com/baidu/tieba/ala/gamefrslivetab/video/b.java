@@ -201,11 +201,11 @@ public class b {
             this.eEh.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.ala.gamefrslivetab.video.b.6
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                 public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                    b.this.yk(str);
+                    b.this.yl(str);
                     if (StringUtils.isNull(str) || str.contains(UrlSchemaHelper.REDIRECT_JUMP_KEY)) {
                         return false;
                     }
-                    if (b.this.yl(str)) {
+                    if (b.this.ym(str)) {
                         return true;
                     }
                     ba.aGK().b(b.this.eEg.getPageContext(), new String[]{str});
@@ -238,17 +238,17 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yk(String str) {
+    public void yl(String str) {
         if (StringUtils.isNull(str)) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean yl(String str) {
-        return ym(str) || yn(str) || yo(str) || yp(str) || yq(str) || yr(str) || ys(str) || yt(str);
+    public boolean ym(String str) {
+        return yn(str) || yo(str) || yp(str) || yq(str) || yr(str) || ys(str) || yt(str) || yu(str);
     }
 
-    private boolean ym(String str) {
+    private boolean yn(String str) {
         if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_LEGO)) {
             if (!(MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null)) {
                 l.showToast(this.eEg.getActivity(), (int) R.string.plugin_install_fail);
@@ -260,7 +260,7 @@ public class b {
         return false;
     }
 
-    private boolean yn(String str) {
+    private boolean yo(String str) {
         if (str.contains("nohead:url") || str.contains("booktown")) {
             if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
                 l.showToast(this.eEg.getActivity(), (int) R.string.plugin_install_fail);
@@ -272,7 +272,7 @@ public class b {
         return false;
     }
 
-    private boolean yo(String str) {
+    private boolean yp(String str) {
         if (str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) || str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC2) || str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW)) {
             String matchStringFromURL = ag.getMatchStringFromURL(str, "topic_id=");
             String matchStringFromURL2 = ag.getMatchStringFromURL(str, "topic_name=");
@@ -294,7 +294,7 @@ public class b {
         }
     }
 
-    private boolean yp(String str) {
+    private boolean yq(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SQUARE_FORUM_LIST)) {
             return false;
         }
@@ -305,7 +305,7 @@ public class b {
         return true;
     }
 
-    private boolean yq(String str) {
+    private boolean yr(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_CENTER)) {
             return false;
         }
@@ -317,7 +317,7 @@ public class b {
         return true;
     }
 
-    private boolean yr(String str) {
+    private boolean ys(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GOTO_DRESSUP_CENTER)) {
             return false;
         }
@@ -329,7 +329,7 @@ public class b {
         return true;
     }
 
-    private boolean ys(String str) {
+    private boolean yt(String str) {
         if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_BEAUTY_PIC) && str.contains("data=")) {
             String substring = str.substring("data=".length() + str.indexOf("data="));
             ArrayList<String> arrayList = new ArrayList<>();
@@ -352,7 +352,7 @@ public class b {
         return false;
     }
 
-    private boolean yt(String str) {
+    private boolean yu(String str) {
         if (this.eEg.isAdded() && str.contains(UrlSchemaHelper.SCHEMA_TYPE_SHARE)) {
             String urlDecode = k.getUrlDecode(str);
             if (urlDecode.contains("data=")) {

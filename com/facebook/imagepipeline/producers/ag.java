@@ -92,7 +92,7 @@ public class ag implements aj<com.facebook.imagepipeline.g.e> {
 
     @Nullable
     static Map<String, String> a(am amVar, String str, boolean z, int i) {
-        if (!amVar.Pd(str)) {
+        if (!amVar.Pe(str)) {
             return null;
         }
         if (z) {

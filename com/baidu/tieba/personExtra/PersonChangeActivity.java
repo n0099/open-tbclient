@@ -275,7 +275,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EditNickNameActivityConfig(getPageContext().getPageActivity(), RequestResponseCode.REQUEST_MODIFY_NICKNAME, 0, null)));
                     } else if (nickNameLeftDays > 0 && nickNameLeftDays <= 2000) {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                        aVar.sR(String.format(getPageContext().getPageActivity().getString(R.string.modify_nickname_no_first_welfare), Integer.valueOf(nickNameLeftDays)));
+                        aVar.sS(String.format(getPageContext().getPageActivity().getString(R.string.modify_nickname_no_first_welfare), Integer.valueOf(nickNameLeftDays)));
                         aVar.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.personExtra.PersonChangeActivity.1
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -347,7 +347,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 @Override // com.baidu.tbadk.coreExtra.view.c.a
                 public void g(AccountData accountData2) {
                     if (accountData2 != null) {
-                        PersonChangeActivity.this.GO(accountData2.getAccount());
+                        PersonChangeActivity.this.GP(accountData2.getAccount());
                     }
                 }
             });
@@ -455,7 +455,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         this.jmK.setOnClickListener(this);
         this.gkH = (HeadImageView) findViewById(R.id.photo);
         this.gkH.setOnClickListener(this);
-        this.gkH.startLoad(o.tm(this.jmw.cwG().getPortrait()), 25, false);
+        this.gkH.startLoad(o.tn(this.jmw.cwG().getPortrait()), 25, false);
         this.gfp = (LinearLayout) findViewById(R.id.parent);
         this.jml = (ScrollView) findViewById(R.id.person_change_scroll);
         this.jmn = (RelativeLayout) findViewById(R.id.person_sex);
@@ -600,7 +600,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         }
         this.jmz = (ProgressBar) findViewById(R.id.image_progress);
         this.hWL = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.hWL.sR(getPageContext().getString(R.string.confirm_giveup));
+        this.hWL.sS(getPageContext().getString(R.string.confirm_giveup));
         this.hWL.a(getPageContext().getString(R.string.alert_yes_button), new a.b() { // from class: com.baidu.tieba.personExtra.PersonChangeActivity.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -868,7 +868,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         return i7;
     }
 
-    private void GN(String str) {
+    private void GO(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.jmC = true;
             this.jmw.cwG().setPhotoChanged(true);
@@ -1043,14 +1043,14 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public void onResume() {
         super.onResume();
         if (this.gpV && !TextUtils.isEmpty(this.jmM)) {
-            GN(this.jmM);
+            GO(this.jmM);
             this.gpV = false;
             this.jmM = "";
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GO(String str) {
+    public void GP(String str) {
         if (!StringUtils.isNull(str)) {
             this.jmE = true;
             this.jmG.setText(str);

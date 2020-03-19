@@ -166,7 +166,7 @@ public class a {
                 bjVar.a(threadInfo);
                 if (!TextUtils.isEmpty(bjVar.aDy())) {
                     ae aeVar = new ae();
-                    aeVar.sw(bjVar.aDy());
+                    aeVar.sx(bjVar.aDy());
                     aeVar.position = i7;
                     linkedList.add(aeVar);
                 } else if (com.baidu.tieba.homepage.topic.topictab.b.a.ab(bjVar)) {

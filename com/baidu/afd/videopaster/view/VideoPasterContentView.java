@@ -247,7 +247,7 @@ public class VideoPasterContentView extends FrameLayout {
                     this.EH.resume();
                 }
                 if (this.EG) {
-                    this.mStartPosition = x.czM().Hd(this.pasterData.videoUrl);
+                    this.mStartPosition = x.czM().He(this.pasterData.videoUrl);
                     if (this.mStartPosition > 100 && this.EN > this.mStartPosition) {
                         i = this.mStartPosition;
                     }
@@ -385,7 +385,7 @@ public class VideoPasterContentView extends FrameLayout {
         }
         if (this.pasterData != null && this.pasterData.isValid() && !this.pasterData.isEmpty() && this.EG && this.pasterData.ln() == 1) {
             this.ED.setVisibility(0);
-            this.mStartPosition = x.czM().Hd(this.pasterData.videoUrl);
+            this.mStartPosition = x.czM().He(this.pasterData.videoUrl);
             if (this.mStartPosition > 100 && this.EN > this.mStartPosition) {
                 i = this.mStartPosition;
             }

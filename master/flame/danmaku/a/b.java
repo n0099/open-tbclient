@@ -452,7 +452,7 @@ public class b {
         return eVar;
     }
 
-    public e<?> Sk(String str) {
+    public e<?> Sl(String str) {
         return aS(str, true);
     }
 
@@ -509,7 +509,7 @@ public class b {
         }
     }
 
-    public void Sl(String str) {
+    public void Sm(String str) {
         aT(str, true);
     }
 

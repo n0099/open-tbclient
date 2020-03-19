@@ -64,11 +64,11 @@ public class j extends com.baidu.adp.base.c {
     ProgressBar progressBar;
     private final WriteImagesInfo writeImagesInfo;
 
-    public void CD(String str) {
+    public void CE(String str) {
         this.hyJ = str;
     }
 
-    public void CE(String str) {
+    public void CF(String str) {
         this.hyK = str;
     }
 
@@ -119,7 +119,7 @@ public class j extends com.baidu.adp.base.c {
         bUi();
     }
 
-    public void CF(String str) {
+    public void CG(String str) {
         this.hyI = str;
     }
 
@@ -137,7 +137,7 @@ public class j extends com.baidu.adp.base.c {
         return this.business;
     }
 
-    public void CG(String str) {
+    public void CH(String str) {
         this.hyz.setAddress(str);
         bUi();
     }
@@ -476,7 +476,7 @@ public class j extends com.baidu.adp.base.c {
         }
     }
 
-    public void CH(String str) {
+    public void CI(String str) {
         if (!this.hyr.getText().toString().equals(str)) {
             this.hyr.setText(str);
         }
@@ -497,7 +497,7 @@ public class j extends com.baidu.adp.base.c {
                 } else {
                     this.hyr.setVisibility(0);
                 }
-                CH(oVar.bTo());
+                CI(oVar.bTo());
             } else {
                 oVar.bTl();
             }

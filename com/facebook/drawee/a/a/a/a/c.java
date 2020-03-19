@@ -40,7 +40,7 @@ public class c extends com.facebook.imagepipeline.h.a {
     }
 
     @Override // com.facebook.imagepipeline.h.a, com.facebook.imagepipeline.h.c
-    public void OY(String str) {
+    public void OZ(String str) {
         this.lMr.ff(this.lMy.now());
         this.lMr.setRequestId(str);
         this.lMr.vi(true);

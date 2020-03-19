@@ -14,7 +14,7 @@ public final class l {
         return str;
     }
 
-    public static synchronized void Pl(String str) {
+    public static synchronized void Pm(String str) {
         synchronized (l.class) {
             if (mbq.add(str)) {
                 mbr += ", " + str;

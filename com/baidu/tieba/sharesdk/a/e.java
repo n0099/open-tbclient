@@ -83,8 +83,8 @@ public class e extends a {
             return;
         }
         String aAJ = shareEntity.aAJ();
-        if (uy(shareEntity.cHO())) {
-            a(this.jXv, IB(shareEntity.cHO()));
+        if (uz(shareEntity.cHO())) {
+            a(this.jXv, IC(shareEntity.cHO()));
         } else if (!TextUtils.isEmpty(aAJ) && (aAJ.startsWith("http://") || aAJ.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
             com.baidu.adp.lib.e.c.gr().a(aAJ, 10, this.dAJ, 0, 0, getPageId(), new Object[0]);
         } else if (w(shareEntity.getImageUri())) {
@@ -149,7 +149,7 @@ public class e extends a {
         webpageObject.identify = Utility.generateGUID();
         webpageObject.title = "";
         webpageObject.description = "";
-        webpageObject.actionUrl = ID(str);
+        webpageObject.actionUrl = IE(str);
         return webpageObject;
     }
 
@@ -160,9 +160,9 @@ public class e extends a {
         WebpageObject webpageObject = new WebpageObject();
         webpageObject.setThumbImage(bitmap);
         webpageObject.identify = Utility.generateGUID();
-        webpageObject.title = ID(str);
-        webpageObject.description = ID(str2);
-        webpageObject.actionUrl = ID(str3);
+        webpageObject.title = IE(str);
+        webpageObject.description = IE(str2);
+        webpageObject.actionUrl = IE(str3);
         return webpageObject;
     }
 
@@ -171,8 +171,8 @@ public class e extends a {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = ID(this.jXv.getTitle());
-        textObject.text = ID(this.jXv.topic) + ID(this.jXv.getContent());
+        textObject.title = IE(this.jXv.getTitle());
+        textObject.text = IE(this.jXv.topic) + IE(this.jXv.getContent());
         return textObject;
     }
 
@@ -183,7 +183,7 @@ public class e extends a {
         return imageObject;
     }
 
-    private String ID(String str) {
+    private String IE(String str) {
         return str == null ? "" : str;
     }
 

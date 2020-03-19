@@ -113,7 +113,7 @@ public class PersonCenterFragment extends BaseFragment {
                     xVar.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                     String postNetData = xVar.postNetData();
                     com.baidu.tieba.personCenter.c.b bVar = new com.baidu.tieba.personCenter.c.b();
-                    bVar.GF(postNetData);
+                    bVar.GG(postNetData);
                     return bVar.getErrorCode() == 0 && bVar.aQR() > 0;
                 }
             }, new l<Boolean>() { // from class: com.baidu.tieba.personCenter.PersonCenterFragment.5
@@ -171,11 +171,11 @@ public class PersonCenterFragment extends BaseFragment {
                 this.jiz.refreshView();
             }
             if (!StringUtils.isNull(this.jiA)) {
-                this.jiz.GD(this.jiA);
+                this.jiz.GE(this.jiA);
                 this.jiA = null;
             }
             if (!StringUtils.isNull(this.jiB)) {
-                this.jiz.GE(this.jiB);
+                this.jiz.GF(this.jiB);
                 this.jiB = null;
             } else {
                 this.jiz.refreshView();

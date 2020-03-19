@@ -55,16 +55,16 @@ public class j extends com.baidu.adp.widget.ListView.a<l, com.baidu.tieba.card.a
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_real_authen));
             AlaUserInfoData bso = personCenterData.bso();
             if (bso.certify_status == 0) {
-                aVar.zK(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
+                aVar.zL(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_unauthorized));
                 aVar.qT(0);
             } else if (1 == bso.certify_status) {
-                aVar.zK(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_in_review));
+                aVar.zL(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_in_review));
                 aVar.qT(4);
             } else if (2 == bso.certify_status) {
-                aVar.zK(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
+                aVar.zL(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_authenticated));
                 aVar.qT(4);
             } else if (3 == bso.certify_status) {
-                aVar.zK(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_denied));
+                aVar.zL(this.mContext.getResources().getString(R.string.ala_person_live_real_authen_denied));
                 aVar.qT(0);
             }
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());

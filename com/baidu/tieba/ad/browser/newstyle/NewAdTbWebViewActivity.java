@@ -171,7 +171,7 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
     }
 
     private void aYl() {
-        DownloadCacheKey xc;
+        DownloadCacheKey xd;
         DownloadCacheKey downloadCacheKey;
         String str = "";
         Intent intent = getIntent();
@@ -179,11 +179,11 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
             str = intent.getStringExtra(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID);
         }
         if (!TextUtils.isEmpty(str)) {
-            xc = com.baidu.tieba.ad.download.d.aYp().xb(str);
+            xd = com.baidu.tieba.ad.download.d.aYp().xc(str);
         } else {
-            xc = com.baidu.tieba.ad.download.d.aYp().xc(this.mUrl);
+            xd = com.baidu.tieba.ad.download.d.aYp().xd(this.mUrl);
         }
-        if (xc == null) {
+        if (xd == null) {
             if (!TextUtils.isEmpty(str)) {
                 downloadCacheKey = DownloadCacheKey.create(str, "");
             } else if (this.mUrl != null) {
@@ -194,7 +194,7 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
                     return;
                 }
             } else {
-                downloadCacheKey = xc;
+                downloadCacheKey = xd;
             }
             if (downloadCacheKey != null) {
                 com.baidu.tieba.ad.download.d.aYp().a(downloadCacheKey, null);
@@ -202,7 +202,7 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
                 return;
             }
         } else {
-            downloadCacheKey = xc;
+            downloadCacheKey = xd;
         }
         if (this.dZF != null) {
             this.dZF.h(downloadCacheKey);
@@ -529,7 +529,7 @@ public class NewAdTbWebViewActivity extends AdBaseWebViewActivity {
                     NewAdTbWebViewActivity.this.mUrlTitle = title;
                 }
                 if (!NewAdTbWebViewActivity.this.isShowFullScreen) {
-                    NewAdTbWebViewActivity.this.dZy.sn(NewAdTbWebViewActivity.this.mUrlTitle);
+                    NewAdTbWebViewActivity.this.dZy.so(NewAdTbWebViewActivity.this.mUrlTitle);
                 }
                 NewAdTbWebViewActivity.this.dZy.setNavBarVisibility(NewAdTbWebViewActivity.this.mIsShowNavBar);
                 NewAdTbWebViewActivity.this.dZy.fq(NewAdTbWebViewActivity.this.isNeedShowShareItem());

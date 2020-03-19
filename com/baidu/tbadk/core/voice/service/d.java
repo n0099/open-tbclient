@@ -7,5 +7,5 @@ public interface d {
 
     boolean isRecording();
 
-    boolean ud(String str);
+    boolean ue(String str);
 }

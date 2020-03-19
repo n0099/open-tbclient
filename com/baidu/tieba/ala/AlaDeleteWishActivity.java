@@ -180,7 +180,7 @@ public class AlaDeleteWishActivity extends BaseFragmentActivity implements g.a {
         this.ehx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                AlaDeleteWishActivity.this.ehz.zA(AlaDeleteWishActivity.this.ehA);
+                AlaDeleteWishActivity.this.ehz.zB(AlaDeleteWishActivity.this.ehA);
             }
         });
         this.ehy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.AlaDeleteWishActivity.4

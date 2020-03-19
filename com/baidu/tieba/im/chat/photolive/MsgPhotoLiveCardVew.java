@@ -82,8 +82,8 @@ public class MsgPhotoLiveCardVew extends g {
                         }
                     } else {
                         TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
-                        if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.Jm(String.valueOf(MsgPhotoLiveCardVew.this.threadId)) > 0) {
-                            MsgPhotoLiveCardVew.this.postId = photoLiveReadThreadHistory.Jm(String.valueOf(MsgPhotoLiveCardVew.this.threadId));
+                        if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.Jn(String.valueOf(MsgPhotoLiveCardVew.this.threadId)) > 0) {
+                            MsgPhotoLiveCardVew.this.postId = photoLiveReadThreadHistory.Jn(String.valueOf(MsgPhotoLiveCardVew.this.threadId));
                         }
                     }
                     MsgPhotoLiveCardVew.this.wm(MsgPhotoLiveCardVew.this.messageType);
@@ -112,22 +112,22 @@ public class MsgPhotoLiveCardVew extends g {
         String str;
         int i2 = -1;
         if (chatMessage != null) {
-            a.C0528a Cx = a.Cx(chatMessage.getContent());
-            if (Cx == null) {
+            a.C0528a Cy = a.Cy(chatMessage.getContent());
+            if (Cy == null) {
                 this.threadId = 0L;
                 return;
             }
-            this.threadId = Cx.threadId;
-            this.postId = Cx.postId;
-            this.messageType = Cx.msgType;
-            int i3 = Cx.hxs;
+            this.threadId = Cy.threadId;
+            this.postId = Cy.postId;
+            this.messageType = Cy.msgType;
+            int i3 = Cy.hxs;
             ViewGroup.LayoutParams layoutParams = this.hxn.getLayoutParams();
             if (this.messageType == 1 || this.messageType == 6) {
                 if (this.messageType == 1) {
-                    str = Cx.threadTitle;
+                    str = Cy.threadTitle;
                     i = R.string.look_live_thread;
                 } else {
-                    String decode = URLDecoder.decode(Cx.threadTitle);
+                    String decode = URLDecoder.decode(Cy.threadTitle);
                     i = R.string.look_god_thread;
                     str = decode;
                     i2 = 0;
@@ -142,26 +142,26 @@ public class MsgPhotoLiveCardVew extends g {
                         MsgPhotoLiveCardVew.this.cg(view2);
                     }
                 });
-                this.hxh.setTag(Cx.userId);
+                this.hxh.setTag(Cy.userId);
                 this.hxh.setGodIconMargin(i2);
                 this.hxm.setVisibility(8);
                 this.hxi.setVisibility(0);
-                this.hxi.setText(Cx.userName);
-                this.hxk.setText(Cx.hxr);
+                this.hxi.setText(Cy.userName);
+                this.hxk.setText(Cy.hxr);
                 this.hxi.setTextSize(0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
                 this.hxo.setText(i);
             } else if (this.messageType == 3) {
-                this.hxl.setText(Cx.threadTitle);
+                this.hxl.setText(Cy.threadTitle);
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds80);
                 this.hxn.setPadding(0, 0, 0, 0);
                 this.hxh.setVisibility(8);
                 this.hxm.setVisibility(0);
                 this.hxi.setVisibility(8);
                 this.hxm.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
-                if (Cx.hxr != null && Cx.hxr.indexOf(String.valueOf(i3)) != -1) {
-                    this.hxk.setText(aJ(Cx.hxr, i3));
+                if (Cy.hxr != null && Cy.hxr.indexOf(String.valueOf(i3)) != -1) {
+                    this.hxk.setText(aJ(Cy.hxr, i3));
                 } else {
-                    this.hxk.setText(Cx.hxr);
+                    this.hxk.setText(Cy.hxr);
                 }
             } else {
                 layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds80);
@@ -169,22 +169,22 @@ public class MsgPhotoLiveCardVew extends g {
                 this.hxh.setVisibility(8);
                 this.hxm.setVisibility(0);
                 this.hxi.setVisibility(8);
-                this.hxk.setText(Cx.hxr);
+                this.hxk.setText(Cy.hxr);
                 if (this.messageType == 4) {
-                    this.hxl.setText(Cx.threadTitle);
+                    this.hxl.setText(Cy.threadTitle);
                     this.hxm.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
                 } else if (this.messageType == 5) {
-                    this.hxl.setText(Cx.threadTitle);
+                    this.hxl.setText(Cy.threadTitle);
                     this.hxo.setText(R.string.look_normal_thread);
                     this.hxm.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
                 }
             }
-            if (!TextUtils.isEmpty(Cx.portrait)) {
-                this.hxh.startLoad(Cx.portrait, 12, false);
+            if (!TextUtils.isEmpty(Cy.portrait)) {
+                this.hxh.startLoad(Cy.portrait, 12, false);
             } else {
                 this.hxh.startLoad(null, 12, false);
             }
-            this.hxj.setText(aq.getFormatTime(Cx.hxq));
+            this.hxj.setText(aq.getFormatTime(Cy.hxq));
         }
     }
 

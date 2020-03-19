@@ -173,7 +173,7 @@ public abstract class b extends com.baidu.live.liveroom.f.a implements com.baidu
                 if (TextUtils.isEmpty(str)) {
                     str = b.this.eSo.pageContext.getPageActivity().getResources().getString(a.i.ala_forbid_send_msg_txt);
                 }
-                b.this.yO(str);
+                b.this.yP(str);
             }
         }
     };
@@ -608,7 +608,7 @@ public abstract class b extends com.baidu.live.liveroom.f.a implements com.baidu
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yO(String str) {
+    public void yP(String str) {
         String string;
         BdAlertDialog bdAlertDialog = new BdAlertDialog(bjO().pageContext.getPageActivity());
         bdAlertDialog.setAutoNight(false);
@@ -766,7 +766,7 @@ public abstract class b extends com.baidu.live.liveroom.f.a implements com.baidu
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void yP(String str) {
+    public void yQ(String str) {
         if (this.eSI != null) {
             this.eSI.dw(str);
         }
@@ -883,7 +883,7 @@ public abstract class b extends com.baidu.live.liveroom.f.a implements com.baidu
             this.eSA = new com.baidu.tieba.ala.liveroom.g.a(bjO().pageContext);
         }
         if (this.eTg != null) {
-            this.eSA.yT(this.eTg.user_id);
+            this.eSA.yU(this.eTg.user_id);
         }
         this.eSA.ag(null);
     }
@@ -930,7 +930,7 @@ public abstract class b extends com.baidu.live.liveroom.f.a implements com.baidu
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:151:0x0468, code lost:
-        yL(r27);
+        yM(r27);
      */
     /* JADX WARN: Removed duplicated region for block: B:17:0x004b A[ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:23:0x005f  */
@@ -1115,7 +1115,7 @@ public abstract class b extends com.baidu.live.liveroom.f.a implements com.baidu
                 }
             } else {
                 t.b(optString3, JavaTypesHelper.toInt(optString4, 1), optString5, optString6, xt.userId, xt.portrait, xt.getNameShow(), String.valueOf(j2), String.valueOf(j3), false, String.valueOf(j), str4, optString7, "", "");
-                yL(optString3);
+                yM(optString3);
             }
             com.baidu.tieba.ala.liveroom.e.d dVar = new com.baidu.tieba.ala.liveroom.e.d();
             dVar.fam = optLong4;
@@ -1124,7 +1124,7 @@ public abstract class b extends com.baidu.live.liveroom.f.a implements com.baidu
         }
     }
 
-    protected void yL(String str) {
+    protected void yM(String str) {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1297,7 +1297,7 @@ public abstract class b extends com.baidu.live.liveroom.f.a implements com.baidu
         if (mVar != null) {
             bjK();
             if (this.eSA != null && mVar.Ya != null) {
-                this.eSA.yT(String.valueOf(mVar.Ya.userId));
+                this.eSA.yU(String.valueOf(mVar.Ya.userId));
             }
             if (this.eSq != null) {
                 this.eSq.a(mVar);

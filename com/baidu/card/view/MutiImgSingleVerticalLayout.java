@@ -83,10 +83,10 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements m<com.b
                 float f6;
                 float f7 = 0.0f;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a vx = c.aPV().vx(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), MutiImgSingleVerticalLayout.this.NK ? 13 : 14));
-                    if (vx != null) {
-                        int width = vx.getWidth();
-                        i = vx.getHeight();
+                    com.baidu.adp.widget.ImageView.a vy = c.aPV().vy(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), MutiImgSingleVerticalLayout.this.NK ? 13 : 14));
+                    if (vy != null) {
+                        int width = vy.getWidth();
+                        i = vy.getHeight();
                         i2 = width;
                     } else {
                         i = 0;

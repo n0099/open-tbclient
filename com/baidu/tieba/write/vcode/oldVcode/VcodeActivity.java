@@ -96,7 +96,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         initUI();
         initData(bundle);
         if (this.kRO != null) {
-            KW(this.kRO.getVcodeUrl());
+            KX(this.kRO.getVcodeUrl());
         }
     }
 
@@ -203,14 +203,14 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         this.dYH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.vcode.oldVcode.VcodeActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                VcodeActivity.this.KW(null);
+                VcodeActivity.this.KX(null);
             }
         });
         this.mProgressBar = (ProgressBar) findViewById(R.id.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KW(String str) {
+    public void KX(String str) {
         if (this.kRQ != null) {
             this.kRQ.cancel();
         }
@@ -282,7 +282,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     } else {
                         str = this.jYy.getContent() + videoInfo.buildContent() + imagesCodeForPost;
                     }
-                    this.mNetwork.addPostData("content", com.baidu.tieba.face.a.As(str));
+                    this.mNetwork.addPostData("content", com.baidu.tieba.face.a.At(str));
                     c.a(this.mNetwork, this.jYy);
                     this.mNetwork.addPostData("vcode_md5", this.jYy.getVcodeMD5());
                     if (obj.length() > 0) {
@@ -616,7 +616,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         if (aaVar2.getVcode_pic_url() != null && VcodeActivity.this.kRO != null) {
                             VcodeActivity.this.kRO.setVcodeMD5(aaVar2.getVcode_md5());
                             VcodeActivity.this.kRO.setVcodeUrl(aaVar2.getVcode_pic_url());
-                            VcodeActivity.this.KW(VcodeActivity.this.kRO.getVcodeUrl());
+                            VcodeActivity.this.KX(VcodeActivity.this.kRO.getVcodeUrl());
                         }
                         VcodeActivity.this.fkI.setText((CharSequence) null);
                     } else if (this.jYy != null && this.mNetwork.getServerErrorCode() == 227001) {

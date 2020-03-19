@@ -238,11 +238,11 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
         if (this.jnY.cxg() != null) {
             if (!StringUtils.isNull(this.jiA)) {
-                this.jnY.cxg().GR(this.jiA);
+                this.jnY.cxg().GS(this.jiA);
                 this.jiA = null;
             }
             if (!StringUtils.isNull(this.jiB)) {
-                this.jnY.cxg().GS(this.jiB);
+                this.jnY.cxg().GT(this.jiB);
                 this.jiB = null;
             }
             if (this.gqV) {
@@ -300,7 +300,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                     String decode = Uri.decode(uri.getEncodedPath());
                     if (!StringUtils.isNull(decode)) {
                         if (uri2.startsWith("tbusercenter://")) {
-                            BN(decode);
+                            BO(decode);
                             Matcher matcher = Pattern.compile(".*fr=(.*)&portrait=([\\d]+).*").matcher(decode);
                             if (matcher.find()) {
                                 this.mPortrait = matcher.group(2);
@@ -622,7 +622,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
     }
 
-    private void BN(String str) {
+    private void BO(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }

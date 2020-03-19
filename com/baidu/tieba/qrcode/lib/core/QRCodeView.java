@@ -22,7 +22,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
 
     /* loaded from: classes10.dex */
     public interface a {
-        void Hv(String str);
+        void Hw(String str);
 
         void cBU();
     }
@@ -183,7 +183,7 @@ public abstract class QRCodeView extends RelativeLayout implements Camera.Previe
                     if (QRCodeView.this.jEQ) {
                         if (QRCodeView.this.jEP != null && !TextUtils.isEmpty(str)) {
                             try {
-                                QRCodeView.this.jEP.Hv(str);
+                                QRCodeView.this.jEP.Hw(str);
                                 return;
                             } catch (Exception e) {
                                 return;

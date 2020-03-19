@@ -47,7 +47,7 @@ public class v extends com.baidu.tieba.horizonalList.widget.e {
         this.gsx = (TextView) view.findViewById(R.id.rec_user_describe);
         this.gsy = (EntelechyUserLikeButton) view.findViewById(R.id.rec_user_like);
         this.NC = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.gsy);
-        this.NC.sD("1");
+        this.NC.sE("1");
         this.NC.j(bdUniqueId);
     }
 

@@ -28,7 +28,7 @@ public class aa {
         this.mTipView.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
     }
 
-    public void Ga(String str) {
+    public void Gb(String str) {
         if (this.gOI != null) {
             if (com.baidu.tbadk.core.util.aq.isEmpty(str) || this.gOJ > 0) {
                 onDestory();

@@ -10,12 +10,12 @@ final class k {
     private final int type;
 
     k(String str, int i, String str2) {
-        this.nNM = Sq(str);
+        this.nNM = Sr(str);
         this.type = i;
-        this.suffix = Sq(str2);
+        this.suffix = Sr(str2);
     }
 
-    static byte[] Sq(String str) {
+    static byte[] Sr(String str) {
         byte[] bArr = new byte[str.length()];
         for (int i = 0; i < bArr.length; i++) {
             bArr[i] = (byte) str.charAt(i);

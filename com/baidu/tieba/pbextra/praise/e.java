@@ -169,7 +169,7 @@ public class e extends com.baidu.adp.base.c<PraiseListActivity> {
         this.jhg.setVisibility(8);
         this.jhh.setVisibility(0);
         if (!StringUtils.isNull(str)) {
-            this.jhh.setTextOption(NoDataViewFactory.d.tU(str));
+            this.jhh.setTextOption(NoDataViewFactory.d.tV(str));
         } else if (1 == i) {
             this.jhh.setTextOption(NoDataViewFactory.d.lh(R.string.graffiti_list_no_data));
         } else {

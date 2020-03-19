@@ -126,7 +126,7 @@ public class r extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -150,7 +150,7 @@ public class r extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         return;
                     }
                 }
-                com.baidu.tieba.card.l.zU(bjVar.getTid());
+                com.baidu.tieba.card.l.zV(bjVar.getTid());
                 TiebaStatic.log(new an("c13274").s("fid", fid).s("tid", parseLong).cx("uid", TbadkCoreApplication.getCurrentAccount()).cx("obj_name", str4).s("obj_id", l.longValue()).cx("obj_source", "index_card").X("obj_param1", bjVar.aDd().is_game.intValue()));
             }
         }

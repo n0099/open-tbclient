@@ -165,7 +165,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             if (gVar.gvp.videoSize == 0) {
                 format = this.mPageContext.getString(R.string.video_mobile_play_tips);
             } else {
-                format = String.format(this.mPageContext.getString(R.string.video_mobile_network_tips), Bk(String.format("%.1f", Float.valueOf(((float) gVar.gvp.videoSize) / 1048576.0f))));
+                format = String.format(this.mPageContext.getString(R.string.video_mobile_network_tips), Bl(String.format("%.1f", Float.valueOf(((float) gVar.gvp.videoSize) / 1048576.0f))));
             }
             this.guF.setText(format);
             this.guE.setVisibility(8);
@@ -204,7 +204,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 public void bGA() {
                     b.this.guU = false;
                     b.this.guD.setVisibility(8);
-                    b.this.Bj(b.this.cWz ? "1" : "2");
+                    b.this.Bk(b.this.cWz ? "1" : "2");
                     b.this.onClick(b.this.guB);
                 }
 
@@ -221,7 +221,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                         b.this.mPageContext.showToast(b.this.guF.getText().toString());
                         b.this.guO.eg(b.this.guP.gvp.videoUrl, b.this.guP.threadId);
                         b.this.guD.setVisibility(8);
-                        b.this.Bj("2");
+                        b.this.Bk("2");
                     } else {
                         b.this.guE.setVisibility(0);
                     }
@@ -318,7 +318,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             });
             this.guO.setThumbnail(gVar.gvp.thumbnailUrl);
             this.guO.setVideoUrl(gVar.gvp.videoUrl, gVar.threadId);
-            this.guO.GX(gVar.title);
+            this.guO.GY(gVar.title);
             this.guO.a(new c.i() { // from class: com.baidu.tieba.frs.aggregation.b.7
                 @Override // com.baidu.tieba.play.c.i
                 public void bGD() {
@@ -337,7 +337,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bj(String str) {
+    public void Bk(String str) {
         if (this.guP != null && this.guP.gvp != null) {
             if ("1".equals(str) || "2".equals(str)) {
                 com.baidu.tieba.play.l.a(this.guP.gvp.videoMd5, "", str, this.guS);
@@ -384,7 +384,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
         }
     }
 
-    public String Bk(String str) {
+    public String Bl(String str) {
         if (str.indexOf(".") > 0) {
             return str.replaceAll("0+?$", "").replaceAll("[.]$", "");
         }
@@ -522,7 +522,7 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
                 this.guE.setVisibility(8);
                 this.guO.cyD();
                 this.guO.eg(this.guP.gvp.videoUrl, this.guP.threadId);
-                Bj("2");
+                Bk("2");
             }
         } else if (view == this.fdM) {
             if (!this.guP.gvo.hasFocus) {

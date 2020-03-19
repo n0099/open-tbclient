@@ -60,7 +60,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
             bj aAj = bVar.aAj();
             this.mTitle.setText(aAj.getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Jo(aAj.getId())) {
+            if (readThreadHistory != null && readThreadHistory.Jp(aAj.getId())) {
                 am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_c);
             } else {
                 am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_b);

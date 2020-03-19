@@ -107,8 +107,8 @@ public class a implements TabLayout.OnTabSelectedListener {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
+                a.this.BC(str);
                 a.this.BB(str);
-                a.this.BA(str);
                 a.this.gGF.refreshData();
             }
         }
@@ -708,13 +708,13 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    public void BA(String str) {
+    public void BB(String str) {
         if (this.gGC.bIQ() != null) {
-            this.gGC.bIQ().BC(str);
+            this.gGC.bIQ().BD(str);
         }
     }
 
-    public void BB(String str) {
+    public void BC(String str) {
         if (!StringUtils.isNull(str) && !v.isEmpty(this.gGF.getDataList())) {
             Iterator<m> it = this.gGF.bJd().iterator();
             while (it.hasNext()) {

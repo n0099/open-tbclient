@@ -27,8 +27,8 @@ public class a {
         jFS.put(DecodeHintType.CHARACTER_SET, "utf-8");
     }
 
-    public static String HC(String str) {
-        return D(HD(str));
+    public static String HD(String str) {
+        return D(HE(str));
     }
 
     public static String D(Bitmap bitmap) {
@@ -61,7 +61,7 @@ public class a {
         }
     }
 
-    private static Bitmap HD(String str) {
+    private static Bitmap HE(String str) {
         try {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;

@@ -66,7 +66,7 @@ public class i implements a.InterfaceC0017a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, IPUT, IGET]}, finally: {[IGET, INVOKE, IPUT, IGET, CONSTRUCTOR, IGET, IGET, INVOKE, INVOKE, INVOKE, INVOKE, IPUT, CONSTRUCTOR, IGET, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, INVOKE, IPUT, IF] complete} */
-    private final byte[] tD(String str) {
+    private final byte[] tE(String str) {
         List<String> list;
         StringBuffer stringBuffer = new StringBuffer();
         try {
@@ -143,8 +143,8 @@ public class i implements a.InterfaceC0017a {
         }
     }
 
-    public byte[] tE(String str) {
-        return tD(str);
+    public byte[] tF(String str) {
+        return tE(str);
     }
 
     private boolean aGU() {
@@ -176,7 +176,7 @@ public class i implements a.InterfaceC0017a {
                 if (SwitchManager.getInstance().findType("need_more_logs") == 1) {
                     s.u("httpManager", str, "", "");
                 }
-                byte[] tD = tD(str);
+                byte[] tE = tE(str);
                 int i3 = dbD + 1;
                 dbD = i3;
                 if (i3 <= 2 && this.responseCode != 200) {
@@ -196,7 +196,7 @@ public class i implements a.InterfaceC0017a {
                     dbD = 0;
                     dbF = 0;
                 }
-                if (tD == null) {
+                if (tE == null) {
                     return null;
                 }
                 if (this.dbw != null && this.dbw.fY().rq != null) {
@@ -218,7 +218,7 @@ public class i implements a.InterfaceC0017a {
                         if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
                             this.dbH = false;
                             i = i2;
-                            return (this.dbG || (!z && i == 0) || !new String(tD, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? tD : l(tD, 23, tD.length);
+                            return (this.dbG || (!z && i == 0) || !new String(tE, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;")) ? tE : l(tE, 23, tE.length);
                         }
                         this.dbH = true;
                     }

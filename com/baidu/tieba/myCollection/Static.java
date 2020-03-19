@@ -45,7 +45,7 @@ public class Static {
                         aVar.setThreadId(historyMessage.threadId);
                         aVar.setForumName(historyMessage.forumName);
                         aVar.setThreadName(historyMessage.threadName);
-                        aVar.Fo(historyMessage.postID);
+                        aVar.Fp(historyMessage.postID);
                         aVar.pj(historyMessage.isHostOnly);
                         aVar.pk(historyMessage.isSquence);
                         aVar.setThreadType(historyMessage.threadType);

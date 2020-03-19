@@ -126,7 +126,7 @@ public class a {
         this.gEU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.Bp(a.this.gET.getText().toString());
+                a.this.Bq(a.this.gET.getText().toString());
             }
         });
         this.mProgressBar = (ProgressBar) this.mRootView.findViewById(R.id.progressBar);
@@ -151,11 +151,11 @@ public class a {
                     a.this.gEh.bIo();
                 }
                 if (dVar == null) {
-                    a.this.Bq(null);
+                    a.this.Br(null);
                     a.this.bIy();
                     return;
                 }
-                a.this.Bq(dVar.userName);
+                a.this.Br(dVar.userName);
                 a.this.gFa = dVar.userId;
             }
         });
@@ -212,7 +212,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(final d dVar) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.gEx.getPageContext().getPageActivity());
-        aVar.sQ(null);
+        aVar.sR(null);
         aVar.jW(R.string.del_post_confirm);
         aVar.fI(true);
         aVar.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.8
@@ -241,7 +241,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bp(String str) {
+    public void Bq(String str) {
         tI(0);
         HttpMessage httpMessage = new HttpMessage(1003380);
         httpMessage.addParam("user_id", this.eqR);
@@ -434,7 +434,7 @@ public class a {
         }
     }
 
-    public void Bq(String str) {
+    public void Br(String str) {
         this.gEV.setVisibility(8);
         this.dzh.setVisibility(0);
         this.gET.post(new Runnable() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.3

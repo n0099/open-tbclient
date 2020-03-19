@@ -181,7 +181,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         this.mView.fr(this.mIsLogin);
         this.mView.fr(isNeedShowMenuItem());
         if (!StringUtils.isNull(this.mUrlTitle)) {
-            this.mView.sn(this.mUrlTitle);
+            this.mView.so(this.mUrlTitle);
         }
         if (!this.mView.azE() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
             bc.addStateBarViewSpace(this.mView.mRoot, R.color.cp_link_tip_b, false);
@@ -748,14 +748,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b sp = com.baidu.tbadk.core.a.a.azS().sp(TbadkCoreApplication.getCurrentBduss());
-        if (sp != null) {
-            if (sp.mBduss != null) {
-                str3 = sp.mBduss;
+        a.b sq = com.baidu.tbadk.core.a.a.azS().sq(TbadkCoreApplication.getCurrentBduss());
+        if (sq != null) {
+            if (sq.mBduss != null) {
+                str3 = sq.mBduss;
             }
-            if (sp.mPtoken != null) {
+            if (sq.mPtoken != null) {
                 str = str3;
-                str2 = sp.mPtoken;
+                str2 = sq.mPtoken;
                 ag.a aVar = new ag.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

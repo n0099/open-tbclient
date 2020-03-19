@@ -105,11 +105,11 @@ public class a {
 
         @Override // java.lang.Runnable
         public void run() {
-            Drawable Ra;
-            if (!a.this.a(this.ngw) && !h.isEmpty(this.ngw.a) && (Ra = a.this.Ra(this.ngw.a)) != null) {
-                a.this.ngq.put(this.ngw.a, Ra);
+            Drawable Rb;
+            if (!a.this.a(this.ngw) && !h.isEmpty(this.ngw.a) && (Rb = a.this.Rb(this.ngw.a)) != null) {
+                a.this.ngq.put(this.ngw.a, Rb);
                 if (!a.this.a(this.ngw)) {
-                    ((Activity) this.ngw.b.getContext()).runOnUiThread(new RunnableC0711a(Ra, this.ngw));
+                    ((Activity) this.ngw.b.getContext()).runOnUiThread(new RunnableC0711a(Rb, this.ngw));
                 }
             }
         }
@@ -143,7 +143,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Drawable QZ(String str) {
+    private Drawable Ra(String str) {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2 = null;
@@ -151,8 +151,8 @@ public class a {
             return null;
         }
         try {
-            a.c SP = this.ngr.SP(str);
-            if (SP == null) {
+            a.c SQ = this.ngr.SQ(str);
+            if (SQ == null) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -164,7 +164,7 @@ public class a {
                 }
                 return null;
             }
-            inputStream = SP.Op(0);
+            inputStream = SQ.Op(0);
             try {
                 try {
                     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -223,34 +223,34 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v10 */
     /* JADX WARN: Type inference failed for: r1v4 */
     /* JADX WARN: Type inference failed for: r1v7 */
-    public Drawable Ra(String str) {
-        Drawable QZ;
-        a.C0810a SQ;
+    public Drawable Rb(String str) {
+        Drawable Ra;
+        a.C0810a SR;
         Drawable drawable = null;
         if (this.ngr != null) {
             ?? r1 = ngp;
-            String SR = r1.SR(str);
+            String SS = r1.SS(str);
             try {
                 try {
                     synchronized (this.d) {
                         try {
-                            QZ = QZ(SR);
+                            Ra = Ra(SS);
                         } catch (Throwable th) {
                             r1 = 0;
                             th = th;
                         }
                         try {
-                            if (QZ == null && (SQ = this.ngr.SQ(SR)) != null) {
-                                OutputStream Oo = SQ.Oo(0);
+                            if (Ra == null && (SR = this.ngr.SR(SS)) != null) {
+                                OutputStream Oo = SR.Oo(0);
                                 Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
                                 if (http == null) {
-                                    SQ.abort();
-                                    drawable = QZ;
+                                    SR.abort();
+                                    drawable = Ra;
                                 } else if (http.downloadSync(str, Oo)) {
-                                    SQ.commit();
-                                    drawable = QZ(SR);
+                                    SR.commit();
+                                    drawable = Ra(SS);
                                 } else {
-                                    SQ.abort();
+                                    SR.abort();
                                 }
                             }
                         } catch (Throwable th2) {
@@ -265,7 +265,7 @@ public class a {
                                 return drawable;
                             }
                         }
-                        drawable = QZ;
+                        drawable = Ra;
                     }
                 } catch (Throwable th3) {
                     th = th3;

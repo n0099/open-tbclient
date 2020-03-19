@@ -95,7 +95,7 @@ public class h implements View.OnClickListener {
                 this.cVO.setTextColor(com.baidu.tieba.lego.card.d.a.cF(aVar.btn_text_color));
             }
             if (!aq.isEmpty(aVar.btn_color)) {
-                this.cVO.setBackgroundDrawable(sV(aVar.btn_color));
+                this.cVO.setBackgroundDrawable(sW(aVar.btn_color));
             }
             if (!aq.isEmpty(aVar.imgUrl)) {
                 this.cVP.startLoad(aVar.imgUrl, 10, false);
@@ -157,7 +157,7 @@ public class h implements View.OnClickListener {
         this.mLayoutParams.gravity = 81;
     }
 
-    private StateListDrawable sV(String str) {
+    private StateListDrawable sW(String str) {
         StateListDrawable stateListDrawable = new StateListDrawable();
         Drawable drawable = this.mContext.getResources().getDrawable(R.drawable.shape_new_complete_toast_btn_bg_pressed);
         GradientDrawable gradientDrawable = new GradientDrawable();

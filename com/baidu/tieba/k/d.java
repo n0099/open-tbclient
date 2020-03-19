@@ -48,7 +48,7 @@ public class d {
         }
     }
 
-    public static void ET(String str) {
+    public static void EU(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -96,7 +96,7 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray EU(String str) {
+    public static JSONArray EV(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -131,7 +131,7 @@ public class d {
         }
     }
 
-    public static void EV(String str) {
+    public static void EW(String str) {
         if (!StringUtils.isNull(str)) {
             com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.irF + g.a.irw + str));
         }

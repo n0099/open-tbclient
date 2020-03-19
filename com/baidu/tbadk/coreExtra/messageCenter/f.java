@@ -91,7 +91,7 @@ public class f {
         return null;
     }
 
-    public void ur(String str) {
+    public void us(String str) {
         this.dpu = str;
     }
 

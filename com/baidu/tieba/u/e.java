@@ -36,11 +36,11 @@ public class e {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.k.d.ET(c.a.dXE);
-                com.baidu.tieba.k.d.ET(c.a.irx);
-                com.baidu.tieba.k.d.ET(c.a.iry);
-                com.baidu.tieba.k.d.ET(c.a.irA);
-                com.baidu.tieba.k.d.ET(c.a.irB);
+                com.baidu.tieba.k.d.EU(c.a.dXE);
+                com.baidu.tieba.k.d.EU(c.a.irx);
+                com.baidu.tieba.k.d.EU(c.a.iry);
+                com.baidu.tieba.k.d.EU(c.a.irA);
+                com.baidu.tieba.k.d.EU(c.a.irB);
                 return null;
             }
         }.execute(new Void[0]);
@@ -57,11 +57,11 @@ public class e {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List JN = e.JN(c.a.irz);
-                    if (JN != null) {
-                        int size = JN.size();
+                    List JO = e.JO(c.a.irz);
+                    if (JO != null) {
+                        int size = JO.size();
                         for (int i = 0; i < size; i++) {
-                            e.this.a((d) JN.get(i));
+                            e.this.a((d) JO.get(i));
                         }
                     }
                     return null;
@@ -71,7 +71,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<d> JN(String str) {
+    public static List<d> JO(String str) {
         File[] listFiles;
         ArrayList arrayList = null;
         if (!StringUtils.isNull(str)) {
@@ -80,14 +80,14 @@ public class e {
                 int length = listFiles.length;
                 arrayList = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
-                    arrayList.add(new d(JO(com.baidu.tieba.k.d.M(listFiles[i])), listFiles[i].getAbsolutePath()));
+                    arrayList.add(new d(JP(com.baidu.tieba.k.d.M(listFiles[i])), listFiles[i].getAbsolutePath()));
                 }
             }
         }
         return arrayList;
     }
 
-    private static List<String> JO(String str) {
+    private static List<String> JP(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

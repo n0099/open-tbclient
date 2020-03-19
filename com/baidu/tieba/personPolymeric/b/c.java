@@ -71,7 +71,7 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = this.mPageContext.getString(R.string.mute_error_beyond_limit);
             }
-            vq(str2);
+            vr(str2);
         } else if (i3 == 1990043) {
             cnx();
         } else {
@@ -99,12 +99,12 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
         this.mWaitingDialog.setDialogVisiable(true);
     }
 
-    public void vq(String str) {
+    public void vr(String str) {
         if (str == null) {
             str = "";
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        aVar.sR(str);
+        aVar.sS(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.c.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -116,7 +116,7 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
 
     public void cnx() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        aVar.sR(this.mPageContext.getString(R.string.mute_is_super_member_function));
+        aVar.sS(this.mPageContext.getString(R.string.mute_is_super_member_function));
         aVar.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.c.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -152,9 +152,9 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
         if (aq.isEmpty(str)) {
-            aVar.sR(this.mPageContext.getResources().getString(R.string.block_mute_message_alert, str2));
+            aVar.sS(this.mPageContext.getResources().getString(R.string.block_mute_message_alert, str2));
         } else {
-            aVar.sR(str);
+            aVar.sS(str);
         }
         aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.c.5
             @Override // com.baidu.tbadk.core.dialog.a.b

@@ -4,21 +4,21 @@ public final class d {
     private static final int mMs = dBd();
 
     private static int dBd() {
-        return QI(System.getProperty("java.version"));
+        return QJ(System.getProperty("java.version"));
     }
 
-    static int QI(String str) {
-        int QJ = QJ(str);
-        if (QJ == -1) {
-            QJ = QK(str);
+    static int QJ(String str) {
+        int QK = QK(str);
+        if (QK == -1) {
+            QK = QL(str);
         }
-        if (QJ == -1) {
+        if (QK == -1) {
             return 6;
         }
-        return QJ;
+        return QK;
     }
 
-    private static int QJ(String str) {
+    private static int QK(String str) {
         try {
             String[] split = str.split("[._]");
             int parseInt = Integer.parseInt(split[0]);
@@ -31,7 +31,7 @@ public final class d {
         }
     }
 
-    private static int QK(String str) {
+    private static int QL(String str) {
         try {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < str.length(); i++) {

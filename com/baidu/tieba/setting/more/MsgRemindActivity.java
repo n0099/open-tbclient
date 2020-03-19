@@ -280,9 +280,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     timePicker.clearFocus();
                     String str = ((timePicker.getCurrentHour().intValue() < 10 ? "0" : "") + timePicker.getCurrentHour()) + ":" + ((timePicker.getCurrentMinute().intValue() < 10 ? "0" : "") + timePicker.getCurrentMinute());
                     if (i == R.id.no_disturb_start_time) {
-                        com.baidu.tbadk.coreExtra.messageCenter.d.aLq().up(str);
-                    } else {
                         com.baidu.tbadk.coreExtra.messageCenter.d.aLq().uq(str);
+                    } else {
+                        com.baidu.tbadk.coreExtra.messageCenter.d.aLq().ur(str);
                     }
                     MsgRemindActivity.this.jVC.cGS();
                 }

@@ -19,7 +19,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<com.baidu.tbadk.coreExtra.relationship.a> xw(String str) {
+    public List<com.baidu.tbadk.coreExtra.relationship.a> xx(String str) {
         synchronized (this.mLock) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {

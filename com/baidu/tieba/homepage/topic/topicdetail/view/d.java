@@ -381,7 +381,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
             addLocateParam.setStartFrom(this.currentPageType);
             addLocateParam.setJumpGodReply(false);
             addLocateParam.setJumpToCommentArea(true);
-            com.baidu.tieba.card.l.zU(this.hiM.cRt.getTid());
+            com.baidu.tieba.card.l.zV(this.hiM.cRt.getTid());
             this.mTbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, addLocateParam));
         }
     }
@@ -454,7 +454,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
                 } else {
                     aMD();
                 }
-                Cl("1");
+                Cm("1");
             }
             if (view == this.hiR || view == this.hiS) {
                 if (this.hiM.source == 1) {
@@ -462,12 +462,12 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
                 } else {
                     aMD();
                 }
-                Cl("3");
+                Cm("3");
             } else if (view == this.cbW) {
                 bPU();
             } else {
                 aMD();
-                Cl("2");
+                Cm("2");
             }
         }
     }
@@ -490,7 +490,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         }
     }
 
-    private void Cl(String str) {
+    private void Cm(String str) {
         TiebaStatic.log(new an("c13356").cx("obj_locate", str).cx("tid", this.hiM.cRt.getTid()).s("topic_id", this.hiM.topicId).cx("obj_type", String.valueOf(this.hiM.source)));
     }
 }

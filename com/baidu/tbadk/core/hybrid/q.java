@@ -131,7 +131,7 @@ public class q extends l implements i {
     }
 
     @Override // com.baidu.tbadk.core.hybrid.i
-    public void sW(String str) {
+    public void sX(String str) {
         if (TextUtils.isEmpty(str)) {
             e.debug("invalid callbackId.");
             return;
@@ -144,13 +144,13 @@ public class q extends l implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void sZ(String str) {
+    public void ta(String str) {
         this.cXx = -1;
         if (this.status != 2 && this.status != 1) {
             e.debug("current status " + this.status + ", broken because url changed to " + str);
             this.status = 2;
         }
-        if (p.sX(str) && p.sY(str)) {
+        if (p.sY(str) && p.sZ(str)) {
             e.debug("current status " + this.status + ", constructing bridge for " + str);
             if (this.cXl != null) {
                 this.cXl.aFi();
@@ -328,7 +328,7 @@ public class q extends l implements i {
                     iVar.aFp();
                     return;
                 case 2:
-                    iVar.sW((String) message.obj);
+                    iVar.sX((String) message.obj);
                     return;
                 default:
                     throw new IllegalArgumentException("Invalid message.");

@@ -150,7 +150,7 @@ public class d implements q {
         return null;
     }
 
-    public void tr(String str) {
+    public void ts(String str) {
         this.cZA.aGM().mServerErrorCode = -1;
         if (str != null) {
             try {
@@ -244,7 +244,7 @@ public class d implements q {
                 str = new String(cDg.retBytes, "utf-8");
                 try {
                     if (this.cZA.aGL().aGO().mIsBaiduServer && this.cZA.aGL().aGO().mIsJson) {
-                        tr(str);
+                        ts(str);
                     }
                     aa.a aVar = new aa.a();
                     aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());
@@ -514,7 +514,7 @@ public class d implements q {
             e = e4;
         }
         try {
-            tr(str);
+            ts(str);
             return str;
         } catch (Exception e5) {
             e2 = e5;
@@ -590,7 +590,7 @@ public class d implements q {
                 str = new String(cDg.retBytes, "utf-8");
                 try {
                     if (this.cZA.aGL().aGO().mIsBaiduServer && this.cZA.aGL().aGO().mIsJson) {
-                        tr(str);
+                        ts(str);
                     }
                     aa.a aVar = new aa.a();
                     aVar.mMode = getMode(com.baidu.adp.lib.util.j.netType());

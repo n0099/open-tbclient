@@ -46,7 +46,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                         switch (aVar2.code) {
                             case 4:
                             case 6:
-                                aVar.vm((String) aVar2.data);
+                                aVar.vn((String) aVar2.data);
                                 b.this.dzr = false;
                                 return;
                             case 5:

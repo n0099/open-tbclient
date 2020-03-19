@@ -363,10 +363,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
 
     private boolean cjE() {
         if (!aq.isEmpty(this.izP)) {
-            String tk = m.tk(this.izP);
-            if (!aq.isEmpty(tk) && m.ti(tk)) {
+            String tl = m.tl(this.izP);
+            if (!aq.isEmpty(tl) && m.tj(tl)) {
                 if (SapiAccountManager.getInstance().getConfignation() != null) {
-                    SapiAccountManager.getInstance().getConfignation().skin = tk;
+                    SapiAccountManager.getInstance().getConfignation().skin = tl;
                 }
                 return true;
             }

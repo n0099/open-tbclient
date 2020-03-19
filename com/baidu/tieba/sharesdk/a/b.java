@@ -104,7 +104,7 @@ public class b extends com.baidu.tieba.sharesdk.a.a {
         } else {
             this.jXC = new a(bVar);
             String aAJ = shareEntity.aAJ();
-            if (uy(shareEntity.cHO())) {
+            if (uz(shareEntity.cHO())) {
                 a(shareEntity.cHO(), this.jXC);
             } else if (shareEntity.cHQ() != 0 && !TextUtils.isEmpty(aAJ) && (aAJ.startsWith("http://") || aAJ.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
                 com.baidu.adp.lib.e.c.gr().a(aAJ, 34, this.jXE, 0, 0, getPageId(), new Object[0]);

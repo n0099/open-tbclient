@@ -64,11 +64,11 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                             } else {
                                 ValidateActivity.this.showToast(errorString);
                             }
-                            ValidateItemData DD = ValidateActivity.this.DD(requestAddGroupUserMessage.getNotice_id());
-                            if (DD != null) {
-                                DD.setPass(false);
-                                DD.setShown(true);
-                                ValidateModel.updateValidateData(ValidateActivity.this.hLP, DD);
+                            ValidateItemData DE = ValidateActivity.this.DE(requestAddGroupUserMessage.getNotice_id());
+                            if (DE != null) {
+                                DE.setPass(false);
+                                DE.setShown(true);
+                                ValidateModel.updateValidateData(ValidateActivity.this.hLP, DE);
                                 ValidateActivity.this.hLO.bYL().notifyDataSetChanged();
                                 return;
                             }
@@ -76,11 +76,11 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                         }
                         return;
                     }
-                    ValidateItemData DD2 = ValidateActivity.this.DD(requestAddGroupUserMessage.getNotice_id());
-                    if (DD2 != null) {
-                        DD2.setPass(true);
-                        DD2.setShown(true);
-                        ValidateModel.updateValidateData(ValidateActivity.this.hLP, DD2);
+                    ValidateItemData DE2 = ValidateActivity.this.DE(requestAddGroupUserMessage.getNotice_id());
+                    if (DE2 != null) {
+                        DE2.setPass(true);
+                        DE2.setShown(true);
+                        ValidateModel.updateValidateData(ValidateActivity.this.hLP, DE2);
                         if (TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
                             ValidateActivity.this.showToast(R.string.validate_succ);
                         } else {
@@ -338,7 +338,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ValidateItemData DD(String str) {
+    public ValidateItemData DE(String str) {
         if (str == null) {
             return null;
         }

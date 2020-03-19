@@ -303,15 +303,15 @@ public class FrsTabViewController implements TbTabLayout.b, m {
                             } else {
                                 str2 = frsViewData.getForum().getName();
                             }
-                            int BM = com.baidu.tieba.frs.f.g.BM("503~" + str + str2);
-                            if (BM == -1) {
+                            int BN = com.baidu.tieba.frs.f.g.BN("503~" + str + str2);
+                            if (BN == -1) {
                                 Iterator<FrsTabInfo> it = frsViewData.getEntelechyTabInfo().menu.iterator();
                                 while (true) {
                                     if (it.hasNext()) {
                                         FrsTabInfo next = it.next();
                                         if (next.tab_type == frsTabInfo.tab_type) {
                                             com.baidu.tieba.frs.f.g.aC("503~" + str + str2, next.tab_id.intValue());
-                                            if (7 == BM) {
+                                            if (7 == BN) {
                                                 com.baidu.tieba.tbadkCore.util.e.cMv();
                                             } else {
                                                 com.baidu.tieba.tbadkCore.util.e.cMw();
@@ -352,7 +352,7 @@ public class FrsTabViewController implements TbTabLayout.b, m {
                         dVar5.tabId = frsTabInfo.tab_id.intValue();
                         dVar5.name = frsTabInfo.tab_name;
                         dVar5.url = frsTabInfo.tab_url;
-                        if (com.baidu.tbadk.browser.d.si(dVar5.url)) {
+                        if (com.baidu.tbadk.browser.d.sj(dVar5.url)) {
                             if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_LEGO_LIST) != null) {
                                 tabData.add(dVar5);
                                 arrayList.add(frsTabInfo);
@@ -954,8 +954,8 @@ public class FrsTabViewController implements TbTabLayout.b, m {
             this.gOc.setForumName(this.gqW.getForumName());
             this.gOc.setFrom(this.gqW.getFrom());
             if (this.gOa != null && this.gOa.getForum() != null) {
-                this.gOc.sK(this.gOa.getForum().getFirst_class());
-                this.gOc.sL(this.gOa.getForum().getSecond_class());
+                this.gOc.sL(this.gOa.getForum().getFirst_class());
+                this.gOc.sM(this.gOa.getForum().getSecond_class());
                 this.gOc.setForumGameLabel(this.gOa.getForum().getForumGameLabel());
             }
             int i = 0;

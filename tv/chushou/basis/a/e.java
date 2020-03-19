@@ -51,7 +51,7 @@ public final class e {
     }
 
     @SuppressLint({"DefaultLocale"})
-    private String SH(String str) {
+    private String SI(String str) {
         if (str.toLowerCase().contains("arm")) {
             return "armeabi";
         }
@@ -65,9 +65,9 @@ public final class e {
     }
 
     public void x(Context context, String str, String str2) {
-        String SH = SH(getCpuName());
+        String SI = SI(getCpuName());
         nWL = str2;
-        tv.chushou.a.a.c.a.dQG().d(TAG, "cpuArchitect: " + SH);
+        tv.chushou.a.a.c.a.dQG().d(TAG, "cpuArchitect: " + SI);
         long currentTimeMillis = System.currentTimeMillis();
         try {
             ZipFile zipFile = new ZipFile(str);
@@ -76,7 +76,7 @@ public final class e {
                 ZipEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory()) {
                     String name = nextElement.getName();
-                    if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX) && name.contains(SH)) {
+                    if (name.endsWith(PluginInstallerService.APK_LIB_SUFFIX) && name.contains(SI)) {
                         long time = nextElement.getTime();
                         if (time == tv.chushou.basis.a.a.bD(context, name)) {
                             tv.chushou.a.a.c.a.dQG().d(TAG, "skip copying, the so lib is exist and not change: " + name);
@@ -104,11 +104,11 @@ public final class e {
             this.nWN = zipFile;
             this.mContext = context;
             this.nWO = zipEntry;
-            this.nWM = SI(zipEntry.getName());
+            this.nWM = SJ(zipEntry.getName());
             this.nWP = j;
         }
 
-        private final String SI(String str) {
+        private final String SJ(String str) {
             return str.substring(str.lastIndexOf("/") + 1);
         }
 

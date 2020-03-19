@@ -73,7 +73,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         } else if (view == this.hKw.bYl()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                Du((String) view.getTag());
+                Dv((String) view.getTag());
             }
         } else if (view == this.hKw.bTQ()) {
             this.hKw.bYo();
@@ -100,7 +100,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         }
     }
 
-    public void Du(String str) {
+    public void Dv(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
                 this.hKw.showProgressBar(true);

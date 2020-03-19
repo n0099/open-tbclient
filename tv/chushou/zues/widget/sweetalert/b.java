@@ -187,15 +187,15 @@ public class b extends Dialog implements View.OnClickListener {
         }
         xr(this.ocQ);
         xt(this.ocU);
-        Tc(this.mTitleText);
+        Td(this.mTitleText);
         x(this.mContentText);
         OP(this.odp);
-        Td(this.mCancelText);
-        Tf(this.mConfirmText);
+        Te(this.mCancelText);
+        Tg(this.mConfirmText);
         OQ(this.ocH);
         A(this.ocX);
-        Tg(this.ocY);
-        Te(this.ocT);
+        Th(this.ocY);
+        Tf(this.ocT);
         ah(this.ocZ, true);
         if (this.ocZ == 7) {
             if (this.mTitleTextView != null) {
@@ -287,7 +287,7 @@ public class b extends Dialog implements View.OnClickListener {
         }
     }
 
-    public b Tc(String str) {
+    public b Td(String str) {
         this.mTitleText = str;
         if (this.mTitleTextView != null) {
             if (this.mTitleText != null) {
@@ -362,7 +362,7 @@ public class b extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public b Td(String str) {
+    public b Te(String str) {
         this.mCancelText = str;
         if (this.ehy != null && this.mCancelText != null) {
             xr(true);
@@ -379,7 +379,7 @@ public class b extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public b Te(String str) {
+    public b Tf(String str) {
         this.ocT = str;
         if (this.odj != null && this.ocT != null) {
             this.odj.setText(this.ocT);
@@ -399,7 +399,7 @@ public class b extends Dialog implements View.OnClickListener {
         return this;
     }
 
-    public b Tf(String str) {
+    public b Tg(String str) {
         this.mConfirmText = str;
         if (this.bXE != null && this.mConfirmText != null) {
             this.bXE.setText(this.mConfirmText);
@@ -489,7 +489,7 @@ public class b extends Dialog implements View.OnClickListener {
         }
     }
 
-    public b Tg(String str) {
+    public b Th(String str) {
         this.ocY = str;
         if (this.ocP != null && this.ocY != null) {
             this.ocP.setHint(str);

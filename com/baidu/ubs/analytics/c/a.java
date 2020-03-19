@@ -59,7 +59,7 @@ final class a {
         try {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new h(this));
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.j.Ls("registerActivityLifecycleCallbacks encounter exception");
+            com.baidu.ubs.analytics.d.j.Lt("registerActivityLifecycleCallbacks encounter exception");
         }
         this.ac = true;
     }

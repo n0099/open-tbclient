@@ -172,7 +172,7 @@ public class QuickWebView extends BaseWebView {
                 this.jFX = false;
                 String str2 = str + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "_webview_time=" + System.currentTimeMillis();
                 if (QuickWebViewSwitch.getInOn()) {
-                    str = HE(str2);
+                    str = HF(str2);
                 }
                 str = str2;
             }
@@ -181,10 +181,10 @@ public class QuickWebView extends BaseWebView {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:73:0x01d1 -> B:6:0x001d). Please submit an issue!!! */
-    private String HE(String str) {
+    private String HF(String str) {
         URL url;
         String path;
-        com.baidu.tieba.quickWebView.data.a HG;
+        com.baidu.tieba.quickWebView.data.a HH;
         boolean z;
         String[] split;
         String str2 = null;
@@ -192,10 +192,10 @@ public class QuickWebView extends BaseWebView {
         try {
             url = new URL(str);
             path = url.getPath();
-            HG = d.cCu().HG(path);
+            HH = d.cCu().HH(path);
         } catch (MalformedURLException e) {
         }
-        if (HG != null && !HG.jGu) {
+        if (HH != null && !HH.jGu) {
             String cacheDir = c.cCp().getCacheDir();
             String str3 = cacheDir + path + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION;
             File file = new File(str3);
@@ -212,7 +212,7 @@ public class QuickWebView extends BaseWebView {
             } catch (MalformedURLException e2) {
                 str2 = str4;
             }
-            if (HG.jGt != null && HG.jGt.size() != 0) {
+            if (HH.jGt != null && HH.jGt.size() != 0) {
                 if (!TextUtils.isEmpty(query) && (split = query.split(ETAG.ITEM_SEPARATOR)) != null) {
                     for (String str5 : split) {
                         String[] split2 = str5.split(ETAG.EQUAL);
@@ -223,7 +223,7 @@ public class QuickWebView extends BaseWebView {
                 }
                 hashMap.put("{client_version}", TbConfig.getVersion());
                 hashMap.put("{client_type}", "2");
-                Iterator<String> it = HG.jGt.iterator();
+                Iterator<String> it = HH.jGt.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     StringBuilder sb = new StringBuilder();

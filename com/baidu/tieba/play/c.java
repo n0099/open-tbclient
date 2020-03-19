@@ -1420,7 +1420,7 @@ public class c {
     public void buT() {
         if (this.jvf != null && this.iaQ != null) {
             this.iaQ.showProgress();
-            this.mStartPosition = x.czM().Hd(this.mVideoUrl);
+            this.mStartPosition = x.czM().He(this.mVideoUrl);
             if (this.jvN) {
                 this.jvf.setVolume(1.0f, 1.0f);
                 this.jvf.start();
@@ -1436,7 +1436,7 @@ public class c {
                     }
                     cyI();
                 }
-                this.mStartPosition = x.czM().Hd(this.mVideoUrl);
+                this.mStartPosition = x.czM().He(this.mVideoUrl);
                 this.iaQ.setPlayer(this.jvf);
                 if (this.mStartPosition != 0) {
                     this.jvH = true;
@@ -1815,7 +1815,7 @@ public class c {
                 ((QuickVideoView) this.jvf).setRecoveryState(1);
             }
             this.jvf.a(null);
-            this.mStartPosition = x.czM().Hd(this.mVideoUrl);
+            this.mStartPosition = x.czM().He(this.mVideoUrl);
             this.jvH = true;
             this.EJ = (this.mStartPosition <= 100 || this.jvf.getDuration() <= this.mStartPosition) ? 100 : this.mStartPosition;
             this.dME.czJ();
@@ -1950,7 +1950,7 @@ public class c {
         this.jvw = hVar;
     }
 
-    public void Gw(String str) {
+    public void Gx(String str) {
         this.iZn = str;
     }
 
@@ -1977,7 +1977,7 @@ public class c {
                     return;
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mActivity);
-                aVar.sR(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
+                aVar.sS(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
                 aVar.a(R.string.editor_dialog_yes, new a.b() { // from class: com.baidu.tieba.play.c.7
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -2037,7 +2037,7 @@ public class c {
         ibv.unregister(this.mActivity);
     }
 
-    public void GX(String str) {
+    public void GY(String str) {
         this.ibe.setText(str);
     }
 

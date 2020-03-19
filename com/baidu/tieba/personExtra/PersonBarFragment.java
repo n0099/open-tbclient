@@ -144,7 +144,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                     return;
                 }
                 PersonBarFragment.this.showToast(responseGetLivableForumList.getErrorString());
-                PersonBarFragment.this.jlz.GK(PersonBarFragment.this.jlG);
+                PersonBarFragment.this.jlz.GL(PersonBarFragment.this.jlG);
             }
         }
     };
@@ -210,7 +210,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
                 if (PersonBarFragment.this.cwq() == null) {
-                    PersonBarFragment.this.jlz.GK(PersonBarFragment.this.jlG);
+                    PersonBarFragment.this.jlz.GL(PersonBarFragment.this.jlG);
                     return;
                 }
                 if (PersonBarFragment.this.jlz != null && PersonBarFragment.this.jlz.getView() != null) {
@@ -230,7 +230,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                                 @Override // com.baidu.tbadk.util.ab
                                 public Object doInBackground() {
                                     if (personBarModel != null) {
-                                        personBarModel.GM(resultString);
+                                        personBarModel.GN(resultString);
                                         return null;
                                     }
                                     return null;
@@ -238,20 +238,20 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                             }, null);
                             PersonBarFragment.this.a(personBarData, false);
                             if (1 == PersonBarFragment.this.cwq().bXL()) {
-                                PersonBarFragment.this.jlz.GK(PersonBarFragment.this.jlG);
+                                PersonBarFragment.this.jlz.GL(PersonBarFragment.this.jlG);
                                 return;
                             }
                             return;
                         }
                         PersonBarFragment.this.showToast(httpResponsedMessage.getErrorString());
-                        PersonBarFragment.this.jlz.GK(PersonBarFragment.this.jlG);
+                        PersonBarFragment.this.jlz.GL(PersonBarFragment.this.jlG);
                         return;
                     }
                     PersonBarFragment.this.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? PersonBarFragment.this.getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
                     if (PersonBarFragment.this.jlI) {
-                        PersonBarFragment.this.jlz.GK(PersonBarFragment.this.jlG);
+                        PersonBarFragment.this.jlz.GL(PersonBarFragment.this.jlG);
                     } else {
-                        PersonBarFragment.this.jlz.GK("");
+                        PersonBarFragment.this.jlz.GL("");
                     }
                 }
             }
@@ -375,7 +375,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             this.dYm.setVisibility(0);
         }
         this.jlA = new c(cwq(), this.jln.cwu(), this.mIsHost, this.jkF);
-        this.jlA.GL(cwq().cvX());
+        this.jlA.GM(cwq().cvX());
         this.jlA.J(new View.OnClickListener() { // from class: com.baidu.tieba.personExtra.PersonBarFragment.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -482,7 +482,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
                     }
                     return;
                 }
-                PersonBarFragment.this.jlz.GK(PersonBarFragment.this.jlG);
+                PersonBarFragment.this.jlz.GL(PersonBarFragment.this.jlG);
             }
         });
         this.AG.setPullRefresh(this.mPullView);
@@ -712,7 +712,7 @@ public class PersonBarFragment extends BaseFragment implements View.OnClickListe
             }
         }
 
-        public void GK(String str) {
+        public void GL(String str) {
             w(false, str);
         }
 

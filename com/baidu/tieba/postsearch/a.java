@@ -116,7 +116,7 @@ public class a {
         com.baidu.adp.lib.f.e.gx().postDelayed(this.jCu, 500L);
     }
 
-    public void Hm(String str) {
+    public void Hn(String str) {
         this.gbP.setText(str);
     }
 

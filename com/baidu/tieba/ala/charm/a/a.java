@@ -95,7 +95,7 @@ public class a implements d {
     public void createView() {
         if (this.exc == null) {
             this.exc = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.atc, this.atd);
-            this.exc.ye(this.ewm);
+            this.exc.yf(this.ewm);
             this.exc.a(this.exe);
         }
         this.ewr = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.ewv);
@@ -105,22 +105,22 @@ public class a implements d {
         }
     }
 
-    public a ya(String str) {
+    public a yb(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public a yb(String str) {
+    public a yc(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public a yc(String str) {
+    public a yd(String str) {
         this.mUid = str;
         return this;
     }
 
-    public a yd(String str) {
+    public a ye(String str) {
         this.ewm = str;
         return this;
     }

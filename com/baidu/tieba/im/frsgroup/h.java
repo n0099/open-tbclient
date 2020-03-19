@@ -21,7 +21,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         return this.hBO;
     }
 
-    public void Dc(String str) {
+    public void Dd(String str) {
         this.hBO = str;
     }
 
@@ -29,7 +29,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         return this.hBP;
     }
 
-    public void Dd(String str) {
+    public void De(String str) {
         this.hBP = str;
     }
 
@@ -37,7 +37,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         return this.hBQ;
     }
 
-    public void De(String str) {
+    public void Df(String str) {
         this.hBQ = str;
     }
 

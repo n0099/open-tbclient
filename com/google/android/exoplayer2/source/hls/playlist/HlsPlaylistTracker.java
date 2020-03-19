@@ -136,7 +136,7 @@ public final class HlsPlaylistTracker implements Loader.a<p<com.google.android.e
         com.google.android.exoplayer2.source.hls.playlist.c result = pVar.getResult();
         boolean z = result instanceof com.google.android.exoplayer2.source.hls.playlist.b;
         if (z) {
-            aVar = com.google.android.exoplayer2.source.hls.playlist.a.PL(result.myR);
+            aVar = com.google.android.exoplayer2.source.hls.playlist.a.PM(result.myR);
         } else {
             aVar = (com.google.android.exoplayer2.source.hls.playlist.a) result;
         }

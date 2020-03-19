@@ -22,8 +22,8 @@ final class b {
     public final String tag;
     public final String text;
 
-    public static b PY(String str) {
-        return new b(null, d.PZ(str), -9223372036854775807L, -9223372036854775807L, null, null, "");
+    public static b PZ(String str) {
+        return new b(null, d.Qa(str), -9223372036854775807L, -9223372036854775807L, null, null, "");
     }
 
     public static b a(String str, long j, long j2, e eVar, String[] strArr, String str2) {

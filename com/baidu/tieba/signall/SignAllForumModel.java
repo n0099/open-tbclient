@@ -17,7 +17,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void Da(String str);
+        void Db(String str);
 
         void b(h hVar);
     }
@@ -156,7 +156,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                     this.kbh = new e();
                     this.kbh.setAuthSid(SignAllForumModel.this.mAuthSid);
                     if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                        IK(sb.toString());
+                        IL(sb.toString());
                     }
                 }
             }
@@ -174,14 +174,14 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
             return null;
         }
 
-        private h IK(String str) {
-            String IH = this.kbh.IH(str);
+        private h IL(String str) {
+            String II = this.kbh.II(str);
             if (this.kbh.isRequestSuccess()) {
-                SignAllForumModel.this.kbe.parserJson(IH);
+                SignAllForumModel.this.kbe.parserJson(II);
                 return SignAllForumModel.this.kbe;
             }
             SignAllForumModel.this.kbe = null;
-            this.tokenData = AuthTokenData.parse(IH);
+            this.tokenData = AuthTokenData.parse(II);
             return null;
         }
 
@@ -205,7 +205,7 @@ public class SignAllForumModel extends BdBaseModel<SignAllForumActivity> {
                 if (SignAllForumModel.this.kbe != null) {
                     SignAllForumModel.this.kbf.b(SignAllForumModel.this.kbe);
                 } else {
-                    SignAllForumModel.this.kbf.Da(this.kbh != null ? this.kbh.azP() : null);
+                    SignAllForumModel.this.kbf.Db(this.kbh != null ? this.kbh.azP() : null);
                 }
             }
         }

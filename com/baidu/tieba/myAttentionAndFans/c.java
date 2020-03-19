@@ -254,7 +254,7 @@ public class c extends b {
                             aVar.iti.setVisibility(8);
                         } else {
                             aVar.iti.setStatsParams(2, userId);
-                            aVar.NC.sD("9");
+                            aVar.NC.sE("9");
                             aVar.iti.setVisibility(0);
                         }
                     }

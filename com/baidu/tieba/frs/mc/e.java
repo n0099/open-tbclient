@@ -43,7 +43,7 @@ public class e {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            e.this.BG(e.this.g(customResponsedMessage));
+            e.this.BH(e.this.g(customResponsedMessage));
             e.this.gqU.bDY().bFq().notifyDataSetChanged();
         }
     };
@@ -56,7 +56,7 @@ public class e {
                 e.this.h(str, e.this.gqU.bDT().bIZ().getForum().getBannerListData().getAllAdvertList());
                 e.this.i(str, e.this.gqU.bDY().getListView().getData());
                 e.this.i(str, e.this.gqU.bDU().bJq().getDataList());
-                e.this.gqU.bDT().BF(str);
+                e.this.gqU.bDT().BG(str);
                 if (e.this.gqU.bDY() != null && e.this.gqU.bDY().bFq() != null) {
                     e.this.gqU.bDY().bFq().notifyDataSetChanged();
                 }
@@ -104,13 +104,13 @@ public class e {
                         public void onAnimationEnd(Animation animation) {
                             if (e.this.gqU != null && e.this.gqU.bDY() != null && e.this.gqU.bDY().getListView() != null && e.this.gqU.bDY().bFq() != null) {
                                 e.this.gqU.bDY().getListView().removeView(childAt);
-                                e.this.BG(g);
+                                e.this.BH(g);
                                 e.this.gqU.bDY().bFq().notifyDataSetChanged();
                             }
                         }
                     });
                 } else {
-                    BG(g);
+                    BH(g);
                     this.gqU.bDY().bFq().notifyDataSetChanged();
                 }
                 bJJ();
@@ -171,9 +171,9 @@ public class e {
         b(str, str2, threadList);
         b(str, str2, this.gqU.bDY().getListView().getData());
         if (str.equals("ala_frs_stage_live_feed_back_type")) {
-            this.gqU.bDT().BD(str2);
-        } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
             this.gqU.bDT().BE(str2);
+        } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
+            this.gqU.bDT().BF(str2);
         }
         if (threadList != null && threadList.size() < 5) {
             this.gqU.bck();
@@ -181,13 +181,13 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void BG(String str) {
+    public void BH(String str) {
         if (!StringUtils.isNull(str)) {
             ArrayList<com.baidu.adp.widget.ListView.m> threadList = this.gqU.bDT().bIZ().getThreadList();
             g(str, threadList);
             g(str, this.gqU.bDY().getListView().getData());
             g(str, this.gqU.bDU().getDataList());
-            this.gqU.bDT().BE(str);
+            this.gqU.bDT().BF(str);
             if (threadList != null && threadList.size() < 5) {
                 this.gqU.bck();
             }

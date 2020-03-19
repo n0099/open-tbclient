@@ -41,9 +41,9 @@ public class d {
         return this.dYh.ai(str, i);
     }
 
-    public void wO(String str) {
+    public void wP(String str) {
         if (this.dYh != null) {
-            this.dYh.wN(str);
+            this.dYh.wO(str);
         }
     }
 
@@ -100,13 +100,13 @@ public class d {
 
     public void onPageStart(String str) {
         if (aq.isEmpty(str) || this.dYd == null || !this.dYd.aXI()) {
-            com.baidu.ubs.analytics.a.Li(str);
+            com.baidu.ubs.analytics.a.Lj(str);
         }
     }
 
     public void onPageEnd(String str) {
         if (aq.isEmpty(str) || this.dYd == null || !this.dYd.aXI()) {
-            com.baidu.ubs.analytics.a.Lj(str);
+            com.baidu.ubs.analytics.a.Lk(str);
         }
     }
 

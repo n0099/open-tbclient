@@ -274,7 +274,7 @@ public class m {
         }
     }
 
-    public void Ed(String str) {
+    public void Ee(String str) {
         this.icK = str;
     }
 
@@ -288,7 +288,7 @@ public class m {
                     f fVar = (f) childAt.getTag();
                     if (fVar.isPlayStarted()) {
                         xL(fVar.getCurrentPosition());
-                        Ed(fVar.getPlayUrl());
+                        Ee(fVar.getPlayUrl());
                         this.icN = childAt;
                         this.icO = fVar.isPlaying();
                         fVar.stopPlay();

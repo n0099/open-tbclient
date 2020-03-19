@@ -30,7 +30,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     /* loaded from: classes13.dex */
     public interface a {
-        void Da(String str);
+        void Db(String str);
 
         void a(BarEmotionResponseMessage barEmotionResponseMessage);
 
@@ -73,11 +73,11 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage == null) {
                     if (ForumDetailModel.this.hAi != null) {
-                        ForumDetailModel.this.hAi.Da(null);
+                        ForumDetailModel.this.hAi.Db(null);
                     }
                 } else if (responsedMessage.hasError()) {
                     if (ForumDetailModel.this.hAi != null) {
-                        ForumDetailModel.this.hAi.Da(responsedMessage.getErrorString());
+                        ForumDetailModel.this.hAi.Db(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
@@ -145,7 +145,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         sendMessage(forumDetailRequestMessage);
     }
 
-    public void Db(String str) {
+    public void Dc(String str) {
         if (!TextUtils.isEmpty(str)) {
             HttpMessage httpMessage = new HttpMessage(1002510);
             httpMessage.addParam("forum_id", str);
@@ -161,7 +161,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && (httpResponsedMessage instanceof BarEmotionResponseMessage)) {
                     if (httpResponsedMessage.hasError()) {
                         if (ForumDetailModel.this.hAi != null) {
-                            ForumDetailModel.this.hAi.Da(httpResponsedMessage.getErrorString());
+                            ForumDetailModel.this.hAi.Db(httpResponsedMessage.getErrorString());
                         }
                     } else if ((httpResponsedMessage instanceof BarEmotionResponseMessage) && httpResponsedMessage.getCmd() == 1002510) {
                         ForumDetailModel.this.hAi.a((BarEmotionResponseMessage) httpResponsedMessage);

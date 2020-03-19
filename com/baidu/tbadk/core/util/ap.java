@@ -19,7 +19,7 @@ public class ap {
         return apVar;
     }
 
-    public String tv(String str) {
+    public String tw(String str) {
         if (str == null) {
             return null;
         }
@@ -34,21 +34,21 @@ public class ap {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return m.getImage(tv(str), str);
+        return m.getImage(tw(str), str);
     }
 
     public boolean isGif(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m.isGif(tv(str), str);
+        return m.isGif(tw(str), str);
     }
 
-    public int tw(String str) {
+    public int tx(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) m.checkImageFileSize(tv(str), str);
+        return (int) m.checkImageFileSize(tw(str), str);
     }
 
     public boolean copyFile(String str, String str2) {
@@ -56,7 +56,7 @@ public class ap {
         if (!m.CheckTempDir(str3)) {
             m.makeRootDirectory(str3);
         }
-        String str4 = str3 + tv(str2);
+        String str4 = str3 + tw(str2);
         if (!m.CheckTempDir(str4)) {
             m.makeRootDirectory(str4);
         }
@@ -69,7 +69,7 @@ public class ap {
 
     public void j(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            m.c(tv(str), str, bArr);
+            m.c(tw(str), str, bArr);
         }
     }
 

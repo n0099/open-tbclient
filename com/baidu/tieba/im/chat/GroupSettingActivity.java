@@ -225,7 +225,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
                             /* JADX WARN: Can't rename method to resolve collision */
                             @Override // com.baidu.tbadk.util.ab
                             public Boolean doInBackground() {
-                                return Boolean.valueOf(com.baidu.tieba.im.db.c.bUE().CM(GroupSettingActivity.this.htv.getGroupId()));
+                                return Boolean.valueOf(com.baidu.tieba.im.db.c.bUE().CN(GroupSettingActivity.this.htv.getGroupId()));
                             }
                         }, new l<Boolean>() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.2.2
                             /* JADX DEBUG: Method merged with bridge method */

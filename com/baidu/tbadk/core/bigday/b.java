@@ -84,8 +84,8 @@ public class b {
             public ArrayList<com.baidu.tbadk.core.bigday.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tbadk.core.bigday.a> arrayList = new ArrayList<>();
-                l<byte[]> sO = com.baidu.tbadk.core.c.a.aEF().sO("tb.bigday_datas");
-                if (sO != null && (bArr = sO.get("tb.bigday_datas")) != null) {
+                l<byte[]> sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.bigday_datas");
+                if (sP != null && (bArr = sP.get("tb.bigday_datas")) != null) {
                     try {
                         GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
                         if (getBigdayResIdl.data != null) {
@@ -125,7 +125,7 @@ public class b {
             this.cMi = c(arrayList, 3);
             this.cMk = arrayList;
             aAc();
-            if (this.cMh != null && d.tK(this.cMh.imgUrl) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.aFH().getLong("key_bigday_next_showtime_home", 0L)) {
+            if (this.cMh != null && d.tL(this.cMh.imgUrl) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.aFH().getLong("key_bigday_next_showtime_home", 0L)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.cMh));
             }
         }
@@ -144,7 +144,7 @@ public class b {
             this.cMi = c2;
         }
         aAc();
-        if (this.cMh != null && d.tK(this.cMh.imgUrl) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.aFH().getLong("key_bigday_next_showtime_home", 0L)) {
+        if (this.cMh != null && d.tL(this.cMh.imgUrl) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.aFH().getLong("key_bigday_next_showtime_home", 0L)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.cMh));
         }
     }
@@ -154,7 +154,7 @@ public class b {
             Iterator<com.baidu.tbadk.core.bigday.a> it = this.cMk.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.bigday.a next = it.next();
-                if (!d.tK(next.imgUrl)) {
+                if (!d.tL(next.imgUrl)) {
                     c.gr().a(next.imgUrl, 41, null, this.mTag);
                 }
             }
@@ -204,7 +204,7 @@ public class b {
             if (this.cMh != null && (currentTimeMillis < this.cMh.startTime || currentTimeMillis > this.cMh.endTime)) {
                 this.cMh = c(this.cMk, 1);
             }
-            if (this.cMh != null && d.tK(this.cMh.imgUrl)) {
+            if (this.cMh != null && d.tL(this.cMh.imgUrl)) {
                 return this.cMh;
             }
         } else if (i == 3) {
@@ -214,7 +214,7 @@ public class b {
             if (this.cMi != null && (currentTimeMillis < this.cMi.startTime || currentTimeMillis > this.cMi.endTime)) {
                 this.cMi = c(this.cMk, 3);
             }
-            if (this.cMi != null && d.tK(this.cMi.imgUrl)) {
+            if (this.cMi != null && d.tL(this.cMi.imgUrl)) {
                 return this.cMi;
             }
         }

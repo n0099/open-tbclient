@@ -64,7 +64,7 @@ public class LabelSettingView extends RelativeLayout implements View.OnClickList
         this.hWI = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.item_label_setting_nav_complete, this);
         this.elL.a(this.fZG);
         this.hWL = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        this.hWL.sR(this.mPageContext.getString(R.string.confirm_give_up_label));
+        this.hWL.sS(this.mPageContext.getString(R.string.confirm_give_up_label));
         this.hWL.a(this.mPageContext.getString(R.string.alert_yes_button), new a.b() { // from class: com.baidu.tieba.interestlabel.view.LabelSettingView.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

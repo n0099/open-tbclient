@@ -62,7 +62,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     public void a(String str, a aVar) {
         this.iTF = aVar;
         if (this.iTF != null) {
-            if (!v.isEmpty(Gm(str))) {
+            if (!v.isEmpty(Gn(str))) {
                 this.iTF.o(str, iTG.get(str));
                 return;
             }
@@ -93,7 +93,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    private List<EmotionImageData> Gm(String str) {
+    private List<EmotionImageData> Gn(String str) {
         if (iTG == null || !iTG.containsKey(str)) {
             return null;
         }

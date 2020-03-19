@@ -324,7 +324,7 @@ public class JSInterface {
                         HashMap hashMap = new HashMap();
                         hashMap.put("_fromView", "9");
                         if (str6 != null) {
-                            hashMap.putAll(tv.chushou.zues.utils.d.SU(str6));
+                            hashMap.putAll(tv.chushou.zues.utils.d.SV(str6));
                         }
                         com.kascend.chushou.d.e.a(this.mContext, listItem, com.kascend.chushou.d.e.a(hashMap));
                         return;
@@ -624,7 +624,7 @@ public class JSInterface {
                                 bVar.dismiss();
                                 JSInterface.this.closeView();
                             }
-                        }).Td(JSInterface.this.mContext.getString(a.i.cancel)).Tf(JSInterface.this.mContext.getString(a.i.cs_confirm)).Tc(JSInterface.this.mContext.getString(a.i.cs_info_title)).x(str4).show();
+                        }).Te(JSInterface.this.mContext.getString(a.i.cancel)).Tg(JSInterface.this.mContext.getString(a.i.cs_confirm)).Td(JSInterface.this.mContext.getString(a.i.cs_info_title)).x(str4).show();
                     }
                 }
             });
@@ -788,7 +788,7 @@ public class JSInterface {
                         }
                         g.Os(a.i.str_download_fail);
                     }
-                }).Td(this.mContext.getString(a.i.alert_dialog_cancel)).Tf(this.mContext.getString(a.i.alert_dialog_ok)).x(this.mContext.getString(a.i.str_download_img)).show();
+                }).Te(this.mContext.getString(a.i.alert_dialog_cancel)).Tg(this.mContext.getString(a.i.alert_dialog_ok)).x(this.mContext.getString(a.i.str_download_img)).show();
                 return;
             }
             g.u(tv.chushou.widget.a.c.getString(a.i.str_download_fail));
@@ -815,7 +815,7 @@ public class JSInterface {
                             bVar.dRv();
                             iVar.execute();
                         }
-                    }).Td(context.getString(a.i.alert_dialog_cancel)).Tf(context.getString(a.i.gallery_permissions_continue)).x(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);
+                    }).Te(context.getString(a.i.alert_dialog_cancel)).Tg(context.getString(a.i.gallery_permissions_continue)).x(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);
                     bVar.show();
                 }
             }).b(new com.yanzhenjie.permission.a() { // from class: com.kascend.chushou.constants.JSInterface.14

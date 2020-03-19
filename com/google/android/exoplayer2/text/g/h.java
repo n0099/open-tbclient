@@ -16,7 +16,7 @@ public final class h {
         }
     }
 
-    public static long Qj(String str) throws NumberFormatException {
+    public static long Qk(String str) throws NumberFormatException {
         long j = 0;
         String[] split = str.split("\\.", 2);
         for (String str2 : split[0].split(":")) {
@@ -29,7 +29,7 @@ public final class h {
         return j2 * 1000;
     }
 
-    public static float Qk(String str) throws NumberFormatException {
+    public static float Ql(String str) throws NumberFormatException {
         if (!str.endsWith("%")) {
             throw new NumberFormatException("Percentages must end with %");
         }

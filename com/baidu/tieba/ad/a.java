@@ -79,7 +79,7 @@ public final class a implements h {
         String str2 = strArr[0];
         h.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.j(context, getInnerParamPair(wS(str2)));
+            bVar.j(context, getInnerParamPair(wT(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -105,7 +105,7 @@ public final class a implements h {
         return z4;
     }
 
-    private String wS(String str) {
+    private String wT(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -159,7 +159,7 @@ public final class a implements h {
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean wT(String str) {
+    public boolean wU(String str) {
         return pattern.matcher(str).find();
     }
 }

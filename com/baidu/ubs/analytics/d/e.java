@@ -7,11 +7,11 @@ public final class e {
         return com.baidu.ubs.analytics.d.cXN().getContext().getSharedPreferences("baidu_ab_general_config", 0);
     }
 
-    public static void Lt(String str) {
+    public static void Lu(String str) {
         cYp().edit().putBoolean(str, true).apply();
     }
 
-    public static boolean Lu(String str) {
+    public static boolean Lv(String str) {
         return cYp().getBoolean(str, false);
     }
 
@@ -23,7 +23,7 @@ public final class e {
         cYp().edit().putLong(str, j).apply();
     }
 
-    public static long Lv(String str) {
+    public static long Lw(String str) {
         return cYp().getLong(str, 0L);
     }
 

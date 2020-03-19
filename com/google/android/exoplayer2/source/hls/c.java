@@ -38,10 +38,10 @@ public final class c implements f {
             }
             String str = format.codecs;
             if (!TextUtils.isEmpty(str)) {
-                if (!"audio/mp4a-latm".equals(com.google.android.exoplayer2.util.i.Qr(str))) {
+                if (!"audio/mp4a-latm".equals(com.google.android.exoplayer2.util.i.Qs(str))) {
                     i |= 2;
                 }
-                if (!"video/avc".equals(com.google.android.exoplayer2.util.i.Qq(str))) {
+                if (!"video/avc".equals(com.google.android.exoplayer2.util.i.Qr(str))) {
                     i |= 4;
                 }
             }

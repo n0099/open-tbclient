@@ -127,8 +127,8 @@ public class d extends com.baidu.adp.base.c {
         if (musicData != null && !TextUtils.isEmpty(musicData.resource)) {
             this.kBa = musicData.id;
             this.kyf.cQd();
-            String Ka = com.baidu.tieba.video.editvideo.model.a.cQt().Ka(musicData.resource);
-            if (TextUtils.isEmpty(Ka)) {
+            String Kb = com.baidu.tieba.video.editvideo.model.a.cQt().Kb(musicData.resource);
+            if (TextUtils.isEmpty(Kb)) {
                 if (view != null) {
                     final c.a aVar = (c.a) view.getTag();
                     aVar.kxI.setVisibility(0);
@@ -143,7 +143,7 @@ public class d extends com.baidu.adp.base.c {
                         }
 
                         @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0621a
-                        public void JT(String str) {
+                        public void JU(String str) {
                             aVar.kxI.setVisibility(4);
                             l.showToast(d.this.mContext.getPageActivity(), str);
                             if (d.this.kjC != null) {
@@ -168,7 +168,7 @@ public class d extends com.baidu.adp.base.c {
                     }
 
                     @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0621a
-                    public void JT(String str) {
+                    public void JU(String str) {
                         l.showToast(d.this.mContext.getPageActivity(), str);
                         if (d.this.kjC != null) {
                             d.this.kjC.aR(206, str);
@@ -181,7 +181,7 @@ public class d extends com.baidu.adp.base.c {
                 });
                 return;
             }
-            bx(Ka, i);
+            bx(Kb, i);
         }
     }
 
@@ -361,7 +361,7 @@ public class d extends com.baidu.adp.base.c {
             this.kBa = intent.getStringExtra(EditVideoActivityConfig.MUSIC_ID_KEY);
             this.kAV = intent.getStringExtra(EditVideoActivityConfig.LOCAL_PATH_KEY);
             if (this.kAQ != null) {
-                this.kAQ.JY(this.kBa);
+                this.kAQ.JZ(this.kBa);
                 this.kAY = this.kAQ.cQf();
                 this.kAW = this.kAY;
                 this.kAX = this.kAY;

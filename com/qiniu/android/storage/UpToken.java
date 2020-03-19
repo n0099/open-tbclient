@@ -18,7 +18,7 @@ public final class UpToken {
         this.noO = str3;
     }
 
-    public static UpToken Rr(String str) {
+    public static UpToken Rs(String str) {
         try {
             String[] split = str.split(":");
             if (split.length != 3) {

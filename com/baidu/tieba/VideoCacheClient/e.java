@@ -27,11 +27,11 @@ public class e {
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
                 if (message.obj instanceof String) {
-                    e.this.wq((String) message.obj);
+                    e.this.wr((String) message.obj);
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    e.this.wv((String) message.obj);
+                    e.this.ww((String) message.obj);
                 }
             } else if (message.what == 3) {
                 d.z(e.TAG, "got MSG_CHECK");
@@ -102,13 +102,13 @@ public class e {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void wJ(String str) {
+    public void wK(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void wK(String str) {
+    public void wL(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
@@ -132,12 +132,12 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wq(String str) {
+    public void wr(String str) {
         cI(str, "?file_access=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wv(String str) {
+    public void ww(String str) {
         cI(str, "?stop_cache=1");
     }
 

@@ -122,9 +122,9 @@ public class a implements View.OnClickListener {
             this.jrH.setTag(strArr);
             this.diF.setOnClickListener(this);
             if (postInfoList.mBaijiahaoInfo != null && !StringUtils.isNull(postInfoList.mBaijiahaoInfo.avatar)) {
-                GV(postInfoList.mBaijiahaoInfo.avatar);
+                GW(postInfoList.mBaijiahaoInfo.avatar);
             } else {
-                GV(str);
+                GW(str);
             }
             if (this.iuu != null) {
                 this.iuu.setTag(strArr);
@@ -134,7 +134,7 @@ public class a implements View.OnClickListener {
         }
     }
 
-    private void GV(String str) {
+    private void GW(String str) {
         if (jrE != null && !jrE.equals(str)) {
             jrD = null;
         }

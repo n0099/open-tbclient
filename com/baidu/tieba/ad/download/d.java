@@ -60,12 +60,12 @@ public class d {
         return downloadCacheKey.mAdId;
     }
 
-    public void wY(String str) {
-        com.baidu.tieba.ad.download.b.a.eak.get().xe(str);
-    }
-
     public void wZ(String str) {
         com.baidu.tieba.ad.download.b.a.eak.get().xf(str);
+    }
+
+    public void xa(String str) {
+        com.baidu.tieba.ad.download.b.a.eak.get().xg(str);
     }
 
     public boolean a(Context context, @NonNull DownloadCacheKey downloadCacheKey, String str) {
@@ -109,13 +109,13 @@ public class d {
 
     public void aM(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
-            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : b.aYm().wX(str).entrySet()) {
+            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : b.aYm().wY(str).entrySet()) {
                 AdDownloadData value = entry.getValue();
                 if (value != null) {
                     value.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
                 }
             }
-            for (com.baidu.tieba.ad.download.a.a aVar : xa(str)) {
+            for (com.baidu.tieba.ad.download.a.a aVar : xb(str)) {
                 if (aVar != null && aVar.aYu() != 4) {
                     aVar.setState(4);
                     aVar.aYw();
@@ -124,7 +124,7 @@ public class d {
         }
     }
 
-    private Set<com.baidu.tieba.ad.download.a.a> xa(String str) {
+    private Set<com.baidu.tieba.ad.download.a.a> xb(String str) {
         HashSet hashSet = new HashSet(this.eab.size());
         if (TextUtils.isEmpty(str)) {
             return hashSet;
@@ -143,13 +143,13 @@ public class d {
 
     public void aO(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
-            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : b.aYm().wX(str).entrySet()) {
+            for (Map.Entry<DownloadCacheKey, AdDownloadData> entry : b.aYm().wY(str).entrySet()) {
                 AdDownloadData value = entry.getValue();
                 if (value != null) {
                     value.extra().setStatus(DownloadStatus.STATUS_NONE);
                 }
             }
-            for (com.baidu.tieba.ad.download.a.a aVar : xa(str)) {
+            for (com.baidu.tieba.ad.download.a.a aVar : xb(str)) {
                 if (aVar != null && aVar.aYu() != 0) {
                     aVar.setState(0);
                     aVar.aYx();
@@ -159,7 +159,7 @@ public class d {
     }
 
     @Nullable
-    public DownloadCacheKey xb(String str) {
+    public DownloadCacheKey xc(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -172,7 +172,7 @@ public class d {
     }
 
     @Nullable
-    public DownloadCacheKey xc(String str) {
+    public DownloadCacheKey xd(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -197,8 +197,8 @@ public class d {
 
     public void a(@NonNull String str, String str2, DownloadStatus downloadStatus, String str3) {
         com.baidu.tieba.ad.download.a.a aVar;
-        DownloadCacheKey xb = xb(str);
-        if (xb != null && (aVar = this.eab.get(xb)) != null) {
+        DownloadCacheKey xc = xc(str);
+        if (xc != null && (aVar = this.eab.get(xc)) != null) {
             aVar.a(str2, downloadStatus, str3);
         }
     }

@@ -171,7 +171,7 @@ public class NewFriendDbManagerStatic {
                             public Void doInBackground() {
                                 if (0 != friendId) {
                                     b.aYS().ct(friendId);
-                                    m.bUX().CN(String.valueOf(friendId));
+                                    m.bUX().CO(String.valueOf(friendId));
                                 }
                                 return null;
                             }
@@ -278,17 +278,17 @@ public class NewFriendDbManagerStatic {
                         String content = p.getContent();
                         if (!TextUtils.isEmpty(content)) {
                             if (cmd.equals("apply_new_friend")) {
-                                NewFriendDbManagerStatic.aYL().xl(content);
-                            } else if (cmd.equals("passed_new_friend")) {
                                 NewFriendDbManagerStatic.aYL().xm(content);
-                            } else if (cmd.equals("delete_new_friend")) {
+                            } else if (cmd.equals("passed_new_friend")) {
                                 NewFriendDbManagerStatic.aYL().xn(content);
-                            } else if (cmd.equals("apply_reply_message")) {
+                            } else if (cmd.equals("delete_new_friend")) {
                                 NewFriendDbManagerStatic.aYL().xo(content);
-                            } else if (cmd.equals("apply_add_friend")) {
+                            } else if (cmd.equals("apply_reply_message")) {
                                 NewFriendDbManagerStatic.aYL().xp(content);
-                            } else if (cmd.equals("apply_pass_friend")) {
+                            } else if (cmd.equals("apply_add_friend")) {
                                 NewFriendDbManagerStatic.aYL().xq(content);
+                            } else if (cmd.equals("apply_pass_friend")) {
+                                NewFriendDbManagerStatic.aYL().xr(content);
                             }
                         }
                     }
@@ -356,7 +356,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void xl(String str) {
+    public void xm(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
             if (optJSONObject != null) {
@@ -390,7 +390,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void xm(String str) {
+    public void xn(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
             if (optJSONObject != null) {
@@ -426,7 +426,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void xn(String str) {
+    public void xo(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
             if (optJSONObject != null) {
@@ -452,7 +452,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void xo(String str) {
+    public void xp(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
             if (optJSONObject != null) {
@@ -494,7 +494,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void xp(String str) {
+    public void xq(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
             if (optJSONObject != null) {
@@ -531,7 +531,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void xq(String str) {
+    public void xr(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
             if (optJSONObject != null) {

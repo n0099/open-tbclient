@@ -161,9 +161,9 @@ public class a {
                 b bVar = new b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
                 bVar.addPostParam("type", 1);
                 String storeFile = m.getStoreFile(voice, 1);
-                com.baidu.tbadk.coreExtra.data.m ue = bVar.ue(storeFile);
-                if (ue != null && ue.isSuccess()) {
-                    l aJx = ue.aJx();
+                com.baidu.tbadk.coreExtra.data.m uf = bVar.uf(storeFile);
+                if (uf != null && uf.isSuccess()) {
+                    l aJx = uf.aJx();
                     if (aJx != null) {
                         String md5 = aJx.getMd5();
                         com.baidu.tbadk.core.voice.a.b.renameFile(writeData.getVoice(), md5);
@@ -171,20 +171,20 @@ public class a {
                         str = md5;
                     } else {
                         com.baidu.tbadk.core.util.l lVar = new com.baidu.tbadk.core.util.l();
-                        lVar.append("ErrCode", Integer.valueOf(ue.getErrorCode()));
-                        lVar.append("ErrMsg", ue.getErrorString());
+                        lVar.append("ErrCode", Integer.valueOf(uf.getErrorCode()));
+                        lVar.append("ErrMsg", uf.getErrorString());
                         TiebaStatic.voiceError(-1113, "audioUploadData is null", lVar.toString());
-                        this.kjy.setError_code(ue.getErrorCode());
-                        this.kjy.setError_msg(ue.getErrorString());
+                        this.kjy.setError_code(uf.getErrorCode());
+                        this.kjy.setError_msg(uf.getErrorString());
                         return null;
                     }
                 } else {
                     com.baidu.tbadk.core.util.l lVar2 = new com.baidu.tbadk.core.util.l();
                     lVar2.append("audioFile", storeFile);
                     TiebaStatic.voiceError(-1113, "uploadService.upload null or fail", lVar2.toString());
-                    if (ue != null) {
-                        this.kjy.setError_code(ue.getErrorCode());
-                        this.kjy.setError_msg(ue.getErrorString());
+                    if (uf != null) {
+                        this.kjy.setError_code(uf.getErrorCode());
+                        this.kjy.setError_msg(uf.getErrorString());
                     }
                     return null;
                 }
@@ -312,8 +312,8 @@ public class a {
             } else {
                 str2 = content + writeData.getVideoInfo().buildContent() + imagesCodeForPost;
             }
-            j.tg(str2);
-            this.mNetwork.addPostData("content", com.baidu.tieba.face.a.As(str2));
+            j.th(str2);
+            this.mNetwork.addPostData("content", com.baidu.tieba.face.a.At(str2));
             this.mNetwork.addPostData("reply_uid", writeData.getReplyId());
             if (!TextUtils.isEmpty(writeData.getMemeText())) {
                 this.mNetwork.addPostData("meme_text", writeData.getMemeText());

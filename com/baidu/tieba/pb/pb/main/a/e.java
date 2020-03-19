@@ -36,13 +36,13 @@ public class e {
                 this.iTa.a(eVar.ckP().aCI(), eVar.ckP(), eVar.getForumId());
                 this.iTa.startPlay();
             } else {
-                this.iTa.Gv(eVar.getForumId());
+                this.iTa.Gw(eVar.getForumId());
             }
             com.baidu.tieba.pb.c.a.a(this.iFL.getUniqueId(), eVar, postData, 1, 1);
             if (eVar.ckQ() != null && eVar.ckQ().size() >= 1) {
                 bj bjVar = eVar.ckQ().get(0);
                 this.iTa.aL(bjVar);
-                this.iTa.Gw(bjVar.getTitle());
+                this.iTa.Gx(bjVar.getTitle());
             }
             this.iTa.b(postData, eVar.ckP(), eVar.clk());
             this.iTc = false;

@@ -407,13 +407,13 @@ public class c extends DefaultHandler implements p.a<b> {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        if (com.google.android.exoplayer2.util.i.OQ(str)) {
+        if (com.google.android.exoplayer2.util.i.OR(str)) {
             return 2;
         }
-        if (com.google.android.exoplayer2.util.i.Qo(str)) {
+        if (com.google.android.exoplayer2.util.i.Qp(str)) {
             return 1;
         }
-        return PF(str) ? 3 : -1;
+        return PG(str) ? 3 : -1;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
@@ -429,23 +429,23 @@ public class c extends DefaultHandler implements p.a<b> {
         String str;
         String attributeValue = xmlPullParser.getAttributeValue(null, "schemeIdUri");
         if (attributeValue != null) {
-            String QB = v.QB(attributeValue);
+            String QC = v.QC(attributeValue);
             char c = 65535;
-            switch (QB.hashCode()) {
+            switch (QC.hashCode()) {
                 case 489446379:
-                    if (QB.equals("urn:uuid:9a04f079-9840-4286-ab92-e65be0885f95")) {
+                    if (QC.equals("urn:uuid:9a04f079-9840-4286-ab92-e65be0885f95")) {
                         c = 1;
                         break;
                     }
                     break;
                 case 755418770:
-                    if (QB.equals("urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed")) {
+                    if (QC.equals("urn:uuid:edef8ba9-79d6-4ace-a3c8-27dcd51d21ed")) {
                         c = 2;
                         break;
                     }
                     break;
                 case 1812765994:
-                    if (QB.equals("urn:mpeg:dash:mp4protection:2011")) {
+                    if (QC.equals("urn:mpeg:dash:mp4protection:2011")) {
                         c = 0;
                         break;
                     }
@@ -624,13 +624,13 @@ public class c extends DefaultHandler implements p.a<b> {
         int i7;
         String fn = fn(str2, str4);
         if (fn != null) {
-            if (com.google.android.exoplayer2.util.i.OQ(fn)) {
+            if (com.google.android.exoplayer2.util.i.OR(fn)) {
                 return Format.a(str, str2, fn, str4, i5, i, i2, f, (List<byte[]>) null, i6);
             }
-            if (com.google.android.exoplayer2.util.i.Qo(fn)) {
+            if (com.google.android.exoplayer2.util.i.Qp(fn)) {
                 return Format.a(str, str2, fn, str4, i5, i3, i4, (List<byte[]>) null, i6, str3);
             }
-            if (PF(fn)) {
+            if (PG(fn)) {
                 if ("application/cea-608".equals(fn)) {
                     i7 = ff(list);
                 } else if ("application/cea-708".equals(fn)) {
@@ -798,7 +798,7 @@ public class c extends DefaultHandler implements p.a<b> {
     protected j a(XmlPullParser xmlPullParser, String str, j jVar) {
         String attributeValue = xmlPullParser.getAttributeValue(null, str);
         if (attributeValue != null) {
-            return j.PI(attributeValue);
+            return j.PJ(attributeValue);
         }
         return jVar;
     }
@@ -867,13 +867,13 @@ public class c extends DefaultHandler implements p.a<b> {
     }
 
     private static String fn(String str, String str2) {
-        if (com.google.android.exoplayer2.util.i.Qo(str)) {
+        if (com.google.android.exoplayer2.util.i.Qp(str)) {
+            return com.google.android.exoplayer2.util.i.Qs(str2);
+        }
+        if (com.google.android.exoplayer2.util.i.OR(str)) {
             return com.google.android.exoplayer2.util.i.Qr(str2);
         }
-        if (com.google.android.exoplayer2.util.i.OQ(str)) {
-            return com.google.android.exoplayer2.util.i.Qq(str2);
-        }
-        if (!PF(str)) {
+        if (!PG(str)) {
             if ("application/mp4".equals(str)) {
                 if (SubtitleSampleEntry.TYPE1.equals(str2)) {
                     return "application/ttml+xml";
@@ -897,8 +897,8 @@ public class c extends DefaultHandler implements p.a<b> {
         return str;
     }
 
-    private static boolean PF(String str) {
-        return com.google.android.exoplayer2.util.i.Qp(str) || "application/ttml+xml".equals(str) || "application/x-mp4-vtt".equals(str) || "application/cea-708".equals(str) || "application/cea-608".equals(str);
+    private static boolean PG(String str) {
+        return com.google.android.exoplayer2.util.i.Qq(str) || "application/ttml+xml".equals(str) || "application/x-mp4-vtt".equals(str) || "application/cea-708".equals(str) || "application/cea-608".equals(str);
     }
 
     private static String fo(String str, String str2) {
@@ -992,12 +992,12 @@ public class c extends DefaultHandler implements p.a<b> {
 
     protected static long b(XmlPullParser xmlPullParser, String str, long j) {
         String attributeValue = xmlPullParser.getAttributeValue(null, str);
-        return attributeValue == null ? j : v.QC(attributeValue);
+        return attributeValue == null ? j : v.QD(attributeValue);
     }
 
     protected static long c(XmlPullParser xmlPullParser, String str, long j) throws ParserException {
         String attributeValue = xmlPullParser.getAttributeValue(null, str);
-        return attributeValue == null ? j : v.QD(attributeValue);
+        return attributeValue == null ? j : v.QE(attributeValue);
     }
 
     protected static String c(XmlPullParser xmlPullParser, String str) throws XmlPullParserException, IOException {
@@ -1023,34 +1023,34 @@ public class c extends DefaultHandler implements p.a<b> {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     protected static int l(XmlPullParser xmlPullParser) {
         char c;
-        String QB = v.QB(xmlPullParser.getAttributeValue(null, "value"));
-        if (QB == null) {
+        String QC = v.QC(xmlPullParser.getAttributeValue(null, "value"));
+        if (QC == null) {
             return -1;
         }
-        switch (QB.hashCode()) {
+        switch (QC.hashCode()) {
             case 1596796:
-                if (QB.equals("4000")) {
+                if (QC.equals("4000")) {
                     c = 0;
                     break;
                 }
                 c = 65535;
                 break;
             case 2937391:
-                if (QB.equals("a000")) {
+                if (QC.equals("a000")) {
                     c = 1;
                     break;
                 }
                 c = 65535;
                 break;
             case 3094035:
-                if (QB.equals("f801")) {
+                if (QC.equals("f801")) {
                     c = 2;
                     break;
                 }
                 c = 65535;
                 break;
             case 3133436:
-                if (QB.equals("fa01")) {
+                if (QC.equals("fa01")) {
                     c = 3;
                     break;
                 }

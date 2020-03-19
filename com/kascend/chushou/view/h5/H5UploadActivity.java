@@ -328,7 +328,7 @@ public class H5UploadActivity extends BaseActivity {
                             bVar.dRv();
                             iVar.execute();
                         }
-                    }).Td(context.getString(a.i.alert_dialog_cancel)).Tf(context.getString(a.i.gallery_permissions_continue)).x(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);
+                    }).Te(context.getString(a.i.alert_dialog_cancel)).Tg(context.getString(a.i.gallery_permissions_continue)).x(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);
                     bVar.show();
                 }
             }).b(new com.yanzhenjie.permission.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.6
@@ -385,7 +385,7 @@ public class H5UploadActivity extends BaseActivity {
                             bVar.dRv();
                             iVar.execute();
                         }
-                    }).Td(context.getString(a.i.alert_dialog_cancel)).Tf(context.getString(a.i.gallery_permissions_continue)).x(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);
+                    }).Te(context.getString(a.i.alert_dialog_cancel)).Tg(context.getString(a.i.gallery_permissions_continue)).x(context.getString(a.i.gallery_permissions_rationale, c)).setCanceledOnTouchOutside(false);
                     bVar.show();
                 }
             }).b(new com.yanzhenjie.permission.a() { // from class: com.kascend.chushou.view.h5.H5UploadActivity.9

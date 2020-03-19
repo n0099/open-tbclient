@@ -183,7 +183,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             if (ImageViewerActivity.this.hTF != null) {
                 ImageViewerActivity.this.hTF.setEnabled(false);
             }
-            ImageViewerActivity.this.k(d.DN((String) v.getItem(ImageViewerActivity.this.hTH, ImageViewerActivity.this.mIndex)), ImageViewerActivity.this.mIsSeeHost ? false : true, true);
+            ImageViewerActivity.this.k(d.DO((String) v.getItem(ImageViewerActivity.this.hTH, ImageViewerActivity.this.mIndex)), ImageViewerActivity.this.mIsSeeHost ? false : true, true);
         }
     };
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.image.ImageViewerActivity.16
@@ -405,7 +405,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.hTI.setSourceImageRectInScreen(this.hTp);
         this.hTI.os(this.hUa);
         this.hTI.ot(z);
-        this.hTI.DP(this.hTq);
+        this.hTI.DQ(this.hTq);
         this.hTI.or(this.hTr);
         this.hTI.setPostId(this.mPostId);
         this.hTI.ov(this.hTs);
@@ -621,7 +621,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         this.mTitleView.setTextColor(ContextCompat.getColor(this, R.color.cp_cont_a));
         this.mTitleView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(this, R.dimen.tbds44));
         this.mTitleView.setShadowLayer(1.0f, 1.0f, 1.0f, ContextCompat.getColor(this, R.color.cp_mask_b_alpha42));
-        if (d.DO((String) v.getItem(this.hTH, this.mIndex))) {
+        if (d.DP((String) v.getItem(this.hTH, this.mIndex))) {
             this.mNavigationBar.setVisibility(0);
         }
     }
@@ -697,7 +697,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             if (caW()) {
                 caX();
             } else {
-                DQ(str);
+                DR(str);
             }
         }
     }
@@ -710,7 +710,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         return false;
     }
 
-    private void DQ(String str) {
+    private void DR(String str) {
         this.mTitleView.setText(str);
         if (this.hTW && !this.hTX && this.hTF != null) {
             this.hTF.setText(this.mIsSeeHost ? R.string.album_all_thread : R.string.view_host);
@@ -924,7 +924,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
                 imageUrlData.setSourceImageRectInScreen(this.hTp);
             }
         }
-        this.hTq = this.hTY ? null : d.DN((String) v.getItem(this.hTH, this.mIndex));
+        this.hTq = this.hTY ? null : d.DO((String) v.getItem(this.hTH, this.mIndex));
         if (this.mIsSeeHost) {
             TiebaStatic.log(new an("c13337").cx("obj_type", "2"));
         } else {
@@ -1042,7 +1042,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(this.emF, 0L));
             pageStayDurationItem.setTid(com.baidu.adp.lib.f.b.toLong(this.Pk, 0L));
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                pageStayDurationItem.vF(TbadkCoreApplication.getInst().getAdAdSense().dmy);
+                pageStayDurationItem.vG(TbadkCoreApplication.getInst().getAdAdSense().dmy);
             }
         }
         return pageStayDurationItem;

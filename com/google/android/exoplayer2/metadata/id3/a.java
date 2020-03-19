@@ -14,7 +14,7 @@ import java.util.Locale;
 import org.apache.commons.base.CharEncoding;
 /* loaded from: classes6.dex */
 public final class a implements com.google.android.exoplayer2.metadata.a {
-    public static final int moi = v.QE("ID3");
+    public static final int moi = v.QF("ID3");
     private final InterfaceC0679a msm;
 
     /* renamed from: com.google.android.exoplayer2.metadata.id3.a$a  reason: collision with other inner class name */
@@ -362,27 +362,27 @@ public final class a implements com.google.android.exoplayer2.metadata.a {
     }
 
     private static ApicFrame e(l lVar, int i, int i2) throws UnsupportedEncodingException {
-        String QB;
+        String QC;
         int i3 = 2;
         int readUnsignedByte = lVar.readUnsignedByte();
         String Ku = Ku(readUnsignedByte);
         byte[] bArr = new byte[i - 1];
         lVar.G(bArr, 0, i - 1);
         if (i2 == 2) {
-            QB = "image/" + v.QB(new String(bArr, 0, 3, "ISO-8859-1"));
-            if (QB.equals("image/jpg")) {
-                QB = MimeType.Image.JPEG;
+            QC = "image/" + v.QC(new String(bArr, 0, 3, "ISO-8859-1"));
+            if (QC.equals("image/jpg")) {
+                QC = MimeType.Image.JPEG;
             }
         } else {
             i3 = A(bArr, 0);
-            QB = v.QB(new String(bArr, 0, i3, "ISO-8859-1"));
-            if (QB.indexOf(47) == -1) {
-                QB = "image/" + QB;
+            QC = v.QC(new String(bArr, 0, i3, "ISO-8859-1"));
+            if (QC.indexOf(47) == -1) {
+                QC = "image/" + QC;
             }
         }
         int i4 = i3 + 2;
         int y = y(bArr, i4, readUnsignedByte);
-        return new ApicFrame(QB, new String(bArr, i4, y - i4, Ku), bArr[i3 + 1] & 255, z(bArr, Kv(readUnsignedByte) + y, bArr.length));
+        return new ApicFrame(QC, new String(bArr, i4, y - i4, Ku), bArr[i3 + 1] & 255, z(bArr, Kv(readUnsignedByte) + y, bArr.length));
     }
 
     private static CommentFrame p(l lVar, int i) throws UnsupportedEncodingException {

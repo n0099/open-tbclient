@@ -160,7 +160,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.b
             this.gGQ = frsRequestData;
             this.mPn = this.gGQ.getPn();
             this.gpb = this.gGQ.getKw();
-            this.gJa.Bz(this.gpb);
+            this.gJa.BA(this.gpb);
             this.gJa.setFrom(this.mFrom);
             this.gJa.setPn(this.mPn);
             this.gJa.setFlag(this.mFlag);

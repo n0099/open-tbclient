@@ -194,36 +194,36 @@ public class d {
             this.mPageContext.showToast(a.i.share_no_channel);
             return;
         }
-        ShareEntity zu = zu(str);
-        if (zu != null) {
+        ShareEntity zv = zv(str);
+        if (zv != null) {
             switch (this.flc) {
                 case 1:
                     if (!TextUtils.isEmpty(str3) && str3.contains("直播标题")) {
                         if (!TextUtils.isEmpty(str2)) {
-                            zu.content = str3.replace("直播标题", str2);
+                            zv.content = str3.replace("直播标题", str2);
                         } else {
-                            zu.content = str3;
+                            zv.content = str3;
                         }
                     }
                     if (TbadkCoreApplication.getInst().isTieba()) {
-                        zu.title = "腻害了";
+                        zv.title = "腻害了";
                     }
-                    a(zu);
+                    a(zv);
                     return;
                 case 2:
-                    zu.content = str2;
-                    zu.title = str4;
-                    b(zu);
+                    zv.content = str2;
+                    zv.title = str4;
+                    b(zv);
                     return;
                 case 3:
-                    zu.content = str2;
-                    zu.title = str4;
-                    c(zu);
+                    zv.content = str2;
+                    zv.title = str4;
+                    c(zv);
                     return;
                 case 4:
-                    zu.content = str2;
-                    zu.title = str4;
-                    d(zu);
+                    zv.content = str2;
+                    zv.title = str4;
+                    d(zv);
                     return;
                 default:
                     return;
@@ -231,7 +231,7 @@ public class d {
         }
     }
 
-    private ShareEntity zu(String str) {
+    private ShareEntity zv(String str) {
         String str2;
         ShareEntity shareEntity = new ShareEntity();
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
@@ -242,11 +242,11 @@ public class d {
             }
         }
         String shareUrl = getShareUrl();
-        String zv = zv(currentAccountName);
+        String zw = zw(currentAccountName);
         if (shareUrl.contains("?")) {
-            str2 = shareUrl + "&uname=" + zv;
+            str2 = shareUrl + "&uname=" + zw;
         } else {
-            str2 = shareUrl + "?uname=" + zv;
+            str2 = shareUrl + "?uname=" + zw;
         }
         Log.i("AlaShareController", "@@  " + str2);
         shareEntity.imageUrl = str;
@@ -265,7 +265,7 @@ public class d {
         return "http://tieba.baidu.com/ala/share/index";
     }
 
-    private String zv(String str) {
+    private String zw(String str) {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {

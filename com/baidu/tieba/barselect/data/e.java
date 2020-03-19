@@ -49,18 +49,18 @@ public class e {
             return null;
         }
         e eVar = new e();
-        eVar.dj(zQ(basic.remind_time));
+        eVar.dj(zR(basic.remind_time));
         eVar.setStatus(basic.status.intValue());
         eVar.rh(basic.candidate_num.intValue());
         eVar.ri(basic.total_vote_num.intValue());
-        eVar.dh(zQ(basic.begin_apply_time));
-        eVar.dk(zQ(basic.begin_vote_time));
-        eVar.di(zQ(basic.begin_public_time));
+        eVar.dh(zR(basic.begin_apply_time));
+        eVar.dk(zR(basic.begin_vote_time));
+        eVar.di(zR(basic.begin_public_time));
         eVar.kj(basic.is_voted.booleanValue());
         return eVar;
     }
 
-    private static long zQ(String str) {
+    private static long zR(String str) {
         try {
             return Long.parseLong(str);
         } catch (Exception e) {

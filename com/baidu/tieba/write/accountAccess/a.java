@@ -54,7 +54,7 @@ public class a {
                     cIp.setVcodeUrl(aaVar.getVcode_pic_url());
                     cIp.setVcodeExtra(aaVar.aJL());
                     a.this.kOn.getContext().setVisible(false);
-                    if (com.baidu.tbadk.s.a.wb(aaVar.aJK())) {
+                    if (com.baidu.tbadk.s.a.wc(aaVar.aJK())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.kOn.getContext().getActivity(), RequestResponseCode.REQUEST_VCODE, cIp, false, aaVar.aJK())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.kOn.getContext().getActivity(), cIp, RequestResponseCode.REQUEST_VCODE)));
@@ -87,7 +87,7 @@ public class a {
         newWriteModel.b(this.dza);
     }
 
-    public boolean KO(String str) {
+    public boolean KP(String str) {
         if (this.kOn == null || str == null) {
             return false;
         }

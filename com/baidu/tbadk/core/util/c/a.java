@@ -38,7 +38,7 @@ public abstract class a implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.Im
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.aPV().vx(str), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.aPV().vy(str), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -56,23 +56,23 @@ public abstract class a implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.Im
         com.baidu.adp.lib.stats.a gs = com.baidu.tbadk.core.util.s.gs();
         gs.startTimer();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c tG = tG(as.getNameMd5FromUrl(str2));
-        if (tG == null) {
+        com.baidu.adp.lib.Disk.ops.c tH = tH(as.getNameMd5FromUrl(str2));
+        if (tH == null) {
             return null;
         }
-        tG.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        tG.setSdCard(false);
-        tG.setSubFolder(true);
-        tG.setSavedCache(true);
-        tG.setIsFormatData(false);
-        tG.setLock(bArr);
+        tH.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        tH.setSdCard(false);
+        tH.setSubFolder(true);
+        tH.setSavedCache(true);
+        tH.setIsFormatData(false);
+        tH.setLock(bArr);
         if (aVar != null) {
             e eVar = new e();
-            eVar.f(tG);
+            eVar.f(tH);
             aVar.rT = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
-        if (!com.baidu.adp.lib.Disk.d.fk().c(tG)) {
+        if (!com.baidu.adp.lib.Disk.d.fk().c(tH)) {
             com.baidu.tbadk.core.util.s.a(gs, str2, false, gs.getTimeCost(), isWifiNet);
             return null;
         }
@@ -86,10 +86,10 @@ public abstract class a implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.Im
             } catch (InterruptedException e) {
             }
         }
-        if (!tG.isSuccess()) {
+        if (!tH.isSuccess()) {
             aVar2 = null;
         } else {
-            aVar2 = a(tG, str2, i, i2);
+            aVar2 = a(tH, str2, i, i2);
         }
         if (aVar2 != null) {
             com.baidu.tbadk.core.util.s.a(gs, str2, true, gs.getTimeCost(), isWifiNet);
@@ -334,7 +334,7 @@ public abstract class a implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.Im
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public com.baidu.adp.lib.Disk.ops.c tG(String str) {
+    public com.baidu.adp.lib.Disk.ops.c tH(String str) {
         return new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 

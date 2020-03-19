@@ -32,7 +32,7 @@ public class p implements com.baidu.adp.widget.ListView.m {
         this.gmn = i;
     }
 
-    public void AY(String str) {
+    public void AZ(String str) {
         this.gmo = str;
     }
 
@@ -40,7 +40,7 @@ public class p implements com.baidu.adp.widget.ListView.m {
         return this.gmp;
     }
 
-    public void AZ(String str) {
+    public void Ba(String str) {
         this.gmp = str;
     }
 

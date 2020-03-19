@@ -260,7 +260,7 @@ public class b {
         }
     }
 
-    public void Bm(String str) {
+    public void Bn(String str) {
         bj bjVar;
         if (!StringUtils.isNull(str) && this.gwF != null && !v.isEmpty(this.gwF.threadList)) {
             Iterator<com.baidu.adp.widget.ListView.m> it = this.gwF.threadList.iterator();

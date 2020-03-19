@@ -48,7 +48,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String KS(String str) {
+    private String KT(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -88,7 +88,7 @@ public class a extends BaseAdapter {
         } else {
             c0634a = (C0634a) obj;
         }
-        c0634a.kQA.setText(KS(hotTopicBussinessData.mForumName));
+        c0634a.kQA.setText(KT(hotTopicBussinessData.mForumName));
         c0634a.kQz.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         am.setBackgroundResource(c0634a.mRootView, R.drawable.select_forum_item_bg);
         am.setViewTextColor(c0634a.kQA, (int) R.color.cp_cont_b);

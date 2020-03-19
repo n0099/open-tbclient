@@ -454,7 +454,7 @@ public class m extends com.baidu.adp.base.c {
             }
 
             @Override // com.baidu.tbadk.editortools.pb.DataModel
-            public WriteData vi(String str) {
+            public WriteData vj(String str) {
                 WriteData writeData = new WriteData();
                 writeData.setForumId(m.this.mForumId);
                 writeData.setForumName(m.this.hRv);
@@ -572,10 +572,10 @@ public class m extends com.baidu.adp.base.c {
             }
             if (this.hRt != null && this.hRu != null) {
                 if (this.hRu.cak() && this.hRu.getReplyer() != null) {
-                    this.hRt.vr(this.hRu.getReplyer().getName_show());
+                    this.hRt.vs(this.hRu.getReplyer().getName_show());
                     return;
                 } else {
-                    this.hRt.vr(null);
+                    this.hRt.vs(null);
                     return;
                 }
             }
@@ -600,9 +600,9 @@ public class m extends com.baidu.adp.base.c {
                         }
                         if (m.this.hRt != null && m.this.hRu != null) {
                             if (!m.this.hRu.cak() || m.this.hRu.getReplyer() == null) {
-                                m.this.hRt.vr(null);
+                                m.this.hRt.vs(null);
                             } else {
-                                m.this.hRt.vr(m.this.hRu.getReplyer().getName_show());
+                                m.this.hRt.vs(m.this.hRu.getReplyer().getName_show());
                             }
                         }
                     }

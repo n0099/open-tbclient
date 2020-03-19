@@ -14,12 +14,12 @@ public class f {
     public static String get(@NonNull String str) {
         Object obj = dQT().get(str);
         if (obj == null) {
-            obj = SV(str);
+            obj = SW(str);
         }
         return obj == null ? "" : String.valueOf(obj);
     }
 
-    private static String SV(String str) {
+    private static String SW(String str) {
         try {
             Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
             declaredMethod.setAccessible(true);

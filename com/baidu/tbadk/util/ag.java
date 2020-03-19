@@ -197,7 +197,7 @@ public class ag {
         return str;
     }
 
-    public static boolean vZ(String str) {
+    public static boolean wa(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

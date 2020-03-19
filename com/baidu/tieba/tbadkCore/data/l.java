@@ -78,7 +78,7 @@ public class l {
                         if (matcher.find()) {
                             try {
                                 String group = matcher.group();
-                                vV(group.substring(group.lastIndexOf("/") + 1));
+                                vW(group.substring(group.lastIndexOf("/") + 1));
                                 return;
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -88,13 +88,13 @@ public class l {
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
-                                vV(group2.substring(group2.lastIndexOf(ETAG.EQUAL) + 1));
+                                vW(group2.substring(group2.lastIndexOf(ETAG.EQUAL) + 1));
                                 return;
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
                         }
-                        vU(l.this.link);
+                        vV(l.this.link);
                     }
                 }, 0, this.text.length() - 1, 33);
                 return spannableString;
@@ -141,7 +141,7 @@ public class l {
                 spannableString4.setSpan(new p(context) { // from class: com.baidu.tieba.tbadkCore.data.l.1
                     @Override // com.baidu.tbadk.util.p, android.text.style.ClickableSpan
                     public void onClick(View view) {
-                        vU(l.this.text);
+                        vV(l.this.text);
                     }
                 }, string.length(), str.length() - 1, 33);
                 return spannableString4;

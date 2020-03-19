@@ -210,7 +210,7 @@ public class z extends com.baidu.tieba.frs.h<bi, com.baidu.card.a<bj>> implement
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 

@@ -55,7 +55,7 @@ public class CheckRealNameModel extends BdBaseModel {
         return false;
     }
 
-    public void ES(String str) {
+    public void ET(String str) {
         CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
         checkRealNameRequestNetMessage.setObjSource(str);
         sendMessage(checkRealNameRequestNetMessage);

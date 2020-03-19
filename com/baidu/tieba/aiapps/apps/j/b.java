@@ -30,7 +30,7 @@ public class b implements h {
 
     @Override // com.baidu.swan.apps.w.b.h
     public void e(Activity activity, String str, final com.baidu.j.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(f.WV().WG(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.j.b.a.class, com.baidu.tieba.aiapps.apps.j.b.a.xF(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.j.b.1
+        DelegateUtils.callOnMainWithActivity(f.WV().WG(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.j.b.a.class, com.baidu.tieba.aiapps.apps.j.b.a.xG(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.j.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 aVar.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));

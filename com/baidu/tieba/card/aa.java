@@ -98,7 +98,7 @@ public class aa extends com.baidu.tbadk.core.dialog.i {
                                 if (bVar.mErrCode == 1211066) {
                                     if (aa.this.fMK == null) {
                                         aa.this.fMK = new com.baidu.tbadk.core.dialog.a(aa.this.mPageContext.getPageActivity());
-                                        aa.this.fMK.sR(string);
+                                        aa.this.fMK.sS(string);
                                         aa.this.fMK.a(R.string.dialog_known, new a.b() { // from class: com.baidu.tieba.card.aa.7.1
                                             @Override // com.baidu.tbadk.core.dialog.a.b
                                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -311,7 +311,7 @@ public class aa extends com.baidu.tbadk.core.dialog.i {
             alVar.setFid(com.baidu.tieba.frs.a.bDd().getForumId());
             eVar.setData(alVar);
             eVar.setDefaultReasonArray(new String[]{getContext().getString(R.string.delete_thread_reason_1), getContext().getString(R.string.delete_thread_reason_2), getContext().getString(R.string.delete_thread_reason_3), getContext().getString(R.string.delete_thread_reason_4), getContext().getString(R.string.delete_thread_reason_5)});
-            eVar.wn("1");
+            eVar.wo("1");
             eVar.a(new e.b() { // from class: com.baidu.tieba.card.aa.3
                 @Override // com.baidu.tieba.NEGFeedBack.e.b
                 public void S(JSONArray jSONArray2) {
@@ -484,7 +484,7 @@ public class aa extends com.baidu.tbadk.core.dialog.i {
             String valueOf = String.valueOf(this.NR.getFid());
             boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
             if (jSONArray != null) {
-                this.fLt.Jg(aq.O(jSONArray));
+                this.fLt.Jh(aq.O(jSONArray));
             }
             this.fLt.a(valueOf, aCw, id, null, 0, 1, isCurrentAccount, this.NR.getBaijiahaoData());
         }

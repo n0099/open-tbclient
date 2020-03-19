@@ -32,11 +32,11 @@ public class a {
         return jNi;
     }
 
-    public void CD(String str) {
+    public void CE(String str) {
         this.longitude = str;
     }
 
-    public void CE(String str) {
+    public void CF(String str) {
         this.latitude = str;
     }
 
@@ -56,11 +56,11 @@ public class a {
         return this.jNg;
     }
 
-    public void HX(String str) {
+    public void HY(String str) {
         this.jNg = str;
     }
 
-    public void HY(String str) {
+    public void HZ(String str) {
         this.jNh = str;
     }
 

@@ -206,7 +206,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                 this.jSH.dismiss();
             }
             this.jSH = new e(getPageContext());
-            this.jSH.sT(str2);
+            this.jSH.sU(str2);
             this.jSH.a(this.jSB, new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.setting.im.more.SecretSettingActivity.4
                 @Override // android.widget.AdapterView.OnItemClickListener
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
@@ -242,7 +242,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
                         SecretSettingActivity.this.jSG = i2;
                     }
                 }
-            }).sT(str2);
+            }).sU(str2);
             this.jSH.aEI().aEJ();
         }
     }

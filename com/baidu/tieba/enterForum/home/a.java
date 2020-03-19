@@ -262,7 +262,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
     public void a(final f fVar) {
         if (fVar != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.ebb.getPageContext().getPageActivity());
-            aVar.sR(String.format(this.ebb.getPageContext().getString(R.string.attention_cancel_dialog_message), fVar.getName()));
+            aVar.sS(String.format(this.ebb.getPageContext().getString(R.string.attention_cancel_dialog_message), fVar.getName()));
             aVar.a(TbadkCoreApplication.getInst().getString(R.string.cancel_attention), new a.b() { // from class: com.baidu.tieba.enterForum.home.a.8
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -486,7 +486,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 TbadkCoreApplication.getInst().clearSignedForum();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount != null && currentAccount.length() > 0) {
-                    com.baidu.tieba.tbadkCore.util.a.Jh(currentAccount);
+                    com.baidu.tieba.tbadkCore.util.a.Ji(currentAccount);
                 }
                 this.fVV.kT(this.fVW.byZ());
             }

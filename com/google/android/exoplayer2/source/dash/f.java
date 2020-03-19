@@ -223,7 +223,7 @@ public class f implements com.google.android.exoplayer2.source.dash.a {
         } else {
             fVar = fVar2;
         }
-        return new k(eVar, new com.google.android.exoplayer2.upstream.g(fVar.PG(str), fVar.start, fVar.length, bVar.mwu.getCacheKey()), format, i, obj, bVar.mvE);
+        return new k(eVar, new com.google.android.exoplayer2.upstream.g(fVar.PH(str), fVar.start, fVar.length, bVar.mwu.getCacheKey()), format, i, obj, bVar.mvE);
     }
 
     protected static com.google.android.exoplayer2.source.a.c a(b bVar, com.google.android.exoplayer2.upstream.e eVar, int i, Format format, int i2, Object obj, int i3, int i4) {
@@ -233,7 +233,7 @@ public class f implements com.google.android.exoplayer2.source.dash.a {
         com.google.android.exoplayer2.source.dash.manifest.f Lc = bVar.Lc(i3);
         String str = gVar.baseUrl;
         if (bVar.mvE == null) {
-            return new m(eVar, new com.google.android.exoplayer2.upstream.g(Lc.PG(str), Lc.start, Lc.length, gVar.getCacheKey()), format, i2, obj, Ld, bVar.Le(i3), i3, i, format);
+            return new m(eVar, new com.google.android.exoplayer2.upstream.g(Lc.PH(str), Lc.start, Lc.length, gVar.getCacheKey()), format, i2, obj, Ld, bVar.Le(i3), i3, i, format);
         }
         int i5 = 1;
         int i6 = 1;
@@ -242,7 +242,7 @@ public class f implements com.google.android.exoplayer2.source.dash.a {
             i6++;
             Lc = a2;
         }
-        return new i(eVar, new com.google.android.exoplayer2.upstream.g(Lc.PG(str), Lc.start, Lc.length, gVar.getCacheKey()), format, i2, obj, Ld, bVar.Le((i3 + i5) - 1), i3, i5, -gVar.mwW, bVar.mvE);
+        return new i(eVar, new com.google.android.exoplayer2.upstream.g(Lc.PH(str), Lc.start, Lc.length, gVar.getCacheKey()), format, i2, obj, Ld, bVar.Le((i3 + i5) - 1), i3, i5, -gVar.mwW, bVar.mvE);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -259,12 +259,12 @@ public class f implements com.google.android.exoplayer2.source.dash.a {
             this.muQ = j;
             this.mwu = gVar;
             String str = gVar.mbs.containerMimeType;
-            if (PF(str)) {
+            if (PG(str)) {
                 this.mvE = null;
             } else {
                 if ("application/x-rawcc".equals(str)) {
                     eVar = new com.google.android.exoplayer2.extractor.e.a(gVar.mbs);
-                } else if (PE(str)) {
+                } else if (PF(str)) {
                     eVar = new com.google.android.exoplayer2.extractor.a.d(1);
                 } else {
                     int i2 = z ? 4 : 0;
@@ -323,12 +323,12 @@ public class f implements com.google.android.exoplayer2.source.dash.a {
             return this.mwv.Lc(i - this.mww);
         }
 
-        private static boolean PE(String str) {
+        private static boolean PF(String str) {
             return str.startsWith("video/webm") || str.startsWith("audio/webm") || str.startsWith("application/webm");
         }
 
-        private static boolean PF(String str) {
-            return com.google.android.exoplayer2.util.i.Qp(str) || "application/ttml+xml".equals(str);
+        private static boolean PG(String str) {
+            return com.google.android.exoplayer2.util.i.Qq(str) || "application/ttml+xml".equals(str);
         }
     }
 }

@@ -48,7 +48,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public VideoPlayView(VideoPlayActivity videoPlayActivity, String str) {
         this.kIP = videoPlayActivity;
         this.mFrom = str;
-        this.kIR = KE(str);
+        this.kIR = KF(str);
         g(videoPlayActivity);
         this.mRootView = videoPlayActivity.findViewById(R.id.root_layout);
         this.kIK = (VerticalViewPager) videoPlayActivity.findViewById(R.id.video_play_viewpager);
@@ -158,7 +158,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.kIO = aVar;
     }
 
-    public void KD(String str) {
+    public void KE(String str) {
         if (this.kIL != null) {
             this.kIL.mFrom = str;
         }
@@ -259,7 +259,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     /* JADX INFO: Access modifiers changed from: private */
     public void cU(int i, int i2) {
         int i3;
-        if (!this.kIU && VideoPlayActivityConfig.FROM_DEFAULT.equals(KF(this.mFrom)) && (i3 = i - i2) > 2500 && i3 < 3500 && this.kIT && i.cPG()) {
+        if (!this.kIU && VideoPlayActivityConfig.FROM_DEFAULT.equals(KG(this.mFrom)) && (i3 = i - i2) > 2500 && i3 < 3500 && this.kIT && i.cPG()) {
             tG(true);
             this.kIU = true;
             i.cPH();
@@ -293,26 +293,26 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    private boolean KE(String str) {
-        return b.aFH().getBoolean(SharedPrefConfig.VIDEO_PLAY_VERTICAL_FIRST_IN + KF(str), true);
+    private boolean KF(String str) {
+        return b.aFH().getBoolean(SharedPrefConfig.VIDEO_PLAY_VERTICAL_FIRST_IN + KG(str), true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cTB() {
         if (this.kIR) {
-            b.aFH().putBoolean(SharedPrefConfig.VIDEO_PLAY_VERTICAL_FIRST_IN + KF(this.mFrom), false);
+            b.aFH().putBoolean(SharedPrefConfig.VIDEO_PLAY_VERTICAL_FIRST_IN + KG(this.mFrom), false);
             this.kIR = false;
         }
     }
 
-    private String KF(String str) {
+    private String KG(String str) {
         if (!"video_tab".equals(str)) {
             return VideoPlayActivityConfig.FROM_DEFAULT;
         }
         return "video_tab";
     }
 
-    public void KG(String str) {
+    public void KH(String str) {
         if (this.kIL != null) {
             this.kIL.kID = str;
         }
@@ -321,7 +321,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     private void cTC() {
         if (this.kIU) {
             i.cPJ();
-        } else if (VideoPlayActivityConfig.FROM_DEFAULT.equals(KF(this.mFrom))) {
+        } else if (VideoPlayActivityConfig.FROM_DEFAULT.equals(KG(this.mFrom))) {
             if (this.kIT) {
                 i.cPI();
             } else {

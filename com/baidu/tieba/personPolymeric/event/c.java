@@ -80,11 +80,11 @@ public class c extends a {
                     if (userData != null) {
                         n nVar = new n();
                         if (!StringUtils.isNull(userData.getPortrait()) && userData.getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                            nVar.uT(userData.getPortrait());
+                            nVar.uU(userData.getPortrait());
                         } else {
-                            nVar.uT(userData.getPortraitH());
+                            nVar.uU(userData.getPortraitH());
                         }
-                        nVar.uU(userData.getPortrait());
+                        nVar.uV(userData.getPortrait());
                         nVar.gv(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(nVar);
@@ -127,7 +127,7 @@ public class c extends a {
                         str = userData.getUserId();
                         String bg_pic = userData.getBg_pic();
                         try {
-                            i = com.baidu.adp.lib.f.b.toInt(GT(bg_pic).get("props_id"), -1);
+                            i = com.baidu.adp.lib.f.b.toInt(GU(bg_pic).get("props_id"), -1);
                             str2 = bg_pic;
                         } catch (URISyntaxException e) {
                             str2 = bg_pic;
@@ -304,8 +304,8 @@ public class c extends a {
                 case 41:
                     if (userData != null && userData.getBaijiahaoInfo() != null) {
                         n nVar2 = new n();
-                        nVar2.uT(userData.getBaijiahaoInfo().avatar_h);
-                        nVar2.uU(userData.getBaijiahaoInfo().avatar);
+                        nVar2.uU(userData.getBaijiahaoInfo().avatar_h);
+                        nVar2.uV(userData.getBaijiahaoInfo().avatar);
                         nVar2.gv(false);
                         ArrayList arrayList2 = new ArrayList();
                         arrayList2.add(nVar2);
@@ -324,7 +324,7 @@ public class c extends a {
         TiebaStatic.log(new an(CommonStatisticKey.PERSON_CENTER_FUNCTION_CLICK).X("obj_locate", i));
     }
 
-    private Map<String, String> GT(final String str) throws URISyntaxException {
+    private Map<String, String> GU(final String str) throws URISyntaxException {
         return new HashMap<String, String>() { // from class: com.baidu.tieba.personPolymeric.event.PersonPolymericEventController$1
             /* JADX INFO: Access modifiers changed from: package-private */
             {

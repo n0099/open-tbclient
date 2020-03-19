@@ -26,9 +26,9 @@ public final class b implements e {
             return new e[]{new b()};
         }
     };
-    private static final int miu = v.QE("Xing");
-    private static final int miv = v.QE("Info");
-    private static final int miw = v.QE("VBRI");
+    private static final int miu = v.QF("Xing");
+    private static final int miv = v.QF("Info");
+    private static final int miw = v.QF("VBRI");
     private final int flags;
     private Metadata metadata;
     private final l mgq;

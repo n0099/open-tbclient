@@ -99,7 +99,7 @@ public class a {
             this.gwn.setFrom("c13010");
             this.gwo.setFrom("c13010");
             this.gwp.setFrom("c13010");
-            wP("page_frs_dynamic");
+            wQ("page_frs_dynamic");
         }
         this.gwl.pB(frsCommonTabFragment.tabId);
         this.gwm.pB(frsCommonTabFragment.tabId);
@@ -183,11 +183,11 @@ public class a {
         }
     }
 
-    private void wP(String str) {
+    private void wQ(String str) {
         if (this.asP != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
                 if (aVar instanceof f) {
-                    ((f) aVar).wP(str);
+                    ((f) aVar).wQ(str);
                 }
             }
         }

@@ -27,7 +27,7 @@ public class i implements m {
         this.eHJ = aVar;
     }
 
-    public void yz(String str) {
+    public void yA(String str) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
         httpMessage.addParam("guard_club_id", str);
         httpMessage.addParam("scene_from", q.sN());

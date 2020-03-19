@@ -31,7 +31,7 @@ public class d {
         this.eNx = (TextView) view.findViewById(a.g.ala_guardian_header_title);
     }
 
-    public void yJ(String str) {
+    public void yK(String str) {
         this.eNx.setText(str);
     }
 

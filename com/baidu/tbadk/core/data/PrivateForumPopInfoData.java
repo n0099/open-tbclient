@@ -10,7 +10,7 @@ public class PrivateForumPopInfoData extends OrmObject {
     private String cQC = null;
     private Integer cQD = null;
 
-    public void sx(String str) {
+    public void sy(String str) {
         this.cQA = str;
     }
 
@@ -18,7 +18,7 @@ public class PrivateForumPopInfoData extends OrmObject {
         return this.cQA;
     }
 
-    public void sy(String str) {
+    public void sz(String str) {
         this.cQB = str;
     }
 
@@ -26,7 +26,7 @@ public class PrivateForumPopInfoData extends OrmObject {
         return this.cQB;
     }
 
-    public void sz(String str) {
+    public void sA(String str) {
         this.cQC = str;
     }
 

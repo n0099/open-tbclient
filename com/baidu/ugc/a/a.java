@@ -5,7 +5,7 @@ import java.io.InputStream;
 public interface a {
     boolean DW(int i);
 
-    InputStream Kz(String str);
+    InputStream KA(String str);
 
     c cTc();
 }

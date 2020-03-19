@@ -14,8 +14,8 @@ public class l extends z {
 
     @Override // com.facebook.imagepipeline.producers.z
     protected com.facebook.imagepipeline.g.e h(ImageRequest imageRequest) throws IOException {
-        byte[] Pe = Pe(imageRequest.dsO().toString());
-        return e(new ByteArrayInputStream(Pe), Pe.length);
+        byte[] Pf = Pf(imageRequest.dsO().toString());
+        return e(new ByteArrayInputStream(Pf), Pf.length);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
@@ -23,7 +23,7 @@ public class l extends z {
         return "DataFetchProducer";
     }
 
-    static byte[] Pe(String str) {
+    static byte[] Pf(String str) {
         com.facebook.common.internal.g.checkArgument(str.substring(0, 5).equals("data:"));
         int indexOf = str.indexOf(44);
         String substring = str.substring(indexOf + 1, str.length());

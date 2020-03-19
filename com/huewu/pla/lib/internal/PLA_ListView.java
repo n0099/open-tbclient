@@ -771,7 +771,7 @@ public class PLA_ListView extends PLA_AbsListView {
             com.huewu.pla.lib.a.i("makeAndAddView:" + i);
             obtainView = obtainView(i, this.mIsScrap);
             if (obtainView == null) {
-                com.huewu.pla.lib.a.QR("child is null:" + i);
+                com.huewu.pla.lib.a.QS("child is null:" + i);
             } else {
                 setupChild(obtainView, i, i2, z, itemLeft, z2, this.mIsScrap[0]);
             }

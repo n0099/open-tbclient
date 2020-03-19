@@ -72,7 +72,7 @@ public class a extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
             }
             this.fPB.setVisibility(0);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Jo(String.valueOf(tinfoVar.forum_id))) {
+            if (readThreadHistory != null && readThreadHistory.Jp(String.valueOf(tinfoVar.forum_id))) {
                 am.setViewTextColor(this.title, R.color.cp_cont_d, 1);
             } else {
                 am.setViewTextColor(this.title, R.color.cp_cont_b, 1);

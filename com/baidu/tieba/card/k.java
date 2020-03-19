@@ -130,11 +130,11 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            int Hd = com.baidu.tieba.play.x.czM().Hd(this.mVideoUrl);
-            if (Hd <= 100 || this.fKl.getDuration() <= Hd) {
-                Hd = 100;
+            int He = com.baidu.tieba.play.x.czM().He(this.mVideoUrl);
+            if (He <= 100 || this.fKl.getDuration() <= He) {
+                He = 100;
             }
-            this.EJ = Hd;
+            this.EJ = He;
             this.fKv.sendEmptyMessageDelayed(202, 20L);
         }
     }
@@ -322,7 +322,7 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
                         k.this.buM().a(view, k.this.fKn);
                     }
                     if (k.this.fKn.cRt != null && view != k.this.eOJ.diw) {
-                        l.zU(k.this.fKn.cRt.getId());
+                        l.zV(k.this.fKn.cRt.getId());
                         if (!k.this.buX()) {
                             l.a(k.this.mTextTitle, k.this.fKn.cRt.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                             l.a(k.this.fKj.getGodReplyContent(), k.this.fKn.aAj().getId(), (int) R.color.cp_cont_f, (int) R.color.cp_cont_d);
@@ -422,7 +422,7 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
         this.dMB = (ImageView) view.findViewById(R.id.image_video_play);
         this.eNV.setOnClickListener(this);
         this.elC = new com.baidu.tieba.play.n(this.cVv.getPageActivity());
-        this.isNewPlayer = com.baidu.tbadk.a.b.rG("cyber_player_test");
+        this.isNewPlayer = com.baidu.tbadk.a.b.rH("cyber_player_test") || com.baidu.tbadk.a.b.rG("cyber_player_test");
         this.fKl = com.baidu.tieba.play.a.b.F(this.cVv.getPageActivity(), this.isNewPlayer ? 1 : 0);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
         this.dMy.addView(this.fKl.getView(), 0);
@@ -591,7 +591,7 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
         }
         if (this.fKn != null && this.fKn.cRt != null) {
             if (!buX()) {
-                l.zU(this.fKn.cRt.getId());
+                l.zV(this.fKn.cRt.getId());
                 l.a(this.mTextTitle, this.fKn.cRt.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             }
             PbActivityConfig addLocateParam = new PbActivityConfig(this.cVv.getPageActivity()).createFromThreadCfg(this.fKn.cRt, null, l.aCd(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false).addLocateParam(this.fKn.aAm());
@@ -723,7 +723,7 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
         }
         this.eNV.setVisibility(0);
         bvb();
-        if (!buX() && l.zV(this.fKn.cRt.getId())) {
+        if (!buX() && l.zW(this.fKn.cRt.getId())) {
             l.a(this.mTextTitle, this.fKn.cRt.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             l.a(this.fKj.getGodReplyContent(), this.fKn.aAj().getId(), (int) R.color.cp_cont_f, (int) R.color.cp_cont_d);
         }
@@ -785,7 +785,7 @@ public class k extends a<com.baidu.tieba.card.data.l> implements View.OnClickLis
         this.fKj.setData(this.fKn.aAj().aDQ());
         pD(oe(1));
         onChangeSkinType(this.cVv, TbadkCoreApplication.getInst().getSkinType());
-        if (l.zV(this.fKn.cRt.getId())) {
+        if (l.zW(this.fKn.cRt.getId())) {
             am.setViewTextColor(this.mTextTitle, R.color.cp_cont_d, 1);
         } else {
             am.setViewTextColor(this.mTextTitle, R.color.cp_cont_b, 1);

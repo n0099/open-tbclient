@@ -14,12 +14,12 @@ public class a implements b {
     }
 
     @Override // org.java_websocket.b.b
-    public boolean Ss(String str) {
+    public boolean St(String str) {
         return true;
     }
 
     @Override // org.java_websocket.b.b
-    public boolean St(String str) {
+    public boolean Su(String str) {
         return true;
     }
 

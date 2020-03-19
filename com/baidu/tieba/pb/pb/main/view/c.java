@@ -156,7 +156,7 @@ public class c {
         qM(z);
     }
 
-    public void DT(String str) {
+    public void DU(String str) {
         if (!TextUtils.isEmpty(str) && !this.iQU) {
             this.iVA.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedBarText(str, 7, false)));
             qM(true);

@@ -764,7 +764,7 @@ public class EmotionTabContentView extends LinearLayout implements ViewPager.OnP
                                 }
                                 qVar.setName(mu);
                                 qVar.a(bxw.aON());
-                                qVar.ui(bxw.getGroupName());
+                                qVar.uj(bxw.getGroupName());
                                 qVar.setPid(bxw.getGroupId());
                                 qVar.setWidth(bxw.getWidth());
                                 qVar.setHeight(bxw.getHeight());

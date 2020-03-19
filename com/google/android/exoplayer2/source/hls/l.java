@@ -504,12 +504,12 @@ public final class l implements com.google.android.exoplayer2.extractor.g, o.b, 
         char c2 = 0;
         while (i < length) {
             String str = this.mtv[i].dwX().sampleMimeType;
-            if (com.google.android.exoplayer2.util.i.OQ(str)) {
+            if (com.google.android.exoplayer2.util.i.OR(str)) {
                 c = 3;
-            } else if (com.google.android.exoplayer2.util.i.Qo(str)) {
+            } else if (com.google.android.exoplayer2.util.i.Qp(str)) {
                 c = 2;
             } else {
-                c = com.google.android.exoplayer2.util.i.Qp(str) ? (char) 1 : (char) 0;
+                c = com.google.android.exoplayer2.util.i.Qq(str) ? (char) 1 : (char) 0;
             }
             if (c > c2) {
                 i2 = i;
@@ -531,7 +531,7 @@ public final class l implements com.google.android.exoplayer2.extractor.g, o.b, 
         for (int i4 = 0; i4 < length; i4++) {
             Format dwX = this.mtv[i4].dwX();
             String str2 = dwX.sampleMimeType;
-            boolean z = com.google.android.exoplayer2.util.i.OQ(str2) || com.google.android.exoplayer2.util.i.Qo(str2);
+            boolean z = com.google.android.exoplayer2.util.i.OR(str2) || com.google.android.exoplayer2.util.i.Qp(str2);
             this.myq[i4] = z;
             this.myo = z | this.myo;
             if (i4 == i2) {
@@ -542,7 +542,7 @@ public final class l implements com.google.android.exoplayer2.extractor.g, o.b, 
                 tVarArr[i4] = new t(formatArr);
                 this.mvQ = i4;
             } else {
-                tVarArr[i4] = new t(a((c2 == 3 && com.google.android.exoplayer2.util.i.Qo(dwX.sampleMimeType)) ? this.myl : null, dwX));
+                tVarArr[i4] = new t(a((c2 == 3 && com.google.android.exoplayer2.util.i.Qp(dwX.sampleMimeType)) ? this.myl : null, dwX));
             }
         }
         this.maA = new u(tVarArr);
@@ -557,11 +557,11 @@ public final class l implements com.google.android.exoplayer2.extractor.g, o.b, 
     private static Format a(Format format, Format format2) {
         if (format != null) {
             String str = null;
-            int Qt = com.google.android.exoplayer2.util.i.Qt(format2.sampleMimeType);
-            if (Qt == 1) {
-                str = PJ(format.codecs);
-            } else if (Qt == 2) {
+            int Qu = com.google.android.exoplayer2.util.i.Qu(format2.sampleMimeType);
+            if (Qu == 1) {
                 str = PK(format.codecs);
+            } else if (Qu == 2) {
+                str = PL(format.codecs);
             }
             return format2.a(format.id, str, format.bitrate, format.width, format.height, format.selectionFlags, format.language);
         }
@@ -589,11 +589,11 @@ public final class l implements com.google.android.exoplayer2.extractor.g, o.b, 
         return true;
     }
 
-    private static String PJ(String str) {
+    private static String PK(String str) {
         return bI(str, 1);
     }
 
-    private static String PK(String str) {
+    private static String PL(String str) {
         return bI(str, 2);
     }
 
@@ -604,7 +604,7 @@ public final class l implements com.google.android.exoplayer2.extractor.g, o.b, 
         String[] split = str.split("(\\s*,\\s*)|(\\s*$)");
         StringBuilder sb = new StringBuilder();
         for (String str2 : split) {
-            if (i == com.google.android.exoplayer2.util.i.Qu(str2)) {
+            if (i == com.google.android.exoplayer2.util.i.Qv(str2)) {
                 if (sb.length() > 0) {
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }

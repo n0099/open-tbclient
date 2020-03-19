@@ -550,7 +550,7 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
                     AdTbWebViewActivity.this.mUrlTitle = title;
                 }
                 if (!AdTbWebViewActivity.this.isShowFullScreen) {
-                    AdTbWebViewActivity.this.dZl.sn(AdTbWebViewActivity.this.mUrlTitle);
+                    AdTbWebViewActivity.this.dZl.so(AdTbWebViewActivity.this.mUrlTitle);
                 }
                 AdTbWebViewActivity.this.dZl.setNavBarVisibility(AdTbWebViewActivity.this.mIsShowNavBar);
                 AdTbWebViewActivity.this.dZl.fq(AdTbWebViewActivity.this.isNeedShowShareItem());

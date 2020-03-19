@@ -52,7 +52,7 @@ public class d {
         this.gnv = aVar;
     }
 
-    public void Bc(String str) {
+    public void Bd(String str) {
         if (!StringUtils.isNull(str)) {
             if (!l.isNetOk()) {
                 this.mPageContext.showToast(R.string.neterror);

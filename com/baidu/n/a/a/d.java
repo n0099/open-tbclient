@@ -58,17 +58,17 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.n.a.a.c
-    public void NI(String str) {
+    public void NJ(String str) {
         this.lDU = str;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void NJ(String str) {
+    public void NK(String str) {
         this.lDV = str;
     }
 
     @Override // com.baidu.n.a.a.c
-    public void NK(String str) {
+    public void NL(String str) {
         this.lDW = str;
     }
 

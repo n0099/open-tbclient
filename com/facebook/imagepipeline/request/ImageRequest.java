@@ -49,7 +49,7 @@ public class ImageRequest {
         return ImageRequestBuilder.Y(uri).dta();
     }
 
-    public static ImageRequest Ph(@Nullable String str) {
+    public static ImageRequest Pi(@Nullable String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -216,7 +216,7 @@ public class ImageRequest {
             return 0;
         }
         if (com.facebook.common.util.d.isLocalFileUri(uri)) {
-            if (com.facebook.common.d.a.OQ(com.facebook.common.d.a.OR(uri.getPath()))) {
+            if (com.facebook.common.d.a.OR(com.facebook.common.d.a.OS(uri.getPath()))) {
                 return 2;
             }
             return 3;

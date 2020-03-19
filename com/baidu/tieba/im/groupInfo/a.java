@@ -117,16 +117,16 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
 
     public void setGroupName(String str) {
         this.hFW.setText(str);
-        Di(str);
+        Dj(str);
     }
 
-    private void Di(String str) {
+    private void Dj(String str) {
         if (str != null) {
             this.hGh.setText(str);
         }
     }
 
-    public void Dj(String str) {
+    public void Dk(String str) {
         this.hFt.setText(str);
     }
 
@@ -351,7 +351,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
             this.hFP.setVisibility(0);
             this.hFK.setVisibility(0);
             if (aVar.getGroup() != null) {
-                Di(aVar.getGroup().getName());
+                Dj(aVar.getGroup().getName());
                 this.hFr.setText(String.valueOf(aVar.getGroup().getGroupId()));
                 if (aVar.getGroup().isMeizhi()) {
                     this.hFE.setVisibility(0);
@@ -584,7 +584,7 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         this.hGf.setEnabled(false);
     }
 
-    public void Dk(String str) {
+    public void Dl(String str) {
         int childCount;
         if (!TextUtils.isEmpty(str) && (childCount = this.hFI.getChildCount()) != 0) {
             for (int i = 0; i < childCount; i++) {
@@ -669,11 +669,11 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         }
     }
 
-    public void Dl(final String str) {
+    public void Dm(final String str) {
         if (!TextUtils.isEmpty(str)) {
             CharSequence[] charSequenceArr = {this.hFl.getPageContext().getString(R.string.copy_group_introduction)};
             com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(this.hFl.getPageContext().getPageActivity());
-            bVar.sS(this.hFl.getPageContext().getString(R.string.operation));
+            bVar.sT(this.hFl.getPageContext().getString(R.string.operation));
             bVar.a(charSequenceArr, new b.a() { // from class: com.baidu.tieba.im.groupInfo.a.5
                 @Override // com.baidu.tbadk.core.dialog.b.a
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view) {
@@ -690,18 +690,18 @@ public class a extends com.baidu.adp.base.c<GroupInfoActivity> {
         }
     }
 
-    public void Dm(String str) {
+    public void Dn(String str) {
         if (this.hFO == null) {
-            Dn(str);
+            Do(str);
         }
         this.hFO.aEH();
     }
 
-    private void Dn(final String str) {
+    private void Do(final String str) {
         if (this.hFO == null) {
             this.hFO = new com.baidu.tbadk.core.dialog.b(this.hFl.getPageContext().getPageActivity());
             CharSequence[] charSequenceArr = {this.hFl.getPageContext().getString(R.string.copy_group_number)};
-            this.hFO.sS(this.hFl.getPageContext().getString(R.string.operation));
+            this.hFO.sT(this.hFl.getPageContext().getString(R.string.operation));
             this.hFO.a(charSequenceArr, new b.a() { // from class: com.baidu.tieba.im.groupInfo.a.6
                 @Override // com.baidu.tbadk.core.dialog.b.a
                 public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {

@@ -3,11 +3,11 @@ package com.baidu.n.a.a;
 public interface c {
     void Hk(int i);
 
-    void NI(String str);
-
     void NJ(String str);
 
     void NK(String str);
+
+    void NL(String str);
 
     String diA();
 

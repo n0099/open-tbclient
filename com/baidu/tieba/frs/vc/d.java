@@ -190,9 +190,9 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
     public void sY(int i) {
         if (this.gsH == null) {
             this.gsH = new com.baidu.tieba.write.f(this.gqW.getPageContext(), this.gMO, "frs");
-            this.gsH.KM("2");
+            this.gsH.KN("2");
         }
-        this.gsH.KL(bKH());
+        this.gsH.KM(bKH());
         ForumWriteData bED = this.gqW.bED();
         bED.setDefaultZone(i);
         this.gsH.a(bED);
@@ -256,17 +256,17 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
             return false;
         }
         if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(activityConfig.night_addthread_icon)) {
-            BO(activityConfig.night_addthread_icon);
+            BP(activityConfig.night_addthread_icon);
             return true;
         } else if (TextUtils.isEmpty(activityConfig.addthread_icon)) {
             return false;
         } else {
-            BO(activityConfig.addthread_icon);
+            BP(activityConfig.addthread_icon);
             return true;
         }
     }
 
-    private void BO(String str) {
+    private void BP(String str) {
         com.baidu.adp.lib.e.c.gr().a(str, 10, this.cYN, this.gqW.getUniqueId());
     }
 
@@ -318,7 +318,7 @@ public class d implements com.baidu.tieba.frs.entelechy.b.d {
             return false;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.gqW.getPageContext().getPageActivity());
-        aVar.sR(aq.getFixedText(string, 50, true));
+        aVar.sS(aq.getFixedText(string, 50, true));
         aVar.b(aq.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? this.gqW.getResources().getString(R.string.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.vc.d.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

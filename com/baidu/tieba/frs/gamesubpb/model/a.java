@@ -146,7 +146,7 @@ public class a {
         }
     }
 
-    public void Bo(String str) {
+    public void Bp(String str) {
         this.gEz = str;
     }
 }

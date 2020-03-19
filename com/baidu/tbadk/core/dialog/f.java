@@ -92,10 +92,10 @@ public class f implements View.OnClickListener {
     }
 
     public static f d(Activity activity, String str) {
-        return new f(activity).sU(str);
+        return new f(activity).sV(str);
     }
 
-    private f sU(String str) {
+    private f sV(String str) {
         if (this.mContext != null && !TextUtils.isEmpty(str)) {
             String interceptString = ad.interceptString(str, 34);
             int textWidth = com.baidu.adp.lib.util.l.getTextWidth(this.cVD.getPaint(), interceptString);

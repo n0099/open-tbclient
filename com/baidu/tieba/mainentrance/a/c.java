@@ -60,7 +60,7 @@ public class c {
         BaseWebView.b bVar = new BaseWebView.b() { // from class: com.baidu.tieba.mainentrance.a.c.3
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                return c.this.yo(str);
+                return c.this.yp(str);
             }
         };
         QuickWebView ceY = this.ihS.ceY();
@@ -134,14 +134,14 @@ public class c {
         this.ihS.ceT();
     }
 
-    public void Er(String str) {
+    public void Es(String str) {
         if (!StringUtils.isNull(str) && this.ihT != null && !this.ihT.contains(str)) {
             this.ihT.add(0, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean yo(String str) {
+    public boolean yp(String str) {
         if (str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW) || str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC2) || str.startsWith(UrlSchemaHelper.HTTPS_JUMP_TO_HOT_TOPIC_NEW)) {
             String matchStringFromURL = ag.getMatchStringFromURL(str, "topic_id=");
             String matchStringFromURL2 = ag.getMatchStringFromURL(str, "topic_name=");
@@ -174,7 +174,7 @@ public class c {
                     c.this.ihU = true;
                     return true;
                 } else if ("deleteSearchHistory".equals(str2)) {
-                    Es(str3);
+                    Et(str3);
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("deleteAllSearchHistory".equals(str2)) {
@@ -182,7 +182,7 @@ public class c {
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("openSearchPage".equals(str2)) {
-                    Et(str3);
+                    Eu(str3);
                     jsPromptResult.confirm("1");
                     return true;
                 } else {
@@ -192,7 +192,7 @@ public class c {
             return false;
         }
 
-        private void Es(String str) {
+        private void Et(String str) {
             try {
                 final String optString = new JSONObject(str).optString("query");
                 ac.a(new ab<String>() { // from class: com.baidu.tieba.mainentrance.a.c.a.1
@@ -200,13 +200,13 @@ public class c {
                     @Override // com.baidu.tbadk.util.ab
                     /* renamed from: bPi */
                     public String doInBackground() {
-                        com.baidu.tieba.tbadkCore.util.a.Jk(optString);
+                        com.baidu.tieba.tbadkCore.util.a.Jl(optString);
                         return optString;
                     }
                 }, new l<String>() { // from class: com.baidu.tieba.mainentrance.a.c.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.l
-                    /* renamed from: Ck */
+                    /* renamed from: Cl */
                     public void onReturnDataInUI(String str2) {
                         c.this.ihT.remove(str2);
                     }
@@ -231,7 +231,7 @@ public class c {
             });
         }
 
-        private void Et(String str) {
+        private void Eu(String str) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("query");

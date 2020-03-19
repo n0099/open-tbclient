@@ -332,7 +332,7 @@ public class e {
                     });
                 }
                 for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                    if (dnsProxyIpData != null && h.Ah(dnsProxyIpData.getIp())) {
+                    if (dnsProxyIpData != null && h.Ai(dnsProxyIpData.getIp())) {
                         String ip2 = dnsProxyIpData.getIp();
                         if (random.nextFloat() < com.baidu.tieba.dnsproxy.a.d.bxg().dd("c.tieba.baidu.com", ip2)) {
                             return ip2;
@@ -364,14 +364,14 @@ public class e {
             HashSet hashSet2 = new HashSet();
             if (list != null) {
                 for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                    if (dnsProxyIpData != null && h.Ah(dnsProxyIpData.getIp())) {
+                    if (dnsProxyIpData != null && h.Ai(dnsProxyIpData.getIp())) {
                         hashSet2.add(dnsProxyIpData.getIp());
                     }
                 }
             }
             if (list2 != null) {
                 for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData2 : list2) {
-                    if (dnsProxyIpData2 != null && h.Ah(dnsProxyIpData2.getIp()) && hashSet2.contains(dnsProxyIpData2.getIp())) {
+                    if (dnsProxyIpData2 != null && h.Ai(dnsProxyIpData2.getIp()) && hashSet2.contains(dnsProxyIpData2.getIp())) {
                         hashSet.add(dnsProxyIpData2.getIp());
                     }
                 }

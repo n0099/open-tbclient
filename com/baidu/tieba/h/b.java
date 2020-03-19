@@ -26,8 +26,8 @@ public class b implements m {
             this.eJQ = new ArrayList();
             if (!StringUtils.isNull(this.gSS)) {
                 a aVar = new a();
-                aVar.BU(this.gSS);
-                aVar.BV(this.gST);
+                aVar.BV(this.gSS);
+                aVar.BW(this.gST);
                 this.eJQ.add(aVar);
             }
             if (!v.isEmpty(esport.billboard)) {

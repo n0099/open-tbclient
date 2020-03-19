@@ -204,7 +204,7 @@ public final class i implements TypeAdapterFactory {
             try {
                 for (b bVar2 : this.mNv.values()) {
                     if (bVar2.bE(t)) {
-                        bVar.QL(bVar2.name);
+                        bVar.QM(bVar2.name);
                         bVar2.write(bVar, t);
                     }
                 }

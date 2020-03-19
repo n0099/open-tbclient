@@ -234,7 +234,7 @@ public class a {
         hto.put("#(白眼)", "image_emoticon124");
     }
 
-    private static String Cv(String str) {
+    private static String Cw(String str) {
         return hto.get(str);
     }
 
@@ -275,8 +275,8 @@ public class a {
                             break;
                         }
                     }
-                    String Cv = Cv(str3);
-                    if (TextUtils.isEmpty(Cv)) {
+                    String Cw = Cw(str3);
+                    if (TextUtils.isEmpty(Cw)) {
                         str4 = str5 + str3;
                     } else {
                         if (TextUtils.isEmpty(str5)) {
@@ -292,7 +292,7 @@ public class a {
                             }
                             str4 = "";
                         }
-                        SpannableString a = a(tbRichTextData.aUc(), Cv, str3);
+                        SpannableString a = a(tbRichTextData.aUc(), Cw, str3);
                         if (a != null) {
                             tbRichTextData.j(a);
                         }
@@ -323,16 +323,16 @@ public class a {
 
     private static SpannableString a(ArrayList<com.baidu.tbadk.widget.richText.d> arrayList, String str, String str2) {
         SpannableString spannableString = null;
-        int vb = TbFaceManager.aPU().vb(str);
-        if (vb != 0) {
+        int vc = TbFaceManager.aPU().vc(str);
+        if (vc != 0) {
             spannableString = new SpannableString(str2 + HanziToPinyin.Token.SEPARATOR);
-            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst(), vb);
+            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst(), vc);
             if (arrayList != null) {
                 arrayList.add(dVar);
             }
-            a.C0391a vu = TbFaceManager.aPU().vu(str);
-            if (vu != null) {
-                int width = (int) (0.5d * vu.getWidth());
+            a.C0391a vv = TbFaceManager.aPU().vv(str);
+            if (vv != null) {
+                int width = (int) (0.5d * vv.getWidth());
                 dVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 dVar.setBounds(new Rect(0, 0, 0, 0));

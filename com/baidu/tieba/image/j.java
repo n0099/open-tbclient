@@ -68,7 +68,7 @@ public class j {
                 nVar.kjq = null;
                 if (!TextUtils.isEmpty(nVar.kjs) && !TextUtils.isEmpty(nVar.kjp) && nVar.kjp.equals(j.this.hUs)) {
                     j.this.hTG.setCurrentImageQRInfo(nVar.kjs);
-                    j.this.DR(nVar.kjs);
+                    j.this.DS(nVar.kjs);
                 }
             }
         }
@@ -262,9 +262,9 @@ public class j {
                     public void cbh() {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.hUq.getPageContext().getPageActivity());
                         aVar.setTitleShowCenter(true);
-                        aVar.sQ(j.this.getString(R.string.qr_url_jump_external_title));
+                        aVar.sR(j.this.getString(R.string.qr_url_jump_external_title));
                         aVar.setMessageShowCenter(true);
-                        aVar.sR(j.this.getString(R.string.qr_url_jump_external_message));
+                        aVar.sS(j.this.getString(R.string.qr_url_jump_external_message));
                         aVar.a(j.this.getString(R.string.confirm), new a.b() { // from class: com.baidu.tieba.image.j.8.1.1
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -286,9 +286,9 @@ public class j {
                     @Override // com.baidu.tieba.ueg.c.a
                     public void cbi() {
                         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(j.this.hUq.getPageContext().getPageActivity());
-                        aVar.sQ(null);
+                        aVar.sR(null);
                         aVar.setMessageShowCenter(true);
-                        aVar.sR(j.this.getString(R.string.qr_url_risk_forbid));
+                        aVar.sS(j.this.getString(R.string.qr_url_risk_forbid));
                         aVar.a(j.this.getString(R.string.qr_url_risk_forbid_button), new a.b() { // from class: com.baidu.tieba.image.j.8.1.3
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -362,7 +362,7 @@ public class j {
                     }
                 }
                 if (imageUrlData != null) {
-                    String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + ap.aGE().tv(nameMd5FromUrl) + "/" + as.getNameMd5FromUrl(imageUrlData.originalUrl);
+                    String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + ap.aGE().tw(nameMd5FromUrl) + "/" + as.getNameMd5FromUrl(imageUrlData.originalUrl);
                     int[] imageFileWH = m.getImageFileWH(str);
                     if (imageFileWH != null && imageFileWH.length == 2 && imageFileWH[0] > 0 && m.copyImageFile(str, this.mUrl, j.this.hUq.getPageContext().getPageActivity()) == 0) {
                         return j.this.hUq.getPageContext().getString(R.string.save_image_to_album);
@@ -401,7 +401,7 @@ public class j {
         TiebaStatic.log(new an("c13270").cx("uid", this.hUq.getUserId()).X("obj_type", i));
     }
 
-    public void DR(String str) {
+    public void DS(String str) {
         int i;
         boolean z = false;
         if (this.fLk != null && !this.hUq.isFinishing() && this.fLk.isShowing() && !TextUtils.isEmpty(str) && !"qr_none".equals(str)) {

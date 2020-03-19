@@ -79,7 +79,7 @@ public class f {
                 } else {
                     h bDV = f.this.gqW.bDV();
                     if (bDV != null) {
-                        bDV.BQ(name);
+                        bDV.BR(name);
                     }
                     uVar.setLike(1);
                     bEz.updateLikeData(uVar);
@@ -107,7 +107,7 @@ public class f {
                 if (j == com.baidu.adp.lib.f.b.toLong(id, 0L) && TextUtils.equals(name, str)) {
                     h bDV = f.this.gqW.bDV();
                     if (bDV != null) {
-                        bDV.BQ(str);
+                        bDV.BR(str);
                     }
                     bEz.getForum().setLike(0);
                     if (bDV != null) {
@@ -222,9 +222,9 @@ public class f {
                 str = bEz.getForum().getName();
             }
             if (!StringUtils.isNull(str)) {
-                aVar.sR(String.format(this.gqW.getString(R.string.attention_cancel_dialog_content), str));
+                aVar.sS(String.format(this.gqW.getString(R.string.attention_cancel_dialog_content), str));
             } else {
-                aVar.sR(this.gqW.getString(R.string.attention_cancel_dialog_content_default));
+                aVar.sS(this.gqW.getString(R.string.attention_cancel_dialog_content_default));
             }
             aVar.a(this.gqW.getString(R.string.editor_dialog_yes), new a.b() { // from class: com.baidu.tieba.frs.vc.f.4
                 /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.frs.FrsFragment */

@@ -118,7 +118,7 @@ public abstract class d extends com.baidu.adp.base.c<UpdateGroupActivity> implem
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void Dx(String str) {
+    public void Dy(String str) {
         this.hLI = str;
         setText(str);
     }

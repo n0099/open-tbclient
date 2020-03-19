@@ -303,7 +303,7 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0400a
             }
         });
         this.mRootView = layoutInflater.inflate(R.layout.video_play_view, (ViewGroup) null);
-        this.isNewPlayer = b.rG("cyber_player_test");
+        this.isNewPlayer = b.rH("cyber_player_test") || b.rG("cyber_player_test");
         this.jvf = com.baidu.tieba.play.a.b.F(getContext(), this.isNewPlayer ? 1 : 0);
         cTv();
         this.kHL = (TbImageView) this.mRootView.findViewById(R.id.video_cover);
@@ -586,7 +586,7 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0400a
             cTl();
         }
         if (this.kId != null && !StringUtils.isNull(this.kId.video_url)) {
-            KC(this.kId.video_url);
+            KD(this.kId.video_url);
         }
         return this.mRootView;
     }
@@ -951,7 +951,7 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0400a
         }
     }
 
-    private void KC(String str) {
+    private void KD(String str) {
         if (this.jvf != null && str != null && !str.equals(this.mVideoUrl)) {
             if (cyq()) {
                 ((QuickVideoView) this.jvf).setRecoveryState(0);

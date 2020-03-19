@@ -65,7 +65,7 @@ public final class DrmInitData implements Parcelable, Comparator<SchemeData> {
         return this.schemeDatas[i];
     }
 
-    public DrmInitData Pq(@Nullable String str) {
+    public DrmInitData Pr(@Nullable String str) {
         return v.h(this.schemeType, str) ? this : new DrmInitData(str, false, this.schemeDatas);
     }
 

@@ -11,7 +11,7 @@ public class JSONArrayAdapter extends TypeAdapter<JSONArray> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public void write(b bVar, JSONArray jSONArray) throws IOException {
-        bVar.QQ(jSONArray.toString());
+        bVar.QR(jSONArray.toString());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

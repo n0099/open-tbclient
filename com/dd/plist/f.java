@@ -15,7 +15,7 @@ public class f extends i {
         lIv.setTimeZone(TimeZone.getTimeZone("GMT"));
     }
 
-    private static synchronized Date OE(String str) throws ParseException {
+    private static synchronized Date OF(String str) throws ParseException {
         Date parse;
         synchronized (f.class) {
             try {
@@ -32,7 +32,7 @@ public class f extends i {
     }
 
     public f(String str) throws ParseException {
-        this.date = OE(str);
+        this.date = OF(str);
     }
 
     public f(Date date) {

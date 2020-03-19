@@ -21,7 +21,7 @@ public class o extends HttpMessage {
         this.eBa = j;
     }
 
-    public void yh(String str) {
+    public void yi(String str) {
         this.eBb = str;
     }
 

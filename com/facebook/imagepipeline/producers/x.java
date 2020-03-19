@@ -58,7 +58,7 @@ public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
             if (dVar == null || (a = a(dVar, query.getInt(query.getColumnIndex(IMConstants.MSG_ROW_ID)))) == null) {
                 return null;
             }
-            a.Ir(Pf(string));
+            a.Ir(Pg(string));
             return a;
         } finally {
             query.close();
@@ -129,7 +129,7 @@ public class x extends z implements aw<com.facebook.imagepipeline.g.e> {
         return "LocalContentUriThumbnailFetchProducer";
     }
 
-    private static int Pf(String str) {
+    private static int Pg(String str) {
         if (str != null) {
             try {
                 return com.facebook.d.b.IX(new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1));

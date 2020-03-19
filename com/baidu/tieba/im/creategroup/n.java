@@ -219,11 +219,11 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         }
     }
 
-    public void CD(String str) {
+    public void CE(String str) {
         this.hyJ = str;
     }
 
-    public void CE(String str) {
+    public void CF(String str) {
         this.hyK = str;
     }
 

@@ -415,7 +415,7 @@ public class b {
         }
         this.mRefreshView.hideRefreshButton();
         this.mRefreshView.mG(R.drawable.new_pic_emotion_03);
-        this.mRefreshView.vy(this.mPageContext.getString(R.string.no_data_common_txt));
+        this.mRefreshView.vz(this.mPageContext.getString(R.string.no_data_common_txt));
         this.mRefreshView.attachView(this.mContentLayout, false);
     }
 
@@ -671,14 +671,14 @@ public class b {
         }
     }
 
-    public void Ch(String str) {
+    public void Ci(String str) {
         if (!StringUtils.isNull(str) && this.hcN != null) {
             this.hcN.setVisibility(0);
             this.hcN.setText(str);
         }
     }
 
-    public void Ci(String str) {
+    public void Cj(String str) {
         List<Integer> b = b(str, this.BK);
         int intValue = b.get(0).intValue();
         int intValue2 = b.get(1).intValue();

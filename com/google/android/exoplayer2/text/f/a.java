@@ -14,8 +14,8 @@ import java.nio.charset.Charset;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class a extends c {
-    private static final int mDC = v.QE("styl");
-    private static final int mDD = v.QE("tbox");
+    private static final int mDC = v.QF("styl");
+    private static final int mDD = v.QF("tbox");
     private final l mDE;
     private boolean mDF;
     private int mDG;

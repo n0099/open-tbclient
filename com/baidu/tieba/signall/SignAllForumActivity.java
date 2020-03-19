@@ -77,7 +77,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
 
         @Override // com.baidu.tieba.signall.GetForumListModel.a
-        public void Da(String str) {
+        public void Db(String str) {
             SignAllForumActivity.this.kal.completeRefresh();
             SignAllForumActivity.this.showToast(str, false);
             SignAllForumActivity.this.finish();
@@ -85,8 +85,8 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     };
     private SignAllForumModel.a kas = new SignAllForumModel.a() { // from class: com.baidu.tieba.signall.SignAllForumActivity.4
         @Override // com.baidu.tieba.signall.SignAllForumModel.a
-        public void Da(String str) {
-            SignAllForumActivity.this.II(str);
+        public void Db(String str) {
+            SignAllForumActivity.this.IJ(str);
         }
 
         @Override // com.baidu.tieba.signall.SignAllForumModel.a
@@ -102,7 +102,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             }
             a cIT = hVar.cIT();
             if (cIT == null || cIT.getErrorNumber() != 0) {
-                SignAllForumActivity.this.II(cIT.getUserMsg());
+                SignAllForumActivity.this.IJ(cIT.getUserMsg());
                 return;
             }
             c cJH = SignAllForumActivity.this.kal.cJH();
@@ -120,7 +120,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             SignAllForumProgressView cJF = SignAllForumActivity.this.kal.cJF();
             if (!cJH.cIZ()) {
                 if (hVar.cJt() != 0) {
-                    SignAllForumActivity.this.IJ(hVar.cIR());
+                    SignAllForumActivity.this.IK(hVar.cIR());
                     SignAllForumActivity.this.FR.aEG();
                 } else if (hVar.cJv() != 0) {
                     SignAllForumActivity.this.showToast(hVar.cJw());
@@ -173,7 +173,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void II(String str) {
+    public void IJ(String str) {
         if (this.kao) {
             c cJH = this.kal.cJH();
             Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
@@ -281,7 +281,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                     showToast(R.string.signallforum_finished);
                 } else {
                     if (cJH.cIQ() != 0) {
-                        IJ(cJH.cIR());
+                        IK(cJH.cIR());
                         this.FR.aEG();
                     } else if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                         this.kap = true;
@@ -320,8 +320,8 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IJ(String str) {
-        this.FR = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).sR(str).a(R.string.signallforum_signnow, new a.b() { // from class: com.baidu.tieba.signall.SignAllForumActivity.7
+    public void IK(String str) {
+        this.FR = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).sS(str).a(R.string.signallforum_signnow, new a.b() { // from class: com.baidu.tieba.signall.SignAllForumActivity.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();

@@ -20,7 +20,7 @@ public final class UploadOptions {
 
     public UploadOptions(Map<String, String> map, String str, boolean z, UpProgressHandler upProgressHandler, UpCancellationSignal upCancellationSignal, NetReadyHandler netReadyHandler) {
         this.params = A(map);
-        this.mimeType = Rs(str);
+        this.mimeType = Rt(str);
         this.nqv = z;
         this.nqw = upProgressHandler == null ? new UpProgressHandler() { // from class: com.qiniu.android.storage.UploadOptions.1
             @Override // com.qiniu.android.storage.UpProgressHandler
@@ -71,7 +71,7 @@ public final class UploadOptions {
         return new UploadOptions(null, null, false, null, null);
     }
 
-    private static String Rs(String str) {
+    private static String Rt(String str) {
         if (str == null || str.equals("")) {
             return "application/octet-stream";
         }

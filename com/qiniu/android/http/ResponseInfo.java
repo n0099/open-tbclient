@@ -53,7 +53,7 @@ public final class ResponseInfo {
             UploadInfoCollector.a(upToken, new UploadInfoCollector.RecordMsg() { // from class: com.qiniu.android.http.ResponseInfo.1
                 @Override // com.qiniu.android.collect.UploadInfoCollector.RecordMsg
                 public String dGo() {
-                    return StringUtils.b(new String[]{i + "", str, str4, substring, i2 + "", j + "", str9, j2 + "", ResponseInfo.Rm(str5), j3 + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    return StringUtils.b(new String[]{i + "", str, str4, substring, i2 + "", j + "", str9, j2 + "", ResponseInfo.Rn(str5), j3 + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
             });
         }
@@ -61,7 +61,7 @@ public final class ResponseInfo {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String Rm(String str) {
+    public static String Rn(String str) {
         if (str == null || !str.startsWith("/")) {
             return "";
         }
@@ -126,7 +126,7 @@ public final class ResponseInfo {
         return a(null, -4, "", "", "", "", "", "", 80, 0L, 0L, str, upToken, 0L);
     }
 
-    public static ResponseInfo Rn(String str) {
+    public static ResponseInfo Ro(String str) {
         return a(null, -5, "", "", "", "", "", "", 80, 0L, 0L, str, null, 0L);
     }
 

@@ -181,7 +181,7 @@ public class a extends b {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (a.this.eST != null) {
-                    a.this.eST.yS(str);
+                    a.this.eST.yT(str);
                 }
             }
         }
@@ -381,7 +381,7 @@ public class a extends b {
                                 e.printStackTrace();
                             }
                         }
-                        a.this.eSM.yS(o.a(valueOf3, j + "", j2, false, 1, str3, str4, str5, str6, str7));
+                        a.this.eSM.yT(o.a(valueOf3, j + "", j2, false, 1, str3, str4, str5, str6, str7));
                         o.aEf = j;
                         if (!ILiveGoodsLogger.displayGoodsListMap.contains(Long.valueOf(j))) {
                             ILiveGoodsLogger.displayGoodsListMap.add(Long.valueOf(j));
@@ -816,7 +816,7 @@ public class a extends b {
             this.eTp = new com.baidu.tieba.ala.liveroom.h.e(bjO().pageContext);
         }
         this.eTp.setRoomId(bjO().faT.yT().mLiveInfo.room_id);
-        this.eTp.zb("");
+        this.eTp.zc("");
         this.eTp.a(bjO().faT.yT(), this.eRy);
         if (this.eRW == null) {
             this.eRW = new com.baidu.tieba.ala.liveroom.h.b(bjO().pageContext, xC(), this.eTp, new b.a() { // from class: com.baidu.tieba.ala.liveroom.c.a.6
@@ -879,7 +879,7 @@ public class a extends b {
                     } else {
                         BdUtilHelper.hideSoftKeyPad(a.this.bjO().pageContext.getPageActivity(), a.this.bjO().faS.getLiveContainerView());
                     }
-                    a.this.yP(str);
+                    a.this.yQ(str);
                 }
 
                 @Override // com.baidu.live.im.i.a
@@ -1173,9 +1173,9 @@ public class a extends b {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.c.b
-    protected void yL(String str) {
+    protected void yM(String str) {
         if (this.eRH != null) {
-            this.eRH.yL(str);
+            this.eRH.yM(str);
         }
     }
 
@@ -1201,7 +1201,7 @@ public class a extends b {
             this.eRH.h(mVar);
             if (mVar != null && this.eSY != null && !this.eSY.hasInit && !TextUtils.isEmpty(this.eSY.adw)) {
                 this.eSY.hasInit = true;
-                this.eRH.yM(this.eSY.adw);
+                this.eRH.yN(this.eSY.adw);
             }
         }
     }

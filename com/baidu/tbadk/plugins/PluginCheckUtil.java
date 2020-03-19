@@ -28,7 +28,7 @@ public class PluginCheckUtil {
         Disabled
     }
 
-    public static boolean vN(String str) {
+    public static boolean vO(String str) {
         if (k.isEmpty(str)) {
             return false;
         }
@@ -62,7 +62,7 @@ public class PluginCheckUtil {
         final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(currentActivity);
-            aVar.sR(str2);
+            aVar.sS(str2);
             if (TextUtils.isEmpty(str3)) {
                 aVar.b(R.string.know, new a.b() { // from class: com.baidu.tbadk.plugins.PluginCheckUtil.1
                     @Override // com.baidu.tbadk.core.dialog.a.b

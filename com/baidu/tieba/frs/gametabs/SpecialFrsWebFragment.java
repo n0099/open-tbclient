@@ -537,7 +537,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements aj {
                 }
                 String title = SpecialFrsWebFragment.this.eEh.getTitle();
                 if (!TextUtils.isEmpty(title)) {
-                    SpecialFrsWebFragment.this.rI(title);
+                    SpecialFrsWebFragment.this.rJ(title);
                 }
                 SpecialFrsWebFragment.this.gGf.setNavBarVisibility(SpecialFrsWebFragment.this.isNeedShowNavigationBar());
                 SpecialFrsWebFragment.this.gGf.fq(SpecialFrsWebFragment.this.isNeedShowShareItem());
@@ -574,12 +574,12 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements aj {
             if (SpecialFrsWebFragment.this.eoz) {
                 SpecialFrsWebFragment.this.eoz = false;
                 return false;
-            } else if (!SpecialFrsWebFragment.this.Bu(str) || TbadkCoreApplication.isLogin() || SpecialFrsWebFragment.this.getPageContext() == null) {
-                if (!SpecialFrsWebFragment.this.yl(str) && SpecialFrsWebFragment.this.getPageContext() != null && SpecialFrsWebFragment.this.eEh.isShown()) {
+            } else if (!SpecialFrsWebFragment.this.Bv(str) || TbadkCoreApplication.isLogin() || SpecialFrsWebFragment.this.getPageContext() == null) {
+                if (!SpecialFrsWebFragment.this.ym(str) && SpecialFrsWebFragment.this.getPageContext() != null && SpecialFrsWebFragment.this.eEh.isShown()) {
                     if (str.startsWith("tdoudiscount:")) {
                         SpecialFrsWebFragment.this.mIsPaying = true;
                     }
-                    if (!SpecialFrsWebFragment.this.rJ(str)) {
+                    if (!SpecialFrsWebFragment.this.rK(str)) {
                         if (SpecialFrsWebFragment.this.gGj) {
                             return ba.aGK().a(SpecialFrsWebFragment.this.getPageContext(), new String[]{str}) == 0;
                         }
@@ -598,7 +598,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements aj {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Bu(String str) {
+    public boolean Bv(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
@@ -606,11 +606,11 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements aj {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean yl(String str) {
-        return Bv(str) || Bx(str) || By(str) || Bw(str);
+    public boolean ym(String str) {
+        return Bw(str) || By(str) || Bz(str) || Bx(str);
     }
 
-    private boolean Bv(String str) {
+    private boolean Bw(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_SDK)) {
             return false;
         }
@@ -623,7 +623,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements aj {
         return true;
     }
 
-    private boolean Bw(String str) {
+    private boolean Bx(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_FRS_DETAIL)) {
             return false;
         }
@@ -631,7 +631,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements aj {
         return true;
     }
 
-    private boolean Bx(String str) {
+    private boolean By(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_START_GAME)) {
             return false;
         }
@@ -642,7 +642,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements aj {
         return true;
     }
 
-    private boolean By(String str) {
+    private boolean Bz(String str) {
         if (StringUtils.isNull(str) || !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_JUMP_PB)) {
             return false;
         }

@@ -31,15 +31,15 @@ public class s {
             }
             return str;
         } else if (jxP && jxO && czD() != null) {
-            return czD().wF(str);
+            return czD().wG(str);
         } else {
             return str;
         }
     }
 
-    public static String wG(String str) {
+    public static String wH(String str) {
         if (czD() != null) {
-            return czD().wG(str);
+            return czD().wH(str);
         }
         return null;
     }
@@ -62,9 +62,9 @@ public class s {
         }
     }
 
-    public static void wH(String str) {
+    public static void wI(String str) {
         if (jxP && jxO && czD() != null) {
-            czD().wH(str);
+            czD().wI(str);
         }
     }
 
@@ -74,9 +74,9 @@ public class s {
         }
     }
 
-    public static String wI(String str) {
+    public static String wJ(String str) {
         if (czD() != null) {
-            return czD().wI(str);
+            return czD().wJ(str);
         }
         return null;
     }

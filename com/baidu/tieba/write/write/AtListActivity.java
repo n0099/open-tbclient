@@ -79,7 +79,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     private final Runnable kTp = new Runnable() { // from class: com.baidu.tieba.write.write.AtListActivity.1
         @Override // java.lang.Runnable
         public void run() {
-            AtListActivity.this.Lb(com.baidu.adp.lib.util.k.charSequence2String(AtListActivity.this.mEditText.getText(), ""));
+            AtListActivity.this.Lc(com.baidu.adp.lib.util.k.charSequence2String(AtListActivity.this.mEditText.getText(), ""));
         }
     };
     private NoNetworkView.a krf = new NoNetworkView.a() { // from class: com.baidu.tieba.write.write.AtListActivity.6
@@ -422,7 +422,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Lb(String str) {
+    public void Lc(String str) {
         ArrayList<MetaData> arrayList = null;
         if (!isFinishing()) {
             showLoadingView(this.mContainer);
@@ -544,7 +544,7 @@ public class AtListActivity extends BaseActivity<AtListActivity> implements Adap
                 return null;
             }
             com.baidu.tieba.write.a.b bVar = new com.baidu.tieba.write.a.b();
-            bVar.KQ(postNetData);
+            bVar.KR(postNetData);
             return bVar;
         }
 

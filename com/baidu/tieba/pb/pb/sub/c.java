@@ -41,7 +41,7 @@ public class c {
     public void b(bj bjVar, List<m> list) {
         this.iXA.setThreadData(bjVar);
         if (this.iWK.crM().coL()) {
-            this.iXA.Gu(this.iWK.crM().cnT());
+            this.iXA.Gv(this.iWK.crM().cnT());
         }
         this.ekE.setData(list);
         this.ekE.getAdapter().notifyDataSetChanged();

@@ -91,13 +91,13 @@ public class MicStatusView extends RelativeLayout implements View.OnClickListene
         this.c = str;
         setVisibility(0);
         startAnimation(AnimationUtils.loadAnimation(this.b, a.C0691a.slide_in_top_danmu_anim));
-        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 0).QV(this.c));
+        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 0).QW(this.c));
     }
 
     public void a() {
         this.d = false;
         setVisibility(8);
-        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).wy(false).QV(this.c));
+        tv.chushou.zues.a.a.post(new com.kascend.chushou.player.ui.button.a(1, 8).wy(false).QW(this.c));
     }
 
     public void a(List<FanItem> list, String str, boolean z, MicStatus micStatus, String str2) {

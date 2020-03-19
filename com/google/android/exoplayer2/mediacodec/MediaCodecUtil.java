@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 public final class MediaCodecUtil {
     private static final SparseIntArray mrW;
     private static final Map<String, Integer> mrX;
-    private static final com.google.android.exoplayer2.mediacodec.a mrS = com.google.android.exoplayer2.mediacodec.a.Pu("OMX.google.raw.decoder");
+    private static final com.google.android.exoplayer2.mediacodec.a mrS = com.google.android.exoplayer2.mediacodec.a.Pv("OMX.google.raw.decoder");
     private static final Pattern mrT = Pattern.compile("^\\D?(\\d+)$");
     private static final HashMap<a, List<com.google.android.exoplayer2.mediacodec.a>> mrU = new HashMap<>();
     private static int mrY = -1;
@@ -159,7 +159,7 @@ public final class MediaCodecUtil {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Pair<Integer, Integer> PC(String str) {
+    public static Pair<Integer, Integer> PD(String str) {
         char c2 = 0;
         if (str == null) {
             return null;
@@ -222,11 +222,11 @@ public final class MediaCodecUtil {
                             try {
                                 MediaCodecInfo.CodecCapabilities capabilitiesForType = Kk.getCapabilitiesForType(str2);
                                 boolean a2 = bVar.a(str, capabilitiesForType);
-                                boolean PD = PD(name);
+                                boolean PE = PE(name);
                                 if ((dwz && aVar.secure == a2) || (!dwz && !aVar.secure)) {
-                                    arrayList.add(com.google.android.exoplayer2.mediacodec.a.a(name, str, capabilitiesForType, PD, false));
+                                    arrayList.add(com.google.android.exoplayer2.mediacodec.a.a(name, str, capabilitiesForType, PE, false));
                                 } else if (!dwz && a2) {
-                                    arrayList.add(com.google.android.exoplayer2.mediacodec.a.a(name + ".secure", str, capabilitiesForType, PD, true));
+                                    arrayList.add(com.google.android.exoplayer2.mediacodec.a.a(name + ".secure", str, capabilitiesForType, PE, true));
                                     break loop0;
                                 }
                             } catch (Exception e) {
@@ -297,7 +297,7 @@ public final class MediaCodecUtil {
         }
     }
 
-    private static boolean PD(String str) {
+    private static boolean PE(String str) {
         return v.SDK_INT <= 22 && (v.MODEL.equals("ODROID-XU3") || v.MODEL.equals("Nexus 10")) && ("OMX.Exynos.AVC.Decoder".equals(str) || "OMX.Exynos.AVC.Decoder.secure".equals(str));
     }
 

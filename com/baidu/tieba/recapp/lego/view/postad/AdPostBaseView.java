@@ -141,7 +141,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
     /* JADX INFO: Access modifiers changed from: private */
     public void n(int i, String str, String str2) {
         if (!TextUtils.isEmpty(this.jMR.preloadLegoCardStr)) {
-            str2 = HS(str2);
+            str2 = HT(str2);
         }
         a.aYe().c(this.cVv.getPageActivity(), new String[]{str2});
         if (this.iaq != null) {
@@ -151,7 +151,7 @@ public abstract class AdPostBaseView extends PostAdBaseView<AdPost> {
         }
     }
 
-    private String HS(String str) {
+    private String HT(String str) {
         return str + ETAG.ITEM_SEPARATOR + LegoListActivityConfig.PRE_LOAD + ETAG.EQUAL + URLEncoder.encode(this.jMR.preloadLegoCardStr);
     }
 

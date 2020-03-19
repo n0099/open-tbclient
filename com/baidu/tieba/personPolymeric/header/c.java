@@ -184,9 +184,9 @@ public class c {
         this.jru.rB(z);
     }
 
-    public void GU(String str) {
+    public void GV(String str) {
         if (this.jru != null) {
-            this.jru.GU(str);
+            this.jru.GV(str);
         }
     }
 
@@ -229,16 +229,16 @@ public class c {
         }
         n nVar = new n();
         if (this.mUserData.getBaijiahaoInfo() != null && !TextUtils.isEmpty(this.mUserData.getBaijiahaoInfo().avatar)) {
-            nVar.uT(this.mUserData.getBaijiahaoInfo().avatar);
             nVar.uU(this.mUserData.getBaijiahaoInfo().avatar);
+            nVar.uV(this.mUserData.getBaijiahaoInfo().avatar);
             nVar.gv(false);
         } else if (!StringUtils.isNull(this.mUserData.getPortrait()) && this.mUserData.getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-            nVar.uT(this.mUserData.getPortrait());
-            nVar.uU(o.tm(this.mUserData.getPortrait()));
+            nVar.uU(this.mUserData.getPortrait());
+            nVar.uV(o.tn(this.mUserData.getPortrait()));
             nVar.gv(true);
         } else {
-            nVar.uT(o.tm(this.mUserData.getPortraitH()));
-            nVar.uU(o.tm(this.mUserData.getPortrait()));
+            nVar.uU(o.tn(this.mUserData.getPortraitH()));
+            nVar.uV(o.tn(this.mUserData.getPortrait()));
             nVar.gv(true);
         }
         ArrayList arrayList = new ArrayList();

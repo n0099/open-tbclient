@@ -529,13 +529,13 @@ public class ReplyFragment extends BaseFragment implements a, a.InterfaceC0585a 
         }
     }
 
-    public void Gc(String str) {
+    public void Gd(String str) {
         if (this.gvD != null) {
             this.gvD.setText(str);
         }
     }
 
-    public void Gd(String str) {
+    public void Ge(String str) {
         if (this.gvD != null) {
             this.gvD.ac(str, this.topMargin);
         }

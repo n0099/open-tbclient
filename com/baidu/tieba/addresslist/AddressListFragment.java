@@ -255,11 +255,11 @@ public class AddressListFragment extends BaseFragment implements g.c, a.Interfac
     }
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
-    public void xi(String str) {
-        int xv;
+    public void xj(String str) {
+        int xw;
         List<com.baidu.tbadk.coreExtra.relationship.a> aZc = this.eaO.aZc();
-        if (aZc != null && aZc.size() != 0 && (xv = this.eaO.xv(str)) >= 0) {
-            this.eaW.setSelection(xv + 5);
+        if (aZc != null && aZc.size() != 0 && (xw = this.eaO.xw(str)) >= 0) {
+            this.eaW.setSelection(xw + 5);
         }
     }
 
@@ -290,7 +290,7 @@ public class AddressListFragment extends BaseFragment implements g.c, a.Interfac
                         List<com.baidu.tbadk.coreExtra.relationship.a> contacts = eVar.getContacts();
                         if (contacts.size() > 0) {
                             com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                            aVar.uv(eVar.getKey());
+                            aVar.uw(eVar.getKey());
                             arrayList.add(aVar);
                         }
                         for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : contacts) {
@@ -341,7 +341,7 @@ public class AddressListFragment extends BaseFragment implements g.c, a.Interfac
                 if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                     if (!StringUtils.isNull(responseNewFriendUpdateUiMsg.getKey()) && !StringUtils.isNull(responseNewFriendUpdateUiMsg.getName())) {
                         com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                        aVar.uv(responseNewFriendUpdateUiMsg.getKey());
+                        aVar.uw(responseNewFriendUpdateUiMsg.getKey());
                         aVar.setQuanpin(responseNewFriendUpdateUiMsg.getQuanping());
                         aVar.setUserId(responseNewFriendUpdateUiMsg.getFriendId());
                         aVar.setUserName(responseNewFriendUpdateUiMsg.getName());

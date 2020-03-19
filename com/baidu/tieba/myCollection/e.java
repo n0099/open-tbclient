@@ -240,8 +240,8 @@ public class e {
     private void cie() {
         if (this.iuF == null) {
             this.iuF = new com.baidu.tbadk.core.dialog.a(this.ebb.getPageContext().getPageActivity());
-            this.iuF.sQ(this.ebb.getPageContext().getString(R.string.sync_mark_fail));
-            this.iuF.sR(this.ebb.getPageContext().getString(R.string.neterror));
+            this.iuF.sR(this.ebb.getPageContext().getString(R.string.sync_mark_fail));
+            this.iuF.sS(this.ebb.getPageContext().getString(R.string.neterror));
             if (this.iuG != null) {
                 this.iuF.a(this.ebb.getPageContext().getString(R.string.retry_rightnow), this.iuG);
             }

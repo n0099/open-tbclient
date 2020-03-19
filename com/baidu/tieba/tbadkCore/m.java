@@ -326,7 +326,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                     if (this.cardVideoInfo.aCr() != null && this.cardVideoInfo.aCr().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.aCr().getUserId())) != null && metaData.getPendantData() != null) {
                         com.baidu.tbadk.data.m mVar = new com.baidu.tbadk.data.m();
                         mVar.bI(metaData.getPendantData().aOd());
-                        mVar.sA(metaData.getPendantData().aAJ());
+                        mVar.sB(metaData.getPendantData().aAJ());
                         this.cardVideoInfo.aCr().setPendantData(mVar);
                     }
                 }
@@ -372,7 +372,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.cDF().HY(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.cDF().HZ(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i5 = 0; i5 < dataRes.card_shipin_new.size(); i5++) {
@@ -482,14 +482,14 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                         bjVar.setFid(j);
                     }
                     if (StringUtils.isNull(bjVar.aCw())) {
-                        bjVar.sF(this.forum.getName());
+                        bjVar.sG(this.forum.getName());
                     }
                     bjVar.y(this.color_eggs);
                     bjVar.cUp = this.forum.isBrandForum;
                     bjVar.fG(true);
                     if (!TextUtils.isEmpty(bjVar.aDy())) {
                         ae aeVar = new ae();
-                        aeVar.sw(bjVar.aDy());
+                        aeVar.sx(bjVar.aDy());
                         this.threadList.add(aeVar);
                     } else {
                         this.threadList.add(bjVar);

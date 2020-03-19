@@ -43,7 +43,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         }
 
         @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.b.a
-        public void zI(String str) {
+        public void zJ(String str) {
             AlaEnterEffectDetailActivity.this.showToast(str);
         }
     };
@@ -125,9 +125,9 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             public void ka(boolean z) {
                 if (z && AlaEnterEffectDetailActivity.this.fyj != null) {
                     if (AlaEnterEffectDetailActivity.this.fyj.price <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                        AlaEnterEffectDetailActivity.this.fyl.zJ(AlaEnterEffectDetailActivity.this.getString(R.string.ala_enter_effect_tdou_buy));
+                        AlaEnterEffectDetailActivity.this.fyl.zK(AlaEnterEffectDetailActivity.this.getString(R.string.ala_enter_effect_tdou_buy));
                     } else {
-                        AlaEnterEffectDetailActivity.this.fyl.zJ(AlaEnterEffectDetailActivity.this.getString(R.string.ala_enter_effect_get_t_dou));
+                        AlaEnterEffectDetailActivity.this.fyl.zK(AlaEnterEffectDetailActivity.this.getString(R.string.ala_enter_effect_get_t_dou));
                     }
                 }
             }

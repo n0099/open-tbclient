@@ -108,7 +108,7 @@ public class SquareModel extends BdBaseModel<Object> {
             h hVar;
             String str = null;
             this.keZ = new com.baidu.tieba.square.a.a();
-            this.kfb = com.baidu.tbadk.core.c.a.aEF().sP("tb.square");
+            this.kfb = com.baidu.tbadk.core.c.a.aEF().sQ("tb.square");
             if (this.kfa == 0) {
                 String str2 = this.kfb.get("square_cache_key");
                 if (str2 == null) {

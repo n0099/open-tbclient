@@ -96,16 +96,16 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         }
     }
 
-    File OH(String str) {
+    File OI(String str) {
         return new File(getFilename(str));
     }
 
-    private String OI(String str) {
+    private String OJ(String str) {
         return this.lIV + File.separator + String.valueOf(Math.abs(str.hashCode() % 100));
     }
 
-    private File OJ(String str) {
-        return new File(OI(str));
+    private File OK(String str) {
+        return new File(OJ(str));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -203,12 +203,12 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     @Override // com.facebook.cache.disk.c
     public c.b u(String str, Object obj) throws IOException {
         c cVar = new c(".tmp", str);
-        File OJ = OJ(cVar.resourceId);
-        if (!OJ.exists()) {
-            f(OJ, "insert");
+        File OK = OK(cVar.resourceId);
+        if (!OK.exists()) {
+            f(OK, "insert");
         }
         try {
-            return new d(str, cVar.ae(OJ));
+            return new d(str, cVar.ae(OK));
         } catch (IOException e2) {
             this.lIW.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_TEMPFILE, lIR, "insert", e2);
             throw e2;
@@ -217,17 +217,17 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     @Override // com.facebook.cache.disk.c
     public com.facebook.a.a v(String str, Object obj) {
-        File OH = OH(str);
-        if (OH.exists()) {
-            OH.setLastModified(this.lIX.now());
-            return com.facebook.a.b.Y(OH);
+        File OI = OI(str);
+        if (OI.exists()) {
+            OI.setLastModified(this.lIX.now());
+            return com.facebook.a.b.Y(OI);
         }
         return null;
     }
 
     private String getFilename(String str) {
         c cVar = new c(".cnt", str);
-        return cVar.ON(OI(cVar.resourceId));
+        return cVar.OO(OJ(cVar.resourceId));
     }
 
     @Override // com.facebook.cache.disk.c
@@ -236,10 +236,10 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     }
 
     private boolean aJ(String str, boolean z) {
-        File OH = OH(str);
-        boolean exists = OH.exists();
+        File OI = OI(str);
+        boolean exists = OI.exists();
         if (z && exists) {
-            OH.setLastModified(this.lIX.now());
+            OI.setLastModified(this.lIX.now());
         }
         return exists;
     }
@@ -250,8 +250,8 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
     }
 
     @Override // com.facebook.cache.disk.c
-    public long OK(String str) {
-        return Z(OH(str));
+    public long OL(String str) {
+        return Z(OI(str));
     }
 
     private long Z(File file) {
@@ -321,7 +321,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         if (af == null) {
             return null;
         }
-        if (!OJ(af.resourceId).equals(file.getParentFile())) {
+        if (!OK(af.resourceId).equals(file.getParentFile())) {
             af = null;
         }
         return af;
@@ -329,7 +329,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
-    public static String OL(String str) {
+    public static String OM(String str) {
         if (".cnt".equals(str)) {
             return ".cnt";
         }
@@ -354,7 +354,7 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
             return this.type + "(" + this.resourceId + ")";
         }
 
-        public String ON(String str) {
+        public String OO(String str) {
             return str + File.separator + this.resourceId + this.type;
         }
 
@@ -364,19 +364,19 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
 
         @Nullable
         public static c af(File file) {
-            String OL;
+            String OM;
             String name = file.getName();
             int lastIndexOf = name.lastIndexOf(46);
-            if (lastIndexOf > 0 && (OL = DefaultDiskStorage.OL(name.substring(lastIndexOf))) != null) {
+            if (lastIndexOf > 0 && (OM = DefaultDiskStorage.OM(name.substring(lastIndexOf))) != null) {
                 String substring = name.substring(0, lastIndexOf);
-                if (OL.equals(".tmp")) {
+                if (OM.equals(".tmp")) {
                     int lastIndexOf2 = substring.lastIndexOf(46);
                     if (lastIndexOf2 <= 0) {
                         return null;
                     }
                     substring = substring.substring(0, lastIndexOf2);
                 }
-                return new c(OL, substring);
+                return new c(OM, substring);
             }
             return null;
         }
@@ -418,13 +418,13 @@ public class DefaultDiskStorage implements com.facebook.cache.disk.c {
         @Override // com.facebook.cache.disk.c.b
         public com.facebook.a.a aQ(Object obj) throws IOException {
             CacheErrorLogger.CacheErrorCategory cacheErrorCategory;
-            File OH = DefaultDiskStorage.this.OH(this.jyy);
+            File OI = DefaultDiskStorage.this.OI(this.jyy);
             try {
-                FileUtils.rename(this.lJa, OH);
-                if (OH.exists()) {
-                    OH.setLastModified(DefaultDiskStorage.this.lIX.now());
+                FileUtils.rename(this.lJa, OI);
+                if (OI.exists()) {
+                    OI.setLastModified(DefaultDiskStorage.this.lIX.now());
                 }
-                return com.facebook.a.b.Y(OH);
+                return com.facebook.a.b.Y(OI);
             } catch (FileUtils.RenameException e) {
                 Throwable cause = e.getCause();
                 if (cause == null) {

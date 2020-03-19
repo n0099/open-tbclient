@@ -135,7 +135,7 @@ public class ae implements aj<com.facebook.imagepipeline.g.e> {
 
     @Nullable
     private Map<String, String> a(t tVar, int i) {
-        if (tVar.drW().Pd(tVar.getId())) {
+        if (tVar.drW().Pe(tVar.getId())) {
             return this.lUh.a((af) tVar, i);
         }
         return null;

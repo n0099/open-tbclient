@@ -189,7 +189,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         this.guA = (FrameLayout) view.findViewById(R.id.video_agg_container);
         this.gOL = view.findViewById(R.id.card_container);
         this.guB = (FrameLayout) view.findViewById(R.id.video_container);
-        this.guO = new com.baidu.tieba.play.c(tbPageContext, this.guB, false, com.baidu.tbadk.a.b.rG("cyber_player_test") ? 1 : 0);
+        this.guO = new com.baidu.tieba.play.c(tbPageContext, this.guB, false, com.baidu.tbadk.a.b.rH("cyber_player_test") || com.baidu.tbadk.a.b.rG("cyber_player_test") ? 1 : 0);
         this.guO.rK(z);
         this.guO.a(new g.f() { // from class: com.baidu.tieba.frs.videomiddlepage.a.1
             @Override // com.baidu.tieba.play.g.f
@@ -419,7 +419,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                         a.this.guO.aj(true, false);
                     }
                     a.this.guU = false;
-                    a.this.Bj(a.this.cWz ? "1" : "2");
+                    a.this.Bk(a.this.cWz ? "1" : "2");
                     a.this.onClick(a.this.guB);
                     if (a.this.DG != null) {
                         a.this.DG.a(a.this);
@@ -438,7 +438,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                 @Override // com.baidu.tieba.play.c.f
                 public void lM(boolean z2) {
                     a.this.guO.eg(a.this.guP.gvp.videoUrl, a.this.guP.threadId);
-                    a.this.Bj("2");
+                    a.this.Bk("2");
                     a.this.onClick(a.this.guB);
                 }
             });
@@ -661,13 +661,13 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         if (gVar == null) {
             return null;
         }
-        com.baidu.afd.videopaster.data.b BR = this.gOX != null ? this.gOX.BR(gVar.getThreadId()) : null;
-        if (BR == null) {
+        com.baidu.afd.videopaster.data.b BS = this.gOX != null ? this.gOX.BS(gVar.getThreadId()) : null;
+        if (BS == null) {
             return null;
         }
-        int lq = BR.lq();
-        int lr = BR.lr();
-        int lp = BR.lp();
+        int lq = BS.lq();
+        int lr = BS.lr();
+        int lp = BS.lp();
         if (lp != -1) {
             i = lq != -1 ? (lp - lq) - 1 : -1;
             if (lr != -1) {
@@ -696,7 +696,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bj(String str) {
+    public void Bk(String str) {
         if (this.guP != null && this.guP.gvp != null) {
             if ("1".equals(str) || "2".equals(str)) {
                 com.baidu.tieba.play.l.a(this.guP.gvp.videoMd5, "", str, this.guS);

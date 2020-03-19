@@ -32,7 +32,7 @@ public class j {
                 httpMessage.addParam("swan_app_key", j.this.jnN.id);
                 MessageManager.getInstance().sendMessage(httpMessage);
                 if (j.this.jnS != null) {
-                    j.this.jnS.GP(j.this.jnN.id);
+                    j.this.jnS.GQ(j.this.jnN.id);
                 }
                 an anVar = new an("c13436");
                 anVar.s("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -49,7 +49,7 @@ public class j {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void GP(String str);
+        void GQ(String str);
     }
 
     static {

@@ -167,7 +167,7 @@ public final class c implements k, k.a {
 
     private static boolean a(com.google.android.exoplayer2.b.f[] fVarArr) {
         for (com.google.android.exoplayer2.b.f fVar : fVarArr) {
-            if (fVar != null && !com.google.android.exoplayer2.util.i.Qo(fVar.dyV().sampleMimeType)) {
+            if (fVar != null && !com.google.android.exoplayer2.util.i.Qp(fVar.dyV().sampleMimeType)) {
                 return true;
             }
         }

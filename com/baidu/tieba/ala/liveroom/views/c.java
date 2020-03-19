@@ -442,7 +442,7 @@ public class c extends a {
         }
     }
 
-    public void zx(String str) {
+    public void zy(String str) {
         com.baidu.live.c.pw().putString(com.baidu.live.c.getSharedPrefKeyWithAccount("key_default_cover"), str);
     }
 
@@ -564,11 +564,11 @@ public class c extends a {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
     }
 
-    public void yV(String str) {
+    public void yW(String str) {
         this.fop = true;
         this.foq = str;
         this.fom.setText(a.i.ala_live_change_cover);
-        zx(str);
+        zy(str);
         k.a(this.fol, str, true, false);
         TiebaInitialize.log(new StatisticItem("c11868").param("uid", TbadkCoreApplication.getCurrentAccount()));
     }

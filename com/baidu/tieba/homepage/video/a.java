@@ -232,10 +232,10 @@ public class a {
     public void h(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.hkG != null && !v.isEmpty(this.hkG.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            this.hkG.BB(optString);
-            this.hkG.Cg(optString);
+            this.hkG.BC(optString);
+            this.hkG.Ch(optString);
             if (this.hkH != null) {
-                this.hkH.Ci(optString);
+                this.hkH.Cj(optString);
             }
         }
     }

@@ -233,7 +233,7 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
         String d = d(eVar);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager.findFragmentByTag(d) == null) {
-            this.aoy = FL(d);
+            this.aoy = FM(d);
             supportFragmentManager.beginTransaction().add(R.id.container, this.aoy, d).commitAllowingStateLoss();
         }
     }
@@ -242,7 +242,7 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
         return (eVar == null || !eVar.aHP()) ? "pb_fragment_tag" : "video_pb_fragment_tag";
     }
 
-    private Fragment FL(String str) {
+    private Fragment FM(String str) {
         return "video_pb_fragment_tag".equals(str) ? VideoPbFragment.csV() : PbFragment.cmL();
     }
 
@@ -410,8 +410,8 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
     }
 
     @Override // com.baidu.tieba.pb.pb.a
-    public boolean FK(String str) {
-        return this.iFV != null && this.iFV.FV(str);
+    public boolean FL(String str) {
+        return this.iFV != null && this.iFV.FW(str);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.m.a
@@ -433,16 +433,16 @@ public class PbActivity extends BaseFragmentActivity implements VoiceManager.c, 
                 pageStayDurationItem.setTaskId(TbadkCoreApplication.getInst().getTaskId());
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                pageStayDurationItem.vF(TbadkCoreApplication.getInst().getAdAdSense().dmy);
+                pageStayDurationItem.vG(TbadkCoreApplication.getInst().getAdAdSense().dmy);
             }
             Fragment cmj = cmj();
             if (cmj instanceof PbFragment) {
                 if (((PbFragment) cmj).iJT == 2) {
-                    pageStayDurationItem.vG(PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+                    pageStayDurationItem.vH(PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
                 } else if (((PbFragment) cmj).iJT == 1) {
-                    pageStayDurationItem.vG(PageStayDurationConstants.PageName.HOMEPAGE_CONCERN);
+                    pageStayDurationItem.vH(PageStayDurationConstants.PageName.HOMEPAGE_CONCERN);
                 } else if (((PbFragment) cmj).iJT == 3) {
-                    pageStayDurationItem.vG(PageStayDurationConstants.PageName.FRS);
+                    pageStayDurationItem.vH(PageStayDurationConstants.PageName.FRS);
                 }
             }
         }

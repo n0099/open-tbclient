@@ -12,7 +12,7 @@ public class t {
     public static final String dXH = oB + "/files";
     public static final String dXI = dXH + "/";
 
-    private static long wC(String str) {
+    private static long wD(String str) {
         File file;
         File file2;
         File[] listFiles;
@@ -27,7 +27,7 @@ public class t {
         return j;
     }
 
-    private static String wD(String str) {
+    private static String wE(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -38,13 +38,13 @@ public class t {
         return substring;
     }
 
-    public static long Hc(String str) {
+    public static long Hd(String str) {
         try {
-            String wD = wD(str);
-            if (StringUtils.isNULL(wD)) {
+            String wE = wE(str);
+            if (StringUtils.isNULL(wE)) {
                 return 0L;
             }
-            return wC(wD);
+            return wD(wE);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;

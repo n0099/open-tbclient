@@ -211,7 +211,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             this.hOr.hideKeyboard();
             if (view.getId() == this.hOr.bZt()) {
                 showLoadingDialog();
-                this.hOs.DG(this.hOr.bZv());
+                this.hOs.DH(this.hOr.bZv());
             }
         }
     }

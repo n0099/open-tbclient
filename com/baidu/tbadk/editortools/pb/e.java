@@ -137,7 +137,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
-            public void vp(String str) {
+            public void vq(String str) {
                 e.this.a(2, true, str);
             }
         };
@@ -164,7 +164,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
                     if (e.this.NR != null) {
                         cIp.setBaijiahaoData(e.this.NR.getBaijiahaoData());
                     }
-                    if (com.baidu.tbadk.s.a.wb(aaVar.aJK())) {
+                    if (com.baidu.tbadk.s.a.wc(aaVar.aJK())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(e.this.cVv.getPageActivity(), RequestResponseCode.REQUEST_VCODE, cIp, false, aaVar.aJK())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(e.this.cVv.getPageActivity(), cIp, RequestResponseCode.REQUEST_VCODE)));
@@ -214,7 +214,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
         return this.dyX;
     }
 
-    public void vk(String str) {
+    public void vl(String str) {
         if (this.dyX == null && aOy() != null) {
             this.dyX = (f) aOy().mr(27);
         }
@@ -321,7 +321,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
                             this.dyM.sY(false);
                             return;
                         }
-                        this.dyN.vj(intent.getStringExtra("file_name"));
+                        this.dyN.vk(intent.getStringExtra("file_name"));
                         return;
                     }
                     return;
@@ -382,7 +382,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
                     return;
                 case RequestResponseCode.REQUEST_HOT_SELECT /* 25004 */:
                     if (intent != null) {
-                        vn(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
+                        vo(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
                         return;
                     }
                     return;
@@ -619,7 +619,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
         w.d(str, cIp);
     }
 
-    public void vl(String str) {
+    public void vm(String str) {
         w.a(str, this);
     }
 
@@ -651,7 +651,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
             }
             if (!aq.isEmpty(writeData.getContent()) && aq.isEmpty(this.mPostContent)) {
                 this.mPostContent = writeData.getContent();
-                vo(this.mPostContent);
+                vp(this.mPostContent);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_LOAD_DRAFT));
         }
@@ -670,7 +670,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
                 aOy().b(new com.baidu.tbadk.editortools.a(2, 10, null));
             }
             this.mPostContent = writeData.getContent();
-            vo(this.mPostContent);
+            vp(this.mPostContent);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_LOAD_DRAFT));
         }
     }
@@ -717,11 +717,11 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
     public void a(String str, WriteData writeData) {
         boolean z = true;
         if (this.dyM.cIp() == null) {
-            WriteData vi = this.dyO.vi(str);
-            if (vi != null && this.NR != null) {
-                vi.setBaijiahaoData(this.NR.getBaijiahaoData());
+            WriteData vj = this.dyO.vj(str);
+            if (vj != null && this.NR != null) {
+                vj.setBaijiahaoData(this.NR.getBaijiahaoData());
             }
-            this.dyM.d(vi);
+            this.dyM.d(vj);
         }
         if (this.dyM.cIp() != null) {
             if (this.dyV) {
@@ -775,7 +775,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
         return (BaseFragmentActivity) this.cVv.getPageActivity();
     }
 
-    public void vm(String str) {
+    public void vn(String str) {
         this.mPostContent = str;
     }
 
@@ -803,7 +803,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
         }
     }
 
-    public void vn(String str) {
+    public void vo(String str) {
         if (aOy() != null) {
             aOy().b(new com.baidu.tbadk.editortools.a(44, 27, str));
         }
@@ -823,7 +823,7 @@ public class e extends com.baidu.tbadk.editortools.d implements w.a {
         }
     }
 
-    private void vo(String str) {
+    private void vp(String str) {
         if (aOy() != null) {
             aOy().b(new com.baidu.tbadk.editortools.a(6, 27, str));
         }

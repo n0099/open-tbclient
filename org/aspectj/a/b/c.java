@@ -34,7 +34,7 @@ public class c implements org.aspectj.lang.b {
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.So(dNA()));
+            stringBuffer.append(hVar.Sp(dNA()));
             stringBuffer.append("(");
             stringBuffer.append(((f) dNB()).a(hVar));
             stringBuffer.append(")");

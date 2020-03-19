@@ -89,12 +89,12 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
             if (!v.isEmpty(com.baidu.tieba.frs.a.bDd().bDf())) {
                 TiebaStatic.log(new an("c13122").X("obj_type", 1));
                 setData(1);
-                BS("2");
+                BT("2");
             }
         } else if (view == this.gRA && !v.isEmpty(com.baidu.tieba.frs.a.bDd().bDf())) {
             TiebaStatic.log(new an("c13122").X("obj_type", 2));
             setData(2);
-            BS("2");
+            BT("2");
         }
     }
 
@@ -102,12 +102,12 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         this.pageContext = tbPageContext;
     }
 
-    private void BS(String str) {
+    private void BT(String str) {
         if (this.pageContext != null) {
             if (this.gRC == null) {
                 this.gRC = new com.baidu.tieba.NEGFeedBack.e(this.pageContext, this);
             }
-            this.gRC.wn(str);
+            this.gRC.wo(str);
         }
     }
 

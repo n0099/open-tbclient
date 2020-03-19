@@ -157,10 +157,10 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bXc() {
-        ImMessageCenterPojo Dp;
+        ImMessageCenterPojo Dq;
         a wN = wN(-4);
-        if (wN != null && (Dp = wN.Dp(TbEnum.CustomGroupId.GROUP_VALIDATION)) != null) {
-            String last_content = Dp.getLast_content();
+        if (wN != null && (Dq = wN.Dq(TbEnum.CustomGroupId.GROUP_VALIDATION)) != null) {
+            String last_content = Dq.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
                     JSONObject jSONObject = new JSONObject(last_content);
@@ -179,12 +179,12 @@ public class b {
                         str2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
                         str3 = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
                     }
-                    ImMessageCenterPojo Dp2 = this.hHf.Dp(str);
-                    if (Dp2 != null) {
-                        str3 = Dp2.getGroup_name();
+                    ImMessageCenterPojo Dq2 = this.hHf.Dq(str);
+                    if (Dq2 != null) {
+                        str3 = Dq2.getGroup_name();
                     }
                     if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str2)) {
-                        Dp.setLast_content(str2 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.validate_im_apply_prefix1) + str3);
+                        Dq.setLast_content(str2 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.validate_im_apply_prefix1) + str3);
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -195,13 +195,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bXd() {
-        ImMessageCenterPojo Dp;
+        ImMessageCenterPojo Dq;
         a wN = wN(-3);
-        if (wN != null && (Dp = wN.Dp(TbEnum.CustomGroupId.GROUP_UPDATE)) != null) {
-            String last_content = Dp.getLast_content();
+        if (wN != null && (Dq = wN.Dq(TbEnum.CustomGroupId.GROUP_UPDATE)) != null) {
+            String last_content = Dq.getLast_content();
             if (!TextUtils.isEmpty(last_content)) {
                 try {
-                    Dp.setLast_content(new JSONObject(last_content).optString(TbEnum.SystemMessage.KEY_USER_MSG));
+                    Dq.setLast_content(new JSONObject(last_content).optString(TbEnum.SystemMessage.KEY_USER_MSG));
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -219,7 +219,7 @@ public class b {
     public ImMessageCenterPojo aV(String str, int i) {
         a wN;
         if (this.hHe.get() && (wN = wN(i)) != null) {
-            return wN.Dp(str);
+            return wN.Dq(str);
         }
         return null;
     }
@@ -235,7 +235,7 @@ public class b {
     public void aP(String str, int i) {
         a wN;
         if (this.hHe.get() && (wN = wN(i)) != null) {
-            wN.Dq(str);
+            wN.Dr(str);
         }
     }
 
@@ -698,7 +698,7 @@ public class b {
         ImMessageCenterPojo imMessageCenterPojo = null;
         a wN = wN(-7);
         if (wN != null) {
-            imMessageCenterPojo = wN.Dp(TbEnum.CustomGroupId.STRANGE_MERGE);
+            imMessageCenterPojo = wN.Dq(TbEnum.CustomGroupId.STRANGE_MERGE);
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -771,7 +771,7 @@ public class b {
         ImMessageCenterPojo imMessageCenterPojo = null;
         a wN = wN(-8);
         if (wN != null) {
-            imMessageCenterPojo = wN.Dp(TbEnum.CustomGroupId.OFFICIAL_MERGE);
+            imMessageCenterPojo = wN.Dq(TbEnum.CustomGroupId.OFFICIAL_MERGE);
         }
         if (imMessageCenterPojo == null) {
             imMessageCenterPojo = new ImMessageCenterPojo();
@@ -937,7 +937,7 @@ public class b {
         if (list != null && list.size() != 0) {
             for (ImMessageCenterPojo imMessageCenterPojo : list) {
                 if (imMessageCenterPojo != null) {
-                    this.hHf.Dq(imMessageCenterPojo.getGid());
+                    this.hHf.Dr(imMessageCenterPojo.getGid());
                 }
             }
         }

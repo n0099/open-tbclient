@@ -191,7 +191,7 @@ public class m implements aj<com.facebook.common.references.a<com.facebook.image
         }
 
         private Map<String, String> a(@Nullable com.facebook.imagepipeline.g.c cVar, long j, com.facebook.imagepipeline.g.h hVar, boolean z, String str, String str2, String str3, String str4) {
-            if (!this.lWU.Pd(this.lXf.getId())) {
+            if (!this.lWU.Pe(this.lXf.getId())) {
                 return null;
             }
             String valueOf = String.valueOf(j);

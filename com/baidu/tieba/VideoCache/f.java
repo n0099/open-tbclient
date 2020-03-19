@@ -79,14 +79,14 @@ class f implements Runnable {
                 if (readLine != null && readLine.contains("GET") && readLine.contains("origin_url=")) {
                     String[] split = readLine.split(HanziToPinyin.Token.SEPARATOR);
                     if (split != null && split.length > 1) {
-                        hVar.wy(split[1]);
+                        hVar.wz(split[1]);
                     }
                     String substring = readLine.substring(readLine.indexOf("origin_url=") + 11);
                     String str = "";
                     if (substring != null && substring.contains(HanziToPinyin.Token.SEPARATOR)) {
                         str = substring.substring(0, substring.indexOf(HanziToPinyin.Token.SEPARATOR));
                     }
-                    hVar.wz(URLDecoder.decode(str));
+                    hVar.wA(URLDecoder.decode(str));
                 } else if (readLine != null && readLine.startsWith(Headers.RANGE) && readLine.contains(":")) {
                     hVar.hC(true);
                     String[] split2 = readLine.split(":");
@@ -123,16 +123,16 @@ class f implements Runnable {
     }
 
     private boolean a(h hVar, PrintStream printStream) {
-        int ww = ww(hVar.getOriginUrl());
-        if (ww <= 0) {
+        int wx = wx(hVar.getOriginUrl());
+        if (wx <= 0) {
             return false;
         }
-        hVar.setTotalLength(ww);
+        hVar.setTotalLength(wx);
         if (hVar.aXp() < 0) {
             hVar.cn(0L);
         }
         if (hVar.aXq() < 0) {
-            hVar.co(ww - 1);
+            hVar.co(wx - 1);
         }
         long aXp = hVar.aXp();
         long aXq = hVar.aXq();
@@ -146,7 +146,7 @@ class f implements Runnable {
         printStream.println("Accept-Ranges: bytes");
         printStream.println("Content-Length: " + ((aXq - aXp) + 1));
         if (hVar.aXo()) {
-            printStream.println("Content-Range: bytes " + aXp + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aXq + "/" + ww);
+            printStream.println("Content-Range: bytes " + aXp + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aXq + "/" + wx);
         }
         printStream.println("Content-Transfer-Encoding: binary");
         printStream.println();
@@ -159,17 +159,17 @@ class f implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int ww(String str) {
+    private int wx(String str) {
         FileInputStream fileInputStream;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        String wD = m.wD(str);
-        if (wD == null || wD.isEmpty()) {
+        String wE = m.wE(str);
+        if (wE == null || wE.isEmpty()) {
             return 0;
         }
-        File file = new File(i.dXI + wD);
+        File file = new File(i.dXI + wE);
         if (!file.exists()) {
             file.mkdir();
         }

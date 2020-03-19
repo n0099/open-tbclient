@@ -53,9 +53,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     };
     private j.a jnJ = new j.a() { // from class: com.baidu.tieba.personExtra.SmartAppBrowseHistoryActivity.2
         @Override // com.baidu.tieba.personExtra.j.a
-        public void GP(String str) {
+        public void GQ(String str) {
             if (SmartAppBrowseHistoryActivity.this.jnF != null) {
-                SmartAppBrowseHistoryActivity.this.jnF.GQ(str);
+                SmartAppBrowseHistoryActivity.this.jnF.GR(str);
                 if (SmartAppBrowseHistoryActivity.this.jnF.getItemCount() == 0) {
                     SmartAppBrowseHistoryActivity.this.rt(true);
                 }

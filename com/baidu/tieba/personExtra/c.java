@@ -252,7 +252,7 @@ public class c extends BaseAdapter {
         return super.isEnabled(i);
     }
 
-    public void GL(String str) {
+    public void GM(String str) {
         this.jkG = str;
     }
 

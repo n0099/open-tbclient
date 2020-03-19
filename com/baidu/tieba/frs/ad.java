@@ -110,7 +110,7 @@ public class ad {
         return this.forumGameLabel;
     }
 
-    public void zF(String str) {
+    public void zG(String str) {
         this.fut = str;
     }
 

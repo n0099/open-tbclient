@@ -113,7 +113,7 @@ public class b implements c.a {
         MessageManager.getInstance().registerListener(this.jiP);
     }
 
-    public void GD(String str) {
+    public void GE(String str) {
         f cvI = this.jiL.cvI();
         if (cvI != null && cvI.getUserData() != null) {
             cvI.getUserData().setName_show(str);
@@ -121,7 +121,7 @@ public class b implements c.a {
         }
     }
 
-    public void GE(String str) {
+    public void GF(String str) {
         f cvI = this.jiL.cvI();
         if (cvI != null && cvI.getUserData() != null) {
             cvI.getUserData().setPortrait(str);

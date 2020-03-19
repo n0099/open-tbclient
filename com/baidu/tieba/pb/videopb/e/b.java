@@ -122,16 +122,16 @@ public class b extends v.a {
         }
     }
 
-    public void Gx(String str) {
+    public void Gy(String str) {
         StateListDrawable stateListDrawable;
         StateListDrawable stateListDrawable2 = null;
         if (Config.BAWU_TYPE_MANAGER.equals(str) || Config.BAWU_TYPE_ASSIST.equals(str)) {
             if (Config.BAWU_TYPE_MANAGER.equals(str)) {
                 stateListDrawable = com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHi();
-                stateListDrawable2 = com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tM("#4D000000").aHi();
+                stateListDrawable2 = com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tN("#4D000000").aHi();
             } else if (Config.BAWU_TYPE_ASSIST.equals(str)) {
                 stateListDrawable = com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHi();
-                stateListDrawable2 = com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tM("#4D000000").aHi();
+                stateListDrawable2 = com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tN("#4D000000").aHi();
             } else {
                 stateListDrawable = null;
             }

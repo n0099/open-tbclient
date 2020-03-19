@@ -150,7 +150,7 @@ public class b {
         bVar2.setExtraData(this.asP);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE, bVar2));
         bdTypeRecyclerView.addAdapters(this.asP);
-        wP("page_frs_good");
+        wQ("page_frs_good");
         for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
             if (aVar instanceof com.baidu.tieba.card.y) {
                 ((com.baidu.tieba.card.y) aVar).kw(true);
@@ -355,11 +355,11 @@ public class b {
         return false;
     }
 
-    private void wP(String str) {
+    private void wQ(String str) {
         if (this.asP != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
                 if (aVar instanceof f) {
-                    ((f) aVar).wP(str);
+                    ((f) aVar).wQ(str);
                 }
             }
         }

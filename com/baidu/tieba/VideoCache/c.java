@@ -67,7 +67,7 @@ public class c {
             long parseInt;
             j.z(c.TAG, "test run in " + c.this);
             while (e.aXk().y(c.this)) {
-                e.aXk().wt(c.this.mVideoUrl);
+                e.aXk().wu(c.this.mVideoUrl);
                 try {
                     j.z(c.TAG, "mDownloadRunnable sleep in..." + c.this);
                     Thread.sleep(100L);
@@ -516,7 +516,7 @@ public class c {
         if (this.mVideoUrl != null) {
             this.dWY = j;
             this.dWZ = j2;
-            this.dXl = m.wD(this.mVideoUrl);
+            this.dXl = m.wE(this.mVideoUrl);
             if (this.dXl != null) {
                 File file = new File(i.dXI + this.dXl);
                 File file2 = new File(file.getAbsolutePath() + "/segments");
@@ -547,7 +547,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean aXh() {
-        if (m.wC(this.dXl) > this.mTotalLength) {
+        if (m.wD(this.dXl) > this.mTotalLength) {
             m.J(new File(i.dXI + this.dXl + "/segments"));
             TiebaStatic.log(new an("c12028").cx("errormsg", "校验到缓存文件片段大小有异常").cx("url", this.mVideoUrl));
             j.z(TAG, "cache error !");
@@ -592,7 +592,7 @@ public class c {
             return;
         }
         if (file == null || !file.exists()) {
-            k.aXs().wA(this.mVideoUrl);
+            k.aXs().wB(this.mVideoUrl);
         }
     }
 

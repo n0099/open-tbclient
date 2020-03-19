@@ -203,10 +203,10 @@ public class PostAdBaseData implements ICardInfo {
 
         public void updataThreadData(bj bjVar) {
             if (bjVar != null) {
-                bjVar.sI(this.content);
+                bjVar.sJ(this.content);
                 bjVar.setTitle(this.title);
                 bjVar.bv(this.time);
-                bjVar.sF(this.forum_name);
+                bjVar.sG(this.forum_name);
                 bjVar.jJ(this.reply_num);
                 bjVar.jR(this.fEm);
                 bjVar.aCr().setName_show(this.username);

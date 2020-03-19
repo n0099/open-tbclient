@@ -68,15 +68,15 @@ public class a {
 
     public void a(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d DB;
+        d DC;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (DB = e.DB(chatMessage.getContent())) != null && !TextUtils.isEmpty(DB.taskId) && this.hLx.add(DB.taskId)) {
-                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", DB.hzv, "task_id", DB.taskId);
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (DC = e.DC(chatMessage.getContent())) != null && !TextUtils.isEmpty(DC.taskId) && this.hLx.add(DC.taskId)) {
+                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", DC.hzv, "task_id", DC.taskId);
             }
         }
     }
 
-    public void Dw(String str) {
+    public void Dx(String str) {
         if (str != null && str.length() > 0) {
             this.hLy.append(str).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         }

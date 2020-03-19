@@ -202,7 +202,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         ((FrescoThumbnailView) MY(a.f.ivAvatar)).xw(c.dQL());
         ImageView imageView = (ImageView) MY(a.f.ivGender);
         if (imageView != null) {
-            imageView.setImageResource(c.SN(null));
+            imageView.setImageResource(c.SO(null));
         }
         String string = c.getString(a.i.profile_failture_str);
         SimpleDraweeSpanTextView simpleDraweeSpanTextView = (SimpleDraweeSpanTextView) MY(a.f.tvNickName);
@@ -273,7 +273,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
         ImageView imageView = (ImageView) MY(a.f.ivGender);
         if (imageView != null) {
             UserCard.UserCardInfo userCardInfo2 = userCard.getUserCardInfo();
-            imageView.setImageResource(c.SN(userCardInfo2 != null ? userCardInfo2.getGender() : null));
+            imageView.setImageResource(c.SO(userCardInfo2 != null ? userCardInfo2.getGender() : null));
         }
         ImageView imageView2 = (ImageView) MY(a.f.ivGender);
         if (imageView2 != null) {
@@ -508,7 +508,7 @@ public final class a extends com.kascend.chushou.view.base.a implements View.OnC
             cVar.append(HanziToPinyin.Token.SEPARATOR);
             int length = cVar.length();
             com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).HU(com.kascend.chushou.view.a.a()).dnx(), this.b);
-            com.facebook.drawee.controller.a dmJ = com.facebook.drawee.a.a.c.dlW().OV(str).vo(true).dmN();
+            com.facebook.drawee.controller.a dmJ = com.facebook.drawee.a.a.c.dlW().OW(str).vo(true).dmN();
             q.i(dmJ, "Fresco.newDraweeControll…yAnimations(true).build()");
             q.i(a, "medalDraweeHolder");
             a.setController(dmJ);

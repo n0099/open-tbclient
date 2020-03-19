@@ -110,13 +110,13 @@ public class c {
         this.otherParams = intent.getStringExtra(IntentConfig.OTHER_PARAMS);
         long longExtra = intent.getLongExtra(AlaCharmCardActivityConfig.ONLINE_COUNT, 0L);
         com.baidu.tieba.ala.charm.a aVar = new com.baidu.tieba.ala.charm.a(this.ews, 3);
-        aVar.xR(stringExtra3).xO(stringExtra4).xM(stringExtra).ik(this.YB).xP(stringExtra5).xN(stringExtra2).xQ(stringExtra6).xS(stringExtra7).xT(stringExtra8).xU(stringExtra9).xV(this.otherParams).createView();
+        aVar.xS(stringExtra3).xP(stringExtra4).xN(stringExtra).ik(this.YB).xQ(stringExtra5).xO(stringExtra2).xR(stringExtra6).xT(stringExtra7).xU(stringExtra8).xV(stringExtra9).xW(this.otherParams).createView();
         this.Wh.add(aVar);
         com.baidu.tieba.ala.charm.a aVar2 = new com.baidu.tieba.ala.charm.a(this.ews, 2);
-        aVar2.xR(stringExtra3).xO(stringExtra4).xM(stringExtra).ik(this.YB).xP(stringExtra5).xN(stringExtra2).xQ(stringExtra6).xS(stringExtra7).xT(stringExtra8).xU(stringExtra9).xV(this.otherParams).createView();
+        aVar2.xS(stringExtra3).xP(stringExtra4).xN(stringExtra).ik(this.YB).xQ(stringExtra5).xO(stringExtra2).xR(stringExtra6).xT(stringExtra7).xU(stringExtra8).xV(stringExtra9).xW(this.otherParams).createView();
         this.Wh.add(aVar2);
         this.exQ = new com.baidu.tieba.ala.charm.c(this.ews);
-        this.exQ.xX(stringExtra4).im(this.YB).xY(stringExtra5).xZ(stringExtra6).createView();
+        this.exQ.xY(stringExtra4).im(this.YB).xZ(stringExtra5).ya(stringExtra6).createView();
         this.exQ.cD(longExtra);
         this.Wh.add(this.exQ);
         this.Wk.setData(this.Wh);

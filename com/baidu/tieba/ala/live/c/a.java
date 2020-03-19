@@ -57,7 +57,7 @@ public abstract class a {
     public interface InterfaceC0448a {
         void a(boolean z, Intent intent);
 
-        void yF(String str);
+        void yG(String str);
     }
 
     protected abstract com.baidu.tieba.ala.live.b.a a(PayChannelType payChannelType, a.InterfaceC0447a interfaceC0447a);
@@ -103,9 +103,9 @@ public abstract class a {
         };
     }
 
-    public void yH(String str) {
+    public void yI(String str) {
         if (this.eLc != null) {
-            this.eLc.yG(str);
+            this.eLc.yH(str);
         }
         bgz();
     }
@@ -132,7 +132,7 @@ public abstract class a {
                 iJ(false);
                 return;
             } else if (!TextUtils.isEmpty(str2) && !z && this.eLg != null) {
-                this.eLg.yF(str2);
+                this.eLg.yG(str2);
                 return;
             } else {
                 bgz();

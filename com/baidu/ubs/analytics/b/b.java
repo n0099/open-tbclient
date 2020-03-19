@@ -29,7 +29,7 @@ public final class b {
 
     /* loaded from: classes8.dex */
     public interface a<T> {
-        void Lp(String str);
+        void Lq(String str);
 
         void a(T t);
     }
@@ -136,7 +136,7 @@ public final class b {
                         dataOutputStream.flush();
                         dataOutputStream.close();
                         if (httpURLConnection.getResponseCode() != 200) {
-                            com.baidu.ubs.analytics.d.b.Ls(file.getAbsolutePath() + "     上传文件失败…………");
+                            com.baidu.ubs.analytics.d.b.Lt(file.getAbsolutePath() + "     上传文件失败…………");
                             httpURLConnection.disconnect();
                             try {
                                 fileInputStream.close();
@@ -249,12 +249,12 @@ public final class b {
                     }
                 }
             } else {
-                com.baidu.ubs.analytics.d.b.Ls("上传log失败    ");
+                com.baidu.ubs.analytics.d.b.Lt("上传log失败    ");
                 httpURLConnection.disconnect();
                 return null;
             }
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.b.Ls("上传log失败    " + e.getMessage());
+            com.baidu.ubs.analytics.d.b.Lt("上传log失败    " + e.getMessage());
             j.a(e);
             return null;
         }
@@ -267,7 +267,7 @@ public final class b {
         }
         if (str == null) {
             if (aVar != null) {
-                aVar.Lp("-1");
+                aVar.Lq("-1");
                 return false;
             }
             return false;
@@ -285,18 +285,18 @@ public final class b {
             return true;
         } else if (jSONObject.getString("status").equals("1")) {
             if (aVar != null) {
-                aVar.Lp(jSONObject.optString("status"));
+                aVar.Lq(jSONObject.optString("status"));
             }
-            com.baidu.ubs.analytics.d.b.Ls("net status  error ");
+            com.baidu.ubs.analytics.d.b.Lt("net status  error ");
             return false;
         } else {
             if (jSONObject.getString("status").equals("2")) {
                 g.d(d.cXN().getContext());
-                com.baidu.ubs.analytics.d.b.Ls("net  token error ");
+                com.baidu.ubs.analytics.d.b.Lt("net  token error ");
                 return false;
             }
             if (aVar != null) {
-                aVar.Lp("-1");
+                aVar.Lq("-1");
                 return false;
             }
             return false;

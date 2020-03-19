@@ -7,5 +7,5 @@ public interface a {
 
     void resume();
 
-    void yS(String str);
+    void yT(String str);
 }

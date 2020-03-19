@@ -146,7 +146,7 @@ public class d implements h, com.facebook.common.a.a {
                         break;
                     }
                     String str2 = a2.get(i);
-                    h.OO(str2);
+                    h.OP(str2);
                     com.facebook.a.a v = this.lJA.v(str2, bVar);
                     if (v != null) {
                         str = str2;
@@ -199,7 +199,7 @@ public class d implements h, com.facebook.common.a.a {
         synchronized (this.mLock) {
             b2 = com.facebook.cache.common.c.b(bVar);
         }
-        h.OO(b2);
+        h.OP(b2);
         try {
             try {
                 c.b a2 = a(b2, bVar);
@@ -237,7 +237,7 @@ public class d implements h, com.facebook.common.a.a {
                         break;
                     }
                     String str = a2.get(i2);
-                    this.lJA.OK(str);
+                    this.lJA.OL(str);
                     this.lJw.remove(str);
                     i = i2 + 1;
                 }
@@ -288,7 +288,7 @@ public class d implements h, com.facebook.common.a.a {
                 if (a2 > 0) {
                     i++;
                     j2 += a2;
-                    i eY = i.dkW().OO(next.getId()).a(evictionReason).eW(a2).eX(size - j2).eY(j);
+                    i eY = i.dkW().OP(next.getId()).a(evictionReason).eW(a2).eX(size - j2).eY(j);
                     this.lJj.g(eY);
                     eY.recycle();
                 }

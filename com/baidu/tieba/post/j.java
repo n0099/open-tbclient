@@ -44,7 +44,7 @@ public class j implements com.baidu.tieba.k.h {
 
     @Override // com.baidu.tieba.k.h
     public void cgW() {
-        cAE().EW(this.mUuid);
+        cAE().EX(this.mUuid);
     }
 
     @Override // com.baidu.tieba.k.h
@@ -54,7 +54,7 @@ public class j implements com.baidu.tieba.k.h {
 
     @Override // com.baidu.tieba.k.h
     public void cgX() {
-        cAE().EX(this.mUuid);
+        cAE().EY(this.mUuid);
         eT(this.mUuid);
     }
 
@@ -64,12 +64,12 @@ public class j implements com.baidu.tieba.k.h {
     }
 
     @Override // com.baidu.tieba.k.h
-    public void Fa(String str) {
+    public void Fb(String str) {
         if (!StringUtils.isNull(this.irG)) {
-            if (EY(this.irG) || EZ(this.irG)) {
+            if (EZ(this.irG) || Fa(this.irG)) {
                 eT(this.irG);
             } else {
-                com.baidu.tieba.k.d.EV(this.irG);
+                com.baidu.tieba.k.d.EW(this.irG);
                 this.cQ.remove(this.mUuid);
             }
             cgV();
@@ -84,23 +84,23 @@ public class j implements com.baidu.tieba.k.h {
     }
 
     @Override // com.baidu.tieba.k.h
-    public void Fb(String str) {
+    public void Fc(String str) {
         cAE().dU(this.mUuid, str);
-        if (EY(this.mUuid) || EZ(this.mUuid)) {
+        if (EZ(this.mUuid) || Fa(this.mUuid)) {
             eT(this.mUuid);
         } else {
-            com.baidu.tieba.k.d.EV(this.mUuid);
+            com.baidu.tieba.k.d.EW(this.mUuid);
             this.cQ.remove(this.mUuid);
         }
         this.mUuid = null;
     }
 
-    public boolean EY(String str) {
-        return cAE().EY(str);
-    }
-
     public boolean EZ(String str) {
         return cAE().EZ(str);
+    }
+
+    public boolean Fa(String str) {
+        return cAE().Fa(str);
     }
 
     public void eT(String str) {

@@ -12,7 +12,7 @@ public final class c implements b {
         return this.mfG;
     }
 
-    public boolean Pr(String str) {
+    public boolean Ps(String str) {
         return !this.mfH && this.mfG.requiresSecureDecoderComponent(str);
     }
 }

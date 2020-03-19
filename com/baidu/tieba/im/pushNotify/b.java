@@ -120,7 +120,7 @@ public class b {
         return this.hKe;
     }
 
-    public void Ds(String str) {
+    public void Dt(String str) {
         this.hKe = str;
     }
 }

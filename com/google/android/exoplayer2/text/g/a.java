@@ -93,15 +93,15 @@ final class a {
                     }
                 }
                 if ("color".equals(d)) {
-                    dVar.LH(com.google.android.exoplayer2.util.d.Qn(c));
+                    dVar.LH(com.google.android.exoplayer2.util.d.Qo(c));
                 } else if ("background-color".equals(d)) {
-                    dVar.LI(com.google.android.exoplayer2.util.d.Qn(c));
+                    dVar.LI(com.google.android.exoplayer2.util.d.Qo(c));
                 } else if ("text-decoration".equals(d)) {
                     if ("underline".equals(c)) {
                         dVar.vW(true);
                     }
                 } else if ("font-family".equals(d)) {
-                    dVar.Qf(c);
+                    dVar.Qg(c);
                 } else if ("font-weight".equals(d)) {
                     if ("bold".equals(c)) {
                         dVar.vX(true);
@@ -223,7 +223,7 @@ final class a {
             if (indexOf != -1) {
                 Matcher matcher = mDM.matcher(str.substring(indexOf));
                 if (matcher.matches()) {
-                    dVar.Qe(matcher.group(1));
+                    dVar.Qf(matcher.group(1));
                 }
                 str = str.substring(0, indexOf);
             }
@@ -231,10 +231,10 @@ final class a {
             String str2 = split[0];
             int indexOf2 = str2.indexOf(35);
             if (indexOf2 != -1) {
-                dVar.Qd(str2.substring(0, indexOf2));
-                dVar.Qc(str2.substring(indexOf2 + 1));
+                dVar.Qe(str2.substring(0, indexOf2));
+                dVar.Qd(str2.substring(indexOf2 + 1));
             } else {
-                dVar.Qd(str2);
+                dVar.Qe(str2);
             }
             if (split.length > 1) {
                 dVar.T((String[]) Arrays.copyOfRange(split, 1, split.length));

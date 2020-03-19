@@ -159,7 +159,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
 
     @Override // com.baidu.tieba.recapp.c.a
     public String getShareLink() {
-        return t.IU(this.scheme) ? Uri.parse(this.scheme).getQueryParameter("wap") : this.scheme;
+        return t.IV(this.scheme) ? Uri.parse(this.scheme).getQueryParameter("wap") : this.scheme;
     }
 
     @Override // com.baidu.tieba.recapp.c.a
@@ -244,7 +244,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             }
         }
 
-        public void HP(String str) {
+        public void HQ(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     parseFromJson(new JSONObject(str));
@@ -537,7 +537,7 @@ public class AdCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdver
             bjVar.by(this.share_num);
             bjVar.setAddress(this.localAdsAddress);
             bjVar.setTitle(this.threadTitle);
-            bjVar.sI(this.threadContent);
+            bjVar.sJ(this.threadContent);
             bjVar.aCr().setName_show(this.userName);
             bjVar.aCr().setPortrait(this.userPortrait);
         }

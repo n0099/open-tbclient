@@ -48,7 +48,7 @@ public class h extends j {
         if (this.gJd == null) {
             this.gJd = new PraiseModel(this.gHP.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-                public void xr(String str) {
+                public void xs(String str) {
                     int i = 1;
                     if (h.this.gJc) {
                         if (h.this.gJb != null && h.this.gJb.aCc().getIsLike() == 1) {

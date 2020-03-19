@@ -127,7 +127,7 @@ public class a {
         }
     }
 
-    public void zJ(String str) {
+    public void zK(String str) {
         if (this.fyj != null && 2 == this.fyj.categoryType && this.fyv != null) {
             this.fyv.setText(str);
         }

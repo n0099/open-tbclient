@@ -38,43 +38,43 @@ public class d implements Dns {
 
     @Override // okhttp3.Dns
     public List<InetAddress> lookup(String str) throws UnknownHostException {
-        List<InetAddress> RV;
+        List<InetAddress> RW;
         if (InetAddressValidator.getInstance().isValid(str)) {
             return Collections.singletonList(InetAddress.getByName(str));
         }
         try {
             if (!isInWhiteList(str)) {
-                RV = RV(str);
+                RW = RW(str);
             } else {
                 try {
-                    RV = RX(str);
+                    RW = RY(str);
                 } catch (UnknownHostException e) {
-                    RV = RV(str);
+                    RW = RW(str);
                 }
             }
-            return RV;
+            return RW;
         } catch (UnknownHostException e2) {
-            return RW(str);
+            return RX(str);
         }
-    }
-
-    private List<InetAddress> RV(String str) throws UnknownHostException {
-        return this.nwB.lookup(str);
     }
 
     private List<InetAddress> RW(String str) throws UnknownHostException {
-        String[] RU = b.dJm().RU(str);
-        if (RU.length <= 0) {
+        return this.nwB.lookup(str);
+    }
+
+    private List<InetAddress> RX(String str) throws UnknownHostException {
+        String[] RV = b.dJm().RV(str);
+        if (RV.length <= 0) {
             throw new UnknownHostException("disaster recovery failed");
         }
-        ArrayList arrayList = new ArrayList(RU.length);
-        for (String str2 : RU) {
+        ArrayList arrayList = new ArrayList(RV.length);
+        for (String str2 : RV) {
             arrayList.add(InetAddress.getByName(str2));
         }
         return arrayList;
     }
 
-    private List<InetAddress> RX(String str) throws UnknownHostException {
+    private List<InetAddress> RY(String str) throws UnknownHostException {
         List<InetAddress> lookup = this.nwA.lookup(str);
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();

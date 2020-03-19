@@ -39,7 +39,7 @@ public class b {
         return bVar;
     }
 
-    public static b xA(String str) {
+    public static b xB(String str) {
         b bVar = new b();
         try {
             JSONObject jSONObject = new JSONObject(str);

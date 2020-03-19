@@ -236,7 +236,7 @@ public class k extends com.baidu.adp.widget.ListView.a<m, l> implements com.baid
             i2 = 102;
         }
         com.baidu.tieba.recapp.report.b a = com.baidu.tieba.recapp.report.f.a(advertAppInfo, str, i2, i);
-        a.Ie(str3);
+        a.If(str3);
         com.baidu.tieba.recapp.report.c.cDK().a(a);
         com.baidu.tieba.lego.card.b.c.a(com.baidu.tieba.lego.card.b.c.e(advertAppInfo));
     }

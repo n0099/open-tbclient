@@ -94,7 +94,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.gvF = new i(getPageContext(), this);
         this.gvF.setId(this.mId);
         this.gvF.setFrom(this.mFrom);
-        this.gvF.Bl(this.st_type);
+        this.gvF.Bm(this.st_type);
         this.gvF.setLocation(this.yuelaou_locate);
         this.gvF.bGH();
         registerListener(this.cLK);

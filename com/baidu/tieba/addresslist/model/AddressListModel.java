@@ -50,9 +50,9 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         this.ecH.cr(j);
     }
 
-    public int xv(String str) {
+    public int xw(String str) {
         int i;
-        if (c.ux(str)) {
+        if (c.uy(str)) {
             List<com.baidu.tbadk.coreExtra.relationship.a> aYJ = this.ecH.aYJ();
             if (aYJ != null) {
                 for (com.baidu.tbadk.coreExtra.relationship.a aVar : aYJ) {

@@ -29,7 +29,7 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void Kg(String str) {
+    public void Kh(String str) {
         if (this.kBA != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {

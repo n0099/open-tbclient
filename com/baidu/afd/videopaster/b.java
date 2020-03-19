@@ -11,7 +11,7 @@ public class b {
 
     public static void a(com.baidu.afd.videopaster.b.a aVar, String str) {
         com.baidu.tieba.recapp.report.b o = f.o(aVar);
-        o.Ij(str);
+        o.Ik(str);
         o.Bi(aVar.Ey);
         com.baidu.tieba.recapp.report.c.cDK().a(o);
     }
@@ -39,7 +39,7 @@ public class b {
     public static void b(com.baidu.afd.videopaster.b.a aVar, String str) {
         com.baidu.tieba.recapp.report.b r = f.r(aVar);
         r.Bg(706);
-        r.Ij(str);
+        r.Ik(str);
         com.baidu.tieba.recapp.report.c.cDK().a(r);
     }
 }

@@ -157,7 +157,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
                 this.gGQ = frsRequestData;
                 this.mPn = this.gGQ.getPn();
                 this.gpb = this.gGQ.getKw();
-                this.gGO.Bz(this.gpb);
+                this.gGO.BA(this.gpb);
                 this.gGO.setFrom(this.mFrom);
                 this.gGO.setPn(this.mPn);
                 this.gGO.setFlag(this.mFlag);

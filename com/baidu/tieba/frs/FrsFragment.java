@@ -1140,9 +1140,9 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
             privateForumPopInfoData.a(this.goJ.getPrivateForumTotalInfo().getPrivatePopInfo());
             FrsPrivateCommonDialogView frsPrivateCommonDialogView = new FrsPrivateCommonDialogView(getActivity());
             if (this.goJ.getPrivateForumTotalInfo().aBu().private_forum_status.intValue() == 1 && (com.baidu.tbadk.core.util.aq.isEmpty(privateForumPopInfoData.aBw()) || privateForumPopInfoData.aBz() != Integer.valueOf(this.forumId))) {
-                privateForumPopInfoData.sx("create_success");
-                privateForumPopInfoData.sy(TbadkCoreApplication.getInst().getString(R.string.frs_private_create_hint));
-                privateForumPopInfoData.sz("https://tieba.baidu.com/mo/q/forumtarget?fid=" + this.forumId + "&fn=" + this.gpb + "&nomenu=1");
+                privateForumPopInfoData.sy("create_success");
+                privateForumPopInfoData.sz(TbadkCoreApplication.getInst().getString(R.string.frs_private_create_hint));
+                privateForumPopInfoData.sA("https://tieba.baidu.com/mo/q/forumtarget?fid=" + this.forumId + "&fn=" + this.gpb + "&nomenu=1");
                 privateForumPopInfoData.g(Integer.valueOf(this.forumId));
                 b = frsPrivateCommonDialogView.b(privateForumPopInfoData);
             } else {
@@ -1434,7 +1434,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                     });
                 }
                 if (this.goJ.getForum() != null) {
-                    this.gpj.Bg(this.goJ.getForum().getWarningMsg());
+                    this.gpj.Bh(this.goJ.getForum().getWarningMsg());
                 }
                 if (this.goJ != null && this.goJ.getFrsVideoActivityData() != null && com.baidu.tbadk.core.sharedPref.b.aFH().getLong(SharedPrefConfig.FRS_VIDEO_ACTIVITY_GUIDE, 0L) == 0) {
                     com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.FrsFragment.16
@@ -1482,13 +1482,13 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
 
     private void bEn() {
         if (this.gpz != null) {
-            Bf(this.gpz.getPageType());
+            Bg(this.gpz.getPageType());
         } else {
-            Bf("normal_page");
+            Bg("normal_page");
         }
     }
 
-    private void Bf(String str) {
+    private void Bg(String str) {
         ll("frs_page".equals(str));
         if (this.gpH != null) {
             this.gpH.a(this.gpA, this.gpj, this.goJ);
@@ -1712,7 +1712,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                             if (FrsFragment.this.fMK == null) {
                                 FrsFragment.this.fMK = new com.baidu.tbadk.core.dialog.a(FrsFragment.this.getActivity());
                             }
-                            FrsFragment.this.fMK.sR(text);
+                            FrsFragment.this.fMK.sS(text);
                             FrsFragment.this.fMK.a(R.string.dialog_known, new a.b() { // from class: com.baidu.tieba.frs.FrsFragment.20.1
                                 @Override // com.baidu.tbadk.core.dialog.a.b
                                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -1728,7 +1728,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                             if (FrsFragment.this.fMK == null) {
                                 FrsFragment.this.fMK = new com.baidu.tbadk.core.dialog.a(FrsFragment.this.getActivity());
                             }
-                            FrsFragment.this.fMK.sR(text);
+                            FrsFragment.this.fMK.sS(text);
                             FrsFragment.this.fMK.a(R.string.know, new a.b() { // from class: com.baidu.tieba.frs.FrsFragment.20.2
                                 @Override // com.baidu.tbadk.core.dialog.a.b
                                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -2156,7 +2156,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
     }
 
     public void refresh() {
-        com.baidu.tieba.a.d.aXK().wO("page_frs");
+        com.baidu.tieba.a.d.aXK().wP("page_frs");
         refresh(3);
     }
 
@@ -2177,7 +2177,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                 com.baidu.adp.lib.f.h.gy().submitTask(new Runnable() { // from class: com.baidu.tieba.frs.FrsFragment.26
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.tbadkCore.util.a.Ji(FrsFragment.this.gpb);
+                        com.baidu.tieba.tbadkCore.util.a.Jj(FrsFragment.this.gpb);
                     }
                 });
                 break;
@@ -2445,8 +2445,8 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MangaBrowserActivityConfig(FrsFragment.this.getPageContext().getPageActivity(), aDz.getCartoonId(), aDz.getChapterId(), 2)));
                             } else {
                                 com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                                if (readThreadHistory != null && !readThreadHistory.Jo(bjVar.getId())) {
-                                    readThreadHistory.Jn(bjVar.getId());
+                                if (readThreadHistory != null && !readThreadHistory.Jp(bjVar.getId())) {
+                                    readThreadHistory.Jo(bjVar.getId());
                                 }
                                 boolean z = false;
                                 final String aCy = bjVar.aCy();
@@ -2780,7 +2780,7 @@ public class FrsFragment extends BaseFragment implements BdListView.e, a.Interfa
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.core.util.f.c
     public boolean isCyberVideoUsedThisPage() {
-        return com.baidu.tbadk.a.b.rG("cyber_player_test");
+        return com.baidu.tbadk.a.b.rH("cyber_player_test") || com.baidu.tbadk.a.b.rG("cyber_player_test");
     }
 
     /* JADX INFO: Access modifiers changed from: private */

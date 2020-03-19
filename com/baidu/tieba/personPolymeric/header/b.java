@@ -243,7 +243,7 @@ public class b {
                 cL(this.jrk);
                 this.jrl.setVisibility(0);
                 this.jrj.setIsclearmode(true);
-                this.jrj.tT(this.mUserData.getAvater());
+                this.jrj.tU(this.mUserData.getAvater());
             } else {
                 this.jrj.a(this.mUserData);
                 this.jrl.setVisibility(8);
@@ -280,8 +280,8 @@ public class b {
         this.fcX.start();
     }
 
-    public void GU(String str) {
-        this.jrj.tS(str);
+    public void GV(String str) {
+        this.jrj.tT(str);
     }
 
     public void rA(boolean z) {

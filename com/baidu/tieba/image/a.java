@@ -60,7 +60,7 @@ public class a implements ImagePagerAdapter.a {
                             }
                             a.this.hSK.caD();
                             if (s.a(a.this.cVv.getPageActivity(), a.this.hSH, 0, str)) {
-                                a.this.hSK.DL(a.this.hSH.cNn);
+                                a.this.hSK.DM(a.this.hSH.cNn);
                                 return;
                             }
                             return;
@@ -71,7 +71,7 @@ public class a implements ImagePagerAdapter.a {
                         a.this.hSH.cNj = 3;
                         a.this.cap();
                     } else if (i == 2) {
-                        if (com.baidu.tieba.recapp.download.e.cCW().uY(a.this.hSH.cNn)) {
+                        if (com.baidu.tieba.recapp.download.e.cCW().uZ(a.this.hSH.cNn)) {
                             x.bd(a.this.cVv.getPageActivity(), a.this.hSH.cNn);
                             return;
                         }
@@ -220,10 +220,10 @@ public class a implements ImagePagerAdapter.a {
             if (StringUtils.isNull(str)) {
                 str = this.cVv.getString(R.string.app_name);
             }
-            if (com.baidu.tieba.recapp.download.e.cCW().uY(this.hSH.cNn)) {
+            if (com.baidu.tieba.recapp.download.e.cCW().uZ(this.hSH.cNn)) {
                 this.hSH.cNj = 2;
             } else if (com.baidu.tieba.recapp.download.e.cCW().en(this.hSH.cNn, str)) {
-                if (com.baidu.tieba.recapp.download.e.cCW().uW(this.hSH.cNn)) {
+                if (com.baidu.tieba.recapp.download.e.cCW().uX(this.hSH.cNn)) {
                     this.hSH.cNj = 1;
                 } else {
                     this.hSH.cNj = 3;
@@ -238,7 +238,7 @@ public class a implements ImagePagerAdapter.a {
                     if (string.length() > hSF) {
                         string = string.substring(0, hSF);
                     }
-                    this.hSJ.DK(string);
+                    this.hSJ.DL(string);
                     return;
                 case 1:
                     this.hSJ.cax();
@@ -247,7 +247,7 @@ public class a implements ImagePagerAdapter.a {
                     this.hSJ.cay();
                     return;
                 case 3:
-                    this.hSJ.DK(this.cVv.getString(R.string.pb_download_pause));
+                    this.hSJ.DL(this.cVv.getString(R.string.pb_download_pause));
                     return;
                 default:
                     this.hSJ.caw().setVisibility(8);
@@ -267,7 +267,7 @@ public class a implements ImagePagerAdapter.a {
             } else {
                 string = this.cVv.getString(R.string.confirm_download_app);
             }
-            aVar.sR(string);
+            aVar.sS(string);
             aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.image.a.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -277,7 +277,7 @@ public class a implements ImagePagerAdapter.a {
                     }
                     a.this.hSK.caD();
                     if (s.a(a.this.cVv.getPageActivity(), a.this.hSH, 0, str)) {
-                        a.this.hSK.DL(a.this.hSH.cNn);
+                        a.this.hSK.DM(a.this.hSH.cNn);
                     }
                     aVar2.dismiss();
                 }

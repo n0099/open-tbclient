@@ -184,7 +184,7 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
             String stringExtra3 = intent.getStringExtra("yuelaou_locate");
             this.gPm.setId(stringExtra);
             this.gPm.setLocation(stringExtra3);
-            this.gPm.Bl(stringExtra2);
+            this.gPm.Bm(stringExtra2);
             VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = (VideoSerializeVideoThreadInfo) intent.getSerializableExtra(VideoMiddlePageActivityConfig.PARAM_VIDEO_THREAD_INFO);
             if (videoSerializeVideoThreadInfo != null) {
                 this.gPQ.put("forum_id", videoSerializeVideoThreadInfo.forumId);
@@ -542,7 +542,7 @@ public class VideoMiddlePageFragment extends BaseFragment implements c, g.b {
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.core.util.f.c
     public boolean isCyberVideoUsedThisPage() {
-        return com.baidu.tbadk.a.b.rG("cyber_player_test");
+        return com.baidu.tbadk.a.b.rH("cyber_player_test") || com.baidu.tbadk.a.b.rG("cyber_player_test");
     }
 
     public a bLN() {

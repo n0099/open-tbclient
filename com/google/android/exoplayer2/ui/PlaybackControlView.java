@@ -83,7 +83,7 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     static {
-        l.Pl("goog.exo.ui");
+        l.Pm("goog.exo.ui");
         mFW = new c();
     }
 

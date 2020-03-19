@@ -76,7 +76,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.ad.download.a.c
-    public void xd(String str) {
+    public void xe(String str) {
         if (this.eah != null) {
             com.baidu.tieba.ad.download.d.aYp().d(this.eah).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
             if (!aYv()) {

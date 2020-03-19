@@ -598,7 +598,7 @@ public class f {
             return null;
         }
         com.baidu.tieba.tbadkCore.data.m mVar = new com.baidu.tieba.tbadkCore.data.m();
-        mVar.Ja(coJ);
+        mVar.Jb(coJ);
         c(mVar);
         return mVar;
     }
@@ -1104,7 +1104,7 @@ public class f {
                     PostData postData = (PostData) list.get(i);
                     if (!TextUtils.isEmpty(postData.aDy())) {
                         com.baidu.tbadk.core.data.ae aeVar = new com.baidu.tbadk.core.data.ae();
-                        aeVar.sw(postData.aDy());
+                        aeVar.sx(postData.aDy());
                         list.set(i, aeVar);
                     }
                 }

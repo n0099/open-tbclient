@@ -170,11 +170,11 @@ public class j extends d implements com.baidu.tieba.model.a, com.baidu.tieba.per
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public void GR(String str) {
+    public void GS(String str) {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a
-    public void GS(String str) {
+    public void GT(String str) {
     }
 
     @Override // com.baidu.tieba.personPolymeric.b.a

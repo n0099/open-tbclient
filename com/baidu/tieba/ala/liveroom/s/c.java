@@ -120,7 +120,7 @@ public class c extends Dialog {
                     }
                     return;
                 }
-                c.this.zt("nickname=" + c.this.fkI.getText().toString());
+                c.this.zu("nickname=" + c.this.fkI.getText().toString());
             }
         });
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
@@ -134,9 +134,9 @@ public class c extends Dialog {
         editText.setFilters(new InputFilter[]{new InputFilter() { // from class: com.baidu.tieba.ala.liveroom.s.c.5
             @Override // android.text.InputFilter
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-                int zs = c.zs(charSequence.toString());
-                int zs2 = c.zs(spanned.toString());
-                if (!c.isAccount(charSequence.toString()) || zs + zs2 > 20) {
+                int zt = c.zt(charSequence.toString());
+                int zt2 = c.zt(spanned.toString());
+                if (!c.isAccount(charSequence.toString()) || zt + zt2 > 20) {
                     return "";
                 }
                 return null;
@@ -144,7 +144,7 @@ public class c extends Dialog {
         }});
     }
 
-    public static int zs(String str) {
+    public static int zt(String str) {
         if (str == null || "".equals(str)) {
             return 0;
         }
@@ -172,7 +172,7 @@ public class c extends Dialog {
         }
     }
 
-    public void zt(String str) {
+    public void zu(String str) {
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin()) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.REMANE_POP_CLICK);
             alaStaticItem.addParams("other_params", this.otherParams);

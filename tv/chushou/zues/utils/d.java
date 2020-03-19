@@ -67,7 +67,7 @@ public class d {
     }
 
     @NonNull
-    public static Map<String, String> SU(String str) {
+    public static Map<String, String> SV(String str) {
         if (TextUtils.isEmpty(str)) {
             return nYD;
         }

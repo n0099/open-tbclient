@@ -165,7 +165,7 @@ public class f extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 

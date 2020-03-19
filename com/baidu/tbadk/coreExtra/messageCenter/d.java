@@ -139,11 +139,11 @@ public class d {
         this.dpf = z;
     }
 
-    public void up(String str) {
+    public void uq(String str) {
         this.dpg = str;
     }
 
-    public void uq(String str) {
+    public void ur(String str) {
         this.dph = str;
     }
 

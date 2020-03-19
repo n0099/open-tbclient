@@ -255,7 +255,7 @@ public class PermissionJudgePolicy {
                     this.dbO.a(this.dbQ);
                 }
             }
-            this.dbO.tF(this.dbL.get(0));
+            this.dbO.tG(this.dbL.get(0));
             this.dbO.b(af(activity));
             this.dbO.onChangeSkinType();
             this.dbO.aEG();

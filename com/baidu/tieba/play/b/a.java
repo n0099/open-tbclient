@@ -188,7 +188,7 @@ public class a {
         }
     }
 
-    public static void Hg(String str) {
+    public static void Hh(String str) {
         if (!StringUtils.isNull(str)) {
             new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.play.b.a.1
                 /* JADX DEBUG: Method merged with bridge method */

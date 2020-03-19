@@ -2107,10 +2107,10 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
     public void a(String str, f fVar) {
         this.dQd = fVar;
-        wi(str);
+        wj(str);
     }
 
-    public void wi(String str) {
+    public void wj(String str) {
         BdUniqueId bdUniqueId;
         boolean z;
         if (TextUtils.isEmpty(str)) {
@@ -2170,7 +2170,7 @@ public class TbRichTextView extends LinearLayout implements com.baidu.adp.newwid
 
     @Override // com.baidu.adp.newwidget.ImageView.h
     public void refresh() {
-        wi(this.mUrl);
+        wj(this.mUrl);
     }
 
     public void setTextViewOnClickListener(View.OnClickListener onClickListener) {

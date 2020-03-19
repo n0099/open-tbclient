@@ -22,14 +22,14 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class b {
-    private static final int mkD = v.QE("vide");
-    private static final int mkE = v.QE("soun");
-    private static final int mkF = v.QE("text");
-    private static final int mkG = v.QE("sbtl");
-    private static final int mkH = v.QE("subt");
-    private static final int mkI = v.QE("clcp");
-    private static final int mkJ = v.QE("cenc");
-    private static final int mkm = v.QE(MetaBox.TYPE);
+    private static final int mkD = v.QF("vide");
+    private static final int mkE = v.QF("soun");
+    private static final int mkF = v.QF("text");
+    private static final int mkG = v.QF("sbtl");
+    private static final int mkH = v.QF("subt");
+    private static final int mkI = v.QF("clcp");
+    private static final int mkJ = v.QF("cenc");
+    private static final int mkm = v.QF(MetaBox.TYPE);
 
     /* renamed from: com.google.android.exoplayer2.extractor.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
@@ -550,7 +550,7 @@ public final class b {
             Pair<Integer, k> b = b(lVar, i2, i3);
             if (b != null) {
                 i = ((Integer) b.first).intValue();
-                drmInitData3 = drmInitData == null ? null : drmInitData.Pq(((k) b.second).schemeType);
+                drmInitData3 = drmInitData == null ? null : drmInitData.Pr(((k) b.second).schemeType);
                 cVar.mkQ[i6] = (k) b.second;
             } else {
                 drmInitData3 = drmInitData;
@@ -721,7 +721,7 @@ public final class b {
             Pair<Integer, k> b = b(lVar, i2, i3);
             if (b != null) {
                 i = ((Integer) b.first).intValue();
-                drmInitData3 = drmInitData == null ? null : drmInitData.Pq(((k) b.second).schemeType);
+                drmInitData3 = drmInitData == null ? null : drmInitData.Pr(((k) b.second).schemeType);
                 cVar.mkQ[i5] = (k) b.second;
             } else {
                 drmInitData3 = drmInitData;

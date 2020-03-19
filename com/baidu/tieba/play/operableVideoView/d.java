@@ -160,10 +160,10 @@ public class d implements com.baidu.tieba.play.operableVideoView.a {
             float f6;
             float f7 = 0.0f;
             if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                com.baidu.adp.widget.ImageView.a vx = com.baidu.tbadk.imageManager.c.aPV().vx(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), 10));
-                if (vx != null) {
-                    int width = vx.getWidth();
-                    i = vx.getHeight();
+                com.baidu.adp.widget.ImageView.a vy = com.baidu.tbadk.imageManager.c.aPV().vy(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), 10));
+                if (vy != null) {
+                    int width = vy.getWidth();
+                    i = vy.getHeight();
                     i2 = width;
                 } else {
                     i = 0;
@@ -733,7 +733,7 @@ public class d implements com.baidu.tieba.play.operableVideoView.a {
             SvgManager.aGG().a(this.Pb, R.drawable.ic_icon_pure_video_pause44_svg, R.color.cp_cont_a, (SvgManager.SvgResourceStateType) null);
             this.Pb.setOnClickListener(this);
             this.jzK.setOnClickListener(this);
-            this.isNewPlayer = com.baidu.tbadk.a.b.rG("cyber_player_test");
+            this.isNewPlayer = com.baidu.tbadk.a.b.rH("cyber_player_test") || com.baidu.tbadk.a.b.rG("cyber_player_test");
             this.jvf = com.baidu.tieba.play.a.b.F(this.mContext, this.isNewPlayer ? 1 : 0);
             this.jvf.setTryUseViewInSet(true);
             czU();
@@ -927,8 +927,8 @@ public class d implements com.baidu.tieba.play.operableVideoView.a {
             }
             this.jzQ = true;
             if (!this.jvf.isPlaying()) {
-                com.baidu.tieba.play.a.a He = TbVideoViewSet.czP().He(this.mVideoUrl);
-                if (He == null) {
+                com.baidu.tieba.play.a.a Hf = TbVideoViewSet.czP().Hf(this.mVideoUrl);
+                if (Hf == null) {
                     this.jvf.czl();
                     if (!StringUtils.isNull(this.jvf.getOriginUrl())) {
                         this.jvf = com.baidu.tieba.play.a.b.F(this.mContext, this.isNewPlayer ? 1 : 0);
@@ -944,15 +944,15 @@ public class d implements com.baidu.tieba.play.operableVideoView.a {
                         }
                     }
                 } else {
-                    if (this.jvf == He) {
-                        if (this.jvf.getParent() == null || this.jvf.getParent() != He.getParent()) {
+                    if (this.jvf == Hf) {
+                        if (this.jvf.getParent() == null || this.jvf.getParent() != Hf.getParent()) {
                             this.jvf.czl();
                             czU();
                         }
                     } else {
                         this.jvf.czl();
-                        He.czl();
-                        this.jvf = He;
+                        Hf.czl();
+                        this.jvf = Hf;
                         this.jvf.setTryUseViewInSet(true);
                         czU();
                     }

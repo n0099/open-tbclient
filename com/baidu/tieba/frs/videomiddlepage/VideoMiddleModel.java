@@ -99,7 +99,7 @@ public class VideoMiddleModel extends BdBaseModel {
         this.mId = str;
     }
 
-    public void Bl(String str) {
+    public void Bm(String str) {
         this.st_type = str;
     }
 

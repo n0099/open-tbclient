@@ -48,7 +48,7 @@ public class h {
         }
         try {
             parserJson(new JSONObject(str));
-            IN(str);
+            IO(str);
         } catch (Exception e) {
             this.isSuccess = false;
             BdLog.e(e.toString());
@@ -83,9 +83,9 @@ public class h {
                             String optString3 = jSONObject.optString("template_id", "");
                             if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                                 bg bgVar = new bg();
-                                bgVar.sA(optString);
+                                bgVar.sB(optString);
                                 bgVar.setLink(optString2);
-                                bgVar.sB(optString3);
+                                bgVar.sC(optString3);
                                 this.kel.add(bgVar);
                             }
                         }
@@ -173,7 +173,7 @@ public class h {
         return this.mTimeStamp;
     }
 
-    private void IN(String str) {
+    private void IO(String str) {
         JSONArray optJSONArray;
         if (str != null) {
             try {

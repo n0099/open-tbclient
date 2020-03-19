@@ -18,7 +18,7 @@ public class c {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 b bVar = new b();
                 bVar.parserJson(optJSONArray.optJSONObject(i));
-                bVar.zG(this.fwH);
+                bVar.zH(this.fwH);
                 bVar.qQ(this.fwJ);
                 this.list.add(bVar);
             }

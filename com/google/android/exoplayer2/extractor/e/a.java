@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.util.v;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class a implements e {
-    private static final int moe = v.QE("RCC\u0001");
+    private static final int moe = v.QF("RCC\u0001");
     private final Format mbs;
     private int mhK;
     private m miA;

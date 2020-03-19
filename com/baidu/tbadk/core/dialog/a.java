@@ -63,17 +63,17 @@ public class a {
         void onClick(a aVar);
     }
 
-    public a sQ(String str) {
+    public a sR(String str) {
         this.mTitle = str;
         return this;
     }
 
     public a jV(int i) {
-        sQ(this.mActivity.getResources().getString(i));
+        sR(this.mActivity.getResources().getString(i));
         return this;
     }
 
-    public a sR(String str) {
+    public a sS(String str) {
         this.mMessage = str;
         return this;
     }

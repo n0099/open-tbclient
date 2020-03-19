@@ -243,7 +243,7 @@ public class b {
                     int cF = b.this.cF(downloadData.getId(), downloadData.getName());
                     if (downloadData.isNeedNotify() && cF <= 0) {
                         String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.download_will_begin);
-                        NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + string, 0, string, downloadData.getName(), b.this.uV(downloadData.getAction()), false);
+                        NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getName() + string, 0, string, downloadData.getName(), b.this.uW(downloadData.getAction()), false);
                     } else {
                         b.this.c(downloadData);
                     }
@@ -260,12 +260,12 @@ public class b {
     public void c(DownloadData downloadData) {
         if (downloadData != null && downloadData.isNeedNotify()) {
             int cF = cF(downloadData.getId(), downloadData.getName());
-            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, cF, cF + "%", downloadData.getName(), uV(downloadData.getAction()), false);
+            NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, cF, cF + "%", downloadData.getName(), uW(downloadData.getAction()), false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PendingIntent uV(String str) {
+    public PendingIntent uW(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -275,7 +275,7 @@ public class b {
         return PendingIntent.getActivity(TbadkCoreApplication.getInst(), 0, intent, 0);
     }
 
-    public boolean uW(String str) {
+    public boolean uX(String str) {
         for (DownloadData downloadData : d.aOu().getDownloadList()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
                 return true;
@@ -296,7 +296,7 @@ public class b {
         return 0;
     }
 
-    public void uX(String str) {
+    public void uY(String str) {
         if (!StringUtils.isNull(str)) {
             d.aOu().cancelDownLoadByUrl(str);
         }
@@ -310,7 +310,7 @@ public class b {
         return -1L;
     }
 
-    public boolean uY(String str) {
+    public boolean uZ(String str) {
         return (TextUtils.isEmpty(str) || m.GetFile(new StringBuilder().append(str.replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)).append(".apk").toString()) == null) ? false : true;
     }
 }

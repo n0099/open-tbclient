@@ -42,7 +42,7 @@ public class ImageRequestBuilder {
     }
 
     public static ImageRequestBuilder p(ImageRequest imageRequest) {
-        return Y(imageRequest.dsO()).a(imageRequest.dsS()).d(imageRequest.dqY()).a(imageRequest.dsN()).vD(imageRequest.dsU()).a(imageRequest.drX()).a(imageRequest.dsX()).vC(imageRequest.dsT()).b(imageRequest.drZ()).c(imageRequest.dsQ()).c(imageRequest.dmc()).a(imageRequest.dsR()).c(imageRequest.dmc()).z(imageRequest.dsm()).Pi(imageRequest.mTag).Pj(imageRequest.lZe);
+        return Y(imageRequest.dsO()).a(imageRequest.dsS()).d(imageRequest.dqY()).a(imageRequest.dsN()).vD(imageRequest.dsU()).a(imageRequest.drX()).a(imageRequest.dsX()).vC(imageRequest.dsT()).b(imageRequest.drZ()).c(imageRequest.dsQ()).c(imageRequest.dmc()).a(imageRequest.dsR()).c(imageRequest.dmc()).z(imageRequest.dsm()).Pj(imageRequest.mTag).Pk(imageRequest.lZe);
     }
 
     private ImageRequestBuilder() {
@@ -61,7 +61,7 @@ public class ImageRequestBuilder {
         return this.mTag;
     }
 
-    public ImageRequestBuilder Pi(String str) {
+    public ImageRequestBuilder Pj(String str) {
         this.mTag = str;
         return this;
     }
@@ -70,7 +70,7 @@ public class ImageRequestBuilder {
         return this.lZe;
     }
 
-    public ImageRequestBuilder Pj(String str) {
+    public ImageRequestBuilder Pk(String str) {
         this.lZe = str;
         return this;
     }

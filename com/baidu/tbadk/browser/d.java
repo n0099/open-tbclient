@@ -80,7 +80,7 @@ public class d {
                 if (str.startsWith("tel:")) {
                     UtilHelper.callPhone(tbPageContext.getPageActivity(), str.substring(4));
                     return 0;
-                } else if (ag.vZ(str) && str.toLowerCase().endsWith(".apk")) {
+                } else if (ag.wa(str) && str.toLowerCase().endsWith(".apk")) {
                     d.ax(tbPageContext.getPageActivity(), str);
                     return 0;
                 } else if (str.contains("http://tieba.baidu.com/mo/q/hotMessage?topic_id=")) {
@@ -170,7 +170,7 @@ public class d {
         });
     }
 
-    private static String sf(String str) {
+    private static String sg(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -181,12 +181,12 @@ public class d {
             return str;
         }
         if (!str.startsWith(checkUrl)) {
-            return checkUrl + sg(str);
+            return checkUrl + sh(str);
         }
         return str;
     }
 
-    public static String sg(String str) {
+    public static String sh(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -210,22 +210,22 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(final TbPageContext<?> tbPageContext, String str, final String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        final String sf = sf(str);
+        final String sg = sg(str);
         if (z) {
             com.baidu.tbadk.coreExtra.c.a.a(tbPageContext, new a.b() { // from class: com.baidu.tbadk.browser.d.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    a.startWebActivity(TbPageContext.this.getPageActivity(), str2, sf);
+                    a.startWebActivity(TbPageContext.this.getPageActivity(), str2, sg);
                 }
             }, new a.b() { // from class: com.baidu.tbadk.browser.d.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
-            }, sf);
+            }, sg);
         } else {
-            a.startWebActivity(tbPageContext.getPageActivity(), str2, sf);
+            a.startWebActivity(tbPageContext.getPageActivity(), str2, sg);
         }
     }
 
@@ -358,7 +358,7 @@ public class d {
         String queryParameter10 = uri.getQueryParameter(LegoListActivityConfig.IS_LANDINGPAGE);
         String queryParameter11 = uri.getQueryParameter("source");
         String str3 = TextUtils.isEmpty(queryParameter11) ? "unknown" : queryParameter11;
-        if ((!z || sh(queryParameter7)) && str != null && queryParameter != null && str.length() > 0 && queryParameter.length() > 0) {
+        if ((!z || si(queryParameter7)) && str != null && queryParameter != null && str.length() > 0 && queryParameter.length() > 0) {
             try {
                 int parseInt = Integer.parseInt(queryParameter);
                 try {
@@ -402,14 +402,14 @@ public class d {
         return false;
     }
 
-    private static boolean sh(String str) {
+    private static boolean si(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "1.0.0";
         }
         return TbConfig.getLegoLibVersion().compareTo(str) >= 0;
     }
 
-    public static boolean si(String str) {
+    public static boolean sj(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

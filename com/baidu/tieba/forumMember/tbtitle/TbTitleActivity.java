@@ -48,7 +48,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                 TbTitleActivity.this.gmC.cb(dataRes.level_info);
             } else if (i != 0 || dataRes == null) {
                 TbTitleActivity.this.gmC.bCN();
-                TbTitleActivity.this.gmC.Bb(str);
+                TbTitleActivity.this.gmC.Bc(str);
             } else {
                 TbTitleActivity.this.gmC.bCN();
                 TbTitleActivity.this.gmC.bCM();
@@ -135,7 +135,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             this.mForumName = intent.getStringExtra(TbTitleActivityConfig.FORUM_NAME);
         }
         if (TextUtils.isEmpty(this.mForumId) || TextUtils.isEmpty(this.mForumName)) {
-            this.gmC.Bb("");
+            this.gmC.Bc("");
             return;
         }
         tj();

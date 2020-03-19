@@ -177,7 +177,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
             }
             SquareSearchActivity.this.ceB();
             SquareSearchActivity.this.ihe.setAdapter((ListAdapter) SquareSearchActivity.this.ihg);
-            SquareSearchActivity.this.ihg.Em(SquareSearchActivity.this.gnk.trim());
+            SquareSearchActivity.this.ihg.En(SquareSearchActivity.this.gnk.trim());
             SquareSearchActivity.this.ihg.setData(list);
             SquareSearchActivity.this.ihg.notifyDataSetInvalidated();
         }
@@ -187,7 +187,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                SquareSearchActivity.this.Ep(customResponsedMessage.getData().toString());
+                SquareSearchActivity.this.Eq(customResponsedMessage.getData().toString());
             }
         }
     };
@@ -613,7 +613,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                                     /* JADX WARN: Can't rename method to resolve collision */
                                     @Override // com.baidu.tbadk.util.ab
                                     public Boolean doInBackground() {
-                                        com.baidu.tieba.tbadkCore.util.a.Jk(str);
+                                        com.baidu.tieba.tbadkCore.util.a.Jl(str);
                                         return true;
                                     }
                                 }, new com.baidu.tbadk.util.l<Boolean>() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivity.14.2
@@ -686,7 +686,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cex() {
-        new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).sR(getPageContext().getString(R.string.alert_clean_history)).a(getPageContext().getString(R.string.clear_all_text), new a.b() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivity.18
+        new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).sS(getPageContext().getString(R.string.alert_clean_history)).a(getPageContext().getString(R.string.clear_all_text), new a.b() { // from class: com.baidu.tieba.mainentrance.SquareSearchActivity.18
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
@@ -745,7 +745,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                 if (this.ihh.forum_list != null && this.ihh.forum_list.size() > 0) {
                     ceB();
                     this.ihe.setAdapter((ListAdapter) this.ihf);
-                    this.ihf.Em(this.gnk);
+                    this.ihf.En(this.gnk);
                     this.ihf.ay(this.ihh.forum_list);
                     this.ihf.notifyDataSetInvalidated();
                 } else {
@@ -787,7 +787,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
-    public void En(String str) {
+    public void Eo(String str) {
         this.ihk = true;
         this.ihb = new ArrayList();
         cew();
@@ -820,7 +820,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
         HotSearchInfoData hotSearchInfoData2 = new HotSearchInfoData();
         hotSearchInfoData2.setId(0L);
         hotSearchInfoData2.setName("");
-        hotSearchInfoData2.Eo("");
+        hotSearchInfoData2.Ep("");
         hotSearchInfoData2.setType(0L);
         com.baidu.tbadk.core.sharedPref.b.aFH().putString(SharedPrefConfig.HOT_SEARCH_INFO, OrmObject.jsonStrWithObject(hotSearchInfoData2));
     }
@@ -1075,7 +1075,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.Ji(str);
+                    com.baidu.tieba.tbadkCore.util.a.Jj(str);
                     return true;
                 }
             }, null);
@@ -1083,7 +1083,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ep(String str) {
+    public void Eq(String str) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {

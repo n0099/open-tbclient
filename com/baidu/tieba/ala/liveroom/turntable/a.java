@@ -14,5 +14,5 @@ public interface a {
 
     void release();
 
-    void zw(String str);
+    void zx(String str);
 }

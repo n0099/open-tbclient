@@ -13,11 +13,11 @@ public class a {
 
     private void ava() {
         if (this.gkR == null) {
-            this.gkR = com.baidu.tbadk.core.c.a.aEF().sO("tb.tbtiel_level_info");
+            this.gkR = com.baidu.tbadk.core.c.a.aEF().sP("tb.tbtiel_level_info");
         }
     }
 
-    public byte[] AV(String str) {
+    public byte[] AW(String str) {
         l.b<byte[]> ad = (this.gkR == null || str == null) ? null : this.gkR.ad(str);
         if (ad == null || ad.value == null) {
             return null;

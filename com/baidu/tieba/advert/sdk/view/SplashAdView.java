@@ -40,7 +40,7 @@ public class SplashAdView extends BCAdView {
         if (this.edm.advisible == 0) {
             com.baidu.tieba.recapp.report.c.cDK().a(f.u(this.edm.extraParam, 3, this.edm.placeId));
         }
-        this.edt = b.xA(a.aZu());
+        this.edt = b.xB(a.aZu());
         if (this.edt.isValidate()) {
             if (this.edt.aZn()) {
                 this.edu = true;
@@ -84,7 +84,7 @@ public class SplashAdView extends BCAdView {
                                         com.baidu.tieba.recapp.report.c.cDK().a(f.c(SplashAdView.this.edm.extraParam, 2, SplashAdView.this.edm.placeId, "video"));
                                     }
                                     if (SplashAdView.this.edj != null && !TextUtils.isEmpty(SplashAdView.this.edt.videoJumpUrl)) {
-                                        SplashAdView.this.edj.xy(SplashAdView.this.edt.videoJumpUrl);
+                                        SplashAdView.this.edj.xz(SplashAdView.this.edt.videoJumpUrl);
                                     }
                                 }
                             }
@@ -117,7 +117,7 @@ public class SplashAdView extends BCAdView {
                                 com.baidu.tieba.recapp.report.c.cDK().a(f.c(SplashAdView.this.edm.extraParam, 2, SplashAdView.this.edm.placeId, "image"));
                             }
                             if (SplashAdView.this.edj != null && !TextUtils.isEmpty(SplashAdView.this.edt.redirectUrl)) {
-                                SplashAdView.this.edj.xy(SplashAdView.this.edt.redirectUrl);
+                                SplashAdView.this.edj.xz(SplashAdView.this.edt.redirectUrl);
                             }
                         }
                     }

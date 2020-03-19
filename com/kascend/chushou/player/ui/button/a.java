@@ -11,7 +11,7 @@ public class a {
         this.b = i2;
     }
 
-    public a QV(String str) {
+    public a QW(String str) {
         this.d = str;
         return this;
     }

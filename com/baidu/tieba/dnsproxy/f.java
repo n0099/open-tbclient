@@ -17,11 +17,11 @@ public class f {
     private f() {
     }
 
-    public boolean Af(String str) {
+    public boolean Ag(String str) {
         return true;
     }
 
-    public boolean Ag(String str) {
+    public boolean Ah(String str) {
         return false;
     }
 }

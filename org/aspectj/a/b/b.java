@@ -45,9 +45,9 @@ public final class b {
                 return cls;
             } catch (ClassNotFoundException e) {
                 if (nLQ == null) {
-                    Class Sn = Sn("java.lang.ClassNotFoundException");
-                    nLQ = Sn;
-                    return Sn;
+                    Class So = So("java.lang.ClassNotFoundException");
+                    nLQ = So;
+                    return So;
                 }
                 return nLQ;
             }
@@ -55,7 +55,7 @@ public final class b {
         return cls2;
     }
 
-    static Class Sn(String str) {
+    static Class So(String str) {
         try {
             return Class.forName(str);
         } catch (ClassNotFoundException e) {

@@ -132,7 +132,7 @@ public class c extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
                 this.eOJ.onChangeSkinType();
             }
         }
-        if (this.KJ != null && l.zV(this.KJ.getId())) {
+        if (this.KJ != null && l.zW(this.KJ.getId())) {
             am.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_d);
             am.setViewTextColor(this.eOG, (int) R.color.cp_cont_d);
             am.setViewTextColor(this.eOH, (int) R.color.cp_cont_d);
@@ -226,7 +226,7 @@ public class c extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
         if (!com.baidu.tieba.frs.a.bDd().bDe()) {
             if (view == this.eNV || view == this.eNX.getCommentContainer() || this.eOF == view || view == this.eOJ.djh.getCommentContainer()) {
                 if (this.KJ != null) {
-                    l.zU(this.KJ.getId());
+                    l.zV(this.KJ.getId());
                 }
                 if (buM() != null) {
                     buM().a(this.eNV, this.KJ);

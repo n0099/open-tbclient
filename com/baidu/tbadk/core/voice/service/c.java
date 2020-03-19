@@ -19,5 +19,5 @@ public interface c {
 
     void seek(int i);
 
-    boolean ug(String str);
+    boolean uh(String str);
 }

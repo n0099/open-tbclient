@@ -67,7 +67,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                                 ArrayList arrayList6 = new ArrayList(b.size());
                                 for (l.b<String> bVar2 : b) {
                                     if (bVar2 != null && (str3 = bVar2.value) != null && (dVar = (com.baidu.tbadk.mvc.b.d) aQQ()) != null) {
-                                        ((f) dVar).vA(str3);
+                                        ((f) dVar).vB(str3);
                                         arrayList6.add(dVar);
                                     }
                                 }
@@ -100,7 +100,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                                 }
                             }
                         } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.c.a.aEF().cq(aQm, str).get(cacheKey)) != null) {
-                            ((f) dVar3).vA(str2);
+                            ((f) dVar3).vB(str2);
                             ArrayList arrayList8 = new ArrayList();
                             try {
                                 arrayList8.add(dVar3);

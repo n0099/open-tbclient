@@ -26,7 +26,7 @@ public class a {
         public int type;
     }
 
-    public static C0542a DJ(String str) {
+    public static C0542a DK(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

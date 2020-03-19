@@ -73,7 +73,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             this.mRootView.setOnClickListener(new a(adCard));
             String str = adCard.threadTitle;
             if (!TextUtils.isEmpty(str)) {
-                this.hST.setText(HQ(str));
+                this.hST.setText(HR(str));
                 this.hST.setVisibility(0);
             } else {
                 this.hST.setVisibility(8);
@@ -128,7 +128,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         }
     }
 
-    protected String HQ(String str) {
+    protected String HR(String str) {
         if (!StringUtils.isNull(str)) {
             String replaceAll = str.replaceAll("，", "， ").replaceAll("。", "。 ").replaceAll("？", "？ ").replaceAll("！", "！ ").replaceAll("、", "、 ").replaceAll("‘", "’ ").replaceAll("“", "” ").replaceAll("【", "【 ").replaceAll("】", "】 ").replaceAll("；", "； ").replaceAll("：", "： ").replaceAll("（", "（ ").replaceAll("）", "） ").replaceAll("·", "· ").replaceAll(HanziToPinyin.Token.SEPARATOR, "  ");
             if (replaceAll.charAt(replaceAll.length() - 1) == ' ') {
@@ -162,7 +162,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             if (k.isEmpty(scheme) && advertAppInfo != null) {
                 scheme = advertAppInfo.cNm;
             }
-            int e = s.e(AdSimpleCardBaseView.this.cVv, AdSimpleCardBaseView.this.HS(scheme));
+            int e = s.e(AdSimpleCardBaseView.this.cVv, AdSimpleCardBaseView.this.HT(scheme));
             if (AdSimpleCardBaseView.this.iaq != null) {
                 AdSimpleCardBaseView.this.iaq.b(e, null);
             }
@@ -170,7 +170,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String HS(String str) {
+    public String HT(String str) {
         if (this.jJQ != null) {
             StringBuilder sb = new StringBuilder(str);
             if (!TextUtils.isEmpty(this.jJQ.getPreLoadData())) {

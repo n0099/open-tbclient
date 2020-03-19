@@ -37,7 +37,7 @@ public final class UploadManager {
 
     private static boolean a(String str, byte[] bArr, File file, String str2, UpToken upToken, UpCompletionHandler upCompletionHandler) {
         String str3;
-        ResponseInfo Rn;
+        ResponseInfo Ro;
         if (upCompletionHandler == null) {
             throw new IllegalArgumentException("no UpCompletionHandler");
         }
@@ -47,14 +47,14 @@ public final class UploadManager {
             str3 = (str2 == null || str2.equals("")) ? "no token" : null;
         }
         if (str3 != null) {
-            Rn = ResponseInfo.a(str3, upToken);
+            Ro = ResponseInfo.a(str3, upToken);
         } else if (upToken == UpToken.nql || upToken == null) {
-            Rn = ResponseInfo.Rn("invalid token");
+            Ro = ResponseInfo.Ro("invalid token");
         } else {
-            Rn = ((file == null || file.length() != 0) && (bArr == null || bArr.length != 0)) ? null : ResponseInfo.a(upToken);
+            Ro = ((file == null || file.length() != 0) && (bArr == null || bArr.length != 0)) ? null : ResponseInfo.a(upToken);
         }
-        if (Rn != null) {
-            upCompletionHandler.a(str, Rn, null);
+        if (Ro != null) {
+            upCompletionHandler.a(str, Ro, null);
             return true;
         }
         return false;
@@ -82,38 +82,38 @@ public final class UploadManager {
 
         @Override // com.qiniu.android.common.Zone.QueryHandler
         public void Nt(int i) {
-            ResponseInfo Rn;
+            ResponseInfo Ro;
             if (ResponseInfo.Nu(i)) {
-                Rn = ResponseInfo.a(i, this.nqm);
+                Ro = ResponseInfo.a(i, this.nqm);
             } else {
-                Rn = ResponseInfo.Rn("invalid token");
+                Ro = ResponseInfo.Ro("invalid token");
             }
-            this.nqn.a(this.val$key, Rn, null);
+            this.nqn.a(this.val$key, Ro, null);
         }
     }
 
     public void a(final File file, final String str, String str2, final UpCompletionHandler upCompletionHandler, final UploadOptions uploadOptions) {
-        final UpToken Rr = UpToken.Rr(str2);
-        if (!a(str, null, file, str2, Rr, upCompletionHandler)) {
+        final UpToken Rs = UpToken.Rs(str2);
+        if (!a(str, null, file, str2, Rs, upCompletionHandler)) {
             this.npZ.npJ.a(str2, new Zone.QueryHandler() { // from class: com.qiniu.android.storage.UploadManager.2
                 @Override // com.qiniu.android.common.Zone.QueryHandler
                 public void onSuccess() {
                     if (file.length() <= UploadManager.this.npZ.npF) {
-                        FormUploader.a(UploadManager.this.noK, UploadManager.this.npZ, file, str, Rr, upCompletionHandler, uploadOptions);
+                        FormUploader.a(UploadManager.this.noK, UploadManager.this.npZ, file, str, Rs, upCompletionHandler, uploadOptions);
                         return;
                     }
-                    AsyncRun.B(new ResumeUploader(UploadManager.this.noK, UploadManager.this.npZ, file, str, Rr, UploadManager.a(upCompletionHandler, file != null ? file.length() : 0L), uploadOptions, UploadManager.this.npZ.npD.q(str, file)));
+                    AsyncRun.B(new ResumeUploader(UploadManager.this.noK, UploadManager.this.npZ, file, str, Rs, UploadManager.a(upCompletionHandler, file != null ? file.length() : 0L), uploadOptions, UploadManager.this.npZ.npD.q(str, file)));
                 }
 
                 @Override // com.qiniu.android.common.Zone.QueryHandler
                 public void Nt(int i) {
-                    ResponseInfo Rn;
+                    ResponseInfo Ro;
                     if (ResponseInfo.Nu(i)) {
-                        Rn = ResponseInfo.a(i, Rr);
+                        Ro = ResponseInfo.a(i, Rs);
                     } else {
-                        Rn = ResponseInfo.Rn("invalid token");
+                        Ro = ResponseInfo.Ro("invalid token");
                     }
-                    upCompletionHandler.a(str, Rn, null);
+                    upCompletionHandler.a(str, Ro, null);
                 }
             });
         }

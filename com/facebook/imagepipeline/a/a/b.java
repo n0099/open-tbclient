@@ -135,9 +135,9 @@ public class b extends c<a> {
                         b.this.a(call, new IOException("Unexpected HTTP code " + response), aVar2);
                         return;
                     }
-                    com.facebook.imagepipeline.common.a Pc = com.facebook.imagepipeline.common.a.Pc(response.header(Headers.CONTENT_RANGE));
-                    if (Pc != null && (Pc.from != 0 || Pc.to != Integer.MAX_VALUE)) {
-                        aVar.c(Pc);
+                    com.facebook.imagepipeline.common.a Pd = com.facebook.imagepipeline.common.a.Pd(response.header(Headers.CONTENT_RANGE));
+                    if (Pd != null && (Pd.from != 0 || Pd.to != Integer.MAX_VALUE)) {
+                        aVar.c(Pd);
                         aVar.IR(8);
                     }
                     long contentLength = body.contentLength();

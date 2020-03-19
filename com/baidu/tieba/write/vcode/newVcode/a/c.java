@@ -107,7 +107,7 @@ public class c implements b {
     @Override // com.baidu.tieba.write.vcode.newVcode.a.b
     public boolean c(WebView webView, String str) {
         if (str.contains("objc:jsChangeVcode")) {
-            this.kRI = com.baidu.tbadk.s.a.wa(str);
+            this.kRI = com.baidu.tbadk.s.a.wb(str);
             if (this.kRI != null && this.kOr.cIp() != null) {
                 this.kRF.runJsMethod(this.kRI, "'" + this.kOr.cIp().getVcodeUrl() + "'");
                 return true;
@@ -119,7 +119,7 @@ public class c implements b {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, writeActivityConfig));
             return true;
         } else if (str.contains("objc:jsSubmit")) {
-            return KV(com.baidu.tbadk.s.a.wa(str));
+            return KW(com.baidu.tbadk.s.a.wb(str));
         } else {
             return false;
         }
@@ -173,17 +173,17 @@ public class c implements b {
         this.kRF.runJsMethod(this.kRJ, "'" + this.kOr.cIp().getVcodeUrl() + "'");
     }
 
-    private boolean KV(String str) {
+    private boolean KW(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) == null || split.length != 2) {
             return false;
         }
         this.kRJ = split[0];
-        KU(split[1]);
+        KV(split[1]);
         return true;
     }
 
-    private void KU(String str) {
+    private void KV(String str) {
         this.kOs = false;
         if (!l.isNetOk()) {
             this.kRF.getContext().showToast(R.string.neterror);
