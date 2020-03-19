@@ -81,7 +81,7 @@ public class PersonBarModel extends BdBaseModel {
         return false;
     }
 
-    public void GM(String str) {
+    public void GN(String str) {
         if (this.jlD == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -89,9 +89,9 @@ public class PersonBarModel extends BdBaseModel {
             }
             if (str != null) {
                 try {
-                    l<String> sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.my_pages");
-                    if (sP != null) {
-                        sP.set(str2, str, 604800000L);
+                    l<String> sQ = com.baidu.tbadk.core.c.a.aEF().sQ("tb.my_pages");
+                    if (sQ != null) {
+                        sQ.set(str2, str, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

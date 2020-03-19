@@ -541,7 +541,7 @@ public class c extends e {
     }
 
     protected static boolean a(Format format, String str) {
-        return str != null && TextUtils.equals(str, v.Qz(format.language));
+        return str != null && TextUtils.equals(str, v.QA(format.language));
     }
 
     private static List<Integer> a(com.google.android.exoplayer2.source.t tVar, int i, int i2, boolean z) {

@@ -30,16 +30,16 @@ public abstract class b {
         this.gxc = false;
         this.gLP = gVar;
         this.mIntent = intent;
-        e BL = d.bKj().BL(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.gLR = BL.bKl();
-        this.gxc = BL.bKk();
+        e BM = d.bKj().BM(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.gLR = BM.bKl();
+        this.gxc = BM.bKk();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gLP.gMg.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.topMargin = this.gxc ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds152) : l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds121);
             this.gLP.gMg.setLayoutParams(layoutParams);
         }
         this.gLP.gMf.setVisibility(this.gLR ? 0 : 4);
-        if (BL.bKm()) {
+        if (BM.bKm()) {
             this.gLP.gMf.setVisibility(8);
             ((RelativeLayout.LayoutParams) this.gLP.gMg.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }

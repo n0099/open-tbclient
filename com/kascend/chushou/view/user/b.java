@@ -314,7 +314,7 @@ public class b extends com.kascend.chushou.view.base.b implements AppBarLayout.O
             if (list != null) {
                 if (!list.contains("gender")) {
                     cVar.append(HanziToPinyin.Token.SEPARATOR);
-                    cVar.O(this.mContext, tv.chushou.widget.a.c.SN(userBean.gender));
+                    cVar.O(this.mContext, tv.chushou.widget.a.c.SO(userBean.gender));
                 }
             }
             this.niE.setText(cVar);

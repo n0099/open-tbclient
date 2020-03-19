@@ -101,7 +101,7 @@ public class PlayShowRecommendView extends RelativeLayout implements View.OnClic
         this.ndo.i(roomInfo.mCreatorAvatar, tv.chushou.widget.a.c.dQL(), b.a.small, b.a.small);
         c cVar2 = new c();
         cVar2.append(roomInfo.mCreatorNickname);
-        cVar2.append(HanziToPinyin.Token.SEPARATOR).a(this.a, tv.chushou.widget.a.c.SO(roomInfo.mCreatorGender), a.d.double_icon_size, a.d.double_icon_size);
+        cVar2.append(HanziToPinyin.Token.SEPARATOR).a(this.a, tv.chushou.widget.a.c.SP(roomInfo.mCreatorGender), a.d.double_icon_size, a.d.double_icon_size);
         this.e.setText(cVar2);
         c cVar3 = new c();
         cVar3.append(this.a.getString(a.i.follower_title)).append(":  ").append(tv.chushou.zues.utils.b.formatNumber(roomInfo.mFansCount));

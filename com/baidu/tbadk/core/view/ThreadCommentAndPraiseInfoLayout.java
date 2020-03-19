@@ -472,7 +472,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     protected void aS(View view) {
         if (this.KJ != null && this.mContext != null) {
-            com.baidu.tieba.card.l.zU(this.KJ.getTid());
+            com.baidu.tieba.card.l.zV(this.KJ.getTid());
             PbActivityConfig addLocateParam = new PbActivityConfig(this.mContext).createFromThreadCfg(this.KJ, null, this.mStType, 0, true, false, false).addLocateParam("");
             addLocateParam.setForumId(String.valueOf(this.KJ.getFid()));
             addLocateParam.setForumName(this.KJ.aCw());

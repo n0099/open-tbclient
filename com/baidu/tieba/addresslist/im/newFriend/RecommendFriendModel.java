@@ -22,7 +22,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
     public interface a {
         void bt(String str);
 
-        void xr(String str);
+        void xs(String str);
     }
 
     static {
@@ -71,7 +71,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                         @Override // com.baidu.tbadk.util.l
                         /* renamed from: a */
                         public void onReturnDataInUI(Void r3) {
-                            RecommendFriendModel.this.ecn.xr(errMsg);
+                            RecommendFriendModel.this.ecn.xs(errMsg);
                         }
                     });
                 }

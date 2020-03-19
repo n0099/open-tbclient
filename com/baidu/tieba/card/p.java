@@ -582,7 +582,7 @@ public class p extends a<CardPersonDynamicThreadData> {
                 return;
             }
             if (!isHost()) {
-                l.zU(this.fLo.threadId);
+                l.zV(this.fLo.threadId);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
             alaLiveInfoCoreData.fillWithInfoData(this.fLo.cRt.aCK());
@@ -597,7 +597,7 @@ public class p extends a<CardPersonDynamicThreadData> {
     public void bvk() {
         if (this.fLo != null && this.fLo.cRt != null && this.fLo.cRt.aCK() != null && this.fLo.cRt.aCK().share_info != null) {
             if (!isHost()) {
-                l.zU(this.fLo.threadId);
+                l.zV(this.fLo.threadId);
             }
             if (this.fLo.cRt.aCK().share_info.record_tid <= 0) {
                 bvj();
@@ -616,7 +616,7 @@ public class p extends a<CardPersonDynamicThreadData> {
     public void aMD() {
         if (this.fLo != null) {
             if (!isHost()) {
-                l.zU(this.fLo.threadId);
+                l.zV(this.fLo.threadId);
                 l.a(this.mTitle, this.fLo.threadId, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 l.a(this.KA, this.fLo.threadId, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
             }

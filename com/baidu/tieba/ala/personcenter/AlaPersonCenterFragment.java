@@ -28,7 +28,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
         this.fus = new com.baidu.tieba.ala.personcenter.b.a(this.cVv, true);
         this.fus.setForumName(this.mForumName);
         this.fus.setForumId(this.mForumId);
-        this.fus.zF(this.fut);
+        this.fus.zG(this.fut);
         if (getArguments() != null) {
             this.fus.f(TbadkCoreApplication.getCurrentAccount(), TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentPortrait(), true);
         }
@@ -86,7 +86,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public void setForumGameLabel(String str) {
     }
 
-    public void zF(String str) {
+    public void zG(String str) {
         this.fut = str;
     }
 }

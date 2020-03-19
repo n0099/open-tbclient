@@ -241,7 +241,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
                 Map.Entry<String, Object> next = it.next();
                 if (next != null && "da_area".equals(next.getKey())) {
                     if (next.getValue() instanceof String) {
-                        c.Ij((String) next.getValue());
+                        c.Ik((String) next.getValue());
                     }
                 }
             }
@@ -261,7 +261,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
     public void a(AdvertAppInfo advertAppInfo, boolean z, int i, String str, String str2, HashMap<String, Object> hashMap) {
         com.baidu.tbadk.distribute.a.aOm().a(advertAppInfo, str, 0L, "FRS", "click", i);
         com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(advertAppInfo, 2, i);
-        c.Ie(str2);
+        c.If(str2);
         if (hashMap != null) {
             Iterator<Map.Entry<String, Object>> it = hashMap.entrySet().iterator();
             while (true) {
@@ -271,7 +271,7 @@ public class g extends com.baidu.tieba.frs.h<AdvertAppInfo, h> {
                 Map.Entry<String, Object> next = it.next();
                 if (next != null && "da_area".equals(next.getKey())) {
                     if (next.getValue() instanceof String) {
-                        c.Ij((String) next.getValue());
+                        c.Ik((String) next.getValue());
                     }
                 }
             }

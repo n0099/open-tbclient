@@ -343,9 +343,9 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
         this.fuS = this.mNavigationBar.setCenterTextTitle(sb.toString());
     }
 
-    public void zF(String str) {
+    public void zG(String str) {
         if (this.fuP != null) {
-            this.fuP.zF(str);
+            this.fuP.zG(str);
         }
     }
 

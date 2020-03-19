@@ -145,7 +145,7 @@ public class InputView extends EditText implements m {
                     return;
                 case 44:
                     if (aVar.data != null && (aVar.data instanceof String)) {
-                        vh((String) aVar.data);
+                        vi((String) aVar.data);
                         return;
                     }
                     return;
@@ -169,7 +169,7 @@ public class InputView extends EditText implements m {
     private void a(q qVar) {
         if (qVar != null && !TextUtils.isEmpty(qVar.getName()) && !TextUtils.isEmpty(qVar.getUrl())) {
             String obj = getText().toString();
-            if (this.dyA && com.baidu.tieba.face.a.At(obj) >= 10 && getContext() != null) {
+            if (this.dyA && com.baidu.tieba.face.a.Au(obj) >= 10 && getContext() != null) {
                 e.aFP().showToast(R.string.too_many_face);
             } else {
                 b.a(getContext(), qVar, this);
@@ -180,7 +180,7 @@ public class InputView extends EditText implements m {
     private void b(q qVar) {
         if (!this.dyz || qVar.aJB() == EmotionGroupType.LOCAL) {
             String obj = getText().toString();
-            if (this.dyA && com.baidu.tieba.face.a.At(obj) >= 10 && getContext() != null) {
+            if (this.dyA && com.baidu.tieba.face.a.Au(obj) >= 10 && getContext() != null) {
                 e.aFP().showToast(R.string.too_many_face);
             } else {
                 b.b(getContext(), qVar, this);
@@ -208,7 +208,7 @@ public class InputView extends EditText implements m {
         }
     }
 
-    private void vh(String str) {
+    private void vi(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }

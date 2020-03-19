@@ -111,7 +111,7 @@ public class CSWebView extends SimpleWebview implements View.OnLongClickListener
                     }
                 });
             }
-        }).Td(context.getString(a.i.alert_dialog_cancel)).Tf(context.getString(a.i.alert_dialog_ok)).x(context.getString(a.i.str_download_img)).show();
+        }).Te(context.getString(a.i.alert_dialog_cancel)).Tg(context.getString(a.i.alert_dialog_ok)).x(context.getString(a.i.str_download_img)).show();
     }
 
     @Override // android.view.View

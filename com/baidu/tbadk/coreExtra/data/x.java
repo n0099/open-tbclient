@@ -35,11 +35,11 @@ public class x {
             this.dnk = jSONObject.optInt("end_time");
             this.mText = jSONObject.optString("text");
             this.dnl = jSONObject.optInt("icon_exp");
-            um(jSONObject.optString("page_list"));
+            un(jSONObject.optString("page_list"));
         }
     }
 
-    private void um(String str) {
+    private void un(String str) {
         String[] split;
         if (!aq.isEmpty(str) && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null) {
             for (String str2 : split) {

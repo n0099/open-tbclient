@@ -52,7 +52,7 @@ public final class a extends com.facebook.imagepipeline.request.a {
 
     @Override // com.facebook.imagepipeline.request.a, com.facebook.imagepipeline.request.b
     public com.facebook.cache.common.b drU() {
-        String SR;
+        String SS;
         if (this.nky == null) {
             v vVar = v.nEr;
             Locale locale = Locale.CHINA;
@@ -60,11 +60,11 @@ public final class a extends com.facebook.imagepipeline.request.a {
             Object[] objArr = new Object[1];
             String str = this.e;
             if (str == null || str.length() == 0) {
-                SR = SchemeCollecter.CLASSIFY_EMPTY;
+                SS = SchemeCollecter.CLASSIFY_EMPTY;
             } else {
-                SR = tv.chushou.zues.toolkit.b.a.nYC.SR(this.e);
+                SS = tv.chushou.zues.toolkit.b.a.nYC.SS(this.e);
             }
-            objArr[0] = SR;
+            objArr[0] = SS;
             String format = String.format(locale, "%s", Arrays.copyOf(objArr, objArr.length));
             q.i(format, "java.lang.String.format(locale, format, *args)");
             this.nky = new g(format);
@@ -119,13 +119,13 @@ public final class a extends com.facebook.imagepipeline.request.a {
     }
 
     private final Bitmap a(String str, int i) {
-        File ad = tv.chushou.zues.widget.fresco.a.ad(i.QU(str));
+        File ad = tv.chushou.zues.widget.fresco.a.ad(i.QV(str));
         if (ad != null) {
             return tv.chushou.zues.utils.c.G(ad.getAbsolutePath(), i, i);
         }
         File c = com.kascend.chushou.d.c.mQR.c();
         tv.chushou.a.a.d.a.aq(c);
-        File file = new File(c, tv.chushou.zues.toolkit.b.a.nYC.SR(str));
+        File file = new File(c, tv.chushou.zues.toolkit.b.a.nYC.SS(str));
         if (file.isFile() && file.exists()) {
             return tv.chushou.zues.utils.c.G(file.getAbsolutePath(), i, i);
         }

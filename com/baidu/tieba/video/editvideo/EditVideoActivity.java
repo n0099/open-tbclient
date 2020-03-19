@@ -284,7 +284,7 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
         if (TextUtils.isEmpty(text)) {
             this.kyg.bw(this.mVideoPath, this.kyf.getCurrentPosition());
         } else {
-            this.kyg.GA(text);
+            this.kyg.GB(text);
         }
     }
 
@@ -305,11 +305,11 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
             this.kyj = false;
             this.kyf.onPause();
             this.gPM.setDialogVisiable(true);
-            JV(this.mVideoPath);
+            JW(this.mVideoPath);
         } else {
             if (this.mVideoInfo.getVideoType() == 1 || (this.mVideoInfo.getVideoType() == 2 && this.mVideoInfo.isCompressedVideo())) {
                 m.copyFile(new File(this.mVideoPath).getAbsolutePath(), c.kwE + file.getName());
-                JX(c.kwE + file.getName());
+                JY(c.kwE + file.getName());
             }
             finishPage();
         }
@@ -328,7 +328,7 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
-    public void Gy(String str) {
+    public void Gz(String str) {
         if (this.rp) {
             this.rp = false;
         } else if (this.kyj) {
@@ -344,7 +344,7 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
-    public void JU(String str) {
+    public void JV(String str) {
         if (this.rp) {
             this.rp = false;
             return;
@@ -399,9 +399,9 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
                 this.kjC.aR(i, str2);
             }
         } else if (this.kyk.cQg()) {
-            JV(str);
-        } else {
             JW(str);
+        } else {
+            JX(str);
         }
     }
 
@@ -422,9 +422,9 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
             String stringExtra = intent.getStringExtra("music_resource");
             String stringExtra2 = intent.getStringExtra("music_id");
             if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
-                String Ka = com.baidu.tieba.video.editvideo.model.a.cQt().Ka(stringExtra);
-                if (this.kyf != null && !TextUtils.isEmpty(Ka)) {
-                    this.kyf.eI(Ka, stringExtra2);
+                String Kb = com.baidu.tieba.video.editvideo.model.a.cQt().Kb(stringExtra);
+                if (this.kyf != null && !TextUtils.isEmpty(Kb)) {
+                    this.kyf.eI(Kb, stringExtra2);
                 }
             }
         }
@@ -432,7 +432,7 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
     public void onGenFilterVideoSuccess(String str) {
-        JW(str);
+        JX(str);
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
@@ -466,14 +466,14 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
         H(bitmap);
     }
 
-    private void JV(String str) {
+    private void JW(String str) {
         this.kyf.cQM();
         this.kyf.cQN();
         this.kyf.cQJ().releaseSource();
-        this.kyk.JZ(str);
+        this.kyk.Ka(str);
     }
 
-    private void JW(String str) {
+    private void JX(String str) {
         File file;
         this.kyi = str;
         if (this.kyj) {
@@ -482,12 +482,12 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
         }
         String str2 = c.kwE + file.getName();
         m.copyFile(new File(this.kyi).getAbsolutePath(), str2);
-        JX(str2);
+        JY(str2);
         bKb();
         finishPage();
     }
 
-    private void JX(String str) {
+    private void JY(String str) {
         try {
             new w(this).saveVideo(str);
             com.baidu.tieba.video.editvideo.b.c.bp(this, str);

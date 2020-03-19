@@ -44,7 +44,7 @@ public class b {
             this.mNavigationBar = (NavigationBar) this.hKp.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.showBottomLine();
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            Dt(this.hKp.getResources().getString(R.string.recommend_detail_activity_title));
+            Du(this.hKp.getResources().getString(R.string.recommend_detail_activity_title));
             this.elL = (NoNetworkView) this.hKp.findViewById(R.id.view_no_network);
             this.mContentView = (LinearLayout) this.hKp.findViewById(R.id.content_view);
             this.hKq = (HeadImageView) this.hKp.findViewById(R.id.user_image);
@@ -61,7 +61,7 @@ public class b {
         }
     }
 
-    public void Dt(String str) {
+    public void Du(String str) {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.setCenterTextTitle(str);
         }

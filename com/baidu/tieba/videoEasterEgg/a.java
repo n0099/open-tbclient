@@ -141,15 +141,15 @@ public class a extends com.baidu.tbadk.core.dialog.a implements View.OnClickList
         }
     }
 
-    public a Ks(String str) {
+    public a Kt(String str) {
         this.kGw = str;
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.dialog.a
-    /* renamed from: Kt */
-    public a sR(String str) {
+    /* renamed from: Ku */
+    public a sS(String str) {
         this.mMessage = str;
         return this;
     }

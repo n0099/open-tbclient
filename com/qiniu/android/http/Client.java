@@ -111,7 +111,7 @@ public final class Client {
 
     private static JSONObject aD(byte[] bArr) throws Exception {
         String str = new String(bArr, "utf-8");
-        return StringUtils.Rt(str) ? new JSONObject() : new JSONObject(str);
+        return StringUtils.Ru(str) ? new JSONObject() : new JSONObject(str);
     }
 
     private static ResponseInfo a(Response response, String str, long j, UpToken upToken, long j2) {
@@ -194,9 +194,9 @@ public final class Client {
             });
         }
         if (upToken != null) {
-            builder.header("User-Agent", UserAgent.dGw().Rp(upToken.noO));
+            builder.header("User-Agent", UserAgent.dGw().Rq(upToken.noO));
         } else {
-            builder.header("User-Agent", UserAgent.dGw().Rp("pandora"));
+            builder.header("User-Agent", UserAgent.dGw().Rq("pandora"));
         }
         final ResponseTag responseTag = new ResponseTag();
         this.httpClient.newCall(builder.tag(responseTag).build()).enqueue(new Callback() { // from class: com.qiniu.android.http.Client.5
@@ -232,7 +232,7 @@ public final class Client {
         CountingRequestBody create;
         Object obj;
         if (this.noZ != null) {
-            str = this.noZ.EN(str);
+            str = this.noZ.EO(str);
         }
         if (bArr != null && bArr.length > 0) {
             MediaType parse = MediaType.parse("application/octet-stream");
@@ -264,7 +264,7 @@ public final class Client {
 
     private void a(String str, StringMap stringMap, UpToken upToken, long j, ProgressHandler progressHandler, String str2, RequestBody requestBody, CompletionHandler completionHandler, CancellationHandler cancellationHandler) {
         if (this.noZ != null) {
-            str = this.noZ.EN(str);
+            str = this.noZ.EO(str);
         }
         final MultipartBody.Builder builder = new MultipartBody.Builder();
         builder.addFormDataPart("file", str2, requestBody);

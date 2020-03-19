@@ -38,7 +38,7 @@ public class c {
         }
         d b = b(packageArchiveInfo, str);
         if (z) {
-            SG(str);
+            SH(str);
             return b;
         }
         return b;
@@ -47,14 +47,14 @@ public class c {
     private d b(PackageInfo packageInfo, String str) {
         d dVar = this.nWE.get(packageInfo.packageName);
         if (dVar == null) {
-            d dVar2 = new d(SD(str), a(SE(str)), packageInfo);
+            d dVar2 = new d(SE(str), a(SF(str)), packageInfo);
             this.nWE.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
-    private DexClassLoader SD(String str) {
+    private DexClassLoader SE(String str) {
         this.nWG = dQh();
         return new DexClassLoader(str, this.nWG, this.nWF, this.mContext.getClassLoader());
     }
@@ -63,7 +63,7 @@ public class c {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
-    private AssetManager SE(String str) {
+    private AssetManager SF(String str) {
         try {
             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
             assetManager.getClass().getMethod("addAssetPath", String.class).invoke(assetManager, str);
@@ -74,7 +74,7 @@ public class c {
         }
     }
 
-    public d SF(String str) {
+    public d SG(String str) {
         return this.nWE.get(str);
     }
 
@@ -83,7 +83,7 @@ public class c {
         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
     }
 
-    private void SG(String str) {
+    private void SH(String str) {
         e.dQj().x(this.mContext, str, this.nWF);
     }
 }

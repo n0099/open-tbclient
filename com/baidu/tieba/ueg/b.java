@@ -67,7 +67,7 @@ public class b {
         Activity currentActivity;
         if (blockPopInfoData != null && (currentActivity = com.baidu.adp.base.a.eH().currentActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(currentActivity);
-            aVar.sR(blockPopInfoData.block_info);
+            aVar.sS(blockPopInfoData.block_info);
             aVar.b(blockPopInfoData.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

@@ -111,13 +111,13 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     }
 
     private void a(BlackListItemData blackListItemData) {
-        DF(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.aMu()));
+        DG(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.aMu()));
         this.FR.aEG();
     }
 
-    private void DF(String str) {
+    private void DG(String str) {
         this.FR = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.FR.sR(str);
+        this.FR.sS(str);
         this.FR.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

@@ -29,7 +29,7 @@ public class a {
         z = (aVar == null || this.dpL == null || aVar.aJd() != this.dpL.aJd()) ? true : true;
         this.dpL = aVar;
         if (z) {
-            vP("zan_or_cai_smallflow");
+            vQ("zan_or_cai_smallflow");
         }
     }
 
@@ -41,7 +41,7 @@ public class a {
         return this.dpL.aJd();
     }
 
-    private void vP(String str) {
+    private void vQ(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 

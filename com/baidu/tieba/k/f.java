@@ -1,13 +1,13 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface f {
-    void EW(String str);
-
     void EX(String str);
 
-    boolean EY(String str);
+    void EY(String str);
 
     boolean EZ(String str);
+
+    boolean Fa(String str);
 
     void dT(String str, String str2);
 

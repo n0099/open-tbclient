@@ -42,7 +42,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     int id = view.getId();
                     int i = 0;
                     if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                        TiebaStatic.log(kVar.Ad("c12642"));
+                        TiebaStatic.log(kVar.Ae("c12642"));
                         com.baidu.tieba.a.d.aXK().a("page_recommend", "clk_", kVar.bvI());
                         i = 1;
                     } else if (id == R.id.thread_card_voice) {
@@ -161,7 +161,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.rv(kVar.position + 1);
-        com.baidu.tieba.card.r.bvm().e(kVar.Ac("c12641"));
+        com.baidu.tieba.card.r.bvm().e(kVar.Ad("c12641"));
         com.baidu.tieba.a.d.aXK().a("page_recommend", "show_", kVar.bvH());
         afVar.nk().setPage(this.LC);
         afVar.ag(true).a(this.dUT);
@@ -191,7 +191,7 @@ public class w extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 

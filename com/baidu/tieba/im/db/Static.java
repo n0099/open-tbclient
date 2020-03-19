@@ -20,7 +20,7 @@ public class Static {
                         /* renamed from: aYM */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.CW((String) customResponsedMessage.getData());
+                                g.CX((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;

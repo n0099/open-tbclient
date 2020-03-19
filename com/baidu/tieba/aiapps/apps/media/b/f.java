@@ -115,7 +115,7 @@ public class f implements com.baidu.swan.apps.media.a {
             }
             BdLog.d(this.bAL + " start()");
             if (this.eeI == 0) {
-                this.eeI = xE(this.eeJ.mSrc);
+                this.eeI = xF(this.eeJ.mSrc);
             }
             if (this.eeI == 0) {
                 BdLog.e("unsupport  url type error src = " + this.eeJ.mSrc);
@@ -525,7 +525,7 @@ public class f implements com.baidu.swan.apps.media.a {
         return null;
     }
 
-    private static int xE(String str) {
+    private static int xF(String str) {
         Uri parse;
         if (str == null || str.length() < 5) {
             return 0;

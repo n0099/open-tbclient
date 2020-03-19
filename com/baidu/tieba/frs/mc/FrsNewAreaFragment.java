@@ -289,7 +289,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         public void onListPullRefresh(boolean z) {
             TiebaStatic.eventStat(FrsNewAreaFragment.this.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
             if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                com.baidu.tieba.a.d.aXK().wO("page_frs_good");
+                com.baidu.tieba.a.d.aXK().wP("page_frs_good");
                 FrsNewAreaFragment.this.ma(true);
                 return;
             }
@@ -349,8 +349,8 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                 if (bjVar.aDo() == null || bjVar.aDo().getGroup_id() == 0 || bc.checkUpIsLogin(FrsNewAreaFragment.this.getActivity())) {
                     if (bjVar.aDb() != 1 || bc.checkUpIsLogin(FrsNewAreaFragment.this.getActivity())) {
                         com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                        if (readThreadHistory != null && !readThreadHistory.Jo(bjVar.getId())) {
-                            readThreadHistory.Jn(bjVar.getId());
+                        if (readThreadHistory != null && !readThreadHistory.Jp(bjVar.getId())) {
+                            readThreadHistory.Jo(bjVar.getId());
                             if (FrsNewAreaFragment.this.gIU != null) {
                                 FrsNewAreaFragment.this.gIU.bFe();
                             }
@@ -723,7 +723,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
                 com.baidu.adp.lib.f.h.gy().submitTask(new Runnable() { // from class: com.baidu.tieba.frs.mc.FrsNewAreaFragment.11
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.tbadkCore.util.a.Ji(FrsNewAreaFragment.this.gpb);
+                        com.baidu.tieba.tbadkCore.util.a.Jj(FrsNewAreaFragment.this.gpb);
                     }
                 });
                 break;
@@ -950,7 +950,7 @@ public class FrsNewAreaFragment extends BaseFragment implements ActivityCompat.O
         return this.gIT;
     }
 
-    public void Bz(String str) {
+    public void BA(String str) {
         this.gpb = str;
     }
 

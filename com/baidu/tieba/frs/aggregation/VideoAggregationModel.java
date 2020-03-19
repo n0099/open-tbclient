@@ -108,7 +108,7 @@ public class VideoAggregationModel extends BdBaseModel {
         this.mFrom = str;
     }
 
-    public void Bl(String str) {
+    public void Bm(String str) {
         this.st_type = str;
     }
 

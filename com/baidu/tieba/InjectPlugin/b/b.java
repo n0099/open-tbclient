@@ -120,7 +120,7 @@ public class b extends g {
         return this.dTN;
     }
 
-    public void wk(String str) {
+    public void wl(String str) {
         this.dTN = str;
     }
 
@@ -128,7 +128,7 @@ public class b extends g {
         return this.dTO;
     }
 
-    public void wl(String str) {
+    public void wm(String str) {
         this.dTO = str;
     }
 
@@ -136,7 +136,7 @@ public class b extends g {
         return this.dTP;
     }
 
-    public void wm(String str) {
+    public void wn(String str) {
         this.dTP = str;
     }
 }

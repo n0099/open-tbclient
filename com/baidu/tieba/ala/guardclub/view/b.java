@@ -77,7 +77,7 @@ public class b {
             }
             this.eIs = z;
             if (!TextUtils.isEmpty(str)) {
-                yB(str);
+                yC(str);
             }
         }
     }
@@ -110,7 +110,7 @@ public class b {
         return this.eIu;
     }
 
-    private void yB(final String str) {
+    private void yC(final String str) {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.mView, "scaleX", 1.0f, 0.7f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.mView, "scaleY", 1.0f, 0.7f);
         ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.mView, "alpha", 1.0f, 0.2f);

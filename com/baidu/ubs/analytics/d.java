@@ -87,20 +87,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult Ll(String str) {
+    public final SampleResult Lm(String str) {
         if (this.kXz == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.Ly(this.k.get(str).getGroup());
+                return i.Lz(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
         for (int i = 0; i < this.kXz.length(); i++) {
             JSONObject optJSONObject = this.kXz.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.Ly(optJSONObject.optString(TbEnum.ParamKey.GROUP));
+                return i.Lz(optJSONObject.optString(TbEnum.ParamKey.GROUP));
             }
         }
         return SampleResult.OTHERE;

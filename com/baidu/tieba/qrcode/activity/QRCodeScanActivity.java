@@ -175,12 +175,12 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     }
 
     @Override // com.baidu.tieba.qrcode.activity.a
-    public void Hu(final String str) {
+    public void Hv(final String str) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         aVar.setTitleShowCenter(true);
-        aVar.sQ(getString(R.string.qr_url_jump_external_title));
+        aVar.sR(getString(R.string.qr_url_jump_external_title));
         aVar.setMessageShowCenter(true);
-        aVar.sR(getString(R.string.qr_url_jump_external_message));
+        aVar.sS(getString(R.string.qr_url_jump_external_message));
         aVar.jY(R.color.cp_cont_b);
         aVar.a(getPageContext().getString(R.string.confirm), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -204,9 +204,9 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     @Override // com.baidu.tieba.qrcode.activity.a
     public void cBT() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        aVar.sQ(null);
+        aVar.sR(null);
         aVar.setMessageShowCenter(true);
-        aVar.sR(getString(R.string.qr_url_risk_forbid));
+        aVar.sS(getString(R.string.qr_url_risk_forbid));
         aVar.a(getPageContext().getString(R.string.qr_url_risk_forbid_button), new a.b() { // from class: com.baidu.tieba.qrcode.activity.QRCodeScanActivity.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -274,7 +274,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.parseJson(stringExtra);
             if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.getChosedFiles().size() > 0 && (imageFileInfo = writeImagesInfo.getChosedFiles().get(0)) != null) {
-                this.jEn.HA(imageFileInfo.getFilePath());
+                this.jEn.HB(imageFileInfo.getFilePath());
             }
             writeImagesInfo.clear();
         }
@@ -300,7 +300,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                 public void onClick(View view2) {
                     g.dismissPopupWindow(QRCodeScanActivity.this.jEo, QRCodeScanActivity.this);
                     if (QRCodeScanActivity.this.jEn != null) {
-                        QRCodeScanActivity.this.jEn.Hv(str2);
+                        QRCodeScanActivity.this.jEn.Hw(str2);
                     }
                 }
             });

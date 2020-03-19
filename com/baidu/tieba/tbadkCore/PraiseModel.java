@@ -20,7 +20,7 @@ public class PraiseModel extends BdBaseModel {
     public interface a {
         void onLoadFailed(int i, String str);
 
-        void xr(String str);
+        void xs(String str);
     }
 
     static {
@@ -46,7 +46,7 @@ public class PraiseModel extends BdBaseModel {
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.khn.xr(praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.khn.xs(praiseResponseMessage.getErrMsg());
                     } else if (PraiseModel.this.khn != null) {
                         PraiseModel.this.khn.onLoadFailed(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }

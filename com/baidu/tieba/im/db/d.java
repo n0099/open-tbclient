@@ -27,7 +27,7 @@ public class d {
         return hzB;
     }
 
-    public void CP(String str) {
+    public void CQ(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ContentValues contentValues = new ContentValues();
@@ -62,7 +62,7 @@ public class d {
         return i2;
     }
 
-    public int CQ(String str) {
+    public int CR(String str) {
         Cursor cursor = null;
         int i = 0;
         try {
@@ -136,7 +136,7 @@ public class d {
                                     if (convertToValidateItemData != null) {
                                         for (ValidateItemData validateItemData : linkedList2) {
                                             if (convertToValidateItemData.getUserId() != null && convertToValidateItemData.getUserId().equals(validateItemData.getUserId()) && convertToValidateItemData.getGroupId() != null && convertToValidateItemData.getGroupId().equals(validateItemData.getGroupId())) {
-                                                CS(validateItemData.getNotice_id());
+                                                CT(validateItemData.getNotice_id());
                                             }
                                         }
                                     }
@@ -242,7 +242,7 @@ public class d {
         return linkedList2;
     }
 
-    public GroupNewsPojo CR(String str) {
+    public GroupNewsPojo CS(String str) {
         Throwable th;
         Cursor cursor;
         GroupNewsPojo groupNewsPojo;
@@ -293,7 +293,7 @@ public class d {
         return groupNewsPojo2;
     }
 
-    public boolean CS(String str) {
+    public boolean CT(String str) {
         Boolean bool;
         Boolean.valueOf(false);
         try {
@@ -367,7 +367,7 @@ public class d {
             stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             stringBuffer.append("time");
             stringBuffer.append(") VALUES(?,?,?,?,?,?,?)");
-            sQLiteStatement = h.bUL().CY(stringBuffer.toString());
+            sQLiteStatement = h.bUL().CZ(stringBuffer.toString());
             if (sQLiteStatement != null) {
                 sQLiteStatement.clearBindings();
                 f.a(sQLiteStatement, 1, groupNewsPojo.getCmd());

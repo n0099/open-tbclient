@@ -7,7 +7,7 @@ public class i {
     private f.a dmD;
     private int type;
 
-    public static i uh(String str) {
+    public static i ui(String str) {
         return new i(0, str);
     }
 

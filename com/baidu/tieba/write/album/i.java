@@ -106,9 +106,9 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
                         tv(false);
                         Eo(102);
                     }
-                } else if (VideoConvertUtil.JS(str2) >= 1500000) {
+                } else if (VideoConvertUtil.JT(str2) >= 1500000) {
                     if (VideoConvertUtil.cPB()) {
-                        this.kPJ = new File(VideoConvertUtil.kwI, "tieba_" + VideoConvertUtil.JR(str2) + "_tiebaconverting.mp4").getAbsolutePath();
+                        this.kPJ = new File(VideoConvertUtil.kwI, "tieba_" + VideoConvertUtil.JS(str2) + "_tiebaconverting.mp4").getAbsolutePath();
                         this.kPL.setConvertType(1);
                         this.kPL.eG(str2, this.kPJ);
                         cQW();
@@ -119,7 +119,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
                     VideoFileInfo videoFileInfo2 = this.kPI;
                     if (videoFileInfo2 != null) {
                         if (videoFileInfo2.videoDuration < 15000) {
-                            this.kPJ = new File(VideoConvertUtil.kwI, "tieba_" + VideoConvertUtil.JR(str2) + "_tiebaconverting.mp4").getAbsolutePath();
+                            this.kPJ = new File(VideoConvertUtil.kwI, "tieba_" + VideoConvertUtil.JS(str2) + "_tiebaconverting.mp4").getAbsolutePath();
                             this.kPL.setConvertType(2);
                             this.kPL.eG(str2, this.kPJ);
                             cQW();
@@ -170,13 +170,13 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
     }
 
     private void tv(boolean z) {
-        VideoFileInfo KP = KP(this.kPJ);
+        VideoFileInfo KQ = KQ(this.kPJ);
         VideoInfo videoInfo = new VideoInfo();
         videoInfo.setVideoPath(this.kPJ);
-        videoInfo.setVideoDuration(KP.videoDuration / 1000);
-        videoInfo.setVideoWidth(KP.videoWidth);
-        videoInfo.setVideoHeight(KP.videoHeight);
-        videoInfo.setVideoLength(new File(KP.videoPath).length());
+        videoInfo.setVideoDuration(KQ.videoDuration / 1000);
+        videoInfo.setVideoWidth(KQ.videoWidth);
+        videoInfo.setVideoHeight(KQ.videoHeight);
+        videoInfo.setVideoLength(new File(KQ.videoPath).length());
         videoInfo.setVideoType(2);
         videoInfo.setIsCompressedVideo(z);
         EditVideoActivityConfig editVideoActivityConfig = new EditVideoActivityConfig(this.gsB, this.gPr, this.mForumName, this.mForumId, this.kyd, videoInfo);
@@ -190,7 +190,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
         }
     }
 
-    public static VideoFileInfo KP(String str) {
+    public static VideoFileInfo KQ(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -356,7 +356,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
             Eo(101);
         }
         if (this.kjC != null) {
-            this.kjC.Fa("album");
+            this.kjC.Fb("album");
         }
     }
 
@@ -368,7 +368,7 @@ public class i implements Handler.Callback, com.baidu.tieba.video.d {
             this.mMainThreadHandler.removeMessages(5);
         }
         if (this.kjC != null) {
-            this.kjC.Fb("album");
+            this.kjC.Fc("album");
         }
         MessageManager.getInstance().unRegisterListener(this.kBr);
     }

@@ -62,7 +62,7 @@ public class g extends l<com.baidu.tbadk.core.data.l, h> {
         hVar.setBjhFrom(this.from);
         hVar.pM(this.iGP);
         if (this.iGO != null) {
-            hVar.FM(this.iGO.getThreadId());
+            hVar.FN(this.iGO.getThreadId());
             hVar.pN(this.iGO.aHP());
             if (this.iGO.ckP() != null && this.iGO.ckP().getBaijiahaoData() != null) {
                 hVar.setNid(this.iGO.ckP().getBaijiahaoData().oriUgcNid);
@@ -73,9 +73,9 @@ public class g extends l<com.baidu.tbadk.core.data.l, h> {
                 i2 = this.from == 3 ? 3 : 4;
             }
             if (lVar.threadType == 40) {
-                com.baidu.tbadk.core.util.an.tu("c13536").cx("tid", lVar.getTid()).s("fid", lVar.getFid()).X("obj_source", i2).X("obj_locate", lVar.getFloorNum()).cx("obj_id", this.iGO.getThreadId()).X("obj_type", lVar.aEj() ? 1 : 0).aGD();
+                com.baidu.tbadk.core.util.an.tv("c13536").cx("tid", lVar.getTid()).s("fid", lVar.getFid()).X("obj_source", i2).X("obj_locate", lVar.getFloorNum()).cx("obj_id", this.iGO.getThreadId()).X("obj_type", lVar.aEj() ? 1 : 0).aGD();
             } else {
-                com.baidu.tbadk.core.util.an.tu("c13533").cx("tid", lVar.getTid()).s("fid", lVar.getFid()).X("obj_source", i2).X("obj_locate", lVar.getFloorNum()).cx("obj_id", this.iGO.getThreadId()).aGD();
+                com.baidu.tbadk.core.util.an.tv("c13533").cx("tid", lVar.getTid()).s("fid", lVar.getFid()).X("obj_source", i2).X("obj_locate", lVar.getFloorNum()).cx("obj_id", this.iGO.getThreadId()).aGD();
             }
             if (this.iGO.aHP()) {
                 com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c13588");

@@ -193,7 +193,7 @@ public class a extends c<TbTitleActivity> {
         this.gmK.getLayoutMode().onModeChanged(this.mRootView);
     }
 
-    public void Bb(String str) {
+    public void Bc(String str) {
         this.bjL.setVisibility(8);
         this.gmK.showNetRefreshView(this.mRootView, str, true);
         this.gmK.setNetRefreshViewTopMargin(400);

@@ -110,7 +110,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         this.gZG = aVar;
     }
 
-    public void Ce(String str) {
+    public void Cf(String str) {
         if (!this.gZH) {
             this.gZH = true;
             ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();

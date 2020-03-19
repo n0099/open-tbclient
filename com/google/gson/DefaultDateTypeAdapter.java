@@ -86,7 +86,7 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
             return;
         }
         synchronized (this.dateFormats) {
-            bVar.QM(this.dateFormats.get(0).format(date));
+            bVar.QN(this.dateFormats.get(0).format(date));
         }
     }
 

@@ -200,7 +200,7 @@ public class a extends BaseAdapter {
                         c0407a.ebv.setCompoundDrawables(null, null, null, null);
                         c0407a.ebw.setVisibility(8);
                     } else if (item.getLbsInfo().aMv() == 0) {
-                        if (!xk(item.getLbsInfo().getDistance()) || !cq(item.getLbsInfo().getTime())) {
+                        if (!xl(item.getLbsInfo().getDistance()) || !cq(item.getLbsInfo().getTime())) {
                             c0407a.ebv.setVisibility(8);
                             c0407a.ebw.setVisibility(8);
                         } else {
@@ -245,7 +245,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public boolean xk(String str) {
+    public boolean xl(String str) {
         return (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
     }
 

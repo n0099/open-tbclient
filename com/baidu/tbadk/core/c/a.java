@@ -88,11 +88,11 @@ public class a extends CustomMessageListener {
         MessageManager.getInstance().registerListenerFromBackground(this);
     }
 
-    public l<byte[]> sO(String str) {
+    public l<byte[]> sP(String str) {
         return cp(str, null);
     }
 
-    public l<String> sP(String str) {
+    public l<String> sQ(String str) {
         return cq(str, null);
     }
 

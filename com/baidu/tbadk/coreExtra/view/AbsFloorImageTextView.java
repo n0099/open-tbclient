@@ -82,7 +82,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Pair<Integer, Integer> uA(String str) {
+    public Pair<Integer, Integer> uB(String str) {
         return ad.r(str, drh, drg);
     }
 

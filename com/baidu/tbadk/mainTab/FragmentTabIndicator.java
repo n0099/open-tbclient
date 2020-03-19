@@ -180,7 +180,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a vz(String str) {
+    public TbFragmentTabIndicator.a vA(String str) {
         return this.mTips.get(str);
     }
 

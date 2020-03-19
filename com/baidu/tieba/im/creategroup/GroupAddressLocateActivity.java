@@ -149,8 +149,8 @@ public class GroupAddressLocateActivity extends BaseActivity<GroupAddressLocateA
 
     @Override // com.baidu.tieba.im.util.b.a
     public void a(String str, List<String> list, double d, double d2) {
-        this.hyY.CE(String.valueOf(d));
-        this.hyY.CD(String.valueOf(d2));
+        this.hyY.CF(String.valueOf(d));
+        this.hyY.CE(String.valueOf(d2));
         this.hyX = str;
         if (list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();

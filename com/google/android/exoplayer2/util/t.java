@@ -6,7 +6,7 @@ import android.os.Trace;
 public final class t {
     public static void beginSection(String str) {
         if (v.SDK_INT >= 18) {
-            Qw(str);
+            Qx(str);
         }
     }
 
@@ -17,7 +17,7 @@ public final class t {
     }
 
     @TargetApi(18)
-    private static void Qw(String str) {
+    private static void Qx(String str) {
         Trace.beginSection(str);
     }
 

@@ -82,7 +82,7 @@ final class n implements com.google.android.exoplayer2.extractor.e {
                         if (!matcher2.find()) {
                             throw new ParserException("X-TIMESTAMP-MAP doesn't contain media timestamp: " + readLine);
                         }
-                        j2 = com.google.android.exoplayer2.text.g.h.Qj(matcher.group(1));
+                        j2 = com.google.android.exoplayer2.text.g.h.Qk(matcher.group(1));
                         j = s.gL(Long.parseLong(matcher2.group(1)));
                     }
                 } else {
@@ -91,9 +91,9 @@ final class n implements com.google.android.exoplayer2.extractor.e {
                         gv(0L);
                         return;
                     }
-                    long Qj = com.google.android.exoplayer2.text.g.h.Qj(af.group(1));
-                    long gJ = this.mli.gJ(s.gM((j + Qj) - j2));
-                    com.google.android.exoplayer2.extractor.m gv = gv(gJ - Qj);
+                    long Qk = com.google.android.exoplayer2.text.g.h.Qk(af.group(1));
+                    long gJ = this.mli.gJ(s.gM((j + Qk) - j2));
+                    com.google.android.exoplayer2.extractor.m gv = gv(gJ - Qk);
                     this.myw.I(this.myx, this.sampleSize);
                     gv.a(this.myw, this.sampleSize);
                     gv.a(gJ, 1, this.sampleSize, 0, null);

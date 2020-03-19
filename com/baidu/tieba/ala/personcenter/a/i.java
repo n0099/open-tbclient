@@ -123,7 +123,7 @@ public class i extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
             aVar.setAutoNight(false);
             aVar.jV(R.string.prompt);
-            aVar.sR(this.mPageContext.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
+            aVar.sS(this.mPageContext.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
             aVar.setTitleShowCenter(true);
             aVar.setMessageShowCenter(true);
             aVar.a(R.string.know, new a.b() { // from class: com.baidu.tieba.ala.personcenter.a.i.2
@@ -191,7 +191,7 @@ public class i extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
         this.fuH = z;
     }
 
-    public void zF(String str) {
+    public void zG(String str) {
         this.feP = str;
     }
 }

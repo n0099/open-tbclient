@@ -79,7 +79,7 @@ public class DetailInfoFragment extends BaseFragment implements a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && DetailInfoFragment.this.clX() != null && DetailInfoFragment.this.clX().getPbData() != null) {
-                DetailInfoFragment.this.FN((String) customResponsedMessage.getData());
+                DetailInfoFragment.this.FO((String) customResponsedMessage.getData());
                 DetailInfoFragment.this.clX().coo();
                 DetailInfoFragment.this.jbM.setData(DetailInfoFragment.this.clX().getPbData());
             }
@@ -268,7 +268,7 @@ public class DetailInfoFragment extends BaseFragment implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FN(String str) {
+    public void FO(String str) {
         if (!TextUtils.isEmpty(str)) {
             List<m> clr = clX().getPbData().clr();
             for (m mVar : clr) {

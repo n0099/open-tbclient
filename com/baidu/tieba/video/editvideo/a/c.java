@@ -31,7 +31,7 @@ public class c extends BaseAdapter {
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            JY(this.kyx);
+            JZ(this.kyx);
             notifyDataSetChanged();
         }
     }
@@ -123,7 +123,7 @@ public class c extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void JY(String str) {
+    public void JZ(String str) {
         this.kyx = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;

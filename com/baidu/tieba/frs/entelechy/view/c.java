@@ -282,7 +282,7 @@ public class c extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
             getView().setOnClickListener(this.fKP);
         }
         this.fKj.onChangeSkinType();
-        if (!buX() && com.baidu.tieba.card.l.zV(this.KJ.getId())) {
+        if (!buX() && com.baidu.tieba.card.l.zW(this.KJ.getId())) {
             com.baidu.tieba.card.l.a(this.mTitle, this.KJ.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             com.baidu.tieba.card.l.a(this.KA, this.KJ.getId(), (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
             com.baidu.tieba.card.l.a(this.fKj.getGodReplyContent(), this.KJ.getId(), (int) R.color.cp_cont_f, (int) R.color.cp_cont_d);
@@ -536,7 +536,7 @@ public class c extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
 
     protected void ko(boolean z) {
         if (this.KJ != null) {
-            com.baidu.tieba.card.l.zU(this.KJ.getId());
+            com.baidu.tieba.card.l.zV(this.KJ.getId());
             com.baidu.tieba.card.l.a(this.mTitle, this.KJ.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             com.baidu.tieba.card.l.a(this.KA, this.KJ.getId(), (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
             com.baidu.tieba.card.l.a(this.fKj.getGodReplyContent(), this.KJ.getId(), (int) R.color.cp_cont_f, (int) R.color.cp_cont_d);

@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes6.dex */
 public final class b extends com.google.android.exoplayer2.text.c {
-    private static final int mDP = v.QE("payl");
-    private static final int mDQ = v.QE("sttg");
-    private static final int mDR = v.QE("vttc");
+    private static final int mDP = v.QF("payl");
+    private static final int mDQ = v.QF("sttg");
+    private static final int mDR = v.QF("vttc");
     private final e.a mDS;
     private final l mol;
 

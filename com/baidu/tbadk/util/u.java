@@ -63,7 +63,7 @@ public class u {
             if (isNetWorkAvailable) {
                 if (com.baidu.adp.lib.util.j.isWifiNet()) {
                     ar.aGH().setNetworkIsWifi(true);
-                    com.baidu.tieba.recapp.d.a.cDF().HX(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    com.baidu.tieba.recapp.d.a.cDF().HY(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
                 } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
                     ar.aGH().setNetworkIsWifi(false);
                 }

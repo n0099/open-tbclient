@@ -54,7 +54,7 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Object... objArr) {
             try {
-                return this.hLg.Dv(this.mVid);
+                return this.hLg.Dw(this.mVid);
             } catch (Exception e) {
                 return null;
             }

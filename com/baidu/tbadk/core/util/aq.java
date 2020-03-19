@@ -364,7 +364,7 @@ public class aq extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static boolean tx(String str) {
+    public static boolean ty(String str) {
         if (str.length() != 10) {
             return false;
         }
@@ -1104,14 +1104,14 @@ public class aq extends com.baidu.adp.lib.util.k {
         return sb.toString();
     }
 
-    public static boolean ty(String str) {
+    public static boolean tz(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        return tz(str) || mM(str);
+        return tA(str) || mM(str);
     }
 
-    public static boolean tz(String str) {
+    public static boolean tA(String str) {
         return str != null && str.length() > 6 && str.substring(0, 7).equalsIgnoreCase("http://");
     }
 

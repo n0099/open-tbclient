@@ -48,7 +48,7 @@ public class a {
         return this.aEG;
     }
 
-    public void BU(String str) {
+    public void BV(String str) {
         this.aEG = str;
     }
 
@@ -56,7 +56,7 @@ public class a {
         return this.dYS;
     }
 
-    public void BV(String str) {
+    public void BW(String str) {
         this.dYS = str;
     }
 }

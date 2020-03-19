@@ -18,7 +18,7 @@ public class m {
         return this.imgUrl;
     }
 
-    public void sA(String str) {
+    public void sB(String str) {
         this.imgUrl = str;
     }
 

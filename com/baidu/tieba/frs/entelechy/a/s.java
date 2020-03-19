@@ -140,7 +140,7 @@ public class s implements ai {
         customMessage.setTag(this.gqW.getUniqueId());
         customResponsedMessage.setOrginalMessage(customMessage);
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-        wP("page_frs");
+        wQ("page_frs");
         if (!absDelegateAdapterList.isEmpty()) {
             Iterator it = absDelegateAdapterList.iterator();
             while (it.hasNext()) {
@@ -525,11 +525,11 @@ public class s implements ai {
         }
     }
 
-    private void wP(String str) {
+    private void wQ(String str) {
         if (this.asP != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).wP(str);
+                    ((com.baidu.tieba.a.f) aVar).wQ(str);
                 }
             }
         }

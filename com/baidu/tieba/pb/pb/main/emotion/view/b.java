@@ -21,7 +21,7 @@ public class b {
     };
     private Handler mHandler = new Handler();
 
-    public void Go(String str) {
+    public void Gp(String str) {
         if (TextUtils.isEmpty(str)) {
             this.iUn = "";
             return;

@@ -79,7 +79,7 @@ public final class c extends TypeAdapter<Date> {
         if (date == null) {
             bVar.dBG();
         } else {
-            bVar.QM(this.dateFormats.get(0).format(date));
+            bVar.QN(this.dateFormats.get(0).format(date));
         }
     }
 }

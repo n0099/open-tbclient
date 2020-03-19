@@ -102,7 +102,7 @@ public final class c {
 
         public c cXM() {
             if (this.mContext == null) {
-                j.Ls("Context must be not empty!");
+                j.Lt("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

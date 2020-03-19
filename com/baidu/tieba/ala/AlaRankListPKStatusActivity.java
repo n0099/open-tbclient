@@ -133,7 +133,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
 
     private void initTabSpec() {
         this.eiy = new AlaRankListPKStatusFragmentAdapter(this, this.YH, this.mUserId, this.eir, this.mPortrait);
-        int xH = this.eiy.xH(this.eiq);
+        int xI = this.eiy.xI(this.eiq);
         int count = this.eiy.getCount();
         for (int i = 0; i < count; i++) {
             Fragment item = this.eiy.getItem(i);
@@ -149,7 +149,7 @@ public class AlaRankListPKStatusActivity extends BaseFragmentActivity implements
         layoutParams.rightMargin = (int) getResources().getDimension(a.e.sdk_ds34);
         fragmentTabWidget.setLayoutParams(layoutParams);
         this.eim.initViewPagerWithNoType();
-        this.eim.setCurrentTab(xH);
+        this.eim.setCurrentTab(xI);
     }
 
     private void a(Fragment fragment, String str) {

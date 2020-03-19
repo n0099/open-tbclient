@@ -263,9 +263,9 @@ public class e {
         return null;
     }
 
-    public void FI(String str) {
+    public void FJ(String str) {
         if (this.ekm != null) {
-            this.ekm.sG(str);
+            this.ekm.sH(str);
         }
     }
 
@@ -288,7 +288,7 @@ public class e {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                com.baidu.tieba.recapp.d.a.cDF().HY(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.cDF().HZ(dataRes.asp_shown_info);
                 List<User> list = dataRes.user_list;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
@@ -554,15 +554,15 @@ public class e {
     }
 
     private void c(DataRes dataRes) {
-        List<String> su;
+        List<String> sv;
         App app = dataRes.banner_list.pb_banner_ad;
         com.baidu.tieba.tbadkCore.data.m mVar = new com.baidu.tieba.tbadkCore.data.m();
         mVar.kif = true;
         mVar.d(app);
         AppData cLj = mVar.cLj();
         if (cLj.goods != null) {
-            if (v.isEmpty(cLj.goods.thread_pic_list) && (su = AdvertAppInfo.a.su(cLj.goods.lego_card)) != null && cLj.goods.thread_pic_list != null) {
-                cLj.goods.thread_pic_list.addAll(su);
+            if (v.isEmpty(cLj.goods.thread_pic_list) && (sv = AdvertAppInfo.a.sv(cLj.goods.lego_card)) != null && cLj.goods.thread_pic_list != null) {
+                cLj.goods.thread_pic_list.addAll(sv);
             }
             this.iDL = mVar;
         }
@@ -644,7 +644,7 @@ public class e {
         return this.iDk;
     }
 
-    public void FJ(String str) {
+    public void FK(String str) {
         this.iDk = str;
     }
 

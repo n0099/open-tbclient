@@ -99,13 +99,13 @@ public class WebpBitmapFactoryImpl implements b {
         if (c.lKV && c.r(bArr, i, i2)) {
             originalDecodeByteArray = nativeDecodeByteArray(bArr, i, i2, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
             if (originalDecodeByteArray == null) {
-                Pk("webp_direct_decode_array");
+                Pl("webp_direct_decode_array");
             }
             setWebpBitmapOptions(originalDecodeByteArray, options);
         } else {
             originalDecodeByteArray = originalDecodeByteArray(bArr, i, i2, options);
             if (originalDecodeByteArray == null) {
-                Pk("webp_direct_decode_array_failed_on_no_webp");
+                Pl("webp_direct_decode_array_failed_on_no_webp");
             }
         }
         return originalDecodeByteArray;
@@ -135,14 +135,14 @@ public class WebpBitmapFactoryImpl implements b {
         if (c.lKV && c.r(a, 0, 20)) {
             originalDecodeStream = nativeDecodeStream(wrapToMarkSupportedStream, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
             if (originalDecodeStream == null) {
-                Pk("webp_direct_decode_stream");
+                Pl("webp_direct_decode_stream");
             }
             setWebpBitmapOptions(originalDecodeStream, options);
             setPaddingDefaultValues(rect);
         } else {
             originalDecodeStream = originalDecodeStream(wrapToMarkSupportedStream, rect, options);
             if (originalDecodeStream == null) {
-                Pk("webp_direct_decode_stream_failed_on_no_webp");
+                Pl("webp_direct_decode_stream_failed_on_no_webp");
             }
         }
         return originalDecodeStream;
@@ -304,7 +304,7 @@ public class WebpBitmapFactoryImpl implements b {
                 if (c.lKV && c.r(a, 0, 20)) {
                     originalDecodeFileDescriptor = nativeDecodeStream(wrapToMarkSupportedStream, options, getScaleFromOptions(options), getInTempStorageFromOptions(options));
                     if (originalDecodeFileDescriptor == null) {
-                        Pk("webp_direct_decode_fd");
+                        Pl("webp_direct_decode_fd");
                     }
                     setPaddingDefaultValues(rect);
                     setWebpBitmapOptions(originalDecodeFileDescriptor, options);
@@ -312,7 +312,7 @@ public class WebpBitmapFactoryImpl implements b {
                     nativeSeek(fileDescriptor, nativeSeek, true);
                     originalDecodeFileDescriptor = originalDecodeFileDescriptor(fileDescriptor, rect, options);
                     if (originalDecodeFileDescriptor == null) {
-                        Pk("webp_direct_decode_fd_failed_on_no_webp");
+                        Pl("webp_direct_decode_fd_failed_on_no_webp");
                     }
                 }
                 try {
@@ -392,7 +392,7 @@ public class WebpBitmapFactoryImpl implements b {
         return 1.0f;
     }
 
-    private static void Pk(String str) {
+    private static void Pl(String str) {
         if (lUw != null) {
             lUw.fj(str, "decoding_failure");
         }

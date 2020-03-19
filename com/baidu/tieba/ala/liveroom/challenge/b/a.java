@@ -563,33 +563,31 @@ public class a {
 
     private void f(ad adVar, ae aeVar, ae aeVar2) {
         if (adVar != null) {
-            if (aeVar2 == null || aeVar2.abT == null || aeVar2.abT.getLiveID() == this.eio) {
-                int i = adVar.abJ;
-                this.eUH.b(i, adVar, aeVar, aeVar2);
-                switch (i) {
-                    case 2:
-                        this.eVt = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_CHALLENGING;
-                        bkD();
-                        break;
-                    case 3:
-                        this.eVt = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_PUNISHMENT;
-                        break;
-                    case 4:
-                    case 5:
-                        this.eVt = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
-                        this.eVn = 0L;
-                        bkE();
-                        break;
-                }
-                if (aeVar != null && aeVar.abH != null) {
-                    this.eVp = aeVar.abH.userId;
-                }
-                if (aeVar2 != null && aeVar2.abH != null) {
-                    this.eVq = aeVar2.abH.userId;
-                }
-                if (4 == adVar.abJ || 5 == adVar.abJ) {
-                    bkI();
-                }
+            int i = adVar.abJ;
+            this.eUH.b(i, adVar, aeVar, aeVar2);
+            switch (i) {
+                case 2:
+                    this.eVt = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_CHALLENGING;
+                    bkD();
+                    break;
+                case 3:
+                    this.eVt = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_PUNISHMENT;
+                    break;
+                case 4:
+                case 5:
+                    this.eVt = ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_IDEL;
+                    this.eVn = 0L;
+                    bkE();
+                    break;
+            }
+            if (aeVar != null && aeVar.abH != null) {
+                this.eVp = aeVar.abH.userId;
+            }
+            if (aeVar2 != null && aeVar2.abH != null) {
+                this.eVq = aeVar2.abH.userId;
+            }
+            if (4 == adVar.abJ || 5 == adVar.abJ) {
+                bkI();
             }
         }
     }

@@ -43,7 +43,7 @@ public final class a extends com.kascend.chushou.view.base.a {
     /* renamed from: com.kascend.chushou.player.ui.h5.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public static final class C0703a {
-        public final a QW(String str) {
+        public final a QX(String str) {
             return a(this, str, false, null, 0, 0, 30, null);
         }
 

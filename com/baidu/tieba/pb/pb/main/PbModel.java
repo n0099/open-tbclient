@@ -828,7 +828,7 @@ public class PbModel extends DataModel {
         }
     }
 
-    public void FO(String str) {
+    public void FP(String str) {
         if (!StringUtils.isNull(str)) {
             this.iLJ = str;
             this.iLL = null;
@@ -1654,7 +1654,7 @@ public class PbModel extends DataModel {
 
     private void n(com.baidu.tieba.pb.data.e eVar) {
         if (eVar != null) {
-            eVar.FJ(this.iGO.clg());
+            eVar.FK(this.iGO.clg());
             this.iGO = eVar;
             za(eVar.getPage().aBl());
         }
@@ -1691,7 +1691,7 @@ public class PbModel extends DataModel {
         return false;
     }
 
-    public boolean FU(String str) {
+    public boolean FV(String str) {
         this.iLO = !this.iLO;
         this.iLL = str;
         TiebaStatic.log(new com.baidu.tbadk.core.util.an("pb_onlyowner_click").X("obj_source", 0));
@@ -1760,7 +1760,7 @@ public class PbModel extends DataModel {
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public WriteData vi(String str) {
+    public WriteData vj(String str) {
         if (this.iGO == null || this.iGO.ckP() == null || this.iGO.getForum() == null) {
             return null;
         }
@@ -1890,7 +1890,7 @@ public class PbModel extends DataModel {
         return cog();
     }
 
-    public boolean FV(String str) {
+    public boolean FW(String str) {
         if (getPbData() == null || getPbData().ckP() == null || getPbData().ckP().aCr() == null || StringUtils.isNull(str)) {
             return false;
         }
@@ -1948,7 +1948,7 @@ public class PbModel extends DataModel {
         return this.iMu;
     }
 
-    public void FW(String str) {
+    public void FX(String str) {
         this.iMu = str;
     }
 
@@ -1963,7 +1963,7 @@ public class PbModel extends DataModel {
                 int size = this.iGO.ckR().size();
                 for (int i = 0; i < size; i++) {
                     if (this.iGO.ckR().get(i) != null && this.iGO.ckR().get(i).aCr() != null && currentAccount.equals(this.iGO.ckR().get(i).aCr().getUserId()) && this.iGO.ckR().get(i).aCr().getPendantData() != null) {
-                        this.iGO.ckR().get(i).aCr().getPendantData().sA(mVar.aAJ());
+                        this.iGO.ckR().get(i).aCr().getPendantData().sB(mVar.aAJ());
                         this.iGO.ckR().get(i).aCr().getPendantData().bI(mVar.aOd());
                     }
                 }
@@ -1983,8 +1983,8 @@ public class PbModel extends DataModel {
         this.iMK = i;
     }
 
-    public void FX(String str) {
-        if ((!this.iLO || FV(TbadkCoreApplication.getCurrentAccount())) && this.iGO.ckR() != null) {
+    public void FY(String str) {
+        if ((!this.iLO || FW(TbadkCoreApplication.getCurrentAccount())) && this.iGO.ckR() != null) {
             this.iGO.getPage().jE(1);
             if (this.iGO.getPage().aBn() == 0) {
                 this.iGO.getPage().jE(1);
@@ -2057,7 +2057,7 @@ public class PbModel extends DataModel {
         return this.iMR;
     }
 
-    public void FY(String str) {
+    public void FZ(String str) {
         this.iMR = str;
     }
 

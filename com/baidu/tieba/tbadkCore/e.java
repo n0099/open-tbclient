@@ -46,7 +46,7 @@ public class e {
         return j;
     }
 
-    public boolean IQ(String str) {
+    public boolean IR(String str) {
         if (this.gkR != null && str != null) {
             byte[] bArr = this.gkR.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {

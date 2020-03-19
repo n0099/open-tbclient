@@ -53,15 +53,15 @@ public class e {
     public void a(String str, int i, b bVar) {
         if (!TextUtils.isEmpty(str)) {
             if (1 == i) {
-                CV(str);
+                CW(str);
             } else if (-7 == i) {
                 a(bVar);
             } else if (-8 == i) {
                 b(bVar);
             } else if (2 == i) {
-                CT(str);
-            } else if (4 == i) {
                 CU(str);
+            } else if (4 == i) {
+                CV(str);
             } else if (-3 == i) {
                 aN(str, i);
             } else if (-4 == i) {
@@ -72,12 +72,12 @@ public class e {
         }
     }
 
-    public void CT(String str) {
+    public void CU(String str) {
         try {
             try {
                 h.bUL().bUM();
                 aO(str, 2);
-                m.bUX().CL(str);
+                m.bUX().CM(str);
                 h.bUL().bUN();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -89,12 +89,12 @@ public class e {
         }
     }
 
-    public void CU(String str) {
+    public void CV(String str) {
         try {
             try {
                 h.bUL().bUM();
                 aO(str, 4);
-                l.bUV().CL(str);
+                l.bUV().CM(str);
                 h.bUL().bUN();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -167,7 +167,7 @@ public class e {
                     } else {
                         String friendId = imMessageCenterShowItemData.getFriendId();
                         aO(friendId, 4);
-                        l.bUV().CL(friendId);
+                        l.bUV().CM(friendId);
                         i = i2 + 1;
                         if (bVar != null) {
                             bVar.j((i * 100) / size, friendId, 4);
@@ -225,10 +225,10 @@ public class e {
 
     private void a(List<String> list, b bVar, int i) {
         if (list != null && bVar != null) {
-            n.CZ(cS(list));
+            n.Da(cS(list));
             ArrayList arrayList = new ArrayList();
             for (String str : list) {
-                m.bUX().CM(str);
+                m.bUX().CN(str);
                 if (bUI()) {
                     c cVar = new c();
                     cVar.id = str;
@@ -275,7 +275,7 @@ public class e {
                     break;
                 }
                 aO(str, 4);
-                l.bUV().CL(str);
+                l.bUV().CM(str);
                 i++;
                 if (bVar != null) {
                     bVar.j((i * 100) / size, str, 4);
@@ -311,14 +311,14 @@ public class e {
         }
     }
 
-    public void CV(String str) {
+    public void CW(String str) {
         try {
             h.bUL().bUM();
             ImMessageCenterPojo aV = com.baidu.tieba.im.memorycache.b.bXb().aV(str, 1);
             aV.setIs_hidden(1);
             aV.setUnread_count(0);
             j.bUP().a(aV, 2);
-            com.baidu.tieba.im.db.c.bUE().CM(str);
+            com.baidu.tieba.im.db.c.bUE().CN(str);
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
@@ -497,7 +497,7 @@ public class e {
         ImMessageCenterPojo aV = com.baidu.tieba.im.memorycache.b.bXb().aV(str, i);
         if (aV != null) {
             if (i == 2) {
-                com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().uo(str);
+                com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().up(str);
             } else if (i == 4) {
                 com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().lN(com.baidu.adp.lib.f.b.toInt(str, 0));
             } else if (i == -3) {
@@ -505,7 +505,7 @@ public class e {
             } else if (i == -4) {
                 com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().lO(1);
             } else {
-                com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().un(str);
+                com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().uo(str);
             }
             aV.setIs_hidden(1);
             aV.setUnread_count(0);

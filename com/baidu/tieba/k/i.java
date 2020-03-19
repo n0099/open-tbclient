@@ -1,15 +1,15 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface i {
-    void Fc(String str);
-
     void Fd(String str);
 
-    String Fe(String str);
+    void Fe(String str);
 
-    boolean Ff(String str);
+    String Ff(String str);
 
-    void Fg(String str);
+    boolean Fg(String str);
+
+    void Fh(String str);
 
     String a(int i, int i2, int i3, String str, boolean z, long j, String str2);
 

@@ -80,7 +80,7 @@ public class a implements b {
             this.kRF.runJsMethod("handleFreshCaptcha", "'" + cIp.getVcodeUrl() + "','" + cIp.getVcodeExtra().slideImg + "','" + cIp.getVcodeExtra().textImg + "'");
             return true;
         } else if (str.contains("objc:jsChangePosition")) {
-            KU(com.baidu.tbadk.s.a.wa(str));
+            KV(com.baidu.tbadk.s.a.wb(str));
             return true;
         } else if (str.contains("objc:finish")) {
             this.kOs = true;
@@ -153,7 +153,7 @@ public class a implements b {
         this.kOr.cancelLoadData();
     }
 
-    private void KU(String str) {
+    private void KV(String str) {
         this.kOs = false;
         if (!l.isNetOk()) {
             this.kRF.getContext().showToast(R.string.neterror);

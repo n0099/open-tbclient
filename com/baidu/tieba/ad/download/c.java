@@ -26,15 +26,15 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             str = this.mPage;
         }
-        bVar.Ii(str);
-        bVar.Ij(this.eaa);
+        bVar.Ij(str);
+        bVar.Ik(this.eaa);
         if (!TextUtils.isEmpty(str2)) {
             DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
             downloadStaticsData.setApk_name(str2);
             bVar.setDownloadStaticsData(downloadStaticsData);
         }
         if (!TextUtils.isEmpty(this.mExtra)) {
-            bVar.Ia(this.mExtra);
+            bVar.Ib(this.mExtra);
         }
         com.baidu.tieba.recapp.report.c.cDK().a(bVar);
     }

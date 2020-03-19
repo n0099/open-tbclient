@@ -125,7 +125,7 @@ public class c {
         return this.kNy;
     }
 
-    public void KK(String str) {
+    public void KL(String str) {
         this.cBs = str;
     }
 

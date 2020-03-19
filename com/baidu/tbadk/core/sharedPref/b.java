@@ -54,14 +54,14 @@ public class b {
     }
 
     public boolean isContains(String str) {
-        if (tc(str)) {
+        if (td(str)) {
             return false;
         }
         return this.cYe.containsKey(str) || getSharedPreferences().contains(str);
     }
 
     public boolean getBoolean(String str, boolean z) {
-        if (tc(str)) {
+        if (td(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -82,7 +82,7 @@ public class b {
     }
 
     public int getInt(String str, int i) {
-        if (tc(str)) {
+        if (td(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -103,7 +103,7 @@ public class b {
     }
 
     public long getLong(String str, long j) {
-        if (tc(str)) {
+        if (td(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -129,7 +129,7 @@ public class b {
     }
 
     public String getString(String str, String str2) {
-        if (tc(str)) {
+        if (td(str)) {
             String value = getValue(str);
             return value != null ? value : str2;
         }
@@ -187,7 +187,7 @@ public class b {
     }
 
     public void putBoolean(String str, boolean z) {
-        if (tc(str)) {
+        if (td(str)) {
             S(str, z);
         } else if (l.isMainThread()) {
             q(str, Boolean.valueOf(z));
@@ -200,7 +200,7 @@ public class b {
     }
 
     public void putString(String str, String str2) {
-        if (tc(str)) {
+        if (td(str)) {
             cv(str, str2);
         } else if ("null".equals(str2)) {
             remove(str);
@@ -215,7 +215,7 @@ public class b {
     }
 
     public void putInt(String str, int i) {
-        if (tc(str)) {
+        if (td(str)) {
             W(str, i);
         } else if (l.isMainThread()) {
             q(str, Integer.valueOf(i));
@@ -228,7 +228,7 @@ public class b {
     }
 
     public void putLong(String str, long j) {
-        if (tc(str)) {
+        if (td(str)) {
             r(str, j);
         } else if (l.isMainThread()) {
             q(str, Long.valueOf(j));
@@ -241,7 +241,7 @@ public class b {
     }
 
     public void remove(String str) {
-        if (tc(str)) {
+        if (td(str)) {
             removeValue(str);
         } else if (this.cYe.containsKey(str)) {
             this.cYe.remove(str);
@@ -251,7 +251,7 @@ public class b {
         }
     }
 
-    private boolean tc(String str) {
+    private boolean td(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }

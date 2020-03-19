@@ -51,7 +51,7 @@ public class ZoneInfo {
         return new ZoneInfo(i, arrayList, concurrentHashMap);
     }
 
-    public void Rk(String str) {
+    public void Rl(String str) {
         this.noX.put(str, Long.valueOf((System.currentTimeMillis() / 1000) + noV));
     }
 

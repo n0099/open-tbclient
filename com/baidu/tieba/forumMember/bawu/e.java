@@ -35,9 +35,9 @@ public class e {
                     p pVar = new p();
                     if (e.this.mManagerApplyInfo != null) {
                         pVar.su(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                        pVar.AY(e.this.mManagerApplyInfo.manager_apply_url);
+                        pVar.AZ(e.this.mManagerApplyInfo.manager_apply_url);
                         pVar.sw(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                        pVar.AZ(e.this.mManagerApplyInfo.assist_apply_url);
+                        pVar.Ba(e.this.mManagerApplyInfo.assist_apply_url);
                     }
                     if (e.this.gkS != null) {
                         e.this.gkS.a(e.this.a(e.this.mBawuTeamInfo), pVar, true, responsedMessage.getError(), responsedMessage.getErrorString());
@@ -58,9 +58,9 @@ public class e {
                 p pVar = new p();
                 if (e.this.mManagerApplyInfo != null) {
                     pVar.su(e.this.mManagerApplyInfo.manager_left_num.intValue());
-                    pVar.AY(e.this.mManagerApplyInfo.manager_apply_url);
+                    pVar.AZ(e.this.mManagerApplyInfo.manager_apply_url);
                     pVar.sw(e.this.mManagerApplyInfo.assist_left_num.intValue());
-                    pVar.AZ(e.this.mManagerApplyInfo.assist_apply_url);
+                    pVar.Ba(e.this.mManagerApplyInfo.assist_apply_url);
                 }
                 if (e.this.gkS != null) {
                     e.this.gkS.a(e.this.a(e.this.mBawuTeamInfo), pVar, false, customResponsedMessage.getError(), customResponsedMessage.getErrorString());
@@ -119,7 +119,7 @@ public class e {
                 int i2 = 0;
                 while (i2 < size2) {
                     b bVar = new b();
-                    bVar.AU(bawuRoleDes.role_name);
+                    bVar.AV(bawuRoleDes.role_name);
                     ArrayList<BawuRoleInfoPub> arrayList2 = new ArrayList<>();
                     arrayList2.add(bawuRoleDes.role_info.get(i2));
                     if (i2 + 1 < size2) {

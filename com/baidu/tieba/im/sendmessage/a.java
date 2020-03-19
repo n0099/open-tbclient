@@ -253,10 +253,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dC(final String str, String str2) {
-        com.baidu.adp.widget.ImageView.a vx = com.baidu.tbadk.imageManager.c.aPV().vx(str);
+        com.baidu.adp.widget.ImageView.a vy = com.baidu.tbadk.imageManager.c.aPV().vy(str);
         final String str3 = str2 + 10;
-        if (vx != null && vx.isValidNow()) {
-            e(str3, vx);
+        if (vy != null && vy.isValidNow()) {
+            e(str3, vy);
         } else {
             new BdAsyncTask<Void, Void, Bitmap>() { // from class: com.baidu.tieba.im.sendmessage.a.9
                 /* JADX DEBUG: Method merged with bridge method */

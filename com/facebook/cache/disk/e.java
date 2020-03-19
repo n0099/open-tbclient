@@ -82,8 +82,8 @@ public class e implements c {
     }
 
     @Override // com.facebook.cache.disk.c
-    public long OK(String str) throws IOException {
-        return dkS().OK(str);
+    public long OL(String str) throws IOException {
+        return dkS().OL(str);
     }
 
     synchronized c dkS() throws IOException {

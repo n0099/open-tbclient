@@ -29,14 +29,14 @@ public class a implements c {
 
     private SpannableString b(ExcContent excContent) {
         String str;
-        int vb;
-        a.C0391a vu;
-        if (this.iYv == null && (vb = TbFaceManager.aPU().vb((str = excContent.text))) != 0) {
-            String str2 = "#(" + TbFaceManager.aPU().vd(str) + ")";
+        int vc;
+        a.C0391a vv;
+        if (this.iYv == null && (vc = TbFaceManager.aPU().vc((str = excContent.text))) != 0) {
+            String str2 = "#(" + TbFaceManager.aPU().ve(str) + ")";
             this.iYv = new SpannableString(str2 + HanziToPinyin.Token.SEPARATOR);
-            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst().getContext(), vb);
-            if (TbFaceManager.aPU().vu(str) != null) {
-                int width = (int) (vu.getWidth() * 0.6d);
+            com.baidu.tbadk.widget.richText.d dVar = new com.baidu.tbadk.widget.richText.d(TbadkCoreApplication.getInst().getContext(), vc);
+            if (TbFaceManager.aPU().vv(str) != null) {
+                int width = (int) (vv.getWidth() * 0.6d);
                 dVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 dVar.setBounds(new Rect(0, 0, 0, 0));

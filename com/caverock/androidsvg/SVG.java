@@ -61,7 +61,7 @@ public class SVG {
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes12.dex */
     public interface ad {
-        void NR(String str);
+        void NS(String str);
 
         Set<String> dja();
 
@@ -342,9 +342,9 @@ public class SVG {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ak NP(String str) {
+    public ak NQ(String str) {
         if (str != null && str.length() > 1 && str.startsWith("#")) {
-            return NQ(str.substring(1));
+            return NR(str.substring(1));
         }
         return null;
     }
@@ -821,7 +821,7 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public void NR(String str) {
+        public void NS(String str) {
             this.lGU = str;
         }
 
@@ -895,7 +895,7 @@ public class SVG {
         }
 
         @Override // com.caverock.androidsvg.SVG.ad
-        public void NR(String str) {
+        public void NS(String str) {
             this.lGU = str;
         }
 
@@ -1378,7 +1378,7 @@ public class SVG {
         }
     }
 
-    protected ak NQ(String str) {
+    protected ak NR(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }

@@ -82,8 +82,8 @@ public class SystemHelpSettingModel extends BdBaseModel {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().deleteDatabase();
             com.baidu.tbadk.core.voice.a.b.aIO();
             try {
-                m.tl("image");
-                m.tl(TbConfig.IMAGE_CACHE_DIR_NAME);
+                m.tm("image");
+                m.tm(TbConfig.IMAGE_CACHE_DIR_NAME);
                 ap.aGE().aGF();
                 return null;
             } catch (Exception e) {

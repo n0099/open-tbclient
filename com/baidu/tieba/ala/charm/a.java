@@ -57,7 +57,7 @@ public class a implements com.baidu.live.liveroom.d.d {
             if (a.this.mHasMore) {
                 a.this.ewq.bdx();
             } else {
-                a.this.ewq.xW(a.this.ews.getPageContext().getResources().getString(a.i.charm_no_more));
+                a.this.ewq.xX(a.this.ews.getPageContext().getResources().getString(a.i.charm_no_more));
             }
             if (aLaCharmDataList.data == null || aLaCharmDataList.data.size() <= 0) {
                 a.this.ewq.il(true);
@@ -183,22 +183,22 @@ public class a implements com.baidu.live.liveroom.d.d {
         MessageManager.getInstance().unRegisterListener(this.ewu);
     }
 
-    public a xM(String str) {
+    public a xN(String str) {
         this.mUserId = str;
         return this;
     }
 
-    public a xN(String str) {
+    public a xO(String str) {
         this.mUserName = str;
         return this;
     }
 
-    public a xO(String str) {
+    public a xP(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public a xP(String str) {
+    public a xQ(String str) {
         this.mLiveId = str;
         return this;
     }
@@ -208,32 +208,32 @@ public class a implements com.baidu.live.liveroom.d.d {
         return this;
     }
 
-    public a xQ(String str) {
+    public a xR(String str) {
         this.atd = str;
         return this;
     }
 
-    public a xR(String str) {
+    public a xS(String str) {
         this.ewm = str;
         return this;
     }
 
-    public a xS(String str) {
+    public a xT(String str) {
         this.ewn = str;
         return this;
     }
 
-    public a xT(String str) {
+    public a xU(String str) {
         this.ewo = str;
         return this;
     }
 
-    public a xU(String str) {
+    public a xV(String str) {
         this.ewp = str;
         return this;
     }
 
-    public a xV(String str) {
+    public a xW(String str) {
         this.mOtherParams = str;
         return this;
     }

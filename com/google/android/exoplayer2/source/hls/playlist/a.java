@@ -17,7 +17,7 @@ public final class a extends c {
         public final Format mbs;
         public final String url;
 
-        public static C0682a PM(String str) {
+        public static C0682a PN(String str) {
             return new C0682a(str, Format.e("0", "application/x-mpegURL", null, null, -1, 0, null));
         }
 
@@ -36,8 +36,8 @@ public final class a extends c {
         this.mxA = list5 != null ? Collections.unmodifiableList(list5) : null;
     }
 
-    public static a PL(String str) {
-        List singletonList = Collections.singletonList(C0682a.PM(str));
+    public static a PM(String str) {
+        List singletonList = Collections.singletonList(C0682a.PN(str));
         List emptyList = Collections.emptyList();
         return new a(null, Collections.emptyList(), singletonList, emptyList, emptyList, null, null);
     }

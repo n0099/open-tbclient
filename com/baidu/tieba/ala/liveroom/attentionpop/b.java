@@ -118,7 +118,7 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
         this.eRs.a(this.eRv);
     }
 
-    public void yN(String str) {
+    public void yO(String str) {
         this.eRt = str;
     }
 

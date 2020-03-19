@@ -53,7 +53,7 @@ public class n {
                         } else if (originUrl != null && originUrl.contains("?segment_postion=")) {
                             try {
                                 int indexOf = originUrl.indexOf("?segment_postion=", 0);
-                                b.wz(originUrl.substring(0, indexOf));
+                                b.wA(originUrl.substring(0, indexOf));
                                 j = com.baidu.adp.lib.f.b.toLong(originUrl.substring(indexOf + i.dXK), 0L);
                             } catch (Exception e2) {
                                 j = 0;
@@ -193,7 +193,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?stop_cache=1", "");
         }
-        e.aXk().wv(originUrl);
+        e.aXk().ww(originUrl);
         d(socket);
         j.z(TAG, "handleStopCache out");
     }
@@ -216,7 +216,7 @@ public class n {
         if (originUrl != null) {
             originUrl = originUrl.replace("?file_access=1", "");
         }
-        k.aXs().wq(originUrl);
+        k.aXs().wr(originUrl);
         d(socket);
         j.z(TAG, "handleFileAccess out");
     }

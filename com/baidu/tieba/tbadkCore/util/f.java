@@ -31,7 +31,7 @@ public class f {
     }
 
     private static boolean b(int i, String str, a aVar) {
-        i uh;
+        i ui;
         if (kli.compareAndSet(false, true)) {
             String.valueOf(System.currentTimeMillis());
             if (i == 3250022) {
@@ -63,16 +63,16 @@ public class f {
                 }
             } else {
                 if (i == 3250017) {
-                    uh = i.aJs();
+                    ui = i.aJs();
                 } else if (i == 3250023) {
-                    uh = i.aJt();
+                    ui = i.aJt();
                 } else if (i == 3250024) {
-                    uh = new i(4, null);
+                    ui = new i(4, null);
                 } else {
-                    uh = i.uh(str);
+                    ui = i.ui(str);
                 }
-                uh.a(aVar);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, uh));
+                ui.a(aVar);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, ui));
             }
             kli.set(false);
             return true;
@@ -82,19 +82,19 @@ public class f {
 
     /* loaded from: classes.dex */
     public static abstract class a {
-        public abstract void Ao(String str);
-
         public abstract void Ap(String str);
+
+        public abstract void Aq(String str);
 
         public abstract void bxM();
 
         public void b(i.c cVar) {
             if (cVar != null && cVar.isSuccess) {
                 if (cVar instanceof i.a) {
-                    Ao(((i.a) cVar).authSid);
+                    Ap(((i.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof i.b) {
-                    Ap(((i.b) cVar).callbackKey);
+                    Aq(((i.b) cVar).callbackKey);
                     return;
                 } else {
                     bxM();

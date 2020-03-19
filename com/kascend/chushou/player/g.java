@@ -1360,11 +1360,11 @@ public abstract class g extends f implements View.OnClickListener, CSDanmuLayout
                         int[] iArr = new int[2];
                         view.getLocationOnScreen(iArr);
                         if (iArr[0] >= 0 && iArr[1] > 0) {
-                            Drawable SW = tv.chushou.zues.utils.h.SW(str);
-                            if (SW == null) {
-                                SW = tv.chushou.zues.utils.h.SY(str);
+                            Drawable SX = tv.chushou.zues.utils.h.SX(str);
+                            if (SX == null) {
+                                SX = tv.chushou.zues.utils.h.SZ(str);
                             }
-                            g.this.naG.setDrawable(SW, (int) (view.getMeasuredWidth() * g.this.a), (int) (view.getMeasuredHeight() * g.this.a));
+                            g.this.naG.setDrawable(SX, (int) (view.getMeasuredWidth() * g.this.a), (int) (view.getMeasuredHeight() * g.this.a));
                             if (view != null) {
                                 g.this.naG.setEmanateStartLoc((int) (iArr[0] + ((view.getMeasuredWidth() - (view.getMeasuredWidth() * g.this.a)) / 2.0d)), (int) (iArr[1] + ((view.getMeasuredHeight() - (view.getMeasuredHeight() * g.this.a)) / 2.0d)));
                             }

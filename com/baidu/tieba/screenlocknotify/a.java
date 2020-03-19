@@ -318,8 +318,8 @@ public class a {
             return false;
         }
         long j = dVar.taskId;
-        String Il = Il(dVar.url);
-        if (j == 0 || StringUtils.isNull(Il)) {
+        String Im = Im(dVar.url);
+        if (j == 0 || StringUtils.isNull(Im)) {
             return false;
         }
         if (UtilHelper.getTodayZeroTime() < TbSingleton.getInstance().getLastResumeTime()) {
@@ -332,9 +332,9 @@ public class a {
             }
             chatMessage.setHasRead(true);
             NotificationHelper.cancelNotification(this.appContext, 19);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PushDialogActivityConfig(this.appContext, j, Il)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PushDialogActivityConfig(this.appContext, j, Im)));
         }
-        TiebaStatic.log(new an("c13196").X("obj_type", 1).X("obj_source", 2).cx("tid", Il));
+        TiebaStatic.log(new an("c13196").X("obj_type", 1).X("obj_source", 2).cx("tid", Im));
         return true;
     }
 
@@ -342,7 +342,7 @@ public class a {
         return com.baidu.tbadk.coreExtra.messageCenter.d.aLq().aLI() && com.baidu.tbadk.coreExtra.messageCenter.d.aLq().aLs() && SwitchManager.getInstance().findType(ScreenLockSyncSwitch.KEY) == 1;
     }
 
-    private String Il(String str) {
+    private String Im(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

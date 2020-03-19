@@ -47,8 +47,8 @@ public class PostSearchActivity extends BaseFragmentActivity {
         this.jCw.showLoadingView();
     }
 
-    public void Hm(String str) {
-        this.jCw.Hm(str);
+    public void Hn(String str) {
+        this.jCw.Hn(str);
     }
 
     public void cAT() {

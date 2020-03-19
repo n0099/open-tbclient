@@ -61,7 +61,7 @@ public class an {
         }
     }
 
-    public boolean tt(String str) {
+    public boolean tu(String str) {
         int indexOf;
         return !aq.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
@@ -76,7 +76,7 @@ public class an {
         TiebaStatic.log(this);
     }
 
-    public static an tu(String str) {
+    public static an tv(String str) {
         return new an(str);
     }
 }

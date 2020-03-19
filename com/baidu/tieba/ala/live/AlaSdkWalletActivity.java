@@ -38,7 +38,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
         @Override // com.baidu.tieba.ala.live.a.b
         public void doPay(String str) {
             if (AlaSdkWalletActivity.this.mPayController != null) {
-                AlaSdkWalletActivity.this.mPayController.yH(str);
+                AlaSdkWalletActivity.this.mPayController.yI(str);
             }
         }
     };
@@ -85,7 +85,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
         }
         this.mPayController.a(new a.InterfaceC0448a() { // from class: com.baidu.tieba.ala.live.AlaSdkWalletActivity.2
             @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0448a
-            public void yF(String str) {
+            public void yG(String str) {
                 AlaSdkWalletActivity.this.mViewController = new a(AlaSdkWalletActivity.this.mActivity, AlaSdkWalletActivity.this.mCallback, AlaSdkWalletActivity.this.mCurPayConfig);
                 AlaSdkWalletActivity.this.mViewController.isValidData(str);
                 AlaSdkWalletActivity.this.mViewController.hideLoadingView();

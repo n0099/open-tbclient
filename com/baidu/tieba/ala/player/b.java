@@ -756,7 +756,7 @@ public class b extends BdBaseView<TbPageContext> {
             }
             this.fex.ac(this.mUserName, this.awC, this.mForumName);
         } else if (!TextUtils.isEmpty(this.fzr)) {
-            this.fex.zj(this.fzr);
+            this.fex.zk(this.fzr);
         } else if (this.awD > 0) {
             this.fex.a(this.awD, false, this.awC, "");
         } else {

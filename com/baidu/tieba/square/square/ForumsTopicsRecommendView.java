@@ -107,10 +107,10 @@ public class ForumsTopicsRecommendView extends ViewGroup implements com.baidu.tb
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
-        IM(str);
+        IN(str);
     }
 
-    private void IM(String str) {
+    private void IN(String str) {
         HeadImageView headImageView;
         if (this.ebf != null && (headImageView = (HeadImageView) this.ebf.findViewWithTag(str)) != null) {
             headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);

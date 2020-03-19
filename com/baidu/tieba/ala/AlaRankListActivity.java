@@ -385,7 +385,7 @@ public class AlaRankListActivity extends BaseFragmentActivity implements View.On
 
     private void initTabSpec() {
         this.eit = new AlaRankListFragmentAdapter(this, this.YH, this.mUserId, this.mUserName, this.eir, this.mPortrait, this.otherParams, this.alR, this.eio, this.eip);
-        this.eiu = this.eit.xH(this.eiq);
+        this.eiu = this.eit.xI(this.eiq);
         int count = this.eit.getCount();
         for (int i = 0; i < count; i++) {
             AlaRankListFragment alaRankListFragment = (AlaRankListFragment) this.eit.getItem(i);

@@ -136,7 +136,7 @@ public class e extends BdBaseModel<GuardClubJoinListActivity> {
 
     public void a(String str, b bVar) {
         j jVar = new j();
-        jVar.yA(str);
+        jVar.yB(str);
         jVar.setParams();
         jVar.setTag(this.unique_id);
         MessageManager.getInstance().sendMessage(jVar);

@@ -9,15 +9,15 @@ import java.util.Map;
 public class a {
     private static boolean kXs = false;
 
-    public static void Li(String str) {
-        if (kXs) {
-            e.cXX().Li(str);
-        }
-    }
-
     public static void Lj(String str) {
         if (kXs) {
             e.cXX().Lj(str);
+        }
+    }
+
+    public static void Lk(String str) {
+        if (kXs) {
+            e.cXX().Lk(str);
         }
     }
 
@@ -33,8 +33,8 @@ public class a {
         }
     }
 
-    public static SampleResult Lk(String str) {
-        return kXs ? d.a.kXA.Ll(str) : SampleResult.OTHERE;
+    public static SampleResult Ll(String str) {
+        return kXs ? d.a.kXA.Lm(str) : SampleResult.OTHERE;
     }
 
     public static void ue(boolean z) {

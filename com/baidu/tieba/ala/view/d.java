@@ -67,10 +67,10 @@ public class d {
         this.YH = i;
         this.mPortrait = str3;
         this.eio = j2;
-        zL(str);
+        zM(str);
     }
 
-    private void zL(String str) {
+    private void zM(String str) {
         this.eiq = str;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_fragment_layout, (ViewGroup) null);
         this.fBO = (BdListView) this.mRootView.findViewById(a.g.ala_rank_list_view);

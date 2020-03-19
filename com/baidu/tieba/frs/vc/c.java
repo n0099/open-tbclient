@@ -40,10 +40,10 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
-            com.baidu.adp.lib.cache.l<String> sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.enter_frs_dialog_list");
+            com.baidu.adp.lib.cache.l<String> sQ = com.baidu.tbadk.core.c.a.aEF().sQ("tb.enter_frs_dialog_list");
             String encode = URLEncoder.encode(c.this.gqW.bEz().getForum().getName());
-            if (sP.get(encode) == null) {
-                sP.setForever(encode, "1");
+            if (sQ.get(encode) == null) {
+                sQ.setForever(encode, "1");
                 return true;
             }
             return false;
@@ -56,8 +56,8 @@ public class c {
             if (bool.booleanValue() && c.this.bKA() && c.this.gqW.isAdded()) {
                 final PopInfo popInfo = c.this.gqW.bEz().enterFrsDialogInfo;
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.gqW.getActivity());
-                aVar.sQ(popInfo.title);
-                aVar.sR(popInfo.v_title);
+                aVar.sR(popInfo.title);
+                aVar.sS(popInfo.v_title);
                 aVar.isShowTitleAndMessage();
                 aVar.b(popInfo.ok_info, new a.b() { // from class: com.baidu.tieba.frs.vc.c.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b

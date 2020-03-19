@@ -108,7 +108,7 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b QL(String str) throws IOException {
+    public com.google.gson.stream.b QM(String str) throws IOException {
         if (this.stack.isEmpty() || this.mNj != null) {
             throw new IllegalStateException();
         }
@@ -120,7 +120,7 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b QM(String str) throws IOException {
+    public com.google.gson.stream.b QN(String str) throws IOException {
         if (str == null) {
             return dBG();
         }

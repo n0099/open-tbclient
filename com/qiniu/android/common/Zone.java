@@ -11,7 +11,7 @@ public abstract class Zone {
         void onSuccess();
     }
 
-    public abstract void Rk(String str);
+    public abstract void Rl(String str);
 
     public abstract void a(String str, QueryHandler queryHandler);
 
@@ -26,7 +26,7 @@ public abstract class Zone {
         int i = 0;
         synchronized (this) {
             if (str != null) {
-                zoneInfo.Rk(URI.create(str).getHost());
+                zoneInfo.Rl(URI.create(str).getHost());
             }
             while (true) {
                 int i2 = i;

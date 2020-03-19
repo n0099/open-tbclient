@@ -216,8 +216,8 @@ public class ac {
                 com.baidu.tbadk.core.sharedPref.b.aFH().putInt("index_activity_abtest_switch_json", this.mHomePageStyleAbTest);
                 this.mSampleId = jSONObject.optString("sample_id");
                 com.baidu.tbadk.core.sharedPref.b.aFH().putString("key_ubs_sample_id" + TbadkCoreApplication.getCurrentAccount(), this.mSampleId);
-                r.uk(jSONObject.optString("js_whitelist"));
-                com.baidu.tbadk.l.e.aQY().vB(jSONObject.optString("stat_keys_list"));
+                r.ul(jSONObject.optString("js_whitelist"));
+                com.baidu.tbadk.l.e.aQY().vC(jSONObject.optString("stat_keys_list"));
                 long optLong = jSONObject.optLong("android_plugin_wait_time", 0L);
                 if (optLong > 0) {
                     com.baidu.tbadk.core.sharedPref.b.aFH().putLong("plugin_wait_time", optLong);

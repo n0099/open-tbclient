@@ -79,7 +79,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
     };
     private final RecommendFriendModel ecg = new RecommendFriendModel(this, new RecommendFriendModel.a() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity.5
         @Override // com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.a
-        public void xr(String str) {
+        public void xs(String str) {
             NewFriendsActivity.this.aYP();
             TbadkSettings.getInst().saveBoolean(NewFriendsActivity.this.ebZ, true);
         }

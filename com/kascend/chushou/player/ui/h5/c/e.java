@@ -34,7 +34,7 @@ public class e extends d {
         return this.a;
     }
 
-    public e QX(String str) {
+    public e QY(String str) {
         this.a = str;
         return this;
     }

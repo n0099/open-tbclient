@@ -91,7 +91,7 @@ public class c extends MediaCodecRenderer {
     protected int a(com.google.android.exoplayer2.mediacodec.b bVar, com.google.android.exoplayer2.drm.a<com.google.android.exoplayer2.drm.c> aVar, Format format) throws MediaCodecUtil.DecoderQueryException {
         boolean z;
         String str = format.sampleMimeType;
-        if (i.OQ(str)) {
+        if (i.OR(str)) {
             DrmInitData drmInitData = format.drmInitData;
             if (drmInitData != null) {
                 z = false;
@@ -105,18 +105,18 @@ public class c extends MediaCodecRenderer {
             if (aL == null) {
                 return (!z || bVar.aL(str, false) == null) ? 1 : 2;
             } else if (a(aVar, drmInitData)) {
-                boolean Ps = aL.Ps(format.codecs);
-                if (Ps && format.width > 0 && format.height > 0) {
+                boolean Pt = aL.Pt(format.codecs);
+                if (Pt && format.width > 0 && format.height > 0) {
                     if (v.SDK_INT >= 21) {
-                        Ps = aL.a(format.width, format.height, format.frameRate);
+                        Pt = aL.a(format.width, format.height, format.frameRate);
                     } else {
-                        Ps = format.width * format.height <= MediaCodecUtil.dwx();
-                        if (!Ps) {
+                        Pt = format.width * format.height <= MediaCodecUtil.dwx();
+                        if (!Pt) {
                             Log.d("MediaCodecVideoRenderer", "FalseCheck [legacyFrameSize, " + format.width + Config.EVENT_HEAT_X + format.height + "] [" + v.mJJ + "]");
                         }
                     }
                 }
-                return (aL.mdR ? 32 : 0) | (aL.mrf ? 16 : 8) | (Ps ? 4 : 3);
+                return (aL.mdR ? 32 : 0) | (aL.mrf ? 16 : 8) | (Pt ? 4 : 3);
             } else {
                 return 2;
             }
@@ -324,7 +324,7 @@ public class c extends MediaCodecRenderer {
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     protected void g(String str, long j, long j2) {
         this.mJY.f(str, j, j2);
-        this.mKf = QH(str);
+        this.mKf = QI(str);
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
@@ -787,7 +787,7 @@ public class c extends MediaCodecRenderer {
         return v.SDK_INT <= 22 && "foster".equals(v.mJI) && "NVIDIA".equals(v.MANUFACTURER);
     }
 
-    private static boolean QH(String str) {
+    private static boolean QI(String str) {
         return (("deb".equals(v.mJI) || "flo".equals(v.mJI)) && "OMX.qcom.video.decoder.avc".equals(str)) || (("tcl_eu".equals(v.mJI) || "SVP-DTV15".equals(v.mJI) || "BRAVIA_ATV2".equals(v.mJI)) && "OMX.MTK.VIDEO.DECODER.AVC".equals(str));
     }
 

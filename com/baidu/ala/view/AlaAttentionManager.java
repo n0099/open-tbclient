@@ -304,7 +304,7 @@ public class AlaAttentionManager {
                 aVar.hasShownForbiddenAlert = true;
                 a aVar2 = new a(eVar.getPageActivity());
                 aVar2.setAutoNight(z);
-                aVar2.sR(optString);
+                aVar2.sS(optString);
                 aVar2.a(optString3, new a.b() { // from class: com.baidu.ala.view.AlaAttentionManager.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(a aVar3) {

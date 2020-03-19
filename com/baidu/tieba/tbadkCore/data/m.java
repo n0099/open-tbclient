@@ -22,7 +22,7 @@ public class m extends PostData {
         this.kie = new AppData(app);
     }
 
-    public void Ja(String str) {
+    public void Jb(String str) {
         this.kie = new AppData(str);
     }
 
@@ -77,7 +77,7 @@ public class m extends PostData {
     }
 
     public AdvertAppInfo kK() {
-        List<String> su;
+        List<String> sv;
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
         if (this.kie != null) {
             advertAppInfo.cNA = this.kie;
@@ -114,8 +114,8 @@ public class m extends PostData {
                 if (this.kie.goods.thread_pic_list != null && advertAppInfo.cNt.cNK != null) {
                     advertAppInfo.cNt.cNK.addAll(this.kie.goods.thread_pic_list);
                 }
-                if (v.isEmpty(advertAppInfo.cNt.cNK) && (su = AdvertAppInfo.a.su(this.kie.goods.lego_card)) != null && advertAppInfo.cNt.cNK != null) {
-                    advertAppInfo.cNt.cNK.addAll(su);
+                if (v.isEmpty(advertAppInfo.cNt.cNK) && (sv = AdvertAppInfo.a.sv(this.kie.goods.lego_card)) != null && advertAppInfo.cNt.cNK != null) {
+                    advertAppInfo.cNt.cNK.addAll(sv);
                 }
                 advertAppInfo.cNt.cNL = this.kie.goods.video_info;
                 advertAppInfo.cNt.tagName = this.kie.goods.tag_name;

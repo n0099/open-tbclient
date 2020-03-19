@@ -15,7 +15,7 @@ public class a {
     private static Boolean kld = true;
     private static Boolean kle = true;
 
-    public static void Jh(String str) {
+    public static void Ji(String str) {
         bc(13, str);
     }
 
@@ -68,11 +68,11 @@ public class a {
         return arrayList;
     }
 
-    public static void Ji(String str) {
+    public static void Jj(String str) {
         bd(0, str);
     }
 
-    public static void Jj(String str) {
+    public static void Jk(String str) {
         bd(1, str);
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    public static void Jk(String str) {
+    public static void Jl(String str) {
         be(0, str);
     }
 
@@ -255,15 +255,15 @@ public class a {
                         }
                         String string = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_start_time"));
                         if (TextUtils.isEmpty(string)) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.aLq().up(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.aLq().uq(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.aLq().up(string);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.aLq().uq(string);
                         }
                         String string2 = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_end_time"));
                         if (TextUtils.isEmpty(string2)) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.aLq().uq(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.aLq().ur(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.aLq().uq(string2);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.aLq().ur(string2);
                         }
                         if (rawQuery.getInt(rawQuery.getColumnIndex("remind_light")) == 0) {
                             com.baidu.tbadk.coreExtra.messageCenter.d.aLq().gf(false);
@@ -287,8 +287,8 @@ public class a {
                         com.baidu.tbadk.coreExtra.messageCenter.d.aLq().gc(false);
                         com.baidu.tbadk.coreExtra.messageCenter.d.aLq().fZ(true);
                         com.baidu.tbadk.coreExtra.messageCenter.d.aLq().gd(false);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.aLq().up(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.aLq().uq(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.aLq().uq(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.aLq().ur(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                     }
                     com.baidu.adp.lib.f.a.close(rawQuery);
                 } catch (Exception e) {

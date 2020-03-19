@@ -100,7 +100,7 @@ public class b extends ReplacementSpan {
         this.dey = i;
     }
 
-    public void tR(String str) {
+    public void tS(String str) {
         this.identify = str;
     }
 }

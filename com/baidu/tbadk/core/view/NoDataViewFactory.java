@@ -185,12 +185,12 @@ public class NoDataViewFactory {
             private int dgF = -1;
             private int mDrawableId = 0;
 
-            public a tV(String str) {
+            public a tW(String str) {
                 this.mTitle = str;
                 return this;
             }
 
-            public a tW(String str) {
+            public a tX(String str) {
                 this.mSubTitle = str;
                 return this;
             }
@@ -207,29 +207,29 @@ public class NoDataViewFactory {
 
         public static d aE(int i, int i2) {
             a aVar = new a();
-            aVar.tW(TbadkCoreApplication.getInst().getResources().getString(i));
+            aVar.tX(TbadkCoreApplication.getInst().getResources().getString(i));
             aVar.li(i2);
             return aVar.aHJ();
         }
 
         public static d lh(int i) {
-            return tU(TbadkCoreApplication.getInst().getResources().getString(i));
+            return tV(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
         public static d aF(int i, int i2) {
             return cz(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d tU(String str) {
+        public static d tV(String str) {
             a aVar = new a();
-            aVar.tW(str);
+            aVar.tX(str);
             return aVar.aHJ();
         }
 
         public static d cz(String str, String str2) {
             a aVar = new a();
-            aVar.tW(str);
-            aVar.tV(str2);
+            aVar.tX(str);
+            aVar.tW(str2);
             return aVar.aHJ();
         }
     }

@@ -13,7 +13,7 @@ public class c {
 
     public void ava() {
         if (this.gkR == null) {
-            this.gkR = com.baidu.tbadk.core.c.a.aEF().sO("tb.im_frsgroup");
+            this.gkR = com.baidu.tbadk.core.c.a.aEF().sP("tb.im_frsgroup");
         }
     }
 

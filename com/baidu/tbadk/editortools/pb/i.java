@@ -65,7 +65,7 @@ public class i extends com.baidu.tbadk.editortools.c {
                                 if (aVar.data instanceof j) {
                                     hVar.a((j) aVar.data);
                                 } else if (aVar.data instanceof String) {
-                                    hVar.vm((String) aVar.data);
+                                    hVar.vn((String) aVar.data);
                                 }
                                 i.this.dzr = false;
                                 return;

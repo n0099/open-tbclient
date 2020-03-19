@@ -40,14 +40,14 @@ public class d {
         }
         String str5 = eUJ + str3;
         String str6 = "ala_live_challenge_res_md5_" + str3;
-        if (!com.baidu.live.f.b.b(str5, com.baidu.live.f.b.cY(str6)) || yR(str)) {
+        if (!com.baidu.live.f.b.b(str5, com.baidu.live.f.b.cY(str6)) || yS(str)) {
             return false;
         }
         com.baidu.live.f.b.a(str, str2, str5, str6, str3, str4, 19, z);
         return true;
     }
 
-    private static boolean yR(String str) {
+    private static boolean yS(String str) {
         List<DownloadData> downloadList = FileSerialDownLoader.getInstance().getDownloadList();
         if (ListUtils.isEmpty(downloadList) || StringUtils.isNull(str)) {
             return false;

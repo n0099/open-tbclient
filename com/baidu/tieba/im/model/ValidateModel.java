@@ -64,7 +64,7 @@ public class ValidateModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.bUF().CS(ValidateItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.bUF().CT(ValidateItemData.this.getNotice_id()));
                 }
             }, lVar);
         }
@@ -86,13 +86,13 @@ public class ValidateModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.ab
             public Integer doInBackground() {
-                return Integer.valueOf(d.bUF().CQ("apply_join_group"));
+                return Integer.valueOf(d.bUF().CR("apply_join_group"));
             }
         }, lVar);
     }
 
     public static ValidateItemData getByNoticeid(String str) {
-        return convertToValidateItemData(d.bUF().CR(str));
+        return convertToValidateItemData(d.bUF().CS(str));
     }
 
     public static List<ValidateItemData> convertToValidateItemDataList(LinkedList<GroupNewsPojo> linkedList) {

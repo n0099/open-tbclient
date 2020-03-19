@@ -60,7 +60,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.ala.personcenter.c
         }
     }
 
-    public void zK(String str) {
+    public void zL(String str) {
         if (this.fyF != null) {
             this.fyF.setText(str);
         }

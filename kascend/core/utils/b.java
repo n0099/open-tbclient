@@ -41,10 +41,10 @@ public class b {
     }
 
     public static byte[] decode(String str) throws Exception {
-        return Sd(str);
+        return Se(str);
     }
 
-    public static byte[] Sd(String str) {
+    public static byte[] Se(String str) {
         if (str == null) {
             return null;
         }

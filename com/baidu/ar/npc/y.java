@@ -1,8 +1,9 @@
 package com.baidu.ar.npc;
 
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-class y implements View.OnClickListener {
+public class y implements View.OnClickListener {
     final /* synthetic */ BaiduArView a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

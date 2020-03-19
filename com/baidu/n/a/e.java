@@ -199,9 +199,9 @@ public class e {
                 this.lEk.vd(optBoolean);
                 this.lEk.ve(optBoolean2);
                 this.lEk.Hk(optInt);
-                this.lEk.NI(optString);
-                this.lEk.NJ(optString2);
-                this.lEk.NK(optString3);
+                this.lEk.NJ(optString);
+                this.lEk.NK(optString2);
+                this.lEk.NL(optString3);
                 aVar.lEu = this.lEk;
                 return true;
             }
@@ -266,7 +266,7 @@ public class e {
             optJSONObject.put(str7, this.lEk.diA());
             optJSONObject.put(str8, this.lEk.diB());
             jSONObject.put(str2, optJSONObject);
-            com.baidu.n.a.c.e.a(NG(jSONObject.toString()), file2, false, sLock);
+            com.baidu.n.a.c.e.a(NH(jSONObject.toString()), file2, false, sLock);
             if (DEBUG) {
                 Log.d(TAG, "trySaveFiles, app: " + jSONObject.toString());
             }
@@ -305,12 +305,12 @@ public class e {
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        String NH = NH(a2);
+        String NI = NI(a2);
         if (DEBUG) {
-            Log.d(TAG, "getCacheObject ，json：" + NH);
+            Log.d(TAG, "getCacheObject ，json：" + NI);
         }
         try {
-            JSONObject jSONObject = new JSONObject(NH);
+            JSONObject jSONObject = new JSONObject(NI);
             com.baidu.n.a.a.a aVar = new com.baidu.n.a.a.a();
             a(aVar, jSONObject);
             return aVar;
@@ -331,7 +331,7 @@ public class e {
         return sb.toString();
     }
 
-    static String NG(String str) {
+    static String NH(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -342,7 +342,7 @@ public class e {
         }
     }
 
-    static String NH(String str) {
+    static String NI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

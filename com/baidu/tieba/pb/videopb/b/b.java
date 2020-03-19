@@ -223,9 +223,9 @@ public class b {
             String cnU = this.jbJ.clX().cnU();
             String id = postData.getId();
             int clb = this.jbJ.clX().getPbData() != null ? this.jbJ.clX().getPbData().clb() : 0;
-            PbActivity.a FS = FS(id);
-            if (FS != null) {
-                SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.jbJ.getPageContext().getPageActivity()).createSubPbActivityConfig(cnU, id, "pb", true, null, false, null, clb, postData.csv(), this.jbJ.clX().getPbData().getAnti(), false, postData.aCr() != null ? postData.aCr().getIconInfo() : null).addBigImageData(FS.iGa, FS.iGb, FS.iGc, FS.index);
+            PbActivity.a FT = FT(id);
+            if (FT != null) {
+                SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.jbJ.getPageContext().getPageActivity()).createSubPbActivityConfig(cnU, id, "pb", true, null, false, null, clb, postData.csv(), this.jbJ.clX().getPbData().getAnti(), false, postData.aCr() != null ? postData.aCr().getIconInfo() : null).addBigImageData(FT.iGa, FT.iGb, FT.iGc, FT.index);
                 addBigImageData.setKeyPageStartFrom(this.jbJ.clX().coD());
                 addBigImageData.setFromFrsForumId(this.jbJ.clX().getFromForumId());
                 addBigImageData.setKeyFromForumId(this.jbJ.clX().getForumId());
@@ -235,7 +235,7 @@ public class b {
         }
     }
 
-    public PbActivity.a FS(String str) {
+    public PbActivity.a FT(String str) {
         String str2;
         if (this.jbJ.clX() == null || this.jbJ.clX().getPbData() == null || this.jbJ.clX().getPbData().ckR() == null || this.jbJ.clX().getPbData().ckR().size() == 0 || StringUtils.isNull(str)) {
             return null;

@@ -201,7 +201,7 @@ public class a extends v.a implements View.OnClickListener {
             this.diF.setTag(str2);
             this.jrH.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
             this.diF.setOnClickListener(this);
-            GV(str);
+            GW(str);
             if (this.iuu != null) {
                 this.iuu.setTag(strArr);
             }
@@ -210,7 +210,7 @@ public class a extends v.a implements View.OnClickListener {
         }
     }
 
-    private void GV(String str) {
+    private void GW(String str) {
         if (jrE != null && !jrE.equals(str)) {
             jrD = null;
         }

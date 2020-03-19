@@ -21,7 +21,7 @@ public final class k extends com.baidu.ubs.analytics.d.d {
         String str;
         dVar = d.a.kXQ;
         if (dVar.cXU().size() == 0) {
-            com.baidu.ubs.analytics.d.b.Ls(" 线程轮询  app 应该是退出了");
+            com.baidu.ubs.analytics.d.b.Lt(" 线程轮询  app 应该是退出了");
         }
         if (az == null && Environment.getExternalStorageState().equals("mounted")) {
             az = new StringBuffer().append(Environment.getExternalStorageDirectory().getPath()).append("/baidu/ab/").append(i.q(com.baidu.ubs.analytics.d.cXN().getContext())).append("/").toString();
@@ -34,16 +34,16 @@ public final class k extends com.baidu.ubs.analytics.d.d {
         List<n> cXO2 = pVar.cXO();
         List<com.baidu.ubs.analytics.a.l> cXO3 = mVar.cXO();
         List<com.baidu.ubs.analytics.a.a> cXO4 = bVar.cXO();
-        com.baidu.ubs.analytics.d.b.Ls("这次查询结果       session ：    " + cXO2.size() + "      点击事件   " + cXO4.size() + "    网络请求：  " + cXO.size() + "    页面记录     " + cXO3.size());
+        com.baidu.ubs.analytics.d.b.Lt("这次查询结果       session ：    " + cXO2.size() + "      点击事件   " + cXO4.size() + "    网络请求：  " + cXO.size() + "    页面记录     " + cXO3.size());
         if (cXO.size() == 0 && cXO3.size() == 0 && cXO4.size() == 0) {
-            com.baidu.ubs.analytics.d.b.Ls("这次记录 json 为空的，就不传了  ………………");
+            com.baidu.ubs.analytics.d.b.Lt("这次记录 json 为空的，就不传了  ………………");
             if (cXO2.size() > 1) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < cXO2.size()) {
                         if (cXO2.get(i2).O() == null) {
-                            pVar.Lo(cXO2.get(i2).I());
+                            pVar.Lp(cXO2.get(i2).I());
                         }
                         i = i2 + 1;
                     } else {
@@ -115,8 +115,8 @@ public final class k extends com.baidu.ubs.analytics.d.d {
                 stringBuffer.append(a);
                 stringBuffer.append("]");
                 if (com.baidu.ubs.analytics.b.a.a(com.baidu.ubs.analytics.d.cXN().getContext(), stringBuffer.toString())) {
-                    com.baidu.ubs.analytics.d.b.Ls("上传成功，删除本地文件的       ");
-                    com.baidu.ubs.analytics.d.g.Lx(az + "ABJson.log");
+                    com.baidu.ubs.analytics.d.b.Lt("上传成功，删除本地文件的       ");
+                    com.baidu.ubs.analytics.d.g.Ly(az + "ABJson.log");
                     a(jVar, pVar, mVar, bVar, cXO3, cXO, cXO4);
                     return;
                 }
@@ -148,7 +148,7 @@ public final class k extends com.baidu.ubs.analytics.d.d {
 
     private static void a(com.baidu.ubs.analytics.a.j jVar, p pVar, com.baidu.ubs.analytics.a.m mVar, com.baidu.ubs.analytics.a.b bVar, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
         jVar.a(list2.size() != 0 ? list2.get(list2.size() - 1).getId() : 0);
-        pVar.Lm(m.cYe().I());
+        pVar.Ln(m.cYe().I());
         mVar.a(list.size() != 0 ? list.get(list.size() - 1).getId() : 0);
         bVar.a(list3.size() != 0 ? list3.get(list3.size() - 1).getId() : 0);
     }

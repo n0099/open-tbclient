@@ -224,7 +224,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         this.mSeekTime = j;
         Voice voice = this.mVoice;
         e.aIX().aIW();
-        if (!this.mPlayer.ug(voice.getName()) && this.mPlayer.getErrorNo() != -1) {
+        if (!this.mPlayer.uh(voice.getName()) && this.mPlayer.getErrorNo() != -1) {
             Intent intent = new Intent("com.baidu.playPrepared");
             intent.putExtra("com.baidu.playPrepared_err_code", this.mPlayer.getErrorNo());
             sendBroadcast(intent);
@@ -283,7 +283,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     if (this.mPlayer instanceof e) {
                         ((e) this.mPlayer).setOnPreparedListener(null);
                     }
-                    if (this.mPlayer.ug(this.mVoice.getName())) {
+                    if (this.mPlayer.uh(this.mVoice.getName())) {
                         this.mPlayer.seek((int) hP);
                         playVoice(null);
                     }
@@ -302,7 +302,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
                     if (this.mPlayer instanceof e) {
                         ((e) this.mPlayer).setOnPreparedListener(null);
                     }
-                    if (this.mPlayer.ug(this.mVoice.getName())) {
+                    if (this.mPlayer.uh(this.mVoice.getName())) {
                         this.mPlayer.seek((int) longExtra);
                         playVoice(null);
                     }
@@ -336,12 +336,12 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             this.mFilePath = stringExtra + File.separator + stringExtra2;
             if (file.exists()) {
                 if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                    z = this.mRecorder.ud(this.mFilePath);
+                    z = this.mRecorder.ue(this.mFilePath);
                 }
             } else {
                 file.mkdir();
                 if (file.isDirectory() && file.canRead() && file.canWrite()) {
-                    z = this.mRecorder.ud(this.mFilePath);
+                    z = this.mRecorder.ue(this.mFilePath);
                 }
             }
             if (z) {

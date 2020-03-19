@@ -52,7 +52,7 @@ public class a {
             bjVar.aDm();
             if (!TextUtils.isEmpty(bjVar.aDy())) {
                 ae aeVar = new ae();
-                aeVar.sw(bjVar.aDy());
+                aeVar.sx(bjVar.aDy());
                 linkedList.add(aeVar);
             } else {
                 linkedList.add(bVar);

@@ -300,14 +300,14 @@ public class b extends com.baidu.tieba.frs.view.b {
     }
 
     private void P(boolean z, boolean z2) {
-        e BL = d.bKj().BL(this.mForumName);
-        if (BL == null) {
-            BL = new e(this.gxc, z2);
+        e BM = d.bKj().BM(this.mForumName);
+        if (BM == null) {
+            BM = new e(this.gxc, z2);
         } else {
-            BL.mh(this.gxc);
-            BL.mi(z2);
+            BM.mh(this.gxc);
+            BM.mi(z2);
         }
-        d.bKj().a(this.mForumName, BL);
+        d.bKj().a(this.mForumName, BM);
         Q(z, z2);
         R(z, z2);
     }

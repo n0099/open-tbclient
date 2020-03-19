@@ -83,11 +83,11 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
                 }
                 if (data.customGroupType == 1) {
                     MessageUtils.createGroupChatMessage(1, ScreenLockActivity.this.jQL.getInputMsg(), com.baidu.adp.lib.f.b.toLong(data.groupId, 0L));
-                    com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().uo(data.groupId);
+                    com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().up(data.groupId);
                     MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 1)));
                 } else if (data.customGroupType == 2) {
                     MessageUtils.createPersonalChatMessage(1, ScreenLockActivity.this.jQL.getInputMsg(), com.baidu.adp.lib.f.b.toLong(data.groupId, 0L), data.userName, data.nameShow, data.jRh);
-                    com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().uo(data.groupId);
+                    com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().up(data.groupId);
                     MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(data.groupId, 2)));
                     MessageUtils.sendHasReadMessage(data.groupId, 2);
                 }

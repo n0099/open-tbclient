@@ -27,7 +27,7 @@ public class a {
         return (this.kyz == null || "normal".equalsIgnoreCase(this.kyz.value)) ? false : true;
     }
 
-    public void JZ(String str) {
+    public void Ka(String str) {
         if ((this.kyA == null || !this.kyA.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
             String cQi = cQi();
             String str2 = "normal";

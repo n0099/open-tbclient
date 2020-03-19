@@ -35,12 +35,12 @@ final class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void Lm(String str) {
+    public final void Ln(String str) {
         this.kXC.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean Ln(String str) {
+    public final boolean Lo(String str) {
         Cursor rawQuery = this.kXC.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
         int count = rawQuery.getCount();
         rawQuery.close();

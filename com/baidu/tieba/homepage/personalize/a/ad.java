@@ -116,11 +116,11 @@ public class ad {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.afd.videopaster.data.b BR;
+            com.baidu.afd.videopaster.data.b BS;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (!StringUtils.isNull(str, true) && (BR = ad.this.BR(str)) != null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921395, BR));
+                if (!StringUtils.isNull(str, true) && (BS = ad.this.BS(str)) != null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921395, BS));
                 }
             }
         }
@@ -197,7 +197,7 @@ public class ad {
         this.gXE.add(this.hfD);
         bPn();
         bPm();
-        wP("page_recommend");
+        wQ("page_recommend");
     }
 
     private void bPm() {
@@ -516,11 +516,11 @@ public class ad {
         }
     }
 
-    private void wP(String str) {
+    private void wQ(String str) {
         if (this.gXE != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.gXE) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).wP(str);
+                    ((com.baidu.tieba.a.f) aVar).wQ(str);
                 }
             }
         }
@@ -532,7 +532,7 @@ public class ad {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.afd.videopaster.data.b BR(String str) {
+    public com.baidu.afd.videopaster.data.b BS(String str) {
         int i;
         int i2;
         com.baidu.tieba.card.data.l lVar;

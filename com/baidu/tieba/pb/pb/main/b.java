@@ -32,10 +32,10 @@ public class b extends com.baidu.tbadk.widget.richText.a {
                 int i2 = 0;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    com.baidu.adp.widget.ImageView.a vx = com.baidu.tbadk.imageManager.c.aPV().vx(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
-                    if (vx != null) {
-                        i2 = vx.getWidth();
-                        i = vx.getHeight();
+                    com.baidu.adp.widget.ImageView.a vy = com.baidu.tbadk.imageManager.c.aPV().vy(com.baidu.adp.lib.e.c.gr().genCacheKey(tbImageView.getUrl(), b.this.mIsFromCDN ? 17 : 18));
+                    if (vy != null) {
+                        i2 = vy.getWidth();
+                        i = vy.getHeight();
                     } else {
                         i = 0;
                     }

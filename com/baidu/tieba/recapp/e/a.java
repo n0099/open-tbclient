@@ -183,7 +183,7 @@ public class a extends e {
                     str = this.cVv.getString(R.string.frs_network_tips);
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cVv.getPageActivity());
-                aVar.sR(str);
+                aVar.sS(str);
                 aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.e.a.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -250,12 +250,12 @@ public class a extends e {
     private void cDP() {
         if (cDO() && this.jOa != null) {
             String str = this.jOa.cNk;
-            DownloadCacheKey xb = !TextUtils.isEmpty(str) ? com.baidu.tieba.ad.download.d.aYp().xb(str) : null;
-            if (xb == null) {
-                xb = DownloadCacheKey.create(str, this.jOa.apkUrl, this.jOa.cNn);
-                com.baidu.tieba.ad.download.d.aYp().a(xb, null);
+            DownloadCacheKey xc = !TextUtils.isEmpty(str) ? com.baidu.tieba.ad.download.d.aYp().xc(str) : null;
+            if (xc == null) {
+                xc = DownloadCacheKey.create(str, this.jOa.apkUrl, this.jOa.cNn);
+                com.baidu.tieba.ad.download.d.aYp().a(xc, null);
             }
-            i(xb);
+            i(xc);
         }
     }
 

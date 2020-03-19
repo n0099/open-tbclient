@@ -249,7 +249,7 @@ public class a extends c<BaseFragmentActivity> {
         this.hDN.setText(str);
     }
 
-    public void Dg(String str) {
+    public void Dh(String str) {
         this.hDH.setText(str);
     }
 
@@ -279,7 +279,7 @@ public class a extends c<BaseFragmentActivity> {
                 setContent(groupActivityData.getgActivityContent());
                 setTitle(groupActivityData.getgActivityTitle());
                 setTime(groupActivityData.getgActivityTime());
-                Dg(groupActivityData.getgActivityArea());
+                Dh(groupActivityData.getgActivityArea());
                 return;
             }
             return;

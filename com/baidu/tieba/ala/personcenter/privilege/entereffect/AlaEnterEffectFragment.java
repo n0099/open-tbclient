@@ -61,7 +61,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
             AlaEnterEffectFragment.this.hideLoadingView();
             AlaEnterEffectFragment.this.bcC();
             if (alaGetEnterEffectResponsedMessage == null || alaGetEnterEffectResponsedMessage.getError() != 0) {
-                AlaEnterEffectFragment.this.zH(TbadkCoreApplication.getCurrentPortrait());
+                AlaEnterEffectFragment.this.zI(TbadkCoreApplication.getCurrentPortrait());
                 AlaEnterEffectFragment.this.fxv.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, 0));
                 AlaEnterEffectFragment.this.fxu.setText(TbadkCoreApplication.getCurrentAccountNameShow());
                 if (j.isNetWorkAvailable()) {
@@ -79,7 +79,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
                     return;
                 }
             }
-            AlaEnterEffectFragment.this.zH(alaGetEnterEffectResponsedMessage.getPortrait());
+            AlaEnterEffectFragment.this.zI(alaGetEnterEffectResponsedMessage.getPortrait());
             AlaEnterEffectFragment.this.fxu.setText(alaGetEnterEffectResponsedMessage.getUserName());
             AlaEnterEffectFragment.this.fxv.setText(AlaEnterEffectFragment.this.getString(R.string.ala_enter_effect_count, Integer.valueOf(alaGetEnterEffectResponsedMessage.getEnterEffectCount())));
             List<m> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
@@ -161,7 +161,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zH(String str) {
+    public void zI(String str) {
         if (!StringUtils.isNull(str)) {
             this.fxt.startLoad(str, 25, false);
             c.gr().a(str, 25, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEnterEffectFragment.3

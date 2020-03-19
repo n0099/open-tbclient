@@ -47,7 +47,7 @@ public final class Loader implements o {
     }
 
     public Loader(String str) {
-        this.mIB = v.Qy(str);
+        this.mIB = v.Qz(str);
     }
 
     public <T extends c> long a(T t, a<T> aVar, int i) {

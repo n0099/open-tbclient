@@ -83,17 +83,17 @@ public class d {
         }
         switch (i) {
             case 1:
-                return Hn(str);
-            case 2:
                 return Ho(str);
-            case 3:
+            case 2:
                 return Hp(str);
+            case 3:
+                return Hq(str);
             default:
                 return false;
         }
     }
 
-    public boolean Hn(String str) {
+    public boolean Ho(String str) {
         if (this.jCS) {
             return false;
         }
@@ -104,7 +104,7 @@ public class d {
         return true;
     }
 
-    public boolean Ho(String str) {
+    public boolean Hp(String str) {
         if (this.jCT) {
             return false;
         }
@@ -115,7 +115,7 @@ public class d {
         return true;
     }
 
-    public boolean Hp(String str) {
+    public boolean Hq(String str) {
         if (this.jCU) {
             return false;
         }

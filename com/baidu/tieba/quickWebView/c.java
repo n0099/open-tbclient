@@ -58,7 +58,7 @@ public class c {
                                 if (TextUtils.isEmpty(header.get(i2)) || !header.get(i2).contains("BAIDUID=")) {
                                     i = i2 + 1;
                                 } else {
-                                    com.baidu.tbadk.browser.a.rK(header.get(i2));
+                                    com.baidu.tbadk.browser.a.rL(header.get(i2));
                                     break;
                                 }
                             } else {
@@ -129,7 +129,7 @@ public class c {
         public b doInBackground(Void... voidArr) {
             b cCr = c.this.cCr();
             if (cCr != null && !TextUtils.isEmpty(cCr.jGo) && cCr.jGp != null && cCr.jGp.size() != 0) {
-                c.HF(cCr.jGq);
+                c.HG(cCr.jGq);
                 return cCr;
             }
             return null;
@@ -451,7 +451,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void HF(String str) {
+    public static void HG(String str) {
         String[] list;
         if (!TextUtils.isEmpty(str)) {
             String str2 = DOWNLOAD_DIR + "bdtbWCache";

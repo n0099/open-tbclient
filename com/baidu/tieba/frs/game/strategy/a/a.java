@@ -28,7 +28,7 @@ public class a {
         this.gkR = BdCacheService.fz().b("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public void Bn(final String str) {
+    public void Bo(final String str) {
         if (this.gkR != null && str != null) {
             ac.a(new ab<GameForumGuideTabResIdl>() { // from class: com.baidu.tieba.frs.game.strategy.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */

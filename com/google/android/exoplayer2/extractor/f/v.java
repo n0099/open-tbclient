@@ -20,9 +20,9 @@ public final class v implements com.google.android.exoplayer2.extractor.e {
             return new com.google.android.exoplayer2.extractor.e[]{new v()};
         }
     };
-    private static final long mqA = com.google.android.exoplayer2.util.v.QE("AC-3");
-    private static final long mqB = com.google.android.exoplayer2.util.v.QE("EAC3");
-    private static final long mqC = com.google.android.exoplayer2.util.v.QE("HEVC");
+    private static final long mqA = com.google.android.exoplayer2.util.v.QF("AC-3");
+    private static final long mqB = com.google.android.exoplayer2.util.v.QF("EAC3");
+    private static final long mqC = com.google.android.exoplayer2.util.v.QF("HEVC");
     private com.google.android.exoplayer2.extractor.g mng;
     private final int mode;
     private final List<com.google.android.exoplayer2.util.s> mqD;

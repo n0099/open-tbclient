@@ -10,12 +10,12 @@ public class a implements c.a {
     private static final int lQY = lQX.length;
     private static final byte[] lQZ = {-119, 80, 78, 71, 13, 10, 26, 10};
     private static final int lRa = lQZ.length;
-    private static final byte[] lRb = e.OU("GIF87a");
-    private static final byte[] lRc = e.OU("GIF89a");
-    private static final byte[] lRd = e.OU("BM");
+    private static final byte[] lRb = e.OV("GIF87a");
+    private static final byte[] lRc = e.OV("GIF89a");
+    private static final byte[] lRd = e.OV("BM");
     private static final int lRe = lRd.length;
     private static final String[] lRf = {"heic", "heix", "hevc", "hevx"};
-    private static final int lRg = e.OU(FileTypeBox.TYPE + lRf[0]).length;
+    private static final int lRg = e.OV(FileTypeBox.TYPE + lRf[0]).length;
     final int lQW = com.facebook.common.internal.e.k(21, 20, lQY, lRa, 6, lRe, lRg);
 
     @Override // com.facebook.c.c.a
@@ -95,7 +95,7 @@ public class a implements c.a {
         if (i >= lRg && bArr[3] >= 8) {
             int length = lRf.length;
             for (int i2 = 0; i2 < length; i2++) {
-                if (e.c(bArr, bArr.length, e.OU(FileTypeBox.TYPE + strArr[i2]), lRg) > -1) {
+                if (e.c(bArr, bArr.length, e.OV(FileTypeBox.TYPE + strArr[i2]), lRg) > -1) {
                     return true;
                 }
             }

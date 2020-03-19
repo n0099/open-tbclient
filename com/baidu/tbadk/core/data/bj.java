@@ -339,7 +339,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.cUv;
     }
 
-    public void sC(String str) {
+    public void sD(String str) {
         this.cUv = str;
     }
 
@@ -447,7 +447,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.awC;
     }
 
-    public void sD(String str) {
+    public void sE(String str) {
         this.awC = str;
     }
 
@@ -455,7 +455,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.cSh;
     }
 
-    public void sE(String str) {
+    public void sF(String str) {
         this.cSh = str;
     }
 
@@ -607,7 +607,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.forum_name;
     }
 
-    public void sF(String str) {
+    public void sG(String str) {
         this.forum_name = str;
     }
 
@@ -631,7 +631,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.cSJ;
     }
 
-    public void sG(String str) {
+    public void sH(String str) {
         this.cSJ = str;
     }
 
@@ -900,7 +900,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
                             if (zhiBoInfoTW.labelInfo.get(i5) != null) {
                                 com.baidu.tbadk.coreExtra.view.d dVar = new com.baidu.tbadk.coreExtra.view.d();
                                 dVar.mb(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
-                                dVar.uE(zhiBoInfoTW.labelInfo.get(i5).labelId);
+                                dVar.uF(zhiBoInfoTW.labelInfo.get(i5).labelId);
                                 dVar.setLabelName(zhiBoInfoTW.labelInfo.get(i5).labelContent);
                                 this.cSS.add(dVar);
                             }
@@ -1291,7 +1291,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
             long j = this.mCreateTime;
             if (j != 0) {
                 String bD = com.baidu.tbadk.core.util.aq.bD(j);
-                if (com.baidu.tbadk.core.util.aq.tx(bD)) {
+                if (com.baidu.tbadk.core.util.aq.ty(bD)) {
                     bD = com.baidu.tbadk.core.util.aq.getFormatTimeShort(j);
                 }
                 this.cUv = bD;
@@ -1319,7 +1319,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
             long aCk2 = 1000 * aCk();
             if (aCk2 != 0) {
                 String bD2 = com.baidu.tbadk.core.util.aq.bD(aCk2);
-                if (com.baidu.tbadk.core.util.aq.tx(bD2)) {
+                if (com.baidu.tbadk.core.util.aq.ty(bD2)) {
                     bD2 = com.baidu.tbadk.core.util.aq.getFormatTimeShort(aCk2);
                 }
                 this.cUv = TbadkCoreApplication.getInst().getApp().getString(R.string.repley_when) + bD2;
@@ -1336,7 +1336,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
                 long aCk = 1000 * aCk();
                 if (aCk != 0) {
                     String bD = com.baidu.tbadk.core.util.aq.bD(aCk);
-                    if (com.baidu.tbadk.core.util.aq.tx(bD)) {
+                    if (com.baidu.tbadk.core.util.aq.ty(bD)) {
                         bD = com.baidu.tbadk.core.util.aq.getFormatTimeShort(aCk);
                     }
                     this.cUv = bD;
@@ -1435,7 +1435,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return (!aDc() || this.cTc.size() < 1 || this.cTc.get(0) == null) ? "" : this.cTc.get(0).getUrl();
     }
 
-    private com.baidu.adp.widget.b sH(String str) {
+    private com.baidu.adp.widget.b sI(String str) {
         com.baidu.adp.widget.b bVar;
         if (str == null) {
             return null;
@@ -1517,7 +1517,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
                 arrayList.add(Integer.valueOf((int) R.drawable.icon_tag_giftsend));
             }
             if (!com.baidu.adp.lib.util.k.isEmpty(this.category_name)) {
-                bVar = sH(this.category_name);
+                bVar = sI(this.category_name);
             }
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
@@ -1682,7 +1682,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.cSk;
     }
 
-    public void sI(String str) {
+    public void sJ(String str) {
         this.cSk = str;
     }
 
@@ -1738,7 +1738,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
                 PbContent pbContent = this.cSl.get(i);
                 if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && aBe() && pbContent.text != null && pbContent.text.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = com.baidu.tbadk.plugins.b.vM(pbContent.text);
+                    activityItemData.link_url = com.baidu.tbadk.plugins.b.vN(pbContent.text);
                     activityItemData.activity_name = pbContent.text.substring(1, pbContent.text.length() - 2);
                     return activityItemData;
                 }
@@ -2229,7 +2229,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.cUj;
     }
 
-    public void sJ(String str) {
+    public void sK(String str) {
         this.cUj = str;
     }
 
@@ -2249,7 +2249,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.cSr;
     }
 
-    public void sK(String str) {
+    public void sL(String str) {
         this.cSr = str;
     }
 
@@ -2257,7 +2257,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.cSs;
     }
 
-    public void sL(String str) {
+    public void sM(String str) {
         this.cSs = str;
     }
 
@@ -2265,7 +2265,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.cUk;
     }
 
-    public void sM(String str) {
+    public void sN(String str) {
         this.cUk = str;
     }
 
@@ -2549,7 +2549,7 @@ public class bj extends a implements com.baidu.adp.widget.ListView.m, com.baidu.
         return this.cUK;
     }
 
-    public void sN(String str) {
+    public void sO(String str) {
         this.cUK = str;
     }
 

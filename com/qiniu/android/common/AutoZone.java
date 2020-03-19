@@ -37,7 +37,7 @@ public final class AutoZone extends Zone {
         return this.noJ.get(new ZoneIndex(str, str2));
     }
 
-    ZoneInfo Rj(String str) {
+    ZoneInfo Rk(String str) {
         try {
             String[] split = str.split(":");
             return fu(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
@@ -75,18 +75,18 @@ public final class AutoZone extends Zone {
 
     @Override // com.qiniu.android.common.Zone
     public synchronized String d(String str, boolean z, String str2) {
-        ZoneInfo Rj;
-        Rj = Rj(str);
-        return Rj != null ? super.a(Rj, z, str2) : null;
+        ZoneInfo Rk;
+        Rk = Rk(str);
+        return Rk != null ? super.a(Rk, z, str2) : null;
     }
 
     @Override // com.qiniu.android.common.Zone
     public void a(String str, Zone.QueryHandler queryHandler) {
-        a(ZoneIndex.Rl(str), queryHandler);
+        a(ZoneIndex.Rm(str), queryHandler);
     }
 
     @Override // com.qiniu.android.common.Zone
-    public synchronized void Rk(String str) {
+    public synchronized void Rl(String str) {
         ZoneInfo zoneInfo;
         if (str != null) {
             String host = URI.create(str).getHost();
@@ -102,7 +102,7 @@ public final class AutoZone extends Zone {
                 }
             }
             if (zoneInfo != null) {
-                zoneInfo.Rk(host);
+                zoneInfo.Rl(host);
             }
         }
     }
@@ -118,7 +118,7 @@ public final class AutoZone extends Zone {
             this.bucket = str2;
         }
 
-        static ZoneIndex Rl(String str) {
+        static ZoneIndex Rm(String str) {
             String[] split = str.split(":");
             try {
                 return new ZoneIndex(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);

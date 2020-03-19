@@ -88,7 +88,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                     setVisibility(0);
                     com.baidu.tieba.view.c.cTP().setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                     TbRichText a = TbRichTextView.a(getContext(), jSONArray2, false);
-                    e(uA(a.toString()));
+                    e(uB(a.toString()));
                     this.drW.setText(a);
                     return;
                 }

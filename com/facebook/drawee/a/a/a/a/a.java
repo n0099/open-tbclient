@@ -20,7 +20,7 @@ public class a extends com.facebook.drawee.controller.b<f> {
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void onSubmit(String str, Object obj) {
         this.lMr.eZ(this.lMy.now());
-        this.lMr.OX(str);
+        this.lMr.OY(str);
         this.lMr.bd(obj);
         this.lLO.a(this.lMr, 0);
     }
@@ -30,7 +30,7 @@ public class a extends com.facebook.drawee.controller.b<f> {
     /* renamed from: a */
     public void onIntermediateImageSet(String str, @Nullable f fVar) {
         this.lMr.fa(this.lMy.now());
-        this.lMr.OX(str);
+        this.lMr.OY(str);
         this.lMr.a(fVar);
         this.lLO.a(this.lMr, 2);
     }
@@ -39,7 +39,7 @@ public class a extends com.facebook.drawee.controller.b<f> {
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void onFinalImageSet(String str, @Nullable f fVar, @Nullable Animatable animatable) {
         this.lMr.fb(this.lMy.now());
-        this.lMr.OX(str);
+        this.lMr.OY(str);
         this.lMr.a(fVar);
         this.lMr.vj(true);
         this.lLO.a(this.lMr, 3);
@@ -48,7 +48,7 @@ public class a extends com.facebook.drawee.controller.b<f> {
     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
     public void onFailure(String str, Throwable th) {
         this.lMr.fc(this.lMy.now());
-        this.lMr.OX(str);
+        this.lMr.OY(str);
         this.lMr.vj(false);
         this.lLO.a(this.lMr, 5);
     }
@@ -59,7 +59,7 @@ public class a extends com.facebook.drawee.controller.b<f> {
         int dmo = this.lMr.dmo();
         if (dmo != 3 && dmo != 5) {
             this.lMr.fd(this.lMy.now());
-            this.lMr.OX(str);
+            this.lMr.OY(str);
             this.lMr.vi(true);
             this.lLO.a(this.lMr, 4);
         }

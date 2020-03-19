@@ -374,7 +374,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             public void onClick(View view) {
                 if (!EditHeadActivity.this.jkU.isShowing()) {
                     if ((EditHeadActivity.this.mBitmap != null || EditHeadActivity.this.aBk != null) && view.getTag() != null) {
-                        EditHeadActivity.this.GH(view.getTag().toString());
+                        EditHeadActivity.this.GI(view.getTag().toString());
                     }
                 }
             }
@@ -392,7 +392,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GH(String str) {
+    public void GI(String str) {
         if (this.jkW != null) {
             this.jkW.cancel();
         }
@@ -643,7 +643,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Exception e;
             this.mNetwork = new x(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
             try {
-                str = this.mNetwork.tq(TbConfig.PERSON_HEAD_FILE);
+                str = this.mNetwork.tr(TbConfig.PERSON_HEAD_FILE);
             } catch (Exception e2) {
                 str = null;
                 e = e2;

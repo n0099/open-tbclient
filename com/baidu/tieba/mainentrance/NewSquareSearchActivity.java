@@ -70,7 +70,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                NewSquareSearchActivity.this.Ep(customResponsedMessage.getData().toString());
+                NewSquareSearchActivity.this.Eq(customResponsedMessage.getData().toString());
             }
         }
     };
@@ -124,7 +124,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
-    public void En(String str) {
+    public void Eo(String str) {
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.a
@@ -180,7 +180,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ep(String str) {
+    public void Eq(String str) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (!StringUtils.isNull(str)) {

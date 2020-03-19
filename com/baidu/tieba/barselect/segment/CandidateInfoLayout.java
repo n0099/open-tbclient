@@ -109,7 +109,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
         } else {
             this.fGG.kl(false);
         }
-        this.fGG.tT(this.fGM.getPortrait());
+        this.fGG.tU(this.fGM.getPortrait());
         this.fGG.setOnClickListener(this.drJ);
         this.Nm.setText(aq.cutChineseAndEnglishWithSuffix(this.fGM.getNickname(), 14, StringHelper.STRING_MORE));
         setGrade(this.fGM.bub());

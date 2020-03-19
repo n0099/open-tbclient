@@ -199,13 +199,13 @@ public class d {
         this.fDM.setVisibility(z ? 0 : 8);
     }
 
-    public void Eu(String str) {
+    public void Ev(String str) {
         if (!StringUtils.isNull(str)) {
             this.fDL.setHint(str);
         }
     }
 
-    public void Ev(String str) {
+    public void Ew(String str) {
         if (!StringUtils.isNull(str)) {
             this.fDL.setText(str);
             this.fDL.setSelection(str.length());
@@ -215,7 +215,7 @@ public class d {
     public void j(List<String> list, String str) {
         if (!v.isEmpty(list)) {
             ceB();
-            this.ihg.Em(str);
+            this.ihg.En(str);
             this.ihg.setData(list);
             this.ihe.setAdapter((ListAdapter) this.ihg);
         }
@@ -224,7 +224,7 @@ public class d {
     public void k(List<ForumInfo> list, String str) {
         if (!v.isEmpty(list) && !TextUtils.isEmpty(str)) {
             ceB();
-            this.iic.Em(str);
+            this.iic.En(str);
             this.iic.dp(list);
             this.ihe.setAdapter((ListAdapter) this.iic);
         }

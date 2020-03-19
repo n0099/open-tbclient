@@ -68,7 +68,7 @@ public class a extends d {
                     }
                     WriteData cIp = writeData == null ? a.this.dyM.cIp() : writeData;
                     if (z) {
-                        a.this.hiD.KK(null);
+                        a.this.hiD.KL(null);
                         a.this.hiD.aU(null);
                         a.this.hiD.tN(false);
                         a.this.cTE();
@@ -90,7 +90,7 @@ public class a extends d {
                         cIp.setVcodeMD5(aaVar.getVcode_md5());
                         cIp.setVcodeUrl(aaVar.getVcode_pic_url());
                         cIp.setVcodeExtra(aaVar.aJL());
-                        if (com.baidu.tbadk.s.a.wb(aaVar.aJK())) {
+                        if (com.baidu.tbadk.s.a.wc(aaVar.aJK())) {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.cVv.getPageActivity(), RequestResponseCode.REQUEST_VCODE, cIp, false, aaVar.aJK())));
                         } else {
                             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.cVv.getPageActivity(), cIp, RequestResponseCode.REQUEST_VCODE)));
@@ -98,16 +98,16 @@ public class a extends d {
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.cVv.getPageActivity(), RequestResponseCode.REQUEST_VCODE, cIp, postWriteCallBackData.getAccessState())));
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
-                        a.this.KH(postWriteCallBackData.getErrorString());
+                        a.this.KI(postWriteCallBackData.getErrorString());
                         a.this.hiD.aU(postWriteCallBackData.getSensitiveWords());
-                        a.this.hiD.KK(postWriteCallBackData.getErrorString());
+                        a.this.hiD.KL(postWriteCallBackData.getErrorString());
                         if (!v.isEmpty(a.this.hiD.cUx())) {
                             a.this.mV(true);
                         }
                     } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.CL(postWriteCallBackData.getErrorCode()))) {
                         a.this.T(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString());
                     } else if (postWriteCallBackData != null) {
-                        a.this.KH(postWriteCallBackData.getErrorString());
+                        a.this.KI(postWriteCallBackData.getErrorString());
                     }
                 }
             }
@@ -145,7 +145,7 @@ public class a extends d {
         return this.cVv;
     }
 
-    public void vm(String str) {
+    public void vn(String str) {
         this.mPostContent = str;
     }
 
@@ -169,15 +169,15 @@ public class a extends d {
         if (AntiHelper.bb(i, str)) {
             AntiHelper.a(this.cVv.getPageActivity(), str, i, (AntiHelper.a) null);
         } else if (i == 230277 || i == 230278) {
-            vq(str);
+            vr(str);
         } else {
-            KH(str);
+            KI(str);
         }
     }
 
-    private void vq(String str) {
+    private void vr(String str) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(aJv().getPageActivity());
-        aVar.sR(str);
+        aVar.sS(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.videoplay.editor.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -276,7 +276,7 @@ public class a extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KH(String str) {
+    public void KI(String str) {
         if (this.cVv != null && !StringUtils.isNull(str)) {
             this.cVv.showToast(str);
         }

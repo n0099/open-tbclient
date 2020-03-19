@@ -639,7 +639,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         this.dUe.s(this.dUb);
         this.dUe.a(new com.baidu.tbadk.g.a() { // from class: com.baidu.tieba.LogoActivity.2
             @Override // com.baidu.tbadk.g.a
-            public void rH(String str) {
+            public void rI(String str) {
                 LogoActivity.this.dTX = true;
                 LogoActivity.this.mRootView.removeView(LogoActivity.this.dUb);
                 LogoActivity.this.aWe();

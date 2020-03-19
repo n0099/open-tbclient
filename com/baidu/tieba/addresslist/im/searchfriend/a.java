@@ -29,14 +29,14 @@ public class a {
                 String charSequence2String = k.charSequence2String(a.this.ecB.getText(), null);
                 if (!StringUtils.isNULL(charSequence2String)) {
                     if (charSequence2String.trim().length() != 0) {
-                        a.this.xu(charSequence2String.trim());
+                        a.this.xv(charSequence2String.trim());
                         a.this.ecC.setClickable(false);
                     } else if (charSequence2String.length() > 0) {
                         a.this.mPageContext.showToast(R.string.input_content);
                     }
                 }
             } else if (view == a.this.ecD) {
-                a.this.xt("");
+                a.this.xu("");
             }
         }
     };
@@ -46,14 +46,14 @@ public class a {
     /* renamed from: com.baidu.tieba.addresslist.im.searchfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public interface InterfaceC0411a {
-        void xs(String str);
+        void xt(String str);
     }
 
     public void hF(boolean z) {
         this.ecC.setClickable(z);
     }
 
-    public void xt(String str) {
+    public void xu(String str) {
         this.ecB.setText(str);
     }
 
@@ -106,9 +106,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xu(String str) {
+    public void xv(String str) {
         if (this.ecE != null) {
-            this.ecE.xs(str);
+            this.ecE.xt(str);
         }
     }
 }

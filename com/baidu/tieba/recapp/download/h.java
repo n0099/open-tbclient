@@ -43,7 +43,7 @@ public class h {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        i.cDc().a(advertAppInfo.cNn, advertAppInfo.apkUrl, str2, i, i.HN(advertAppInfo.cNn).intValue(), null, true, false, true, advertAppInfo.cNt.userPortrait, downloadStaticsData, advertAppInfo.cNt.userName);
+        i.cDc().a(advertAppInfo.cNn, advertAppInfo.apkUrl, str2, i, i.HO(advertAppInfo.cNn).intValue(), null, true, false, true, advertAppInfo.cNt.userPortrait, downloadStaticsData, advertAppInfo.cNt.userName);
         return true;
     }
 

@@ -68,7 +68,7 @@ public class b extends a {
         this.gzA.setLayoutParams(layoutParams2);
         ((ViewGroup) getView()).addView(this.gzA);
         this.NC = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.gzA);
-        this.NC.sD("1");
+        this.NC.sE("1");
         this.NC.j(bdUniqueId);
     }
 

@@ -97,7 +97,7 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
                                     if (c.this.drH != null && c.this.drH.cPi) {
                                         String aAB = c.this.drH.aAB();
                                         if (!StringUtils.isNULL(aAB)) {
-                                            c.this.HJ(aAB);
+                                            c.this.HK(aAB);
                                         }
                                         c.this.drH.cPi = false;
                                     }
@@ -198,7 +198,7 @@ public class c implements com.baidu.tieba.InjectPlugin.FrsBannerAd.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HJ(String str) {
+    public void HK(String str) {
         if (!StringUtils.isNULL(str)) {
             a.C0613a b = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0129", "ad_plat", "VIEW_TRUE", str, this.mForumId, this.mForumName, null);
             b.eC(TiebaInitialize.Params.OBJ_URL, this.drH.aAL());

@@ -533,7 +533,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
             this.e.setVisibility(0);
             this.j.setVisibility(0);
             this.G.setVisibility(8);
-            this.nis.setImageResource(tv.chushou.widget.a.c.SN(roomBean.creator.gender));
+            this.nis.setImageResource(tv.chushou.widget.a.c.SO(roomBean.creator.gender));
             this.mZw.bU(roomBean.creator.avatar, com.kascend.chushou.view.a.a(roomBean.creator.gender));
             if (roomBean.creator.meta != null) {
                 if (h.isEmpty(roomBean.creator.meta.avatarFrame)) {
@@ -776,7 +776,7 @@ public class a extends com.kascend.chushou.view.base.b implements View.OnClickLi
         if (!TextUtils.isEmpty(str)) {
             int length = cVar.length();
             com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(getResources()).HU(com.kascend.chushou.view.a.a()).dnx(), this.mContext);
-            a.setController(com.facebook.drawee.a.a.c.dlW().OV(str).vo(true).dmN());
+            a.setController(com.facebook.drawee.a.a.c.dlW().OW(str).vo(true).dmN());
             cVar.append("1");
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(a.d.user_level_icon_height);
             cVar.a(a, length, length, dimensionPixelSize, dimensionPixelSize, true, 2);

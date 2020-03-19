@@ -79,7 +79,7 @@ public final class au {
             }
             createFromThreadCfg.setThreadData(aAj);
             createFromThreadCfg.setVideoOriginArea(rect);
-            com.baidu.tieba.card.l.zU(aAj.getTid());
+            com.baidu.tieba.card.l.zV(aAj.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }

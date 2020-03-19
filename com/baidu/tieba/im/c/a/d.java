@@ -25,7 +25,7 @@ public class d implements CustomMessageTask.CustomRunnable<Integer> {
         if (TbadkApplication.getCurrentAccountObj() != null) {
             str = TbadkApplication.getCurrentAccountObj().getID();
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.aEF().sO("tb.im_groupactivity").get("group_activity" + str + requestGetGroupActivityLocalMessage.getData());
+        byte[] bArr = com.baidu.tbadk.core.c.a.aEF().sP("tb.im_groupactivity").get("group_activity" + str + requestGetGroupActivityLocalMessage.getData());
         ResponseGetGroupActivityLocalMessage responseGetGroupActivityLocalMessage = new ResponseGetGroupActivityLocalMessage();
         if (bArr != null) {
             try {

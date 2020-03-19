@@ -23,7 +23,7 @@ public final class j implements HlsPlaylistTracker.c, com.google.android.exoplay
     private final p.a<com.google.android.exoplayer2.source.hls.playlist.c> myh;
 
     static {
-        com.google.android.exoplayer2.l.Pl("goog.exo.hls");
+        com.google.android.exoplayer2.l.Pm("goog.exo.hls");
     }
 
     public j(Uri uri, e.a aVar, Handler handler, com.google.android.exoplayer2.source.b bVar) {

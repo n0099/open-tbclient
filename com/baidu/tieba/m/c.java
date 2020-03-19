@@ -66,7 +66,7 @@ public class c {
                 this.isK = new Runnable() { // from class: com.baidu.tieba.m.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.Fk(c.this.mContext.getString(R.string.data_init));
+                        c.this.Fl(c.this.mContext.getString(R.string.data_init));
                     }
                 };
             }
@@ -106,7 +106,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Fk(String str) {
+    public void Fl(String str) {
         if (this.isI == null) {
             this.isI = new b(this.mContext);
             this.isI.setTextSize(1, 18.0f);

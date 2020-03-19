@@ -197,7 +197,7 @@ public class c {
         hashMap.put("roomId", str);
         hashMap.put("_fr", 0);
         hashMap.put("_v", 3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str2));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str2));
         a(tv.chushou.common.a.dQx(), "api/room/get.htm?", hashMap, bVar);
     }
 
@@ -206,7 +206,7 @@ public class c {
         hashMap.put("roomId", str);
         hashMap.put("needRelatedRoomList", 1);
         hashMap.put("styleType", str3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str2));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str2));
         a(tv.chushou.common.a.dQx(), "api/room-expand/get.htm?", hashMap, bVar);
     }
 
@@ -220,7 +220,7 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
         hashMap.put("uid", str3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str2));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str2));
         a(tv.chushou.common.a.dQx(), "api/room-space/get.htm?", hashMap, bVar);
     }
 
@@ -234,7 +234,7 @@ public class c {
         hashMap.put("videoId", str);
         hashMap.put("content", replaceAll);
         hashMap.put("timePoint", Long.valueOf(j));
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str3));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
         b(tv.chushou.common.a.dQx(), "api/gamezone/video/barrage/send.htm", hashMap, bVar);
     }
 
@@ -242,7 +242,7 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
         hashMap.put("uid", str2);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str3));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
         b(tv.chushou.common.a.dQx(), "api/subscriber/subscribe.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.1
             @Override // com.kascend.chushou.c.b
             public void a() {
@@ -275,7 +275,7 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
         hashMap.put("uid", str2);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str3));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
         b(tv.chushou.common.a.dQx(), "api/subscriber/unsubscribe.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.2
             @Override // com.kascend.chushou.c.b
             public void a() {
@@ -323,7 +323,7 @@ public class c {
         HashMap hashMap = new HashMap(6);
         hashMap.put("roomId", str);
         hashMap.put("_timestamp", Long.valueOf(j));
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str2));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str2));
         a(tv.chushou.common.a.dQx(), "api/room/heartbeat.htm?", hashMap, (b) null);
     }
 
@@ -395,7 +395,7 @@ public class c {
         hashMap.put("type", str);
         hashMap.put("primaryKey", str2);
         hashMap.put("targetKey", str3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str4));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str4));
         hashMap.put("count", Long.valueOf(j));
         b(tv.chushou.common.a.dQx(), "api/pocket/consume.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.4
             @Override // com.kascend.chushou.c.b
@@ -439,7 +439,7 @@ public class c {
         hashMap.put("targetKey", str3);
         hashMap.put("uid", str4);
         hashMap.put("roomId", str5);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str6));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str6));
         hashMap.put("count", Long.valueOf(j));
         b(tv.chushou.common.a.dQx(), "api/mic/room/pocket/send.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.5
             @Override // com.kascend.chushou.c.b
@@ -485,7 +485,7 @@ public class c {
         HashMap hashMap = new HashMap(7);
         hashMap.put("roomId", str);
         hashMap.put("giftId", str2);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str3));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
         hashMap.put("giftCount", Long.valueOf(j));
         Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
         if (http != null) {
@@ -535,7 +535,7 @@ public class c {
         hashMap.put("uid", str);
         hashMap.put("giftId", str2);
         hashMap.put("roomId", str3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str4));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str4));
         hashMap.put("count", Long.valueOf(j));
         hashMap.put("_v", 1);
         Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
@@ -618,7 +618,7 @@ public class c {
         hashMap.put("sourceId", str);
         hashMap.put("targetKey", str2);
         hashMap.put("type", str4);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str3));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
         a(tv.chushou.common.a.dQx(), "api/share/feedback.htm?", hashMap, (b) null);
     }
 
@@ -694,7 +694,7 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
         hashMap.put("content", replaceAll);
-        hashMap.putAll(tv.chushou.zues.utils.d.SU(str4));
+        hashMap.putAll(tv.chushou.zues.utils.d.SV(str4));
         Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
         if (http != null) {
             http.postAsync(tv.chushou.common.a.dQx(), "open/chat/send.htm", hashMap, RequestTag.normal(), jsonCallbackWrapper);

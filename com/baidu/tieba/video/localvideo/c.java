@@ -280,9 +280,9 @@ public class c extends com.baidu.adp.base.c {
         this.kBF.invalidate();
     }
 
-    public void Kh(String str) {
+    public void Ki(String str) {
         if (this.kBE != null) {
-            this.kBE.Kg(str);
+            this.kBE.Kh(str);
         }
     }
 

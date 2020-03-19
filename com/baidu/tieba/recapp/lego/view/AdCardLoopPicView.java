@@ -52,8 +52,8 @@ public class AdCardLoopPicView extends AdCardBaseView {
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
-            public String HT(String str) {
-                return AdCardLoopPicView.this.HQ(aq.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE));
+            public String HU(String str) {
+                return AdCardLoopPicView.this.HR(aq.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a

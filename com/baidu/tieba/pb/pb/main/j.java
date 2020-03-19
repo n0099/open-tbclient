@@ -435,13 +435,13 @@ public class j extends l<PostData, k> implements View.OnClickListener {
             layoutParams.topMargin = 0;
             kVar.iHz.setLayoutParams(layoutParams);
             kVar.iHz.setPadding(0, 0, 0, 0);
-            kVar.iHz.wi(null);
+            kVar.iHz.wj(null);
         } else {
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) kVar.iHz.getLayoutParams();
             layoutParams2.topMargin = getDimensionPixelSize(R.dimen.ds20);
             layoutParams2.bottomMargin = getDimensionPixelSize(R.dimen.ds20);
             kVar.iHz.setLayoutParams(layoutParams2);
-            kVar.iHz.wi(postData.getBimg_url());
+            kVar.iHz.wj(postData.getBimg_url());
         }
         kVar.iHz.setTextViewOnTouchListener(this.iHn);
         kVar.iHz.setTextViewCheckSelection(false);
@@ -539,7 +539,7 @@ public class j extends l<PostData, k> implements View.OnClickListener {
                     kVar.iHG.getHeadView().setFid(this.iGv != null ? this.iGv.getForumId() : "");
                     kVar.iHG.getHeadView().setTid(postData.getId());
                     kVar.iHG.getHeadView().setTag(R.id.tag_statistic_item, com.baidu.tieba.pb.c.a.b(this.iGv, postData, postData.locate, i2, 2));
-                    kVar.iHG.tS(postData.aCr().getPendantData().aAJ());
+                    kVar.iHG.tT(postData.aCr().getPendantData().aAJ());
                 } else {
                     UtilHelper.showHeadImageViewBigV(kVar.iHy, postData.aCr(), 0);
                     kVar.iHy.setUserId(postData.aCr().getUserId());
@@ -914,7 +914,7 @@ public class j extends l<PostData, k> implements View.OnClickListener {
             if (!this.iGw) {
                 kVar.iHz.getLayoutStrategy().nm(R.drawable.icon_click);
             } else {
-                kVar.iHz.wi(null);
+                kVar.iHz.wj(null);
                 kVar.iHz.setBackgroundDrawable(null);
                 kVar.iHz.getLayoutStrategy().nm(R.drawable.transparent_bg);
             }
@@ -1007,7 +1007,7 @@ public class j extends l<PostData, k> implements View.OnClickListener {
                             this.iHm.setThreadData(this.iGv.ckP());
                         }
                     }
-                    this.iHm.Gr(postData.getId());
+                    this.iHm.Gs(postData.getId());
                     kVar.iHB.setSubPbAdapter(this.iHm);
                     kVar.iHB.setVisibility(0);
                     kVar.iHB.setData(postData, view);
@@ -1134,9 +1134,9 @@ public class j extends l<PostData, k> implements View.OnClickListener {
     }
 
     private void nw() {
-        this.Nv = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tM("#4D000000").aHi()});
-        this.Nw = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tM("#4D000000").aHi()});
-        this.iFc = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).b("TL_BR", R.color.floor_host_start, R.color.floor_host_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tM("#4D000000").aHi()});
+        this.Nv = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).b("TL_BR", R.color.ba_zhu_start, R.color.ba_zhu_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tN("#4D000000").aHi()});
+        this.Nw = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).b("TL_BR", R.color.xiao_ba_zhu_start, R.color.xiao_ba_zhu_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tN("#4D000000").aHi()});
+        this.iFc = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).b("TL_BR", R.color.floor_host_start, R.color.floor_host_end).aHi(), com.baidu.tbadk.core.util.e.a.b.aHg().kB(0).af(this.aqT).tN("#4D000000").aHi()});
     }
 
     public void a(TbRichTextView.c cVar) {

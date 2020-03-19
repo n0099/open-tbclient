@@ -224,7 +224,7 @@ public class c implements View.OnClickListener {
                     this.jDX.setVideoUrl(this.jDP.getVideoUrl(), String.valueOf(this.tid));
                     this.jDX.bQh();
                     n nVar = new n(this.jDL.getActivity());
-                    nVar.Hb("2");
+                    nVar.Hc("2");
                     y yVar = new y();
                     yVar.mLocate = Constants.VIA_REPORT_TYPE_WPA_STATE;
                     yVar.Pk = String.valueOf(this.tid);

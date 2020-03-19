@@ -23,7 +23,7 @@ public class e {
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e Rx(String str) {
+    public e Ry(String str) {
         e eVar = new e(this);
         eVar.hD.add(str);
         return eVar;

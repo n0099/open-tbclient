@@ -24,7 +24,7 @@ public class h implements aj<com.facebook.common.references.a<com.facebook.image
         if (bn != null) {
             boolean dre = bn.get().dqQ().dre();
             if (dre) {
-                drW.a(id, dsf(), drW.Pd(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+                drW.a(id, dsf(), drW.Pe(id) ? ImmutableMap.of("cached_value_found", "true") : null);
                 drW.D(id, dsf(), true);
                 kVar.aK(1.0f);
             }
@@ -35,13 +35,13 @@ public class h implements aj<com.facebook.common.references.a<com.facebook.image
             }
         }
         if (akVar.drX().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
-            drW.a(id, dsf(), drW.Pd(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+            drW.a(id, dsf(), drW.Pe(id) ? ImmutableMap.of("cached_value_found", "false") : null);
             drW.D(id, dsf(), false);
             kVar.g(null, 1);
             return;
         }
         k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> a2 = a(kVar, a, akVar.drV().dsV());
-        drW.a(id, dsf(), drW.Pd(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+        drW.a(id, dsf(), drW.Pe(id) ? ImmutableMap.of("cached_value_found", "false") : null);
         this.lWS.c(a2, akVar);
     }
 

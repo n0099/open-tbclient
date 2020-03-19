@@ -25,11 +25,11 @@ public class a implements e, b.a {
         uV();
     }
 
-    public void yS(String str) {
+    public void yT(String str) {
         this.fan = new b(this.mPageContext.getPageActivity());
         this.fan.a(this);
         this.fan.b(this);
-        this.fan.bdN().setBackgroundColor(xL(str));
+        this.fan.bdN().setBackgroundColor(xM(str));
         this.fan.show(str);
     }
 
@@ -90,7 +90,7 @@ public class a implements e, b.a {
         MessageManager.getInstance().registerListener(this.aot);
     }
 
-    private int xL(String str) {
+    private int xM(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

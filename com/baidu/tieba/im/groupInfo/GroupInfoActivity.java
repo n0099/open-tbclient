@@ -386,13 +386,13 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
             if (this.hFc.getData() == null || this.hFc.getData().getGroup() == null) {
                 return false;
             }
-            this.hFb.Dm(String.valueOf(this.hFc.getData().getGroup().getGroupId()));
+            this.hFb.Dn(String.valueOf(this.hFc.getData().getGroup().getGroupId()));
             return false;
         } else if (view != this.hFb.bWC() || this.hFc.getData().bXw()) {
             return false;
         } else {
             if (this.hFc.getData() != null && this.hFc.getData().getGroup() != null) {
-                this.hFb.Dl(String.valueOf(this.hFc.getData().getGroup().getIntro()));
+                this.hFb.Dm(String.valueOf(this.hFc.getData().getGroup().getIntro()));
             }
             return true;
         }
@@ -453,7 +453,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                     if (intent != null) {
                         String stringExtra2 = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
                         if (this.hFb != null) {
-                            this.hFb.Dj(stringExtra2);
+                            this.hFb.Dk(stringExtra2);
                         }
                         if (this.hFc != null && this.hFc.getData() != null && this.hFc.getData().getGroup() != null) {
                             this.hFc.getData().getGroup().setIntro(stringExtra2);
@@ -518,7 +518,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
     public void a(PhotoUrlData photoUrlData) {
         this.type = 2;
         if (photoUrlData != null) {
-            Dh(this.hFc.generateDeleAlbum(photoUrlData));
+            Di(this.hFc.generateDeleAlbum(photoUrlData));
         }
     }
 
@@ -527,7 +527,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
         if (photoUrlData != null) {
             String generateAddAlbum = this.hFc.generateAddAlbum(photoUrlData);
             if (!TextUtils.isEmpty(generateAddAlbum)) {
-                Dh(generateAddAlbum);
+                Di(generateAddAlbum);
             }
         }
     }
@@ -544,7 +544,7 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
         }
     }
 
-    private void Dh(String str) {
+    private void Di(String str) {
         if (this.htw != null) {
             this.htw.setGroupId(this.hFc.getGroupId());
             this.htw.setAlbum(str);
@@ -702,12 +702,12 @@ public class GroupInfoActivity extends BaseActivity<GroupInfoActivity> implement
                                             data.nT(false);
                                             GroupInfoActivity.this.hFc.setHasRecentJoin(false);
                                             GroupInfoActivity.this.hFb.a(data, true);
-                                            GroupInfoActivity.this.hFb.Dk(str);
+                                            GroupInfoActivity.this.hFb.Dl(str);
                                             GroupInfoActivity.this.bWx();
                                             return;
                                         }
                                         if (GroupInfoActivity.this.hFc.removeMemberByUid(str)) {
-                                            GroupInfoActivity.this.hFb.Dk(str);
+                                            GroupInfoActivity.this.hFb.Dl(str);
                                             GroupData group = GroupInfoActivity.this.hFc.getData().getGroup();
                                             if (group != null && group.getMemberNum() > 1) {
                                                 group.setMemberNum(group.getMemberNum() - 1);

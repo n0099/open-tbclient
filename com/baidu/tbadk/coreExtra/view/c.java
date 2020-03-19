@@ -184,7 +184,7 @@ public class c {
         if (!this.dsO.isShowing()) {
             this.dsP.setText((CharSequence) null);
             aMR();
-            uD(null);
+            uE(null);
             if (!this.mContext.isFinishing()) {
                 this.dsO.setContentView(this.dsN);
                 g.showDialog(this.dsO, this.mContext);
@@ -226,9 +226,9 @@ public class c {
     public void aMP() {
         String obj = this.dsP.getText().toString();
         if (obj == null || obj.length() <= 0) {
-            uD(this.mContext.getString(R.string.error_tip_name_cannot_empty));
+            uE(this.mContext.getString(R.string.error_tip_name_cannot_empty));
         } else if (UtilHelper.getFixedTextSize(obj) > 14) {
-            uD(this.mContext.getString(R.string.input_alias_limit_length_tip));
+            uE(this.mContext.getString(R.string.input_alias_limit_length_tip));
         } else {
             if (this.dsX != null) {
                 this.dsX.cancel();
@@ -236,7 +236,7 @@ public class c {
             if (!this.dtl && this.dtc != null) {
                 this.dta.setVisibility(0);
                 this.dsZ.setEnabled(false);
-                uD(null);
+                uE(null);
                 aMR();
                 SapiAccountManager.getInstance().getAccountService().fillUsername(new FillUsernameCallback() { // from class: com.baidu.tbadk.coreExtra.view.c.4
                     @Override // com.baidu.sapi2.callback.FillUsernameCallback
@@ -264,7 +264,7 @@ public class c {
                     /* renamed from: c */
                     public void onFailure(FillUsernameResult fillUsernameResult) {
                         if (!StringUtils.isNull(fillUsernameResult.getResultMsg())) {
-                            c.this.uD(fillUsernameResult.getResultMsg());
+                            c.this.uE(fillUsernameResult.getResultMsg());
                         }
                     }
 
@@ -293,10 +293,10 @@ public class c {
 
     public void D(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() <= 0) {
-            uD(this.mContext.getString(R.string.suggest_no_name));
+            uE(this.mContext.getString(R.string.suggest_no_name));
             return;
         }
-        uD(this.mContext.getString(R.string.suggest_some_names));
+        uE(this.mContext.getString(R.string.suggest_some_names));
         int size = arrayList.size();
         this.dsQ.clearCheck();
         this.dsR.clearCheck();
@@ -351,7 +351,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uD(String str) {
+    public void uE(String str) {
         if (str == null) {
             this.dsY.setVisibility(4);
             this.dsY.setText((CharSequence) null);
@@ -421,23 +421,23 @@ public class c {
             super.onPostExecute(kVar);
             this.dtn.dsX = null;
             if (!this.mNetwork.isNetSuccess()) {
-                this.dtn.uD(this.mNetwork.getErrorString());
+                this.dtn.uE(this.mNetwork.getErrorString());
             } else if (this.mNetwork.getServerErrorCode() == 0) {
-                this.dtn.uD(this.dtn.mContext.getString(R.string.name_not_use));
+                this.dtn.uE(this.dtn.mContext.getString(R.string.name_not_use));
             } else if (this.mNetwork.getServerErrorCode() == 36) {
-                this.dtn.uD(this.mNetwork.getErrorString());
+                this.dtn.uE(this.mNetwork.getErrorString());
                 if (kVar != null) {
                     this.dtn.D(kVar.aJw());
                 }
             } else {
-                this.dtn.uD(this.mNetwork.getErrorString());
+                this.dtn.uE(this.mNetwork.getErrorString());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.dtn.uD(null);
+            this.dtn.uE(null);
             this.dtn.aMR();
             super.onPreExecute();
         }

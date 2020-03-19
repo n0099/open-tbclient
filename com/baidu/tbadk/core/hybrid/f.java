@@ -38,7 +38,7 @@ public class f extends WebViewClient {
     public void onPageFinished(WebView webView, String str) {
         e.debug("page " + str + " load finished.");
         if (!this.cWV.contains(str)) {
-            this.cWN.sZ(str);
+            this.cWN.ta(str);
         }
         this.cWV.clear();
         if (this.cWU != null) {

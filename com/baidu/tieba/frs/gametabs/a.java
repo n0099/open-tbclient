@@ -44,16 +44,16 @@ public class a extends n {
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    Bt(optString);
+                    Bu(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.e.cCW().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.HN(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.e.cCW().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.e.HO(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
                 TiebaStatic.log(new an("c12775").cx("fid", StringUtils.isNull(this.emF) ? "" : this.emF));
             }
         }
     }
 
-    private void Bt(String str) {
+    private void Bu(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
             if (!(this.cXD.getContext() instanceof Activity)) {

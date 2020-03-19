@@ -68,7 +68,7 @@ public class c {
         this.dZs.setContentView(R.layout.base_webview_activity);
         this.mRoot = this.dZs.findViewById(R.id.root_view);
         this.mNavigationBar = (NavigationBar) this.dZs.findViewById(R.id.view_navigation_bar);
-        sn("");
+        so("");
         this.cLi = (LinearLayout) this.dZs.findViewById(R.id.webview_container);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cLi.getLayoutParams();
         layoutParams.addRule(3, R.id.view_navigation_bar);
@@ -209,7 +209,7 @@ public class c {
         this.cLj.setVisibility(8);
     }
 
-    public void sn(String str) {
+    public void so(String str) {
         this.cLd = this.mNavigationBar.setCenterTextTitle(str);
         if (this.cLf != null && this.cLf.getVisibility() == 0 && this.cLg != null && this.cLg.getVisibility() == 0) {
             this.cLd.setMaxWidth(l.getDimens(this.dZs.getPageContext().getPageActivity(), R.dimen.ds152) * 2);
@@ -299,7 +299,7 @@ public class c {
         am.setBackgroundResource(this.cLf, R.drawable.frs_star_navigation_bg);
         am.setBackgroundResource(this.cLg, R.drawable.frs_star_navigation_bg);
         am.setBackgroundResource(this.Lb, R.drawable.frs_star_navigation_bg);
-        sn("");
+        so("");
         this.dZs.getWindow().setFlags(1024, 1024);
     }
 

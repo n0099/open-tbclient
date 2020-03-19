@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = OT(file.getAbsolutePath());
+                statFs = OU(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -126,7 +126,7 @@ public class StatFsHelper {
         }
     }
 
-    protected static StatFs OT(String str) {
+    protected static StatFs OU(String str) {
         return new StatFs(str);
     }
 }

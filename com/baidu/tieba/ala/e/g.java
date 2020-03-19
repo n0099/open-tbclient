@@ -136,7 +136,7 @@ public class g extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void zA(String str) {
+    public void zB(String str) {
         HttpMessage httpMessage = new HttpMessage(1021169);
         httpMessage.addParam("wish_id", str);
         httpMessage.addParam("status", 2);

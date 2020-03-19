@@ -311,7 +311,7 @@ public class ah extends com.baidu.tieba.frs.h<bj, com.baidu.card.af<bj>> impleme
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 

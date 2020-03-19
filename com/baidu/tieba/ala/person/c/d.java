@@ -51,7 +51,7 @@ public class d extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void zD(String str) {
+    public void zE(String str) {
         if (!BdNetTypeUtil.isNetWorkAvailable() || TextUtils.isEmpty(str)) {
             if (this.fsV != null) {
                 this.fsV.onFail(this.mContext.getResources().getString(a.i.sdk_no_network));

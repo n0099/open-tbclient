@@ -19,11 +19,11 @@ public class e implements d {
     static {
         lRG = null;
         lRH = null;
-        lRG = Pb("com.facebook.animated.gif.GifImage");
-        lRH = Pb("com.facebook.animated.webp.WebPImage");
+        lRG = Pc("com.facebook.animated.gif.GifImage");
+        lRH = Pc("com.facebook.animated.webp.WebPImage");
     }
 
-    private static c Pb(String str) {
+    private static c Pc(String str) {
         try {
             return (c) Class.forName(str).newInstance();
         } catch (Throwable th) {

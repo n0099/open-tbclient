@@ -91,7 +91,7 @@ public class g extends com.baidu.tbadk.editortools.c {
                     if (eVar != null && eVar.aOy() != null && aVar != null) {
                         switch (aVar.code) {
                             case 4:
-                                eVar.vm((String) aVar.data);
+                                eVar.vn((String) aVar.data);
                                 g.this.dzr = false;
                                 return;
                             case 5:

@@ -235,7 +235,7 @@ public class OriginalThreadInfo {
         if (this.cPU != null) {
             bjVar.z(new ArrayList<>(this.cPU));
         }
-        bjVar.sF(this.forumName);
+        bjVar.sG(this.forumName);
         bjVar.setTid(this.threadId);
         bjVar.a(this.cPW);
         bjVar.setFid(this.forumId);
@@ -243,7 +243,7 @@ public class OriginalThreadInfo {
         bjVar.isShareThread = true;
         bjVar.setBaijiahaoData(this.oriUgcInfo);
         bjVar.a(this.videoInfo);
-        bjVar.sN(this.showPicUrl);
+        bjVar.sO(this.showPicUrl);
         bjVar.cUe = this;
         return bjVar;
     }
@@ -307,7 +307,7 @@ public class OriginalThreadInfo {
                 PbContent pbContent = this.content.get(i);
                 if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && aBe() && pbContent.text != null && pbContent.text.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
-                    activityItemData.link_url = com.baidu.tbadk.plugins.b.vM(pbContent.text);
+                    activityItemData.link_url = com.baidu.tbadk.plugins.b.vN(pbContent.text);
                     activityItemData.activity_name = pbContent.text.substring(1, pbContent.text.length() - 2);
                     return activityItemData;
                 }

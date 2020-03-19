@@ -56,7 +56,7 @@ public class h extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void zz(String str) {
+    public void zA(String str) {
         HttpMessage httpMessage = new HttpMessage(1021165);
         httpMessage.addParam("anchor_id", str);
         sendMessage(httpMessage);

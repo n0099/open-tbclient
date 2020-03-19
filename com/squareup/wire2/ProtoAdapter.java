@@ -277,7 +277,7 @@ public abstract class ProtoAdapter<E> {
     public static final ProtoAdapter<String> STRING = new ProtoAdapter<String>(FieldEncoding.LENGTH_DELIMITED, String.class) { // from class: com.squareup.wire2.ProtoAdapter.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        /* renamed from: Rw */
+        /* renamed from: Rx */
         public int encodedSize(String str) {
             return d.utf8Length(str);
         }

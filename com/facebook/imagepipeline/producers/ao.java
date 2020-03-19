@@ -176,7 +176,7 @@ public class ao implements aj<com.facebook.imagepipeline.g.e> {
 
         private Map<String, String> a(com.facebook.imagepipeline.g.e eVar, ImageRequest imageRequest, int i, int i2, int i3, int i4) {
             String str;
-            if (!this.lXf.drW().Pd(this.lXf.getId())) {
+            if (!this.lXf.drW().Pe(this.lXf.getId())) {
                 return null;
             }
             String str2 = eVar.getWidth() + Config.EVENT_HEAT_X + eVar.getHeight();

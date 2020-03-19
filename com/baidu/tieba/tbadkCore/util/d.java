@@ -13,7 +13,7 @@ public class d {
         this.ddx = i;
     }
 
-    public void Jn(String str) {
+    public void Jo(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
@@ -54,7 +54,7 @@ public class d {
         }
     }
 
-    public boolean Jo(String str) {
+    public boolean Jp(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
@@ -68,7 +68,7 @@ public class d {
         }
     }
 
-    public boolean Jp(String str) {
+    public boolean Jq(String str) {
         try {
             return this.klg.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {

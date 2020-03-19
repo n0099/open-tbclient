@@ -45,9 +45,9 @@ public final class FixedZone extends Zone {
     }
 
     @Override // com.qiniu.android.common.Zone
-    public synchronized void Rk(String str) {
+    public synchronized void Rl(String str) {
         if (str != null) {
-            this.noU.Rk(URI.create(str).getHost());
+            this.noU.Rl(URI.create(str).getHost());
         }
     }
 }

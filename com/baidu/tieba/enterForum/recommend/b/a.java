@@ -70,7 +70,7 @@ public class a {
         }
     }
 
-    private List<b> Aq(String str) {
+    private List<b> Ar(String str) {
         ArrayList arrayList = new ArrayList();
         if (this.fXH != null && this.fXH.size() > 0) {
             arrayList.addAll(this.fXH.get(str));
@@ -78,7 +78,7 @@ public class a {
         return arrayList;
     }
 
-    private List<b> Ar(String str) {
+    private List<b> As(String str) {
         ArrayList arrayList = new ArrayList();
         if (this.fXJ != null && this.fXJ.size() > 0) {
             arrayList.addAll(this.fXJ.get(str));
@@ -96,7 +96,7 @@ public class a {
                     dVar.setTitle(str);
                     dVar.needTopMargin = !z;
                     dVar.rV(intValue);
-                    dVar.bN(Aq(str));
+                    dVar.bN(Ar(str));
                     arrayList.add(dVar);
                     arrayList.addAll(dVar.bzg());
                 }
@@ -126,7 +126,7 @@ public class a {
                         dVar.setTitle(str);
                         dVar.needTopMargin = !z;
                         dVar.rV(intValue);
-                        dVar.bN(Ar(next));
+                        dVar.bN(As(next));
                         arrayList.add(dVar);
                         arrayList.addAll(dVar.bzg());
                     }

@@ -130,7 +130,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
                 this.gRT.setVisibility(8);
             }
             if (frsViewData.getForumActiveInfo() != null && !StringUtils.isNull(frsViewData.getForumActiveInfo().forum_share_url)) {
-                BT(frsViewData.getForumActiveInfo().forum_share_url);
+                BU(frsViewData.getForumActiveInfo().forum_share_url);
             } else if (frsViewData.getForum() != null) {
                 ForumData forum = this.gOa.getForum();
                 String encode = URLEncoder.encode(frsViewData.getForum().getName());
@@ -139,7 +139,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
                 } else {
                     str = TbConfig.HTTPS_FRS_PREFIX + encode + "&fr=frsshare";
                 }
-                BT(str);
+                BU(str);
             }
             if (frsViewData.getForum() != null && frsViewData.getForum().getMember_num() > 3) {
                 this.gRH.setText(frsViewData.getForum().getMember_num() + getResources().getString(R.string.bar_friends_join));
@@ -276,7 +276,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
         am.setViewTextColor(this.gRT, (int) R.color.cp_cont_a);
     }
 
-    private void BT(String str) {
+    private void BU(String str) {
         CustomResponsedMessage runTask;
         if (str != null && str.length() != 0 && (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) != null && runTask.getData() != null) {
             this.gRO.setImageBitmap((Bitmap) runTask.getData());

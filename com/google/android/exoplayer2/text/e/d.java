@@ -89,7 +89,7 @@ final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String PZ(String str) {
+    public static String Qa(String str) {
         return str.replaceAll("\r\n", "\n").replaceAll(" *\n *", "\n").replaceAll("\n", HanziToPinyin.Token.SEPARATOR).replaceAll("[ \t\\x0B\f\r]+", HanziToPinyin.Token.SEPARATOR);
     }
 }

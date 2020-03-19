@@ -17,15 +17,15 @@ public final class p {
         return this.kXK.cXO();
     }
 
-    public final void Lm(String str) {
-        this.kXK.Lm(str);
+    public final void Ln(String str) {
+        this.kXK.Ln(str);
     }
 
-    public final void Lo(String str) {
-        this.kXK.Lm(str);
+    public final void Lp(String str) {
+        this.kXK.Ln(str);
     }
 
-    public final boolean Ln(String str) {
-        return this.kXK.Ln(str);
+    public final boolean Lo(String str) {
+        return this.kXK.Lo(str);
     }
 }

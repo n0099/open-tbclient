@@ -47,7 +47,7 @@ public class b implements a {
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void cSM() {
         if (this.kGT != null && this.kGU != null) {
-            this.kGU.Kv(this.kGT.getVideoUrl());
+            this.kGU.Kw(this.kGT.getVideoUrl());
         }
     }
 
@@ -80,7 +80,7 @@ public class b implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void playVideo() {
         if (this.kGT != null && this.kGU != null) {
-            this.kGU.Ku(this.kGT.getVideoUrl());
+            this.kGU.Kv(this.kGT.getVideoUrl());
         }
     }
 

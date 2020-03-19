@@ -91,7 +91,7 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     };
     private static final byte[] mgO = {49, 10, 48, 48, 58, 48, 48, 58, 48, 48, 44, 48, 48, 48, 32, 45, 45, 62, 32, 48, 48, 58, 48, 48, 58, 48, 48, 44, 48, 48, 48, 10};
     private static final byte[] mgP = {32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32};
-    private static final byte[] mgQ = v.QA("Format: Start, End, ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect, Text");
+    private static final byte[] mgQ = v.QB("Format: Start, End, ReadOrder, Layer, Style, Name, MarginL, MarginR, MarginV, Effect, Text");
     private static final byte[] mgR = {68, 105, 97, 108, 111, 103, 117, Constants.SHORT_PING_CMD_TYPE, 58, 32, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, 44, 48, 58, 48, 48, 58, 48, 48, 58, 48, 48, 44};
     private static final byte[] mgS = {32, 32, 32, 32, 32, 32, 32, 32, 32, 32};
     private static final UUID mgT = new UUID(72057594037932032L, -9223371306706625679L);
@@ -320,7 +320,7 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                 }
                 return;
             case 174:
-                if (Ps(this.mhi.mhO)) {
+                if (Pt(this.mhi.mhO)) {
                     this.mhi.a(this.mgu, this.mhi.number);
                     this.mgV.put(this.mhi.number, this.mhi);
                 }
@@ -924,18 +924,18 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
     }
 
     private static void a(byte[] bArr, long j, String str, int i, long j2, byte[] bArr2) {
-        byte[] QA;
+        byte[] QB;
         if (j == -9223372036854775807L) {
-            QA = bArr2;
+            QB = bArr2;
         } else {
             int i2 = (int) (j / 3600000000L);
             long j3 = j - ((i2 * 3600) * TimeUtils.NANOS_PER_MS);
             int i3 = (int) (j3 / 60000000);
             long j4 = j3 - ((i3 * 60) * TimeUtils.NANOS_PER_MS);
             int i4 = (int) (j4 / TimeUtils.NANOS_PER_MS);
-            QA = v.QA(String.format(Locale.US, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf((int) ((j4 - (i4 * TimeUtils.NANOS_PER_MS)) / j2))));
+            QB = v.QB(String.format(Locale.US, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf((int) ((j4 - (i4 * TimeUtils.NANOS_PER_MS)) / j2))));
         }
-        System.arraycopy(QA, 0, bArr, i, bArr2.length);
+        System.arraycopy(QB, 0, bArr, i, bArr2.length);
     }
 
     private void a(com.google.android.exoplayer2.extractor.f fVar, byte[] bArr, int i, int i2) throws IOException, InterruptedException {
@@ -1009,7 +1009,7 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
         return v.i(j, this.mhg, 1000L);
     }
 
-    private static boolean Ps(String str) {
+    private static boolean Pt(String str) {
         return "V_VP8".equals(str) || "V_VP9".equals(str) || "V_MPEG2".equals(str) || "V_MPEG4/ISO/SP".equals(str) || "V_MPEG4/ISO/ASP".equals(str) || "V_MPEG4/ISO/AP".equals(str) || "V_MPEG4/ISO/AVC".equals(str) || "V_MPEGH/ISO/HEVC".equals(str) || "V_MS/VFW/FOURCC".equals(str) || "V_THEORA".equals(str) || "A_OPUS".equals(str) || "A_VORBIS".equals(str) || "A_AAC".equals(str) || "A_MPEG/L2".equals(str) || "A_MPEG/L3".equals(str) || "A_AC3".equals(str) || "A_EAC3".equals(str) || "A_TRUEHD".equals(str) || "A_DTS".equals(str) || "A_DTS/EXPRESS".equals(str) || "A_DTS/LOSSLESS".equals(str) || "A_FLAC".equals(str) || "A_MS/ACM".equals(str) || "A_PCM/INT/LIT".equals(str) || "S_TEXT/UTF8".equals(str) || "S_TEXT/ASS".equals(str) || "S_VOBSUB".equals(str) || "S_HDMV/PGS".equals(str) || "S_DVBSUB".equals(str);
     }
 
@@ -1463,10 +1463,10 @@ public final class d implements com.google.android.exoplayer2.extractor.e {
                     throw new ParserException("Unrecognized codec identifier.");
             }
             int i5 = 0 | (this.miq ? 1 : 0) | (this.mip ? 2 : 0);
-            if (i.Qo(str)) {
+            if (i.Qp(str)) {
                 a = Format.a(Integer.toString(i), str, (String) null, -1, i3, this.channelCount, this.sampleRate, i4, list, this.drmInitData, i5, this.language);
                 i2 = 1;
-            } else if (i.OQ(str)) {
+            } else if (i.OR(str)) {
                 if (this.mhW == 0) {
                     this.mhU = this.mhU == -1 ? this.width : this.mhU;
                     this.mhV = this.mhV == -1 ? this.height : this.mhV;

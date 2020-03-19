@@ -81,7 +81,7 @@ public class a {
         });
     }
 
-    private void zq(String str) {
+    private void zr(String str) {
         if (this.alp != null) {
             bqv();
             if (this.fkD != null && this.fkD.isShowing()) {
@@ -101,7 +101,7 @@ public class a {
         }
     }
 
-    private void zr(String str) {
+    private void zs(String str) {
         if (this.fkD != null && this.fkD.isShowing()) {
             this.fkD.onFail();
         }
@@ -114,11 +114,11 @@ public class a {
 
     public void ae(Intent intent) {
         if (intent == null) {
-            zr(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_fail_toast));
+            zs(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_fail_toast));
         } else if (intent.getBooleanExtra("isModifySuccess", false)) {
-            zq(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_success_toast));
+            zr(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_success_toast));
         } else {
-            zr(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_fail_toast));
+            zs(this.mTbPageContext.getPageActivity().getResources().getString(a.i.sdk_rename_fail_toast));
         }
     }
 

@@ -56,16 +56,16 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                td(str2);
+                te(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                td(str);
+                te(str);
             } else {
                 aFM();
             }
         }
     }
 
-    private void td(String str) {
+    private void te(String str) {
         c.gr().a(str, 10, this.cYN, getBdUniqueId());
     }
 

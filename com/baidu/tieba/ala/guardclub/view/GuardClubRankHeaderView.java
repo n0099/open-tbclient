@@ -118,7 +118,7 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
             if (str == null) {
                 str = "";
             }
-            this.eJf.setData(2, kVar.name, String.format(getResources().getString(i), yC(str)));
+            this.eJf.setData(2, kVar.name, String.format(getResources().getString(i), yD(str)));
             if (list.size() > 1) {
                 k kVar2 = list.get(1);
                 this.eJc.setTag(kVar2);
@@ -137,7 +137,7 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
                 if (str3 == null) {
                     str3 = "";
                 }
-                this.eJg.setData(1, kVar2.name, String.format(getResources().getString(i), yC(str3)));
+                this.eJg.setData(1, kVar2.name, String.format(getResources().getString(i), yD(str3)));
             } else {
                 this.eJg.setData(1, "虚位以待", "");
             }
@@ -159,7 +159,7 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
                 if (str2 == null) {
                     str2 = "";
                 }
-                this.eJh.setData(1, kVar3.name, String.format(getResources().getString(i), yC(str2)));
+                this.eJh.setData(1, kVar3.name, String.format(getResources().getString(i), yD(str2)));
                 return;
             }
             this.eJh.setData(1, "虚位以待", "");
@@ -248,7 +248,7 @@ public class GuardClubRankHeaderView extends RelativeLayout implements View.OnCl
         }
     }
 
-    private String yC(String str) {
+    private String yD(String str) {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong > 100000000) {

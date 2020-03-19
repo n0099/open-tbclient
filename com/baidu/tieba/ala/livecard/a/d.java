@@ -108,7 +108,7 @@ public class d implements View.OnClickListener {
         this.eNZ.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.eNV.setBackgroundDrawable(am.kv(R.color.cp_bg_line_e));
         am.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-        if (bjVar != null && l.zV(bjVar.getId())) {
+        if (bjVar != null && l.zW(bjVar.getId())) {
             am.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_d);
         } else {
             am.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_b);
@@ -123,7 +123,7 @@ public class d implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.eNV || view == this.eNX.getCommentContainer()) {
             if (this.KJ != null) {
-                l.zU(this.KJ.getId());
+                l.zV(this.KJ.getId());
             }
             if (this.eOa != null) {
                 this.eOa.b(view, this.KJ);

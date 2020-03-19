@@ -74,7 +74,7 @@ public class ResponseOfficialBarMenuMessage extends TbSocketReponsedMessage {
         c officialBarMenuDatas;
         Message<?> orginalMessage = getOrginalMessage();
         if (orginalMessage != null && (orginalMessage instanceof RequestOfficialBarMenuMessage) && getError() == 0 && (officialBarMenuDatas = getOfficialBarMenuDatas()) != null && officialBarMenuDatas.bUy() && officialBarMenuDatas.bUz() != null && officialBarMenuDatas.bUz().size() > 0) {
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aEF().sO("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
+            saveProtocolBufferDataToCache(com.baidu.tbadk.core.c.a.aEF().sP("tb.official_bar_menu"), OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuMessage) orginalMessage).getForum_id(), bArr);
         }
     }
 }

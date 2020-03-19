@@ -344,7 +344,7 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
 
     @Override // com.baidu.tbadk.core.util.f.c
     public boolean isCyberVideoUsedThisPage() {
-        return com.baidu.tbadk.a.b.rG("cyber_player_test");
+        return com.baidu.tbadk.a.b.rH("cyber_player_test") || com.baidu.tbadk.a.b.rG("cyber_player_test");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.m.a
@@ -372,7 +372,7 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
                 pageStayDurationItem.setFid(com.baidu.adp.lib.f.b.toLong(this.gok.bDq().forumId, 0L));
             }
             if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-                pageStayDurationItem.vF(TbadkCoreApplication.getInst().getAdAdSense().dmy);
+                pageStayDurationItem.vG(TbadkCoreApplication.getInst().getAdAdSense().dmy);
             }
         }
         return pageStayDurationItem;

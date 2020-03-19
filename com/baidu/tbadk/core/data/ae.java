@@ -9,12 +9,12 @@ public class ae extends com.baidu.tieba.card.data.b {
     private boolean cPC;
     private String card;
 
-    public void sw(String str) {
+    public void sx(String str) {
         this.card = str;
     }
 
     public void aAO() {
-        this.Dy = com.baidu.tieba.lego.card.b.DY(this.card);
+        this.Dy = com.baidu.tieba.lego.card.b.DZ(this.card);
         this.cPC = this.Dy != null;
     }
 

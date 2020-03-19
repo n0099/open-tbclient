@@ -160,7 +160,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
                 if (!TextUtils.isEmpty(str)) {
                     bNO();
                     if (this.haI != null) {
-                        this.haI.Cf(str);
+                        this.haI.Cg(str);
                     }
                 }
             }

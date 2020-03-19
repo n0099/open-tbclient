@@ -34,50 +34,50 @@ public final class a implements b {
     @Override // tv.chushou.a.a.c.b
     public void v(String str, String str2) {
         if (this.kXt) {
-            Log.v(SL(str), SM(str2));
+            Log.v(SM(str), SN(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void d(String str, String str2) {
         if (this.kXt) {
-            Log.d(SL(str), SM(str2));
+            Log.d(SM(str), SN(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void i(String str, String str2) {
         if (this.kXt) {
-            Log.i(SL(str), SM(str2));
+            Log.i(SM(str), SN(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void w(String str, String str2) {
         if (this.kXt) {
-            Log.w(SL(str), SM(str2));
+            Log.w(SM(str), SN(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2) {
         if (this.kXt) {
-            Log.e(SL(str), SM(str2));
+            Log.e(SM(str), SN(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2, Throwable th) {
         if (this.kXt) {
-            Log.e(SL(str), SM(str2), th);
+            Log.e(SM(str), SN(str2), th);
         }
     }
 
-    private String SL(String str) {
+    private String SM(String str) {
         return TextUtils.isEmpty(str) ? dQI() : str;
     }
 
-    private String SM(String str) {
+    private String SN(String str) {
         if (this.nXO) {
             return str + b(Thread.currentThread().getStackTrace()[3]);
         }

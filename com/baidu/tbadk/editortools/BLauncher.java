@@ -64,7 +64,7 @@ public class BLauncher extends ImageView implements g {
         setVisibility(8);
     }
 
-    public void uZ(String str) {
+    public void va(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -112,7 +112,7 @@ public class BLauncher extends ImageView implements g {
             if (aVar.data == null) {
                 aOx();
             } else if (aVar.data instanceof String) {
-                uZ((String) aVar.data);
+                va((String) aVar.data);
             }
         }
     }

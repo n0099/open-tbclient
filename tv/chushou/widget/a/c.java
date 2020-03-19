@@ -53,12 +53,12 @@ public class c {
     }
 
     @DrawableRes
-    public static int SN(String str) {
+    public static int SO(String str) {
         return "female".equals(str) ? b.c.commonres_female_big : b.c.commonres_male_big;
     }
 
     @DrawableRes
-    public static int SO(String str) {
+    public static int SP(String str) {
         return "female".equals(str) ? b.c.commonres_female_no_border : b.c.commonres_male_no_border;
     }
 

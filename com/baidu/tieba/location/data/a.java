@@ -37,7 +37,7 @@ public class a {
             return this.screatString;
         }
 
-        public void El(String str) {
+        public void Em(String str) {
             this.screatString = str;
         }
     }

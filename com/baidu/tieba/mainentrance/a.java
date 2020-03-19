@@ -35,7 +35,7 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void Em(String str) {
+    public void En(String str) {
         this.cxh = str;
     }
 

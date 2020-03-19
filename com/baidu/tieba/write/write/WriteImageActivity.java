@@ -79,7 +79,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     if (WriteImageActivity.this.mProgress.getVisibility() != 0) {
                         if (WriteImageActivity.this.jmB && WriteImageActivity.this.aBk != null && !WriteImageActivity.this.aBk.isRecycled()) {
                             String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                            if (WriteImageActivity.this.Lg(str)) {
+                            if (WriteImageActivity.this.Lh(str)) {
                                 intent.putExtra("change", true);
                                 intent.putExtra("file_name", str);
                             } else {
@@ -260,7 +260,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         if (WriteImageActivity.this.mProgress.getVisibility() != 0) {
                             if (WriteImageActivity.this.jmB && WriteImageActivity.this.aBk != null && !WriteImageActivity.this.aBk.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                if (WriteImageActivity.this.Lg(str)) {
+                                if (WriteImageActivity.this.Lh(str)) {
                                     intent.putExtra("change", true);
                                     intent.putExtra("file_name", str);
                                 } else {
@@ -296,7 +296,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         if (WriteImageActivity.this.jmB) {
                             if (WriteImageActivity.this.aBk != null && !WriteImageActivity.this.aBk.isRecycled()) {
                                 String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                                if (WriteImageActivity.this.Lg(str)) {
+                                if (WriteImageActivity.this.Lh(str)) {
                                     intent2.putExtra("change", true);
                                     intent2.putExtra("file_name", str);
                                 } else {
@@ -317,7 +317,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 Intent intent3 = new Intent();
                 if (WriteImageActivity.this.jmB && WriteImageActivity.this.aBk != null && !WriteImageActivity.this.aBk.isRecycled()) {
                     String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                    if (WriteImageActivity.this.Lg(str2)) {
+                    if (WriteImageActivity.this.Lh(str2)) {
                         intent3.putExtra("filename", str2);
                     }
                 }
@@ -375,7 +375,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 if (WriteImageActivity.this.mProgress.getVisibility() != 0) {
                     if ((WriteImageActivity.this.mBitmap != null || WriteImageActivity.this.aBk != null) && view.getTag() != null) {
                         WriteImageActivity.this.jmB = false;
-                        WriteImageActivity.this.GH(view.getTag().toString());
+                        WriteImageActivity.this.GI(view.getTag().toString());
                     }
                 }
             }
@@ -393,7 +393,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GH(String str) {
+    public void GI(String str) {
         if (this.kVG != null) {
             this.kVG.cancel();
         }
@@ -465,7 +465,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Lg(String str) {
+    public boolean Lh(String str) {
         try {
             m.a(TbConfig.LOCAL_PIC_DIR, str, this.aBk, 90);
             this.dYH.setImageDrawable(null);

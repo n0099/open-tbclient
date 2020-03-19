@@ -147,7 +147,7 @@ public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
                     str = this.mPageContext.getString(R.string.frs_network_tips);
                 }
                 a aVar = new a(this.mPageContext.getPageActivity());
-                aVar.sR(str);
+                aVar.sS(str);
                 aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.view.AdOperateViewDownloadHolder.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(a aVar2) {

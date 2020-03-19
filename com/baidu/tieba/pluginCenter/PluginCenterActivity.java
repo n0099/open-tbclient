@@ -51,11 +51,11 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     private d yy = new d() { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.4
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            PluginConfigWrapper Hi;
-            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && bdFileDownloadData.getStatus() != 2 && (Hi = PluginCenterActivity.this.Hi(bdFileDownloadData.getId())) != null) {
-                Hi.setDownLoadPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
-                Hi.setDownLoadStatus(3);
-                PluginCenterActivity.this.jAP.ah(Hi);
+            PluginConfigWrapper Hj;
+            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && bdFileDownloadData.getStatus() != 2 && (Hj = PluginCenterActivity.this.Hj(bdFileDownloadData.getId())) != null) {
+                Hj.setDownLoadPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+                Hj.setDownLoadStatus(3);
+                PluginCenterActivity.this.jAP.ah(Hj);
             }
         }
 
@@ -65,21 +65,21 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            PluginConfigWrapper Hi;
-            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (Hi = PluginCenterActivity.this.Hi(bdFileDownloadData.getId())) != null) {
+            PluginConfigWrapper Hj;
+            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (Hj = PluginCenterActivity.this.Hj(bdFileDownloadData.getId())) != null) {
                 PluginCenterActivity.this.showToast(R.string.download_fail_tip);
-                Hi.setDownLoadStatus(0);
-                PluginCenterActivity.this.jAP.ah(Hi);
+                Hj.setDownLoadStatus(0);
+                PluginCenterActivity.this.jAP.ah(Hj);
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            PluginConfigWrapper Hi;
-            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (Hi = PluginCenterActivity.this.Hi(bdFileDownloadData.getId())) != null) {
+            PluginConfigWrapper Hj;
+            if (bdFileDownloadData != null && bdFileDownloadData.getId() != null && (Hj = PluginCenterActivity.this.Hj(bdFileDownloadData.getId())) != null) {
                 if (i == 0) {
                     PluginCenterActivity.this.showToast(R.string.plugin_installation_finished);
-                    PluginCenterActivity.this.fUg.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, Hi, null, null));
+                    PluginCenterActivity.this.fUg.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(1, Hj, null, null));
                     return;
                 }
                 PluginCenterActivity.this.showToast(PluginCenterActivity.this.getPageContext().getString(R.string.plugin_installation_failed) + str);
@@ -171,7 +171,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             }
             String string = z ? TbadkCoreApplication.getInst().getString(R.string.download_update) : TbadkCoreApplication.getInst().getString(R.string.download);
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
-            aVar.sR(format);
+            aVar.sS(format);
             aVar.a(string, new a.b() { // from class: com.baidu.tieba.pluginCenter.PluginCenterActivity.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -207,7 +207,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public PluginConfigWrapper Hi(String str) {
+    public PluginConfigWrapper Hj(String str) {
         if (str == null) {
             return null;
         }

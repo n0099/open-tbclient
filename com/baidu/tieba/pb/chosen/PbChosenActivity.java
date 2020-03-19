@@ -140,7 +140,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     };
     private c.a iCd = new c.a() { // from class: com.baidu.tieba.pb.chosen.PbChosenActivity.14
         @Override // com.baidu.tieba.pb.chosen.view.c.a
-        public void FF(String str) {
+        public void FG(String str) {
             if (PbChosenActivity.this.checkUpIsLogin() && PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null && !StringUtils.isNull(str)) {
                 if (PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null) {
                     TiebaStatic.log(new an("c10093").cx("tid", PbChosenActivity.this.chosenData.getThreadInfo().thread_id + "").cx("obj_name", PbChosenActivity.this.chosenData.getThreadInfo().tag_name).X("obj_source", PbChosenActivity.this.chosenData.getThreadInfo().source.intValue()).cx("abtest", PbChosenActivity.this.chosenData.getThreadInfo().abtest));
@@ -213,7 +213,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         }
 
         @Override // com.baidu.tieba.pb.chosen.view.d.b
-        public void FE(String str) {
+        public void FF(String str) {
             if (!StringUtils.isNull(str)) {
                 PbChosenActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(PbChosenActivity.this.getPageContext().getPageActivity()).createNormalCfg(str, "from_chosen_pb")));
                 if (PbChosenActivity.this.chosenData != null && PbChosenActivity.this.chosenData.getThreadInfo() != null && PbChosenActivity.this.chosenData.getThreadInfo().excid != null) {
@@ -380,7 +380,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             if (this.iBS != null && threadInfo.post_num != null) {
                 String numFormatOver10000 = aq.numFormatOver10000(threadInfo.post_num.longValue());
                 this.iBS.setText(getResources().getString(R.string.chosen_pb_reply_number_text, numFormatOver10000));
-                this.iBR.FH(getResources().getString(R.string.chosen_pb_reply_count_text, numFormatOver10000));
+                this.iBR.FI(getResources().getString(R.string.chosen_pb_reply_count_text, numFormatOver10000));
             }
             this.iBP.a(threadInfo);
             this.iBO.a(getPageContext().getPageActivity(), threadInfo);
@@ -552,7 +552,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 }
 
                 @Override // com.baidu.tbadk.editortools.pb.DataModel
-                public WriteData vi(String str) {
+                public WriteData vj(String str) {
                     if (PbChosenActivity.this.chosenData == null || PbChosenActivity.this.chosenData.getThreadInfo() == null) {
                         return null;
                     }

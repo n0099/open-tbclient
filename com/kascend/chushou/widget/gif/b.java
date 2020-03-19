@@ -36,7 +36,7 @@ public class b extends e {
         private boolean f = false;
         private Drawable.Callback nkA;
 
-        public a Rc(String str) {
+        public a Rd(String str) {
             f.a(str);
             this.a = str;
             return this;
@@ -76,11 +76,11 @@ public class b extends e {
             Drawable drawable;
             f.a(this.a);
             f.a(this.d != 0, "should set height");
-            String SR = b.ngp.SR(this.a);
+            String SS = b.ngp.SS(this.a);
             File c = com.kascend.chushou.d.c.mQR.c();
-            final File file = new File(c, SR);
+            final File file = new File(c, SS);
             if (!file.exists() || file.isDirectory()) {
-                com.kascend.chushou.c.c.dCo().a(this.a, new File(c, SR + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
+                com.kascend.chushou.c.c.dCo().a(this.a, new File(c, SS + HttpConsts.FILE_BACKUP_SUFFIX), new DownloadListener() { // from class: com.kascend.chushou.widget.gif.b.a.1
                     @Override // tv.chushou.basis.d.a.c.a
                     public void onStart() {
                     }

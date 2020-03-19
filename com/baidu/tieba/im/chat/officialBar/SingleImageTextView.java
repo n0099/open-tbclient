@@ -97,11 +97,11 @@ public class SingleImageTextView extends RelativeLayout {
                         ba.aGK().b(tbPageContext, new String[]{aVar.url});
                         if (i == 1) {
                             TiebaStatic.eventStat(SingleImageTextView.this.mContext, "official_msg_ck", "click", 1, "fid", aVar.fid);
-                            com.baidu.tieba.im.data.d DC = com.baidu.tieba.im.util.e.DC(aVar.hvO);
-                            if (DC != null) {
-                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", DC.hzv, "task_id", DC.taskId, "loc", "0");
-                                if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(DC.taskId)) {
-                                    com.baidu.tieba.im.b.a.bYx().Dw(DC.taskId);
+                            com.baidu.tieba.im.data.d DD = com.baidu.tieba.im.util.e.DD(aVar.hvO);
+                            if (DD != null) {
+                                TiebaStatic.eventStat(SingleImageTextView.this.mContext, "message_open_detail", "click", 1, "task_type", DD.hzv, "task_id", DD.taskId, "loc", "0");
+                                if ((aVar.userType == 1 || aVar.userType == 3) && !"0".equals(DD.taskId)) {
+                                    com.baidu.tieba.im.b.a.bYx().Dx(DD.taskId);
                                 }
                             }
                             an anVar = new an("official_message_open_detail");

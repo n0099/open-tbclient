@@ -110,7 +110,7 @@ public class c implements View.OnClickListener {
         a(bVar);
     }
 
-    public void sD(String str) {
+    public void sE(String str) {
         this.awC = str;
     }
 

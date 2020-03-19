@@ -124,7 +124,7 @@ public class h {
             hVar.dvR.title = TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title);
         }
         if (!TextUtils.isEmpty(forwardInfo.showPicUrl)) {
-            hVar.dvR.thumbpic = uR(forwardInfo.showPicUrl);
+            hVar.dvR.thumbpic = uS(forwardInfo.showPicUrl);
         } else {
             hVar.dvR.thumbpic = "https://b.bdstatic.com/searchbox/mappconsole/image/20180614/1528975601-43867.png";
         }
@@ -193,7 +193,7 @@ public class h {
             hVar.dvR.title = TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title);
         }
         if (!TextUtils.isEmpty(forwardInfo.showPicUrl)) {
-            hVar.dvR.thumbpic = uR(forwardInfo.showPicUrl);
+            hVar.dvR.thumbpic = uS(forwardInfo.showPicUrl);
         } else {
             hVar.dvR.thumbpic = "https://b.bdstatic.com/searchbox/mappconsole/image/20180614/1528975601-43867.png";
         }
@@ -247,7 +247,7 @@ public class h {
         return hVar;
     }
 
-    public static String uR(String str) {
+    public static String uS(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(TbConfig.URL_IMAGE_PREFIX)) {
             int indexOf = str.indexOf(ETAG.EQUAL);
             int length = str.length();

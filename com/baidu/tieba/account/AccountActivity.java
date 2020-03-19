@@ -239,12 +239,12 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void j(AccountData accountData) {
         if (this.dYo == null) {
             com.baidu.tbadk.lcs.a.d(0, 0, 0, 2, 2);
-            wQ("account changed");
+            wR("account changed");
             showLoadingDialog(getPageContext().getString(R.string.account_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.account.AccountActivity.6
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     AccountActivity.this.destroyWaitingDialog();
-                    AccountActivity.this.wR("account changed");
+                    AccountActivity.this.wS("account changed");
                     AccountActivity.this.dYo = null;
                 }
             });
@@ -366,14 +366,14 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             final boolean z2 = (accountData == null || accountData.getID() == null || !accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (z2) {
                 com.baidu.tbadk.lcs.a.d(0, 0, 0, 2, 3);
-                wQ("account delete");
+                wR("account delete");
             }
             showLoadingDialog(getPageContext().getString(R.string.deleting), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.account.AccountActivity.7
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     AccountActivity.this.destroyWaitingDialog();
                     if (z2) {
-                        AccountActivity.this.wR("account delete cancel");
+                        AccountActivity.this.wS("account delete cancel");
                     }
                     AccountActivity.this.dYp = null;
                 }
@@ -491,7 +491,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
     }
 
-    private void wQ(String str) {
+    private void wR(String str) {
         BdSocketLinkService.setHasAbsoluteClose(true);
         MessageManager.getInstance().getSocketClient().clearAllMessageQueue();
         BdSocketLinkService.setAvailable(false);
@@ -499,7 +499,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wR(String str) {
+    public void wS(String str) {
         BdSocketLinkService.setHasAbsoluteClose(false);
         BdSocketLinkService.setAvailable(true);
         BdSocketLinkService.startService(true, str);

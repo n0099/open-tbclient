@@ -86,7 +86,7 @@ public class ComboNumView extends LinearLayout {
         }
     }
 
-    private String Tb(String str) {
+    private String Tc(String str) {
         return "game_" + str;
     }
 
@@ -95,11 +95,11 @@ public class ComboNumView extends LinearLayout {
         if (oav == null) {
             oav = new c<>(20);
         }
-        Drawable drawable2 = oav.get(Tb(str));
+        Drawable drawable2 = oav.get(Tc(str));
         if (drawable2 == null) {
             int identifier = this.mContext.getResources().getIdentifier("zues_icon_" + str, "drawable", this.mContext.getPackageName());
             if (identifier > 0 && (drawable = ContextCompat.getDrawable(this.mContext, identifier)) != null) {
-                oav.put(Tb(str), drawable);
+                oav.put(Tc(str), drawable);
                 return drawable;
             }
             return null;

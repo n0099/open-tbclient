@@ -96,7 +96,7 @@ public class PersonPlayBacksListFragment extends BaseFragment {
             public void a(AlaLiveInfoData alaLiveInfoData, View view) {
                 if (PersonPlayBacksListFragment.this.getPageContext().getOrignalPage() instanceof PersonCardActivity) {
                     PersonCardActivity personCardActivity = (PersonCardActivity) PersonPlayBacksListFragment.this.getPageContext().getOrignalPage();
-                    if (!personCardActivity.zB(TbadkCoreApplication.getCurrentAccount())) {
+                    if (!personCardActivity.zC(TbadkCoreApplication.getCurrentAccount())) {
                         PersonPlayBacksListFragment.this.a(PersonPlayBacksListFragment.this.getPageContext(), alaLiveInfoData);
                     } else {
                         BdUtilHelper.showToast(personCardActivity.getActivity(), a.i.ala_person_owner_is_living);
@@ -163,7 +163,7 @@ public class PersonPlayBacksListFragment extends BaseFragment {
     public void loadData() {
         if (this.fsZ) {
             this.fsY.setUid(this.userId);
-            this.fsY.zC(this.userId);
+            this.fsY.zD(this.userId);
         }
     }
 

@@ -642,7 +642,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
 
     protected b newListMenu(String[] strArr, b.a aVar) {
         this.mListMenu = new b(getPageContext().getPageActivity());
-        this.mListMenu.sS(TbadkCoreApplication.getInst().getResources().getString(R.string.operation));
+        this.mListMenu.sT(TbadkCoreApplication.getInst().getResources().getString(R.string.operation));
         this.mListMenu.a(strArr, aVar);
         this.mListMenu.d(getPageContext());
         return this.mListMenu;

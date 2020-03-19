@@ -12,7 +12,7 @@ public class b implements tv.chushou.zues.toolkit.richtext.a {
     }
 
     @Override // tv.chushou.zues.toolkit.richtext.a
-    public CharSequence QY(String str) {
+    public CharSequence QZ(String str) {
         return str;
     }
 }

@@ -40,7 +40,7 @@ public final class k extends com.google.android.exoplayer2.a implements Handler.
     public int e(Format format) {
         if (this.mAF.i(format)) {
             return a((com.google.android.exoplayer2.drm.a<?>) null, format.drmInitData) ? 4 : 2;
-        } else if (com.google.android.exoplayer2.util.i.Qp(format.sampleMimeType)) {
+        } else if (com.google.android.exoplayer2.util.i.Qq(format.sampleMimeType)) {
             return 1;
         } else {
             return 0;

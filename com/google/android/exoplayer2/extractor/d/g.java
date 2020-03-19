@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 final class g extends h {
-    private static final int mnv = v.QE("Opus");
+    private static final int mnv = v.QF("Opus");
     private static final byte[] mnw = {79, 112, 117, 115, 72, Constants.SHORT_PING_CMD_TYPE, 97, 100};
     private boolean mnx;
 

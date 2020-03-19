@@ -37,7 +37,7 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public void Eo(String str) {
+    public void Ep(String str) {
         this.fVe = str;
     }
 

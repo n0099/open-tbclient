@@ -89,7 +89,7 @@ public class d extends com.baidu.tieba.frs.h<bj, a> implements com.baidu.tieba.a
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 

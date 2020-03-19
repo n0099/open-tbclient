@@ -187,7 +187,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         @Override // com.baidu.tieba.myAttentionAndFans.PersonListModel.a
         public av e(av avVar, boolean z) {
             if (avVar != null && avVar.cQu != PersonListActivity.this.ity && PersonListActivity.this.mModel != null && PersonListActivity.this.mModel.bgR() && PersonListActivity.this.mModel.getLoadType() == 0) {
-                PersonListActivity.this.mModel.Fl(PersonListActivity.this.mPortrait);
+                PersonListActivity.this.mModel.Fm(PersonListActivity.this.mPortrait);
             }
             PersonListActivity.this.a(avVar, z);
             return null;

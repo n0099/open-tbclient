@@ -77,7 +77,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
         x(intExtra, longExtra);
         this.hLD = new UpdateGroupModel(getPageContext());
         this.hLD.setUniqueId(getUniqueId());
-        this.hLC.Dx(stringExtra);
+        this.hLC.Dy(stringExtra);
         this.hLC.b(this.hza);
         this.hLC.c(this.hyZ);
         initListener();

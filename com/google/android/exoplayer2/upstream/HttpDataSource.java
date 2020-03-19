@@ -13,10 +13,10 @@ public interface HttpDataSource extends e {
     public static final com.google.android.exoplayer2.util.n<String> mIy = new com.google.android.exoplayer2.util.n<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.util.n
-        /* renamed from: Ql */
+        /* renamed from: Qm */
         public boolean bC(String str) {
-            String QB = v.QB(str);
-            return (TextUtils.isEmpty(QB) || (QB.contains("text") && !QB.contains("text/vtt")) || QB.contains(QuestionResponseModel.TEXT) || QB.contains("xml")) ? false : true;
+            String QC = v.QC(str);
+            return (TextUtils.isEmpty(QC) || (QC.contains("text") && !QC.contains("text/vtt")) || QC.contains(QuestionResponseModel.TEXT) || QC.contains("xml")) ? false : true;
         }
     };
 

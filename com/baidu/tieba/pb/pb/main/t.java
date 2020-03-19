@@ -66,7 +66,7 @@ public class t extends com.baidu.tbadk.editortools.d {
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
-            public void vp(String str) {
+            public void vq(String str) {
                 t.this.a(2, true, str);
             }
         };

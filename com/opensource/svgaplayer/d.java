@@ -172,7 +172,7 @@ public final class d {
         try {
             InputStream open = this.context.getAssets().open(str);
             if (open != null) {
-                a(open, Re("file:///assets/" + str), cVar, true);
+                a(open, Rf("file:///assets/" + str), cVar, true);
             }
         } catch (Exception e2) {
             a(e2, cVar);
@@ -182,7 +182,7 @@ public final class d {
     public final kotlin.jvm.a.a<l> a(URL url, c cVar) {
         q.j(url, "url");
         q.j(cVar, BuyTBeanActivityConfig.CALLBACK);
-        if (Rd(e(url))) {
+        if (Re(e(url))) {
             nnd.execute(new e(url, cVar));
             return null;
         }
@@ -248,7 +248,7 @@ public final class d {
                                 fVar.a(new SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(fVar, this));
                             }
                         } else {
-                            if (!d.this.Rf(this.nnj).exists()) {
+                            if (!d.this.Rg(this.nnj).exists()) {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(K);
                                 Throwable th = null;
                                 try {
@@ -356,8 +356,8 @@ public final class d {
         }
     }
 
-    private final boolean Rd(String str) {
-        return Rf(str).exists();
+    private final boolean Re(String str) {
+        return Rg(str).exists();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [210=4] */
@@ -430,7 +430,7 @@ public final class d {
         }
     }
 
-    private final String Re(String str) {
+    private final String Rf(String str) {
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
         Charset forName = Charset.forName("UTF-8");
         q.i(forName, "Charset.forName(charsetName)");
@@ -457,11 +457,11 @@ public final class d {
     public final String e(URL url) {
         String url2 = url.toString();
         q.i(url2, "url.toString()");
-        return Re(url2);
+        return Rf(url2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final File Rf(String str) {
+    public final File Rg(String str) {
         StringBuilder sb = new StringBuilder();
         File cacheDir = this.context.getCacheDir();
         q.i(cacheDir, "context.cacheDir");
@@ -524,8 +524,8 @@ public final class d {
         int i;
         i = com.opensource.svgaplayer.e.nnl;
         synchronized (Integer.valueOf(i)) {
-            File Rf = Rf(str);
-            Rf.mkdirs();
+            File Rg = Rg(str);
+            Rg.mkdirs();
             try {
                 FileOutputStream bufferedInputStream = new BufferedInputStream(inputStream);
                 Throwable th = null;
@@ -539,7 +539,7 @@ public final class d {
                             String name = nextEntry.getName();
                             q.i(name, "zipItem.name");
                             if (!kotlin.text.l.a((CharSequence) name, (CharSequence) "/", false, 2, (Object) null)) {
-                                bufferedInputStream = new FileOutputStream(new File(Rf, nextEntry.getName()));
+                                bufferedInputStream = new FileOutputStream(new File(Rg, nextEntry.getName()));
                                 Throwable th3 = null;
                                 try {
                                     FileOutputStream fileOutputStream = bufferedInputStream;
@@ -572,7 +572,7 @@ public final class d {
                 } finally {
                 }
             } catch (Exception e2) {
-                Rf.delete();
+                Rg.delete();
                 throw e2;
             }
         }

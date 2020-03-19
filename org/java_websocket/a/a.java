@@ -265,7 +265,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         }
         int port = getPort();
         d dVar = new d();
-        dVar.Su(rawPath);
+        dVar.Sv(rawPath);
         dVar.put("Host", this.uri.getHost() + ((port == 80 || port == 443) ? "" : ":" + port));
         if (this.headers != null) {
             for (Map.Entry<String, String> entry : this.headers.entrySet()) {

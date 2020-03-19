@@ -64,7 +64,7 @@ public class ConcernPageView extends FrameLayout {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void Cd(String str);
+        void Ce(String str);
 
         void T(boolean z, boolean z2);
 
@@ -156,13 +156,13 @@ public class ConcernPageView extends FrameLayout {
             }
 
             @Override // com.baidu.tieba.homepage.concern.c.a
-            public void Cc(String str) {
+            public void Cd(String str) {
                 ConcernPageView.this.bcC();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hideLoadingView();
                 ConcernPageView.this.bNr();
                 if (ConcernPageView.this.gYj != null) {
-                    ConcernPageView.this.gYj.Cd(str);
+                    ConcernPageView.this.gYj.Ce(str);
                 }
             }
 
@@ -277,13 +277,13 @@ public class ConcernPageView extends FrameLayout {
             }
 
             @Override // com.baidu.tieba.homepage.concern.c.a
-            public void Cc(String str) {
+            public void Cd(String str) {
                 ConcernPageView.this.bcC();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hideLoadingView();
                 ConcernPageView.this.bNr();
                 if (ConcernPageView.this.gYj != null) {
-                    ConcernPageView.this.gYj.Cd(str);
+                    ConcernPageView.this.gYj.Ce(str);
                 }
             }
 
@@ -398,13 +398,13 @@ public class ConcernPageView extends FrameLayout {
             }
 
             @Override // com.baidu.tieba.homepage.concern.c.a
-            public void Cc(String str) {
+            public void Cd(String str) {
                 ConcernPageView.this.bcC();
                 ConcernPageView.this.hideNoDataView();
                 ConcernPageView.this.hideLoadingView();
                 ConcernPageView.this.bNr();
                 if (ConcernPageView.this.gYj != null) {
-                    ConcernPageView.this.gYj.Cd(str);
+                    ConcernPageView.this.gYj.Ce(str);
                 }
             }
 
@@ -509,7 +509,7 @@ public class ConcernPageView extends FrameLayout {
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
                 if (TbadkCoreApplication.isLogin()) {
-                    d.aXK().wO("page_concern");
+                    d.aXK().wP("page_concern");
                     ConcernPageView.this.gYk.update();
                 }
             }

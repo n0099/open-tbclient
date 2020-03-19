@@ -88,7 +88,7 @@ public class NewWriteModel extends BdBaseModel {
         this.kmb = false;
         this.fUn = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Ao(String str) {
+            public void Ap(String str) {
                 if (NewWriteModel.this.jYy == null || TextUtils.isEmpty(str)) {
                     if (NewWriteModel.this.kma != null) {
                         NewWriteModel.this.kma.callback(false, null, null, null, null);
@@ -113,7 +113,7 @@ public class NewWriteModel extends BdBaseModel {
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Ap(String str) {
+            public void Aq(String str) {
                 if (NewWriteModel.this.jYy == null || TextUtils.isEmpty(str)) {
                     if (NewWriteModel.this.kma != null) {
                         NewWriteModel.this.kma.callback(false, null, null, null, null);
@@ -152,7 +152,7 @@ public class NewWriteModel extends BdBaseModel {
         this.kmb = false;
         this.fUn = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Ao(String str) {
+            public void Ap(String str) {
                 if (NewWriteModel.this.jYy == null || TextUtils.isEmpty(str)) {
                     if (NewWriteModel.this.kma != null) {
                         NewWriteModel.this.kma.callback(false, null, null, null, null);
@@ -177,7 +177,7 @@ public class NewWriteModel extends BdBaseModel {
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Ap(String str) {
+            public void Aq(String str) {
                 if (NewWriteModel.this.jYy == null || TextUtils.isEmpty(str)) {
                     if (NewWriteModel.this.kma != null) {
                         NewWriteModel.this.kma.callback(false, null, null, null, null);
@@ -216,7 +216,7 @@ public class NewWriteModel extends BdBaseModel {
         this.kmb = false;
         this.fUn = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Ao(String str) {
+            public void Ap(String str) {
                 if (NewWriteModel.this.jYy == null || TextUtils.isEmpty(str)) {
                     if (NewWriteModel.this.kma != null) {
                         NewWriteModel.this.kma.callback(false, null, null, null, null);
@@ -241,7 +241,7 @@ public class NewWriteModel extends BdBaseModel {
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Ap(String str) {
+            public void Aq(String str) {
                 if (NewWriteModel.this.jYy == null || TextUtils.isEmpty(str)) {
                     if (NewWriteModel.this.kma != null) {
                         NewWriteModel.this.kma.callback(false, null, null, null, null);
@@ -279,7 +279,7 @@ public class NewWriteModel extends BdBaseModel {
         this.kmb = false;
         this.fUn = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Ao(String str) {
+            public void Ap(String str) {
                 if (NewWriteModel.this.jYy == null || TextUtils.isEmpty(str)) {
                     if (NewWriteModel.this.kma != null) {
                         NewWriteModel.this.kma.callback(false, null, null, null, null);
@@ -304,7 +304,7 @@ public class NewWriteModel extends BdBaseModel {
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Ap(String str) {
+            public void Aq(String str) {
                 if (NewWriteModel.this.jYy == null || TextUtils.isEmpty(str)) {
                     if (NewWriteModel.this.kma != null) {
                         NewWriteModel.this.kma.callback(false, null, null, null, null);
@@ -597,8 +597,8 @@ public class NewWriteModel extends BdBaseModel {
                                                                 bVar.setThreadId(str7);
                                                                 bVar.setPostId(str2);
                                                                 bVar.setIsCopyTWZhibo(i2);
-                                                                bVar.Jt(str);
-                                                                bVar.Ju(str3);
+                                                                bVar.Ju(str);
+                                                                bVar.Jv(str3);
                                                                 bVar.setActivityDialog(customDialogData);
                                                                 bVar.setVideoId(str10);
                                                                 bVar.setContriInfo(contriInfo);
@@ -653,8 +653,8 @@ public class NewWriteModel extends BdBaseModel {
                                                                     bVar.setThreadId(str7);
                                                                     bVar.setPostId(str2);
                                                                     bVar.setIsCopyTWZhibo(i2);
-                                                                    bVar.Jt(str);
-                                                                    bVar.Ju(str3);
+                                                                    bVar.Ju(str);
+                                                                    bVar.Jv(str3);
                                                                     bVar.setActivityDialog(customDialogData);
                                                                     bVar.setVideoId(str10);
                                                                     bVar.setContriInfo(contriInfo);
@@ -773,8 +773,8 @@ public class NewWriteModel extends BdBaseModel {
                     bVar.setThreadId(str7);
                     bVar.setPostId(str2);
                     bVar.setIsCopyTWZhibo(i2);
-                    bVar.Jt(str);
-                    bVar.Ju(str3);
+                    bVar.Ju(str);
+                    bVar.Jv(str3);
                     bVar.setActivityDialog(customDialogData);
                     bVar.setVideoId(str10);
                     bVar.setContriInfo(contriInfo);

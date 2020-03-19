@@ -31,7 +31,7 @@ public final class a extends c {
             this.mCS = true;
             String str = new String(list.get(0));
             com.google.android.exoplayer2.util.a.checkArgument(str.startsWith("Format: "));
-            PU(str);
+            PV(str);
             U(new l(list.get(1)));
             return;
         }
@@ -70,7 +70,7 @@ public final class a extends c {
             String readLine = lVar.readLine();
             if (readLine != null) {
                 if (!this.mCS && readLine.startsWith("Format: ")) {
-                    PU(readLine);
+                    PV(readLine);
                 } else if (readLine.startsWith("Dialogue: ")) {
                     a(readLine, list, gVar);
                 }
@@ -81,7 +81,7 @@ public final class a extends c {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private void PU(String str) {
+    private void PV(String str) {
         char c;
         String[] split = TextUtils.split(str.substring("Format: ".length()), Constants.ACCEPT_TIME_SEPARATOR_SP);
         this.mCT = split.length;
@@ -89,24 +89,24 @@ public final class a extends c {
         this.mCV = -1;
         this.mCW = -1;
         for (int i = 0; i < this.mCT; i++) {
-            String QB = v.QB(split[i].trim());
-            switch (QB.hashCode()) {
+            String QC = v.QC(split[i].trim());
+            switch (QC.hashCode()) {
                 case 100571:
-                    if (QB.equals("end")) {
+                    if (QC.equals("end")) {
                         c = 1;
                         break;
                     }
                     c = 65535;
                     break;
                 case 3556653:
-                    if (QB.equals("text")) {
+                    if (QC.equals("text")) {
                         c = 2;
                         break;
                     }
                     c = 65535;
                     break;
                 case 109757538:
-                    if (QB.equals("start")) {
+                    if (QC.equals("start")) {
                         c = 0;
                         break;
                     }
@@ -137,8 +137,8 @@ public final class a extends c {
             return;
         }
         String[] split = str.substring("Dialogue: ".length()).split(Constants.ACCEPT_TIME_SEPARATOR_SP, this.mCT);
-        long PV = PV(split[this.mCU]);
-        if (PV == -9223372036854775807L) {
+        long PW = PW(split[this.mCU]);
+        if (PW == -9223372036854775807L) {
             Log.w("SsaDecoder", "Skipping invalid timing: " + str);
             return;
         }
@@ -146,21 +146,21 @@ public final class a extends c {
         if (str2.trim().isEmpty()) {
             j = -9223372036854775807L;
         } else {
-            j = PV(str2);
+            j = PW(str2);
             if (j == -9223372036854775807L) {
                 Log.w("SsaDecoder", "Skipping invalid timing: " + str);
                 return;
             }
         }
         list.add(new com.google.android.exoplayer2.text.b(split[this.mCW].replaceAll("\\{.*?\\}", "").replaceAll("\\\\N", "\n").replaceAll("\\\\n", "\n")));
-        gVar.gH(PV);
+        gVar.gH(PW);
         if (j != -9223372036854775807L) {
             list.add(null);
             gVar.gH(j);
         }
     }
 
-    public static long PV(String str) {
+    public static long PW(String str) {
         Matcher matcher = mCR.matcher(str);
         if (!matcher.matches()) {
             return -9223372036854775807L;

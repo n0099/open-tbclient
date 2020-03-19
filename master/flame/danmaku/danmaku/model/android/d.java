@@ -117,10 +117,10 @@ public class d implements l {
             this.nJR.nJY = this.nJY;
         }
         if (this.nJV == null) {
-            this.nJV = Sm("start");
+            this.nJV = Sn("start");
         }
         if (this.nJU == null) {
-            this.nJU = Sm("end");
+            this.nJU = Sn("end");
         }
         this.nJV.setTime(j);
         this.nJU.setTime(j2);
@@ -157,10 +157,10 @@ public class d implements l {
             return this.nJR;
         }
         if (this.nJS == null) {
-            this.nJS = Sm("start");
+            this.nJS = Sn("start");
         }
         if (this.nJT == null) {
-            this.nJT = Sm("end");
+            this.nJT = Sn("end");
         }
         if (this.nJR != null && j - this.nJS.dMt() >= 0 && j2 <= this.nJT.dMt()) {
             return this.nJR;
@@ -173,7 +173,7 @@ public class d implements l {
         return this.nJR;
     }
 
-    private master.flame.danmaku.danmaku.model.d Sm(String str) {
+    private master.flame.danmaku.danmaku.model.d Sn(String str) {
         return new master.flame.danmaku.danmaku.model.e(str);
     }
 
@@ -190,8 +190,8 @@ public class d implements l {
         }
         if (this.nJR != null) {
             this.nJR = null;
-            this.nJS = Sm("start");
-            this.nJT = Sm("end");
+            this.nJS = Sn("start");
+            this.nJT = Sn("end");
         }
     }
 

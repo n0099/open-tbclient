@@ -21,7 +21,7 @@ public class d {
         this.dto = i;
     }
 
-    public void uE(String str) {
+    public void uF(String str) {
         this.labelId = str;
     }
 }

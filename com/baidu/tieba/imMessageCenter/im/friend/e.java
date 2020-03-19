@@ -40,7 +40,7 @@ public class e extends BdBaseModel<InviteFriendListActivity> {
         bundle.putLong("groupid", this.hOV);
     }
 
-    public void DG(String str) {
+    public void DH(String str) {
         this.hOU = c(this.huw, this.hOV, str);
         super.sendMessage(this.hOU);
     }

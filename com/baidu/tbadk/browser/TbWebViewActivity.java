@@ -664,7 +664,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.mUrlTitle = title;
                 }
                 if (!TbWebViewActivity.this.isShowFullScreen) {
-                    TbWebViewActivity.this.mView.sn(TbWebViewActivity.this.mUrlTitle);
+                    TbWebViewActivity.this.mView.so(TbWebViewActivity.this.mUrlTitle);
                 }
                 if (TbWebViewActivity.this.isTranslucent()) {
                     TbWebViewActivity.this.mView.setNavBarVisibility(false);
@@ -896,7 +896,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 this.mUrlTitle = str;
             }
             if (!this.isShowFullScreen && this.mView != null) {
-                this.mView.sn(this.mUrlTitle);
+                this.mView.so(this.mUrlTitle);
             }
         }
     }
@@ -993,7 +993,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         if (this.mOnDialogItemClickListener == null) {
             this.mOnDialogItemClickListener = new a();
         }
-        this.mOnDialogItemClickListener.sj(hitTestResult.getExtra());
+        this.mOnDialogItemClickListener.sk(hitTestResult.getExtra());
         createListMenu(this.mOnDialogItemClickListener.azC(), this.mOnDialogItemClickListener);
         showListMenu();
         return true;
@@ -1018,7 +1018,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         a() {
         }
 
-        public void sj(String str) {
+        public void sk(String str) {
             this.cKY = str;
         }
 

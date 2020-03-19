@@ -107,7 +107,7 @@ public class FloorImageTextView extends AbsFloorImageTextView {
                 if (imageUrlData == null && jSONArray2 != null && jSONArray2.length() > 0) {
                     setVisibility(0);
                     TbRichText a = TbRichTextView.a(getContext(), jSONArray2, false);
-                    e(uA(a.toString()));
+                    e(uB(a.toString()));
                     this.drW.setText(a);
                     return;
                 }

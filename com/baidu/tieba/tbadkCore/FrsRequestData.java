@@ -183,7 +183,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void IS(String str) {
+    public void IT(String str) {
         this.kgE = str;
     }
 

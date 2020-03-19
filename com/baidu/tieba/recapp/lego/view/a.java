@@ -198,7 +198,7 @@ public class a extends com.baidu.tieba.recapp.a {
     private void showDialog() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cVv.getPageActivity());
         aVar.jV(R.string.confirm_title);
-        aVar.sR(this.cVv.getPageActivity().getResources().getString(R.string.now_is_not_wifi));
+        aVar.sS(this.cVv.getPageActivity().getResources().getString(R.string.now_is_not_wifi));
         aVar.a(this.cVv.getPageActivity().getResources().getString(R.string.confirm), this.jHd);
         aVar.b(this.cVv.getPageActivity().getResources().getString(R.string.cancel), new a.b() { // from class: com.baidu.tieba.recapp.lego.view.a.8
             @Override // com.baidu.tbadk.core.dialog.a.b

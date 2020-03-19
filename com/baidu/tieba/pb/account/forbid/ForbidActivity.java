@@ -165,7 +165,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
                                     if (ForbidActivity.this.iBy == null) {
                                         ForbidActivity.this.iBy = new com.baidu.tbadk.core.dialog.a(ForbidActivity.this.getActivity());
                                     }
-                                    ForbidActivity.this.iBy.sR(str);
+                                    ForbidActivity.this.iBy.sS(str);
                                     ForbidActivity.this.iBy.a(R.string.know, new a.b() { // from class: com.baidu.tieba.pb.account.forbid.ForbidActivity.3.1.1
                                         @Override // com.baidu.tbadk.core.dialog.a.b
                                         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

@@ -135,7 +135,7 @@ public class a {
         return jSONArray.toString();
     }
 
-    public void Fm(String str) {
+    public void Fn(String str) {
         try {
             paserJson(new JSONObject(str));
         } catch (Exception e) {
@@ -144,7 +144,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<MarkData> Fn(String str) {
+    public ArrayList<MarkData> Fo(String str) {
         JSONObject jSONObject;
         ArrayList<MarkData> arrayList = new ArrayList<>();
         try {
@@ -223,9 +223,9 @@ public class a {
             boolean booleanValue = (boolArr.length < 2 || boolArr[1] == null) ? true : boolArr[1].booleanValue();
             a aVar = new a();
             if (this.iuU.booleanValue() && booleanValue) {
-                l<String> sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.my_bookmarks");
-                if (sP != null) {
-                    publishProgress(sP.get(TbadkCoreApplication.getCurrentAccount()));
+                l<String> sQ = com.baidu.tbadk.core.c.a.aEF().sQ("tb.my_bookmarks");
+                if (sQ != null) {
+                    publishProgress(sQ.get(TbadkCoreApplication.getCurrentAccount()));
                 }
                 if (a.this.iuO == null) {
                     a.this.iuO = new ArrayList();
@@ -245,7 +245,7 @@ public class a {
             this.data = this.cLQ.postNetData();
             this.iuS.parserJson(this.data);
             if (this.cLQ.aGk().aGM().isRequestSuccess()) {
-                aVar.Fm(this.data);
+                aVar.Fn(this.data);
                 if (this.offset == 0) {
                     if (a.this.iuO == null) {
                         a.this.iuO = new ArrayList();
@@ -254,18 +254,18 @@ public class a {
                     }
                     a.this.iuP = 0;
                     if (this.iuU.booleanValue()) {
-                        AM(this.data);
+                        AN(this.data);
                     }
                 }
             }
             return aVar;
         }
 
-        private void AM(String str) {
-            l<String> sP;
+        private void AN(String str) {
+            l<String> sQ;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && (sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.my_bookmarks")) != null) {
-                sP.set(currentAccount, str, 604800000L);
+            if (currentAccount != null && (sQ = com.baidu.tbadk.core.c.a.aEF().sQ("tb.my_bookmarks")) != null) {
+                sQ.set(currentAccount, str, 604800000L);
             }
         }
 
@@ -277,7 +277,7 @@ public class a {
             String str = strArr[0];
             ArrayList<MarkData> arrayList = new ArrayList<>();
             if (str != null) {
-                arrayList = a.this.Fn(str);
+                arrayList = a.this.Fo(str);
                 if (this.iuU.booleanValue()) {
                     a.this.aH(arrayList);
                 } else {

@@ -60,7 +60,7 @@ public class f {
                 public void onClick(View view) {
                     f.this.hideTip();
                     if (f.this.iLo != null && !StringUtils.isNull(f.this.iLo.getVideoid())) {
-                        f.this.kwO.JQ(f.this.iLo.getVideoid());
+                        f.this.kwO.JR(f.this.iLo.getVideoid());
                         f.this.kwO.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.video.f.2.1
                             @Override // com.baidu.adp.base.d
                             public void callback(Object obj) {

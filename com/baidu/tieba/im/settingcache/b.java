@@ -82,7 +82,7 @@ public class b extends a {
 
     @Override // com.baidu.tieba.im.settingcache.a
     protected com.baidu.adp.lib.cache.l<String> bYr() {
-        return com.baidu.tbadk.core.c.a.aEF().sP("tb.im_group_setting");
+        return com.baidu.tbadk.core.c.a.aEF().sQ("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a

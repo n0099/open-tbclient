@@ -177,18 +177,18 @@ public class a {
                 C0602a c0602a = new C0602a(currentAccountInfo);
                 String string3 = com.baidu.live.c.pw().getString("ala_account_user_bduss", "");
                 if (!StringUtils.isNull(string3)) {
-                    c0602a.Is(string3);
+                    c0602a.It(string3);
                 } else {
-                    c0602a.Is(cdX.bduss);
+                    c0602a.It(cdX.bduss);
                 }
                 String string4 = com.baidu.live.c.pw().getString("ala_account_user_tbs", "");
                 if (!StringUtils.isNull(string4)) {
-                    c0602a.It(string4);
+                    c0602a.Iu(string4);
                 }
-                c0602a.Ip(cdX.userId);
-                c0602a.Iq(cdX.userName);
-                c0602a.Ir(cdX.nickName);
-                c0602a.Iu(cdX.portrait);
+                c0602a.Iq(cdX.userId);
+                c0602a.Ir(cdX.userName);
+                c0602a.Is(cdX.nickName);
+                c0602a.Iv(cdX.portrait);
                 if (currentAccountInfo == null) {
                     TbadkCoreApplication.setCurrentAccount(c0602a.cEZ(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     return;
@@ -200,11 +200,11 @@ public class a {
             this.jRQ = 0;
             cEX();
             C0602a c0602a2 = new C0602a();
-            c0602a2.Is(cdX.bduss);
-            c0602a2.Iq(cdX.userName);
-            c0602a2.Ir(cdX.nickName);
-            c0602a2.Ip(cdX.userId);
-            c0602a2.Iu(cdX.portrait);
+            c0602a2.It(cdX.bduss);
+            c0602a2.Ir(cdX.userName);
+            c0602a2.Is(cdX.nickName);
+            c0602a2.Iq(cdX.userId);
+            c0602a2.Iv(cdX.portrait);
             com.baidu.live.c.pw().putString("ala_account_user_id", cdX.userId);
             com.baidu.live.c.pw().putString("ala_account_user_bduss", cdX.bduss);
             TbadkCoreApplication.setCurrentAccount(c0602a2.cEZ(), TbadkCoreApplication.getInst().getApp().getApplicationContext());
@@ -260,32 +260,32 @@ public class a {
             }
         }
 
-        public C0602a Ip(String str) {
+        public C0602a Iq(String str) {
             this.userId = str;
             return this;
         }
 
-        public C0602a Iq(String str) {
+        public C0602a Ir(String str) {
             this.userName = str;
             return this;
         }
 
-        public C0602a Ir(String str) {
+        public C0602a Is(String str) {
             this.nickName = str;
             return this;
         }
 
-        public C0602a Is(String str) {
+        public C0602a It(String str) {
             this.BDUSS = str;
             return this;
         }
 
-        public C0602a It(String str) {
+        public C0602a Iu(String str) {
             this.tbs = str;
             return this;
         }
 
-        public C0602a Iu(String str) {
+        public C0602a Iv(String str) {
             this.portrait = str;
             return this;
         }

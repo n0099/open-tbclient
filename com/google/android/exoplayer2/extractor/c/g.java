@@ -18,7 +18,7 @@ public final class g implements com.google.android.exoplayer2.extractor.e, com.g
             return new com.google.android.exoplayer2.extractor.e[]{new g()};
         }
     };
-    private static final int mmk = v.QE("qt  ");
+    private static final int mmk = v.QF("qt  ");
     private final int flags;
     private long mbx;
     private final com.google.android.exoplayer2.util.l mgD;

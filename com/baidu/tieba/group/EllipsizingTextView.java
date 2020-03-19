@@ -105,10 +105,10 @@ public class EllipsizingTextView extends TextView {
         int maxLines = getMaxLines();
         String str = this.gWM;
         if (maxLines != -1) {
-            Layout Ca = Ca(str);
-            if (Ca.getLineCount() > maxLines) {
-                String trim = this.gWM.substring(0, Ca.getLineEnd(maxLines - 1)).trim();
-                while (Ca(trim + StringHelper.STRING_MORE).getLineCount() > maxLines) {
+            Layout Cb = Cb(str);
+            if (Cb.getLineCount() > maxLines) {
+                String trim = this.gWM.substring(0, Cb.getLineEnd(maxLines - 1)).trim();
+                while (Cb(trim + StringHelper.STRING_MORE).getLineCount() > maxLines) {
                     if (trim.length() > StringHelper.STRING_MORE.length()) {
                         trim = trim.substring(0, trim.length() - StringHelper.STRING_MORE.length());
                     }
@@ -147,7 +147,7 @@ public class EllipsizingTextView extends TextView {
         }
     }
 
-    private Layout Ca(String str) {
+    private Layout Cb(String str) {
         return new StaticLayout(str, getPaint(), (getWidth() - getPaddingLeft()) - getPaddingRight(), Layout.Alignment.ALIGN_NORMAL, this.lineSpacingMultiplier, this.gWN, false);
     }
 

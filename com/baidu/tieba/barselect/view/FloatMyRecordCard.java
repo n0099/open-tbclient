@@ -104,7 +104,7 @@ public class FloatMyRecordCard extends LinearLayout {
         } else if (rank == 3) {
             this.fHi.setTextColor(getResources().getColor(R.color.common_color_10266));
         }
-        this.fHj.tT(this.fGM.getPortrait());
+        this.fHj.tU(this.fGM.getPortrait());
         this.fHj.setOnClickListener(this.drJ);
         this.cbW.setText(aq.cutChineseAndEnglishWithSuffix(this.fGM.getNickname(), 14, StringHelper.STRING_MORE));
         setGrade(this.fGM.bub());

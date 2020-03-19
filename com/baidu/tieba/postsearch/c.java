@@ -55,7 +55,7 @@ public class c {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 TiebaStatic.log(new an("c12403").cx("fid", c.this.jCt.mForumId).cx("uid", TbadkCoreApplication.getCurrentAccount()).cx("fname", c.this.jCt.mForumName));
                 String str = (String) c.this.jCD.getItemAtPosition(i + 1);
-                c.this.jCt.Hm(str);
+                c.this.jCt.Hn(str);
                 c.this.jCt.qc(str);
                 PostSearchActivity unused = c.this.jCt;
                 TiebaStatic.log(new an("c12842").cx("obj_name", str).cx("obj_source", "3").cx("obj_type", "2").cx("fid", c.this.jCt.mForumId));
@@ -73,7 +73,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void bVl() {
         if (this.jCF == null) {
-            this.jCF = new com.baidu.tbadk.core.dialog.a(this.jCt.getPageContext().getPageActivity()).sR(this.jCt.getPageContext().getString(R.string.alert_clean_history)).a(this.jCt.getPageContext().getString(R.string.clear_all_text), new a.b() { // from class: com.baidu.tieba.postsearch.c.5
+            this.jCF = new com.baidu.tbadk.core.dialog.a(this.jCt.getPageContext().getPageActivity()).sS(this.jCt.getPageContext().getString(R.string.alert_clean_history)).a(this.jCt.getPageContext().getString(R.string.clear_all_text), new a.b() { // from class: com.baidu.tieba.postsearch.c.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();

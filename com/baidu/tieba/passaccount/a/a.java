@@ -31,7 +31,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 /* renamed from: i */
                 public AccountData doInBackground(Void... voidArr) {
-                    return com.baidu.tbadk.core.a.b.ss(str);
+                    return com.baidu.tbadk.core.a.b.st(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute(accountData);
                     if (accountData != null && !TextUtils.isEmpty(accountData.getID())) {
-                        com.baidu.tbadk.core.a.b.sq(accountData.getID());
+                        com.baidu.tbadk.core.a.b.ss(accountData.getID());
                     }
                 }
             };
@@ -61,7 +61,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b sp(String str) {
+    public a.b sq(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -93,9 +93,9 @@ public class a extends com.baidu.tbadk.core.a.a {
     @Override // com.baidu.tbadk.core.a.a
     public void reLoginByCacheAccount() {
         AccountData currentAccountObj;
-        a.b sp;
-        if (j.isNetWorkAvailable() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (sp = sp(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), sp.mBduss, sp.mPtoken, currentAccountObj.getStoken(), this.iAc);
+        a.b sq;
+        if (j.isNetWorkAvailable() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (sq = sq(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), sq.mBduss, sq.mPtoken, currentAccountObj.getStoken(), this.iAc);
         }
     }
 

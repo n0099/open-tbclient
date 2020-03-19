@@ -40,7 +40,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         this.fNo = i;
     }
 
-    public void zW(String str) {
+    public void zX(String str) {
         this.fNp = str;
     }
 
@@ -69,7 +69,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return this.fNq;
     }
 
-    public void zX(String str) {
+    public void zY(String str) {
         this.fNq = str;
     }
 
@@ -98,7 +98,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         this.fNr = num;
     }
 
-    public an zY(String str) {
+    public an zZ(String str) {
         return af(str, false);
     }
 

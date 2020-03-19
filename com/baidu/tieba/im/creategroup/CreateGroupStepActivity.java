@@ -265,9 +265,9 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     @Override // com.baidu.tieba.im.util.b.a
     public void a(String str, List<String> list, double d, double d2) {
-        this.hyi.CE(String.valueOf(d));
-        this.hyi.CD(String.valueOf(d2));
-        this.hyi.CF(str);
+        this.hyi.CF(String.valueOf(d));
+        this.hyi.CE(String.valueOf(d2));
+        this.hyi.CG(str);
         if (list != null && list.size() > 0) {
             for (String str2 : list) {
                 this.hyk.addAddress(str2);
@@ -275,7 +275,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
             this.hyi.setBusiness(list.get(0));
             return;
         }
-        this.hyi.CG(str);
+        this.hyi.CH(str);
     }
 
     @Override // com.baidu.tieba.im.util.b.a

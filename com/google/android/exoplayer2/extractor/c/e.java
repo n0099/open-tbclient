@@ -29,7 +29,7 @@ public final class e implements com.google.android.exoplayer2.extractor.e {
             return new com.google.android.exoplayer2.extractor.e[]{new e()};
         }
     };
-    private static final int mkZ = v.QE(CencSampleEncryptionInformationGroupEntry.TYPE);
+    private static final int mkZ = v.QF(CencSampleEncryptionInformationGroupEntry.TYPE);
     private static final byte[] mla = {-94, 57, 79, 82, 90, -101, 79, 20, -94, 68, 108, 66, 124, 100, -115, -12};
     private final int flags;
     private long mbx;
@@ -1001,7 +1001,7 @@ public final class e implements com.google.android.exoplayer2.extractor.e {
 
         public void d(DrmInitData drmInitData) {
             k JW = this.mlB.JW(this.mlA.mmy.mkW);
-            this.mgC.h(this.mlB.mbs.a(drmInitData.Pq(JW != null ? JW.schemeType : null)));
+            this.mgC.h(this.mlB.mbs.a(drmInitData.Pr(JW != null ? JW.schemeType : null)));
         }
     }
 }

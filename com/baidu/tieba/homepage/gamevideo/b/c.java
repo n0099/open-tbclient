@@ -201,7 +201,7 @@ public class c {
                 if (c.this.hcp != null) {
                     c.this.hcp.vs(aVar.sub_class_id);
                     c.this.hcp.mL(false);
-                    c.this.hcp.Ch(aVar.sub_class_name);
+                    c.this.hcp.Ci(aVar.sub_class_name);
                 }
             }
         }
@@ -223,7 +223,7 @@ public class c {
                 if (c.this.hcp != null) {
                     c.this.hcp.vs(aVar.sub_class_id);
                     c.this.hcp.mL(false);
-                    c.this.hcp.Ch(aVar.sub_class_name);
+                    c.this.hcp.Ci(aVar.sub_class_name);
                 }
             }
         }
@@ -378,10 +378,10 @@ public class c {
     public void h(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.hcq != null && !v.isEmpty(this.hcq.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            this.hcq.BB(optString);
-            this.hcq.Cg(optString);
+            this.hcq.BC(optString);
+            this.hcq.Ch(optString);
             if (this.hcp != null) {
-                this.hcp.Ci(optString);
+                this.hcp.Cj(optString);
             }
         }
     }

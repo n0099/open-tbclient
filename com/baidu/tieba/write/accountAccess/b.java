@@ -99,7 +99,7 @@ public class b {
                             b.this.kOo.cUP();
                             return true;
                         }
-                        return b.this.kOo.KO(str);
+                        return b.this.kOo.KP(str);
                     }
 
                     @Override // android.webkit.WebViewClient

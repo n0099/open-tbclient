@@ -40,8 +40,6 @@ public class a extends Dialog implements View.OnClickListener {
 
         void onCancel();
 
-        void zk(String str);
-
         void zl(String str);
 
         void zm(String str);
@@ -51,6 +49,8 @@ public class a extends Dialog implements View.OnClickListener {
         void zo(String str);
 
         void zp(String str);
+
+        void zq(String str);
     }
 
     public a(TbPageContext tbPageContext) {
@@ -90,7 +90,7 @@ public class a extends Dialog implements View.OnClickListener {
                             public void onConfirm() {
                                 if (a.this.fjZ != null && a.this.fjZ.user_info != null) {
                                     a.this.fjZ.user_info.is_block = 0;
-                                    a.this.fka.zm(a.this.fjZ.user_info.user_id);
+                                    a.this.fka.zn(a.this.fjZ.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.i.ala_person_relieve_forbidden_confirm_tip), this.fjZ.user_info.getNameShow()));
@@ -102,7 +102,7 @@ public class a extends Dialog implements View.OnClickListener {
                         public void onConfirm() {
                             if (a.this.fjZ != null && a.this.fjZ.user_info != null) {
                                 a.this.fjZ.user_info.is_block = 1;
-                                a.this.fka.zk(a.this.fjZ.user_info.user_id);
+                                a.this.fka.zl(a.this.fjZ.user_info.user_id);
                             }
                         }
                     }, String.format(getContext().getResources().getString(a.i.ala_person_forbid_this_confirm_tip), this.fjZ.user_info.getNameShow()));
@@ -116,7 +116,7 @@ public class a extends Dialog implements View.OnClickListener {
                             public void onConfirm() {
                                 if (a.this.fjZ != null && a.this.fjZ.user_info != null) {
                                     a.this.fjZ.user_info.is_block = 0;
-                                    a.this.fka.zn(a.this.fjZ.user_info.user_id);
+                                    a.this.fka.zo(a.this.fjZ.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.i.ala_person_relieve_forbidden_confirm_tip), this.fjZ.user_info.getNameShow()));
@@ -128,7 +128,7 @@ public class a extends Dialog implements View.OnClickListener {
                         public void onConfirm() {
                             if (a.this.fjZ != null && a.this.fjZ.user_info != null) {
                                 a.this.fjZ.user_info.is_block = 2;
-                                a.this.fka.zl(a.this.fjZ.user_info.user_id);
+                                a.this.fka.zm(a.this.fjZ.user_info.user_id);
                             }
                         }
                     }, String.format(getContext().getResources().getString(a.i.ala_person_forbid_forever_confirm_tip), this.fjZ.user_info.getNameShow()));
@@ -142,7 +142,7 @@ public class a extends Dialog implements View.OnClickListener {
                             public void onConfirm() {
                                 if (a.this.fjZ != null && a.this.fjZ.login_user_info != null) {
                                     a.this.fjZ.login_user_info.is_live_admin = 1;
-                                    a.this.fka.zo(a.this.fjZ.user_info.user_id);
+                                    a.this.fka.zp(a.this.fjZ.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.i.ala_person_appoint_admin_confirm_tip), this.fjZ.user_info.getNameShow()));
@@ -153,7 +153,7 @@ public class a extends Dialog implements View.OnClickListener {
                             public void onConfirm() {
                                 if (a.this.fjZ != null && a.this.fjZ.login_user_info != null) {
                                     a.this.fjZ.login_user_info.is_live_admin = 0;
-                                    a.this.fka.zp(a.this.fjZ.user_info.user_id);
+                                    a.this.fka.zq(a.this.fjZ.user_info.user_id);
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.i.ala_person_fire_admin_confirm_tip), this.fjZ.user_info.getNameShow()));

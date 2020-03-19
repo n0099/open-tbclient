@@ -98,7 +98,7 @@ public class d extends a<com.baidu.tieba.e.a> {
             am.setBackgroundResource(getView(), R.color.cp_bg_line_d);
             am.setBackgroundResource(this.fIA, R.color.cp_bg_line_c);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Jo(this.fIB.aAj().getId())) {
+            if (readThreadHistory != null && readThreadHistory.Jp(this.fIB.aAj().getId())) {
                 am.setViewTextColor(this.fIq, R.color.cp_cont_c, 1);
             } else {
                 am.setViewTextColor(this.fIq, R.color.cp_cont_b, 1);
@@ -139,7 +139,7 @@ public class d extends a<com.baidu.tieba.e.a> {
             this.fIs.startLoad(str, 10, false);
             this.fIq.setText(aVar.aAj().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Jo(aVar.aAj().getId())) {
+            if (readThreadHistory != null && readThreadHistory.Jp(aVar.aAj().getId())) {
                 am.setViewTextColor(this.fIq, (int) R.color.cp_cont_c);
             } else {
                 am.setViewTextColor(this.fIq, (int) R.color.cp_cont_b);
@@ -167,11 +167,11 @@ public class d extends a<com.baidu.tieba.e.a> {
 
     private void h(bj bjVar) {
         if (this.fIx != null && bjVar != null && !StringUtils.isNull(bjVar.aCr().getName_show())) {
-            this.fIx.setText(tY(bjVar.aCr().getName_show()));
+            this.fIx.setText(tZ(bjVar.aCr().getName_show()));
         }
     }
 
-    protected String tY(String str) {
+    protected String tZ(String str) {
         return aq.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 }

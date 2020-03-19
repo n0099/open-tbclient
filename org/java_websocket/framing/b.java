@@ -97,13 +97,13 @@ public class b extends d {
     }
 
     private void dOa() {
-        byte[] Sz = org.java_websocket.e.c.Sz(this.reason);
+        byte[] SA = org.java_websocket.e.c.SA(this.reason);
         ByteBuffer allocate = ByteBuffer.allocate(4);
         allocate.putInt(this.code);
         allocate.position(2);
-        ByteBuffer allocate2 = ByteBuffer.allocate(Sz.length + 2);
+        ByteBuffer allocate2 = ByteBuffer.allocate(SA.length + 2);
         allocate2.put(allocate);
-        allocate2.put(Sz);
+        allocate2.put(SA);
         allocate2.rewind();
         super.u(allocate2);
     }

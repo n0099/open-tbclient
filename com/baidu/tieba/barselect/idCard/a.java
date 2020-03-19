@@ -24,7 +24,7 @@ public class a extends BdAsyncTask<Void, String, String> {
         if (this.imagePath == null) {
             return null;
         }
-        return zR(this.imagePath);
+        return zS(this.imagePath);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,7 +38,7 @@ public class a extends BdAsyncTask<Void, String, String> {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [70=4] */
-    public String zR(String str) {
+    public String zS(String str) {
         FileInputStream fileInputStream;
         String str2 = null;
         try {

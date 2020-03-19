@@ -46,7 +46,7 @@ public class c implements NetModel.b {
         this.gJv.gJq = i;
     }
 
-    public void BH(String str) {
+    public void BI(String str) {
         this.gJv.gJp = 1;
         this.gJv.forum_id = str;
         loadData();
@@ -133,7 +133,7 @@ public class c implements NetModel.b {
                 if (bVar.gJs == 1) {
                     dq(bVar.gJt, str);
                 } else if (bVar.gJs == 3) {
-                    BI(bVar.gJt);
+                    BJ(bVar.gJt);
                 }
             }
             if (this.gJw != null) {
@@ -159,7 +159,7 @@ public class c implements NetModel.b {
     private void a(b bVar) {
         if (bVar != null && bVar.errorCode == 0) {
             if (!bVar.gJr && bVar.gJs == 2) {
-                BI(bVar.gJt);
+                BJ(bVar.gJt);
             }
             if (this.gJw != null) {
                 this.gJw.lC(bVar.gJr);
@@ -171,7 +171,7 @@ public class c implements NetModel.b {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cVv.getPageActivity());
         aVar.fI(false);
         aVar.fH(false);
-        aVar.sR(str);
+        aVar.sS(str);
         aVar.a(R.string.comfirm_imediate, new a.b() { // from class: com.baidu.tieba.frs.profession.permission.c.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -191,11 +191,11 @@ public class c implements NetModel.b {
         aVar.aEG();
     }
 
-    public void BI(String str) {
+    public void BJ(String str) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cVv.getPageActivity());
         aVar.fI(false);
         aVar.fH(false);
-        aVar.sR(str);
+        aVar.sS(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.frs.profession.permission.c.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

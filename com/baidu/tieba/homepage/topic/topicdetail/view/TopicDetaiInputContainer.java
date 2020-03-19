@@ -172,7 +172,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     private void a(q qVar) {
         if (qVar != null && !TextUtils.isEmpty(qVar.getName()) && !TextUtils.isEmpty(qVar.getUrl())) {
             String obj = this.dzd.getText().toString();
-            if (this.dyA && com.baidu.tieba.face.a.At(obj) >= 10 && getContext() != null) {
+            if (this.dyA && com.baidu.tieba.face.a.Au(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.aFP().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.a(getContext(), qVar, this.dzd);
@@ -183,7 +183,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements View.OnCli
     private void b(q qVar) {
         if (!this.dyz || qVar.aJB() == EmotionGroupType.LOCAL) {
             String obj = this.dzd.getText().toString();
-            if (this.dyA && com.baidu.tieba.face.a.At(obj) >= 10 && getContext() != null) {
+            if (this.dyA && com.baidu.tieba.face.a.Au(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.aFP().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.b(getContext(), qVar, this.dzd);

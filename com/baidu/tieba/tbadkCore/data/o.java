@@ -56,11 +56,11 @@ public class o {
         this.mEndTime = j;
     }
 
-    public void Jc(String str) {
+    public void Jd(String str) {
         this.dYS = str;
     }
 
-    public void Jd(String str) {
+    public void Je(String str) {
         this.kjt = str;
     }
 

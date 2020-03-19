@@ -34,7 +34,7 @@ public class AlaPersonCenterActivityStatic {
                         aVar.setForumId(adVar.getForumId());
                         aVar.setForumName(adVar.getForumName());
                         aVar.setForumGameLabel(adVar.getForumGameLabel());
-                        aVar.zF(adVar.bFW());
+                        aVar.zG(adVar.bFW());
                         aVar.a(adVar);
                     }
                 }

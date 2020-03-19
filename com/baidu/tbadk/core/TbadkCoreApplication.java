@@ -61,6 +61,7 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
@@ -349,8 +350,8 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                         TbadkCoreApplication.this.setLocationLat(valueOf);
                         TbadkCoreApplication.this.setLocationLng(valueOf2);
                         TbadkCoreApplication.this.setLocationPos(address.getAddressLine(0));
-                        com.baidu.tieba.recapp.d.a.cDF().CE(valueOf);
-                        com.baidu.tieba.recapp.d.a.cDF().CD(valueOf2);
+                        com.baidu.tieba.recapp.d.a.cDF().CF(valueOf);
+                        com.baidu.tieba.recapp.d.a.cDF().CE(valueOf2);
                         com.baidu.tieba.recapp.d.a.cDF().eA(System.currentTimeMillis());
                     }
                 } catch (IllegalStateException e) {
@@ -904,6 +905,9 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 com.baidu.tbadk.mutiprocess.g.aQk().init(this);
                 com.baidu.tbadk.util.d.aRW().e(this);
                 com.baidu.tieba.t.a.getInstance().initSdk(this);
+                if ((com.baidu.tbadk.a.b.rH("cyber_player_test") || com.baidu.tbadk.a.b.rG("cyber_player_test")) && !CyberPlayerManager.isCoreLoaded(1)) {
+                    CyberPlayerManager.install(getInst().getContext(), getInst().getCuid(), null, 1, null, null, null);
+                }
                 this.mAppInitHandler.sendEmptyMessage(5);
                 return;
             case 5:
@@ -2255,7 +2259,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
                 this.isUserChanged = false;
                 String str = i + ".apk";
                 try {
-                    am.ts(str);
+                    am.tt(str);
                     PackageInfo apkFileMetaData = m.getApkFileMetaData(str);
                     if (apkFileMetaData == null || apkFileMetaData.applicationInfo == null || apkFileMetaData.applicationInfo.metaData == null) {
                         setSkinType(0);
@@ -2510,12 +2514,12 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
         if (softReference != null && softReference.get() != null) {
             return softReference.get();
         }
-        com.baidu.adp.widget.ImageView.a vt = TbFaceManager.aPU().vt(str);
-        if (vt != null) {
-            this.mFaces.put(str, new SoftReference<>(vt));
-            return vt;
+        com.baidu.adp.widget.ImageView.a vu = TbFaceManager.aPU().vu(str);
+        if (vu != null) {
+            this.mFaces.put(str, new SoftReference<>(vu));
+            return vu;
         }
-        return vt;
+        return vu;
     }
 
     private static void initSocket() {

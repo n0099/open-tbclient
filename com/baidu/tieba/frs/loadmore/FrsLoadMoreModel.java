@@ -320,13 +320,13 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 m next2 = it2.next();
                 if (next2 instanceof bi) {
                     bj bjVar3 = ((bi) next2).cRt;
-                    bjVar3.sF(this.gHw.getForumName());
+                    bjVar3.sG(this.gHw.getForumName());
                     if (this.gHw != null && this.gHw.bEz() != null && this.gHw.bEz().getForum() != null) {
                         if (!StringUtils.isNull(this.gHw.bEz().getForum().getFirst_class())) {
-                            bjVar3.sK(this.gHw.bEz().getForum().getFirst_class());
+                            bjVar3.sL(this.gHw.bEz().getForum().getFirst_class());
                         }
                         if (!StringUtils.isNull(this.gHw.bEz().getForum().getSecond_class())) {
-                            bjVar3.sL(this.gHw.bEz().getForum().getSecond_class());
+                            bjVar3.sM(this.gHw.bEz().getForum().getSecond_class());
                         }
                     }
                     if (bjVar3.aCO()) {
@@ -344,13 +344,13 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                     }
                 } else if (next2 instanceof bj) {
                     bj bjVar4 = (bj) next2;
-                    bjVar4.sF(this.gHw.getForumName());
+                    bjVar4.sG(this.gHw.getForumName());
                     if (this.gHw != null && this.gHw.bEz() != null && this.gHw.bEz().getForum() != null) {
                         if (!StringUtils.isNull(this.gHw.bEz().getForum().getFirst_class())) {
-                            bjVar4.sK(this.gHw.bEz().getForum().getFirst_class());
+                            bjVar4.sL(this.gHw.bEz().getForum().getFirst_class());
                         }
                         if (!StringUtils.isNull(this.gHw.bEz().getForum().getSecond_class())) {
-                            bjVar4.sL(this.gHw.bEz().getForum().getSecond_class());
+                            bjVar4.sM(this.gHw.bEz().getForum().getSecond_class());
                         }
                     }
                     if (bjVar4.aCO()) {
@@ -455,7 +455,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void BC(String str) {
+    public void BD(String str) {
         if (!StringUtils.isNull(str)) {
             if (!v.isEmpty(this.gHz)) {
                 e(this.gHz, str);

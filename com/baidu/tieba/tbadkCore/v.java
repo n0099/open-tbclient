@@ -21,7 +21,7 @@ public class v extends bj {
         return this.fortune_desc;
     }
 
-    public void IV(String str) {
+    public void IW(String str) {
         this.fortune_desc = str;
     }
 

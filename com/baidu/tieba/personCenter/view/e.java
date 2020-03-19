@@ -27,7 +27,7 @@ public class e extends com.baidu.tieba.card.a<m> {
                         TiebaStatic.log(new an("c13247").X("obj_locate", i).cx("obj_param1", str));
                     }
                     e.this.jkn.aIF();
-                    e.this.jkn.GG(str);
+                    e.this.jkn.GH(str);
                 }
             }
 

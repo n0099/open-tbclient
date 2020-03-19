@@ -73,8 +73,8 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
                     if (aAj.aDo() == null || aAj.aDo().getGroup_id() == 0 || bc.checkUpIsLogin(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
                         if (aAj.aDb() != 1 || bc.checkUpIsLogin(FrsGameStrategyItemListView.this.mPageContext.getPageActivity())) {
                             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                            if (readThreadHistory != null && !readThreadHistory.Jo(aAj.getId())) {
-                                readThreadHistory.Jn(aAj.getId());
+                            if (readThreadHistory != null && !readThreadHistory.Jp(aAj.getId())) {
+                                readThreadHistory.Jo(aAj.getId());
                                 FrsGameStrategyItemListView.this.gBP.notifyDataSetChanged();
                             }
                             boolean z = false;
@@ -168,7 +168,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
             hideLoadingView();
             this.ekE.completePullRefresh();
             if (v.isEmpty(list) && v.isEmpty(this.mData)) {
-                zO(getContext().getString(R.string.no_data_text));
+                zP(getContext().getString(R.string.no_data_text));
                 bdz();
                 this.mHasMore = false;
                 return;
@@ -192,7 +192,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
             this.mHasMore = false;
             hideLoadingView();
             if (v.isEmpty(this.mData)) {
-                zO(str);
+                zP(str);
                 bdz();
                 return;
             }
@@ -219,12 +219,12 @@ public class FrsGameStrategyItemListView extends FrameLayout implements com.baid
         this.ekE.setNextPage(null);
     }
 
-    private void zO(String str) {
+    private void zP(String str) {
         if (this.mNoDataView == null) {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds120);
             int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds480);
             int dimensionPixelSize3 = getResources().getDimensionPixelSize(R.dimen.ds360);
-            this.mNoDataView = NoDataViewFactory.a(getContext(), this, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.tU(str), NoDataViewFactory.b.a(new NoDataViewFactory.a(getContext().getString(R.string.refresh_view_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.5
+            this.mNoDataView = NoDataViewFactory.a(getContext(), this, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, dimensionPixelSize, dimensionPixelSize3, dimensionPixelSize2), NoDataViewFactory.d.tV(str), NoDataViewFactory.b.a(new NoDataViewFactory.a(getContext().getString(R.string.refresh_view_button_text), new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     FrsGameStrategyItemListView.this.refresh();

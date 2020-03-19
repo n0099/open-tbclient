@@ -62,7 +62,7 @@ public class z extends h {
             public boolean a(a.C0052a c0052a) {
                 if (z.this.Kc != null && z.this.Kc.aAj() != null && !z.this.mU().booleanValue()) {
                     bj aAj = z.this.Kc.aAj();
-                    com.baidu.tieba.card.l.zU(aAj.getId());
+                    com.baidu.tieba.card.l.zV(aAj.getId());
                     com.baidu.tieba.card.l.a(z.this.Li.mTitle, aAj.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                     com.baidu.tieba.card.l.a(z.this.Li.KA, aAj.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 }

@@ -661,9 +661,9 @@ public class m {
         return this.grI;
     }
 
-    public void Bg(String str) {
+    public void Bh(String str) {
         if (this.grv != null) {
-            this.grv.Bg(str);
+            this.grv.Bh(str);
         }
     }
 
@@ -898,7 +898,7 @@ public class m {
         if (this.grm == null && this.gqW.getPageContext() != null) {
             String[] strArr = {this.gqW.getPageContext().getPageActivity().getString(R.string.take_photo), this.gqW.getPageContext().getPageActivity().getString(R.string.album)};
             this.grm = new com.baidu.tbadk.core.dialog.b(this.gqW.getPageContext().getPageActivity());
-            this.grm.sS(this.gqW.getPageContext().getPageActivity().getString(R.string.operation));
+            this.grm.sT(this.gqW.getPageContext().getPageActivity().getString(R.string.operation));
             this.grm.a(strArr, new b.a() { // from class: com.baidu.tieba.frs.m.12
                 @Override // com.baidu.tbadk.core.dialog.b.a
                 public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {

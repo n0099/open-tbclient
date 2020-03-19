@@ -112,7 +112,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
                 if (kVar != null && kVar.aAj() != null) {
-                    com.baidu.tieba.card.l.zU(kVar.aAj().getTid());
+                    com.baidu.tieba.card.l.zV(kVar.aAj().getTid());
                 }
             }
         };
@@ -155,7 +155,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.rv(i + 1);
-        com.baidu.tieba.card.r.bvm().e(kVar.Aa("c12351"));
+        com.baidu.tieba.card.r.bvm().e(kVar.Ab("c12351"));
         if (aVar.bvQ() instanceof com.baidu.tieba.a.e) {
             aVar.bvQ().setPage(this.LC);
         }
@@ -165,7 +165,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 }

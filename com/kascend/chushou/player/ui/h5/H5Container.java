@@ -396,7 +396,7 @@ public class H5Container extends FrameLayout {
                     com.kascend.chushou.d.h.dCs().b(str);
                     H5Container.this.a(str2);
                 }
-            }).Td(this.a.getResources().getString(a.i.alert_dialog_cancel)).Tf(this.a.getResources().getString(a.i.quit_str)).Tc(this.a.getResources().getString(a.i.str_dialog_tip_title)).x(this.a.getResources().getString(a.i.quit_answer)).show();
+            }).Te(this.a.getResources().getString(a.i.alert_dialog_cancel)).Tg(this.a.getResources().getString(a.i.quit_str)).Td(this.a.getResources().getString(a.i.str_dialog_tip_title)).x(this.a.getResources().getString(a.i.quit_answer)).show();
         }
     }
 

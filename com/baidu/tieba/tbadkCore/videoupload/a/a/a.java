@@ -76,7 +76,7 @@ public abstract class a {
             }
             d dVar2 = new d();
             if (xVar.aGk().aGM().isRequestSuccess()) {
-                dVar2.videoUrl = Js(postMultiNetData);
+                dVar2.videoUrl = Jt(postMultiNetData);
                 return dVar2;
             }
             if (xVar.aGk().aGM().isNetSuccess()) {
@@ -114,7 +114,7 @@ public abstract class a {
         return null;
     }
 
-    private String Js(String str) {
+    private String Jt(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

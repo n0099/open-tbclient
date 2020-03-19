@@ -34,7 +34,7 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
                         ai.this.mT().a(ai.this.Mv, ai.this.Kc);
                     }
                     String id = ai.this.Kc.aAj().getId();
-                    com.baidu.tieba.card.l.zU(id);
+                    com.baidu.tieba.card.l.zV(id);
                     ai.this.cb(id);
                     ai.this.JX.b(new a.C0052a(1));
                 }
@@ -73,7 +73,7 @@ public class ai extends b<com.baidu.tbadk.core.data.a> {
     public void cb(String str) {
         com.baidu.tieba.card.l.a(this.mTitle, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         com.baidu.tieba.card.l.a(this.KA, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        this.Mv.setReadState(com.baidu.tieba.card.l.zV(str));
+        this.Mv.setReadState(com.baidu.tieba.card.l.zW(str));
     }
 
     @Override // com.baidu.card.n

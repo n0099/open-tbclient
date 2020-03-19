@@ -85,7 +85,7 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
                         t.this.buM().a(t.this.fLW, t.this.fMr);
                     }
                     String id = t.this.fMr.cRt.getId();
-                    l.zU(id);
+                    l.zV(id);
                     t.this.cb(id);
                 }
             }
@@ -135,7 +135,7 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
                     t.this.buM().a(view2, t.this.fMr);
                 }
                 if (t.this.fMr != null && t.this.fMr.cRt != null) {
-                    l.zU(t.this.fMr.cRt.getId());
+                    l.zV(t.this.fMr.cRt.getId());
                     t.this.cb(t.this.fMr.cRt.getId());
                 }
             }
@@ -150,7 +150,7 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
                     t.this.buM().a(view2, t.this.fMr);
                 }
                 if (view2 != t.this.eOJ.diw && t.this.fMr != null && t.this.fMr.cRt != null) {
-                    l.zU(t.this.fMr.cRt.getId());
+                    l.zV(t.this.fMr.cRt.getId());
                     t.this.cb(t.this.fMr.cRt.getId());
                 }
             }
@@ -353,12 +353,12 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
     private void aMD() {
         if (this.fMr != null && this.fMr.cRt != null) {
             bj bjVar = this.fMr.cRt;
-            l.zU(bjVar.getId());
+            l.zV(bjVar.getId());
             cb(bjVar.getId());
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bjVar, null, this.fMr.stType, RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
             createFromThreadCfg.setStartFrom(this.currentPageType);
             createFromThreadCfg.setIsShareThread(true);
-            l.zU(bjVar.getTid());
+            l.zV(bjVar.getTid());
             this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }
     }
@@ -367,7 +367,7 @@ public class t extends a<bk> implements com.baidu.tieba.a.e {
     public void cb(String str) {
         l.a(this.mTitle, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         l.a(this.KA, str, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-        this.fLW.setReadState(l.zV(str));
+        this.fLW.setReadState(l.zW(str));
     }
 
     public void b(bj bjVar) {

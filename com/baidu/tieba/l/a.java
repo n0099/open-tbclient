@@ -90,7 +90,7 @@ public class a {
                     if (strArr == null || strArr.length != 1) {
                         return 2;
                     }
-                    return Integer.valueOf(a.Fj(strArr[0]));
+                    return Integer.valueOf(a.Fk(strArr[0]));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -106,7 +106,7 @@ public class a {
         }
     }
 
-    public static int Fj(String str) {
+    public static int Fk(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {

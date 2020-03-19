@@ -5,7 +5,7 @@ public abstract class d {
     String kCb;
     int sampleRate;
 
-    public abstract void Kl(String str);
+    public abstract void Km(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
@@ -20,7 +20,7 @@ public abstract class d {
         this.channelCount = i;
     }
 
-    public static d Km(String str) {
+    public static d Kn(String str) {
         return new a(str);
     }
 }

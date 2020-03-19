@@ -250,7 +250,7 @@ public class b extends a<PostData, k> {
         this.KJ = bjVar;
     }
 
-    public void Gu(String str) {
+    public void Gv(String str) {
         this.iYn = str;
     }
 }

@@ -220,7 +220,7 @@ public class b {
                     if (this.fdE == null) {
                         this.fdE = new GuideImInputView.a() { // from class: com.baidu.tieba.ala.liveroom.guideim.b.3
                             @Override // com.baidu.tieba.ala.liveroom.guideim.GuideImInputView.a
-                            public void ze(String str2) {
+                            public void zf(String str2) {
                                 if (b.this.fdB != null && b.this.fdB.wx()) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2913100, new ImSendMsgData(str2)));
                                 }
@@ -230,7 +230,7 @@ public class b {
                         };
                         this.fdD.setCallback(this.fdE);
                     }
-                    zc(str);
+                    zd(str);
                 }
             }
         }
@@ -251,15 +251,15 @@ public class b {
         }
     }
 
-    private void zc(String str) {
+    private void zd(String str) {
         this.fdA = true;
-        zd(str);
+        ze(str);
         this.fdC.sendEmptyMessageDelayed(2, 5000L);
         ayh();
         LogManager.getCommonLogger().doDisplaySpeakGuideLog(this.mVid, this.mOtherParams, str);
     }
 
-    private void zd(String str) {
+    private void ze(String str) {
         int dimensionPixelSize;
         if (this.mParentView != null) {
             if (this.mParentView.indexOfChild(this.fdD) < 0) {

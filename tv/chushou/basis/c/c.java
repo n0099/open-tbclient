@@ -7,7 +7,7 @@ import java.util.Map;
 public class c {
     private static final Map<String, a> nXj = new HashMap();
 
-    public static a SJ(@NonNull String str) {
+    public static a SK(@NonNull String str) {
         a aVar;
         synchronized (nXj) {
             aVar = nXj.get(str);

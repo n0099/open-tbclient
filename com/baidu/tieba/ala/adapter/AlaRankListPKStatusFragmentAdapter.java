@@ -41,7 +41,7 @@ public class AlaRankListPKStatusFragmentAdapter extends FragmentPagerAdapter {
         this.eke.add(fVar2);
     }
 
-    public int xH(String str) {
+    public int xI(String str) {
         if (this.ekf == null || StringUtils.isNull(str)) {
             return -1;
         }

@@ -129,11 +129,11 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xj(String str) {
-        List<com.baidu.tbadk.coreExtra.relationship.a> xw = this.ebe.xw(str);
-        if (xw.size() > 0) {
+    public void xk(String str) {
+        List<com.baidu.tbadk.coreExtra.relationship.a> xx = this.ebe.xx(str);
+        if (xx.size() > 0) {
             hE(true);
-            this.ebk.setContacts(xw);
+            this.ebk.setContacts(xx);
             this.ebk.notifyDataSetChanged();
             this.ebj.setSelection(0);
             return;
@@ -171,7 +171,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             if (charSequence.toString().trim().length() != 0) {
-                QuickSearchActivity.this.xj(charSequence.toString());
+                QuickSearchActivity.this.xk(charSequence.toString());
                 return;
             }
             QuickSearchActivity.this.ebi.setVisibility(8);

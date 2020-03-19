@@ -114,9 +114,9 @@ public class g extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
                 if (view != null && kVar != null && kVar.aAj() != null) {
                     int id = view.getId();
                     if (id == R.id.thread_card_root) {
-                        an zY = kVar.zY("c13543");
-                        zY.X("obj_type", kVar.ae(kVar.cRt));
-                        TiebaStatic.log(zY);
+                        an zZ = kVar.zZ("c13543");
+                        zZ.X("obj_type", kVar.ae(kVar.cRt));
+                        TiebaStatic.log(zZ);
                         com.baidu.tieba.personPolymeric.a.a(view, kVar, 2);
                     } else if (id == R.id.forum_name_text) {
                         com.baidu.tieba.personPolymeric.a.a(view, kVar, 7);
@@ -221,7 +221,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, af<k>> implements com.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 

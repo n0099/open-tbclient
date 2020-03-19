@@ -216,7 +216,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b
-    public void Ku(String str) {
+    public void Kv(String str) {
         if (!aq.isEmpty(str) && !this.kGG.isPlaying() && !this.kGP) {
             if (this.kGM) {
                 this.kGG.seekTo(this.kGL);
@@ -230,12 +230,12 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b
-    public void Kv(String str) {
+    public void Kw(String str) {
         this.kGH.setVisibility(8);
         this.kGM = true;
         this.kGL = 0;
         this.kGP = false;
-        Ku(str);
+        Kv(str);
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b
@@ -289,11 +289,11 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
 
     private a eL(String str, String str2) {
         this.kGO = new a(this);
-        this.kGO.Ks(str2);
+        this.kGO.Kt(str2);
         if (aq.isEmpty(str)) {
             str = getResources().getString(R.string.easter_dialog_default_message);
         }
-        this.kGO.sR(str);
+        this.kGO.sS(str);
         this.kGO.a(R.string.easter_dialog_checkbox_text_not_again, new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity.2
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z) {

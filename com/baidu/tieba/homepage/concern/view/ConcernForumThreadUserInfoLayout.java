@@ -113,7 +113,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout implements co
 
     public void G(bj bjVar) {
         if (bjVar != null && !StringUtils.isNull(this.KJ.aCr().getName_show())) {
-            this.diG.setText(getContext().getString(R.string.user_name_and_publish_time, tY(this.KJ.aCr().getName_show()), aq.getFormatTime(bjVar.getCreateTime())));
+            this.diG.setText(getContext().getString(R.string.user_name_and_publish_time, tZ(this.KJ.aCr().getName_show()), aq.getFormatTime(bjVar.getCreateTime())));
             this.diG.setVisibility(0);
         }
     }
@@ -158,7 +158,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout implements co
         }
     }
 
-    protected String tY(String str) {
+    protected String tZ(String str) {
         return aq.cutChineseAndEnglishWithSuffix(str, 10, StringHelper.STRING_MORE);
     }
 

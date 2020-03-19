@@ -34,7 +34,7 @@ public class f {
         this.iDc.setOnClickListener(onClickListener);
     }
 
-    public void FH(String str) {
+    public void FI(String str) {
         this.iDb.setText(str);
     }
 

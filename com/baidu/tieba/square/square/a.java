@@ -188,8 +188,8 @@ public class a extends ProxyAdkBaseActivity<a> {
             boolean z = true;
             boolean z2 = false;
             c cVar = new c();
-            com.baidu.adp.lib.cache.l<String> sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.first_dir");
-            String str = sP.get("first_dir_cache_key");
+            com.baidu.adp.lib.cache.l<String> sQ = com.baidu.tbadk.core.c.a.aEF().sQ("tb.first_dir");
+            String str = sQ.get("first_dir_cache_key");
             if (str != null) {
                 if (!str.equals("")) {
                     cVar.parserJson(str);
@@ -207,7 +207,7 @@ public class a extends ProxyAdkBaseActivity<a> {
                                 return null;
                             }
                         } else {
-                            sP.set("first_dir_cache_key", postNetData, 86400000L);
+                            sQ.set("first_dir_cache_key", postNetData, 86400000L);
                         }
                     } else {
                         cVar.setErrorMsg(this.mNetwork.getErrorString());

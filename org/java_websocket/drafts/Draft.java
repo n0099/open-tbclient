@@ -111,7 +111,7 @@ public abstract class Draft {
             i eVar = new e();
             i iVar2 = eVar;
             iVar2.m(Short.parseShort(split[1]));
-            iVar2.Sv(split[2]);
+            iVar2.Sw(split[2]);
             iVar = eVar;
         } else if (!"GET".equalsIgnoreCase(split[0])) {
             throw new InvalidHandshakeException("Invalid request method received: " + split[0] + " Status line: " + q);
@@ -120,7 +120,7 @@ public abstract class Draft {
                 throw new InvalidHandshakeException("Invalid status line received: " + split[2] + " Status line: " + q);
             }
             d dVar = new d();
-            dVar.Su(split[1]);
+            dVar.Sv(split[1]);
             iVar = dVar;
         }
         String q2 = q(byteBuffer);
@@ -129,8 +129,8 @@ public abstract class Draft {
             if (split2.length != 2) {
                 throw new InvalidHandshakeException("not an http header");
             }
-            if (iVar.Sx(split2[0])) {
-                iVar.put(split2[0], iVar.Sw(split2[0]) + "; " + split2[1].replaceFirst("^ +", ""));
+            if (iVar.Sy(split2[0])) {
+                iVar.put(split2[0], iVar.Sx(split2[0]) + "; " + split2[1].replaceFirst("^ +", ""));
             } else {
                 iVar.put(split2[0], split2[1].replaceFirst("^ +", ""));
             }
@@ -144,7 +144,7 @@ public abstract class Draft {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean b(f fVar) {
-        return fVar.Sw("Upgrade").equalsIgnoreCase("websocket") && fVar.Sw(HTTP.CONN_DIRECTIVE).toLowerCase(Locale.ENGLISH).contains(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
+        return fVar.Sx("Upgrade").equalsIgnoreCase("websocket") && fVar.Sx(HTTP.CONN_DIRECTIVE).toLowerCase(Locale.ENGLISH).contains(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
     }
 
     public List<Framedata> a(Framedata.Opcode opcode, ByteBuffer byteBuffer, boolean z) {
@@ -196,17 +196,17 @@ public abstract class Draft {
         Iterator<String> dOh = fVar.dOh();
         while (dOh.hasNext()) {
             String next = dOh.next();
-            String Sw = fVar.Sw(next);
+            String Sx = fVar.Sx(next);
             sb.append(next);
             sb.append(": ");
-            sb.append(Sw);
+            sb.append(Sx);
             sb.append("\r\n");
         }
         sb.append("\r\n");
-        byte[] OU = org.java_websocket.e.c.OU(sb.toString());
+        byte[] OV = org.java_websocket.e.c.OV(sb.toString());
         byte[] content = z ? fVar.getContent() : null;
-        ByteBuffer allocate = ByteBuffer.allocate((content == null ? 0 : content.length) + OU.length);
-        allocate.put(OU);
+        ByteBuffer allocate = ByteBuffer.allocate((content == null ? 0 : content.length) + OV.length);
+        allocate.put(OV);
         if (content != null) {
             allocate.put(content);
         }
@@ -227,10 +227,10 @@ public abstract class Draft {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int c(f fVar) {
-        String Sw = fVar.Sw("Sec-WebSocket-Version");
-        if (Sw.length() > 0) {
+        String Sx = fVar.Sx("Sec-WebSocket-Version");
+        if (Sx.length() > 0) {
             try {
-                return new Integer(Sw.trim()).intValue();
+                return new Integer(Sx.trim()).intValue();
             } catch (NumberFormatException e) {
                 return -1;
             }

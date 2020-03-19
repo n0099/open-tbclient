@@ -16,7 +16,7 @@ public final class b implements e, l {
             return new e[]{new b()};
         }
     };
-    private static final int mgp = v.QE("FLV");
+    private static final int mgp = v.QF("FLV");
     public int Xu;
     private d mgA;
     private c mgB;

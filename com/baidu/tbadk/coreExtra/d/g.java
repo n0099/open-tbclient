@@ -52,7 +52,7 @@ public class g {
                 }
             } else if (g.this.dvh >= 5) {
                 com.baidu.adp.framework.client.socket.i.debug("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.h.getUrl());
-                a.aNn().uI(com.baidu.adp.framework.client.socket.h.getUrl());
+                a.aNn().uJ(com.baidu.adp.framework.client.socket.h.getUrl());
                 a.aNn().aNq();
             }
             g.this.dvh = 0;
@@ -155,7 +155,7 @@ public class g {
             if (this.dvm != null && !this.dvm.isEmpty()) {
                 String remove = this.dvm.remove(0);
                 if (!TextUtils.isEmpty(remove)) {
-                    com.baidu.adp.framework.client.socket.h.setUrl("ws://" + remove + ":" + uO(TiebaIMConfig.url));
+                    com.baidu.adp.framework.client.socket.h.setUrl("ws://" + remove + ":" + uP(TiebaIMConfig.url));
                     BdSocketLinkService.init();
                 }
             }
@@ -166,12 +166,12 @@ public class g {
     public void aND() {
         if (!this.dvn) {
             try {
-                String uN = uN(TiebaIMConfig.url);
-                if (aq.isEmpty(uN)) {
+                String uO = uO(TiebaIMConfig.url);
+                if (aq.isEmpty(uO)) {
                     aNE();
                 } else {
                     this.dvn = true;
-                    BDHttpDns.ag(BdBaseApplication.getInst().getApplicationContext()).a(uN, new BDHttpDns.a() { // from class: com.baidu.tbadk.coreExtra.d.g.2
+                    BDHttpDns.ag(BdBaseApplication.getInst().getApplicationContext()).a(uO, new BDHttpDns.a() { // from class: com.baidu.tbadk.coreExtra.d.g.2
                         @Override // com.baidu.bdhttpdns.BDHttpDns.a
                         public void a(BDHttpDnsResult bDHttpDnsResult) {
                             ArrayList<String> mg;
@@ -199,7 +199,7 @@ public class g {
         this.dvn = false;
     }
 
-    public static String uN(String str) {
+    public static String uO(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -211,7 +211,7 @@ public class g {
         return null;
     }
 
-    public static String uO(String str) {
+    public static String uP(String str) {
         int lastIndexOf;
         if (str != null && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
@@ -231,7 +231,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uP(final String str) {
+    public void uQ(final String str) {
         String aNF = aNF();
         if (aNF == null) {
             if (!a.aNn().aNr()) {
@@ -241,7 +241,7 @@ public class g {
                         g.this.currentIndex = 0;
                         g.this.duM = a.aNn().getIpList();
                         if (g.this.duM != null) {
-                            g.this.uP(str);
+                            g.this.uQ(str);
                         } else {
                             g.this.dvk = false;
                         }
@@ -251,7 +251,7 @@ public class g {
             com.baidu.adp.framework.client.socket.h.setUrl(TiebaIMConfig.url);
             BdSocketLinkService.setAvailable(false);
             aNG();
-        } else if (uN(aNF) == null) {
+        } else if (uO(aNF) == null) {
             aNG();
         } else {
             this.dvk = false;
@@ -279,7 +279,7 @@ public class g {
             this.dvk = true;
             if (this.dvi) {
                 this.dvi = false;
-                b.aNu().uK(TiebaIMConfig.url);
+                b.aNu().uL(TiebaIMConfig.url);
             }
             b.aNu().aNv();
             if (!this.dvj) {
@@ -290,7 +290,7 @@ public class g {
                         if (z) {
                             g.this.duM = a.aNn().getIpList();
                             if (g.this.duM != null) {
-                                g.this.uP("change ip to reconnect with DNS' failed.");
+                                g.this.uQ("change ip to reconnect with DNS' failed.");
                                 return;
                             } else {
                                 a.aNn().a(new a.InterfaceC0382a() { // from class: com.baidu.tbadk.coreExtra.d.g.4.1
@@ -299,7 +299,7 @@ public class g {
                                         g.this.currentIndex = 0;
                                         g.this.duM = a.aNn().getIpList();
                                         if (g.this.duM != null) {
-                                            g.this.uP("change ip to reconnect with DNS' failed.");
+                                            g.this.uQ("change ip to reconnect with DNS' failed.");
                                         } else {
                                             g.this.dvk = false;
                                         }
@@ -315,7 +315,7 @@ public class g {
                 this.dvj = true;
                 return;
             }
-            uP("change ip to reconnect with DNS' failed.");
+            uQ("change ip to reconnect with DNS' failed.");
         }
     }
 }

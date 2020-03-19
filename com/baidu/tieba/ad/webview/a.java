@@ -390,7 +390,7 @@ public final class a {
         return bYJ.get(str);
     }
 
-    public static String xg(String str) {
+    public static String xh(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -406,7 +406,7 @@ public final class a {
         if (0 != 0 || str2 == null) {
             str4 = null;
         } else {
-            str4 = xh(str2);
+            str4 = xi(str2);
             if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
                 str4 = str4.substring(lastIndexOf2);
             }
@@ -453,10 +453,10 @@ public final class a {
         } else {
             if (str3 != null) {
                 String substring = str4.substring(str4.lastIndexOf(".") + 1);
-                String xg = xg(str3);
+                String xh = xh(str3);
                 String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
-                String lowerCase2 = !TextUtils.isEmpty(xg) ? xg.toLowerCase() : "";
+                String lowerCase2 = !TextUtils.isEmpty(xh) ? xh.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
                 String mI = mI(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
@@ -504,7 +504,7 @@ public final class a {
         return null;
     }
 
-    static String xh(String str) {
+    static String xi(String str) {
         try {
             Matcher matcher = bYL.matcher(str);
             if (matcher.find()) {

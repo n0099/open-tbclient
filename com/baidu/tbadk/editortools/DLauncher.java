@@ -71,12 +71,12 @@ public class DLauncher extends RelativeLayout implements g {
         }
     }
 
-    public void uZ(String str) {
-        va(str);
+    public void va(String str) {
+        vb(str);
         this.mTip.setVisibility(0);
     }
 
-    private void va(String str) {
+    private void vb(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.mText = str;
             if (this.mTip == null) {
@@ -111,7 +111,7 @@ public class DLauncher extends RelativeLayout implements g {
             if (aVar.data == null) {
                 aOx();
             } else if (aVar.data instanceof String) {
-                uZ((String) aVar.data);
+                va((String) aVar.data);
             }
         }
     }

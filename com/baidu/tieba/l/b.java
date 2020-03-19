@@ -27,7 +27,7 @@ public class b implements e {
     @Override // com.baidu.tieba.k.e
     public void cgS() {
         if (f.aMe()) {
-            if (StringUtils.isNull(this.isB) || !QuickVideoView.uy(this.isB)) {
+            if (StringUtils.isNull(this.isB) || !QuickVideoView.uz(this.isB)) {
                 if (this.isE != null) {
                     this.isE.yo(2);
                     return;
@@ -52,7 +52,7 @@ public class b implements e {
     /* JADX INFO: Access modifiers changed from: private */
     public void chz() {
         if (f.aMe()) {
-            if (StringUtils.isNull(this.isB) || !QuickVideoView.uy(this.isB)) {
+            if (StringUtils.isNull(this.isB) || !QuickVideoView.uz(this.isB)) {
                 if (this.isE != null) {
                     this.isE.onChange(false);
                     return;
@@ -109,7 +109,7 @@ public class b implements e {
 
     @Override // com.baidu.tieba.k.e
     public void cgU() {
-        if (StringUtils.isNull(this.isB) || !QuickVideoView.uy(this.isB)) {
+        if (StringUtils.isNull(this.isB) || !QuickVideoView.uz(this.isB)) {
             if (this.isE != null) {
                 this.isE.yo(2);
                 return;
@@ -123,9 +123,9 @@ public class b implements e {
             public Void doInBackground(String... strArr) {
                 if (strArr != null && strArr.length == 1 && !StringUtils.isNull(strArr[0])) {
                     String str = strArr[0];
-                    int Fj = a.Fj(str);
-                    publishProgress(new c(1, Fj));
-                    if (Fj == 1) {
+                    int Fk = a.Fk(str);
+                    publishProgress(new c(1, Fk));
+                    if (Fk == 1) {
                         boolean dV = a.dV(str, str + "_moov_head_suffix");
                         c[] cVarArr = new c[1];
                         cVarArr[0] = new c(2, dV ? 1 : 0);

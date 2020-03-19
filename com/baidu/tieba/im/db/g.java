@@ -92,7 +92,7 @@ public class g {
         return linkedList;
     }
 
-    public static void CW(String str) {
+    public static void CX(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 h.bUL().bUM();

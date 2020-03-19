@@ -167,12 +167,12 @@ public class ImagePagerAdapter extends PagerAdapter {
         UrlDragImageView urlDragImageView;
         ImageUrlData imageUrlData;
         if ((obj instanceof UrlDragImageView) && (imageUrlData = (urlDragImageView = (UrlDragImageView) obj).getmAssistUrlData()) != null && !StringUtils.isNull(imageUrlData.imageUrl)) {
-            urlDragImageView.setAssistUrl(uB(imageUrlData.imageUrl));
+            urlDragImageView.setAssistUrl(uC(imageUrlData.imageUrl));
         }
         return super.getItemPosition(obj);
     }
 
-    private ImageUrlData uB(String str) {
+    private ImageUrlData uC(String str) {
         if (TextUtils.isEmpty(str) || this.dsi == null) {
             return null;
         }
@@ -203,7 +203,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         urlDragImageView.setIsCdn(this.dsw);
         urlDragImageView.setOnSizeChangedListener(this.dsl);
         viewGroup.addView(urlDragImageView, 0);
-        urlDragImageView.setAssistUrl(uC(str));
+        urlDragImageView.setAssistUrl(uD(str));
         urlDragImageView.setUrl(str, this.dsx);
         urlDragImageView.setGifMaxUseableMem(this.mGifMaxUseableMem);
         urlDragImageView.setTag(String.valueOf(i));
@@ -240,7 +240,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         }
     }
 
-    private ImageUrlData uC(String str) {
+    private ImageUrlData uD(String str) {
         if (TextUtils.isEmpty(str) || this.dsi == null) {
             return null;
         }

@@ -53,7 +53,7 @@ public final class c implements l {
     private int mwh;
 
     static {
-        com.google.android.exoplayer2.l.Pl("goog.exo.dash");
+        com.google.android.exoplayer2.l.Pm("goog.exo.dash");
     }
 
     public c(Uri uri, e.a aVar, a.InterfaceC0680a interfaceC0680a, Handler handler, com.google.android.exoplayer2.source.b bVar) {
@@ -238,7 +238,7 @@ public final class c implements l {
 
     private void b(com.google.android.exoplayer2.source.dash.manifest.k kVar) {
         try {
-            gp(v.QD(kVar.value) - this.mwf);
+            gp(v.QE(kVar.value) - this.mwf);
         } catch (ParserException e2) {
             e(e2);
         }
@@ -547,7 +547,7 @@ public final class c implements l {
         @Override // com.google.android.exoplayer2.upstream.p.a
         /* renamed from: a */
         public Long b(Uri uri, InputStream inputStream) throws IOException {
-            return Long.valueOf(v.QD(new BufferedReader(new InputStreamReader(inputStream)).readLine()));
+            return Long.valueOf(v.QE(new BufferedReader(new InputStreamReader(inputStream)).readLine()));
         }
     }
 

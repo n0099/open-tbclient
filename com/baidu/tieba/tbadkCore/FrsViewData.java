@@ -362,7 +362,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                 }
                 v vVar = new v();
                 vVar.sO(this.fortuneBag);
-                vVar.IV(this.fortuneDesc);
+                vVar.IW(this.fortuneDesc);
                 vVar.a(this.gconAccount);
                 vVar.jL(1003);
                 if (this.threadList != null && this.threadList.size() > 0) {
@@ -532,7 +532,7 @@ public class FrsViewData extends m implements com.baidu.tbadk.mvc.b.l, Serializa
                     com.baidu.adp.widget.ListView.m next = it.next();
                     if (next != null && (next instanceof bi) && ((bi) next).cRt.aCr() != null && currentAccount.equals(((bi) next).cRt.aCr().getUserId()) && ((bi) next).cRt.aCr().getPendantData() != null) {
                         ((bi) next).cRt.aCr().getPendantData().bI(mVar.aOd());
-                        ((bi) next).cRt.aCr().getPendantData().sA(mVar.aAJ());
+                        ((bi) next).cRt.aCr().getPendantData().sB(mVar.aAJ());
                     }
                 }
             }

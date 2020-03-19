@@ -112,8 +112,8 @@ public class g {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
+                g.this.BC(str);
                 g.this.BB(str);
-                g.this.BA(str);
                 g.this.gIX.refreshData();
             }
         }
@@ -528,13 +528,13 @@ public class g {
         this.gri.smoothScrollToPosition(0);
     }
 
-    public void BA(String str) {
+    public void BB(String str) {
         if (this.gIR.bIQ() != null) {
-            this.gIR.bIQ().BC(str);
+            this.gIR.bIQ().BD(str);
         }
     }
 
-    public void BB(String str) {
+    public void BC(String str) {
         if (!StringUtils.isNull(str) && !v.isEmpty(this.gIX.getDataList())) {
             Iterator<com.baidu.adp.widget.ListView.m> it = this.gIX.getDataList().iterator();
             while (it.hasNext()) {

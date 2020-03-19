@@ -546,9 +546,9 @@ public class a extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
             buM().a(view, this.KJ);
         }
         if (this.KJ != null) {
-            com.baidu.tieba.card.l.zU(this.KJ.getId());
+            com.baidu.tieba.card.l.zV(this.KJ.getId());
             am.setViewTextColor(this.mTextTitle, R.color.cp_cont_d, 1);
-            aa.vX(this.KJ.getId());
+            aa.vY(this.KJ.getId());
             String valueOf = String.valueOf(this.KJ.getFid());
             if (this.KJ.cUo == null) {
                 str = valueOf;
@@ -778,7 +778,7 @@ public class a extends com.baidu.tieba.card.a<bj> implements com.baidu.tieba.a.e
         this.dMG.setText(String.format(this.cVv.getResources().getString(R.string.play_count), aq.numFormatOverWan(this.KJ.aCI().play_count.intValue())));
         this.fKj.setData(this.KJ.aDQ());
         this.fKj.onChangeSkinType();
-        if (com.baidu.tieba.card.l.zV(this.KJ.getId())) {
+        if (com.baidu.tieba.card.l.zW(this.KJ.getId())) {
             am.setViewTextColor(this.mTextTitle, R.color.cp_cont_d, 1);
             com.baidu.tieba.card.l.a(this.fKj.getGodReplyContent(), this.KJ.getId(), (int) R.color.cp_cont_f, (int) R.color.cp_cont_d);
         } else {

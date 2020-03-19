@@ -19,7 +19,7 @@ public class a {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append(SharedPrefConfig.REMIND_RECOMMEND_SERVER_SWITCH).toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage JA(String str) {
+    public static RemindRecommendMessage JB(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -189,10 +189,10 @@ public class h {
         }
         try {
             if (TbadkCoreApplication.isLogin()) {
-                a.b sp = com.baidu.tbadk.core.a.a.azS().sp(TbadkCoreApplication.getCurrentBduss());
+                a.b sq = com.baidu.tbadk.core.a.a.azS().sq(TbadkCoreApplication.getCurrentBduss());
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
-                if (sp != null) {
-                    updateClientInfoMessage.setBduss(sp.mBduss, c);
+                if (sq != null) {
+                    updateClientInfoMessage.setBduss(sq.mBduss, c);
                 } else {
                     updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), c);
                 }

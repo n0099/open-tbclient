@@ -32,7 +32,7 @@ public class d {
 
     /* loaded from: classes10.dex */
     public interface b {
-        void FE(String str);
+        void FF(String str);
 
         void ckE();
 
@@ -68,7 +68,7 @@ public class d {
         this.iCF = bVar;
     }
 
-    public void FG(String str) {
+    public void FH(String str) {
         if (!StringUtils.isNull(str) && this.icZ != null) {
             this.icZ.startLoad(str, 12, false);
         }
@@ -120,7 +120,7 @@ public class d {
     public void a(final UserInfo userInfo) {
         if (userInfo != null) {
             setName(userInfo.name);
-            FG(userInfo.portrait);
+            FH(userInfo.portrait);
             this.icZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -167,7 +167,7 @@ public class d {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (d.this.iCF != null) {
-                d.this.iCF.FE(this.forumName);
+                d.this.iCF.FF(this.forumName);
             }
         }
     }

@@ -31,7 +31,7 @@ public class b {
         return this.dZY.get(downloadCacheKey);
     }
 
-    public Map<DownloadCacheKey, AdDownloadData> wX(String str) {
+    public Map<DownloadCacheKey, AdDownloadData> wY(String str) {
         HashMap hashMap = new HashMap(this.dZY.size());
         if (TextUtils.isEmpty(str)) {
             return hashMap;

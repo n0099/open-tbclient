@@ -8,7 +8,7 @@ public final class j {
     private final String[] mxo;
     private final int mxp;
 
-    public static j PI(String str) {
+    public static j PJ(String str) {
         String[] strArr = new String[5];
         int[] iArr = new int[4];
         String[] strArr2 = new String[4];

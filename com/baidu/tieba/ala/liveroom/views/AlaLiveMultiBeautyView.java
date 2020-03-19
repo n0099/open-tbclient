@@ -324,7 +324,7 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
             this.fnr.setProgress(dVar2.fbg);
             this.fns.setProgress(dVar2.fbi);
             this.fnt.setProgress(dVar2.fbh);
-            this.fnf.yU(dVar2.mFilterName);
+            this.fnf.yV(dVar2.mFilterName);
             this.fnf.notifyDataSetChanged();
             this.fno = dVar2;
             if (alaLiveVideoConfig.isSupportFaceStyle()) {

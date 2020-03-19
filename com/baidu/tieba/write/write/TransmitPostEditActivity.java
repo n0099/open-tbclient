@@ -188,7 +188,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     private final b kUx = new b();
     private TbFaceManager.a kUz = new TbFaceManager.a() { // from class: com.baidu.tieba.write.write.TransmitPostEditActivity.1
         @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
-        public ImageSpan vv(String str) {
+        public ImageSpan vw(String str) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), com.baidu.adp.widget.ImageView.a.class);
             com.baidu.adp.widget.ImageView.a aVar = runTask != null ? (com.baidu.adp.widget.ImageView.a) runTask.getData() : null;
             if (aVar == null) {
@@ -234,7 +234,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     TransmitPostEditActivity.this.finish();
                 } else if (postWriteCallBackData.isSensitiveError()) {
                     TransmitPostEditActivity.this.showToast(postWriteCallBackData.getErrorString());
-                    TransmitPostEditActivity.this.kUx.KK(postWriteCallBackData.getErrorString());
+                    TransmitPostEditActivity.this.kUx.KL(postWriteCallBackData.getErrorString());
                     TransmitPostEditActivity.this.kUx.aU(postWriteCallBackData.getSensitiveWords());
                     TransmitPostEditActivity.this.kUx.b(TransmitPostEditActivity.this.jYQ, TransmitPostEditActivity.this.jYU);
                 } else if ((aaVar == null || writeData == null || aaVar.getVcode_pic_url() == null || AntiHelper.e(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001) {
@@ -247,7 +247,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     writeData.setVcodeMD5(aaVar.getVcode_md5());
                     writeData.setVcodeUrl(aaVar.getVcode_pic_url());
                     writeData.setVcodeExtra(aaVar.aJL());
-                    if (com.baidu.tbadk.s.a.wb(aaVar.aJK())) {
+                    if (com.baidu.tbadk.s.a.wc(aaVar.aJK())) {
                         TransmitPostEditActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(TransmitPostEditActivity.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, false, aaVar.aJK())));
                         return;
                     }
@@ -1292,7 +1292,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
         return cWz().getText() != null && cWz().getText().length() >= i;
     }
 
-    private void vh(String str) {
+    private void vi(String str) {
         if (!StringUtils.isNull(str)) {
             int i = -1;
             Editable editable = null;
@@ -1612,16 +1612,16 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     private void cWC() {
         HotTopicBussinessData hotTopicBussinessData = (HotTopicBussinessData) v.getItem(this.mList, 0);
         if (hotTopicBussinessData != null && !TextUtils.isEmpty(hotTopicBussinessData.mTopicName)) {
-            this.jYQ.setText(com.baidu.tbadk.plugins.b.vJ(com.baidu.tbadk.plugins.b.vK(hotTopicBussinessData.mTopicName)));
+            this.jYQ.setText(com.baidu.tbadk.plugins.b.vK(com.baidu.tbadk.plugins.b.vL(hotTopicBussinessData.mTopicName)));
             this.jYQ.setMovementMethod(com.baidu.tieba.view.c.cTP());
         }
     }
 
     private void a(HotTopicBussinessData hotTopicBussinessData) {
         if (hotTopicBussinessData != null) {
-            SpannableString vJ = com.baidu.tbadk.plugins.b.vJ(com.baidu.tbadk.plugins.b.vK(hotTopicBussinessData.mTopicName));
-            if (vJ != null) {
-                this.jYQ.setText(vJ);
+            SpannableString vK = com.baidu.tbadk.plugins.b.vK(com.baidu.tbadk.plugins.b.vL(hotTopicBussinessData.mTopicName));
+            if (vK != null) {
+                this.jYQ.setText(vK);
             }
             this.kUu.setText(hotTopicBussinessData.mForumName);
         }
@@ -1800,7 +1800,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                             this.kTX = false;
                         }
                         sb2.append(stringExtra);
-                        vh(sb2.toString());
+                        vi(sb2.toString());
                     }
                 }
             } else if (i == 25005 && intent != null && !v.isEmpty(this.mList) && !v.isEmpty(this.mList) && intent.getIntExtra("hot_topic_change_fourm", 0) < this.mList.size()) {
@@ -1822,7 +1822,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 case RequestResponseCode.REQUEST_VCODE /* 12006 */:
                     if (intent != null && intent.getExtras() != null && (intent.getExtras().getSerializable("post_write_callback_data") instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) intent.getExtras().getSerializable("post_write_callback_data")) != null && postWriteCallBackData.isSensitiveError()) {
                         showToast(postWriteCallBackData.getErrorString());
-                        this.kUx.KK(postWriteCallBackData.getErrorString());
+                        this.kUx.KL(postWriteCallBackData.getErrorString());
                         this.kUx.aU(postWriteCallBackData.getSensitiveWords());
                         this.kUx.b(this.jYQ, this.jYU);
                         return;
@@ -2022,7 +2022,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             } else if ("from_title".equals(str)) {
                 this.kTW = "from_title";
             }
-            if (com.baidu.tbadk.plugins.b.vI(String.valueOf(charSequence.charAt(i)))) {
+            if (com.baidu.tbadk.plugins.b.vJ(String.valueOf(charSequence.charAt(i)))) {
                 tZ(false);
             }
         }

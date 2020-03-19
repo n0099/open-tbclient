@@ -34,7 +34,7 @@ public class s implements com.baidu.adp.widget.ListView.m {
         return this.gmp;
     }
 
-    public void AZ(String str) {
+    public void Ba(String str) {
         this.gmp = str;
     }
 

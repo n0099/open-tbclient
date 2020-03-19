@@ -60,7 +60,7 @@ public class l {
             }
             l.this.w(downloadData);
             if (l.this.kFd != null && l.this.kFe.equals(downloadData.getUrl())) {
-                l.this.kFd.JT(str);
+                l.this.kFd.JU(str);
             }
         }
     };
@@ -68,7 +68,7 @@ public class l {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void JT(String str);
+        void JU(String str);
 
         void cPL();
 
@@ -79,7 +79,7 @@ public class l {
         kFb = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
     }
 
-    public String Ko(String str) {
+    public String Kp(String str) {
         String nameMd5FromUrl = as.getNameMd5FromUrl(str);
         if (nameMd5FromUrl == null) {
             return null;
@@ -110,10 +110,10 @@ public class l {
         }
     }
 
-    public void Kp(String str) {
+    public void Kq(String str) {
         if (TextUtils.isEmpty(str) || StringUtils.isNull(kFb)) {
             if (this.kFd != null) {
-                this.kFd.JT("");
+                this.kFd.JU("");
                 return;
             }
             return;
@@ -128,7 +128,7 @@ public class l {
             if (this.kFc == null) {
                 this.kFc = new ArrayList();
             }
-            if (!Kq(str)) {
+            if (!Kr(str)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setType(10);
                 downloadData.setUrl(str);
@@ -140,7 +140,7 @@ public class l {
         }
     }
 
-    private boolean Kq(String str) {
+    private boolean Kr(String str) {
         if (v.isEmpty(this.kFc) || str == null) {
             return false;
         }
@@ -176,7 +176,7 @@ public class l {
         this.kFd = aVar;
     }
 
-    public void Kr(String str) {
+    public void Ks(String str) {
         if (str == null) {
             this.kFe = "";
         } else {

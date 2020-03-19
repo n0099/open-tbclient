@@ -20,7 +20,7 @@ public class a {
         return this.fwH;
     }
 
-    public void zG(String str) {
+    public void zH(String str) {
         this.fwH = str;
     }
 

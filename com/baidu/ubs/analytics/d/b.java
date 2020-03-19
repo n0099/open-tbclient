@@ -35,14 +35,14 @@ public final class b {
         return kYu.toString();
     }
 
-    public static void Lr(String str) {
+    public static void Ls(String str) {
         if (kXt) {
             Log.w("BaiDuUbs", str);
         }
         a("w", "BaiDuUbs", str);
     }
 
-    public static void Ls(String str) {
+    public static void Lt(String str) {
         if (kXt) {
             Log.e("BaiDuUbs", str);
         }

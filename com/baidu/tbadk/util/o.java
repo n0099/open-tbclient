@@ -125,7 +125,7 @@ public class o extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.bDq + lowerCase + vT(this.url);
+            this.imagePath = this.bDq + lowerCase + vU(this.url);
             this.dHd = new File(this.imagePath);
             if (this.dHd.exists()) {
                 this.dHd.delete();
@@ -173,7 +173,7 @@ public class o extends BdAsyncTask<String, String, b> {
         try {
             a2 = a(new URL(str), i, i2);
             try {
-                fileOutputStream = new FileOutputStream(vS(str2), true);
+                fileOutputStream = new FileOutputStream(vT(str2), true);
                 try {
                     a2.connect();
                     responseCode = a2.getResponseCode();
@@ -186,7 +186,7 @@ public class o extends BdAsyncTask<String, String, b> {
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.bDq + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + vT(headerField2);
+                        this.imagePath = this.bDq + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + vU(headerField2);
                         this.dHd = new File(this.imagePath);
                         if (this.dHd.exists()) {
                             this.dHd.delete();
@@ -325,7 +325,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private File vS(String str) {
+    private File vT(String str) {
         com.baidu.adp.lib.util.f.delFile(str);
         return new File(str);
     }
@@ -382,7 +382,7 @@ public class o extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private String vT(String str) {
+    private String vU(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

@@ -117,7 +117,7 @@ public class a {
                 if (!a.this.dXT) {
                     String aXx = a.this.aXx();
                     if (aXx != null && !aXx.isEmpty()) {
-                        File file = new File(c.dXI + b.wD(aXx) + "/header_downloaded");
+                        File file = new File(c.dXI + b.wE(aXx) + "/header_downloaded");
                         if (file.exists()) {
                             d.z(a.TAG, "header exists " + aXx);
                         } else {
@@ -309,7 +309,7 @@ public class a {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void wE(String str) {
+    public synchronized void wF(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

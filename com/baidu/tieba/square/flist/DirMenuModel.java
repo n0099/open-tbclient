@@ -84,9 +84,9 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         public com.baidu.tieba.square.square.d doInBackground(Object... objArr) {
             String postNetData;
             String str = null;
-            l<String> sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.my_posts");
-            if (sP != null) {
-                str = sP.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.kbT + "_dir");
+            l<String> sQ = com.baidu.tbadk.core.c.a.aEF().sQ("tb.my_posts");
+            if (sQ != null) {
+                str = sQ.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.kbT + "_dir");
             }
             if (str != null) {
                 this.kbX.parserJson(str);
@@ -109,8 +109,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             if (this.mNetwork.aGk().aGM().isRequestSuccess()) {
                 this.kbX.parserJson(postNetData);
                 DirMenuModel.this.isOk = true;
-                if (sP != null) {
-                    sP.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.kbT + "_dir", postNetData, 86400000L);
+                if (sQ != null) {
+                    sQ.set(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + DirMenuModel.this.kbT + "_dir", postNetData, 86400000L);
                 }
             } else {
                 this.kbX.setErrorMsg(this.mNetwork.getErrorString());

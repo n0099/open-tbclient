@@ -37,7 +37,7 @@ public class BlackListItemData extends AbstractImageProvider {
         this.aHQ = str;
     }
 
-    public void uw(String str) {
+    public void ux(String str) {
         this.userNameShow = str;
     }
 

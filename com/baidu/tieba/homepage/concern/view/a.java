@@ -162,7 +162,7 @@ public class a extends com.baidu.tieba.card.a<k> implements e {
                     a.this.buM().a(view2, a.this.fKJ);
                 }
                 if (a.this.fKJ != null && a.this.fKJ.cRt != null) {
-                    com.baidu.tieba.card.l.zU(a.this.fKJ.cRt.getId());
+                    com.baidu.tieba.card.l.zV(a.this.fKJ.cRt.getId());
                     a.this.bNE();
                 }
             }
@@ -179,7 +179,7 @@ public class a extends com.baidu.tieba.card.a<k> implements e {
                     a.this.buM().a(view2, a.this.fKJ);
                 }
                 if (a.this.fKJ != null && a.this.fKJ.cRt != null && view2 != a.this.eOJ.diw) {
-                    com.baidu.tieba.card.l.zU(a.this.fKJ.cRt.getId());
+                    com.baidu.tieba.card.l.zV(a.this.fKJ.cRt.getId());
                     a.this.bNE();
                 }
             }
@@ -289,7 +289,7 @@ public class a extends com.baidu.tieba.card.a<k> implements e {
             }
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (!buX() && com.baidu.tieba.card.l.zV(this.fKJ.cRt.getId())) {
+        if (!buX() && com.baidu.tieba.card.l.zW(this.fKJ.cRt.getId())) {
             bNE();
         }
         final bj aAj = kVar.aAj();
@@ -476,7 +476,7 @@ public class a extends com.baidu.tieba.card.a<k> implements e {
     public void aMD() {
         if (this.fKJ != null && this.fKJ.cRt != null) {
             if (!buX()) {
-                com.baidu.tieba.card.l.zU(this.fKJ.cRt.getId());
+                com.baidu.tieba.card.l.zV(this.fKJ.cRt.getId());
                 com.baidu.tieba.card.l.a(this.mTitle, this.fKJ.aAj().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 com.baidu.tieba.card.l.a(this.KA, this.fKJ.cRt.getId(), (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
             }

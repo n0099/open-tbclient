@@ -67,7 +67,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bjVar.cUp = isBrandForum;
                             if (!TextUtils.isEmpty(bjVar.aDy())) {
                                 ae aeVar = new ae();
-                                aeVar.sw(bjVar.aDy());
+                                aeVar.sx(bjVar.aDy());
                                 this.threadList.add(aeVar);
                             } else {
                                 this.threadList.add(bjVar);

@@ -113,9 +113,9 @@ public class h extends v.a {
                         }
                         if (i != 0) {
                             if (h.this.iGR.threadType == 40) {
-                                com.baidu.tbadk.core.util.an.tu("c13535").cx("tid", tid).s("fid", h.this.iGR.getFid()).X("obj_source", i).X("obj_locate", h.this.iGR.getFloorNum()).cx("obj_id", h.this.iGS).X("obj_type", h.this.iGR.aEj() ? 1 : 0).aGD();
+                                com.baidu.tbadk.core.util.an.tv("c13535").cx("tid", tid).s("fid", h.this.iGR.getFid()).X("obj_source", i).X("obj_locate", h.this.iGR.getFloorNum()).cx("obj_id", h.this.iGS).X("obj_type", h.this.iGR.aEj() ? 1 : 0).aGD();
                             } else {
-                                com.baidu.tbadk.core.util.an.tu("c13534").cx("tid", tid).s("fid", h.this.iGR.getFid()).X("obj_source", i).X("obj_locate", h.this.iGR.getFloorNum()).cx("obj_id", h.this.iGS).aGD();
+                                com.baidu.tbadk.core.util.an.tv("c13534").cx("tid", tid).s("fid", h.this.iGR.getFid()).X("obj_source", i).X("obj_locate", h.this.iGR.getFloorNum()).cx("obj_id", h.this.iGS).aGD();
                             }
                         }
                         if (h.this.iGT) {
@@ -214,7 +214,7 @@ public class h extends v.a {
         this.iaO.setOnClickListener(this.dgy);
     }
 
-    public void FM(String str) {
+    public void FN(String str) {
         this.iGS = str;
     }
 

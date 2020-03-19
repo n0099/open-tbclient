@@ -57,13 +57,13 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b sS(String str) {
+    public b sT(String str) {
         this.mTitle = str;
         return this;
     }
 
     public b ka(int i) {
-        return sS(this.mActivity.getResources().getString(i));
+        return sT(this.mActivity.getResources().getString(i));
     }
 
     public b a(CharSequence[] charSequenceArr, a aVar) {

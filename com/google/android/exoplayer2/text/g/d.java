@@ -44,11 +44,11 @@ final class d {
         this.mDv = null;
     }
 
-    public void Qc(String str) {
+    public void Qd(String str) {
         this.mDT = str;
     }
 
-    public void Qd(String str) {
+    public void Qe(String str) {
         this.mDU = str;
     }
 
@@ -56,7 +56,7 @@ final class d {
         this.mDV = Arrays.asList(strArr);
     }
 
-    public void Qe(String str) {
+    public void Qf(String str) {
         this.mDW = str;
     }
 
@@ -105,8 +105,8 @@ final class d {
         return this.hC;
     }
 
-    public d Qf(String str) {
-        this.hC = v.QB(str);
+    public d Qg(String str) {
+        this.hC = v.QC(str);
         return this;
     }
 

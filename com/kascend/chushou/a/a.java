@@ -287,7 +287,7 @@ public class a {
                             a.dCm().b(listItem2);
                             g.M(context, a.i.cs_confirm_download);
                         }
-                    }).Td(context.getString(a.i.cancel)).Tf(context.getString(a.i.cs_confirm)).Tc(context.getString(a.i.cs_info_title)).x(context.getString(a.i.cs_confirm_download)).show();
+                    }).Te(context.getString(a.i.cancel)).Tg(context.getString(a.i.cs_confirm)).Td(context.getString(a.i.cs_info_title)).x(context.getString(a.i.cs_confirm_download)).show();
                 }
             } else if (p.equals(listItem2.mAdExtraInfo.mActType)) {
                 if (!tv.chushou.zues.utils.h.isEmpty(D)) {

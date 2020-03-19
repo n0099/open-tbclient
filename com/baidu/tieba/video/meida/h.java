@@ -187,8 +187,8 @@ public class h {
         final String str4 = str2 + "temp_" + System.currentTimeMillis();
         File[] fileArr = new File[strArr.length];
         try {
-            g.a Kn = g.Kn(strArr[0]);
-            if (Kn == null) {
+            g.a Ko = g.Ko(strArr[0]);
+            if (Ko == null) {
                 return false;
             }
             g.a aVar2 = new g.a();
@@ -196,22 +196,22 @@ public class h {
             boolean z2 = true;
             while (i < strArr.length) {
                 if (i != 0) {
-                    g.a Kn2 = g.Kn(strArr[i]);
-                    if (Kn2 == null) {
+                    g.a Ko2 = g.Ko(strArr[i]);
+                    if (Ko2 == null) {
                         return false;
                     }
-                    z = g.a(Kn, Kn2);
-                    aVar = Kn2;
+                    z = g.a(Ko, Ko2);
+                    aVar = Ko2;
                 } else {
                     z = z2;
                     aVar = aVar2;
                 }
                 String str5 = str2 + "temp_" + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + System.currentTimeMillis();
-                if (new b(strArr[i]).a(str5, z, Kn, aVar) != null) {
+                if (new b(strArr[i]).a(str5, z, Ko, aVar) != null) {
                     if (!z && i != 0 && aVar.cRk()) {
                         str3 = str2 + "resample_" + System.currentTimeMillis();
                         long currentTimeMillis = System.currentTimeMillis();
-                        boolean e = g.e(str5, str3, aVar.sampleRate, Kn.sampleRate);
+                        boolean e = g.e(str5, str3, aVar.sampleRate, Ko.sampleRate);
                         BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
                     }
                     str3 = str5;
@@ -259,10 +259,10 @@ public class h {
                 }
             });
             cRn.e(fileArr);
-            d Km = d.Km(str4);
-            Km.setSampleRate(Kn.sampleRate);
-            Km.setChannelCount(Kn.channelCount);
-            Km.Kl(str);
+            d Kn = d.Kn(str4);
+            Kn.setSampleRate(Ko.sampleRate);
+            Kn.setChannelCount(Ko.channelCount);
+            Kn.Km(str);
             return true;
         } catch (Exception e2) {
             e2.printStackTrace();

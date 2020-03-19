@@ -52,7 +52,7 @@ public class e {
         return this.mSize;
     }
 
-    public void tO(String str) {
+    public void tP(String str) {
         g.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
         if (!TextUtils.isEmpty(str)) {
             try {

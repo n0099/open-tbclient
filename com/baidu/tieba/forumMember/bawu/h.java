@@ -22,7 +22,7 @@ public class h extends BaseAdapter {
 
     /* loaded from: classes10.dex */
     public interface b {
-        void AW(String str);
+        void AX(String str);
     }
 
     public h(TbPageContext<?> tbPageContext) {
@@ -118,7 +118,7 @@ public class h extends BaseAdapter {
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
                                         if (h.this.gla != null) {
-                                            h.this.gla.AW(h.this.gld.bCH());
+                                            h.this.gla.AX(h.this.gld.bCH());
                                         }
                                     }
                                 });
@@ -136,7 +136,7 @@ public class h extends BaseAdapter {
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
                                     if (h.this.gla != null) {
-                                        h.this.gla.AW(h.this.gld.bCH());
+                                        h.this.gla.AX(h.this.gld.bCH());
                                     }
                                 }
                             });

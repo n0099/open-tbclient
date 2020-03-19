@@ -178,7 +178,7 @@ public class ai implements aj<com.facebook.common.references.a<com.facebook.imag
         }
 
         private Map<String, String> a(am amVar, String str, com.facebook.imagepipeline.request.b bVar) {
-            if (amVar.Pd(str)) {
+            if (amVar.Pe(str)) {
                 return ImmutableMap.of("Postprocessor", bVar.getName());
             }
             return null;

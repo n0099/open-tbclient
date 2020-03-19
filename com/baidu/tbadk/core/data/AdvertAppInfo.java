@@ -224,9 +224,9 @@ public class AdvertAppInfo extends bj {
             }
             if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.cNt.lego_card)) {
                 try {
-                    ICardInfo DZ = com.baidu.tieba.lego.card.b.DZ(this.cNt.lego_card);
-                    if (DZ != null) {
-                        ICardInfo viewItem = DZ.getViewItem(0, 1);
+                    ICardInfo Ea = com.baidu.tieba.lego.card.b.Ea(this.cNt.lego_card);
+                    if (Ea != null) {
+                        ICardInfo viewItem = Ea.getViewItem(0, 1);
                         if (viewItem instanceof ILegoAdvert) {
                             this.legoCard = (ILegoAdvert) viewItem;
                             this.legoCard.setAdvertAppInfo(this);
@@ -324,7 +324,7 @@ public class AdvertAppInfo extends bj {
         public int width;
 
         public void a(GoodsInfo goodsInfo) {
-            List<String> su;
+            List<String> sv;
             if (goodsInfo != null) {
                 this.cNB = goodsInfo.id.intValue();
                 this.userName = goodsInfo.user_name;
@@ -347,8 +347,8 @@ public class AdvertAppInfo extends bj {
                             this.cNK.add(threadPicList.pic);
                         }
                     }
-                    if (com.baidu.tbadk.core.util.v.isEmpty(this.cNK) && (su = su(goodsInfo.lego_card)) != null && this.cNK != null) {
-                        this.cNK.addAll(su);
+                    if (com.baidu.tbadk.core.util.v.isEmpty(this.cNK) && (sv = sv(goodsInfo.lego_card)) != null && this.cNK != null) {
+                        this.cNK.addAll(sv);
                     }
                     this.lego_card = goodsInfo.lego_card;
                     this.cNL = goodsInfo.video_info;
@@ -387,7 +387,7 @@ public class AdvertAppInfo extends bj {
             }
         }
 
-        public static List<String> su(String str) {
+        public static List<String> sv(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

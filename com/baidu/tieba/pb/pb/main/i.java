@@ -25,10 +25,10 @@ public class i {
 
     private void ava() {
         if (this.iHi == null) {
-            this.iHi = com.baidu.tbadk.core.c.a.aEF().sO("tb.pb_mark");
+            this.iHi = com.baidu.tbadk.core.c.a.aEF().sP("tb.pb_mark");
         }
         if (this.iHj == null) {
-            this.iHj = com.baidu.tbadk.core.c.a.aEF().sO("tb.pb_normal");
+            this.iHj = com.baidu.tbadk.core.c.a.aEF().sP("tb.pb_normal");
         }
     }
 

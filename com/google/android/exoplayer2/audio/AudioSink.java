@@ -17,7 +17,7 @@ public interface AudioSink {
 
     void Jl(int i);
 
-    boolean Pm(String str);
+    boolean Pn(String str);
 
     void a(a aVar);
 

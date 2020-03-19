@@ -66,7 +66,7 @@ public class b implements j, l {
                             /* renamed from: dr */
                             public void onItemGet(String str, String str2) {
                                 if (!TextUtils.isEmpty(str2)) {
-                                    Iterator it = b.this.HH(str2).iterator();
+                                    Iterator it = b.this.HI(str2).iterator();
                                     while (it.hasNext()) {
                                         g gVar = (g) it.next();
                                         if (gVar != null) {
@@ -133,14 +133,14 @@ public class b implements j, l {
 
     private int m(String str, boolean z, boolean z2) {
         g gVar = this.jHi.get(str);
-        if (gVar == null || !HI(cCG())) {
+        if (gVar == null || !HJ(cCG())) {
             return 0;
         }
         return gVar.al(z, z2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<g> HH(String str) {
+    public ArrayList<g> HI(String str) {
         ArrayList<g> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -196,7 +196,7 @@ public class b implements j, l {
 
     @Override // com.baidu.tieba.recapp.l
     public int cCF() {
-        if (HI(cCG())) {
+        if (HJ(cCG())) {
             return this.jHj;
         }
         return 0;
@@ -206,7 +206,7 @@ public class b implements j, l {
         return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     }
 
-    private boolean HI(String str) {
+    private boolean HJ(String str) {
         if (TextUtils.isEmpty(this.jHk)) {
             return false;
         }
@@ -215,7 +215,7 @@ public class b implements j, l {
 
     private void cCH() {
         String cCG = cCG();
-        if (!HI(cCG)) {
+        if (!HJ(cCG)) {
             this.jHi.clear();
             this.jHj = 0;
             this.jHk = cCG;
@@ -242,7 +242,7 @@ public class b implements j, l {
             if (this.jHr.get() == null) {
                 synchronized (a.class) {
                     if (this.jHr.get() == null) {
-                        this.jHr.set(com.baidu.tbadk.core.c.a.aEF().sP(this.jHs));
+                        this.jHr.set(com.baidu.tbadk.core.c.a.aEF().sQ(this.jHs));
                     }
                 }
             }

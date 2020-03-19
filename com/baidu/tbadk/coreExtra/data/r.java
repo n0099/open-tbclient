@@ -10,13 +10,13 @@ public class r {
     public static final List<String> dmW = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
     private static List<String> dmX;
 
-    public static boolean uj(String str) {
+    public static boolean uk(String str) {
         String string;
         if (aq.isEmpty(str)) {
             return false;
         }
         if (dmX == null && (string = com.baidu.tbadk.core.sharedPref.b.aFH().getString("js_host_white_list", null)) != null) {
-            dmX = ul(string);
+            dmX = um(string);
         }
         if (dmX == null) {
             dmX = dmW;
@@ -33,16 +33,16 @@ public class r {
         return false;
     }
 
-    public static void uk(String str) {
+    public static void ul(String str) {
         if (str == null) {
             com.baidu.tbadk.core.sharedPref.b.aFH().putString("js_host_white_list", "");
         } else {
             com.baidu.tbadk.core.sharedPref.b.aFH().putString("js_host_white_list", str);
         }
-        dmX = ul(str);
+        dmX = um(str);
     }
 
-    private static List<String> ul(String str) {
+    private static List<String> um(String str) {
         if (aq.isEmpty(str)) {
             return null;
         }

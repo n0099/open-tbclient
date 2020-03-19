@@ -27,13 +27,13 @@ public class b implements e {
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
-            a HK = a.HK(str);
-            f fVar = this.hYm.get(HK.getKey());
-            if (fVar != null && HK.isValid()) {
+            a HL = a.HL(str);
+            f fVar = this.hYm.get(HL.getKey());
+            if (fVar != null && HL.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    HK.getParams().putAll(hashMap);
+                    HL.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, HK.getParams(), str, dVar);
+                fVar.a(obj, HL.getParams(), str, dVar);
             }
         }
     }
@@ -80,7 +80,7 @@ public class b implements e {
             this.hYn = new HashMap<>();
         }
 
-        public static a HK(String str) {
+        public static a HL(String str) {
             return new a(str);
         }
     }

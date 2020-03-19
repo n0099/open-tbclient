@@ -15,22 +15,22 @@ public final class f {
         this.length = j2;
     }
 
-    public Uri PG(String str) {
+    public Uri PH(String str) {
         return u.fq(str, this.mwU);
     }
 
-    public String PH(String str) {
+    public String PI(String str) {
         return u.fr(str, this.mwU);
     }
 
     public f a(f fVar, String str) {
         f fVar2 = null;
-        String PH = PH(str);
-        if (fVar != null && PH.equals(fVar.PH(str))) {
+        String PI = PI(str);
+        if (fVar != null && PI.equals(fVar.PI(str))) {
             if (this.length != -1 && this.start + this.length == fVar.start) {
-                fVar2 = new f(PH, this.start, fVar.length != -1 ? this.length + fVar.length : -1L);
+                fVar2 = new f(PI, this.start, fVar.length != -1 ? this.length + fVar.length : -1L);
             } else if (fVar.length != -1 && fVar.start + fVar.length == this.start) {
-                fVar2 = new f(PH, fVar.start, this.length != -1 ? fVar.length + this.length : -1L);
+                fVar2 = new f(PI, fVar.start, this.length != -1 ? fVar.length + this.length : -1L);
             }
         }
         return fVar2;

@@ -158,7 +158,7 @@ public class ForumManageModel extends BdBaseModel {
         return (this.kkM == null && this.kkN == null && this.kkO == null) ? false : true;
     }
 
-    public void Jg(String str) {
+    public void Jh(String str) {
         this.kkP = str;
     }
 

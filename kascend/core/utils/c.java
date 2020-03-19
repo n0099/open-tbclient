@@ -69,7 +69,7 @@ public class c {
         this.charset = charset;
     }
 
-    public static String Se(String str) {
+    public static String Sf(String str) {
         return i(str, new String[0]).toString();
     }
 }

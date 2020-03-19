@@ -46,7 +46,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
                 if (arVar != null) {
                     str = arVar.errMsg;
                 }
-                FrsGroupActivity.this.Bb(str);
+                FrsGroupActivity.this.Bc(str);
             }
         }
     };
@@ -105,10 +105,10 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
 
     private void initViewPager() {
         if (this.hDk) {
-            this.hDl.add(Df(getResources().getString(R.string.frsgroup_recommend)));
+            this.hDl.add(Dg(getResources().getString(R.string.frsgroup_recommend)));
         }
-        this.hDl.add(Df(getResources().getString(R.string.frsgroup_hot)));
-        this.hDl.add(Df(getResources().getString(R.string.frsgroup_official)));
+        this.hDl.add(Dg(getResources().getString(R.string.frsgroup_hot)));
+        this.hDl.add(Dg(getResources().getString(R.string.frsgroup_official)));
         for (FragmentTabIndicator fragmentTabIndicator : this.hDl) {
             this.hDi.addView(fragmentTabIndicator);
         }
@@ -139,7 +139,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         });
     }
 
-    private FragmentTabIndicator Df(String str) {
+    private FragmentTabIndicator Dg(String str) {
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getPageActivity());
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.ds28));
         fragmentTabIndicator.dayTextColorResId = R.color.s_actionbar_text_color;
@@ -169,7 +169,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bb(String str) {
+    public void Bc(String str) {
         this.cYo.setVisibility(8);
         this.hDi.setVisibility(8);
         setNetRefreshViewTopMargin(BdListViewHelper.NET_RERESHNEW_TOP_MARGIN);

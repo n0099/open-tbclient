@@ -216,7 +216,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 this.hGz.nQ(true);
                 String deleteDatasIds = this.hGF.deleteDatasIds();
                 if (!TextUtils.isEmpty(deleteDatasIds)) {
-                    Do(deleteDatasIds);
+                    Dp(deleteDatasIds);
                 } else {
                     this.hGz.nQ(false);
                 }
@@ -253,7 +253,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    private void Do(String str) {
+    private void Dp(String str) {
         if (!j.isNetWorkAvailable()) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {

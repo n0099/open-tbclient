@@ -115,7 +115,7 @@ public class b extends a {
         return this;
     }
 
-    public b tM(String str) {
+    public b tN(String str) {
         int cF = com.baidu.tbadk.core.util.e.c.a.cF(str);
         this.dcZ = cF;
         this.dcO = true;

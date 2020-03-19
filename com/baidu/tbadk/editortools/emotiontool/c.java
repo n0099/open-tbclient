@@ -24,11 +24,11 @@ public abstract class c {
 
     public abstract String mu(int i);
 
-    public abstract boolean ve(String str);
-
-    public abstract com.baidu.adp.widget.ImageView.a vf(String str);
+    public abstract boolean vf(String str);
 
     public abstract com.baidu.adp.widget.ImageView.a vg(String str);
+
+    public abstract com.baidu.adp.widget.ImageView.a vh(String str);
 
     public com.baidu.adp.widget.ImageView.a aOO() {
         return this.dxY;

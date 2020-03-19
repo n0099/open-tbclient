@@ -76,7 +76,7 @@ public class d {
         return this.cPS;
     }
 
-    public void vF(String str) {
+    public void vG(String str) {
         this.cPS = str;
     }
 
@@ -84,7 +84,7 @@ public class d {
         return this.dDx;
     }
 
-    public void vG(String str) {
+    public void vH(String str) {
         this.dDx = str;
     }
 

@@ -277,7 +277,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
                     this.mSubPbReplyPrefix = this.iLn.getSubPbReplyPrefix();
                     this.iLd.ec(this.mSubPbReplyPrefix, content);
                 } else {
-                    this.iLd.BW(content);
+                    this.iLd.BX(content);
                 }
                 WriteImagesInfo writeImagesInfo = this.iLn.getWriteImagesInfo();
                 if (writeImagesInfo != null) {
@@ -422,7 +422,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements VoiceMan
                     return;
                 case RequestResponseCode.REQUEST_HOT_SELECT /* 25004 */:
                     if (intent != null) {
-                        this.iLd.vh(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
+                        this.iLd.vi(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
                         return;
                     }
                     return;

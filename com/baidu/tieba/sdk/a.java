@@ -96,9 +96,9 @@ public class a {
         com.baidu.tieba.sdk.c.a.cEH().b(context, str, z, str2, jSONObject);
     }
 
-    public void Im(String str) {
+    public void In(String str) {
         com.baidu.tieba.sdk.login.a.cER().cES();
-        com.baidu.tieba.sdk.c.a.cEH().Im(str);
+        com.baidu.tieba.sdk.c.a.cEH().In(str);
     }
 
     public void a(com.baidu.tieba.sdk.a.a aVar) {
@@ -200,12 +200,12 @@ public class a {
         return com.baidu.tieba.sdk.c.a.cEH().openScheme(context, str, schemeCallback);
     }
 
-    public void In(String str) {
-        com.baidu.tieba.sdk.c.a.cEH().In(str);
-    }
-
     public void Io(String str) {
         com.baidu.tieba.sdk.c.a.cEH().Io(str);
+    }
+
+    public void Ip(String str) {
+        com.baidu.tieba.sdk.c.a.cEH().Ip(str);
     }
 
     public void setSubappVersionName(String str) {

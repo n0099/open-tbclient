@@ -251,11 +251,11 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
                                 if (s.isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.cNn)) {
                                     b(advertAppInfo, i, 3);
                                 } else if (!TextUtils.isEmpty(advertAppInfo.cNn) && !TextUtils.isEmpty(advertAppInfo.cNl)) {
-                                    boolean uW = com.baidu.tbadk.download.b.aOs().uW(advertAppInfo.cNn);
-                                    boolean uY = com.baidu.tbadk.download.b.aOs().uY(advertAppInfo.cNn);
-                                    if (uW) {
+                                    boolean uX = com.baidu.tbadk.download.b.aOs().uX(advertAppInfo.cNn);
+                                    boolean uZ = com.baidu.tbadk.download.b.aOs().uZ(advertAppInfo.cNn);
+                                    if (uX) {
                                         advertAppInfo.cNj = 1;
-                                    } else if (uY) {
+                                    } else if (uZ) {
                                         advertAppInfo.cNj = 2;
                                     } else {
                                         advertAppInfo.cNj = 0;
@@ -389,8 +389,8 @@ public class e implements com.baidu.tieba.InjectPlugin.FrsFeedAd.d {
     @Override // com.baidu.tieba.InjectPlugin.FrsFeedAd.d
     public void a(List<com.baidu.tieba.InjectPlugin.FrsFeedAd.c> list, String str, String str2, String str3, String str4, boolean z, int i) {
         if (list != null && !list.isEmpty()) {
-            Set<com.baidu.adp.widget.ListView.m> HZ = com.baidu.tieba.recapp.report.a.HZ("FRS");
-            HashSet hashSet = HZ == null ? new HashSet() : HZ;
+            Set<com.baidu.adp.widget.ListView.m> Ia = com.baidu.tieba.recapp.report.a.Ia("FRS");
+            HashSet hashSet = Ia == null ? new HashSet() : Ia;
             HashSet hashSet2 = new HashSet();
             for (com.baidu.tieba.InjectPlugin.FrsFeedAd.c cVar : list) {
                 if (cVar != null) {

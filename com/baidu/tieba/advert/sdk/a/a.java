@@ -9,5 +9,5 @@ public interface a {
 
     void aZl();
 
-    void xy(String str);
+    void xz(String str);
 }

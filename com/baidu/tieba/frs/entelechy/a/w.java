@@ -40,7 +40,7 @@ public class w extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
                         w.this.ap(bjVar);
                     }
                     if ((view instanceof ThreadSmartAppLayout) || view.getId() == R.id.iv_thread_smart_app_head || view.getId() == R.id.tv_thread_smart_app_title || view.getId() == R.id.tv_thread_smart_app_abstract) {
-                        com.baidu.tieba.card.l.zU(bjVar.getTid());
+                        com.baidu.tieba.card.l.zV(bjVar.getTid());
                         if (bjVar.aDd() != null) {
                             TiebaStatic.log(new an("c13274").s("uid", TbadkCoreApplication.getCurrentAccountId()).s("fid", bjVar.getFid()).cx("obj_source", "frs_card").s("obj_id", bjVar.aDd().swan_app_id.longValue()).cx("obj_name", bjVar.aDd().name).cx("tid", bjVar.getTid()).X("obj_param1", bjVar.aDd().is_game.intValue()));
                             return;
@@ -88,7 +88,7 @@ public class w extends com.baidu.tieba.frs.h<bi, com.baidu.card.af<bj>> implemen
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wP(String str) {
+    public void wQ(String str) {
         this.LC = str;
     }
 

@@ -137,7 +137,7 @@ public final class UploadInfoCollector {
 
     private void dGn() throws IOException {
         if (Config.nos) {
-            am(Ri(Config.nou));
+            am(Rj(Config.nou));
         }
         if (!Config.nos && noy != null) {
             noy.shutdown();
@@ -149,7 +149,7 @@ public final class UploadInfoCollector {
         }
     }
 
-    private File Ri(String str) {
+    private File Rj(String str) {
         return new File(str);
     }
 
@@ -220,7 +220,7 @@ public final class UploadInfoCollector {
 
     private boolean b(UpToken upToken, File file) {
         try {
-            Response execute = YZ().newCall(new Request.Builder().url(this.noA).addHeader("Authorization", "UpToken " + upToken.token).addHeader("User-Agent", UserAgent.dGw().Rp(upToken.noO)).post(RequestBody.create(MediaType.parse("text/plain"), file)).build()).execute();
+            Response execute = YZ().newCall(new Request.Builder().url(this.noA).addHeader("Authorization", "UpToken " + upToken.token).addHeader("User-Agent", UserAgent.dGw().Rq(upToken.noO)).post(RequestBody.create(MediaType.parse("text/plain"), file)).build()).execute();
             boolean d = d(execute);
             try {
                 execute.body().close();

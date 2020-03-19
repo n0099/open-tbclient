@@ -211,7 +211,7 @@ public class b extends BaseAdapter {
         if (c0582b != null && postData != null) {
             if (!postData.kjc && (this.mContext instanceof com.baidu.tieba.pb.pb.a)) {
                 com.baidu.tieba.pb.pb.a aVar = (com.baidu.tieba.pb.pb.a) this.mContext;
-                postData.a(aVar.getPageContext(), postData.aCr() != null && aVar.FK(postData.aCr().getUserId()));
+                postData.a(aVar.getPageContext(), postData.aCr() != null && aVar.FL(postData.aCr().getUserId()));
             }
             if (z3) {
                 am.setBackgroundColor(c0582b.rootView, R.color.cp_bg_line_c);
@@ -475,7 +475,7 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void Gr(String str) {
+    public void Gs(String str) {
         this.mPostId = str;
     }
 

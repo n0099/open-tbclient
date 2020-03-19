@@ -102,7 +102,7 @@ public class BCAdView extends RelativeLayout {
         }
 
         @Override // com.baidu.tieba.advert.sdk.b.b.a
-        public void xC(String str) {
+        public void xD(String str) {
             com.baidu.tieba.advert.sdk.a.a aVar;
             if (!aq.isEmpty(str)) {
                 this.edn = AdInfo.jsonToObject(str);
@@ -128,7 +128,7 @@ public class BCAdView extends RelativeLayout {
                         }
                     }, 0, 0, null, new Object[0]);
                 }
-                this.edp.xB(str);
+                this.edp.xC(str);
                 BCAdView bCAdView = this.edr.get();
                 if (bCAdView != null && (aVar = bCAdView.edj) != null) {
                     aVar.aZj();
@@ -137,7 +137,7 @@ public class BCAdView extends RelativeLayout {
         }
 
         @Override // com.baidu.tieba.advert.sdk.b.b.a
-        public void xD(String str) {
+        public void xE(String str) {
             BCAdView bCAdView = this.edr.get();
             if (bCAdView != null) {
                 try {
@@ -148,7 +148,7 @@ public class BCAdView extends RelativeLayout {
                         }
                     }
                     if (bCAdView.edo == AdType.SPLASH) {
-                        bCAdView.edp.xB("");
+                        bCAdView.edp.xC("");
                     } else {
                         bCAdView.ake();
                     }

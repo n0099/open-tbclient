@@ -21,30 +21,30 @@ public class c {
     }
 
     public void caA() {
-        DM("click");
+        DN("click");
         com.baidu.tieba.recapp.report.c.cDK().a(com.baidu.tieba.recapp.report.f.c(this.hSH, 2, 0));
     }
 
     public void caB() {
-        DM("click");
+        DN("click");
         com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.hSH, 2, 0);
-        c.Ij("title");
+        c.Ik("title");
         com.baidu.tieba.recapp.report.c.cDK().a(c);
     }
 
     public void caC() {
-        DM("show");
+        DN("show");
         com.baidu.tieba.recapp.report.c.cDK().a(com.baidu.tieba.recapp.report.f.c(this.hSH, 3, 0));
     }
 
     public void caD() {
     }
 
-    public void DL(String str) {
+    public void DM(String str) {
         TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
     }
 
-    public void DM(String str) {
+    public void DN(String str) {
         com.baidu.tbadk.distribute.a.aOm().a(this.hSH, this.mForumId, com.baidu.adp.lib.f.b.toLong(this.mPostId, 0L), "PB", str, 1);
     }
 }

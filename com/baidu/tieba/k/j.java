@@ -67,8 +67,8 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public void Fc(String str) {
-        Fh(str);
+    public void Fd(String str) {
+        Fi(str);
         this.irJ.add(new com.baidu.tieba.n.a(1));
         this.mCurrentState = 1;
     }
@@ -80,9 +80,9 @@ public class j implements i {
         this.mCurrentState = 1;
     }
 
-    private void Fh(String str) {
+    private void Fi(String str) {
         if (!StringUtils.isNull(str)) {
-            this.irI = VideoPlatformStatic.wL(str);
+            this.irI = VideoPlatformStatic.wM(str);
             if (this.irI != 0) {
                 this.irU = true;
             }
@@ -107,7 +107,7 @@ public class j implements i {
     @Override // com.baidu.tieba.k.i
     public void a(int i, String str, int i2, int i3, int i4, String str2, int i5) {
         this.irO = System.currentTimeMillis();
-        Fh(str);
+        Fi(str);
         this.irJ.add(new com.baidu.tieba.n.e(4, i, i2, i3, i4, str2, i5));
         this.mCurrentState = 2;
     }
@@ -196,9 +196,9 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public void Fd(String str) {
+    public void Fe(String str) {
         if (this.mCurrentState != 8 && this.mCurrentState != 7 && this.mCurrentState != 6 && this.mCurrentState != -1) {
-            this.mSource = VideoPlatformStatic.wM(str);
+            this.mSource = VideoPlatformStatic.wN(str);
             chj();
             this.irJ.add(new com.baidu.tieba.n.a(205));
             this.mCurrentState = 8;
@@ -207,11 +207,11 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public String Fe(String str) {
+    public String Ff(String str) {
         if (this.mCurrentState == 8 || this.mCurrentState == 7 || this.mCurrentState == 6 || this.mCurrentState == -1) {
             return this.mUuid;
         }
-        this.mSource = VideoPlatformStatic.wM(str);
+        this.mSource = VideoPlatformStatic.wN(str);
         chj();
         this.irK.put("stallDuration", Long.valueOf(this.irS));
         this.irJ.add(new com.baidu.tieba.n.a(206));
@@ -221,11 +221,11 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public boolean Ff(String str) {
+    public boolean Fg(String str) {
         if (this.mCurrentState == 8 || this.mCurrentState == 7 || this.mCurrentState == 6 || this.mCurrentState == -1 || this.mCurrentState == 1) {
             return false;
         }
-        this.mSource = VideoPlatformStatic.wM(str);
+        this.mSource = VideoPlatformStatic.wN(str);
         chj();
         this.irJ.add(new com.baidu.tieba.n.a(HttpStatus.SC_MULTI_STATUS));
         this.mCurrentState = 7;
@@ -276,7 +276,7 @@ public class j implements i {
         this.irV = false;
         this.irX = z;
         this.mError = i3;
-        this.mSource = VideoPlatformStatic.wM(str);
+        this.mSource = VideoPlatformStatic.wN(str);
         chj();
         if (!v.isEmpty(this.irN)) {
             int size = this.irN.size();
@@ -310,7 +310,7 @@ public class j implements i {
     }
 
     @Override // com.baidu.tieba.k.i
-    public void Fg(String str) {
+    public void Fh(String str) {
         this.irZ = str;
     }
 

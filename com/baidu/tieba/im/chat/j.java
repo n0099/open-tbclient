@@ -91,7 +91,7 @@ public class j {
                         aVar = null;
                     } else {
                         try {
-                            aVar = com.baidu.tbadk.imageManager.c.aPV().vx(d);
+                            aVar = com.baidu.tbadk.imageManager.c.aPV().vy(d);
                             try {
                                 if (aVar == null) {
                                     Bitmap n = ac.aGq().n(com.baidu.adp.lib.util.d.hG().getImageAbsolutePath(d));

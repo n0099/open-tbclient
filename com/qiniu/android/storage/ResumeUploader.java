@@ -126,18 +126,18 @@ final class ResumeUploader implements Runnable {
 
     private void a(String str, CompletionHandler completionHandler, UpCancellationSignal upCancellationSignal) {
         String str2;
-        String format = String.format(Locale.ENGLISH, "/mimeType/%s/fname/%s", UrlSafeBase64.Rv(this.npY.mimeType), UrlSafeBase64.Rv(this.f.getName()));
+        String format = String.format(Locale.ENGLISH, "/mimeType/%s/fname/%s", UrlSafeBase64.Rw(this.npY.mimeType), UrlSafeBase64.Rw(this.f.getName()));
         if (this.key == null) {
             str2 = "";
         } else {
-            str2 = String.format("/key/%s", UrlSafeBase64.Rv(this.key));
+            str2 = String.format("/key/%s", UrlSafeBase64.Rw(this.key));
         }
         String str3 = "";
         if (this.npY.params.size() != 0) {
             String[] strArr = new String[this.npY.params.size()];
             int i = 0;
             for (Map.Entry<String, String> entry : this.npY.params.entrySet()) {
-                strArr[i] = String.format(Locale.ENGLISH, "%s/%s", entry.getKey(), UrlSafeBase64.Rv(entry.getValue()));
+                strArr[i] = String.format(Locale.ENGLISH, "%s/%s", entry.getKey(), UrlSafeBase64.Rw(entry.getValue()));
                 i++;
             }
             str3 = "/" + StringUtils.b(strArr, "/");
@@ -284,7 +284,7 @@ final class ResumeUploader implements Runnable {
     /* JADX INFO: Access modifiers changed from: private */
     public void dGD() {
         if (this.npZ.npC != null) {
-            this.npZ.npC.Rq(this.nqe);
+            this.npZ.npC.Rr(this.nqe);
         }
     }
 

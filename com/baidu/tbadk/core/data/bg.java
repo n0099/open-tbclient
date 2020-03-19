@@ -9,7 +9,7 @@ public class bg {
         return this.img_url;
     }
 
-    public void sA(String str) {
+    public void sB(String str) {
         this.img_url = str;
     }
 
@@ -25,7 +25,7 @@ public class bg {
         return this.cRe;
     }
 
-    public void sB(String str) {
+    public void sC(String str) {
         this.cRe = str;
     }
 }

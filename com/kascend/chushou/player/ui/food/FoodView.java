@@ -141,7 +141,7 @@ public class FoodView extends RelativeLayout {
         startAnimation(AnimationUtils.loadAnimation(this.e, i2));
         if (this.m) {
             com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(4, 0);
-            aVar.QV(this.n);
+            aVar.QW(this.n);
             tv.chushou.zues.a.a.post(aVar);
         }
         if (this.e != null && this.ncI != null && this.ncI.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.ncI.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y) {
@@ -159,7 +159,7 @@ public class FoodView extends RelativeLayout {
         setVisibility(0);
         if (this.m) {
             com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(4, 0);
-            aVar.QV(this.n);
+            aVar.QW(this.n);
             tv.chushou.zues.a.a.post(aVar);
         }
         if (this.e != null && this.ncI != null && this.ncI.mAdExtraInfo != null && tv.chushou.zues.utils.h.parseInt(this.ncI.mAdExtraInfo.mMarketId) != com.kascend.chushou.a.a.y && this.ncI.mAdExtraInfo != null && !this.ncI.mAdExtraInfo.vTrackShow) {
@@ -493,7 +493,7 @@ public class FoodView extends RelativeLayout {
         }
         if (this.m) {
             com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(4, 8);
-            aVar.QV(this.n);
+            aVar.QW(this.n);
             tv.chushou.zues.a.a.post(aVar);
         }
         if (z) {
@@ -511,7 +511,7 @@ public class FoodView extends RelativeLayout {
                 public void onAnimationStart(Animation animation) {
                     if (FoodView.this.m) {
                         com.kascend.chushou.player.ui.button.a aVar = new com.kascend.chushou.player.ui.button.a(4, 8);
-                        aVar.QV(FoodView.this.n);
+                        aVar.QW(FoodView.this.n);
                         tv.chushou.zues.a.a.post(aVar);
                     }
                 }

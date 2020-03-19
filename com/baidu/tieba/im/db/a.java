@@ -30,7 +30,7 @@ public abstract class a {
         this.hzx = cls;
     }
 
-    public int CI(String str) {
+    public int CJ(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
@@ -54,7 +54,7 @@ public abstract class a {
         return i;
     }
 
-    public long CJ(String str) {
+    public long CK(String str) {
         long j = 0;
         Cursor cursor = null;
         if (!TextUtils.isEmpty(str)) {
@@ -68,7 +68,7 @@ public abstract class a {
             } catch (SQLiteException e) {
                 TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e.printStackTrace();
-                CO(str);
+                CP(str);
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e2.printStackTrace();
@@ -94,7 +94,7 @@ public abstract class a {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo CK(String str) {
+    public CommonMsgPojo CL(String str) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
@@ -133,7 +133,7 @@ public abstract class a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getNewestMsgContext", new Object[0]);
                         e.printStackTrace();
-                        CO(str);
+                        CP(str);
                         com.baidu.adp.lib.util.n.close(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
@@ -199,7 +199,7 @@ public abstract class a {
                             e2 = e3;
                             TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAllByMsgType" + i, new Object[0]);
                             e2.printStackTrace();
-                            CO(str);
+                            CP(str);
                             com.baidu.adp.lib.util.n.close(cursor);
                             return linkedHashMap;
                         } catch (Exception e4) {
@@ -294,7 +294,7 @@ public abstract class a {
                             try {
                                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAll", new Object[0]);
                                 e2.printStackTrace();
-                                CO(valueOf);
+                                CP(valueOf);
                                 com.baidu.adp.lib.util.n.close(cursor2);
                                 return linkedList;
                             } catch (Throwable th2) {
@@ -382,12 +382,12 @@ public abstract class a {
             this.hzy = bUA();
         }
         if (!this.hzy.contains(valueOf)) {
-            CO(valueOf);
+            CP(valueOf);
             this.hzy.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
         try {
-            sQLiteStatement = h.bUL().CY(" INSERT INTO " + str + "(content" + Constants.ACCEPT_TIME_SEPARATOR_SP + "create_time" + Constants.ACCEPT_TIME_SEPARATOR_SP + "ext" + Constants.ACCEPT_TIME_SEPARATOR_SP + "mid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "uid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "user_info" + Constants.ACCEPT_TIME_SEPARATOR_SP + "to_uid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "to_user_info" + Constants.ACCEPT_TIME_SEPARATOR_SP + IMConstants.MSG_STATUS + Constants.ACCEPT_TIME_SEPARATOR_SP + "msg_type" + Constants.ACCEPT_TIME_SEPARATOR_SP + "rid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "read_flag" + Constants.ACCEPT_TIME_SEPARATOR_SP + "is_delete" + Constants.ACCEPT_TIME_SEPARATOR_SP + "is_friend) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            sQLiteStatement = h.bUL().CZ(" INSERT INTO " + str + "(content" + Constants.ACCEPT_TIME_SEPARATOR_SP + "create_time" + Constants.ACCEPT_TIME_SEPARATOR_SP + "ext" + Constants.ACCEPT_TIME_SEPARATOR_SP + "mid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "uid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "user_info" + Constants.ACCEPT_TIME_SEPARATOR_SP + "to_uid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "to_user_info" + Constants.ACCEPT_TIME_SEPARATOR_SP + IMConstants.MSG_STATUS + Constants.ACCEPT_TIME_SEPARATOR_SP + "msg_type" + Constants.ACCEPT_TIME_SEPARATOR_SP + "rid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "read_flag" + Constants.ACCEPT_TIME_SEPARATOR_SP + "is_delete" + Constants.ACCEPT_TIME_SEPARATOR_SP + "is_friend) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             for (CommonMsgPojo commonMsgPojo : list) {
                 if (z && commonMsgPojo.isSelf() && commonMsgPojo.getRid() != 0) {
                     h.bUL().a(str, "mid=?", new String[]{String.valueOf(commonMsgPojo.getRid())});
@@ -486,7 +486,7 @@ public abstract class a {
             while (it.hasNext()) {
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && !linkedList2.contains(next)) {
-                    CO(next);
+                    CP(next);
                 }
             }
         }
@@ -521,29 +521,6 @@ public abstract class a {
         }
     }
 
-    public boolean CL(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        if (this.hzy == null) {
-            this.hzy = bUA();
-        }
-        if (this.hzy != null && this.hzy.contains(str)) {
-            Iterator<String> it = this.hzy.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                String next = it.next();
-                if (next.equals(str)) {
-                    this.hzy.remove(next);
-                    break;
-                }
-            }
-        }
-        return h.bUL().CX("DROP TABLE IF EXISTS " + (this.hzw + str));
-    }
-
     public boolean CM(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -564,10 +541,33 @@ public abstract class a {
                 }
             }
         }
-        return h.bUL().CX("delete from " + (this.hzw + str));
+        return h.bUL().CY("DROP TABLE IF EXISTS " + (this.hzw + str));
     }
 
     public boolean CN(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        if (this.hzy == null) {
+            this.hzy = bUA();
+        }
+        if (this.hzy != null && this.hzy.contains(str)) {
+            Iterator<String> it = this.hzy.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                String next = it.next();
+                if (next.equals(str)) {
+                    this.hzy.remove(next);
+                    break;
+                }
+            }
+        }
+        return h.bUL().CY("delete from " + (this.hzw + str));
+    }
+
+    public boolean CO(String str) {
         try {
             i(Long.parseLong(str), true);
             return true;
@@ -577,9 +577,9 @@ public abstract class a {
         }
     }
 
-    public synchronized void CO(String str) {
+    public synchronized void CP(String str) {
         if (!TextUtils.isEmpty(str)) {
-            h.bUL().CX("CREATE TABLE IF NOT EXISTS " + (this.hzw + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
+            h.bUL().CY("CREATE TABLE IF NOT EXISTS " + (this.hzw + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, " + IMConstants.MSG_STATUS + " int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
         }
     }
 

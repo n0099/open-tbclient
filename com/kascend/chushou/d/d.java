@@ -55,7 +55,7 @@ public final class d {
         q.j(str2, "avatarUrl");
         q.j(cVar, "sp");
         int length = cVar.length();
-        ImageRequestBuilder vD = ImageRequestBuilder.Y(i.QU(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).vD(true);
+        ImageRequestBuilder vD = ImageRequestBuilder.Y(i.QV(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).vD(true);
         com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).HU(com.kascend.chushou.view.a.a(null)).dnx(), tv.chushou.basis.d.b.dQu());
         com.facebook.drawee.controller.a dmJ = com.facebook.drawee.a.a.c.dlW().bg(vD.dta()).dmN();
         q.i(a, "draweeHolder");

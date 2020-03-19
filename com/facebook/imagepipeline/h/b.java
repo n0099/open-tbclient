@@ -154,11 +154,11 @@ public class b implements c {
     }
 
     @Override // com.facebook.imagepipeline.h.c
-    public void OY(String str) {
+    public void OZ(String str) {
         int size = this.lVQ.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.lVQ.get(i).OY(str);
+                this.lVQ.get(i).OZ(str);
             } catch (Exception e) {
                 j("InternalListener exception in onRequestCancellation", e);
             }
@@ -166,10 +166,10 @@ public class b implements c {
     }
 
     @Override // com.facebook.imagepipeline.producers.am
-    public boolean Pd(String str) {
+    public boolean Pe(String str) {
         int size = this.lVQ.size();
         for (int i = 0; i < size; i++) {
-            if (this.lVQ.get(i).Pd(str)) {
+            if (this.lVQ.get(i).Pe(str)) {
                 return true;
             }
         }

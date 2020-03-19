@@ -36,7 +36,7 @@ public final class g {
         String str3;
         synchronized (g.class) {
             if (cYq()) {
-                if (Lw(str + str2)) {
+                if (Lx(str + str2)) {
                     try {
                         kYC = new File(str + str2);
                         kYD = new RandomAccessFile(kYC, "r");
@@ -76,13 +76,13 @@ public final class g {
         return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.cXN().getContext().checkCallingOrSelfPermission(kYB[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
-    public static boolean Lw(String str) {
+    public static boolean Lx(String str) {
         File file = new File(str);
         kYC = file;
         return file.exists();
     }
 
-    public static boolean Lx(String str) {
+    public static boolean Ly(String str) {
         File file = new File(str);
         kYC = file;
         return file.delete();
@@ -91,7 +91,7 @@ public final class g {
     private static boolean f(String str, String str2) {
         try {
             kYC = new File(str);
-            if (!Lw(str)) {
+            if (!Lx(str)) {
                 kYC.mkdirs();
             }
         } catch (Exception e) {

@@ -46,7 +46,7 @@ public class a extends ActivityDelegation {
         return false;
     }
 
-    public static Bundle xF(String str) {
+    public static Bundle xG(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("order_info", str);
         return bundle;

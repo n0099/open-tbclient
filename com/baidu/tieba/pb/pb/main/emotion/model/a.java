@@ -44,7 +44,7 @@ public class a {
                 cIp.setVcodeMD5(aaVar.getVcode_md5());
                 cIp.setVcodeUrl(aaVar.getVcode_pic_url());
                 cIp.setVcodeExtra(aaVar.aJL());
-                if (com.baidu.tbadk.s.a.wb(aaVar.aJK())) {
+                if (com.baidu.tbadk.s.a.wc(aaVar.aJK())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.gsB.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE_FROM_EMOTION, cIp, false, aaVar.aJK())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.gsB.getPageContext().getPageActivity(), cIp, RequestResponseCode.REQUEST_VCODE_FROM_EMOTION)));
@@ -120,7 +120,7 @@ public class a {
         boolean z = true;
         if (emotionImageData != null && eVar != null) {
             if (this.dyM.cIp() == null && pbModel != null) {
-                this.dyM.d(pbModel.vi(null));
+                this.dyM.d(pbModel.vj(null));
             }
             if (this.dyM.cIp() != null) {
                 if (eVar.ckP().aDK()) {
@@ -147,7 +147,7 @@ public class a {
                 if (StringUtils.isNull(emotionImageData.getAuthorNameShow())) {
                     this.dyM.cIp().setContent(str);
                 } else {
-                    this.dyM.cIp().setContent(Gn(emotionImageData.getAuthorNameShow()) + str);
+                    this.dyM.cIp().setContent(Go(emotionImageData.getAuthorNameShow()) + str);
                 }
                 if (!TextUtils.isEmpty(emotionImageData.getMemeContSign())) {
                     this.dyM.cIp().setMemeContSign(emotionImageData.getMemeContSign());
@@ -162,7 +162,7 @@ public class a {
         }
     }
 
-    private String Gn(String str) {
+    private String Go(String str) {
         return "@" + str + HanziToPinyin.Token.SEPARATOR;
     }
 

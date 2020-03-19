@@ -697,7 +697,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 this.elA.setRecoveryState(1);
             }
             if (this.efr != null) {
-                this.mStartPosition = x.czM().Hd(this.mVideoUrl);
+                this.mStartPosition = x.czM().He(this.mVideoUrl);
                 if (this.mStartPosition != 0) {
                     if (this.elA != null) {
                         this.elA.AA(this.mStartPosition);

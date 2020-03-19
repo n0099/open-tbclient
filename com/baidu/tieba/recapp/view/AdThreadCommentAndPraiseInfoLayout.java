@@ -261,7 +261,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                         l.showToast(AdThreadCommentAndPraiseInfoLayout.this.mContext, view2.getResources().getString(R.string.copy_pb_url_success));
                     }
                 });
-                shareDialogConfig.setHideMode(Ik(shareItem.linkUrl));
+                shareDialogConfig.setHideMode(Il(shareItem.linkUrl));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
             }
         }
@@ -278,7 +278,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     private void a(AdvertAppInfo advertAppInfo, String str, int i) {
         b c = com.baidu.tieba.recapp.report.f.c(advertAppInfo, 8, i);
-        c.Ij(str);
+        c.Ik(str);
         c.cDK().a(c);
     }
 
@@ -319,7 +319,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         return this.dhJ;
     }
 
-    private int Ik(String str) {
+    private int Il(String str) {
         int i = 0;
         if (TextUtils.isEmpty(str)) {
             return 0;

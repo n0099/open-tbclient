@@ -103,7 +103,7 @@ public class b {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void DK(String str) {
+    public void DL(String str) {
         this.hSR.setText(str);
         this.hSR.setBackgroundResource(R.drawable.button_fenfa_download_selector);
         am.setViewTextColor(this.hSR, R.drawable.button_fenfa_download_text_selector, 1, 0);

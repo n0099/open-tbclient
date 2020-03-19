@@ -48,7 +48,7 @@ public class PayMemberInfoData extends OrmObject {
         return this.expire_remind;
     }
 
-    public void uQ(String str) {
+    public void uR(String str) {
         this.expire_remind = str;
     }
 }

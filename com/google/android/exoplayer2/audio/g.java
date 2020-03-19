@@ -49,10 +49,10 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
         boolean z;
         boolean z2 = false;
         String str = format.sampleMimeType;
-        if (com.google.android.exoplayer2.util.i.Qo(str)) {
+        if (com.google.android.exoplayer2.util.i.Qp(str)) {
             int i = v.SDK_INT >= 21 ? 32 : 0;
             boolean a2 = a(aVar, format.drmInitData);
-            if (a2 && Po(str) && bVar.dww() != null) {
+            if (a2 && Pp(str) && bVar.dww() != null) {
                 return i | 8 | 4;
             }
             DrmInitData drmInitData = format.drmInitData;
@@ -82,7 +82,7 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     protected com.google.android.exoplayer2.mediacodec.a a(com.google.android.exoplayer2.mediacodec.b bVar, Format format, boolean z) throws MediaCodecUtil.DecoderQueryException {
         com.google.android.exoplayer2.mediacodec.a dww;
-        if (Po(format.sampleMimeType) && (dww = bVar.dww()) != null) {
+        if (Pp(format.sampleMimeType) && (dww = bVar.dww()) != null) {
             this.men = true;
             return dww;
         }
@@ -90,13 +90,13 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
         return super.a(bVar, format, z);
     }
 
-    protected boolean Po(String str) {
-        return this.mem.Pm(str);
+    protected boolean Pp(String str) {
+        return this.mem.Pn(str);
     }
 
     @Override // com.google.android.exoplayer2.mediacodec.MediaCodecRenderer
     protected void a(com.google.android.exoplayer2.mediacodec.a aVar, MediaCodec mediaCodec, Format format, MediaCrypto mediaCrypto) {
-        this.meo = Pp(aVar.name);
+        this.meo = Pq(aVar.name);
         if (this.men) {
             this.mep = format.dtX();
             this.mep.setString(IMediaFormat.KEY_MIME, "audio/raw");
@@ -294,7 +294,7 @@ public class g extends MediaCodecRenderer implements com.google.android.exoplaye
         }
     }
 
-    private static boolean Pp(String str) {
+    private static boolean Pq(String str) {
         return v.SDK_INT < 24 && "OMX.SEC.aac.dec".equals(str) && "samsung".equals(v.MANUFACTURER) && (v.mJI.startsWith("zeroflte") || v.mJI.startsWith("herolte") || v.mJI.startsWith("heroqlte"));
     }
 

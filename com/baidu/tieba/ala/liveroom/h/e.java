@@ -212,7 +212,7 @@ public class e implements f {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.h.f
-    public void zb(String str) {
+    public void zc(String str) {
         this.fbV = str;
     }
 

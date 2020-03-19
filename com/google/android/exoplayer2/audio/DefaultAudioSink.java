@@ -132,8 +132,8 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
-    public boolean Pm(String str) {
-        return this.mcU != null && this.mcU.Jj(Pn(str));
+    public boolean Pn(String str) {
+        return this.mcU != null && this.mcU.Jj(Po(str));
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
@@ -164,7 +164,7 @@ public final class DefaultAudioSink implements AudioSink {
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
     public void a(String str, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, int i6) throws AudioSink.ConfigurationException {
-        int Pn;
+        int Po;
         boolean z;
         int i7;
         this.mdg = i2;
@@ -199,14 +199,14 @@ public final class DefaultAudioSink implements AudioSink {
                 duv();
                 i2 = i10;
                 i = i9;
-                Pn = i11;
+                Po = i11;
             } else {
                 i2 = i10;
                 i = i9;
-                Pn = i11;
+                Po = i11;
             }
         } else {
-            Pn = Pn(str);
+            Po = Po(str);
             z = false;
         }
         switch (i) {
@@ -249,13 +249,13 @@ public final class DefaultAudioSink implements AudioSink {
             }
         }
         int i12 = (v.SDK_INT <= 25 && "fugu".equals(v.mJI) && z2 && i == 1) ? 12 : i7;
-        if (z || !isInitialized() || this.mdi != Pn || this.sampleRate != i2 || this.mdh != i12) {
+        if (z || !isInitialized() || this.mdi != Po || this.sampleRate != i2 || this.mdh != i12) {
             reset();
-            this.mdi = Pn;
+            this.mdi = Po;
             this.mdk = z2;
             this.sampleRate = i2;
             this.mdh = i12;
-            this.mdj = z2 ? Pn : 2;
+            this.mdj = z2 ? Po : 2;
             this.mdB = v.eb(2, i);
             if (i4 != 0) {
                 this.bufferSize = i4;
@@ -869,7 +869,7 @@ public final class DefaultAudioSink implements AudioSink {
         return new AudioTrack(3, 4000, 4, 2, 2, 0, i);
     }
 
-    private static int Pn(String str) {
+    private static int Po(String str) {
         char c2 = 65535;
         switch (str.hashCode()) {
             case -1095064472:

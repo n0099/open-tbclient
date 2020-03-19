@@ -84,7 +84,7 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo DY(String str) {
+    public static ICardInfo DZ(String str) {
         try {
             ICardInfo cV = cV(new JSONObject(str));
             if (cV != null) {
@@ -102,7 +102,7 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo DZ(String str) throws Exception {
+    public static ICardInfo Ea(String str) throws Exception {
         ICardInfo cV = cV(new JSONObject(str));
         if (cV == null || !cV.isValid()) {
             return null;

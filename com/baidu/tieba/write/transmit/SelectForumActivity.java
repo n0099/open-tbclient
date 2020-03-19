@@ -135,7 +135,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 if (SelectForumActivity.this.mCheckResponseData != null) {
                     SelectForumActivity.this.mCheckResponseData.forumId = String.valueOf(transmitForumData.forumId);
                     SelectForumActivity.this.mCheckResponseData.kQG = transmitForumData.forumName;
-                    SelectForumActivity.this.KT(AddFriendActivityConfig.TYPE_FOCUS);
+                    SelectForumActivity.this.KU(AddFriendActivityConfig.TYPE_FOCUS);
                 } else if (SelectForumActivity.this.mFrom != 1 || SelectForumActivity.this.awD <= 0) {
                     if (SelectForumActivity.this.mFrom == 2) {
                         SelectForumActivity.this.a(transmitForumData, SelectForumActivity.this.mPrivateThread);
@@ -296,7 +296,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KT(String str) {
+    public void KU(String str) {
         if (this.mCheckResponseData != null) {
             TiebaStatic.log(new an("c13277").cx("uid", TbadkCoreApplication.getCurrentAccount()).cx("obj_source", str));
             ShareSdkView shareSdkView = new ShareSdkView(this);
@@ -414,7 +414,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             if (this.mCheckResponseData != null && intent != null) {
                 this.mCheckResponseData.forumId = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
                 this.mCheckResponseData.kQG = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_NAME);
-                KT("search");
+                KU("search");
                 return;
             }
             finish();

@@ -365,17 +365,17 @@ public class a {
         }
     }
 
-    public void zO(String str) {
+    public void zP(String str) {
         if (this.eno != null) {
             this.eno.dettachView(this.mListContainer);
             this.eno = null;
         }
         this.fDb.hideLoadingView(getRootView());
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.fDb, this.fDB, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 300), NoDataViewFactory.d.tU(str), null);
+            this.mNoDataView = NoDataViewFactory.a(this.fDb, this.fDB, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 300), NoDataViewFactory.d.tV(str), null);
             this.mNoDataView.setOnClickListener(this.cLl);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.tU(str));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.tV(str));
         this.mNoDataView.onChangeSkinType(this.fDb.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }

@@ -18,7 +18,7 @@ public final class v {
         try {
             a aSp = a.aSp();
             for (String str : strArr) {
-                if (aSp.vW(str) != null) {
+                if (aSp.vX(str) != null) {
                     return true;
                 }
             }
@@ -49,7 +49,7 @@ public final class v {
             return dHl;
         }
 
-        public String vW(String str) {
+        public String vX(String str) {
             return this.dHm.getProperty(str);
         }
     }

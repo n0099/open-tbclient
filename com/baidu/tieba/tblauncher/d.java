@@ -333,7 +333,7 @@ public class d {
         this.koB.registerListener(this.koU);
     }
 
-    public void Jy(final String str) {
+    public void Jz(final String str) {
         if (StringUtils.isNull(str)) {
             this.koI.setVisibility(8);
             return;
@@ -345,7 +345,7 @@ public class d {
                     this.koV = new Runnable() { // from class: com.baidu.tieba.tblauncher.d.13
                         @Override // java.lang.Runnable
                         public void run() {
-                            d.this.Jy(str);
+                            d.this.Jz(str);
                         }
                     };
                 }
@@ -729,9 +729,9 @@ public class d {
         com.baidu.adp.lib.f.g.dismissPopupWindow(this.koM);
     }
 
-    public void Jz(String str) {
+    public void JA(String str) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.koB.getActivity());
-        aVar.sR(str);
+        aVar.sS(str);
         aVar.a(R.string.close, new a.b() { // from class: com.baidu.tieba.tblauncher.d.8
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

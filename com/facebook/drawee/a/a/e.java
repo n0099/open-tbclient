@@ -36,8 +36,8 @@ public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.face
         return (e) super.bg(ImageRequestBuilder.Y(uri).a(com.facebook.imagepipeline.common.e.doW()).dta());
     }
 
-    public e OV(@Nullable String str) {
-        return (str == null || str.isEmpty()) ? (e) super.bg(ImageRequest.Ph(str)) : K(Uri.parse(str));
+    public e OW(@Nullable String str) {
+        return (str == null || str.isEmpty()) ? (e) super.bg(ImageRequest.Pi(str)) : K(Uri.parse(str));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

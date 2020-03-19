@@ -61,7 +61,7 @@ public class FrsTabHostFragment extends BaseFragment {
                     if (FrsTabHostFragment.this.gsE != null && FrsTabHostFragment.this.gsE.getForum() != null) {
                         str = FrsTabHostFragment.this.gsE.getForum().getId();
                     }
-                    FrsTabHostFragment.this.Bh(str);
+                    FrsTabHostFragment.this.Bi(str);
                 }
             }
         }
@@ -187,16 +187,16 @@ public class FrsTabHostFragment extends BaseFragment {
                         }
                     }
                     if (this.gsE.getForum() != null) {
-                        com.baidu.tieba.frs.e.e BL = com.baidu.tieba.frs.e.d.bKj().BL(this.gsE.getForum().getName());
+                        com.baidu.tieba.frs.e.e BM = com.baidu.tieba.frs.e.d.bKj().BM(this.gsE.getForum().getName());
                         if (sW == 25) {
-                            if (BL == null) {
-                                BL = new com.baidu.tieba.frs.e.e(null);
+                            if (BM == null) {
+                                BM = new com.baidu.tieba.frs.e.e(null);
                             }
-                            BL.mj(true);
-                            com.baidu.tieba.frs.e.d.bKj().a(this.gsE.getForum().getName(), BL);
-                        } else if (BL != null && BL.bKm()) {
-                            BL.mj(false);
-                            com.baidu.tieba.frs.e.d.bKj().a(this.gsE.getForum().getName(), BL);
+                            BM.mj(true);
+                            com.baidu.tieba.frs.e.d.bKj().a(this.gsE.getForum().getName(), BM);
+                        } else if (BM != null && BM.bKm()) {
+                            BM.mj(false);
+                            com.baidu.tieba.frs.e.d.bKj().a(this.gsE.getForum().getName(), BM);
                         }
                     }
                 }
@@ -318,13 +318,13 @@ public class FrsTabHostFragment extends BaseFragment {
                     if (ko.cYv != null) {
                         ko.cYv.aQa();
                     }
-                    if (ko.cYv.vz(String.valueOf(ko.mType)) != null) {
-                        if (!(ko.cYv.vz(String.valueOf(ko.mType)).view.getVisibility() == 0)) {
+                    if (ko.cYv.vA(String.valueOf(ko.mType)) != null) {
+                        if (!(ko.cYv.vA(String.valueOf(ko.mType)).view.getVisibility() == 0)) {
                             if (FrsTabHostFragment.this.gsG == i) {
                                 FrsTabHostFragment.this.b(ko);
                             }
                         } else {
-                            ko.cYv.vz(String.valueOf(ko.mType)).view.setVisibility(8);
+                            ko.cYv.vA(String.valueOf(ko.mType)).view.setVisibility(8);
                             FrsTabHostFragment.this.b(ko);
                         }
                     }
@@ -493,7 +493,7 @@ public class FrsTabHostFragment extends BaseFragment {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HIDE_ENTERFORUM_GUIDE));
         if (this.gsH == null) {
             this.gsH = new com.baidu.tieba.write.f(this.gsB.getPageContext(), this.ctk, "frs");
-            this.gsH.KM("2");
+            this.gsH.KN("2");
         }
         ForumWriteData bED = this.gsD.bED();
         bED.setDefaultZone(i);
@@ -584,7 +584,7 @@ public class FrsTabHostFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bh(String str) {
+    public void Bi(String str) {
         if (this.mTabHost != null) {
             TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12342").X("obj_locate", c(this.mTabHost.ko(this.mTabHost.getCurrentTabIndex()))).cx("fid", str));
         }

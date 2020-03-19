@@ -20,14 +20,14 @@ public class b {
                 SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
                 if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
                     if (b.this.edg != null) {
-                        b.this.edg.xC(splashHttpResponse.getResultMsg());
+                        b.this.edg.xD(splashHttpResponse.getResultMsg());
                         return;
                     }
                     return;
                 }
                 BdLog.e("Response of splash has error");
                 if (b.this.edg != null) {
-                    b.this.edg.xD(splashHttpResponse.getResultMsg());
+                    b.this.edg.xE(splashHttpResponse.getResultMsg());
                     return;
                 }
                 return;
@@ -38,9 +38,9 @@ public class b {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void xC(String str);
-
         void xD(String str);
+
+        void xE(String str);
     }
 
     private b() {

@@ -82,21 +82,21 @@ public class a extends Dialog implements View.OnClickListener {
         }
     }
 
-    public void yX(String str) {
+    public void yY(String str) {
         this.fbR = str;
         if (this.fbN != null) {
             k.a(this.fbN, this.fbR, true, false);
         }
     }
 
-    public void yY(String str) {
+    public void yZ(String str) {
         this.fbS = str;
         if (this.fbO != null) {
             this.fbO.setText(this.fbS);
         }
     }
 
-    public void yZ(String str) {
+    public void za(String str) {
         this.fbT = str;
         if (this.fbP != null) {
             this.fbP.setText(this.fbT);
@@ -107,11 +107,11 @@ public class a extends Dialog implements View.OnClickListener {
         this.roomId = j;
     }
 
-    public void za(String str) {
+    public void zb(String str) {
         this.fbU = str;
     }
 
-    public void zb(String str) {
+    public void zc(String str) {
         this.fbV = str;
     }
 

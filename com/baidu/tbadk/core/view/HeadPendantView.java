@@ -119,7 +119,7 @@ public class HeadPendantView extends RelativeLayout {
         super.onMeasure(i, i2);
     }
 
-    public void tS(String str) {
+    public void tT(String str) {
         if (this.dfn != null) {
             if (this.dfq && !StringUtils.isNull(str)) {
                 this.dfr = true;
@@ -241,15 +241,15 @@ public class HeadPendantView extends RelativeLayout {
         this.dfp.setDefaultResource(i);
     }
 
-    public void tT(String str) {
+    public void tU(String str) {
         if (!StringUtils.isNull(str)) {
-            String tm = o.tm(str);
+            String tn = o.tn(str);
             this.dfp.setImageBitmap(null);
-            this.dfp.setUrl(tm);
-            if (tm.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(tm, 10, false);
+            this.dfp.setUrl(tn);
+            if (tn.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(tn, 10, false);
             } else {
-                startLoad(tm, 25, false);
+                startLoad(tn, 25, false);
             }
         }
     }
@@ -260,12 +260,12 @@ public class HeadPendantView extends RelativeLayout {
 
     public void a(MetaData metaData) {
         if (metaData != null && !TextUtils.isEmpty(metaData.getPortrait())) {
-            String tm = o.tm(metaData.getAvater());
-            setUrl(tm);
-            if (tm.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(tm, 10, false);
+            String tn = o.tn(metaData.getAvater());
+            setUrl(tn);
+            if (tn.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                startLoad(tn, 10, false);
             } else {
-                startLoad(tm, 25, false);
+                startLoad(tn, 25, false);
             }
             b(metaData);
         }
@@ -274,9 +274,9 @@ public class HeadPendantView extends RelativeLayout {
     public void b(MetaData metaData) {
         if (metaData != null) {
             if (metaData.getPendantData() != null) {
-                tS(metaData.getPendantData().aAJ());
+                tT(metaData.getPendantData().aAJ());
             } else {
-                tS(null);
+                tT(null);
             }
             c(metaData);
         }

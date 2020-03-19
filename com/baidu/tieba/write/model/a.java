@@ -68,7 +68,7 @@ public class a {
         MessageManager.getInstance().registerListener(this.kQs);
     }
 
-    public void KR(String str) {
+    public void KS(String str) {
         this.cOO = str;
         HttpMessage httpMessage = new HttpMessage(1003324, this.mBdUniqueId);
         httpMessage.addParam("link_url", str);

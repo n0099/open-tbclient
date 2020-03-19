@@ -67,7 +67,7 @@ public class g {
     }
 
     @TargetApi(16)
-    public static a Kn(String str) {
+    public static a Ko(String str) {
         MediaFormat mediaFormat;
         MediaExtractor mediaExtractor = new MediaExtractor();
         try {

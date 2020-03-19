@@ -30,7 +30,7 @@ public class b {
     public static String dGd = "＃";
     private static final Pattern cIb = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean vI(String str) {
+    public static boolean vJ(String str) {
         return dGc.equals(str);
     }
 
@@ -88,7 +88,7 @@ public class b {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.sR(str);
+            aVar.sS(str);
             if (TextUtils.isEmpty(str2)) {
                 aVar.b(R.string.know, new a.b() { // from class: com.baidu.tbadk.plugins.b.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -115,7 +115,7 @@ public class b {
         }
     }
 
-    public static SpannableString vJ(String str) {
+    public static SpannableString vK(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
@@ -124,7 +124,7 @@ public class b {
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!vL(str.substring(start, end))) {
+            if (!vM(str.substring(start, end))) {
                 spannableString.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), start, end, 18);
             }
         }
@@ -140,7 +140,7 @@ public class b {
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!vL(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    if (!vM(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
                         spannable.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_c)), start, end, 18);
                     }
                 }
@@ -148,7 +148,7 @@ public class b {
         }
     }
 
-    public static String vK(String str) {
+    public static String vL(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -160,7 +160,7 @@ public class b {
         return str;
     }
 
-    public static boolean vL(String str) {
+    public static boolean vM(String str) {
         String substring;
         return str != null && str.startsWith(dGc) && str.endsWith(dGc) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
@@ -187,7 +187,7 @@ public class b {
         TiebaStatic.log(new an(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).cx("obj_locate", str));
     }
 
-    public static String vM(String str) {
+    public static String vN(String str) {
         StringBuffer stringBuffer = new StringBuffer("http://tieba.baidu.com/n/video/opersquare?tab=hot&topic_name=");
         int length = str.length();
         String str2 = null;

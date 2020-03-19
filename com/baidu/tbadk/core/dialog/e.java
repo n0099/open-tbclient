@@ -40,13 +40,13 @@ public class e {
         this.cVu = new l(this.cVv);
     }
 
-    public e sT(String str) {
+    public e sU(String str) {
         this.mTitle = str;
         return this;
     }
 
     public e kd(int i) {
-        return sT(this.cVv.getResources().getString(i));
+        return sU(this.cVv.getResources().getString(i));
     }
 
     public e a(ArrayList<m> arrayList, AdapterView.OnItemClickListener onItemClickListener) {

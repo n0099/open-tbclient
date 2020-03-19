@@ -229,7 +229,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         }
     }
 
-    private void vh(String str) {
+    private void vi(String str) {
         if (!StringUtils.isNull(str)) {
             this.dzd.getText().insert(this.dzd.getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
@@ -249,7 +249,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     private void a(q qVar) {
         if (qVar != null && !TextUtils.isEmpty(qVar.getName()) && !TextUtils.isEmpty(qVar.getUrl())) {
             String obj = this.dzd.getText().toString();
-            if (this.dyA && com.baidu.tieba.face.a.At(obj) >= 10 && getContext() != null) {
+            if (this.dyA && com.baidu.tieba.face.a.Au(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.aFP().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.a(getContext(), qVar, this.dzd);
@@ -260,7 +260,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     private void b(q qVar) {
         if (!this.dyz || qVar.aJB() == EmotionGroupType.LOCAL) {
             String obj = this.dzd.getText().toString();
-            if (this.dyA && com.baidu.tieba.face.a.At(obj) >= 10 && getContext() != null) {
+            if (this.dyA && com.baidu.tieba.face.a.Au(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.aFP().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.b(getContext(), qVar, this.dzd);
@@ -505,10 +505,10 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                 case 44:
                     if (aVar.data != null) {
                         if (aVar.data instanceof String) {
-                            vh((String) aVar.data);
+                            vi((String) aVar.data);
                             break;
                         } else if ((aVar.data instanceof j) && ((j) aVar.data).mContent != null) {
-                            vh(((j) aVar.data).mContent);
+                            vi(((j) aVar.data).mContent);
                             break;
                         }
                     }

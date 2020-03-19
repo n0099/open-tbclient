@@ -76,7 +76,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                     }
                     if (aVar != null && aVar.aPN() != null) {
                         String portrait = aVar.aPN().getPortrait();
-                        MoreActivity.this.jUE.az(o.tm(portrait), false);
+                        MoreActivity.this.jUE.az(o.tn(portrait), false);
                         PersonChangeData cFD = MoreActivity.this.jUF.cFD();
                         if (cFD != null) {
                             cFD.setPhotoChanged(true);
@@ -312,7 +312,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void c(PersonChangeData personChangeData) {
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.jUE.az(o.tm(personChangeData.getPortrait()), false);
+            this.jUE.az(o.tn(personChangeData.getPortrait()), false);
         }
         this.jUF = new MoreModel(personChangeData);
         this.jUF.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.MoreActivity.6

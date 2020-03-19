@@ -3,7 +3,7 @@ package com.baidu.tieba.play;
 public interface d {
     void Ax(int i);
 
-    void GY(String str);
+    void GZ(String str);
 
     String cyQ();
 
@@ -33,7 +33,7 @@ public interface d {
 
     void onStart();
 
-    String wF(String str);
+    String wG(String str);
 
-    void wK(String str);
+    void wL(String str);
 }

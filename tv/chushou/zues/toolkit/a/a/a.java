@@ -240,7 +240,7 @@ public final class a implements Closeable {
         }
     }
 
-    public synchronized c SP(String str) throws IOException {
+    public synchronized c SQ(String str) throws IOException {
         c cVar = null;
         synchronized (this) {
             checkNotClosed();
@@ -268,7 +268,7 @@ public final class a implements Closeable {
         return cVar;
     }
 
-    public C0810a SQ(String str) throws IOException {
+    public C0810a SR(String str) throws IOException {
         return P(str, -1L);
     }
 

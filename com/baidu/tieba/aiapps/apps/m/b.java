@@ -98,7 +98,7 @@ public class b extends ab {
                     try {
                         String optString = new JSONObject(str5).optString("url");
                         if (!StringUtils.isNull(optString)) {
-                            xG(optString);
+                            xH(optString);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -115,7 +115,7 @@ public class b extends ab {
         return z;
     }
 
-    private void xG(String str) {
+    private void xH(String str) {
         com.baidu.swan.apps.process.messaging.client.a acB;
         com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
         if (acI != null && (acB = acI.acB()) != null) {

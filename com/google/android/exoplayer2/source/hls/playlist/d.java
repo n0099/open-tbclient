@@ -49,9 +49,9 @@ public final class d implements p.a<c> {
     private static final Pattern mzk = Pattern.compile("LANGUAGE=\"(.+?)\"");
     private static final Pattern mzl = Pattern.compile("NAME=\"(.+?)\"");
     private static final Pattern mzm = Pattern.compile("INSTREAM-ID=\"((?:CC|SERVICE)\\d+)\"");
-    private static final Pattern mzn = PO("AUTOSELECT");
-    private static final Pattern mzo = PO("DEFAULT");
-    private static final Pattern mzp = PO("FORCED");
+    private static final Pattern mzn = PP("AUTOSELECT");
+    private static final Pattern mzo = PP("DEFAULT");
+    private static final Pattern mzp = PP("FORCED");
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [156=4] */
     /* JADX DEBUG: Method merged with bridge method */
@@ -141,7 +141,7 @@ public final class d implements p.a<c> {
                 arrayList5.add(next);
             }
             if (next.startsWith("#EXT-X-MEDIA")) {
-                int PN = PN(next);
+                int PO = PO(next);
                 String c = c(next, mzh);
                 String d = d(next, mzl);
                 String c2 = c(next, mzk);
@@ -169,7 +169,7 @@ public final class d implements p.a<c> {
                 }
                 switch (c3) {
                     case 0:
-                        Format a2 = Format.a(d, "application/x-mpegURL", (String) null, (String) null, -1, -1, -1, (List<byte[]>) null, PN, c2);
+                        Format a2 = Format.a(d, "application/x-mpegURL", (String) null, (String) null, -1, -1, -1, (List<byte[]>) null, PO, c2);
                         if (c != null) {
                             arrayList3.add(new a.C0682a(c, a2));
                             arrayList = arrayList6;
@@ -181,7 +181,7 @@ public final class d implements p.a<c> {
                             break;
                         }
                     case 1:
-                        arrayList4.add(new a.C0682a(c, Format.d(d, "application/x-mpegURL", "text/vtt", null, -1, PN, c2)));
+                        arrayList4.add(new a.C0682a(c, Format.d(d, "application/x-mpegURL", "text/vtt", null, -1, PO, c2)));
                         arrayList = arrayList6;
                         format = format2;
                         break;
@@ -195,7 +195,7 @@ public final class d implements p.a<c> {
                             parseInt = Integer.parseInt(d3.substring(7));
                         }
                         ArrayList arrayList7 = arrayList6 == null ? new ArrayList() : arrayList6;
-                        arrayList7.add(Format.a(d, (String) null, str2, (String) null, -1, PN, c2, parseInt));
+                        arrayList7.add(Format.a(d, (String) null, str2, (String) null, -1, PO, c2, parseInt));
                         arrayList = arrayList7;
                         format = format2;
                         break;
@@ -244,7 +244,7 @@ public final class d implements p.a<c> {
         return new com.google.android.exoplayer2.source.hls.playlist.a(str, arrayList5, arrayList2, arrayList3, arrayList4, format2, z ? Collections.emptyList() : arrayList6);
     }
 
-    private static int PN(String str) {
+    private static int PO(String str) {
         return (a(str, mzo, false) ? 1 : 0) | (a(str, mzp, false) ? 2 : 0) | (a(str, mzn, false) ? 4 : 0);
     }
 
@@ -343,7 +343,7 @@ public final class d implements p.a<c> {
                 i4++;
             } else if (next.startsWith("#EXT-X-PROGRAM-DATE-TIME")) {
                 if (j6 == 0) {
-                    j6 = com.google.android.exoplayer2.b.fp(v.QD(next.substring(next.indexOf(58) + 1))) - j;
+                    j6 = com.google.android.exoplayer2.b.fp(v.QE(next.substring(next.indexOf(58) + 1))) - j;
                 }
             } else if (!next.startsWith("#")) {
                 if (str2 == null) {
@@ -416,7 +416,7 @@ public final class d implements p.a<c> {
         return z;
     }
 
-    private static Pattern PO(String str) {
+    private static Pattern PP(String str) {
         return Pattern.compile(str + "=(NO|YES)");
     }
 

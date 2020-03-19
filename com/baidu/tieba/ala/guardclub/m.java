@@ -54,7 +54,7 @@ public class m extends BaseAdapter {
         }
     }
 
-    public void yw(String str) {
+    public void yx(String str) {
         this.eGZ = str;
     }
 

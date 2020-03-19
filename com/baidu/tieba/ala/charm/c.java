@@ -26,9 +26,9 @@ public class c implements com.baidu.live.liveroom.d.d {
                 if (size <= 0) {
                     c.this.ewH.il(true);
                 } else if (size < 100 || (size == 100 && c.this.ewJ <= 100)) {
-                    c.this.ewH.xW(c.this.ews.getPageContext().getResources().getString(a.i.online_no_more));
+                    c.this.ewH.xX(c.this.ews.getPageContext().getResources().getString(a.i.online_no_more));
                 } else if (size >= 100 && c.this.ewJ > 100) {
-                    c.this.ewH.xW(c.this.ews.getPageContext().getResources().getString(a.i.online_show_100));
+                    c.this.ewH.xX(c.this.ews.getPageContext().getResources().getString(a.i.online_show_100));
                 }
             }
         }
@@ -80,12 +80,12 @@ public class c implements com.baidu.live.liveroom.d.d {
         }
     }
 
-    public c xX(String str) {
+    public c xY(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public c xY(String str) {
+    public c xZ(String str) {
         this.mLiveId = str;
         return this;
     }
@@ -95,7 +95,7 @@ public class c implements com.baidu.live.liveroom.d.d {
         return this;
     }
 
-    public c xZ(String str) {
+    public c ya(String str) {
         this.atd = str;
         return this;
     }

@@ -76,7 +76,7 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
     ExifInterface V(Uri uri) {
         String a = com.facebook.common.util.d.a(this.mContentResolver, uri);
         try {
-            if (Pg(a)) {
+            if (Ph(a)) {
                 return new ExifInterface(a);
             }
         } catch (IOException e) {
@@ -111,7 +111,7 @@ public class y implements aw<com.facebook.imagepipeline.g.e> {
         return com.facebook.d.b.IX(Integer.parseInt(exifInterface.getAttribute(android.support.media.ExifInterface.TAG_ORIENTATION)));
     }
 
-    boolean Pg(String str) throws IOException {
+    boolean Ph(String str) throws IOException {
         if (str == null) {
             return false;
         }

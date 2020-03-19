@@ -27,7 +27,7 @@ public class a extends com.baidu.adp.base.c<BaseActivity> {
         return this.layoutView;
     }
 
-    public void CC(String str) {
+    public void CD(String str) {
         this.hxA.setText(str);
     }
 

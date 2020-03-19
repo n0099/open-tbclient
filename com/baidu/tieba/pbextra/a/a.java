@@ -90,7 +90,7 @@ public class a extends l<PostData, b> implements View.OnClickListener, com.baidu
             layoutParams.topMargin = 0;
             bVar.iIp.setLayoutParams(layoutParams);
             bVar.iIp.setPadding(0, 0, 0, 0);
-            bVar.iIp.wi(null);
+            bVar.iIp.wj(null);
             postData.aDA();
             if (postData.cLv() == 1) {
                 bVar.jeU.setVisibility(0);

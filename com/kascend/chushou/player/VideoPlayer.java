@@ -2867,7 +2867,7 @@ public class VideoPlayer extends BaseActivity implements a.InterfaceC0701a, a.In
     }
 
     public String a(String str) {
-        HashMap hashMap = new HashMap(tv.chushou.zues.utils.d.SU(str));
+        HashMap hashMap = new HashMap(tv.chushou.zues.utils.d.SV(str));
         if ("1".equals(this.R)) {
             hashMap.put("roomId", this.P);
         } else if ("3".equals(this.R)) {

@@ -462,11 +462,11 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                 if (h.isEmpty(this.mSo.mSystemAnnouncement)) {
                                     cVar.a(this.b.getString(a.i.danmu_list_title, this.mSo.mCreatorNickname), new ForegroundColorSpan(Color.parseColor("#ff5959")));
                                 } else {
-                                    ArrayList<RichText> SS = tv.chushou.zues.toolkit.richtext.b.SS(this.mSo.mSystemAnnouncement);
-                                    if (h.isEmpty(SS)) {
+                                    ArrayList<RichText> ST = tv.chushou.zues.toolkit.richtext.b.ST(this.mSo.mSystemAnnouncement);
+                                    if (h.isEmpty(ST)) {
                                         cVar.a(this.mSo.mSystemAnnouncement, new ForegroundColorSpan(Color.parseColor("#ff5959")));
                                     } else {
-                                        tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar, SS, 18, ContextCompat.getColor(this.b, a.c.kas_red_n), c0694a.mSv, null, null, this.mSq);
+                                        tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar, ST, 18, ContextCompat.getColor(this.b, a.c.kas_red_n), c0694a.mSv, null, null, this.mSq);
                                     }
                                 }
                             }
@@ -534,7 +534,7 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                     int length2 = cVar2.length();
                                     cVar2.setSpan(new tv.chushou.zues.widget.a.a(this.mSi), 0, cVar2.length() + (-1) > 0 ? cVar2.length() - 1 : 0, 18);
                                     if (chatInfo.mCoolContent != null && !h.isEmpty(chatInfo.mCoolContent.mContent)) {
-                                        CharSequence QY = this.mSn.QY(chatInfo.mCoolContent.mContent);
+                                        CharSequence QZ = this.mSn.QZ(chatInfo.mCoolContent.mContent);
                                         ArrayList<String> arrayList4 = new ArrayList<>();
                                         if (this.mSq != null && !h.isEmpty(chatInfo.mCoolContent.mFontColors)) {
                                             int size2 = chatInfo.mCoolContent.mFontColors.size();
@@ -550,20 +550,20 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                                         } else {
                                             arrayList = chatInfo.mCoolContent.mFontColors;
                                         }
-                                        cVar2.a(QY, new c.a().ba(arrayList).HX(chatInfo.mCoolContent.mContent.length()).dnI());
+                                        cVar2.a(QZ, new c.a().ba(arrayList).HX(chatInfo.mCoolContent.mContent.length()).dnI());
                                         i3 = length2;
                                     } else {
                                         if (!tv.chushou.zues.toolkit.richtext.b.a(this.b, cVar2, chatInfo.mContentRichText, 18, ContextCompat.getColor(this.b, a.c.banrrage_chat_text_color), c0694a.mSv, null, this.mSn, this.mSq)) {
                                             if (this.mSq != null) {
                                                 String str6 = this.mSq.get(tv.chushou.zues.utils.a.Oq(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                                 if (h.isEmpty(str6)) {
-                                                    cVar2.a(this.mSn.QY(chatInfo.mContent), new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
+                                                    cVar2.a(this.mSn.QZ(chatInfo.mContent), new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                                 } else {
-                                                    cVar2.a(this.mSn.QY(chatInfo.mContent), new ForegroundColorSpan(Color.parseColor(str6)));
+                                                    cVar2.a(this.mSn.QZ(chatInfo.mContent), new ForegroundColorSpan(Color.parseColor(str6)));
                                                 }
                                                 i3 = length2;
                                             } else {
-                                                cVar2.a(this.mSn.QY(chatInfo.mContent), new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
+                                                cVar2.a(this.mSn.QZ(chatInfo.mContent), new ForegroundColorSpan(this.b.getResources().getColor(a.c.banrrage_chat_text_color)));
                                             }
                                         }
                                         i3 = length2;
@@ -771,13 +771,13 @@ public class a extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void a(SimpleDraweeSpanTextView simpleDraweeSpanTextView, Drawable.Callback callback, tv.chushou.zues.widget.a.c cVar, String str, int i, int i2, int i3) {
         if (!h.isEmpty(str)) {
             if (e.a(str)) {
-                cVar.a("", new b.a().a(callback).wB(true).Nk(i2).Nl(i3).Rc(str).Nj(i).f(simpleDraweeSpanTextView).dFd());
+                cVar.a("", new b.a().a(callback).wB(true).Nk(i2).Nl(i3).Rd(str).Nj(i).f(simpleDraweeSpanTextView).dFd());
                 cVar.append(HanziToPinyin.Token.SEPARATOR);
                 return;
             }
             int length = cVar.length();
             com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(this.b.getResources()).HU(i).dnx(), this.b);
-            a.setController(com.facebook.drawee.a.a.c.dlW().OV(str).dmN());
+            a.setController(com.facebook.drawee.a.a.c.dlW().OW(str).dmN());
             cVar.append("1");
             cVar.a(a, length, length, i2, i3, true, 2);
             cVar.append(HanziToPinyin.Token.SEPARATOR);

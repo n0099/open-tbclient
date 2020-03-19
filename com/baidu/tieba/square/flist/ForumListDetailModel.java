@@ -83,8 +83,8 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
         public ForumListModel doInBackground(Void... voidArr) {
             try {
                 if (ForumListDetailModel.this.isFirst) {
-                    l<String> sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.my_posts");
-                    String str = sP != null ? sP.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ForumListDetailModel.this.kcs.menu_name + "_list") : null;
+                    l<String> sQ = com.baidu.tbadk.core.c.a.aEF().sQ("tb.my_posts");
+                    String str = sQ != null ? sQ.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ForumListDetailModel.this.kcs.menu_name + "_list") : null;
                     if (str != null) {
                         this.kcS = (ForumListModel) OrmObject.objectWithJsonStr(str, ForumListModel.class);
                         if (this.kcS != null) {

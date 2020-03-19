@@ -43,7 +43,7 @@ public class l extends BaseAdapter {
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.CC(getItem(i).toString());
+        aVar.CD(getItem(i).toString());
         if (this.hyS.bUj() == i) {
             aVar.ns(true);
         } else {

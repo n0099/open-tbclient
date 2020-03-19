@@ -46,6 +46,6 @@ public final class k extends TypeAdapter<Time> {
     @Override // com.google.gson.TypeAdapter
     /* renamed from: a */
     public synchronized void write(com.google.gson.stream.b bVar, Time time) throws IOException {
-        bVar.QM(time == null ? null : this.mNy.format((Date) time));
+        bVar.QN(time == null ? null : this.mNy.format((Date) time));
     }
 }

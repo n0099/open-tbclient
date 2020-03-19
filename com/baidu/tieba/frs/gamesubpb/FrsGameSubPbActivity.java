@@ -88,7 +88,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     if (!v.isEmpty(list)) {
                         m mVar = list.get(list.size() - 1);
                         if (mVar instanceof d) {
-                            FrsGameSubPbActivity.this.gEi.Bo(((d) mVar).id);
+                            FrsGameSubPbActivity.this.gEi.Bp(((d) mVar).id);
                         }
                     }
                 } else if (!z3) {
@@ -132,7 +132,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     if (FrsGameSubPbActivity.this.gEh != null) {
                         FrsGameSubPbActivity.this.gEh.bIo();
                     }
-                    FrsGameSubPbActivity.this.gEg.Bq(null);
+                    FrsGameSubPbActivity.this.gEg.Br(null);
                 }
             }
         };

@@ -157,7 +157,7 @@ public class e implements ah {
         }
     };
 
-    public void AX(String str) {
+    public void AY(String str) {
         ForumMemberReadCacheRequestMessage forumMemberReadCacheRequestMessage = new ForumMemberReadCacheRequestMessage();
         if (this.dBK != null) {
             forumMemberReadCacheRequestMessage.setTag(this.dBK);
@@ -229,7 +229,7 @@ public class e implements ah {
                 s sVar = new s();
                 if (sVar != null) {
                     sVar.sw(priManagerApplyInfo.assist_left_num.intValue());
-                    sVar.AZ(priManagerApplyInfo.assist_apply_url);
+                    sVar.Ba(priManagerApplyInfo.assist_apply_url);
                     sVar.sx(priManagerApplyInfo.assist_apply_status.intValue());
                 }
                 arrayList.add(sVar);
@@ -238,9 +238,9 @@ public class e implements ah {
             p pVar = new p();
             if (managerApplyInfo != null) {
                 pVar.su(managerApplyInfo.manager_left_num.intValue());
-                pVar.AY(managerApplyInfo.manager_apply_url);
+                pVar.AZ(managerApplyInfo.manager_apply_url);
                 pVar.sw(managerApplyInfo.assist_left_num.intValue());
-                pVar.AZ(managerApplyInfo.assist_apply_url);
+                pVar.Ba(managerApplyInfo.assist_apply_url);
                 pVar.sv(managerApplyInfo.manager_apply_status.intValue());
             }
             arrayList.add(pVar);
@@ -316,7 +316,7 @@ public class e implements ah {
             this.forumId = aoVar.forumId;
             this.forumName = aoVar.forumName;
             if (this.gij) {
-                AX(aoVar.forumName);
+                AY(aoVar.forumName);
             } else if (aoVar.pn == -1) {
                 g(com.baidu.adp.lib.f.b.toLong(aoVar.forumId, 0L), aoVar.forumName);
             } else {

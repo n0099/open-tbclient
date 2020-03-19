@@ -662,7 +662,7 @@ public class p {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 com.baidu.tbadk.data.m mVar;
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.m) && (mVar = (com.baidu.tbadk.data.m) customResponsedMessage.getData()) != null) {
-                    p.this.jus.GU(mVar.aAJ());
+                    p.this.jus.GV(mVar.aAJ());
                 }
             }
         };

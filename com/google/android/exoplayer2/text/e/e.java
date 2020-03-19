@@ -61,7 +61,7 @@ final class e {
         return this.hC;
     }
 
-    public e Qa(String str) {
+    public e Qb(String str) {
         com.google.android.exoplayer2.util.a.checkState(this.mDu == null);
         this.hC = str;
         return this;
@@ -140,7 +140,7 @@ final class e {
         return this;
     }
 
-    public e Qb(String str) {
+    public e Qc(String str) {
         this.id = str;
         return this;
     }

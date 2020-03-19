@@ -383,7 +383,7 @@ public class b {
         this.ewD.startLoadData();
     }
 
-    public void xW(String str) {
+    public void xX(String str) {
         this.mListView.setNextPage(this.ewD);
         this.ewD.endLoadDataWithNoMore(str);
     }

@@ -37,7 +37,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 ForumMemberActivity.this.glx = arrayList;
                 ForumMemberActivity.this.gly.ca(ForumMemberActivity.this.glx);
             } else if (v.isEmpty(ForumMemberActivity.this.glx) && arVar != null) {
-                ForumMemberActivity.this.gly.Ba(arVar.errMsg);
+                ForumMemberActivity.this.gly.Bb(arVar.errMsg);
             }
         }
     };

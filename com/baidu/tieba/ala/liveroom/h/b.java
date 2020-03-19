@@ -79,19 +79,19 @@ public class b {
                     });
                 }
                 if (b.this.fbZ != null && b.this.fbZ.aed != null) {
-                    this.fcf.yY(b.this.fbZ.aed);
+                    this.fcf.yZ(b.this.fbZ.aed);
                 }
                 if (b.this.fbZ != null && b.this.fbZ.portrait != null) {
-                    this.fcf.yX(b.this.fbZ.getPortrait());
+                    this.fcf.yY(b.this.fbZ.getPortrait());
                 }
                 String str3 = "";
                 if (b.this.fbZ != null) {
                     str3 = b.this.fbZ.getSubappType();
                 }
-                this.fcf.yZ(str);
+                this.fcf.za(str);
                 this.fcf.setRoomId(b.this.roomId);
-                this.fcf.za(str2);
-                this.fcf.zb(str3);
+                this.fcf.zb(str2);
+                this.fcf.zc(str3);
                 this.fcf.show();
                 n.by(true);
                 if (b.this.fbZ != null) {
@@ -119,7 +119,7 @@ public class b {
         public void a(com.baidu.tieba.ala.liveroom.data.c cVar) {
             b.this.fbZ = cVar;
             if (b.this.fcb != null) {
-                b.this.fcb.zb(cVar.fbd);
+                b.this.fcb.zc(cVar.fbd);
             }
             if (cVar.needToast == 1) {
                 b.this.fca = new ApkData();

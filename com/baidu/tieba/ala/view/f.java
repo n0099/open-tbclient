@@ -99,7 +99,7 @@ public class f implements com.baidu.live.p.c {
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.view.f.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            f.this.zM("hour");
+            f.this.zN("hour");
             LogManager.getCommonLogger().doClickHourRankEntryLog(f.this.alR, f.this.fCt, f.this.otherParams);
         }
     };
@@ -276,7 +276,7 @@ public class f implements com.baidu.live.p.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zM(String str) {
+    public void zN(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new n(this.mContext, this.YH, this.mUserId, this.mUserName, str, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, this.mIsHost, this.mPortrait, this.otherParams, this.alR, this.eio, this.fCo == null ? com.baidu.live.utils.i.cW(0) : this.fCo.Bf())));
     }
 
@@ -295,7 +295,7 @@ public class f implements com.baidu.live.p.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zN(String str) {
+    public void zO(String str) {
         this.mTextView.setText(str);
         int textWidth = BdUtilHelper.getTextWidth(this.mPaint, str);
         if (this.fCl.getLayoutParams() != null) {
@@ -339,7 +339,7 @@ public class f implements com.baidu.live.p.c {
                 ofFloat.cancel();
                 ofFloat.removeAllListeners();
                 ofFloat2.cancel();
-                f.this.zN(str2);
+                f.this.zO(str2);
             }
 
             @Override // android.animation.Animator.AnimatorListener

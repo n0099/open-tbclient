@@ -14,7 +14,7 @@ public class c {
         return this.mSharedPreferences.getString("splash", "");
     }
 
-    public void xB(String str) {
+    public void xC(String str) {
         SharedPreferences.Editor edit = this.mSharedPreferences.edit();
         edit.putString("splash", str);
         edit.commit();

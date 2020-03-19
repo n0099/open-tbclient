@@ -361,7 +361,7 @@ public class b implements View.OnClickListener {
             o oVar = new o();
             oVar.cK(this.ezr);
             oVar.cL(this.ezs);
-            oVar.yh(str);
+            oVar.yi(str);
             if (this.ezB != null) {
                 this.ezB.a(oVar);
             }

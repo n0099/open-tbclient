@@ -98,7 +98,7 @@ public class PbFakeFloorModel extends DataModel {
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public WriteData vi(String str) {
+    public WriteData vj(String str) {
         if (this.iVr == null || this.iVr.aPr() == null || this.iVr.aAj() == null || this.iVr.clB() == null) {
             return null;
         }

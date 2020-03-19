@@ -254,7 +254,7 @@ public class ah {
                 int size = this.iGO.ckR().size();
                 for (int i = 0; i < size; i++) {
                     if (this.iGO.ckR().get(i) != null && this.iGO.ckR().get(i).aCr() != null && currentAccount.equals(this.iGO.ckR().get(i).aCr().getUserId()) && this.iGO.ckR().get(i).aCr().getPendantData() != null) {
-                        this.iGO.ckR().get(i).aCr().getPendantData().sA(mVar.aAJ());
+                        this.iGO.ckR().get(i).aCr().getPendantData().sB(mVar.aAJ());
                         this.iGO.ckR().get(i).aCr().getPendantData().bI(mVar.aOd());
                     }
                 }

@@ -94,9 +94,9 @@ public class q extends v.a {
             bj bjVar = new bj();
             bjVar.setId(eVar.getThreadId());
             bjVar.setFid(com.baidu.adp.lib.f.b.toLong(eVar.getForum().getId(), 0L));
-            bjVar.sF(eVar.getForum().getName());
-            bjVar.sK(eVar.getForum().getFirst_class());
-            bjVar.sL(eVar.getForum().getSecond_class());
+            bjVar.sG(eVar.getForum().getName());
+            bjVar.sL(eVar.getForum().getFirst_class());
+            bjVar.sM(eVar.getForum().getSecond_class());
             if (eVar.ckP() != null) {
                 bjVar.setThreadType(eVar.ckP().threadType);
             }

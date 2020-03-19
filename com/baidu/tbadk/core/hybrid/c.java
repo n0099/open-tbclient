@@ -54,7 +54,7 @@ public class c extends WebChromeClient {
         }
 
         public boolean cs(String str, String str2) {
-            return !TextUtils.isEmpty(str2) && p.sX(str) && str2.startsWith("ctieba://");
+            return !TextUtils.isEmpty(str2) && p.sY(str) && str2.startsWith("ctieba://");
         }
 
         public String ct(String str, String str2) {

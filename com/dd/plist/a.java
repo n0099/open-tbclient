@@ -266,9 +266,9 @@ public class a {
                 skip();
             } else {
                 try {
-                    String OD = OD(str);
+                    String OE = OE(str);
                     skip();
-                    return OD;
+                    return OE;
                 } catch (Exception e) {
                     throw new ParseException("The quoted string could not be parsed.", this.index);
                 }
@@ -276,7 +276,7 @@ public class a {
         }
     }
 
-    public static synchronized String OD(String str) throws UnsupportedEncodingException, CharacterCodingException {
+    public static synchronized String OE(String str) throws UnsupportedEncodingException, CharacterCodingException {
         String str2;
         synchronized (a.class) {
             LinkedList<Byte> linkedList = new LinkedList();

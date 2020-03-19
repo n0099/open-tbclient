@@ -111,7 +111,7 @@ public class f {
         return this.mFrom;
     }
 
-    public void KL(String str) {
+    public void KM(String str) {
         if (str == null) {
             str = "";
         }
@@ -126,7 +126,7 @@ public class f {
         this.kEC = forumWriteData;
     }
 
-    public void KM(String str) {
+    public void KN(String str) {
         if ("3".equals(str)) {
             this.writeCallFrom = "1";
         } else {
@@ -202,7 +202,7 @@ public class f {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cVv.getPageActivity());
             aVar.setAutoNight(false);
             aVar.jV(R.string.prompt);
-            aVar.sR(this.cVv.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
+            aVar.sS(this.cVv.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
             aVar.setTitleShowCenter(true);
             aVar.setMessageShowCenter(true);
             aVar.a(R.string.know, new a.b() { // from class: com.baidu.tieba.write.f.2
@@ -315,7 +315,7 @@ public class f {
         tP(false);
         TiebaStatic.log(new an(CommonStatisticKey.KEY_ENTRANCE_CLICKED).cx("obj_locate", this.kNX).X("obj_type", 2));
         if ("main_tab".equals(this.mFrom) || AlbumActivityConfig.FROM_PERSON.equals(this.mFrom)) {
-            if (PluginCheckUtil.vN("com.baidu.tieba.pluginPublisher") && (aNY = com.baidu.tbadk.data.h.aNY()) != null) {
+            if (PluginCheckUtil.vO("com.baidu.tieba.pluginPublisher") && (aNY = com.baidu.tbadk.data.h.aNY()) != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921429, aNY));
                 return;
             }
@@ -329,7 +329,7 @@ public class f {
         i.b(this.cVv, "", this.kEC);
     }
 
-    public void KN(String str) {
+    public void KO(String str) {
         String str2;
         String str3;
         int i;

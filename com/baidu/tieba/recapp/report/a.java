@@ -12,7 +12,7 @@ public class a {
         jNj.put(str, set);
     }
 
-    public static Set<m> HZ(String str) {
+    public static Set<m> Ia(String str) {
         return jNj.get(str);
     }
 

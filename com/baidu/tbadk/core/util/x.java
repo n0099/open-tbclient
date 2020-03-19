@@ -250,7 +250,7 @@ public class x {
         stringBuffer.append("tiebaclient!!!");
         this.cZB.addPostData("sign", com.baidu.adp.lib.util.s.toMd5(stringBuffer.toString()));
         if (this.cZA.aGL().cZD) {
-            this.cZB.addPostData("sig", StringU.wo(stringBuffer.toString()));
+            this.cZB.addPostData("sig", StringU.wp(stringBuffer.toString()));
         }
     }
 
@@ -304,7 +304,7 @@ public class x {
                     aGm();
                     return null;
                 }
-                com.baidu.tbadk.core.a.b.sq(currentAccountObj.getID());
+                com.baidu.tbadk.core.a.b.ss(currentAccountObj.getID());
                 if (ReloginManager.aFA().aFD()) {
                     f(currentAccountObj);
                     ReloginManager.aFA().e(null);
@@ -386,7 +386,7 @@ public class x {
         return process(3);
     }
 
-    public String tq(String str) throws IOException {
+    public String tr(String str) throws IOException {
         byte[] bArr;
         try {
             InputStream GetStreamFromFile = m.GetStreamFromFile(str);

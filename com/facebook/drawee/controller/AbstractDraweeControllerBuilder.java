@@ -174,7 +174,7 @@ public abstract class AbstractDraweeControllerBuilder<BUILDER extends AbstractDr
     protected a dmK() {
         a dmi = dmi();
         dmi.vm(dmF());
-        dmi.OZ(dmH());
+        dmi.Pa(dmH());
         dmi.a(dmG());
         b(dmi);
         a(dmi);

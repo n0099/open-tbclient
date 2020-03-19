@@ -130,7 +130,7 @@ final class FormUploader {
                                     if (responseInfo3.dGp()) {
                                         AnonymousClass2.this.npL.nqw.b(AnonymousClass2.this.val$key, 1.0d);
                                     } else if (responseInfo3.dGt()) {
-                                        AnonymousClass2.this.npN.npJ.Rk(d2);
+                                        AnonymousClass2.this.npN.npJ.Rl(d2);
                                     }
                                     AnonymousClass2.this.npM.a(AnonymousClass2.this.val$key, responseInfo3, jSONObject3);
                                 }

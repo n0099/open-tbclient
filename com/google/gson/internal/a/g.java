@@ -96,7 +96,7 @@ public final class g implements TypeAdapterFactory {
             } else if (!g.this.complexMapKeySerialization) {
                 bVar.dBE();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    bVar.QL(String.valueOf(entry.getKey()));
+                    bVar.QM(String.valueOf(entry.getKey()));
                     this.mNm.write(bVar, entry.getValue());
                 }
                 bVar.dBF();
@@ -126,7 +126,7 @@ public final class g implements TypeAdapterFactory {
                 bVar.dBE();
                 int size2 = arrayList.size();
                 while (i < size2) {
-                    bVar.QL(b((JsonElement) arrayList.get(i)));
+                    bVar.QM(b((JsonElement) arrayList.get(i)));
                     this.mNm.write(bVar, arrayList2.get(i));
                     i++;
                 }

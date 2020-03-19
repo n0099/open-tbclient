@@ -70,9 +70,9 @@ public class c {
         }
     }
 
-    public void zF(String str) {
+    public void zG(String str) {
         if (this.fux != null) {
-            this.fux.zF(str);
+            this.fux.zG(str);
         }
     }
 }

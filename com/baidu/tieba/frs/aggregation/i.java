@@ -53,10 +53,10 @@ public class i {
         }
     }
 
-    public void Bl(String str) {
+    public void Bm(String str) {
         this.st_type = str;
         if (this.gvO != null) {
-            this.gvO.Bl(str);
+            this.gvO.Bm(str);
         }
     }
 

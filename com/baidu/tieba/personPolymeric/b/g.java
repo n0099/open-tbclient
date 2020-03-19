@@ -234,7 +234,7 @@ public class g implements View.OnClickListener {
             } else if (this.jpq.cvr() != null && view.getId() == this.jpq.cvr().getId()) {
                 if (this.hNI != null) {
                     TiebaStatic.log(new an("c13063").X("obj_locate", 1));
-                    this.hNI.zD(String.valueOf(this.mUserId));
+                    this.hNI.zE(String.valueOf(this.mUserId));
                 }
             } else if (this.jpq.cvs() != null && view.getId() == this.jpq.cvs().getId()) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
@@ -262,7 +262,7 @@ public class g implements View.OnClickListener {
                     aVar2.dismiss();
                 }
             });
-            aVar.sR(String.format(this.mPageContext.getString(R.string.remove_fans_alert_text), this.mUserName));
+            aVar.sS(String.format(this.mPageContext.getString(R.string.remove_fans_alert_text), this.mUserName));
             aVar.b(this.mPageContext);
             aVar.aEG();
         }
@@ -296,7 +296,7 @@ public class g implements View.OnClickListener {
             } else {
                 format = String.format(this.mPageContext.getString(R.string.block_chat_message_alert), this.mUserName);
             }
-            aVar.sR(format);
+            aVar.sS(format);
             aVar.b(this.mPageContext);
             aVar.aEG();
         }

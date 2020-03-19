@@ -77,7 +77,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements aj {
         super.onPrimary();
         if (this.eoz || StringUtils.isNull(this.eEd.getWebView().getUrl())) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.eEd.loadUrl(yj(getVideoUrl()));
+                this.eEd.loadUrl(yk(getVideoUrl()));
             } else {
                 this.eEd.loadUrl(getVideoUrl());
             }
@@ -95,7 +95,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements aj {
         super.onResume();
     }
 
-    private String yj(String str) {
+    private String yk(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -130,7 +130,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements aj {
         super.onChangeSkinType(i);
         if (!this.eoz) {
             if (i == 1) {
-                this.eEd.loadUrl(yj(getVideoUrl()));
+                this.eEd.loadUrl(yk(getVideoUrl()));
             } else {
                 this.eEd.loadUrl(getVideoUrl());
             }

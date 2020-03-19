@@ -527,8 +527,8 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 aVar = null;
             } else {
                 String str = (String) tag;
-                com.baidu.adp.widget.ImageView.a vx = com.baidu.tbadk.imageManager.c.aPV().vx(str);
-                aVar = vx == null ? com.baidu.tbadk.imageManager.c.aPV().vw(str) : vx;
+                com.baidu.adp.widget.ImageView.a vy = com.baidu.tbadk.imageManager.c.aPV().vy(str);
+                aVar = vy == null ? com.baidu.tbadk.imageManager.c.aPV().vx(str) : vy;
             }
         } else {
             aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.e.c.gr().loadResourceFromMemery(this.mUrl, this.mType, new Object[0]);

@@ -278,7 +278,7 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getTbPageContext().getPageActivity());
             aVar.setAutoNight(false);
             aVar.jV(R.string.prompt);
-            aVar.sR(getContext().getResources().getString(R.string.disallow_open_live_by_android_v5_0));
+            aVar.sS(getContext().getResources().getString(R.string.disallow_open_live_by_android_v5_0));
             aVar.setTitleShowCenter(true);
             aVar.setMessageShowCenter(true);
             aVar.a(R.string.know, new a.b() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.g.2

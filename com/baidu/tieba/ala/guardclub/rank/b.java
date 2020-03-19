@@ -165,7 +165,7 @@ public class b implements c {
                 this.eIi.setType(0);
                 break;
         }
-        this.eIi.yw(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
+        this.eIi.yx(String.valueOf(TbadkCoreApplication.getCurrentAccountId()));
         this.eIi.a(new m.a() { // from class: com.baidu.tieba.ala.guardclub.rank.b.2
             @Override // com.baidu.tieba.ala.guardclub.m.a
             public void a(k kVar) {

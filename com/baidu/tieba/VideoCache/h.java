@@ -13,7 +13,7 @@ public class h {
         return this.dXy;
     }
 
-    public void wy(String str) {
+    public void wz(String str) {
         this.dXy = str;
     }
 
@@ -21,7 +21,7 @@ public class h {
         return this.cKc;
     }
 
-    public void wz(String str) {
+    public void wA(String str) {
         this.cKc = str;
     }
 

@@ -58,7 +58,7 @@ public class b {
         this.mExecutor.submit(new a(str, strArr));
     }
 
-    public String[] RU(String str) {
+    public String[] RV(String str) {
         String[] strArr;
         Cursor query = this.mDatabase.query("dns_disaster_cache", new String[]{TableDefine.UserInfoColumns.COLUMN_IP}, String.format("%s=?", "hostname"), new String[]{str}, null, null, null);
         try {

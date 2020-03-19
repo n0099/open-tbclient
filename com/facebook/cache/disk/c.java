@@ -23,7 +23,7 @@ public interface c {
         boolean dkA();
     }
 
-    long OK(String str) throws IOException;
+    long OL(String str) throws IOException;
 
     long a(a aVar) throws IOException;
 

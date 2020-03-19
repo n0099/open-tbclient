@@ -194,7 +194,7 @@ public class a implements Closeable {
                     this.mPf = 4;
                     return 4;
                 default:
-                    throw QO("Unterminated array");
+                    throw QP("Unterminated array");
             }
         } else if (i == 3 || i == 5) {
             this.mPj[this.mNe - 1] = 4;
@@ -209,7 +209,7 @@ public class a implements Closeable {
                         this.mPf = 2;
                         return 2;
                     default:
-                        throw QO("Unterminated object");
+                        throw QP("Unterminated object");
                 }
             }
             int wl = wl(true);
@@ -226,7 +226,7 @@ public class a implements Closeable {
                         this.mPf = 2;
                         return 2;
                     }
-                    throw QO("Expected name");
+                    throw QP("Expected name");
                 default:
                     dBQ();
                     this.pos--;
@@ -234,7 +234,7 @@ public class a implements Closeable {
                         this.mPf = 14;
                         return 14;
                     }
-                    throw QO("Expected name");
+                    throw QP("Expected name");
             }
         } else if (i == 4) {
             this.mPj[this.mNe - 1] = 5;
@@ -244,7 +244,7 @@ public class a implements Closeable {
                 case 59:
                 case 60:
                 default:
-                    throw QO("Expected ':'");
+                    throw QP("Expected ':'");
                 case 61:
                     dBQ();
                     if ((this.pos < this.limit || MK(1)) && this.mPc[this.pos] == '>') {
@@ -298,7 +298,7 @@ public class a implements Closeable {
                     int dBN = dBN();
                     if (dBN == 0) {
                         if (!m(this.mPc[this.pos])) {
-                            throw QO("Expected value");
+                            throw QP("Expected value");
                         }
                         dBQ();
                         this.mPf = 10;
@@ -314,7 +314,7 @@ public class a implements Closeable {
             this.mPf = 7;
             return 7;
         }
-        throw QO("Unexpected value");
+        throw QP("Unexpected value");
     }
 
     private int dBM() throws IOException {
@@ -783,7 +783,7 @@ public class a implements Closeable {
             sb2.append(cArr, i4, i6 - i4);
             this.pos = i6;
         } while (MK(1));
-        throw QO("Unterminated string");
+        throw QP("Unterminated string");
     }
 
     private String dBO() throws IOException {
@@ -861,7 +861,7 @@ public class a implements Closeable {
             }
             this.pos = i3;
         } while (MK(1));
-        throw QO("Unterminated string");
+        throw QP("Unterminated string");
     }
 
     private void dBP() throws IOException {
@@ -1076,8 +1076,8 @@ public class a implements Closeable {
                 switch (cArr[this.pos]) {
                     case '*':
                         this.pos++;
-                        if (!QN("*/")) {
-                            throw QO("Unterminated comment");
+                        if (!QO("*/")) {
+                            throw QP("Unterminated comment");
                         }
                         i = this.pos + 2;
                         i2 = this.limit;
@@ -1106,7 +1106,7 @@ public class a implements Closeable {
 
     private void dBQ() throws IOException {
         if (!this.lenient) {
-            throw QO("Use JsonReader.setLenient(true) to accept malformed JSON");
+            throw QP("Use JsonReader.setLenient(true) to accept malformed JSON");
         }
     }
 
@@ -1129,7 +1129,7 @@ public class a implements Closeable {
         } while (c != '\r');
     }
 
-    private boolean QN(String str) throws IOException {
+    private boolean QO(String str) throws IOException {
         int i;
         int length = str.length();
         while (true) {
@@ -1184,7 +1184,7 @@ public class a implements Closeable {
     private char readEscapeCharacter() throws IOException {
         int i;
         if (this.pos == this.limit && !MK(1)) {
-            throw QO("Unterminated escape sequence");
+            throw QP("Unterminated escape sequence");
         }
         char[] cArr = this.mPc;
         int i2 = this.pos;
@@ -1212,7 +1212,7 @@ public class a implements Closeable {
                 return '\t';
             case 'u':
                 if (this.pos + 4 > this.limit && !MK(4)) {
-                    throw QO("Unterminated escape sequence");
+                    throw QP("Unterminated escape sequence");
                 }
                 int i3 = this.pos;
                 int i4 = i3 + 4;
@@ -1234,11 +1234,11 @@ public class a implements Closeable {
                 this.pos += 4;
                 return c2;
             default:
-                throw QO("Invalid escape sequence");
+                throw QP("Invalid escape sequence");
         }
     }
 
-    private IOException QO(String str) throws IOException {
+    private IOException QP(String str) throws IOException {
         throw new MalformedJsonException(str + dBz());
     }
 

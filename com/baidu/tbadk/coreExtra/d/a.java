@@ -67,7 +67,7 @@ public class a {
         return this.duL;
     }
 
-    public void uI(String str) {
+    public void uJ(String str) {
         if (!"ws://im.tieba.baidu.com:8000".equals(str)) {
             this.duL = str;
             com.baidu.tbadk.core.sharedPref.b.aFH().putString("KeyOfSharedPrefValidIp", str);
@@ -80,7 +80,7 @@ public class a {
                 com.baidu.tbadk.core.sharedPref.b.aFH().putString("KeyOfSharedPrefIpList", "");
                 return null;
             }
-            this.duM = uJ(com.baidu.tbadk.core.sharedPref.b.aFH().getString("KeyOfSharedPrefIpList", null));
+            this.duM = uK(com.baidu.tbadk.core.sharedPref.b.aFH().getString("KeyOfSharedPrefIpList", null));
         }
         return this.duM;
     }
@@ -103,7 +103,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<String> uJ(String str) {
+    public List<String> uK(String str) {
         String[] split;
         ArrayList arrayList = null;
         if (str != null && str.length() > 0 && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length > 0) {
@@ -137,13 +137,13 @@ public class a {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     if (jSONObject.optInt("error_code") == 0) {
                         String optString = jSONObject.optString("urls");
-                        a.this.duM = a.this.uJ(optString);
+                        a.this.duM = a.this.uK(optString);
                         if (a.this.duM != null && a.this.duM.size() > 0) {
                             HashMap hashMap = new HashMap();
                             for (int i = 0; i < a.this.duM.size(); i++) {
                                 String str2 = (String) a.this.duM.get(i);
                                 f fVar = new f();
-                                fVar.uM(str2);
+                                fVar.uN(str2);
                                 if (fVar.isSucc()) {
                                     hashMap.put(str2, Integer.valueOf(fVar.aNA()));
                                 }

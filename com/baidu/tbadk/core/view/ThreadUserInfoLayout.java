@@ -383,7 +383,7 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
     private void h(bj bjVar) {
         if (this.Nm != null && bjVar != null) {
             if (!StringUtils.isNull(this.KJ.aCr().getName_show())) {
-                this.Nm.setText(tY(this.KJ.aCr().getName_show()));
+                this.Nm.setText(tZ(this.KJ.aCr().getName_show()));
             }
             nt();
             if (this.mFrom == 3 || this.mFrom == 4) {
@@ -588,7 +588,7 @@ public class ThreadUserInfoLayout extends LinearLayout implements c {
         return this.Nm;
     }
 
-    protected String tY(String str) {
+    protected String tZ(String str) {
         return aq.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 

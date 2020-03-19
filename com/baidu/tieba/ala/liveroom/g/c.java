@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public void yU(String str) {
+    public void yV(String str) {
         if (!TextUtils.isEmpty(str)) {
             for (int i = 0; i < this.faC.length; i++) {
                 if (str.equals(this.faC[i].mFilterName)) {

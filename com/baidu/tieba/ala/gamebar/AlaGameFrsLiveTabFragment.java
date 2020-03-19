@@ -159,7 +159,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             }
             String string = b.aFH().getString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, null);
             if (!TextUtils.isEmpty(string)) {
-                this.mTabHost.setCurrentTab(yi(string));
+                this.mTabHost.setCurrentTab(yj(string));
             }
             b.aFH().putString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, "");
         }
@@ -254,7 +254,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         return null;
     }
 
-    private int yi(String str) {
+    private int yj(String str) {
         return (!"live".equals(str) && PraiseUBCHelper.SOURCE_DYNAMIC.equals(str)) ? 1 : 0;
     }
 

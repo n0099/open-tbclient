@@ -934,7 +934,7 @@ public class an {
                             }
                             an.this.iRb.b(an.this.FO);
                         }
-                        an.this.iRb.Gk(substring);
+                        an.this.iRb.Gl(substring);
                     }
                 }
             }
@@ -1127,7 +1127,7 @@ public class an {
             } else {
                 str = "3";
             }
-            this.gRC.wn(str);
+            this.gRC.wo(str);
             this.gRC.a(new e.b() { // from class: com.baidu.tieba.pb.pb.main.an.8
                 @Override // com.baidu.tieba.NEGFeedBack.e.b
                 public void S(JSONArray jSONArray) {
@@ -1160,7 +1160,7 @@ public class an {
             this.iPU.jW(i3);
         } else {
             this.iPU.setOnlyMessageShowCenter(false);
-            this.iPU.sR(str2);
+            this.iPU.sS(str2);
         }
         this.iPU.setYesButtonTag(sparseArray);
         this.iPU.a(R.string.dialog_ok, this.iFL);
@@ -1730,7 +1730,7 @@ public class an {
         if (dVar != null) {
             this.iPx.crB();
             if (!StringUtils.isNull(dVar.forumName)) {
-                this.iPx.DT(dVar.forumName);
+                this.iPx.DU(dVar.forumName);
             }
             String string = TbadkCoreApplication.getInst().getResources().getString(R.string.thread_delete_by);
             String str = "";
@@ -1797,7 +1797,7 @@ public class an {
             if (this.iRf == null) {
                 this.iRf = new aa(this.iFL.getPageContext(), this.gOI);
             }
-            this.iRf.Ga(eVar.ckU());
+            this.iRf.Gb(eVar.ckU());
             if (this.iFL.cno()) {
                 if (this.iPQ == null) {
                     this.iPQ = new com.baidu.tieba.pb.view.d(this.iFL.getPageContext());
@@ -2126,7 +2126,7 @@ public class an {
                         bj ckP = eVar.ckP();
                         ckP.t(true, s(eVar));
                         ckP.jI(3);
-                        ckP.sE("2");
+                        ckP.sF("2");
                     }
                     if (eVar.ckP().aBg()) {
                         this.iPG.c(this.iPB);
@@ -2225,13 +2225,13 @@ public class an {
         return bottom > 0 && bottom <= rect.bottom;
     }
 
-    public void Gc(String str) {
+    public void Gd(String str) {
         if (this.gvD != null) {
             this.gvD.setText(str);
         }
     }
 
-    public void Gd(String str) {
+    public void Ge(String str) {
         if (this.gvD != null) {
             int i = 0;
             if (this.iQE != null && this.iQE.iRI != null && this.iQE.iRI.getView() != null) {
@@ -2876,7 +2876,7 @@ public class an {
         }
     }
 
-    public void Ge(String str) {
+    public void Gf(String str) {
         if (str.contains(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS)) {
             str = str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "\n");
         }
@@ -2945,7 +2945,7 @@ public class an {
         this.iPG.pH(z);
     }
 
-    public void Gf(String str) {
+    public void Gg(String str) {
         if (this.iPy != null) {
             this.iPy.setTitle(str);
         }
@@ -2974,7 +2974,7 @@ public class an {
         return false;
     }
 
-    public void Gg(String str) {
+    public void Gh(String str) {
         this.hiz.performClick();
         if (!StringUtils.isNull(str) && this.iFL.cmK() != null && this.iFL.cmK().aOX() != null && this.iFL.cmK().aOX().getInputView() != null) {
             EditText inputView = this.iFL.cmK().aOX().getInputView();

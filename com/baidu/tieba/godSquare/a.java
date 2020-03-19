@@ -59,7 +59,7 @@ public class a {
         this.mActivity.hideLoadingView(this.mRootView);
     }
 
-    public void Ba(String str) {
+    public void Bb(String str) {
         this.ekE.setVisibility(8);
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }

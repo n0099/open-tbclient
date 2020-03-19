@@ -278,7 +278,7 @@ public class ImMemoryCacheRegister {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MemoryItemRemoveMessage.a)) {
                 MemoryItemRemoveMessage.a aVar = (MemoryItemRemoveMessage.a) customResponsedMessage.getData();
                 if (aVar.customGroupType == 1) {
-                    ImMemoryCacheRegister.this.Dr(aVar.id);
+                    ImMemoryCacheRegister.this.Ds(aVar.id);
                 }
             }
         }
@@ -438,7 +438,7 @@ public class ImMemoryCacheRegister {
                 int i = data.visible ? 0 : 1;
                 if (aV != null && i != aV.getIs_hidden()) {
                     if (data.customGroupType == 2) {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().uo(data.id);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().up(data.id);
                     } else if (data.customGroupType == 4) {
                         com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().lN(com.baidu.adp.lib.f.b.toInt(data.id, 0));
                     } else if (data.customGroupType == -3) {
@@ -446,7 +446,7 @@ public class ImMemoryCacheRegister {
                     } else if (data.customGroupType == -4) {
                         com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().lO(1);
                     } else {
-                        com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().un(data.id);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().uo(data.id);
                     }
                     b.bXb().e(data.id, data.customGroupType, data.visible);
                     aV.setIs_hidden(i);
@@ -510,7 +510,7 @@ public class ImMemoryCacheRegister {
                             try {
                                 h.bUL().bUM();
                                 j.bUP().f(imMessageCenterPojo);
-                                com.baidu.tieba.im.db.c.bUE().CO(imMessageCenterPojo.getGid());
+                                com.baidu.tieba.im.db.c.bUE().CP(imMessageCenterPojo.getGid());
                                 h.bUL().bUN();
                                 return null;
                             } catch (Exception e) {
@@ -563,7 +563,7 @@ public class ImMemoryCacheRegister {
             if (customResponsedMessage != null && (customResponsedMessage instanceof PushMessage) && (p = ((PushMessage) customResponsedMessage).getP()) != null) {
                 String cmd = p.getCmd();
                 if (!TextUtils.isEmpty(cmd)) {
-                    if (f.CA(cmd)) {
+                    if (f.CB(cmd)) {
                         ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                         imMessageCenterPojo.setGid(TbEnum.CustomGroupId.GROUP_UPDATE);
                         imMessageCenterPojo.setCustomGroupType(-3);
@@ -571,7 +571,7 @@ public class ImMemoryCacheRegister {
                         imMessageCenterPojo.setLast_content_time(p.getTime());
                         imMessageCenterPojo.setLast_rid(com.baidu.adp.lib.f.b.toLong(p.getNotice_id(), 0L));
                         b.bXb().c(imMessageCenterPojo, ChatStatusManager.getInst().getIsOpen(6) ? 0 : 1);
-                    } else if (f.CB(cmd)) {
+                    } else if (f.CC(cmd)) {
                         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                         imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
                         imMessageCenterPojo2.setCustomGroupType(-4);
@@ -653,7 +653,7 @@ public class ImMemoryCacheRegister {
                                     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                                         try {
                                             h.bUL().bUM();
-                                            com.baidu.tieba.im.db.c.bUE().CO(imMessageCenterPojo3.getGid());
+                                            com.baidu.tieba.im.db.c.bUE().CP(imMessageCenterPojo3.getGid());
                                             j.bUP().f(imMessageCenterPojo3);
                                         } catch (Exception e) {
                                             BdLog.detailException(e);
@@ -674,7 +674,7 @@ public class ImMemoryCacheRegister {
                     } else if (cmd.equals("dismiss_group") || cmd.equals("kick_out")) {
                         String gid = p.getGid();
                         if (!TextUtils.isEmpty(gid)) {
-                            ImMemoryCacheRegister.this.Dr(gid);
+                            ImMemoryCacheRegister.this.Ds(gid);
                         }
                     }
                 }
@@ -715,7 +715,7 @@ public class ImMemoryCacheRegister {
                             try {
                                 h.bUL().bUM();
                                 j.bUP().aQ(String.valueOf(friendId), 2);
-                                m.bUX().CL(String.valueOf(friendId));
+                                m.bUX().CM(String.valueOf(friendId));
                                 return null;
                             } catch (Exception e) {
                                 BdLog.detailException(e);
@@ -782,7 +782,7 @@ public class ImMemoryCacheRegister {
                             h.bUL().bUM();
                             j.bUP().f(imMessageCenterPojo);
                             if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                                com.baidu.tieba.im.db.c.bUE().CO(imMessageCenterPojo.getGid());
+                                com.baidu.tieba.im.db.c.bUE().CP(imMessageCenterPojo.getGid());
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -942,7 +942,7 @@ public class ImMemoryCacheRegister {
             if (list != null && list.size() != 0) {
                 for (CommonMsgPojo commonMsgPojo : list) {
                     if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 10) {
-                        com.baidu.tieba.im.chat.b.a.Cy(commonMsgPojo.getContent());
+                        com.baidu.tieba.im.chat.b.a.Cz(commonMsgPojo.getContent());
                     }
                 }
             }
@@ -1140,7 +1140,7 @@ public class ImMemoryCacheRegister {
                     arrayList2 = arrayList4;
                     arrayList = arrayList7;
                 } else if (imMessageCenterPojo10.getCustomGroupType() == -2) {
-                    com.baidu.tieba.im.pushNotify.b.bYb().Ds(imMessageCenterPojo10.getGid());
+                    com.baidu.tieba.im.pushNotify.b.bYb().Dt(imMessageCenterPojo10.getGid());
                     imMessageCenterPojo2 = imMessageCenterPojo9;
                     arrayList2 = arrayList4;
                     imMessageCenterPojo4 = imMessageCenterPojo7;
@@ -1297,12 +1297,12 @@ public class ImMemoryCacheRegister {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Dr(final String str) {
+    public void Ds(final String str) {
         HashMap<String, String> groupGidName;
         if (!TextUtils.isEmpty(str)) {
             b.bXb().aW(str, 1);
             if (com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().aLf() != null && (groupGidName = com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().aLf().getGroupGidName()) != null && groupGidName.size() == 1 && groupGidName.containsKey(str)) {
-                com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().un(str);
+                com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().uo(str);
             }
             com.baidu.tieba.im.settingcache.b.bYs().b(TbadkCoreApplication.getCurrentAccount(), str, null);
             CustomMessageTask customMessageTask = new CustomMessageTask(MessageConfig.BASE_CUSTOM_CMD, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.im.memorycache.ImMemoryCacheRegister.24
@@ -1312,7 +1312,7 @@ public class ImMemoryCacheRegister {
                         try {
                             h.bUL().bUM();
                             j.bUP().aQ(str, 1);
-                            com.baidu.tieba.im.db.c.bUE().CL(str);
+                            com.baidu.tieba.im.db.c.bUE().CM(str);
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
                         } finally {

@@ -9,7 +9,7 @@ public abstract class a {
     protected a nDr;
     protected KSDevice nDs;
 
-    public abstract void Sc(String str);
+    public abstract void Sd(String str);
 
     public abstract String getDS();
 
@@ -36,10 +36,10 @@ public abstract class a {
         return ds;
     }
 
-    public void Sb(String str) {
-        Sc(str);
+    public void Sc(String str) {
+        Sd(str);
         if (this.nDr != null) {
-            this.nDr.Sc(str);
+            this.nDr.Sd(str);
         }
     }
 

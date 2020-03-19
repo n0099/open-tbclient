@@ -131,7 +131,7 @@ public class h extends com.baidu.adp.base.c<BaseFragmentActivity> {
                             } else if (bc.checkUpIsLogin(h.this.mContext.getPageActivity())) {
                                 if (!h.this.bLb()) {
                                     h.this.bKR();
-                                    an.tu("c13560").X("obj_type", 2).aGD();
+                                    an.tv("c13560").X("obj_type", 2).aGD();
                                 } else if (TbadkCoreApplication.getInst().getUseNewResign() == 1) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SupplementSignActivityConfig(h.this.gHP.getPageContext().getPageActivity(), com.baidu.adp.lib.f.b.toInt(h.this.gHP.getForumId(), 0), RequestResponseCode.REQUEST_FRS_TO_SUPPLEMENT_RESIGN)));
                                 }
@@ -251,7 +251,7 @@ public class h extends com.baidu.adp.base.c<BaseFragmentActivity> {
             this.gNB.g(this.gNK);
         }
         this.grF.addHeaderView(this.gNB.getView());
-        BP(str);
+        BQ(str);
         bKT();
     }
 
@@ -288,7 +288,7 @@ public class h extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    private void BP(String str) {
+    private void BQ(String str) {
         RelativeLayout bLg;
         if (this.gNI != null && this.gHP != null && this.gHP.aIm() != null && (bLg = this.gNI.bLg()) != null) {
             if ("brand_page".equals(str)) {
@@ -465,7 +465,7 @@ public class h extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public void BQ(String str) {
+    public void BR(String str) {
         if (this.gHP.bDT() != null && this.gHP.bDT().bJt() != null) {
             com.baidu.tieba.tbadkCore.e.cKw().aA(com.baidu.tieba.tbadkCore.e.cKw().e("1~" + str, this.gHP.bDT().bJt().getSortType(), this.gHP.bDT().bJt().getIsGood(), this.gHP.bDT().bJt().getCategoryId()), false);
         }

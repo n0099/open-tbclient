@@ -34,7 +34,7 @@ public class EmotionEditModel extends BdBaseModel {
             super.handleMessage(message);
             if (message != null) {
                 try {
-                    EmotionEditModel.this.jfw.Gz((String) message.obj);
+                    EmotionEditModel.this.jfw.GA((String) message.obj);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -54,13 +54,13 @@ public class EmotionEditModel extends BdBaseModel {
                     if (TextUtils.isEmpty(msg)) {
                         msg = EmotionEditModel.this.jfz.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_ueg_fail);
                     }
-                    EmotionEditModel.this.jfw.Gy(msg);
+                    EmotionEditModel.this.jfw.Gz(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = EmotionEditModel.this.jfz.getPageContext().getPageActivity().getResources().getString(R.string.emotion_edit_fail);
                     }
-                    EmotionEditModel.this.jfw.Gy(errorString);
+                    EmotionEditModel.this.jfw.Gz(errorString);
                 }
             }
         }
@@ -72,7 +72,7 @@ public class EmotionEditModel extends BdBaseModel {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void Gy(String str);
+        void GA(String str);
 
         void Gz(String str);
 
@@ -101,7 +101,7 @@ public class EmotionEditModel extends BdBaseModel {
         return this.gee;
     }
 
-    public void GA(String str) {
+    public void GB(String str) {
         HttpMessage httpMessage = new HttpMessage(1003348);
         httpMessage.addParam("text", str);
         sendMessage(httpMessage);
@@ -127,7 +127,7 @@ public class EmotionEditModel extends BdBaseModel {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str2) {
                     super.onPostExecute((AnonymousClass1) str2);
-                    EmotionEditModel.this.jfw.Gz(str2);
+                    EmotionEditModel.this.jfw.GA(str2);
                 }
             }.execute(new Void[0]);
         }

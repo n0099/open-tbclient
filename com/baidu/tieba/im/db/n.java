@@ -22,7 +22,7 @@ public class n {
             h.bUL().bUM();
             String bVa = bVa();
             if (!TextUtils.isEmpty(bVa)) {
-                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + CZ(bVa), new Object[0]);
+                com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "clean suc " + Da(bVa), new Object[0]);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,9 +89,9 @@ public class n {
         return arrayList;
     }
 
-    public static boolean CZ(String str) {
+    public static boolean Da(String str) {
         try {
-            return h.bUL().CX("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
+            return h.bUL().CY("DELETE FROM tb_message_center WHERE gid IN(" + str + ") AND custom_group_type= " + String.valueOf(2) + " AND is_friend!=" + String.valueOf(1));
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteStrange", new Object[0]);

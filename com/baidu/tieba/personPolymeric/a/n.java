@@ -84,7 +84,7 @@ public class n {
         this.asP.add(this.jou);
         this.asP.add(this.jov);
         bdTypeRecyclerView.addAdapters(this.asP);
-        wP("page_recommend");
+        wQ("page_recommend");
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -149,11 +149,11 @@ public class n {
         this.joy.setIsHost(z);
     }
 
-    private void wP(String str) {
+    private void wQ(String str) {
         if (this.asP != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.asP) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).wP(str);
+                    ((com.baidu.tieba.a.f) aVar).wQ(str);
                 }
             }
         }

@@ -94,7 +94,7 @@ public class WeiboSsoSdk {
             return this.mAid;
         }
 
-        static a RB(String str) throws Exception {
+        static a RC(String str) throws Exception {
             a aVar = new a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -112,7 +112,7 @@ public class WeiboSsoSdk {
         }
     }
 
-    private String Rz(String str) {
+    private String RA(String str) {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("https://login.sina.com.cn/visitor/signin").openConnection();
             httpURLConnection.setRequestMethod("POST");
@@ -161,16 +161,16 @@ public class WeiboSsoSdk {
             } catch (UnsupportedEncodingException e) {
                 str2 = "";
             }
-            String Rz = Rz(riseWind(ntT.wJ(true), ntT.getApplicationContext().getPackageName(), str2, mfp, ntT.wI(true), ntT.wH(true), ntT.wG(true), ntT.wF(true), ntT.wK(true), ntT.wE(true), i, this.ntW));
+            String RA = RA(riseWind(ntT.wJ(true), ntT.getApplicationContext().getPackageName(), str2, mfp, ntT.wI(true), ntT.wH(true), ntT.wG(true), ntT.wF(true), ntT.wK(true), ntT.wE(true), i, this.ntW));
             this.ntW++;
-            if (Rz != null) {
+            if (RA != null) {
                 try {
-                    a RB = a.RB(Rz);
-                    if (RB != null && !TextUtils.isEmpty(RB.dIv())) {
-                        RA(RB.dIv());
+                    a RC = a.RC(RA);
+                    if (RC != null && !TextUtils.isEmpty(RC.dIv())) {
+                        RB(RC.dIv());
                     }
                     if (i == 1) {
-                        this.ntV = RB;
+                        this.ntV = RC;
                     }
                     this.ntR.unlock();
                     return;
@@ -280,7 +280,7 @@ public class WeiboSsoSdk {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [406=4] */
-    private synchronized void RA(String str) {
+    private synchronized void RB(String str) {
         FileOutputStream fileOutputStream;
         if (!TextUtils.isEmpty(str)) {
             FileOutputStream fileOutputStream2 = null;

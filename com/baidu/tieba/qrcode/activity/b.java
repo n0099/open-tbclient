@@ -52,7 +52,7 @@ public class b implements QRCodeView.a {
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void Hv(String str) {
+    public void Hw(String str) {
         if (StringUtils.isNull(str)) {
             this.jEx.cBS();
             this.jEx.cBQ();
@@ -61,23 +61,23 @@ public class b implements QRCodeView.a {
             intent.putExtra(QRCodeScanActivityConfig.RESULT_SCAN_CODE, str);
             this.mTbPageContext.getPageActivity().setResult(-1, intent);
             this.mTbPageContext.getPageActivity().finish();
-        } else if (Hy(str)) {
+        } else if (Hz(str)) {
             this.jEx.cBS();
         } else if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
             this.jEx.cBS();
-            Hz(str);
-        } else if (Hx(str)) {
+            HA(str);
+        } else if (Hy(str)) {
             this.jEx.cBS();
             this.mTbPageContext.getPageActivity().finish();
-        } else if (!aq.ty(str)) {
+        } else if (!aq.tz(str)) {
             this.jEx.cBS();
             this.jEx.cBQ();
         } else {
-            Hw(str);
+            Hx(str);
         }
     }
 
-    private void Hw(final String str) {
+    private void Hx(final String str) {
         if (!l.isNetOk()) {
             this.jEx.cBS();
             l.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getResources().getString(R.string.network_not_available));
@@ -96,7 +96,7 @@ public class b implements QRCodeView.a {
             @Override // com.baidu.tieba.ueg.c.a
             public void cbh() {
                 b.this.jEx.cBS();
-                b.this.jEx.Hu(str);
+                b.this.jEx.Hv(str);
             }
 
             @Override // com.baidu.tieba.ueg.c.a
@@ -120,17 +120,17 @@ public class b implements QRCodeView.a {
         this.mTbPageContext.getPageActivity().finish();
     }
 
-    private boolean Hx(String str) {
+    private boolean Hy(String str) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_QR_CODE_LOGIN, null, str);
         return runTask != null && runTask.getData() != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue();
     }
 
-    private boolean Hy(String str) {
+    private boolean Hz(String str) {
         if (StringUtils.isNULL(str)) {
             return false;
         }
         if (str.startsWith("tiebaclient:")) {
-            HB(str);
+            HC(str);
             return true;
         } else if (str.contains("smartapp.baidu.com/mappconsole/api/packagescheme") || str.contains("mappconsole/api/packagescheme")) {
             new a().execute(str);
@@ -140,7 +140,7 @@ public class b implements QRCodeView.a {
         }
     }
 
-    private void Hz(String str) {
+    private void HA(String str) {
         CookieSyncManager.createInstance(this.mTbPageContext.getPageActivity());
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
@@ -156,7 +156,7 @@ public class b implements QRCodeView.a {
         this.mTbPageContext.getPageActivity().finish();
     }
 
-    public void HA(String str) {
+    public void HB(String str) {
         if (!StringUtils.isNull(str)) {
             this.jEx.cBR();
             if (this.jEy != null) {
@@ -216,7 +216,7 @@ public class b implements QRCodeView.a {
                 return null;
             }
             this.filePath = strArr[0];
-            return com.baidu.tieba.qrcode.lib.zxing.a.HC(this.filePath);
+            return com.baidu.tieba.qrcode.lib.zxing.a.HD(this.filePath);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -328,7 +328,7 @@ public class b implements QRCodeView.a {
             if (strArr == null || strArr.length <= 0) {
                 return null;
             }
-            return com.baidu.tieba.qrcode.lib.zxing.a.HC(strArr[0]);
+            return com.baidu.tieba.qrcode.lib.zxing.a.HD(strArr[0]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -337,7 +337,7 @@ public class b implements QRCodeView.a {
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
             b.this.jEx.cBS();
-            b.this.Hv(str);
+            b.this.Hw(str);
         }
     }
 
@@ -371,12 +371,12 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            b.this.HB(str);
+            b.this.HC(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HB(final String str) {
+    public void HC(final String str) {
         if (!StringUtils.isNull(str) && str.startsWith("tiebaclient:")) {
             if (Build.VERSION.SDK_INT <= 21) {
                 l.showToast(this.mTbPageContext.getPageActivity(), (int) R.string.ai_apps_not_support);

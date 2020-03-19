@@ -12,10 +12,10 @@ public class b implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof GetLevelInfoReadCacheRequestMessage)) {
             return null;
         }
-        byte[] AV = new a().AV(((GetLevelInfoReadCacheRequestMessage) customMessage).getCacheKey());
+        byte[] AW = new a().AW(((GetLevelInfoReadCacheRequestMessage) customMessage).getCacheKey());
         GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = new GetLevelInfoReadCacheResponsedMessage();
         try {
-            getLevelInfoReadCacheResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_GET_LEVEL_INFO_CACHE, AV);
+            getLevelInfoReadCacheResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_GET_LEVEL_INFO_CACHE, AW);
             return getLevelInfoReadCacheResponsedMessage;
         } catch (Exception e) {
             e.printStackTrace();

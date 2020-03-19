@@ -17,7 +17,7 @@ public class n implements com.baidu.adp.widget.ListView.m {
         return this.dwf;
     }
 
-    public void uT(String str) {
+    public void uU(String str) {
         this.dwf = str;
     }
 
@@ -25,7 +25,7 @@ public class n implements com.baidu.adp.widget.ListView.m {
         return this.dwg;
     }
 
-    public void uU(String str) {
+    public void uV(String str) {
         this.dwg = str;
     }
 

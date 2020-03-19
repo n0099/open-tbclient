@@ -20,7 +20,7 @@ public class b implements Cloneable {
     private String nud = "";
     private HashMap<String, String> extra = new HashMap<>();
 
-    private String RC(String str) {
+    private String RD(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -41,29 +41,29 @@ public class b implements Cloneable {
             }
         }
         if (z) {
-            return RC(jSONObject.toString());
+            return RD(jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
     public String wF(boolean z) {
-        return z ? RC(this.nuc) : this.nuc;
+        return z ? RD(this.nuc) : this.nuc;
     }
 
     public String wG(boolean z) {
-        return z ? RC(this.nua) : this.nua;
+        return z ? RD(this.nua) : this.nua;
     }
 
-    public void RD(String str) {
+    public void RE(String str) {
         this.nua = str;
     }
 
     public String wH(boolean z) {
-        return z ? RC(this.nub) : this.nub;
+        return z ? RD(this.nub) : this.nub;
     }
 
     public String wI(boolean z) {
-        return z ? RC(this.from) : this.from;
+        return z ? RD(this.from) : this.from;
     }
 
     public void setFrom(String str) {
@@ -71,7 +71,7 @@ public class b implements Cloneable {
     }
 
     public String wJ(boolean z) {
-        return z ? RC(this.appKey) : this.appKey;
+        return z ? RD(this.appKey) : this.appKey;
     }
 
     public void setAppKey(String str) {
@@ -87,7 +87,7 @@ public class b implements Cloneable {
     }
 
     public String wK(boolean z) {
-        return z ? RC(this.ntZ) : this.ntZ;
+        return z ? RD(this.ntZ) : this.ntZ;
     }
 
     public boolean dIx() {

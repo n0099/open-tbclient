@@ -73,7 +73,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
                 i = i2 + 1;
             } else {
                 HttpMessage httpMessage = new HttpMessage(1003353);
-                httpMessage.addParam("pic_urls", com.baidu.tbadk.browser.d.sg(jSONArray.toString()));
+                httpMessage.addParam("pic_urls", com.baidu.tbadk.browser.d.sh(jSONArray.toString()));
                 sendMessage(httpMessage);
                 return;
             }

@@ -45,6 +45,6 @@ public final class j extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     /* renamed from: a */
     public synchronized void write(com.google.gson.stream.b bVar, Date date) throws IOException {
-        bVar.QM(date == null ? null : this.mNy.format((java.util.Date) date));
+        bVar.QN(date == null ? null : this.mNy.format((java.util.Date) date));
     }
 }

@@ -49,7 +49,7 @@ public class a implements com.baidu.live.guardclub.h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.alp != null && a.this.alp.Ya != null && ViewHelper.checkUpIsLogin(a.this.context)) {
-                a.this.yu("");
+                a.this.yv("");
             }
         }
     };
@@ -93,9 +93,9 @@ public class a implements com.baidu.live.guardclub.h {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof String) {
-                a.this.yu((String) customResponsedMessage.getData());
+                a.this.yv((String) customResponsedMessage.getData());
             } else {
-                a.this.yu("");
+                a.this.yv("");
             }
         }
     };
@@ -213,7 +213,7 @@ public class a implements com.baidu.live.guardclub.h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yu(String str) {
+    public void yv(String str) {
         if (this.context != null && this.alp != null && this.alp.Ya != null && this.alp.mLiveInfo != null) {
             long j = this.alp.Ya.userId;
             long j2 = this.alp.mLiveInfo.live_id;

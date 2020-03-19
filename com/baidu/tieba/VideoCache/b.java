@@ -28,8 +28,8 @@ public class b {
                 if (file2 != null && file2.exists()) {
                     d dVar = new d();
                     dVar.setFileName(file2.getName());
-                    dVar.cl(wp(file2.getAbsolutePath()));
-                    dVar.cm(m.wB(file2.getName()));
+                    dVar.cl(wq(file2.getAbsolutePath()));
+                    dVar.cm(m.wC(file2.getName()));
                     this.dWX.a(dVar);
                 }
             }
@@ -42,7 +42,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long wp(String str) {
+    private long wq(String str) {
         DataInputStream dataInputStream;
         FileInputStream fileInputStream;
         long j = 0;
@@ -139,11 +139,11 @@ public class b {
         return j;
     }
 
-    public void wq(String str) {
+    public void wr(String str) {
         d dVar;
-        String wD = m.wD(str);
-        if (wD != null && !wD.isEmpty()) {
-            wr(wD);
+        String wE = m.wE(str);
+        if (wE != null && !wE.isEmpty()) {
+            ws(wE);
             if (this.dWX != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
@@ -153,7 +153,7 @@ public class b {
                         break;
                     }
                     d nZ = this.dWX.nZ((this.dWX.aXc() - 1) - i);
-                    if (nZ != null && nZ.getFileName() != null && nZ.getFileName().equals(wD)) {
+                    if (nZ != null && nZ.getFileName() != null && nZ.getFileName().equals(wE)) {
                         dVar = nZ;
                         break;
                     }
@@ -163,12 +163,12 @@ public class b {
                     this.dWX.b(dVar);
                 } else {
                     dVar = new d();
-                    dVar.setFileName(wD);
+                    dVar.setFileName(wE);
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                t(wD, currentTimeMillis2);
+                t(wE, currentTimeMillis2);
                 dVar.cl(currentTimeMillis2);
-                dVar.cm(m.wB(wD));
+                dVar.cm(m.wC(wE));
                 this.dWX.a(dVar);
                 j.z(TAG, "total cache size: " + ((this.dWX.aXb() / 1024) / 1024) + "M list size " + this.dWX.aXc());
                 if (this.dWX.aXb() > 629145600) {
@@ -188,7 +188,7 @@ public class b {
 
     private boolean aXe() {
         d nZ = this.dWX.nZ(0);
-        if (nZ == null || !(e.aXk().ws(nZ.getFileName()) || e.aXk().wu(nZ.getFileName()))) {
+        if (nZ == null || !(e.aXk().wt(nZ.getFileName()) || e.aXk().wv(nZ.getFileName()))) {
             this.dWX.remove(0);
             if (nZ != null) {
                 File file = new File(i.dXI + nZ.getFileName());
@@ -232,7 +232,7 @@ public class b {
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.aXk().ws(dVar.getFileName()) && !e.aXk().wu(dVar.getFileName()))) {
+                if (dVar == null || (!e.aXk().wt(dVar.getFileName()) && !e.aXk().wv(dVar.getFileName()))) {
                     this.dWX.b(dVar);
                     if (dVar != null) {
                         File file = new File(i.dXI + dVar.getFileName());
@@ -245,7 +245,7 @@ public class b {
         }
     }
 
-    private void wr(String str) {
+    private void ws(String str) {
         File[] listFiles;
         if (str != null) {
             try {

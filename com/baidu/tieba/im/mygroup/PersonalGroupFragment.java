@@ -247,9 +247,9 @@ public class PersonalGroupFragment extends BaseFragment implements View.OnClickL
         PersonGroupActivity bXR = bXR();
         if (bXR != null && !bXR.bXN()) {
             if (this.pageType == 0) {
-                cz = NoDataViewFactory.d.tU(String.format(getString(R.string.person_group_no_personal_info), bXR.bXM()));
+                cz = NoDataViewFactory.d.tV(String.format(getString(R.string.person_group_no_personal_info), bXR.bXM()));
             } else {
-                cz = NoDataViewFactory.d.tU(getString(R.string.person_group_no_common_info));
+                cz = NoDataViewFactory.d.tV(getString(R.string.person_group_no_common_info));
             }
         } else {
             cz = (bXR == null || !bXR.bXN()) ? null : NoDataViewFactory.d.cz(getString(R.string.group_no_data_tip), getString(R.string.group_no_data_tip_1));

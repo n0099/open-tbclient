@@ -106,7 +106,7 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
         }
         parserIntent();
         this.fpc = new c(getPageContext(), this.fpe);
-        this.fpc.zz(this.awz);
+        this.fpc.zA(this.awz);
         MessageManager.getInstance().registerListener(this.ahe);
         MessageManager.getInstance().registerListener(this.ahd);
         MessageManager.getInstance().registerListener(this.eiM);
@@ -167,7 +167,7 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
             public void onClick(View view) {
                 AlaMyAssistWishActivity.this.ewA.setVisibility(8);
                 if (AlaMyAssistWishActivity.this.fpc != null) {
-                    AlaMyAssistWishActivity.this.fpc.zz(AlaMyAssistWishActivity.this.awz);
+                    AlaMyAssistWishActivity.this.fpc.zA(AlaMyAssistWishActivity.this.awz);
                 }
             }
         });

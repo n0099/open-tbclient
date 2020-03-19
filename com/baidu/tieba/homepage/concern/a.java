@@ -106,7 +106,7 @@ public class a {
         this.gXE.add(this.gYa);
         this.gXE.add(this.gXX);
         this.gXE.add(this.gYb);
-        wP("page_concern");
+        wQ("page_concern");
     }
 
     public void ac(List<com.baidu.adp.widget.ListView.m> list) {
@@ -139,11 +139,11 @@ public class a {
         this.gXW.dBK = bdUniqueId;
     }
 
-    private void wP(String str) {
+    private void wQ(String str) {
         if (this.gXE != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.gXE) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).wP(str);
+                    ((com.baidu.tieba.a.f) aVar).wQ(str);
                 }
             }
         }

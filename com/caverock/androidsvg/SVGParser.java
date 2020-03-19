@@ -385,7 +385,7 @@ public class SVGParser extends DefaultHandler2 {
             lIe.put("yellowgreen", 10145074);
         }
 
-        public static Integer OA(String str) {
+        public static Integer OB(String str) {
             return lIe.get(str);
         }
     }
@@ -407,7 +407,7 @@ public class SVGParser extends DefaultHandler2 {
             lIf.put("larger", new SVG.n(120.0f, SVG.Unit.percent));
         }
 
-        public static SVG.n OB(String str) {
+        public static SVG.n OC(String str) {
             return lIf.get(str);
         }
     }
@@ -433,7 +433,7 @@ public class SVGParser extends DefaultHandler2 {
             lIg.put("900", Integer.valueOf((int) CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
         }
 
-        public static Integer OA(String str) {
+        public static Integer OB(String str) {
             return lIg.get(str);
         }
     }
@@ -456,7 +456,7 @@ public class SVGParser extends DefaultHandler2 {
             lId.put("xMaxYMax", PreserveAspectRatio.Alignment.XMaxYMax);
         }
 
-        public static PreserveAspectRatio.Alignment Oz(String str) {
+        public static PreserveAspectRatio.Alignment OA(String str) {
             return lId.get(str);
         }
     }
@@ -703,7 +703,7 @@ public class SVGParser extends DefaultHandler2 {
                 case style:
                     if (this.lHZ != null) {
                         this.lHY = false;
-                        Oy(this.lHZ.toString());
+                        Oz(this.lHZ.toString());
                         this.lHZ.setLength(0);
                         return;
                     }
@@ -742,19 +742,19 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    acVar.lFG = NY(trim);
+                    acVar.lFG = NZ(trim);
                     break;
                 case y:
-                    acVar.lFH = NY(trim);
+                    acVar.lFH = NZ(trim);
                     break;
                 case width:
-                    acVar.lFI = NY(trim);
+                    acVar.lFI = NZ(trim);
                     if (acVar.lFI.diY()) {
                         throw new SAXException("Invalid <svg> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    acVar.lFJ = NY(trim);
+                    acVar.lFJ = NZ(trim);
                     if (acVar.lFJ.diY()) {
                         throw new SAXException("Invalid <svg> element. height cannot be negative");
                     }
@@ -819,19 +819,19 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    baVar.lFG = NY(trim);
+                    baVar.lFG = NZ(trim);
                     break;
                 case y:
-                    baVar.lFH = NY(trim);
+                    baVar.lFH = NZ(trim);
                     break;
                 case width:
-                    baVar.lFI = NY(trim);
+                    baVar.lFI = NZ(trim);
                     if (baVar.lFI.diY()) {
                         throw new SAXException("Invalid <use> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    baVar.lFJ = NY(trim);
+                    baVar.lFJ = NZ(trim);
                     if (baVar.lFJ.diY()) {
                         throw new SAXException("Invalid <use> element. height cannot be negative");
                     }
@@ -869,19 +869,19 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    mVar.lFG = NY(trim);
+                    mVar.lFG = NZ(trim);
                     break;
                 case y:
-                    mVar.lFH = NY(trim);
+                    mVar.lFH = NZ(trim);
                     break;
                 case width:
-                    mVar.lFI = NY(trim);
+                    mVar.lFI = NZ(trim);
                     if (mVar.lFI.diY()) {
                         throw new SAXException("Invalid <use> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    mVar.lFJ = NY(trim);
+                    mVar.lFJ = NZ(trim);
                     if (mVar.lFJ.diY()) {
                         throw new SAXException("Invalid <use> element. height cannot be negative");
                     }
@@ -921,7 +921,7 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case d:
-                    tVar.lFY = Ou(trim);
+                    tVar.lFY = Ov(trim);
                     break;
                 case pathLength:
                     tVar.lFZ = Float.valueOf(parseFloat(trim));
@@ -954,31 +954,31 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    zVar.lFG = NY(trim);
+                    zVar.lFG = NZ(trim);
                     break;
                 case y:
-                    zVar.lFH = NY(trim);
+                    zVar.lFH = NZ(trim);
                     break;
                 case width:
-                    zVar.lFI = NY(trim);
+                    zVar.lFI = NZ(trim);
                     if (zVar.lFI.diY()) {
                         throw new SAXException("Invalid <rect> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    zVar.lFJ = NY(trim);
+                    zVar.lFJ = NZ(trim);
                     if (zVar.lFJ.diY()) {
                         throw new SAXException("Invalid <rect> element. height cannot be negative");
                     }
                     break;
                 case rx:
-                    zVar.lFA = NY(trim);
+                    zVar.lFA = NZ(trim);
                     if (zVar.lFA.diY()) {
                         throw new SAXException("Invalid <rect> element. rx cannot be negative");
                     }
                     break;
                 case ry:
-                    zVar.lFB = NY(trim);
+                    zVar.lFB = NZ(trim);
                     if (zVar.lFB.diY()) {
                         throw new SAXException("Invalid <rect> element. ry cannot be negative");
                     }
@@ -1008,13 +1008,13 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case cx:
-                    cVar.lFt = NY(trim);
+                    cVar.lFt = NZ(trim);
                     break;
                 case cy:
-                    cVar.lFu = NY(trim);
+                    cVar.lFu = NZ(trim);
                     break;
                 case r:
-                    cVar.lFv = NY(trim);
+                    cVar.lFv = NZ(trim);
                     if (cVar.lFv.diY()) {
                         throw new SAXException("Invalid <circle> element. r cannot be negative");
                     }
@@ -1044,22 +1044,22 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case rx:
-                    hVar.lFA = NY(trim);
+                    hVar.lFA = NZ(trim);
                     if (hVar.lFA.diY()) {
                         throw new SAXException("Invalid <ellipse> element. rx cannot be negative");
                     }
                     break;
                 case ry:
-                    hVar.lFB = NY(trim);
+                    hVar.lFB = NZ(trim);
                     if (hVar.lFB.diY()) {
                         throw new SAXException("Invalid <ellipse> element. ry cannot be negative");
                     }
                     break;
                 case cx:
-                    hVar.lFt = NY(trim);
+                    hVar.lFt = NZ(trim);
                     break;
                 case cy:
-                    hVar.lFu = NY(trim);
+                    hVar.lFu = NZ(trim);
                     break;
             }
         }
@@ -1086,16 +1086,16 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x1:
-                    oVar.lFL = NY(trim);
+                    oVar.lFL = NZ(trim);
                     break;
                 case y1:
-                    oVar.lFM = NY(trim);
+                    oVar.lFM = NZ(trim);
                     break;
                 case x2:
-                    oVar.lFN = NY(trim);
+                    oVar.lFN = NZ(trim);
                     break;
                 case y2:
-                    oVar.lFO = NY(trim);
+                    oVar.lFO = NZ(trim);
                     break;
             }
         }
@@ -1185,16 +1185,16 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    axVar.x = NZ(trim);
+                    axVar.x = Oa(trim);
                     break;
                 case y:
-                    axVar.y = NZ(trim);
+                    axVar.y = Oa(trim);
                     break;
                 case dx:
-                    axVar.lHk = NZ(trim);
+                    axVar.lHk = Oa(trim);
                     break;
                 case dy:
-                    axVar.lHl = NZ(trim);
+                    axVar.lHl = Oa(trim);
                     break;
             }
         }
@@ -1283,20 +1283,20 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case requiredFeatures:
-                    adVar.i(Ov(trim));
+                    adVar.i(Ow(trim));
                     break;
                 case requiredExtensions:
-                    adVar.NR(trim);
+                    adVar.NS(trim);
                     break;
                 case systemLanguage:
-                    adVar.j(Ow(trim));
+                    adVar.j(Ox(trim));
                     break;
                 case requiredFormats:
-                    adVar.k(Ox(trim));
+                    adVar.k(Oy(trim));
                     break;
                 case requiredFonts:
-                    List<String> Of = Of(trim);
-                    adVar.l(Of != null ? new HashSet(Of) : new HashSet(0));
+                    List<String> Og = Og(trim);
+                    adVar.l(Og != null ? new HashSet(Og) : new HashSet(0));
                     break;
             }
         }
@@ -1340,19 +1340,19 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case refX:
-                    pVar.lFQ = NY(trim);
+                    pVar.lFQ = NZ(trim);
                     break;
                 case refY:
-                    pVar.lFR = NY(trim);
+                    pVar.lFR = NZ(trim);
                     break;
                 case markerWidth:
-                    pVar.lFS = NY(trim);
+                    pVar.lFS = NZ(trim);
                     if (pVar.lFS.diY()) {
                         throw new SAXException("Invalid <marker> element. markerWidth cannot be negative");
                     }
                     break;
                 case markerHeight:
-                    pVar.lFT = NY(trim);
+                    pVar.lFT = NZ(trim);
                     if (pVar.lFT.diY()) {
                         throw new SAXException("Invalid <marker> element. markerHeight cannot be negative");
                     }
@@ -1417,7 +1417,7 @@ public class SVGParser extends DefaultHandler2 {
                         throw new SAXException("Invalid value for attribute gradientUnits");
                     }
                 case gradientTransform:
-                    iVar.lFD = NX(trim);
+                    iVar.lFD = NY(trim);
                     break;
                 case spreadMethod:
                     try {
@@ -1435,16 +1435,16 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x1:
-                    ajVar.lFL = NY(trim);
+                    ajVar.lFL = NZ(trim);
                     break;
                 case y1:
-                    ajVar.lFM = NY(trim);
+                    ajVar.lFM = NZ(trim);
                     break;
                 case x2:
-                    ajVar.lFN = NY(trim);
+                    ajVar.lFN = NZ(trim);
                     break;
                 case y2:
-                    ajVar.lFO = NY(trim);
+                    ajVar.lFO = NZ(trim);
                     break;
             }
         }
@@ -1471,22 +1471,22 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case cx:
-                    anVar.lFt = NY(trim);
+                    anVar.lFt = NZ(trim);
                     break;
                 case cy:
-                    anVar.lFu = NY(trim);
+                    anVar.lFu = NZ(trim);
                     break;
                 case r:
-                    anVar.lFv = NY(trim);
+                    anVar.lFv = NZ(trim);
                     if (anVar.lFv.diY()) {
                         throw new SAXException("Invalid <radialGradient> element. r cannot be negative");
                     }
                     break;
                 case fx:
-                    anVar.lHf = NY(trim);
+                    anVar.lHf = NZ(trim);
                     break;
                 case fy:
-                    anVar.lHg = NY(trim);
+                    anVar.lHg = NZ(trim);
                     break;
             }
         }
@@ -1515,13 +1515,13 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case offset:
-                    abVar.lGh = NW(trim);
+                    abVar.lGh = NX(trim);
                     break;
             }
         }
     }
 
-    private Float NW(String str) throws SAXException {
+    private Float NX(String str) throws SAXException {
         int i;
         boolean z;
         if (str.length() == 0) {
@@ -1628,7 +1628,7 @@ public class SVGParser extends DefaultHandler2 {
                         break;
                     }
                 case startOffset:
-                    awVar.lHj = NY(trim);
+                    awVar.lHj = NZ(trim);
                     break;
             }
         }
@@ -1656,19 +1656,19 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    wVar.lFG = NY(trim);
+                    wVar.lFG = NZ(trim);
                     break;
                 case y:
-                    wVar.lFH = NY(trim);
+                    wVar.lFH = NZ(trim);
                     break;
                 case width:
-                    wVar.lFI = NY(trim);
+                    wVar.lFI = NZ(trim);
                     if (wVar.lFI.diY()) {
                         throw new SAXException("Invalid <pattern> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    wVar.lFJ = NY(trim);
+                    wVar.lFJ = NZ(trim);
                     if (wVar.lFJ.diY()) {
                         throw new SAXException("Invalid <pattern> element. height cannot be negative");
                     }
@@ -1701,7 +1701,7 @@ public class SVGParser extends DefaultHandler2 {
                         throw new SAXException("Invalid value for attribute patternContentUnits");
                     }
                 case patternTransform:
-                    wVar.lGg = NX(trim);
+                    wVar.lGg = NY(trim);
                     break;
             }
         }
@@ -1743,19 +1743,19 @@ public class SVGParser extends DefaultHandler2 {
             String trim = attributes.getValue(i).trim();
             switch (SVGAttr.fromString(attributes.getLocalName(i))) {
                 case x:
-                    qVar.lFG = NY(trim);
+                    qVar.lFG = NZ(trim);
                     break;
                 case y:
-                    qVar.lFH = NY(trim);
+                    qVar.lFH = NZ(trim);
                     break;
                 case width:
-                    qVar.lFI = NY(trim);
+                    qVar.lFI = NZ(trim);
                     if (qVar.lFI.diY()) {
                         throw new SAXException("Invalid <mask> element. width cannot be negative");
                     }
                     break;
                 case height:
-                    qVar.lFJ = NY(trim);
+                    qVar.lFJ = NZ(trim);
                     if (qVar.lFJ.diY()) {
                         throw new SAXException("Invalid <mask> element. height cannot be negative");
                     }
@@ -1903,7 +1903,7 @@ public class SVGParser extends DefaultHandler2 {
             return z;
         }
 
-        public boolean OC(String str) {
+        public boolean OD(String str) {
             int length = str.length();
             boolean z = this.position <= this.lIi - length && this.lIh.substring(this.position, this.position + length).equals(str);
             if (z) {
@@ -2067,7 +2067,7 @@ public class SVGParser extends DefaultHandler2 {
                         a(aiVar, trim);
                         continue;
                     case CLASS:
-                        aiVar.lHb = CSSParser.NN(trim);
+                        aiVar.lHb = CSSParser.NO(trim);
                         continue;
                     default:
                         if (aiVar.lHa == null) {
@@ -2115,11 +2115,11 @@ public class SVGParser extends DefaultHandler2 {
                     style.lGi |= 1;
                     return;
                 case fill_rule:
-                    style.lGk = Om(str2);
+                    style.lGk = On(str2);
                     style.lGi |= 2;
                     return;
                 case fill_opacity:
-                    style.lGl = Float.valueOf(Oa(str2));
+                    style.lGl = Float.valueOf(Ob(str2));
                     style.lGi |= 4;
                     return;
                 case stroke:
@@ -2127,19 +2127,19 @@ public class SVGParser extends DefaultHandler2 {
                     style.lGi |= 8;
                     return;
                 case stroke_opacity:
-                    style.lGn = Float.valueOf(Oa(str2));
+                    style.lGn = Float.valueOf(Ob(str2));
                     style.lGi |= 16;
                     return;
                 case stroke_width:
-                    style.lGo = NY(str2);
+                    style.lGo = NZ(str2);
                     style.lGi |= 32;
                     return;
                 case stroke_linecap:
-                    style.lGp = On(str2);
+                    style.lGp = Oo(str2);
                     style.lGi |= 64;
                     return;
                 case stroke_linejoin:
-                    style.lGq = Oo(str2);
+                    style.lGq = Op(str2);
                     style.lGi |= 128;
                     return;
                 case stroke_miterlimit:
@@ -2150,55 +2150,55 @@ public class SVGParser extends DefaultHandler2 {
                     if ("none".equals(str2)) {
                         style.lGs = null;
                     } else {
-                        style.lGs = Op(str2);
+                        style.lGs = Oq(str2);
                     }
                     style.lGi |= 512;
                     return;
                 case stroke_dashoffset:
-                    style.lGt = NY(str2);
+                    style.lGt = NZ(str2);
                     style.lGi |= 1024;
                     return;
                 case opacity:
-                    style.lGu = Float.valueOf(Oa(str2));
+                    style.lGu = Float.valueOf(Ob(str2));
                     style.lGi |= 2048;
                     return;
                 case color:
-                    style.lGv = Od(str2);
+                    style.lGv = Oe(str2);
                     style.lGi |= 4096;
                     return;
                 case font:
                     a(style, str2);
                     return;
                 case font_family:
-                    style.lGw = Of(str2);
+                    style.lGw = Og(str2);
                     style.lGi |= 8192;
                     return;
                 case font_size:
-                    style.lGx = Og(str2);
+                    style.lGx = Oh(str2);
                     style.lGi |= 16384;
                     return;
                 case font_weight:
-                    style.lGy = Oh(str2);
+                    style.lGy = Oi(str2);
                     style.lGi |= 32768;
                     return;
                 case font_style:
-                    style.lGz = Oi(str2);
+                    style.lGz = Oj(str2);
                     style.lGi |= 65536;
                     return;
                 case text_decoration:
-                    style.lGA = Ok(str2);
+                    style.lGA = Ol(str2);
                     style.lGi |= 131072;
                     return;
                 case direction:
-                    style.lGB = Ol(str2);
+                    style.lGB = Om(str2);
                     style.lGi |= 68719476736L;
                     return;
                 case text_anchor:
-                    style.lGC = Oq(str2);
+                    style.lGC = Or(str2);
                     style.lGi |= PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
                     return;
                 case overflow:
-                    style.lGD = Or(str2);
+                    style.lGD = Os(str2);
                     style.lGi |= PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED;
                     return;
                 case marker:
@@ -2237,16 +2237,16 @@ public class SVGParser extends DefaultHandler2 {
                     if (str2.equals("currentColor")) {
                         style.lGK = SVG.f.diX();
                     } else {
-                        style.lGK = Od(str2);
+                        style.lGK = Oe(str2);
                     }
                     style.lGi |= 67108864;
                     return;
                 case stop_opacity:
-                    style.lGL = Float.valueOf(Oa(str2));
+                    style.lGL = Float.valueOf(Ob(str2));
                     style.lGi |= 134217728;
                     return;
                 case clip:
-                    style.lGE = Os(str2);
+                    style.lGE = Ot(str2);
                     style.lGi |= 1048576;
                     return;
                 case clip_path:
@@ -2254,7 +2254,7 @@ public class SVGParser extends DefaultHandler2 {
                     style.lGi |= AccountConstants.TYPE_MODIFY_NICKNAME;
                     return;
                 case clip_rule:
-                    style.lGM = Om(str2);
+                    style.lGM = On(str2);
                     style.lGi |= IjkMediaMeta.AV_CH_STEREO_LEFT;
                     return;
                 case mask:
@@ -2265,28 +2265,28 @@ public class SVGParser extends DefaultHandler2 {
                     if (str2.equals("currentColor")) {
                         style.lGO = SVG.f.diX();
                     } else {
-                        style.lGO = Od(str2);
+                        style.lGO = Oe(str2);
                     }
                     style.lGi |= IjkMediaMeta.AV_CH_WIDE_LEFT;
                     return;
                 case solid_opacity:
-                    style.lGP = Float.valueOf(Oa(str2));
+                    style.lGP = Float.valueOf(Ob(str2));
                     style.lGi |= 4294967296L;
                     return;
                 case viewport_fill:
                     if (str2.equals("currentColor")) {
                         style.lGQ = SVG.f.diX();
                     } else {
-                        style.lGQ = Od(str2);
+                        style.lGQ = Oe(str2);
                     }
                     style.lGi |= IjkMediaMeta.AV_CH_SURROUND_DIRECT_LEFT;
                     return;
                 case viewport_fill_opacity:
-                    style.lGR = Float.valueOf(Oa(str2));
+                    style.lGR = Float.valueOf(Ob(str2));
                     style.lGi |= IjkMediaMeta.AV_CH_SURROUND_DIRECT_RIGHT;
                     return;
                 case vector_effect:
-                    style.lGS = Ot(str2);
+                    style.lGS = Ou(str2);
                     style.lGi |= IjkMediaMeta.AV_CH_LOW_FREQUENCY_2;
                     return;
                 default:
@@ -2303,7 +2303,7 @@ public class SVGParser extends DefaultHandler2 {
                     a((SVG.am) aoVar, trim);
                     break;
                 case viewBox:
-                    aoVar.lHh = Ob(trim);
+                    aoVar.lHh = Oc(trim);
                     break;
             }
         }
@@ -2312,12 +2312,12 @@ public class SVGParser extends DefaultHandler2 {
     private void a(SVG.l lVar, Attributes attributes) throws SAXException {
         for (int i = 0; i < attributes.getLength(); i++) {
             if (SVGAttr.fromString(attributes.getLocalName(i)) == SVGAttr.transform) {
-                lVar.setTransform(NX(attributes.getValue(i)));
+                lVar.setTransform(NY(attributes.getValue(i)));
             }
         }
     }
 
-    private Matrix NX(String str) throws SAXException {
+    private Matrix NY(String str) throws SAXException {
         Matrix matrix = new Matrix();
         e eVar = new e(str);
         eVar.skipWhitespace();
@@ -2415,7 +2415,7 @@ public class SVGParser extends DefaultHandler2 {
         return matrix;
     }
 
-    protected static SVG.n NY(String str) throws SAXException {
+    protected static SVG.n NZ(String str) throws SAXException {
         if (str.length() == 0) {
             throw new SAXException("Invalid length value (empty string)");
         }
@@ -2440,7 +2440,7 @@ public class SVGParser extends DefaultHandler2 {
         }
     }
 
-    private static List<SVG.n> NZ(String str) throws SAXException {
+    private static List<SVG.n> Oa(String str) throws SAXException {
         if (str.length() == 0) {
             throw new SAXException("Invalid length list (empty string)");
         }
@@ -2478,7 +2478,7 @@ public class SVGParser extends DefaultHandler2 {
         throw new SAXException("Invalid float value: " + str);
     }
 
-    private static float Oa(String str) throws SAXException {
+    private static float Ob(String str) throws SAXException {
         float parseFloat = parseFloat(str);
         if (parseFloat < 0.0f) {
             return 0.0f;
@@ -2489,7 +2489,7 @@ public class SVGParser extends DefaultHandler2 {
         return parseFloat;
     }
 
-    private static SVG.a Ob(String str) throws SAXException {
+    private static SVG.a Oc(String str) throws SAXException {
         e eVar = new e(str);
         eVar.skipWhitespace();
         float nextFloat = eVar.nextFloat();
@@ -2520,7 +2520,7 @@ public class SVGParser extends DefaultHandler2 {
             eVar.skipWhitespace();
             nextToken = eVar.nextToken();
         }
-        PreserveAspectRatio.Alignment Oz = a.Oz(nextToken);
+        PreserveAspectRatio.Alignment OA = a.OA(nextToken);
         eVar.skipWhitespace();
         if (eVar.djC()) {
             scale = null;
@@ -2534,7 +2534,7 @@ public class SVGParser extends DefaultHandler2 {
                 throw new SAXException("Invalid preserveAspectRatio definition: " + str);
             }
         }
-        amVar.lHe = new PreserveAspectRatio(Oz, scale);
+        amVar.lHe = new PreserveAspectRatio(OA, scale);
     }
 
     private static SVG.al ff(String str, String str2) throws SAXException {
@@ -2547,24 +2547,24 @@ public class SVGParser extends DefaultHandler2 {
             SVG.al alVar = null;
             String trim2 = str.substring(indexOf + 1).trim();
             if (trim2.length() > 0) {
-                alVar = Oc(trim2);
+                alVar = Od(trim2);
             }
             return new SVG.s(trim, alVar);
         }
-        return Oc(str);
+        return Od(str);
     }
 
-    private static SVG.al Oc(String str) throws SAXException {
+    private static SVG.al Od(String str) throws SAXException {
         if (str.equals("none")) {
             return null;
         }
         if (str.equals("currentColor")) {
             return SVG.f.diX();
         }
-        return Od(str);
+        return Oe(str);
     }
 
-    private static SVG.e Od(String str) throws SAXException {
+    private static SVG.e Oe(String str) throws SAXException {
         if (str.charAt(0) == '#') {
             com.caverock.androidsvg.a A = com.caverock.androidsvg.a.A(str, 1, str.length());
             if (A == null) {
@@ -2603,7 +2603,7 @@ public class SVGParser extends DefaultHandler2 {
             }
             return new SVG.e((bh(nextFloat) << 16) | (bh(bi) << 8) | bh(bi2));
         } else {
-            return Oe(str);
+            return Of(str);
         }
     }
 
@@ -2617,12 +2617,12 @@ public class SVGParser extends DefaultHandler2 {
         return Math.round(f);
     }
 
-    private static SVG.e Oe(String str) throws SAXException {
-        Integer OA = b.OA(str.toLowerCase(Locale.US));
-        if (OA == null) {
+    private static SVG.e Of(String str) throws SAXException {
+        Integer OB = b.OB(str.toLowerCase(Locale.US));
+        if (OB == null) {
             throw new SAXException("Invalid colour keyword: " + str);
         }
-        return new SVG.e(OA.intValue());
+        return new SVG.e(OB.intValue());
     }
 
     private static void a(SVG.Style style, String str) throws SAXException {
@@ -2640,8 +2640,8 @@ public class SVGParser extends DefaultHandler2 {
                 }
                 if (num != null && fontStyle != null) {
                     break;
-                } else if (!h.equals("normal") && (num != null || (num = d.OA(h)) == null)) {
-                    if (fontStyle != null || (fontStyle = Oj(h)) == null) {
+                } else if (!h.equals("normal") && (num != null || (num = d.OB(h)) == null)) {
+                    if (fontStyle != null || (fontStyle = Ok(h)) == null) {
                         if (str2 != null || !h.equals("small-caps")) {
                             break;
                         }
@@ -2649,18 +2649,18 @@ public class SVGParser extends DefaultHandler2 {
                     }
                 }
             }
-            SVG.n Og = Og(h);
+            SVG.n Oh = Oh(h);
             if (eVar.g('/')) {
                 eVar.skipWhitespace();
                 String nextToken = eVar.nextToken();
                 if (nextToken == null) {
                     throw new SAXException("Invalid font style attribute: missing line-height");
                 }
-                NY(nextToken);
+                NZ(nextToken);
                 eVar.skipWhitespace();
             }
-            style.lGw = Of(eVar.djO());
-            style.lGx = Og;
+            style.lGw = Og(eVar.djO());
+            style.lGx = Oh;
             style.lGy = Integer.valueOf(num == null ? 400 : num.intValue());
             if (fontStyle == null) {
                 fontStyle = SVG.Style.FontStyle.Normal;
@@ -2670,7 +2670,7 @@ public class SVGParser extends DefaultHandler2 {
         }
     }
 
-    private static List<String> Of(String str) throws SAXException {
+    private static List<String> Og(String str) throws SAXException {
         ArrayList arrayList = null;
         e eVar = new e(str);
         do {
@@ -2690,31 +2690,31 @@ public class SVGParser extends DefaultHandler2 {
         return arrayList;
     }
 
-    private static SVG.n Og(String str) throws SAXException {
-        SVG.n OB = c.OB(str);
+    private static SVG.n Oh(String str) throws SAXException {
+        SVG.n OC = c.OC(str);
+        if (OC == null) {
+            return NZ(str);
+        }
+        return OC;
+    }
+
+    private static Integer Oi(String str) throws SAXException {
+        Integer OB = d.OB(str);
         if (OB == null) {
-            return NY(str);
+            throw new SAXException("Invalid font-weight property: " + str);
         }
         return OB;
     }
 
-    private static Integer Oh(String str) throws SAXException {
-        Integer OA = d.OA(str);
-        if (OA == null) {
-            throw new SAXException("Invalid font-weight property: " + str);
-        }
-        return OA;
-    }
-
-    private static SVG.Style.FontStyle Oi(String str) throws SAXException {
-        SVG.Style.FontStyle Oj = Oj(str);
-        if (Oj != null) {
-            return Oj;
+    private static SVG.Style.FontStyle Oj(String str) throws SAXException {
+        SVG.Style.FontStyle Ok = Ok(str);
+        if (Ok != null) {
+            return Ok;
         }
         throw new SAXException("Invalid font-style property: " + str);
     }
 
-    private static SVG.Style.FontStyle Oj(String str) {
+    private static SVG.Style.FontStyle Ok(String str) {
         if ("italic".equals(str)) {
             return SVG.Style.FontStyle.Italic;
         }
@@ -2727,7 +2727,7 @@ public class SVGParser extends DefaultHandler2 {
         return null;
     }
 
-    private static SVG.Style.TextDecoration Ok(String str) throws SAXException {
+    private static SVG.Style.TextDecoration Ol(String str) throws SAXException {
         if ("none".equals(str)) {
             return SVG.Style.TextDecoration.None;
         }
@@ -2746,7 +2746,7 @@ public class SVGParser extends DefaultHandler2 {
         throw new SAXException("Invalid text-decoration property: " + str);
     }
 
-    private static SVG.Style.TextDirection Ol(String str) throws SAXException {
+    private static SVG.Style.TextDirection Om(String str) throws SAXException {
         if ("ltr".equals(str)) {
             return SVG.Style.TextDirection.LTR;
         }
@@ -2756,7 +2756,7 @@ public class SVGParser extends DefaultHandler2 {
         throw new SAXException("Invalid direction property: " + str);
     }
 
-    private static SVG.Style.FillRule Om(String str) throws SAXException {
+    private static SVG.Style.FillRule On(String str) throws SAXException {
         if ("nonzero".equals(str)) {
             return SVG.Style.FillRule.NonZero;
         }
@@ -2766,7 +2766,7 @@ public class SVGParser extends DefaultHandler2 {
         throw new SAXException("Invalid fill-rule property: " + str);
     }
 
-    private static SVG.Style.LineCaps On(String str) throws SAXException {
+    private static SVG.Style.LineCaps Oo(String str) throws SAXException {
         if ("butt".equals(str)) {
             return SVG.Style.LineCaps.Butt;
         }
@@ -2779,7 +2779,7 @@ public class SVGParser extends DefaultHandler2 {
         throw new SAXException("Invalid stroke-linecap property: " + str);
     }
 
-    private static SVG.Style.LineJoin Oo(String str) throws SAXException {
+    private static SVG.Style.LineJoin Op(String str) throws SAXException {
         if ("miter".equals(str)) {
             return SVG.Style.LineJoin.Miter;
         }
@@ -2792,7 +2792,7 @@ public class SVGParser extends DefaultHandler2 {
         throw new SAXException("Invalid stroke-linejoin property: " + str);
     }
 
-    private static SVG.n[] Op(String str) throws SAXException {
+    private static SVG.n[] Oq(String str) throws SAXException {
         SVG.n djG;
         e eVar = new e(str);
         eVar.skipWhitespace();
@@ -2823,7 +2823,7 @@ public class SVGParser extends DefaultHandler2 {
         return null;
     }
 
-    private static SVG.Style.TextAnchor Oq(String str) throws SAXException {
+    private static SVG.Style.TextAnchor Or(String str) throws SAXException {
         if ("start".equals(str)) {
             return SVG.Style.TextAnchor.Start;
         }
@@ -2836,7 +2836,7 @@ public class SVGParser extends DefaultHandler2 {
         throw new SAXException("Invalid text-anchor property: " + str);
     }
 
-    private static Boolean Or(String str) throws SAXException {
+    private static Boolean Os(String str) throws SAXException {
         if ("visible".equals(str) || "auto".equals(str)) {
             return Boolean.TRUE;
         }
@@ -2846,7 +2846,7 @@ public class SVGParser extends DefaultHandler2 {
         throw new SAXException("Invalid toverflow property: " + str);
     }
 
-    private static SVG.b Os(String str) throws SAXException {
+    private static SVG.b Ot(String str) throws SAXException {
         if ("auto".equals(str)) {
             return null;
         }
@@ -2870,10 +2870,10 @@ public class SVGParser extends DefaultHandler2 {
     }
 
     private static SVG.n a(e eVar) {
-        return eVar.OC("auto") ? new SVG.n(0.0f) : eVar.djG();
+        return eVar.OD("auto") ? new SVG.n(0.0f) : eVar.djG();
     }
 
-    private static SVG.Style.VectorEffect Ot(String str) throws SAXException {
+    private static SVG.Style.VectorEffect Ou(String str) throws SAXException {
         if ("none".equals(str)) {
             return SVG.Style.VectorEffect.None;
         }
@@ -2883,7 +2883,7 @@ public class SVGParser extends DefaultHandler2 {
         throw new SAXException("Invalid vector-effect property: " + str);
     }
 
-    private static SVG.u Ou(String str) throws SAXException {
+    private static SVG.u Ov(String str) throws SAXException {
         int intValue;
         float f;
         float f2;
@@ -3178,7 +3178,7 @@ public class SVGParser extends DefaultHandler2 {
         return uVar;
     }
 
-    private static Set<String> Ov(String str) throws SAXException {
+    private static Set<String> Ow(String str) throws SAXException {
         e eVar = new e(str);
         HashSet hashSet = new HashSet();
         while (!eVar.djC()) {
@@ -3193,7 +3193,7 @@ public class SVGParser extends DefaultHandler2 {
         return hashSet;
     }
 
-    private static Set<String> Ow(String str) throws SAXException {
+    private static Set<String> Ox(String str) throws SAXException {
         e eVar = new e(str);
         HashSet hashSet = new HashSet();
         while (!eVar.djC()) {
@@ -3208,7 +3208,7 @@ public class SVGParser extends DefaultHandler2 {
         return hashSet;
     }
 
-    private static Set<String> Ox(String str) throws SAXException {
+    private static Set<String> Oy(String str) throws SAXException {
         e eVar = new e(str);
         HashSet hashSet = new HashSet();
         while (!eVar.djC()) {
@@ -3262,7 +3262,7 @@ public class SVGParser extends DefaultHandler2 {
         this.lHU = 1;
     }
 
-    private void Oy(String str) throws SAXException {
-        this.lHR.b(new CSSParser(CSSParser.MediaType.screen).NM(str));
+    private void Oz(String str) throws SAXException {
+        this.lHR.b(new CSSParser(CSSParser.MediaType.screen).NN(str));
     }
 }

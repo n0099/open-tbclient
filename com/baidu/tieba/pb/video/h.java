@@ -265,7 +265,7 @@ public class h {
         int f = f(videoInfo);
         this.Kn = ((double) this.iZw) <= (((double) l.getEquipmentWidth(this.iFL.getActivity())) * 0.5625d) + 5.0d;
         int intValue = videoInfo.video_width.intValue();
-        this.guO = new com.baidu.tieba.play.c(this.iFL.getPageContext(), this.iZf, true, com.baidu.tbadk.a.b.rG("cyber_player_test") ? 1 : 0);
+        this.guO = new com.baidu.tieba.play.c(this.iFL.getPageContext(), this.iZf, true, com.baidu.tbadk.a.b.rH("cyber_player_test") || com.baidu.tbadk.a.b.rG("cyber_player_test") ? 1 : 0);
         this.guO.a(this.iZL);
         this.guO.rS(false);
         this.guO.a(this.iZB);
@@ -460,7 +460,7 @@ public class h {
             this.guO.b(this.iZC);
             this.iZn = null;
             this.iZm = null;
-            this.guO.Gw(this.iZn);
+            this.guO.Gx(this.iZn);
             this.guO.ccW().setOnDragingListener(idD);
             this.guO.a(new c.InterfaceC0590c() { // from class: com.baidu.tieba.pb.video.h.3
                 @Override // com.baidu.tieba.play.c.InterfaceC0590c
@@ -491,7 +491,7 @@ public class h {
                 @Override // com.baidu.tieba.play.c.h
                 public void csQ() {
                     if (h.this.iFL != null && h.this.iZm != null && !StringUtils.isNull(h.this.iZm.getId())) {
-                        h.this.iFL.FO(h.this.iZm.getId());
+                        h.this.iFL.FP(h.this.iZm.getId());
                     }
                 }
             });
@@ -499,7 +499,7 @@ public class h {
                 @Override // com.baidu.tieba.play.c.j
                 public void qV(boolean z) {
                     if (h.this.iZl != null) {
-                        h.this.Bj(z ? "1" : "2");
+                        h.this.Bk(z ? "1" : "2");
                     }
                 }
             });
@@ -513,14 +513,14 @@ public class h {
             this.guO.setThumbnail(videoInfo.thumbnail_url);
             this.guO.setVideoUrl(this.mVideoUrl, bjVar.getTid());
             this.guO.setFid(str);
-            this.guO.GX(bjVar.getTitle());
+            this.guO.GY(bjVar.getTitle());
             this.guO.a(iZN);
             this.guO.bQh();
             this.guO.show();
         }
     }
 
-    public void Gv(String str) {
+    public void Gw(String str) {
         if (this.iZi != null) {
             this.iZi.emF = str;
         }
@@ -540,10 +540,10 @@ public class h {
         this.iZm = bjVar;
     }
 
-    public void Gw(String str) {
+    public void Gx(String str) {
         this.iZn = str;
         if (this.guO != null) {
-            this.guO.Gw(this.iZn);
+            this.guO.Gx(this.iZn);
         }
     }
 
@@ -560,7 +560,7 @@ public class h {
                 this.mVideoUrl = this.iZl.aCI().video_url;
             }
             this.guO.eg(this.mVideoUrl, this.iZl == null ? "" : this.iZl.getTid());
-            Bj("2");
+            Bk("2");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_VEDIO_START_PLAY));
         }
     }
@@ -679,7 +679,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Bj(String str) {
+    public void Bk(String str) {
         if (this.iZh != null) {
             if ("1".equals(str) || "2".equals(str)) {
                 com.baidu.tieba.play.l.a(this.iZh.video_md5, "", str, this.iZi);

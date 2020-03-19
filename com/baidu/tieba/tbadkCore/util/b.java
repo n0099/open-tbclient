@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.ETAG;
 public class b {
     private static String iWl = "tbgametype";
 
-    public static String Jl(String str) {
+    public static String Jm(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;

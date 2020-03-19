@@ -767,7 +767,7 @@ public class b {
         NotificationHelper.cancelNotification(this.appContext, 30);
     }
 
-    public void un(String str) {
+    public void uo(String str) {
         if (TextUtils.isEmpty(str)) {
             aKO();
             return;
@@ -785,7 +785,7 @@ public class b {
         }
     }
 
-    public void uo(String str) {
+    public void up(String str) {
         if (TextUtils.isEmpty(str)) {
             aKO();
             return;

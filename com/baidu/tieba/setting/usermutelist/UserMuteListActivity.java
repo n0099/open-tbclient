@@ -224,9 +224,9 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.iJJ.getPageActivity());
         if (aq.isEmpty(str)) {
-            aVar.sR(this.iJJ.getResources().getString(R.string.block_mute_message_alert, str2));
+            aVar.sS(this.iJJ.getResources().getString(R.string.block_mute_message_alert, str2));
         } else {
-            aVar.sR(str);
+            aVar.sS(str);
         }
         aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.10
             @Override // com.baidu.tbadk.core.dialog.a.b

@@ -111,7 +111,7 @@ public class b {
         return this.kmi;
     }
 
-    public void Jt(String str) {
+    public void Ju(String str) {
         this.kmi = str;
     }
 
@@ -119,7 +119,7 @@ public class b {
         return this.kmj;
     }
 
-    public void Ju(String str) {
+    public void Jv(String str) {
         this.kmj = str;
     }
 

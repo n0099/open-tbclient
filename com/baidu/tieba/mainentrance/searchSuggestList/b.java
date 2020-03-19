@@ -33,7 +33,7 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void Em(String str) {
+    public void En(String str) {
         if (!StringUtils.isNull(str)) {
             this.cxh = str.trim();
         }

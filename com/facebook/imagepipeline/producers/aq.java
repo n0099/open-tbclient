@@ -22,21 +22,21 @@ public abstract class aq<T> extends com.facebook.common.b.h<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onSuccess(T t) {
-        this.lWU.a(this.mRequestId, this.lYB, this.lWU.Pd(this.mRequestId) ? bt(t) : null);
+        this.lWU.a(this.mRequestId, this.lYB, this.lWU.Pe(this.mRequestId) ? bt(t) : null);
         this.lXq.g(t, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void onFailure(Exception exc) {
-        this.lWU.a(this.mRequestId, this.lYB, exc, this.lWU.Pd(this.mRequestId) ? n(exc) : null);
+        this.lWU.a(this.mRequestId, this.lYB, exc, this.lWU.Pe(this.mRequestId) ? n(exc) : null);
         this.lXq.C(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.h
     public void dlc() {
-        this.lWU.b(this.mRequestId, this.lYB, this.lWU.Pd(this.mRequestId) ? dsI() : null);
+        this.lWU.b(this.mRequestId, this.lYB, this.lWU.Pe(this.mRequestId) ? dsI() : null);
         this.lXq.dlc();
     }
 

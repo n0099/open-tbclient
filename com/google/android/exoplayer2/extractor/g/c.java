@@ -11,18 +11,18 @@ final class c {
     public static b D(f fVar) throws IOException, InterruptedException {
         com.google.android.exoplayer2.util.a.checkNotNull(fVar);
         l lVar = new l(16);
-        if (a.a(fVar, lVar).id != v.QE("RIFF")) {
+        if (a.a(fVar, lVar).id != v.QF("RIFF")) {
             return null;
         }
         fVar.s(lVar.data, 0, 4);
         lVar.setPosition(0);
         int readInt = lVar.readInt();
-        if (readInt != v.QE("WAVE")) {
+        if (readInt != v.QF("WAVE")) {
             Log.e("WavHeaderReader", "Unsupported RIFF format: " + readInt);
             return null;
         }
         a a2 = a.a(fVar, lVar);
-        while (a2.id != v.QE("fmt ")) {
+        while (a2.id != v.QF("fmt ")) {
             fVar.JC((int) a2.size);
             a2 = a.a(fVar, lVar);
         }
@@ -58,10 +58,10 @@ final class c {
         fVar.dvp();
         l lVar = new l(8);
         a a2 = a.a(fVar, lVar);
-        while (a2.id != v.QE("data")) {
+        while (a2.id != v.QF("data")) {
             Log.w("WavHeaderReader", "Ignoring unknown WAV chunk: " + a2.id);
             long j = 8 + a2.size;
-            if (a2.id == v.QE("RIFF")) {
+            if (a2.id == v.QF("RIFF")) {
                 j = 12;
             }
             if (j > 2147483647L) {

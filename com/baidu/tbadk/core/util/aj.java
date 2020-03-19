@@ -124,7 +124,7 @@ public class aj {
     public void a(bd bdVar) {
         if (bdVar != null && !StringUtils.isNull(bdVar.title) && !StringUtils.isNull(bdVar.cQT) && !StringUtils.isNull(bdVar.cQU)) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.cVv.getPageActivity());
-            aVar.sR(bdVar.title);
+            aVar.sS(bdVar.title);
             aVar.a(bdVar.cQU, new a.b() { // from class: com.baidu.tbadk.core.util.aj.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

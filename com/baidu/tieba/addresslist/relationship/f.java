@@ -119,15 +119,15 @@ public class f {
                 for (String str : com.baidu.tbadk.coreExtra.relationship.c.dqi) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                    aVar.uv(str);
+                    aVar.uw(str);
                     arrayList2.add(aVar);
                     cursor = aZi.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter=?", new String[]{str});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
-                            aVar2.uv(str);
+                            aVar2.uw(str);
                             aVar2.setUserName(cursor.getString(cursor.getColumnIndex("name")));
-                            aVar2.uw(cursor.getString(cursor.getColumnIndex("name_show")));
+                            aVar2.ux(cursor.getString(cursor.getColumnIndex("name_show")));
                             aVar2.setUserId(cursor.getLong(cursor.getColumnIndex("id")));
                             aVar2.setUserType(cursor.getInt(cursor.getColumnIndex("user_type")));
                             aVar2.cU(cursor.getString(cursor.getColumnIndex("portrait")));
@@ -167,15 +167,15 @@ public class f {
                 for (String str : com.baidu.tbadk.coreExtra.relationship.c.dqi) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                    aVar.uv(str);
+                    aVar.uw(str);
                     arrayList2.add(aVar);
                     cursor = aZi.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", new String[]{str, "1"});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
-                            aVar2.uv(str);
+                            aVar2.uw(str);
                             aVar2.setUserName(cursor.getString(cursor.getColumnIndex("name")));
-                            aVar2.uw(cursor.getString(cursor.getColumnIndex("name_show")));
+                            aVar2.ux(cursor.getString(cursor.getColumnIndex("name_show")));
                             aVar2.setUserId(cursor.getLong(cursor.getColumnIndex("id")));
                             aVar2.setUserType(cursor.getInt(cursor.getColumnIndex("user_type")));
                             aVar2.cU(cursor.getString(cursor.getColumnIndex("portrait")));

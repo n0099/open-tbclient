@@ -25,7 +25,7 @@ public class i {
         return this.activityNum;
     }
 
-    public void uS(String str) {
+    public void uT(String str) {
         this.activityNum = str;
     }
 }

@@ -313,7 +313,7 @@ public class NewGridImageLayout extends LinearLayout implements View.OnClickList
                     }
                     TbRichTextImageInfo tbRichTextImageInfo = new TbRichTextImageInfo();
                     tbRichTextImageInfo.setSrc(b);
-                    tbRichTextImageInfo.wf(originalUrl);
+                    tbRichTextImageInfo.wg(originalUrl);
                     tbRichTextImageInfo.ho(mediaData2.isLongPic());
                     if (mediaData2.picWidth > 0 && mediaData2.picHeight > 0) {
                         tbRichTextImageInfo.setWidth(mediaData2.picWidth);

@@ -54,12 +54,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setVideoUrl(String str) {
-        if ((com.baidu.tbadk.core.sharedPref.b.aFH().getInt(SharedPrefConfig.KEY_VIDEO_SPLASH_SWITCH, 0) == 1) && !this.isLoading && KJ(str)) {
-            KI(str);
+        if ((com.baidu.tbadk.core.sharedPref.b.aFH().getInt(SharedPrefConfig.KEY_VIDEO_SPLASH_SWITCH, 0) == 1) && !this.isLoading && KK(str)) {
+            KJ(str);
         }
     }
 
-    private void KI(String str) {
+    private void KJ(String str) {
         this.isLoading = true;
         new b(getPath(), str, this.kJe).execute(new Void[0]);
     }
@@ -92,7 +92,7 @@ public class c {
         }
     }
 
-    private boolean KJ(String str) {
+    private boolean KK(String str) {
         return (aq.isEmpty(str) || str.equals(this.kJf)) ? false : true;
     }
 

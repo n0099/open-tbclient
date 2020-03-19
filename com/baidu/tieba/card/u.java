@@ -125,7 +125,7 @@ public class u extends a<bj> implements com.baidu.tieba.a.e {
                 buM().a(view, (View) this.KJ, (Object) this.fMz);
             }
             if (view == getView()) {
-                l.zU(this.KJ.getTid());
+                l.zV(this.KJ.getTid());
                 l.a(this.fMy, this.KJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 bvn();
             }

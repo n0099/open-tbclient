@@ -168,11 +168,11 @@ public final class d {
         mJc.put("yellowgreen", -6632142);
     }
 
-    public static int Qm(String str) {
+    public static int Qn(String str) {
         return aN(str, false);
     }
 
-    public static int Qn(String str) {
+    public static int Qo(String str) {
         return aN(str, true);
     }
 
@@ -206,7 +206,7 @@ public final class d {
                 return al(Integer.parseInt(matcher2.group(1), 10), Integer.parseInt(matcher2.group(2), 10), Integer.parseInt(matcher2.group(3), 10));
             }
         } else {
-            Integer num = mJc.get(v.QB(replace));
+            Integer num = mJc.get(v.QC(replace));
             if (num != null) {
                 return num.intValue();
             }

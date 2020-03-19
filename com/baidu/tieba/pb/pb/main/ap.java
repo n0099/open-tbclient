@@ -57,13 +57,13 @@ public class ap {
     }
 
     public void cqR() {
-        this.iRK.KK(null);
+        this.iRK.KL(null);
         this.iRK.aU(null);
         this.iRK.tN(false);
     }
 
     public void cqS() {
-        this.iRJ.KK(null);
+        this.iRJ.KL(null);
         this.iRJ.aU(null);
         this.iRJ.tN(false);
     }
@@ -71,7 +71,7 @@ public class ap {
     public void f(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             this.iRJ.aU(postWriteCallBackData.getSensitiveWords());
-            this.iRJ.KK(postWriteCallBackData.getErrorString());
+            this.iRJ.KL(postWriteCallBackData.getErrorString());
             if (!com.baidu.tbadk.core.util.v.isEmpty(this.iRJ.cUx())) {
                 qC(true);
                 this.iLo = postWriteCallBackData;
@@ -82,7 +82,7 @@ public class ap {
     public void g(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
             this.iRK.aU(postWriteCallBackData.getSensitiveWords());
-            this.iRK.KK(postWriteCallBackData.getErrorString());
+            this.iRK.KL(postWriteCallBackData.getErrorString());
             if (!com.baidu.tbadk.core.util.v.isEmpty(this.iRK.cUx())) {
                 qD(true);
             }

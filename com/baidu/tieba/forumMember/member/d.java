@@ -14,11 +14,11 @@ public class d {
 
     public void ava() {
         if (this.gkR == null) {
-            this.gkR = com.baidu.tbadk.core.c.a.aEF().sO("tb.forum_member_info");
+            this.gkR = com.baidu.tbadk.core.c.a.aEF().sP("tb.forum_member_info");
         }
     }
 
-    public byte[] AV(String str) {
+    public byte[] AW(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

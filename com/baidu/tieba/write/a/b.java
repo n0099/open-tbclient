@@ -40,7 +40,7 @@ public class b {
         }
     }
 
-    public void KQ(String str) {
+    public void KR(String str) {
         try {
             f(new JSONObject(str), true);
         } catch (Exception e) {

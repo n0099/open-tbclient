@@ -81,9 +81,9 @@ public class c {
         }
     }
 
-    public void Ce(String str) {
+    public void Cf(String str) {
         if (this.hay != null) {
-            this.hay.Ce(str);
+            this.hay.Cf(str);
         }
     }
 

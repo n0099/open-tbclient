@@ -16,7 +16,7 @@ public class c implements a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.turntable.a
-    public void zw(String str) {
+    public void zx(String str) {
         bqH();
         com.baidu.tieba.ala.liveroom.turntable.lucky.d dVar = new com.baidu.tieba.ala.liveroom.turntable.lucky.d();
         dVar.dN(str);

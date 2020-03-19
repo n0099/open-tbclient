@@ -11,7 +11,7 @@ public final class j {
         kYE = z;
     }
 
-    public static void Ls(String str) {
+    public static void Lt(String str) {
         if (kYE) {
             a(5, "BaiDuAbSDK", str, null);
         }
@@ -23,7 +23,7 @@ public final class j {
         }
     }
 
-    public static void Lz(String str) {
+    public static void LA(String str) {
         if (kYE) {
             a(2, "BaiDuAbSDK", str, null);
         }

@@ -32,7 +32,7 @@ public class a {
                 if ((mVar instanceof c) && (aAj = (cVar = (c) mVar).aAj()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(aAj.getTid())) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.zW(threadPersonalized.abtest_tag);
+                    cVar.zX(threadPersonalized.abtest_tag);
                     aAj.mRecomAbTag = threadPersonalized.abtest_tag;
                     aAj.mRecomSource = threadPersonalized.source;
                     aAj.mRecomWeight = threadPersonalized.weight;

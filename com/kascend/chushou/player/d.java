@@ -374,7 +374,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
             }, this.naa.a, str, (String) null, this.mWp.getCurrentPos());
             if (this.naP != null && this.naP.getVisibility() == 0) {
                 if (((VideoPlayer) this.nab).mRh != null && (colorPrivileges = ((VideoPlayer) this.nab).mRh.mColorPrivileges) != null && !tv.chushou.zues.utils.h.isEmpty(colorPrivileges.mColors)) {
-                    arrayList = tv.chushou.zues.toolkit.richtext.b.SS(tv.chushou.zues.toolkit.richtext.b.a(str, colorPrivileges.mColors, colorPrivileges.mWholeColor, new Random().nextInt(colorPrivileges.mColors.size())));
+                    arrayList = tv.chushou.zues.toolkit.richtext.b.ST(tv.chushou.zues.toolkit.richtext.b.a(str, colorPrivileges.mColors, colorPrivileges.mWholeColor, new Random().nextInt(colorPrivileges.mColors.size())));
                 }
                 this.naP.j(str, arrayList);
             }
@@ -440,7 +440,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
             if (((VideoPlayer) this.nab).mRh == null || (colorPrivileges = ((VideoPlayer) this.nab).mRh.mColorPrivileges) == null || tv.chushou.zues.utils.h.isEmpty(colorPrivileges.mColors)) {
                 arrayList = null;
             } else {
-                arrayList = tv.chushou.zues.toolkit.richtext.b.SS(tv.chushou.zues.toolkit.richtext.b.a(str2, colorPrivileges.mColors, colorPrivileges.mWholeColor, new Random().nextInt(colorPrivileges.mColors.size())));
+                arrayList = tv.chushou.zues.toolkit.richtext.b.ST(tv.chushou.zues.toolkit.richtext.b.a(str2, colorPrivileges.mColors, colorPrivileges.mWholeColor, new Random().nextInt(colorPrivileges.mColors.size())));
             }
             this.naP.j(str2, arrayList);
         }
@@ -449,7 +449,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
     @Override // com.kascend.chushou.player.e
     public void f() {
         if (this.naP != null) {
-            this.naP.SA(h.dCs().b());
+            this.naP.SB(h.dCs().b());
         }
     }
 
@@ -970,7 +970,7 @@ public abstract class d extends g implements View.OnClickListener, b.a {
             if (((VideoPlayer) this.nab).mRh == null || (colorPrivileges = ((VideoPlayer) this.nab).mRh.mColorPrivileges) == null || tv.chushou.zues.utils.h.isEmpty(colorPrivileges.mColors)) {
                 arrayList = null;
             } else {
-                arrayList = tv.chushou.zues.toolkit.richtext.b.SS(tv.chushou.zues.toolkit.richtext.b.a(str, colorPrivileges.mColors, colorPrivileges.mWholeColor, new Random().nextInt(colorPrivileges.mColors.size())));
+                arrayList = tv.chushou.zues.toolkit.richtext.b.ST(tv.chushou.zues.toolkit.richtext.b.a(str, colorPrivileges.mColors, colorPrivileges.mWholeColor, new Random().nextInt(colorPrivileges.mColors.size())));
             }
             this.naP.j(str, arrayList);
         }

@@ -302,7 +302,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
         public void onListPullRefresh(boolean z) {
             TiebaStatic.eventStat(FrsGoodFragment.this.getPageContext().getPageActivity(), "frs_pulldown", "frsclick", 1, new Object[0]);
             if (j.isNetWorkAvailable()) {
-                d.aXK().wO("page_frs_good");
+                d.aXK().wP("page_frs_good");
                 FrsGoodFragment.this.ma(true);
                 return;
             }
@@ -362,8 +362,8 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                 if (bjVar.aDo() == null || bjVar.aDo().getGroup_id() == 0 || bc.checkUpIsLogin(FrsGoodFragment.this.getActivity())) {
                     if (bjVar.aDb() != 1 || bc.checkUpIsLogin(FrsGoodFragment.this.getActivity())) {
                         com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                        if (readThreadHistory != null && !readThreadHistory.Jo(bjVar.getId())) {
-                            readThreadHistory.Jn(bjVar.getId());
+                        if (readThreadHistory != null && !readThreadHistory.Jp(bjVar.getId())) {
+                            readThreadHistory.Jo(bjVar.getId());
                             if (FrsGoodFragment.this.gGu != null) {
                                 FrsGoodFragment.this.gGu.bFe();
                             }
@@ -740,7 +740,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
                 h.gy().submitTask(new Runnable() { // from class: com.baidu.tieba.frs.good.FrsGoodFragment.14
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.tieba.tbadkCore.util.a.Ji(FrsGoodFragment.this.gpb);
+                        com.baidu.tieba.tbadkCore.util.a.Jj(FrsGoodFragment.this.gpb);
                     }
                 });
                 break;
@@ -968,7 +968,7 @@ public class FrsGoodFragment extends BaseFragment implements BdListView.e, a.Int
         return this.gGs;
     }
 
-    public void Bz(String str) {
+    public void BA(String str) {
         this.gpb = str;
     }
 

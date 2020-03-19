@@ -343,15 +343,15 @@ public class MultiImageView extends RelativeLayout {
             }
             String str = imageUrlData.imageUrl;
             if (!StringUtils.isNull(str)) {
-                ImageUrlData uB = uB(str);
-                urlDragImageView.setAssistUrl(uB);
-                c(uB);
+                ImageUrlData uC = uC(str);
+                urlDragImageView.setAssistUrl(uC);
+                c(uC);
             }
             urlDragImageView.y(this.dsx, true);
         }
     }
 
-    private ImageUrlData uB(String str) {
+    private ImageUrlData uC(String str) {
         if (TextUtils.isEmpty(str) || this.dtF == null) {
             return null;
         }

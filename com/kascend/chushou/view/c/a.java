@@ -96,7 +96,7 @@ public class a extends b {
                     frescoThumbnailView4.setVisibility(0);
                     frescoThumbnailView4.a(fanItem.mNobleMedal, com.kascend.chushou.view.a.a(), b.C0817b.small, b.C0817b.small, 3);
                 }
-                view$OnLongClickListenerC0814a.eH(a.f.iv_sex, c.SN(fanItem.mGender));
+                view$OnLongClickListenerC0814a.eH(a.f.iv_sex, c.SO(fanItem.mGender));
                 textView.setText(fanItem.mNickname);
                 String str = fanItem.mSignature;
                 if (h.isEmpty(str)) {

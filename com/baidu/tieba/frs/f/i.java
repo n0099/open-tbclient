@@ -42,7 +42,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class i {
-    private static void BN(String str) {
+    private static void BO(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -88,11 +88,11 @@ public class i {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    BN(decode);
+                    BO(decode);
                 }
                 dVar.forumName = matcher.group(2);
             } else {
-                BN(decode);
+                BO(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf >= 0 && (length = indexOf + "kw=".length()) <= decode.length()) {
                     dVar.forumName = decode.substring(length);

@@ -709,7 +709,7 @@ public class UrlDragImageView extends RelativeLayout {
         this.dtX = false;
         this.dun = aNi();
         this.duv = null;
-        if (uF(str)) {
+        if (uG(str)) {
             e(str, z, false);
         }
     }
@@ -739,7 +739,7 @@ public class UrlDragImageView extends RelativeLayout {
             if (!this.dun || this.dri == null || StringUtils.isNull(this.dri.originalUrl, true) || this.dri.originalSize < 0 || Build.VERSION.SDK_INT < 10) {
                 return false;
             }
-            String str = this.duh + ap.aGE().tv(nameMd5FromUrl) + "/" + as.getNameMd5FromUrl(this.dri.originalUrl);
+            String str = this.duh + ap.aGE().tw(nameMd5FromUrl) + "/" + as.getNameMd5FromUrl(this.dri.originalUrl);
             final int[] imageFileWH = m.getImageFileWH(str);
             this.dtT.setVisibility(0);
             if (this.dtU == null) {
@@ -834,8 +834,8 @@ public class UrlDragImageView extends RelativeLayout {
         gs(false);
     }
 
-    private boolean uF(String str) {
-        return j.isNetWorkAvailable() || com.baidu.tbadk.core.util.c.c.tH(str);
+    private boolean uG(String str) {
+        return j.isNetWorkAvailable() || com.baidu.tbadk.core.util.c.c.tI(str);
     }
 
     private void setThumbBitmapToView(com.baidu.adp.widget.ImageView.a aVar) {
@@ -864,7 +864,7 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     private void e(String str, boolean z, boolean z2) {
-        if (uG(str)) {
+        if (uH(str)) {
             if (z2 || (!this.dtY && !this.dtX)) {
                 if (!z2 || !gs(true)) {
                     this.dtY = true;
@@ -918,7 +918,7 @@ public class UrlDragImageView extends RelativeLayout {
         }, false);
     }
 
-    private boolean uG(String str) {
+    private boolean uH(String str) {
         return !TextUtils.isEmpty(str) && (str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX));
     }
 
@@ -1063,9 +1063,9 @@ public class UrlDragImageView extends RelativeLayout {
         }
         com.baidu.adp.base.e<?> ab = i.ab(this.mContext);
         if (ab == null) {
-            uH(nameMd5FromUrl);
+            uI(nameMd5FromUrl);
         } else if (!j.isNetWorkAvailable() || j.isWifiNet() || com.baidu.tbadk.core.sharedPref.b.aFH().getBoolean(SharedPrefConfig.ORIGINAL_IMG_DOWN_TIP, false)) {
-            uH(nameMd5FromUrl);
+            uI(nameMd5FromUrl);
         } else {
             com.baidu.tbadk.core.sharedPref.b.aFH().putBoolean(SharedPrefConfig.ORIGINAL_IMG_DOWN_TIP, true);
             final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(ab.getPageActivity());
@@ -1074,7 +1074,7 @@ public class UrlDragImageView extends RelativeLayout {
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar.dismiss();
-                    UrlDragImageView.this.uH(nameMd5FromUrl);
+                    UrlDragImageView.this.uI(nameMd5FromUrl);
                 }
             });
             aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.5
@@ -1089,7 +1089,7 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uH(String str) {
+    public void uI(String str) {
         if (this.dri != null) {
             this.dri.originalProcess = 0;
             this.duw.setProgress(0);
@@ -1098,7 +1098,7 @@ public class UrlDragImageView extends RelativeLayout {
             downloadData.setStatus(1);
             downloadData.setUrl(this.dri.originalUrl);
             downloadData.setType(13);
-            downloadData.setPath(this.duh + ap.aGE().tv(str) + "/" + str);
+            downloadData.setPath(this.duh + ap.aGE().tw(str) + "/" + str);
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.6
                 @Override // com.baidu.tbadk.download.c
                 public boolean onPreDownload(DownloadData downloadData2) {
@@ -1149,7 +1149,7 @@ public class UrlDragImageView extends RelativeLayout {
     public boolean aNi() {
         if (this.dri != null && !StringUtils.isNull(this.dri.originalUrl, true) && this.dri.originalSize >= 0 && !this.dri.isBlockedPic) {
             String nameMd5FromUrl = as.getNameMd5FromUrl(this.dri.originalUrl);
-            File file = new File(this.duh + ap.aGE().tv(nameMd5FromUrl) + "/" + nameMd5FromUrl);
+            File file = new File(this.duh + ap.aGE().tw(nameMd5FromUrl) + "/" + nameMd5FromUrl);
             if (file != null && file.exists()) {
                 this.dri.originalProcess = 100;
                 return true;

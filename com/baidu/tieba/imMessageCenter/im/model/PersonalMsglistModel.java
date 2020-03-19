@@ -318,7 +318,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return this.hOW;
     }
 
-    public void DH(String str) {
+    public void DI(String str) {
         this.hOW = str;
     }
 
@@ -377,7 +377,7 @@ public class PersonalMsglistModel extends CommonPersonalMsglistModel {
         return -1L;
     }
 
-    public void DI(final String str) {
+    public void DJ(final String str) {
         ac.b(new ab<CommonMsgPojo>() { // from class: com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab

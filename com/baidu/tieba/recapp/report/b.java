@@ -31,7 +31,7 @@ public class b {
     private int pageNumber = -1;
     private long jNl = System.currentTimeMillis() / 1000;
 
-    public void Ia(String str) {
+    public void Ib(String str) {
         this.extInfo = str;
     }
 
@@ -54,15 +54,15 @@ public class b {
         this.pageNumber = i;
     }
 
-    public void Ib(String str) {
+    public void Ic(String str) {
         this.placeId = str;
     }
 
-    public void Ic(String str) {
+    public void Id(String str) {
         this.jNm = str;
     }
 
-    public void Id(String str) {
+    public void Ie(String str) {
     }
 
     public void Bi(int i) {
@@ -85,7 +85,7 @@ public class b {
         this.jNv = i;
     }
 
-    public void Ie(String str) {
+    public void If(String str) {
         this.jNw = str;
     }
 
@@ -161,23 +161,23 @@ public class b {
         return jSONObject;
     }
 
-    public void If(String str) {
+    public void Ig(String str) {
         this.jNx = str;
     }
 
-    public void Ig(String str) {
+    public void Ih(String str) {
         this.jNy = str;
     }
 
-    public void Ih(String str) {
+    public void Ii(String str) {
         this.jNz = str;
     }
 
-    public void Ii(String str) {
+    public void Ij(String str) {
         this.jNA = str;
     }
 
-    public void Ij(String str) {
+    public void Ik(String str) {
         this.jNB = str;
     }
 }

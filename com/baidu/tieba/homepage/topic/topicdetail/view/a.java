@@ -69,9 +69,9 @@ public class a extends com.baidu.tbadk.editortools.d {
         }
     }
 
-    private void vq(String str) {
+    private void vr(String str) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(aJv().getPageActivity());
-        aVar.sR(str);
+        aVar.sS(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.a.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -87,7 +87,7 @@ public class a extends com.baidu.tbadk.editortools.d {
                 TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).X("obj_locate", at.a.LOCATE_REPLY_SUB_PB));
             }
         } else if (i == 230277 || i == 230278) {
-            vq(str);
+            vr(str);
         } else {
             aJv().showToast(str);
         }
@@ -133,7 +133,7 @@ public class a extends com.baidu.tbadk.editortools.d {
                     writeData.setVcodeMD5(aaVar.getVcode_md5());
                     writeData.setVcodeUrl(aaVar.getVcode_pic_url());
                     writeData.setVcodeExtra(aaVar.aJL());
-                    if (com.baidu.tbadk.s.a.wb(aaVar.aJK())) {
+                    if (com.baidu.tbadk.s.a.wc(aaVar.aJK())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.aJv().getPageActivity(), RequestResponseCode.REQUEST_VCODE, writeData, false, aaVar.aJK())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.aJv().getPageActivity(), writeData, RequestResponseCode.REQUEST_VCODE)));
@@ -220,7 +220,7 @@ public class a extends com.baidu.tbadk.editortools.d {
                             this.dyM.sY(false);
                             return;
                         }
-                        this.dyN.vj(intent.getStringExtra("file_name"));
+                        this.dyN.vk(intent.getStringExtra("file_name"));
                         return;
                     }
                     return;
@@ -414,7 +414,7 @@ public class a extends com.baidu.tbadk.editortools.d {
                     }
                     if (!aq.isEmpty(writeData.getContent()) && aq.isEmpty(a.this.mPostContent)) {
                         a.this.mPostContent = writeData.getContent();
-                        a.this.vo(a.this.mPostContent);
+                        a.this.vp(a.this.mPostContent);
                     }
                 }
             }
@@ -432,13 +432,13 @@ public class a extends com.baidu.tbadk.editortools.d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vo(String str) {
+    public void vp(String str) {
         if (aOy() != null) {
             aOy().b(new com.baidu.tbadk.editortools.a(6, 29, str));
         }
     }
 
-    public void vm(String str) {
+    public void vn(String str) {
         this.mPostContent = str;
     }
 

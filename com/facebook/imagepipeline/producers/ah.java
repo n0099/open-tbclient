@@ -29,7 +29,7 @@ public class ah implements aj<com.facebook.common.references.a<com.facebook.imag
         com.facebook.cache.common.b b = this.lTR.b(drV, dmD);
         com.facebook.common.references.a<com.facebook.imagepipeline.g.c> bn = this.lLL.bn(b);
         if (bn != null) {
-            drW.a(id, dsf(), drW.Pd(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+            drW.a(id, dsf(), drW.Pe(id) ? ImmutableMap.of("cached_value_found", "true") : null);
             drW.D(id, "PostprocessedBitmapMemoryCacheProducer", true);
             kVar.aK(1.0f);
             kVar.g(bn, 1);
@@ -37,7 +37,7 @@ public class ah implements aj<com.facebook.common.references.a<com.facebook.imag
             return;
         }
         a aVar = new a(kVar, b, dsX instanceof com.facebook.imagepipeline.request.c, this.lLL, akVar.drV().dsV());
-        drW.a(id, dsf(), drW.Pd(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+        drW.a(id, dsf(), drW.Pe(id) ? ImmutableMap.of("cached_value_found", "false") : null);
         this.lWS.c(aVar, akVar);
     }
 

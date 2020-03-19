@@ -58,7 +58,7 @@ public class g {
                         SignData signData2 = signMessage.signData;
                         if (signData2.forumId != null && signData2.forumId.equals(forum.getId())) {
                             if (bDV != null) {
-                                bDV.BQ(name2);
+                                bDV.BR(name2);
                             }
                             bEz.updateSignData(signData2);
                             signData2.forumId = forum.getId();
@@ -82,14 +82,14 @@ public class g {
                         TbadkCoreApplication.getInst().addSignedForum(name2, signData.sign_bonus_point, i);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
                         if (g.this.bKO() && signData.contDays > 0) {
-                            com.baidu.tbadk.coreExtra.messageCenter.f.aLL().ur(signData.userInfoJson);
+                            com.baidu.tbadk.coreExtra.messageCenter.f.aLL().us(signData.userInfoJson);
                             TbPageContext<?> tbPageContext = g.this.gqW.getTbPageContext();
                             TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(g.this.gqW.getActivity(), "", g.this.gNu, false, true, true);
                             tbWebViewActivityConfig.setPageTranslucent("open_full_screen_opacity_web_page");
                             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
                             return;
                         }
-                        com.baidu.tbadk.coreExtra.messageCenter.f.aLL().ur(null);
+                        com.baidu.tbadk.coreExtra.messageCenter.f.aLL().us(null);
                         if (bDV == null || bDV.bLa()) {
                             g.this.gqW.showToast(TbadkCoreApplication.getInst().getString(R.string.frs_sign_pointer, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
                         } else {
@@ -241,7 +241,7 @@ public class g {
 
     public void ml(boolean z) {
         if (z && !this.gNx) {
-            an.tu("c13560").X("obj_type", 1).aGD();
+            an.tv("c13560").X("obj_type", 1).aGD();
             this.gNx = true;
         }
     }

@@ -88,7 +88,7 @@ public class a {
                 if (this.jxj != null) {
                     this.jxj.f(anVar);
                 }
-                if (!anVar.tt("obj_param5") && this.cRt != null) {
+                if (!anVar.tu("obj_param5") && this.cRt != null) {
                     if (this.cRt.getBaijiahaoData() != null) {
                         if (this.cRt.getBaijiahaoData().oriUgcType == 2) {
                             anVar.X("obj_param5", 3);

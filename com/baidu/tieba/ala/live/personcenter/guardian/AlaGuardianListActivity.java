@@ -50,7 +50,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     private boolean eLP = true;
     public e.a eNm = new e.a() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.2
         @Override // com.baidu.tieba.ala.live.personcenter.guardian.e.a
-        public void yI(String str) {
+        public void yJ(String str) {
             AlaGuardianListActivity.this.bgW();
             if (!TextUtils.isEmpty(str)) {
                 AlaGuardianListActivity.this.showToast(str);
@@ -148,7 +148,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         this.ewm = getIntent().getStringExtra("charm_value");
         this.mUserId = getIntent().getStringExtra("user_id");
         this.eNk = new e(this, this.eNm);
-        this.eNk.yK(this.mUserId);
+        this.eNk.yL(this.mUserId);
         this.eLQ = (int) getResources().getDimension(a.e.sdk_ds246);
         this.eLR = (int) getResources().getDimension(a.e.sdk_ds98);
     }
@@ -161,7 +161,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         this.eLn = (NoNetworkView) this.mRootView.findViewById(a.g.ala_guardian_list_no_network_view);
         this.eNi = (BdListView) this.mRootView.findViewById(a.g.list);
         this.eNl = new d(getPageContext().getPageActivity());
-        this.eNl.yJ(this.ewm);
+        this.eNl.yK(this.ewm);
         this.eNi.addHeaderView(this.eNl.bgL());
         this.eNj = new b(this);
         this.eNj.m(this.exp);

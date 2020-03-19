@@ -76,7 +76,7 @@ public final class a {
     private a() {
     }
 
-    public static void SK(String str) {
+    public static void SL(String str) {
         if ("beta".equals(str)) {
             nXI = nXH;
         } else {

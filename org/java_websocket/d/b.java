@@ -14,7 +14,7 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Sy(String str) {
+    public boolean Sz(String str) {
         for (String str2 : str.replaceAll(HanziToPinyin.Token.SEPARATOR, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
             if (this.nOJ.equals(str2)) {
                 return true;

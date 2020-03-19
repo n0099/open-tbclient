@@ -27,7 +27,7 @@ public class b implements com.baidu.live.b.b {
     public void c(String str, long j, long j2) {
         this.evB = new c(this.mContext);
         this.evB.setOnDismissListener(this.evD);
-        this.evB.bdN().setBackgroundColor(xL(str));
+        this.evB.bdN().setBackgroundColor(xM(str));
         f fVar = new f();
         fVar.y(this.mContext).a(this.evB).a(this.evB.bdN().getSchemeCallback());
         com.baidu.live.view.web.a[] BJ = fVar.BJ();
@@ -80,7 +80,7 @@ public class b implements com.baidu.live.b.b {
         MessageManager.getInstance().registerListener(this.evC);
     }
 
-    private int xL(String str) {
+    private int xM(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

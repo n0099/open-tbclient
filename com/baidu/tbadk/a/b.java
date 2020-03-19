@@ -89,7 +89,7 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            if (rG("cyber_player_test") && !CyberPlayerManager.isCoreLoaded(1)) {
+            if ((rH("cyber_player_test") || rG("cyber_player_test")) && !CyberPlayerManager.isCoreLoaded(1)) {
                 CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuid(), null, 1, null, null, null);
             }
         } catch (Exception e) {
@@ -115,6 +115,10 @@ public class b {
     }
 
     public static boolean rG(String str) {
+        return TextUtils.isEmpty(ayx().cl(str, ""));
+    }
+
+    public static boolean rH(String str) {
         return Config.APP_VERSION_CODE.equalsIgnoreCase(ayx().cl(str, ""));
     }
 }

@@ -19,11 +19,11 @@ public class c extends HttpMessage {
         this.eHs = j;
     }
 
-    public void yx(String str) {
+    public void yy(String str) {
         this.eHt = str;
     }
 
-    public void yy(String str) {
+    public void yz(String str) {
         this.sign = str;
     }
 

@@ -441,7 +441,7 @@ public class a {
                     Object tag = view.getTag();
                     if (tag instanceof String) {
                         TiebaStatic.log(new an("c13079"));
-                        a.this.FP((String) tag);
+                        a.this.FQ((String) tag);
                         return;
                     } else if (tag instanceof SparseArray) {
                         TiebaStatic.log(new an("c11739").X("obj_locate", 4));
@@ -803,7 +803,7 @@ public class a {
         return ((this.jbH.clX().getPbData().clb() != 0) || this.jbH.clX().getPbData().ckP() == null || this.jbH.clX().getPbData().ckP().aCr() == null || TextUtils.equals(this.jbH.clX().getPbData().ckP().aCr().getUserId(), TbadkCoreApplication.getCurrentAccount()) || z) ? false : true;
     }
 
-    public void FP(String str) {
+    public void FQ(String str) {
         if (this.jbH.clX() != null && this.jbH.clX().getPbData() != null && this.jbH.clX().getPbData().cln()) {
             String format = String.format(TbConfig.URL_BJH_REPORT, this.jbH.clX().cnU(), str);
             bj ckP = this.jbH.clX().getPbData().ckP();
@@ -814,13 +814,13 @@ public class a {
             } else if (ckP.aBh()) {
                 format = format + "&channelid=33840";
             }
-            FQ(format);
+            FR(format);
             return;
         }
-        this.iJn.Gp(str);
+        this.iJn.Gq(str);
     }
 
-    private void FQ(String str) {
+    private void FR(String str) {
         TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.jbH.getContext(), "", str, true);
         tbWebViewActivityConfig.setFixTitle(true);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
@@ -875,7 +875,7 @@ public class a {
 
     public void cnx() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jbH.getPageContext().getPageActivity());
-        aVar.sR(this.jbH.getResources().getString(R.string.mute_is_super_member_function));
+        aVar.sS(this.jbH.getResources().getString(R.string.mute_is_super_member_function));
         aVar.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.pb.videopb.b.a.19
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -924,7 +924,7 @@ public class a {
             this.iPU.jW(i3);
         } else {
             this.iPU.setOnlyMessageShowCenter(false);
-            this.iPU.sR(str2);
+            this.iPU.sS(str2);
         }
         this.iPU.setYesButtonTag(sparseArray);
         this.iPU.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.pb.videopb.b.a.22
@@ -973,7 +973,7 @@ public class a {
             } else {
                 str = "3";
             }
-            this.gRC.wn(str);
+            this.gRC.wo(str);
             this.gRC.a(new e.b() { // from class: com.baidu.tieba.pb.videopb.b.a.3
                 @Override // com.baidu.tieba.NEGFeedBack.e.b
                 public void S(JSONArray jSONArray) {
@@ -1165,9 +1165,9 @@ public class a {
     public void b(final MetaData metaData) {
         if (metaData != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jbH.getActivity());
-            aVar.sQ(TbadkCoreApplication.getInst().getResources().getString(R.string.mark_done));
+            aVar.sR(TbadkCoreApplication.getInst().getResources().getString(R.string.mark_done));
             aVar.setTitleShowCenter(true);
-            aVar.sR(TbadkCoreApplication.getInst().getResources().getString(R.string.mark_like));
+            aVar.sS(TbadkCoreApplication.getInst().getResources().getString(R.string.mark_like));
             aVar.setMessageShowCenter(true);
             aVar.fH(false);
             aVar.b(TbadkCoreApplication.getInst().getResources().getString(R.string.mark_like_cancel), new a.b() { // from class: com.baidu.tieba.pb.videopb.b.a.7
@@ -1219,13 +1219,13 @@ public class a {
         a(z, userMuteAddAndDelCustomMessage, str5, str2, str6);
     }
 
-    public void vq(String str) {
+    public void vr(String str) {
         if (str == null) {
             str = "";
         }
         if (this.jbH != null && this.jbH.getPageContext() != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jbH.getPageContext().getPageActivity());
-            aVar.sR(str);
+            aVar.sS(str);
             aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.pb.videopb.b.a.9
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1245,9 +1245,9 @@ public class a {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.jbH.getBaseFragmentActivity());
         if (aq.isEmpty(str)) {
-            aVar.sR(TbadkCoreApplication.getInst().getResources().getString(R.string.block_mute_message_alert, str3));
+            aVar.sS(TbadkCoreApplication.getInst().getResources().getString(R.string.block_mute_message_alert, str3));
         } else {
-            aVar.sR(str);
+            aVar.sS(str);
         }
         aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.pb.videopb.b.a.10
             @Override // com.baidu.tbadk.core.dialog.a.b

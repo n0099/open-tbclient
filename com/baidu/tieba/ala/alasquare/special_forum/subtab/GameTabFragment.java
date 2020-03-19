@@ -93,7 +93,7 @@ public class GameTabFragment extends SpecialForumTabBaseFragment {
         }
     };
 
-    public static GameTabFragment xK(String str) {
+    public static GameTabFragment xL(String str) {
         GameTabFragment gameTabFragment = new GameTabFragment();
         if (!StringUtils.isNull(str)) {
             Bundle bundle = new Bundle();

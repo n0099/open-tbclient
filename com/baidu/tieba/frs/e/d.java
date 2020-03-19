@@ -11,7 +11,7 @@ import java.util.Map;
 public class d {
     private static d gLU;
     private LruCache<String, String> gLS = new LruCache<>(10);
-    private l<String> gLT = com.baidu.tbadk.core.c.a.aEF().sP("tb.recently_vistited_forum_animation");
+    private l<String> gLT = com.baidu.tbadk.core.c.a.aEF().sQ("tb.recently_vistited_forum_animation");
 
     public static d bKj() {
         if (gLU == null) {
@@ -61,7 +61,7 @@ public class d {
         this.gLS.put(str, eVar.toString());
     }
 
-    public e BL(String str) {
+    public e BM(String str) {
         return str == null ? new e(null) : new e(this.gLS.get(str));
     }
 }

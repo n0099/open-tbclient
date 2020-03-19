@@ -200,7 +200,7 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
             }
             if (dmz() instanceof com.facebook.drawee.b.a) {
                 com.facebook.drawee.b.a aVar2 = (com.facebook.drawee.b.a) dmz();
-                aVar2.OX(getId());
+                aVar2.OY(getId());
                 com.facebook.drawee.d.b hierarchy = getHierarchy();
                 if (hierarchy != null && (p = com.facebook.drawee.drawable.p.p(hierarchy.getTopLevelDrawable())) != null) {
                     bVar = p.dnb();

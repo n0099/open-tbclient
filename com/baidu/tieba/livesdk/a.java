@@ -93,8 +93,8 @@ public class a {
         com.baidu.tieba.sdk.a.cED().setCustomProtocol("bdtiebalive");
         com.baidu.tieba.sdk.a.cED().setSubappVersionName(TbConfig.getVersion());
         com.baidu.tieba.sdk.a.cED().setSubappVersionCode(TbadkCoreApplication.getInst().getVersionCode());
-        com.baidu.tieba.sdk.a.cED().In(TbConfig.getFrom());
-        com.baidu.tieba.sdk.a.cED().Io(TbConfig.getCurrentFrom());
+        com.baidu.tieba.sdk.a.cED().Io(TbConfig.getFrom());
+        com.baidu.tieba.sdk.a.cED().Ip(TbConfig.getCurrentFrom());
         com.baidu.tieba.sdk.a.cED().c(new com.baidu.tieba.livesdk.i.b());
         com.baidu.tieba.sdk.a.cED().a(new com.baidu.tieba.livesdk.e.a());
         com.baidu.tieba.sdk.a.cED().a(new com.baidu.tieba.livesdk.g.a());

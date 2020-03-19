@@ -24,9 +24,9 @@ public class k {
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    com.baidu.tieba.k.d.ET(g.a.dXE);
-                    com.baidu.tieba.k.d.ET(g.a.irD);
-                    com.baidu.tieba.k.d.ET(g.a.irE);
+                    com.baidu.tieba.k.d.EU(g.a.dXE);
+                    com.baidu.tieba.k.d.EU(g.a.irD);
+                    com.baidu.tieba.k.d.EU(g.a.irE);
                     return null;
                 }
             }.execute(new Void[0]);

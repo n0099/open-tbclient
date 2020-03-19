@@ -70,7 +70,7 @@ public class b extends BaseAdapter {
             aVar.eJz.setText(c0444b.rank);
             aVar.eJA.startLoad(c0444b.portrait, 12, false);
             aVar.eJB.setText(c0444b.nickname);
-            aVar.eJC.setText(this.mContext.getResources().getString(a.i.score_value, com.baidu.tieba.ala.guardthrone.e.a.yD(c0444b.score)));
+            aVar.eJC.setText(this.mContext.getResources().getString(a.i.score_value, com.baidu.tieba.ala.guardthrone.e.a.yE(c0444b.score)));
         }
         return view;
     }

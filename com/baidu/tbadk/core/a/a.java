@@ -30,7 +30,7 @@ public abstract class a {
 
     public abstract void reLoginByCacheAccount();
 
-    public abstract b sp(String str);
+    public abstract b sq(String str);
 
     public static a azS() {
         return cLZ;

@@ -34,7 +34,7 @@ public class d extends com.baidu.live.ar.d {
         return jSONObject.toString();
     }
 
-    public d yW(String str) {
+    public d yX(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);

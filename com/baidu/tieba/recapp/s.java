@@ -52,7 +52,7 @@ public class s {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.cCW().a(advertAppInfo.cNn, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.HN(advertAppInfo.cNn).intValue(), null, true, false, true, advertAppInfo.cNt.userPortrait, downloadStaticsData, advertAppInfo.cNt.userName);
+        com.baidu.tieba.recapp.download.e.cCW().a(advertAppInfo.cNn, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.HO(advertAppInfo.cNn).intValue(), null, true, false, true, advertAppInfo.cNt.userPortrait, downloadStaticsData, advertAppInfo.cNt.userName);
         return true;
     }
 
@@ -236,7 +236,7 @@ public class s {
         if (cCN == null) {
             return false;
         }
-        if (cCN.wT(str)) {
+        if (cCN.wU(str)) {
             cCN.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
@@ -263,7 +263,7 @@ public class s {
         if (cCN == null) {
             return false;
         }
-        if (cCN.wT(str)) {
+        if (cCN.wU(str)) {
             cCN.a(context, strArr, true);
             return true;
         }

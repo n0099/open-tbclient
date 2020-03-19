@@ -76,7 +76,7 @@ public class PushDialogLoopManager {
                     if (com.baidu.tieba.screenlocknotify.a.cEw().jQS.cPv()) {
                         PushDialogLoopManager.this.jDH = true;
                     } else {
-                        PushDialogLoopManager.this.Ht(str);
+                        PushDialogLoopManager.this.Hu(str);
                     }
                 }
             }
@@ -139,11 +139,11 @@ public class PushDialogLoopManager {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void cBE() {
         this.jDI = false;
-        Ht(this.jDG);
+        Hu(this.jDG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ht(String str) {
+    public void Hu(String str) {
         if (!com.baidu.tieba.screenlocknotify.a.cEw().jQS.cPv() && TbSingleton.getInstance().getLastResumeTime() <= UtilHelper.getTodayZeroTime()) {
             Activity currentActivity = com.baidu.adp.base.a.eH().currentActivity();
             if (currentActivity != null && currentActivity.getClass() != null && currentActivity.getClass().getName().equals(ScreenLockActivity.class.getName())) {

@@ -26,7 +26,7 @@ public class g {
         }
     }
 
-    public static int BM(String str) {
+    public static int BN(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }

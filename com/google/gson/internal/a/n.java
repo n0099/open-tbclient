@@ -155,7 +155,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Boolean bool) throws IOException {
-            bVar.QM(bool == null ? "null" : bool.toString());
+            bVar.QN(bool == null ? "null" : bool.toString());
         }
     };
     public static final TypeAdapterFactory mNP = a(Boolean.TYPE, Boolean.class, mNN);
@@ -404,7 +404,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Character ch) throws IOException {
-            bVar.QM(ch == null ? null : String.valueOf(ch));
+            bVar.QN(ch == null ? null : String.valueOf(ch));
         }
     };
     public static final TypeAdapterFactory mOi = a(Character.TYPE, Character.class, mOh);
@@ -428,7 +428,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, String str) throws IOException {
-            bVar.QM(str);
+            bVar.QN(str);
         }
     };
     public static final TypeAdapter<BigDecimal> mOk = new TypeAdapter<BigDecimal>() { // from class: com.google.gson.internal.a.n.9
@@ -494,7 +494,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, StringBuilder sb) throws IOException {
-            bVar.QM(sb == null ? null : sb.toString());
+            bVar.QN(sb == null ? null : sb.toString());
         }
     };
     public static final TypeAdapterFactory mOo = a(StringBuilder.class, mOn);
@@ -514,7 +514,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, StringBuffer stringBuffer) throws IOException {
-            bVar.QM(stringBuffer == null ? null : stringBuffer.toString());
+            bVar.QN(stringBuffer == null ? null : stringBuffer.toString());
         }
     };
     public static final TypeAdapterFactory mOq = a(StringBuffer.class, mOp);
@@ -538,7 +538,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, URL url) throws IOException {
-            bVar.QM(url == null ? null : url.toExternalForm());
+            bVar.QN(url == null ? null : url.toExternalForm());
         }
     };
     public static final TypeAdapterFactory mOs = a(URL.class, mOr);
@@ -566,7 +566,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, URI uri) throws IOException {
-            bVar.QM(uri == null ? null : uri.toASCIIString());
+            bVar.QN(uri == null ? null : uri.toASCIIString());
         }
     };
     public static final TypeAdapterFactory mOu = a(URI.class, mOt);
@@ -586,7 +586,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, InetAddress inetAddress) throws IOException {
-            bVar.QM(inetAddress == null ? null : inetAddress.getHostAddress());
+            bVar.QN(inetAddress == null ? null : inetAddress.getHostAddress());
         }
     };
     public static final TypeAdapterFactory mOw = b(InetAddress.class, mOv);
@@ -606,7 +606,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, UUID uuid) throws IOException {
-            bVar.QM(uuid == null ? null : uuid.toString());
+            bVar.QN(uuid == null ? null : uuid.toString());
         }
     };
     public static final TypeAdapterFactory mOy = a(UUID.class, mOx);
@@ -622,7 +622,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Currency currency) throws IOException {
-            bVar.QM(currency.getCurrencyCode());
+            bVar.QN(currency.getCurrencyCode());
         }
     }.nullSafe();
     public static final TypeAdapterFactory mOA = a(Currency.class, mOz);
@@ -700,17 +700,17 @@ public final class n {
                 return;
             }
             bVar.dBE();
-            bVar.QL("year");
+            bVar.QM("year");
             bVar.gR(calendar.get(1));
-            bVar.QL("month");
+            bVar.QM("month");
             bVar.gR(calendar.get(2));
-            bVar.QL("dayOfMonth");
+            bVar.QM("dayOfMonth");
             bVar.gR(calendar.get(5));
-            bVar.QL("hourOfDay");
+            bVar.QM("hourOfDay");
             bVar.gR(calendar.get(11));
-            bVar.QL("minute");
+            bVar.QM("minute");
             bVar.gR(calendar.get(12));
-            bVar.QL("second");
+            bVar.QM("second");
             bVar.gR(calendar.get(13));
             bVar.dBF();
         }
@@ -742,7 +742,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, Locale locale) throws IOException {
-            bVar.QM(locale == null ? null : locale.toString());
+            bVar.QN(locale == null ? null : locale.toString());
         }
     };
     public static final TypeAdapterFactory mOF = a(Locale.class, mOE);
@@ -795,7 +795,7 @@ public final class n {
                 } else if (asJsonPrimitive.isBoolean()) {
                     bVar.wj(asJsonPrimitive.getAsBoolean());
                 } else {
-                    bVar.QM(asJsonPrimitive.getAsString());
+                    bVar.QN(asJsonPrimitive.getAsString());
                 }
             } else if (jsonElement.isJsonArray()) {
                 bVar.dBC();
@@ -807,7 +807,7 @@ public final class n {
             } else if (jsonElement.isJsonObject()) {
                 bVar.dBE();
                 for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) {
-                    bVar.QL(entry.getKey());
+                    bVar.QM(entry.getKey());
                     write(bVar, entry.getValue());
                 }
                 bVar.dBF();
@@ -873,7 +873,7 @@ public final class n {
         @Override // com.google.gson.TypeAdapter
         /* renamed from: a */
         public void write(com.google.gson.stream.b bVar, T t) throws IOException {
-            bVar.QM(t == null ? null : this.mOU.get(t));
+            bVar.QN(t == null ? null : this.mOU.get(t));
         }
     }
 

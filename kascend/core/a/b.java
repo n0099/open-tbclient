@@ -20,7 +20,7 @@ public class b extends a {
     }
 
     @Override // kascend.core.a.a
-    public void Sc(String str) {
+    public void Sd(String str) {
         if (!TextUtils.isEmpty(str)) {
             SharedPreferences.Editor edit = this.context.getSharedPreferences("com_kascend_prefs", 0).edit();
             edit.putString("key_device", str);

@@ -266,7 +266,7 @@ public class s {
             if (!isCdn || !TextUtils.isEmpty("")) {
                 str4 = "";
             } else {
-                str4 = t.aGf().tp(str);
+                str4 = t.aGf().tq(str);
             }
             if (!TextUtils.isEmpty("")) {
                 str5 = "";
@@ -284,9 +284,9 @@ public class s {
             aVar.append("retry", String.valueOf(dVar.retry));
             aVar.append("clientIp", d.getIp());
             aVar.append("tiebaIp", str6);
-            String str7 = t.aGf().to(str);
-            if (!TextUtils.isEmpty(str7)) {
-                aVar.append("domainIp", str7);
+            String tp = t.aGf().tp(str);
+            if (!TextUtils.isEmpty(tp)) {
+                aVar.append("domainIp", tp);
             }
             aVar.append("wifiDnsIp", str5);
             if (dVar.connectTime > 1500 || dVar.connectTime < 0) {
@@ -357,7 +357,7 @@ public class s {
                 str = t.aGf().aGg();
             }
             if (cZa != null && TextUtils.isEmpty("")) {
-                str2 = t.aGf().tp(cZa);
+                str2 = t.aGf().tq(cZa);
             }
             if (TextUtils.isEmpty("")) {
                 str3 = aFX();
@@ -463,7 +463,7 @@ public class s {
         }
     }
 
-    public static void tn(String str) {
+    public static void to(String str) {
         com.baidu.adp.lib.stats.a gs = gs();
         gs.append("act", "assistant");
         gs.append("content", str);
@@ -562,7 +562,7 @@ public class s {
     public static void a(boolean z, String str, String str2, String str3, String str4, String str5, long j, boolean z2) {
         String str6 = "";
         if (str != null) {
-            str6 = t.aGf().tp(str);
+            str6 = t.aGf().tq(str);
         }
         String aFX = aFX();
         String ip = d.getIp();

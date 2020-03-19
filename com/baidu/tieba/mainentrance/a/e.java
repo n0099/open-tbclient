@@ -85,7 +85,7 @@ public class e implements b {
                     if (!it.hasNext()) {
                         break;
                     }
-                    com.baidu.tieba.mainentrance.a.a.Eq(it.next());
+                    com.baidu.tieba.mainentrance.a.a.Er(it.next());
                     try {
                         this.mRootView = LayoutInflater.from(this.mActivity).inflate(R.layout.new_home_dialog_search, (ViewGroup) null);
                         this.mActivity.setContentView(this.mRootView);
@@ -297,7 +297,7 @@ public class e implements b {
         } else if (!StringUtils.isNull(str)) {
             if (z) {
                 this.iig = false;
-                this.ihS.Ev(str);
+                this.ihS.Ew(str);
                 this.iig = true;
             }
             l.hideSoftKeyPad(this.mActivity.getPageContext().getPageActivity(), this.ihS.ceV());
@@ -314,11 +314,11 @@ public class e implements b {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.Ji(str);
+                    com.baidu.tieba.tbadkCore.util.a.Jj(str);
                     return true;
                 }
             }, null);
-            this.iih.Er(str);
+            this.iih.Es(str);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_TURN_TAB_LOC, str));
         }
     }
@@ -367,9 +367,9 @@ public class e implements b {
     private void ceu() {
         if (this.ihS != null) {
             if (this.mHotSearchInfo == null) {
-                this.ihS.Eu(this.mActivity.getResources().getString(R.string.search_bar));
+                this.ihS.Ev(this.mActivity.getResources().getString(R.string.search_bar));
             } else {
-                this.ihS.Eu(this.mHotSearchInfo.bxU());
+                this.ihS.Ev(this.mHotSearchInfo.bxU());
             }
         }
     }

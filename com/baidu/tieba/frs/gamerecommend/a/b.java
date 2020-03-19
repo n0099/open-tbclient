@@ -64,7 +64,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
         createFromThreadCfg.setForumId(String.valueOf(aVar.aAj().getFid()));
         createFromThreadCfg.setForumName(aVar.aAj().aCw());
         createFromThreadCfg.setStartFrom(0);
-        l.zU(aVar.aAj().getTid());
+        l.zV(aVar.aAj().getTid());
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         if (this.gCF != null) {
             this.gCF.a(view, aVar);

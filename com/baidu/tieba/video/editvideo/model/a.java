@@ -17,7 +17,7 @@ public class a {
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
     public interface InterfaceC0621a {
-        void JT(String str);
+        void JU(String str);
 
         void cPL();
 
@@ -38,7 +38,7 @@ public class a {
         return kyS;
     }
 
-    public String Ka(String str) {
+    public String Kb(String str) {
         String nameMd5FromUrl = as.getNameMd5FromUrl(str);
         if (nameMd5FromUrl == null) {
             return null;
@@ -140,7 +140,7 @@ public class a {
                         a.this.kyU = null;
                     }
                     if (interfaceC0621a != null) {
-                        interfaceC0621a.JT(str3);
+                        interfaceC0621a.JU(str3);
                     }
                 }
             });

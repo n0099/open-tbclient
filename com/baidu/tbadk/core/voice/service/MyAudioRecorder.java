@@ -117,7 +117,7 @@ public class MyAudioRecorder implements d {
         }
     }
 
-    public boolean uf(String str) {
+    public boolean ug(String str) {
         try {
             if (this.dlN == State.INITIALIZING) {
                 this.filePath = str;
@@ -249,8 +249,8 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean ud(String str) {
-        if (uf(str)) {
+    public boolean ue(String str) {
+        if (ug(str)) {
             return prepare();
         }
         return false;

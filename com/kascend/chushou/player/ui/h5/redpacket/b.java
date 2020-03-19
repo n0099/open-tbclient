@@ -103,7 +103,7 @@ public class b extends FrameLayout implements View.OnClickListener {
                         bVar.dismiss();
                         b.this.b();
                     }
-                }).aW(this.a.getString(a.i.auto_popup_redpacket_title), true).x(this.a.getResources().getString(a.i.auto_popup_redpacket_content)).Td(this.a.getResources().getString(a.i.auto_popup_redpacket_cancal)).Tf(this.a.getResources().getString(a.i.auto_popup_redpacket_confirm)).show();
+                }).aW(this.a.getString(a.i.auto_popup_redpacket_title), true).x(this.a.getResources().getString(a.i.auto_popup_redpacket_content)).Te(this.a.getResources().getString(a.i.auto_popup_redpacket_cancal)).Tg(this.a.getResources().getString(a.i.auto_popup_redpacket_confirm)).show();
             }
         }
     }

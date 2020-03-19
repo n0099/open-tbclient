@@ -158,7 +158,7 @@ public class AlaWishListActivity extends BaseFragmentActivity implements View.On
         }
         parserIntent();
         this.ehW = new h(getPageContext(), this.eid);
-        this.ehW.zz(this.awz);
+        this.ehW.zA(this.awz);
         MessageManager.getInstance().registerListener(this.ahe);
         MessageManager.getInstance().registerListener(this.ahd);
         MessageManager.getInstance().registerListener(this.ejH);

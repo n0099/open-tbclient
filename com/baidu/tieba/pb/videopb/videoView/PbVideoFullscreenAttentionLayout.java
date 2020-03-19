@@ -59,11 +59,11 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
 
     public void setData(bj bjVar) {
         if (bjVar != null && bjVar.aCr() != null) {
-            String tm = o.tm(bjVar.aCr().getAvater());
-            if (tm.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.jcI.startLoad(tm, 10, false);
+            String tn = o.tn(bjVar.aCr().getAvater());
+            if (tn.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                this.jcI.startLoad(tn, 10, false);
             } else {
-                this.jcI.startLoad(tm, 25, false);
+                this.jcI.startLoad(tn, 25, false);
             }
             if (bjVar.aCr().getBaijiahaoInfo() != null && bjVar.aCr().getBaijiahaoInfo().auth_id.intValue() > 0) {
                 this.jcI.setBjhAuthIconRes(UtilHelper.getBjhBigVIconId(bjVar.aCr().getBaijiahaoInfo().auth_id.intValue(), 1));
@@ -85,7 +85,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             if (this.jcK == null) {
                 if (getContext() instanceof PbActivity) {
                     this.jcK = new al(((PbActivity) getContext()).getPageContext(), this.jcJ, -1);
-                    this.jcK.sD("11");
+                    this.jcK.sE("11");
                     this.jcK.j(this.uniqueId);
                 } else {
                     return;

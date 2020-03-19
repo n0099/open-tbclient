@@ -144,10 +144,10 @@ public class DistributeVideoView extends RelativeLayout implements i {
     public void caA() {
         Z(2, 1, 0);
         if (this.parallelChargeInfo != null) {
-            c.Ec(this.parallelChargeInfo.hZy);
+            c.Ed(this.parallelChargeInfo.hZy);
             Iterator<String> it = this.parallelChargeInfo.hZB.iterator();
             while (it.hasNext()) {
-                c.Ec(it.next());
+                c.Ed(it.next());
             }
         }
     }

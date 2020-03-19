@@ -103,7 +103,7 @@ public class ThreadLinkView extends RelativeLayout {
                 this.diZ.reset();
             }
         }
-        tZ(bjVar.getId());
+        ua(bjVar.getId());
     }
 
     public void onChangeSkinType() {
@@ -111,7 +111,7 @@ public class ThreadLinkView extends RelativeLayout {
         am.setBackgroundResource(this.diZ, R.drawable.shape_link_thread_head_bg);
     }
 
-    public void tZ(String str) {
+    public void ua(String str) {
         com.baidu.tieba.card.l.a(this.dja, str, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
         com.baidu.tieba.card.l.a(this.djc, str, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
         com.baidu.tieba.card.l.a(this.djb, str, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);

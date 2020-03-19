@@ -95,7 +95,7 @@ public class AlaSquareLiveFragment extends AlaSquareBaseFragment implements ISqu
                         }
                     }
                 } else if (i == 2) {
-                    com.baidu.tieba.ala.alasquare.c.a.bdd().xJ("c12647");
+                    com.baidu.tieba.ala.alasquare.c.a.bdd().xK("c12647");
                     if (AlaSquareLiveFragment.this.eks != null) {
                         AlaSquareLiveFragment.this.eks.stopPlay();
                     }

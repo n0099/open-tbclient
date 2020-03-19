@@ -72,7 +72,7 @@ public class f {
         this.mRoot = this.cLc.findViewById(R.id.root_view);
         this.mNavigationBar = (NavigationBar) this.cLc.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.showBottomLine();
-        sn("");
+        so("");
         if (this.cLc.isTranslucent()) {
             am.setBackgroundColor(this.mRoot, this.cLc.getResources().getColor(R.color.black_alpha0));
             this.mRoot.setOnClickListener(this.cLc);
@@ -284,7 +284,7 @@ public class f {
         this.cLj.setVisibility(8);
     }
 
-    public void sn(String str) {
+    public void so(String str) {
         if (this.mNavigationBar != null) {
             this.cLd = this.mNavigationBar.setCenterTextTitle(str);
             if (this.cLf != null && this.cLf.getVisibility() == 0 && this.cLg != null && this.cLg.getVisibility() == 0) {
@@ -391,7 +391,7 @@ public class f {
         am.setBackgroundResource(this.cLg, R.drawable.frs_star_navigation_bg);
         am.setBackgroundResource(this.Lb, R.drawable.frs_star_navigation_bg);
         am.setBackgroundResource(this.cLh, R.drawable.frs_star_navigation_bg);
-        sn("");
+        so("");
         this.cLc.getWindow().setFlags(1024, 1024);
     }
 

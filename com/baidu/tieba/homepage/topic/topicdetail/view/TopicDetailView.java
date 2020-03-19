@@ -128,7 +128,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                     TopicDetailView.this.hiB.aOy().hide();
                 }
                 if (z) {
-                    TopicDetailView.this.hiD.KK(null);
+                    TopicDetailView.this.hiD.KL(null);
                     TopicDetailView.this.hiD.aU(null);
                     TopicDetailView.this.hiD.tN(false);
                     if (postWriteCallBackData != null) {
@@ -141,7 +141,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     TopicDetailView.this.hiD.aU(postWriteCallBackData.getSensitiveWords());
-                    TopicDetailView.this.hiD.KK(postWriteCallBackData.getErrorString());
+                    TopicDetailView.this.hiD.KL(postWriteCallBackData.getErrorString());
                     if (!v.isEmpty(TopicDetailView.this.hiD.cUx())) {
                         TopicDetailView.this.mV(true);
                     }

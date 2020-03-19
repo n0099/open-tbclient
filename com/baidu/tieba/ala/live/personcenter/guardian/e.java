@@ -21,7 +21,7 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
     public interface a {
         c b(c cVar);
 
-        void yI(String str);
+        void yJ(String str);
     }
 
     public e(AlaGuardianListActivity alaGuardianListActivity, a aVar) {
@@ -41,7 +41,7 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            e.this.eNm.yI(errorString);
+                            e.this.eNm.yJ(errorString);
                             return;
                         }
                         return;
@@ -59,7 +59,7 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
         registerListener(this.eMH);
     }
 
-    public void yK(String str) {
+    public void yL(String str) {
         this.mUserId = str;
     }
 

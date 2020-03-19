@@ -55,7 +55,7 @@ public class PersonPageIndicator extends LinearLayout {
         this.fue.setLayoutParams(layoutParams);
     }
 
-    public void zE(String str) {
+    public void zF(String str) {
         if (!StringUtils.isNull(str)) {
             TextView textView = new TextView(getContext());
             textView.setTextSize(0, BdUtilHelper.getDimens(getContext(), a.e.sdk_fontsize24));

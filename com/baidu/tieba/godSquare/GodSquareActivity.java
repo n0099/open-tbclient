@@ -32,7 +32,7 @@ public class GodSquareActivity extends BaseActivity<GodSquareActivity> implement
             if (v.isEmpty(list)) {
                 GodSquareActivity.this.gWg.bMQ();
                 if (v.isEmpty(GodSquareActivity.this.gWh.glx)) {
-                    GodSquareActivity.this.gWg.Ba(str);
+                    GodSquareActivity.this.gWg.Bb(str);
                     return;
                 }
                 GodSquareActivity.this.mHasMore = true;

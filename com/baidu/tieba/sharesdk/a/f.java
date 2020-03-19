@@ -118,8 +118,8 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
         com.baidu.adp.widget.ImageView.a a2 = a(shareEntity);
         if (a2 != null && a2.getRawBitmap() != null) {
             b(this.jXv, a2.getRawBitmap());
-        } else if (uy(shareEntity.cHO())) {
-            IE(shareEntity.cHO());
+        } else if (uz(shareEntity.cHO())) {
+            IF(shareEntity.cHO());
         } else {
             String aAJ = shareEntity.aAJ();
             if (!TextUtils.isEmpty(aAJ) && (aAJ.startsWith("http://") || aAJ.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
@@ -129,7 +129,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
                     com.baidu.adp.lib.e.c.gr().a(aAJ, 10, this.jXQ, 0, 0, getPageId(), new Object[0]);
                 }
             } else if (w(shareEntity.getImageUri())) {
-                IE(shareEntity.getImageUri().getPath());
+                IF(shareEntity.getImageUri().getPath());
             } else {
                 cHZ();
             }
@@ -184,13 +184,13 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
         }
     }
 
-    private void IE(String str) {
-        Bitmap IB = IB(str);
-        if (IB == null) {
-            IB = cHU();
+    private void IF(String str) {
+        Bitmap IC = IC(str);
+        if (IC == null) {
+            IC = cHU();
         }
-        if (IB != null) {
-            b(this.jXv, IB);
+        if (IC != null) {
+            b(this.jXv, IC);
         } else {
             d(this.jXv);
         }
@@ -215,7 +215,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             wXMediaMessage.mediaObject = wXTextObject;
             wXMediaMessage.description = content;
             SendMessageToWX.Req req = new SendMessageToWX.Req();
-            req.transaction = IF("textShare");
+            req.transaction = IG("textShare");
             req.message = wXMediaMessage;
             req.scene = cIa();
             this.jXO.sendReq(req);
@@ -231,7 +231,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             wXMediaMessage.mediaObject = wXImageObject;
             wXMediaMessage.thumbData = F(bitmap);
             SendMessageToWX.Req req = new SendMessageToWX.Req();
-            req.transaction = IF("imageShare");
+            req.transaction = IG("imageShare");
             req.message = wXMediaMessage;
             req.scene = cIa();
             this.jXO.sendReq(req);
@@ -248,7 +248,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
         wXMediaMessage.mediaObject = wXImageObject;
         wXMediaMessage.thumbData = F(aVar.dce.getRawBitmap());
         SendMessageToWX.Req req = new SendMessageToWX.Req();
-        req.transaction = IF("imageShare");
+        req.transaction = IG("imageShare");
         req.message = wXMediaMessage;
         req.scene = cIa();
         this.jXO.sendReq(req);
@@ -270,7 +270,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
         wXMediaMessage.mediaObject = wXEmojiObject;
         wXMediaMessage.thumbData = F(aVar.dce.getRawBitmap());
         SendMessageToWX.Req req = new SendMessageToWX.Req();
-        req.transaction = IF("imageShare");
+        req.transaction = IG("imageShare");
         req.message = wXMediaMessage;
         req.scene = cIa();
         this.jXO.sendReq(req);
@@ -317,7 +317,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             wXMediaMessage.description = shareEntity.getContent();
             wXMediaMessage.thumbData = F(bitmap);
             SendMessageToWX.Req req = new SendMessageToWX.Req();
-            req.transaction = IF("webpageShare");
+            req.transaction = IG("webpageShare");
             req.message = wXMediaMessage;
             req.scene = cIa();
             this.jXO.sendReq(req);
@@ -353,7 +353,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
                 wXMediaMessage.thumbData = b(bitmap, false);
             }
             SendMessageToWX.Req req = new SendMessageToWX.Req();
-            req.transaction = IF("miniProgram");
+            req.transaction = IG("miniProgram");
             req.message = wXMediaMessage;
             req.scene = 0;
             this.jXO.sendReq(req);
@@ -370,7 +370,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
             wXMediaMessage.description = shareEntity.getContent();
             wXMediaMessage.thumbData = F(bitmap);
             SendMessageToWX.Req req = new SendMessageToWX.Req();
-            req.transaction = IF("videoShare");
+            req.transaction = IG("videoShare");
             req.message = wXMediaMessage;
             req.scene = cIa();
             this.jXO.sendReq(req);
@@ -387,7 +387,7 @@ public class f extends com.baidu.tieba.sharesdk.a.a {
         return -1;
     }
 
-    private String IF(String str) {
+    private String IG(String str) {
         return str == null ? String.valueOf(System.currentTimeMillis()) : str + System.currentTimeMillis();
     }
 

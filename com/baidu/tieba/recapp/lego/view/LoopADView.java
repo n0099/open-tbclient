@@ -33,7 +33,7 @@ public class LoopADView extends LinearLayout {
 
     /* loaded from: classes13.dex */
     public interface a {
-        String HT(String str);
+        String HU(String str);
 
         void b(TbImageView tbImageView, AdCard.b bVar);
 
@@ -144,7 +144,7 @@ public class LoopADView extends LinearLayout {
             } else if (itemType == ItemType.WITH_BOTTOM_TITLE) {
                 textView.setVisibility(0);
                 if (this.jLl != null) {
-                    textView.setText(this.jLl.HT(dVar.title));
+                    textView.setText(this.jLl.HU(dVar.title));
                 }
             }
         }

@@ -75,7 +75,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         if (l.isNetOk()) {
             this.hzY.showLoading();
             this.hzZ.sendMessage(this.mForumId);
-            this.hzZ.Db(this.mForumId);
+            this.hzZ.Dc(this.mForumId);
             return;
         }
         this.hzY.hideLoading();
@@ -105,7 +105,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.a
-    public void Da(String str) {
+    public void Db(String str) {
         this.hzY.hideLoading();
         if (TextUtils.isEmpty(str)) {
             showToast(R.string.neterror);

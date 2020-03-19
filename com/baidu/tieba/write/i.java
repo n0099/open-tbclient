@@ -65,7 +65,7 @@ public class i {
                     str3 = string;
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-                aVar.sR(str2);
+                aVar.sS(str2);
                 aVar.a(str3, new a.b() { // from class: com.baidu.tieba.write.i.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {

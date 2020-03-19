@@ -25,7 +25,7 @@ public abstract class a extends BdBaseModel {
 
     public abstract void bgx();
 
-    public abstract void yG(String str);
+    public abstract void yH(String str);
 
     public a(TbPageContext tbPageContext, PayChannelType payChannelType, InterfaceC0447a interfaceC0447a) {
         super(tbPageContext);

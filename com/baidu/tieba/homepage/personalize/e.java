@@ -404,7 +404,7 @@ public class e {
             if (customResponsedMessage != null && e.this.hdT != null && v.getCount(e.this.hdT.thread_list) != 0) {
                 String str = (String) customResponsedMessage.getData();
                 e.this.h(str, e.this.mDataList);
-                e.this.Cj(str);
+                e.this.Ck(str);
                 if (e.this.hdm != null) {
                     e.this.hdm.ac(new ArrayList(e.this.mDataList));
                 }
@@ -910,8 +910,8 @@ public class e {
         AdvertAppInfo bvD;
         AdvertAppInfo bvD2;
         if (!v.isEmpty(list)) {
-            Set<com.baidu.adp.widget.ListView.m> HZ = com.baidu.tieba.recapp.report.a.HZ("NEWINDEX");
-            HashSet hashSet = HZ == null ? new HashSet() : HZ;
+            Set<com.baidu.adp.widget.ListView.m> Ia = com.baidu.tieba.recapp.report.a.Ia("NEWINDEX");
+            HashSet hashSet = Ia == null ? new HashSet() : Ia;
             HashSet hashSet2 = new HashSet();
             for (com.baidu.adp.widget.ListView.m mVar : list) {
                 if (mVar != null) {
@@ -1145,7 +1145,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Cj(String str) {
+    public void Ck(String str) {
         if (!TextUtils.isEmpty(str) && this.hdT != null && this.hdT.banner_list != null && this.hdT.banner_list.app != null && this.hdT.banner_list.app.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (App app : this.hdT.banner_list.app) {
@@ -1499,7 +1499,7 @@ public class e {
         }, new com.baidu.tbadk.util.l<String>() { // from class: com.baidu.tieba.homepage.personalize.e.14
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.l
-            /* renamed from: Ck */
+            /* renamed from: Cl */
             public void onReturnDataInUI(String str) {
                 if (dVar != null) {
                     dVar.vh(com.baidu.adp.lib.f.b.toInt(str, 0));

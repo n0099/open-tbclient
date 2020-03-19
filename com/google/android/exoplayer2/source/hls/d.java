@@ -238,7 +238,7 @@ class d {
     }
 
     private void a(Uri uri, String str, byte[] bArr) {
-        byte[] byteArray = new BigInteger(v.QB(str).startsWith("0x") ? str.substring(2) : str, 16).toByteArray();
+        byte[] byteArray = new BigInteger(v.QC(str).startsWith("0x") ? str.substring(2) : str, 16).toByteArray();
         byte[] bArr2 = new byte[16];
         int length = byteArray.length > 16 ? byteArray.length - 16 : 0;
         System.arraycopy(byteArray, length, bArr2, (bArr2.length - byteArray.length) + length, byteArray.length - length);

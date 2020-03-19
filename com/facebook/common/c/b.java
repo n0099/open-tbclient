@@ -62,14 +62,14 @@ public class b implements c {
     }
 
     private void p(int i, String str, String str2) {
-        Log.println(i, OP(str), str2);
+        Log.println(i, OQ(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, OP(str), g(str2, th));
+        Log.println(i, OQ(str), g(str2, th));
     }
 
-    private String OP(String str) {
+    private String OQ(String str) {
         if (this.lKm != null) {
             return this.lKm + ":" + str;
         }

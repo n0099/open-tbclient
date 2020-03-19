@@ -48,7 +48,7 @@ public class c {
         return hashMap;
     }
 
-    public static void Ec(String str) {
+    public static void Ed(String str) {
         if (!TextUtils.isEmpty(str)) {
             new c(str).ccj();
         }
@@ -56,20 +56,20 @@ public class c {
 
     public static void a(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            Ec(bVar.getParallelCharge().hZy);
+            Ed(bVar.getParallelCharge().hZy);
             Iterator<String> it = bVar.getParallelCharge().hZB.iterator();
             while (it.hasNext()) {
-                Ec(it.next());
+                Ed(it.next());
             }
         }
     }
 
     public static void b(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            Ec(bVar.getParallelCharge().hZz);
+            Ed(bVar.getParallelCharge().hZz);
             Iterator<String> it = bVar.getParallelCharge().hZA.iterator();
             while (it.hasNext()) {
-                Ec(it.next());
+                Ed(it.next());
             }
         }
     }

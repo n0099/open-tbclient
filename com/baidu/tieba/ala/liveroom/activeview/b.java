@@ -97,7 +97,7 @@ public class b implements com.baidu.live.liveroom.b.a {
                     }
                 }
                 if (z) {
-                    b.this.yM(str);
+                    b.this.yN(str);
                 } else {
                     SchemeUtils.openScheme(str);
                 }
@@ -277,7 +277,7 @@ public class b implements com.baidu.live.liveroom.b.a {
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                    b.this.yM((String) customResponsedMessage.getData());
+                    b.this.yN((String) customResponsedMessage.getData());
                 }
             }
         };
@@ -402,7 +402,7 @@ public class b implements com.baidu.live.liveroom.b.a {
         return 8;
     }
 
-    public void yL(String str) {
+    public void yM(String str) {
         if (d.zz().dX(str)) {
             bhZ();
         }
@@ -1132,7 +1132,7 @@ public class b implements com.baidu.live.liveroom.b.a {
                 sb.append(1);
                 sb.append(ETAG.ITEM_SEPARATOR);
                 a(sb);
-                yM(sb.toString());
+                yN(sb.toString());
                 return;
             }
             if (i == 1) {
@@ -1145,7 +1145,7 @@ public class b implements com.baidu.live.liveroom.b.a {
         }
     }
 
-    public void yM(String str) {
+    public void yN(String str) {
         int i = 2;
         if (this.eQs == null) {
             this.eQs = new com.baidu.tieba.ala.liveroom.a.a(this.mPageContext.getPageActivity());

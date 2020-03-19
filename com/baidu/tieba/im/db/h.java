@@ -58,7 +58,7 @@ public class h {
         }
     }
 
-    public boolean CX(String str) {
+    public boolean CY(String str) {
         SQLiteDatabase bUJ = g.bUJ();
         if (bUJ == null) {
             return false;
@@ -136,7 +136,7 @@ public class h {
         }
     }
 
-    public SQLiteStatement CY(String str) {
+    public SQLiteStatement CZ(String str) {
         SQLiteDatabase bUJ;
         if (TextUtils.isEmpty(str) || (bUJ = g.bUJ()) == null) {
             return null;
