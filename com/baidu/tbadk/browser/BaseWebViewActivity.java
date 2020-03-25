@@ -66,7 +66,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     private static final String SHARE_END = "\"";
     private static final String SHARE_IMG_START = "<img src=\"";
     private static final String SHARE_URL_START = "<meta name=\"shareurl\" content=\"";
+    public static final int SHOW_TIME_OUT_CLOSE_BUTTON = 556;
     public static final int TIME_OUT_MSG_CODE = 555;
+    public static final int TIME_SHOW_TIME_OUT_CLOSE = 4000;
     public static final int URL_LOAD_TIME_OUT = 10000;
     public static final int URL_NOT_FOUND_ERROR_CODE = -2;
     private ag.a mCookieInfo;
@@ -90,6 +92,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     private final String SHOW_MORE_FORUM_ICON = "1";
     protected boolean isNeedRefresh = true;
     protected boolean mIsFromSchema = false;
+    protected boolean needTimeOutClose = false;
     private final Runnable mRunnable = new Runnable() { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.1
         @Override // java.lang.Runnable
         public void run() {
@@ -157,6 +160,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             onReceivedError(-2);
             return true;
         }
+        if (message.what == 556) {
+            finish();
+        }
         return false;
     }
 
@@ -170,6 +176,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         }
         if (this.mIsFromSchema) {
             setIsAddSwipeBackLayout(false);
+        }
+        if (getIntent() != null && getIntent().getBooleanExtra(TbWebViewActivityConfig.KEY_TIME_OUT_CLOSE, false)) {
+            this.needTimeOutClose = true;
         }
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
@@ -360,6 +369,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         if (this.mHandler != null) {
+            removeCloseMessage();
             this.mHandler.removeCallbacks(this.mRunnable);
         }
         if (getWebView() != null) {
@@ -675,6 +685,18 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 }
             }
         }, 10000L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void startTimeOutClose() {
+        Message message = new Message();
+        message.what = SHOW_TIME_OUT_CLOSE_BUTTON;
+        this.mHandler.sendMessageDelayed(message, 4000L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void removeCloseMessage() {
+        this.mHandler.removeMessages(SHOW_TIME_OUT_CLOSE_BUTTON);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

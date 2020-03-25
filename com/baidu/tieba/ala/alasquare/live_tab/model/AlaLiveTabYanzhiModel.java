@@ -121,6 +121,8 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
         httpMessage.addParam("session_id", this.ene);
         httpMessage.addParam("refresh_type", i2);
         httpMessage.addParam("big_refresh_count", i3);
+        httpMessage.addParam("fid", this.emF);
+        httpMessage.addParam("fname", this.emG);
         httpMessage.setTag(this.mCurTag);
         MessageManager.getInstance().sendMessage(httpMessage);
     }

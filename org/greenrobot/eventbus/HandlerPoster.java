@@ -4,9 +4,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-public final class HandlerPoster extends Handler {
+final class HandlerPoster extends Handler {
     private final EventBus eventBus;
     private boolean handlerActive;
     private final int maxMillisInsideHandleMessage;

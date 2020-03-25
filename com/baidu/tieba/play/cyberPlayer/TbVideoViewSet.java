@@ -105,17 +105,17 @@ public class TbVideoViewSet {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, com.baidu.tieba.play.a.a> {
-        public static final int MAX_PLAYERS = 2;
+        public static final int MAX_PLAYERS = 3;
         private static final long serialVersionUID = 1;
 
         LRULinkedHashMap() {
-            super(2, 0.75f, true);
+            super(3, 0.75f, true);
         }
 
         @Override // java.util.LinkedHashMap
         public boolean removeEldestEntry(Map.Entry<K, com.baidu.tieba.play.a.a> entry) {
             com.baidu.tieba.play.a.a value;
-            boolean z = size() > 2;
+            boolean z = size() > 3;
             if (z && (value = entry.getValue()) != null) {
                 TbVideoViewSet.this.jyV = true;
                 value.czl();

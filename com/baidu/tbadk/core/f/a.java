@@ -67,7 +67,9 @@ public class a {
         if (aVar != null) {
             boolean z = b.aFH().getBoolean("key_task_system_new_user_popup_show_number", false);
             if (aVar.isNewUser && !StringUtils.isNull(aVar.cJs) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (r = r(currentActivity)) != null) {
-                r.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(currentActivity, "", aVar.cJs + "?page_type=open_full_screen_opacity_web_page", true)));
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(currentActivity, "", aVar.cJs + "?page_type=open_full_screen_opacity_web_page", true);
+                tbWebViewActivityConfig.setKeyTimeOutClose(true);
+                r.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
                 b.aFH().putBoolean("key_task_system_new_user_popup_show_number", true);
             }
         }

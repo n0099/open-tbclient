@@ -8,6 +8,7 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
     public static String GOD_INVITE_JUMP_URL = "http://c.tieba.baidu.com/mo/q/god/inviteGod";
     public static final String JUMP_PARAMS_PAGE_TYPE = "?page_type=open_full_screen_opacity_web_page";
     public static final String KEY_IS_FROM_SCHEMA = "key_is_from_schema";
+    public static final String KEY_TIME_OUT_CLOSE = "key_time_out_close";
     public static final String KEY_URI = "key_uri";
     public static final String PAGE_TYPE_BLACK_TRANSLUCENT = "open_full_screen_opacity_web_page";
     public static final String PAGE_TYPE_NORMAL = "normal";
@@ -40,6 +41,13 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
         Intent intent = getIntent();
         if (intent != null) {
             intent.putExtra(KEY_IS_FROM_SCHEMA, z);
+        }
+    }
+
+    public void setKeyTimeOutClose(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_TIME_OUT_CLOSE, z);
         }
     }
 }
