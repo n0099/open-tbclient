@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -40,7 +41,7 @@ public class j {
             }
             ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
             layoutParams.width = -1;
-            layoutParams.height = (equipmentWidth * 556) / 988;
+            layoutParams.height = (equipmentWidth * BaseWebViewActivity.SHOW_TIME_OUT_CLOSE_BUTTON) / 988;
             tbImageView.setLayoutParams(layoutParams);
             com.baidu.tbadk.core.util.am.setImageResource(tbImageView, R.drawable.frs_general_tab_notify_pic);
             com.baidu.tbadk.core.util.am.setViewTextColor(textView, (int) R.color.cp_cont_b);

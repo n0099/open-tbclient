@@ -1,7 +1,6 @@
 package org.greenrobot.eventbus;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
-public final class Subscription {
+final class Subscription {
     volatile boolean active = true;
     final Object subscriber;
     final SubscriberMethod subscriberMethod;

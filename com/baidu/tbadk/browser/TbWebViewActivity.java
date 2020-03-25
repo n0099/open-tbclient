@@ -198,6 +198,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         registerListener(this.mSpringFestivalTimerListener);
         this.mSelfLoadJsListener.setSelfListener(true);
         registerListener(this.mSelfLoadJsListener);
+        if (this.needTimeOutClose) {
+            startTimeOutClose();
+        }
     }
 
     private void parserIntent() {
@@ -656,6 +659,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (TbWebViewActivity.this.mWebView != null) {
+                if (TbWebViewActivity.this.mWebView.getProgress() == 100 && this.mIsPageLoading && TbWebViewActivity.this.needTimeOutClose) {
+                    TbWebViewActivity.this.removeCloseMessage();
+                }
                 this.mIsPageLoading = false;
                 TbWebViewActivity.this.mUrl = str;
                 TbWebViewActivity.this.mWebView.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");

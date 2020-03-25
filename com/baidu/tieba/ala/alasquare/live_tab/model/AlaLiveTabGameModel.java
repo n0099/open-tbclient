@@ -92,6 +92,8 @@ public class AlaLiveTabGameModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST);
         httpMessage.addParam("ps", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, this.mPn);
+        httpMessage.addParam("fid", this.emF);
+        httpMessage.addParam("fname", this.emG);
         httpMessage.setTag(this.mCurTag);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
