@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class c extends b {
-    private static Method lWP;
+    private static Method meA;
 
     @Override // com.facebook.imagepipeline.i.b, com.facebook.imagepipeline.i.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.g.e eVar, Bitmap.Config config, @Nullable Rect rect) {
@@ -28,8 +28,8 @@ public class c extends b {
     }
 
     @Override // com.facebook.imagepipeline.i.b
-    public /* bridge */ /* synthetic */ com.facebook.common.references.a ab(Bitmap bitmap) {
-        return super.ab(bitmap);
+    public /* bridge */ /* synthetic */ com.facebook.common.references.a ac(Bitmap bitmap) {
+        return super.ac(bitmap);
     }
 
     @Override // com.facebook.imagepipeline.i.b
@@ -39,7 +39,7 @@ public class c extends b {
 
     @Override // com.facebook.imagepipeline.i.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        return a(aVar, i, b(aVar, i) ? null : lWN, options);
+        return a(aVar, i, b(aVar, i) ? null : mey, options);
     }
 
     private static MemoryFile a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, @Nullable byte[] bArr) throws IOException {
@@ -65,18 +65,18 @@ public class c extends b {
                     if (bArr != null) {
                         memoryFile.writeBytes(bArr, 0, i, bArr.length);
                     }
-                    com.facebook.common.references.a.c(aVar);
-                    com.facebook.common.internal.b.r(hVar2);
-                    com.facebook.common.internal.b.r(aVar3);
+                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
+                    com.facebook.common.internal.b.o(hVar2);
+                    com.facebook.common.internal.b.o(aVar3);
                     com.facebook.common.internal.b.close(outputStream, true);
                     return memoryFile;
                 } catch (Throwable th2) {
                     th = th2;
                     aVar2 = aVar3;
                     hVar = hVar2;
-                    com.facebook.common.references.a.c(aVar);
-                    com.facebook.common.internal.b.r(hVar);
-                    com.facebook.common.internal.b.r(aVar2);
+                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
+                    com.facebook.common.internal.b.o(hVar);
+                    com.facebook.common.internal.b.o(aVar2);
                     com.facebook.common.internal.b.close(outputStream, true);
                     throw th;
                 }
@@ -92,22 +92,22 @@ public class c extends b {
         }
     }
 
-    private synchronized Method drT() {
-        if (lWP == null) {
+    private synchronized Method dtR() {
+        if (meA == null) {
             try {
-                lWP = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
+                meA = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
             } catch (Exception e) {
-                throw l.t(e);
+                throw l.y(e);
             }
         }
-        return lWP;
+        return meA;
     }
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) drT().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) dtR().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
-            throw l.t(e);
+            throw l.y(e);
         }
     }
 
@@ -116,9 +116,9 @@ public class c extends b {
         try {
             try {
                 memoryFile = a(aVar, i, bArr);
-                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.lKX.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
+                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.lSs.a(a(memoryFile), null, options), "BitmapFactory returned null");
             } catch (IOException e) {
-                throw l.t(e);
+                throw l.y(e);
             }
         } finally {
             if (memoryFile != null) {

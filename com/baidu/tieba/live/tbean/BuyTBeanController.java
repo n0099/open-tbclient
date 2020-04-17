@@ -234,7 +234,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
             String valueOf = String.valueOf(i);
             String valueOf2 = String.valueOf(i2);
             String valueOf3 = String.valueOf(i3);
-            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !c.aI(this.activity)) {
+            if (!TbadkCoreApplication.getInst().isMobileBaidu() && Build.VERSION.SDK_INT >= 28 && !c.av(this.activity)) {
                 payWalletActivityConfig = new PayWalletActivityOpaqueConfig(this.activity, 2, "0", str2, valueOf, valueOf2, true, valueOf3, false, PageDialogHelper.PayForm.NOT_SET, getReferPage(), getClickZone(), RequestResponseCode.REQUEST_DO_PAY);
                 if (!TextUtils.isEmpty(this.from)) {
                     ((PayWalletActivityOpaqueConfig) payWalletActivityConfig).setFrom(this.from);
@@ -407,6 +407,7 @@ public class BuyTBeanController implements View.OnClickListener, BuyTBeanModel.C
                 intent.putExtra("status", 0);
                 intent.putExtra("message", "充值成功");
                 this.buyTBeanActivityImpl.setResultIntent(-1, intent);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913189, "chargeSuc"));
             } else if (i == -1) {
                 intent.putExtra("status", -1);
                 intent.putExtra("message", "充值失败");

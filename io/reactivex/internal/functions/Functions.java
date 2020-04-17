@@ -1,6 +1,5 @@
 package io.reactivex.internal.functions;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -8,21 +7,21 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
 public final class Functions {
-    static final io.reactivex.c.h<Object, Object> nxV = new g();
-    public static final Runnable nxW = new d();
-    public static final io.reactivex.c.a nxX = new a();
-    static final io.reactivex.c.g<Object> nxY = new b();
-    public static final io.reactivex.c.g<Throwable> nxZ = new e();
-    public static final io.reactivex.c.g<Throwable> nya = new k();
-    public static final io.reactivex.c.i nyb = new c();
-    static final io.reactivex.c.j<Object> nyc = new l();
-    static final io.reactivex.c.j<Object> nyd = new f();
-    static final Callable<Object> nye = new j();
-    static final Comparator<Object> nyf = new i();
-    public static final io.reactivex.c.g<org.a.d> nyg = new h();
+    static final io.reactivex.c.h<Object, Object> mRn = new g();
+    public static final Runnable mRo = new d();
+    public static final io.reactivex.c.a mRp = new a();
+    static final io.reactivex.c.g<Object> mRq = new b();
+    public static final io.reactivex.c.g<Throwable> mRr = new e();
+    public static final io.reactivex.c.g<Throwable> mRs = new k();
+    public static final io.reactivex.c.i mRt = new c();
+    static final io.reactivex.c.j<Object> mRu = new l();
+    static final io.reactivex.c.j<Object> mRv = new f();
+    static final Callable<Object> mRw = new j();
+    static final Comparator<Object> mRx = new i();
+    public static final io.reactivex.c.g<org.a.d> mRy = new h();
 
-    public static <T> io.reactivex.c.g<T> dJM() {
-        return (io.reactivex.c.g<T>) nxY;
+    public static <T> io.reactivex.c.g<T> dCL() {
+        return (io.reactivex.c.g<T>) mRq;
     }
 
     /* loaded from: classes7.dex */
@@ -133,7 +132,7 @@ public final class Functions {
         }
 
         @Override // io.reactivex.c.i
-        public void hd(long j) {
+        public void ge(long j) {
         }
     }
 
@@ -189,7 +188,7 @@ public final class Functions {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.g
         public void accept(org.a.d dVar) throws Exception {
-            dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+            dVar.request(Long.MAX_VALUE);
         }
     }
 }

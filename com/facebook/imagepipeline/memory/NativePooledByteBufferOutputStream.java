@@ -5,27 +5,27 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes12.dex */
 public class NativePooledByteBufferOutputStream extends com.facebook.common.memory.i {
-    private com.facebook.common.references.a<NativeMemoryChunk> lWn;
-    private final k lWo;
     private int mCount;
+    private com.facebook.common.references.a<NativeMemoryChunk> mdY;
+    private final k mdZ;
 
     public NativePooledByteBufferOutputStream(k kVar) {
-        this(kVar, kVar.drw());
+        this(kVar, kVar.dtu());
     }
 
     public NativePooledByteBufferOutputStream(k kVar, int i) {
         com.facebook.common.internal.g.checkArgument(i > 0);
-        this.lWo = (k) com.facebook.common.internal.g.checkNotNull(kVar);
+        this.mdZ = (k) com.facebook.common.internal.g.checkNotNull(kVar);
         this.mCount = 0;
-        this.lWn = com.facebook.common.references.a.a(this.lWo.get(i), this.lWo);
+        this.mdY = com.facebook.common.references.a.a(this.mdZ.get(i), this.mdZ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.i
-    /* renamed from: dry */
-    public l dlp() {
-        dlw();
-        return new l(this.lWn, this.mCount);
+    /* renamed from: dtw */
+    public l dni() {
+        dnp();
+        return new l(this.mdY, this.mCount);
     }
 
     @Override // com.facebook.common.memory.i
@@ -43,32 +43,32 @@ public class NativePooledByteBufferOutputStream extends com.facebook.common.memo
         if (i < 0 || i2 < 0 || i + i2 > bArr.length) {
             throw new ArrayIndexOutOfBoundsException("length=" + bArr.length + "; regionStart=" + i + "; regionLength=" + i2);
         }
-        dlw();
-        II(this.mCount + i2);
-        this.lWn.get().d(this.mCount, bArr, i, i2);
+        dnp();
+        Hk(this.mCount + i2);
+        this.mdY.get().d(this.mCount, bArr, i, i2);
         this.mCount += i2;
     }
 
     @Override // com.facebook.common.memory.i, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.facebook.common.references.a.c(this.lWn);
-        this.lWn = null;
+        com.facebook.common.references.a.c((com.facebook.common.references.a<?>) this.mdY);
+        this.mdY = null;
         this.mCount = -1;
         super.close();
     }
 
-    void II(int i) {
-        dlw();
-        if (i > this.lWn.get().getSize()) {
-            NativeMemoryChunk nativeMemoryChunk = this.lWo.get(i);
-            this.lWn.get().a(0, nativeMemoryChunk, 0, this.mCount);
-            this.lWn.close();
-            this.lWn = com.facebook.common.references.a.a(nativeMemoryChunk, this.lWo);
+    void Hk(int i) {
+        dnp();
+        if (i > this.mdY.get().getSize()) {
+            NativeMemoryChunk nativeMemoryChunk = this.mdZ.get(i);
+            this.mdY.get().a(0, nativeMemoryChunk, 0, this.mCount);
+            this.mdY.close();
+            this.mdY = com.facebook.common.references.a.a(nativeMemoryChunk, this.mdZ);
         }
     }
 
-    private void dlw() {
-        if (!com.facebook.common.references.a.a(this.lWn)) {
+    private void dnp() {
+        if (!com.facebook.common.references.a.a(this.mdY)) {
             throw new InvalidStreamException();
         }
     }

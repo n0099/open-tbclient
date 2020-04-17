@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.util.l;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
@@ -33,7 +36,7 @@ import java.util.Date;
 /* loaded from: classes8.dex */
 public class e implements a {
     private static final long DELAY_TIME = 1 * aq.MS_TO_MIN;
-    private com.baidu.tbadk.widget.timepicker.a.f.b dpp;
+    private com.baidu.tbadk.widget.timepicker.a.f.b dPh;
 
     @Override // com.baidu.tbadk.coreExtra.messageCenter.a
     public boolean isSignAlertOn() {
@@ -114,20 +117,32 @@ public class e implements a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.messageCenter.a
-    public void a(TbPageContext tbPageContext, final ViewGroup viewGroup) {
+    public void a(final TbPageContext tbPageContext, final ViewGroup viewGroup) {
         final Activity pageActivity;
-        if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null && g.isActivityCanShowDialogOrPopupWindow(pageActivity) && !d.aLq().isSignAlertOn() && com.baidu.tbadk.core.sharedPref.b.aFH().getInt("sign_time_set_dialog", 0) <= 0) {
+        if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null && g.isActivityCanShowDialogOrPopupWindow(pageActivity) && !d.aTN().isSignAlertOn() && com.baidu.tbadk.core.sharedPref.b.aNV().getInt("sign_time_set_dialog", 0) <= 0) {
             a(tbPageContext, new com.baidu.tbadk.widget.timepicker.a.d.e() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.e
                 public void a(Date date, View view) {
+                    boolean z = false;
                     if (date != null) {
+                        if ("frs.FrsActivity".equals(pageActivity.getLocalClassName()) && com.baidu.tbadk.core.sharedPref.b.aNV().getBoolean("first_call_attention", true)) {
+                            com.baidu.tbadk.core.sharedPref.b.aNV().putBoolean("first_call_attention", false);
+                            if (!NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled()) {
+                                z = true;
+                            }
+                        }
+                        if (z) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001223, date));
+                            com.baidu.tbadk.coreExtra.c.a.a(tbPageContext, new boolean[]{true, false}, (String) null, tbPageContext.getString(R.string.notification_permission_dialog_des_sign));
+                            return;
+                        }
                         e.this.setSignAlertOn(true);
-                        d.aLq().setSignAlertTime(date.getHours(), date.getMinutes());
+                        d.aTN().setSignAlertTime(date.getHours(), date.getMinutes());
                         e.this.a(pageActivity, viewGroup);
                     }
                 }
             });
-            com.baidu.tbadk.core.sharedPref.b.aFH().putInt("sign_time_set_dialog", 1);
+            com.baidu.tbadk.core.sharedPref.b.aNV().putInt("sign_time_set_dialog", 1);
         }
     }
 
@@ -138,16 +153,16 @@ public class e implements a {
             return null;
         }
         Calendar calendar = Calendar.getInstance();
-        int signAlertHours = d.aLq().getSignAlertHours();
-        int signAlertMins = d.aLq().getSignAlertMins();
+        int signAlertHours = d.aTN().getSignAlertHours();
+        int signAlertMins = d.aTN().getSignAlertMins();
         if (signAlertHours > 0 && signAlertMins > 0) {
             calendar.set(calendar.get(1), calendar.get(2), calendar.get(5), signAlertHours, signAlertMins);
         } else {
             calendar.setTimeInMillis(System.currentTimeMillis() + DELAY_TIME);
         }
-        this.dpp = new com.baidu.tbadk.widget.timepicker.a.b.a(pageActivity, eVar).a(calendar).a(R.layout.dialog_sign_remind, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2
+        this.dPh = new com.baidu.tbadk.widget.timepicker.a.b.a(pageActivity, eVar).a(calendar).a(R.layout.dialog_sign_remind, new com.baidu.tbadk.widget.timepicker.a.d.a() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2
             @Override // com.baidu.tbadk.widget.timepicker.a.d.a
-            public void bc(View view) {
+            public void bd(View view) {
                 View findViewById = view.findViewById(R.id.layout_bottom_title);
                 View findViewById2 = view.findViewById(R.id.layout_bg);
                 View findViewById3 = view.findViewById(R.id.layout_bg_top);
@@ -174,33 +189,33 @@ public class e implements a {
                 textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (e.this.dpp != null) {
-                            e.this.dpp.aVe();
-                            e.this.dpp.dismiss();
+                        if (e.this.dPh != null) {
+                            e.this.dPh.bdo();
+                            e.this.dPh.dismiss();
                         }
                         an anVar = new an("c13250");
-                        anVar.cx("uid", TbadkCoreApplication.getCurrentAccount());
+                        anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
                         TiebaStatic.log(anVar);
                     }
                 });
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.messageCenter.e.2.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (e.this.dpp != null) {
-                            e.this.dpp.dismiss();
+                        if (e.this.dPh != null) {
+                            e.this.dPh.dismiss();
                         }
                         an anVar = new an("c13251");
-                        anVar.cx("uid", TbadkCoreApplication.getCurrentAccount());
+                        anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
                         TiebaStatic.log(anVar);
                     }
                 });
             }
-        }).nD(18).a(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").au(2.0f).g(0, 0, 0, 0, 0, 0).hq(false).nE(am.getColor(R.color.cp_bg_line_c)).nG(am.getColor(R.color.cp_cont_b)).nH(am.getColor(R.color.cp_cont_d)).nF(am.getColor(R.color.black_alpha30)).nC(am.getColor(R.color.cp_bg_line_k)).aUW();
-        this.dpp.show();
+        }).nQ(18).a(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").ae(2.0f).g(0, 0, 0, 0, 0, 0).io(false).nR(am.getColor(R.color.cp_bg_line_c)).nT(am.getColor(R.color.cp_cont_b)).nU(am.getColor(R.color.cp_cont_d)).nS(am.getColor(R.color.black_alpha30)).nP(am.getColor(R.color.cp_bg_line_k)).bdg();
+        this.dPh.show();
         an anVar = new an("c13249");
-        anVar.cx("uid", TbadkCoreApplication.getCurrentAccount());
+        anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
         TiebaStatic.log(anVar);
-        return this.dpp.getDialog();
+        return this.dPh.getDialog();
     }
 
     @Override // com.baidu.tbadk.coreExtra.messageCenter.a

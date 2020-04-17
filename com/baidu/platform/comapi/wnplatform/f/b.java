@@ -12,6 +12,7 @@ import com.baidu.platform.comapi.wnplatform.h.e;
 import com.baidu.platform.comapi.wnplatform.o.f;
 import com.baidu.platform.comjni.jninative.vibrate.IVibrateListener;
 import com.baidu.platform.comjni.jninative.vibrate.VibrateHelper;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu.platform.comapi.wnplatform.c.a, com.baidu.platform.comapi.wnplatform.h.a, com.baidu.platform.comapi.wnplatform.h.b, IVibrateListener {
@@ -58,15 +59,15 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
         if (this.c != null) {
             if (this.b != null && message.arg1 == 0) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.b.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.search_menu_title), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_text_cursor_material));
+                    this.b.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.STR_VP_SCREEN_UNLOCK), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_text_cursor_material));
                 } else {
-                    this.b.onGpsStatusChange(this.c.getResources().getString(R.string.search_menu_title), this.c.getResources().getDrawable(R.drawable.abc_text_cursor_material));
+                    this.b.onGpsStatusChange(this.c.getResources().getString(R.string.STR_VP_SCREEN_UNLOCK), this.c.getResources().getDrawable(R.drawable.abc_text_cursor_material));
                 }
             } else if (this.a != null && message.arg1 == 0) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.a.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.search_menu_title), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_text_cursor_material));
+                    this.a.onGpsStatusChange(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.STR_VP_SCREEN_UNLOCK), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_text_cursor_material));
                 } else {
-                    this.a.onGpsStatusChange(this.c.getResources().getString(R.string.search_menu_title), this.c.getResources().getDrawable(R.drawable.abc_text_cursor_material));
+                    this.a.onGpsStatusChange(this.c.getResources().getString(R.string.STR_VP_SCREEN_UNLOCK), this.c.getResources().getDrawable(R.drawable.abc_text_cursor_material));
                 }
             }
         }
@@ -116,8 +117,8 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
                     bundle.getBooleanArray("bHighLight");
                     StringBuilder sb = new StringBuilder();
                     StringBuilder sb2 = new StringBuilder();
-                    if (string.contains("@")) {
-                        string = string.replace("@", StringHelper.STRING_MORE);
+                    if (string.contains(UgcConstant.AT_RULE_TAG)) {
+                        string = string.replace(UgcConstant.AT_RULE_TAG, StringHelper.STRING_MORE);
                     }
                     if (intArray.length != 0) {
                         int i3 = intArray2[0];
@@ -180,16 +181,16 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
         if (this.c != null) {
             if (this.b != null) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.b.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.exo_controls_shuffle_description), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_switch_track_mtrl_alpha));
+                    this.b.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.STR_VP_BARRAGE_OPEN), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_switch_track_mtrl_alpha));
                     return;
                 }
-                this.b.onRouteFarAway(this.c.getResources().getString(R.string.exo_controls_shuffle_description), this.c.getResources().getDrawable(R.drawable.abc_switch_track_mtrl_alpha));
+                this.b.onRouteFarAway(this.c.getResources().getString(R.string.STR_VP_BARRAGE_OPEN), this.c.getResources().getDrawable(R.drawable.abc_switch_track_mtrl_alpha));
             } else if (this.a != null) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.a.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.exo_controls_shuffle_description), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_switch_track_mtrl_alpha));
+                    this.a.onRouteFarAway(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.STR_VP_BARRAGE_OPEN), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_switch_track_mtrl_alpha));
                     return;
                 }
-                this.a.onRouteFarAway(this.c.getResources().getString(R.string.exo_controls_shuffle_description), this.c.getResources().getDrawable(R.drawable.abc_switch_track_mtrl_alpha));
+                this.a.onRouteFarAway(this.c.getResources().getString(R.string.STR_VP_BARRAGE_OPEN), this.c.getResources().getDrawable(R.drawable.abc_switch_track_mtrl_alpha));
             }
         }
     }
@@ -199,16 +200,16 @@ public class b extends com.baidu.platform.comapi.walknavi.a implements com.baidu
         if (this.c != null) {
             if (this.b != null) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.b.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.exo_controls_repeat_all_description), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_vector_test));
+                    this.b.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.permission_name_microphone), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_vector_test));
                     return;
                 }
-                this.b.onRoutePlanYawing(this.c.getResources().getString(R.string.exo_controls_repeat_all_description), this.c.getResources().getDrawable(R.drawable.abc_vector_test));
+                this.b.onRoutePlanYawing(this.c.getResources().getString(R.string.permission_name_microphone), this.c.getResources().getDrawable(R.drawable.abc_vector_test));
             } else if (this.a != null) {
                 if (com.baidu.platform.comapi.bikenavi.a.a.a) {
-                    this.a.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.exo_controls_repeat_all_description), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_vector_test));
+                    this.a.onRoutePlanYawing(com.baidu.platform.comapi.wnplatform.o.a.a.b().getString(R.string.permission_name_microphone), com.baidu.platform.comapi.wnplatform.o.a.a.a(this.c, (int) R.drawable.abc_vector_test));
                     return;
                 }
-                this.a.onRoutePlanYawing(this.c.getResources().getString(R.string.exo_controls_repeat_all_description), this.c.getResources().getDrawable(R.drawable.abc_vector_test));
+                this.a.onRoutePlanYawing(this.c.getResources().getString(R.string.permission_name_microphone), this.c.getResources().getDrawable(R.drawable.abc_vector_test));
             }
         }
     }

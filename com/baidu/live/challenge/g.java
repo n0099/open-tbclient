@@ -1,7 +1,7 @@
 package com.baidu.live.challenge;
 /* loaded from: classes3.dex */
 public interface g {
-    k pT();
+    k uk();
 
-    e pU();
+    e ul();
 }

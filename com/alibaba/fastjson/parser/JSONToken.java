@@ -2,7 +2,6 @@ package com.alibaba.fastjson.parser;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.minivideo.effect.core.entity.AEffectParams;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes7.dex */
@@ -41,7 +40,7 @@ public class JSONToken {
             case 2:
                 return "int";
             case 3:
-                return AEffectParams.VALUE_TYPE_FLOAT;
+                return "float";
             case 4:
                 return "string";
             case 5:

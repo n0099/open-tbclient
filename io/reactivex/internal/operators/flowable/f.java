@@ -15,9 +15,9 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
     @Override // io.reactivex.g
     public void a(org.a.c<? super U> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.nyr.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
+            this.mRJ.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
         } else {
-            this.nyr.a((j) new b(cVar, this.mapper));
+            this.mRJ.a((j) new b(cVar, this.mapper));
         }
     }
 
@@ -41,14 +41,14 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
                 try {
                     this.actual.onNext(io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper function returned a null value."));
                 } catch (Throwable th) {
-                    I(th);
+                    M(th);
                 }
             }
         }
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return NB(i);
+            return IV(i);
         }
 
         @Override // io.reactivex.internal.a.g
@@ -80,7 +80,7 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
                 try {
                     this.actual.onNext(io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper function returned a null value."));
                 } catch (Throwable th) {
-                    I(th);
+                    M(th);
                 }
             }
         }
@@ -93,14 +93,14 @@ public final class f<T, U> extends io.reactivex.internal.operators.flowable.a<T,
             try {
                 return this.actual.tryOnNext(io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
-                I(th);
+                M(th);
                 return true;
             }
         }
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return NB(i);
+            return IV(i);
         }
 
         @Override // io.reactivex.internal.a.g

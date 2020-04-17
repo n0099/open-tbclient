@@ -1,6 +1,5 @@
 package io.reactivex.subjects;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.u;
 import io.reactivex.v;
@@ -12,12 +11,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ReplaySubject<T> extends b<T> {
+    static final ReplayDisposable[] mWJ = new ReplayDisposable[0];
+    static final ReplayDisposable[] mWK = new ReplayDisposable[0];
+    private static final Object[] mWg = new Object[0];
     boolean done;
-    final a<T> nDk;
+    final a<T> mWI;
     final AtomicReference<ReplayDisposable<T>[]> observers;
-    static final ReplayDisposable[] nDl = new ReplayDisposable[0];
-    static final ReplayDisposable[] nDm = new ReplayDisposable[0];
-    private static final Object[] nCF = new Object[0];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
@@ -39,7 +38,7 @@ public final class ReplaySubject<T> extends b<T> {
             if (a(replayDisposable) && replayDisposable.cancelled) {
                 b(replayDisposable);
             } else {
-                this.nDk.replay(replayDisposable);
+                this.mWI.replay(replayDisposable);
             }
         }
     }
@@ -55,7 +54,7 @@ public final class ReplaySubject<T> extends b<T> {
     public void onNext(T t) {
         io.reactivex.internal.functions.a.h(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
         if (!this.done) {
-            a<T> aVar = this.nDk;
+            a<T> aVar = this.mWI;
             aVar.add(t);
             for (ReplayDisposable<T> replayDisposable : this.observers.get()) {
                 aVar.replay(replayDisposable);
@@ -72,10 +71,10 @@ public final class ReplaySubject<T> extends b<T> {
         }
         this.done = true;
         Object error = NotificationLite.error(th);
-        a<T> aVar = this.nDk;
+        a<T> aVar = this.mWI;
         aVar.addFinal(error);
-        ReplayDisposable<T>[] bP = bP(error);
-        for (ReplayDisposable<T> replayDisposable : bP) {
+        ReplayDisposable<T>[] by = by(error);
+        for (ReplayDisposable<T> replayDisposable : by) {
             aVar.replay(replayDisposable);
         }
     }
@@ -85,10 +84,10 @@ public final class ReplaySubject<T> extends b<T> {
         if (!this.done) {
             this.done = true;
             Object complete = NotificationLite.complete();
-            a<T> aVar = this.nDk;
+            a<T> aVar = this.mWI;
             aVar.addFinal(complete);
-            ReplayDisposable<T>[] bP = bP(complete);
-            for (ReplayDisposable<T> replayDisposable : bP) {
+            ReplayDisposable<T>[] by = by(complete);
+            for (ReplayDisposable<T> replayDisposable : by) {
                 aVar.replay(replayDisposable);
             }
         }
@@ -99,7 +98,7 @@ public final class ReplaySubject<T> extends b<T> {
         ReplayDisposable<T>[] replayDisposableArr2;
         do {
             replayDisposableArr = this.observers.get();
-            if (replayDisposableArr == nDm) {
+            if (replayDisposableArr == mWK) {
                 return false;
             }
             int length = replayDisposableArr.length;
@@ -115,7 +114,7 @@ public final class ReplaySubject<T> extends b<T> {
         ReplayDisposable<T>[] replayDisposableArr2;
         do {
             replayDisposableArr = this.observers.get();
-            if (replayDisposableArr != nDm && replayDisposableArr != nDl) {
+            if (replayDisposableArr != mWK && replayDisposableArr != mWJ) {
                 int length = replayDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -131,7 +130,7 @@ public final class ReplaySubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        replayDisposableArr2 = nDl;
+                        replayDisposableArr2 = mWJ;
                     } else {
                         replayDisposableArr2 = new ReplayDisposable[length - 1];
                         System.arraycopy(replayDisposableArr, 0, replayDisposableArr2, 0, i);
@@ -146,8 +145,8 @@ public final class ReplaySubject<T> extends b<T> {
         } while (!this.observers.compareAndSet(replayDisposableArr, replayDisposableArr2));
     }
 
-    ReplayDisposable<T>[] bP(Object obj) {
-        return this.nDk.compareAndSet(null, obj) ? this.observers.getAndSet(nDm) : nDm;
+    ReplayDisposable<T>[] by(Object obj) {
+        return this.mWI.compareAndSet(null, obj) ? this.observers.getAndSet(mWK) : mWK;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -186,7 +185,7 @@ public final class ReplaySubject<T> extends b<T> {
         volatile int size;
 
         UnboundedReplayBuffer(int i) {
-            this.buffer = new ArrayList(io.reactivex.internal.functions.a.bj(i, "capacityHint"));
+            this.buffer = new ArrayList(io.reactivex.internal.functions.a.by(i, "capacityHint"));
         }
 
         @Override // io.reactivex.subjects.ReplaySubject.a
@@ -198,12 +197,8 @@ public final class ReplaySubject<T> extends b<T> {
         @Override // io.reactivex.subjects.ReplaySubject.a
         public void addFinal(Object obj) {
             this.buffer.add(obj);
-            trimHead();
             this.size++;
             this.done = true;
-        }
-
-        public void trimHead() {
         }
 
         public T getValue() {
@@ -347,7 +342,7 @@ public final class ReplaySubject<T> extends b<T> {
         Node<Object> tail;
 
         SizeBoundReplayBuffer(int i) {
-            this.maxSize = io.reactivex.internal.functions.a.bj(i, "maxSize");
+            this.maxSize = io.reactivex.internal.functions.a.by(i, "maxSize");
             Node<Object> node = new Node<>(null);
             this.tail = node;
             this.head = node;
@@ -377,17 +372,7 @@ public final class ReplaySubject<T> extends b<T> {
             this.tail = node;
             this.size++;
             node2.lazySet(node);
-            trimHead();
             this.done = true;
-        }
-
-        public void trimHead() {
-            Node<Object> node = this.head;
-            if (node.value != null) {
-                Node<Object> node2 = new Node<>(null);
-                node2.lazySet(node.get());
-                this.head = node2;
-            }
         }
 
         public T getValue() {
@@ -518,7 +503,7 @@ public final class ReplaySubject<T> extends b<T> {
         final TimeUnit unit;
 
         SizeAndTimeBoundReplayBuffer(int i, long j, TimeUnit timeUnit, v vVar) {
-            this.maxSize = io.reactivex.internal.functions.a.bj(i, "maxSize");
+            this.maxSize = io.reactivex.internal.functions.a.by(i, "maxSize");
             this.maxAge = io.reactivex.internal.functions.a.y(j, "maxAge");
             this.unit = (TimeUnit) io.reactivex.internal.functions.a.h(timeUnit, "unit is null");
             this.scheduler = (v) io.reactivex.internal.functions.a.h(vVar, "scheduler is null");
@@ -554,21 +539,9 @@ public final class ReplaySubject<T> extends b<T> {
                 TimedNode<Object> timedNode2 = timedNode;
                 timedNode = timedNode2.get();
                 if (timedNode.get() == null) {
-                    if (timedNode2.value != null) {
-                        TimedNode<Object> timedNode3 = new TimedNode<>(null, 0L);
-                        timedNode3.lazySet(timedNode2.get());
-                        this.head = timedNode3;
-                        return;
-                    }
                     this.head = timedNode2;
                     return;
                 } else if (timedNode.time > a) {
-                    if (timedNode2.value != null) {
-                        TimedNode<Object> timedNode4 = new TimedNode<>(null, 0L);
-                        timedNode4.lazySet(timedNode2.get());
-                        this.head = timedNode4;
-                        return;
-                    }
                     this.head = timedNode2;
                     return;
                 }
@@ -587,22 +560,13 @@ public final class ReplaySubject<T> extends b<T> {
 
         @Override // io.reactivex.subjects.ReplaySubject.a
         public void addFinal(Object obj) {
-            TimedNode<Object> timedNode = new TimedNode<>(obj, Format.OFFSET_SAMPLE_RELATIVE);
+            TimedNode<Object> timedNode = new TimedNode<>(obj, Long.MAX_VALUE);
             TimedNode<Object> timedNode2 = this.tail;
             this.tail = timedNode;
             this.size++;
             timedNode2.lazySet(timedNode);
             trimFinal();
             this.done = true;
-        }
-
-        public void trimHead() {
-            TimedNode<Object> timedNode = this.head;
-            if (timedNode.value != null) {
-                TimedNode<Object> timedNode2 = new TimedNode<>(null, 0L);
-                timedNode2.lazySet(timedNode.get());
-                this.head = timedNode2;
-            }
         }
 
         public T getValue() {

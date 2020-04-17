@@ -11,12 +11,12 @@ import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 /* loaded from: classes11.dex */
 public final class m {
-    private static volatile b bYA;
-    private static volatile b bYB;
-    private static volatile b bYC;
+    private static volatile b cxv;
+    private static volatile b cxw;
+    private static volatile b cxx;
     private static final String TAG = m.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final rx.functions.b bYD = new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.as.m.1
+    private static final rx.functions.b cxy = new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.as.m.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
@@ -52,75 +52,75 @@ public final class m {
     private m() {
     }
 
-    public static a agO() {
-        if (bYA == null) {
+    public static a aoU() {
+        if (cxv == null) {
             synchronized (m.class) {
-                if (bYA == null) {
-                    bYA = new b(PublishSubject.dPS());
-                    bYA.dOv().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.as.m.4
+                if (cxv == null) {
+                    cxv = new b(PublishSubject.dIS());
+                    cxv.dHv().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.as.m.4
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.cc(pair).e(Schedulers.io()).e(m.bYD).dOy();
+                            return rx.h.bL(pair).e(Schedulers.io()).e(m.cxy).dHy();
                         }
-                    }).dOx().dOn();
+                    }).dHx().dHm();
                 }
             }
         }
-        return bYA;
+        return cxv;
     }
 
-    public static a agP() {
-        if (bYB == null) {
+    public static a aoV() {
+        if (cxw == null) {
             synchronized (m.class) {
-                if (bYB == null) {
-                    bYB = new b(PublishSubject.dPS());
-                    bYB.dOv().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.as.m.5
+                if (cxw == null) {
+                    cxw = new b(PublishSubject.dIS());
+                    cxw.dHv().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.as.m.5
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.cc(pair).e(Schedulers.computation()).e(m.bYD).dOy();
+                            return rx.h.bL(pair).e(Schedulers.computation()).e(m.cxy).dHy();
                         }
-                    }).dOx().dOn();
+                    }).dHx().dHm();
                 }
             }
         }
-        return bYB;
+        return cxw;
     }
 
-    public static a agQ() {
-        if (bYC == null) {
+    public static a aoW() {
+        if (cxx == null) {
             synchronized (m.class) {
-                if (bYC == null) {
-                    bYC = new b(PublishSubject.dPS());
-                    bYC.dOv().c(Schedulers.io()).b(bYD).dOx().dOn();
+                if (cxx == null) {
+                    cxx = new b(PublishSubject.dIS());
+                    cxx.dHv().c(Schedulers.io()).b(cxy).dHx().dHm();
                 }
             }
         }
-        return bYC;
+        return cxx;
     }
 
     public static void postOnIO(@NonNull Runnable runnable, @NonNull String str) {
-        agO().execute(runnable, str);
+        aoU().execute(runnable, str);
     }
 
     public static void postOnComputation(@NonNull Runnable runnable, @NonNull String str) {
-        agP().execute(runnable, str);
+        aoV().execute(runnable, str);
     }
 
     public static void postOnSerial(@NonNull Runnable runnable, @NonNull String str) {
-        agQ().execute(runnable, str);
+        aoW().execute(runnable, str);
     }
 
     public static rx.k a(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
-        return rx.h.cc(Pair.create(runnable, getStandardThreadName(str))).d(j, timeUnit).e(new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.as.m.7
+        return rx.h.bL(Pair.create(runnable, getStandardThreadName(str))).d(j, timeUnit).e(new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.as.m.7
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(Pair<Runnable, String> pair) {
-                m.agO().execute((Runnable) pair.first, (String) pair.second);
+                m.aoU().execute((Runnable) pair.first, (String) pair.second);
             }
         }).d(new rx.functions.b<Throwable>() { // from class: com.baidu.swan.apps.as.m.6
             /* JADX DEBUG: Method merged with bridge method */
@@ -130,16 +130,16 @@ public final class m {
                     Log.wtf(m.TAG, "delay task [" + str + "] fail!", th);
                 }
             }
-        }).dOn();
+        }).dHm();
     }
 
     public static rx.k b(@NonNull Runnable runnable, @NonNull final String str, @NonNull long j, @NonNull TimeUnit timeUnit) {
-        return rx.h.cc(Pair.create(runnable, getStandardThreadName(str))).d(j, timeUnit).e(new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.as.m.9
+        return rx.h.bL(Pair.create(runnable, getStandardThreadName(str))).d(j, timeUnit).e(new rx.functions.b<Pair<Runnable, String>>() { // from class: com.baidu.swan.apps.as.m.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(Pair<Runnable, String> pair) {
-                m.agP().execute((Runnable) pair.first, (String) pair.second);
+                m.aoV().execute((Runnable) pair.first, (String) pair.second);
             }
         }).d(new rx.functions.b<Throwable>() { // from class: com.baidu.swan.apps.as.m.8
             /* JADX DEBUG: Method merged with bridge method */
@@ -149,7 +149,7 @@ public final class m {
                     Log.wtf(m.TAG, "delay task [" + str + "] fail!", th);
                 }
             }
-        }).dOn();
+        }).dHm();
     }
 
     public static String getStandardThreadName(String str) {
@@ -186,10 +186,10 @@ public final class m {
     }
 
     public static rx.k a(Runnable runnable, long j, TimeUnit timeUnit) {
-        return rx.h.cc(runnable).d(j, timeUnit).f(Schedulers.immediate()).e(new rx.functions.b<Runnable>() { // from class: com.baidu.swan.apps.as.m.3
+        return rx.h.bL(runnable).d(j, timeUnit).f(Schedulers.immediate()).e(new rx.functions.b<Runnable>() { // from class: com.baidu.swan.apps.as.m.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
-            /* renamed from: i */
+            /* renamed from: l */
             public void call(Runnable runnable2) {
                 runnable2.run();
             }
@@ -201,6 +201,6 @@ public final class m {
                     Log.wtf(m.TAG, "delay task fail", th);
                 }
             }
-        }).dOn();
+        }).dHm();
     }
 }

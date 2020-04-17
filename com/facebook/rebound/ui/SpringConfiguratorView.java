@@ -204,7 +204,7 @@ public class SpringConfiguratorView extends FrameLayout {
         @Override // android.widget.SeekBar.OnSeekBarChangeListener
         public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
             if (seekBar == SpringConfiguratorView.this.mTensionSeekBar) {
-                float f = ((200.0f * i) / 100000.0f) + 0.0f;
+                float f = ((SpringConfiguratorView.MAX_TENSION * i) / 100000.0f) + 0.0f;
                 SpringConfiguratorView.this.mSelectedSpringConfig.tension = OrigamiValueConverter.tensionFromOrigamiValue(f);
                 SpringConfiguratorView.this.mTensionLabel.setText("T:" + SpringConfiguratorView.DECIMAL_FORMAT.format(f));
             }
@@ -226,7 +226,7 @@ public class SpringConfiguratorView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateSeekBarsForSpringConfig(SpringConfig springConfig) {
-        int round = Math.round(((((float) OrigamiValueConverter.origamiValueFromTension(springConfig.tension)) - 0.0f) * 100000.0f) / 200.0f);
+        int round = Math.round(((((float) OrigamiValueConverter.origamiValueFromTension(springConfig.tension)) - 0.0f) * 100000.0f) / MAX_TENSION);
         int round2 = Math.round(((((float) OrigamiValueConverter.origamiValueFromFriction(springConfig.friction)) - 0.0f) * 100000.0f) / MAX_FRICTION);
         this.mTensionSeekBar.setProgress(round);
         this.mFrictionSeekBar.setProgress(round2);

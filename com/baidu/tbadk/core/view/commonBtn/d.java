@@ -10,53 +10,53 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d extends a {
-    private boolean dko;
+    private boolean dKi;
 
     public d() {
-        this.dka = R.color.cp_link_tip_a;
-        this.dko = false;
+        this.dJT = R.color.cp_link_tip_a;
+        this.dKi = false;
     }
 
-    public void lx(@ColorInt int i) {
-        this.dka = i;
-        this.dko = false;
-        this.dkl = false;
-        if (this.dkm != null) {
-            this.dkm.aIv();
+    public void lJ(@ColorInt int i) {
+        this.dJT = i;
+        this.dKi = false;
+        this.dKe = false;
+        if (this.dKg != null) {
+            this.dKg.aQR();
         }
     }
 
-    public void aIz() {
-        this.dka = R.color.cp_cont_a;
-        this.dko = false;
-        this.dkl = true;
-        if (this.dkm != null) {
-            this.dkm.aIv();
+    public void aQV() {
+        this.dJT = R.color.cp_cont_a;
+        this.dKi = false;
+        this.dKe = true;
+        if (this.dKg != null) {
+            this.dKg.aQR();
         }
     }
 
-    public void lw(@ColorRes int i) {
-        this.dka = i;
-        this.dkb = R.color.cp_btn_b;
-        this.dko = true;
-        this.dkl = true;
-        if (this.dkm != null) {
-            this.dkm.aIv();
+    public void lI(@ColorRes int i) {
+        this.dJT = i;
+        this.dJU = R.color.cp_btn_b;
+        this.dKi = true;
+        this.dKe = true;
+        if (this.dKg != null) {
+            this.dKg.aQR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable ak(float f) {
-        return am(f);
+    public Drawable U(float f) {
+        return W(f);
     }
 
-    private Drawable am(float f) {
+    private Drawable W(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.dko) {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), am.getColor(this.dkb));
+        if (this.dKi) {
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), am.getColor(this.dJU));
         } else {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.n(this.dkl ? am.getColor(this.dka) : this.dka, 0.5f));
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(this.dKe ? am.getColor(this.dJT) : this.dJT, 0.5f));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

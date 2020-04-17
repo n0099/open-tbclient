@@ -8,37 +8,37 @@ import okhttp3.HttpUrl;
 /* loaded from: classes11.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d cqD;
-    private HashMap<String, com.baidu.swan.games.network.a> cqE = new HashMap<>();
+    private static volatile d cPz;
+    private HashMap<String, com.baidu.swan.games.network.a> cPA = new HashMap<>();
 
     private d() {
     }
 
-    public static d aoW() {
-        if (cqD == null) {
+    public static d axj() {
+        if (cPz == null) {
             synchronized (d.class) {
-                if (cqD == null) {
-                    cqD = new d();
+                if (cPz == null) {
+                    cPz = new d();
                 }
             }
         }
-        return cqD;
+        return cPz;
     }
 
     public void a(com.baidu.swan.games.e.b bVar, a.b bVar2) {
-        if (bVar != null && bVar2 != null && bVar2.cpF != null && bVar2.cpF.crA != null) {
+        if (bVar != null && bVar2 != null && bVar2.cOB != null && bVar2.cOB.cQv != null) {
             release();
-            if (com.baidu.swan.apps.w.a.Uc().getSwitch("swan_game_resource_preload", 0) == 1) {
-                bVar2.cpF.crA.a(bVar);
+            if (com.baidu.swan.apps.w.a.abR().getSwitch("swan_game_resource_preload", 0) == 1) {
+                bVar2.cOB.cQv.a(bVar);
             }
         }
     }
 
     public synchronized void a(String str, com.baidu.swan.games.network.a aVar) {
         if (aVar != null) {
-            String N = N(str, aVar.cqq);
-            if (!TextUtils.isEmpty(N)) {
-                this.cqE.put(N, aVar);
+            String V = V(str, aVar.cPm);
+            if (!TextUtils.isEmpty(V)) {
+                this.cPA.put(V, aVar);
                 if (DEBUG) {
                     Log.d("SwanGamePreloadManager", "addRequestTask url:" + str);
                 }
@@ -51,9 +51,9 @@ public class d {
         synchronized (this) {
             if (cVar != null) {
                 String optString = cVar.optString("url");
-                String N = N(optString, i);
-                if (!TextUtils.isEmpty(N)) {
-                    aVar = this.cqE.remove(N);
+                String V = V(optString, i);
+                if (!TextUtils.isEmpty(V)) {
+                    aVar = this.cPA.remove(V);
                     if (aVar != null) {
                         a(bVar, "preload used, url = " + optString);
                     }
@@ -67,10 +67,10 @@ public class d {
     }
 
     public synchronized void release() {
-        this.cqE.clear();
+        this.cPA.clear();
     }
 
-    private String N(String str, int i) {
+    private String V(String str, int i) {
         HttpUrl parse;
         if (TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
             return null;
@@ -79,8 +79,8 @@ public class d {
     }
 
     private static void a(com.baidu.swan.games.e.b bVar, String str) {
-        if (bVar != null && bVar.anB() != null && !TextUtils.isEmpty(str)) {
-            bVar.anB().log(str);
+        if (bVar != null && bVar.avO() != null && !TextUtils.isEmpty(str)) {
+            bVar.avO().log(str);
         }
     }
 }

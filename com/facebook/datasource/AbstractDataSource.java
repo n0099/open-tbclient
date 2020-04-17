@@ -10,16 +10,16 @@ import javax.annotation.concurrent.GuardedBy;
 public abstract class AbstractDataSource<T> implements b<T> {
     @GuardedBy("this")
     @Nullable
-    private T bDt = null;
+    private T cbR = null;
     @GuardedBy("this")
-    private Throwable lLf = null;
+    private Throwable lSA = null;
     @GuardedBy("this")
     private float mProgress = 0.0f;
     @GuardedBy("this")
-    private boolean vA = false;
+    private boolean Ot = false;
     @GuardedBy("this")
-    private DataSourceStatus lLe = DataSourceStatus.IN_PROGRESS;
-    private final ConcurrentLinkedQueue<Pair<d<T>, Executor>> lLg = new ConcurrentLinkedQueue<>();
+    private DataSourceStatus lSz = DataSourceStatus.IN_PROGRESS;
+    private final ConcurrentLinkedQueue<Pair<d<T>, Executor>> lSB = new ConcurrentLinkedQueue<>();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
@@ -30,33 +30,33 @@ public abstract class AbstractDataSource<T> implements b<T> {
     }
 
     public synchronized boolean isClosed() {
-        return this.vA;
+        return this.Ot;
     }
 
     @Override // com.facebook.datasource.b
     public synchronized boolean isFinished() {
-        return this.lLe != DataSourceStatus.IN_PROGRESS;
+        return this.lSz != DataSourceStatus.IN_PROGRESS;
     }
 
     @Override // com.facebook.datasource.b
-    public synchronized boolean dlD() {
-        return this.bDt != null;
+    public synchronized boolean dny() {
+        return this.cbR != null;
     }
 
     @Override // com.facebook.datasource.b
     @Nullable
     public synchronized T getResult() {
-        return this.bDt;
+        return this.cbR;
     }
 
-    public synchronized boolean dlE() {
-        return this.lLe == DataSourceStatus.FAILURE;
+    public synchronized boolean dnz() {
+        return this.lSz == DataSourceStatus.FAILURE;
     }
 
     @Override // com.facebook.datasource.b
     @Nullable
-    public synchronized Throwable dlF() {
-        return this.lLf;
+    public synchronized Throwable dnA() {
+        return this.lSA;
     }
 
     @Override // com.facebook.datasource.b
@@ -65,30 +65,30 @@ public abstract class AbstractDataSource<T> implements b<T> {
     }
 
     @Override // com.facebook.datasource.b
-    public boolean OG() {
+    public boolean Wv() {
         boolean z = true;
         synchronized (this) {
-            if (this.vA) {
+            if (this.Ot) {
                 z = false;
             } else {
-                this.vA = true;
-                T t = this.bDt;
-                this.bDt = null;
+                this.Ot = true;
+                T t = this.cbR;
+                this.cbR = null;
                 if (t != null) {
-                    aX(t);
+                    aN(t);
                 }
                 if (!isFinished()) {
-                    dlG();
+                    dnB();
                 }
                 synchronized (this) {
-                    this.lLg.clear();
+                    this.lSB.clear();
                 }
             }
         }
         return z;
     }
 
-    protected void aX(@Nullable T t) {
+    protected void aN(@Nullable T t) {
     }
 
     @Override // com.facebook.datasource.b
@@ -96,25 +96,25 @@ public abstract class AbstractDataSource<T> implements b<T> {
         com.facebook.common.internal.g.checkNotNull(dVar);
         com.facebook.common.internal.g.checkNotNull(executor);
         synchronized (this) {
-            if (!this.vA) {
-                if (this.lLe == DataSourceStatus.IN_PROGRESS) {
-                    this.lLg.add(Pair.create(dVar, executor));
+            if (!this.Ot) {
+                if (this.lSz == DataSourceStatus.IN_PROGRESS) {
+                    this.lSB.add(Pair.create(dVar, executor));
                 }
-                boolean z = dlD() || isFinished() || dlH();
+                boolean z = dny() || isFinished() || dnC();
                 if (z) {
-                    a(dVar, executor, dlE(), dlH());
+                    a(dVar, executor, dnz(), dnC());
                 }
             }
         }
     }
 
-    private void dlG() {
-        boolean dlE = dlE();
-        boolean dlH = dlH();
-        Iterator<Pair<d<T>, Executor>> it = this.lLg.iterator();
+    private void dnB() {
+        boolean dnz = dnz();
+        boolean dnC = dnC();
+        Iterator<Pair<d<T>, Executor>> it = this.lSB.iterator();
         while (it.hasNext()) {
             Pair<d<T>, Executor> next = it.next();
-            a((d) next.first, (Executor) next.second, dlE, dlH);
+            a((d) next.first, (Executor) next.second, dnz, dnC);
         }
     }
 
@@ -123,17 +123,17 @@ public abstract class AbstractDataSource<T> implements b<T> {
             @Override // java.lang.Runnable
             public void run() {
                 if (z) {
-                    dVar.onFailure(AbstractDataSource.this);
+                    dVar.e(AbstractDataSource.this);
                 } else if (z2) {
-                    dVar.onCancellation(AbstractDataSource.this);
+                    dVar.b(AbstractDataSource.this);
                 } else {
-                    dVar.onNewResult(AbstractDataSource.this);
+                    dVar.d(AbstractDataSource.this);
                 }
             }
         });
     }
 
-    private synchronized boolean dlH() {
+    private synchronized boolean dnC() {
         boolean z;
         if (isClosed()) {
             z = isFinished() ? false : true;
@@ -145,27 +145,27 @@ public abstract class AbstractDataSource<T> implements b<T> {
     public boolean b(@Nullable T t, boolean z) {
         boolean c = c(t, z);
         if (c) {
-            dlG();
+            dnB();
         }
         return c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean u(Throwable th) {
-        boolean v = v(th);
-        if (v) {
-            dlG();
+    public boolean z(Throwable th) {
+        boolean A = A(th);
+        if (A) {
+            dnB();
         }
-        return v;
+        return A;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bj(float f) {
-        boolean bk = bk(f);
-        if (bk) {
-            dlI();
+    public boolean az(float f) {
+        boolean aA = aA(f);
+        if (aA) {
+            dnD();
         }
-        return bk;
+        return aA;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [282=4] */
@@ -180,20 +180,20 @@ public abstract class AbstractDataSource<T> implements b<T> {
             try {
                 synchronized (this) {
                     try {
-                        if (this.vA || this.lLe != DataSourceStatus.IN_PROGRESS) {
+                        if (this.Ot || this.lSz != DataSourceStatus.IN_PROGRESS) {
                             z2 = false;
                             if (t != null) {
-                                aX(t);
+                                aN(t);
                             }
                         } else {
                             if (z) {
-                                this.lLe = DataSourceStatus.SUCCESS;
+                                this.lSz = DataSourceStatus.SUCCESS;
                                 this.mProgress = 1.0f;
                             }
-                            if (this.bDt != t) {
-                                T t3 = this.bDt;
+                            if (this.cbR != t) {
+                                T t3 = this.cbR;
                                 try {
-                                    this.bDt = t;
+                                    this.cbR = t;
                                     t2 = t3;
                                 } catch (Throwable th) {
                                     th = th;
@@ -203,7 +203,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
                                     } catch (Throwable th2) {
                                         th = th2;
                                         if (t != null) {
-                                            aX(t);
+                                            aN(t);
                                         }
                                         throw th;
                                     }
@@ -213,7 +213,7 @@ public abstract class AbstractDataSource<T> implements b<T> {
                             }
                             z2 = true;
                             if (t2 != null) {
-                                aX(t2);
+                                aN(t2);
                             }
                         }
                         return z2;
@@ -234,22 +234,22 @@ public abstract class AbstractDataSource<T> implements b<T> {
         }
     }
 
-    private synchronized boolean v(Throwable th) {
+    private synchronized boolean A(Throwable th) {
         boolean z;
-        if (this.vA || this.lLe != DataSourceStatus.IN_PROGRESS) {
+        if (this.Ot || this.lSz != DataSourceStatus.IN_PROGRESS) {
             z = false;
         } else {
-            this.lLe = DataSourceStatus.FAILURE;
-            this.lLf = th;
+            this.lSz = DataSourceStatus.FAILURE;
+            this.lSA = th;
             z = true;
         }
         return z;
     }
 
-    private synchronized boolean bk(float f) {
+    private synchronized boolean aA(float f) {
         boolean z = false;
         synchronized (this) {
-            if (!this.vA && this.lLe == DataSourceStatus.IN_PROGRESS && f >= this.mProgress) {
+            if (!this.Ot && this.lSz == DataSourceStatus.IN_PROGRESS && f >= this.mProgress) {
                 this.mProgress = f;
                 z = true;
             }
@@ -257,15 +257,15 @@ public abstract class AbstractDataSource<T> implements b<T> {
         return z;
     }
 
-    protected void dlI() {
-        Iterator<Pair<d<T>, Executor>> it = this.lLg.iterator();
+    protected void dnD() {
+        Iterator<Pair<d<T>, Executor>> it = this.lSB.iterator();
         while (it.hasNext()) {
             Pair<d<T>, Executor> next = it.next();
             final d dVar = (d) next.first;
             ((Executor) next.second).execute(new Runnable() { // from class: com.facebook.datasource.AbstractDataSource.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    dVar.onProgressUpdate(AbstractDataSource.this);
+                    dVar.f(AbstractDataSource.this);
                 }
             });
         }

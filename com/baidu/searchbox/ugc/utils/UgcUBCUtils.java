@@ -1,16 +1,17 @@
 package com.baidu.searchbox.ugc.utils;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.pyramid.runtime.service.c;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.ubc.Flow;
-import com.baidu.ubc.a;
+import com.baidu.ubc.aa;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class UgcUBCUtils {
     private static final String CONTENT_KEY_NET = "network";
-    public static final boolean DEBUG = false;
     public static final String HOME_UGC_PUBLISH_ENTRANCE_ID = "649";
     public static final String HOME_UGC_PUBLISH_FROM = "home";
     public static final String HOME_UGC_PUBLISH_PAGE_FEED = "feed";
@@ -80,7 +81,6 @@ public class UgcUBCUtils {
     public static final String UGC_VALUE_PUB_SUCCESS = "pub_success";
     public static final String UGC_VALUE_UP_FAIL = "up_fail";
     public static final String UGC_VALUE_UP_SUCCESS = "up_success";
-    private static JSONObject extInfo = new JSONObject();
     private static Flow mFlow = null;
     public static final String mLayerBtnPage = "publish_layer_btn";
     public static final String mLayerPage = "publish_layer";
@@ -105,6 +105,8 @@ public class UgcUBCUtils {
     public static final String mVideoUploadPage = "videoupload";
     private static UbcConfig sUbcConfig;
     private static String source;
+    public static final boolean DEBUG = AppConfig.isDebug();
+    private static JSONObject extInfo = new JSONObject();
 
     /* loaded from: classes13.dex */
     public static class UbcConfig {
@@ -176,7 +178,7 @@ public class UgcUBCUtils {
         if (mUgcPageFlow != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("page", "publish");
+                jSONObject.put("page", PUBLISH_PAGE);
                 jSONObject.put("from", "ugc");
                 jSONObject.put("source", source);
                 jSONObject.put("value", str);
@@ -375,14 +377,21 @@ public class UgcUBCUtils {
             jSONObject2.put("value", str6);
             jSONObject2.put("ext", jSONObject);
         } catch (Exception e) {
+            if (DEBUG) {
+                e.printStackTrace();
+                Log.d(TAG, "UgcUBCUtils ubcEventStatistics exception " + e.toString());
+            }
         }
         ugcOnEvent(str, jSONObject2.toString());
+        if (DEBUG) {
+            Log.d(TAG, " ubcEventStatistics() ubc.onEvent(): ubcId: " + str + ", " + jSONObject2.toString());
+        }
     }
 
     public static void saveDraftPublishUbcStatistics(String str, boolean z, boolean z2, boolean z3, boolean z4) {
         String str2;
         String str3 = z4 ? "701" : "593";
-        String str4 = z ? PUBLISH_FORWARD_PAGE : "publish";
+        String str4 = z ? PUBLISH_FORWARD_PAGE : PUBLISH_PAGE;
         if (z4) {
             str4 = QUESTION_REPLY_PAGE;
         }
@@ -401,11 +410,15 @@ public class UgcUBCUtils {
     }
 
     public static void emotionUbcStatistics(String str, boolean z, String str2) {
-        String str3 = z ? PUBLISH_FORWARD_PAGE : "publish";
+        String str3 = z ? PUBLISH_FORWARD_PAGE : PUBLISH_PAGE;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("emoji_id", str2);
         } catch (JSONException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+                Log.d(TAG, "UgcUBCUtils emotionUbcStatistics exception " + e.toString());
+            }
         }
         ubcEventStatistics("593", "ugc", str3, UGC_TYPE_EMOJI_CLICK, str, "emoji_choice", jSONObject);
     }
@@ -417,6 +430,9 @@ public class UgcUBCUtils {
                 jSONObject.put("nid", str3);
                 jSONObject.put("interestID", str4);
             } catch (JSONException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
             }
         }
         ubcEventStatistics(UBC_UGC_REPLY_PUBLISH_ID, "super_interest", null, str, null, str2, jSONObject);
@@ -425,9 +441,9 @@ public class UgcUBCUtils {
     public static Flow ugcBeginFlow(String str) {
         if (checkValid(str)) {
             print(str, "beginFlow", null);
-            a uBCManager = getUBCManager();
+            aa uBCManager = getUBCManager();
             if (uBCManager != null) {
-                return uBCManager.Hs(str);
+                return uBCManager.beginFlow(str);
             }
             return null;
         }
@@ -436,7 +452,7 @@ public class UgcUBCUtils {
 
     public static void ugcOnEvent(String str, String str2) {
         if (checkValid(str)) {
-            a uBCManager = getUBCManager();
+            aa uBCManager = getUBCManager();
             if (uBCManager != null) {
                 uBCManager.onEvent(str, str2);
             }
@@ -445,16 +461,16 @@ public class UgcUBCUtils {
     }
 
     public static void ugcEndFlow(String str, Flow flow, String str2) {
-        a uBCManager = getUBCManager();
+        aa uBCManager = getUBCManager();
         if (uBCManager != null) {
-            uBCManager.b(flow, str2);
-            uBCManager.a(flow);
+            uBCManager.flowSetValueWithDuration(flow, str2);
+            uBCManager.flowEnd(flow);
         }
         print(str, "endFlow", str2);
     }
 
-    public static a getUBCManager() {
-        return (a) c.a(a.SERVICE_REFERENCE);
+    public static aa getUBCManager() {
+        return (aa) c.a(aa.SERVICE_REFERENCE);
     }
 
     public static boolean checkValid(String str) {
@@ -473,6 +489,9 @@ public class UgcUBCUtils {
     }
 
     private static void print(String str, String str2, Object obj) {
+        if (DEBUG) {
+            Log.d(TAG, "id:" + str + " " + str2 + " " + (obj == null ? "" : obj.toString()));
+        }
     }
 
     public static void setUbcConfig(UbcConfig ubcConfig) {

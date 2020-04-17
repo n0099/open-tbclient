@@ -1,5 +1,6 @@
 package com.google.protobuf;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.google.protobuf.MessageLite;
 import java.io.IOException;
 import java.io.InputStream;
@@ -330,7 +331,7 @@ public final class CodedInputStream {
     }
 
     private CodedInputStream(byte[] bArr, int i, int i2) {
-        this.currentLimit = Integer.MAX_VALUE;
+        this.currentLimit = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.recursionLimit = 64;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = bArr;
@@ -341,7 +342,7 @@ public final class CodedInputStream {
     }
 
     private CodedInputStream(InputStream inputStream) {
-        this.currentLimit = Integer.MAX_VALUE;
+        this.currentLimit = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.recursionLimit = 64;
         this.sizeLimit = DEFAULT_SIZE_LIMIT;
         this.buffer = new byte[4096];

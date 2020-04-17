@@ -1,6 +1,5 @@
 package rx.internal.operators;
 
-import com.google.android.exoplayer2.Format;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,8 +14,8 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     final int bufferSize;
     final rx.functions.j<? extends R> combiner;
     final boolean delayError;
-    final rx.d<? extends T>[] nPW;
-    final Iterable<? extends rx.d<? extends T>> nys;
+    final Iterable<? extends rx.d<? extends T>> mRK;
+    final rx.d<? extends T>[] njC;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -27,17 +26,17 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         int length;
         rx.d<? extends T>[] dVarArr;
         rx.d<? extends T>[] dVarArr2;
-        rx.d<? extends T>[] dVarArr3 = this.nPW;
+        rx.d<? extends T>[] dVarArr3 = this.njC;
         if (dVarArr3 == null) {
-            if (this.nys instanceof List) {
-                List list = (List) this.nys;
+            if (this.mRK instanceof List) {
+                List list = (List) this.mRK;
                 rx.d<? extends T>[] dVarArr4 = (rx.d[]) list.toArray(new rx.d[list.size()]);
                 length = dVarArr4.length;
                 dVarArr = dVarArr4;
             } else {
                 int i = 0;
                 rx.d<? extends T>[] dVarArr5 = new rx.d[8];
-                for (rx.d<? extends T> dVar : this.nys) {
+                for (rx.d<? extends T> dVar : this.mRK) {
                     if (i == dVarArr5.length) {
                         dVarArr2 = new rx.d[(i >> 2) + i];
                         System.arraycopy(dVarArr5, 0, dVarArr2, 0, i);
@@ -233,7 +232,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                                 return;
                             }
                         }
-                        if (j != 0 && j2 != Format.OFFSET_SAMPLE_RELATIVE) {
+                        if (j != 0 && j2 != Long.MAX_VALUE) {
                             rx.internal.operators.a.c(atomicLong, j);
                         }
                         i = addAndGet(-i2);
@@ -302,10 +301,10 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     public static final class a<T, R> extends rx.j<T> {
         boolean done;
         final int index;
-        final LatestCoordinator<T, R> nPX;
+        final LatestCoordinator<T, R> njD;
 
         public a(LatestCoordinator<T, R> latestCoordinator, int i) {
-            this.nPX = latestCoordinator;
+            this.njD = latestCoordinator;
             this.index = i;
             request(latestCoordinator.bufferSize);
         }
@@ -313,7 +312,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         @Override // rx.e
         public void onNext(T t) {
             if (!this.done) {
-                this.nPX.combine(NotificationLite.next(t), this.index);
+                this.njD.combine(NotificationLite.next(t), this.index);
             }
         }
 
@@ -323,16 +322,16 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 rx.c.c.onError(th);
                 return;
             }
-            this.nPX.onError(th);
+            this.njD.onError(th);
             this.done = true;
-            this.nPX.combine(null, this.index);
+            this.njD.combine(null, this.index);
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 this.done = true;
-                this.nPX.combine(null, this.index);
+                this.njD.combine(null, this.index);
             }
         }
 

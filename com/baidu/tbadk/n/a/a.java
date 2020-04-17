@@ -5,30 +5,30 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class a {
-    private c dFn;
-    private String dFo;
+    private c eeU;
+    private String eeV;
 
     public a(String str) {
-        this.dFo = str;
+        this.eeV = str;
     }
 
-    public void aRx() {
+    public void aZH() {
         if (Build.VERSION.SDK_INT >= 16) {
-            if (this.dFn == null) {
-                this.dFn = new c();
+            if (this.eeU == null) {
+                this.eeU = new c();
             }
-            this.dFn.start();
+            this.eeU.start();
         }
     }
 
-    public void aRy() {
-        if (this.dFn != null && Build.VERSION.SDK_INT >= 16) {
-            this.dFn.stop();
-            af(this.dFo, this.dFn.getFps());
+    public void aZI() {
+        if (this.eeU != null && Build.VERSION.SDK_INT >= 16) {
+            this.eeU.stop();
+            ao(this.eeV, this.eeU.getFps());
         }
     }
 
-    private void af(String str, int i) {
+    private void ao(String str, int i) {
         int intValue;
         if (!aq.isEmpty(str) && i > 0 && !TbSingleton.getInstance().isAnimFpsComputed(str) && (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) < 5) {
             int i2 = intValue + 1;

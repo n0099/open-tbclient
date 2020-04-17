@@ -7,26 +7,26 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 /* loaded from: classes10.dex */
 public class BaiduHybridAdManager {
-    private com.baidu.mobads.production.d.a aOV;
-    private WebView aOW;
-    private BaiduHybridAdViewListener aOU = new d(this);
+    private com.baidu.mobads.production.d.a bkM;
+    private WebView bkN;
+    private BaiduHybridAdViewListener bkL = new d(this);
     private boolean e = false;
-    IOAdEventListener aOO = new e(this);
+    IOAdEventListener bkF = new e(this);
 
     public void setBaiduHybridAdViewListener(BaiduHybridAdViewListener baiduHybridAdViewListener) {
-        this.aOU = baiduHybridAdViewListener;
+        this.bkL = baiduHybridAdViewListener;
     }
 
     public void injectJavaScriptBridge(WebView webView) {
         if (!this.e) {
-            this.aOW = webView;
-            this.aOV = new com.baidu.mobads.production.d.a(this.aOW);
-            this.aOV.addEventListener(IXAdEvent.AD_LOADED, this.aOO);
-            this.aOV.addEventListener(IXAdEvent.AD_ERROR, this.aOO);
-            this.aOV.addEventListener(IXAdEvent.AD_STARTED, this.aOO);
-            this.aOV.addEventListener("AdUserClick", this.aOO);
-            this.aOV.addEventListener(IXAdEvent.AD_USER_CLOSE, this.aOO);
-            this.aOV.request();
+            this.bkN = webView;
+            this.bkM = new com.baidu.mobads.production.d.a(this.bkN);
+            this.bkM.addEventListener(IXAdEvent.AD_LOADED, this.bkF);
+            this.bkM.addEventListener(IXAdEvent.AD_ERROR, this.bkF);
+            this.bkM.addEventListener(IXAdEvent.AD_STARTED, this.bkF);
+            this.bkM.addEventListener("AdUserClick", this.bkF);
+            this.bkM.addEventListener(IXAdEvent.AD_USER_CLOSE, this.bkF);
+            this.bkM.request();
         }
     }
 
@@ -35,8 +35,8 @@ public class BaiduHybridAdManager {
     }
 
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        if (!this.e && this.aOV != null) {
-            this.aOV.a(webView, str);
+        if (!this.e && this.bkM != null) {
+            this.bkM.a(webView, str);
         }
         try {
         } catch (Exception e) {

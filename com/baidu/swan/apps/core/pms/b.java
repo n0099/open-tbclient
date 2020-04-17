@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.pms;
 /* loaded from: classes11.dex */
 public interface b {
-    void Pm();
+    void Xb();
 
-    void eG(int i);
+    void eL(int i);
 }

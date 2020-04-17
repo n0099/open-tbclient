@@ -5,6 +5,7 @@ import android.graphics.LinearGradient;
 import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.text.TextUtils;
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,14 +21,14 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(JSONArray jSONArray) {
-        u(jSONArray);
+        v(jSONArray);
     }
 
     public boolean isValid() {
         return !TextUtils.isEmpty(this.mType);
     }
 
-    public boolean Ku() {
+    public boolean Si() {
         return TextUtils.equals(this.mType, "linearGradient") || TextUtils.equals(this.mType, "circularGradient");
     }
 
@@ -35,11 +36,11 @@ public class i {
         return this.mColor;
     }
 
-    public Shader Kv() {
+    public Shader Sj() {
         return this.mShader;
     }
 
-    public void u(JSONArray jSONArray) {
+    public void v(JSONArray jSONArray) {
         int length;
         try {
             String optString = jSONArray.optString(0);
@@ -68,11 +69,11 @@ public class i {
                 if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
                     JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
                     if (TextUtils.equals(optString, "linearGradient")) {
-                        this.mShader = new LinearGradient(com.baidu.swan.apps.as.af.S(optJSONObject2.optInt("x0")), com.baidu.swan.apps.as.af.S(optJSONObject2.optInt("y0")), com.baidu.swan.apps.as.af.S(optJSONObject2.optInt("x1")), com.baidu.swan.apps.as.af.S(optJSONObject2.optInt("y1")), iArr, fArr, Shader.TileMode.CLAMP);
+                        this.mShader = new LinearGradient(com.baidu.swan.apps.as.af.C(optJSONObject2.optInt("x0")), com.baidu.swan.apps.as.af.C(optJSONObject2.optInt("y0")), com.baidu.swan.apps.as.af.C(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), com.baidu.swan.apps.as.af.C(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
                         this.mType = "linearGradient";
                         return;
                     }
-                    this.mShader = new RadialGradient(com.baidu.swan.apps.as.af.S(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.as.af.S(optJSONObject2.optInt("y")), com.baidu.swan.apps.as.af.S(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
+                    this.mShader = new RadialGradient(com.baidu.swan.apps.as.af.C(optJSONObject2.optInt(Config.EVENT_HEAT_X)), com.baidu.swan.apps.as.af.C(optJSONObject2.optInt("y")), com.baidu.swan.apps.as.af.C(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
                     this.mType = "circularGradient";
                 }
             }

@@ -6,15 +6,15 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GuardClubJoinHttpResponseMessage extends JsonHttpResponsedMessage {
-    public a aqi;
-    public int aqq;
-    public int aqr;
-    public long aqs;
-    public boolean aqt;
+    public a aIR;
+    public int aIZ;
+    public int aJa;
+    public long aJb;
+    public boolean aJc;
 
     public GuardClubJoinHttpResponseMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
-        this.aqt = false;
+        this.aJc = false;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,12 +22,12 @@ public class GuardClubJoinHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aqq = optJSONObject.optInt("guard_club_id");
-            this.aqr = optJSONObject.optInt("guard_club_member_id");
-            this.aqs = optJSONObject.optLong("left_scores");
-            TbadkCoreApplication.getInst().currentAccountTdouNum = this.aqs;
+            this.aIZ = optJSONObject.optInt("guard_club_id");
+            this.aJa = optJSONObject.optInt("guard_club_member_id");
+            this.aJb = optJSONObject.optLong("left_scores");
+            TbadkCoreApplication.getInst().currentAccountTdouNum = this.aJb;
             if (getOrginalMessage() != null && (getOrginalMessage() instanceof c)) {
-                this.aqi = ((c) getOrginalMessage()).vK();
+                this.aIR = ((c) getOrginalMessage()).Aq();
             }
         }
     }

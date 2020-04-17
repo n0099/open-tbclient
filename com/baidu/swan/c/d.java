@@ -5,13 +5,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    private static String cFT = b.awg().getString("openstat_switch", "1");
+    private static String deU = b.aEr().getString("openstat_switch", "1");
 
-    public static boolean awi() {
-        return TextUtils.equals(cFT, "1");
+    public static boolean aEt() {
+        return TextUtils.equals(deU, "1");
     }
 
-    public static boolean re(String str) {
+    public static boolean ss(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

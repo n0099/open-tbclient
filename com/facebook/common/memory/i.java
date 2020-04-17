@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes13.dex */
 public abstract class i extends OutputStream {
-    public abstract PooledByteBuffer dlp();
+    public abstract PooledByteBuffer dni();
 
     public abstract int size();
 
@@ -14,7 +14,7 @@ public abstract class i extends OutputStream {
         try {
             super.close();
         } catch (IOException e) {
-            l.t(e);
+            l.y(e);
         }
     }
 }

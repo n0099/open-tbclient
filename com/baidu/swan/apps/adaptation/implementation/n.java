@@ -5,7 +5,7 @@ import com.baidu.swan.apps.adaptation.a.ai;
 /* loaded from: classes11.dex */
 public class n implements ai {
     @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void HS() {
+    public void PE() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ai
@@ -14,7 +14,7 @@ public class n implements ai {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ai
-    public ai HT() {
+    public ai PF() {
         return null;
     }
 
@@ -40,7 +40,7 @@ public class n implements ai {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ai
-    public void HU() {
+    public void PG() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ai

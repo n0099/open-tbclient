@@ -7,7 +7,7 @@ import com.baidu.live.tbadk.share.single.interfaces.IShareCallback;
 import com.baidu.tieba.ala.liveroom.views.e;
 /* loaded from: classes3.dex */
 public class d {
-    private com.baidu.tieba.ala.liveroom.views.c faK;
+    private com.baidu.tieba.ala.liveroom.views.c fET;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -17,18 +17,19 @@ public class d {
     }
 
     private void init() {
-        this.faK = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
-        this.mRootView = this.faK.getView();
+        this.fET = new com.baidu.tieba.ala.liveroom.views.c(this.mPageContext);
+        this.fET.f(this.mPageContext);
+        this.mRootView = this.fET.getView();
     }
 
     public void a(IShareCallback iShareCallback) {
-        if (this.faK != null) {
-            this.faK.a(iShareCallback);
+        if (this.fET != null) {
+            this.fET.a(iShareCallback);
         }
     }
 
-    private void blH() {
-        this.faK.blH();
+    private void buY() {
+        this.fET.buY();
     }
 
     public View getView() {
@@ -36,40 +37,40 @@ public class d {
     }
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
-        this.faK.a(alaLiveRecorder);
-        blH();
+        this.fET.a(alaLiveRecorder);
+        buY();
     }
 
-    public boolean blI() {
-        return this.faK.blI();
+    public boolean buZ() {
+        return this.fET.buZ();
     }
 
-    public boolean blJ() {
-        return this.faK.blJ();
+    public boolean bva() {
+        return this.fET.bva();
     }
 
     public String getLiveTitle() {
-        return this.faK.getLiveTitle();
+        return this.fET.getLiveTitle();
     }
 
-    public boolean blK() {
-        return this.faK.blK();
+    public boolean bvb() {
+        return this.fET.bvb();
     }
 
-    public boolean blL() {
-        return this.faK.blL();
+    public boolean bvc() {
+        return this.fET.bvc();
     }
 
-    public void jo(boolean z) {
-        this.faK.jo(z);
+    public void kp(boolean z) {
+        this.fET.kp(z);
     }
 
-    public void blM() {
-        this.faK.fmq = false;
+    public void bvd() {
+        this.fET.fQM = false;
     }
 
-    public String blN() {
-        return this.faK.blN();
+    public String bve() {
+        return this.fET.bve();
     }
 
     public void setVisibility(int i) {
@@ -81,56 +82,56 @@ public class d {
     }
 
     public void a(e.b bVar) {
-        this.faK.a(bVar);
+        this.fET.a(bVar);
     }
 
-    public void e(boolean z, boolean z2) {
+    public void E(boolean z, boolean z2) {
         if (z) {
-            this.faK.onKeyboardVisibilityChanged(false);
+            this.fET.onKeyboardVisibilityChanged(false);
         } else {
-            this.faK.onKeyboardVisibilityChanged(z2);
+            this.fET.onKeyboardVisibilityChanged(z2);
         }
     }
 
     public void a(e.a aVar) {
-        this.faK.a(aVar);
+        this.fET.a(aVar);
     }
 
-    public void yW(String str) {
-        this.faK.yW(str);
+    public void AD(String str) {
+        this.fET.AD(str);
     }
 
     public void onResume() {
-        this.faK.onResume();
+        this.fET.onResume();
     }
 
     public void onRefresh() {
-        this.faK.onRefresh();
+        this.fET.onRefresh();
     }
 
-    public boolean blO() {
-        return this.faK.blO();
+    public boolean bvf() {
+        return this.fET.bvf();
     }
 
-    public void blP() {
-        this.faK.blP();
+    public void bvg() {
+        this.fET.bvg();
     }
 
     public void release() {
-        this.faK.release();
+        this.fET.release();
     }
 
     public void destroy() {
-        this.faK.destroy();
+        this.fET.destroy();
     }
 
-    public void jp(boolean z) {
-        this.faK.jp(z);
+    public void kq(boolean z) {
+        this.fET.kq(z);
     }
 
-    public void blQ() {
-        if (this.faK != null) {
-            this.faK.blQ();
+    public void bvh() {
+        if (this.fET != null) {
+            this.fET.bvh();
         }
     }
 }

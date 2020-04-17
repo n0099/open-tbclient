@@ -14,13 +14,13 @@ import org.aspectj.lang.a;
 public class SchemeTypeBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static final String TYPE = "schm";
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_6 = null;
     String schemeType;
     String schemeUri;
     long schemeVersion;
@@ -71,7 +71,7 @@ public class SchemeTypeBox extends AbstractFullBox {
     }
 
     public void setSchemeVersion(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.NV(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_4, this, this, org.aspectj.a.a.a.Jp(i)));
         this.schemeVersion = i;
     }
 

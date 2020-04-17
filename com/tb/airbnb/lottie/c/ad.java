@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ad implements aj<com.tb.airbnb.lottie.model.content.h> {
-    public static final ad ntO = new ad();
+    public static final ad mQz = new ad();
 
     private ad() {
     }
@@ -112,11 +112,11 @@ public class ad implements aj<com.tb.airbnb.lottie.model.content.h> {
         ArrayList arrayList = new ArrayList(size);
         for (int i = 1; i < size; i++) {
             PointF pointF2 = list5.get(i);
-            arrayList.add(new com.tb.airbnb.lottie.model.a(com.tb.airbnb.lottie.d.e.b(list5.get(i - 1), list3.get(i - 1)), com.tb.airbnb.lottie.d.e.b(pointF2, list4.get(i)), pointF2));
+            arrayList.add(new com.tb.airbnb.lottie.model.a(com.tb.airbnb.lottie.d.e.a(list5.get(i - 1), list3.get(i - 1)), com.tb.airbnb.lottie.d.e.a(pointF2, list4.get(i)), pointF2));
         }
         if (z2) {
             PointF pointF3 = list5.get(0);
-            arrayList.add(new com.tb.airbnb.lottie.model.a(com.tb.airbnb.lottie.d.e.b(list5.get(size - 1), list3.get(size - 1)), com.tb.airbnb.lottie.d.e.b(pointF3, list4.get(0)), pointF3));
+            arrayList.add(new com.tb.airbnb.lottie.model.a(com.tb.airbnb.lottie.d.e.a(list5.get(size - 1), list3.get(size - 1)), com.tb.airbnb.lottie.d.e.a(pointF3, list4.get(0)), pointF3));
         }
         return new com.tb.airbnb.lottie.model.content.h(pointF, z2, arrayList);
     }

@@ -13,9 +13,9 @@ import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.k;
 /* loaded from: classes6.dex */
 public class c extends a {
-    private final Rect dst;
     @Nullable
-    private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> fQ;
+    private com.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> Bt;
+    private final Rect dst;
     private final Paint paint;
     private final Rect src;
 
@@ -31,15 +31,15 @@ public class c extends a {
     public void b(@NonNull Canvas canvas, Matrix matrix, int i) {
         Bitmap bitmap = getBitmap();
         if (bitmap != null && !bitmap.isRecycled()) {
-            float dL = com.airbnb.lottie.d.f.dL();
+            float jk = com.airbnb.lottie.d.f.jk();
             this.paint.setAlpha(i);
-            if (this.fQ != null) {
-                this.paint.setColorFilter(this.fQ.getValue());
+            if (this.Bt != null) {
+                this.paint.setColorFilter(this.Bt.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
             this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.dst.set(0, 0, (int) (bitmap.getWidth() * dL), (int) (dL * bitmap.getHeight()));
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * jk), (int) (jk * bitmap.getHeight()));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
             canvas.restore();
         }
@@ -51,23 +51,23 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.iY.mapRect(rectF);
+            this.Eu.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.J(this.iZ.getRefId());
+        return this.lottieDrawable.aZ(this.Ev.getRefId());
     }
 
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
         super.a((c) t, (com.airbnb.lottie.e.c<c>) cVar);
-        if (t == k.fo) {
+        if (t == k.AV) {
             if (cVar == null) {
-                this.fQ = null;
+                this.Bt = null;
             } else {
-                this.fQ = new p(cVar);
+                this.Bt = new p(cVar);
             }
         }
     }

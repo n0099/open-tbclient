@@ -18,7 +18,7 @@ public class d extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void ej(String str) {
+    public void fc(String str) {
         if (!this.isHost) {
             Log.d("JsInterface", "@@ JsInterface-impl LiveBridgeJsInterface params = " + str);
             try {

@@ -192,7 +192,7 @@ public class g {
                 break;
             case 11:
                 v = v.e(jsonReader);
-                eVar.G("Animation contains merge paths. Merge paths are only supported on KitKat+ and must be manually enabled by calling enableMergePathsForKitKatAndAbove().");
+                eVar.aW("Animation contains merge paths. Merge paths are only supported on KitKat+ and must be manually enabled by calling enableMergePathsForKitKatAndAbove().");
                 break;
             case '\f':
                 v = ab.v(jsonReader, eVar);

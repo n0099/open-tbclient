@@ -1,4 +1,6 @@
 package com.baidu.mobstat;
+
+import com.baidu.android.util.devices.RomUtils;
 /* loaded from: classes11.dex */
 public class MtjConfig {
     public static final String BAIDU_MTJ_PUSH_CALL = "Baidu_mtj_push_call";
@@ -16,13 +18,13 @@ public class MtjConfig {
         BAIDUYUN("baiduyun", 0),
         JIGUANG("jiguang", 1),
         GETUI("getui", 2),
-        HUAWEI("huawei", 3),
-        XIAOMI("xiaomi", 4),
+        HUAWEI(RomUtils.MANUFACTURER_HUAWEI, 3),
+        XIAOMI(RomUtils.MANUFACTURER_XIAOMI, 4),
         UMENG("umeng", 5),
         XINGE("xinge", 6),
         ALIYUN("aliyun", 7),
-        OPPO("oppo", 8),
-        MEIZU("meizu", 9);
+        OPPO(RomUtils.MANUFACTURER_OPPO, 8),
+        MEIZU(RomUtils.MANUFACTURER_MEIZU, 9);
         
         private String a;
         private int b;

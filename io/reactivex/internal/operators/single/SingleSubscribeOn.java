@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.v;
@@ -17,11 +16,11 @@ public final class SingleSubscribeOn<T> extends w<T> {
     protected void b(y<? super T> yVar) {
         SubscribeOnObserver subscribeOnObserver = new SubscribeOnObserver(yVar, this.source);
         yVar.onSubscribe(subscribeOnObserver);
-        subscribeOnObserver.task.replace(this.scheduler.C(subscribeOnObserver));
+        subscribeOnObserver.task.replace(this.scheduler.H(subscribeOnObserver));
     }
 
     /* loaded from: classes7.dex */
-    static final class SubscribeOnObserver<T> extends AtomicReference<b> implements b, y<T>, Runnable {
+    static final class SubscribeOnObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T>, Runnable {
         private static final long serialVersionUID = 7000911171163930287L;
         final y<? super T> actual;
         final aa<? extends T> source;
@@ -33,7 +32,7 @@ public final class SingleSubscribeOn<T> extends w<T> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             DisposableHelper.setOnce(this, bVar);
         }
 

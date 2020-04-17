@@ -3,7 +3,6 @@ package com.baidu.searchbox.config;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
-import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -387,7 +386,7 @@ public class AppConfig {
         return CONFIG_FILE;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [632=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [631=4] */
     private static void parseInternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
         InputStream inputStream;
         Throwable th;
@@ -429,56 +428,50 @@ public class AppConfig {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [660=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [654=4] */
     private static boolean parseExternalConfig(HashMap<String, String> hashMap, ConfigValueFilter configValueFilter) {
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
+        boolean z = false;
         File file = new File(AppRuntime.getAppContext().getFilesDir().getPath(), CONFIG_FILE);
-        if (!file.exists() && isDebug()) {
-            file = new File(String.valueOf(Environment.getExternalStorageDirectory()) + "/" + CONFIG_FILE);
-        }
         if (file.exists()) {
-            FileInputStream fileInputStream3 = null;
+            FileInputStream fileInputStream2 = null;
             try {
-                fileInputStream2 = new FileInputStream(file);
-            } catch (Exception e) {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    parseStream(fileInputStream, hashMap, configValueFilter, false);
+                    z = true;
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e) {
+                        }
+                    }
+                } catch (Exception e2) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (Exception e3) {
+                        }
+                    }
+                    return z;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (Exception e4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception e5) {
                 fileInputStream = null;
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                parseStream(fileInputStream2, hashMap, configValueFilter, false);
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                        return true;
-                    } catch (Exception e2) {
-                        return true;
-                    }
-                }
-                return true;
-            } catch (Exception e3) {
-                fileInputStream = fileInputStream2;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (Exception e4) {
-                    }
-                }
-                return false;
             } catch (Throwable th2) {
                 th = th2;
-                fileInputStream3 = fileInputStream2;
-                if (fileInputStream3 != null) {
-                    try {
-                        fileInputStream3.close();
-                    } catch (Exception e5) {
-                    }
-                }
-                throw th;
             }
         }
-        return false;
+        return z;
     }
 
     private static void parseStream(InputStream inputStream, Map<String, String> map, ConfigValueFilter configValueFilter, boolean z) {

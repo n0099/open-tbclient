@@ -1,8 +1,10 @@
 package com.baidu.tieba.barselect.view;
 
 import android.content.Context;
+import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,20 +15,31 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.d;
 import com.baidu.tieba.barselect.data.e;
 import com.baidu.tieba.barselect.data.f;
+import com.baidu.tieba.view.NewVoteCountDownView;
 /* loaded from: classes8.dex */
 public class VoteStatusCard extends LinearLayout {
-    private f fDc;
-    private e fEv;
-    private TextView fHL;
-    private VoteStatusView fHM;
-    private TextView fHN;
-    private TextView fHO;
-    private TextView fHP;
-    private TextView fHQ;
-    private TextView fHR;
-    private TextView fHS;
+    private f ghD;
+    private e giZ;
+    private a gih;
+    private TextView gmn;
+    private VoteStatusView gmo;
+    private TextView gmp;
+    private TextView gmq;
+    private TextView gmr;
+    private TextView gms;
+    private TextView gmt;
+    private TextView gmu;
+    private NewVoteCountDownView gmv;
+    private View gmw;
+    private NewVoteCountDownView.a gmx;
     private Context mContext;
+    private Path mPath;
     private int status;
+
+    /* loaded from: classes8.dex */
+    public interface a {
+        void onRefresh();
+    }
 
     public VoteStatusCard(Context context) {
         this(context, null);
@@ -34,7 +47,15 @@ public class VoteStatusCard extends LinearLayout {
 
     public VoteStatusCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.status = d.fHf;
+        this.status = d.glK;
+        this.gmx = new NewVoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteStatusCard.1
+            @Override // com.baidu.tieba.view.NewVoteCountDownView.a
+            public void onFinished() {
+                if (VoteStatusCard.this.gih != null) {
+                    VoteStatusCard.this.gih.onRefresh();
+                }
+            }
+        };
         initUI();
     }
 
@@ -48,58 +69,100 @@ public class VoteStatusCard extends LinearLayout {
         int dimens2 = l.getDimens(this.mContext, R.dimen.tbds52);
         setPadding(dimens, dimens2, dimens, dimens2);
         LayoutInflater.from(getContext()).inflate(R.layout.vote_status_card, (ViewGroup) this, true);
-        ns();
+        rL();
+        bEx();
     }
 
-    private void ns() {
-        this.fHL = (TextView) findViewById(R.id.bar_maneger_apply_title);
-        this.fHM = (VoteStatusView) findViewById(R.id.vote_status_view);
-        this.fHN = (TextView) findViewById(R.id.apply_title);
-        this.fHO = (TextView) findViewById(R.id.apply_start_time);
-        this.fHP = (TextView) findViewById(R.id.vote_title);
-        this.fHQ = (TextView) findViewById(R.id.vote_start_time);
-        this.fHR = (TextView) findViewById(R.id.publicity_title);
-        this.fHS = (TextView) findViewById(R.id.publicity_start_time);
+    private void rL() {
+        this.gmn = (TextView) findViewById(R.id.bar_maneger_apply_title);
+        this.gmo = (VoteStatusView) findViewById(R.id.vote_status_view);
+        this.gmp = (TextView) findViewById(R.id.apply_title);
+        this.gmq = (TextView) findViewById(R.id.apply_start_time);
+        this.gmr = (TextView) findViewById(R.id.vote_title);
+        this.gms = (TextView) findViewById(R.id.vote_start_time);
+        this.gmt = (TextView) findViewById(R.id.publicity_title);
+        this.gmu = (TextView) findViewById(R.id.publicity_start_time);
+        this.gmw = findViewById(R.id.vote_count_down_container);
+        this.gmv = (NewVoteCountDownView) findViewById(R.id.vote_count_down_view);
+    }
+
+    private void bEx() {
+        this.mPath = new Path();
+        this.mPath.moveTo(0.0f, 15.0f);
+        this.mPath.lineTo(440.0f, 15.0f);
+        this.mPath.lineTo(454.0f, 0.0f);
+        this.mPath.lineTo(468.0f, 15.0f);
+        this.mPath.lineTo(902.0f, 15.0f);
+        this.mPath.lineTo(902.0f, 224.0f);
+        this.mPath.lineTo(0.0f, 224.0f);
+        this.mPath.lineTo(0.0f, 15.0f);
+        this.mPath.close();
     }
 
     public void setData(f fVar) {
-        this.fDc = fVar;
-        if (this.fDc == null || this.fDc.buo() == null) {
+        this.ghD = fVar;
+        if (this.ghD == null || this.ghD.bDY() == null) {
             setVisibility(8);
             return;
         }
-        this.fEv = this.fDc.buo();
-        this.status = this.fEv.getStatus();
-        this.fHM.setStatus(this.status);
-        long buj = this.fEv.buj() * 1000;
-        this.fHO.setText(aq.bB(this.fEv.buh() * 1000));
-        this.fHQ.setText(aq.bA(this.fEv.buk() * 1000));
-        this.fHS.setText(aq.bA(this.fEv.bui() * 1000));
+        this.giZ = this.ghD.bDY();
+        this.status = this.giZ.getStatus();
+        this.gmo.setStatus(this.status);
+        long bDT = this.giZ.bDT() * 1000;
+        this.gmq.setText(aq.cg(this.giZ.bDR() * 1000));
+        this.gms.setText(aq.cf(this.giZ.bDU() * 1000));
+        this.gmu.setText(aq.cf(this.giZ.bDS() * 1000));
+        if (this.status == d.glK) {
+            this.gmw.setVisibility(0);
+            if (this.gmx != null) {
+                this.gmv.setOnCountDownFinished(this.gmx);
+            }
+            this.gmv.setData(bDT);
+            return;
+        }
+        this.gmw.setVisibility(8);
     }
 
-    public void pm(int i) {
+    public void pH(int i) {
         int color = am.getColor(i, R.color.cp_cont_b);
         int color2 = am.getColor(i, R.color.cp_cont_d);
-        if (this.fHN != null) {
-            this.fHN.setTextColor(color);
+        if (this.gmp != null) {
+            this.gmp.setTextColor(color);
         }
-        if (this.fHP != null) {
-            this.fHP.setTextColor(this.status > d.fHe ? color : color2);
+        if (this.gmr != null) {
+            this.gmr.setTextColor(this.status > d.glJ ? color : color2);
         }
-        if (this.fHR != null) {
-            TextView textView = this.fHR;
-            if (this.status <= d.fHf) {
+        if (this.gmt != null) {
+            TextView textView = this.gmt;
+            if (this.status <= d.glK) {
                 color = color2;
             }
             textView.setTextColor(color);
         }
-        if (this.fHM != null) {
-            this.fHM.pm(i);
+        if (this.gmo != null) {
+            this.gmo.pH(i);
         }
-        am.setViewTextColor(this.fHL, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.fHO, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.fHQ, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.fHS, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.gmn, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.gmq, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.gms, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.gmu, R.color.cp_cont_d, 1, i);
         am.setBackgroundResource(this, R.drawable.bar_select_bg_shadow_and_radius, i);
+        if (this.gmv != null) {
+            this.gmv.pH(i);
+        }
+        int color3 = am.getColor(R.color.cp_bg_line_g);
+        com.baidu.tieba.view.e eVar = new com.baidu.tieba.view.e(this.mPath, 902.0f, 224.0f);
+        eVar.setColor(color3);
+        this.gmw.setBackground(eVar);
+    }
+
+    public void setOnRefreshListener(a aVar) {
+        this.gih = aVar;
+    }
+
+    public void onDestroy() {
+        if (this.gmv != null) {
+            this.gmv.onDestroy();
+        }
     }
 }

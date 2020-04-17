@@ -4,10 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
-import com.baidu.android.imsdk.chatmessage.IMediaFetchChatMsgsListener;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
@@ -23,6 +21,9 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaFetchMsgHttpRequest";
     private long mBeginMsgTime;
     private long mContactor;
+    private long mContactorPauid;
+    private String mContactorThirdid;
+    private int mContactorType;
     private int mCount;
     private long mEndMsgTime;
     private String mListenerKey;
@@ -43,12 +44,28 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     }
 
     public IMMediaFetchMsgHttpRequest(Context context, long j, long j2, long j3, int i, String str) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContactor = j;
         this.mBeginMsgTime = j2;
         this.mEndMsgTime = j3;
         this.mCount = i;
         this.mListenerKey = str;
+    }
+
+    public IMMediaFetchMsgHttpRequest(Context context, long j, int i, long j2, String str, long j3, long j4, int i2, String str2) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
+        this.mContext = context;
+        this.mContactor = j;
+        this.mBeginMsgTime = j3;
+        this.mEndMsgTime = j4;
+        this.mCount = i2;
+        this.mListenerKey = str2;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
+        this.mContactorThirdid = str;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -146,6 +163,15 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
             if (this.mContactor > 0) {
                 jSONObject.put("contacter", Utility.transBDUID(this.mContactor + ""));
             }
+            if (this.mContactorType >= 0) {
+                jSONObject.put("contacter_type", this.mContactorType);
+            }
+            if (this.mContactorPauid > 0) {
+                jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+            }
+            if (!TextUtils.isEmpty(this.mContactorThirdid)) {
+                jSONObject.put("contacter_third_id", this.mContactorThirdid);
+            }
             if (this.mBeginMsgTime > 0) {
                 jSONObject.put("begin_time", this.mBeginMsgTime);
             }
@@ -166,10 +192,5 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
         LogUtils.d(TAG, "BC> mListenerKey=" + this.mListenerKey + ", errorCode=" + i + ", resultContent=" + new String(bArr));
         Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
         ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, false, null);
-        IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener = (IMediaFetchChatMsgsListener) ListenerManager.getInstance().removeListener(this.mListenerKey);
-        if (iMediaFetchChatMsgsListener != null) {
-            LogUtils.d(TAG, "BC> strMsg=" + ((String) transErrorCode.second));
-            iMediaFetchChatMsgsListener.onMediaFetchChatMsgsResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, false, null);
-        }
     }
 }

@@ -29,7 +29,7 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
                     for (ElectionList electionList : electionInfoResIdl.data.election_list) {
                         arrayList.add(d.a(electionList));
                     }
-                    this.mVoteData.ac(arrayList);
+                    this.mVoteData.ad(arrayList);
                 }
                 if (electionInfoResIdl.data.basic != null) {
                     this.mVoteData.a(e.a(electionInfoResIdl.data.basic));
@@ -39,6 +39,9 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
                 }
                 if (electionInfoResIdl.data.has_more != null) {
                     this.mVoteData.setHasMore(electionInfoResIdl.data.has_more.intValue() == 1);
+                }
+                if (electionInfoResIdl.data.vote_limit != null) {
+                    this.mVoteData.a(electionInfoResIdl.data.vote_limit);
                 }
             }
         }

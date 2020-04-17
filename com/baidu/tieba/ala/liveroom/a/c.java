@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.liveroom.a;
 /* loaded from: classes3.dex */
 public interface c {
-    void ap(String str, int i);
+    void az(String str, int i);
 
-    void bW(int i);
+    void cl(int i);
 
-    void e(long j, String str);
+    void g(long j, String str);
 
     void pause();
 
@@ -14,4 +14,6 @@ public interface c {
     void resume();
 
     void setHost(boolean z);
+
+    void setLiveId(long j);
 }

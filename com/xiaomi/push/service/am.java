@@ -17,13 +17,13 @@ public class am implements al.b.a {
         XMPushService.b bVar;
         XMPushService.b bVar2;
         if (cVar2 == al.c.binding) {
-            XMPushService xMPushService = this.a.f856a;
-            bVar2 = this.a.f855a;
+            XMPushService xMPushService = this.a.f857a;
+            bVar2 = this.a.f856a;
             xMPushService.a(bVar2, 60000L);
             return;
         }
-        XMPushService xMPushService2 = this.a.f856a;
-        bVar = this.a.f855a;
+        XMPushService xMPushService2 = this.a.f857a;
+        bVar = this.a.f856a;
         xMPushService2.b(bVar);
     }
 }

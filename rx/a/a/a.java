@@ -3,20 +3,20 @@ package rx.a.a;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final a nPt = new a();
-    private final AtomicReference<b> nPu = new AtomicReference<>();
+    private static final a niZ = new a();
+    private final AtomicReference<b> nja = new AtomicReference<>();
 
-    public static a dOz() {
-        return nPt;
+    public static a dHz() {
+        return niZ;
     }
 
     a() {
     }
 
-    public b dOA() {
-        if (this.nPu.get() == null) {
-            this.nPu.compareAndSet(null, b.dOB());
+    public b dHA() {
+        if (this.nja.get() == null) {
+            this.nja.compareAndSet(null, b.dHB());
         }
-        return this.nPu.get();
+        return this.nja.get();
     }
 }

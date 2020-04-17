@@ -2,24 +2,25 @@ package com.facebook.imagepipeline.c;
 
 import android.app.ActivityManager;
 import android.os.Build;
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes12.dex */
 public class i implements com.facebook.common.internal.j<q> {
-    private final ActivityManager jDq;
+    private final ActivityManager lKe;
 
     public i(ActivityManager activityManager) {
-        this.jDq = activityManager;
+        this.lKe = activityManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: cBq */
+    /* renamed from: dqu */
     public q get() {
-        return new q(cBr(), 256, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        return new q(dqv(), 256, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    private int cBr() {
-        int min = Math.min(this.jDq.getMemoryClass() * 1048576, Integer.MAX_VALUE);
+    private int dqv() {
+        int min = Math.min(this.lKe.getMemoryClass() * 1048576, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         if (min < 33554432) {
             return 4194304;
         }

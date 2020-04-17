@@ -19,8 +19,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject eb(int i) {
-        return super.eb(i);
+    public /* bridge */ /* synthetic */ JSONObject eg(int i) {
+        return super.eg(i);
     }
 
     public d(j jVar) {
@@ -32,22 +32,22 @@ public class d extends a {
         boolean z = false;
         com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
         if (d == null) {
-            unitedSchemeEntity.result = eb(201);
+            unitedSchemeEntity.result = eg(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert action parse model is null");
         } else if (context == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "context is null");
-            unitedSchemeEntity.result = eb(1001);
+            unitedSchemeEntity.result = eg(1001);
         } else {
-            String str = d.biA;
-            com.baidu.swan.apps.model.a.a.a aVar = d.biE;
+            String str = d.bGI;
+            com.baidu.swan.apps.model.a.a.a aVar = d.bGM;
             if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
                 com.baidu.swan.apps.console.c.e("SwanAppCanvas", "canvas id is empty or position is null");
-                unitedSchemeEntity.result = eb(202);
+                unitedSchemeEntity.result = eg(202);
             } else {
-                com.baidu.swan.apps.component.b.c KI = new com.baidu.swan.apps.component.components.d.a(context, d).KI();
-                z = KI.isSuccess();
+                com.baidu.swan.apps.component.b.c Sw = new com.baidu.swan.apps.component.components.d.a(context, d).Sw();
+                z = Sw.isSuccess();
                 if (!z) {
-                    com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert canvas fail: " + KI.msg);
+                    com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert canvas fail: " + Sw.msg);
                 }
                 a(unitedSchemeEntity, callbackHandler, z);
             }

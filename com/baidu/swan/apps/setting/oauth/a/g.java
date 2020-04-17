@@ -1,6 +1,7 @@
 package com.baidu.swan.apps.setting.oauth.a;
 
 import android.support.annotation.NonNull;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.swan.apps.setting.oauth.OAuthException;
 import java.io.IOException;
 import java.util.HashMap;
@@ -13,23 +14,23 @@ import okhttp3.ResponseBody;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b<ResultDataT> {
-    private final Map<String, String> bUv = new HashMap();
-    private String bUw;
-    private JSONObject bUx;
-    private boolean bUy;
-    private boolean bUz;
+    private final Map<String, String> ctk = new HashMap();
+    private String ctl;
+    private JSONObject ctm;
+    private boolean ctn;
+    private boolean cto;
 
     protected abstract Request a(g gVar);
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected void aen() {
+    protected void ams() {
         Request a = a(this);
         if (a == null) {
             com.baidu.swan.apps.setting.oauth.c.c("request is null", true);
             k(new OAuthException(10002));
             return;
         }
-        com.baidu.swan.apps.setting.oauth.c.YZ().newCall(a).enqueue(new Callback() { // from class: com.baidu.swan.apps.setting.oauth.a.g.1
+        com.baidu.swan.apps.setting.oauth.c.ahf().newCall(a).enqueue(new Callback() { // from class: com.baidu.swan.apps.setting.oauth.a.g.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 com.baidu.swan.apps.setting.oauth.c.c(iOException.toString(), false);
@@ -49,91 +50,91 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
                     g.this.k(new OAuthException(10001));
                     return;
                 }
-                g.this.lz(body.string());
+                g.this.mM(body.string());
             }
         });
     }
 
     @NonNull
-    public com.baidu.swan.apps.runtime.e ade() {
-        com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
-        if (acI == null) {
+    public com.baidu.swan.apps.runtime.e alj() {
+        com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
+        if (akN == null) {
             throw new IllegalStateException("null SwanApp");
         }
-        return acI;
+        return akN;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public g<ResultDataT> bk(String str, String str2) {
-        this.bUv.put(str, str2);
+    public g<ResultDataT> bu(String str, String str2) {
+        this.ctk.put(str, str2);
         return this;
     }
 
-    public Map<String, String> aeE() {
-        return this.bUv;
+    public Map<String, String> amJ() {
+        return this.ctk;
     }
 
-    public void aeF() {
-        this.bUy = true;
+    public void amK() {
+        this.ctn = true;
     }
 
-    public void aeG() {
-        this.bUz = true;
+    public void amL() {
+        this.cto = true;
     }
 
-    protected void lz(String str) {
+    protected void mM(String str) {
         int optInt;
-        this.bUw = str;
+        this.ctl = str;
         try {
-            this.bUx = new JSONObject(this.bUw);
-            optInt = this.bUx.optInt("errno");
+            this.ctm = new JSONObject(this.ctl);
+            optInt = this.ctm.optInt(BaseJsonData.TAG_ERRNO);
         } catch (OAuthException e) {
             k(e);
         } catch (Exception e2) {
             com.baidu.swan.apps.setting.oauth.c.c(e2.toString(), true);
             k(new OAuthException(10005));
         }
-        if ((this.bUy && optInt == 402) || (this.bUz && optInt == 401)) {
-            this.bUy = false;
-            this.bUz = false;
-            lA(str);
-        } else if (gp(optInt)) {
-            if (com.baidu.swan.apps.c.a.e.bcB.Js()) {
-                com.baidu.swan.apps.c.a.e.bcB.Jr();
-                lA(str);
+        if ((this.ctn && optInt == 402) || (this.cto && optInt == 401)) {
+            this.ctn = false;
+            this.cto = false;
+            mN(str);
+        } else if (gw(optInt)) {
+            if (com.baidu.swan.apps.c.a.e.bAP.Re()) {
+                com.baidu.swan.apps.c.a.e.bAP.Rd();
+                mN(str);
             } else if (DEBUG) {
                 throw new RuntimeException("is not AllianceLogin, error number");
             }
         } else {
-            N(aN(this.bUx));
-            aeB();
+            O(aY(this.ctm));
+            amG();
             finish();
         }
     }
 
-    private boolean gp(int i) {
+    private boolean gw(int i) {
         return i == 600101 || i == 600102 || i == 600103;
     }
 
-    private void lA(final String str) {
-        ade().acT().a(com.baidu.swan.apps.y.f.WV().WG(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.oauth.a.g.2
+    private void mN(final String str) {
+        alj().akY().a(com.baidu.swan.apps.y.f.aeK().aev(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.oauth.a.g.2
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
                 if (i == 0) {
-                    g.this.kY();
-                    g.this.ael();
+                    g.this.pC();
+                    g.this.amq();
                     return;
                 }
-                g.this.lz(str);
+                g.this.mM(str);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aeB() {
+    public void amG() {
     }
 
     public String toString() {
-        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), aem(), Integer.valueOf(this.bTm.getErrorCode()), this.bUw, this.bUx, this.bTm.mData, this.bTm.aeA());
+        return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), amr(), Integer.valueOf(this.csb.getErrorCode()), this.ctl, this.ctm, this.csb.mData, this.csb.amF());
     }
 }

@@ -144,7 +144,7 @@ final class EANManufacturerOrgSupport {
             add(new int[]{CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR, CyberPlayerManager.MEDIA_INFO_CONNECT_BEGIN}, "AT");
             add(new int[]{930, CyberPlayerManager.MEDIA_INFO_VIDEO_BITRATE}, "AU");
             add(new int[]{CyberPlayerManager.MEDIA_INFO_VIDEO_FRAMERATE, 949}, "AZ");
-            add(new int[]{955}, "MY");
+            add(new int[]{CyberPlayerManager.MEDIA_INFO_LOOP_REPLAYED}, "MY");
             add(new int[]{958}, "MO");
         }
     }

@@ -14,61 +14,61 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
-    private static volatile c cfE;
-    private volatile boolean cfG = false;
-    private a cfF = new a();
+    private static volatile c cEC;
+    private volatile boolean cEE = false;
+    private a cED = new a();
 
-    public static c ajh() {
-        if (cfE == null) {
+    public static c arp() {
+        if (cEC == null) {
             synchronized (c.class) {
-                if (cfE == null) {
-                    cfE = new c();
+                if (cEC == null) {
+                    cEC = new c();
                 }
             }
         }
-        return cfE;
+        return cEC;
     }
 
     private c() {
     }
 
-    public int aji() {
-        if (this.cfF.contains("version")) {
-            return this.cfF.getInt("version", 0);
+    public int arq() {
+        if (this.cED.contains("version")) {
+            return this.cED.getInt("version", 0);
         }
-        if (ajk()) {
-            return this.cfF.getInt("version", 0);
+        if (ars()) {
+            return this.cED.getInt("version", 0);
         }
         return 0;
     }
 
     public String getHostName() {
-        String ns = ns("hostName");
-        if (TextUtils.isEmpty(ns)) {
+        String oH = oH("hostName");
+        if (TextUtils.isEmpty(oH)) {
             if (e.DEBUG) {
                 throw new IllegalStateException("获取 HostName-宿主名称 失败");
             }
             return "";
         }
-        return ns;
+        return oH;
     }
 
-    public String HN() {
-        String ns = ns("schemeHead");
-        if (TextUtils.isEmpty(ns)) {
+    public String sq() {
+        String oH = oH("schemeHead");
+        if (TextUtils.isEmpty(oH)) {
             if (e.DEBUG) {
                 throw new IllegalStateException("获取 SchemeHead-协议头 失败");
             }
             return "";
         }
-        return ns;
+        return oH;
     }
 
-    public Set<String> ajj() {
-        Set<String> stringSet = this.cfF.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+    public Set<String> arr() {
+        Set<String> stringSet = this.cED.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         if (stringSet == null) {
-            if (ajk()) {
-                return this.cfF.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            if (ars()) {
+                return this.cED.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             }
             return null;
         }
@@ -79,9 +79,9 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String ns = ns("shareCallBackUrl");
-        if (!TextUtils.isEmpty(ns)) {
-            String addParam = h.addParam(h.addParam(ns, "type", String.valueOf(i)), "appKey", str);
+        String oH = oH("shareCallBackUrl");
+        if (!TextUtils.isEmpty(oH)) {
+            String addParam = h.addParam(h.addParam(oH, "type", String.valueOf(i)), "appKey", str);
             if (!TextUtils.isEmpty(str2)) {
                 return h.addParam(addParam, "path", str2);
             }
@@ -96,7 +96,7 @@ public class c {
 
     private void a(String str, String str2, String str3, int i, Set<String> set) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i >= 0) {
-            SharedPreferences.Editor putInt = this.cfF.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
+            SharedPreferences.Editor putInt = this.cED.edit().putString("hostName", str).putString("schemeHead", str2).putString("shareCallBackUrl", str3).putInt("version", i);
             if (set != null && !set.isEmpty()) {
                 putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
             }
@@ -104,14 +104,14 @@ public class c {
         }
     }
 
-    private String ns(String str) {
+    private String oH(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String string = this.cfF.getString(str, "");
+        String string = this.cED.getString(str, "");
         if (TextUtils.isEmpty(string)) {
-            if (ajk()) {
-                String string2 = this.cfF.getString(str, "");
+            if (ars()) {
+                String string2 = this.cED.getString(str, "");
                 if (TextUtils.isEmpty(string2)) {
                     return null;
                 }
@@ -122,11 +122,11 @@ public class c {
         return string;
     }
 
-    private synchronized boolean ajk() {
+    private synchronized boolean ars() {
         boolean z;
         HashSet hashSet = null;
         synchronized (this) {
-            if (this.cfG) {
+            if (this.cEE) {
                 z = true;
             } else {
                 String readAssetData = com.baidu.swan.d.c.readAssetData(AppRuntime.getAppContext(), "config/union-cfg.json");
@@ -151,7 +151,7 @@ public class c {
                             }
                         }
                         a(optString, optString2, optString3, optInt, hashSet);
-                        this.cfG = true;
+                        this.cEE = true;
                         z = true;
                     } catch (JSONException e) {
                         if (e.DEBUG) {

@@ -3,7 +3,6 @@ package com.baidu.swan.apps.ao.h;
 import android.content.Context;
 import android.os.Build;
 import android.util.Log;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -26,28 +25,28 @@ public class a extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.adaptation.a.e Ue = com.baidu.swan.apps.w.a.Ue();
+        com.baidu.swan.apps.adaptation.a.e abT = com.baidu.swan.apps.w.a.abT();
         JSONObject jSONObject = new JSONObject();
         if (context == null) {
             try {
-                context = com.baidu.swan.apps.w.a.TZ();
+                context = com.baidu.swan.apps.w.a.abO();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        jSONObject.put("userid", Ue == null ? "" : Ue.bp(context));
-        jSONObject.put("zid", Ue == null ? "" : com.baidu.swan.apps.w.a.UQ().ce(context));
+        jSONObject.put("userid", abT == null ? "" : abT.bd(context));
+        jSONObject.put("zid", abT == null ? "" : com.baidu.swan.apps.w.a.acF().bS(context));
         jSONObject.put("idfa", "");
-        jSONObject.put("imei", ai.ahk());
+        jSONObject.put("imei", ai.aps());
         jSONObject.put("appkey", eVar == null ? "" : eVar.getAppKey());
-        jSONObject.put("os", PraiseDataPassUtil.KEY_FROM_OS);
+        jSONObject.put("os", "android");
         jSONObject.put("osVersion", Build.VERSION.RELEASE);
         jSONObject.put("hostName", context.getPackageName());
         jSONObject.put("hostVersion", ai.getVersionName());
         jSONObject.put("model", Build.MODEL);
-        jSONObject.put("uuid", com.baidu.swan.uuid.b.dG(context).getUUID());
+        jSONObject.put("uuid", com.baidu.swan.uuid.b.du(context).getUUID());
         jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        jSONObject.put("cuid", Ue == null ? "" : Ue.bq(context));
+        jSONObject.put("cuid", abT == null ? "" : abT.be(context));
         if (DEBUG) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }

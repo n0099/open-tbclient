@@ -1,6 +1,6 @@
 package okhttp3;
 
-import com.google.android.exoplayer2.Format;
+import com.baidu.ar.auth.FeatureCodes;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -210,7 +210,7 @@ public final class Cookie {
         if (j4 == Long.MIN_VALUE) {
             j2 = Long.MIN_VALUE;
         } else if (j4 != -1) {
-            j2 = (j4 <= 9223372036854775L ? j4 * 1000 : Format.OFFSET_SAMPLE_RELATIVE) + j;
+            j2 = (j4 <= 9223372036854775L ? j4 * 1000 : Long.MAX_VALUE) + j;
             if (j2 < j || j2 > 253402300799999L) {
                 j2 = 253402300799999L;
             }
@@ -262,7 +262,7 @@ public final class Cookie {
             dateCharacterOffset = dateCharacterOffset(str, dateCharacterOffset2 + 1, i2, false);
         }
         if (i8 >= 70 && i8 <= 99) {
-            i8 += 1900;
+            i8 += FeatureCodes.SKY_SEG;
         }
         if (i8 >= 0 && i8 <= 69) {
             i8 += 2000;
@@ -316,10 +316,7 @@ public final class Cookie {
             return parseLong;
         } catch (NumberFormatException e) {
             if (str.matches("-?\\d+")) {
-                if (str.startsWith(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
-                    return Long.MIN_VALUE;
-                }
-                return Format.OFFSET_SAMPLE_RELATIVE;
+                return !str.startsWith(Constants.ACCEPT_TIME_SEPARATOR_SERVER) ? Long.MAX_VALUE : Long.MIN_VALUE;
             }
             throw e;
         }

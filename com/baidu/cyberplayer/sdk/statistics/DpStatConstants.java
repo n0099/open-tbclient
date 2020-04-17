@@ -4,6 +4,7 @@ import com.baidu.cyberplayer.sdk.Keep;
 @Keep
 /* loaded from: classes.dex */
 public class DpStatConstants {
+    public static final int ACTION_ACTIVATE_CORE_RESULT = 20737;
     public static final int ACTION_LIB_LOAD_RESULT = 20736;
     public static final String KEY_ABTEST_SID = "abtest_sid";
     public static final String KEY_APP_NAME = "app_name";
@@ -42,6 +43,7 @@ public class DpStatConstants {
     public static final int SESSION_TYPE_ERROR = 20481;
     public static final int SESSION_TYPE_FIRST_SCREEN = 20513;
     public static final int SESSION_TYPE_KERNEL = 24321;
+    public static final int SESSION_TYPE_LIVE_STREAM_INFO = 20487;
     public static final int SESSION_TYPE_MEDIA_FORMAT_INFO = 20514;
     public static final int SESSION_TYPE_PLAY_COMMON = 24322;
     public static final int SESSION_TYPE_STAGE_INFO = 20484;

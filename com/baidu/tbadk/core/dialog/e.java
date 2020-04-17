@@ -17,9 +17,9 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
-    private BdListView AG;
-    private l cVu;
-    private TbPageContext<?> cVv;
+    private BdListView TX;
+    private l duF;
+    private TbPageContext<?> duG;
     private AlertDialog mDialog;
     private ArrayList<m> mItems;
     private View mLineView;
@@ -32,21 +32,21 @@ public class e {
     private boolean mDialogCreated = false;
 
     public e(TbPageContext<?> tbPageContext) {
-        this.cVv = tbPageContext;
-        this.mRootView = (ViewGroup) LayoutInflater.from(this.cVv.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
+        this.duG = tbPageContext;
+        this.mRootView = (ViewGroup) LayoutInflater.from(this.duG.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.dialog_title_list);
-        this.AG = (BdListView) this.mRootView.findViewById(R.id.dialog_content_list);
+        this.TX = (BdListView) this.mRootView.findViewById(R.id.dialog_content_list);
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
-        this.cVu = new l(this.cVv);
+        this.duF = new l(this.duG);
     }
 
-    public e sU(String str) {
+    public e uh(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public e kd(int i) {
-        return sU(this.cVv.getResources().getString(i));
+    public e kk(int i) {
+        return uh(this.duG.getResources().getString(i));
     }
 
     public e a(ArrayList<m> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -54,13 +54,13 @@ public class e {
             this.mItems = arrayList;
             if (onItemClickListener != null) {
                 this.mOnItemClickListener = onItemClickListener;
-                this.AG.setOnItemClickListener(this.mOnItemClickListener);
+                this.TX.setOnItemClickListener(this.mOnItemClickListener);
             }
         }
         return this;
     }
 
-    public e aEI() {
+    public e aMW() {
         if (!this.mDialogCreated) {
             this.mDialogCreated = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -71,9 +71,9 @@ public class e {
                 this.mTitleView.setVisibility(8);
                 this.mLineView.setVisibility(8);
             }
-            this.AG.setAdapter((ListAdapter) this.cVu);
-            this.cVu.setData(this.mItems);
-            c(this.cVv);
+            this.TX.setAdapter((ListAdapter) this.duF);
+            this.duF.setData(this.mItems);
+            c(this.duG);
         }
         return this;
     }
@@ -86,19 +86,19 @@ public class e {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.cVu.setData(this.mItems);
+        this.duF.setData(this.mItems);
     }
 
-    public e aEJ() {
+    public e aMX() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
-            com.baidu.adp.lib.f.g.a(this.mDialog, this.cVv);
+            com.baidu.adp.lib.f.g.a(this.mDialog, this.duG);
         } else {
-            this.mDialog = new AlertDialog.Builder(this.cVv.getPageActivity()).create();
+            this.mDialog = new AlertDialog.Builder(this.duG.getPageActivity()).create();
             this.mDialog.setCanceledOnTouchOutside(true);
-            if (com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.cVv.getPageActivity())) {
+            if (com.baidu.adp.lib.f.g.showDialog(this.mDialog, this.duG.getPageActivity())) {
                 Window window = this.mDialog.getWindow();
                 if (this.mAnimationStyleId == -1) {
                     this.mAnimationStyleId = R.style.dialog_ani_b2t;
@@ -127,15 +127,15 @@ public class e {
     }
 
     public void onChangeSkinType() {
-        c(this.cVv);
-        if (this.cVu != null) {
-            this.cVu.notifyDataSetChanged();
+        c(this.duG);
+        if (this.duF != null) {
+            this.duF.notifyDataSetChanged();
         }
     }
 
     public void dismiss() {
         if (this.mDialog != null) {
-            com.baidu.adp.lib.f.g.dismissDialog(this.mDialog, this.cVv.getPageActivity());
+            com.baidu.adp.lib.f.g.dismissDialog(this.mDialog, this.duG.getPageActivity());
         }
     }
 }

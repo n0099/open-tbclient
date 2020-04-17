@@ -244,7 +244,7 @@ public class BdMaterialProgressDrawable extends Drawable implements Animatable {
         float minProgressArc = getMinProgressArc(ring);
         ring.setStartTrim((((ring.getStartingEndTrim() - minProgressArc) - ring.getStartingStartTrim()) * f) + ring.getStartingStartTrim());
         ring.setEndTrim(ring.getStartingEndTrim());
-        ring.setRotation(((((float) (Math.floor(ring.getStartingRotation() / MAX_PROGRESS_ARC) + 1.0d)) - ring.getStartingRotation()) * f) + ring.getStartingRotation());
+        ring.setRotation(((((float) (Math.floor(ring.getStartingRotation() / 0.8f) + 1.0d)) - ring.getStartingRotation()) * f) + ring.getStartingRotation());
     }
 
     private void setupAnimators() {
@@ -262,10 +262,10 @@ public class BdMaterialProgressDrawable extends Drawable implements Animatable {
                 float startingRotation = ring.getStartingRotation();
                 BdMaterialProgressDrawable.this.updateRingColor(f, ring);
                 if (f <= 0.5f) {
-                    ring.setStartTrim(startingStartTrim + (BdMaterialProgressDrawable.MATERIAL_INTERPOLATOR.getInterpolation(f / 0.5f) * (BdMaterialProgressDrawable.MAX_PROGRESS_ARC - minProgressArc)));
+                    ring.setStartTrim(startingStartTrim + (BdMaterialProgressDrawable.MATERIAL_INTERPOLATOR.getInterpolation(f / 0.5f) * (0.8f - minProgressArc)));
                 }
                 if (f > 0.5f) {
-                    ring.setEndTrim(((BdMaterialProgressDrawable.MAX_PROGRESS_ARC - minProgressArc) * BdMaterialProgressDrawable.MATERIAL_INTERPOLATOR.getInterpolation((f - 0.5f) / 0.5f)) + startingEndTrim);
+                    ring.setEndTrim(((0.8f - minProgressArc) * BdMaterialProgressDrawable.MATERIAL_INTERPOLATOR.getInterpolation((f - 0.5f) / 0.5f)) + startingEndTrim);
                 }
                 ring.setRotation((0.25f * f) + startingRotation);
                 BdMaterialProgressDrawable.this.setRotation((216.0f * f) + (BdMaterialProgressDrawable.FULL_ROTATION * (BdMaterialProgressDrawable.this.mRotationCount / 5.0f)));

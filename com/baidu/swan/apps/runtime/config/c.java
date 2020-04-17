@@ -9,30 +9,30 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public boolean bQA;
-    public boolean bQC;
-    public String bQv;
-    public String bQx;
-    public boolean bQz;
-    public String bsD;
-    public boolean bQD = false;
-    public boolean bQE = true;
-    public int bQu = ViewCompat.MEASURED_STATE_MASK;
-    public String bQw = "#ffffff";
-    public String bQB = "default";
+    public String bQJ;
+    public String cph;
+    public String cpj;
+    public boolean cpl;
+    public boolean cpm;
+    public boolean cpo;
+    public boolean cpp = false;
+    public boolean cpq = true;
+    public int cpg = ViewCompat.MEASURED_STATE_MASK;
+    public String cpi = "#ffffff";
+    public String cpn = "default";
     public int backgroundColor = -1;
-    public boolean bQy = false;
+    public boolean cpk = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c aH(JSONObject jSONObject) {
+    public static c aS(JSONObject jSONObject) {
         if (jSONObject == null) {
-            return adH();
+            return alM();
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("window");
         if (optJSONObject == null) {
-            return adH();
+            return alM();
         }
-        return aI(optJSONObject);
+        return aT(optJSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -51,41 +51,41 @@ public class c {
         return cVar;
     }
 
-    private static c aI(JSONObject jSONObject) {
+    private static c aT(JSONObject jSONObject) {
         c cVar = new c();
-        cVar.bQu = SwanAppConfigData.cF(jSONObject.optString("navigationBarBackgroundColor"));
-        cVar.bQv = jSONObject.optString("navigationBarTitleText");
-        cVar.bQw = jSONObject.optString("navigationBarTextStyle", "white");
-        cVar.bQx = jSONObject.optString("backgroundTextStyle", "black");
-        cVar.backgroundColor = SwanAppConfigData.cF(jSONObject.optString("backgroundColor"));
-        cVar.bQy = jSONObject.optBoolean("enablePullDownRefresh");
-        cVar.bsD = jSONObject.optString("onReachBottomDistance");
-        cVar.bQz = jSONObject.optBoolean("enableOpacityNavigationBar");
-        cVar.bQA = jSONObject.optBoolean("enableOpacityNavigationBarText");
-        cVar.bQB = jSONObject.optString("navigationStyle", "default");
-        cVar.bQC = jSONObject.optBoolean("navigationHomeButtonHidden");
+        cVar.cpg = SwanAppConfigData.dA(jSONObject.optString("navigationBarBackgroundColor"));
+        cVar.cph = jSONObject.optString("navigationBarTitleText");
+        cVar.cpi = jSONObject.optString("navigationBarTextStyle", "white");
+        cVar.cpj = jSONObject.optString("backgroundTextStyle", "black");
+        cVar.backgroundColor = SwanAppConfigData.dA(jSONObject.optString("backgroundColor"));
+        cVar.cpk = jSONObject.optBoolean("enablePullDownRefresh");
+        cVar.bQJ = jSONObject.optString("onReachBottomDistance");
+        cVar.cpl = jSONObject.optBoolean("enableOpacityNavigationBar");
+        cVar.cpm = jSONObject.optBoolean("enableOpacityNavigationBarText");
+        cVar.cpn = jSONObject.optString("navigationStyle", "default");
+        cVar.cpo = jSONObject.optBoolean("navigationHomeButtonHidden");
         return cVar;
     }
 
     private static c a(JSONObject jSONObject, @NonNull c cVar) {
         c cVar2 = new c();
-        cVar2.bQu = jSONObject.has("navigationBarBackgroundColor") ? SwanAppConfigData.cF(jSONObject.optString("navigationBarBackgroundColor")) : cVar.bQu;
-        cVar2.bQv = jSONObject.optString("navigationBarTitleText", cVar.bQv);
-        cVar2.bQw = jSONObject.optString("navigationBarTextStyle", cVar.bQw);
-        cVar2.bQx = jSONObject.optString("backgroundTextStyle", cVar.bQx);
-        cVar2.backgroundColor = jSONObject.has("backgroundColor") ? SwanAppConfigData.cF(jSONObject.optString("backgroundColor")) : cVar.backgroundColor;
-        cVar2.bQy = jSONObject.optBoolean("enablePullDownRefresh", cVar.bQy);
-        cVar2.bsD = jSONObject.optString("onReachBottomDistance", cVar.bsD);
-        cVar2.bQz = jSONObject.optBoolean("enableOpacityNavigationBar", cVar.bQz);
-        cVar2.bQA = jSONObject.optBoolean("enableOpacityNavigationBarText", cVar.bQA);
-        cVar2.bQB = jSONObject.optString("navigationStyle", cVar.bQB);
-        cVar2.bQC = jSONObject.optBoolean("navigationHomeButtonHidden", cVar.bQC);
-        cVar2.bQD = jSONObject.optBoolean("disableSwipeBack", false);
-        cVar2.bQE = jSONObject.optBoolean("pageFavoriteEnable", true);
+        cVar2.cpg = jSONObject.has("navigationBarBackgroundColor") ? SwanAppConfigData.dA(jSONObject.optString("navigationBarBackgroundColor")) : cVar.cpg;
+        cVar2.cph = jSONObject.optString("navigationBarTitleText", cVar.cph);
+        cVar2.cpi = jSONObject.optString("navigationBarTextStyle", cVar.cpi);
+        cVar2.cpj = jSONObject.optString("backgroundTextStyle", cVar.cpj);
+        cVar2.backgroundColor = jSONObject.has("backgroundColor") ? SwanAppConfigData.dA(jSONObject.optString("backgroundColor")) : cVar.backgroundColor;
+        cVar2.cpk = jSONObject.optBoolean("enablePullDownRefresh", cVar.cpk);
+        cVar2.bQJ = jSONObject.optString("onReachBottomDistance", cVar.bQJ);
+        cVar2.cpl = jSONObject.optBoolean("enableOpacityNavigationBar", cVar.cpl);
+        cVar2.cpm = jSONObject.optBoolean("enableOpacityNavigationBarText", cVar.cpm);
+        cVar2.cpn = jSONObject.optString("navigationStyle", cVar.cpn);
+        cVar2.cpo = jSONObject.optBoolean("navigationHomeButtonHidden", cVar.cpo);
+        cVar2.cpp = jSONObject.optBoolean("disableSwipeBack", false);
+        cVar2.cpq = jSONObject.optBoolean("pageFavoriteEnable", true);
         return cVar2;
     }
 
-    public static c adH() {
+    public static c alM() {
         if (DEBUG) {
             Log.e("WindowConfig", "WindowConfig createNullObject() " + Log.getStackTraceString(new Exception()));
         }
@@ -96,6 +96,6 @@ public class c {
         if (cVar == null) {
             return false;
         }
-        return cVar.bQz || TextUtils.equals(cVar.bQB, "custom");
+        return cVar.cpl || TextUtils.equals(cVar.cpn, "custom");
     }
 }

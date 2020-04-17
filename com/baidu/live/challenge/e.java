@@ -5,15 +5,15 @@ import android.view.View;
 public interface e {
     void J(View view);
 
-    void as(boolean z);
+    void aQ(boolean z);
 
-    void bj(int i);
+    void bw(int i);
 
     void hide();
 
     boolean isShowing();
 
-    boolean pS();
-
     void setClickListener(View.OnClickListener onClickListener);
+
+    boolean uj();
 }

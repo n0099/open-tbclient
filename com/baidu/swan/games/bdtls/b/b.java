@@ -7,42 +7,42 @@ import com.baidu.swan.games.bdtls.e;
 import com.baidu.swan.games.bdtls.model.i;
 /* loaded from: classes11.dex */
 public abstract class b {
-    protected boolean clG = false;
-    protected int clH = 0;
+    protected boolean cKD = false;
+    protected int cKE = 0;
 
-    public abstract void M(byte[] bArr);
+    public abstract void O(byte[] bArr);
 
-    public abstract void hO(int i);
+    public abstract void hV(int i);
 
-    public final String N(byte[] bArr) {
+    public final String P(byte[] bArr) {
         String str = new String(bArr);
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.clG) {
-            i a = d.alL().a(e.alM().alN(), bArr);
+        if (this.cKD) {
+            i a = d.atZ().a(e.aua().aub(), bArr);
             if (a != null) {
-                if (!TextUtils.isEmpty(a.amK())) {
-                    str = a.amK();
+                if (!TextUtils.isEmpty(a.getResponseMessage())) {
+                    str = a.getResponseMessage();
                 }
-                this.clH = a.amL().intValue();
+                this.cKE = a.auY().intValue();
             } else {
-                this.clH = -1;
+                this.cKE = -1;
             }
-            e.alM().alN().hN(this.clH);
-            if (this.clH == -1) {
-                com.baidu.swan.games.bdtls.c.alK().setEnable(false);
+            e.aua().aub().hU(this.cKE);
+            if (this.cKE == -1) {
+                com.baidu.swan.games.bdtls.c.atY().setEnable(false);
             }
         }
         return str;
     }
 
-    public final void ow(String str) {
-        this.clH = 0;
-        com.baidu.swan.games.bdtls.c.alK().a(str, this);
+    public final void pJ(String str) {
+        this.cKE = 0;
+        com.baidu.swan.games.bdtls.c.atY().a(str, this);
     }
 
-    public void eB(boolean z) {
-        this.clG = z;
+    public void fy(boolean z) {
+        this.cKD = z;
     }
 }

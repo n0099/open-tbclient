@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.data.bj;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public interface an {
-    void al(bj bjVar);
+    void aQn();
+
+    void aQo();
 }

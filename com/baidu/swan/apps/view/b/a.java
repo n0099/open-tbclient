@@ -5,7 +5,7 @@ import android.view.View;
 public interface a {
     boolean a(View view, com.baidu.swan.apps.model.a.a.a aVar);
 
-    boolean au(View view);
+    boolean av(View view);
 
     boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar);
 }

@@ -1,6 +1,7 @@
 package tv.chushou.a.a.b;
 
 import android.support.annotation.NonNull;
+import android.support.v7.widget.ActivityChooserView;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
@@ -17,25 +18,25 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 /* loaded from: classes5.dex */
 public final class a {
-    private static volatile a nXJ;
-    private final ExecutorService executorService = new b(new C0802a(0, Integer.MAX_VALUE, 30, TimeUnit.SECONDS, new SynchronousQueue(), new tv.chushou.a.a.b.b("DefaultTaskExecutor", 0)));
+    private static volatile a nrv;
+    private final ExecutorService executorService = new b(new C0825a(0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 30, TimeUnit.SECONDS, new SynchronousQueue(), new tv.chushou.a.a.b.b("DefaultTaskExecutor", 0)));
 
-    public static a dQF() {
-        if (nXJ != null) {
-            return nXJ;
+    public static a dJE() {
+        if (nrv != null) {
+            return nrv;
         }
         synchronized (a.class) {
-            if (nXJ == null) {
-                nXJ = new a();
+            if (nrv == null) {
+                nrv = new a();
             }
         }
-        return nXJ;
+        return nrv;
     }
 
     private a() {
     }
 
-    public Future<?> H(@NonNull Runnable runnable) {
+    public Future<?> M(@NonNull Runnable runnable) {
         return this.executorService.submit(runnable);
     }
 
@@ -121,8 +122,8 @@ public final class a {
 
     /* renamed from: tv.chushou.a.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static class C0802a extends ThreadPoolExecutor {
-        C0802a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+    private static class C0825a extends ThreadPoolExecutor {
+        C0825a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
             super(i, i2, j, timeUnit, blockingQueue, threadFactory);
         }
 
@@ -141,7 +142,7 @@ public final class a {
                 }
             }
             if (th != null) {
-                tv.chushou.a.a.c.a.dQG().e(null, "DefaultTaskExecutor: Running task appeared exception! Thread [" + Thread.currentThread().getName() + "]", th);
+                tv.chushou.a.a.c.a.dJF().e(null, "DefaultTaskExecutor: Running task appeared exception! Thread [" + Thread.currentThread().getName() + "]", th);
             }
         }
     }

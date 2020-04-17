@@ -8,101 +8,101 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e {
-    private final List<String> hD;
+    private final List<String> Dg;
     @Nullable
-    private f nsz;
+    private f mPi;
 
     public e(String... strArr) {
-        this.hD = Arrays.asList(strArr);
+        this.Dg = Arrays.asList(strArr);
     }
 
     private e(e eVar) {
-        this.hD = new ArrayList(eVar.hD);
-        this.nsz = eVar.nsz;
+        this.Dg = new ArrayList(eVar.Dg);
+        this.mPi = eVar.mPi;
     }
 
     @CheckResult
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public e Ry(String str) {
+    public e Pi(String str) {
         e eVar = new e(this);
-        eVar.hD.add(str);
+        eVar.Dg.add(str);
         return eVar;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public e a(f fVar) {
         e eVar = new e(this);
-        eVar.nsz = fVar;
+        eVar.mPi = fVar;
         return eVar;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public f dHo() {
-        return this.nsz;
+    public f dBq() {
+        return this.mPi;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean c(String str, int i) {
-        if (P(str)) {
+    public boolean g(String str, int i) {
+        if (bf(str)) {
             return true;
         }
-        if (i >= this.hD.size()) {
+        if (i >= this.Dg.size()) {
             return false;
         }
-        return this.hD.get(i).equals(str) || this.hD.get(i).equals("**") || this.hD.get(i).equals("*");
+        return this.Dg.get(i).equals(str) || this.Dg.get(i).equals("**") || this.Dg.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public int d(String str, int i) {
-        if (P(str)) {
+    public int h(String str, int i) {
+        if (bf(str)) {
             return 0;
         }
-        if (this.hD.get(i).equals("**")) {
-            return (i != this.hD.size() + (-1) && this.hD.get(i + 1).equals(str)) ? 2 : 0;
+        if (this.Dg.get(i).equals("**")) {
+            return (i != this.Dg.size() + (-1) && this.Dg.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean e(String str, int i) {
-        if (i >= this.hD.size()) {
+    public boolean i(String str, int i) {
+        if (i >= this.Dg.size()) {
             return false;
         }
-        boolean z = i == this.hD.size() + (-1);
-        String str2 = this.hD.get(i);
+        boolean z = i == this.Dg.size() + (-1);
+        String str2 = this.Dg.get(i);
         if (!str2.equals("**")) {
-            return (z || (i == this.hD.size() + (-2) && cl())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.Dg.size() + (-2) && hI())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.hD.get(i + 1).equals(str)) {
-            return i == this.hD.size() + (-2) || (i == this.hD.size() + (-3) && cl());
+        if (!z && this.Dg.get(i + 1).equals(str)) {
+            return i == this.Dg.size() + (-2) || (i == this.Dg.size() + (-3) && hI());
         } else if (z) {
             return true;
         } else {
-            if (i + 1 >= this.hD.size() - 1) {
-                return this.hD.get(i + 1).equals(str);
+            if (i + 1 >= this.Dg.size() - 1) {
+                return this.Dg.get(i + 1).equals(str);
             }
             return false;
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean f(String str, int i) {
+    public boolean j(String str, int i) {
         if (str.equals("__container")) {
             return true;
         }
-        return i < this.hD.size() + (-1) || this.hD.get(i).equals("**");
+        return i < this.Dg.size() + (-1) || this.Dg.get(i).equals("**");
     }
 
-    private boolean P(String str) {
+    private boolean bf(String str) {
         return str.equals("__container");
     }
 
-    private boolean cl() {
-        return this.hD.get(this.hD.size() - 1).equals("**");
+    private boolean hI() {
+        return this.Dg.get(this.Dg.size() - 1).equals("**");
     }
 
     public String toString() {
-        return "KeyPath{keys=" + this.hD + ",resolved=" + (this.nsz != null) + '}';
+        return "KeyPath{keys=" + this.Dg + ",resolved=" + (this.mPi != null) + '}';
     }
 }

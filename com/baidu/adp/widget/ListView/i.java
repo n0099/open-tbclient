@@ -1,65 +1,65 @@
 package com.baidu.adp.widget.ListView;
 /* loaded from: classes.dex */
 public class i {
-    private float Bp = 8.0f;
-    private float Bq = 15.0f;
-    private float Br = 4.0f;
-    private float Bs = 60.0f;
-    private int Bt = 150;
-    private int Bu = 150;
-    private int Bv = 500;
-    private float Bw = 0.4f;
-    private float Bx = 1.0f;
-    private float By = 20.0f;
-    private float Bz = 10.0f;
-    private int BA = 360;
-    private float BB = 5.0f;
+    private float UF = 8.0f;
+    private float UG = 15.0f;
+    private float UH = 4.0f;
+    private float UJ = 60.0f;
+    private int UL = 150;
+    private int UM = 150;
+    private int UN = 500;
+    private float UO = 0.4f;
+    private float UQ = 1.0f;
+    private float UR = 20.0f;
+    private float US = 10.0f;
+    private int UT = 360;
+    private float UU = 5.0f;
 
-    public float kp() {
-        return this.Bp;
+    public float oT() {
+        return this.UF;
     }
 
-    public float kq() {
-        return this.Bq;
+    public float oU() {
+        return this.UG;
     }
 
-    public float kr() {
-        return this.Br;
+    public float oV() {
+        return this.UH;
     }
 
-    public float ks() {
-        return this.Bs;
+    public float oW() {
+        return this.UJ;
     }
 
-    public int kt() {
-        return this.Bt;
+    public int oX() {
+        return this.UL;
     }
 
-    public int ku() {
-        return this.Bu;
+    public int oY() {
+        return this.UM;
     }
 
-    public int kv() {
-        return this.Bv;
+    public int oZ() {
+        return this.UN;
     }
 
-    public float kw() {
-        return this.Bw;
+    public float pa() {
+        return this.UO;
     }
 
-    public float kx() {
-        return this.Bx;
+    public float pb() {
+        return this.UQ;
     }
 
-    public float ky() {
-        return this.By;
+    public float pc() {
+        return this.UR;
     }
 
-    public float kz() {
-        return this.Bz;
+    public float pd() {
+        return this.US;
     }
 
-    public int kA() {
-        return this.BA;
+    public int pe() {
+        return this.UT;
     }
 }

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.telephony.TelephonyManager;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.net.BdNetEngine;
@@ -15,9 +18,13 @@ public class ConnectManager {
     private String mNetType;
     private int mPort;
     private String mProxy;
+    private String mSimOperatorCode;
+    private String mSimOperatorName;
     private int mSubType;
     private String mSubTypeName;
     private boolean mUseWap;
+    private String mWifiBSSID;
+    private String mWifiSSID;
 
     public ConnectManager(Context context) {
         checkNetworkType(context);
@@ -92,12 +99,56 @@ public class ConnectManager {
             if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
                 this.mNetType = "wifi";
                 this.mUseWap = false;
+                checkWifi(context);
             } else {
                 checkApn(context, networkInfo);
                 this.mNetType = this.mApn;
             }
+            checkSIMCard(context);
             this.mSubType = networkInfo.getSubtype();
             this.mSubTypeName = networkInfo.getSubtypeName();
+        }
+    }
+
+    private void checkWifi(Context context) {
+        NetworkInfo activeNetworkInfo;
+        WifiManager wifiManager;
+        WifiInfo connectionInfo;
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && 1 == activeNetworkInfo.getType() && (wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi")) != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
+                this.mWifiBSSID = connectionInfo.getBSSID();
+                this.mWifiSSID = connectionInfo.getSSID();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    private void checkSIMCard(Context context) {
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+        if (telephonyManager != null) {
+            this.mSimOperatorName = telephonyManager.getSimOperatorName();
+            String simOperator = telephonyManager.getSimOperator();
+            if (simOperator != null && simOperator.length() >= 5) {
+                StringBuilder sb = new StringBuilder();
+                try {
+                    int length = simOperator.length();
+                    if (length > 6) {
+                        length = 6;
+                    }
+                    for (int i = 0; i < length; i++) {
+                        if (!Character.isDigit(simOperator.charAt(i))) {
+                            if (sb.length() > 0) {
+                                break;
+                            }
+                        } else {
+                            sb.append(simOperator.charAt(i));
+                        }
+                    }
+                    this.mSimOperatorCode = Integer.valueOf(sb.toString()).toString();
+                } catch (Exception e) {
+                }
+            }
         }
     }
 
@@ -123,6 +174,22 @@ public class ConnectManager {
 
     public int getProxyPort() {
         return this.mPort;
+    }
+
+    public String getWifiBSSID() {
+        return this.mWifiBSSID;
+    }
+
+    public String getWifiSSID() {
+        return this.mWifiSSID;
+    }
+
+    public String getSimOperatorName() {
+        return this.mSimOperatorName;
+    }
+
+    public String getSimOperatorCode() {
+        return this.mSimOperatorCode;
     }
 
     public String getNetType() {

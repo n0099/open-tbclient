@@ -1,118 +1,118 @@
 package tv.chushou.common;
 /* loaded from: classes5.dex */
 public final class a {
-    private static final a nXG;
-    private static final a nXH;
-    private static volatile a nXI;
+    private static final a nrs;
+    private static final a nrt;
+    private static volatile a nru;
     private String ad;
     private String city;
-    private String nXA;
-    private String nXB;
-    private String nXC;
-    private String nXD;
-    private int nXE;
-    private String nXF;
-    private String nXp;
-    private String nXq;
-    private String nXr;
-    private String nXs;
-    private String nXt;
-    private String nXu;
-    private String nXv;
-    private String nXw;
-    private String nXx;
-    private String nXy;
-    private String nXz;
+    private String nrb;
+    private String nrc;
+    private String nrd;
+    private String nre;
+    private String nrf;
+    private String nrg;
+    private String nrh;
+    private String nri;
+    private String nrj;
+    private String nrk;
+    private String nrl;
+    private String nrm;
+    private String nrn;
+    private String nro;
+    private String nrp;
+    private int nrq;
+    private String nrr;
     private String sdk;
 
     static {
         a aVar = new a();
-        aVar.nXp = "https://api.chushou.tv/";
-        aVar.nXq = "https://bee.kascend.com/";
-        aVar.nXr = "https://chushou.tv/";
-        aVar.nXs = "https://chat.chushou.tv/";
-        aVar.nXt = "https://qos-stat.chushou.tv/";
-        aVar.nXu = "im.chushou.tv";
-        aVar.nXv = "https://imapi.chushou.tv/";
-        aVar.nXw = "https://pay.chushou.tv/kaspay/";
-        aVar.nXx = "https://gemini.chushou.tv/";
-        aVar.nXy = "https://mic.chushou.tv/";
+        aVar.nrb = "https://api.chushou.tv/";
+        aVar.nrc = "https://bee.kascend.com/";
+        aVar.nrd = "https://chushou.tv/";
+        aVar.nre = "https://chat.chushou.tv/";
+        aVar.nrf = "https://qos-stat.chushou.tv/";
+        aVar.nrg = "im.chushou.tv";
+        aVar.nrh = "https://imapi.chushou.tv/";
+        aVar.nri = "https://pay.chushou.tv/kaspay/";
+        aVar.nrj = "https://gemini.chushou.tv/";
+        aVar.nrk = "https://mic.chushou.tv/";
         aVar.ad = "https://ja.chushou.tv/";
         aVar.city = "https://geo.chushou.tv/";
-        aVar.nXz = "https://playground.chushou.tv/";
-        aVar.nXA = "https://appstat.chushou.tv/";
-        aVar.nXB = "https://luck.chushou.tv/";
-        aVar.nXC = "https://gmapi.chushou.tv/";
-        aVar.nXD = "https://gm.chushou.tv/";
+        aVar.nrl = "https://playground.chushou.tv/";
+        aVar.nrm = "https://appstat.chushou.tv/";
+        aVar.nrn = "https://luck.chushou.tv/";
+        aVar.nro = "https://gmapi.chushou.tv/";
+        aVar.nrp = "https://gm.chushou.tv/";
         aVar.sdk = "https://open.chushou.tv/";
-        aVar.nXE = 8178;
-        aVar.nXF = "rc";
-        nXG = aVar;
+        aVar.nrq = 8178;
+        aVar.nrr = "rc";
+        nrs = aVar;
         a aVar2 = new a();
-        aVar2.nXp = "https://api.vchushou.com/";
-        aVar2.nXq = "https://bee.vchushou.com/";
-        aVar2.nXr = "https://vchushou.com/";
-        aVar2.nXs = "https://chat.vchushou.com/";
-        aVar2.nXt = "https://qos-stat.vchushou.com/";
-        aVar2.nXu = "im.vchushou.com";
-        aVar2.nXv = "https://imapi.vchushou.com/";
-        aVar2.nXw = "https://pay.vchushou.com/";
-        aVar2.nXx = "https://gemini.vchushou.com/";
-        aVar2.nXy = "https://mic.vchushou.com/";
+        aVar2.nrb = "https://api.vchushou.com/";
+        aVar2.nrc = "https://bee.vchushou.com/";
+        aVar2.nrd = "https://vchushou.com/";
+        aVar2.nre = "https://chat.vchushou.com/";
+        aVar2.nrf = "https://qos-stat.vchushou.com/";
+        aVar2.nrg = "im.vchushou.com";
+        aVar2.nrh = "https://imapi.vchushou.com/";
+        aVar2.nri = "https://pay.vchushou.com/";
+        aVar2.nrj = "https://gemini.vchushou.com/";
+        aVar2.nrk = "https://mic.vchushou.com/";
         aVar2.ad = "https://ja.vchushou.com/";
         aVar2.city = "https://geo.vchushou.com/";
-        aVar2.nXz = "https://open-game.vchushou.com/";
-        aVar2.nXA = "https://vchushou.com/";
-        aVar2.nXB = "https://luck.vchushou.com/";
-        aVar2.nXC = "https://gamemate.vchushou.com/";
-        aVar2.nXD = "https://gamemate.vchushou.com/";
+        aVar2.nrl = "https://open-game.vchushou.com/";
+        aVar2.nrm = "https://vchushou.com/";
+        aVar2.nrn = "https://luck.vchushou.com/";
+        aVar2.nro = "https://gamemate.vchushou.com/";
+        aVar2.nrp = "https://gamemate.vchushou.com/";
         aVar2.sdk = "https://open.vchushou.com/";
-        aVar2.nXE = 8178;
-        aVar2.nXF = "https";
-        nXH = aVar2;
-        nXI = nXG;
+        aVar2.nrq = 8178;
+        aVar2.nrr = "https";
+        nrt = aVar2;
+        nru = nrs;
     }
 
     private a() {
     }
 
-    public static void SL(String str) {
+    public static void Qa(String str) {
         if ("beta".equals(str)) {
-            nXI = nXH;
+            nru = nrt;
         } else {
-            nXI = nXG;
+            nru = nrs;
         }
     }
 
-    public static String dQx() {
-        return nXI.nXp;
+    public static String dJw() {
+        return nru.nrb;
     }
 
-    public static String dQy() {
-        return nXI.nXq;
+    public static String dJx() {
+        return nru.nrc;
     }
 
-    public static String dQz() {
-        return nXI.nXr;
+    public static String dJy() {
+        return nru.nrd;
     }
 
-    public static String dQA() {
-        return nXI.nXs;
+    public static String dJz() {
+        return nru.nre;
     }
 
-    public static String dQB() {
-        return nXI.nXy;
+    public static String dJA() {
+        return nru.nrk;
     }
 
-    public static String dQC() {
-        return nXI.ad;
+    public static String dJB() {
+        return nru.ad;
     }
 
-    public static String dQD() {
-        return nXI.nXB;
+    public static String dJC() {
+        return nru.nrn;
     }
 
-    public static String dQE() {
-        return nXI.sdk;
+    public static String dJD() {
+        return nru.sdk;
     }
 }

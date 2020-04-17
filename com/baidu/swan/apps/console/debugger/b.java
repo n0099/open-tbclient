@@ -8,67 +8,67 @@ import com.baidu.swan.apps.console.debugger.b.d;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class b {
-    private static a bka;
+    private static a bIi;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bjY = "";
-    private static String bjZ = "";
-    private static int bkb = 0;
+    private static String bIg = "";
+    private static String bIh = "";
+    private static int bIj = 0;
 
-    public static void gz(String str) {
-        bjY = str;
+    public static void hM(String str) {
+        bIg = str;
     }
 
-    public static void gA(String str) {
-        bjZ = str;
+    public static void hN(String str) {
+        bIh = str;
     }
 
-    public static String Lz() {
-        return bjY;
+    public static String Tn() {
+        return bIg;
     }
 
-    public static String LA() {
-        return bjZ;
+    public static String To() {
+        return bIh;
     }
 
-    public static String LB() {
-        return bka != null ? bka.Ly() + File.separator + bjZ : "";
+    public static String Tp() {
+        return bIi != null ? bIi.Tm() + File.separator + bIh : "";
     }
 
-    public static String LC() {
-        return bka != null ? bka.Ly() + File.separator + bjY : "";
+    public static String Tq() {
+        return bIi != null ? bIi.Tm() + File.separator + bIg : "";
     }
 
-    public static boolean LD() {
-        return bkb == 2;
+    public static boolean Tr() {
+        return bIj == 2;
     }
 
-    public static boolean LE() {
-        return bkb == 1;
+    public static boolean Ts() {
+        return bIj == 1;
     }
 
     public static void n(Bundle bundle) {
         String e = r.e(bundle, "extraWSUrl");
         String e2 = r.e(bundle, "adb_debug_path");
         if (!TextUtils.isEmpty(e)) {
-            bka = new d();
-            bkb = 1;
+            bIi = new d();
+            bIj = 1;
         } else if (!TextUtils.isEmpty(e2)) {
-            bka = new com.baidu.swan.apps.console.debugger.adbdebug.b();
-            bkb = 2;
+            bIi = new com.baidu.swan.apps.console.debugger.adbdebug.b();
+            bIj = 2;
         } else {
             if (DEBUG) {
                 Log.d("UserDebugParams", "not debug mode");
             }
-            bkb = 0;
-            bka = null;
+            bIj = 0;
+            bIi = null;
             return;
         }
-        bka.n(bundle);
+        bIi.n(bundle);
     }
 
     public static void o(Bundle bundle) {
-        if (bka != null) {
-            bka.o(bundle);
+        if (bIi != null) {
+            bIi.o(bundle);
         }
     }
 }

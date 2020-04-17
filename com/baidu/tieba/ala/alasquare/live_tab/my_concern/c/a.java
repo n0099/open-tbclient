@@ -19,32 +19,32 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private BdTypeRecyclerView BK;
-    private BdSwipeRefreshLayout enY;
-    private View enZ;
-    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a eoa;
-    private InterfaceC0423a eob;
-    private AlphaAnimation eoc;
-    private AlphaAnimation eod;
+    private BdTypeRecyclerView Vf;
+    private AlphaAnimation eRA;
+    private AlphaAnimation eRB;
+    private BdSwipeRefreshLayout eRw;
+    private View eRx;
+    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a eRy;
+    private InterfaceC0456a eRz;
     private RelativeLayout mContainer;
     private NavigationBar mNavigationBar;
     RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.5
-        private int eog = -1;
+        private int eRD = -1;
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            if (this.eog != i) {
-                this.eog = i;
-                if (this.eog != 1) {
+            if (this.eRD != i) {
+                this.eRD = i;
+                if (this.eRD != 1) {
                     if (a.this.a(recyclerView)) {
-                        a.this.bcS();
+                        a.this.blJ();
                         return;
                     } else {
-                        a.this.bcR();
+                        a.this.blI();
                         return;
                     }
                 }
-                a.this.bcR();
+                a.this.blI();
             }
         }
     };
@@ -54,7 +54,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0423a {
+    public interface InterfaceC0456a {
         void onListPullRefresh(boolean z);
 
         void onScrollToBottom();
@@ -67,19 +67,19 @@ public class a {
     }
 
     private void initView() {
-        bcO();
+        blF();
         this.mContainer = (RelativeLayout) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_container);
-        this.enZ = this.mRootView.findViewById(R.id.divider_shadow);
-        this.BK = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_recyclerview);
-        this.BK.setLayoutManager(new LinearLayoutManager(this.mTbPageContext.getPageActivity()));
-        this.BK.setFadingEdgeLength(0);
-        this.BK.setOverScrollMode(2);
-        this.BK.addOnScrollListener(this.mOnScrollListener);
-        this.BK.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.1
+        this.eRx = this.mRootView.findViewById(R.id.divider_shadow);
+        this.Vf = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_recyclerview);
+        this.Vf.setLayoutManager(new LinearLayoutManager(this.mTbPageContext.getPageActivity()));
+        this.Vf.setFadingEdgeLength(0);
+        this.Vf.setOverScrollMode(2);
+        this.Vf.addOnScrollListener(this.mOnScrollListener);
+        this.Vf.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.1
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                if (a.this.eob != null) {
-                    a.this.eob.onScrollToBottom();
+                if (a.this.eRz != null) {
+                    a.this.eRz.onScrollToBottom();
                 }
             }
         });
@@ -87,18 +87,18 @@ public class a {
         this.mPullView.setListPullRefreshListener(new g.c() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.2
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                if (a.this.eob != null) {
-                    a.this.eob.onListPullRefresh(z);
+                if (a.this.eRz != null) {
+                    a.this.eRz.onListPullRefresh(z);
                 }
             }
         });
-        this.enY = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_pull_refresh_layout);
-        this.enY.setProgressView(this.mPullView);
-        this.eoa = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a(this.mTbPageContext);
-        this.BK.addAdapters(this.eoa.bcJ());
+        this.eRw = (BdSwipeRefreshLayout) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_pull_refresh_layout);
+        this.eRw.setProgressView(this.mPullView);
+        this.eRy = new com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.a(this.mTbPageContext);
+        this.Vf.addAdapters(this.eRy.blA());
     }
 
-    private void bcO() {
+    private void blF() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.ala_live_tab_my_concern_navigationbar);
         this.mNavigationBar.setCenterTextTitle(this.mTbPageContext.getResources().getString(R.string.live_tab_my_concern));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.3
@@ -115,7 +115,7 @@ public class a {
         return this.mRootView;
     }
 
-    public View bcP() {
+    public View blG() {
         return this.mContainer;
     }
 
@@ -127,40 +127,40 @@ public class a {
         if (this.mPullView != null) {
             this.mPullView.changeSkin(i);
         }
-        am.setBackgroundColor(this.enY, R.color.cp_bg_line_d);
-        am.setBackgroundColor(this.BK, R.color.cp_bg_line_d);
+        am.setBackgroundColor(this.eRw, R.color.cp_bg_line_d);
+        am.setBackgroundColor(this.Vf, R.color.cp_bg_line_d);
     }
 
-    private boolean bcQ() {
-        return this.enZ.getVisibility() == 0;
+    private boolean blH() {
+        return this.eRx.getVisibility() == 0;
     }
 
-    public void bcR() {
-        if (!bcQ()) {
-            this.enZ.setVisibility(0);
-            if (this.eoc == null) {
-                this.eoc = new AlphaAnimation(0.0f, 1.0f);
-                this.eoc.setFillAfter(true);
-                this.eoc.setDuration(300L);
+    public void blI() {
+        if (!blH()) {
+            this.eRx.setVisibility(0);
+            if (this.eRA == null) {
+                this.eRA = new AlphaAnimation(0.0f, 1.0f);
+                this.eRA.setFillAfter(true);
+                this.eRA.setDuration(300L);
             }
-            this.enZ.startAnimation(this.eoc);
+            this.eRx.startAnimation(this.eRA);
         }
     }
 
-    public void bcS() {
-        if (bcQ()) {
-            if (this.eod == null) {
-                this.eod = new AlphaAnimation(1.0f, 0.0f);
-                this.eod.setFillAfter(true);
-                this.eod.setDuration(300L);
-                this.eod.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.4
+    public void blJ() {
+        if (blH()) {
+            if (this.eRB == null) {
+                this.eRB = new AlphaAnimation(1.0f, 0.0f);
+                this.eRB.setFillAfter(true);
+                this.eRB.setDuration(300L);
+                this.eRB.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.a.4
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        a.this.enZ.setVisibility(8);
+                        a.this.eRx.setVisibility(8);
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -168,7 +168,7 @@ public class a {
                     }
                 });
             }
-            this.enZ.startAnimation(this.eod);
+            this.eRx.startAnimation(this.eRB);
         }
     }
 
@@ -177,39 +177,39 @@ public class a {
         return recyclerView == null || !recyclerView.canScrollVertically(-1);
     }
 
-    public void hv(boolean z) {
+    public void it(boolean z) {
         if (!z) {
-            this.enY.setRefreshing(false);
+            this.eRw.setRefreshing(false);
         }
     }
 
-    public void a(InterfaceC0423a interfaceC0423a) {
-        this.eob = interfaceC0423a;
+    public void a(InterfaceC0456a interfaceC0456a) {
+        this.eRz = interfaceC0456a;
     }
 
-    public RelativeLayout bcT() {
+    public RelativeLayout blK() {
         return this.mContainer;
     }
 
     public void setData(List<com.baidu.adp.widget.ListView.m> list) {
-        this.BK.setData(list);
+        this.Vf.setData(list);
     }
 
-    public void w(Class<? extends com.baidu.tieba.card.data.b> cls) {
-        if (this.BK != null) {
-            for (int count = this.BK.getCount() - 1; count >= 0; count--) {
-                com.baidu.adp.widget.ListView.m item = this.BK.getItem(count);
+    public void x(Class<? extends com.baidu.tieba.card.data.b> cls) {
+        if (this.Vf != null) {
+            for (int count = this.Vf.getCount() - 1; count >= 0; count--) {
+                com.baidu.adp.widget.ListView.m item = this.Vf.getItem(count);
                 if (item != null && item.getClass().equals(cls)) {
-                    this.BK.removeItem(count);
+                    this.Vf.removeItem(count);
                 }
             }
         }
     }
 
     public void onDestroy() {
-        this.BK.removeOnScrollListener(this.mOnScrollListener);
-        this.BK.setOnSrollToBottomListener(null);
-        this.BK.setScrollable(null);
+        this.Vf.removeOnScrollListener(this.mOnScrollListener);
+        this.Vf.setOnSrollToBottomListener(null);
+        this.Vf.setScrollable(null);
         if (this.mPullView != null) {
             this.mPullView.setListPullRefreshListener(null);
             this.mPullView.release();

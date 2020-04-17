@@ -14,10 +14,10 @@ public class c {
     /* loaded from: classes8.dex */
     public static class a {
         public String fid;
-        public String hvO;
-        public long hvV;
-        public String hvW;
-        public int hvX;
+        public String ifB;
+        public long ifI;
+        public String ifJ;
+        public int ifK;
         public long picId;
         public String src;
         public long taskId;
@@ -59,14 +59,14 @@ public class c {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.hvO = optString5;
+                aVar.ifB = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.hvV = j;
-                    aVar.hvW = userData.getUserId();
-                    aVar.hvX = userData.getUserType();
+                    aVar.ifI = j;
+                    aVar.ifJ = userData.getUserId();
+                    aVar.ifK = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

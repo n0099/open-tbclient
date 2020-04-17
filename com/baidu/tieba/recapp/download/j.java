@@ -24,8 +24,8 @@ public class j implements com.baidu.tbadk.download.c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            i.cDc().c(downloadData);
-            i.cDc().b(downloadData);
+            i.cNA().c(downloadData);
+            i.cNA().b(downloadData);
         }
     }
 
@@ -55,9 +55,9 @@ public class j implements com.baidu.tbadk.download.c {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", tag[0], "is_detail", tag[2], "ref_type", tag[1]);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            i.cDc().b(downloadData);
+            i.cNA().b(downloadData);
             String path = downloadData.getPath();
-            com.baidu.tieba.ad.download.b.a.eak.get().aYy().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.cDc().HP(downloadData.getId()) : path);
+            com.baidu.tieba.ad.download.b.a.brQ.get().bgD().onSuccess(downloadData.getId(), TextUtils.isEmpty(path) ? i.cNA().Jt(downloadData.getId()) : path);
             if (downloadData.isNeedInvokeApk()) {
                 UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS) + ".apk");
             }
@@ -66,13 +66,13 @@ public class j implements com.baidu.tbadk.download.c {
 
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        i cDc = i.cDc();
+        i cNA = i.cNA();
         if (i == 3) {
-            cDc.k(downloadData);
+            cNA.k(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, downloadData));
         } else {
-            cDc.l(downloadData);
+            cNA.l(downloadData);
         }
-        i.cDc().b(downloadData);
+        i.cNA().b(downloadData);
     }
 }

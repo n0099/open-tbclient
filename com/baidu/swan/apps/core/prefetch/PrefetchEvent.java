@@ -14,14 +14,14 @@ public class PrefetchEvent extends SwanAppIPCData {
     public static final Parcelable.Creator<PrefetchEvent> CREATOR = new Parcelable.Creator<PrefetchEvent>() { // from class: com.baidu.swan.apps.core.prefetch.PrefetchEvent.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: u */
+        /* renamed from: n */
         public PrefetchEvent createFromParcel(Parcel parcel) {
             return new PrefetchEvent(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eK */
+        /* renamed from: eP */
         public PrefetchEvent[] newArray(int i) {
             return new PrefetchEvent[i];
         }
@@ -91,30 +91,30 @@ public class PrefetchEvent extends SwanAppIPCData {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private PrefetchEvent brc = new PrefetchEvent();
+        private PrefetchEvent bPj = new PrefetchEvent();
 
-        public a hk(@NonNull String str) {
-            this.brc.appId = str;
+        public a iy(@NonNull String str) {
+            this.bPj.appId = str;
             return this;
         }
 
-        public a hl(@NonNull String str) {
-            this.brc.schema = str;
+        public a iz(@NonNull String str) {
+            this.bPj.schema = str;
             return this;
         }
 
-        public a hm(String str) {
-            this.brc.state = str;
+        public a iA(String str) {
+            this.bPj.state = str;
             return this;
         }
 
-        public a hn(@NonNull String str) {
-            this.brc.scene = str;
+        public a iB(@NonNull String str) {
+            this.bPj.scene = str;
             return this;
         }
 
-        public PrefetchEvent PP() {
-            return this.brc;
+        public PrefetchEvent XE() {
+            return this.bPj;
         }
     }
 

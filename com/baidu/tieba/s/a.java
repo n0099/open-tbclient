@@ -13,13 +13,13 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static final List<String> kfD = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+    private static final List<String> kPI = Arrays.asList(PageStayDurationConstants.PageName.FRS, PageStayDurationConstants.PageName.PB, PageStayDurationConstants.PageName.BIGIMAGE, PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
 
-    public static String IP(String str) {
+    public static String Ky(String str) {
         return "enterfourm_att_" + str;
     }
 
-    public static String IQ(String str) {
+    public static String Kz(String str) {
         return "enterfourm_rec_" + str;
     }
 
@@ -78,9 +78,9 @@ public class a {
 
     public static an b(String str, String str2, boolean z, int i, int i2) {
         an anVar = new an(str2);
-        anVar.cx("page_type", str).X("ad_exp", z ? 1 : 0).X("ad_exp_cnt", i).X("obj_floor", 0).X("obj_adlocate", i2);
-        if (str != null && kfD.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cx(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dmy);
+        anVar.cI("page_type", str).af("ad_exp", z ? 1 : 0).af("ad_exp_cnt", i).af("obj_floor", 0).af("obj_adlocate", i2);
+        if (str != null && kPI.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            anVar.cI(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dMt);
         }
         return anVar;
     }
@@ -101,49 +101,49 @@ public class a {
 
     public static an a(boolean z, bj bjVar, String str, String str2, int i, int i2, boolean z2, String str3, String str4, boolean z3, String str5, int i3) {
         an anVar = new an(str2);
-        anVar.cx("page_type", str).X("obj_floor", i2).X("obj_isad", z2 ? 1 : 0).cx("obj_id", a(z2, str3, z3, str5, bjVar.getId(), bjVar.getBaijiahaoData())).cx("tid", bjVar.getTid()).X("thread_type", z2 ? -1 : bjVar.getThreadType()).X("obj_adlocate", i3);
-        if (!aq.isEmpty(bjVar.aDJ())) {
-            anVar.cx("list_strategy", bjVar.aDJ());
+        anVar.cI("page_type", str).af("obj_floor", i2).af("obj_isad", z2 ? 1 : 0).cI("obj_id", a(z2, str3, z3, str5, bjVar.getId(), bjVar.getBaijiahaoData())).cI("tid", bjVar.getTid()).af("thread_type", z2 ? -1 : bjVar.getThreadType()).af("obj_adlocate", i3);
+        if (!aq.isEmpty(bjVar.aLX())) {
+            anVar.cI("list_strategy", bjVar.aLX());
         }
-        if (str != null && kfD.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().dmy)) {
-            anVar.cx(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dmy);
+        if (str != null && kPI.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().dMt)) {
+            anVar.cI(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dMt);
         } else if (!aq.isEmpty(bjVar.mRecomAbTag)) {
-            anVar.cx(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag);
+            anVar.cI(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag);
         }
         if (z) {
-            anVar.X("obj_locate", i);
+            anVar.af("obj_locate", i);
         }
         if (bjVar.getFid() > 0) {
-            anVar.s("fid", bjVar.getFid());
+            anVar.t("fid", bjVar.getFid());
         }
-        if (!StringUtils.isNull(bjVar.aDW())) {
-            anVar.cx("first_dir", bjVar.aDW());
+        if (!StringUtils.isNull(bjVar.aMk())) {
+            anVar.cI("first_dir", bjVar.aMk());
         }
-        if (!StringUtils.isNull(bjVar.aDX())) {
-            anVar.cx("second_dir", bjVar.aDX());
+        if (!StringUtils.isNull(bjVar.aMl())) {
+            anVar.cI("second_dir", bjVar.aMl());
         }
         if (bjVar.getBaijiahaoData() != null) {
-            anVar.cx("ugc_vid", bjVar.getBaijiahaoData().oriUgcVid);
-            anVar.cx("ugc_nid", bjVar.getBaijiahaoData().oriUgcNid);
+            anVar.cI("ugc_vid", bjVar.getBaijiahaoData().oriUgcVid);
+            anVar.cI("ugc_nid", bjVar.getBaijiahaoData().oriUgcNid);
         }
         if (!StringUtils.isNull(str4)) {
-            anVar.cx("pid", str4);
+            anVar.cI("pid", str4);
         }
         return anVar;
     }
 
     public static an a(boolean z, String str, String str2, int i, int i2, boolean z2, String str3, String str4, int i3) {
         an anVar = new an(str2);
-        an X = anVar.cx("page_type", str).X("obj_floor", i2).X("obj_isad", z2 ? 1 : 0);
+        an af = anVar.cI("page_type", str).af("obj_floor", i2).af("obj_isad", z2 ? 1 : 0);
         if (!z2) {
             str3 = str4;
         }
-        X.cx("obj_id", str3).X("obj_adlocate", i3);
-        if (str != null && kfD.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cx(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dmy);
+        af.cI("obj_id", str3).af("obj_adlocate", i3);
+        if (str != null && kPI.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            anVar.cI(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dMt);
         }
         if (z) {
-            anVar.X("obj_locate", i);
+            anVar.af("obj_locate", i);
         }
         return anVar;
     }

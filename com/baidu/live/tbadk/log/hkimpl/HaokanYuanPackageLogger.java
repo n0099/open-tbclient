@@ -12,12 +12,12 @@ public class HaokanYuanPackageLogger implements IYuanPackageLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_ONE_GIFT_BAG);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("live_id", str);
             jSONObject.put("type", j);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -34,7 +34,7 @@ public class HaokanYuanPackageLogger implements IYuanPackageLogger {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("live_id", str);
             jSONObject.put("type", j);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -51,7 +51,7 @@ public class HaokanYuanPackageLogger implements IYuanPackageLogger {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("live_id", str);
             jSONObject.put("type", j);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
         } catch (JSONException e) {
             e.printStackTrace();
         }

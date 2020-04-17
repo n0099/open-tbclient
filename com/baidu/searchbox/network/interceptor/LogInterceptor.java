@@ -10,7 +10,6 @@ import com.baidu.searchbox.network.core.RequestBody;
 import com.baidu.searchbox.network.core.Response;
 import com.baidu.searchbox.network.core.ResponseBody;
 import com.baidu.searchbox.network.core.http.HttpHeaders;
-import com.google.android.exoplayer2.Format;
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -175,7 +174,7 @@ public class LogInterceptor implements Interceptor {
                 this.logger.log("<-- END HTTP (encoded body omitted)");
             } else {
                 BufferedSource source = body2.source();
-                source.request(Format.OFFSET_SAMPLE_RELATIVE);
+                source.request(Long.MAX_VALUE);
                 Buffer buffer2 = source.buffer();
                 Charset charset2 = UTF8;
                 MediaType contentType2 = body2.contentType();

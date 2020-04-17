@@ -16,7 +16,7 @@ public class a {
         return "Android";
     }
 
-    public static int awj() {
+    public static int aEu() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.widthPixels;
@@ -24,7 +24,7 @@ public class a {
         return 0;
     }
 
-    public static int awk() {
+    public static int aEv() {
         DisplayMetrics displayMetrics = getDisplayMetrics();
         if (displayMetrics != null) {
             return displayMetrics.heightPixels;

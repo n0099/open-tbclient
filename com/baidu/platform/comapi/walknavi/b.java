@@ -11,6 +11,7 @@ import android.hardware.SensorManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
@@ -895,7 +896,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         try {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PHONE_STATE");
-            intentFilter.setPriority(Integer.MAX_VALUE);
+            intentFilter.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             context.registerReceiver(this.Q, intentFilter);
         } catch (Exception e) {
         }

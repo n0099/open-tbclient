@@ -7,7 +7,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.i.l;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
 public class f extends b {
     public f(Context context) {
@@ -34,7 +33,7 @@ public class f extends b {
                 try {
                     this.a.getPackageManager().getPackageInfo(a2, 128);
                     Intent intent = new Intent();
-                    intent.putExtra(Constants.APP_ID, b);
+                    intent.putExtra("app_id", b);
                     intent.putExtra("msg_id", e);
                     intent.putExtra("message", bArr);
                     intent.putExtra("message_string", str);

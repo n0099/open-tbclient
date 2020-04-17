@@ -17,7 +17,7 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
     private final String d;
     private final String e;
     private final String f;
-    private UserCard nhk;
+    private UserCard mDR;
 
     public static final /* synthetic */ com.kascend.chushou.view.b.b.a a(b bVar) {
         return (com.kascend.chushou.view.b.b.a) bVar.b;
@@ -38,11 +38,11 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
     }
 
     public final void a(UserCard userCard) {
-        this.nhk = userCard;
+        this.mDR = userCard;
     }
 
-    public final UserCard dEQ() {
-        return this.nhk;
+    public final UserCard dyQ() {
+        return this.mDR;
     }
 
     @h
@@ -61,13 +61,13 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
             UserCard userCard;
             l lVar;
             if (b.this.b()) {
-                Response response = (Response) d.c(str, new C0717a().getType());
+                Response response = (Response) d.c(str, new C0741a().getType());
                 if (response != null && (userCard = (UserCard) response.data) != null) {
                     b.this.a(userCard);
                     com.kascend.chushou.view.b.b.a a = b.a(b.this);
                     if (a != null) {
                         a.a(userCard);
-                        lVar = l.nDA;
+                        lVar = l.mWZ;
                     } else {
                         lVar = null;
                     }
@@ -76,15 +76,15 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
                     }
                 }
                 a(-1, "");
-                l lVar2 = l.nDA;
+                l lVar2 = l.mWZ;
             }
         }
 
         @h
         /* renamed from: com.kascend.chushou.view.b.b.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static final class C0717a extends com.google.gson.b.a<Response<UserCard>> {
-            C0717a() {
+        public static final class C0741a extends com.google.gson.b.a<Response<UserCard>> {
+            C0741a() {
             }
         }
 
@@ -98,30 +98,30 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
     }
 
     public final void d() {
-        com.kascend.chushou.c.c.dCo().a(this.d, this.e, this.f, new a());
+        com.kascend.chushou.c.c.dwG().a(this.d, this.e, this.f, new a());
     }
 
     public final void e() {
         UserCard.UserCardInfo userCardInfo;
         UserCard.UserCardMeta meta;
         String a2 = e.a("_fromView", "50");
-        UserCard userCard = this.nhk;
+        UserCard userCard = this.mDR;
         boolean isSubscribed = (userCard == null || (userCardInfo = userCard.getUserCardInfo()) == null || (meta = userCardInfo.getMeta()) == null) ? false : meta.isSubscribed();
-        C0718b c0718b = new C0718b(isSubscribed);
+        C0742b c0742b = new C0742b(isSubscribed);
         if (isSubscribed) {
-            com.kascend.chushou.c.c.dCo().b(c0718b, (String) null, this.d, a2);
+            com.kascend.chushou.c.c.dwG().b(c0742b, (String) null, this.d, a2);
         } else {
-            com.kascend.chushou.c.c.dCo().a(c0718b, (String) null, this.d, a2);
+            com.kascend.chushou.c.c.dwG().a(c0742b, (String) null, this.d, a2);
         }
     }
 
     @h
     /* renamed from: com.kascend.chushou.view.b.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0718b implements com.kascend.chushou.c.b {
+    public static final class C0742b implements com.kascend.chushou.c.b {
         final /* synthetic */ boolean b;
 
-        C0718b(boolean z) {
+        C0742b(boolean z) {
             this.b = z;
         }
 
@@ -137,19 +137,19 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
             UserCard.UserCardMeta meta2;
             boolean z = false;
             if (b.this.b()) {
-                UserCard dEQ = b.this.dEQ();
-                if (dEQ != null && (userCardInfo2 = dEQ.getUserCardInfo()) != null && (meta2 = userCardInfo2.getMeta()) != null) {
+                UserCard dyQ = b.this.dyQ();
+                if (dyQ != null && (userCardInfo2 = dyQ.getUserCardInfo()) != null && (meta2 = userCardInfo2.getMeta()) != null) {
                     meta2.setSubscribed(!this.b);
                 }
                 if (this.b) {
-                    g.Os(a.i.unsubscribe_success);
+                    g.JO(a.i.unsubscribe_success);
                 } else {
-                    g.Os(a.i.subscribe_success);
+                    g.JO(a.i.subscribe_success);
                 }
                 com.kascend.chushou.view.b.b.a a = b.a(b.this);
                 if (a != null) {
-                    UserCard dEQ2 = b.this.dEQ();
-                    if (dEQ2 != null && (userCardInfo = dEQ2.getUserCardInfo()) != null && (meta = userCardInfo.getMeta()) != null) {
+                    UserCard dyQ2 = b.this.dyQ();
+                    if (dyQ2 != null && (userCardInfo = dyQ2.getUserCardInfo()) != null && (meta = userCardInfo.getMeta()) != null) {
                         z = meta.isSubscribed();
                     }
                     a.a(z);
@@ -159,7 +159,7 @@ public final class b extends c<com.kascend.chushou.view.b.b.a> {
 
         @Override // com.kascend.chushou.c.b
         public void a(int i, String str) {
-            g.u(f.b(str, a.i.subscribe_failed));
+            g.t(f.b(str, a.i.subscribe_failed));
         }
     }
 }

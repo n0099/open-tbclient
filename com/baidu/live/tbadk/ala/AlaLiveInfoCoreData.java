@@ -1,5 +1,6 @@
 package com.baidu.live.tbadk.ala;
 
+import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.data.AlaInfoData;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
@@ -51,7 +52,7 @@ public class AlaLiveInfoCoreData extends BaseData implements Serializable {
             this.flvUrl = jSONObject.optString("flv_url");
             this.audienceCount = jSONObject.optLong("audience_count");
             this.liveType = jSONObject.optInt("live_type");
-            this.screenDirection = jSONObject.optInt("screen_direction");
+            this.screenDirection = jSONObject.optInt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
             this.liveStatus = jSONObject.optInt("live_status");
             this.mediaPic = jSONObject.optString("media_pic");
             this.threadId = jSONObject.optLong("thread_id");

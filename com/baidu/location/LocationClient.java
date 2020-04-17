@@ -14,6 +14,7 @@ import android.os.Messenger;
 import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebView;
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.location.a.c;
 import com.baidu.location.a.j;
 import com.baidu.location.a.k;
@@ -187,10 +188,10 @@ public final class LocationClient implements c.a {
                     } catch (Exception e4) {
                         return;
                     }
-                case 1300:
+                case FeatureCodes.VO /* 1300 */:
                     locationClient.c(message);
                     return;
-                case 1400:
+                case FeatureCodes.POSE /* 1400 */:
                     locationClient.d(message);
                     return;
                 default:
@@ -654,7 +655,7 @@ public final class LocationClient implements c.a {
         if (bDAbstractLocationListener == null) {
             throw new IllegalStateException("please set a non-null listener");
         }
-        Message obtainMessage = this.h.obtainMessage(1300);
+        Message obtainMessage = this.h.obtainMessage(FeatureCodes.VO);
         obtainMessage.obj = bDAbstractLocationListener;
         obtainMessage.sendToTarget();
     }
@@ -732,7 +733,7 @@ public final class LocationClient implements c.a {
         if (bDAbstractLocationListener == null) {
             throw new IllegalStateException("please set a non-null listener");
         }
-        Message obtainMessage = this.h.obtainMessage(1400);
+        Message obtainMessage = this.h.obtainMessage(FeatureCodes.POSE);
         obtainMessage.obj = bDAbstractLocationListener;
         obtainMessage.sendToTarget();
     }

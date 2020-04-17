@@ -2,65 +2,75 @@ package com.baidu.j.b;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.j.d;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.swan.apps.process.messaging.c;
-import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public class a implements com.baidu.j.c.a {
-    private static final String TAG = a.class.getSimpleName();
-    private static final String aQg = SchemeConfig.getSchemeHead() + "://swan/";
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+/* loaded from: classes6.dex */
+public class a extends com.baidu.swan.apps.component.a.d.a<View, b> {
+    private com.baidu.swan.apps.y.a dfw;
 
-    @Override // com.baidu.j.c.a
-    public void e(Activity activity, String str, com.baidu.j.a.a aVar) {
-        com.baidu.swan.apps.w.a.Up().e(activity, str, aVar);
+    public a(@Nullable Context context, @NonNull b bVar) {
+        super(context, bVar);
+        this.dfw = new com.baidu.swan.apps.y.a() { // from class: com.baidu.j.b.a.1
+            @Override // com.baidu.swan.apps.y.a, android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityStopped(Activity activity) {
+                super.onActivityStopped(activity);
+                com.baidu.j.d.b.aFh().stop();
+            }
+
+            @Override // com.baidu.swan.apps.y.a, android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityResumed(Activity activity) {
+                super.onActivityResumed(activity);
+                com.baidu.j.d.b.aFh().resetPreview();
+            }
+        };
     }
 
-    @Override // com.baidu.j.c.a
-    public void f(Activity activity, String str, com.baidu.j.a.a aVar) {
-        com.baidu.swan.apps.w.a.Up().f(activity, str, aVar);
+    @Override // com.baidu.swan.apps.component.b.a
+    @NonNull
+    protected View ba(@NonNull Context context) {
+        LinearLayout linearLayout = new LinearLayout(context);
+        linearLayout.setOrientation(0);
+        linearLayout.addView(com.baidu.j.d.b.aFh().getRecorderView(), aFd());
+        return linearLayout;
     }
 
-    @Override // com.baidu.j.c.a
-    public void b(Context context, JSONObject jSONObject, com.baidu.j.a.a aVar) {
-        com.baidu.swan.apps.w.a.Up().b(context, jSONObject, aVar);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.swan.apps.component.a.d.a, com.baidu.swan.apps.component.b.a
+    public void a(@NonNull View view, @NonNull b bVar, @NonNull com.baidu.swan.apps.component.d.b bVar2) {
+        super.a((a) view, (View) bVar, bVar2);
     }
 
-    @Override // com.baidu.j.c.a
-    public void g(Context context, JSONObject jSONObject) {
-        if (jSONObject == null) {
-            com.baidu.j.a.s(3, "支付信息不能为空");
-            return;
-        }
-        String optString = jSONObject.optString("appKey");
-        String optString2 = jSONObject.optString("redirectUrl");
-        if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2)) {
-            com.baidu.j.a.s(3, "支付信息不能为空");
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.swan.apps.component.b.a
+    public void da(boolean z) {
+        super.da(z);
+        com.baidu.swan.apps.w.a.abO().registerActivityLifecycleCallbacks(this.dfw);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.swan.apps.component.b.a
+    public void onRemove() {
+        super.onRemove();
+        com.baidu.swan.apps.w.a.abO().unregisterActivityLifecycleCallbacks(this.dfw);
+    }
+
+    private LinearLayout.LayoutParams aFd() {
+        int i;
+        if (Sz() == 0 || ((b) Sz()).bGM == null) {
+            i = 200;
         } else {
-            SchemeRouter.invoke(context, aQg + optString + optString2);
+            i = ((b) Sz()).bGM.getWidth() / 2;
         }
+        return new LinearLayout.LayoutParams(i, -1);
     }
 
-    @Override // com.baidu.j.c.a
-    public boolean aT(Context context) {
-        return com.baidu.swan.apps.w.a.Up().aT(context);
-    }
-
-    @Override // com.baidu.j.c.a
-    public void eJ(String str) {
-        com.baidu.swan.apps.ae.a.Zx().appId = str;
-    }
-
-    @Override // com.baidu.j.c.a
-    public void i(Bundle bundle) {
-        String str = com.baidu.swan.apps.ae.a.Zx().appId;
-        if (TextUtils.isEmpty(str)) {
-            d.j(bundle);
-        } else {
-            com.baidu.swan.apps.process.messaging.a.aaO().a(new c(119, bundle).u(str).ds(true));
+    public void aFe() {
+        if (getView() != 0 && com.baidu.j.d.b.aFh().getPlayerView() != null && com.baidu.j.d.b.aFh().getPlayerView().getParent() == null) {
+            ((ViewGroup) getView()).addView(com.baidu.j.d.b.aFh().getPlayerView(), aFd());
         }
     }
 }

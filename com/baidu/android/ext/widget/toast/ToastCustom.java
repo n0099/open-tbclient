@@ -15,7 +15,6 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.android.common.ui.R;
 import com.baidu.android.ext.widget.toast.UniversalToast;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 /* loaded from: classes13.dex */
 public class ToastCustom {
     public static final int CLICKABLE_TOAST_SHOW_TIME = 3;
@@ -234,7 +233,7 @@ public class ToastCustom {
             });
             this.mHandler.removeCallbacks(this.mCancelRunnable);
             if (this.mIsDebug) {
-                Log.d(TAG, UgcUBCUtils.UGC_TIME_CANCEL);
+                Log.d(TAG, "cancel");
             }
         }
     }

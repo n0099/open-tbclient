@@ -9,21 +9,21 @@ import java.io.IOException;
 /* loaded from: classes12.dex */
 public class l extends z {
     public l(com.facebook.common.memory.g gVar) {
-        super(com.facebook.common.b.a.dkY(), gVar);
+        super(com.facebook.common.b.a.dmR(), gVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected com.facebook.imagepipeline.g.e h(ImageRequest imageRequest) throws IOException {
-        byte[] Pf = Pf(imageRequest.dsO().toString());
-        return e(new ByteArrayInputStream(Pf), Pf.length);
+    protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
+        byte[] Om = Om(imageRequest.duL().toString());
+        return e(new ByteArrayInputStream(Om), Om.length);
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dsf() {
+    protected String dud() {
         return "DataFetchProducer";
     }
 
-    static byte[] Pf(String str) {
+    static byte[] Om(String str) {
         com.facebook.common.internal.g.checkArgument(str.substring(0, 5).equals("data:"));
         int indexOf = str.indexOf(44);
         String substring = str.substring(indexOf + 1, str.length());

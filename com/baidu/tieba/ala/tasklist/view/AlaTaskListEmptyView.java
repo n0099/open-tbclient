@@ -9,9 +9,9 @@ import android.widget.TextView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaTaskListEmptyView extends LinearLayout {
-    private ImageView exN;
-    private TextView exO;
-    private TextView exP;
+    private ImageView fbU;
+    private TextView fbV;
+    private TextView fbW;
 
     public AlaTaskListEmptyView(Context context) {
         super(context);
@@ -31,26 +31,26 @@ public class AlaTaskListEmptyView extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_task_empty_view, this);
-        this.exN = (ImageView) findViewById(a.g.empty_image);
-        this.exO = (TextView) findViewById(a.g.empty_text);
-        this.exP = (TextView) findViewById(a.g.empty_sub_text);
+        this.fbU = (ImageView) findViewById(a.g.empty_image);
+        this.fbV = (TextView) findViewById(a.g.empty_text);
+        this.fbW = (TextView) findViewById(a.g.empty_sub_text);
     }
 
     public void setParams(int i, int i2, int i3) {
         if (i != -1) {
-            this.exN.setImageResource(i);
+            this.fbU.setImageResource(i);
         } else {
-            this.exN.setVisibility(8);
+            this.fbU.setVisibility(8);
         }
         if (i2 != -1) {
-            this.exO.setText(i2);
+            this.fbV.setText(i2);
         } else {
-            this.exO.setVisibility(8);
+            this.fbV.setVisibility(8);
         }
         if (i3 != -1) {
-            this.exP.setText(i3);
+            this.fbW.setText(i3);
         } else {
-            this.exP.setVisibility(8);
+            this.fbW.setVisibility(8);
         }
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaAdminListResponseMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.ala.live.personcenter.admin.b.a eLq;
+    private com.baidu.tieba.ala.live.personcenter.admin.b.a fpJ;
 
     public AlaAdminListResponseMessage() {
         super(1021078);
@@ -13,11 +13,11 @@ public class AlaAdminListResponseMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        this.eLq = new com.baidu.tieba.ala.live.personcenter.admin.b.a();
-        this.eLq.cC(jSONObject.optJSONObject("data"));
+        this.fpJ = new com.baidu.tieba.ala.live.personcenter.admin.b.a();
+        this.fpJ.cN(jSONObject.optJSONObject("data"));
     }
 
-    public com.baidu.tieba.ala.live.personcenter.admin.b.a bgC() {
-        return this.eLq;
+    public com.baidu.tieba.ala.live.personcenter.admin.b.a bpT() {
+        return this.fpJ;
     }
 }

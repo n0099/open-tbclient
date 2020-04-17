@@ -9,13 +9,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> hUO;
-    public int hUM = 0;
+    public ArrayList<ArrayList<String>> iEF;
+    public int iED = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String hUN = null;
-    boolean hUP = false;
-    public String hUQ = null;
+    public String iEE = null;
+    boolean iEG = false;
+    public String iEH = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -23,19 +23,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
-                    this.hUM = optJSONObject.optInt("errorno");
+                    this.iED = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.hUP = true;
+                    this.iEG = true;
                 } else {
-                    this.hUP = false;
+                    this.iEG = false;
                 }
-                this.hUQ = jSONObject.optString("cdn_domain");
+                this.iEH = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.hUN = optJSONObject2.optString("img_md5");
+                    this.iEE = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -58,7 +58,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.hUO = arrayList;
+                        this.iEF = arrayList;
                     }
                 }
             } catch (Exception e) {

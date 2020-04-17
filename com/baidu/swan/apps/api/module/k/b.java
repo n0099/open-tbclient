@@ -12,22 +12,22 @@ public class b extends com.baidu.swan.apps.api.a.c {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b Kd() {
+    public com.baidu.swan.apps.api.b.b RQ() {
         if (DEBUG) {
             Log.d("Api-BrightnessApi", "handle");
         }
-        e acJ = e.acJ();
-        if (acJ == null) {
+        e akO = e.akO();
+        if (akO == null) {
             return new com.baidu.swan.apps.api.b.b(1001, "SwanApp is null");
         }
-        SwanAppActivity acE = acJ.acE();
-        if (acE == null) {
+        SwanAppActivity akJ = akO.akJ();
+        if (akJ == null) {
             com.baidu.swan.apps.console.c.e("Api-BrightnessApi", "null activity");
             return new com.baidu.swan.apps.api.b.b(1001, "null activity");
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("value", com.baidu.swan.apps.ao.d.b.a.afQ().S(acE));
+            jSONObject.put("value", com.baidu.swan.apps.ao.d.b.a.anV().O(akJ));
             return new com.baidu.swan.apps.api.b.b(0, jSONObject);
         } catch (JSONException e) {
             e.printStackTrace();

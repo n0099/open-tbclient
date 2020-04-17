@@ -79,7 +79,7 @@ public class AlaScreenRecorder implements IVideoRecorder {
         }
 
         @Override // com.baidu.ala.recorder.video.IVideoRecorder.IVideoDataCallBack
-        public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j) {
+        public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j, long j2) {
         }
 
         @Override // com.baidu.ala.recorder.video.IVideoRecorder.IVideoDataCallBack

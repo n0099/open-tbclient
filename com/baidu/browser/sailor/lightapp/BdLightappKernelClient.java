@@ -204,7 +204,7 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
         Intent intent;
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str2, str3);
         bdLightappKernelJsCallback.setCallbackListener(this);
-        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.Ji)) {
+        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acm)) {
             bdLightappKernelJsCallback.sendCallBackWithRetCode(2);
             return;
         }
@@ -240,14 +240,14 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
         if (intent != null) {
             this.mJsCallbacks.put(7, bdLightappKernelJsCallback);
             intent.putExtra(JSACTION_KEY, 7);
-            startActivityForResultSafely(intent, CyberPlayerManager.MEDIA_INFO_RTMP_CONNECT_SERVER_FAIL);
+            startActivityForResultSafely(intent, 3002);
         }
     }
 
     public void cloudaLaunchGallery(String str, String str2, String str3) {
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str2, str3);
         bdLightappKernelJsCallback.setCallbackListener(this);
-        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.Ji)) {
+        if (!parseAbilityConfigArgs(str, bdLightappKernelJsCallback, BdLightappConstants.a.acm)) {
             bdLightappKernelJsCallback.sendCallBackWithRetCode(2);
             return;
         }
@@ -366,7 +366,7 @@ public abstract class BdLightappKernelClient implements INoProGuard, com.baidu.b
     public boolean onActivityResult(int i, int i2, Intent intent) {
         Uri data = intent != null ? intent.getData() : null;
         switch (i) {
-            case CyberPlayerManager.MEDIA_INFO_RTMP_CONNECT_SERVER_FAIL /* 3002 */:
+            case 3002:
             case CyberPlayerManager.MEDIA_INFO_RTMP_HANDSHAKE_FAIL /* 3003 */:
                 int i3 = i == 3002 ? 7 : 8;
                 unregLappActivityResultListener();

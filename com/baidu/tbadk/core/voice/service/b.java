@@ -15,95 +15,95 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private a dlA;
-    private m dlB;
-    private String dlC;
-    private String dlD;
-    private List<C0381b> dlE = new ArrayList();
+    private a dLu;
+    private m dLv;
+    private String dLw;
+    private String dLx;
+    private List<C0412b> dLy = new ArrayList();
     private x mNetwork;
 
     public b(String str, String str2) {
-        this.dlC = str;
-        this.dlD = str2;
+        this.dLw = str;
+        this.dLx = str2;
     }
 
-    public m uf(String str) {
+    public m vt(String str) {
         try {
             File file = new File(str);
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.dlC);
-            return m(str, file);
+            this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.dLw);
+            return l(str, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;
         }
     }
 
-    private m m(String str, File file) throws IOException {
+    private m l(String str, File file) throws IOException {
         String a2;
         String md5 = s.toMd5(com.baidu.tbadk.core.util.m.GetStreamFromFile(file));
         if (md5 != null && md5.length() > 0) {
             md5 = md5.toLowerCase();
         }
-        l tg = com.baidu.tbadk.core.util.c.tg(md5);
-        if (tg == null) {
-            tg = new l();
-            tg.setMd5(md5);
-            tg.setChunkNo(0);
-            tg.setTotalLength(file.length());
+        l ut = com.baidu.tbadk.core.util.c.ut(md5);
+        if (ut == null) {
+            ut = new l();
+            ut.setMd5(md5);
+            ut.setChunkNo(0);
+            ut.setTotalLength(file.length());
         }
-        this.dlA = new a(str, tg, TbConfig.SERVER_ADDRESS + this.dlC, md5);
-        this.dlB = this.dlA.aIS();
-        if (this.dlB.isSuccess() && (a2 = a(md5, tg)) != null && !a2.equals("")) {
+        this.dLu = new a(str, ut, TbConfig.SERVER_ADDRESS + this.dLw, md5);
+        this.dLv = this.dLu.aRp();
+        if (this.dLv.isSuccess() && (a2 = a(md5, ut)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                tg.setMd5(audioInfoData.getVoiceId());
-                this.dlB.b(tg);
+                ut.setMd5(audioInfoData.getVoiceId());
+                this.dLv.b(ut);
             } else {
-                this.dlB.setErrorCode(audioInfoData.getErrorCode());
-                this.dlB.setErrorString(audioInfoData.getErrorUserMsg());
-                this.dlB.setIsSuccess(false);
+                this.dLv.setErrorCode(audioInfoData.getErrorCode());
+                this.dLv.setErrorString(audioInfoData.getErrorUserMsg());
+                this.dLv.setIsSuccess(false);
             }
         }
-        return this.dlB;
+        return this.dLv;
     }
 
     private String a(String str, l lVar) {
-        this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.dlD);
+        this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.dLx);
         this.mNetwork.addPostData("voice_md5", lVar.getMd5());
-        if (v.getCount(this.dlE) != 0) {
-            for (C0381b c0381b : this.dlE) {
-                if (c0381b != null) {
-                    this.mNetwork.addPostData(c0381b.getKey(), c0381b.getValue());
+        if (v.getCount(this.dLy) != 0) {
+            for (C0412b c0412b : this.dLy) {
+                if (c0412b != null) {
+                    this.mNetwork.addPostData(c0412b.getKey(), c0412b.getValue());
                 }
             }
         }
         String postNetData = this.mNetwork.postNetData();
-        if (postNetData == null || !this.mNetwork.aGk().aGM().isRequestSuccess()) {
-            lVar.setChunkNo((int) bG(lVar.getTotalLength()));
+        if (postNetData == null || !this.mNetwork.aOy().aPa().isRequestSuccess()) {
+            lVar.setChunkNo((int) cn(lVar.getTotalLength()));
             com.baidu.tbadk.core.util.c.a(lVar);
-            this.dlB.setErrorCode(this.mNetwork.getServerErrorCode());
-            this.dlB.setErrorString(this.mNetwork.getErrorString());
-            this.dlB.setIsSuccess(false);
+            this.dLv.setErrorCode(this.mNetwork.getServerErrorCode());
+            this.dLv.setErrorString(this.mNetwork.getErrorString());
+            this.dLv.setIsSuccess(false);
             return null;
         }
-        com.baidu.tbadk.core.util.c.tf(str);
+        com.baidu.tbadk.core.util.c.us(str);
         return postNetData;
     }
 
-    private long bG(long j) {
+    private long cn(long j) {
         return j % 30720 == 0 ? j / 30720 : (j / 30720) + 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private boolean Vh = false;
-        private x cLQ;
-        private l dlF;
+        private x blF;
+        private boolean dLA = false;
+        private l dLz;
         private String mFileName;
         private String mUrl;
         private String mVoiceMd5;
@@ -111,19 +111,19 @@ public class b {
         public a(String str, l lVar, String str2, String str3) {
             this.mFileName = null;
             this.mUrl = null;
-            this.dlF = null;
+            this.dLz = null;
             this.mVoiceMd5 = null;
             this.mFileName = str;
-            this.dlF = lVar;
+            this.dLz = lVar;
             this.mUrl = str2;
             this.mVoiceMd5 = str3;
         }
 
-        public m aIS() throws IOException {
+        public m aRp() throws IOException {
             m mVar = new m();
-            long totalLength = this.dlF.getTotalLength();
+            long totalLength = this.dLz.getTotalLength();
             long j = totalLength % 30720 == 0 ? totalLength / 30720 : (totalLength / 30720) + 1;
-            int chunkNo = this.dlF.getChunkNo();
+            int chunkNo = this.dLz.getChunkNo();
             if (chunkNo < j) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");
                 if (randomAccessFile.skipBytes(chunkNo * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) >= chunkNo * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
@@ -137,28 +137,28 @@ public class b {
                             byte[] bArr = new byte[i2];
                             int read = randomAccessFile.read(bArr, 0, i2);
                             if (read != -1) {
-                                this.cLQ = new x(this.mUrl);
-                                this.cLQ.addPostData("voice_chunk", bArr);
-                                this.cLQ.addPostData("chunk_md5", this.dlF.getMd5());
-                                this.cLQ.addPostData("length", String.valueOf(read));
-                                this.cLQ.addPostData("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                                this.cLQ.addPostData("total_length", String.valueOf(totalLength));
-                                this.cLQ.addPostData("chunk_no", String.valueOf(i + 1));
-                                this.cLQ.addPostData("total_num", String.valueOf(j));
-                                this.cLQ.addPostData("voice_md5", this.mVoiceMd5);
+                                this.blF = new x(this.mUrl);
+                                this.blF.addPostData("voice_chunk", bArr);
+                                this.blF.addPostData("chunk_md5", this.dLz.getMd5());
+                                this.blF.addPostData("length", String.valueOf(read));
+                                this.blF.addPostData("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
+                                this.blF.addPostData("total_length", String.valueOf(totalLength));
+                                this.blF.addPostData("chunk_no", String.valueOf(i + 1));
+                                this.blF.addPostData("total_num", String.valueOf(j));
+                                this.blF.addPostData("voice_md5", this.mVoiceMd5);
                                 boolean z = false;
-                                if (this.Vh) {
+                                if (this.dLA) {
                                     z = true;
-                                } else if (this.cLQ.postMultiNetData() == null || !this.cLQ.aGk().aGM().isRequestSuccess()) {
-                                    this.dlF.setChunkNo(i);
-                                    com.baidu.tbadk.core.util.c.a(this.dlF);
+                                } else if (this.blF.postMultiNetData() == null || !this.blF.aOy().aPa().isRequestSuccess()) {
+                                    this.dLz.setChunkNo(i);
+                                    com.baidu.tbadk.core.util.c.a(this.dLz);
                                     randomAccessFile.close();
                                     z = true;
                                 }
                                 if (z) {
-                                    mVar.setErrorCode(this.cLQ.getServerErrorCode());
-                                    mVar.setErrorString(this.cLQ.getErrorString());
-                                    mVar.b(this.dlF);
+                                    mVar.setErrorCode(this.blF.getServerErrorCode());
+                                    mVar.setErrorString(this.blF.getErrorString());
+                                    mVar.b(this.dLz);
                                     mVar.setIsSuccess(false);
                                     return mVar;
                                 }
@@ -182,7 +182,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.core.voice.service.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0381b {
+    public class C0412b {
         private String key;
         private String value;
 
@@ -194,13 +194,13 @@ public class b {
             return this.key;
         }
 
-        public C0381b(String str, String str2) {
+        public C0412b(String str, String str2) {
             this.key = str;
             this.value = str2;
         }
     }
 
     public void addPostParam(String str, int i) {
-        this.dlE.add(new C0381b(str, String.valueOf(i)));
+        this.dLy.add(new C0412b(str, String.valueOf(i)));
     }
 }

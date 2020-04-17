@@ -3,7 +3,7 @@ package com.baidu.poly.a.a;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public abstract class d<K, V> {
-    private Map<K, V> map = com.baidu.poly.util.d.p();
+    private Map<K, V> map = com.baidu.poly.util.d.La();
 
     public void f(K k, V v) {
         this.map.put(k, v);
@@ -17,7 +17,7 @@ public abstract class d<K, V> {
         return this.map;
     }
 
-    public Map<K, V> nZ() {
+    public Map<K, V> su() {
         return this.map;
     }
 }

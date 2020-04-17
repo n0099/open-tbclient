@@ -3,52 +3,52 @@ package com.baidu.live.liveroom.e;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public class e {
-    private static volatile e awm = null;
-    private b awn;
-    private b awo;
-    private com.baidu.live.o.d awp;
+    private static volatile e aPP = null;
+    private b aPQ;
+    private b aPR;
+    private com.baidu.live.o.d aPS;
 
     private e() {
     }
 
-    public static e yL() {
-        if (awm == null) {
+    public static e DF() {
+        if (aPP == null) {
             synchronized (e.class) {
-                if (awm == null) {
-                    awm = new e();
+                if (aPP == null) {
+                    aPP = new e();
                 }
             }
         }
-        return awm;
+        return aPP;
     }
 
     public void a(b bVar) {
-        this.awn = bVar;
+        this.aPQ = bVar;
     }
 
     public void b(b bVar) {
-        this.awo = bVar;
+        this.aPR = bVar;
     }
 
-    public boolean yM() {
-        return this.awn != null;
+    public boolean DG() {
+        return this.aPQ != null;
     }
 
-    public a aG(Context context) {
-        if (this.awn != null) {
-            return this.awn.aF(context);
+    public a at(Context context) {
+        if (this.aPQ != null) {
+            return this.aPQ.as(context);
         }
         return null;
     }
 
-    public a aH(Context context) {
-        if (this.awo != null) {
-            return this.awo.aF(context);
+    public a au(Context context) {
+        if (this.aPR != null) {
+            return this.aPR.as(context);
         }
         return null;
     }
 
-    public com.baidu.live.o.d yN() {
-        return this.awp;
+    public com.baidu.live.o.d DH() {
+        return this.aPS;
     }
 }

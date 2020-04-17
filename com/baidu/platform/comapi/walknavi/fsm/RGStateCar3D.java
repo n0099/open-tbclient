@@ -1,6 +1,7 @@
 package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.graphics.Point;
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
@@ -46,7 +47,7 @@ public class RGStateCar3D extends RGState {
         MapStatus i = b.a().G().i();
         if (i != null) {
             MapStatus.Builder builder = new MapStatus.Builder(i);
-            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f992top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.f992top) * 0.2f)))));
+            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f999top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.f999top) * 0.2f)))));
             builder.rotate(b.a().D().d());
             if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
                 builder.overlook(-50.0f);
@@ -57,7 +58,7 @@ public class RGStateCar3D extends RGState {
                 builder.zoom(19.0f);
             }
             builder.target(e.a(e));
-            b.a().G().a(builder.build(), 1300);
+            b.a().G().a(builder.build(), FeatureCodes.VO);
         }
     }
 

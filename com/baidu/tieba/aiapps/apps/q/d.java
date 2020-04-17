@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.q;
 /* loaded from: classes7.dex */
 public class d {
-    private static volatile c egU;
+    private static volatile c eGK;
 
-    public static synchronized c bbw() {
+    public static synchronized c bjz() {
         c cVar;
         synchronized (d.class) {
-            if (egU == null) {
-                egU = new c();
+            if (eGK == null) {
+                eGK = new c();
             }
-            cVar = egU;
+            cVar = eGK;
         }
         return cVar;
     }

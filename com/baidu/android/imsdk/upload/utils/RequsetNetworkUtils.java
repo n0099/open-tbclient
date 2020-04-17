@@ -88,7 +88,7 @@ public class RequsetNetworkUtils {
             return str;
         } catch (Exception e) {
             String str2 = str;
-            Log.d(TAG, e.getMessage());
+            Log.d(TAG, "getMobileIp exception :" + e.getMessage());
             return str2;
         }
     }

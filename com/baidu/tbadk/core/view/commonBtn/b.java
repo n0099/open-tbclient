@@ -9,38 +9,38 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b extends a {
     public b() {
-        this.dka = R.color.cp_cont_a;
-        this.dkc = R.color.cp_link_tip_a;
+        this.dJT = R.color.cp_cont_a;
+        this.dJV = R.color.cp_link_tip_a;
     }
 
-    public void lu(@ColorRes int i) {
-        this.dkc = i;
-        this.dka = R.color.cp_cont_a;
-        this.dkl = true;
-        if (this.dkm != null) {
-            this.dkm.aIv();
+    public void lG(@ColorRes int i) {
+        this.dJV = i;
+        this.dJT = R.color.cp_cont_a;
+        this.dKe = true;
+        if (this.dKg != null) {
+            this.dKg.aQR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable ak(float f) {
-        return al(f);
+    public Drawable U(float f) {
+        return V(f);
     }
 
-    private Drawable al(float f) {
+    private Drawable V(float f) {
         GradientDrawable gradientDrawable;
-        if (!this.dkl) {
-            this.dka = am.getColor(R.color.cp_cont_a);
+        if (!this.dKe) {
+            this.dJT = am.getColor(R.color.cp_cont_a);
         }
-        int color = this.dkl ? am.getColor(this.dkc) : this.dkc;
-        int[] iArr = {com.baidu.tieba.tbadkCore.c.Cu(color), color};
+        int color = this.dKe ? am.getColor(this.dJV) : this.dJV;
+        int[] iArr = {com.baidu.tieba.tbadkCore.c.CY(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
-            gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
+            gradientDrawable.setOrientation(this.dKf);
             gradientDrawable.setColors(iArr);
         } else {
-            gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, iArr);
+            gradientDrawable = new GradientDrawable(this.dKf, iArr);
         }
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);

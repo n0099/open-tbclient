@@ -15,9 +15,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "closeGameWebView");
         }
-        a arr = a.arr();
-        if (arr != null) {
-            arr.close();
+        a azC = a.azC();
+        if (azC != null) {
+            azC.close();
         }
     }
 
@@ -26,9 +26,9 @@ public class GameWebViewJavascriptInterface {
         if (DEBUG) {
             Log.i(TAG, "onGameLoadingFinish");
         }
-        a arr = a.arr();
-        if (arr != null) {
-            arr.onGameLoadingFinish();
+        a azC = a.azC();
+        if (azC != null) {
+            azC.onGameLoadingFinish();
         }
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int Nj;
-    protected int khi;
-    protected int khj;
+    private int afT;
+    protected int kRn;
+    protected int kRo;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -21,10 +21,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Nj = 3;
-        this.khi = (int) context.getResources().getDimension(R.dimen.ds18);
-        this.khj = (int) context.getResources().getDimension(R.dimen.ds6);
-        setPadding(this.khi, this.khj, this.khi, this.khj);
+        this.afT = 3;
+        this.kRn = (int) context.getResources().getDimension(R.dimen.ds18);
+        this.kRo = (int) context.getResources().getDimension(R.dimen.ds6);
+        setPadding(this.kRn, this.kRo, this.kRn, this.kRo);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(R.dimen.ds24));
@@ -37,9 +37,9 @@ public class EditorInfoView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        if (i != this.Nj) {
+        if (i != this.afT) {
             am.setViewTextColor(this, (int) R.color.cp_cont_f);
-            this.Nj = i;
+            this.afT = i;
         }
     }
 }

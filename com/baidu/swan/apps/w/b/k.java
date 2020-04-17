@@ -7,9 +7,9 @@ public interface k {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void Vm();
+        void adb();
 
-        void Vn();
+        void adc();
     }
 
     void a(Context context, JSONObject jSONObject, a aVar);

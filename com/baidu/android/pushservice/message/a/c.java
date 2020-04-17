@@ -10,6 +10,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.data.Config;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class c extends b {
                     String d = c.d(context);
                     HashMap hashMap = new HashMap();
                     com.baidu.android.pushservice.d.b.a(hashMap);
-                    hashMap.put("device_type", "3");
+                    hashMap.put(HttpConstants.DEVICE_TYPE, "3");
                     hashMap.put("params", d);
                     int i = 0;
                     do {

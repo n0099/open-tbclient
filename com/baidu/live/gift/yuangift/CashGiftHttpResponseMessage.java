@@ -6,18 +6,18 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
-    public int adT;
-    public int adU;
-    public int adV;
-    public g apC;
-    public String apD;
-    public int apE;
+    public g aIj;
+    public String aIk;
+    public int aIl;
+    public int aIm;
+    public int aIn;
+    public int awk;
+    public int awl;
+    public int awm;
     public long dubi;
     public String iconId;
     public long nonMemberT;
-    public int photoHeight;
     public String photoUrl;
-    public int photoWidth;
     public int previewGiftId;
     public String productId;
 
@@ -33,8 +33,8 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("gift_info");
             if (optJSONObject3 != null) {
-                this.apC = new g();
-                this.apC.parseJson(optJSONObject3);
+                this.aIj = new g();
+                this.aIj.parseJson(optJSONObject3);
             }
             this.previewGiftId = optJSONObject.optInt("preview_gift_id");
             this.photoUrl = optJSONObject.optString("photo_url");
@@ -42,14 +42,14 @@ public class CashGiftHttpResponseMessage extends JsonHttpResponsedMessage {
             this.iconId = optJSONObject.optString("icon_id");
             this.nonMemberT = optJSONObject.optLong("non_member_t");
             this.dubi = optJSONObject.optLong("dubi");
-            this.photoWidth = optJSONObject.optInt("photo_width");
-            this.photoHeight = optJSONObject.optInt("photo_height");
-            this.apD = optJSONObject.optString("back_ground");
-            this.apE = optJSONObject.optInt("premium_user");
+            this.aIm = optJSONObject.optInt("photo_width");
+            this.aIl = optJSONObject.optInt("photo_height");
+            this.aIk = optJSONObject.optString("back_ground");
+            this.aIn = optJSONObject.optInt("premium_user");
             if (optJSONObject.has("cash_gift") && (optJSONObject2 = optJSONObject.optJSONObject("cash_gift")) != null) {
-                this.adT = optJSONObject2.optInt("show_times_daily");
-                this.adU = optJSONObject2.optInt("continue_show_times");
-                this.adV = optJSONObject2.optInt("condition");
+                this.awk = optJSONObject2.optInt("show_times_daily");
+                this.awl = optJSONObject2.optInt("continue_show_times");
+                this.awm = optJSONObject2.optInt("condition");
             }
         }
     }

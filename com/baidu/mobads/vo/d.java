@@ -17,7 +17,6 @@ import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +31,7 @@ public abstract class d implements IXAdRequestInfo {
     private int p;
     private int r;
     protected String c = "TODO";
-    private String a = PraiseDataPassUtil.KEY_FROM_OS;
+    private String a = "android";
     private String j = "";
     private int m = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
     private String n = "LP,DL";
@@ -145,7 +144,7 @@ public abstract class d implements IXAdRequestInfo {
             hashMap.put("sdc", systemUtils.getAppSDC() + Constants.ACCEPT_TIME_SEPARATOR_SP + systemUtils.getMem());
             hashMap.put("act", getAct());
             hashMap.put("prod", getProd());
-            hashMap.put("os", PraiseDataPassUtil.KEY_FROM_OS);
+            hashMap.put("os", "android");
             hashMap.put(IXAdRequestInfo.OSV, Build.VERSION.RELEASE);
             hashMap.put(IXAdRequestInfo.BDR, "" + Build.VERSION.SDK_INT);
             hashMap.put("apinfo", commonUtils.getBaiduMapsInfo(this.d));

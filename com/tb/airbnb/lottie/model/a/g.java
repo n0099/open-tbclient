@@ -22,7 +22,7 @@ public class g extends n<com.tb.airbnb.lottie.e.d, com.tb.airbnb.lottie.e.d> {
     }
 
     @Override // com.tb.airbnb.lottie.model.a.m
-    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.e.d, com.tb.airbnb.lottie.e.d> dHq() {
-        return new com.tb.airbnb.lottie.a.b.k(this.gG);
+    public com.tb.airbnb.lottie.a.b.a<com.tb.airbnb.lottie.e.d, com.tb.airbnb.lottie.e.d> dBs() {
+        return new com.tb.airbnb.lottie.a.b.k(this.Ci);
     }
 }

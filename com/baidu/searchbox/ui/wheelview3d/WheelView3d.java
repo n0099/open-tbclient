@@ -370,7 +370,7 @@ public class WheelView3d extends View {
                     if (cos <= this.firstLineY && this.maxTextHeight + cos >= this.firstLineY) {
                         canvas.save();
                         canvas.clipRect(0.0f, 0.0f, this.measuredWidth, this.firstLineY - cos);
-                        canvas.scale(1.0f, ((float) Math.sin(d)) * SCALE_CONTENT);
+                        canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
                         canvas.drawText(contentText, this.drawOutContentStart, this.maxTextHeight, this.paintOuterText);
                         canvas.restore();
                         canvas.save();
@@ -386,7 +386,7 @@ public class WheelView3d extends View {
                         canvas.restore();
                         canvas.save();
                         canvas.clipRect(0.0f, this.secondLineY - cos, this.measuredWidth, (int) this.itemHeight);
-                        canvas.scale(1.0f, ((float) Math.sin(d)) * SCALE_CONTENT);
+                        canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
                         canvas.drawText(contentText, this.drawOutContentStart, this.maxTextHeight, this.paintOuterText);
                         canvas.restore();
                     } else if (cos >= this.firstLineY && cos + this.maxTextHeight <= this.secondLineY) {
@@ -395,7 +395,7 @@ public class WheelView3d extends View {
                     } else {
                         canvas.save();
                         canvas.clipRect(0, 0, this.measuredWidth, (int) this.itemHeight);
-                        canvas.scale(1.0f, ((float) Math.sin(d)) * SCALE_CONTENT);
+                        canvas.scale(1.0f, ((float) Math.sin(d)) * 0.8f);
                         Paint paint = this.paintOuterText;
                         if (this.textXOffset == 0) {
                             i = 0;

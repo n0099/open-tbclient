@@ -30,19 +30,19 @@ public class d {
         return Build.MODEL;
     }
 
-    public static String aZp() {
+    public static String bht() {
         return Build.VERSION.RELEASE;
     }
 
-    public static Integer et(Context context) {
+    public static Integer ef(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
     }
 
-    public static Integer eu(Context context) {
+    public static Integer eg(Context context) {
         return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
     }
 
-    public static Integer ev(Context context) {
+    public static Integer eh(Context context) {
         int value;
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());

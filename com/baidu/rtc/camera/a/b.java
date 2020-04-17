@@ -1,11 +1,13 @@
 package com.baidu.rtc.camera.a;
+
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 /* loaded from: classes6.dex */
 public class b {
-    private static b aWs = new b();
-    public com.baidu.rtc.camera.b.a aWt;
+    private static b buN = new b();
+    public com.baidu.rtc.camera.b.a buO;
     public int encodeWidth = 270;
     public int encodeHeight = 480;
-    public int encodeBitrate = 600000;
+    public int encodeBitrate = UnitedSchemeMainDispatcher.SCHEME_TIME_LIMIT;
     public int H264GOP = 2;
     public int H264FPS = 15;
     public boolean isLandscape = false;
@@ -13,7 +15,7 @@ public class b {
     private b() {
     }
 
-    public static b Fq() {
-        return aWs;
+    public static b Nc() {
+        return buN;
     }
 }

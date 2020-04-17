@@ -11,8 +11,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 final class a {
-    private final Executor cS = new ExecutorC0006a();
-    private static final a cR = new a();
+    private final Executor yN = new ExecutorC0006a();
+    private static final a yM = new a();
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     static final int CORE_POOL_SIZE = CPU_COUNT + 1;
     static final int MAX_POOL_SIZE = (CPU_COUNT * 2) + 1;
@@ -20,7 +20,7 @@ final class a {
     private a() {
     }
 
-    public static ExecutorService aL() {
+    public static ExecutorService gi() {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         a(threadPoolExecutor, true);
         return threadPoolExecutor;
@@ -33,8 +33,8 @@ final class a {
         }
     }
 
-    public static Executor aM() {
-        return cR.cS;
+    public static Executor gj() {
+        return yM.yN;
     }
 
     /* renamed from: bolts.a$a  reason: collision with other inner class name */

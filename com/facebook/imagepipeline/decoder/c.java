@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes12.dex */
 public class c {
-    private final Map<com.facebook.c.c, b> lVv;
-    private final List<c.a> lVw;
+    private final Map<com.facebook.c.c, b> mdg;
+    private final List<c.a> mdh;
 
-    public Map<com.facebook.c.c, b> dqH() {
-        return this.lVv;
+    public Map<com.facebook.c.c, b> dsF() {
+        return this.mdg;
     }
 
-    public List<c.a> dqI() {
-        return this.lVw;
+    public List<c.a> dsG() {
+        return this.mdh;
     }
 }

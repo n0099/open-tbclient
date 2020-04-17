@@ -2,7 +2,6 @@ package okio;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
-import com.google.android.exoplayer2.Format;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -211,7 +210,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
     }
 
     public Buffer readFrom(InputStream inputStream) throws IOException {
-        readFrom(inputStream, Format.OFFSET_SAMPLE_RELATIVE, true);
+        readFrom(inputStream, Long.MAX_VALUE, true);
         return this;
     }
 
@@ -660,18 +659,15 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
 
     @Override // okio.BufferedSource
     public String readUtf8LineStrict() throws EOFException {
-        return readUtf8LineStrict(Format.OFFSET_SAMPLE_RELATIVE);
+        return readUtf8LineStrict(Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
     public String readUtf8LineStrict(long j) throws EOFException {
-        long j2 = Format.OFFSET_SAMPLE_RELATIVE;
         if (j < 0) {
             throw new IllegalArgumentException("limit < 0: " + j);
         }
-        if (j != Format.OFFSET_SAMPLE_RELATIVE) {
-            j2 = j + 1;
-        }
+        long j2 = j != Long.MAX_VALUE ? j + 1 : Long.MAX_VALUE;
         long indexOf = indexOf((byte) 10, 0L, j2);
         if (indexOf != -1) {
             return readUtf8Line(indexOf);
@@ -1319,12 +1315,12 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
 
     @Override // okio.BufferedSource
     public long indexOf(byte b) {
-        return indexOf(b, 0L, Format.OFFSET_SAMPLE_RELATIVE);
+        return indexOf(b, 0L, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
     public long indexOf(byte b, long j) {
-        return indexOf(b, j, Format.OFFSET_SAMPLE_RELATIVE);
+        return indexOf(b, j, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource

@@ -22,7 +22,7 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int jep;
+    private int jOw;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -31,7 +31,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jep = 3;
+        this.jOw = 3;
         setOrientation(0);
     }
 
@@ -40,10 +40,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.jep) {
+        if (childCount > this.jOw) {
             while (true) {
                 childCount--;
-                if (childCount <= this.jep) {
+                if (childCount <= this.jOw) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -96,7 +96,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             int dimens = l.getDimens(context, R.dimen.tbds22);
             layoutParams.rightMargin = dimens;
             textView.setTag(aVar);
-            textView.setText(com.baidu.tbadk.plugins.b.vL(aVar.getTopicName()));
+            textView.setText(com.baidu.tbadk.plugins.b.xa(aVar.getTopicName()));
             addView(textView, layoutParams);
             textView.setTextSize(0, l.getDimens(context, R.dimen.tbds33));
             textView.setGravity(17);
@@ -112,13 +112,13 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.jep = i;
+        this.jOw = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof bb.a) {
-            TiebaStatic.log(new an(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).cx("obj_locate", "pb_bottom"));
+            TiebaStatic.log(new an(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).cI("obj_locate", "pb_bottom"));
             bb.a aVar = (bb.a) view.getTag();
             if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.getTopicId() + "", aVar.getTopicName(), "2")));

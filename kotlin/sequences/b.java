@@ -8,13 +8,13 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> nEZ;
-    private final kotlin.jvm.a.b<T, T> nFa;
+    private final kotlin.jvm.a.a<T> mYy;
+    private final kotlin.jvm.a.b<T, T> mYz;
 
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements Iterator<T> {
-        private int nEX = -2;
+        private int mYw = -2;
         private T nextItem;
 
         @Override // java.util.Iterator
@@ -26,44 +26,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void dLp() {
+        private final void dEo() {
             T t;
-            if (this.nEX == -2) {
-                t = (T) b.this.nEZ.invoke();
+            if (this.mYw == -2) {
+                t = (T) b.this.mYy.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.nFa;
+                kotlin.jvm.a.b bVar = b.this.mYz;
                 T t2 = this.nextItem;
                 if (t2 == null) {
-                    q.dKW();
+                    q.dDV();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.nextItem = t;
-            this.nEX = this.nextItem == null ? 0 : 1;
+            this.mYw = this.nextItem == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.nEX < 0) {
-                dLp();
+            if (this.mYw < 0) {
+                dEo();
             }
-            if (this.nEX == 0) {
+            if (this.mYw == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.nextItem;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.nEX = -1;
+            this.mYw = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.nEX < 0) {
-                dLp();
+            if (this.mYw < 0) {
+                dEo();
             }
-            return this.nEX == 1;
+            return this.mYw == 1;
         }
     }
 
@@ -73,8 +73,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         q.j(aVar, "getInitialValue");
         q.j(bVar, "getNextValue");
-        this.nEZ = aVar;
-        this.nFa = bVar;
+        this.mYy = aVar;
+        this.mYz = bVar;
     }
 
     @Override // kotlin.sequences.c

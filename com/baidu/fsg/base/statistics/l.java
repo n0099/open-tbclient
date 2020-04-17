@@ -52,10 +52,10 @@ public class l {
         if ((!str.equals(b.o) || !f.a().c()) && (appContext = RimStatisticsUtil.getAppContext()) != null && com.baidu.fsg.base.statistics.a.a(appContext)) {
             JSONArray jSONArray = null;
             h[] b = i.a(RimStatisticsUtil.getAppContext()).b();
-            String str2 = "array";
+            String str2 = b.j;
             if (b.p.equalsIgnoreCase(str)) {
                 jSONArray = a(b);
-                str2 = "array";
+                str2 = b.j;
             } else if (b.o.equalsIgnoreCase(str)) {
                 p pVar = new p(RimStatisticsUtil.getAppContext(), a(f.a().d(), b.k));
                 pVar.setResponseCallback(new n(this, str));

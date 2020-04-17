@@ -31,7 +31,7 @@ public final class CSTVWifiReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         q.j(context, "context");
         q.j(intent, "intent");
-        if (q.h("android.net.conn.CONNECTIVITY_CHANGE", intent.getAction())) {
+        if (q.k("android.net.conn.CONNECTIVITY_CHANGE", intent.getAction())) {
             Object systemService = context.getSystemService("connectivity");
             if (systemService == null) {
                 throw new TypeCastException("null cannot be cast to non-null type android.net.ConnectivityManager");
@@ -39,16 +39,16 @@ public final class CSTVWifiReceiver extends BroadcastReceiver {
             ConnectivityManager connectivityManager = (ConnectivityManager) systemService;
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
             NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-            boolean z = b.dCl().a;
-            boolean z2 = b.dCl().b;
+            boolean z = b.dwD().a;
+            boolean z2 = b.dwD().b;
             if (networkInfo != null) {
-                b.dCl().a = q.h(networkInfo.getState(), NetworkInfo.State.CONNECTED);
+                b.dwD().a = q.k(networkInfo.getState(), NetworkInfo.State.CONNECTED);
             }
             if (networkInfo2 != null) {
-                b.dCl().b = q.h(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
+                b.dwD().b = q.k(networkInfo2.getState(), NetworkInfo.State.CONNECTED);
             }
-            com.kascend.cstvsdk.utils.a.nmk.a(b.dCl().b ? 1 : 2);
-            if (z != b.dCl().a || z2 != b.dCl().b) {
+            com.kascend.cstvsdk.utils.a.mIU.a(b.dwD().b ? 1 : 2);
+            if (z != b.dwD().a || z2 != b.dwD().b) {
                 tv.chushou.zues.a.a.post(new j(1));
             }
         }

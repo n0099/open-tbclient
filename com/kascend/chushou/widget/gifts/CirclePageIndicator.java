@@ -21,9 +21,9 @@ public class CirclePageIndicator extends View implements e {
     private int k;
     private boolean l;
     private boolean m;
+    private ViewPager mHl;
+    private ViewPager.OnPageChangeListener mHm;
     private int n;
-    private ViewPager nkE;
-    private ViewPager.OnPageChangeListener nkF;
     private float o;
     private int p;
     private boolean q;
@@ -109,7 +109,7 @@ public class CirclePageIndicator extends View implements e {
         float f;
         float f2;
         super.onDraw(canvas);
-        if (this.nkE != null && (count = this.nkE.getAdapter().getCount()) != 0) {
+        if (this.mHl != null && (count = this.mHl.getAdapter().getCount()) != 0) {
             if (this.g >= count) {
                 setCurrentItem(count - 1);
                 return;
@@ -170,7 +170,7 @@ public class CirclePageIndicator extends View implements e {
         if (super.onTouchEvent(motionEvent)) {
             return true;
         }
-        if (this.nkE == null || this.nkE.getAdapter().getCount() == 0) {
+        if (this.mHl == null || this.mHl.getAdapter().getCount() == 0) {
             return false;
         }
         int action = motionEvent.getAction() & 255;
@@ -182,19 +182,19 @@ public class CirclePageIndicator extends View implements e {
             case 1:
             case 3:
                 if (!this.q) {
-                    int count = this.nkE.getAdapter().getCount();
+                    int count = this.mHl.getAdapter().getCount();
                     int width = getWidth();
                     float f = width / 2.0f;
                     float f2 = width / 6.0f;
                     if (this.g > 0 && motionEvent.getX() < f - f2) {
                         if (action != 3) {
-                            this.nkE.setCurrentItem(this.g - 1);
+                            this.mHl.setCurrentItem(this.g - 1);
                             return true;
                         }
                         return true;
                     } else if (this.g < count - 1 && motionEvent.getX() > f2 + f) {
                         if (action != 3) {
-                            this.nkE.setCurrentItem(this.g + 1);
+                            this.mHl.setCurrentItem(this.g + 1);
                             return true;
                         }
                         return true;
@@ -202,8 +202,8 @@ public class CirclePageIndicator extends View implements e {
                 }
                 this.q = false;
                 this.p = -1;
-                if (this.nkE.isFakeDragging()) {
-                    this.nkE.endFakeDrag();
+                if (this.mHl.isFakeDragging()) {
+                    this.mHl.endFakeDrag();
                     return true;
                 }
                 return true;
@@ -215,8 +215,8 @@ public class CirclePageIndicator extends View implements e {
                 }
                 if (this.q) {
                     this.o = x;
-                    if (this.nkE.isFakeDragging() || this.nkE.beginFakeDrag()) {
-                        this.nkE.fakeDragBy(f3);
+                    if (this.mHl.isFakeDragging() || this.mHl.beginFakeDrag()) {
+                        this.mHl.fakeDragBy(f3);
                         return true;
                     }
                     return true;
@@ -241,24 +241,24 @@ public class CirclePageIndicator extends View implements e {
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.nkE != viewPager) {
-            if (this.nkE != null) {
-                this.nkE.setOnPageChangeListener(null);
+        if (this.mHl != viewPager) {
+            if (this.mHl != null) {
+                this.mHl.setOnPageChangeListener(null);
             }
             if (viewPager.getAdapter() == null) {
                 throw new IllegalStateException("ViewPager does not have adapter instance.");
             }
-            this.nkE = viewPager;
-            this.nkE.setOnPageChangeListener(this);
+            this.mHl = viewPager;
+            this.mHl.setOnPageChangeListener(this);
             invalidate();
         }
     }
 
     public void setCurrentItem(int i) {
-        if (this.nkE == null) {
+        if (this.mHl == null) {
             throw new IllegalStateException("ViewPager has not been bound.");
         }
-        this.nkE.setCurrentItem(i);
+        this.mHl.setCurrentItem(i);
         this.g = i;
         invalidate();
     }
@@ -266,8 +266,8 @@ public class CirclePageIndicator extends View implements e {
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         this.j = i;
-        if (this.nkF != null) {
-            this.nkF.onPageScrollStateChanged(i);
+        if (this.mHm != null) {
+            this.mHm.onPageScrollStateChanged(i);
         }
     }
 
@@ -276,8 +276,8 @@ public class CirclePageIndicator extends View implements e {
         this.g = i;
         this.i = f;
         invalidate();
-        if (this.nkF != null) {
-            this.nkF.onPageScrolled(i, f, i2);
+        if (this.mHm != null) {
+            this.mHm.onPageScrolled(i, f, i2);
         }
     }
 
@@ -288,13 +288,13 @@ public class CirclePageIndicator extends View implements e {
             this.h = i;
             invalidate();
         }
-        if (this.nkF != null) {
-            this.nkF.onPageSelected(i);
+        if (this.mHm != null) {
+            this.mHm.onPageSelected(i);
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.nkF = onPageChangeListener;
+        this.mHm = onPageChangeListener;
     }
 
     @Override // android.view.View
@@ -309,10 +309,10 @@ public class CirclePageIndicator extends View implements e {
     private int a(int i) {
         int mode = View.MeasureSpec.getMode(i);
         int size = View.MeasureSpec.getSize(i);
-        if (mode == 1073741824 || this.nkE == null) {
+        if (mode == 1073741824 || this.mHl == null) {
             return size;
         }
-        int count = this.nkE.getAdapter().getCount();
+        int count = this.mHl.getAdapter().getCount();
         int paddingLeft = (int) (((((count - 1) * this.a) * 8.0f) / 3.0f) + getPaddingLeft() + getPaddingRight() + (count * 2 * this.a) + 1.0f);
         if (mode == Integer.MIN_VALUE) {
             return Math.min(paddingLeft, size);
@@ -352,14 +352,14 @@ public class CirclePageIndicator extends View implements e {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.kascend.chushou.widget.gifts.CirclePageIndicator.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: aU */
+            /* renamed from: al */
             public SavedState createFromParcel(Parcel parcel) {
                 return new SavedState(parcel);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
-            /* renamed from: Nm */
+            /* renamed from: IG */
             public SavedState[] newArray(int i) {
                 return new SavedState[i];
             }

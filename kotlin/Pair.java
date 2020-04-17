@@ -36,7 +36,7 @@ public final class Pair<A, B> implements Serializable {
         if (this != obj) {
             if (obj instanceof Pair) {
                 Pair pair = (Pair) obj;
-                if (!q.h(this.first, pair.first) || !q.h(this.second, pair.second)) {
+                if (!q.k(this.first, pair.first) || !q.k(this.second, pair.second)) {
                 }
             }
             return false;

@@ -10,10 +10,10 @@ public class at {
     }
 
     private static AbstractPushManager b(Context context, f fVar) {
-        m.a m105a = m.m105a(fVar);
-        if (m105a == null || TextUtils.isEmpty(m105a.a) || TextUtils.isEmpty(m105a.b)) {
+        m.a m110a = m.m110a(fVar);
+        if (m110a == null || TextUtils.isEmpty(m110a.a) || TextUtils.isEmpty(m110a.b)) {
             return null;
         }
-        return (AbstractPushManager) com.xiaomi.push.at.a(m105a.a, m105a.b, context);
+        return (AbstractPushManager) com.xiaomi.push.at.a(m110a.a, m110a.b, context);
     }
 }

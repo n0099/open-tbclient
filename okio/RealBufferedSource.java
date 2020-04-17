@@ -1,6 +1,5 @@
 package okio;
 
-import com.google.android.exoplayer2.Format;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -241,7 +240,7 @@ public final class RealBufferedSource implements BufferedSource {
 
     @Override // okio.BufferedSource
     public String readUtf8LineStrict() throws IOException {
-        return readUtf8LineStrict(Format.OFFSET_SAMPLE_RELATIVE);
+        return readUtf8LineStrict(Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
@@ -249,12 +248,12 @@ public final class RealBufferedSource implements BufferedSource {
         if (j < 0) {
             throw new IllegalArgumentException("limit < 0: " + j);
         }
-        long j2 = j == Format.OFFSET_SAMPLE_RELATIVE ? Format.OFFSET_SAMPLE_RELATIVE : j + 1;
+        long j2 = j == Long.MAX_VALUE ? Long.MAX_VALUE : j + 1;
         long indexOf = indexOf((byte) 10, 0L, j2);
         if (indexOf != -1) {
             return this.buffer.readUtf8Line(indexOf);
         }
-        if (j2 < Format.OFFSET_SAMPLE_RELATIVE && request(j2) && this.buffer.getByte(j2 - 1) == 13 && request(1 + j2) && this.buffer.getByte(j2) == 10) {
+        if (j2 < Long.MAX_VALUE && request(j2) && this.buffer.getByte(j2 - 1) == 13 && request(1 + j2) && this.buffer.getByte(j2) == 10) {
             return this.buffer.readUtf8Line(j2);
         }
         Buffer buffer = new Buffer();
@@ -359,12 +358,12 @@ public final class RealBufferedSource implements BufferedSource {
 
     @Override // okio.BufferedSource
     public long indexOf(byte b) throws IOException {
-        return indexOf(b, 0L, Format.OFFSET_SAMPLE_RELATIVE);
+        return indexOf(b, 0L, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource
     public long indexOf(byte b, long j) throws IOException {
-        return indexOf(b, j, Format.OFFSET_SAMPLE_RELATIVE);
+        return indexOf(b, j, Long.MAX_VALUE);
     }
 
     @Override // okio.BufferedSource

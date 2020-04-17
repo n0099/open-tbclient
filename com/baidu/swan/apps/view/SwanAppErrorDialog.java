@@ -20,7 +20,7 @@ public class SwanAppErrorDialog extends BaseActivityDialog {
         this.mMessage.setGravity(17);
     }
 
-    public static BaseActivityDialog.a ahB() {
+    public static BaseActivityDialog.a apJ() {
         return new BaseActivityDialog.a(SwanAppErrorDialog.class);
     }
 }

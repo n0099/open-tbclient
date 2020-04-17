@@ -29,19 +29,19 @@ public class VideoPasterRequestData extends HttpMessage {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
         addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam("pid", aVar.kS());
+        addParam("pid", aVar.pw());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.kH()));
+        addParam("flr", String.valueOf(aVar.pl()));
         addParam("sw", String.valueOf(aVar.width()));
         addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.kH()));
-        addParam("ft", aVar.kF());
+        addParam("fc", String.valueOf(aVar.pl()));
+        addParam("ft", aVar.pj());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
@@ -49,10 +49,10 @@ public class VideoPasterRequestData extends HttpMessage {
         if (aVar == null) {
             return null;
         }
-        if (aVar == null || aVar.kI() != null) {
-            if (aVar == null || !aVar.kI().isEmpty()) {
+        if (aVar == null || aVar.pm() != null) {
+            if (aVar == null || !aVar.pm().isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, String> entry : aVar.kI().entrySet()) {
+                for (Map.Entry<String, String> entry : aVar.pm().entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }
                 return jSONArray.toString();

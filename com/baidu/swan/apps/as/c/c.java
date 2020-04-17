@@ -5,54 +5,54 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes11.dex */
 public class c implements b {
-    private final Queue<a> bZk = new ArrayDeque();
-    private a bZl;
+    private final Queue<a> cyd = new ArrayDeque();
+    private a cye;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.bZk) {
-                this.bZk.offer(aVar.a(this));
+            synchronized (this.cyd) {
+                this.cyd.offer(aVar.a(this));
             }
         }
-        ahr();
+        apz();
     }
 
     @Override // com.baidu.swan.apps.as.c.b
     public void a(a aVar) {
-        synchronized (this.bZk) {
-            if (aVar == this.bZl) {
+        synchronized (this.cyd) {
+            if (aVar == this.cye) {
                 runNextTask();
             }
         }
     }
 
-    private void ahr() {
-        synchronized (this.bZk) {
-            if (this.bZl == null) {
+    private void apz() {
+        synchronized (this.cyd) {
+            if (this.cye == null) {
                 runNextTask();
             }
         }
     }
 
     private void runNextTask() {
-        synchronized (this.bZk) {
-            this.bZl = null;
-            if (!this.bZk.isEmpty()) {
-                this.bZl = this.bZk.poll();
-                if (this.bZl == null) {
+        synchronized (this.cyd) {
+            this.cye = null;
+            if (!this.cyd.isEmpty()) {
+                this.cye = this.cyd.poll();
+                if (this.cye == null) {
                     runNextTask();
                 } else {
-                    ai.l(this.bZl);
+                    ai.o(this.cye);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.bZl != null) {
-            this.bZl.finish();
-            this.bZl = null;
+        if (this.cye != null) {
+            this.cye.finish();
+            this.cye = null;
         }
-        this.bZk.clear();
+        this.cyd.clear();
     }
 }

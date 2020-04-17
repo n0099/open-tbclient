@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class i {
-    private static List<WeakReference<h>> bzS = new ArrayList();
+    private static List<WeakReference<h>> bXY = new ArrayList();
 
     public static void a(h hVar) {
         boolean z;
         if (hVar != null) {
-            int size = bzS.size() - 1;
+            int size = bXY.size() - 1;
             boolean z2 = false;
             while (size >= 0) {
-                h hVar2 = bzS.get(size).get();
+                h hVar2 = bXY.get(size).get();
                 if (hVar2 == null) {
-                    bzS.remove(size);
+                    bXY.remove(size);
                     z = z2;
                 } else {
                     z = hVar2 == hVar;
@@ -24,27 +24,27 @@ public class i {
                 z2 = z;
             }
             if (!z2) {
-                bzS.add(new WeakReference<>(hVar));
+                bXY.add(new WeakReference<>(hVar));
             }
         }
     }
 
     public static void b(h hVar) {
         if (hVar != null) {
-            for (int size = bzS.size() - 1; size >= 0; size--) {
-                h hVar2 = bzS.get(size).get();
+            for (int size = bXY.size() - 1; size >= 0; size--) {
+                h hVar2 = bXY.get(size).get();
                 if (hVar2 == null || hVar == hVar2) {
-                    bzS.remove(size);
+                    bXY.remove(size);
                 }
             }
         }
     }
 
     public static void a(com.baidu.swan.apps.adaptation.b.e eVar) {
-        for (int size = bzS.size() - 1; size >= 0; size--) {
-            h hVar = bzS.get(size).get();
+        for (int size = bXY.size() - 1; size >= 0; size--) {
+            h hVar = bXY.get(size).get();
             if (hVar == null) {
-                bzS.remove(size);
+                bXY.remove(size);
             } else {
                 hVar.a(eVar);
             }
@@ -52,10 +52,10 @@ public class i {
     }
 
     public static void b(com.baidu.swan.apps.adaptation.b.e eVar) {
-        for (int size = bzS.size() - 1; size >= 0; size--) {
-            h hVar = bzS.get(size).get();
+        for (int size = bXY.size() - 1; size >= 0; size--) {
+            h hVar = bXY.get(size).get();
             if (hVar == null) {
-                bzS.remove(size);
+                bXY.remove(size);
             } else {
                 hVar.b(eVar);
             }
@@ -63,10 +63,10 @@ public class i {
     }
 
     public static void c(com.baidu.swan.apps.adaptation.b.e eVar) {
-        for (int size = bzS.size() - 1; size >= 0; size--) {
-            h hVar = bzS.get(size).get();
+        for (int size = bXY.size() - 1; size >= 0; size--) {
+            h hVar = bXY.get(size).get();
             if (hVar == null) {
-                bzS.remove(size);
+                bXY.remove(size);
             } else {
                 hVar.c(eVar);
             }
@@ -74,10 +74,10 @@ public class i {
     }
 
     public static void d(com.baidu.swan.apps.adaptation.b.e eVar) {
-        for (int size = bzS.size() - 1; size >= 0; size--) {
-            h hVar = bzS.get(size).get();
+        for (int size = bXY.size() - 1; size >= 0; size--) {
+            h hVar = bXY.get(size).get();
             if (hVar == null) {
-                bzS.remove(size);
+                bXY.remove(size);
             } else {
                 hVar.d(eVar);
             }

@@ -20,11 +20,11 @@ public abstract class h extends b<com.baidu.tbadk.core.data.a> {
         this.topMargin = i;
     }
 
-    public int na() {
+    public int rs() {
         return this.bottomMargin;
     }
 
-    public void aN(int i) {
+    public void aZ(int i) {
         this.bottomMargin = i;
     }
 }

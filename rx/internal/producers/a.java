@@ -1,19 +1,18 @@
 package rx.internal.producers;
 
-import com.google.android.exoplayer2.Format;
 import rx.f;
 /* loaded from: classes6.dex */
 public final class a implements f {
-    static final f nTh = new f() { // from class: rx.internal.producers.a.1
+    static final f nmO = new f() { // from class: rx.internal.producers.a.1
         @Override // rx.f
         public void request(long j) {
         }
     };
     boolean emitting;
-    f nTd;
-    long nTe;
-    long nTf;
-    f nTg;
+    f nmK;
+    long nmL;
+    long nmM;
+    f nmN;
     long requested;
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -25,16 +24,16 @@ public final class a implements f {
         if (j != 0) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.nTe += j;
+                    this.nmL += j;
                 } else {
                     this.emitting = true;
                     try {
                         long j2 = this.requested + j;
                         if (j2 < 0) {
-                            j2 = Format.OFFSET_SAMPLE_RELATIVE;
+                            j2 = Long.MAX_VALUE;
                         }
                         this.requested = j2;
-                        f fVar = this.nTd;
+                        f fVar = this.nmK;
                         if (fVar != null) {
                             fVar.request(j);
                         }
@@ -57,13 +56,13 @@ public final class a implements f {
         }
         synchronized (this) {
             if (this.emitting) {
-                this.nTf += j;
+                this.nmM += j;
                 return;
             }
             this.emitting = true;
             try {
                 long j2 = this.requested;
-                if (j2 != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j2 != Long.MAX_VALUE) {
                     long j3 = j2 - j;
                     if (j3 < 0) {
                         throw new IllegalStateException("more items arrived than were requested");
@@ -85,14 +84,14 @@ public final class a implements f {
         synchronized (this) {
             if (this.emitting) {
                 if (fVar == null) {
-                    fVar = nTh;
+                    fVar = nmO;
                 }
-                this.nTg = fVar;
+                this.nmN = fVar;
                 return;
             }
             this.emitting = true;
             try {
-                this.nTd = fVar;
+                this.nmK = fVar;
                 if (fVar != null) {
                     fVar.request(this.requested);
                 }
@@ -109,21 +108,21 @@ public final class a implements f {
     public void emitLoop() {
         while (true) {
             synchronized (this) {
-                long j = this.nTe;
-                long j2 = this.nTf;
-                f fVar = this.nTg;
+                long j = this.nmL;
+                long j2 = this.nmM;
+                f fVar = this.nmN;
                 if (j == 0 && j2 == 0 && fVar == null) {
                     this.emitting = false;
                     return;
                 }
-                this.nTe = 0L;
-                this.nTf = 0L;
-                this.nTg = null;
+                this.nmL = 0L;
+                this.nmM = 0L;
+                this.nmN = null;
                 long j3 = this.requested;
-                if (j3 != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j3 != Long.MAX_VALUE) {
                     long j4 = j3 + j;
-                    if (j4 < 0 || j4 == Format.OFFSET_SAMPLE_RELATIVE) {
-                        this.requested = Format.OFFSET_SAMPLE_RELATIVE;
+                    if (j4 < 0 || j4 == Long.MAX_VALUE) {
+                        this.requested = Long.MAX_VALUE;
                         j3 = Long.MAX_VALUE;
                     } else {
                         j3 = j4 - j2;
@@ -134,14 +133,14 @@ public final class a implements f {
                     }
                 }
                 if (fVar != null) {
-                    if (fVar == nTh) {
-                        this.nTd = null;
+                    if (fVar == nmO) {
+                        this.nmK = null;
                     } else {
-                        this.nTd = fVar;
+                        this.nmK = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.nTd;
+                    f fVar2 = this.nmK;
                     if (fVar2 != null && j != 0) {
                         fVar2.request(j);
                     }

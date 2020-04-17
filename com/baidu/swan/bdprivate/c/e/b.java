@@ -14,14 +14,14 @@ import java.util.Arrays;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] cdr = {"BLA-AL00", "R7Plus"};
+    private static final String[] cCq = {"BLA-AL00", "R7Plus"};
 
     /* loaded from: classes11.dex */
     public interface a {
         void onResult(boolean z);
     }
 
-    public static boolean cM(Context context) {
+    public static boolean cA(Context context) {
         if (Build.VERSION.SDK_INT >= 19) {
             return NotificationManagerCompat.from(context).areNotificationsEnabled();
         }
@@ -37,10 +37,10 @@ public class b {
             DialogInterface.OnClickListener a2 = a(aVar);
             g.a aVar2 = new g.a(context);
             aVar2.a(new com.baidu.swan.apps.view.c.a());
-            g Pf = aVar2.Pf();
-            aVar2.eD(b.g.swan_app_guide_notify_title).kI(context.getString(b.g.swan_app_guide_notify_msg)).acp().dF(com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState()).c(b.g.swan_app_guide_positive_btn, a2).d(b.g.swan_app_guide_negative_btn, a2).aco();
-            Pf.setCancelable(false);
-            Pf.show();
+            g WU = aVar2.WU();
+            aVar2.eI(b.g.swan_app_guide_notify_title).lV(context.getString(b.g.swan_app_guide_notify_msg)).aku().eB(com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState()).c(b.g.swan_app_guide_positive_btn, a2).d(b.g.swan_app_guide_negative_btn, a2).akt();
+            WU.setCancelable(false);
+            WU.show();
         }
     }
 
@@ -55,8 +55,8 @@ public class b {
         };
     }
 
-    public static void di(Context context) {
-        if (!Arrays.asList(cdr).contains(Build.MODEL)) {
+    public static void cW(Context context) {
+        if (!Arrays.asList(cCq).contains(Build.MODEL)) {
             Intent intent = new Intent();
             intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
             if (Build.VERSION.SDK_INT >= 26) {
@@ -73,14 +73,14 @@ public class b {
                 if (DEBUG) {
                     Log.e("GuideHelper", "openNotificationSettingPages() Exception:" + e);
                 }
-                dj(context);
+                cX(context);
                 return;
             }
         }
-        dj(context);
+        cX(context);
     }
 
-    private static void dj(Context context) {
+    private static void cX(Context context) {
         String packageName = context.getPackageName();
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.setData(Uri.fromParts("package", packageName, null));

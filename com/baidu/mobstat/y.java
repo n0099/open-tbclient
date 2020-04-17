@@ -2,7 +2,6 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.util.time.DateTimeUtil;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -232,7 +231,7 @@ public class y {
     }
 
     public boolean a(long j) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DateTimeUtil.DAY_FORMAT);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         return simpleDateFormat.format(Long.valueOf(j)).equals(simpleDateFormat.format(Long.valueOf(System.currentTimeMillis())));
     }
 

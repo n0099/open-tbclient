@@ -17,6 +17,7 @@ import com.baidu.ala.recorder.video.VideoBeautyType;
 import com.baidu.ala.recorder.video.VideoFormat;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class AlaCameraRecorder extends TextureView implements TextureView.SurfaceTextureListener, IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
     private static final String LOG_TAG = "ala_camera_recorder";
@@ -79,9 +80,9 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
             }
 
             @Override // com.baidu.ala.recorder.video.IVideoRecorder.IVideoDataCallBack
-            public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j) {
+            public void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j, long j2) {
                 if (AlaCameraRecorder.this.mExternVideoDataCallback != null) {
-                    AlaCameraRecorder.this.mExternVideoDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3, j);
+                    AlaCameraRecorder.this.mExternVideoDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3, j, j2);
                 }
             }
 
@@ -370,9 +371,9 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
     }
 
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
-    public void onFilterSelected(String str) {
+    public void onFilterSelected(String str, float f) {
         if (this.mCameraMgr != null && this.mCameraMgr.getFaceUnityOperator() != null) {
-            this.mCameraMgr.getFaceUnityOperator().onFilterSelected(str);
+            this.mCameraMgr.getFaceUnityOperator().onFilterSelected(str, f);
         }
     }
 
@@ -466,9 +467,15 @@ public class AlaCameraRecorder extends TextureView implements TextureView.Surfac
         }
     }
 
-    public void setDefBeautyParams(HashMap<String, Object> hashMap) {
+    public void setDefBeautyParams(ConcurrentHashMap<String, Object> concurrentHashMap) {
         if (this.mCameraMgr != null) {
-            this.mCameraMgr.setDefBeautyParams(hashMap);
+            this.mCameraMgr.setDefBeautyParams(concurrentHashMap);
+        }
+    }
+
+    public void setBeautyJsonPath(String str) {
+        if (this.mCameraMgr != null) {
+            this.mCameraMgr.setBeautyJsonPath(str);
         }
     }
 

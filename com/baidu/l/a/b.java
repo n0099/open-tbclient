@@ -1,39 +1,31 @@
 package com.baidu.l.a;
 
 import android.text.TextUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class b extends com.baidu.swan.apps.component.a.d.b {
-    public String action;
-    public boolean autoPlay;
-    public boolean loop;
-    public String path;
+public class b {
+    static ArrayList<Integer> lPB = new ArrayList<>(4);
+    static String lPC;
 
-    public b() {
-        super("svgaAnimView", "sanId");
-        this.loop = false;
-        this.autoPlay = true;
-        this.action = null;
+    static {
+        lPB.add(10000);
+        lPB.add(10001);
+        lPB.add(10002);
+        lPB.add(20001);
+        lPB.add(-1);
     }
 
-    @Override // com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
-    public void parseFromJson(JSONObject jSONObject) throws JSONException {
-        if (jSONObject != null) {
-            super.parseFromJson(jSONObject);
-            this.path = jSONObject.optString("path");
-            this.loop = jSONObject.optBoolean("loop");
-            this.autoPlay = jSONObject.optBoolean("autoPlay");
-            this.action = jSONObject.optString("action");
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static int dlG() {
+        if (TextUtils.isEmpty(lPC)) {
+            lPC = com.baidu.l.a.c.d.getManufacturer();
         }
-    }
-
-    @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
-    public boolean isValid() {
-        return (TextUtils.isEmpty(this.biB) || TextUtils.isEmpty(this.biA)) ? false : true;
-    }
-
-    public boolean Gx() {
-        return isValid() && !TextUtils.isEmpty(this.path);
+        if (TextUtils.isEmpty(lPC)) {
+            return 20001;
+        }
+        if (lPC.toUpperCase().contains("HUAWEI")) {
+            return 10001;
+        }
+        return lPC.toUpperCase().contains("XIAOMI") ? 10002 : 20001;
     }
 }

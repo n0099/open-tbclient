@@ -13,7 +13,7 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class b {
-    private TextView fkF;
+    private TextView fOX;
     private TbPageContext mContext;
     private View mView;
 
@@ -24,12 +24,12 @@ public class b {
 
     private void a(TbPageContext tbPageContext, AlaLiveUserInfoData alaLiveUserInfoData, View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a.h.guide_rename_view_layout, (ViewGroup) null);
-        this.fkF = (TextView) this.mView.findViewById(a.g.guide_rename_txt);
-        this.fkF.setText(a(alaLiveUserInfoData));
+        this.fOX = (TextView) this.mView.findViewById(a.g.guide_rename_txt);
+        this.fOX.setText(b(alaLiveUserInfoData));
         this.mView.setOnClickListener(onClickListener);
     }
 
-    public SpannableStringBuilder a(AlaLiveUserInfoData alaLiveUserInfoData) {
+    public SpannableStringBuilder b(AlaLiveUserInfoData alaLiveUserInfoData) {
         String str;
         int length;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();

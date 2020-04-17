@@ -13,6 +13,7 @@ public class AlaCmdConfigHttp {
     public static final int CMD_ALA_GIFT_REFRESH_SCORES = 1021019;
     public static final int CMD_ALA_LIVE_FRS_GAME = 1021064;
     public static final int CMD_ALA_LIVE_GET_CLOSED_STATUS = 1021020;
+    public static final int CMD_ALA_LIVE_SHARE_IN_BAR = 1021151;
     public static final int CMD_ALA_LIVE_SQUARE_GET_TAB_INFO = 1021080;
     public static final int CMD_ALA_NEW_SQUARE_SUB_LIST = 1021081;
     public static final int CMD_ALA_PERSON_GET_LIVES = 1021025;

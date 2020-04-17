@@ -3,11 +3,11 @@ package com.baidu.swan.apps.as;
 import android.text.TextUtils;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.android.util.media.MimeType;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
-import com.baidu.searchbox.picture.component.BaseBrowseView;
-import com.baidu.searchbox.ugc.model.QuestionResponseModel;
+import com.baidu.searchbox.ugc.transcoder.TranscoderPlugin;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.regex.Matcher;
@@ -15,12 +15,12 @@ import java.util.regex.Pattern;
 /* loaded from: classes11.dex */
 public final class o {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Pattern bYG = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
-    private static HashMap<String, Integer> bYH = new HashMap<>();
-    private static HashMap<String, Integer> bYI = new HashMap<>();
-    private static HashMap<String, String> bYJ = new HashMap<>();
-    public static HashMap<String, String> bYK = new HashMap<>();
-    private static final Pattern bYL;
+    private static final Pattern cxC = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+    private static HashMap<String, Integer> cxD = new HashMap<>();
+    private static HashMap<String, Integer> cxE = new HashMap<>();
+    private static HashMap<String, String> cxF = new HashMap<>();
+    public static HashMap<String, String> cxG = new HashMap<>();
+    private static final Pattern cxH;
 
     static {
         g("application/andrew-inset", "ez", 5);
@@ -199,7 +199,7 @@ public final class o {
         g("audio/mpeg", "mp2", 1);
         g("audio/mpeg", "m4a", 1);
         g("audio/mpegurl", "m3u", 1);
-        g("audio/prs.sid", "sid", 1);
+        g("audio/prs.sid", UbcStatConstant.KEY_CONTENT_EXT_SID, 1);
         g("audio/x-aiff", "aif", 1);
         g("audio/x-aiff", "aiff", 1);
         g("audio/x-aiff", "aifc", 1);
@@ -215,7 +215,7 @@ public final class o {
         g("audio/x-sd2", "sd2", 1);
         g(MimeType.Audio.WAV, "wav", 1);
         g("image/bmp", "bmp", 2);
-        g("image/gif", BaseBrowseView.IMG_TYPE_GIF, 2);
+        g("image/gif", "gif", 2);
         g("image/ico", "cur", 5);
         g("image/ico", "ico", 2);
         g("image/ief", "ief", 5);
@@ -259,7 +259,7 @@ public final class o {
         g("text/comma-separated-values", "csv", 5);
         g("text/css", "css", 5);
         g("text/html", "htm", 11);
-        g("text/html", QuestionResponseModel.TEXT, 11);
+        g("text/html", "html", 11);
         g("text/h323", "323", 5);
         g("text/iuls", "uls", 5);
         g("text/mathml", "mml", 5);
@@ -338,22 +338,22 @@ public final class o {
         g("x-epoc/x-sisx-app", "sisx", 5);
         g("video/vnd.rn-realvideo", "rmvb", 0);
         g("video/x-flv", "flv", 0);
-        g("audio/aac", "aac", 1);
+        g("audio/aac", TranscoderPlugin.AUDIO_CODEC, 1);
         g("application/vnd.rn-realmedia", "rm", 0);
         g("message/rfc822", "mht", 11);
-        bYL = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        cxH = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void g(String str, String str2, int i) {
-        bYH.put(str2, Integer.valueOf(i));
-        bYI.put(str, Integer.valueOf(i));
-        bYJ.put(str2, str);
-        if (!bYK.containsKey(str)) {
-            bYK.put(str, str2);
+        cxD.put(str2, Integer.valueOf(i));
+        cxE.put(str, Integer.valueOf(i));
+        cxF.put(str2, str);
+        if (!cxG.containsKey(str)) {
+            cxG.put(str, str2);
         }
     }
 
-    public static String mH(String str) {
+    public static String nU(String str) {
         int lastIndexOf;
         if (str == null || (lastIndexOf = str.lastIndexOf(".")) == -1 || lastIndexOf == str.length()) {
             return "";
@@ -361,16 +361,16 @@ public final class o {
         return str.substring(lastIndexOf + 1);
     }
 
-    public static String mI(String str) {
+    public static String nV(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return bYJ.get(str);
+        return cxF.get(str);
     }
 
-    public static String mJ(String str) {
+    public static String nW(String str) {
         try {
-            Matcher matcher = bYG.matcher(str);
+            Matcher matcher = cxC.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }

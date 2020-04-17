@@ -15,8 +15,6 @@ public class AlaNDKPlayerAdapter {
 
     private native String getPullStreamIpNative(long j, int i);
 
-    private native int getSavedVideoFrameNative(long j, int i, byte[] bArr, int[] iArr, int[] iArr2, int[] iArr3);
-
     private native int getVideoFillModel(long j, int i);
 
     private native int initNative(Object obj);
@@ -26,8 +24,6 @@ public class AlaNDKPlayerAdapter {
     private native int restartNative(long j, int i, int i2);
 
     private native void sendNativeStatAppData(long j, int i, String str, String str2, int i2);
-
-    private native void setAutoSaveVideoFrameNative(long j, int i, int i2);
 
     private native void setDebugMonitorNative(long j, int i, boolean z, int i2);
 
@@ -159,12 +155,6 @@ public class AlaNDKPlayerAdapter {
     public void networkChangedNotifyNative(int i) {
         if (this.mNativeObject != 0) {
             networkChangedNotifyNative(this.mNativeObject, i);
-        }
-    }
-
-    public void setAutoSaveVideoFrameNative(int i, int i2) {
-        if (this.mNativeObject != 0) {
-            setAutoSaveVideoFrameNative(this.mNativeObject, i, i2);
         }
     }
 

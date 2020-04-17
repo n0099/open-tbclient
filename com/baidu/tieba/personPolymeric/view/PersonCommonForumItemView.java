@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class PersonCommonForumItemView extends RelativeLayout {
-    public TextView hpq;
-    public BarImageView jtG;
-    public TextView jtH;
-    public TextView jtI;
-    public TextView jtJ;
-    private com.baidu.tieba.personPolymeric.c.f jtK;
+    public TextView hYY;
+    public BarImageView kdW;
+    public TextView kdX;
+    public TextView kdY;
+    public TextView kdZ;
+    private com.baidu.tieba.personPolymeric.c.f kea;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -40,21 +40,21 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     private void init() {
-        this.jtG = (BarImageView) findViewById(R.id.forum_avatar);
-        this.hpq = (TextView) findViewById(R.id.forum_name);
-        this.jtH = (TextView) findViewById(R.id.forum_post_thread);
-        this.jtI = (TextView) findViewById(R.id.forum_thread_num);
-        this.jtJ = (TextView) findViewById(R.id.forum_thread_str);
+        this.kdW = (BarImageView) findViewById(R.id.forum_avatar);
+        this.hYY = (TextView) findViewById(R.id.forum_name);
+        this.kdX = (TextView) findViewById(R.id.forum_post_thread);
+        this.kdY = (TextView) findViewById(R.id.forum_thread_num);
+        this.kdZ = (TextView) findViewById(R.id.forum_thread_str);
     }
 
     private void initListener() {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && PersonCommonForumItemView.this.jtK != null) {
-                    TiebaStatic.log(new an("c12503").cx("obj_locate", "6"));
+                if (view != null && PersonCommonForumItemView.this.kea != null) {
+                    TiebaStatic.log(new an("c12503").cI("obj_locate", "6"));
                     TiebaStatic.log(new an("c11594"));
-                    String str = PersonCommonForumItemView.this.jtK.forumName;
+                    String str = PersonCommonForumItemView.this.kea.forumName;
                     if (aq.isForumName(str)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(PersonCommonForumItemView.this.mContext).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
                     }
@@ -64,11 +64,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     public void setData(com.baidu.tieba.personPolymeric.c.f fVar) {
-        this.jtK = fVar;
-        this.jtG.startLoad(fVar.avatar, 10, false);
-        this.hpq.setText(aq.cutForumNameWithSuffix(fVar.forumName, 7, StringHelper.STRING_MORE) + this.mContext.getString(R.string.forum));
-        this.jtI.setText(aq.numberUniformFormat(fVar.jqz));
-        this.jtH.setText(String.format(this.mContext.getString(R.string.person_has_posted), aq.getUserDescByGender(fVar.sex)));
+        this.kea = fVar;
+        this.kdW.startLoad(fVar.avatar, 10, false);
+        this.hYY.setText(aq.cutForumNameWithSuffix(fVar.forumName, 7, StringHelper.STRING_MORE) + this.mContext.getString(R.string.forum));
+        this.kdY.setText(aq.numberUniformFormat(fVar.kaO));
+        this.kdX.setText(String.format(this.mContext.getString(R.string.person_has_posted), aq.getUserDescByGender(fVar.sex)));
         if (getRootView() != null) {
             getRootView().setOnClickListener(this.mOnClickListener);
         }
@@ -77,10 +77,10 @@ public class PersonCommonForumItemView extends RelativeLayout {
 
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            am.setViewTextColor(this.hpq, (int) R.color.cp_cont_b);
-            am.setViewTextColor(this.jtH, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.jtJ, (int) R.color.cp_cont_d);
-            am.setViewTextColor(this.jtI, (int) R.color.cp_link_tip_a);
+            am.setViewTextColor(this.hYY, (int) R.color.cp_cont_b);
+            am.setViewTextColor(this.kdX, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.kdZ, (int) R.color.cp_cont_d);
+            am.setViewTextColor(this.kdY, (int) R.color.cp_link_tip_a);
             am.setBackgroundResource(this, R.drawable.person_common_forum_item_bg);
         }
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();

@@ -11,7 +11,7 @@ public class RequestBlessMessage extends NetMessage {
     private int click_type;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f1025common;
+    private CommonReq f1031common;
     public Long pk_id;
     private int pk_index;
     private int pk_type;
@@ -23,7 +23,7 @@ public class RequestBlessMessage extends NetMessage {
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f1025common = commonReq;
+        this.f1031common = commonReq;
     }
 
     public void setPkId(Long l) {
@@ -53,7 +53,7 @@ public class RequestBlessMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1272common = this.f1025common;
+        builder.f1278common = this.f1031common;
         builder.pk_id = this.pk_id;
         builder.topic_id = this.topic_id;
         builder.pk_index = Integer.valueOf(this.pk_index);

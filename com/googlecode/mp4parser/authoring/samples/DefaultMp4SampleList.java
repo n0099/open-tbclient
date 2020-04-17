@@ -5,7 +5,6 @@ import com.coremedia.iso.boxes.MovieBox;
 import com.coremedia.iso.boxes.SampleSizeBox;
 import com.coremedia.iso.boxes.SampleToChunkBox;
 import com.coremedia.iso.boxes.TrackBox;
-import com.google.android.exoplayer2.Format;
 import com.googlecode.mp4parser.authoring.Sample;
 import com.googlecode.mp4parser.authoring.SampleImpl;
 import com.googlecode.mp4parser.util.CastUtils;
@@ -108,7 +107,7 @@ public class DefaultMp4SampleList extends AbstractList<Sample> {
                 i13 = l2i2;
                 l2i2 = l2i3;
             } else {
-                firstChunk3 = Format.OFFSET_SAMPLE_RELATIVE;
+                firstChunk3 = Long.MAX_VALUE;
                 i5 = i15;
                 int i17 = l2i2;
                 l2i2 = -1;

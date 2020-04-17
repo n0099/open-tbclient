@@ -7,20 +7,20 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public final Set<String> bVV;
+    public final Set<String> cuN;
 
     public a(String str) {
         super(str);
-        this.bVV = new HashSet();
+        this.cuN = new HashSet();
     }
 
-    public boolean ml(String str) {
-        return this.bVV.contains(str);
+    public boolean ny(String str) {
+        return this.cuN.contains(str);
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        if (aft()) {
+        if (any()) {
             super.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         } else {
             log();
@@ -29,7 +29,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        if (aft()) {
+        if (any()) {
             super.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         } else {
             log();
@@ -38,7 +38,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putString(String str, String str2) {
-        if (aft() || ml(str)) {
+        if (any() || ny(str)) {
             super.putString(str, str2);
         } else {
             log();
@@ -47,7 +47,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.g
     public void putStringSet(String str, Set<String> set) {
-        if (aft() || ml(str)) {
+        if (any() || ny(str)) {
             super.putStringSet(str, set);
         } else {
             log();
@@ -56,7 +56,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putInt(String str, int i) {
-        if (aft() || ml(str)) {
+        if (any() || ny(str)) {
             super.putInt(str, i);
         } else {
             log();
@@ -65,7 +65,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putLong(String str, long j) {
-        if (aft() || ml(str)) {
+        if (any() || ny(str)) {
             super.putLong(str, j);
         } else {
             log();
@@ -74,7 +74,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putFloat(String str, float f) {
-        if (aft() || ml(str)) {
+        if (any() || ny(str)) {
             super.putFloat(str, f);
         } else {
             log();
@@ -83,7 +83,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void putBoolean(String str, boolean z) {
-        if (aft() || ml(str)) {
+        if (any() || ny(str)) {
             super.putBoolean(str, z);
         } else {
             log();
@@ -92,7 +92,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g
     public void remove(String str) {
-        if (aft() || ml(str)) {
+        if (any() || ny(str)) {
             super.remove(str);
         } else {
             log();
@@ -101,27 +101,27 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public String getString(String str, String str2) {
-        return ml(str) ? super.getString(str, str2) : bs(str, str2);
+        return ny(str) ? super.getString(str, str2) : bC(str, str2);
     }
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public int getInt(String str, int i) {
-        return ml(str) ? super.getInt(str, i) : H(str, i);
+        return ny(str) ? super.getInt(str, i) : P(str, i);
     }
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public long getLong(String str, long j) {
-        return ml(str) ? super.getLong(str, j) : n(str, j);
+        return ny(str) ? super.getLong(str, j) : o(str, j);
     }
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public float getFloat(String str, float f) {
-        return ml(str) ? super.getFloat(str, f) : e(str, f);
+        return ny(str) ? super.getFloat(str, f) : e(str, f);
     }
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
-        return ml(str) ? super.getBoolean(str, z) : D(str, z);
+        return ny(str) ? super.getBoolean(str, z) : I(str, z);
     }
 
     private void log() {

@@ -490,7 +490,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override // android.support.v7.widget.DecorToolbar
     public void animateToVisibility(int i) {
-        ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = setupAnimatorToVisibility(i, 200L);
+        ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = setupAnimatorToVisibility(i, DEFAULT_FADE_DURATION_MS);
         if (viewPropertyAnimatorCompat != null) {
             viewPropertyAnimatorCompat.start();
         }

@@ -1,7 +1,10 @@
 package okhttp3;
 
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -15,10 +18,12 @@ import org.apache.http.client.methods.HttpHead;
 import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes7.dex */
 public final class Request {
+    private List<InetAddress> addressList;
     @Nullable
     final RequestBody body;
     private volatile CacheControl cacheControl;
     final Headers headers;
+    private boolean isFallbackConn;
     final String method;
     final Headers proxyHeaders;
     final Map<Class<?>, Object> tags;
@@ -31,6 +36,8 @@ public final class Request {
         this.proxyHeaders = builder.proxyHeaders.build();
         this.body = builder.body;
         this.tags = Util.immutableMap(builder.tags);
+        this.isFallbackConn = builder.isFallbackConn;
+        this.addressList = builder.addressList;
     }
 
     public HttpUrl url() {
@@ -99,20 +106,34 @@ public final class Request {
         return this.url.isHttps();
     }
 
+    public boolean isFallbackConn() {
+        return this.isFallbackConn;
+    }
+
+    public List<InetAddress> getAddressList() {
+        if (this.addressList != null) {
+            return Collections.unmodifiableList(this.addressList);
+        }
+        return null;
+    }
+
     public String toString() {
         return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
     }
 
     /* loaded from: classes7.dex */
     public static class Builder {
+        List<InetAddress> addressList;
         RequestBody body;
         Headers.Builder headers;
+        boolean isFallbackConn;
         String method;
         Headers.Builder proxyHeaders;
         Map<Class<?>, Object> tags;
         HttpUrl url;
 
         public Builder() {
+            this.isFallbackConn = false;
             this.tags = Collections.emptyMap();
             this.method = "GET";
             this.headers = new Headers.Builder();
@@ -120,6 +141,7 @@ public final class Request {
         }
 
         Builder(Request request) {
+            this.isFallbackConn = false;
             this.tags = Collections.emptyMap();
             this.url = request.url;
             this.method = request.method;
@@ -127,6 +149,8 @@ public final class Request {
             this.tags = request.tags.isEmpty() ? Collections.emptyMap() : new LinkedHashMap<>(request.tags);
             this.headers = request.headers.newBuilder();
             this.proxyHeaders = request.proxyHeaders.newBuilder();
+            this.isFallbackConn = request.isFallbackConn;
+            this.addressList = request.addressList;
         }
 
         public Builder url(HttpUrl httpUrl) {
@@ -263,6 +287,27 @@ public final class Request {
                 }
                 this.tags.put(cls, cls.cast(t));
             }
+            return this;
+        }
+
+        public Builder addressList(List<Route> list) {
+            if (list != null) {
+                ArrayList arrayList = new ArrayList();
+                for (Route route : list) {
+                    InetSocketAddress socketAddress = route.socketAddress();
+                    if (!socketAddress.isUnresolved()) {
+                        arrayList.add(socketAddress.getAddress());
+                    }
+                }
+                this.addressList = arrayList;
+            } else {
+                this.addressList = null;
+            }
+            return this;
+        }
+
+        public Builder fallbackConn(boolean z) {
+            this.isFallbackConn = z;
             return this;
         }
 

@@ -11,39 +11,39 @@ import com.baidu.live.view.ALALevelView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> eLU = new ArrayList<>();
-    private AlaPersonCenterExpActivity eLV;
+    private ArrayList<b> fqn = new ArrayList<>();
+    private AlaPersonCenterExpActivity fqo;
     private Context mContext;
     private int mSkinType;
 
     public a(AlaPersonCenterExpActivity alaPersonCenterExpActivity) {
-        this.eLV = alaPersonCenterExpActivity;
+        this.fqo = alaPersonCenterExpActivity;
         this.mContext = alaPersonCenterExpActivity.getPageContext().getPageActivity();
     }
 
-    public void pz(int i) {
+    public void pT(int i) {
         this.mSkinType = i;
     }
 
-    public void V(ArrayList<b> arrayList) {
-        this.eLU.clear();
-        this.eLU.addAll(arrayList);
+    public void W(ArrayList<b> arrayList) {
+        this.fqn.clear();
+        this.fqn.addAll(arrayList);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eLU == null) {
+        if (this.fqn == null) {
             return 1;
         }
-        return this.eLU.size() + 1;
+        return this.fqn.size() + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.eLU.size())) {
+        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.fqn.size())) {
             return null;
         }
-        return this.eLU.get(i - 1);
+        return this.fqn.get(i - 1);
     }
 
     @Override // android.widget.Adapter
@@ -77,45 +77,45 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_header, viewGroup, false);
         }
-        this.eLV.getLayoutMode().onModeChanged(view);
+        this.fqo.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     private View b(int i, View view, ViewGroup viewGroup) {
-        C0450a c0450a;
+        C0485a c0485a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_item, viewGroup, false);
-            C0450a c0450a2 = new C0450a(view);
-            view.setTag(c0450a2);
-            c0450a = c0450a2;
+            C0485a c0485a2 = new C0485a(view);
+            view.setTag(c0485a2);
+            c0485a = c0485a2;
         } else {
-            c0450a = (C0450a) view.getTag();
+            c0485a = (C0485a) view.getTag();
         }
         b bVar = (b) getItem(i);
         if (bVar != null) {
-            c0450a.am(bVar.level, bVar.eLZ);
+            c0485a.aB(bVar.level, bVar.fqr);
         }
-        this.eLV.getLayoutMode().onModeChanged(view);
+        this.fqo.getLayoutMode().onModeChanged(view);
         if (this.mSkinType == 1) {
-            c0450a.eLW.d(a.d.sdk_cp_cont_g, 0.7f);
+            c0485a.fcm.b(a.d.sdk_cp_cont_g, 0.7f);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.live.personcenter.exp.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0450a {
-        private ALALevelView eLW;
-        private TextView eLX;
+    public class C0485a {
+        private ALALevelView fcm;
+        private TextView fqp;
 
-        public C0450a(View view) {
-            this.eLW = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
-            this.eLX = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
+        public C0485a(View view) {
+            this.fcm = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
+            this.fqp = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
         }
 
-        public void am(int i, String str) {
-            this.eLW.setupLevelIcon(i);
-            this.eLX.setText(str);
+        public void aB(int i, String str) {
+            this.fcm.setupLevelIcon(i);
+            this.fqp.setText(str);
         }
     }
 

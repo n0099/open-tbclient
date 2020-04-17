@@ -3,6 +3,7 @@ package com.baidu.searchbox.http;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.http.RequestHandler;
 import com.baidu.searchbox.http.cookie.CookieManager;
@@ -33,6 +34,7 @@ import okhttp3.Request;
 /* loaded from: classes13.dex */
 public abstract class AbstractHttpManager {
     private static final String TAG = "HttpManager";
+    private static String sClientIP;
     private static List<Class<? extends Interceptor>> sExternalInterceptorClass;
     private static List<Class<? extends Interceptor>> sExternalNetworkInterceptorClass;
     private static ProductUserAgentHandler sProductUserAgent;
@@ -224,6 +226,9 @@ public abstract class AbstractHttpManager {
             }
             addStaticInterceptor(builder);
             addFreeCardProxySelector(builder);
+            if (HttpRuntime.getHttpContext() != null && HttpRuntime.getHttpContext().getFallbackConnectDelayMs() > 0) {
+                builder.fallbackConnectDelayMs(HttpRuntime.getHttpContext().getFallbackConnectDelayMs());
+            }
         } catch (IllegalArgumentException e) {
             Log.e(TAG, " set timeout illegal exception, we will use the 10_000 mills default", e);
         }
@@ -279,5 +284,15 @@ public abstract class AbstractHttpManager {
 
     public static ProductUserAgentHandler getProductUserAgent() {
         return sProductUserAgent;
+    }
+
+    public static String getClientIP() {
+        return sClientIP;
+    }
+
+    public static void updateClientIP(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            sClientIP = str;
+        }
     }
 }

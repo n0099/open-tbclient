@@ -141,7 +141,7 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType Zc() {
+    public static NetType ahi() {
         String networkClass = getNetworkClass();
         char c = 65535;
         switch (networkClass.hashCode()) {

@@ -2,6 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.ar.pose.PoseAR;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class eg {
@@ -10,16 +11,16 @@ public class eg {
     }
 
     private static void a(Context context, HashMap<String, String> hashMap) {
-        eo m255a = ek.a(context).m255a();
-        if (m255a != null) {
-            m255a.a(context, hashMap);
+        eo m260a = ek.a(context).m260a();
+        if (m260a != null) {
+            m260a.a(context, hashMap);
         }
     }
 
     private static void b(Context context, HashMap<String, String> hashMap) {
-        eo m255a = ek.a(context).m255a();
-        if (m255a != null) {
-            m255a.c(context, hashMap);
+        eo m260a = ek.a(context).m260a();
+        if (m260a != null) {
+            m260a.c(context, hashMap);
         }
     }
 
@@ -31,7 +32,7 @@ public class eg {
         try {
             HashMap hashMap = new HashMap();
             hashMap.put("awake_info", str);
-            hashMap.put("event_type", String.valueOf(i));
+            hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf(i));
             hashMap.put("description", str2);
             switch (ek.a(context).a()) {
                 case 1:
@@ -52,9 +53,9 @@ public class eg {
     }
 
     private static void c(Context context, HashMap<String, String> hashMap) {
-        eo m255a = ek.a(context).m255a();
-        if (m255a != null) {
-            m255a.b(context, hashMap);
+        eo m260a = ek.a(context).m260a();
+        if (m260a != null) {
+            m260a.b(context, hashMap);
         }
     }
 }

@@ -7,73 +7,73 @@ import android.view.View;
 public class h extends com.baidu.swan.apps.core.c.d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = h.class.getSimpleName();
-    private View cmx;
+    private View cLt;
 
     public h(Context context) {
         super(context);
     }
 
     @Override // com.baidu.swan.apps.core.c.d
-    protected void Nr() {
-        IS().setVisibility(8);
-        IS().setBackgroundColor(0);
-        i.anp();
-        ano();
-        String ank = d.ana().ank();
+    protected void Ve() {
+        QE().setVisibility(8);
+        QE().setBackgroundColor(0);
+        i.avC();
+        avB();
+        String avx = d.avn().avx();
         if (DEBUG) {
-            Log.d(TAG, "url:" + ank);
+            Log.d(TAG, "url:" + avx);
         }
-        loadUrl(ank);
+        loadUrl(avx);
     }
 
-    private void ano() {
+    private void avB() {
         a(new com.baidu.swan.apps.core.b() { // from class: com.baidu.swan.games.b.h.1
             @Override // com.baidu.swan.apps.core.b
-            public void el(String str) {
-                super.el(str);
+            public void fe(String str) {
+                super.fe(str);
                 if (h.DEBUG) {
                     Log.e(h.TAG, "onPageFinished");
                 }
-                i.anq();
+                i.avD();
             }
         });
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
     public void ad(View view) {
-        this.cmx = view;
+        this.cLt = view;
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
-    public void ap(String str, String str2) {
-        i.bD(str, str2);
+    public void ay(String str, String str2) {
+        i.bO(str, str2);
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
-    public void IJ() {
-        i.ci(false);
-        this.cmx = null;
-        super.IJ();
+    public void Qv() {
+        i.de(false);
+        this.cLt = null;
+        super.Qv();
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
-    public void bX(boolean z) {
-        if (IS().getVisibility() != (z ? 0 : 8)) {
+    public void cT(boolean z) {
+        if (QE().getVisibility() != (z ? 0 : 8)) {
             if (DEBUG) {
                 Log.i(TAG, "setConsoleVisible:" + z);
             }
             if (z) {
-                com.baidu.swan.apps.y.f.WV().a("console", c.eC(true));
+                com.baidu.swan.apps.y.f.aeK().a("console", c.fz(true));
             }
-            if (this.cmx != null) {
-                this.cmx.setVisibility(z ? 4 : 0);
+            if (this.cLt != null) {
+                this.cLt.setVisibility(z ? 4 : 0);
             }
-            super.bX(z);
+            super.cT(z);
         }
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String IU() {
+    public String QG() {
         return "console";
     }
 }

@@ -33,7 +33,7 @@ public class ClientStartStatic {
                         if (SystemClock.elapsedRealtime() - this.mTimeStamp > 30000) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new an(TbadkCoreStatisticKey.HOST_START).X("obj_param1", 1));
+                        TiebaStatic.log(new an(TbadkCoreStatisticKey.HOST_START).af("obj_param1", 1));
                     }
                 }
             });

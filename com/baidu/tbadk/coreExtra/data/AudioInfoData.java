@@ -30,7 +30,7 @@ public class AudioInfoData extends com.baidu.tbadk.core.data.k implements Serial
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
                 if (optJSONObject != null) {
-                    this.errorCode = optJSONObject.optInt("errno", -1);
+                    this.errorCode = optJSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
                     this.errorMsg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG, null);
                     this.errorUserMsg = optJSONObject.optString("usermsg", null);
                 }

@@ -3,6 +3,7 @@ package com.baidu.searchbox.ugc.utils;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -14,6 +15,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class SelectUtil {
+    private static String selectedVideoPath;
     private static List<ImageStruct> selectedImages = new ArrayList();
     public static int MAX_SELECTED_DEFAULT = 9;
     public static int maxSelected = MAX_SELECTED_DEFAULT;
@@ -23,6 +25,8 @@ public class SelectUtil {
     private static float WENDA_MAX_IMG_MB_VALUE = 5242880.0f;
     public static boolean supportGifLongImg = true;
     private static boolean isWenda = false;
+    private static int photoFirstIndex = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private static int photoLastIndex = -1;
 
     public static List<ImageStruct> getSeletedImages() {
         return selectedImages;
@@ -37,13 +41,37 @@ public class SelectUtil {
         selectedImages.addAll(list);
     }
 
+    public static String getSelectedVideoPath() {
+        return selectedVideoPath;
+    }
+
+    public static void setSelectedVideoPath(String str) {
+        selectedVideoPath = str;
+    }
+
     public static void clear() {
         selectedImages.clear();
+        resetSelectedIndex();
+    }
+
+    private static void resetSelectedIndex() {
+        photoFirstIndex = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        photoLastIndex = -1;
     }
 
     public static void saveSelectedImages(ImageStruct imageStruct) {
         if (imageStruct != null) {
             selectedImages.add(imageStruct);
+        }
+    }
+
+    public static void saveSelectedImages(ImageStruct imageStruct, int i) {
+        saveSelectedImages(imageStruct);
+        if (i < photoFirstIndex) {
+            photoFirstIndex = i;
+        }
+        if (i > photoLastIndex) {
+            photoLastIndex = i;
         }
     }
 
@@ -89,7 +117,7 @@ public class SelectUtil {
                 return arrayList;
             }
             if (selectedImages.get(i2) != null) {
-                arrayList.add(MediaUtils.getLocalFilePath(selectedImages.get(i2).uriStr));
+                arrayList.add(selectedImages.get(i2).uriStr);
             }
             i = i2 + 1;
         }
@@ -257,5 +285,13 @@ public class SelectUtil {
                 }
             }
         }
+    }
+
+    public static int getPhotoFirstIndex() {
+        return photoFirstIndex;
+    }
+
+    public static int getPhotoLastIndex() {
+        return photoLastIndex;
     }
 }

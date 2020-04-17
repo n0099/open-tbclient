@@ -6,7 +6,7 @@ import com.baidu.tieba.card.data.p;
 public class c extends com.baidu.tieba.card.data.b implements p {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
     public long mTimeStamp;
-    public boolean hhc = false;
+    public boolean hQM = false;
     public boolean showBottomDivider = false;
 
     @Override // com.baidu.adp.widget.ListView.m
@@ -20,16 +20,16 @@ public class c extends com.baidu.tieba.card.data.b implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean bvC() {
+    public boolean bFn() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void kx(boolean z) {
+    public void lA(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void ky(boolean z) {
+    public void lB(boolean z) {
         this.showBottomDivider = z;
     }
 }

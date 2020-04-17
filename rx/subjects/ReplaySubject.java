@@ -1,6 +1,5 @@
 package rx.subjects;
 
-import com.google.android.exoplayer2.Format;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -13,7 +12,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class ReplaySubject<T> extends c<T, T> {
-    private static final Object[] nCF = new Object[0];
+    private static final Object[] mWg = new Object[0];
     final ReplayState<T> state;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -147,7 +146,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.fA(arrayList);
+            rx.exceptions.a.fo(arrayList);
         }
 
         @Override // rx.e
@@ -169,18 +168,18 @@ public final class ReplaySubject<T> extends c<T, T> {
         volatile boolean done;
         Throwable error;
         final int limit;
-        volatile Node<T> nVS;
-        Node<T> nVT;
+        volatile Node<T> npC;
+        Node<T> npD;
         int size;
 
         @Override // rx.subjects.ReplaySubject.a
         public void next(T t) {
             Node<T> node = new Node<>(t);
-            this.nVT.set(node);
-            this.nVT = node;
+            this.npD.set(node);
+            this.npD = node;
             int i = this.size;
             if (i == this.limit) {
-                this.nVS = this.nVS.get();
+                this.npC = this.npC.get();
             } else {
                 this.size = i + 1;
             }
@@ -211,7 +210,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j3 = 0;
                     Node<T> node2 = (Node) replayProducer.node;
                     if (node2 == null) {
-                        node2 = this.nVS;
+                        node2 = this.npC;
                     }
                     while (true) {
                         j = j3;
@@ -262,7 +261,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                             }
                         }
                     }
-                    if (j != 0 && j2 != Format.OFFSET_SAMPLE_RELATIVE) {
+                    if (j != 0 && j2 != Long.MAX_VALUE) {
                         rx.internal.operators.a.c(replayProducer.requested, j);
                     }
                     replayProducer.node = node;
@@ -290,9 +289,9 @@ public final class ReplaySubject<T> extends c<T, T> {
         volatile boolean done;
         Throwable error;
         final int limit;
-        final long nVP;
-        volatile TimedNode<T> nVQ;
-        TimedNode<T> nVR;
+        volatile TimedNode<T> npA;
+        TimedNode<T> npB;
+        final long npz;
         final g scheduler;
         int size;
 
@@ -302,11 +301,11 @@ public final class ReplaySubject<T> extends c<T, T> {
             int i;
             long now = this.scheduler.now();
             TimedNode<T> timedNode2 = new TimedNode<>(t, now);
-            this.nVR.set(timedNode2);
-            this.nVR = timedNode2;
-            long j = now - this.nVP;
+            this.npB.set(timedNode2);
+            this.npB = timedNode2;
+            long j = now - this.npz;
             int i2 = this.size;
-            TimedNode<T> timedNode3 = this.nVQ;
+            TimedNode<T> timedNode3 = this.npA;
             if (i2 == this.limit) {
                 i = i2;
                 timedNode = timedNode3.get();
@@ -325,26 +324,26 @@ public final class ReplaySubject<T> extends c<T, T> {
             }
             this.size = i;
             if (timedNode != timedNode3) {
-                this.nVQ = timedNode;
+                this.npA = timedNode;
             }
         }
 
         @Override // rx.subjects.ReplaySubject.a
         public void error(Throwable th) {
-            dPT();
+            dIT();
             this.error = th;
             this.done = true;
         }
 
         @Override // rx.subjects.ReplaySubject.a
         public void complete() {
-            dPT();
+            dIT();
             this.done = true;
         }
 
-        void dPT() {
-            long now = this.scheduler.now() - this.nVP;
-            TimedNode<T> timedNode = this.nVQ;
+        void dIT() {
+            long now = this.scheduler.now() - this.npz;
+            TimedNode<T> timedNode = this.npA;
             TimedNode<T> timedNode2 = timedNode;
             while (true) {
                 TimedNode<T> timedNode3 = timedNode2.get();
@@ -354,14 +353,14 @@ public final class ReplaySubject<T> extends c<T, T> {
                 timedNode2 = timedNode3;
             }
             if (timedNode != timedNode2) {
-                this.nVQ = timedNode2;
+                this.npA = timedNode2;
             }
         }
 
-        TimedNode<T> dPU() {
+        TimedNode<T> dIU() {
             TimedNode<T> timedNode;
-            long now = this.scheduler.now() - this.nVP;
-            TimedNode<T> timedNode2 = this.nVQ;
+            long now = this.scheduler.now() - this.npz;
+            TimedNode<T> timedNode2 = this.npA;
             while (true) {
                 timedNode = timedNode2;
                 timedNode2 = timedNode.get();
@@ -386,7 +385,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                     long j3 = 0;
                     TimedNode<T> timedNode2 = (TimedNode) replayProducer.node;
                     if (timedNode2 == null) {
-                        timedNode2 = dPU();
+                        timedNode2 = dIU();
                     }
                     while (true) {
                         j = j3;
@@ -437,7 +436,7 @@ public final class ReplaySubject<T> extends c<T, T> {
                             }
                         }
                     }
-                    if (j != 0 && j2 != Format.OFFSET_SAMPLE_RELATIVE) {
+                    if (j != 0 && j2 != Long.MAX_VALUE) {
                         rx.internal.operators.a.c(replayProducer.requested, j);
                     }
                     replayProducer.node = timedNode;

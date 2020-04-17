@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import com.baidu.android.common.util.CommonParam;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.platform.nativeability.BdGeoLocationInfo;
@@ -247,11 +246,11 @@ public class BdSailor implements INoProGuard {
         BdSailorPlatform.getInstance().initWebkit(str, z, cls);
         if (z2) {
             ZeusPerformanceTiming.initSysWebkitEnd();
-            android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + HanziToPinyin.Token.SEPARATOR + ZeusPerformanceTiming.getSysInitTiming());
+            android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + " " + ZeusPerformanceTiming.getSysInitTiming());
             return;
         }
         ZeusPerformanceTiming.initWebkitEnd();
-        android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + HanziToPinyin.Token.SEPARATOR + ZeusPerformanceTiming.getZeusInitTiming());
+        android.util.Log.i(GlobalConstants.LOG_PER_TAG, "initWebkit = " + (System.currentTimeMillis() - currentTimeMillis) + " " + ZeusPerformanceTiming.getZeusInitTiming());
     }
 
     public void installZeusFromDownload(String str) {
@@ -380,7 +379,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().Jx = this.mClient;
+        BdSailorPlatform.getStatic().acC = this.mClient;
     }
 
     public void setSailorNetProbeInterface(ISailorNetProbeInterface iSailorNetProbeInterface) {

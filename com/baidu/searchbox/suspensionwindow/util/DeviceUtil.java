@@ -8,7 +8,6 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 /* loaded from: classes13.dex */
 public class DeviceUtil {
     public static View inflate(Context context, int i) {
@@ -25,12 +24,12 @@ public class DeviceUtil {
 
     public static int getStatusBarHeight(@NonNull Context context) {
         Resources resources = context.getResources();
-        return resources.getDimensionPixelSize(resources.getIdentifier("status_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS));
+        return resources.getDimensionPixelSize(resources.getIdentifier("status_bar_height", "dimen", "android"));
     }
 
     public static int getNavigationBarHeight(@NonNull Context context) {
         Resources resources = context.getResources();
-        return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS));
+        return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
     }
 
     public static boolean isFullScreen(Activity activity) {

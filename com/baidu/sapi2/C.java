@@ -65,7 +65,7 @@ public class C extends HttpHandlerWrap {
         SapiConfiguration sapiConfiguration2;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+            int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
             this.b.setResultCode(parseInt);
             if (parseInt == 0) {
                 Map<String, String> tplStokenMap = SapiAccount.DispersionCertification.getTplStokenMap(jSONObject.optJSONObject("stoken_list"));

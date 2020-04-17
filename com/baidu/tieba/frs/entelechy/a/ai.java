@@ -8,27 +8,27 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes9.dex */
 public interface ai {
-    void a(com.baidu.adp.widget.ListView.s sVar);
+    void a(com.baidu.adp.widget.ListView.v vVar);
 
     void a(com.baidu.tieba.frs.d dVar);
 
     void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bj> bHq();
+    HashMap<Integer, bj> bRR();
 
-    int bHr();
+    int bRS();
 
-    void bHs();
+    void bRT();
 
-    int bHt();
+    int bRU();
 
-    int bHu();
+    int bRV();
 
-    void bHv();
+    void bRW();
 
     List<com.baidu.adp.widget.ListView.m> getDatas();
 
-    void lT(boolean z);
+    void mX(boolean z);
 
     void notifyDataSetChanged();
 

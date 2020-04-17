@@ -2,14 +2,14 @@ package com.baidu.tbadk.core.a;
 
 import android.database.Cursor;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.net.update.UpdateConstants;
+import com.baidu.searchbox.cloudcontrol.utils.CloudControlUBCUtils;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.data.AccountData;
 import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean ss(String str) {
+    public static boolean tF(String str) {
         return TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("delete from account_data where id=?", new String[]{str});
     }
 
@@ -23,16 +23,16 @@ public class b {
             if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
                 str = "set_basedata_account:valid_logined";
             } else if (!StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_basedata_account:" + UpdateConstants.VALID_KEY;
+                str = "set_basedata_account:" + CloudControlUBCUtils.KEY_VALID;
             } else if (!StringUtils.isNull(accountData.getID())) {
                 str = "set_basedata_account:logined";
             }
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, str, 0, "", new Object[0]);
             if (accountData.getIsActive() == 1) {
-                azT();
+                aIg();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!ss(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
+            if (!tF(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
                 if (!mainDBDatabaseManager.execSQLNoException("DROP TABLE IF EXISTS account_data")) {
                     mainDBDatabaseManager.deleteDatabase();
                 }
@@ -42,11 +42,11 @@ public class b {
         }
     }
 
-    public static void azT() {
+    public static void aIg() {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().execSQLNoException("update account_data set isactive=0 where isactive=1");
     }
 
-    public static int azU() {
+    public static int aIh() {
         Cursor cursor;
         Exception exc;
         Cursor cursor2 = null;
@@ -95,7 +95,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v37, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData azV() {
+    public static AccountData aIi() {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -170,7 +170,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v37, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData st(String str) {
+    public static AccountData tG(String str) {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -238,7 +238,7 @@ public class b {
         return accountData;
     }
 
-    public static ArrayList<AccountData> azW() {
+    public static ArrayList<AccountData> aIj() {
         Cursor cursor;
         Throwable th;
         Exception exc;

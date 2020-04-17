@@ -1,7 +1,9 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
 import com.baidu.ala.player.StreamConfig;
+import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.baidu.live.tbadk.core.data.RequestResponseCode;
+import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeWriter;
 import java.io.IOException;
@@ -61,16 +63,16 @@ public class AudioSpecificConfig extends BaseDescriptor {
     static {
         samplingFrequencyIndexMap.put(0, 96000);
         samplingFrequencyIndexMap.put(1, 88200);
-        samplingFrequencyIndexMap.put(2, 64000);
+        samplingFrequencyIndexMap.put(2, Integer.valueOf((int) AudioEncoderCore.EncodeConfig.BIT_RATE));
         samplingFrequencyIndexMap.put(3, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K));
-        samplingFrequencyIndexMap.put(4, Integer.valueOf((int) StreamConfig.Audio.AUDIO_FREQUENCY));
+        samplingFrequencyIndexMap.put(4, 44100);
         samplingFrequencyIndexMap.put(5, Integer.valueOf((int) StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K));
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
         samplingFrequencyIndexMap.put(8, 16000);
         samplingFrequencyIndexMap.put(9, 12000);
         samplingFrequencyIndexMap.put(10, Integer.valueOf((int) RequestResponseCode.REQUEST_LOGIN_PB_AT));
-        samplingFrequencyIndexMap.put(11, 8000);
+        samplingFrequencyIndexMap.put(11, Integer.valueOf((int) CoolPraiseGuideLottieView.ANIM_DURATION));
         audioObjectTypeMap.put(1, "AAC main");
         audioObjectTypeMap.put(2, "AAC LC");
         audioObjectTypeMap.put(3, "AAC SSR");

@@ -16,11 +16,11 @@ public final class f {
     private final List<g> frames;
     private final String imageKey;
 
-    public final String dFD() {
+    public final String dzG() {
         return this.imageKey;
     }
 
-    public final List<g> dGb() {
+    public final List<g> dAe() {
         return this.frames;
     }
 
@@ -35,8 +35,8 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.cj().isEmpty()) && ((SVGAVideoShapeEntity) o.fx(gVar.cj())).dFR() && arrayList.size() > 0) {
-                        gVar.fn(((g) o.fy(arrayList)).cj());
+                    if ((!gVar.hG().isEmpty()) && ((SVGAVideoShapeEntity) o.fl(gVar.hG())).dzU() && arrayList.size() > 0) {
+                        gVar.fb(((g) o.fm(arrayList)).hG());
                     }
                     arrayList.add(gVar);
                 }
@@ -46,7 +46,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList dKE;
+        ArrayList dDD;
         q.j(spriteEntity, "obj");
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -58,16 +58,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 q.i(frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.cj().isEmpty()) && ((SVGAVideoShapeEntity) o.fx(gVar3.cj())).dFR() && gVar2 != null) {
-                    gVar3.fn(gVar2.cj());
+                if ((!gVar3.hG().isEmpty()) && ((SVGAVideoShapeEntity) o.fl(gVar3.hG())).dzU() && gVar2 != null) {
+                    gVar3.fb(gVar2.hG());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            dKE = arrayList;
+            dDD = arrayList;
         } else {
-            dKE = o.dKE();
+            dDD = o.dDD();
         }
-        this.frames = dKE;
+        this.frames = dDD;
     }
 }

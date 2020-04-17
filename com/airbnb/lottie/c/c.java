@@ -108,7 +108,7 @@ public class c {
                     eVar4 = eVar3;
                     gVar2 = gVar;
                 case 3:
-                    eVar.G("Lottie doesn't support 3D layers.");
+                    eVar.aW("Lottie doesn't support 3D layers.");
                     break;
                 case 4:
                     break;

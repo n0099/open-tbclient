@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode nOz;
-    private ByteBuffer nOA = org.java_websocket.e.b.dOk();
-    private boolean nOy = true;
-    private boolean nOB = false;
-    private boolean nOC = false;
-    private boolean nOD = false;
-    private boolean nOE = false;
+    private Framedata.Opcode nif;
+    private ByteBuffer nig = org.java_websocket.e.b.dHk();
+    private boolean nie = true;
+    private boolean nih = false;
+    private boolean nii = false;
+    private boolean nij = false;
+    private boolean nik = false;
 
-    public abstract void dNZ() throws InvalidDataException;
+    public abstract void dGZ() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.nOz = opcode;
+        this.nif = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dOc() {
-        return this.nOC;
+    public boolean dHc() {
+        return this.nii;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dOd() {
-        return this.nOD;
+    public boolean dHd() {
+        return this.nij;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean dOe() {
-        return this.nOE;
+    public boolean dHe() {
+        return this.nik;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean Ms() {
-        return this.nOy;
+    public boolean Uf() {
+        return this.nie;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode dOf() {
-        return this.nOz;
+    public Framedata.Opcode dHf() {
+        return this.nif;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer dOb() {
-        return this.nOA;
+    public ByteBuffer dHb() {
+        return this.nig;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + dOf() + ", fin:" + Ms() + ", rsv1:" + dOc() + ", rsv2:" + dOd() + ", rsv3:" + dOe() + ", payloadlength:[pos:" + this.nOA.position() + ", len:" + this.nOA.remaining() + "], payload:" + (this.nOA.remaining() > 1000 ? "(too big to display)" : new String(this.nOA.array())) + '}';
+        return "Framedata{ optcode:" + dHf() + ", fin:" + Uf() + ", rsv1:" + dHc() + ", rsv2:" + dHd() + ", rsv3:" + dHe() + ", payloadlength:[pos:" + this.nig.position() + ", len:" + this.nig.remaining() + "], payload:" + (this.nig.remaining() > 1000 ? "(too big to display)" : new String(this.nig.array())) + '}';
     }
 
     public void u(ByteBuffer byteBuffer) {
-        this.nOA = byteBuffer;
+        this.nig = byteBuffer;
     }
 
-    public void ck(boolean z) {
-        this.nOy = z;
+    public void dg(boolean z) {
+        this.nie = z;
     }
 
-    public void xc(boolean z) {
-        this.nOC = z;
+    public void wH(boolean z) {
+        this.nii = z;
     }
 
-    public void xd(boolean z) {
-        this.nOD = z;
+    public void wI(boolean z) {
+        this.nij = z;
     }
 
-    public void xe(boolean z) {
-        this.nOE = z;
+    public void wJ(boolean z) {
+        this.nik = z;
     }
 
-    public void xf(boolean z) {
-        this.nOB = z;
+    public void wK(boolean z) {
+        this.nih = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.nOy == fVar.nOy && this.nOB == fVar.nOB && this.nOC == fVar.nOC && this.nOD == fVar.nOD && this.nOE == fVar.nOE && this.nOz == fVar.nOz) {
-            if (this.nOA != null) {
-                z = this.nOA.equals(fVar.nOA);
-            } else if (fVar.nOA != null) {
+        if (this.nie == fVar.nie && this.nih == fVar.nih && this.nii == fVar.nii && this.nij == fVar.nij && this.nik == fVar.nik && this.nif == fVar.nif) {
+            if (this.nig != null) {
+                z = this.nig.equals(fVar.nig);
+            } else if (fVar.nig != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.nOD ? 1 : 0) + (((this.nOC ? 1 : 0) + (((this.nOB ? 1 : 0) + (((this.nOA != null ? this.nOA.hashCode() : 0) + ((((this.nOy ? 1 : 0) * 31) + this.nOz.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.nOE ? 1 : 0);
+        return (((this.nij ? 1 : 0) + (((this.nii ? 1 : 0) + (((this.nih ? 1 : 0) + (((this.nig != null ? this.nig.hashCode() : 0) + ((((this.nie ? 1 : 0) * 31) + this.nif.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.nik ? 1 : 0);
     }
 }

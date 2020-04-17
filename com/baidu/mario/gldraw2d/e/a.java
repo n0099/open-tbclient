@@ -2,7 +2,6 @@ package com.baidu.mario.gldraw2d.e;
 
 import android.opengl.GLES20;
 import android.util.Log;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -49,7 +48,7 @@ public class a {
         GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
         if (iArr[0] == 0) {
             Log.e(TAG, "Could not compile shader " + i + ":");
-            Log.e(TAG, HanziToPinyin.Token.SEPARATOR + GLES20.glGetShaderInfoLog(glCreateShader));
+            Log.e(TAG, " " + GLES20.glGetShaderInfoLog(glCreateShader));
             GLES20.glDeleteShader(glCreateShader);
             return 0;
         }

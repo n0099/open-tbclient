@@ -4,42 +4,42 @@ import android.text.TextUtils;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class f {
-    private static volatile f crf;
-    private boolean crg;
-    private String crh;
-    private String cri;
+    private static volatile f cQa;
+    private boolean cQb;
+    private String cQc;
+    private String cQd;
 
-    public static f ape() {
-        if (crf == null) {
+    public static f axr() {
+        if (cQa == null) {
             synchronized (f.class) {
-                if (crf == null) {
-                    crf = new f();
+                if (cQa == null) {
+                    cQa = new f();
                 }
             }
         }
-        return crf;
+        return cQa;
     }
 
     private f() {
     }
 
-    public boolean apf() {
-        return this.crg;
+    public boolean axs() {
+        return this.cQb;
     }
 
-    public void eG(boolean z) {
-        this.crg = z;
+    public void fD(boolean z) {
+        this.cQb = z;
     }
 
-    public String apg() {
-        return TextUtils.isEmpty(this.cri) ? "" : this.cri + File.separator + "index.js";
+    public String axt() {
+        return TextUtils.isEmpty(this.cQd) ? "" : this.cQd + File.separator + "index.js";
     }
 
-    public void ps(String str) {
-        this.crh = str;
+    public void qF(String str) {
+        this.cQc = str;
     }
 
-    public void pt(String str) {
-        this.cri = str;
+    public void qG(String str) {
+        this.cQd = str;
     }
 }

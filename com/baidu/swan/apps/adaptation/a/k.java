@@ -5,9 +5,9 @@ import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public interface k {
-    File ab(Context context, String str);
+    File V(Context context, String str);
 
-    JSONObject ac(Context context, String str);
+    JSONObject W(Context context, String str);
 
-    void ao(String str, String str2);
+    void ax(String str, String str2);
 }

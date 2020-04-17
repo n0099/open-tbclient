@@ -4,58 +4,58 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.j;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a kjI;
-    private final int kjJ = 10;
-    private final int kjK = 3000;
+    private com.baidu.adp.lib.stats.a kTO;
+    private final int kTP = 10;
+    private final int kTQ = 3000;
     public String mLogType = null;
     public boolean mIsJson = false;
 
     public b(String str) {
-        aB(str, false);
+        aH(str, false);
     }
 
-    public void aB(String str, boolean z) {
+    public void aH(String str, boolean z) {
         this.mLogType = str;
         this.mIsJson = z;
-        this.kjI = new com.baidu.adp.lib.stats.a("dbg");
-        c.B(str, getNetType(), z);
+        this.kTO = new com.baidu.adp.lib.stats.a("dbg");
+        c.A(str, getNetType(), z);
     }
 
     public void start() {
-        this.kjI.startTimer();
+        this.kTO.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e cLO;
-        if (this.kjI != null && (cLO = cLO()) != null) {
+        e cWK;
+        if (this.kTO != null && (cWK = cWK()) != null) {
             if (z) {
-                if (cLO.kjP != null) {
-                    cLO.kjP.num++;
+                if (cWK.kTV != null) {
+                    cWK.kTV.num++;
                     if (z2) {
-                        cLO.kjP.kjM += j2;
-                        cLO.kjP.size += j;
+                        cWK.kTV.kTS += j2;
+                        cWK.kTV.size += j;
                     } else {
-                        cLO.kjP.kjN++;
+                        cWK.kTV.kTT++;
                     }
                 } else {
                     return;
                 }
-            } else if (cLO.kjQ != null) {
-                cLO.kjQ.num++;
+            } else if (cWK.kTW != null) {
+                cWK.kTW.num++;
                 if (z2) {
-                    cLO.kjQ.kjM += j3;
-                    cLO.kjQ.size += j;
+                    cWK.kTW.kTS += j3;
+                    cWK.kTW.size += j;
                     j2 = j3;
                 } else {
-                    cLO.kjQ.kjN++;
+                    cWK.kTW.kTT++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.kjI = null;
+            this.kTO = null;
             if (z2) {
-                c.a(cLO, 10);
+                c.a(cWK, 10);
             }
             if (this.mLogType == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -74,20 +74,20 @@ public class b {
     }
 
     public void destory() {
-        e cLO;
-        if (this.kjI != null && (cLO = cLO()) != null && cLO.kjR != null) {
-            long timeCost = this.kjI.getTimeCost();
+        e cWK;
+        if (this.kTO != null && (cWK = cWK()) != null && cWK.kTX != null) {
+            long timeCost = this.kTO.getTimeCost();
             if (timeCost > 3000) {
-                d dVar = cLO.kjR;
-                dVar.kjM = timeCost + dVar.kjM;
-                cLO.kjR.num++;
-                c.a(cLO, 10);
+                d dVar = cWK.kTX;
+                dVar.kTS = timeCost + dVar.kTS;
+                cWK.kTX.num++;
+                c.a(cWK, 10);
             }
         }
     }
 
-    private e cLO() {
-        return c.C(this.mLogType, getNetType(), this.mIsJson);
+    private e cWK() {
+        return c.B(this.mLogType, getNetType(), this.mIsJson);
     }
 
     private String getNetType() {

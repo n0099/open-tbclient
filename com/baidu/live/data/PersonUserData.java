@@ -8,19 +8,20 @@ public class PersonUserData implements Serializable {
     public static final int PERSON_FOLLOWS_TYPE = 1;
     public static final int PERSON_PLAYBACKS_TYPE = 2;
     public AlaLocationData location_info;
-    public x login_user_info;
+    public z login_user_info;
     public AlaRelationData relation_info;
-    public x user_info;
+    public z topContributionUserInfo;
+    public z user_info;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("user_info");
         if (optJSONObject != null) {
-            this.user_info = new x();
+            this.user_info = new z();
             this.user_info.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("login_user_info");
         if (optJSONObject2 != null) {
-            this.login_user_info = new x();
+            this.login_user_info = new z();
             this.login_user_info.parserJson(optJSONObject2);
         }
         JSONObject optJSONObject3 = jSONObject.optJSONObject("location_info");
@@ -33,6 +34,11 @@ public class PersonUserData implements Serializable {
             this.relation_info = new AlaRelationData();
             this.relation_info.parserJson(optJSONObject4);
         }
+        JSONObject optJSONObject5 = jSONObject.optJSONObject("top_contribution");
+        if (optJSONObject5 != null) {
+            this.topContributionUserInfo = new z();
+            this.topContributionUserInfo.parserJson(optJSONObject5);
+        }
     }
 
     public boolean isImOnceBan() {
@@ -44,10 +50,10 @@ public class PersonUserData implements Serializable {
     }
 
     public boolean isChatOnceBan() {
-        return this.user_info != null && this.user_info.abv == 1;
+        return this.user_info != null && this.user_info.atO == 1;
     }
 
     public boolean isChatForeverBan() {
-        return this.user_info != null && this.user_info.abv == 2;
+        return this.user_info != null && this.user_info.atO == 2;
     }
 }

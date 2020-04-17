@@ -1,23 +1,15 @@
 package com.baidu.searchbox.publisher.controller;
 
 import android.content.Context;
-import com.baidu.searchbox.publisher.controller.listener.PublishRequestListener;
-import com.baidu.searchbox.publisher.controller.listener.PublishTextImageParams;
-import com.baidu.searchbox.publisher.controller.listener.PublishTextImagesCallback;
 import com.baidu.searchbox.publisher.controller.listener.SelectAtListener;
 import com.baidu.searchbox.publisher.controller.listener.SelectTopicListener;
 import com.baidu.searchbox.ugc.draft.DraftData;
 import com.baidu.searchbox.ugc.provider.listener.OnVideoShareListener;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
-import java.util.Map;
 /* loaded from: classes13.dex */
 public interface IPublisherManagerInterface {
     void deleteDraft(String str);
-
-    void doPublish(String str, Map<String, String> map, PublishRequestListener publishRequestListener);
-
-    void doPublishTextImages(PublishTextImageParams publishTextImageParams, PublishTextImagesCallback publishTextImagesCallback);
 
     DraftData getDraft(String str);
 

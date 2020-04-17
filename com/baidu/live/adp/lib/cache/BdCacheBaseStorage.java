@@ -1,6 +1,7 @@
 package com.baidu.live.adp.lib.cache;
 
 import com.baidu.live.adp.lib.cache.BdKVCache;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes3.dex */
 public abstract class BdCacheBaseStorage<T> implements BdCacheStorage<T> {
     protected final BdCacheEvictPolicy cachePolicy;
@@ -21,7 +22,7 @@ public abstract class BdCacheBaseStorage<T> implements BdCacheStorage<T> {
 
     protected String buildUniqueKey(String str, String str2) {
         if (this.prefixNameSpaceToKey) {
-            return str + "@" + str2;
+            return str + UgcConstant.AT_RULE_TAG + str2;
         }
         return str2;
     }

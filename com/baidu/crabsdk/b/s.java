@@ -74,7 +74,7 @@ public final class s {
         return sb.toString();
     }
 
-    public static Thread ci(String str) {
+    public static Thread dd(String str) {
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() > 0) {
             for (Thread thread : allStackTraces.keySet()) {
@@ -86,7 +86,7 @@ public final class s {
         return null;
     }
 
-    public static String om() {
+    public static String sG() {
         StringBuilder sb = new StringBuilder();
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() > 0) {

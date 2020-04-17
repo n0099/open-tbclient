@@ -4,12 +4,12 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.tbadk.switchs.TBCdnPortraitSwitch;
 /* loaded from: classes.dex */
 public class m {
-    public static boolean aSe() {
-        return aSf();
+    public static boolean ban() {
+        return bao();
     }
 
-    public static boolean aSf() {
-        return com.baidu.tbadk.core.util.m.checkSD() && com.baidu.adp.gif.c.fj();
+    public static boolean bao() {
+        return com.baidu.tbadk.core.util.m.checkSD() && com.baidu.adp.gif.c.jO();
     }
 
     public static boolean canUseIp(String str) {
@@ -38,7 +38,7 @@ public class m {
         return true;
     }
 
-    public static boolean vS(String str) {
+    public static boolean xg(String str) {
         int indexOf;
         return str != null && (indexOf = str.indexOf("tiebapic")) > 0 && indexOf < 20;
     }

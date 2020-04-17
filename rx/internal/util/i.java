@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class i implements k {
-    private volatile boolean nPz;
-    private List<k> nUC;
+    private volatile boolean njf;
+    private List<k> nok;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.nUC = new LinkedList(Arrays.asList(kVarArr));
+        this.nok = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.nUC = new LinkedList();
-        this.nUC.add(kVar);
+        this.nok = new LinkedList();
+        this.nok.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.nPz;
+        return this.njf;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.nPz) {
+            if (!this.njf) {
                 synchronized (this) {
-                    if (!this.nPz) {
-                        List list = this.nUC;
+                    if (!this.njf) {
+                        List list = this.nok;
                         if (list == null) {
                             list = new LinkedList();
-                            this.nUC = list;
+                            this.nok = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.nPz) {
+        if (!this.njf) {
             synchronized (this) {
-                List<k> list = this.nUC;
-                if (!this.nPz && list != null) {
+                List<k> list = this.nok;
+                if (!this.njf && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.nPz) {
+        if (!this.njf) {
             synchronized (this) {
-                if (!this.nPz) {
-                    this.nPz = true;
-                    List<k> list = this.nUC;
-                    this.nUC = null;
+                if (!this.njf) {
+                    this.njf = true;
+                    List<k> list = this.nok;
+                    this.nok = null;
                     r(list);
                 }
             }
@@ -87,7 +87,7 @@ public final class i implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.fA(arrayList);
+            rx.exceptions.a.fo(arrayList);
         }
     }
 }

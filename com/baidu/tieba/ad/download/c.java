@@ -6,36 +6,36 @@ import android.text.TextUtils;
 import com.baidu.tieba.recapp.report.DownloadStaticsData;
 /* loaded from: classes8.dex */
 public class c {
-    private final String eaa;
+    private final String ezX;
     private final String mExtra;
     private final String mPage;
 
     public c(@NonNull String str, @NonNull String str2, String str3) {
         this.mPage = str;
-        this.eaa = str2;
+        this.ezX = str2;
         this.mExtra = str3;
     }
 
-    public void Y(int i, @Nullable String str) {
+    public void an(int i, @Nullable String str) {
         n("", i, str);
     }
 
     public void n(String str, int i, @Nullable String str2) {
-        com.baidu.tieba.recapp.report.b bVar = new com.baidu.tieba.recapp.report.b();
-        bVar.Bg(i);
+        com.baidu.tieba.recapp.report.c cVar = new com.baidu.tieba.recapp.report.c();
+        cVar.BG(i);
         if (TextUtils.isEmpty(str)) {
             str = this.mPage;
         }
-        bVar.Ij(str);
-        bVar.Ik(this.eaa);
+        cVar.JN(str);
+        cVar.JO(this.ezX);
         if (!TextUtils.isEmpty(str2)) {
             DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
             downloadStaticsData.setApk_name(str2);
-            bVar.setDownloadStaticsData(downloadStaticsData);
+            cVar.setDownloadStaticsData(downloadStaticsData);
         }
         if (!TextUtils.isEmpty(this.mExtra)) {
-            bVar.Ib(this.mExtra);
+            cVar.JF(this.mExtra);
         }
-        com.baidu.tieba.recapp.report.c.cDK().a(bVar);
+        com.baidu.tieba.recapp.report.d.cOl().a(cVar);
     }
 }

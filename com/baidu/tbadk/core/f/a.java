@@ -24,8 +24,8 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a cXN;
-    private static CustomMessageListener cXS = new CustomMessageListener(2921440) { // from class: com.baidu.tbadk.core.f.a.2
+    private static a dwX;
+    private static CustomMessageListener dxc = new CustomMessageListener(2921440) { // from class: com.baidu.tbadk.core.f.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -35,47 +35,45 @@ public class a {
         }
     };
     private int activityId;
-    private int cXO;
-    private int cXP;
-    private int cXQ;
-    private CustomMessageListener cXR = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
+    private int dwY;
+    private int dwZ;
+    private int dxa;
+    private CustomMessageListener dxb = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent) && ((ShareEvent) customResponsedMessage.getData()).status == 1) {
-                e.lV(((ShareEvent) customResponsedMessage.getData()).channel);
-                a.this.aFG();
+                e.mh(((ShareEvent) customResponsedMessage.getData()).channel);
+                a.this.aNU();
             }
         }
     };
     private int missionId;
 
-    public static a aFE() {
-        if (cXN == null) {
+    public static a aNS() {
+        if (dwX == null) {
             synchronized (a.class) {
-                if (cXN == null) {
-                    cXN = new a();
+                if (dwX == null) {
+                    dwX = new a();
                 }
             }
         }
-        return cXN;
+        return dwX;
     }
 
     public void c(com.baidu.tbadk.BdToken.activeConfig.a aVar) {
         Activity currentActivity;
-        TbPageContext r;
+        TbPageContext n;
         if (aVar != null) {
-            boolean z = b.aFH().getBoolean("key_task_system_new_user_popup_show_number", false);
-            if (aVar.isNewUser && !StringUtils.isNull(aVar.cJs) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (r = r(currentActivity)) != null) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(currentActivity, "", aVar.cJs + "?page_type=open_full_screen_opacity_web_page", true);
-                tbWebViewActivityConfig.setKeyTimeOutClose(true);
-                r.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
-                b.aFH().putBoolean("key_task_system_new_user_popup_show_number", true);
+            boolean z = b.aNV().getBoolean("key_task_system_new_user_popup_show_number", false);
+            if (aVar.isNewUser && !StringUtils.isNull(aVar.dix) && !z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (n = n(currentActivity)) != null) {
+                n.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(currentActivity, "", aVar.dix + "?page_type=open_full_screen_opacity_web_page", true)));
+                b.aNV().putBoolean("key_task_system_new_user_popup_show_number", true);
             }
         }
     }
 
-    private TbPageContext r(Activity activity) {
+    private TbPageContext n(Activity activity) {
         if (activity instanceof BaseActivity) {
             return ((BaseActivity) activity).getPageContext();
         }
@@ -89,38 +87,38 @@ public class a {
         if (missionInfo != null && missionInfo.activityid.intValue() != 0 && missionInfo.missionid.intValue() != 0) {
             this.activityId = missionInfo.activityid.intValue();
             this.missionId = missionInfo.missionid.intValue();
-            this.cXO = missionInfo.total_limit.intValue();
-            this.cXQ = missionInfo.cleartype.intValue();
-            this.cXP = missionInfo.cleartime.intValue();
+            this.dwY = missionInfo.total_limit.intValue();
+            this.dxa = missionInfo.cleartype.intValue();
+            this.dwZ = missionInfo.cleartime.intValue();
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
-            bVar.bp(this.cXP);
-            bVar.jh(this.cXQ);
-            b.aFH().putInt("task_share_thread_success_data_total_limit", this.cXO);
-            b.aFH().putInt("task_share_thread_success_data_mission_id", this.missionId);
-            b.aFH().putInt("task_share_thread_success_data_action_id", this.activityId);
-            b.aFH().putLong("task_share_thread_success_data_specific_clear_time", bVar.axk());
+            bVar.bU(this.dwZ);
+            bVar.jo(this.dxa);
+            b.aNV().putInt("task_share_thread_success_data_total_limit", this.dwY);
+            b.aNV().putInt("task_share_thread_success_data_mission_id", this.missionId);
+            b.aNV().putInt("task_share_thread_success_data_action_id", this.activityId);
+            b.aNV().putLong("task_share_thread_success_data_specific_clear_time", bVar.aFv());
         }
     }
 
-    private void aFF() {
-        b.aFH().remove("task_share_thread_success_data_total_limit");
-        b.aFH().remove("task_share_thread_success_data_mission_id");
-        b.aFH().remove("task_share_thread_success_data_action_id");
-        b.aFH().remove("task_share_thread_success_data_specific_clear_time");
+    private void aNT() {
+        b.aNV().remove("task_share_thread_success_data_total_limit");
+        b.aNV().remove("task_share_thread_success_data_mission_id");
+        b.aNV().remove("task_share_thread_success_data_action_id");
+        b.aNV().remove("task_share_thread_success_data_specific_clear_time");
     }
 
-    public void aFG() {
+    public void aNU() {
         int i;
         if (TbadkCoreApplication.isLogin()) {
-            int i2 = b.aFH().getInt("task_share_thread_success_data_mission_id", 0);
-            int i3 = b.aFH().getInt("task_share_thread_success_data_action_id", 0);
-            long j = b.aFH().getLong("task_share_thread_success_data_specific_clear_time", 0L);
+            int i2 = b.aNV().getInt("task_share_thread_success_data_mission_id", 0);
+            int i3 = b.aNV().getInt("task_share_thread_success_data_action_id", 0);
+            long j = b.aNV().getLong("task_share_thread_success_data_specific_clear_time", 0L);
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
-            bVar.bq(j);
-            if (bVar.axj()) {
-                aFF();
-            } else if (i3 != 0 && i2 != 0 && (i = b.aFH().getInt("task_share_thread_success_data_total_limit", 0)) > 0) {
-                b.aFH().putInt("task_share_thread_success_data_total_limit", i - 1);
+            bVar.bV(j);
+            if (bVar.aFu()) {
+                aNT();
+            } else if (i3 != 0 && i2 != 0 && (i = b.aNV().getInt("task_share_thread_success_data_total_limit", 0)) > 0) {
+                b.aNV().putInt("task_share_thread_success_data_total_limit", i - 1);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(String.valueOf(i3), String.valueOf(i2));
@@ -141,7 +139,7 @@ public class a {
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.cXR);
-        MessageManager.getInstance().registerListener(cXS);
+        MessageManager.getInstance().registerListener(this.dxb);
+        MessageManager.getInstance().registerListener(dxc);
     }
 }

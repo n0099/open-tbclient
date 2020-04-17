@@ -1,6 +1,4 @@
 package com.baidu.live.adp.framework.settings;
-
-import com.baidu.live.adp.framework.MessageConfig;
 /* loaded from: classes3.dex */
 public class SocketTaskSetting extends TaskSetting {
     private static volatile SocketTaskSetting sInstance = null;
@@ -17,7 +15,7 @@ public class SocketTaskSetting extends TaskSetting {
     }
 
     private SocketTaskSetting() {
-        this.mTimeOutData = new TimeOutData(MessageConfig.SOCKET_TIME_OUT_MS_2G, 10000, 5000);
+        this.mTimeOutData = new TimeOutData(20000, 10000, 5000);
         this.mRetryCount = 3;
     }
 

@@ -13,6 +13,7 @@ import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeProviderCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
 import android.support.v4.widget.FocusStrategy;
+import android.support.v7.widget.ActivityChooserView;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,7 +28,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     private static final String DEFAULT_CLASS_NAME = "android.view.View";
     public static final int HOST_ID = -1;
     public static final int INVALID_ID = Integer.MIN_VALUE;
-    private static final Rect INVALID_PARENT_BOUNDS = new Rect(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
+    private static final Rect INVALID_PARENT_BOUNDS = new Rect(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.MIN_VALUE, Integer.MIN_VALUE);
     private static final FocusStrategy.BoundsAdapter<AccessibilityNodeInfoCompat> NODE_ADAPTER = new FocusStrategy.BoundsAdapter<AccessibilityNodeInfoCompat>() { // from class: android.support.v4.widget.ExploreByTouchHelper.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.support.v4.widget.FocusStrategy.BoundsAdapter

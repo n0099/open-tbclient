@@ -16,7 +16,7 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes11.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener jnM;
+    private View.OnLongClickListener jYa;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -25,11 +25,11 @@ public class h extends RecyclerView.Adapter<a> {
         this.mContext = context;
     }
 
-    public void av(List<SmartApp> list) {
+    public void aE(List<SmartApp> list) {
         this.mDataList = list;
     }
 
-    public SmartApp GR(String str) {
+    public SmartApp Iy(String str) {
         if (v.isEmpty(this.mDataList)) {
             return null;
         }
@@ -44,28 +44,28 @@ public class h extends RecyclerView.Adapter<a> {
         return null;
     }
 
-    public void V(View.OnClickListener onClickListener) {
+    public void W(View.OnClickListener onClickListener) {
         this.mOnItemClickListener = onClickListener;
     }
 
-    public void c(View.OnLongClickListener onLongClickListener) {
-        this.jnM = onLongClickListener;
+    public void d(View.OnLongClickListener onLongClickListener) {
+        this.jYa = onLongClickListener;
     }
 
-    private SmartApp Ac(int i) {
+    private SmartApp AD(int i) {
         return (SmartApp) v.getItem(this.mDataList, i);
     }
 
-    public void b(SmartApp smartApp) {
-        SmartApp GR = GR(smartApp.id);
-        if (GR != null && this.mDataList != null) {
-            v.add(this.mDataList, 0, GR);
+    public void a(SmartApp smartApp) {
+        SmartApp Iy = Iy(smartApp.id);
+        if (Iy != null && this.mDataList != null) {
+            v.add(this.mDataList, 0, Iy);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: z */
+    /* renamed from: B */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.smart_app_history_record_item, viewGroup, false));
     }
@@ -74,11 +74,11 @@ public class h extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        SmartApp Ac;
-        if (aVar != null && (Ac = Ac(i)) != null) {
-            aVar.c(Ac);
+        SmartApp AD;
+        if (aVar != null && (AD = AD(i)) != null) {
+            aVar.b(AD);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.jnM);
+            aVar.setOnLongClickListener(this.jYa);
             aVar.onChangeSkinType();
         }
     }
@@ -90,26 +90,26 @@ public class h extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes11.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView hSy;
-        private SmartApp jnN;
+        private HeadImageView iCp;
+        private SmartApp jYb;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.hSy = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.hSy.setIsRound(true);
-            this.hSy.setPlaceHolder(1);
+            this.iCp = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.iCp.setIsRound(true);
+            this.iCp.setPlaceHolder(1);
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
-        public void c(SmartApp smartApp) {
-            this.jnN = smartApp;
+        public void b(SmartApp smartApp) {
+            this.jYb = smartApp;
             this.mRootView.setTag(smartApp);
             if (!aq.isEmpty(smartApp.avatar)) {
-                this.hSy.setPlaceHolder(1);
-                this.hSy.startLoad(smartApp.avatar, 10, false, false);
+                this.iCp.setPlaceHolder(1);
+                this.iCp.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!aq.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

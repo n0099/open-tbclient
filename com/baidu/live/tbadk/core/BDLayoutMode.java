@@ -20,6 +20,7 @@ import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.TbConfig;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.Map;
@@ -201,7 +202,7 @@ public class BDLayoutMode {
     }
 
     private void changeForViewGroup(ViewGroup viewGroup) {
-        String str = "@" + viewGroup.getId();
+        String str = UgcConstant.AT_RULE_TAG + viewGroup.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             BDLayoutInfo bDLayoutInfo = this.viewModeInfos.get(str);
             if (viewGroup instanceof AdapterView) {
@@ -237,7 +238,7 @@ public class BDLayoutMode {
         Drawable drawable2;
         Drawable drawable3;
         int styleResID;
-        String str = "@" + view.getId();
+        String str = UgcConstant.AT_RULE_TAG + view.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             BDLayoutInfo bDLayoutInfo = this.viewModeInfos.get(str);
             if (view instanceof TextView) {

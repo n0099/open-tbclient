@@ -63,7 +63,7 @@ public class WNaviBaiduMap {
             case 9:
                 return BdNetTask.TIMEOUT_READ;
             case 10:
-                return MessageConfig.SOCKET_TIME_OUT_MS_2G;
+                return 20000;
             case 11:
                 return 10000;
             case 12:

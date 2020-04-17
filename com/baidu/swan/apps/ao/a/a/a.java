@@ -59,10 +59,10 @@ public class a extends ab {
                 return false;
             }
             c.i("accelerometer", " init ");
-            com.baidu.swan.apps.ao.a.a afK = com.baidu.swan.apps.ao.a.a.afK();
-            afK.init(context, a.C0226a.fZ(optParamsAsJo.optString("interval")));
-            afK.a(new a.InterfaceC0204a() { // from class: com.baidu.swan.apps.ao.a.a.a.1
-                @Override // com.baidu.swan.apps.ao.a.a.InterfaceC0204a
+            com.baidu.swan.apps.ao.a.a anP = com.baidu.swan.apps.ao.a.a.anP();
+            anP.m(context, a.C0256a.hn(optParamsAsJo.optString("interval")));
+            anP.a(new a.InterfaceC0234a() { // from class: com.baidu.swan.apps.ao.a.a.a.1
+                @Override // com.baidu.swan.apps.ao.a.a.InterfaceC0234a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
@@ -76,7 +76,7 @@ public class a extends ab {
                     }
                 }
             });
-            afK.afL();
+            anP.anQ();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

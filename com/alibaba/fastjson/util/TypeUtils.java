@@ -16,9 +16,8 @@ import com.alibaba.fastjson.serializer.CalendarCodec;
 import com.alibaba.fastjson.serializer.SerializeBeanInfo;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.minivideo.effect.core.entity.AEffectParams;
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.vivo.push.PushClientConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.annotation.Annotation;
@@ -283,9 +282,9 @@ public class TypeUtils {
                     if (str2.length() == JSON.DEFFAULT_DATE_FORMAT.length() || (str2.length() == 22 && JSON.DEFFAULT_DATE_FORMAT.equals("yyyyMMddHHmmssSSSZ"))) {
                         str = JSON.DEFFAULT_DATE_FORMAT;
                     } else if (str2.length() == 10) {
-                        str = "yyyy-MM-dd";
-                    } else if (str2.length() == DateTimeUtil.TIME_FORMAT.length()) {
-                        str = DateTimeUtil.TIME_FORMAT;
+                        str = ControlShowManager.DAY_TIME_FORMAT;
+                    } else if (str2.length() == "yyyy-MM-dd HH:mm:ss".length()) {
+                        str = "yyyy-MM-dd HH:mm:ss";
                     } else if (str2.length() == 29 && str2.charAt(26) == ':' && str2.charAt(28) == '0') {
                         str = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
                     } else {
@@ -870,7 +869,7 @@ public class TypeUtils {
         mappings.put("short", Short.TYPE);
         mappings.put("int", Integer.TYPE);
         mappings.put("long", Long.TYPE);
-        mappings.put(AEffectParams.VALUE_TYPE_FLOAT, Float.TYPE);
+        mappings.put("float", Float.TYPE);
         mappings.put("double", Double.TYPE);
         mappings.put("boolean", Boolean.TYPE);
         mappings.put("char", Character.TYPE);

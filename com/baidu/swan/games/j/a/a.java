@@ -34,14 +34,14 @@ public class a extends ab {
             }
             com.baidu.swan.games.k.a.c(optString, new e.b() { // from class: com.baidu.swan.games.j.a.a.1
                 @Override // com.baidu.swan.apps.t.e.b
-                public void cX(int i) {
+                public void dm(int i) {
                 }
 
                 @Override // com.baidu.swan.apps.t.e.b
                 public void onSuccess() {
-                    File RY = b.RY();
-                    File RW = b.RW();
-                    if (RY.exists() && com.baidu.swan.d.c.unzipFile(RY.getPath(), RW.getPath())) {
+                    File ZN = b.ZN();
+                    File ZL = b.ZL();
+                    if (ZN.exists() && com.baidu.swan.d.c.unzipFile(ZN.getPath(), ZL.getPath())) {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_success, 1).show();
                     } else {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_failed, 1).show();

@@ -1,6 +1,8 @@
 package com.baidu.searchbox.config;
 /* loaded from: classes13.dex */
 public class QuickPersistConfigConst {
+    public static final String CRASH_LOGGER_SYNC_SWITCHER = "crash_upload_sync_switcher";
+    public static final String CRASH_NATIVE_LOGGER_SYNC_SWITCHER = "crash_native_upload_sync_switcher";
     public static final String KEY_ACTIVITY_TRACE_ENABLE = "activity_trace_enable";
     public static final String KEY_BUNDLE_PRESET = "rn_bundle_preset_installed";
     public static final String KEY_BUNDLE_PRESET_VERSION = "rn_bundle_last_preset_version";
@@ -8,6 +10,7 @@ public class QuickPersistConfigConst {
     public static final String KEY_DEVELOPMENT_SETTINGS = "dev_settings";
     public static final String KEY_ENABLE_MULTIPLE_PROCESS = "enable_multiple_process";
     public static final String KEY_FIRSET_INIT_ID = "app_init";
+    public static final String KEY_FIRSET_LAUNCH_PERMISSION_REQUEST = "first_launch_permission_request";
     public static final String KEY_FLOW_HANDLE = "ubc_key_flow_handle";
     public static final String KEY_HTTPS_UBC_LOG = "key_https_log";
     public static final String KEY_INTRODUCTION_VERSION = "introduction_version";
@@ -41,6 +44,8 @@ public class QuickPersistConfigConst {
     public static final String KEY_XLIS_LOG_ENABLE = "xlis_lg_enable";
     public static final String KEY_ZEUS_MODE_NOADS_SETTING = "zeus_mode_noads_user_set";
     public static final String KEY_ZEUS_SPDY_SETTING = "zeus_spdy_setting";
+    public static final String LAG_BLOCK_ACTIVE_UPLOAD = "lag_block_active_upload";
+    public static final String LAG_UPLOAD_SYNC_UPLOAD = "lag_upload_sync_upload";
     public static final String OLD_VIDEO_HISTORY_EXECUTE = "old_video_history_execute";
     public static final boolean SEARCHBOX_SERVER_USE_HTTPS_DEFAULT = true;
     public static final int TMP_USE_HTTP_DEAFULT = 0;

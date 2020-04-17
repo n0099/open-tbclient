@@ -1,6 +1,5 @@
 package io.reactivex.internal.subscribers;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.g;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -23,7 +22,9 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
 
     @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+        if (SubscriptionHelper.setOnce(this, dVar)) {
+            dVar.request(Long.MAX_VALUE);
+        }
     }
 
     @Override // org.a.c
@@ -35,7 +36,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
                     onComplete();
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 dispose();
                 onError(th);
             }
@@ -52,7 +53,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.H(th2);
+            io.reactivex.exceptions.a.L(th2);
             io.reactivex.e.a.onError(new CompositeException(th, th2));
         }
     }
@@ -64,7 +65,7 @@ public final class ForEachWhileSubscriber<T> extends AtomicReference<d> implemen
             try {
                 this.onComplete.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 io.reactivex.e.a.onError(th);
             }
         }

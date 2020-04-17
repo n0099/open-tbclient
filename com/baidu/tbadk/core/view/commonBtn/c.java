@@ -7,63 +7,63 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends a {
-    private boolean dkn;
+    private boolean dKh;
 
     public c() {
-        this.dka = R.color.cp_link_tip_a;
-        this.dkn = true;
+        this.dJT = R.color.cp_link_tip_a;
+        this.dKh = true;
     }
 
-    public void lu(@ColorRes int i) {
-        this.dka = i;
-        this.dkn = true;
-        this.dkl = true;
-        if (this.dkm != null) {
-            this.dkm.aIv();
+    public void lG(@ColorRes int i) {
+        this.dJT = i;
+        this.dKh = true;
+        this.dKe = true;
+        if (this.dKg != null) {
+            this.dKg.aQR();
         }
     }
 
-    public void lv(@ColorRes int i) {
-        this.dka = i;
-        this.dkc = R.color.cp_btn_a;
-        this.dkn = false;
-        this.dkl = true;
-        if (this.dkm != null) {
-            this.dkm.aIv();
+    public void lH(@ColorRes int i) {
+        this.dJT = i;
+        this.dJV = R.color.cp_btn_a;
+        this.dKh = false;
+        this.dKe = true;
+        if (this.dKg != null) {
+            this.dKg.aQR();
         }
     }
 
-    public void aIy() {
-        this.dka = R.color.cp_cont_a;
-        this.dkc = R.color.cp_btn_j;
-        this.dkn = false;
-        this.dkl = true;
-        if (this.dkm != null) {
-            this.dkm.aIv();
+    public void aQU() {
+        this.dJT = R.color.cp_cont_a;
+        this.dJV = R.color.cp_btn_j;
+        this.dKh = false;
+        this.dKe = true;
+        if (this.dKg != null) {
+            this.dKg.aQR();
         }
     }
 
-    public void lw(@ColorRes int i) {
-        this.dka = i;
-        this.dkc = R.color.cp_btn_c;
-        this.dkn = false;
-        if (this.dkm != null) {
-            this.dkm.aIv();
+    public void lI(@ColorRes int i) {
+        this.dJT = i;
+        this.dJV = R.color.cp_btn_c;
+        this.dKh = false;
+        if (this.dKg != null) {
+            this.dKg.aQR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.tbadk.core.view.commonBtn.a
-    public Drawable ak(float f) {
-        return am(f);
+    public Drawable U(float f) {
+        return W(f);
     }
 
-    private Drawable am(float f) {
+    private Drawable W(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.dkn) {
-            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.n(this.dkl ? am.getColor(this.dka) : this.dka, 0.08f));
+        if (this.dKh) {
+            gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.l(this.dKe ? am.getColor(this.dJT) : this.dJT, 0.08f));
         } else {
-            gradientDrawable.setColor(am.getColor(this.dkc));
+            gradientDrawable.setColor(am.getColor(this.dJV));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

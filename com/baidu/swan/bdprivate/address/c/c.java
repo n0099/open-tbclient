@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static List<b> ng(String str) {
+    public static List<b> ov(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -18,7 +18,7 @@ public class c {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
             if (optJSONObject != null) {
-                return C(optJSONObject.optJSONArray("list"));
+                return D(optJSONObject.optJSONArray("list"));
             }
             return arrayList;
         } catch (JSONException e) {
@@ -30,7 +30,7 @@ public class c {
         }
     }
 
-    public static JSONArray ae(List<b> list) {
+    public static JSONArray am(List<b> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null) {
             int i = 0;
@@ -49,7 +49,7 @@ public class c {
         return jSONArray;
     }
 
-    public static List<b> C(JSONArray jSONArray) {
+    public static List<b> D(JSONArray jSONArray) {
         if (jSONArray == null) {
             return null;
         }
@@ -57,7 +57,7 @@ public class c {
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
             if (optJSONObject != null) {
-                arrayList.add(b.bc(optJSONObject));
+                arrayList.add(b.bn(optJSONObject));
             }
         }
         return arrayList;

@@ -18,26 +18,26 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<M extends Message<?>, T extends MessageTask, R extends f<?, ?>, N extends ResponsedMessage<?>> implements com.baidu.adp.framework.b<M, T> {
-    private static com.baidu.adp.framework.listener.b<Message<?>> ol = null;
-    protected MessageManager ny;
+    private static com.baidu.adp.framework.listener.b<Message<?>> Hu = null;
+    protected MessageManager GG;
     private final SparseArray<T> mTasks = new SparseArray<>();
     private final SparseArray<N> mStickyResponsedMessage = new SparseArray<>();
     private final SparseArray<LinkedList<MessageListener<N>>> mListeners = new SparseArray<>();
-    protected com.baidu.adp.framework.c.d oj = null;
+    protected com.baidu.adp.framework.c.d Ht = null;
     private boolean mAborted = false;
     private final SparseIntArray mListenerLocked = new SparseIntArray();
 
     public abstract M b(M m, T t);
 
     public c(MessageManager messageManager) {
-        this.ny = null;
-        this.ny = messageManager;
+        this.GG = null;
+        this.GG = messageManager;
     }
 
     public synchronized void registerTask(T t) {
         if (t != null) {
             int cmd = t.getCmd();
-            FrameHelper.D(cmd);
+            FrameHelper.P(cmd);
             this.mTasks.put(cmd, t);
         }
     }
@@ -75,7 +75,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             if (i == 0) {
                 i = messageListener.getCmd();
             }
-            FrameHelper.D(i);
+            FrameHelper.P(i);
             checkListenerLock(i);
             LinkedList<MessageListener<N>> linkedList = this.mListeners.get(i);
             if (linkedList == null) {
@@ -143,12 +143,12 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
         }
         if (t != null) {
             M b = b(m, t);
-            if (this.oj != null) {
+            if (this.Ht != null) {
                 if (t.getTimeOut() == null) {
-                    t.setTimeOut(this.oj.ff());
+                    t.setTimeOut(this.Ht.jK());
                 }
                 if (t.getRetry() == 0) {
-                    t.setRetry(this.oj.getRetryCount());
+                    t.setRetry(this.Ht.getRetryCount());
                 }
             }
             if (b != null) {
@@ -158,8 +158,8 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
             BdLog.d("message is trapped:" + cmd);
             return false;
         }
-        if (ol != null) {
-            ol.a(m);
+        if (Hu != null) {
+            Hu.a(m);
         }
         BdLog.e("task not register:" + cmd);
         return false;
@@ -241,6 +241,6 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public static void setNotFindTaskListener(com.baidu.adp.framework.listener.b<Message<?>> bVar) {
-        ol = bVar;
+        Hu = bVar;
     }
 }

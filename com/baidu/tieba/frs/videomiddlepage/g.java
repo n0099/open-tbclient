@@ -10,9 +10,9 @@ public interface g {
 
     /* loaded from: classes9.dex */
     public interface b {
-        void Sn();
-
         void a(a aVar);
+
+        void aac();
 
         void e(List<com.baidu.tieba.card.data.b> list, boolean z, boolean z2);
 

@@ -16,8 +16,8 @@ import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.LoopADView;
 /* loaded from: classes13.dex */
 public class AdCardLoopPicView extends AdCardBaseView {
-    private View jKk;
-    private LoopADView jKl;
+    private View ktX;
+    private LoopADView ktY;
 
     public AdCardLoopPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -29,45 +29,45 @@ public class AdCardLoopPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void cO(View view) {
-        this.jKk = view.findViewById(R.id.advert_loop_ad_container);
-        this.jKl = (LoopADView) view.findViewById(R.id.loop_view);
+    protected void cW(View view) {
+        this.ktX = view.findViewById(R.id.advert_loop_ad_container);
+        this.ktY = (LoopADView) view.findViewById(R.id.loop_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(final AdCard adCard) {
         AdCard.d[] dVarArr = adCard.threadPicList;
-        boolean isShowImages = i.azR().isShowImages();
-        this.jKl.setBussinessType(getBusinessType());
+        boolean isShowImages = i.aIe().isShowImages();
+        this.ktY.setBussinessType(getBusinessType());
         if (!isShowImages) {
-            this.jKk.setVisibility(8);
+            this.ktX.setVisibility(8);
             return;
         }
-        this.jKk.setVisibility(0);
-        t(this.jKk, 0);
-        this.jKl.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
+        this.ktX.setVisibility(0);
+        u(this.ktX, 0);
+        this.ktY.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void b(TbImageView tbImageView, AdCard.b bVar) {
                 AdCardLoopPicView.this.a(tbImageView, bVar, new AdCardBaseView.b(adCard));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
-            public String HU(String str) {
-                return AdCardLoopPicView.this.HR(aq.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE));
+            public String Jy(String str) {
+                return AdCardLoopPicView.this.Jv(aq.cutStringWithSuffix(str, 100, StringHelper.STRING_MORE));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void reset() {
-                if (AdCardLoopPicView.this.jKk != null) {
-                    AdCardLoopPicView.this.jKk.setScrollX(0);
+                if (AdCardLoopPicView.this.ktX != null) {
+                    AdCardLoopPicView.this.ktX.setScrollX(0);
                 }
             }
         });
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds92);
         if (!adCard.needResize) {
-            this.jKl.a(dVarArr, 30, 0, 0, dimensionPixelSize);
+            this.ktY.a(dVarArr, 30, 0, 0, dimensionPixelSize);
         } else {
-            this.jKl.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
+            this.ktY.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
         }
     }
 
@@ -81,12 +81,12 @@ public class AdCardLoopPicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView, com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(AdCard adCard, int i) {
         super.a(adCard, i);
-        if (this.jKl != null && this.jKl.getVisibility() == 0) {
-            this.jKl.can();
+        if (this.ktY != null && this.ktY.getVisibility() == 0) {
+            this.ktY.ckO();
         }
     }
 
-    private void t(View view, int i) {
+    private void u(View view, int i) {
         if (view != null && view.getVisibility() == 0) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {

@@ -5,7 +5,7 @@ import android.content.Context;
 import tv.chushou.widget.a.b;
 /* loaded from: classes5.dex */
 public class a {
-    public static void p(Context context, boolean z) {
+    public static void m(Context context, boolean z) {
         if (context instanceof Activity) {
             Activity activity = (Activity) context;
             if (z) {

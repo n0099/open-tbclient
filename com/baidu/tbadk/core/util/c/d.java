@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.e.e
-    public boolean gu() {
+    public boolean kY() {
         return true;
     }
 
@@ -19,7 +19,7 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        return com.baidu.tbadk.imageManager.c.aPV().vy(str);
+        return com.baidu.tbadk.imageManager.c.aYm().wM(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,10 +40,10 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             e eVar = new e();
             eVar.f(cVar);
-            aVar.rT = eVar;
+            aVar.KR = eVar;
         }
         boolean isWifiNet = com.baidu.adp.lib.util.j.isWifiNet();
-        if (com.baidu.adp.lib.Disk.d.fk().c(cVar)) {
+        if (com.baidu.adp.lib.Disk.d.jP().c(cVar)) {
             int i3 = 2000;
             if (isWifiNet) {
                 i3 = 300;
@@ -75,22 +75,22 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         if (!StringUtils.isNull(str)) {
             com.baidu.tbadk.core.util.a.i iVar = new com.baidu.tbadk.core.util.a.i();
             if (aVar != null) {
-                aVar.rT = iVar;
+                aVar.KR = iVar;
             }
-            byte[] T = iVar.T(str, false);
-            boolean aGT = iVar.aGT();
-            if ((T != null || iVar.fY().rp) && aGT && !iVar.dbH) {
+            byte[] Y = iVar.Y(str, false);
+            boolean aPi = iVar.aPi();
+            if ((Y != null || iVar.kC().Kp) && aPi && !iVar.dAW) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-                cVar.setData(T);
+                cVar.setData(Y);
                 cVar.setSdCard(false);
                 cVar.setSavedCache(true);
                 cVar.setGif(false);
-                com.baidu.adp.lib.Disk.d.fk().c(cVar);
+                com.baidu.adp.lib.Disk.d.jP().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();
                     eVar.f(cVar);
-                    aVar.rT = eVar;
+                    aVar.KR = eVar;
                 }
             }
         }
@@ -100,23 +100,23 @@ public class d implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a) && ((com.baidu.adp.widget.ImageView.a) obj).isNeedCache()) {
-            com.baidu.tbadk.imageManager.c.aPV().c(str, (com.baidu.adp.widget.ImageView.a) obj);
+            com.baidu.tbadk.imageManager.c.aYm().c(str, (com.baidu.adp.widget.ImageView.a) obj);
         }
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel gv() {
-        return j.aHb().gv();
+    public BdAsyncTaskParallel kZ() {
+        return j.aPq().kZ();
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int gw() {
+    public int la() {
         return 1;
     }
 
-    public static boolean tL(String str) {
+    public static boolean uY(String str) {
         com.baidu.adp.lib.Disk.ops.c cVar;
-        if (TextUtils.isEmpty(str) || (cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(com.baidu.adp.lib.e.c.gr().genCacheKey(str, 41)), DiskFileOperate.Action.INFO)) == null) {
+        if (TextUtils.isEmpty(str) || (cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, as.getNameMd5FromUrl(com.baidu.adp.lib.e.c.kV().genCacheKey(str, 41)), DiskFileOperate.Action.INFO)) == null) {
             return false;
         }
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);

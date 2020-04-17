@@ -22,15 +22,15 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     private View f;
     private TextView g;
     private TextView h;
-    private InterfaceC0715a nhf;
+    private InterfaceC0739a mDM;
 
     /* renamed from: com.kascend.chushou.view.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0715a {
+    public interface InterfaceC0739a {
         void a(int i);
     }
 
-    public static a dEP() {
+    public static a dyP() {
         return new a();
     }
 
@@ -54,7 +54,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
     }
 
     @Override // com.kascend.chushou.view.base.a
-    public View b(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         int statusBarHeight = b.getStatusBarHeight(this.b);
         View inflate = layoutInflater.inflate(a.h.view_playshow_4g_info, viewGroup, false);
         this.d = (RelativeLayout) inflate.findViewById(a.f.rl_close);
@@ -83,8 +83,8 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.nhf != null) {
-            this.nhf.a(view.getId());
+        if (this.mDM != null) {
+            this.mDM.a(view.getId());
         }
     }
 
@@ -94,7 +94,7 @@ public class a extends com.kascend.chushou.view.base.a implements View.OnClickLi
         this.a--;
     }
 
-    public void a(InterfaceC0715a interfaceC0715a) {
-        this.nhf = interfaceC0715a;
+    public void a(InterfaceC0739a interfaceC0739a) {
+        this.mDM = interfaceC0739a;
     }
 }

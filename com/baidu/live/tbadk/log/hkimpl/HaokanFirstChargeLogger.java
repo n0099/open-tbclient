@@ -13,11 +13,11 @@ public class HaokanFirstChargeLogger implements IFirstChargeLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_FIRSTCHARGE_POP);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("live_id", str);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str4);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -35,7 +35,7 @@ public class HaokanFirstChargeLogger implements IFirstChargeLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("live_id", str);
             jSONObject.put("room_id", str2);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str4);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -53,7 +53,7 @@ public class HaokanFirstChargeLogger implements IFirstChargeLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("live_id", str);
             jSONObject.put("room_id", str2);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str4);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -66,12 +66,12 @@ public class HaokanFirstChargeLogger implements IFirstChargeLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_QUICK_FIRSTCHARGE);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("live_id", str);
             jSONObject.put("room_id", str2);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str4);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -89,7 +89,7 @@ public class HaokanFirstChargeLogger implements IFirstChargeLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("live_id", str);
             jSONObject.put("room_id", str2);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str4);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -102,12 +102,12 @@ public class HaokanFirstChargeLogger implements IFirstChargeLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_FIRSTCHARGE_DOOR);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("live_id", str);
             jSONObject.put("room_id", str2);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("loc", LogConfig.VALUE_LIVE_RECHARGE_ZONE);
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str4);
         } catch (JSONException e) {
@@ -126,7 +126,7 @@ public class HaokanFirstChargeLogger implements IFirstChargeLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("live_id", str);
             jSONObject.put("room_id", str2);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("loc", LogConfig.VALUE_LIVE_RECHARGE_ZONE);
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str4);
         } catch (JSONException e) {

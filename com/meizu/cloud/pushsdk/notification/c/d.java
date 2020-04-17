@@ -2,7 +2,6 @@ package com.meizu.cloud.pushsdk.notification.c;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 /* loaded from: classes8.dex */
 public class d {
     private static d b;
@@ -26,7 +25,7 @@ public class d {
     }
 
     public int a(String str, String str2) {
-        com.meizu.cloud.a.a.i("ResourceReader", "Get resource type " + str2 + HanziToPinyin.Token.SEPARATOR + str);
+        com.meizu.cloud.a.a.i("ResourceReader", "Get resource type " + str2 + " " + str);
         return this.a.getResources().getIdentifier(str, str2, this.a.getApplicationInfo().packageName);
     }
 }

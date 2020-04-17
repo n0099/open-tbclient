@@ -1,6 +1,5 @@
 package com.baidu.browser.sailor;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.Log;
@@ -235,7 +234,7 @@ public class BdSailorWebSettings implements INoProGuard {
             if (WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ENABLE_LOG_RECORD).equals("true")) {
                 return;
             }
-            Log.i("zwsettings.setNightMode", z + HanziToPinyin.Token.SEPARATOR + BdSailorWebSettings.lastNightModeEnabled);
+            Log.i("zwsettings.setNightMode", z + " " + BdSailorWebSettings.lastNightModeEnabled);
             if (!z || BdSailorWebSettings.lastNightModeEnabled == z) {
                 synchronized (BdSailorWebSettings.class) {
                     if (z) {

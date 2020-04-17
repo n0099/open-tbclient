@@ -6,7 +6,7 @@ public class StringEncoderComparator implements Comparator {
     private final StringEncoder stringEncoder;
 
     @Deprecated
-    public StringEncoderComparator() {
+    private StringEncoderComparator() {
         this.stringEncoder = null;
     }
 

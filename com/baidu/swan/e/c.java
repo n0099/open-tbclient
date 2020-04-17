@@ -6,51 +6,51 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    private static c cGi;
-    private boolean cGj = false;
+    private static c dfj;
+    private boolean dfk = false;
     private List<a> mListeners = new ArrayList();
 
     private c() {
     }
 
-    public static c awE() {
-        if (cGi == null) {
+    public static c aEP() {
+        if (dfj == null) {
             synchronized (c.class) {
-                if (cGi == null) {
-                    cGi = new c();
+                if (dfj == null) {
+                    dfj = new c();
                 }
             }
         }
-        return cGi;
+        return dfj;
     }
 
-    public synchronized void awF() {
-        if (!this.cGj) {
-            if (b.awy()) {
-                awG();
+    public synchronized void aEQ() {
+        if (!this.dfk) {
+            if (b.aEJ()) {
+                aER();
             } else {
-                this.cGj = true;
-                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.awB(), b.awA()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
+                this.dfk = true;
+                com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.aEM(), b.aEL()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.a.e
                     /* renamed from: j */
-                    public void P(com.baidu.swan.a.a.c cVar) {
+                    public void Q(com.baidu.swan.a.a.c cVar) {
                         c.this.g(cVar);
                     }
 
                     @Override // com.baidu.swan.a.e
-                    public void E(int i, String str) {
-                        c.this.cGj = false;
+                    public void V(int i, String str) {
+                        c.this.dfk = false;
                         if (i == 1010) {
-                            c.this.awG();
+                            c.this.aER();
                         } else {
-                            c.this.awH();
+                            c.this.aES();
                         }
                     }
 
                     @Override // com.baidu.swan.a.e
-                    public void n(long j, long j2) {
-                        c.this.r(j, j2);
+                    public void o(long j, long j2) {
+                        c.this.s(j, j2);
                     }
                 }));
             }
@@ -71,7 +71,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void awG() {
+    public synchronized void aER() {
         for (a aVar : this.mListeners) {
             aVar.onSuccess();
         }
@@ -79,7 +79,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void awH() {
+    public synchronized void aES() {
         for (a aVar : this.mListeners) {
             aVar.onFail();
         }
@@ -87,7 +87,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void r(long j, long j2) {
+    public synchronized void s(long j, long j2) {
         for (a aVar : this.mListeners) {
             aVar.onProgress(j, j2);
         }
@@ -96,10 +96,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void g(com.baidu.swan.a.a.c cVar) {
         if (e.k(cVar)) {
-            b.fi(true);
+            b.gf(true);
             h(cVar);
         } else {
-            b.fi(false);
+            b.gf(false);
             i(cVar);
         }
     }
@@ -112,31 +112,31 @@ public class c {
 
             @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
             public void onInstallFinish(int i, String str) {
-                if (!c.this.awI()) {
-                    c.this.cGj = false;
-                    c.this.awH();
+                if (!c.this.aET()) {
+                    c.this.dfk = false;
+                    c.this.aES();
                     return;
                 }
-                b.U(cVar.versionName, cVar.versionCode);
-                c.this.cGj = false;
-                c.this.awG();
+                b.ac(cVar.versionName, cVar.versionCode);
+                c.this.dfk = false;
+                c.this.aER();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized boolean awI() {
-        return new d(AppRuntime.getAppContext()).awK();
+    public synchronized boolean aET() {
+        return new d(AppRuntime.getAppContext()).aEV();
     }
 
     private synchronized void i(com.baidu.swan.a.a.c cVar) {
-        if (e.unzipFile(cVar.filePath, b.brv)) {
-            b.U(cVar.versionName, cVar.versionCode);
-            this.cGj = false;
-            awG();
+        if (e.unzipFile(cVar.filePath, b.bPC)) {
+            b.ac(cVar.versionName, cVar.versionCode);
+            this.dfk = false;
+            aER();
         } else {
-            this.cGj = false;
-            awH();
+            this.dfk = false;
+            aES();
         }
     }
 }

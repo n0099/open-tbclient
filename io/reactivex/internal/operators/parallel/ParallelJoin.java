@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.parallel;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.g;
 import io.reactivex.internal.a.f;
@@ -18,19 +17,19 @@ import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelJoin<T> extends g<T> {
     final boolean delayErrors;
-    final a<? extends T> nAt;
+    final a<? extends T> mTU;
     final int prefetch;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         JoinSubscriptionBase joinSubscription;
         if (this.delayErrors) {
-            joinSubscription = new JoinSubscriptionDelayError(cVar, this.nAt.dJS(), this.prefetch);
+            joinSubscription = new JoinSubscriptionDelayError(cVar, this.mTU.dCR(), this.prefetch);
         } else {
-            joinSubscription = new JoinSubscription(cVar, this.nAt.dJS(), this.prefetch);
+            joinSubscription = new JoinSubscription(cVar, this.mTU.dCR(), this.prefetch);
         }
         cVar.onSubscribe(joinSubscription);
-        this.nAt.a(joinSubscription.subscribers);
+        this.mTU.a(joinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -107,7 +106,7 @@ public final class ParallelJoin<T> extends g<T> {
             if (get() == 0 && compareAndSet(0, 1)) {
                 if (this.requested.get() != 0) {
                     this.actual.onNext(t);
-                    if (this.requested.get() != Format.OFFSET_SAMPLE_RELATIVE) {
+                    if (this.requested.get() != Long.MAX_VALUE) {
                         this.requested.decrementAndGet();
                     }
                     joinInnerSubscriber.request(1L);
@@ -250,7 +249,7 @@ public final class ParallelJoin<T> extends g<T> {
                         return;
                     }
                 }
-                if (j2 != 0 && j != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j2 != 0 && j != Long.MAX_VALUE) {
                     this.requested.addAndGet(-j2);
                 }
                 i = get();
@@ -274,7 +273,7 @@ public final class ParallelJoin<T> extends g<T> {
             if (get() == 0 && compareAndSet(0, 1)) {
                 if (this.requested.get() != 0) {
                     this.actual.onNext(t);
-                    if (this.requested.get() != Format.OFFSET_SAMPLE_RELATIVE) {
+                    if (this.requested.get() != Long.MAX_VALUE) {
                         this.requested.decrementAndGet();
                     }
                     joinInnerSubscriber.request(1L);
@@ -413,7 +412,7 @@ public final class ParallelJoin<T> extends g<T> {
                         }
                     }
                 }
-                if (j2 != 0 && j != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j2 != 0 && j != Long.MAX_VALUE) {
                     this.requested.addAndGet(-j2);
                 }
                 int i4 = get();
@@ -447,7 +446,9 @@ public final class ParallelJoin<T> extends g<T> {
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, this.prefetch);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(this.prefetch);
+            }
         }
 
         @Override // org.a.c

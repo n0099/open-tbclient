@@ -55,7 +55,7 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
                     aaVar.a(new a(this, this.actual));
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 onError(th);
             }
         }
@@ -74,16 +74,16 @@ public final class MaybeFlatMapSingle<T, R> extends w<R> {
     /* loaded from: classes7.dex */
     static final class a<R> implements y<R> {
         final y<? super R> actual;
-        final AtomicReference<io.reactivex.disposables.b> parent;
+        final AtomicReference<io.reactivex.disposables.b> mRB;
 
         a(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super R> yVar) {
-            this.parent = atomicReference;
+            this.mRB = atomicReference;
             this.actual = yVar;
         }
 
         @Override // io.reactivex.y
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            DisposableHelper.replace(this.parent, bVar);
+            DisposableHelper.replace(this.mRB, bVar);
         }
 
         @Override // io.reactivex.y

@@ -1,6 +1,5 @@
 package io.reactivex.subscribers;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
@@ -17,7 +16,7 @@ public abstract class a<T> implements io.reactivex.disposables.b, j<T> {
     }
 
     protected void onStart() {
-        this.s.get().request(Format.OFFSET_SAMPLE_RELATIVE);
+        this.s.get().request(Long.MAX_VALUE);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

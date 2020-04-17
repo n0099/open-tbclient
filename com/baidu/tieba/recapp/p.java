@@ -1,103 +1,113 @@
 package com.baidu.tieba.recapp;
 
 import android.content.Context;
-import android.support.v4.internal.view.SupportMenu;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.StateListDrawable;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.searchbox.picture.params.LaunchParams;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.lego.view.JumpButton;
-import com.baidu.tieba.recapp.view.AdCriusCloseView;
-import com.baidu.tieba.recapp.view.AdThreadCommentAndPraiseInfoLayout;
-import com.baidu.tieba.recapp.widget.ApkDownloadView;
+import com.baidu.tieba.recapp.view.DistributeVideoView;
+import com.baidu.tieba.recapp.widget.CriusTbClipImageView;
+import tbclient.VideoInfo;
 /* loaded from: classes13.dex */
-public class p implements com.baidu.c.a.b.b {
-    @Override // com.baidu.c.a.b.b
-    public View O(Context context, String str) {
-        if ("head".equalsIgnoreCase(str)) {
-            HeadImageView headImageView = new HeadImageView(context);
-            headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            headImageView.setDrawerType(1);
-            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-            headImageView.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-            headImageView.setDefaultBgResource(R.color.cp_bg_line_e);
-            return headImageView;
-        } else if ("time".equalsIgnoreCase(str)) {
-            TextView textView = new TextView(context);
-            textView.setIncludeFontPadding(false);
-            return textView;
-        } else if ("closead".equalsIgnoreCase(str)) {
-            return new AdCriusCloseView(context);
+public class p implements com.baidu.b.a.b.c {
+    @Override // com.baidu.b.a.b.c
+    public View N(Context context, String str) {
+        if ("image".equalsIgnoreCase(str)) {
+            CriusTbClipImageView criusTbClipImageView = new CriusTbClipImageView(context);
+            criusTbClipImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            criusTbClipImageView.setDrawerType(1);
+            criusTbClipImageView.setDefaultResource(17170445);
+            criusTbClipImageView.setDefaultBgResource(R.color.cp_bg_line_e);
+            criusTbClipImageView.setPlaceHolder(3);
+            return criusTbClipImageView;
+        } else if ("video".equalsIgnoreCase(str)) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.ad_card_video_view, (ViewGroup) null);
+            DistributeVideoView distributeVideoView = (DistributeVideoView) inflate.findViewById(R.id.advert_video);
+            if (distributeVideoView != null) {
+                distributeVideoView.setHolderView(inflate);
+            }
+            return inflate;
         } else {
-            if (LaunchParams.SRC_TYPE_DOWNLOAD.equalsIgnoreCase(str)) {
-                return new ApkDownloadView(context);
-            }
-            if ("viewbtn".equalsIgnoreCase(str)) {
-                return new JumpButton(context);
-            }
-            if ("bottombar".equalsIgnoreCase(str)) {
-                LinearLayout linearLayout = new LinearLayout(context);
-                linearLayout.setOrientation(1);
-                AdThreadCommentAndPraiseInfoLayout adThreadCommentAndPraiseInfoLayout = new AdThreadCommentAndPraiseInfoLayout(context);
-                adThreadCommentAndPraiseInfoLayout.setStyle(1);
-                adThreadCommentAndPraiseInfoLayout.getRootView().setGravity(16);
-                linearLayout.addView(adThreadCommentAndPraiseInfoLayout);
-                ViewGroup.LayoutParams layoutParams = adThreadCommentAndPraiseInfoLayout.getLayoutParams();
-                if (layoutParams != null) {
-                    layoutParams.width = -1;
-                    layoutParams.height = -1;
-                    adThreadCommentAndPraiseInfoLayout.setLayoutParams(layoutParams);
-                }
-                adThreadCommentAndPraiseInfoLayout.getRootView().setGravity(16);
-                return linearLayout;
-            }
-            ImageView imageView = new ImageView(context);
-            imageView.setBackgroundColor(SupportMenu.CATEGORY_MASK);
-            return imageView;
+            return null;
         }
     }
 
-    @Override // com.baidu.c.a.b.b
-    public boolean a(String str, View view, com.baidu.c.a.a.a aVar, boolean z) {
-        if (aVar == null) {
+    @Override // com.baidu.b.a.b.c
+    public boolean a(String str, View view, com.baidu.b.a.a.a aVar) {
+        DistributeVideoView distributeVideoView;
+        if (aVar == null || view == null) {
             return false;
         }
-        if (view instanceof HeadImageView) {
-            if (aVar.Ta > 0.0f) {
-                ((HeadImageView) view).setRadius((int) (aVar.Ta * view.getResources().getDisplayMetrics().density));
+        if (view instanceof CriusTbClipImageView) {
+            float f = view.getResources().getDisplayMetrics().density;
+            if (aVar.aln > 0.0f) {
+                int x = x(aVar.aln, f);
+                ((CriusTbClipImageView) view).setRadius(x, x, x, x);
             } else {
-                ((HeadImageView) view).setRadius(0);
+                ((CriusTbClipImageView) view).setRadius(x(aVar.alo, f), x(aVar.alp, f), x(aVar.alq, f), x(aVar.alr, f));
             }
-            ((HeadImageView) view).startLoad(aVar.src, 10, false);
+            ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
+            return true;
+        } else if (!"video".equalsIgnoreCase(str) || (distributeVideoView = (DistributeVideoView) view.findViewById(R.id.advert_video)) == null) {
+            return false;
+        } else {
+            int dimension = (int) view.getContext().getResources().getDimension(R.dimen.ds278);
+            VideoInfo.Builder builder = new VideoInfo.Builder();
+            builder.video_url = aVar.src;
+            builder.thumbnail_url = aVar.poster;
+            builder.video_duration = Integer.valueOf(aVar.videoDuration);
+            builder.video_width = Integer.valueOf(aVar.width);
+            builder.video_height = Integer.valueOf(aVar.height);
+            distributeVideoView.setData(builder.build(true), (int) (com.baidu.adp.lib.util.l.getEquipmentWidth(view.getContext()) - (view.getContext().getResources().getDimension(R.dimen.ds44) * 2.0f)), dimension, (int) view.getContext().getResources().getDimension(R.dimen.ds640));
             return true;
         }
-        if ("time".equalsIgnoreCase(str)) {
-            TextView textView = (TextView) view;
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.Tg);
-            } else {
-                textView.setTextColor(aVar.color);
-            }
-            textView.setTextSize(0, aVar.Th * view.getContext().getResources().getDisplayMetrics().density);
-            textView.setText(aVar.text);
-        } else if (view instanceof JumpButton) {
-            ((JumpButton) view).setText(aVar.text);
-            return true;
-        } else if (LaunchParams.SRC_TYPE_DOWNLOAD.equalsIgnoreCase(str) && (view instanceof ApkDownloadView)) {
-            if (TextUtils.equals("pb-banner", aVar.Ti)) {
-                ((ApkDownloadView) view).setIsPbDownload(true);
-                ((ApkDownloadView) view).setTextSize((int) aVar.Th);
-            } else {
-                ((ApkDownloadView) view).setIsPbDownload(false);
-            }
-            ((ApkDownloadView) view).setDefaultText(aVar.text);
+    }
+
+    @Override // com.baidu.b.a.b.c
+    public boolean a(String str, final View view, final String str2, String str3) {
+        if (view == null || TextUtils.isEmpty(str2)) {
+            return false;
         }
-        return false;
+        if (str2.startsWith("file://") && str2.length() > 7) {
+            int identifier = com.baidu.adp.base.g.jo().getResources().getIdentifier(str2.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+            if (!TextUtils.isEmpty(str3) && str3.startsWith("file://") && str3.length() > 7) {
+                int identifier2 = com.baidu.adp.base.g.jo().getResources().getIdentifier(str3.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+                if (identifier2 <= 0 || identifier <= 0) {
+                    return true;
+                }
+                StateListDrawable stateListDrawable = new StateListDrawable();
+                Drawable drawable = view.getResources().getDrawable(identifier2);
+                Drawable drawable2 = view.getResources().getDrawable(identifier);
+                stateListDrawable.addState(new int[]{16842919}, drawable);
+                stateListDrawable.addState(new int[]{-16842919}, drawable2);
+                view.setBackgroundDrawable(stateListDrawable);
+                return true;
+            } else if (identifier > 0) {
+                view.setBackgroundResource(identifier);
+                return true;
+            } else {
+                return true;
+            }
+        }
+        com.baidu.adp.lib.e.c.kV().a(str2, 17, new com.baidu.adp.lib.e.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.p.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.adp.lib.e.b
+            public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str4, int i) {
+                if (str2.equalsIgnoreCase(str4)) {
+                    view.setBackgroundDrawable(aVar.getAsBitmapDrawable());
+                }
+            }
+        }, null);
+        return true;
+    }
+
+    private int x(float f, float f2) {
+        return (int) (Math.max(f, 0.0f) * f2);
     }
 }

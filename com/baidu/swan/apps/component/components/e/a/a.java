@@ -36,12 +36,12 @@ public class a extends com.baidu.swan.apps.scheme.actions.b {
             c.e("Component-Action-CoverView", "model is null");
             return false;
         }
-        com.baidu.swan.apps.component.b.c KI = new com.baidu.swan.apps.component.components.e.c.a(context, k).KI();
-        boolean isSuccess = KI.isSuccess();
+        com.baidu.swan.apps.component.b.c Sw = new com.baidu.swan.apps.component.components.e.c.a(context, k).Sw();
+        boolean isSuccess = Sw.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, KI.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sw.msg);
         }
         return isSuccess;
     }
@@ -59,7 +59,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.c.a aVar = (com.baidu.swan.apps.component.components.e.c.a) com.baidu.swan.apps.component.container.a.d(k);
         if (aVar == null) {
-            String str2 = "can't find coverView component:#" + k.biA;
+            String str2 = "can't find coverView component:#" + k.bGI;
             c.e("Component-Action-CoverView", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -87,18 +87,18 @@ public class a extends com.baidu.swan.apps.scheme.actions.b {
         }
         com.baidu.swan.apps.component.components.e.c.a aVar = (com.baidu.swan.apps.component.components.e.c.a) com.baidu.swan.apps.component.container.a.d(k);
         if (aVar == null) {
-            String str2 = "can't find coverView component:#" + k.biA;
+            String str2 = "can't find coverView component:#" + k.bGI;
             c.e("Component-Action-CoverView", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
         }
-        com.baidu.swan.apps.component.b.c KK = aVar.KK();
-        boolean isSuccess = KK.isSuccess();
+        com.baidu.swan.apps.component.b.c Sy = aVar.Sy();
+        boolean isSuccess = Sy.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return isSuccess;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, KK.msg);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sy.msg);
         return isSuccess;
     }
 

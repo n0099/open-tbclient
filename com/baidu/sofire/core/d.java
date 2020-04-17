@@ -10,7 +10,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.util.FieldUtil;
 import com.baidu.mobstat.Config;
 import com.baidu.sofire.ac.Callback;
@@ -218,7 +218,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        int optInt = optJSONObject.optInt("errno");
+                        int optInt = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
                         int optInt2 = optJSONObject.optInt("l");
                         if (optInt == 1) {
                             JSONObject optJSONObject2 = optJSONObject.optJSONObject("detail");
@@ -732,7 +732,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                     this.h.a(c2);
                                     com.baidu.sofire.b.a();
                                     int g3 = this.h.g(c2.key);
-                                    new StringBuilder().append(c2.key).append(HanziToPinyin.Token.SEPARATOR).append(g3);
+                                    new StringBuilder().append(c2.key).append(" ").append(g3);
                                     com.baidu.sofire.b.a();
                                     if (g3 < 3 && g3 != -1) {
                                         this.h.b(c2.key, g3 + 1);
@@ -927,7 +927,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             com.baidu.sofire.b.a();
             HashMap hashMap = new HashMap();
             hashMap.put("0", Integer.toString(i));
-            hashMap.put("1", !TextUtils.isEmpty(str) ? str : HanziToPinyin.Token.SEPARATOR);
+            hashMap.put("1", !TextUtils.isEmpty(str) ? str : " ");
             hashMap.put("2", "0");
             com.baidu.sofire.i.d.a(b, "1003136", hashMap);
             if (TextUtils.isEmpty(str)) {
@@ -1091,7 +1091,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         com.baidu.sofire.b.a();
         HashMap hashMap = new HashMap();
         hashMap.put("0", Integer.toString(i));
-        hashMap.put("1", !TextUtils.isEmpty(str) ? str : HanziToPinyin.Token.SEPARATOR);
+        hashMap.put("1", !TextUtils.isEmpty(str) ? str : " ");
         hashMap.put("2", "1");
         com.baidu.sofire.i.d.a(b, "1003136", hashMap);
         try {

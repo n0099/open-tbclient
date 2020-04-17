@@ -28,16 +28,16 @@ public class z {
         public String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f82a;
+        public boolean f83a;
         public String b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f83b;
+        public boolean f84b;
 
         public b(String str, boolean z, boolean z2, String str2) {
             this.a = str;
-            this.f82a = z;
-            this.f83b = z2;
+            this.f83a = z;
+            this.f84b = z2;
             this.b = str2;
         }
     }
@@ -232,8 +232,8 @@ public class z {
             for (ServiceInfo serviceInfo : packageInfo.services) {
                 if (!TextUtils.isEmpty(serviceInfo.name) && hashMap2.containsKey(serviceInfo.name)) {
                     b bVar = (b) hashMap2.remove(serviceInfo.name);
-                    boolean z = bVar.f82a;
-                    boolean z2 = bVar.f83b;
+                    boolean z = bVar.f83a;
+                    boolean z2 = bVar.f84b;
                     String str = bVar.b;
                     if (z != serviceInfo.enabled) {
                         throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));

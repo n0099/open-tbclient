@@ -27,7 +27,7 @@ public class BdCircleImageView extends ImageView {
         super(context);
         ShapeDrawable shapeDrawable;
         float f = getContext().getResources().getDisplayMetrics().density;
-        int i2 = (int) (1.75f * f);
+        int i2 = (int) (Y_OFFSET * f);
         int i3 = (int) (0.0f * f);
         this.mShadowRadius = (int) (SHADOW_RADIUS * f);
         if (elevationSupported()) {

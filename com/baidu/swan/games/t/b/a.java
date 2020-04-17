@@ -2,8 +2,8 @@ package com.baidu.swan.games.t.b;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.publisher.plugin.UgcPluginInfo;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.a;
@@ -24,30 +24,30 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String csk = "";
+    private static String cRf = "";
     private static String mUrl = "";
-    private com.baidu.swan.games.binding.model.c cqr;
+    private com.baidu.swan.games.binding.model.c cPn;
 
     public a(JsObject jsObject) {
-        this.cqr = com.baidu.swan.games.binding.model.c.c(jsObject);
+        this.cPn = com.baidu.swan.games.binding.model.c.c(jsObject);
     }
 
-    public void NU() {
+    public void VI() {
         e eVar = new e();
         eVar.mType = UgcPluginInfo.METHOD_SHARE_VIDEO;
         f.a(eVar);
-        final c apB = apB();
-        if (apB != null) {
-            com.baidu.swan.apps.a.b acT = com.baidu.swan.apps.runtime.e.acI().acT();
-            if (acT.isLogin(com.baidu.swan.apps.w.a.TZ())) {
-                a(apB);
+        final c axN = axN();
+        if (axN != null) {
+            com.baidu.swan.apps.a.b akY = com.baidu.swan.apps.runtime.e.akN().akY();
+            if (akY.isLogin(com.baidu.swan.apps.w.a.abO())) {
+                a(axN);
                 return;
             }
-            SwanAppActivity WG = com.baidu.swan.apps.y.f.WV().WG();
-            if (WG == null) {
-                pw("shareVideo: swanAppActivity is null");
+            SwanAppActivity aev = com.baidu.swan.apps.y.f.aeK().aev();
+            if (aev == null) {
+                qJ("shareVideo: swanAppActivity is null");
             } else {
-                acT.a(WG, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.games.t.b.a.1
+                akY.a(aev, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.games.t.b.a.1
                     @Override // com.baidu.swan.apps.a.a
                     public void onResult(int i) {
                         switch (i) {
@@ -55,13 +55,13 @@ public class a {
                                 if (a.DEBUG) {
                                     Log.d("ShareVideoApi", "login success");
                                 }
-                                a.this.a(apB);
+                                a.this.a(axN);
                                 return;
                             default:
                                 if (a.DEBUG) {
                                     Log.d("ShareVideoApi", "login fail");
                                 }
-                                a.this.pw("shareVideo: fail, no login in");
+                                a.this.qJ("shareVideo: fail, no login in");
                                 return;
                         }
                     }
@@ -72,55 +72,55 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
-        com.baidu.swan.games.l.a.aoM().a(cVar, new b() { // from class: com.baidu.swan.games.t.b.a.2
+        com.baidu.swan.games.l.a.awZ().a(cVar, new b() { // from class: com.baidu.swan.games.t.b.a.2
             @Override // com.baidu.swan.games.t.b.b
             public void a(c cVar2, String str) {
                 if (a.DEBUG) {
                     Log.d("ShareVideoApi", String.format("onFail params = %s;errMsg = %s", cVar2, str));
                 }
-                a.this.pw(str);
+                a.this.qJ(str);
             }
         });
     }
 
-    private c apB() {
+    private c axN() {
         c cVar = null;
-        if (this.cqr == null) {
-            apC();
-        } else if (com.baidu.swan.apps.runtime.e.acI() == null) {
-            pw("shareVideo: fail, swanApp is null");
+        if (this.cPn == null) {
+            axO();
+        } else if (com.baidu.swan.apps.runtime.e.akN() == null) {
+            qJ("shareVideo: fail, swanApp is null");
         } else {
-            String optString = this.cqr.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
+            String optString = this.cPn.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
             if (TextUtils.isEmpty(optString)) {
-                pw("shareVideo: videoPath is invalid");
+                qJ("shareVideo: videoPath is invalid");
             } else {
-                String oM = l.oM(optString);
-                if (TextUtils.isEmpty(oM)) {
-                    pw("shareVideo: videoPath is invalid");
+                String pZ = l.pZ(optString);
+                if (TextUtils.isEmpty(pZ)) {
+                    qJ("shareVideo: videoPath is invalid");
                 } else {
                     cVar = new c();
-                    cVar.videoPath = oM;
-                    cVar.title = this.cqr.optString("title");
-                    cVar.query = this.cqr.optString("query");
+                    cVar.videoPath = pZ;
+                    cVar.title = this.cPn.optString("title");
+                    cVar.query = this.cPn.optString("query");
                     d dVar = new d();
-                    dVar.csp = this.cqr.optLong("clipMaxDuration", 30L);
-                    dVar.csq = this.cqr.optLong("clipMinDuration", 3L);
-                    dVar.csr = this.cqr.optString("topicSource");
-                    dVar.css = this.cqr.optString("publishTitle", com.baidu.swan.apps.w.a.TZ().getResources().getString(a.h.swangame_publish_video));
-                    dVar.cst = this.cqr.optString("publishURL", "/searchbox?action=ugc&cmd=177");
-                    dVar.sourceType = this.cqr.optInt("sourceType", 1);
-                    dVar.sourceFrom = this.cqr.optString("sourceFrom", "tiny");
-                    dVar.csv = this.cqr.optString("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
-                    dVar.csu = this.cqr.optString("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
-                    dVar.csw = this.cqr.optString("topicURL", "baiduboxapp://v1/easybrowse/open?url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dsearch&style=%7b%22menumode%22%3a%222%22%2c%22showtoolbar%22%3a%221%22%7d&newbrowser=1");
-                    dVar.publishType = this.cqr.optString("publishType", "9");
+                    dVar.cRk = this.cPn.optLong("clipMaxDuration", 30L);
+                    dVar.cRl = this.cPn.optLong("clipMinDuration", 3L);
+                    dVar.cRm = this.cPn.optString("topicSource");
+                    dVar.cRn = this.cPn.optString("publishTitle", com.baidu.swan.apps.w.a.abO().getResources().getString(a.h.swangame_publish_video));
+                    dVar.cRo = this.cPn.optString("publishURL", "/searchbox?action=ugc&cmd=177");
+                    dVar.sourceType = this.cPn.optInt("sourceType", 1);
+                    dVar.sourceFrom = this.cPn.optString("sourceFrom", "tiny");
+                    dVar.cRq = this.cPn.optString("atURL", "baiduboxapp://v1/easybrowse/open?newbrowser=1&style=%7B%22menumode%22%3A%222%22%2C%22showtoolbar%22%3A%221%22%7D&url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dat&newbrowser=1");
+                    dVar.cRp = this.cPn.optString("musicURL", "https://sv.baidu.com/feedvideoui/view/videomusic");
+                    dVar.cRr = this.cPn.optString("topicURL", "baiduboxapp://v1/easybrowse/open?url=https%3A%2F%2Fmbd.baidu.com%2Fwebpage%3Ftype%3Dtopic%26action%3Dsearch&style=%7b%22menumode%22%3a%222%22%2c%22showtoolbar%22%3a%221%22%7d&newbrowser=1");
+                    dVar.publishType = this.cPn.optString(UgcConstant.PUBLISH_TYPE, "9");
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("app_key", com.baidu.swan.apps.runtime.e.acK());
-                        jSONObject.put("frame_type", com.baidu.swan.apps.runtime.d.acF().Gz());
+                        jSONObject.put("app_key", com.baidu.swan.apps.runtime.e.akP());
+                        jSONObject.put("frame_type", com.baidu.swan.apps.runtime.d.akK().Om());
                         jSONObject.put("query", cVar.query);
-                        if (com.baidu.swan.apps.runtime.e.acI() != null && com.baidu.swan.apps.runtime.e.acI().GJ() != null) {
-                            jSONObject.put("title", com.baidu.swan.apps.runtime.e.acI().GJ().Re());
+                        if (com.baidu.swan.apps.runtime.e.akN() != null && com.baidu.swan.apps.runtime.e.akN().Ow() != null) {
+                            jSONObject.put("title", com.baidu.swan.apps.runtime.e.akN().Ow().YT());
                         }
                     } catch (JSONException e) {
                         if (DEBUG) {
@@ -128,12 +128,12 @@ public class a {
                         }
                     }
                     dVar.swan = jSONObject.toString();
-                    if (!TextUtils.isEmpty(csk)) {
+                    if (!TextUtils.isEmpty(cRf)) {
                         JSONObject jSONObject2 = new JSONObject();
                         try {
-                            jSONObject2.put("id", csk);
-                            if (com.baidu.swan.apps.runtime.e.acI() != null && com.baidu.swan.apps.runtime.e.acI().GJ() != null) {
-                                jSONObject2.put("name", com.baidu.swan.apps.runtime.e.acI().GJ().Re());
+                            jSONObject2.put("id", cRf);
+                            if (com.baidu.swan.apps.runtime.e.akN() != null && com.baidu.swan.apps.runtime.e.akN().Ow() != null) {
+                                jSONObject2.put("name", com.baidu.swan.apps.runtime.e.akN().Ow().YT());
                             }
                             jSONObject2.put("type", "interest");
                             jSONObject2.put("post_id", "");
@@ -157,7 +157,7 @@ public class a {
                     } else {
                         dVar.showToast = 0;
                     }
-                    cVar.cso = dVar;
+                    cVar.cRj = dVar;
                 }
             }
         }
@@ -165,28 +165,28 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pw(String str) {
-        if (this.cqr != null) {
+    public void qJ(String str) {
+        if (this.cPn != null) {
             com.baidu.swan.games.binding.model.b bVar = new com.baidu.swan.games.binding.model.b();
             bVar.errMsg = String.format(Locale.CHINA, "shareVideo: fail, %s", str);
-            com.baidu.swan.games.utils.b.a(this.cqr, false, bVar);
-            apC();
+            com.baidu.swan.games.utils.b.a(this.cPn, false, bVar);
+            axO();
         }
     }
 
-    private void apC() {
+    private void axO() {
         e eVar = new e();
         eVar.mType = UgcPluginInfo.METHOD_SHARE_VIDEO;
-        eVar.mValue = LivenessStat.TYPE_FACE_MATCH_FAIL;
+        eVar.mValue = "fail";
         f.a(eVar);
     }
 
-    public static void apD() {
-        com.baidu.swan.games.network.b acV = com.baidu.swan.apps.runtime.e.acI().acV();
+    public static void axP() {
+        com.baidu.swan.games.network.b ala = com.baidu.swan.apps.runtime.e.akN().ala();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("app_type", 0);
-            jSONObject.put("app_key", com.baidu.swan.apps.runtime.e.acK());
+            jSONObject.put("app_key", com.baidu.swan.apps.runtime.e.akP());
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -194,13 +194,13 @@ public class a {
         }
         HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/ugc/query_community_by_app").newBuilder();
         newBuilder.addQueryParameter("data", jSONObject.toString());
-        acV.a(new Request.Builder().url(newBuilder.build()).build(), new Callback() { // from class: com.baidu.swan.games.t.b.a.3
+        ala.a(new Request.Builder().url(newBuilder.build()).build(), new Callback() { // from class: com.baidu.swan.games.t.b.a.3
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (a.DEBUG) {
                     iOException.printStackTrace();
                 }
-                a.apE();
+                a.axQ();
             }
 
             @Override // okhttp3.Callback
@@ -208,24 +208,24 @@ public class a {
                 try {
                     JSONObject jSONObject2 = (JSONObject) new JSONObject(response.body().string()).opt("data");
                     if (jSONObject2 != null) {
-                        String unused = a.csk = jSONObject2.optString("community_id");
+                        String unused = a.cRf = jSONObject2.optString("community_id");
                         String unused2 = a.mUrl = jSONObject2.optString("url");
                     } else {
-                        a.apE();
+                        a.axQ();
                     }
                 } catch (JSONException e2) {
                     if (a.DEBUG) {
                         e2.printStackTrace();
                     }
-                    a.apE();
+                    a.axQ();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void apE() {
-        csk = "";
+    public static void axQ() {
+        cRf = "";
         mUrl = "";
     }
 }

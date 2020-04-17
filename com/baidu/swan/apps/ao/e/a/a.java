@@ -57,11 +57,11 @@ public class a extends ab {
                 return false;
             }
             c.i("compass", "init");
-            com.baidu.swan.apps.ao.e.a afR = com.baidu.swan.apps.ao.e.a.afR();
-            afR.init(context);
-            afR.a(new a.InterfaceC0207a() { // from class: com.baidu.swan.apps.ao.e.a.a.1
-                @Override // com.baidu.swan.apps.ao.e.a.InterfaceC0207a
-                public void R(float f) {
+            com.baidu.swan.apps.ao.e.a anW = com.baidu.swan.apps.ao.e.a.anW();
+            anW.init(context);
+            anW.a(new a.InterfaceC0237a() { // from class: com.baidu.swan.apps.ao.e.a.a.1
+                @Override // com.baidu.swan.apps.ao.e.a.InterfaceC0237a
+                public void B(float f) {
                     c.i("compass", "handle compass change, angle:" + f);
                     a.this.a(unitedSchemeEntity, callbackHandler, optString, f);
                     if (a.DEBUG) {
@@ -70,7 +70,7 @@ public class a extends ab {
                 }
             });
             c.i("compass", "start listen compass");
-            afR.afS();
+            anW.anX();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

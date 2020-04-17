@@ -24,16 +24,16 @@ public class DownloadReceiver extends BroadcastReceiver {
                 }
                 if (status == 7) {
                     downloadData.setStatus(5);
-                    e.cCW().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                    e.cCW().i(downloadData);
+                    e.cNu().a(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                    e.cNu().i(downloadData);
                 } else if (status == 1 || status == 5) {
                     downloadData.setStatus(4);
-                    e.cCW().A(downloadData.getUrl(), downloadData.getId(), true);
-                    e.cCW().k(downloadData);
+                    e.cNu().z(downloadData.getUrl(), downloadData.getId(), true);
+                    e.cNu().k(downloadData);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_APP_DOWNLOAD_MSG, downloadData));
             } else if ("action_cancel_download".equals(intent.getAction())) {
-                e.cCW().m(downloadData);
+                e.cNu().m(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_DOWNLOAD_MSG, downloadData));
             }
         }

@@ -10,16 +10,16 @@ import io.reactivex.n;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class MaybeCreate<T> extends k<T> {
-    final n<T> nzx;
+    final n<T> mSW;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         Emitter emitter = new Emitter(mVar);
         mVar.onSubscribe(emitter);
         try {
-            this.nzx.a(emitter);
+            this.mSW.a(emitter);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             emitter.onError(th);
         }
     }
@@ -107,11 +107,6 @@ public final class MaybeCreate<T> extends k<T> {
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
             return DisposableHelper.isDisposed(get());
-        }
-
-        @Override // java.util.concurrent.atomic.AtomicReference
-        public String toString() {
-            return String.format("%s{%s}", getClass().getSimpleName(), super.toString());
         }
     }
 }

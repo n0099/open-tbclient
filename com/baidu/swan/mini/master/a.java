@@ -9,10 +9,10 @@ import com.baidu.swan.games.e.h;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.a bls;
-    private com.baidu.swan.games.binding.a bpN = new com.baidu.swan.games.binding.a();
-    private b cAy;
-    private String cAz;
+    private com.baidu.swan.games.e.a bJA;
+    private com.baidu.swan.games.binding.a bNU = new com.baidu.swan.games.binding.a();
+    private b cZw;
+    private String cZx;
 
     /* loaded from: classes11.dex */
     public interface b {
@@ -20,49 +20,49 @@ public class a {
     }
 
     public a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
-        this.bls = g.a(Pg(), new C0363a(str, str2, obj), null);
+        this.bJA = g.a(WV(), new C0393a(str, str2, obj), null);
     }
 
     public void setCodeCacheSetting(V8EngineConfiguration.CodeCacheSetting codeCacheSetting) {
-        this.bls.setCodeCacheSetting(codeCacheSetting);
+        this.bJA.setCodeCacheSetting(codeCacheSetting);
     }
 
     public com.baidu.swan.games.e.a getV8Engine() {
-        return this.bls;
+        return this.bJA;
     }
 
     public void finish() {
-        this.bls.finish();
+        this.bJA.finish();
     }
 
-    private h Pg() {
-        return new h.a().hQ(1).oI("master").anH();
+    private h WV() {
+        return new h.a().hX(1).pV("master").avU();
     }
 
     public void a(b bVar) {
-        this.cAy = bVar;
+        this.cZw = bVar;
     }
 
     @Nullable
-    public String atm() {
-        return this.cAz;
+    public String aBw() {
+        return this.cZx;
     }
 
-    public void qi(@NonNull String str) {
-        this.cAz = str;
+    public void rv(@NonNull String str) {
+        this.cZx = str;
     }
 
     /* renamed from: com.baidu.swan.mini.master.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class C0363a extends com.baidu.swan.games.e.d.a {
-        private Object cAA;
+    private class C0393a extends com.baidu.swan.games.e.d.a {
+        private Object cZy;
         private String mBasePath;
         private String mFileName;
 
-        C0363a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
+        C0393a(@NonNull String str, @NonNull String str2, @Nullable Object obj) {
             this.mBasePath = str;
             this.mFileName = str2;
-            this.cAA = obj;
+            this.cZy = obj;
             if (a.DEBUG) {
                 Log.d("SwanAppV8Master", "basePath: " + str + ", jsFile: " + str2);
             }
@@ -70,12 +70,12 @@ public class a {
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         @Nullable
-        public V8EngineConfiguration.CodeCacheSetting Ph() {
-            if (com.baidu.swan.apps.w.a.Uc().dT(0)) {
+        public V8EngineConfiguration.CodeCacheSetting WW() {
+            if (com.baidu.swan.apps.w.a.abR().dY(0)) {
                 if (a.DEBUG) {
                     Log.d("SwanAppV8Master", "pathList item: " + this.mBasePath);
                 }
-                return com.baidu.swan.apps.core.b.a.aw("appframe", this.mBasePath);
+                return com.baidu.swan.apps.core.b.a.aF("appframe", this.mBasePath);
             }
             return null;
         }
@@ -86,21 +86,21 @@ public class a {
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
-        public String Pi() {
+        public String WX() {
             return this.mFileName;
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void a(com.baidu.swan.games.e.a aVar) {
-            if (this.cAA != null) {
-                aVar.addJavascriptInterface(this.cAA, "___NA_SWAN_MINI___");
+            if (this.cZy != null) {
+                aVar.addJavascriptInterface(this.cZy, "___NA_SWAN_MINI___");
             }
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void b(com.baidu.swan.games.e.a aVar) {
-            if (a.this.cAy != null) {
-                a.this.cAy.c(aVar);
+            if (a.this.cZw != null) {
+                a.this.cZw.c(aVar);
             }
             aVar.onLoad();
         }

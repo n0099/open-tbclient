@@ -61,10 +61,10 @@ public class TextureEncoder {
                     }
 
                     @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
-                    public void onCodecData(byte[] bArr, int i, int i2, int i3, long j) {
+                    public void onCodecData(byte[] bArr, int i, int i2, int i3, long j, long j2) {
                         TextureEncoder.this.mLastOutputEncodeMS = System.currentTimeMillis();
                         if (!TextureEncoder.this.mIsGoingRelase && TextureEncoder.this.mCallback != null) {
-                            TextureEncoder.this.mCallback.onCodecData(bArr, i, i2, i3, j);
+                            TextureEncoder.this.mCallback.onCodecData(bArr, i, i2, i3, j, j2);
                         }
                     }
 

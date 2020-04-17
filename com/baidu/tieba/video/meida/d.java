@@ -2,14 +2,14 @@ package com.baidu.tieba.video.meida;
 /* loaded from: classes10.dex */
 public abstract class d {
     int channelCount;
-    String kCb;
+    String lmv;
     int sampleRate;
 
-    public abstract void Km(String str);
+    public abstract void LX(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.kCb = str;
+        this.lmv = str;
     }
 
     public void setSampleRate(int i) {
@@ -20,7 +20,7 @@ public abstract class d {
         this.channelCount = i;
     }
 
-    public static d Kn(String str) {
+    public static d LY(String str) {
         return new a(str);
     }
 }

@@ -1,6 +1,4 @@
 package com.baidu.searchbox.ui.animview.praise;
-
-import com.google.android.exoplayer2.Format;
 /* loaded from: classes13.dex */
 public class ClickTracker {
     private int mClickCounts;
@@ -13,7 +11,7 @@ public class ClickTracker {
         V0(-1, "NONE"),
         V1(5, "V1"),
         V2(10, "V2"),
-        V3(Format.OFFSET_SAMPLE_RELATIVE, "V3");
+        V3(Long.MAX_VALUE, "V3");
         
         private String mInfo;
         private long mMaxCounts;

@@ -8,13 +8,13 @@ import android.view.View;
 public class b<T> extends RecyclerView.ViewHolder {
     private long lastClickTime;
     private T mData;
+    private com.kascend.chushou.widget.convenientbanner.d.b<T> mGI;
+    private final SparseArray<View> mGJ;
     private final View.OnClickListener mOnClickListener;
-    private com.kascend.chushou.widget.convenientbanner.d.b<T> nkb;
-    private final SparseArray<View> nkc;
 
     public b(View view, com.kascend.chushou.widget.convenientbanner.d.b<T> bVar) {
         super(view);
-        this.nkc = new SparseArray<>();
+        this.mGJ = new SparseArray<>();
         this.lastClickTime = 0L;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.kascend.chushou.widget.convenientbanner.c.b.1
             /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.kascend.chushou.widget.convenientbanner.d.b */
@@ -24,18 +24,18 @@ public class b<T> extends RecyclerView.ViewHolder {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - b.this.lastClickTime > 500) {
                     b.this.lastClickTime = currentTimeMillis;
-                    if (b.this.nkb != null && b.this.mData != null) {
-                        b.this.nkb.c(view2, b.this.mData);
+                    if (b.this.mGI != null && b.this.mData != null) {
+                        b.this.mGI.c(view2, b.this.mData);
                     }
                 }
             }
         };
-        this.nkb = bVar;
+        this.mGI = bVar;
         view.setOnClickListener(this.mOnClickListener);
     }
 
     @CallSuper
-    public void bH(T t) {
+    public void bq(T t) {
         this.mData = t;
     }
 

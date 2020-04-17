@@ -14,45 +14,45 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public com.baidu.swan.games.network.b.c crA;
-    public int crr;
-    public boolean crs;
-    public String crt;
-    public b.a cru;
-    public String crv;
-    public b crw;
-    public c crx;
-    public String cry;
-    public com.baidu.swan.games.inspector.a crz;
+    public int cQm;
+    public boolean cQn;
+    public String cQo;
+    public b.a cQp;
+    public String cQq;
+    public b cQr;
+    public c cQs;
+    public String cQt;
+    public com.baidu.swan.games.inspector.a cQu;
+    public com.baidu.swan.games.network.b.c cQv;
 
-    public static a pu(String str) {
+    public static a qH(String str) {
         a aVar = null;
         boolean z = true;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         a aVar2 = new a();
-        aVar2.crt = str;
+        aVar2.cQo = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            aVar2.cru = b.a.ay(jSONObject);
+            aVar2.cQp = b.a.aJ(jSONObject);
             String optString = jSONObject.optString("deviceOrientation", "portrait");
-            aVar2.crr = 0;
+            aVar2.cQm = 0;
             if (TextUtils.equals(optString, "landscape")) {
-                aVar2.crr = 1;
+                aVar2.cQm = 1;
             }
-            aVar2.crs = jSONObject.optBoolean("showStatusBar", false);
-            aVar2.crv = jSONObject.optString("workers");
-            aVar2.crw = b.bE(jSONObject);
-            aVar2.crx = c.a(jSONObject, aVar2.crw);
-            aVar2.cry = jSONObject.optString("openDataContext");
-            aVar2.crz = new com.baidu.swan.games.inspector.a(jSONObject);
+            aVar2.cQn = jSONObject.optBoolean("showStatusBar", false);
+            aVar2.cQq = jSONObject.optString("workers");
+            aVar2.cQr = b.bP(jSONObject);
+            aVar2.cQs = c.a(jSONObject, aVar2.cQr);
+            aVar2.cQt = jSONObject.optString("openDataContext");
+            aVar2.cQu = new com.baidu.swan.games.inspector.a(jSONObject);
             JSONArray optJSONArray = jSONObject.optJSONArray("preloadResources");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 z = false;
             }
-            f.jO("startup").ba("preload_resources", z ? "1" : "0");
-            aVar2.crA = new com.baidu.swan.games.network.b.c(optJSONArray);
+            f.lb("startup").bk("preload_resources", z ? "1" : "0");
+            aVar2.cQv = new com.baidu.swan.games.network.b.c(optJSONArray);
             aVar = aVar2;
             return aVar;
         } catch (JSONException e) {
@@ -66,108 +66,108 @@ public final class a {
 
     /* loaded from: classes11.dex */
     public static class b {
-        public List<C0346a> crD;
-        public HashMap<String, Boolean> crE;
+        public List<C0376a> cQy;
+        public HashMap<String, Boolean> cQz;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static b bE(JSONObject jSONObject) {
+        public static b bP(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return apl();
+                return axx();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
-                return apl();
+                return axx();
             }
             b bVar = new b();
-            bVar.crD = new ArrayList();
-            bVar.crE = new HashMap<>();
+            bVar.cQy = new ArrayList();
+            bVar.cQz = new HashMap<>();
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    bVar.crD.add(C0346a.bC(optJSONObject));
+                    bVar.cQy.add(C0376a.bN(optJSONObject));
                 }
             }
             return bVar;
         }
 
-        private static b apl() {
+        private static b axx() {
             b bVar = new b();
-            bVar.crD = new ArrayList();
-            bVar.crE = new HashMap<>();
+            bVar.cQy = new ArrayList();
+            bVar.cQz = new HashMap<>();
             return bVar;
         }
     }
 
     /* renamed from: com.baidu.swan.games.s.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0346a {
-        public String crB;
-        public String crC;
+    public static class C0376a {
+        public String cQw;
+        public String cQx;
         public String name;
         public String path;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static C0346a bC(JSONObject jSONObject) {
+        public static C0376a bN(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return apk();
+                return axw();
             }
-            C0346a c0346a = new C0346a();
-            c0346a.crB = jSONObject.optString("root");
-            c0346a.name = jSONObject.optString("name");
-            if (TextUtils.isEmpty(c0346a.crB) || TextUtils.isEmpty(c0346a.name)) {
-                return apk();
+            C0376a c0376a = new C0376a();
+            c0376a.cQw = jSONObject.optString("root");
+            c0376a.name = jSONObject.optString("name");
+            if (TextUtils.isEmpty(c0376a.cQw) || TextUtils.isEmpty(c0376a.name)) {
+                return axw();
             }
-            if (c0346a.crB.endsWith(".js")) {
-                String[] split = c0346a.crB.split(File.separator);
+            if (c0376a.cQw.endsWith(".js")) {
+                String[] split = c0376a.cQw.split(File.separator);
                 if (split.length < 1) {
-                    return apk();
+                    return axw();
                 }
-                c0346a.crC = split[split.length - 1];
-                c0346a.path = "";
+                c0376a.cQx = split[split.length - 1];
+                c0376a.path = "";
                 for (int i = 0; i < split.length - 1; i++) {
-                    c0346a.path += split[i] + File.separator;
+                    c0376a.path += split[i] + File.separator;
                 }
             } else {
-                c0346a.path = c0346a.crB;
-                if (!c0346a.path.endsWith(File.separator)) {
-                    c0346a.path += File.separator;
+                c0376a.path = c0376a.cQw;
+                if (!c0376a.path.endsWith(File.separator)) {
+                    c0376a.path += File.separator;
                 }
-                c0346a.crC = "index.js";
+                c0376a.cQx = "index.js";
             }
-            return c0346a;
+            return c0376a;
         }
 
-        private static C0346a apk() {
-            return new C0346a();
+        private static C0376a axw() {
+            return new C0376a();
         }
     }
 
     /* loaded from: classes11.dex */
     public static class c {
-        public HashMap<String, String> crF;
+        public HashMap<String, String> cQA;
 
         /* JADX INFO: Access modifiers changed from: private */
         public static c a(JSONObject jSONObject, b bVar) {
-            if (jSONObject == null || bVar == null || bVar.crD == null || bVar.crD.size() <= 0) {
-                return apm();
+            if (jSONObject == null || bVar == null || bVar.cQy == null || bVar.cQy.size() <= 0) {
+                return axy();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
             if (optJSONObject == null) {
-                return apm();
+                return axy();
             }
             c cVar = new c();
-            cVar.crF = new HashMap<>();
-            for (C0346a c0346a : bVar.crD) {
-                if (c0346a != null && !TextUtils.isEmpty(c0346a.crB)) {
-                    cVar.crF.put(c0346a.crB, optJSONObject.optString(c0346a.crB));
+            cVar.cQA = new HashMap<>();
+            for (C0376a c0376a : bVar.cQy) {
+                if (c0376a != null && !TextUtils.isEmpty(c0376a.cQw)) {
+                    cVar.cQA.put(c0376a.cQw, optJSONObject.optString(c0376a.cQw));
                 }
             }
             return cVar;
         }
 
-        private static c apm() {
+        private static c axy() {
             c cVar = new c();
-            cVar.crF = new HashMap<>();
+            cVar.cQA = new HashMap<>();
             return cVar;
         }
     }

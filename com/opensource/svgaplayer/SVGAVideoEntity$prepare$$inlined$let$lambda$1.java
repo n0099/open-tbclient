@@ -22,7 +22,7 @@ public final class SVGAVideoEntity$prepare$$inlined$let$lambda$1 extends Lambda 
     @Override // kotlin.jvm.a.a
     public /* bridge */ /* synthetic */ l invoke() {
         invoke2();
-        return l.nDA;
+        return l.mWZ;
     }
 
     @Override // kotlin.jvm.a.a

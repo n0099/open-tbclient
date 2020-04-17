@@ -3,240 +3,240 @@ package com.baidu.tbadk.n;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class n extends l {
-    private static n dFm = null;
-    private boolean dEK = false;
-    private boolean dEL = false;
-    private boolean dEM = false;
-    private boolean dEN = false;
-    private long dEO = -1;
-    private long dEP = -1;
-    private long dEQ = -1;
-    private long dER = -1;
-    private long dES = -1;
-    private long dET = -1;
-    private long dEU = -1;
-    private long dEV = -1;
-    private long dEW = -1;
-    private long dEX = -1;
-    private long dEY = -1;
-    private long dEZ = -1;
-    private long dFa = -1;
-    private long dFb = -1;
-    private long dFc = -1;
-    private long dFd = -1;
-    private long dFe = -1;
-    private long dFf = -1;
-    private long dFg = -1;
-    private long dFh = -1;
-    private long dFi = -1;
-    private long dFj = -1;
-    private long dFk = -1;
-    private long dFl = -1;
+    private static n eeT = null;
+    private boolean eer = false;
+    private boolean ees = false;
+    private boolean eet = false;
+    private boolean eeu = false;
+    private long eev = -1;
+    private long eew = -1;
+    private long eex = -1;
+    private long eey = -1;
+    private long eez = -1;
+    private long eeA = -1;
+    private long eeB = -1;
+    private long eeC = -1;
+    private long eeD = -1;
+    private long eeE = -1;
+    private long eeF = -1;
+    private long eeG = -1;
+    private long eeH = -1;
+    private long eeI = -1;
+    private long eeJ = -1;
+    private long eeK = -1;
+    private long eeL = -1;
+    private long eeM = -1;
+    private long eeN = -1;
+    private long eeO = -1;
+    private long eeP = -1;
+    private long eeQ = -1;
+    private long eeR = -1;
+    private long eeS = -1;
 
-    public boolean aRt() {
-        return this.dEL;
+    public boolean aZD() {
+        return this.ees;
     }
 
-    public void gW(boolean z) {
-        this.dEK = z;
+    public void hU(boolean z) {
+        this.eer = z;
     }
 
-    public void bL(long j) {
-        this.dEO = j;
+    public void cs(long j) {
+        this.eev = j;
     }
 
-    public long aRu() {
-        return this.dEO;
+    public long aZE() {
+        return this.eev;
     }
 
-    public void gX(boolean z) {
-        this.dEN = z;
+    public void hV(boolean z) {
+        this.eeu = z;
     }
 
-    public void bM(long j) {
-        this.dEP = j;
+    public void ct(long j) {
+        this.eew = j;
     }
 
-    public void bN(long j) {
-        this.dEQ = j;
+    public void cu(long j) {
+        this.eex = j;
     }
 
-    public void bO(long j) {
-        this.dER = j;
+    public void cv(long j) {
+        this.eey = j;
     }
 
-    public void bP(long j) {
-        this.dEV = j;
+    public void cw(long j) {
+        this.eeC = j;
     }
 
-    public void bQ(long j) {
-        this.dEU = j;
+    public void cx(long j) {
+        this.eeB = j;
     }
 
-    public void bR(long j) {
-        this.dES = j;
+    public void cy(long j) {
+        this.eez = j;
     }
 
-    public void bS(long j) {
-        this.dET = j;
+    public void cz(long j) {
+        this.eeA = j;
     }
 
-    public void bT(long j) {
-        this.dFj = j;
+    public void cA(long j) {
+        this.eeQ = j;
     }
 
-    public void bU(long j) {
-        this.dFe = j;
+    public void cB(long j) {
+        this.eeL = j;
     }
 
-    public void bV(long j) {
-        this.dFf = j;
+    public void cC(long j) {
+        this.eeM = j;
     }
 
-    public void bW(long j) {
-        this.dFg = j;
+    public void cD(long j) {
+        this.eeN = j;
     }
 
-    public void bX(long j) {
-        this.dFh = j;
+    public void cE(long j) {
+        this.eeO = j;
     }
 
-    public void bY(long j) {
-        this.dFk = j;
+    public void cF(long j) {
+        this.eeR = j;
     }
 
-    public void bZ(long j) {
-        this.dFl = j;
-        this.dEL = true;
+    public void cG(long j) {
+        this.eeS = j;
+        this.ees = true;
     }
 
-    public void ca(long j) {
-        this.dEW = j;
+    public void cH(long j) {
+        this.eeD = j;
     }
 
-    public void cb(long j) {
-        this.dEX = j;
+    public void cI(long j) {
+        this.eeE = j;
     }
 
-    public void cc(long j) {
-        this.dEZ = j;
+    public void cJ(long j) {
+        this.eeG = j;
     }
 
-    public void cd(long j) {
-        this.dEY = j;
+    public void cK(long j) {
+        this.eeF = j;
     }
 
-    public void ce(long j) {
-        this.dFa = j;
+    public void cL(long j) {
+        this.eeH = j;
     }
 
-    public void cf(long j) {
-        this.dFb = j;
+    public void cM(long j) {
+        this.eeI = j;
     }
 
-    public void cg(long j) {
-        this.dFc = j;
+    public void cN(long j) {
+        this.eeJ = j;
     }
 
-    public void ch(long j) {
-        this.dFd = j;
+    public void cO(long j) {
+        this.eeK = j;
     }
 
-    public static n aRv() {
-        if (dFm == null) {
+    public static n aZF() {
+        if (eeT == null) {
             synchronized (n.class) {
-                if (dFm == null) {
-                    dFm = new n();
+                if (eeT == null) {
+                    eeT = new n();
                 }
             }
         }
-        return dFm;
+        return eeT;
     }
 
-    public void aRw() {
-        if (this.dFl - this.dEO > 0 && !this.dEM && m.aRq().aRr()) {
-            this.dEM = true;
-            long j = this.dEP - this.dEO;
+    public void aZG() {
+        if (this.eeS - this.eev > 0 && !this.eet && m.aZA().aZB()) {
+            this.eet = true;
+            long j = this.eew - this.eev;
             long j2 = -1;
-            if (this.dFg > 0) {
-                j2 = this.dFh - this.dFg;
+            if (this.eeN > 0) {
+                j2 = this.eeO - this.eeN;
             }
-            long j3 = this.dFl - this.dFk;
-            com.baidu.adp.lib.stats.a gs = gs();
-            gs.append("procname", "main");
-            gs.append("appc", String.valueOf(j));
-            gs.append("loadclass", String.valueOf(this.dEQ));
-            gs.append("sapiinit", String.valueOf(this.dER));
-            gs.append("acctinit", String.valueOf(this.dES));
-            gs.append("iminit", String.valueOf(this.dET));
-            gs.append("plugininit", String.valueOf(this.dEU));
-            gs.append("patchloaded", String.valueOf(this.dEV));
-            gs.append("naslibinit", String.valueOf(this.dEW));
-            gs.append("websocketinit", String.valueOf(this.dEX));
-            gs.append("settinginit", String.valueOf(this.dEY));
-            gs.append("toastinit", String.valueOf(this.dEZ));
-            gs.append("tiebastaticinit", String.valueOf(this.dFa));
-            gs.append("locationinit", String.valueOf(this.dFb));
-            gs.append("cdninit", String.valueOf(this.dFc));
-            gs.append("messagesetinit", String.valueOf(this.dFd));
-            gs.append("logores", String.valueOf(this.dFj));
-            if (this.dFe > 0 && this.dFg > 0 && j2 > 0) {
-                gs.append("adc", String.valueOf(this.dFe + this.dFf));
-                gs.append("adshow", String.valueOf(j2));
-                gs.append("adrequest", String.valueOf(this.dFf));
-                gs.append("hasad", "1");
+            long j3 = this.eeS - this.eeR;
+            com.baidu.adp.lib.stats.a kW = kW();
+            kW.append("procname", "main");
+            kW.append("appc", String.valueOf(j));
+            kW.append("loadclass", String.valueOf(this.eex));
+            kW.append("sapiinit", String.valueOf(this.eey));
+            kW.append("acctinit", String.valueOf(this.eez));
+            kW.append("iminit", String.valueOf(this.eeA));
+            kW.append("plugininit", String.valueOf(this.eeB));
+            kW.append("patchloaded", String.valueOf(this.eeC));
+            kW.append("naslibinit", String.valueOf(this.eeD));
+            kW.append("websocketinit", String.valueOf(this.eeE));
+            kW.append("settinginit", String.valueOf(this.eeF));
+            kW.append("toastinit", String.valueOf(this.eeG));
+            kW.append("tiebastaticinit", String.valueOf(this.eeH));
+            kW.append("locationinit", String.valueOf(this.eeI));
+            kW.append("cdninit", String.valueOf(this.eeJ));
+            kW.append("messagesetinit", String.valueOf(this.eeK));
+            kW.append("logores", String.valueOf(this.eeQ));
+            if (this.eeL > 0 && this.eeN > 0 && j2 > 0) {
+                kW.append("adc", String.valueOf(this.eeL + this.eeM));
+                kW.append("adshow", String.valueOf(j2));
+                kW.append("adrequest", String.valueOf(this.eeM));
+                kW.append("hasad", "1");
             } else {
-                gs.append("hasad", "0");
+                kW.append("hasad", "0");
             }
-            gs.append("tabc", String.valueOf(j3));
-            gs.append("costt", String.valueOf(j2 + j + this.dFe + this.dFf + j3 + this.dFi));
-            gs.append("newinst", this.dEK ? "1" : "0");
-            gs.append("pluginloadsync", Boolean.valueOf(this.dEN));
-            gs.append("hptotal", String.valueOf(this.dFi));
-            BdStatisticsManager.getInstance().performance("startt", gs);
-            azb();
+            kW.append("tabc", String.valueOf(j3));
+            kW.append("costt", String.valueOf(j2 + j + this.eeL + this.eeM + j3 + this.eeP));
+            kW.append("newinst", this.eer ? "1" : "0");
+            kW.append("pluginloadsync", Boolean.valueOf(this.eeu));
+            kW.append("hptotal", String.valueOf(this.eeP));
+            BdStatisticsManager.getInstance().performance("startt", kW);
+            aHm();
         }
     }
 
-    public void ci(long j) {
-        if (m.aRq().aRr() && j > 0) {
-            com.baidu.adp.lib.stats.a gs = gs();
-            gs.append("procname", "remote");
-            gs.append("costt", String.valueOf(j));
-            BdStatisticsManager.getInstance().performance("startt", gs);
+    public void cP(long j) {
+        if (m.aZA().aZB() && j > 0) {
+            com.baidu.adp.lib.stats.a kW = kW();
+            kW.append("procname", "remote");
+            kW.append("costt", String.valueOf(j));
+            BdStatisticsManager.getInstance().performance("startt", kW);
         }
     }
 
-    private void azb() {
-        this.dEK = false;
-        this.dEL = false;
-        this.dEO = -1L;
-        this.dEP = -1L;
-        this.dEQ = -1L;
-        this.dER = -1L;
-        this.dES = -1L;
-        this.dET = -1L;
-        this.dEU = -1L;
-        this.dEV = -1L;
-        this.dFj = -1L;
-        this.dFg = -1L;
-        this.dFh = -1L;
-        this.dFe = -1L;
-        this.dFk = -1L;
-        this.dFl = -1L;
-        this.dEW = -1L;
-        this.dEX = -1L;
-        this.dEY = -1L;
-        this.dEZ = -1L;
-        this.dFa = -1L;
-        this.dFb = -1L;
-        this.dFc = -1L;
-        this.dFd = -1L;
-        this.dFf = -1L;
-        this.dFi = -1L;
+    private void aHm() {
+        this.eer = false;
+        this.ees = false;
+        this.eev = -1L;
+        this.eew = -1L;
+        this.eex = -1L;
+        this.eey = -1L;
+        this.eez = -1L;
+        this.eeA = -1L;
+        this.eeB = -1L;
+        this.eeC = -1L;
+        this.eeQ = -1L;
+        this.eeN = -1L;
+        this.eeO = -1L;
+        this.eeL = -1L;
+        this.eeR = -1L;
+        this.eeS = -1L;
+        this.eeD = -1L;
+        this.eeE = -1L;
+        this.eeF = -1L;
+        this.eeG = -1L;
+        this.eeH = -1L;
+        this.eeI = -1L;
+        this.eeJ = -1L;
+        this.eeK = -1L;
+        this.eeM = -1L;
+        this.eeP = -1L;
     }
 
-    public void cj(long j) {
-        this.dFi = j;
+    public void cQ(long j) {
+        this.eeP = j;
     }
 }

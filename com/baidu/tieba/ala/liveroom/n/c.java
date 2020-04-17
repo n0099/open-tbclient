@@ -9,77 +9,78 @@ import android.widget.PopupWindow;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.view.web.f;
+import com.baidu.live.view.web.g;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes3.dex */
 public class c implements a {
-    private CustomMessageListener evC;
-    private PopupWindow.OnDismissListener evD;
-    private d fiU;
-    private Activity mContext;
+    private Activity caH;
+    private CustomMessageListener eYX;
+    private PopupWindow.OnDismissListener eYY;
+    private d fNd;
 
     public c(Activity activity) {
-        this.mContext = activity;
-        bdM();
+        this.caH = activity;
+        bmD();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
-    public void yT(String str) {
-        this.fiU = new d(this.mContext);
-        this.fiU.setOnDismissListener(this.evD);
-        this.fiU.bdN().setBackgroundColor(xM(str));
-        f fVar = new f();
-        fVar.y(this.mContext).a(this.fiU).a(this.fiU.bdN().getSchemeCallback());
-        com.baidu.live.view.web.a[] BJ = fVar.BJ();
-        for (com.baidu.live.view.web.a aVar : BJ) {
-            this.fiU.bdN().addJavascriptInterface(aVar, aVar.getName());
+    public void AB(String str) {
+        this.fNd = new d(this.caH);
+        this.fNd.setOnDismissListener(this.eYY);
+        this.fNd.bmE().setBackgroundColor(zq(str));
+        g gVar = new g();
+        gVar.u(this.caH).a(this.fNd).a(this.fNd.bmE().getSchemeCallback());
+        com.baidu.live.view.web.a[] HN = gVar.HN();
+        for (com.baidu.live.view.web.a aVar : HN) {
+            this.fNd.bmE().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fiU.show(str);
+        this.fNd.show(str);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void resume() {
-        if (this.fiU != null && this.fiU.isShowing() && this.fiU.bdN() != null) {
-            this.fiU.bdN().onResume();
+        if (this.fNd != null && this.fNd.isShowing() && this.fNd.bmE() != null) {
+            this.fNd.bmE().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void pause() {
-        if (this.fiU != null && this.fiU.isShowing() && this.fiU.bdN() != null) {
-            this.fiU.bdN().onPause();
+        if (this.fNd != null && this.fNd.isShowing() && this.fNd.bmE() != null) {
+            this.fNd.bmE().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.fiU != null) {
-            this.fiU.bdO();
+        if (this.fNd != null) {
+            this.fNd.bmF();
         }
     }
 
-    public void sQ() {
+    public void xj() {
         dismiss();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void release() {
-        sQ();
-        MessageManager.getInstance().unRegisterListener(this.evC);
+        xj();
+        MessageManager.getInstance().unRegisterListener(this.eYX);
     }
 
-    private void bdM() {
-        this.evC = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.n.c.1
+    private void bmD() {
+        this.eYX = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.n.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (c.this.fiU != null && c.this.fiU.isShowing()) {
-                    c.this.fiU.dismiss();
+                if (c.this.fNd != null && c.this.fNd.isShowing()) {
+                    c.this.fNd.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.evC);
+        MessageManager.getInstance().registerListener(this.eYX);
     }
 
-    private int xM(String str) {
+    private int zq(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -90,7 +91,7 @@ public class c implements a {
         }
         try {
             int parseInt = Integer.parseInt(queryParameter.substring(6, 8), 16);
-            return (parseInt < 0 || parseInt > 255) ? 0 : ColorUtils.setAlphaComponent(Color.parseColor('#' + queryParameter.substring(0, 6)), parseInt);
+            return (parseInt < 0 || parseInt > 255) ? 0 : ColorUtils.setAlphaComponent(Color.parseColor(UgcConstant.TOPIC_PATTERN_TAG + queryParameter.substring(0, 6)), parseInt);
         } catch (Exception e) {
             return 0;
         }

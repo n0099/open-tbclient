@@ -26,17 +26,17 @@ public class AdImageVIew extends AppCompatImageView {
     }
 
     public void setImageUrl(String str) {
-        c.dlY().e(ImageRequestBuilder.Y(Uri.parse(str)).dta(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
+        c.dnR().e(ImageRequestBuilder.Z(Uri.parse(str)).duW(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
             @Override // com.facebook.imagepipeline.e.b
-            protected void onNewResultImpl(@Nullable Bitmap bitmap) {
+            protected void h(@Nullable Bitmap bitmap) {
                 if (bitmap != null) {
                     AdImageVIew.this.setImageBitmap(bitmap);
                 }
             }
 
             @Override // com.facebook.datasource.a
-            protected void onFailureImpl(com.facebook.datasource.b<a<com.facebook.imagepipeline.g.c>> bVar) {
+            protected void a(com.facebook.datasource.b<a<com.facebook.imagepipeline.g.c>> bVar) {
             }
-        }, i.dld());
+        }, i.dmW());
     }
 }

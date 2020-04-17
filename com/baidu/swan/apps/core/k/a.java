@@ -9,32 +9,32 @@ import java.util.TreeMap;
 public class a {
     public String appConfig;
     public String appPath;
-    public boolean bsA;
-    public String bsB;
-    public String bst;
-    public String bsu;
-    public String bsv;
-    public String bsw;
-    public String bsx;
-    public boolean bsy;
-    public String bsz;
+    public String bQA;
+    public String bQB;
+    public String bQC;
+    public String bQD;
+    public boolean bQE;
+    public String bQF;
+    public boolean bQG;
+    public String bQH;
+    public String bQz;
 
     public static com.baidu.swan.apps.n.a.b a(a aVar, com.baidu.swan.apps.ag.b.a aVar2) {
         TreeMap treeMap = new TreeMap();
         treeMap.put("appConfig", aVar.appConfig);
         treeMap.put("appPath", aVar.appPath);
-        treeMap.put("wvID", aVar.bst);
-        treeMap.put("pageUrl", aVar.bsu);
-        treeMap.put("devhook", aVar.bsw);
-        treeMap.put("root", aVar.bsx);
-        if (!TextUtils.isEmpty(aVar.bsv)) {
-            treeMap.put("extraData", aVar.bsv);
+        treeMap.put("wvID", aVar.bQz);
+        treeMap.put("pageUrl", aVar.bQA);
+        treeMap.put("devhook", aVar.bQC);
+        treeMap.put("root", aVar.bQD);
+        if (!TextUtils.isEmpty(aVar.bQB)) {
+            treeMap.put("extraData", aVar.bQB);
         }
-        treeMap.put("showPerformancePanel", String.valueOf(aVar.bsy));
-        treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, aVar.bsz);
-        treeMap.put("isT7Available", String.valueOf(aVar.bsA));
-        if (!TextUtils.isEmpty(aVar.bsB)) {
-            treeMap.put("masterPreload", aVar.bsB);
+        treeMap.put("showPerformancePanel", String.valueOf(aVar.bQE));
+        treeMap.put(InvokeNewImMessageCenterFragmentConfig.PAGE_TYPE, aVar.bQF);
+        treeMap.put("isT7Available", String.valueOf(aVar.bQG));
+        if (!TextUtils.isEmpty(aVar.bQH)) {
+            treeMap.put("masterPreload", aVar.bQH);
         }
         com.baidu.swan.apps.ag.g.b.a(treeMap, aVar2, "app ready event");
         return new com.baidu.swan.apps.n.a.b("AppReady", treeMap);
@@ -43,7 +43,7 @@ public class a {
     public String b(e eVar, String str) {
         String str2 = null;
         if (eVar != null) {
-            str2 = eVar.kP(ag.delAllParamsFromUrl(str));
+            str2 = eVar.mc(ag.delAllParamsFromUrl(str));
         }
         return str2 == null ? "" : str2;
     }

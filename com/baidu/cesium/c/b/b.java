@@ -1,5 +1,6 @@
 package com.baidu.cesium.c.b;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -8,7 +9,7 @@ import java.security.GeneralSecurityException;
 import java.util.Random;
 /* loaded from: classes13.dex */
 public class b {
-    private static final int[] f = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
+    private static final int[] f = q(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     private final int g;
 
     public b(int i) {
@@ -61,7 +62,7 @@ public class b {
         System.arraycopy(iArr2, 0, iArr, f.length, 8);
     }
 
-    static int[] n(byte[] bArr) {
+    static int[] q(byte[] bArr) {
         IntBuffer asIntBuffer = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN).asIntBuffer();
         int[] iArr = new int[asIntBuffer.remaining()];
         asIntBuffer.get(iArr);
@@ -100,7 +101,7 @@ public class b {
     }
 
     public byte[] a(byte[] bArr, byte[] bArr2) {
-        if (bArr.length > Integer.MAX_VALUE - a()) {
+        if (bArr.length > ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED - a()) {
             throw new GeneralSecurityException("data too long");
         }
         ByteBuffer allocate = ByteBuffer.allocate(a() + bArr.length);
@@ -120,7 +121,7 @@ public class b {
     }
 
     ByteBuffer b(byte[] bArr, byte[] bArr2, int i) {
-        int[] a = a(n(bArr), n(bArr2), i);
+        int[] a = a(q(bArr), q(bArr2), i);
         int[] iArr = (int[]) a.clone();
         a(iArr);
         for (int i2 = 0; i2 < a.length; i2++) {

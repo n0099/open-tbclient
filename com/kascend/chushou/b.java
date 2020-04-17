@@ -3,7 +3,7 @@ package com.kascend.chushou;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class b {
-    private static volatile b mQw;
+    private static volatile b mnh;
     public boolean a = false;
     public boolean b = false;
     public HashMap<String, String> c = new HashMap<>();
@@ -13,12 +13,12 @@ public class b {
     private b() {
     }
 
-    public static b dCl() {
-        if (mQw == null) {
+    public static b dwD() {
+        if (mnh == null) {
             synchronized (b.class) {
-                mQw = new b();
+                mnh = new b();
             }
         }
-        return mQw;
+        return mnh;
     }
 }

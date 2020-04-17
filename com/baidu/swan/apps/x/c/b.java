@@ -7,87 +7,87 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bzo;
-    public com.baidu.swan.apps.as.d.b<b> bzq;
-    private final List<String> bzp = new ArrayList();
-    private final List<a> bzr = new ArrayList();
-    private String bzs = b.class.getPackage().getName();
+    private String bXu;
+    public com.baidu.swan.apps.as.d.b<b> bXw;
+    private final List<String> bXv = new ArrayList();
+    private final List<a> bXx = new ArrayList();
+    private String bXy = b.class.getPackage().getName();
 
-    public b iN(String str) {
-        this.bzo = str;
+    public b ka(String str) {
+        this.bXu = str;
         return this;
     }
 
-    public String Wq() {
-        return this.bzo;
+    public String aef() {
+        return this.bXu;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized List<a> Wr() {
-        return new ArrayList(this.bzr);
+    public synchronized List<a> aeg() {
+        return new ArrayList(this.bXx);
     }
 
-    public synchronized a Wm() {
+    public synchronized a aeb() {
         a aVar;
         aVar = new a();
-        this.bzr.add(aVar);
+        this.bXx.add(aVar);
         return aVar;
     }
 
-    public synchronized a iM(String str) {
-        return Wm().iP(str);
+    public synchronized a jZ(String str) {
+        return aeb().kc(str);
     }
 
-    public synchronized a aS(String str, String str2) {
-        return iM(str2).iO(str);
+    public synchronized a bc(String str, String str2) {
+        return jZ(str2).kb(str);
     }
 
     public b b(com.baidu.swan.apps.as.d.b<b> bVar) {
-        this.bzq = bVar;
+        this.bXw = bVar;
         return this;
     }
 
-    public synchronized b Ws() {
-        return c(this.bzq);
+    public synchronized b aeh() {
+        return c(this.bXw);
     }
 
     public synchronized b c(com.baidu.swan.apps.as.d.b<b> bVar) {
         if (bVar == null) {
-            bVar = new C0309b();
+            bVar = new C0339b();
         }
-        bVar.D(this);
+        bVar.E(this);
         return this;
     }
 
     /* loaded from: classes11.dex */
     public class a {
-        final List<String> bzp;
-        private final List<StackTraceElement> bzt;
-        final /* synthetic */ b bzu;
+        final /* synthetic */ b bXA;
+        final List<String> bXv;
+        private final List<StackTraceElement> bXz;
         final List<String> msgs;
         String tag;
 
         private a(b bVar) {
             StackTraceElement[] stackTrace;
-            this.bzu = bVar;
+            this.bXA = bVar;
             this.msgs = new ArrayList();
-            this.bzp = new ArrayList();
-            this.bzt = new ArrayList();
+            this.bXv = new ArrayList();
+            this.bXz = new ArrayList();
             int i = 0;
             for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
                 i++;
-                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.bzs)) {
-                    this.bzt.add(stackTraceElement);
+                if (i > 2 && !stackTraceElement.getClassName().startsWith(bVar.bXy)) {
+                    this.bXz.add(stackTraceElement);
                 }
             }
         }
 
-        public a iO(String str) {
+        public a kb(String str) {
             this.tag = str;
             return this;
         }
 
-        public synchronized a iP(String str) {
+        public synchronized a kc(String str) {
             List<String> list = this.msgs;
             if (TextUtils.isEmpty(str)) {
                 str = "";
@@ -96,48 +96,48 @@ public final class b {
             return this;
         }
 
-        public synchronized a Wt() {
-            return fm(this.bzt.size());
+        public synchronized a aei() {
+            return fr(this.bXz.size());
         }
 
-        public synchronized a fm(int i) {
+        public synchronized a fr(int i) {
             synchronized (this) {
                 int i2 = i >= 1 ? i : 1;
-                int size = i2 > this.bzt.size() ? this.bzt.size() : i2;
+                int size = i2 > this.bXz.size() ? this.bXz.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.bzu.iM("[Trace]==> " + this.bzt.get(i3).toString());
+                    this.bXA.jZ("[Trace]==> " + this.bXz.get(i3).toString());
                 }
             }
             return this;
         }
 
-        public synchronized a Wu() {
-            return fm(1);
+        public synchronized a aej() {
+            return fr(1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.x.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0309b implements com.baidu.swan.apps.as.d.b<b> {
-        private C0309b() {
+    public class C0339b implements com.baidu.swan.apps.as.d.b<b> {
+        private C0339b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.as.d.b
         /* renamed from: a */
-        public void D(b bVar) {
+        public void E(b bVar) {
             if (b.DEBUG) {
-                for (a aVar : bVar.bzr) {
+                for (a aVar : bVar.bXx) {
                     for (String str : aVar.msgs) {
-                        String Wq = bVar.Wq();
-                        z(TextUtils.isEmpty(aVar.tag) ? Wq : aVar.tag, Wq + " >>> " + str);
+                        String aef = bVar.aef();
+                        D(TextUtils.isEmpty(aVar.tag) ? aef : aVar.tag, aef + " >>> " + str);
                     }
                 }
             }
         }
 
-        private void z(String str, String str2) {
+        private void D(String str, String str2) {
             if (b.DEBUG) {
                 Log.i(str, str2);
             }

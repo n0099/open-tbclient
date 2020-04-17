@@ -18,7 +18,7 @@ public final class d {
         m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.statistic.d.1
             @Override // java.lang.Runnable
             public void run() {
-                s.k("671", com.baidu.swan.apps.statistic.a.d.this.toJSONObject());
+                s.onEvent("671", com.baidu.swan.apps.statistic.a.d.this.toJSONObject());
             }
         }, "SwanStabilityUBC");
     }
@@ -31,9 +31,9 @@ public final class d {
             }
             return;
         }
-        com.baidu.swan.apps.statistic.a.d e = new com.baidu.swan.apps.statistic.a.d().lM(f.gs(i)).e(new com.baidu.swan.apps.ap.a().aI(11L).aJ(2331L).my("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
+        com.baidu.swan.apps.statistic.a.d e = new com.baidu.swan.apps.statistic.a.d().mZ(f.gz(i)).e(new com.baidu.swan.apps.ap.a().bn(11L).bo(2331L).nL("Retry=" + z + ", Scene=" + dVar.getClass().getName()));
         if (dVar instanceof com.baidu.swan.apps.core.pms.g) {
-            e.a(((com.baidu.swan.apps.core.pms.g) dVar).PD());
+            e.a(((com.baidu.swan.apps.core.pms.g) dVar).Xs());
         }
         a(e);
         if (DEBUG) {

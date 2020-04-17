@@ -58,7 +58,7 @@ public class GifFrame implements c {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.c
-    public void renderFrame(int i, int i2, Bitmap bitmap) {
+    public void b(int i, int i2, Bitmap bitmap) {
         nativeRenderFrame(i, i2, bitmap);
     }
 
@@ -82,7 +82,7 @@ public class GifFrame implements c {
         return nativeGetYOffset();
     }
 
-    public int dko() {
+    public int dmd() {
         return nativeGetDisposalMode();
     }
 }

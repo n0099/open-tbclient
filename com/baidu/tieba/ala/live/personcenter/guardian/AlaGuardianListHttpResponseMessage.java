@@ -5,7 +5,7 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGuardianListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public c eNy;
+    public c frS;
     private int mErrCode;
     private String mErrMsg;
 
@@ -15,8 +15,8 @@ public class AlaGuardianListHttpResponseMessage extends JsonHttpResponsedMessage
         this.mErrMsg = "";
     }
 
-    public c bgY() {
-        return this.eNy;
+    public c bqp() {
+        return this.frS;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -26,8 +26,8 @@ public class AlaGuardianListHttpResponseMessage extends JsonHttpResponsedMessage
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-            this.eNy = new c();
-            this.eNy.parserJson(jSONObject);
+            this.frS = new c();
+            this.frS.parserJson(jSONObject);
         }
     }
 }

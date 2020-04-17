@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetDirectChallengeListResponseMessage extends JsonHttpResponsedMessage {
-    private List<d> eVg;
+    private List<d> fzv;
     private int mCount;
 
     public AlaGetDirectChallengeListResponseMessage() {
@@ -23,11 +23,11 @@ public class AlaGetDirectChallengeListResponseMessage extends JsonHttpResponsedM
             this.mCount = optJSONObject.optInt("count");
             JSONArray optJSONArray = optJSONObject.optJSONArray("user_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.eVg = new ArrayList();
+                this.fzv = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     d dVar = new d();
                     dVar.parseJson(optJSONArray.optJSONObject(i2));
-                    this.eVg.add(dVar);
+                    this.fzv.add(dVar);
                 }
             }
         }
@@ -37,7 +37,7 @@ public class AlaGetDirectChallengeListResponseMessage extends JsonHttpResponsedM
         return this.mCount;
     }
 
-    public List<d> bkz() {
-        return this.eVg;
+    public List<d> btS() {
+        return this.fzv;
     }
 }

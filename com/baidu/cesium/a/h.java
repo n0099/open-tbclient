@@ -10,7 +10,7 @@ final class h extends f {
     }
 
     @Override // com.baidu.cesium.a.f
-    public b g(byte[] bArr, int i, int i2) {
+    public b i(byte[] bArr, int i, int i2) {
         j jVar = new j();
         jVar.a(bArr, i, i2);
         return b.a(new long[]{jVar.b()});

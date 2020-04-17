@@ -1,5 +1,6 @@
 package okhttp3.internal.http2;
 
+import android.support.v7.widget.ActivityChooserView;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -56,7 +57,7 @@ public final class Http2Connection implements Closeable {
 
     static {
         $assertionsDisabled = !Http2Connection.class.desiredAssertionStatus();
-        listenerExecutor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp Http2Connection", true));
+        listenerExecutor = new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("OkHttp Http2Connection", true));
     }
 
     Http2Connection(Builder builder) {
@@ -105,7 +106,7 @@ public final class Http2Connection implements Closeable {
     }
 
     public synchronized int maxConcurrentStreams() {
-        return this.peerSettings.getMaxConcurrentStreams(Integer.MAX_VALUE);
+        return this.peerSettings.getMaxConcurrentStreams(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -26,7 +26,7 @@ public abstract class IMSettingBaseHttpRequest extends BaseHttpRequest {
         return getHostUrl() + "rest/3.0/im/" + getHostUrlParam();
     }
 
-    private String getHostUrl() {
+    protected String getHostUrl() {
         switch (Utility.readIntData(this.mContext, Constants.KEY_ENV, 0)) {
             case 0:
                 return Constants.URL_HTTP_ONLINE;

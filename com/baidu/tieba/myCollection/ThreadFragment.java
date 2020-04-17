@@ -40,39 +40,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class ThreadFragment extends CollectFragment implements View.OnClickListener, BdListView.e, g.c {
-    private ArrayList<MarkData> iuC;
-    private com.baidu.tieba.myCollection.baseEditMark.a iuz = null;
-    private e iuA = null;
-    private int iuB = -1;
-    private final CustomMessageListener cLK = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.myCollection.ThreadFragment.4
+    private ArrayList<MarkData> jeH;
+    private com.baidu.tieba.myCollection.baseEditMark.a jeE = null;
+    private e jeF = null;
+    private int jeG = -1;
+    private final CustomMessageListener dkS = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.myCollection.ThreadFragment.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
                 if (!j.isNetWorkAvailable()) {
-                    ThreadFragment.this.iuA.hideLoading();
-                    ThreadFragment.this.iuA.completePullRefresh();
-                    ThreadFragment.this.iuA.gP(false);
-                    ThreadFragment.this.iuA.ld(false);
+                    ThreadFragment.this.jeF.asi();
+                    ThreadFragment.this.jeF.completePullRefresh();
+                    ThreadFragment.this.jeF.hN(false);
+                    ThreadFragment.this.jeF.mi(false);
                     return;
                 }
-                ThreadFragment.this.iuz.j(false);
-                ThreadFragment.this.iuA.ld(true);
+                ThreadFragment.this.jeE.j(false);
+                ThreadFragment.this.jeF.mi(true);
             }
         }
     };
-    private final CustomMessageListener dat = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.myCollection.ThreadFragment.5
+    private final CustomMessageListener dzH = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.myCollection.ThreadFragment.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage.a data = ((UpdateAttentionMessage) customResponsedMessage).getData();
-                if (ThreadFragment.this.iuC != null && data != null) {
-                    if (data.dow != null && AntiHelper.a(ThreadFragment.this.getActivity(), data.dow, ThreadFragment.this.mInjectListener) != null) {
-                        TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).X("obj_locate", at.a.LOCATE_LIKE_PERSON));
+                if (ThreadFragment.this.jeH != null && data != null) {
+                    if (data.dOo != null && AntiHelper.a(ThreadFragment.this.getActivity(), data.dOo, ThreadFragment.this.mInjectListener) != null) {
+                        TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).af("obj_locate", at.a.LOCATE_LIKE_PERSON));
                     }
                     if (data.isSucc) {
-                        Iterator it = ThreadFragment.this.iuC.iterator();
+                        Iterator it = ThreadFragment.this.jeH.iterator();
                         while (it.hasNext()) {
                             MarkData markData = (MarkData) it.next();
                             if (markData != null && aq.equals(markData.getUesrId(), data.toUid)) {
@@ -83,7 +83,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                         if (data.isAttention) {
                             l.showToast(ThreadFragment.this.getPageContext().getPageActivity(), (int) R.string.attention_success);
                         }
-                        ThreadFragment.this.iuA.cif();
+                        ThreadFragment.this.jeF.csM();
                     }
                 }
             }
@@ -92,108 +92,108 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
     private final AntiHelper.a mInjectListener = new AntiHelper.a() { // from class: com.baidu.tieba.myCollection.ThreadFragment.6
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onPositiveButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).X("obj_locate", at.a.LOCATE_LIKE_PERSON));
+            TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).af("obj_locate", at.a.LOCATE_LIKE_PERSON));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
         public void onNavigationButtonClick(com.baidu.tbadk.core.dialog.a aVar) {
-            TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).X("obj_locate", at.a.LOCATE_LIKE_PERSON));
+            TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).af("obj_locate", at.a.LOCATE_LIKE_PERSON));
         }
     };
 
-    public static final ThreadFragment cib() {
+    public static final ThreadFragment csI() {
         return new ThreadFragment();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        cic();
-        registerListener(this.cLK);
-        registerListener(this.dat);
+        csJ();
+        registerListener(this.dkS);
+        registerListener(this.dzH);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.edit_mark_activity, (ViewGroup) null);
-        this.iuz = new com.baidu.tieba.myCollection.baseEditMark.a();
-        this.iuA = new e(this, inflate);
-        this.iuA.d(new a.b() { // from class: com.baidu.tieba.myCollection.ThreadFragment.1
+        this.jeE = new com.baidu.tieba.myCollection.baseEditMark.a();
+        this.jeF = new e(this, inflate);
+        this.jeF.d(new a.b() { // from class: com.baidu.tieba.myCollection.ThreadFragment.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
-                ThreadFragment.this.iuA.startRefresh(ThreadFragment.this.iuz.getOffset());
-                ThreadFragment.this.iuz.j(true);
+                ThreadFragment.this.jeF.startRefresh(ThreadFragment.this.jeE.getOffset());
+                ThreadFragment.this.jeE.j(true);
             }
         });
-        this.iuA.ld(j.isNetWorkAvailable());
-        this.iuz.a(new c() { // from class: com.baidu.tieba.myCollection.ThreadFragment.2
+        this.jeF.mi(j.isNetWorkAvailable());
+        this.jeE.a(new c() { // from class: com.baidu.tieba.myCollection.ThreadFragment.2
             @Override // com.baidu.tieba.myCollection.c
             public void callback(Object... objArr) {
                 try {
                     if (((Integer) objArr[0]).intValue() == 0) {
-                        ThreadFragment.this.iuA.completePullRefresh();
+                        ThreadFragment.this.jeF.completePullRefresh();
                         if (objArr[1] != null && (objArr[1] instanceof String)) {
                             r3 = (String) objArr[1];
                         }
-                        ThreadFragment.this.iuA.a(r3, ThreadFragment.this.iuz, ((Boolean) objArr[2]).booleanValue());
-                        ThreadFragment.this.iuC = ThreadFragment.this.iuz.cih();
+                        ThreadFragment.this.jeF.a(r3, ThreadFragment.this.jeE, ((Boolean) objArr[2]).booleanValue());
+                        ThreadFragment.this.jeH = ThreadFragment.this.jeE.csO();
                         ThreadFragment threadFragment = ThreadFragment.this;
-                        if (ThreadFragment.this.iuC != null && !ThreadFragment.this.iuC.isEmpty()) {
+                        if (ThreadFragment.this.jeH != null && !ThreadFragment.this.jeH.isEmpty()) {
                             r2 = true;
                         }
-                        threadFragment.cLJ = r2;
+                        threadFragment.dkR = r2;
                     } else if (((Integer) objArr[0]).intValue() == 3) {
-                        ThreadFragment.this.iuA.completePullRefresh();
+                        ThreadFragment.this.jeF.completePullRefresh();
                         if (objArr[1] != null && (objArr[1] instanceof String)) {
                             r3 = (String) objArr[1];
                         }
-                        ThreadFragment.this.iuA.a(r3, (com.baidu.tieba.myCollection.baseEditMark.a) null, false);
-                        ThreadFragment.this.iuA.a(ThreadFragment.this.iuz, false);
-                        ThreadFragment.this.cLJ = false;
+                        ThreadFragment.this.jeF.a(r3, (com.baidu.tieba.myCollection.baseEditMark.a) null, false);
+                        ThreadFragment.this.jeF.a(ThreadFragment.this.jeE, false);
+                        ThreadFragment.this.dkR = false;
                     } else if (((Integer) objArr[0]).intValue() == 1) {
                         boolean booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
-                        ThreadFragment.this.iuA.a(booleanValue, objArr[2] != null ? (String) objArr[2] : null, objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false);
+                        ThreadFragment.this.jeF.a(booleanValue, objArr[2] != null ? (String) objArr[2] : null, objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false);
                         if (booleanValue) {
-                            ThreadFragment.this.iuA.startRefresh(ThreadFragment.this.iuz.getOffset());
-                            ThreadFragment.this.iuz.j(true);
+                            ThreadFragment.this.jeF.startRefresh(ThreadFragment.this.jeE.getOffset());
+                            ThreadFragment.this.jeE.j(true);
                         }
                     } else if (((Integer) objArr[0]).intValue() == 2) {
-                        ThreadFragment.this.iuA.a(objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false, objArr[2] != null ? (String) objArr[2] : null, ThreadFragment.this.iuz);
-                        ThreadFragment.this.iuC = ThreadFragment.this.iuz.cih();
-                        ThreadFragment.this.cLJ = (ThreadFragment.this.iuC == null || ThreadFragment.this.iuC.isEmpty()) ? false : true;
+                        ThreadFragment.this.jeF.a(objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false, objArr[2] != null ? (String) objArr[2] : null, ThreadFragment.this.jeE);
+                        ThreadFragment.this.jeH = ThreadFragment.this.jeE.csO();
+                        ThreadFragment.this.dkR = (ThreadFragment.this.jeH == null || ThreadFragment.this.jeH.isEmpty()) ? false : true;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                     BdLog.d(e.getMessage());
                 }
-                ThreadFragment.this.jp(1);
+                ThreadFragment.this.jw(1);
             }
         });
         return inflate;
     }
 
     private void refresh() {
-        if (this.iuz.getCount() == 0) {
-            this.iuA.startRefresh(this.iuz.getOffset());
+        if (this.jeE.getCount() == 0) {
+            this.jeF.startRefresh(this.jeE.getOffset());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iuA != null) {
-            this.iuA.onChangeSkinType(i);
+        if (this.jeF != null) {
+            this.jeF.onChangeSkinType(i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.iuA != null) {
-            this.iuA.aG(this.iuC);
-            this.cLJ = (this.iuC == null || this.iuC.isEmpty()) ? false : true;
-            jp(1);
+        if (this.jeF != null) {
+            this.jeF.aI(this.jeH);
+            this.dkR = (this.jeH == null || this.jeH.isEmpty()) ? false : true;
+            jw(1);
             refresh();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -202,17 +202,17 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
     @Override // com.baidu.tbadk.collectTab.CollectFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.iuA.cid();
+        this.jeF.csK();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        this.iuA.onDestroy();
-        this.iuz.onDestroy();
+        this.jeF.onDestroy();
+        this.jeE.onDestroy();
         super.onDestroy();
     }
 
-    private void cic() {
+    private void csJ() {
         registerListener(new CustomMessageListener(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ACTION) { // from class: com.baidu.tieba.myCollection.ThreadFragment.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -220,7 +220,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
                 if (customResponsedMessage.getData() instanceof Bundle) {
                     Bundle bundle = (Bundle) customResponsedMessage.getData();
                     if (bundle.getInt("fragment_type", -1) == ThreadFragment.this.getType()) {
-                        ThreadFragment.this.iuA.pf(bundle.getBoolean("is_edit_state", false));
+                        ThreadFragment.this.jeF.qj(bundle.getBoolean("is_edit_state", false));
                     }
                 }
             }
@@ -230,29 +230,29 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         int intValue = ((Integer) view.getTag()).intValue();
-        MarkData markData = (MarkData) v.getItem(this.iuC, intValue);
+        MarkData markData = (MarkData) v.getItem(this.jeH, intValue);
         if (markData != null) {
             boolean isShareThread = markData.isShareThread();
             an anVar = new an("c12529");
-            if (view.getId() == this.iuA.pg(isShareThread)) {
-                if (this.iuA.gJU == null || this.iuA.gJU.isRefreshDone()) {
-                    this.iuA.bAo();
-                    if (!this.iuz.yw(intValue)) {
-                        this.iuA.hideLoading();
+            if (view.getId() == this.jeF.qk(isShareThread)) {
+                if (this.jeF.huR == null || this.jeF.huR.isRefreshDone()) {
+                    this.jeF.bKP();
+                    if (!this.jeE.yX(intValue)) {
+                        this.jeF.asi();
                     }
                 } else {
                     return;
                 }
-            } else if (view.getId() == this.iuA.ph(isShareThread)) {
-                this.iuA.e(markData);
-                anVar.X("obj_locate", 1);
-            } else if (view.getId() == this.iuA.pi(isShareThread)) {
-                anVar.X("obj_locate", 3);
+            } else if (view.getId() == this.jeF.ql(isShareThread)) {
+                this.jeF.e(markData);
+                anVar.af("obj_locate", 1);
+            } else if (view.getId() == this.jeF.qm(isShareThread)) {
+                anVar.af("obj_locate", 3);
                 d(markData);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createMarkCfg(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, RequestResponseCode.REQUEST_MODIFY_MARK)));
             }
-            anVar.cx("tid", markData.getId());
-            anVar.cx("obj_id", markData.getUesrId());
+            anVar.cI("tid", markData.getId());
+            anVar.cI("obj_id", markData.getUesrId());
             TiebaStatic.log(anVar);
             super.onClick(view);
         }
@@ -260,14 +260,14 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i >= 0 && i < this.iuz.cih().size()) {
-            this.iuB = i;
-            MarkData markData = this.iuz.cih().get(i);
-            MarkData markData2 = this.iuC.get(i);
+        if (i >= 0 && i < this.jeE.csO().size()) {
+            this.jeG = i;
+            MarkData markData = this.jeE.csO().get(i);
+            MarkData markData2 = this.jeH.get(i);
             an anVar = new an("c12529");
-            anVar.X("obj_locate", 2);
-            anVar.cx("tid", markData2.getId());
-            anVar.cx("obj_id", markData2.getUesrId());
+            anVar.af("obj_locate", 2);
+            anVar.cI("tid", markData2.getId());
+            anVar.cI("obj_id", markData2.getUesrId());
             TiebaStatic.log(anVar);
             d(markData2);
             markData2.setRedTipShow(false);
@@ -294,20 +294,20 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
     }
 
     private void d(MarkData markData) {
-        if (markData != null && this.iuz != null) {
-            int cig = this.iuz.cig();
-            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().getMsgBookmark();
+        if (markData != null && this.jeE != null) {
+            int csN = this.jeE.csN();
+            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.b.aTg().getMsgBookmark();
             TiebaStatic.eventStat(TbadkCoreApplication.getInst(), "my_favorite_content", "is_redpoint", markData.getNewCounts() > 0 ? 1 : 0, new Object[0]);
             if (markData.getNewCounts() > 0) {
                 if (msgBookmark > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().setMsgBookmark(msgBookmark - 1);
+                    com.baidu.tbadk.coreExtra.messageCenter.b.aTg().setMsgBookmark(msgBookmark - 1);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.b.aKJ().setMsgBookmark(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.b.aTg().setMsgBookmark(0);
                 }
-                if (cig > 0) {
-                    this.iuz.yv(cig - 1);
+                if (csN > 0) {
+                    this.jeE.yW(csN - 1);
                 } else {
-                    this.iuz.yv(0);
+                    this.jeE.yW(0);
                 }
             }
             markData.setNewCounts(0);
@@ -320,34 +320,34 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
         if (i2 == -1) {
             if (17001 == i) {
                 MarkData markData = (MarkData) intent.getSerializableExtra("mark");
-                if (this.iuz != null && markData != null && this.iuA != null && v.getCount(this.iuz.cih()) > this.iuB && this.iuB >= 0) {
-                    this.iuz.cih().get(this.iuB).setPostId(markData.getPostId());
-                    this.iuz.cih().get(this.iuB).setHostMode(markData.getHostMode());
-                    this.iuz.cih().get(this.iuB).setSequence(markData.getSequence());
-                    this.iuA.cif();
+                if (this.jeE != null && markData != null && this.jeF != null && v.getCount(this.jeE.csO()) > this.jeG && this.jeG >= 0) {
+                    this.jeE.csO().get(this.jeG).setPostId(markData.getPostId());
+                    this.jeE.csO().get(this.jeG).setHostMode(markData.getHostMode());
+                    this.jeE.csO().get(this.jeG).setSequence(markData.getSequence());
+                    this.jeF.csM();
                 }
             }
-        } else if (i2 == 1 && 17001 == i && this.iuz != null && this.iuA != null && v.getCount(this.iuz.cih()) > this.iuB && this.iuB >= 0) {
-            this.iuz.cih().remove(this.iuB);
-            this.iuA.cif();
-            this.iuA.a(this.iuz, false);
+        } else if (i2 == 1 && 17001 == i && this.jeE != null && this.jeF != null && v.getCount(this.jeE.csO()) > this.jeG && this.jeG >= 0) {
+            this.jeE.csO().remove(this.jeG);
+            this.jeF.csM();
+            this.jeF.a(this.jeE, false);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.g.c
     public void onListPullRefresh(boolean z) {
-        if (this.iuz != null && this.iuA != null) {
-            this.iuz.reset();
-            this.iuA.gP(true);
-            this.iuz.j(false);
+        if (this.jeE != null && this.jeF != null) {
+            this.jeE.reset();
+            this.jeF.hN(true);
+            this.jeE.j(false);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.iuA != null && this.iuz != null && this.iuz.hasMore()) {
-            this.iuA.startRefresh(this.iuz.getOffset());
-            this.iuz.j(false);
+        if (this.jeF != null && this.jeE != null && this.jeE.hasMore()) {
+            this.jeF.startRefresh(this.jeE.getOffset());
+            this.jeE.j(false);
         }
     }
 
@@ -357,7 +357,7 @@ public class ThreadFragment extends CollectFragment implements View.OnClickListe
     }
 
     @Override // com.baidu.tbadk.collectTab.CollectFragment
-    public boolean azO() {
-        return this.iuC == null || this.iuC.isEmpty();
+    public boolean aIb() {
+        return this.jeH == null || this.jeH.isEmpty();
     }
 }

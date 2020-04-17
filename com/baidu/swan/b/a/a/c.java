@@ -19,7 +19,7 @@ public class c extends com.baidu.swan.b.d.a {
     public com.baidu.swan.apps.api.b.b b(@NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.p.b bVar) {
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("data", ala());
+            jSONObject2.put("data", atn());
             if (DEBUG) {
                 Log.i("GetAppListAction", jSONObject2.toString());
             }
@@ -28,11 +28,11 @@ public class c extends com.baidu.swan.b.d.a {
                 e.printStackTrace();
             }
         }
-        bVar.K(jSONObject2);
+        bVar.V(jSONObject2);
         return null;
     }
 
-    private JSONArray ala() throws JSONException {
+    private JSONArray atn() throws JSONException {
         JSONArray jSONArray = new JSONArray();
         for (PackageInfo packageInfo : AppRuntime.getAppContext().getPackageManager().getInstalledPackages(1)) {
             jSONArray.put(d(packageInfo));

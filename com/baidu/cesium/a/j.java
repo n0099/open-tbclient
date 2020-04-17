@@ -29,7 +29,7 @@ class j {
     }
 
     private static int e(byte[] bArr, int i) {
-        return (int) (h(bArr, i, 4) & 4294967295L);
+        return (int) (j(bArr, i, 4) & 4294967295L);
     }
 
     private void f(byte[] bArr, int i) {
@@ -44,7 +44,7 @@ class j {
         this.m = 0;
     }
 
-    private static long h(byte[] bArr, int i, int i2) {
+    private static long j(byte[] bArr, int i, int i2) {
         if (i2 > 8) {
             throw new IllegalArgumentException("can't read more than eight bytes into a long value");
         }

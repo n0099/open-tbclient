@@ -11,7 +11,7 @@ public class a {
         RxBus.get().register(obj);
     }
 
-    public static void cr(Object obj) {
+    public static void ca(Object obj) {
         RxBus.get().unregister(obj);
     }
 }

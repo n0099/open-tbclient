@@ -14,7 +14,7 @@ final class g<T> implements Iterator<T> {
     }
 
     public g(T[] tArr) {
-        q.j(tArr, "array");
+        q.j(tArr, com.baidu.fsg.base.statistics.b.j);
         this.array = tArr;
     }
 

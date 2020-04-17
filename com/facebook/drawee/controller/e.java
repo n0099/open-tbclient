@@ -22,100 +22,100 @@ public class e<INFO> implements c<INFO> {
         }
     }
 
-    public synchronized void dmO() {
+    public synchronized void doI() {
         this.mListeners.clear();
     }
 
-    private synchronized void j(String str, Throwable th) {
+    private synchronized void l(String str, Throwable th) {
         Log.e("FdingControllerListener", str, th);
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void onSubmit(String str, Object obj) {
+    public synchronized void g(String str, Object obj) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.onSubmit(str, obj);
+                    cVar.g(str, obj);
                 }
             } catch (Exception e) {
-                j("InternalListener exception in onSubmit", e);
+                l("InternalListener exception in onSubmit", e);
             }
         }
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void onFinalImageSet(String str, @Nullable INFO info, @Nullable Animatable animatable) {
+    public synchronized void a(String str, @Nullable INFO info, @Nullable Animatable animatable) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.onFinalImageSet(str, info, animatable);
+                    cVar.a(str, info, animatable);
                 }
             } catch (Exception e) {
-                j("InternalListener exception in onFinalImageSet", e);
+                l("InternalListener exception in onFinalImageSet", e);
             }
         }
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void onIntermediateImageSet(String str, @Nullable INFO info) {
+    public void h(String str, @Nullable INFO info) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.onIntermediateImageSet(str, info);
+                    cVar.h(str, (String) info);
                 }
             } catch (Exception e) {
-                j("InternalListener exception in onIntermediateImageSet", e);
+                l("InternalListener exception in onIntermediateImageSet", e);
             }
         }
     }
 
     @Override // com.facebook.drawee.controller.c
-    public void onIntermediateImageFailed(String str, Throwable th) {
+    public void g(String str, Throwable th) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.onIntermediateImageFailed(str, th);
+                    cVar.g(str, th);
                 }
             } catch (Exception e) {
-                j("InternalListener exception in onIntermediateImageFailed", e);
+                l("InternalListener exception in onIntermediateImageFailed", e);
             }
         }
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void onFailure(String str, Throwable th) {
+    public synchronized void h(String str, Throwable th) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.onFailure(str, th);
+                    cVar.h(str, th);
                 }
             } catch (Exception e) {
-                j("InternalListener exception in onFailure", e);
+                l("InternalListener exception in onFailure", e);
             }
         }
     }
 
     @Override // com.facebook.drawee.controller.c
-    public synchronized void onRelease(String str) {
+    public synchronized void el(String str) {
         int size = this.mListeners.size();
         for (int i = 0; i < size; i++) {
             try {
                 c<? super INFO> cVar = this.mListeners.get(i);
                 if (cVar != null) {
-                    cVar.onRelease(str);
+                    cVar.el(str);
                 }
             } catch (Exception e) {
-                j("InternalListener exception in onRelease", e);
+                l("InternalListener exception in onRelease", e);
             }
         }
     }

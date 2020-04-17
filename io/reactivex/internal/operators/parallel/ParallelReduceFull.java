@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.parallel;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.c;
 import io.reactivex.g;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
@@ -12,14 +11,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelReduceFull<T> extends g<T> {
-    final a<? extends T> nAt;
+    final a<? extends T> mTU;
     final c<T, T, T> reducer;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.nAt.dJS(), this.reducer);
+        ParallelReduceFullMainSubscriber parallelReduceFullMainSubscriber = new ParallelReduceFullMainSubscriber(cVar, this.mTU.dCR(), this.reducer);
         cVar.onSubscribe(parallelReduceFullMainSubscriber);
-        this.nAt.a(parallelReduceFullMainSubscriber.subscribers);
+        this.mTU.a(parallelReduceFullMainSubscriber.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -101,7 +100,7 @@ public final class ParallelReduceFull<T> extends g<T> {
                     try {
                         t = (T) io.reactivex.internal.functions.a.h(this.reducer.apply(addValue.first, addValue.second), "The reducer returned a null value");
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         innerError(th);
                         return;
                     }
@@ -135,7 +134,9 @@ public final class ParallelReduceFull<T> extends g<T> {
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(Long.MAX_VALUE);
+            }
         }
 
         @Override // org.a.c
@@ -149,7 +150,7 @@ public final class ParallelReduceFull<T> extends g<T> {
                 try {
                     this.value = (T) io.reactivex.internal.functions.a.h(this.reducer.apply(t2, t), "The reducer returned a null value");
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     get().cancel();
                     onError(th);
                 }

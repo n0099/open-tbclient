@@ -8,37 +8,37 @@ import android.graphics.RectF;
 import android.support.v4.internal.view.SupportMenu;
 /* loaded from: classes5.dex */
 public class d {
-    public static Paint nGT;
-    public static RectF nGU;
-    private static boolean nGV = true;
-    private static boolean nGW = true;
-    public static Paint nGS = new Paint();
+    public static Paint nat;
+    public static RectF nau;
+    private static boolean nav = true;
+    private static boolean naw = true;
+    public static Paint nas = new Paint();
 
     static {
-        nGS.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        nGS.setColor(0);
-        nGU = new RectF();
+        nas.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        nas.setColor(0);
+        nau = new RectF();
     }
 
-    public static void aA(boolean z, boolean z2) {
-        nGV = z;
-        nGW = z2;
+    public static void av(boolean z, boolean z2) {
+        nav = z;
+        naw = z2;
     }
 
     public static void c(Canvas canvas, String str) {
-        if (nGT == null) {
-            nGT = new Paint();
-            nGT.setColor(SupportMenu.CATEGORY_MASK);
-            nGT.setTextSize(30.0f);
+        if (nat == null) {
+            nat = new Paint();
+            nat.setColor(SupportMenu.CATEGORY_MASK);
+            nat.setTextSize(30.0f);
         }
         int height = canvas.getHeight() - 50;
-        a(canvas, 10.0f, height - 50, (int) (nGT.measureText(str) + 20.0f), canvas.getHeight());
-        canvas.drawText(str, 10.0f, height, nGT);
+        a(canvas, 10.0f, height - 50, (int) (nat.measureText(str) + 20.0f), canvas.getHeight());
+        canvas.drawText(str, 10.0f, height, nat);
     }
 
     public static void e(Canvas canvas) {
-        if (nGV) {
-            if (nGW) {
+        if (nav) {
+            if (naw) {
                 canvas.drawColor(0, PorterDuff.Mode.CLEAR);
                 return;
             } else {
@@ -46,18 +46,18 @@ public class d {
                 return;
             }
         }
-        nGU.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
-        a(canvas, nGU);
+        nau.set(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
+        a(canvas, nau);
     }
 
     public static void a(Canvas canvas, float f, float f2, float f3, float f4) {
-        nGU.set(f, f2, f3, f4);
-        a(canvas, nGU);
+        nau.set(f, f2, f3, f4);
+        a(canvas, nau);
     }
 
     private static void a(Canvas canvas, RectF rectF) {
         if (rectF.width() > 0.0f && rectF.height() > 0.0f) {
-            canvas.drawRect(rectF, nGS);
+            canvas.drawRect(rectF, nas);
         }
     }
 }

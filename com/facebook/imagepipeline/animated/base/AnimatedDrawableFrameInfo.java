@@ -1,13 +1,13 @@
 package com.facebook.imagepipeline.animated.base;
 /* loaded from: classes13.dex */
 public class AnimatedDrawableFrameInfo {
-    public final int frameNumber;
+    public final int gpo;
     public final int height;
-    public final BlendOperation lRx;
-    public final DisposalMethod lRy;
+    public final int lZc;
+    public final int lZd;
+    public final BlendOperation lZe;
+    public final DisposalMethod lZf;
     public final int width;
-    public final int xOffset;
-    public final int yOffset;
 
     /* loaded from: classes13.dex */
     public enum BlendOperation {
@@ -23,12 +23,12 @@ public class AnimatedDrawableFrameInfo {
     }
 
     public AnimatedDrawableFrameInfo(int i, int i2, int i3, int i4, int i5, BlendOperation blendOperation, DisposalMethod disposalMethod) {
-        this.frameNumber = i;
-        this.xOffset = i2;
-        this.yOffset = i3;
+        this.lZc = i;
+        this.lZd = i2;
+        this.gpo = i3;
         this.width = i4;
         this.height = i5;
-        this.lRx = blendOperation;
-        this.lRy = disposalMethod;
+        this.lZe = blendOperation;
+        this.lZf = disposalMethod;
     }
 }

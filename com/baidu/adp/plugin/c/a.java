@@ -15,27 +15,27 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a xX = null;
-    private HashMap<String, ArrayList<Message<?>>> xW = null;
+    private static volatile a Rb = null;
+    private HashMap<String, ArrayList<Message<?>>> Ra = null;
 
-    public static a ji() {
-        if (xX == null) {
+    public static a nL() {
+        if (Rb == null) {
             synchronized (a.class) {
-                if (xX == null) {
-                    xX = new a();
+                if (Rb == null) {
+                    Rb = new a();
                 }
             }
         }
-        return xX;
+        return Rb;
     }
 
     public void init() {
-        this.xW = new HashMap<>();
-        jk();
-        jj();
+        this.Ra = new HashMap<>();
+        nN();
+        nM();
     }
 
-    private void jj() {
+    private void nM() {
         MessageManager.getInstance().registerListener(MessageConfig.PLUGIN_LOADED, new CustomMessageListener(0) { // from class: com.baidu.adp.plugin.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -44,36 +44,36 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.xV == 0 && a.this.xW.size() > 0 && (arrayList = (ArrayList) a.this.xW.get(aVar.xU)) != null && arrayList.size() > 0) {
+                    if (aVar.QZ == 0 && a.this.Ra.size() > 0 && (arrayList = (ArrayList) a.this.Ra.get(aVar.QY)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.xW.remove(aVar.xU);
+                    a.this.Ra.remove(aVar.QY);
                 }
             }
         });
     }
 
-    private void jk() {
+    private void nN() {
         MessageManager.getInstance().setNotFindTaskListener(new b<Message<?>>() { // from class: com.baidu.adp.plugin.c.a.2
             @Override // com.baidu.adp.framework.listener.b
             public boolean a(Message<?> message) {
                 if (message == null) {
                     return false;
                 }
-                String af = c.jV().af(message.getCmd());
-                if (TextUtils.isEmpty(af) || c.jV().bp(af)) {
+                String ar = c.oz().ar(message.getCmd());
+                if (TextUtils.isEmpty(ar) || c.oz().cF(ar)) {
                     return false;
                 }
-                if (!PluginCenter.getInstance().hasInstance(af)) {
-                    a.this.a(af, message);
-                    return PluginCenter.getInstance().launch(af).isSucc;
-                } else if (PluginCenter.getInstance().isLoaded(af)) {
+                if (!PluginCenter.getInstance().hasInstance(ar)) {
+                    a.this.a(ar, message);
+                    return PluginCenter.getInstance().launch(ar).isSucc;
+                } else if (PluginCenter.getInstance().isLoaded(ar)) {
                     return false;
                 } else {
-                    a.this.a(af, message);
+                    a.this.a(ar, message);
                     return true;
                 }
             }
@@ -83,10 +83,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.xW.get(str);
+            ArrayList<Message<?>> arrayList = this.Ra.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.xW.put(str, arrayList);
+                this.Ra.put(str, arrayList);
             }
             arrayList.add(message);
         }

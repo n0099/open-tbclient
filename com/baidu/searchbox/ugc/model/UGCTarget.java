@@ -14,10 +14,12 @@ public class UGCTarget {
     public List<AtUserInfoItem> mUserInfoList = new ArrayList();
     @c("link")
     public List<LinkInfoItem> mLinkInfoList = new ArrayList();
-    @c("ugcpk")
+    @c(UgcConstant.UGC_PK)
     public UgcPKInfo mUgcPKInfo = new UgcPKInfo();
     @c("tag")
     public List<UgcTagItem> tagList = new ArrayList();
     @c("vote")
     public UgcVoteInfo mUgcVoteInfo = new UgcVoteInfo();
+    @c(UgcConstant.UGC_QUANZI)
+    public UgcQuanInfo quanInfo = new UgcQuanInfo();
 }

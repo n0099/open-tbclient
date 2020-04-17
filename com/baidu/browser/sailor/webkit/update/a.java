@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
@@ -26,7 +25,7 @@ import java.io.InputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static a JM = null;
+    private static a acR = null;
     protected String a;
     protected String b;
     protected String c;
@@ -34,10 +33,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.browser.sailor.webkit.update.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0049a extends BdNetTask implements INetListener {
-        protected ByteArrayOutputStream JN;
+    public class C0070a extends BdNetTask implements INetListener {
+        protected ByteArrayOutputStream acS;
 
-        public C0049a(Context context, String str) {
+        public C0070a(Context context, String str) {
             setUrl(a.a(str, context));
             setMethod(BdNet.HttpMethod.METHOD_GET);
         }
@@ -48,16 +47,16 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
-            this.JN.reset();
+            this.acS.reset();
         }
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
-            if (this.JN == null) {
-                this.JN = new ByteArrayOutputStream();
+            if (this.acS == null) {
+                this.acS = new ByteArrayOutputStream();
             }
             if (i > 0) {
-                this.JN.write(bArr, 0, i);
+                this.acS.write(bArr, 0, i);
             }
         }
 
@@ -80,9 +79,9 @@ public class a {
 
         @Override // com.baidu.webkit.net.INetListener
         public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-            if (this.JN != null) {
+            if (this.acS != null) {
                 try {
-                    String byteArrayOutputStream = this.JN.toString("utf-8");
+                    String byteArrayOutputStream = this.acS.toString("utf-8");
                     Log.d(EngineManager.LOG_TAG, "received data = " + byteArrayOutputStream);
                     if (byteArrayOutputStream.length() > 0) {
                         JSONObject jSONObject = new JSONObject(byteArrayOutputStream);
@@ -120,15 +119,15 @@ public class a {
         }
 
         public void release() {
-            if (this.JN != null) {
+            if (this.acS != null) {
                 try {
-                    this.JN.reset();
-                    this.JN.close();
+                    this.acS.reset();
+                    this.acS.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            this.JN = null;
+            this.acS = null;
         }
     }
 
@@ -246,7 +245,7 @@ public class a {
         stringBuffer.append(i);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(str4.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, Constants.ACCEPT_TIME_SEPARATOR_SERVER));
-        String b2 = com.baidu.browser.sailor.util.b.b(stringBuffer.toString().replace(HanziToPinyin.Token.SEPARATOR, Constants.ACCEPT_TIME_SEPARATOR_SERVER));
+        String b2 = com.baidu.browser.sailor.util.b.b(stringBuffer.toString().replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER));
         if (!TextUtils.isEmpty(b2)) {
             a(sb, "dev", b2);
         }
@@ -254,9 +253,9 @@ public class a {
         if (!TextUtils.isEmpty(packageName)) {
             a(sb, "app", packageName);
         }
-        PackageInfo al = al(context);
-        if (al != null) {
-            String str5 = al.versionName;
+        PackageInfo ac = ac(context);
+        if (ac != null) {
+            String str5 = ac.versionName;
             if (!TextUtils.isEmpty(str5)) {
                 a(sb, ETAG.KEY_APP_VERSION, str5);
             }
@@ -311,7 +310,7 @@ public class a {
         return jArr[0] == jArr[4] && jArr[1] <= jArr[5] && jArr[2] == jArr[6] && jArr[3] < jArr[7];
     }
 
-    private static PackageInfo al(Context context) {
+    private static PackageInfo ac(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384);
         } catch (Exception e) {
@@ -320,15 +319,15 @@ public class a {
         }
     }
 
-    public static a mG() {
-        if (JM == null) {
+    public static a ri() {
+        if (acR == null) {
             synchronized (a.class) {
-                if (JM == null) {
-                    JM = new a();
+                if (acR == null) {
+                    acR = new a();
                 }
             }
         }
-        return JM;
+        return acR;
     }
 
     protected final void b() {
@@ -339,7 +338,7 @@ public class a {
             if (WebKitFactory.getCurEngine() == 1) {
                 if (a(zeusVersionName, this.b)) {
                     Log.d(EngineManager.LOG_TAG, "start download update zeus");
-                    BdZeusDownloadHelper.ak(BdSailor.getInstance().getAppContext()).a(this.a, this.c);
+                    BdZeusDownloadHelper.ab(BdSailor.getInstance().getAppContext()).a(this.a, this.c);
                     return;
                 }
                 return;
@@ -350,18 +349,18 @@ public class a {
             }
             if (z) {
                 try {
-                    float mC = com.baidu.browser.core.util.a.mC() / 1024.0f;
-                    if (mC < (TextUtils.isEmpty(WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb")) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
+                    float re = com.baidu.browser.core.util.a.re() / 1024.0f;
+                    if (re < (TextUtils.isEmpty(WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb")) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
                         return;
                     }
-                    BdSailorPlatform.getStatic().b("MemMbSize", String.valueOf(mC));
+                    BdSailorPlatform.getStatic().b("MemMbSize", String.valueOf(re));
                 } catch (Exception e) {
                 }
             }
             BdSailorPlatform.getStatic().b("download-webkit-start", String.valueOf(System.currentTimeMillis()));
             BdSailorPlatform.getStatic().a();
             Log.d(EngineManager.LOG_TAG, "start download zeus");
-            BdZeusDownloadHelper.ak(BdSailor.getInstance().getAppContext()).a(this.a, this.c);
+            BdZeusDownloadHelper.ab(BdSailor.getInstance().getAppContext()).a(this.a, this.c);
         }
     }
 }

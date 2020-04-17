@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.bi;
@@ -14,14 +14,14 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.card.z;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.frs.h<bi, a> implements com.baidu.tieba.a.f, x {
-    private String LC;
-    private com.baidu.tieba.ala.livecard.b.c eNI;
-    private z<bj> eNJ;
+    private String aey;
+    private com.baidu.tieba.ala.livecard.b.c fsc;
+    private z<bj> fsd;
     private String mForumName;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.eNJ = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.g.1
+        this.fsd = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
@@ -44,15 +44,15 @@ public class g extends com.baidu.tieba.frs.h<bi, a> implements com.baidu.tieba.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: af */
+    /* renamed from: ag */
     public a b(ViewGroup viewGroup) {
         if (this.mPageContext == null) {
             return null;
         }
-        this.eNI = new com.baidu.tieba.ala.livecard.b.c(this.mPageContext, this.mPageId);
-        this.eNI.setForumName(this.mForumName);
-        this.eNI.c(this.eNJ);
-        return new a(this.eNI);
+        this.fsc = new com.baidu.tieba.ala.livecard.b.c(this.mPageContext, this.mPageId);
+        this.fsc.setForumName(this.mForumName);
+        this.fsc.c(this.fsd);
+        return new a(this.fsc);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,21 +61,21 @@ public class g extends com.baidu.tieba.frs.h<bi, a> implements com.baidu.tieba.a
     public View a(int i, View view, ViewGroup viewGroup, bi biVar, a aVar) {
         CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
         int i2 = 0;
-        if (this.goJ != null) {
-            i2 = this.goJ.getTopThreadSize();
+        if (this.gXO != null) {
+            i2 = this.gXO.getTopThreadSize();
         }
-        biVar.cRt.cPT = (biVar.position + 1) - i2;
-        customMessage.setData(biVar.cRt);
+        biVar.dqA.doZ = (biVar.position + 1) - i2;
+        customMessage.setData(biVar.dqA);
         this.mPageContext.sendMessage(customMessage);
         if (biVar != null) {
-            if (aVar.eNL instanceof com.baidu.tieba.a.e) {
-                aVar.eNL.setPage(this.LC);
+            if (aVar.fsf instanceof com.baidu.tieba.a.e) {
+                aVar.fsf.setPage(this.aey);
             }
-            aVar.eNL.setForumName(this.mForumName);
-            com.baidu.tieba.frs.g.a(aVar.eNL.bhf(), this.goJ);
-            com.baidu.tieba.frs.g.a(aVar.eNL.bhg(), this.goJ);
-            aVar.eNL.a(biVar.cRt);
-            biVar.cRt.aDA();
+            aVar.fsf.setForumName(this.mForumName);
+            com.baidu.tieba.frs.g.a(aVar.fsf.bqw(), this.gXO);
+            com.baidu.tieba.frs.g.a(aVar.fsf.bqx(), this.gXO);
+            aVar.fsf.a(biVar.dqA);
+            biVar.dqA.aLN();
         }
         return aVar.getView();
     }
@@ -86,21 +86,21 @@ public class g extends com.baidu.tieba.frs.h<bi, a> implements com.baidu.tieba.a
     }
 
     @Override // com.baidu.tieba.card.x
-    public void pB(int i) {
+    public void pV(int i) {
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wQ(String str) {
-        this.LC = str;
+    public void yc(String str) {
+        this.aey = str;
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends v.a {
-        public com.baidu.tieba.ala.livecard.b.c eNL;
+    public static class a extends y.a {
+        public com.baidu.tieba.ala.livecard.b.c fsf;
 
         public a(com.baidu.tieba.ala.livecard.b.c cVar) {
             super(cVar.getView());
-            this.eNL = cVar;
+            this.fsf = cVar;
         }
     }
 }

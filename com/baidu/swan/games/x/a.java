@@ -7,50 +7,50 @@ import com.baidu.swan.games.s.a.a;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a csI;
-    private com.baidu.swan.games.s.a.a csJ;
+    private static volatile a cRD;
+    private com.baidu.swan.games.s.a.a cRE;
 
     private a() {
     }
 
-    public static a apT() {
-        if (csI == null) {
+    public static a ayf() {
+        if (cRD == null) {
             synchronized (a.class) {
-                if (csI == null) {
-                    csI = new a();
+                if (cRD == null) {
+                    cRD = new a();
                 }
             }
         }
-        return csI;
+        return cRD;
     }
 
     public void c(com.baidu.swan.games.s.a.a aVar) {
-        this.csJ = aVar;
+        this.cRE = aVar;
     }
 
-    public boolean pJ(String str) {
-        String O = O(str, 1);
-        if (TextUtils.isEmpty(O)) {
+    public boolean qW(String str) {
+        String W = W(str, 1);
+        if (TextUtils.isEmpty(W)) {
             return false;
         }
-        if (this.csJ != null && this.csJ.crw != null && this.csJ.crw.crE != null && this.csJ.crw.crE.containsKey(O)) {
+        if (this.cRE != null && this.cRE.cQr != null && this.cRE.cQr.cQz != null && this.cRE.cQr.cQz.containsKey(W)) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
             }
-            return this.csJ.crw.crE.get(O).booleanValue();
+            return this.cRE.cQr.cQz.get(W).booleanValue();
         }
         if (DEBUG) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
         }
-        String acK = e.acK();
-        if (e.acI() != null) {
-            String version = e.acI().getVersion();
-            if (TextUtils.isEmpty(acK) || TextUtils.isEmpty(version)) {
+        String akP = e.akP();
+        if (e.akN() != null) {
+            String version = e.akN().getVersion();
+            if (TextUtils.isEmpty(akP) || TextUtils.isEmpty(version)) {
                 return false;
             }
-            boolean Q = com.baidu.swan.pms.database.a.aty().Q(acK, version, O);
+            boolean Q = com.baidu.swan.pms.database.a.aBI().Q(akP, version, W);
             if (Q) {
-                y(O, true);
+                D(W, true);
                 return Q;
             }
             return Q;
@@ -58,47 +58,47 @@ public class a {
         return false;
     }
 
-    public void y(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.csJ != null && this.csJ.crw != null && this.csJ.crw.crE != null) {
+    public void D(String str, boolean z) {
+        if (!TextUtils.isEmpty(str) && this.cRE != null && this.cRE.cQr != null && this.cRE.cQr.cQz != null) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.csJ.crw.crE.put(str, Boolean.valueOf(z));
+            this.cRE.cQr.cQz.put(str, Boolean.valueOf(z));
         }
     }
 
-    public String kQ(String str) {
-        String O = O(str, 1);
-        if (TextUtils.isEmpty(O) || this.csJ == null || this.csJ.crx == null || this.csJ.crx.crF == null) {
+    public String md(String str) {
+        String W = W(str, 1);
+        if (TextUtils.isEmpty(W) || this.cRE == null || this.cRE.cQs == null || this.cRE.cQs.cQA == null) {
             return null;
         }
-        return this.csJ.crx.crF.get(O);
+        return this.cRE.cQs.cQA.get(W);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String O(String str, int i) {
+    public String W(String str, int i) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (this.csJ == null || this.csJ.crw == null || this.csJ.crw.crD == null) {
+        if (this.cRE == null || this.cRE.cQr == null || this.cRE.cQr.cQy == null) {
             return null;
         }
-        for (a.C0346a c0346a : this.csJ.crw.crD) {
-            if (TextUtils.equals(c0346a.name, str) || TextUtils.equals(c0346a.crB, str)) {
+        for (a.C0376a c0376a : this.cRE.cQr.cQy) {
+            if (TextUtils.equals(c0376a.name, str) || TextUtils.equals(c0376a.cQw, str)) {
                 switch (i) {
                     case 0:
-                        return c0346a.name;
+                        return c0376a.name;
                     case 1:
-                        return c0346a.crB;
+                        return c0376a.cQw;
                     case 2:
-                        return c0346a.path;
+                        return c0376a.path;
                     case 3:
-                        return c0346a.crC;
+                        return c0376a.cQx;
                     default:
-                        return c0346a.crB;
+                        return c0376a.cQw;
                 }
             }
             while (r2.hasNext()) {

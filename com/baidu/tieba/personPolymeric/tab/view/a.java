@@ -25,136 +25,136 @@ import com.baidu.tieba.personPolymeric.tab.fragments.PersonCenterThreadTabFragme
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private BdTypeRecyclerView BK;
-    private TbPageContext cVv;
-    private PbListView elM;
-    private n jso;
-    private PersonCenterTabBaseFragment jsp;
+    private BdTypeRecyclerView Vf;
+    private TbPageContext duG;
+    private PbListView ePm;
+    private n kcE;
+    private PersonCenterTabBaseFragment kcF;
     private NoDataView mNoDataView;
     private View mRootView;
 
     public a(TbPageContext tbPageContext, View view, PersonCenterTabBaseFragment personCenterTabBaseFragment) {
-        this.cVv = tbPageContext;
+        this.duG = tbPageContext;
         this.mRootView = view;
-        this.jsp = personCenterTabBaseFragment;
+        this.kcF = personCenterTabBaseFragment;
         initUI();
     }
 
     private void initUI() {
-        this.BK = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.new_person_center_common_lv);
-        this.BK.setLayoutManager(new LinearLayoutManager(this.BK.getContext()));
-        this.elM = new PbListView(this.cVv.getPageActivity());
-        this.elM.createView();
-        this.elM.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
-        this.elM.setHeight(l.getDimens(this.cVv.getPageActivity(), R.dimen.tbds182));
-        this.elM.setLineGone();
-        this.elM.setTextSize(R.dimen.tbfontsize33);
-        this.elM.setTextColor(am.getColor(R.color.cp_cont_j));
-        this.elM.setNoMoreTextColorId(R.color.cp_cont_e);
-        this.jso = new n(this.cVv, this.BK, this.jsp.getUniqueId());
-        this.jso.setIsHost(this.jsp.isHost());
-        this.jso.Ad(32);
+        this.Vf = (BdTypeRecyclerView) this.mRootView.findViewById(R.id.new_person_center_common_lv);
+        this.Vf.setLayoutManager(new LinearLayoutManager(this.Vf.getContext()));
+        this.ePm = new PbListView(this.duG.getPageActivity());
+        this.ePm.createView();
+        this.ePm.setContainerBackgroundColorResId(R.color.cp_bg_line_e);
+        this.ePm.setHeight(l.getDimens(this.duG.getPageActivity(), R.dimen.tbds182));
+        this.ePm.setLineGone();
+        this.ePm.setTextSize(R.dimen.tbfontsize33);
+        this.ePm.setTextColor(am.getColor(R.color.cp_cont_j));
+        this.ePm.setNoMoreTextColorId(R.color.cp_cont_e);
+        this.kcE = new n(this.duG, this.Vf, this.kcF.getUniqueId());
+        this.kcE.setIsHost(this.kcF.isHost());
+        this.kcE.AE(32);
         int i = 0;
-        if (this.jsp.isHost()) {
-            if (this.jsp instanceof PersonCenterDynamicTabFragment) {
+        if (this.kcF.isHost()) {
+            if (this.kcF instanceof PersonCenterDynamicTabFragment) {
                 i = 4;
-            } else if (this.jsp instanceof PersonCenterThreadTabFragment) {
+            } else if (this.kcF instanceof PersonCenterThreadTabFragment) {
                 i = 6;
             }
         }
-        this.jso.Ae(i);
-        this.jso.setTabType(this.jsp.getTabType());
+        this.kcE.AF(i);
+        this.kcE.setTabType(this.kcF.getTabType());
     }
 
     public void addHeaderView(View view) {
-        this.BK.addHeaderView(view);
+        this.Vf.addHeaderView(view);
     }
 
     public void b(BdListView.e eVar) {
-        this.BK.setOnSrollToBottomListener(eVar);
+        this.Vf.setOnSrollToBottomListener(eVar);
     }
 
     public void onDestroy() {
-        this.BK.setOnSrollToBottomListener(null);
+        this.Vf.setOnSrollToBottomListener(null);
     }
 
-    public void dV(List<m> list) {
+    public void eg(List<m> list) {
         if (v.isEmpty(list)) {
-            bdz();
-            if (this.BK.getHeaderViewsCount() == 0) {
-                ww(R.string.person_center_listempty_txt);
+            bmq();
+            if (this.Vf.getHeaderViewsCount() == 0) {
+                wU(R.string.person_center_listempty_txt);
             }
         } else if (this.mNoDataView != null && this.mNoDataView.getParent() != null) {
-            this.BK.removeHeaderView(this.mNoDataView);
+            this.Vf.removeHeaderView(this.mNoDataView);
         }
-        this.BK.setData(list);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.jsp.getTabType())));
+        this.Vf.setData(list);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921435, Integer.valueOf(this.kcF.getTabType())));
     }
 
-    private void ww(int i) {
+    private void wU(int i) {
         String string;
-        if (this.jsp.getTabType() == 1) {
-            string = this.jsp.getResources().getString(R.string.person_center_listempty_dynamic_txt);
+        if (this.kcF.getTabType() == 1) {
+            string = this.kcF.getResources().getString(R.string.person_center_listempty_dynamic_txt);
         } else {
-            string = this.jsp.getResources().getString(R.string.person_center_listempty_thread_txt);
+            string = this.kcF.getResources().getString(R.string.person_center_listempty_thread_txt);
         }
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.cVv.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.d.cz(null, string), null);
+            this.mNoDataView = NoDataViewFactory.a(this.duG.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds180)), NoDataViewFactory.d.cK(null, string), null);
         }
-        this.mNoDataView.onChangeSkinType(this.cVv, TbadkApplication.getInst().getSkinType());
+        this.mNoDataView.onChangeSkinType(this.duG, TbadkApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
-        this.BK.removeHeaderView(this.mNoDataView);
+        this.Vf.removeHeaderView(this.mNoDataView);
         this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.BK.addHeaderView(this.mNoDataView);
+        this.Vf.addHeaderView(this.mNoDataView);
     }
 
     public void onChangeSkinType(int i) {
         am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
-        if (this.jso != null) {
-            this.jso.notifyDataSetChanged();
+        if (this.kcE != null) {
+            this.kcE.notifyDataSetChanged();
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.cVv, i);
+            this.mNoDataView.onChangeSkinType(this.duG, i);
         }
-        if (this.elM != null) {
-            this.elM.setTextColor(am.getColor(R.color.cp_cont_j));
-            this.elM.changeSkin(i);
+        if (this.ePm != null) {
+            this.ePm.setTextColor(am.getColor(R.color.cp_cont_j));
+            this.ePm.changeSkin(i);
         }
     }
 
-    public n cyc() {
-        return this.jso;
+    public n cIM() {
+        return this.kcE;
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void bdx() {
-        this.BK.setNextPage(this.elM);
-        this.elM.showEmptyView(0);
-        this.elM.startLoadData();
+    public void bmo() {
+        this.Vf.setNextPage(this.ePm);
+        this.ePm.showEmptyView(0);
+        this.ePm.startLoadData();
     }
 
-    public void bdy() {
-        this.BK.setNextPage(this.elM);
-        this.elM.showEmptyView(0);
-        this.elM.endLoadData();
-        this.elM.setText(this.cVv.getString(R.string.list_no_more));
+    public void bmp() {
+        this.Vf.setNextPage(this.ePm);
+        this.ePm.showEmptyView(0);
+        this.ePm.endLoadData();
+        this.ePm.setText(this.duG.getString(R.string.list_no_more));
     }
 
-    public void bdz() {
-        this.BK.setNextPage(null);
+    public void bmq() {
+        this.Vf.setNextPage(null);
     }
 
-    public void scrollToTop() {
-        this.BK.smoothScrollToPosition(0);
+    public void bOe() {
+        this.Vf.smoothScrollToPosition(0);
     }
 
-    public void Al(int i) {
-        this.BK.setNextPage(this.elM);
-        this.elM.showEmptyView(0);
-        this.elM.endLoadData();
-        this.elM.setText(this.cVv.getString(i));
+    public void AM(int i) {
+        this.Vf.setNextPage(this.ePm);
+        this.ePm.showEmptyView(0);
+        this.ePm.endLoadData();
+        this.ePm.setText(this.duG.getString(i));
     }
 }

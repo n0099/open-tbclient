@@ -16,22 +16,22 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class FrsShareCardView extends LinearLayout {
+    private TextView cTr;
     private Context context;
-    private TextView cuv;
-    private EditText gSd;
-    private HeadImageView gSe;
-    private TextView gSf;
-    private TextView gSg;
-    private ShareFromFrsMsgData gSh;
+    private EditText hCe;
+    private HeadImageView hCf;
+    private TextView hCg;
+    private TextView hCh;
+    private ShareFromFrsMsgData hCi;
     private LinearLayout mRootView;
 
     public EditText getChatMsgView() {
-        return this.gSd;
+        return this.hCe;
     }
 
-    public void am(String str, boolean z) {
-        if (this.gSe != null) {
-            this.gSe.startLoad(str, 15, false);
+    public void as(String str, boolean z) {
+        if (this.hCf != null) {
+            this.hCf.startLoad(str, 15, false);
         }
     }
 
@@ -48,34 +48,34 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        this.gSe.setPageId(bdUniqueId);
+        this.hCf.setPageId(bdUniqueId);
     }
 
     private void initUI(Context context) {
         LayoutInflater.from(context).inflate(R.layout.frs_share_card_view, this);
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(R.id.share_content);
-        this.cuv = (TextView) findViewById(R.id.frs_card_name);
-        this.gSd = (EditText) findViewById(R.id.chat_msg);
-        this.gSe = (HeadImageView) findViewById(R.id.frs_card_img);
-        this.gSg = (TextView) findViewById(R.id.frs_card_member_num);
-        this.gSf = (TextView) findViewById(R.id.frs_card_post_num);
-        am.setViewTextColor(this.cuv, R.color.cp_cont_b, 1);
-        am.setViewTextColor(this.gSd, R.color.cp_cont_b, 2);
-        this.gSd.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        this.gSd.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        bMb();
+        this.cTr = (TextView) findViewById(R.id.frs_card_name);
+        this.hCe = (EditText) findViewById(R.id.chat_msg);
+        this.hCf = (HeadImageView) findViewById(R.id.frs_card_img);
+        this.hCh = (TextView) findViewById(R.id.frs_card_member_num);
+        this.hCg = (TextView) findViewById(R.id.frs_card_post_num);
+        am.setViewTextColor(this.cTr, R.color.cp_cont_b, 1);
+        am.setViewTextColor(this.hCe, R.color.cp_cont_b, 2);
+        this.hCe.setHintTextColor(am.getColor(R.color.cp_cont_e));
+        this.hCe.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        bWH();
     }
 
-    public void bMb() {
+    public void bWH() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.gSd != null) {
-            return k.charSequence2String(this.gSd.getText(), null);
+        if (this.hCe != null) {
+            return k.charSequence2String(this.hCe.getText(), null);
         }
         return null;
     }
@@ -88,16 +88,16 @@ public class FrsShareCardView extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.gSh = shareFromFrsMsgData;
+        this.hCi = shareFromFrsMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.cuv.setText(getShortName(this.gSh.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.gSh.getImageUrl());
-        this.gSe.startLoad(this.gSh.getImageUrl(), 15, false);
-        this.gSg.setText(aq.numFormatOver10000(this.gSh.getMemberNum()));
-        this.gSf.setText(aq.numFormatOver10000(this.gSh.getPostNum()));
+        this.cTr.setText(getShortName(this.hCi.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.hCi.getImageUrl());
+        this.hCf.startLoad(this.hCi.getImageUrl(), 15, false);
+        this.hCh.setText(aq.numFormatOver10000(this.hCi.getMemberNum()));
+        this.hCg.setText(aq.numFormatOver10000(this.hCi.getPostNum()));
     }
 
     private String getShortName(String str) {

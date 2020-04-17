@@ -18,48 +18,48 @@ public class a extends k {
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected PMSDownloadType Ps() {
+    protected PMSDownloadType Xh() {
         return PMSDownloadType.SWAN_GAME_UPDATE_CORE;
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String PE() {
-        return com.baidu.swan.apps.core.pms.d.a.PN();
+    protected String Xt() {
+        return com.baidu.swan.apps.core.pms.d.a.XC();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
-    protected String PF() {
-        return com.baidu.swan.apps.core.pms.d.a.PO();
+    protected String Xu() {
+        return com.baidu.swan.apps.core.pms.d.a.XD();
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
     protected com.baidu.swan.apps.ap.a g(d dVar) {
         if (dVar == null) {
-            return new com.baidu.swan.apps.ap.a().aI(13L).aK(2907L).mx("小游戏GameCore包 Framework null");
+            return new com.baidu.swan.apps.ap.a().bn(13L).bp(2907L).nK("小游戏GameCore包 Framework null");
         }
-        a.C0300a c = com.baidu.swan.apps.swancore.e.a.c(dVar.versionName, dVar.filePath, dVar.sign, 1);
+        a.C0330a c = com.baidu.swan.apps.swancore.e.a.c(dVar.versionName, dVar.filePath, dVar.sign, 1);
         c.deleteFile(dVar.filePath);
         if (c.isOk()) {
             if (DEBUG) {
                 Log.d("SwanGameUpdateCoreCallback", "小游戏GameCore解压成功");
             }
-            long gQ = com.baidu.swan.apps.swancore.e.a.gQ(1);
-            if (gQ > 0) {
-                SwanAppMessengerService.sendMessageWithDataToAllClient(117, gQ);
+            long gX = com.baidu.swan.apps.swancore.e.a.gX(1);
+            if (gX > 0) {
+                SwanAppMessengerService.sendMessageWithDataToAllClient(117, gX);
             }
             return null;
         }
-        return new com.baidu.swan.apps.ap.a().aI(13L).aK(2907L).mx("小游戏GameCore包更新失败");
+        return new com.baidu.swan.apps.ap.a().bn(13L).bp(2907L).nK("小游戏GameCore包更新失败");
     }
 
     @Override // com.baidu.swan.apps.core.pms.k
     protected com.baidu.swan.apps.ap.a h(com.baidu.swan.pms.model.b bVar) {
         if (bVar == null) {
-            return new com.baidu.swan.apps.ap.a().aI(14L).aK(2908L).mx("小游戏Extension包 Extension null");
+            return new com.baidu.swan.apps.ap.a().bn(14L).bp(2908L).nK("小游戏Extension包 Extension null");
         }
         com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
         aVar.versionName = bVar.versionName;
-        aVar.bvu = bVar.filePath;
+        aVar.bTA = bVar.filePath;
         aVar.sign = bVar.sign;
         if (com.baidu.swan.apps.extcore.b.a(1, aVar)) {
             if (DEBUG) {
@@ -67,6 +67,6 @@ public class a extends k {
             }
             return null;
         }
-        return new com.baidu.swan.apps.ap.a().aI(14L).aK(2908L).mx("小游戏Extension包更新失败");
+        return new com.baidu.swan.apps.ap.a().bn(14L).bp(2908L).nK("小游戏Extension包更新失败");
     }
 }

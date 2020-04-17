@@ -62,10 +62,10 @@ public class f implements d {
     }
 
     @Override // com.baidu.swan.apps.media.image.a.d
-    public Point init(Context context, Bitmap bitmap) throws Exception {
+    public Point a(Context context, Bitmap bitmap) throws Exception {
         InputStream inputStream = null;
         try {
-            inputStream = bitmapToInputStream(bitmap);
+            inputStream = k(bitmap);
             this.decoder = BitmapRegionDecoder.newInstance(inputStream, false);
             com.baidu.swan.d.c.closeSafely(inputStream);
             return new Point(this.decoder.getWidth(), this.decoder.getHeight());
@@ -75,7 +75,7 @@ public class f implements d {
         }
     }
 
-    public InputStream bitmapToInputStream(Bitmap bitmap) {
+    public InputStream k(Bitmap bitmap) {
         if (bitmap == null) {
             return null;
         }

@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements a<JSONObject> {
-    private JSONArray bUQ = new JSONArray();
+    private JSONArray ctG = new JSONArray();
 
     public void add(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
@@ -22,7 +22,7 @@ public class b implements a<JSONObject> {
             jSONObject.put("actionId", str);
             jSONObject.put("timeStamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("info", str2);
-            aY(jSONObject);
+            bj(jSONObject);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
@@ -30,16 +30,16 @@ public class b implements a<JSONObject> {
         }
     }
 
-    public void aY(JSONObject jSONObject) {
+    public void bj(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bUQ.put(jSONObject);
+            this.ctG.put(jSONObject);
         }
     }
 
-    public JSONObject aeP() {
+    public JSONObject amU() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("launchLog", this.bUQ);
+            jSONObject.put("launchLog", this.ctG);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
@@ -49,6 +49,6 @@ public class b implements a<JSONObject> {
     }
 
     public void clear() {
-        this.bUQ = new JSONArray();
+        this.ctG = new JSONArray();
     }
 }

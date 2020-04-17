@@ -6,8 +6,4 @@ public class b {
     public static boolean isDebug() {
         return sDebug;
     }
-
-    public static void init(boolean z) {
-        sDebug = z;
-    }
 }

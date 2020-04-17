@@ -5,11 +5,10 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.a.b.b;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.b.b.b;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
@@ -108,7 +107,7 @@ public class HttpRequestPublishModule {
     public void requestPublish(String str, Map<String, String> map, final PublishRequestListener publishRequestListener) {
         if (publishRequestListener != null) {
             try {
-                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.nR().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
+                ?? cookieManager = ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(b.sk().processUrl(UgcServerApiUtils.getHostAddress() + UgcServerApiUtils.PUBLISHER_ADDRESS_PATH))).addParams(map).cookieManager((CookieManager) UgcRuntime.getUgcInterface().newCookieManagerInstance(false, false));
                 String publisherUserAgent = UgcServerApiUtils.getPublisherUserAgent();
                 if (!TextUtils.isEmpty(publisherUserAgent)) {
                     cookieManager.addHeader("User-Agent", publisherUserAgent);
@@ -123,7 +122,7 @@ public class HttpRequestPublishModule {
                     public void onSuccess(String str2, int i) {
                         try {
                             JSONObject jSONObject = new JSONObject(str2);
-                            String optString = jSONObject.optString("errno");
+                            String optString = jSONObject.optString(BaseJsonData.TAG_ERRNO);
                             String optString2 = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                             if (TextUtils.equals(optString, "0")) {
                                 if (publishRequestListener != null) {
@@ -169,7 +168,7 @@ public class HttpRequestPublishModule {
                     String str8 = null;
                     try {
                         JSONObject jSONObject7 = new JSONObject(str7);
-                        String optString = jSONObject7.optString("errno");
+                        String optString = jSONObject7.optString(BaseJsonData.TAG_ERRNO);
                         str8 = jSONObject7.optString(BaseJsonData.TAG_ERRMSG);
                         PublishModels.PublishResultInfo parsePublishResponse = HttpRequestPublishModule.parsePublishResponse(jSONObject7);
                         if (!TextUtils.equals(optString, "0") && parsePublishResponse != null) {
@@ -213,7 +212,7 @@ public class HttpRequestPublishModule {
         publishSubData.metaId = optJSONObject.optString("meta_id");
         publishSubData.isTransfer = optJSONObject.optString("is_transfer");
         publishSubData.mediaType = optJSONObject.optString("media_type");
-        publishSubData.vid = optJSONObject.optString(LogConfig.LOG_VID);
+        publishSubData.vid = optJSONObject.optString("vid");
         publishSubData.coverImg = optJSONObject.optString("cover_img");
         publishSubData.videoUrl = optJSONObject.optString("video_url");
         publishData.subData = publishSubData;
@@ -234,17 +233,16 @@ public class HttpRequestPublishModule {
         return jSONObject2.toString();
     }
 
-    public static Map<String, String> generateRequestPublishParams(JSONObject jSONObject, String str, String str2, List<PublishModels.ImageData> list, VideoUploadModel videoUploadModel, String str3, int i, int i2, String str4, String str5, JSONObject jSONObject2, JSONObject jSONObject3, JSONObject jSONObject4, JSONObject jSONObject5, JSONObject jSONObject6) {
-        String str6;
+    public static JSONObject generateRequestPublishData(JSONObject jSONObject, String str, String str2, List<PublishModels.ImageData> list, VideoUploadModel videoUploadModel, String str3, int i, int i2, String str4, String str5, JSONObject jSONObject2, JSONObject jSONObject3, JSONObject jSONObject4, JSONObject jSONObject5, JSONObject jSONObject6) {
         try {
             jSONObject.put("title", str);
             jSONObject.put("content", str2);
             jSONObject.put("source_from", str3);
-            jSONObject.put("sourceid", i + "");
-            jSONObject.put("source_type", i2 + "");
-            jSONObject.put("topic", jSONObject2);
-            jSONObject.put("ext_info", jSONObject3);
-            jSONObject.put("publishType", str4);
+            jSONObject.put(UgcConstant.SOURCE_ID, i + "");
+            jSONObject.put(UgcConstant.SOURCE_TYPE, i2 + "");
+            jSONObject.put(UgcConstant.TOPIC, jSONObject2);
+            jSONObject.put(UgcConstant.EXT_INFO, jSONObject3);
+            jSONObject.put(UgcConstant.PUBLISH_TYPE, str4);
             JSONArray jSONArray = new JSONArray();
             if (list != null && list.size() > 0) {
                 for (PublishModels.ImageData imageData : list) {
@@ -272,32 +270,49 @@ public class HttpRequestPublishModule {
                 jSONObject8.put("sound_src", videoUploadModel.soundSrc);
                 jSONObject8.put("bg_sound", videoUploadModel.bgSound);
                 jSONObject8.put("bg_sound_rec", videoUploadModel.bgSoundRec);
-                jSONObject8.put("production_type", videoUploadModel.videoProductionType);
+                jSONObject8.put(UgcConstant.VIDEO_PRODUCTION_TYPE, videoUploadModel.videoProductionType);
                 jSONObject8.put("video_first_frame", videoUploadModel.videoFirstFrame);
                 jSONArray2.put(jSONObject8);
             }
             jSONObject.put("videos", jSONArray2);
             jSONObject.put("uk", UgcLoginUtils.getUK());
-            jSONObject.put("question_reply", jSONObject4);
+            jSONObject.put(UgcConstant.QUESTION_REPLY, jSONObject4);
             jSONObject.put(UgcConstant.QUESTION_ASK, jSONObject6);
             if (jSONObject5 != null) {
                 jSONObject.put("swan", jSONObject5);
+                return jSONObject;
             }
-            JSONObject jSONObject9 = new JSONObject();
-            JSONObject jSONObject10 = new JSONObject();
-            jSONObject10.put("location", "");
-            jSONObject10.put("apinfo", "");
-            jSONObject9.put("info", jSONObject10);
-            jSONObject9.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis());
-            jSONObject9.put("data", jSONObject);
-            if (Build.VERSION.SDK_INT < 8) {
-                str6 = null;
-            } else {
-                str6 = new String(Base64.encode(jSONObject9.toString().getBytes(), 0));
-            }
+            return jSONObject;
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static JSONObject generateRequestPublishData(JSONObject jSONObject, int i, String str, String str2, List<PublishModels.ImageData> list, VideoUploadModel videoUploadModel, String str3, int i2, int i3, String str4, String str5, JSONObject jSONObject2, JSONObject jSONObject3, JSONObject jSONObject4, JSONObject jSONObject5, JSONObject jSONObject6, JSONObject jSONObject7) {
+        try {
+            jSONObject.put(UgcConstant.SERVER_TOPICS_RULE, i + "");
+            jSONObject.put("location", jSONObject3);
+            return generateRequestPublishData(jSONObject, str, str2, list, videoUploadModel, str3, i2, i3, str4, str5, jSONObject2, jSONObject4, jSONObject5, jSONObject6, jSONObject7);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static Map<String, String> generateRequestPublishParams(JSONObject jSONObject) {
+        try {
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            jSONObject3.put("location", "");
+            jSONObject3.put("apinfo", "");
+            jSONObject2.put("info", jSONObject3);
+            jSONObject2.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, System.currentTimeMillis());
+            jSONObject2.put("data", jSONObject);
+            String str = Build.VERSION.SDK_INT >= 8 ? new String(Base64.encode(jSONObject2.toString().getBytes(), 0)) : null;
             HashMap hashMap = new HashMap();
-            hashMap.put("sign", getSign(str6, SIGN_SECRET));
-            hashMap.put("base64", str6);
+            hashMap.put("sign", getSign(str, SIGN_SECRET));
+            hashMap.put("base64", str);
             return hashMap;
         } catch (JSONException e) {
             e.printStackTrace();
@@ -305,16 +320,16 @@ public class HttpRequestPublishModule {
         }
     }
 
-    public static Map<String, String> generateRequestPublishParams(JSONObject jSONObject, int i, String str, String str2, List<PublishModels.ImageData> list, VideoUploadModel videoUploadModel, String str3, int i2, int i3, String str4, String str5, JSONObject jSONObject2, JSONObject jSONObject3, JSONObject jSONObject4, JSONObject jSONObject5, JSONObject jSONObject6, JSONObject jSONObject7) {
-        try {
-            jSONObject.put(UgcConstant.SERVER_TOPICS_RULE, i + "");
-            jSONObject.put("location", jSONObject3);
-            new HashMap();
-            return generateRequestPublishParams(jSONObject, str, str2, list, videoUploadModel, str3, i2, i3, str4, str5, jSONObject2, jSONObject4, jSONObject5, jSONObject6, jSONObject7);
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public static Map<String, String> generateRequestPublishParams(JSONObject jSONObject, String str, String str2, List<PublishModels.ImageData> list, VideoUploadModel videoUploadModel, String str3, int i, int i2, String str4, String str5, JSONObject jSONObject2, JSONObject jSONObject3, JSONObject jSONObject4, JSONObject jSONObject5, JSONObject jSONObject6) {
+        JSONObject generateRequestPublishData = generateRequestPublishData(jSONObject, str, str2, list, videoUploadModel, str3, i, i2, str4, str5, jSONObject2, jSONObject3, jSONObject4, jSONObject5, jSONObject6);
+        if (generateRequestPublishData == null) {
             return null;
         }
+        return generateRequestPublishParams(generateRequestPublishData);
+    }
+
+    public static void setVideoInfo(String str) {
+        videoInfo = getVideoInfo(str);
     }
 
     @RequiresApi(api = 10)

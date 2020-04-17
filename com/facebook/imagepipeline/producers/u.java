@@ -1,6 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidubce.http.Headers;
 import com.facebook.imagepipeline.producers.af;
 import java.io.IOException;
@@ -12,8 +13,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 /* loaded from: classes12.dex */
 public class u extends c<t> {
-    private int lUs;
     private final ExecutorService mExecutorService;
+    private int mcf;
 
     public u() {
         this(Executors.newFixedThreadPool(3));
@@ -21,7 +22,7 @@ public class u extends c<t> {
 
     public u(int i) {
         this(Executors.newFixedThreadPool(3));
-        this.lUs = i;
+        this.mcf = i;
     }
 
     u(ExecutorService executorService) {
@@ -41,11 +42,11 @@ public class u extends c<t> {
                 u.this.b(tVar, aVar);
             }
         });
-        tVar.dsi().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
+        tVar.dug().a(new e() { // from class: com.facebook.imagepipeline.producers.u.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void don() {
+            public void dqk() {
                 if (submit.cancel(false)) {
-                    aVar.dlc();
+                    aVar.dmV();
                 }
             }
         });
@@ -81,7 +82,7 @@ public class u extends c<t> {
                         inputStream = r1;
                     } catch (IOException e) {
                         e = e;
-                        aVar.C(e);
+                        aVar.G(e);
                         if (r1 != 0) {
                             try {
                                 r1.close();
@@ -131,35 +132,35 @@ public class u extends c<t> {
     }
 
     private HttpURLConnection c(Uri uri, int i) throws IOException {
-        HttpURLConnection T = T(uri);
-        T.setConnectTimeout(this.lUs);
-        int responseCode = T.getResponseCode();
-        if (!IS(responseCode)) {
-            if (isHttpRedirect(responseCode)) {
-                String headerField = T.getHeaderField(Headers.LOCATION);
-                T.disconnect();
+        HttpURLConnection U = U(uri);
+        U.setConnectTimeout(this.mcf);
+        int responseCode = U.getResponseCode();
+        if (!Hu(responseCode)) {
+            if (Hv(responseCode)) {
+                String headerField = U.getHeaderField(Headers.LOCATION);
+                U.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
                 if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
                     return c(parse, i - 1);
                 }
-                throw new IOException(i == 0 ? p("URL %s follows too many redirects", uri.toString()) : p("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
+                throw new IOException(i == 0 ? m("URL %s follows too many redirects", uri.toString()) : m("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
-            T.disconnect();
+            U.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
         }
-        return T;
+        return U;
     }
 
-    static HttpURLConnection T(Uri uri) throws IOException {
-        return (HttpURLConnection) com.facebook.common.util.d.B(uri).openConnection();
+    static HttpURLConnection U(Uri uri) throws IOException {
+        return (HttpURLConnection) com.facebook.common.util.d.F(uri).openConnection();
     }
 
-    private static boolean IS(int i) {
+    private static boolean Hu(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean isHttpRedirect(int i) {
+    private static boolean Hv(int i) {
         switch (i) {
             case 300:
             case 301:
@@ -170,13 +171,13 @@ public class u extends c<t> {
                 return true;
             case 304:
             case 305:
-            case 306:
+            case ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA /* 306 */:
             default:
                 return false;
         }
     }
 
-    private static String p(String str, Object... objArr) {
+    private static String m(String str, Object... objArr) {
         return String.format(Locale.getDefault(), str, objArr);
     }
 }

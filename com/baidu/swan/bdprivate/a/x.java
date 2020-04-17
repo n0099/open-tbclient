@@ -17,20 +17,20 @@ import java.util.SimpleTimeZone;
 /* loaded from: classes11.dex */
 public class x {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String cbu = "cookieMap";
-    public static String cbv = "ptokenDomains";
-    public static String cbw = "bdussDomains";
+    public static String cAv = "cookieMap";
+    public static String cAw = "ptokenDomains";
+    public static String cAx = "bdussDomains";
 
-    public static void df(Context context) {
-        dg(context);
+    public static void cT(Context context) {
+        cU(context);
     }
 
-    public static void dg(Context context) {
+    public static void cU(Context context) {
         if (context != null) {
-            String cR = a.cR(context);
-            String cY = a.cY(context);
-            b(context, cR, ahU());
-            c(context, cY, ahU());
+            String cF = a.cF(context);
+            String cM = a.cM(context);
+            b(context, cF, aqc());
+            c(context, cM, aqc());
         }
     }
 
@@ -49,7 +49,7 @@ public class x {
             } else {
                 buildBDUSSCookie = buildBDUSSCookie(str2, str);
             }
-            o("http://www." + str2, buildBDUSSCookie, false);
+            n("http://www." + str2, buildBDUSSCookie, false);
         }
     }
 
@@ -89,18 +89,18 @@ public class x {
             } else {
                 buildPtokenCookie = buildPtokenCookie(str2, str);
             }
-            o("http://www." + str2, buildPtokenCookie, false);
+            n("http://www." + str2, buildPtokenCookie, false);
         }
     }
 
-    private static void o(String str, String str2, boolean z) {
+    private static void n(String str, String str2, boolean z) {
         CookieManager.getInstance().setCookie(str, str2);
         if (z) {
             CookieSyncManager.getInstance().sync();
         }
     }
 
-    private static List<String> ahU() {
+    private static List<String> aqc() {
         ArrayList arrayList = new ArrayList();
         arrayList.add("baidu.com");
         arrayList.add("hao123.com");

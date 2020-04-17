@@ -1,28 +1,28 @@
 package com.baidu.swan.pms.c.d;
 /* loaded from: classes11.dex */
 public class g extends f {
-    private String cCo;
-    private String cCp;
+    private String dbo;
+    private String dbp;
 
     public g(int i) {
         super(i);
     }
 
-    public g qD(String str) {
-        this.cCo = str;
+    public g rQ(String str) {
+        this.dbo = str;
         return this;
     }
 
-    public g qE(String str) {
-        this.cCp = str;
+    public g rR(String str) {
+        this.dbp = str;
         return this;
     }
 
-    public String auq() {
-        return this.cCo;
+    public String aCB() {
+        return this.dbo;
     }
 
-    public String aur() {
-        return this.cCp;
+    public String aCC() {
+        return this.dbp;
     }
 }

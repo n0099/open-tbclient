@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
+    private BdUniqueId II;
+    private BdAsyncTaskParallelType IJ;
     private int mExecuteNum;
-    private BdUniqueId pI;
-    private BdAsyncTaskParallelType pJ;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -19,26 +19,26 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.pI = null;
-        this.pJ = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.II = null;
+        this.IJ = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.pJ = bdAsyncTaskParallelType;
-        this.pI = bdUniqueId;
+        this.IJ = bdAsyncTaskParallelType;
+        this.II = bdUniqueId;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.pI = null;
-        this.pJ = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.II = null;
+        this.IJ = BdAsyncTaskParallelType.MAX_PARALLEL;
         this.mExecuteNum = 1;
         if (bdUniqueId == null) {
             throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
         }
-        this.pJ = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+        this.IJ = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
         this.mExecuteNum = i;
-        this.pI = bdUniqueId;
+        this.II = bdUniqueId;
     }
 
     public int getExecuteNum() {
@@ -46,13 +46,13 @@ public class BdAsyncTaskParallel {
     }
 
     public int getTag() {
-        if (this.pI == null) {
+        if (this.II == null) {
             return 0;
         }
-        return this.pI.getId();
+        return this.II.getId();
     }
 
-    public BdAsyncTaskParallelType fu() {
-        return this.pJ;
+    public BdAsyncTaskParallelType jY() {
+        return this.IJ;
     }
 }

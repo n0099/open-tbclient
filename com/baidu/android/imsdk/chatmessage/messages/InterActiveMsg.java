@@ -76,4 +76,16 @@ public class InterActiveMsg extends NormalMsg {
         super.writeToParcel(parcel, i);
         parcel.writeInt(this.mTemplate);
     }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    protected boolean parseExt() {
+        LogUtils.d(TAG, "parseExt");
+        return true;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    protected boolean parseCommon() {
+        LogUtils.d(TAG, "parseCommon");
+        return true;
+    }
 }

@@ -12,24 +12,24 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class j extends v {
-    static final RxThreadFactory nBQ;
-    static final ScheduledExecutorService nBR = Executors.newScheduledThreadPool(0);
-    final ThreadFactory aSk;
-    final AtomicReference<ScheduledExecutorService> nBP;
+    static final RxThreadFactory mVr;
+    static final ScheduledExecutorService mVs = Executors.newScheduledThreadPool(0);
+    final ThreadFactory bon;
+    final AtomicReference<ScheduledExecutorService> mVq;
 
     static {
-        nBR.shutdown();
-        nBQ = new RxThreadFactory("RxSingleScheduler", Math.max(1, Math.min(10, Integer.getInteger("rx2.single-priority", 5).intValue())), true);
+        mVs.shutdown();
+        mVr = new RxThreadFactory("RxSingleScheduler", Math.max(1, Math.min(10, Integer.getInteger("rx2.single-priority", 5).intValue())), true);
     }
 
     public j() {
-        this(nBQ);
+        this(mVr);
     }
 
     public j(ThreadFactory threadFactory) {
-        this.nBP = new AtomicReference<>();
-        this.aSk = threadFactory;
-        this.nBP.lazySet(b(threadFactory));
+        this.mVq = new AtomicReference<>();
+        this.bon = threadFactory;
+        this.mVq.lazySet(b(threadFactory));
     }
 
     static ScheduledExecutorService b(ThreadFactory threadFactory) {
@@ -41,33 +41,33 @@ public final class j extends v {
         ScheduledExecutorService scheduledExecutorService;
         ScheduledExecutorService scheduledExecutorService2 = null;
         do {
-            scheduledExecutorService = this.nBP.get();
-            if (scheduledExecutorService != nBR) {
+            scheduledExecutorService = this.mVq.get();
+            if (scheduledExecutorService != mVs) {
                 if (scheduledExecutorService2 != null) {
                     scheduledExecutorService2.shutdown();
                     return;
                 }
                 return;
             } else if (scheduledExecutorService2 == null) {
-                scheduledExecutorService2 = b(this.aSk);
+                scheduledExecutorService2 = b(this.bon);
             }
-        } while (!this.nBP.compareAndSet(scheduledExecutorService, scheduledExecutorService2));
+        } while (!this.mVq.compareAndSet(scheduledExecutorService, scheduledExecutorService2));
     }
 
     @Override // io.reactivex.v
-    public v.c dJI() {
-        return new a(this.nBP.get());
+    public v.c dCG() {
+        return new a(this.mVq.get());
     }
 
     @Override // io.reactivex.v
     public io.reactivex.disposables.b b(Runnable runnable, long j, TimeUnit timeUnit) {
         Future<?> schedule;
-        ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(io.reactivex.e.a.F(runnable));
+        ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(io.reactivex.e.a.K(runnable));
         try {
             if (j <= 0) {
-                schedule = this.nBP.get().submit(scheduledDirectTask);
+                schedule = this.mVq.get().submit(scheduledDirectTask);
             } else {
-                schedule = this.nBP.get().schedule(scheduledDirectTask, j, timeUnit);
+                schedule = this.mVq.get().schedule(scheduledDirectTask, j, timeUnit);
             }
             scheduledDirectTask.setFuture(schedule);
             return scheduledDirectTask;
@@ -80,10 +80,10 @@ public final class j extends v {
     @Override // io.reactivex.v
     public io.reactivex.disposables.b a(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         Future<?> schedule;
-        Runnable F = io.reactivex.e.a.F(runnable);
+        Runnable K = io.reactivex.e.a.K(runnable);
         if (j2 <= 0) {
-            ScheduledExecutorService scheduledExecutorService = this.nBP.get();
-            c cVar = new c(F, scheduledExecutorService);
+            ScheduledExecutorService scheduledExecutorService = this.mVq.get();
+            c cVar = new c(K, scheduledExecutorService);
             try {
                 if (j <= 0) {
                     schedule = scheduledExecutorService.submit(cVar);
@@ -97,9 +97,9 @@ public final class j extends v {
                 return EmptyDisposable.INSTANCE;
             }
         }
-        ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(F);
+        ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(K);
         try {
-            scheduledDirectPeriodicTask.setFuture(this.nBP.get().scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
+            scheduledDirectPeriodicTask.setFuture(this.mVq.get().scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
             return scheduledDirectPeriodicTask;
         } catch (RejectedExecutionException e2) {
             io.reactivex.e.a.onError(e2);
@@ -111,7 +111,7 @@ public final class j extends v {
     static final class a extends v.c {
         volatile boolean disposed;
         final ScheduledExecutorService executor;
-        final io.reactivex.disposables.a nBe = new io.reactivex.disposables.a();
+        final io.reactivex.disposables.a mUH = new io.reactivex.disposables.a();
 
         a(ScheduledExecutorService scheduledExecutorService) {
             this.executor = scheduledExecutorService;
@@ -123,8 +123,8 @@ public final class j extends v {
             if (this.disposed) {
                 return EmptyDisposable.INSTANCE;
             }
-            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(io.reactivex.e.a.F(runnable), this.nBe);
-            this.nBe.a(scheduledRunnable);
+            ScheduledRunnable scheduledRunnable = new ScheduledRunnable(io.reactivex.e.a.K(runnable), this.mUH);
+            this.mUH.a(scheduledRunnable);
             try {
                 if (j <= 0) {
                     schedule = this.executor.submit((Callable) scheduledRunnable);
@@ -144,7 +144,7 @@ public final class j extends v {
         public void dispose() {
             if (!this.disposed) {
                 this.disposed = true;
-                this.nBe.dispose();
+                this.mUH.dispose();
             }
         }
 

@@ -28,7 +28,7 @@ public class IntKeyframeSet extends KeyframeSet {
         int size = this.mKeyframes.size();
         Keyframe.IntKeyframe[] intKeyframeArr = new Keyframe.IntKeyframe[size];
         for (int i = 0; i < size; i++) {
-            intKeyframeArr[i] = (Keyframe.IntKeyframe) arrayList.get(i).m42clone();
+            intKeyframeArr[i] = (Keyframe.IntKeyframe) arrayList.get(i).m45clone();
         }
         return new IntKeyframeSet(intKeyframeArr);
     }

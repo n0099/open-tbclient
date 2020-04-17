@@ -9,8 +9,8 @@ import com.baidu.swan.apps.w.b.m;
 /* loaded from: classes12.dex */
 public class b implements m {
     @Override // com.baidu.swan.apps.w.b.m
-    public String ce(Context context) {
-        return !ProcessUtils.isMainProcess() ? de(context) : getZid(context);
+    public String bS(Context context) {
+        return !ProcessUtils.isMainProcess() ? cS(context) : getZid(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ public class b implements m {
         return FH.gzfi(context, null, 0, null);
     }
 
-    private String de(Context context) {
+    private String cS(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, a.class, null);
         return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
     }

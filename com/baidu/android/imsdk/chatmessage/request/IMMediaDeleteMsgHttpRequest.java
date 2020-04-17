@@ -15,6 +15,9 @@ import org.json.JSONObject;
 public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaDeleteMsgHttpRequest";
     private long mContactor;
+    private long mContactorPauid;
+    private String mContactorThirdid;
+    private int mContactorType;
     private String mListenerKey;
     private long mMaxId;
     private List<Long> mMsgIds;
@@ -35,11 +38,26 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
     }
 
     public IMMediaDeleteMsgHttpRequest(Context context, long j, long j2, List<Long> list, String str) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContactor = j;
         this.mMaxId = j2;
         this.mMsgIds = list;
         this.mListenerKey = str;
+    }
+
+    public IMMediaDeleteMsgHttpRequest(Context context, long j, int i, long j2, String str, long j3, List<Long> list, String str2) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
+        this.mContext = context;
+        this.mContactor = j;
+        this.mMaxId = j3;
+        this.mMsgIds = list;
+        this.mListenerKey = str2;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
+        this.mContactorThirdid = str;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -72,6 +90,15 @@ public class IMMediaDeleteMsgHttpRequest extends IMMediaBaseHttpRequest {
             putCommonParams(jSONObject);
             if (this.mContactor > 0) {
                 jSONObject.put("contacter", Utility.transBDUID(this.mContactor + ""));
+            }
+            if (this.mContactorType >= 0) {
+                jSONObject.put("contacter_type", this.mContactorType);
+            }
+            if (this.mContactorPauid > 0) {
+                jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+            }
+            if (!TextUtils.isEmpty(this.mContactorThirdid)) {
+                jSONObject.put("contacter_third_id", this.mContactorThirdid);
             }
             if (this.mMaxId > 0) {
                 jSONObject.put("max_msgid", this.mMaxId);

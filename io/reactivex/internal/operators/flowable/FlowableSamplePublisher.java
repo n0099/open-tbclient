@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
@@ -9,17 +8,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final boolean emitLast;
-    final org.a.b<?> other;
+    final boolean mSB;
+    final org.a.b<?> mSk;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.emitLast) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.other));
+        if (this.mSB) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.mSk));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.other));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.mSk));
         }
     }
 
@@ -50,7 +49,7 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
                 this.actual.onSubscribe(this);
                 if (this.other.get() == null) {
                     this.sampler.subscribe(new a(this));
-                    dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                    dVar.request(Long.MAX_VALUE);
                 }
             }
         }
@@ -72,8 +71,8 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
             completeMain();
         }
 
-        void setOther(org.a.d dVar) {
-            SubscriptionHelper.setOnce(this.other, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+        boolean setOther(org.a.d dVar) {
+            return SubscriptionHelper.setOnce(this.other, dVar);
         }
 
         @Override // org.a.d
@@ -115,30 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> nzd;
+        final SamplePublisherSubscriber<T> mSD;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.nzd = samplePublisherSubscriber;
+            this.mSD = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            this.nzd.setOther(dVar);
+            if (this.mSD.setOther(dVar)) {
+                dVar.request(Long.MAX_VALUE);
+            }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.nzd.run();
+            this.mSD.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.nzd.error(th);
+            this.mSD.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.nzd.complete();
+            this.mSD.complete();
         }
     }
 

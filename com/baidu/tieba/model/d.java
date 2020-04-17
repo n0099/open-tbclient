@@ -6,6 +6,7 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.s;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
@@ -25,39 +26,39 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] cgP;
+        String[] crw;
         if (bVar == null) {
             return null;
         }
         try {
-            cgP = cgP();
+            crw = crw();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (cgP != null) {
+        if (crw != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", "tb"));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", cgP[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", crw[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.mBduss);
             jSONObject.put("ptoken", bVar.mPtoken);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(cgP[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new com.baidu.tbadk.core.a.c().encrypt(crw[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", f(arrayList, "6e93e7659ae637845c7f83abee68a740")));
             x xVar = new x("http://passport.baidu.com/v2/sapi/bdusslogin");
-            xVar.aGk().aGL().mIsNeedAddCommenParam = false;
-            xVar.aGk().aGL().mIsUseCurrentBDUSS = false;
+            xVar.aOy().aOZ().mIsNeedAddCommenParam = false;
+            xVar.aOy().aOZ().mIsUseCurrentBDUSS = false;
             xVar.setPostData(arrayList);
-            xVar.aGk().aGL().aGO().mRequestGzip = true;
-            xVar.aGk().aGL().aGO().mIsBaiduServer = false;
+            xVar.aOy().aOZ().aPd().mRequestGzip = true;
+            xVar.aOy().aOZ().aPd().mIsBaiduServer = false;
             String postNetData = xVar.postNetData();
-            if (xVar.aGk().aGM().isRequestSuccess() && !aq.isEmpty(postNetData)) {
+            if (xVar.aOy().aPa().isRequestSuccess() && !aq.isEmpty(postNetData)) {
                 JSONObject jSONObject2 = new JSONObject(postNetData);
-                if ("0".equals(jSONObject2.optString("errno"))) {
+                if ("0".equals(jSONObject2.optString(BaseJsonData.TAG_ERRNO))) {
                     bVar2 = new a.b();
                     bVar2.mBduss = jSONObject2.optString("bduss");
                     bVar2.mPtoken = jSONObject2.optString("ptoken");
@@ -71,11 +72,11 @@ public class d {
         return null;
     }
 
-    private static String[] cgP() {
+    private static String[] crw() {
         try {
             x xVar = new x("http://passport.baidu.com/sslcrypt/get_last_cert");
-            xVar.aGk().aGL().mIsNeedAddCommenParam = false;
-            xVar.aGk().aGL().mIsUseCurrentBDUSS = false;
+            xVar.aOy().aOZ().mIsNeedAddCommenParam = false;
+            xVar.aOy().aOZ().mIsUseCurrentBDUSS = false;
             JSONObject jSONObject = new JSONObject(new String(xVar.getNetData()));
             return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
         } catch (Exception e) {

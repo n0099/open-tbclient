@@ -6,26 +6,27 @@ import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.Build;
+import com.baidu.android.util.devices.RomUtils;
 /* loaded from: classes8.dex */
 public class KeepJobServiceManager {
 
     /* loaded from: classes8.dex */
     private static class a {
-        private static final KeepJobServiceManager hWO = new KeepJobServiceManager();
+        private static final KeepJobServiceManager iGF = new KeepJobServiceManager();
     }
 
     private KeepJobServiceManager() {
     }
 
     public static final KeepJobServiceManager getInstance() {
-        return a.hWO;
+        return a.iGF;
     }
 
     @TargetApi(21)
     public void startJobSheduler(Context context) {
         try {
             if (Build.VERSION.SDK_INT >= 21) {
-                if (Build.VERSION.SDK_INT > 23 || (!"oppo".equalsIgnoreCase(Build.MANUFACTURER) && !"vivo".equalsIgnoreCase(Build.MANUFACTURER))) {
+                if (Build.VERSION.SDK_INT > 23 || (!RomUtils.MANUFACTURER_OPPO.equalsIgnoreCase(Build.MANUFACTURER) && !RomUtils.MANUFACTURER_VIVO.equalsIgnoreCase(Build.MANUFACTURER))) {
                     JobScheduler jobScheduler = (JobScheduler) context.getSystemService("jobscheduler");
                     JobInfo.Builder builder = new JobInfo.Builder(110, new ComponentName(context.getPackageName(), KeepJobService.class.getName()));
                     if ("oneplus".equalsIgnoreCase(Build.MANUFACTURER)) {

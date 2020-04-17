@@ -1,6 +1,5 @@
 package com.alibaba.fastjson.util;
 
-import com.baidu.android.imsdk.ResponseCode;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
@@ -181,14 +180,14 @@ public class UTF8Decoder extends CharsetDecoder {
 
         public static char high(int i) {
             if ($assertionsDisabled || neededFor(i)) {
-                return (char) (55296 | (((i - 65536) >> 10) & ResponseCode.PROTOCOL_EXP));
+                return (char) (55296 | (((i - 65536) >> 10) & 1023));
             }
             throw new AssertionError();
         }
 
         public static char low(int i) {
             if ($assertionsDisabled || neededFor(i)) {
-                return (char) (56320 | ((i - 65536) & ResponseCode.PROTOCOL_EXP));
+                return (char) (56320 | ((i - 65536) & 1023));
             }
             throw new AssertionError();
         }

@@ -17,7 +17,6 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.imsdk.IMService;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -84,7 +83,7 @@ public class IMUserLoginByTokenMsg extends Message {
         try {
             jSONObject.put("method", 50);
             jSONObject.put("appid", this.mAppid);
-            jSONObject.put(Constants.KEY_DEVICE_ID, this.mDeviceId);
+            jSONObject.put("device_id", this.mDeviceId);
             jSONObject.put("account_type", this.mAccountType);
             jSONObject.put("token", this.mToken);
             jSONObject.put("version", 4);
@@ -99,8 +98,8 @@ public class IMUserLoginByTokenMsg extends Message {
             }
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
-            jSONObject2.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.SDK_INT + "");
-            jSONObject2.put("platform", PraiseDataPassUtil.KEY_FROM_OS);
+            jSONObject2.put("os_version", Build.VERSION.SDK_INT + "");
+            jSONObject2.put("platform", "android");
             jSONObject2.put("appid", this.mAppid + "");
             jSONObject2.put("from", this.mFrom);
             jSONObject2.put(BdStatsConstant.StatsKey.CURRENT_CHANNEL, this.cFrom);

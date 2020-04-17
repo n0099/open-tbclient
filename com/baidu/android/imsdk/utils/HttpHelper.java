@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.http.Headers;
 import android.text.TextUtils;
+import android.webkit.CookieManager;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.task.TaskManager;
@@ -24,6 +25,7 @@ import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
 /* loaded from: classes3.dex */
 public class HttpHelper {
+    private static final String COOKIE_KEY = "Cookie";
     public static final int ERROR_EXCEPTION = -10;
     private static final int GET = 1;
     private static final int POST = 16;
@@ -124,7 +126,7 @@ public class HttpHelper {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [161=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [163=4] */
     public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         HttpURLConnection httpURLConnection;
         InputStream inputStream = null;
@@ -171,28 +173,52 @@ public class HttpHelper {
         }
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:10:0x004c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+        String str2;
+        HttpURLConnection httpURLConnection;
         if ((i & 1) != 0) {
             if (bArr != null && bArr.length > 0) {
-                str = str + "?" + new String(bArr);
+                str2 = str + "?" + new String(bArr);
+                LogUtils.d(TAG, "requestUrl:" + str2);
+                httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
+                if (httpURLConnection == null) {
+                    LogUtils.e(TAG, "HttpURLConnection is null");
+                }
+                setConnectionHeader(str, httpURLConnection, map);
+                setConnectionParametersForRequest(httpURLConnection, i, bArr, false, i2, i3);
+                return httpURLConnection;
             }
         } else if (bArr != null && bArr.length > 0) {
             LogUtils.d(TAG, "requestparamter:" + new String(bArr, "utf-8"));
         }
-        LogUtils.d(TAG, "requestUrl:" + str);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+        str2 = str;
+        LogUtils.d(TAG, "requestUrl:" + str2);
+        httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
         if (httpURLConnection == null) {
-            LogUtils.e(TAG, "HttpURLConnection is null");
         }
-        setConnectionHeader(httpURLConnection, map);
+        setConnectionHeader(str, httpURLConnection, map);
         setConnectionParametersForRequest(httpURLConnection, i, bArr, false, i2, i3);
         return httpURLConnection;
     }
 
-    static void setConnectionHeader(HttpURLConnection httpURLConnection, Map<String, String> map) {
+    static void setConnectionHeader(String str, HttpURLConnection httpURLConnection, Map<String, String> map) {
         if (map != null) {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                try {
+                    if (entry.getKey().equalsIgnoreCase("Cookie")) {
+                        CookieManager.getInstance().setCookie(str, entry.getValue());
+                        httpURLConnection.setRequestProperty(entry.getKey(), CookieManager.getInstance().getCookie(str));
+                    } else {
+                        httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                }
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.live.utils;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.data.ap;
+import com.baidu.live.data.as;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.browser.BrowserHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
@@ -15,54 +15,54 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class o {
-    public static long aEf;
+    public static long aXR;
 
     public static void g(String str, long j) {
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isVideoGoodslistUnabled()) {
-            b(str, j, false);
+            a(str, j, false);
         }
     }
 
-    public static void b(String str, long j, boolean z) {
+    public static void a(String str, long j, boolean z) {
         com.baidu.live.message.h hVar = new com.baidu.live.message.h();
-        hVar.ahj = str;
+        hVar.azz = str;
         hVar.liveId = j;
-        hVar.awX = z;
+        hVar.aQB = z;
         hVar.setParams();
         MessageManager.getInstance().sendMessage(hVar);
     }
 
     public static void k(Context context, String str, String str2) {
-        ap apVar = com.baidu.live.v.a.zs().axR;
-        if (apVar != null && apVar.adh != null) {
-            String str3 = apVar.adh.aeR;
+        as asVar = com.baidu.live.v.a.Eo().aRw;
+        if (asVar != null && asVar.avy != null) {
+            String str3 = asVar.avy.axh;
             if (!TextUtils.isEmpty(str3)) {
                 BrowserHelper.startInternalWebActivity(context, str3 + (str3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "feed_id=" + str + "&live_id=" + str2 + "&subapp_type=" + TbConfig.getSubappType());
             }
         }
     }
 
-    public static String a(String str, String str2, long j, boolean z, int i, String str3, String str4, String str5, String str6, String str7) {
-        ap apVar = com.baidu.live.v.a.zs().axR;
-        if (apVar == null || apVar.adh == null) {
+    public static String a(String str, String str2, long j, boolean z, int i, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
+        as asVar = com.baidu.live.v.a.Eo().aRw;
+        if (asVar == null || asVar.avy == null) {
             return "";
         }
-        String str8 = apVar.adh.aeQ;
-        if (TextUtils.isEmpty(str8)) {
+        String str12 = asVar.avy.axg;
+        if (TextUtils.isEmpty(str12)) {
             return "";
         }
-        String str9 = apVar.adh.appKey;
-        String str10 = apVar.adh.aeS;
-        String str11 = str10 == null ? "" : str10;
-        StringBuffer stringBuffer = new StringBuffer(str8);
-        stringBuffer.append(str8.contains("?") ? ETAG.ITEM_SEPARATOR : "?");
+        String str13 = asVar.avy.appKey;
+        String str14 = asVar.avy.axi;
+        String str15 = str14 == null ? "" : str14;
+        StringBuffer stringBuffer = new StringBuffer(str12);
+        stringBuffer.append(str12.contains("?") ? ETAG.ITEM_SEPARATOR : "?");
         stringBuffer.append("from=");
         if (z) {
             stringBuffer.append("self");
         } else {
             stringBuffer.append("guest");
         }
-        stringBuffer.append("&feed_id=").append(str).append("&live_id=").append(str2).append("&_client_type=2").append("&subapp_type=").append(TbConfig.getSubappType()).append("&app_key=").append(str9);
+        stringBuffer.append("&feed_id=").append(str).append("&live_id=").append(str2).append("&user_id=").append(str8).append("&user_name=").append(str9).append("&anchor_id=").append(str11).append("&group_id=").append(str10).append("&_client_type=2").append("&subapp_type=").append(TbConfig.getSubappType()).append("&app_key=").append(str13);
         if (TbadkCoreApplication.getInst().isHaokan()) {
             stringBuffer.append("&backURL=").append("baiduhaokan://");
             if (!z) {
@@ -114,7 +114,7 @@ public class o {
                 }
             }
         }
-        stringBuffer.append("&keplerID=").append(str11);
+        stringBuffer.append("&keplerID=").append(str15);
         return stringBuffer.toString();
     }
 }

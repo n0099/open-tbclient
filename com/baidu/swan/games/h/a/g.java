@@ -5,24 +5,24 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.swan.games.h.i;
 /* loaded from: classes11.dex */
 public class g {
-    private int coo;
-    private int mID;
+    private int cNk;
+    private int cNl;
     @V8JavascriptField
     public i stats;
 
     public g() {
-        this.coo = 0;
-        int i = this.coo;
-        this.coo = i + 1;
-        this.mID = i;
+        this.cNl = 0;
+        int i = this.cNl;
+        this.cNl = i + 1;
+        this.cNk = i;
     }
 
     @JavascriptInterface
     public int jsObjectID() {
-        return this.mID;
+        return this.cNk;
     }
 
     public String toString() {
-        return "StatCallBack" + this.mID;
+        return "StatCallBack" + this.cNk;
     }
 }

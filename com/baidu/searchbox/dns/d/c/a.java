@@ -47,10 +47,10 @@ public abstract class a<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(HttpURLConnection httpURLConnection) {
         httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-        httpURLConnection.setRequestProperty("User-Agent", N());
+        httpURLConnection.setRequestProperty("User-Agent", P());
     }
 
-    protected String N() {
+    protected String P() {
         StringBuffer stringBuffer = new StringBuffer();
         String str = Build.VERSION.RELEASE;
         if (str.length() > 0) {
@@ -90,7 +90,7 @@ public abstract class a<T> {
         return sb.toString();
     }
 
-    private T O() {
+    private T Q() {
         if (!this.ak) {
             HttpsURLConnection httpsURLConnection = null;
             String url = getUrl();
@@ -131,8 +131,8 @@ public abstract class a<T> {
         this.aj++;
         if (this.aj <= this.al) {
             SystemClock.sleep(5000L);
-        } else if (aVar.P() == 10001) {
-            throw new com.baidu.searchbox.dns.d.c.a.b(aVar.P(), aVar.Q(), " retry count reach fail ");
+        } else if (aVar.R() == 10001) {
+            throw new com.baidu.searchbox.dns.d.c.a.b(aVar.R(), aVar.S(), " retry count reach fail ");
         } else {
             throw new com.baidu.searchbox.dns.d.c.a.b(" retry count reach fail ");
         }
@@ -238,13 +238,13 @@ public abstract class a<T> {
         while (this.aj <= this.al) {
             try {
                 try {
-                    return O();
+                    return Q();
                 } catch (com.baidu.searchbox.dns.d.c.a.a e) {
                     a(e);
                 }
             } catch (com.baidu.searchbox.dns.d.c.a.b e2) {
-                if (e2.P() == 10001) {
-                    c(e2.Q());
+                if (e2.R() == 10001) {
+                    c(e2.S());
                 } else {
                     a(e2);
                 }

@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice.b;
 
+import com.baidu.ar.constants.HttpConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,7 +32,7 @@ public class c {
     private void d(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            a(jSONObject.getString("manufacturer"));
+            a(jSONObject.getString(HttpConstants.HTTP_MANUFACTURER));
             String string = jSONObject.getString("mode");
             if ("I".equalsIgnoreCase(string)) {
                 a(1);

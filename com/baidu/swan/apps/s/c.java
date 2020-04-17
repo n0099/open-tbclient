@@ -9,14 +9,14 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static a.InterfaceC0232a bxy;
+    private static a.InterfaceC0262a bVE;
 
-    public static void a(a.InterfaceC0232a interfaceC0232a) {
-        bxy = interfaceC0232a;
+    public static void a(a.InterfaceC0262a interfaceC0262a) {
+        bVE = interfaceC0262a;
     }
 
     public static void a(EditText editText, int i) {
-        if (editText != null && bxy != null) {
+        if (editText != null && bVE != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
@@ -28,7 +28,7 @@ public class c {
                     e.printStackTrace();
                 }
             }
-            bxy.b(String.valueOf(editText.getTag()), jSONObject);
+            bVE.c(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 
@@ -45,19 +45,19 @@ public class c {
     }
 
     private static void a(EditText editText, String str, int i) {
-        if (editText != null && bxy != null) {
+        if (editText != null && bVE != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("value", editText.getText());
                 jSONObject.put("eventName", str);
                 jSONObject.put("cursorOffset", editText.getText().length());
-                jSONObject.put("keyboardHeight", af.U(i));
+                jSONObject.put("keyboardHeight", af.E(i));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
-            bxy.b(String.valueOf(editText.getTag()), jSONObject);
+            bVE.c(String.valueOf(editText.getTag()), jSONObject);
         }
     }
 }

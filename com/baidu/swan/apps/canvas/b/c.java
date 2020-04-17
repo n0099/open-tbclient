@@ -20,10 +20,10 @@ public class c extends a {
         super(str);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.mX = af.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.mY = af.S((float) jSONObject.optDouble("y"));
-            this.mWidth = af.S((float) jSONObject.optDouble("width"));
-            this.mHeight = af.S((float) jSONObject.optDouble("height"));
+            this.mX = af.C((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.mY = af.C((float) jSONObject.optDouble("y"));
+            this.mWidth = af.C((float) jSONObject.optDouble("width"));
+            this.mHeight = af.C((float) jSONObject.optDouble("height"));
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -56,8 +56,8 @@ public class c extends a {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("width", af.U(this.mWidth));
-            jSONObject.put("height", af.U(this.mHeight));
+            jSONObject.put("width", af.E(this.mWidth));
+            jSONObject.put("height", af.E(this.mHeight));
             jSONObject.put("data", str);
         } catch (Exception e) {
             if (DEBUG) {

@@ -3,7 +3,6 @@ package android.support.v7.util;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.widget.RecyclerView;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -426,7 +425,7 @@ public class DiffUtil {
                         list.add(new PostponedUpdate(i3 + i4, i, false));
                         break;
                     default:
-                        throw new IllegalStateException("unknown flag for pos " + (i4 + i3) + HanziToPinyin.Token.SEPARATOR + Long.toBinaryString(i5));
+                        throw new IllegalStateException("unknown flag for pos " + (i4 + i3) + " " + Long.toBinaryString(i5));
                 }
             }
         }
@@ -460,7 +459,7 @@ public class DiffUtil {
                         list.add(new PostponedUpdate(i3 + i4, i + i4, true));
                         break;
                     default:
-                        throw new IllegalStateException("unknown flag for pos " + (i4 + i3) + HanziToPinyin.Token.SEPARATOR + Long.toBinaryString(i5));
+                        throw new IllegalStateException("unknown flag for pos " + (i4 + i3) + " " + Long.toBinaryString(i5));
                 }
             }
         }

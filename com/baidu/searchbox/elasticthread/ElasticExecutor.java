@@ -1,7 +1,7 @@
 package com.baidu.searchbox.elasticthread;
 
 import android.support.annotation.NonNull;
-/* loaded from: classes13.dex */
+/* loaded from: classes11.dex */
 public class ElasticExecutor extends ExecutorProxy {
     @Deprecated
     public static final int TASK_PRIORITY_BACKGROUND = 3;

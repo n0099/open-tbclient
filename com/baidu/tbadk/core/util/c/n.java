@@ -12,16 +12,16 @@ public class n implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     private int height = 0;
 
     public n() {
-        aHd();
+        aPs();
     }
 
-    private void aHd() {
+    private void aPs() {
         this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public boolean gu() {
+    public boolean kY() {
         return true;
     }
 
@@ -29,7 +29,7 @@ public class n implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(o(str, i, i2), com.baidu.tbadk.imageManager.c.aPV().vy(o(str, i, i2)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(o(str, i, i2), com.baidu.tbadk.imageManager.c.aYm().wM(o(str, i, i2)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -50,9 +50,9 @@ public class n implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a) && ((com.baidu.adp.widget.ImageView.a) obj).isNeedCache()) {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
-            aVar.ai(i);
-            aVar.aj(i2);
-            com.baidu.tbadk.imageManager.c.aPV().c(o(str, i, i2), aVar);
+            aVar.au(i);
+            aVar.av(i2);
+            com.baidu.tbadk.imageManager.c.aYm().c(o(str, i, i2), aVar);
         }
     }
 
@@ -64,12 +64,12 @@ public class n implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel gv() {
+    public BdAsyncTaskParallel kZ() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int gw() {
+    public int la() {
         return 1;
     }
 

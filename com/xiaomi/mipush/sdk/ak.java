@@ -11,18 +11,18 @@ class ak {
     public static HashMap<String, String> a(Context context, String str) {
         HashMap<String, String> hashMap = new HashMap<>();
         try {
-            hashMap.put("appToken", d.m83a(context).b());
+            hashMap.put("appToken", d.m88a(context).b());
             hashMap.put("regId", MiPushClient.getRegId(context));
-            hashMap.put("appId", d.m83a(context).m84a());
-            hashMap.put("regResource", d.m83a(context).e());
+            hashMap.put("appId", d.m88a(context).m89a());
+            hashMap.put("regResource", d.m88a(context).e());
             if (!com.xiaomi.push.l.d()) {
                 String g = com.xiaomi.push.i.g(context);
                 if (!TextUtils.isEmpty(g)) {
                     hashMap.put("imeiMd5", com.xiaomi.push.ay.a(g));
                 }
             }
-            hashMap.put("isMIUI", String.valueOf(com.xiaomi.push.l.m481a()));
-            hashMap.put("miuiVersion", com.xiaomi.push.l.m478a());
+            hashMap.put("isMIUI", String.valueOf(com.xiaomi.push.l.m486a()));
+            hashMap.put("miuiVersion", com.xiaomi.push.l.m483a());
             hashMap.put("devId", com.xiaomi.push.i.a(context, true));
             hashMap.put("model", Build.MODEL);
             hashMap.put(PushClientConstants.TAG_PKG_NAME, context.getPackageName());

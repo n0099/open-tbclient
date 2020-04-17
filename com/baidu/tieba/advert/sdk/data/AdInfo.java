@@ -78,11 +78,11 @@ public class AdInfo implements Serializable {
     }
 
     public boolean shouldDownloadVideo() {
-        b xB = b.xB(com.baidu.tieba.advert.sdk.c.a.aZu());
-        if (TextUtils.isEmpty(xB.videoLocalPath)) {
+        b yN = b.yN(com.baidu.tieba.advert.sdk.c.a.bhy());
+        if (TextUtils.isEmpty(yN.videoLocalPath)) {
             return true;
         }
-        return TextUtils.isEmpty(xB.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !xB.adVideoUrl.equals(this.adVideoUrl);
+        return TextUtils.isEmpty(yN.adVideoUrl) ? !TextUtils.isEmpty(this.adVideoUrl) : !yN.adVideoUrl.equals(this.adVideoUrl);
     }
 
     public void parseFromJson(JSONObject jSONObject) {

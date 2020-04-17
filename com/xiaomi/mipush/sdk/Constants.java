@@ -1,4 +1,6 @@
 package com.xiaomi.mipush.sdk;
+
+import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 /* loaded from: classes8.dex */
 public class Constants {
     public static final String ACCEPT_TIME_SEPARATOR_SERVER = "-";
@@ -6,7 +8,7 @@ public class Constants {
     public static final String APP_ID = "app_id";
     public static final long ASSEMBLE_PUSH_NETWORK_INTERVAL = 300000;
     public static final String ASSEMBLE_PUSH_REG_INFO = "RegInfo";
-    public static final int[] ASSEMBLE_PUSH_RETRY_DELAY = {2000, 4000, 8000};
+    public static final int[] ASSEMBLE_PUSH_RETRY_DELAY = {2000, 4000, CoolPraiseGuideLottieView.ANIM_DURATION};
     public static final int ASSEMBLE_PUSH_RETRY_INTERVAL = 2000;
     public static final String ASSEMBLE_PUSH_TOKEN = "token";
     public static final String COLON_SEPARATOR = ":";

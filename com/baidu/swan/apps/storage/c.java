@@ -16,55 +16,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c extends f {
-    private g bSH;
-    public final String bSI;
-    public final File bVR;
-    private final c.a<Long> bVT;
+    private g crw;
+    public final String crx;
+    public final File cuJ;
+    private final c.a<Long> cuL;
     public final String name;
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static int bVS = 1024;
+    public static int cuK = 1024;
     public static int INVALID_INDEX = -1;
     public static int ONE_INCREAMENT = 1;
 
     public c(e eVar) {
         super(eVar);
-        this.bVT = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
+        this.cuL = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ap.c.a
-            /* renamed from: afp */
-            public Long afq() throws IllegalStateException {
-                return Long.valueOf(c.this.afn());
+            /* renamed from: anu */
+            public Long anv() throws IllegalStateException {
+                return Long.valueOf(c.this.ans());
             }
         };
         this.name = b.c(eVar);
-        this.bSI = "aiapp_" + this.name;
-        this.bVR = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.bSI + ".xml");
-        com.baidu.swan.apps.ap.e.bYc.a(this.bVT);
+        this.crx = "aiapp_" + this.name;
+        this.cuJ = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.crx + ".xml");
+        com.baidu.swan.apps.ap.e.cwU.a(this.cuL);
     }
 
     public boolean available() {
-        return afn() < afo();
+        return ans() < ant();
     }
 
-    public g afl() {
-        if (this.bSH == null) {
-            this.bSH = new g(this.bSI);
+    public g anq() {
+        if (this.crw == null) {
+            this.crw = new g(this.crx);
         }
-        return this.bSH;
+        return this.crw;
     }
 
-    public void T(boolean z) {
+    public void as(boolean z) {
         if (z) {
-            afl().edit().clear().commit();
+            anq().edit().clear().commit();
         } else {
-            afl().edit().clear().apply();
+            anq().edit().clear().apply();
         }
-        com.baidu.swan.d.c.deleteFile(b.lX(e.acK()));
-        com.baidu.swan.d.c.deleteFile(b.lS(e.acK()));
-        com.baidu.swan.apps.ap.e.bYc.update();
+        com.baidu.swan.d.c.deleteFile(b.nk(e.akP()));
+        com.baidu.swan.d.c.deleteFile(b.nf(e.akP()));
+        com.baidu.swan.apps.ap.e.cwU.update();
     }
 
-    public int mb(@NonNull String str) {
+    public int no(@NonNull String str) {
         File file = new File(str);
         if (!file.exists() || !file.isFile()) {
             return 2001;
@@ -90,21 +90,21 @@ public class c extends f {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [228=5, 229=4] */
     /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: java.io.FileOutputStream */
     /* JADX WARN: Multi-variable type inference failed */
-    public String mc(String str) {
+    public String np(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream3 = null;
-        String lS = b.lS(e.acK());
+        String nf = b.nf(e.akP());
         try {
-            if (TextUtils.isEmpty(lS)) {
+            if (TextUtils.isEmpty(nf)) {
                 return "";
             }
             try {
-                File br = br(lS, getFileName(str));
+                File bB = bB(nf, getFileName(str));
                 fileInputStream = new FileInputStream(new File(str));
                 try {
-                    fileOutputStream = new FileOutputStream(br);
+                    fileOutputStream = new FileOutputStream(bB);
                 } catch (FileNotFoundException e) {
                     e = e;
                     fileInputStream2 = null;
@@ -113,11 +113,11 @@ public class c extends f {
                     e = e2;
                 }
                 try {
-                    byte[] bArr = new byte[bVS];
+                    byte[] bArr = new byte[cuK];
                     while (true) {
                         int read = fileInputStream.read(bArr);
                         if (read == -1) {
-                            String absolutePath = br.getAbsolutePath();
+                            String absolutePath = bB.getAbsolutePath();
                             com.baidu.swan.d.c.closeSafely(fileInputStream);
                             com.baidu.swan.d.c.closeSafely(fileOutputStream);
                             return absolutePath;
@@ -175,7 +175,7 @@ public class c extends f {
         }
     }
 
-    private File br(@NonNull String str, String str2) {
+    private File bB(@NonNull String str, String str2) {
         File file = new File(str);
         if (!file.exists()) {
             file.mkdirs();
@@ -183,37 +183,37 @@ public class c extends f {
         return new File(str, str2);
     }
 
-    public a md(@NonNull String str) {
+    public a nq(@NonNull String str) {
         File file = new File(str);
         if (file == null || !file.isFile()) {
             return null;
         }
         a aVar = new a();
         aVar.setSize(file.length());
-        aVar.aC(file.lastModified());
+        aVar.bh(file.lastModified());
         return aVar;
     }
 
-    public List<a> afm() {
-        String lS = b.lS(e.acK());
-        if (TextUtils.isEmpty(lS)) {
+    public List<a> anr() {
+        String nf = b.nf(e.akP());
+        if (TextUtils.isEmpty(nf)) {
             return null;
         }
-        return me(lS);
+        return nr(nf);
     }
 
-    public List<a> me(@NonNull String str) {
+    public List<a> nr(@NonNull String str) {
         if (DEBUG) {
             Log.d("SwanAppStorage", "——> getSavedFileList:  dir " + str);
         }
         File file = new File(str);
         if (file != null && file.exists() && file.isDirectory()) {
-            return y(file);
+            return z(file);
         }
         return null;
     }
 
-    public List<a> y(File file) {
+    public List<a> z(File file) {
         if (file == null || !file.exists()) {
             return null;
         }
@@ -225,7 +225,7 @@ public class c extends f {
         if (file.isFile()) {
             aVar.setPath(file.getAbsolutePath());
             aVar.setSize(file.length());
-            aVar.aC(file.lastModified());
+            aVar.bh(file.lastModified());
             arrayList.add(aVar);
         } else {
             File[] listFiles = file.listFiles();
@@ -233,32 +233,32 @@ public class c extends f {
                 return null;
             }
             for (File file2 : listFiles) {
-                List<a> y = y(file2);
-                if (y != null) {
-                    arrayList.addAll(arrayList.size(), y);
+                List<a> z = z(file2);
+                if (z != null) {
+                    arrayList.addAll(arrayList.size(), z);
                 }
             }
         }
         return arrayList;
     }
 
-    public long afn() {
-        if (this.bVR == null) {
+    public long ans() {
+        if (this.cuJ == null) {
             if (DEBUG) {
                 Log.i("SwanAppStorage", this.name + " isNull");
             }
             return 0L;
         }
         if (DEBUG) {
-            Log.i("SwanAppStorage", this.name + " exists = " + this.bVR.exists());
-            Log.i("SwanAppStorage", this.name + " isFile = " + this.bVR.isFile());
-            Log.i("SwanAppStorage", this.name + " path = " + this.bVR.getPath());
-            Log.i("SwanAppStorage", this.name + " size = " + this.bVR.length());
+            Log.i("SwanAppStorage", this.name + " exists = " + this.cuJ.exists());
+            Log.i("SwanAppStorage", this.name + " isFile = " + this.cuJ.isFile());
+            Log.i("SwanAppStorage", this.name + " path = " + this.cuJ.getPath());
+            Log.i("SwanAppStorage", this.name + " size = " + this.cuJ.length());
         }
-        return this.bVR.length();
+        return this.cuJ.length();
     }
 
-    public long afo() {
+    public long ant() {
         return 10485760L;
     }
 }

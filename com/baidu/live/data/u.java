@@ -1,41 +1,32 @@
 package com.baidu.live.data;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class u {
-    public int abh;
-    public String abi;
-    public int abj;
-    public int abk;
-    public w abl;
-    public int abm;
-    public String abn;
-    public int status;
+    public int aqT;
+    public int aqU;
+    public String aqV;
+    public String aqW;
+    public String aqX;
+    public int duration;
+    public String iconUrl;
+    public int limit;
+    public String picUrl;
 
     public void parseJson(JSONObject jSONObject) {
-        this.abh = jSONObject.optInt("taskid");
-        this.abi = jSONObject.optString("taskname");
-        this.status = jSONObject.optInt("status");
-        this.abj = jSONObject.optInt("cur_step");
-        this.abk = jSONObject.optInt("total_step");
-        JSONObject optJSONObject = jSONObject.optJSONObject("param");
-        if (optJSONObject != null) {
-            this.abl = new w();
-            this.abl.parseJson(optJSONObject);
+        JSONObject optJSONObject;
+        if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+            this.aqT = optJSONObject.optInt("interval");
+            this.picUrl = optJSONObject.optString("pic_url");
+            this.aqU = optJSONObject.optInt("is_super_customer");
+            this.aqV = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+            this.limit = optJSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT);
+            this.duration = optJSONObject.optInt("duration");
+            this.aqW = optJSONObject.optString("toast_text");
+            this.iconUrl = optJSONObject.optString("icon_url");
+            this.aqX = optJSONObject.optString("btn_url");
         }
-        this.abm = jSONObject.optInt("award_num");
-        this.abn = jSONObject.optString("taskdetail");
-    }
-
-    public boolean qE() {
-        return this.abh == 1;
-    }
-
-    public boolean qF() {
-        return this.abh == 6;
-    }
-
-    public boolean qG() {
-        return this.status == 2;
     }
 }

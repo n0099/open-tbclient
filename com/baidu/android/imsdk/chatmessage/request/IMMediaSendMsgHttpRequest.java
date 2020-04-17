@@ -13,6 +13,9 @@ import org.json.JSONObject;
 public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaSendMsgHttpRequest";
     private long mContactor;
+    private long mContactorPauid;
+    private String mContactorThirdid;
+    private int mContactorType;
     private String mContent;
     private String mListenerKey;
     private String mMsgKey;
@@ -35,10 +38,24 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
     }
 
     public IMMediaSendMsgHttpRequest(Context context, long j, ChatMsg chatMsg, String str) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContactor = j;
         this.mSendMsg = chatMsg;
         this.mListenerKey = str;
+    }
+
+    public IMMediaSendMsgHttpRequest(Context context, long j, int i, long j2, String str, ChatMsg chatMsg, String str2) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
+        this.mContext = context;
+        this.mContactor = j;
+        this.mSendMsg = chatMsg;
+        this.mListenerKey = str2;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
+        this.mContactorThirdid = str;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -84,6 +101,15 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
             if (this.mContactor > 0) {
                 LogUtils.d(TAG, "BC> before transBDUID mContactor=" + this.mContactor);
                 jSONObject.put("contacter", Utility.transBDUID(this.mContactor + ""));
+            }
+            if (this.mContactorType >= 0) {
+                jSONObject.put("contacter_type", this.mContactorType);
+            }
+            if (this.mContactorPauid > 0) {
+                jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+            }
+            if (!TextUtils.isEmpty(this.mContactorThirdid)) {
+                jSONObject.put("contacter_third_id", this.mContactorThirdid);
             }
             this.mMsgType = this.mSendMsg.getMsgType();
             jSONObject.put("type", this.mMsgType);

@@ -1,40 +1,44 @@
 package com.baidu.tieba.ala.data;
 
+import android.text.TextUtils;
 import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public String eAd;
-    public int eAe;
-    public int eAf;
-    public String eAg;
-    public int eAh;
-    public int eAi;
-    public String eAj;
-    public String eAk;
-    public String eAl;
-    public long eAm;
-    public long eAn;
+    public long Kt;
+    public String feA;
+    public int feB;
+    public int feC;
+    public String feD;
+    public String feE;
+    public String feF;
+    public long feG;
+    public long feH;
+    public String fex;
+    public int fey;
+    public int fez;
     public String mDesc;
     public String mGiftName;
     public int mStatus;
-    public long rt;
 
     public void parserJson(JSONObject jSONObject) {
-        this.eAd = jSONObject.optString("wish_id");
+        this.fex = jSONObject.optString("wish_id");
         this.mGiftName = jSONObject.optString("gift_name");
-        this.eAe = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
-        this.eAg = jSONObject.optString("gift_url");
-        this.eAf = jSONObject.optInt("gift_type");
+        this.fey = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
+        this.feA = jSONObject.optString("gift_url");
+        this.fez = jSONObject.optInt("gift_type");
         this.mDesc = jSONObject.optString("desc");
-        this.eAh = jSONObject.optInt("process_num");
-        this.eAi = jSONObject.optInt("finish_num");
-        this.eAj = jSONObject.optString("toplist_1");
-        this.eAk = jSONObject.optString("toplist_2");
-        this.eAl = jSONObject.optString("toplist_3");
-        this.rt = jSONObject.optLong("expire_time");
-        this.eAm = jSONObject.optLong("expire_seconds");
-        this.eAn = jSONObject.optLong("expire_hour");
+        if (TextUtils.equals("null", this.mDesc)) {
+            this.mDesc = "";
+        }
+        this.feB = jSONObject.optInt("process_num");
+        this.feC = jSONObject.optInt("finish_num");
+        this.feD = jSONObject.optString("toplist_1");
+        this.feE = jSONObject.optString("toplist_2");
+        this.feF = jSONObject.optString("toplist_3");
+        this.Kt = jSONObject.optLong("expire_time");
+        this.feG = jSONObject.optLong("expire_seconds");
+        this.feH = jSONObject.optLong("expire_hour");
         this.mStatus = jSONObject.optInt("status");
     }
 }

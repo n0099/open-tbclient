@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -9,14 +8,14 @@ import java.util.Collection;
 import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
 public final class FlowableToList<T, U extends Collection<? super T>> extends a<T, U> {
-    final Callable<U> nzk;
+    final Callable<U> mSK;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.nyr.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.h(this.nzk.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
+            this.mRJ.a((j) new ToListSubscriber(cVar, (Collection) io.reactivex.internal.functions.a.h(this.mSK.call(), "The collectionSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources.")));
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             EmptySubscription.error(th, cVar);
         }
     }
@@ -38,7 +37,7 @@ public final class FlowableToList<T, U extends Collection<? super T>> extends a<
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 

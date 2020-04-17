@@ -5,17 +5,26 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.base.g;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.idlefish.flutterboost.Debuger;
 import com.idlefish.flutterboost.FlutterBoost;
+import com.idlefish.flutterboost.FlutterBoostPlugin;
 import com.idlefish.flutterboost.XFlutterView;
 import io.flutter.Log;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class FlutterSplashView extends FrameLayout {
     private static String TAG = "FlutterSplashView";
@@ -24,6 +33,8 @@ public class FlutterSplashView extends FrameLayout {
     @Nullable
     private XFlutterView flutterView;
     private Handler handler;
+    @NonNull
+    private final Runnable loadingShowTimeOut;
     private FlutterEngine mFlutterEngine;
     @NonNull
     private final FlutterUiDisplayListener onFirstFrameRenderedListener;
@@ -31,6 +42,7 @@ public class FlutterSplashView extends FrameLayout {
     private final Runnable onTransitionComplete;
     @Nullable
     private String previousCompletedSplashIsolate;
+    private final FlutterBoostPlugin.EventListener splashEventListener;
     @Nullable
     private SplashScreen splashScreen;
     @Nullable
@@ -76,6 +88,41 @@ public class FlutterSplashView extends FrameLayout {
                 FlutterSplashView.this.previousCompletedSplashIsolate = FlutterSplashView.this.transitioningIsolateId;
             }
         };
+        this.loadingShowTimeOut = new Runnable() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.4
+            @Override // java.lang.Runnable
+            public void run() {
+                if (!FlutterBoost.instance().isReady) {
+                    TiebaStatic.log(new an("flutter_loading_timeout"));
+                    FlutterSplashView.this.transitionToFlutter();
+                }
+            }
+        };
+        this.splashEventListener = new FlutterBoostPlugin.EventListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.5
+            @Override // com.idlefish.flutterboost.FlutterBoostPlugin.EventListener
+            public void onEvent(String str, Map map) {
+                char c = 65535;
+                switch (str.hashCode()) {
+                    case -253456115:
+                        if (str.equals("dataInitFinish")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        if (FlutterSplashView.this.splashScreen != null) {
+                            FlutterBoost.instance().isReady = true;
+                            FlutterSplashView.this.handler.removeCallbacks(FlutterSplashView.this.loadingShowTimeOut);
+                            FlutterSplashView.this.transitionToFlutter();
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
+            }
+        };
         setSaveEnabled(true);
         if (this.mFlutterEngine == null) {
             this.mFlutterEngine = FlutterBoost.instance().engineProvider();
@@ -90,21 +137,35 @@ public class FlutterSplashView extends FrameLayout {
         if (this.splashScreenView != null) {
             removeView(this.splashScreenView);
         }
+        this.handler.removeCallbacks(this.loadingShowTimeOut);
         this.flutterView = xFlutterView;
         addView(xFlutterView);
         this.splashScreen = splashScreen;
         if (splashScreen != null) {
             this.splashScreenView = splashScreen.createSplashView(getContext(), this.splashScreenState);
-            this.splashScreenView.setBackgroundColor(-1);
+            int identifier = g.jo().getResources().getIdentifier("cp_bg_line_c", "color", BdBaseApplication.getInst().getPackageName());
+            int i = TbadkCoreApplication.getInst().getSkinType() == 0 ? -1 : ViewCompat.MEASURED_STATE_MASK;
+            if (identifier == 0) {
+                this.splashScreenView.setBackgroundColor(i);
+            } else {
+                this.splashScreenView.setBackgroundColor(am.getColor(identifier));
+            }
             addView(this.splashScreenView);
-            xFlutterView.addOnFirstFrameRenderedListener(this.onFirstFrameRenderedListener);
+            if (FlutterBoost.instance().isReady) {
+                xFlutterView.addOnFirstFrameRenderedListener(this.onFirstFrameRenderedListener);
+                return;
+            }
+            this.handler.postDelayed(this.loadingShowTimeOut, 5000L);
+            FlutterBoost.instance().channel().addEventListener("dataInitFinish", this.splashEventListener);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void transitionToFlutter() {
-        this.transitioningIsolateId = this.flutterView.getAttachedFlutterEngine().getDartExecutor().getIsolateServiceId();
-        Log.v(TAG, "Transitioning splash screen to a Flutter UI. Isolate: " + this.transitioningIsolateId);
+        if (this.flutterView.getAttachedFlutterEngine() != null) {
+            this.transitioningIsolateId = this.flutterView.getAttachedFlutterEngine().getDartExecutor().getIsolateServiceId();
+            Log.v(TAG, "Transitioning splash screen to a Flutter UI. Isolate: " + this.transitioningIsolateId);
+        }
         this.splashScreen.transitionToFlutter(this.onTransitionComplete);
     }
 
@@ -122,5 +183,11 @@ public class FlutterSplashView extends FrameLayout {
     public void onDetach() {
         Debuger.log("BoostFlutterView onDetach");
         this.flutterView.detachFromFlutterEngine();
+    }
+
+    public boolean isAttachedToFlutterEngine() {
+        boolean isAttachedToFlutterEngine = this.flutterView.isAttachedToFlutterEngine();
+        Debuger.log("BoostFlutterView isAttachedToFlutterEngine:" + isAttachedToFlutterEngine);
+        return isAttachedToFlutterEngine;
     }
 }

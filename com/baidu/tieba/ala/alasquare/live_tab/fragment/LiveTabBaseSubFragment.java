@@ -6,71 +6,76 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.k.h;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
-    protected LinearLayout emC;
-    private h emD;
-    protected String emF;
-    protected String emG;
+    protected LinearLayout eQc;
+    private h eQd;
+    protected String eQf;
+    protected String eQg;
     protected Context mContext;
-    protected boolean ema = false;
-    protected boolean emE = false;
-    protected CustomMessageListener emH = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
+    protected boolean ePA = false;
+    protected boolean eQe = false;
+    protected CustomMessageListener eQh = new CustomMessageListener(2921442) { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Boolean bool = (Boolean) customResponsedMessage.getData();
             if (bool != null && bool.booleanValue()) {
-                LiveTabBaseSubFragment.this.emE = false;
+                LiveTabBaseSubFragment.this.eQe = false;
             }
         }
     };
 
-    public abstract void AJ();
+    public abstract void FH();
 
-    public abstract void bcH();
+    public abstract void bly();
 
     public abstract void loadData();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aix() {
-        this.emC.setVisibility(0);
-        if (this.emD == null) {
-            this.emD = new h(this.mContext, null);
+    public void aqF() {
+        this.eQc.setVisibility(0);
+        if (this.eQd == null) {
+            this.eQd = new h(this.mContext, null);
         }
-        this.emD.hideRefreshButton();
-        this.emD.mG(R.drawable.new_pic_emotion_03);
-        this.emD.vz(this.mContext.getResources().getString(R.string.no_data_common_txt));
-        this.emD.onChangeSkinType();
+        this.eQd.hideRefreshButton();
+        this.eQd.mR(R.drawable.new_pic_emotion_03);
+        this.eQd.wO(this.mContext.getResources().getString(R.string.no_data_common_txt));
+        this.eQd.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        if (this.emD.getAttachedView() != null && this.emD.getAttachedView().getParent() == null) {
-            this.emC.addView(this.emD.getAttachedView(), layoutParams);
+        if (this.eQd.getAttachedView() != null && this.eQd.getAttachedView().getParent() == null) {
+            this.eQc.addView(this.eQd.getAttachedView(), layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void hideEmptyView() {
-        this.emC.setVisibility(8);
+        this.eQc.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bcG() {
+    public void blx() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, false));
-        this.emE = true;
+        this.eQe = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.emD != null) {
-            this.emD.onChangeSkinType();
+        if (this.eQd != null) {
+            this.eQd.onChangeSkinType();
         }
     }
 
-    public void cO(String str, String str2) {
-        this.emF = str;
-        this.emG = str2;
+    public void da(String str, String str2) {
+        this.eQf = str;
+        this.eQg = str2;
+    }
+
+    public boolean aMu() {
+        return (aq.isEmpty(this.eQf) || aq.isEmpty(this.eQg)) ? false : true;
     }
 }

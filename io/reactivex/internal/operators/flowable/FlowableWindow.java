@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.processors.UnicastProcessor;
@@ -18,11 +17,11 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
     @Override // io.reactivex.g
     public void a(org.a.c<? super io.reactivex.g<T>> cVar) {
         if (this.skip == this.size) {
-            this.nyr.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
+            this.mRJ.a((j) new WindowExactSubscriber(cVar, this.size, this.bufferSize));
         } else if (this.skip > this.size) {
-            this.nyr.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.mRJ.a((j) new WindowSkipSubscriber(cVar, this.size, this.skip, this.bufferSize));
         } else {
-            this.nyr.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
+            this.mRJ.a((j) new WindowOverlapSubscriber(cVar, this.size, this.skip, this.bufferSize));
         }
     }
 
@@ -59,7 +58,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             UnicastProcessor<T> unicastProcessor = this.window;
             if (j == 0) {
                 getAndIncrement();
-                unicastProcessor = UnicastProcessor.a(this.bufferSize, this);
+                unicastProcessor = UnicastProcessor.b(this.bufferSize, this);
                 this.window = unicastProcessor;
                 this.actual.onNext(unicastProcessor);
             }
@@ -97,7 +96,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
         @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                this.s.request(io.reactivex.internal.util.b.ae(this.size, j));
+                this.s.request(io.reactivex.internal.util.b.M(this.size, j));
             }
         }
 
@@ -153,7 +152,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             UnicastProcessor<T> unicastProcessor = this.window;
             if (j == 0) {
                 getAndIncrement();
-                unicastProcessor = UnicastProcessor.a(this.bufferSize, this);
+                unicastProcessor = UnicastProcessor.b(this.bufferSize, this);
                 this.window = unicastProcessor;
                 this.actual.onNext(unicastProcessor);
             }
@@ -196,10 +195,10 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 if (!this.firstRequest.get() && this.firstRequest.compareAndSet(false, true)) {
-                    this.s.request(io.reactivex.internal.util.b.ad(io.reactivex.internal.util.b.ae(this.size, j), io.reactivex.internal.util.b.ae(this.skip - this.size, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.L(io.reactivex.internal.util.b.M(this.size, j), io.reactivex.internal.util.b.M(this.skip - this.size, j - 1)));
                     return;
                 }
-                this.s.request(io.reactivex.internal.util.b.ae(this.skip, j));
+                this.s.request(io.reactivex.internal.util.b.M(this.skip, j));
             }
         }
 
@@ -266,9 +265,9 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
                 long j = this.index;
                 if (j == 0 && !this.cancelled) {
                     getAndIncrement();
-                    UnicastProcessor<T> a = UnicastProcessor.a(this.bufferSize, this);
-                    this.windows.offer(a);
-                    this.queue.offer(a);
+                    UnicastProcessor<T> b = UnicastProcessor.b(this.bufferSize, this);
+                    this.windows.offer(b);
+                    this.queue.offer(b);
                     drain();
                 }
                 long j2 = j + 1;
@@ -346,7 +345,7 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
                         }
                     }
                     if (j2 != j || !checkTerminated(this.done, aVar.isEmpty(), cVar, aVar)) {
-                        if (j2 != 0 && j != Format.OFFSET_SAMPLE_RELATIVE) {
+                        if (j2 != 0 && j != Long.MAX_VALUE) {
                             this.requested.addAndGet(-j2);
                         }
                         int addAndGet = this.wip.addAndGet(-i);
@@ -385,9 +384,9 @@ public final class FlowableWindow<T> extends a<T, io.reactivex.g<T>> {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
                 if (!this.firstRequest.get() && this.firstRequest.compareAndSet(false, true)) {
-                    this.s.request(io.reactivex.internal.util.b.ad(this.size, io.reactivex.internal.util.b.ae(this.skip, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.L(this.size, io.reactivex.internal.util.b.M(this.skip, j - 1)));
                 } else {
-                    this.s.request(io.reactivex.internal.util.b.ae(this.skip, j));
+                    this.s.request(io.reactivex.internal.util.b.M(this.skip, j));
                 }
                 drain();
             }

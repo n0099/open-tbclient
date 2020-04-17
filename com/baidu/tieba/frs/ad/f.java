@@ -26,50 +26,50 @@ import com.baidu.tieba.tbadkCore.m;
 import java.util.Date;
 /* loaded from: classes9.dex */
 public class f {
-    private com.baidu.tbadk.core.dialog.a FR;
-    private TextView dbU;
-    private ForumData dzq;
-    private TbImageView gup;
-    private RoundLinearLayout guq;
-    private i gur;
+    private com.baidu.tbadk.core.dialog.a Zd;
+    private TextView dBj;
+    private ForumData dYX;
+    private TbImageView hdA;
+    private RoundLinearLayout hdB;
+    private i hdC;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.ad.f.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int i = 11;
-            if (view == f.this.dbU) {
-                if (f.this.FR != null && f.this.FR.isShowing()) {
-                    f.this.FR.dismiss();
+            if (view == f.this.dBj) {
+                if (f.this.Zd != null && f.this.Zd.isShowing()) {
+                    f.this.Zd.dismiss();
                 }
-            } else if (view == f.this.gup && f.this.gur != null && !StringUtils.isNull(f.this.gur.getUrl())) {
-                ba.aGK().a(f.this.mPageContext, new String[]{f.this.gur.getUrl()}, true);
+            } else if (view == f.this.hdA && f.this.hdC != null && !StringUtils.isNull(f.this.hdC.getUrl())) {
+                ba.aOY().a(f.this.mPageContext, new String[]{f.this.hdC.getUrl()}, true);
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK);
-                httpMessage.addParam("id", f.this.gur.getId());
+                httpMessage.addParam("id", f.this.hdC.getId());
                 MessageManager.getInstance().sendMessage(httpMessage);
-                f.this.FR.dismiss();
+                f.this.Zd.dismiss();
                 an anVar = new an("common_click");
-                anVar.cx("page_type", PageStayDurationConstants.PageName.FRS);
-                anVar.cx("obj_isad", "1");
-                if (f.this.gur.getType() != 1) {
-                    if (f.this.gur.getType() != 2) {
-                        if (f.this.gur.getType() == 3) {
+                anVar.cI("page_type", PageStayDurationConstants.PageName.FRS);
+                anVar.cI("obj_isad", "1");
+                if (f.this.hdC.getType() != 1) {
+                    if (f.this.hdC.getType() != 2) {
+                        if (f.this.hdC.getType() == 3) {
                             i = 13;
                         }
                     } else {
                         i = 12;
                     }
                 }
-                anVar.X("obj_adlocate", i);
-                anVar.s("obj_id", f.this.gur.getId());
-                anVar.X("obj_floor", 1);
-                anVar.X("obj_locate", 3);
-                if (f.this.dzq != null) {
-                    anVar.cx("fid", f.this.dzq.getId());
-                    anVar.cx("first_dir", f.this.dzq.getFirst_class());
-                    anVar.cx("second_dir", f.this.dzq.getSecond_class());
+                anVar.af("obj_adlocate", i);
+                anVar.t("obj_id", f.this.hdC.getId());
+                anVar.af("obj_floor", 1);
+                anVar.af("obj_locate", 3);
+                if (f.this.dYX != null) {
+                    anVar.cI("fid", f.this.dYX.getId());
+                    anVar.cI("first_dir", f.this.dYX.getFirst_class());
+                    anVar.cI("second_dir", f.this.dYX.getSecond_class());
                 }
-                if (f.this.gur.getType() == 1) {
-                    anVar.cx("tid", f.this.gur.getThreadId());
-                    anVar.X("thread_type", f.this.gur.getThreadType());
+                if (f.this.hdC.getType() == 1) {
+                    anVar.cI("tid", f.this.hdC.getThreadId());
+                    anVar.af("thread_type", f.this.hdC.getThreadType());
                 }
                 TiebaStatic.log(anVar);
             }
@@ -86,12 +86,12 @@ public class f {
         if (mVar == null || mVar.getForum() == null || mVar.getBusinessPromot() == null) {
             return false;
         }
-        this.dzq = mVar.getForum();
-        this.gur = mVar.getBusinessPromot();
+        this.dYX = mVar.getForum();
+        this.hdC = mVar.getBusinessPromot();
         String str = "key_frs_dialog_ad_last_show_time" + mVar.getForum().getId();
-        long j = com.baidu.tbadk.core.sharedPref.b.aFH().getLong(str, 0L);
+        long j = com.baidu.tbadk.core.sharedPref.b.aNV().getLong(str, 0L);
         if (j < 0 || !az.b(new Date(j), new Date(System.currentTimeMillis()))) {
-            com.baidu.tbadk.core.sharedPref.b.aFH().putLong(str, System.currentTimeMillis());
+            com.baidu.tbadk.core.sharedPref.b.aNV().putLong(str, System.currentTimeMillis());
             showDialog();
             return true;
         }
@@ -101,17 +101,17 @@ public class f {
     private void showDialog() {
         int i;
         initView();
-        this.FR = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        this.FR.fH(true);
-        this.FR.fI(true);
-        this.FR.b(this.mPageContext).aEG();
-        View decorView = this.FR.getWindow().getDecorView();
-        WindowManager.LayoutParams attributes = this.FR.getWindow().getAttributes();
+        this.Zd = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+        this.Zd.gE(true);
+        this.Zd.gF(true);
+        this.Zd.b(this.mPageContext).aMU();
+        View decorView = this.Zd.getWindow().getDecorView();
+        WindowManager.LayoutParams attributes = this.Zd.getWindow().getAttributes();
         if (attributes != null) {
             attributes.width = -1;
             attributes.height = -2;
             attributes.gravity = 17;
-            this.FR.getWindow().setAttributes(attributes);
+            this.Zd.getWindow().setAttributes(attributes);
         }
         if (decorView instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) decorView;
@@ -119,44 +119,44 @@ public class f {
             viewGroup.addView(this.mRootView);
         }
         an anVar = new an("common_exp");
-        anVar.cx("page_type", PageStayDurationConstants.PageName.FRS);
-        anVar.cx("obj_isad", "1");
-        if (this.gur.getType() == 1) {
+        anVar.cI("page_type", PageStayDurationConstants.PageName.FRS);
+        anVar.cI("obj_isad", "1");
+        if (this.hdC.getType() == 1) {
             i = 11;
-        } else if (this.gur.getType() == 2) {
+        } else if (this.hdC.getType() == 2) {
             i = 12;
         } else {
-            i = this.gur.getType() == 3 ? 13 : 11;
+            i = this.hdC.getType() == 3 ? 13 : 11;
         }
-        anVar.X("obj_floor", 1);
-        anVar.X("obj_adlocate", i);
-        anVar.s("obj_id", this.gur.getId());
-        if (this.dzq != null) {
-            anVar.cx("fid", this.dzq.getId());
-            anVar.cx("first_dir", this.dzq.getFirst_class());
-            anVar.cx("second_dir", this.dzq.getSecond_class());
+        anVar.af("obj_floor", 1);
+        anVar.af("obj_adlocate", i);
+        anVar.t("obj_id", this.hdC.getId());
+        if (this.dYX != null) {
+            anVar.cI("fid", this.dYX.getId());
+            anVar.cI("first_dir", this.dYX.getFirst_class());
+            anVar.cI("second_dir", this.dYX.getSecond_class());
         }
-        if (this.gur.getType() == 1) {
-            anVar.cx("tid", this.gur.getThreadId());
-            anVar.X("thread_type", this.gur.getThreadType());
+        if (this.hdC.getType() == 1) {
+            anVar.cI("tid", this.hdC.getThreadId());
+            anVar.af("thread_type", this.hdC.getThreadType());
         }
         TiebaStatic.log(anVar);
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.frs_dialog_ad_layout, (ViewGroup) null);
-        this.guq = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
-        this.guq.setRoundCount(8);
-        this.gup = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
-        this.gup.setOnClickListener(this.mClickListener);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gup.getLayoutParams();
+        this.hdB = (RoundLinearLayout) this.mRootView.findViewById(R.id.round_layout);
+        this.hdB.setRoundCount(8);
+        this.hdA = (TbImageView) this.mRootView.findViewById(R.id.frs_ad_img);
+        this.hdA.setOnClickListener(this.mClickListener);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hdA.getLayoutParams();
         layoutParams.width = l.getEquipmentWidth(this.mPageContext.getPageActivity()) - (this.mPageContext.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
         layoutParams.height = (int) (layoutParams.width * 1.3306452f);
-        this.gup.setLayoutParams(layoutParams);
-        this.dbU = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
-        this.dbU.setOnClickListener(this.mClickListener);
-        if (this.gur != null) {
-            this.gup.startLoad(this.gur.cKy(), 10, false);
+        this.hdA.setLayoutParams(layoutParams);
+        this.dBj = (TextView) this.mRootView.findViewById(R.id.frs_ad_close);
+        this.dBj.setOnClickListener(this.mClickListener);
+        if (this.hdC != null) {
+            this.hdA.startLoad(this.hdC.cVu(), 10, false);
         }
     }
 }

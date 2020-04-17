@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.maybe;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
@@ -12,13 +11,13 @@ import org.a.d;
 /* loaded from: classes7.dex */
 public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
     final o<? extends T> fallback;
-    final org.a.b<U> other;
+    final org.a.b<U> mSk;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         TimeoutMainMaybeObserver timeoutMainMaybeObserver = new TimeoutMainMaybeObserver(mVar, this.fallback);
         mVar.onSubscribe(timeoutMainMaybeObserver);
-        this.other.subscribe(timeoutMainMaybeObserver.other);
+        this.mSk.subscribe(timeoutMainMaybeObserver.other);
         this.source.a(timeoutMainMaybeObserver);
     }
 
@@ -112,7 +111,9 @@ public final class MaybeTimeoutPublisher<T, U> extends a<T, T> {
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(Long.MAX_VALUE);
+            }
         }
 
         @Override // org.a.c

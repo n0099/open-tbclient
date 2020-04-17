@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.m;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    public List<m> dTH;
-    public int hgM = 0;
-    public int hgN = 0;
+    public List<m> etG;
+    public int hQw = 0;
+    public int hQx = 0;
 }

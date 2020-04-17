@@ -5,12 +5,12 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public final class i {
-    public static final Object N(Throwable th) {
+    public static final Object R(Throwable th) {
         q.j(th, com.baidu.fsg.base.statistics.b.k);
         return new Result.Failure(th);
     }
 
-    public static final void bQ(Object obj) {
+    public static final void bz(Object obj) {
         if (obj instanceof Result.Failure) {
             throw ((Result.Failure) obj).exception;
         }

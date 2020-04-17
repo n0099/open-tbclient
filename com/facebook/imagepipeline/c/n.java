@@ -5,21 +5,21 @@ public interface n {
 
     void b(h<?, ?> hVar);
 
-    void doA();
+    void dqA();
 
-    void doB();
+    void dqB();
 
-    void doC();
+    void dqC();
 
-    void doD();
+    void dqD();
 
-    void doE();
+    void dqE();
 
-    void doF();
+    void dqx();
 
-    void doy();
+    void dqy();
 
-    void doz();
+    void dqz();
 
     void p(com.facebook.cache.common.b bVar);
 

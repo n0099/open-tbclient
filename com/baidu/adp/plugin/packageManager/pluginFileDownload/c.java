@@ -3,53 +3,53 @@ package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c yN;
-    private b yO;
+    private static volatile c RV;
+    private b RW;
 
-    public static c jN() {
-        if (yN == null) {
+    public static c or() {
+        if (RV == null) {
             synchronized (c.class) {
-                if (yN == null) {
-                    yN = new c();
+                if (RV == null) {
+                    RV = new c();
                 }
             }
         }
-        return yN;
+        return RV;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.yO != null) {
+        if (bdFileDownloadData != null && this.RW != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.yO.h(bdFileDownloadData);
+            this.RW.h(bdFileDownloadData);
         }
     }
 
     public void b(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.yO != null) {
+        if (bdFileDownloadData != null && this.RW != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.yO.b(bdFileDownloadData, 1);
+            this.RW.b(bdFileDownloadData, 1);
         }
     }
 
-    public void bl(String str) {
-        if (this.yO != null) {
-            this.yO.bk(str);
+    public void cA(String str) {
+        if (this.RW != null) {
+            this.RW.cz(str);
         }
     }
 
     public void a(b bVar) {
-        this.yO = bVar;
+        this.RW = bVar;
     }
 
-    public boolean bj(String str) {
+    public boolean cy(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.yO != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.yO.getDownloadList()) {
+        if (this.RW != null) {
+            for (BdFileDownloadData bdFileDownloadData : this.RW.getDownloadList()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

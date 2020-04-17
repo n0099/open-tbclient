@@ -1,9 +1,10 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
-import com.baidu.minivideo.a.a;
+import com.baidu.minivideo.arface.a;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
+import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,7 +30,7 @@ public class DuFaceItem extends FaceItem {
         Exception e;
         try {
             FileUtils.unzipFile(new File(str), getFilePath());
-            z = a.eD(getFilePath());
+            z = a.fy(getFilePath());
             if (!z) {
             }
             if (!z) {
@@ -56,7 +57,7 @@ public class DuFaceItem extends FaceItem {
     @Override // com.baidu.minivideo.plugin.capture.bean.FaceItem
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.arType = jSONObject.optInt("sub_type");
+            this.arType = jSONObject.optInt(FuFaceItem.JK_SUB_TYPE);
         }
         super.parse(jSONObject);
     }
@@ -65,7 +66,7 @@ public class DuFaceItem extends FaceItem {
     public JSONObject toJson() {
         JSONObject json = super.toJson();
         try {
-            json.put("sub_type", this.arType);
+            json.put(FuFaceItem.JK_SUB_TYPE, this.arType);
         } catch (JSONException e) {
             e.printStackTrace();
         }

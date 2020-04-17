@@ -1,13 +1,12 @@
 package com.baidu.cyberplayer.sdk.statistics;
 
 import android.content.Context;
-import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.Utils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.cyberplayer.sdk.m;
+import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,19 +17,20 @@ import java.util.concurrent.locks.ReentrantLock;
 import tv.chushou.basis.http.HttpConsts;
 /* loaded from: classes.dex */
 public class d {
-    private static d a;
-    private String b;
+    private String a = null;
+    private String b = null;
     private String c;
-    private String d;
 
-    private d() {
+    public d() {
+        this.c = null;
+        this.c = "video_session";
+        a(CyberPlayerManager.getApplicationContext());
     }
 
-    public static d a() {
-        if (a == null) {
-            a = new d();
-        }
-        return a;
+    public d(String str) {
+        this.c = null;
+        this.c = str;
+        a(CyberPlayerManager.getApplicationContext());
     }
 
     public static void a(String str, String str2) {
@@ -152,19 +152,6 @@ public class d {
         return file.exists() && file.isFile() && file.delete();
     }
 
-    private void b(Context context) {
-        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
-        String str2 = context != null ? context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer" : str;
-        if (Utils.e() < 10485760) {
-            str = str2;
-        }
-        this.d = str;
-        new File(str).mkdirs();
-        String coreVersion = CyberPlayerManager.getCoreVersion();
-        this.c = str + File.separator + "video_session_" + coreVersion + HttpConsts.FILE_BACKUP_SUFFIX;
-        this.b = str + File.separator + "video_session_log_" + coreVersion + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
-    }
-
     private static boolean b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -173,34 +160,16 @@ public class d {
         return file.exists() && file.isFile();
     }
 
-    public void a(Context context) {
-        if (TextUtils.isEmpty(this.b)) {
-            b(context);
-        }
-    }
-
-    public void a(byte[] bArr) {
-        if (bArr == null) {
+    public void a() {
+        if (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
             return;
         }
         ReentrantLock reentrantLock = new ReentrantLock(true);
         reentrantLock.lock();
         try {
-            a(this.c, bArr, "\r\n");
-        } catch (AssertionError e) {
-            CyberLog.e("DpStatFileWriter", "write data to file fail");
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    public void b() {
-        ReentrantLock reentrantLock = new ReentrantLock(true);
-        reentrantLock.lock();
-        try {
-            String str = this.c;
+            String str = this.a;
             if (b(str)) {
-                String str2 = this.d + File.separator + "video_session_log_" + CyberPlayerManager.getCoreVersion() + ".tmp";
+                String str2 = this.b;
                 a(str2);
                 if (b(str, str2)) {
                     a(str);
@@ -216,6 +185,32 @@ public class d {
         }
     }
 
+    public void a(Context context) {
+        String b;
+        if (context == null || (b = m.b(context)) == null) {
+            return;
+        }
+        new File(b).mkdirs();
+        String coreVersion = CyberPlayerManager.getCoreVersion();
+        this.a = b + File.separator + this.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + coreVersion + HttpConsts.FILE_BACKUP_SUFFIX;
+        this.b = b + File.separator + this.c + "_log_" + coreVersion + ".tmp";
+    }
+
+    public void a(byte[] bArr) {
+        if (bArr == null || TextUtils.isEmpty(this.a)) {
+            return;
+        }
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+        reentrantLock.lock();
+        try {
+            a(this.a, bArr, "\r\n");
+        } catch (AssertionError e) {
+            CyberLog.e("DpStatFileWriter", "write data to file fail");
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
     public boolean b(String str, String str2) {
         Exception e;
         boolean z;
@@ -224,28 +219,33 @@ public class d {
             FileInputStream fileInputStream = new FileInputStream(str);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            z = true;
-            while (true) {
-                try {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    i++;
-                    if (!DpSessionDatasUploader.getInstance().a(Base64.decode(readLine, 2), DpSessionDatasUploader.SAILOR_MONITOR, false)) {
-                        try {
-                            a(str2, readLine.getBytes(), "\r\n");
-                            z = false;
-                        } catch (Exception e2) {
-                            z = false;
-                            e = e2;
-                            e.printStackTrace();
-                            CyberLog.e("DpStatFileWriter", "readAndUploadLogFile failed");
-                            return z;
+            String a = DpSessionDatasUploader.getInstance().a(DpSessionDatasUploader.SAILOR_MONITOR, this.c.equals("live_show_session") ? 24 : 1);
+            if (TextUtils.isEmpty(a)) {
+                z = true;
+            } else {
+                z = true;
+                while (true) {
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
                         }
+                        i++;
+                        if (!DpSessionDatasUploader.getInstance().a(Base64.decode(readLine, 2), a, false)) {
+                            try {
+                                a(str2, readLine.getBytes(), "\r\n");
+                                z = false;
+                            } catch (Exception e2) {
+                                z = false;
+                                e = e2;
+                                e.printStackTrace();
+                                CyberLog.e("DpStatFileWriter", "readAndUploadLogFile failed");
+                                return z;
+                            }
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
                     }
-                } catch (Exception e3) {
-                    e = e3;
                 }
             }
             bufferedReader.close();

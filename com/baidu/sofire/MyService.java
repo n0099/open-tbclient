@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.i.u;
@@ -57,7 +56,7 @@ public class MyService extends Service {
                     return super.onStartCommand(intent, i, i2);
                 }
             }
-            new StringBuilder().append(intent.getAction()).append(HanziToPinyin.Token.SEPARATOR).append(stringExtra);
+            new StringBuilder().append(intent.getAction()).append(" ").append(stringExtra);
             b.a();
             u.a().a(new Runnable() { // from class: com.baidu.sofire.MyService.1
                 @Override // java.lang.Runnable

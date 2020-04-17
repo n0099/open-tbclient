@@ -1,21 +1,20 @@
 package io.reactivex.internal.util;
 
-import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class b {
-    public static long ad(long j, long j2) {
+    public static long L(long j, long j2) {
         long j3 = j + j2;
         if (j3 < 0) {
-            return Format.OFFSET_SAMPLE_RELATIVE;
+            return Long.MAX_VALUE;
         }
         return j3;
     }
 
-    public static long ae(long j, long j2) {
+    public static long M(long j, long j2) {
         long j3 = j * j2;
         if (((j | j2) >>> 31) != 0 && j3 / j != j2) {
-            return Format.OFFSET_SAMPLE_RELATIVE;
+            return Long.MAX_VALUE;
         }
         return j3;
     }
@@ -24,10 +23,10 @@ public final class b {
         long j2;
         do {
             j2 = atomicLong.get();
-            if (j2 == Format.OFFSET_SAMPLE_RELATIVE) {
-                return Format.OFFSET_SAMPLE_RELATIVE;
+            if (j2 == Long.MAX_VALUE) {
+                return Long.MAX_VALUE;
             }
-        } while (!atomicLong.compareAndSet(j2, ad(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, L(j2, j)));
         return j2;
     }
 
@@ -38,10 +37,10 @@ public final class b {
             if (j2 == Long.MIN_VALUE) {
                 return Long.MIN_VALUE;
             }
-            if (j2 == Format.OFFSET_SAMPLE_RELATIVE) {
-                return Format.OFFSET_SAMPLE_RELATIVE;
+            if (j2 == Long.MAX_VALUE) {
+                return Long.MAX_VALUE;
             }
-        } while (!atomicLong.compareAndSet(j2, ad(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, L(j2, j)));
         return j2;
     }
 
@@ -50,8 +49,8 @@ public final class b {
         long j3;
         do {
             j2 = atomicLong.get();
-            if (j2 == Format.OFFSET_SAMPLE_RELATIVE) {
-                return Format.OFFSET_SAMPLE_RELATIVE;
+            if (j2 == Long.MAX_VALUE) {
+                return Long.MAX_VALUE;
             }
             j3 = j2 - j;
             if (j3 < 0) {
@@ -70,8 +69,8 @@ public final class b {
             if (j2 == Long.MIN_VALUE) {
                 return Long.MIN_VALUE;
             }
-            if (j2 == Format.OFFSET_SAMPLE_RELATIVE) {
-                return Format.OFFSET_SAMPLE_RELATIVE;
+            if (j2 == Long.MAX_VALUE) {
+                return Long.MAX_VALUE;
             }
             j3 = j2 - j;
             if (j3 < 0) {

@@ -5,41 +5,41 @@ import com.baidu.tbadk.core.data.bj;
 import tbclient.NewHottopic.TopicThread;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId hhT = BdUniqueId.gen();
-    public bj cRt;
-    public long hhU;
-    public int hhV;
-    public boolean hhW;
+    public static final BdUniqueId hRD = BdUniqueId.gen();
+    public bj dqA;
+    public long hRE;
+    public int hRF;
+    public boolean hRG;
     public int source;
     public long topicId;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hhT;
+        return hRD;
     }
 
     public void a(TopicThread topicThread) {
         if (topicThread != null) {
-            this.hhU = topicThread.feed_id.longValue();
+            this.hRE = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.cRt = new bj();
-                this.cRt.a(topicThread.thread_info);
-                this.cRt.aDm();
+                this.dqA = new bj();
+                this.dqA.a(topicThread.thread_info);
+                this.dqA.aLz();
             }
-            this.hhV = topicThread.user_agree.intValue();
+            this.hRF = topicThread.user_agree.intValue();
             this.source = topicThread.source.intValue();
         }
     }
 
     public void a(tbclient.NewTopicThread.TopicThread topicThread) {
         if (topicThread != null) {
-            this.hhU = topicThread.feed_id.longValue();
+            this.hRE = topicThread.feed_id.longValue();
             if (topicThread.thread_info != null) {
-                this.cRt = new bj();
-                this.cRt.a(topicThread.thread_info);
-                this.cRt.aDm();
+                this.dqA = new bj();
+                this.dqA.a(topicThread.thread_info);
+                this.dqA.aLz();
             }
-            this.hhV = Integer.parseInt(topicThread.user_agree);
+            this.hRF = Integer.parseInt(topicThread.user_agree);
             this.source = topicThread.source.intValue();
         }
     }

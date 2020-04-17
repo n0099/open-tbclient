@@ -4,6 +4,8 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes3.dex */
 public interface j {
+    void Aw();
+
     void b(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 
     View getView();
@@ -11,6 +13,4 @@ public interface j {
     void onDestroy();
 
     void setOtherParams(String str);
-
-    void vQ();
 }

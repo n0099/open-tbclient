@@ -3,7 +3,6 @@ package com.baidu.rtc.camera.filter.glfilter.utils;
 import android.opengl.GLES30;
 import android.opengl.Matrix;
 import android.util.Log;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -62,7 +61,7 @@ public class a {
         GLES30.glGetShaderiv(glCreateShader, 35713, iArr, 0);
         if (iArr[0] == 0) {
             Log.e("OpenGLUtils", "Could not compile shader " + i + ":");
-            Log.e("OpenGLUtils", HanziToPinyin.Token.SEPARATOR + GLES30.glGetShaderInfoLog(glCreateShader));
+            Log.e("OpenGLUtils", " " + GLES30.glGetShaderInfoLog(glCreateShader));
             GLES30.glDeleteShader(glCreateShader);
             return 0;
         }
@@ -110,7 +109,7 @@ public class a {
         }
     }
 
-    public static int dG(int i) {
+    public static int dP(int i) {
         int[] iArr = new int[1];
         GLES30.glGenTextures(1, iArr, 0);
         checkGlError("glGenTextures");
@@ -125,7 +124,7 @@ public class a {
         return i2;
     }
 
-    public static int FR() {
-        return dG(36197);
+    public static int ND() {
+        return dP(36197);
     }
 }

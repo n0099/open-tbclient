@@ -9,7 +9,6 @@ import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes8.dex */
@@ -78,7 +77,7 @@ public class b extends c<RegisterStatus> {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public Intent c() {
         Intent intent = new Intent();
-        intent.putExtra(Constants.APP_ID, this.f);
+        intent.putExtra("app_id", this.f);
         intent.putExtra("app_key", this.g);
         intent.putExtra("strategy_package_name", this.e.getPackageName());
         intent.putExtra("strategy_type", g());

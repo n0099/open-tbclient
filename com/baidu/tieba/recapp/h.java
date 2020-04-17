@@ -1,32 +1,29 @@
 package com.baidu.tieba.recapp;
 
-import android.content.Context;
-import java.util.Map;
+import android.view.View;
 /* loaded from: classes.dex */
 public interface h {
+    void autoPlay(int i);
 
-    /* loaded from: classes.dex */
-    public interface a {
-        int d(Context context, String[] strArr);
-    }
+    long getCurrentPosition();
 
-    /* loaded from: classes.dex */
-    public interface b {
-        int j(Context context, Map<String, String> map);
-    }
+    int getHeight();
 
-    /* loaded from: classes.dex */
-    public interface c {
-        int b(Context context, String str, String str2, boolean z, d dVar, boolean z2);
-    }
+    void getLocationInWindow(int[] iArr);
 
-    /* loaded from: classes.dex */
-    public interface d {
-    }
+    int getPlayStatus();
 
-    void a(Context context, String[] strArr, boolean z);
+    String getPlayUrl();
 
-    boolean c(Context context, String[] strArr);
+    View getVideoContainer();
 
-    boolean wU(String str);
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void release();
+
+    void startPlay();
+
+    void stopPlay();
 }

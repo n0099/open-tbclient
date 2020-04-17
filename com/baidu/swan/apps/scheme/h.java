@@ -47,27 +47,27 @@ public class h extends UnitedSchemeBaseDispatcher {
             }
             String optString = optParamsAsJo.optString("orderInfo");
             String optString2 = optParamsAsJo.optString("version");
-            com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
-            if (acI == null) {
+            com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
+            if (akN == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (acI.acE() == null) {
+            } else if (akN.akJ() == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                com.baidu.swan.apps.ae.b bVar = new com.baidu.swan.apps.ae.b(acI, unitedSchemeEntity, callbackHandler, optString2, acI.getAppKey());
+                com.baidu.swan.apps.ae.b bVar = new com.baidu.swan.apps.ae.b(akN, unitedSchemeEntity, callbackHandler, optString2, akN.getAppKey());
                 if ("requestPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start PAYMENT");
-                    return bVar.jJ(optString);
+                    return bVar.kW(optString);
                 } else if ("requestAliPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start ALI PAYMENT");
-                    return bVar.jL(optString);
+                    return bVar.kY(optString);
                 } else if ("requestPolymerPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start POLYMER PAYMENT");
-                    return bVar.e(optString, optParamsAsJo);
+                    return bVar.f(optString, optParamsAsJo);
                 } else if (TextUtils.equals("requestWeChatPayment", path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start WECHAT HTML5 PAYMENT");
-                    return bVar.ZA();
+                    return bVar.ahF();
                 } else {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;

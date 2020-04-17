@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.c.f;
 /* loaded from: classes8.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
-    public f OY;
+    public f ahA;
 
     public UnfollowedDecorView(Context context) {
         this(context, null);
@@ -30,23 +30,23 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
 
     public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.OY = new f(r((Activity) context));
+        this.ahA = new f(n((Activity) context));
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        SvgManager.aGG().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aOU().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (!k.isFastDoubleClick()) {
-            this.OY.sS();
-            this.OY.showDialog();
+            this.ahA.xl();
+            this.ahA.showDialog();
         }
     }
 
     public void q(bj bjVar) {
-        this.OY.q(bjVar);
-        if (!au.u(bjVar) && bjVar.aEf()) {
+        this.ahA.q(bjVar);
+        if (!au.u(bjVar) && bjVar.aMt()) {
             setVisibility(0);
         } else {
             setVisibility(8);
@@ -54,10 +54,10 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     public void onChangeSkinType() {
-        SvgManager.aGG().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aOU().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
-    private TbPageContext r(Activity activity) {
+    private TbPageContext n(Activity activity) {
         if (activity instanceof BaseActivity) {
             return ((BaseActivity) activity).getPageContext();
         }

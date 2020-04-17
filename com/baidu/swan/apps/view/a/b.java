@@ -22,11 +22,11 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static final boolean SUPPORT_IMMERSION = isSupportImmersion();
     private static int sRomType;
-    private boolean bZL;
+    private boolean cyK;
     @Nullable
-    private View bZN;
-    private a bZO;
-    private View.OnSystemUiVisibilityChangeListener bZP;
+    private View cyM;
+    private a cyN;
+    private View.OnSystemUiVisibilityChangeListener cyO;
     @NonNull
     private Activity mActivity;
     @Nullable
@@ -60,7 +60,7 @@ public class b {
     }
 
     public void c(int i, boolean z, boolean z2) {
-        a(i, f.he(i), z, z2);
+        a(i, f.hl(i), z, z2);
     }
 
     public void a(int i, boolean z, boolean z2, boolean z3) {
@@ -71,41 +71,41 @@ public class b {
                     reset();
                 }
                 this.mStatusBarViewBg = i;
-                a = ahx();
+                a = apF();
             } else {
                 this.mStatusBarViewBg = i;
                 a = a(i, getStatusBarColor(i), z, z2, z3);
-                this.bZO = a;
+                this.cyN = a;
             }
-            this.bZL = z2;
+            this.cyK = z2;
             a(a);
         }
     }
 
     public void resetWithCurImmersion() {
-        a(ahx());
+        a(apF());
     }
 
     public void reset() {
-        this.bZO = null;
+        this.cyN = null;
         this.mStatusBarViewBg = 1;
     }
 
     @NonNull
-    public a ahx() {
-        if (this.bZO == null) {
-            ahA();
+    public a apF() {
+        if (this.cyN == null) {
+            apI();
         }
-        return this.bZO;
+        return this.cyN;
     }
 
     @Nullable
-    public View ahy() {
-        return this.bZN;
+    public View apG() {
+        return this.cyM;
     }
 
-    public boolean ahz() {
-        return this.bZL;
+    public boolean apH() {
+        return this.cyK;
     }
 
     private void a(@NonNull a aVar) {
@@ -117,7 +117,7 @@ public class b {
         }
         if (this.mContentView != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mContentView.getLayoutParams();
-            if (aVar.bZL) {
+            if (aVar.cyK) {
                 layoutParams.topMargin = 0;
             } else {
                 layoutParams.topMargin = af.getStatusBarHeight();
@@ -134,7 +134,7 @@ public class b {
             window.addFlags(Integer.MIN_VALUE);
             switch (sRomType) {
                 case 1:
-                    setMIUISetStatusBarLightMode(window, ahx().bZJ);
+                    setMIUISetStatusBarLightMode(window, apF().cyI);
                     return;
                 default:
                     return;
@@ -150,17 +150,17 @@ public class b {
         Window window = this.mActivity.getWindow();
         if (aVar.isShowNavBar) {
         }
-        if (aVar.bZJ) {
+        if (aVar.cyI) {
             i = 13312;
         } else {
             i = 5120;
         }
-        if (!aVar.bZK) {
+        if (!aVar.cyJ) {
             i2 = i & (-257);
         } else {
             i2 = i | 256;
         }
-        int i3 = aVar.bZI;
+        int i3 = aVar.cyH;
         if (i3 == 1) {
             i3 = getDefaultStatusBarViewBg();
         }
@@ -172,13 +172,13 @@ public class b {
         if (d != null) {
             d.setBackgroundColor(i3);
         }
-        if (this.bZP == null) {
-            this.bZP = new View.OnSystemUiVisibilityChangeListener() { // from class: com.baidu.swan.apps.view.a.b.1
+        if (this.cyO == null) {
+            this.cyO = new View.OnSystemUiVisibilityChangeListener() { // from class: com.baidu.swan.apps.view.a.b.1
                 @Override // android.view.View.OnSystemUiVisibilityChangeListener
                 public void onSystemUiVisibilityChange(int i4) {
                 }
             };
-            window.getDecorView().setOnSystemUiVisibilityChangeListener(this.bZP);
+            window.getDecorView().setOnSystemUiVisibilityChangeListener(this.cyO);
         }
     }
 
@@ -194,14 +194,14 @@ public class b {
             declaredField2.setAccessible(true);
             int i2 = declaredField.getInt(null);
             int i3 = declaredField2.getInt(attributes);
-            if (aVar.bZJ) {
+            if (aVar.cyI) {
                 i = i2 | i3;
             } else {
                 i = (i2 ^ (-1)) & i3;
             }
             declaredField2.setInt(attributes, i);
             window.setAttributes(attributes);
-            int i4 = aVar.bZI;
+            int i4 = aVar.cyH;
             if (i4 == 1) {
                 i4 = getDefaultStatusBarViewBg();
             }
@@ -235,16 +235,16 @@ public class b {
     }
 
     private View d(@NonNull a aVar) {
-        if (aVar.bZM) {
-            if (this.bZN != null) {
-                if (!aVar.bZK) {
-                    this.mRootView.removeView(this.bZN);
-                    this.bZN = null;
+        if (aVar.cyL) {
+            if (this.cyM != null) {
+                if (!aVar.cyJ) {
+                    this.mRootView.removeView(this.cyM);
+                    this.cyM = null;
                     return null;
                 }
-                return this.bZN;
-            } else if (!aVar.bZK) {
-                this.bZN = null;
+                return this.cyM;
+            } else if (!aVar.cyJ) {
+                this.cyM = null;
                 return null;
             } else {
                 int statusBarHeight = af.getStatusBarHeight();
@@ -252,20 +252,20 @@ public class b {
                 view.setTag("IMMERSION_VIEW");
                 view.setId(a.f.immersion_custom_statusbar_view);
                 this.mRootView.addView(view, new ViewGroup.LayoutParams(-1, statusBarHeight));
-                this.bZN = view;
+                this.cyM = view;
                 return view;
             }
         }
         return null;
     }
 
-    private void ahA() {
+    private void apI() {
         int defaultStatusBarViewBg = getDefaultStatusBarViewBg();
-        this.bZO = a(defaultStatusBarViewBg, getStatusBarColor(defaultStatusBarViewBg), false, false, true);
+        this.cyN = a(defaultStatusBarViewBg, getStatusBarColor(defaultStatusBarViewBg), false, false, true);
     }
 
     private a a(int i, int i2, boolean z, boolean z2, boolean z3) {
-        return a.C0304a.ahv().ef(z).eg(true).ee(false).hh(i2).hi(i).eh(z2).ei(z3).ahw();
+        return a.C0334a.apD().fb(z).fc(true).fa(false).ho(i2).hp(i).fd(z2).fe(z3).apE();
     }
 
     private int getDefaultStatusBarViewBg() {

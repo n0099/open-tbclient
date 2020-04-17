@@ -1198,9 +1198,8 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
+    protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i != i3) {
             recomputeScrollPosition(i, i3, this.mPageMargin, this.mPageMargin);

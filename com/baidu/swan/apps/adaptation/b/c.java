@@ -9,22 +9,22 @@ import com.baidu.swan.apps.adaptation.b.d;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 /* loaded from: classes11.dex */
 public interface c<T extends d> extends af, e<T> {
-    boolean IK();
-
-    PullToRefreshBaseWebView IL();
-
-    f IM();
-
-    boolean IN();
-
-    void IO();
+    void QA();
 
     @Nullable
-    com.baidu.swan.apps.component.c.a IP();
+    com.baidu.swan.apps.component.c.a QB();
 
-    boolean IQ();
+    boolean QC();
 
-    com.baidu.swan.apps.adaptation.b.a.d IR();
+    com.baidu.swan.apps.adaptation.b.a.d QD();
+
+    boolean Qw();
+
+    PullToRefreshBaseWebView Qx();
+
+    f Qy();
+
+    boolean Qz();
 
     void a(ViewGroup viewGroup, View view);
 
@@ -42,11 +42,11 @@ public interface c<T extends d> extends af, e<T> {
 
     boolean c(com.baidu.swan.apps.scheme.actions.m.d dVar);
 
-    void dV(int i);
+    void ea(int i);
 
-    boolean dW(int i);
+    boolean eb(int i);
 
-    void fa(String str);
+    void gm(String str);
 
     void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5);
 }

@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.imsdk.IMService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -161,7 +162,7 @@ public class BindStateManager {
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                 try {
-                    context.startService(creatMethodIntent);
+                    IMService.enqueueWork(context, creatMethodIntent);
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     LogUtils.e(TAG, "Exception", e);
@@ -187,7 +188,7 @@ public class BindStateManager {
             creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
             creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
             try {
-                context.startService(creatMethodIntent);
+                IMService.enqueueWork(context, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }

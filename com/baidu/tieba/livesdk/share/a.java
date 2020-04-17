@@ -53,7 +53,7 @@ public class a implements IShareChannel, f {
 
     private void a(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
         if (shareEntity != null) {
-            if (!xP(i)) {
+            if (!yp(i)) {
                 if (iShareCallback != null) {
                     iShareCallback.onShare(0, 0, "");
                     return;
@@ -67,28 +67,28 @@ public class a implements IShareChannel, f {
         }
     }
 
-    private boolean xP(int i) {
+    private boolean yp(int i) {
         boolean z = false;
         switch (i) {
             case 2:
             case 3:
                 z = x.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mm");
                 if (!z) {
-                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.a.share_weixin_not_installed_yet));
+                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0589b.share_weixin_not_installed_yet));
                     break;
                 }
                 break;
             case 6:
                 z = x.isInstalledPackage(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (!z) {
-                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.a.share_weibo_not_installed_yet));
+                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0589b.share_weibo_not_installed_yet));
                     break;
                 }
                 break;
             case 8:
                 z = x.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
                 if (!z) {
-                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.a.share_qq_not_installed_yet));
+                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0589b.share_qq_not_installed_yet));
                     break;
                 }
                 break;
@@ -105,6 +105,7 @@ public class a implements IShareChannel, f {
         shareItem.content = shareEntity.content;
         shareItem.imageUrl = shareEntity.imageUrl;
         shareItem.linkUrl = shareEntity.linkUrl;
+        shareItem.extData = String.valueOf(shareEntity.liveId);
         return shareItem;
     }
 }

@@ -25,21 +25,17 @@ public class AlaNDKRecorderAdapter {
 
     private native int initVideoEncoderNative(long j, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8);
 
-    private native int nV21ToRGBA(long j, byte[] bArr, int i, int i2, int i3, byte[] bArr2);
-
     private native void networkChangedNotifyNative(long j, int i);
 
     private native int restartNative(long j, String str);
 
-    private native int sendAACDataNative(long j, byte[] bArr, int i);
-
-    private native int sendH264DataNative(long j, byte[] bArr, int i, String str, long j2);
+    private native int sendH264DataNative(long j, byte[] bArr, int i, String str, long j2, long j3);
 
     private native void sendNativeStatAppData(long j, String str, String str2, int i);
 
-    private native int sendPCMDataNative(long j, byte[] bArr, int i);
+    private native int sendPCMDataNative(long j, byte[] bArr, int i, long j2, long j3);
 
-    private native int sendPCMDataNative2(long j, byte[] bArr, int i);
+    private native int sendPCMDataNative2(long j, byte[] bArr, int i, long j2, long j3);
 
     private native void setDebugMonitor(long j, boolean z, int i);
 
@@ -53,7 +49,7 @@ public class AlaNDKRecorderAdapter {
 
     private native int updateVCodeParamNative(long j, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8);
 
-    protected native int sendYuvDataNative(long j, byte[] bArr, int i, int i2, int i3, boolean z, byte[] bArr2, Integer num, String str);
+    protected native int sendYuvDataNative(long j, byte[] bArr, int i, int i2, int i3, long j2, long j3, String str);
 
     public void setNativeObject(long j) {
         this.mNativeObject = j;
@@ -107,24 +103,20 @@ public class AlaNDKRecorderAdapter {
         return restartNative(this.mNativeObject, str);
     }
 
-    public int sendAACDataNative(byte[] bArr, int i) {
-        return sendAACDataNative(this.mNativeObject, bArr, i);
+    public int sendPCMDataNative(byte[] bArr, int i, long j, long j2) {
+        return sendPCMDataNative(this.mNativeObject, bArr, i, j, j2);
     }
 
-    public int sendPCMDataNative(byte[] bArr, int i) {
-        return sendPCMDataNative(this.mNativeObject, bArr, i);
+    public int sendPCMDataNative2(byte[] bArr, int i, long j, long j2) {
+        return sendPCMDataNative2(this.mNativeObject, bArr, i, j, j2);
     }
 
-    public int sendPCMDataNative2(byte[] bArr, int i) {
-        return sendPCMDataNative2(this.mNativeObject, bArr, i);
+    public int sendH264DataNative(byte[] bArr, int i, String str, long j, long j2) {
+        return sendH264DataNative(this.mNativeObject, bArr, i, str, j, j2);
     }
 
-    public int sendH264DataNative(byte[] bArr, int i, String str, long j) {
-        return sendH264DataNative(this.mNativeObject, bArr, i, str, j);
-    }
-
-    public int sendYuvDataNative(byte[] bArr, int i, int i2, int i3, boolean z, byte[] bArr2, Integer num, String str) {
-        return sendYuvDataNative(this.mNativeObject, bArr, i, i2, i3, z, bArr2, num, str);
+    public int sendYuvDataNative(byte[] bArr, int i, int i2, int i3, long j, long j2, String str) {
+        return sendYuvDataNative(this.mNativeObject, bArr, i, i2, i3, j, j2, str);
     }
 
     public String getPushStreamIpNative() {
@@ -149,10 +141,6 @@ public class AlaNDKRecorderAdapter {
 
     public int initPKPlayer(Object obj) {
         return initPKPlayer(this.mNativeObject, obj);
-    }
-
-    public int videoFrameNV21ToRGBA(byte[] bArr, int i, int i2, int i3, byte[] bArr2) {
-        return nV21ToRGBA(this.mNativeObject, bArr, i, i2, i3, bArr2);
     }
 
     public int initAudioReSample(int i, int i2, int i3) {

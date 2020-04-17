@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.card.a.a;
 import com.baidu.card.ad;
 import com.baidu.card.af;
@@ -15,19 +16,19 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, af<com.baidu.tieba.card.data.k>> implements com.baidu.tieba.a.f {
-    private z<com.baidu.tieba.card.data.k> JZ;
-    private String LC;
-    private com.baidu.adp.widget.ListView.r OT;
-    public BdUniqueId dBK;
+    private z<com.baidu.tieba.card.data.k> acX;
+    private String aey;
+    private com.baidu.adp.widget.ListView.r ahv;
+    public BdUniqueId ebv;
     private TbPageContext<?> mPageContext;
 
     public s(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.JZ = new z<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.s.1
+        this.acX = new z<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.s.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (view != null && kVar != null && kVar.aAj() != null && !StringUtils.isNull(kVar.aAj().getTid())) {
+                if (view != null && kVar != null && kVar.aIw() != null && !StringUtils.isNull(kVar.aIw().getTid())) {
                     s.this.b(view, kVar);
                 }
             }
@@ -35,8 +36,8 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.mPageContext = tbPageContext;
     }
 
-    public void b(com.baidu.adp.widget.ListView.r rVar) {
-        this.OT = rVar;
+    public void a(com.baidu.adp.widget.ListView.r rVar) {
+        this.ahv = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,13 +53,13 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aA */
     public af b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.dBK);
-        eVar.aK(128);
-        eVar.aL(1024);
+        eVar.setPageUniqueId(this.ebv);
+        eVar.aW(128);
+        eVar.aX(1024);
         eVar.a(new e.a() { // from class: com.baidu.tieba.homepage.concern.a.s.2
             @Override // com.baidu.card.e.a
             public void a(com.baidu.tbadk.core.data.a aVar2, View view) {
@@ -74,22 +75,22 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         });
         aVar.a(eVar);
-        ad a = aVar.a(false, viewGroup, this.OT);
-        a.aQ(1);
+        ad a = aVar.a(false, viewGroup, this.ahv);
+        a.bc(1);
         af afVar = new af(a);
-        afVar.setPageId(this.dBK);
-        a(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.concern.a.s.3
-            @Override // com.baidu.adp.widget.ListView.s
+        afVar.setPageId(this.ebv);
+        a(new v() { // from class: com.baidu.tieba.homepage.concern.a.s.3
+            @Override // com.baidu.adp.widget.ListView.v
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((mVar instanceof com.baidu.tieba.card.data.k) && (view.getTag() instanceof af)) {
                     af afVar2 = (af) view.getTag();
                     com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) mVar;
                     kVar.objType = 1;
-                    if (s.this.JZ != null) {
-                        s.this.JZ.a(afVar2.getView(), kVar);
+                    if (s.this.acX != null) {
+                        s.this.acX.a(afVar2.getView(), kVar);
                     }
                     au.a((com.baidu.tbadk.core.data.a) kVar, view.getContext(), 1, false, com.baidu.card.f.a((com.baidu.adp.widget.ListView.r) viewGroup2, view, i));
-                    afVar2.nk().b(new a.C0052a(1));
+                    afVar2.rD().b(new a.C0074a(1));
                 }
             }
         });
@@ -100,22 +101,22 @@ public class s extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.k kVar, af<com.baidu.tieba.card.data.k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.cRt == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.dqA == null) {
             return null;
         }
-        kVar.rv(kVar.position + 1);
-        afVar.nk().setPosition(i);
-        if (afVar.nk() instanceof com.baidu.tieba.a.e) {
-            afVar.nk().setPage(this.LC);
+        kVar.rN(kVar.position + 1);
+        afVar.rD().setPosition(i);
+        if (afVar.rD() instanceof com.baidu.tieba.a.e) {
+            afVar.rD().setPage(this.aey);
         }
         afVar.b((af<com.baidu.tieba.card.data.k>) kVar);
-        afVar.nk().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        afVar.nk().a(this.JZ);
+        afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        afVar.rD().a(this.acX);
         return afVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void wQ(String str) {
-        this.LC = str;
+    public void yc(String str) {
+        this.aey = str;
     }
 }

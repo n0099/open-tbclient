@@ -21,12 +21,12 @@ public final class a extends com.baidu.swan.b.d.a {
 
     @Override // com.baidu.swan.b.d.a
     public b b(JSONObject jSONObject, com.baidu.swan.apps.p.b bVar) {
-        b.a acL;
-        b.a acL2;
+        b.a akQ;
+        b.a akQ2;
         q.j(jSONObject, "paramsJson");
         q.j(bVar, BuyTBeanActivityConfig.CALLBACK);
-        Application TZ = com.baidu.swan.apps.w.a.TZ();
-        if (TZ == null) {
+        Application abO = com.baidu.swan.apps.w.a.abO();
+        if (abO == null) {
             bVar.onFail(202, "params may be error");
         } else {
             String optString = jSONObject.optString("appKey");
@@ -35,18 +35,18 @@ public final class a extends com.baidu.swan.b.d.a {
                 bVar.onFail(202, "params may be error");
             } else {
                 JSONObject jSONObject2 = new JSONObject();
-                e acJ = e.acJ();
-                jSONObject2.put("pre_source", (acJ == null || (acL2 = acJ.acL()) == null || (r0 = acL2.VM()) == null) ? "" : "");
-                e acJ2 = e.acJ();
-                jSONObject2.put("pre_appid", (acJ2 == null || (acL = acJ2.acL()) == null || (r0 = acL.getAppKey()) == null) ? "" : "");
+                e akO = e.akO();
+                jSONObject2.put("pre_source", (akO == null || (akQ2 = akO.akQ()) == null || (r0 = akQ2.adB()) == null) ? "" : "");
+                e akO2 = e.akO();
+                jSONObject2.put("pre_appid", (akO2 == null || (akQ = akO2.akQ()) == null || (r0 = akQ.getAppKey()) == null) ? "" : "");
                 jSONObject.put("ubc", jSONObject2);
                 String b = c.b(optString, 1, jSONObject);
                 String str2 = b;
                 Uri parse = str2 == null || str2.length() == 0 ? null : Uri.parse(b);
                 if (parse == null) {
                     bVar.onFail(202, "params may be error");
-                } else if (SchemeRouter.invokeScheme(TZ, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                    bVar.K(null);
+                } else if (SchemeRouter.invokeScheme(abO, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                    bVar.V(null);
                 } else {
                     bVar.onFail(202, "params may be error");
                 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.u;
 
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.List;
 import org.json.JSONObject;
@@ -11,17 +12,17 @@ public class c {
             return false;
         }
         com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.fX().setUrl(str);
-        eVar.fX().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.fX().addPostData("", bArr);
-        new com.baidu.adp.lib.network.http.c(eVar).e(3, -1, -1);
-        int i = eVar.fY().responseCode;
-        byte[] bArr2 = eVar.fY().retBytes;
+        eVar.kB().setUrl(str);
+        eVar.kB().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        eVar.kB().addPostData("", bArr);
+        new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
+        int i = eVar.kC().responseCode;
+        byte[] bArr2 = eVar.kC().retBytes;
         if (bArr2 == null || i != 200) {
             return false;
         }
         try {
-            if (new JSONObject(new String(bArr2, "utf-8")).optJSONObject(BdStatsConstant.StatsType.ERROR).optInt("errno") != 0) {
+            if (new JSONObject(new String(bArr2, "utf-8")).optJSONObject(BdStatsConstant.StatsType.ERROR).optInt(BaseJsonData.TAG_ERRNO) != 0) {
                 return false;
             }
             return true;
@@ -31,7 +32,7 @@ public class c {
         }
     }
 
-    public static byte[] en(List<String> list) {
+    public static byte[] eC(List<String> list) {
         if (list == null) {
             return null;
         }
@@ -44,7 +45,7 @@ public class c {
         return sb.toString().getBytes();
     }
 
-    public static byte[] di(JSONObject jSONObject) {
+    public static byte[] du(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }

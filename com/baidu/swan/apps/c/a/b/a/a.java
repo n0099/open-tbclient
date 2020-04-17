@@ -2,6 +2,7 @@ package com.baidu.swan.apps.c.a.b.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -29,7 +30,7 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
             return false;
         }
-        String optString = optParamsAsJo.optString("errno");
+        String optString = optParamsAsJo.optString(BaseJsonData.TAG_ERRNO);
         if (!TextUtils.equals(optString, "0")) {
             com.baidu.swan.apps.console.c.i("SetSelectedAddressSync", "error no" + optString);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error no" + optString);
@@ -41,17 +42,17 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "data is empty");
             return false;
         }
-        N(optJSONObject);
+        Y(optJSONObject);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    private void N(JSONObject jSONObject) {
-        d.JC().L(jSONObject);
-        ai.l(new Runnable() { // from class: com.baidu.swan.apps.c.a.b.a.a.1
+    private void Y(JSONObject jSONObject) {
+        d.Ro().W(jSONObject);
+        ai.o(new Runnable() { // from class: com.baidu.swan.apps.c.a.b.a.a.1
             @Override // java.lang.Runnable
             public void run() {
-                c.OG();
+                c.Wv();
             }
         });
     }

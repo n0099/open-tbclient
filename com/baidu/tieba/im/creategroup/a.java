@@ -9,41 +9,41 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class a extends com.baidu.adp.base.c<BaseActivity> {
-    private View cWh;
-    private ImageView dtO;
-    private TextView hxA;
+    private ImageView dTJ;
+    private View dvs;
+    private TextView ihn;
     private View layoutView;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         this.layoutView = null;
-        this.hxA = null;
-        this.dtO = null;
-        this.cWh = null;
+        this.ihn = null;
+        this.dTJ = null;
+        this.dvs = null;
         initUI();
     }
 
-    public View bgL() {
+    public View bqc() {
         return this.layoutView;
     }
 
-    public void CD(String str) {
-        this.hxA.setText(str);
+    public void El(String str) {
+        this.ihn.setText(str);
     }
 
-    public void ns(boolean z) {
-        this.dtO.setVisibility(z ? 0 : 8);
+    public void ow(boolean z) {
+        this.dTJ.setVisibility(z ? 0 : 8);
     }
 
     private void initUI() {
         this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(R.layout.address_lbs_item, (ViewGroup) null);
-        this.hxA = (TextView) this.layoutView.findViewById(R.id.text);
-        this.dtO = (ImageView) this.layoutView.findViewById(R.id.group_address_list_item_selected);
-        this.cWh = this.layoutView.findViewById(R.id.group_address_list_item_divider);
+        this.ihn = (TextView) this.layoutView.findViewById(R.id.text);
+        this.dTJ = (ImageView) this.layoutView.findViewById(R.id.group_address_list_item_selected);
+        this.dvs = this.layoutView.findViewById(R.id.group_address_list_item_divider);
         this.layoutView.setTag(this);
     }
 
-    public View bTe() {
-        return this.cWh;
+    public View cdE() {
+        return this.dvs;
     }
 }

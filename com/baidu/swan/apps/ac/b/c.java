@@ -19,8 +19,8 @@ class c extends a {
         }
         int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
         boolean z2 = pixel == -1 || pixel == -657931;
-        if (!z2 && this.bGo != null) {
-            for (Integer num : this.bGo) {
+        if (!z2 && this.ceY != null) {
+            for (Integer num : this.ceY) {
                 if (num.intValue() == pixel) {
                     z = true;
                     break;

@@ -24,45 +24,45 @@ import java.util.concurrent.TimeUnit;
 public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f928b;
+    private boolean f929b;
     private static int a = 1;
     private static int b = 1;
     private static int c = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    private static BlockingQueue<Runnable> f925a = new LinkedBlockingQueue();
+    private static BlockingQueue<Runnable> f926a = new LinkedBlockingQueue();
 
     /* renamed from: a  reason: collision with other field name */
-    private static ThreadPoolExecutor f926a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f925a);
+    private static ThreadPoolExecutor f927a = new ThreadPoolExecutor(a, b, c, TimeUnit.SECONDS, f926a);
 
     /* renamed from: a  reason: collision with other field name */
-    private static boolean f927a = false;
+    private static boolean f928a = false;
 
     public NetworkStatusReceiver() {
-        this.f928b = false;
-        this.f928b = true;
+        this.f929b = false;
+        this.f929b = true;
     }
 
     public NetworkStatusReceiver(Object obj) {
-        this.f928b = false;
-        f927a = true;
+        this.f929b = false;
+        f928a = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
-        if (!ay.a(context).m74a() && d.m83a(context).m92c() && !d.m83a(context).m94e()) {
+        if (!ay.a(context).m79a() && d.m88a(context).m97c() && !d.m88a(context).m99e()) {
             try {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
                 intent.setAction("com.xiaomi.push.network_status_changed");
-                ax.a(context).m523a(intent);
+                ax.a(context).m528a(intent);
             } catch (Exception e) {
                 b.a(e);
             }
         }
-        gr.m317a(context);
-        if (as.b(context) && ay.a(context).m77b()) {
-            ay.a(context).m78c();
+        gr.m322a(context);
+        if (as.b(context) && ay.a(context).m82b()) {
+            ay.a(context).m83c();
         }
         if (as.b(context)) {
             if ("syncing".equals(ao.a(context).a(bd.DISABLE_PUSH))) {
@@ -93,14 +93,14 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     }
 
     public static boolean a() {
-        return f927a;
+        return f928a;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (this.f928b) {
+        if (this.f929b) {
             return;
         }
-        f926a.execute(new a(this, context));
+        f927a.execute(new a(this, context));
     }
 }

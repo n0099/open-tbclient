@@ -30,13 +30,13 @@ public class HttpManager extends AbstractHttpManager {
         }
     }
 
-    public void addNetworkQualityListener(NetworkQualityListener networkQualityListener) {
+    public static void addNetworkQualityListener(NetworkQualityListener networkQualityListener) {
         if (!RequestClient.sNetworkQualityListeners.contains(networkQualityListener)) {
             RequestClient.sNetworkQualityListeners.add(networkQualityListener);
         }
     }
 
-    public void removeNetworkQualityListener(NetworkQualityListener networkQualityListener) {
+    public static void removeNetworkQualityListener(NetworkQualityListener networkQualityListener) {
         RequestClient.sNetworkQualityListeners.remove(networkQualityListener);
     }
 

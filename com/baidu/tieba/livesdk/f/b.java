@@ -9,14 +9,14 @@ import com.baidu.live.tbadk.location.interfaces.LocationCallback;
 public class b implements ILocation {
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public LocationInfo getLocationInfo() {
-        return a(com.baidu.adp.lib.c.a.fK().getAddress(false));
+        return a(com.baidu.adp.lib.c.a.ko().getAddress(false));
     }
 
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public void getLocation(final LocationCallback locationCallback) {
         if (locationCallback != null) {
-            com.baidu.adp.lib.c.a.fK().a(false, new a.InterfaceC0016a() { // from class: com.baidu.tieba.livesdk.f.b.1
-                @Override // com.baidu.adp.lib.c.a.InterfaceC0016a
+            com.baidu.adp.lib.c.a.ko().a(false, new a.InterfaceC0018a() { // from class: com.baidu.tieba.livesdk.f.b.1
+                @Override // com.baidu.adp.lib.c.a.InterfaceC0018a
                 public void onLocationGeted(int i, String str, Address address) {
                     locationCallback.onGetLocationInfo(b.this.a(address));
                 }
@@ -26,7 +26,7 @@ public class b implements ILocation {
 
     @Override // com.baidu.live.tbadk.location.interfaces.ILocation
     public void requestLocate() {
-        com.baidu.adp.lib.c.a.fK().getAddress(true);
+        com.baidu.adp.lib.c.a.ko().getAddress(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

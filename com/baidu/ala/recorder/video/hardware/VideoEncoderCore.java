@@ -49,7 +49,7 @@ public class VideoEncoderCore {
 
         void onCodecConfig(byte[] bArr, int i, int i2);
 
-        void onCodecData(byte[] bArr, int i, int i2, int i3, long j);
+        void onCodecData(byte[] bArr, int i, int i2, int i3, long j, long j2);
 
         void onCodecError(int i);
 
@@ -185,10 +185,10 @@ public class VideoEncoderCore {
                         }
                         packageH264Keyframe(this.mH264Buffer, this.mBufferInfo);
                         if (this.mOutputCallback != null) {
-                            this.mOutputCallback.onCodecData(this.mH264MetaBuff, 0, this.mBufferInfo.size + this.mH264MetaSize, 2, this.mBufferInfo.presentationTimeUs / 1000);
+                            this.mOutputCallback.onCodecData(this.mH264MetaBuff, 0, this.mBufferInfo.size + this.mH264MetaSize, 2, this.mBufferInfo.presentationTimeUs / 1000, this.mBufferInfo.presentationTimeUs / 1000);
                         }
                     } else if (this.mOutputCallback != null) {
-                        this.mOutputCallback.onCodecData(this.mH264Buffer, 0, this.mBufferInfo.size, 4, this.mBufferInfo.presentationTimeUs / 1000);
+                        this.mOutputCallback.onCodecData(this.mH264Buffer, 0, this.mBufferInfo.size, 4, this.mBufferInfo.presentationTimeUs / 1000, this.mBufferInfo.presentationTimeUs / 1000);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {

@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
@@ -126,7 +125,7 @@ public final class BdZeusUtil implements INoProGuard {
     public static String formatdetailTime(long j) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(j);
-        return calendar.get(1) + "-" + (calendar.get(2) + 1) + "-" + calendar.get(5) + HanziToPinyin.Token.SEPARATOR + calendar.get(11) + ":" + calendar.get(12) + ":" + calendar.get(13);
+        return calendar.get(1) + "-" + (calendar.get(2) + 1) + "-" + calendar.get(5) + " " + calendar.get(11) + ":" + calendar.get(12) + ":" + calendar.get(13);
     }
 
     private static String getDeviceInfo() {
@@ -142,7 +141,7 @@ public final class BdZeusUtil implements INoProGuard {
         stringBuffer.append(i);
         stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
         stringBuffer.append(str3.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "-"));
-        return stringBuffer.toString().replace(HanziToPinyin.Token.SEPARATOR, "-");
+        return stringBuffer.toString().replace(" ", "-");
     }
 
     private static PackageInfo getPackageInfo(Context context) {
@@ -282,7 +281,7 @@ public final class BdZeusUtil implements INoProGuard {
             fileOutputStream = new FileOutputStream(sb.toString(), true);
             try {
                 try {
-                    fileOutputStream.write((formatdetailTime(System.currentTimeMillis()) + HanziToPinyin.Token.SEPARATOR + str + "\r\n").getBytes());
+                    fileOutputStream.write((formatdetailTime(System.currentTimeMillis()) + " " + str + "\r\n").getBytes());
                     try {
                         fileOutputStream.close();
                     } catch (IOException e) {

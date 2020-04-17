@@ -12,12 +12,12 @@ public class am extends a {
     public void parseJson(JSONArray jSONArray) {
         try {
             if (jSONArray.length() == 4) {
-                int S = com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(0));
-                int S2 = com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(1));
-                int S3 = com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(2));
-                int S4 = com.baidu.swan.apps.as.af.S((float) jSONArray.optDouble(3));
+                int C = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(0));
+                int C2 = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(1));
+                int C3 = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(2));
+                int C4 = com.baidu.swan.apps.as.af.C((float) jSONArray.optDouble(3));
                 this.mPath = new Path();
-                this.mPath.addRect(new RectF(S, S2, S + S3, S2 + S4), Path.Direction.CW);
+                this.mPath.addRect(new RectF(C, C2, C + C3, C2 + C4), Path.Direction.CW);
             }
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {

@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.base;
 
 import android.util.Log;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileFilter;
@@ -16,7 +16,7 @@ import java.util.Date;
 public class e {
     private BufferedWriter d;
     private String a = "EncryptionWriter";
-    private SimpleDateFormat b = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat b = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
     private int e = 7;
     private String f = ".log.txt";
     private d c = new d("lo");
@@ -83,7 +83,7 @@ public class e {
         if (this.d != null) {
             StringBuffer stringBuffer = new StringBuffer(str);
             stringBuffer.append(str2);
-            stringBuffer.append(HanziToPinyin.Token.SEPARATOR);
+            stringBuffer.append(" ");
             stringBuffer.append(str3);
             this.d.write(this.c.a(stringBuffer.toString().getBytes()));
             this.d.write("\r\n");

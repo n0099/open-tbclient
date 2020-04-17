@@ -5,7 +5,7 @@ import android.view.View;
 public final class b {
     public static void setAlpha(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dD(view).setAlpha(f);
+            tv.chushou.zues.toolkit.d.a.du(view).setAlpha(f);
         } else {
             a.setAlpha(view, f);
         }
@@ -13,7 +13,7 @@ public final class b {
 
     public static void setScaleX(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dD(view).setScaleX(f);
+            tv.chushou.zues.toolkit.d.a.du(view).setScaleX(f);
         } else {
             a.setScaleX(view, f);
         }
@@ -21,7 +21,7 @@ public final class b {
 
     public static void setScaleY(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dD(view).setScaleY(f);
+            tv.chushou.zues.toolkit.d.a.du(view).setScaleY(f);
         } else {
             a.setScaleY(view, f);
         }
@@ -29,7 +29,7 @@ public final class b {
 
     public static void setTranslationX(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dD(view).setTranslationX(f);
+            tv.chushou.zues.toolkit.d.a.du(view).setTranslationX(f);
         } else {
             a.setTranslationX(view, f);
         }
@@ -37,7 +37,7 @@ public final class b {
 
     public static void setTranslationY(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dD(view).setTranslationY(f);
+            tv.chushou.zues.toolkit.d.a.du(view).setTranslationY(f);
         } else {
             a.setTranslationY(view, f);
         }
@@ -45,7 +45,7 @@ public final class b {
 
     public static void setX(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dD(view).setX(f);
+            tv.chushou.zues.toolkit.d.a.du(view).setX(f);
         } else {
             a.setX(view, f);
         }
@@ -53,7 +53,7 @@ public final class b {
 
     public static void setY(View view, float f) {
         if (tv.chushou.zues.toolkit.d.a.NEEDS_PROXY) {
-            tv.chushou.zues.toolkit.d.a.dD(view).setY(f);
+            tv.chushou.zues.toolkit.d.a.du(view).setY(f);
         } else {
             a.setY(view, f);
         }

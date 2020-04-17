@@ -57,9 +57,9 @@ public class d {
         }
     }
 
-    public static String gn() {
-        String go = go();
-        return go + gp();
+    public static String kQ() {
+        String kR = kR();
+        return kR + kS();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x00b0  */
@@ -67,7 +67,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String go() {
+    private static String kR() {
         HttpGet httpGet;
         long currentTimeMillis;
         String str;
@@ -255,7 +255,7 @@ public class d {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String gp() {
+    private static String kS() {
         InputStream inputStream;
         Exception e;
         byte[] bArr;
@@ -436,7 +436,7 @@ public class d {
         throw new SocketException();
     }
 
-    public static String at(String str) {
+    public static String bI(String str) {
         if (k.isEmpty(str)) {
             return "";
         }

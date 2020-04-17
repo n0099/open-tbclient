@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.media.ExifInterface;
+import android.support.v7.widget.ActivityChooserView;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
 /* loaded from: classes11.dex */
@@ -92,7 +93,7 @@ public enum t {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         if (activityManager != null) {
             try {
-                List<ActivityManager.RunningServiceInfo> runningServices = activityManager.getRunningServices(Integer.MAX_VALUE);
+                List<ActivityManager.RunningServiceInfo> runningServices = activityManager.getRunningServices(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 int i = 0;
                 while (runningServices != null) {
                     if (i >= runningServices.size()) {

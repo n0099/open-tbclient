@@ -32,7 +32,7 @@ public class HaokanLiveCloseLogger implements ILiveCloseLogger {
             jSONObject.put("tab", LogConfig.TAB_LIVE_CLOSE_GUEST);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("loc", LogConfig.LOG_LIVE_END_ZONE);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("live_id", str);
             jSONObject.put("name", "关注");
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str4);
@@ -50,7 +50,7 @@ public class HaokanLiveCloseLogger implements ILiveCloseLogger {
             jSONObject.put("k", "click");
             jSONObject.put("v", "no_longer_follow");
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("live_id", str);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class HaokanLiveCloseLogger implements ILiveCloseLogger {
             jSONObject.put("k", "click");
             jSONObject.put("v", "change_some");
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("live_id", str);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -89,7 +89,7 @@ public class HaokanLiveCloseLogger implements ILiveCloseLogger {
             jSONObject.put(LogConfig.LOG_REC_TYPE, "");
             jSONObject.put(LogConfig.LOG_POSTINDEX, str5);
             jSONObject.put("index", str6);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("live_id", str);
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str7);
         } catch (JSONException e) {
@@ -102,7 +102,7 @@ public class HaokanLiveCloseLogger implements ILiveCloseLogger {
     public void doReadRecommendLiveCloseGuestLog(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("k", LogConfig.KEY_READ);
+            jSONObject.put("k", "read");
             jSONObject.put("tab", LogConfig.TAB_LIVE_CLOSE_GUEST);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("author", str4);
@@ -113,7 +113,7 @@ public class HaokanLiveCloseLogger implements ILiveCloseLogger {
             jSONObject.put(LogConfig.LOG_REC_TYPE, "");
             jSONObject.put(LogConfig.LOG_POSTINDEX, str5);
             jSONObject.put("index", str6);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("live_id", str);
             LogManager.attachHaoKanLiveOtherParams(jSONObject, str7);
         } catch (JSONException e) {
@@ -130,7 +130,7 @@ public class HaokanLiveCloseLogger implements ILiveCloseLogger {
             jSONObject.put("k", "click");
             jSONObject.put("v", "show_off");
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("live_id", str);
         } catch (JSONException e) {
             e.printStackTrace();

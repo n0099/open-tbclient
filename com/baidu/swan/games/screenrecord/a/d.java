@@ -3,11 +3,11 @@ package com.baidu.swan.games.screenrecord.a;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
+    public List<long[]> cQX;
     public String clipPath;
-    public List<long[]> csc;
     public String videoPath;
 
     public String toString() {
-        return "[ videoPath = " + this.videoPath + "; clipPath = " + this.clipPath + "; clipList = " + this.csc + " ]";
+        return "[ videoPath = " + this.videoPath + "; clipPath = " + this.clipPath + "; clipList = " + this.cQX + " ]";
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.searchbox.http.request;
 import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.searchbox.http.Cancelable;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.HttpRuntime;
 import com.baidu.searchbox.http.IHttpDns;
 import com.baidu.searchbox.http.RequestHandler;
@@ -37,7 +38,7 @@ public class RequestCall implements Cancelable {
     }
 
     private boolean shouldCreateNewRequest() {
-        return (this.httpRequest.networkStat == null && this.httpRequest.requestNetStat == null && this.httpRequest.connectionTimeout <= 0 && this.httpRequest.writeTimeout <= 0 && this.httpRequest.readTimeout <= 0 && this.httpRequest.paramsHandler == null && this.httpRequest.enableRetry && TextUtils.isEmpty(this.httpRequest.logTag) && this.httpRequest.cookieManager == null) ? false : true;
+        return (this.httpRequest.networkStat == null && this.httpRequest.requestNetStat == null && this.httpRequest.connectionTimeout <= 0 && this.httpRequest.writeTimeout <= 0 && this.httpRequest.readTimeout <= 0 && this.httpRequest.paramsHandler == null && this.httpRequest.enableRetry && TextUtils.isEmpty(this.httpRequest.logTag) && this.httpRequest.cookieManager == null && this.httpRequest.proxy == null && this.httpRequest.followRedirects && this.httpRequest.followSslRedirects) ? false : true;
     }
 
     private void buildCall() {
@@ -74,6 +75,12 @@ public class RequestCall implements Cancelable {
             }
             if (this.httpRequest.cookieManager != null) {
                 newBuilder.cookieJar(new CookieJarImpl(this.httpRequest.cookieManager));
+            }
+            if (this.httpRequest.proxy != null) {
+                newBuilder.proxy(this.httpRequest.proxy);
+            }
+            if (!this.httpRequest.followSslRedirects || !this.httpRequest.followRedirects) {
+                newBuilder.followRedirects(this.httpRequest.followRedirects).followSslRedirects(this.httpRequest.followSslRedirects);
             }
             this.realCall = newBuilder.build().newCall(okRequest);
             return;
@@ -226,6 +233,9 @@ public class RequestCall implements Cancelable {
             this.httpRequest.requestNetStat.exception = exc;
             this.httpRequest.requestNetStat.finishTs = currentTimeMillis;
             this.httpRequest.requestNetStat.netType = this.httpRequest.httpManager.getNetworkInfo();
+            if (TextUtils.isEmpty(this.httpRequest.requestNetStat.clientIP) && !TextUtils.isEmpty(HttpManager.getClientIP())) {
+                this.httpRequest.requestNetStat.clientIP = HttpManager.getClientIP();
+            }
         }
         if (statResponseCallback != null) {
             if (handler != null) {
@@ -316,6 +326,8 @@ public class RequestCall implements Cancelable {
             this.httpRequest.requestNetStat.startTs = currentTimeMillis;
             this.httpRequest.requestNetStat.netEngine = 2;
             this.httpRequest.requestNetStat.from = this.httpRequest.requestFrom;
+            this.httpRequest.requestNetStat.bdTraceId = this.httpRequest.getBdTraceId();
+            this.httpRequest.requestNetStat.extraUserInfo = this.httpRequest.getExtraUserLog();
         }
     }
 

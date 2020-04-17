@@ -15,7 +15,7 @@ import com.tb.airbnb.lottie.j;
 public class c extends a {
     private final Rect dst;
     @Nullable
-    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> nrF;
+    private com.tb.airbnb.lottie.a.b.a<ColorFilter, ColorFilter> mOo;
     private final Paint paint;
     private final Rect src;
 
@@ -31,15 +31,15 @@ public class c extends a {
     public void b(@NonNull Canvas canvas, Matrix matrix, int i) {
         Bitmap bitmap = getBitmap();
         if (bitmap != null && !bitmap.isRecycled()) {
-            float dL = com.tb.airbnb.lottie.d.f.dL();
+            float jk = com.tb.airbnb.lottie.d.f.jk();
             this.paint.setAlpha(i);
-            if (this.nrF != null) {
-                this.paint.setColorFilter(this.nrF.getValue());
+            if (this.mOo != null) {
+                this.paint.setColorFilter(this.mOo.getValue());
             }
             canvas.save();
             canvas.concat(matrix);
             this.src.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.dst.set(0, 0, (int) (bitmap.getWidth() * dL), (int) (dL * bitmap.getHeight()));
+            this.dst.set(0, 0, (int) (bitmap.getWidth() * jk), (int) (jk * bitmap.getHeight()));
             canvas.drawBitmap(bitmap, this.src, this.dst, this.paint);
             canvas.restore();
         }
@@ -51,23 +51,23 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.iY.mapRect(rectF);
+            this.Eu.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.lottieDrawable.J(this.nto.getRefId());
+        return this.lottieDrawable.aZ(this.mPZ.getRefId());
     }
 
     @Override // com.tb.airbnb.lottie.model.layer.a, com.tb.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.tb.airbnb.lottie.e.c<T> cVar) {
         super.a((c) t, (com.tb.airbnb.lottie.e.c<c>) cVar);
-        if (t == j.fo) {
+        if (t == j.AV) {
             if (cVar == null) {
-                this.nrF = null;
+                this.mOo = null;
             } else {
-                this.nrF = new p(cVar);
+                this.mOo = new p(cVar);
             }
         }
     }

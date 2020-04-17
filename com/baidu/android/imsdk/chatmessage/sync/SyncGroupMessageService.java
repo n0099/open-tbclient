@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.chatmessage.sync.SyncStrategy;
 import com.baidu.android.imsdk.chatuser.ChatUserManagerImpl;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.Iterator;
 import java.util.Map;
@@ -84,7 +83,7 @@ public class SyncGroupMessageService {
     }
 
     private void remove(DialogRecord dialogRecord, int i) {
-        LogUtils.d(TAG, "BB remove dialogRecord " + dialogRecord + HanziToPinyin.Token.SEPARATOR + i);
+        LogUtils.d(TAG, "BB remove dialogRecord " + dialogRecord + " " + i);
         if (i == 0) {
             this.mDialogRecords.remove(dialogRecord);
         } else {
@@ -101,7 +100,7 @@ public class SyncGroupMessageService {
     }
 
     public void execute(Context context, int i, long j, long j2, int i2) {
-        LogUtils.d(TAG, "SYNCGROUPNEW group sync execute 1 \"to\":" + j + HanziToPinyin.Token.SEPARATOR + j2 + HanziToPinyin.Token.SEPARATOR + i2);
+        LogUtils.d(TAG, "SYNCGROUPNEW group sync execute 1 \"to\":" + j + " " + j2 + " " + i2);
         synchronized (synobject) {
             DialogRecord dialogRecord = DialogRecordDBManager.getInstance(context).getDialogRecord(i, j);
             if (dialogRecord == null) {

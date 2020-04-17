@@ -8,18 +8,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.e> {
-    private TextView jsL;
-    private TextView jsN;
-    private TbImageView jtb;
-    private com.baidu.tieba.personPolymeric.c.e jtc;
+    private TextView kdb;
+    private TextView kdd;
+    private TbImageView kdr;
+    private com.baidu.tieba.personPolymeric.c.e kds;
     private View mRootView;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.jtb = (TbImageView) this.mRootView.findViewById(R.id.card_person_auth_icon);
-        this.jsN = (TextView) this.mRootView.findViewById(R.id.card_person_auth_bar_name);
-        this.jsL = (TextView) this.mRootView.findViewById(R.id.card_person_auth_des);
+        this.kdr = (TbImageView) this.mRootView.findViewById(R.id.card_person_auth_icon);
+        this.kdd = (TextView) this.mRootView.findViewById(R.id.card_person_auth_bar_name);
+        this.kdb = (TextView) this.mRootView.findViewById(R.id.card_person_auth_des);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -27,10 +27,10 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             this.mSkinType = i;
             am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
-            am.setViewTextColor(this.jsN, R.color.cp_cont_b, 1);
-            am.setViewTextColor(this.jsL, R.color.cp_cont_d, 1);
-            if (this.jtc.iconUrl == null) {
-                am.setImageResource(this.jtb, R.drawable.icon_shen_mine);
+            am.setViewTextColor(this.kdd, R.color.cp_cont_b, 1);
+            am.setViewTextColor(this.kdb, R.color.cp_cont_d, 1);
+            if (this.kds.iconUrl == null) {
+                am.setImageResource(this.kdr, R.drawable.icon_shen_mine);
             }
         }
     }
@@ -44,12 +44,12 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.e eVar) {
         if (eVar != null) {
-            this.jtc = eVar;
+            this.kds = eVar;
             if (eVar.iconUrl != null) {
-                this.jtb.startLoad(eVar.iconUrl, 10, false);
+                this.kdr.startLoad(eVar.iconUrl, 10, false);
             }
-            this.jsN.setText(eVar.jqs);
-            this.jsL.setText(eVar.des);
+            this.kdd.setText(eVar.kaH);
+            this.kdb.setText(eVar.des);
         }
     }
 

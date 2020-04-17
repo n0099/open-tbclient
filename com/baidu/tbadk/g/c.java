@@ -1,25 +1,11 @@
 package com.baidu.tbadk.g;
-
-import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class c {
-    private ViewGroup cKI;
-    private a cKJ;
-    public b cKK;
+public interface c {
+    void aHp();
 
-    public ViewGroup azg() {
-        return this.cKI;
-    }
+    void aHr();
 
-    public void s(ViewGroup viewGroup) {
-        this.cKI = viewGroup;
-    }
+    void onAdClick();
 
-    public a azh() {
-        return this.cKJ;
-    }
-
-    public void a(a aVar) {
-        this.cKJ = aVar;
-    }
+    void sW(String str);
 }

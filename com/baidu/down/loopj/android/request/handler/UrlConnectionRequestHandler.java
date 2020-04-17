@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.down.common.UrlDNSInfo;
 import com.baidu.down.common.intercepter.ResponseInfo;
 import com.baidu.down.loopj.android.http.BinaryHttpResponseHandler;
@@ -83,7 +82,7 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
         StringBuilder sb = new StringBuilder();
         if (!isHttpRequestNull()) {
             if (!z) {
-                sb.append("Url:" + this.mURLConnectionRequest.getURL().toString() + HanziToPinyin.Token.SEPARATOR + this.mURLConnectionRequest.getResponseCode() + "\n");
+                sb.append("Url:" + this.mURLConnectionRequest.getURL().toString() + " " + this.mURLConnectionRequest.getResponseCode() + "\n");
             } else {
                 sb.append("Uri:" + this.mURLConnectionRequest.getURL().toString() + "\n");
             }

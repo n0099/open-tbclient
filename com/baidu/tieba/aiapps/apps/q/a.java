@@ -13,13 +13,13 @@ public class a extends ActivityDelegation {
     protected boolean onExec() {
         m.postOnIO(new b(getAgent(), this.mParams, new com.baidu.swan.apps.media.chooser.c.d() { // from class: com.baidu.tieba.aiapps.apps.q.a.1
             @Override // com.baidu.swan.apps.media.chooser.c.d
-            public void onResult(boolean z, String str, Object obj) {
+            public void a(boolean z, String str, Object obj) {
                 if (z && (obj instanceof ArrayList)) {
                     ArrayList<? extends Parcelable> arrayList = (ArrayList) obj;
                     if (com.baidu.swan.apps.media.chooser.b.c.DEBUG) {
                         Iterator<? extends Parcelable> it = arrayList.iterator();
                         while (it.hasNext()) {
-                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).XP());
+                            Log.d(getClass().getSimpleName(), "tempPath = " + ((MediaModel) it.next()).afO());
                         }
                     }
                     a.this.mResult.putParcelableArrayList("mediaModels", arrayList);

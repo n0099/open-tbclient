@@ -7,11 +7,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetMyAssistWIshListResponseMessage extends JsonHttpResponsedMessage {
-    private ArrayList<e> cWf;
+    private ArrayList<e> dvq;
 
     public AlaGetMyAssistWIshListResponseMessage(int i) {
         super(1021171);
-        this.cWf = new ArrayList<>();
+        this.dvq = new ArrayList<>();
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -22,12 +22,12 @@ public class AlaGetMyAssistWIshListResponseMessage extends JsonHttpResponsedMess
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 e eVar = new e();
                 eVar.parserJson(optJSONArray.getJSONObject(i2));
-                this.cWf.add(eVar);
+                this.dvq.add(eVar);
             }
         }
     }
 
     public ArrayList<e> getData() {
-        return this.cWf;
+        return this.dvq;
     }
 }

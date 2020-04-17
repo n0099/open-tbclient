@@ -22,7 +22,7 @@ public class e extends a {
     private String j;
     private String k;
     private LinearLayout l;
-    private ChatInfo mRY;
+    private ChatInfo moK;
 
     public e(boolean z, String str, Context context, LinearLayout linearLayout, TextView textView) {
         super(textView, context);
@@ -34,9 +34,9 @@ public class e extends a {
     }
 
     public void a(ChatInfo chatInfo) {
-        this.mRY = chatInfo;
-        this.j = this.mRY.mUserID;
-        this.k = this.mRY.mUserNickname;
+        this.moK = chatInfo;
+        this.j = this.moK.mUserID;
+        this.k = this.moK.mUserNickname;
     }
 
     public void a(String str, String str2) {
@@ -49,8 +49,8 @@ public class e extends a {
         if (this.g) {
             b(this.h);
             if (this.h.equals("1") || this.h.equals("3") || this.h.equals("2")) {
-                if (this.mRY != null) {
-                    a(this.mRY.mUserNickname);
+                if (this.moK != null) {
+                    a(this.moK.mUserNickname);
                     this.b.setTypeface(Typeface.defaultFromStyle(0));
                 }
             } else {
@@ -68,7 +68,7 @@ public class e extends a {
     private void b(String str) {
         if (!h.isEmpty(str)) {
             if (str.equals("2")) {
-                if (this.mRY.mPrivilegeInfo.mRole.equals("1")) {
+                if (this.moK.mPrivilegeInfo.mRole.equals("1")) {
                     a(true);
                 } else {
                     c();
@@ -76,7 +76,7 @@ public class e extends a {
             } else if (str.equals("3")) {
                 d();
             } else if (str.equals("1")) {
-                if (this.mRY.mPrivilegeInfo.mRole.equals("2") || this.mRY.mPrivilegeInfo.mRole.equals("1")) {
+                if (this.moK.mPrivilegeInfo.mRole.equals("2") || this.moK.mPrivilegeInfo.mRole.equals("1")) {
                     b();
                     this.l.setVisibility(0);
                     return;
@@ -167,7 +167,7 @@ public class e extends a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        tv.chushou.zues.widget.sweetalert.b x = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.8
+        tv.chushou.zues.widget.sweetalert.b w = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.8
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                 bVar.dismiss();
@@ -175,17 +175,17 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.7
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dRv();
+                bVar.dKx();
                 e.this.b(1);
             }
-        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_forbid_check, this.mRY.mUserNickname));
-        x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
-        x.show();
+        }).Qt(this.c.getString(a.i.alert_dialog_cancel)).Qv(this.c.getString(a.i.alert_dialog_ok)).w(this.c.getString(a.i.alert_dialog_forbid_check, this.moK.mUserNickname));
+        w.getWindow().setLayout(tv.chushou.zues.utils.a.gh(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
+        w.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        tv.chushou.zues.widget.sweetalert.b x = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.10
+        tv.chushou.zues.widget.sweetalert.b w = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.10
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                 bVar.dismiss();
@@ -193,35 +193,35 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.9
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dRv();
+                bVar.dKx();
                 e.this.b(2);
             }
-        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_forbid_forever_check, this.mRY.mUserNickname));
-        x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
-        x.show();
+        }).Qt(this.c.getString(a.i.alert_dialog_cancel)).Qv(this.c.getString(a.i.alert_dialog_ok)).w(this.c.getString(a.i.alert_dialog_forbid_forever_check, this.moK.mUserNickname));
+        w.getWindow().setLayout(tv.chushou.zues.utils.a.gh(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
+        w.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i) {
-        com.kascend.chushou.c.c.dCo().a(this.mRY.mRoomID, this.mRY.mUserID, i, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.11
-            private ChatInfo mSa;
+        com.kascend.chushou.c.c.dwG().a(this.moK.mRoomID, this.moK.mUserID, i, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.11
+            private ChatInfo moM;
 
             @Override // com.kascend.chushou.c.b
             public void a() {
-                this.mSa = e.this.mRY;
+                this.moM = e.this.moK;
             }
 
             @Override // com.kascend.chushou.c.b
             public void a(String str, JSONObject jSONObject) {
                 int optInt = jSONObject.optInt("code", -1);
                 if (optInt == 0) {
-                    g.c(e.this.c, e.this.c.getResources().getString(a.i.forbid_success, this.mSa.mUserNickname));
+                    g.c(e.this.c, e.this.c.getResources().getString(a.i.forbid_success, this.moM.mUserNickname));
                 } else if (optInt == 401) {
                     com.kascend.chushou.d.e.b(e.this.c, (String) null);
                 } else {
                     String optString = jSONObject.optString("message", "");
                     if (h.isEmpty(optString)) {
-                        optString = e.this.c.getResources().getString(a.i.forbid_failed, this.mSa.mUserNickname);
+                        optString = e.this.c.getResources().getString(a.i.forbid_failed, this.moM.mUserNickname);
                     }
                     g.c(e.this.c, optString);
                 }
@@ -230,7 +230,7 @@ public class e extends a {
             @Override // com.kascend.chushou.c.b
             public void a(int i2, String str) {
                 if (h.isEmpty(str)) {
-                    str = e.this.c.getResources().getString(a.i.forbid_failed, this.mSa.mUserNickname);
+                    str = e.this.c.getResources().getString(a.i.forbid_failed, this.moM.mUserNickname);
                 }
                 g.c(e.this.c, str);
             }
@@ -261,7 +261,7 @@ public class e extends a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(final int i) {
-        tv.chushou.zues.widget.sweetalert.b x = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.14
+        tv.chushou.zues.widget.sweetalert.b w = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.14
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                 bVar.dismiss();
@@ -269,17 +269,17 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.13
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dRv();
-                com.kascend.chushou.c.c.dCo().c(e.this.mQN, e.this.j, null, e.this.a(i) + "");
+                bVar.dKx();
+                com.kascend.chushou.c.c.dwG().c(e.this.mny, e.this.j, null, e.this.a(i) + "");
             }
-        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_report_user, this.k));
-        x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
-        x.show();
+        }).Qt(this.c.getString(a.i.alert_dialog_cancel)).Qv(this.c.getString(a.i.alert_dialog_ok)).w(this.c.getString(a.i.alert_dialog_report_user, this.k));
+        w.getWindow().setLayout(tv.chushou.zues.utils.a.gh(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
+        w.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i() {
-        tv.chushou.zues.widget.sweetalert.b x = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.16
+        tv.chushou.zues.widget.sweetalert.b w = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.16
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                 bVar.dismiss();
@@ -287,22 +287,22 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.15
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dRv();
-                com.kascend.chushou.c.c.dCo().a(e.this.mRY.mRoomID, e.this.mRY.mUserID, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.15.1
-                    private ChatInfo mSa;
+                bVar.dKx();
+                com.kascend.chushou.c.c.dwG().a(e.this.moK.mRoomID, e.this.moK.mUserID, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.15.1
+                    private ChatInfo moM;
 
                     @Override // com.kascend.chushou.c.b
                     public void a() {
-                        this.mSa = e.this.mRY;
+                        this.moM = e.this.moK;
                     }
 
                     @Override // com.kascend.chushou.c.b
                     public void a(String str, JSONObject jSONObject) {
                         int optInt = jSONObject.optInt("code", -1);
                         if (optInt == 0) {
-                            g.c(e.this.c, e.this.c.getResources().getString(a.i.add_admin_success, this.mSa.mUserNickname));
+                            g.c(e.this.c, e.this.c.getResources().getString(a.i.add_admin_success, this.moM.mUserNickname));
                         } else if (optInt == -1) {
-                            g.c(e.this.c, e.this.c.getResources().getString(a.i.add_admin_failed, this.mSa.mUserNickname));
+                            g.c(e.this.c, e.this.c.getResources().getString(a.i.add_admin_failed, this.moM.mUserNickname));
                         } else {
                             g.c(e.this.c, jSONObject.optString("message"));
                         }
@@ -310,18 +310,18 @@ public class e extends a {
 
                     @Override // com.kascend.chushou.c.b
                     public void a(int i, String str) {
-                        g.c(e.this.c, e.this.c.getResources().getString(a.i.add_admin_failed, this.mSa.mUserNickname));
+                        g.c(e.this.c, e.this.c.getResources().getString(a.i.add_admin_failed, this.moM.mUserNickname));
                     }
                 });
             }
-        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_ok)).x(this.c.getString(a.i.alert_dialog_add_admin_check, this.mRY.mUserNickname));
-        x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
-        x.show();
+        }).Qt(this.c.getString(a.i.alert_dialog_cancel)).Qv(this.c.getString(a.i.alert_dialog_ok)).w(this.c.getString(a.i.alert_dialog_add_admin_check, this.moK.mUserNickname));
+        w.getWindow().setLayout(tv.chushou.zues.utils.a.gh(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
+        w.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
-        tv.chushou.zues.widget.sweetalert.b x = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.18
+        tv.chushou.zues.widget.sweetalert.b w = new tv.chushou.zues.widget.sweetalert.b(this.c).a(new b.a() { // from class: com.kascend.chushou.player.a.e.18
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
                 bVar.dismiss();
@@ -329,35 +329,35 @@ public class e extends a {
         }).b(new b.a() { // from class: com.kascend.chushou.player.a.e.17
             @Override // tv.chushou.zues.widget.sweetalert.b.a
             public void onClick(tv.chushou.zues.widget.sweetalert.b bVar) {
-                bVar.dRv();
+                bVar.dKx();
                 e.this.k();
             }
-        }).Te(this.c.getString(a.i.alert_dialog_cancel)).Tg(this.c.getString(a.i.alert_dialog_add_to_blacklist_confirm)).x(this.c.getString(a.i.alert_dialog_add_to_blacklist));
-        x.getWindow().setLayout(tv.chushou.zues.utils.a.hc(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
-        x.show();
+        }).Qt(this.c.getString(a.i.alert_dialog_cancel)).Qv(this.c.getString(a.i.alert_dialog_add_to_blacklist_confirm)).w(this.c.getString(a.i.alert_dialog_add_to_blacklist));
+        w.getWindow().setLayout(tv.chushou.zues.utils.a.gh(this.c).x - (this.c.getResources().getDimensionPixelSize(a.d.alert_margin_h) * 2), -2);
+        w.show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        com.kascend.chushou.c.c.dCo().b(this.mRY.mRoomID, this.mRY.mUserID, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.2
+        com.kascend.chushou.c.c.dwG().b(this.moK.mRoomID, this.moK.mUserID, new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.e.2
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
 
             @Override // com.kascend.chushou.c.b
             public void a(String str, JSONObject jSONObject) {
-                ParserRet dv = com.kascend.chushou.c.a.dv(jSONObject);
-                if (dv.mRc == 0) {
-                    g.c(e.this.c, e.this.c.getString(a.i.add_blacklist_success, e.this.mRY.mUserNickname));
+                ParserRet dy = com.kascend.chushou.c.a.dy(jSONObject);
+                if (dy.mRc == 0) {
+                    g.c(e.this.c, e.this.c.getString(a.i.add_blacklist_success, e.this.moK.mUserNickname));
                 } else {
-                    a(dv.mRc, dv.mMessage);
+                    a(dy.mRc, dy.mMessage);
                 }
             }
 
             @Override // com.kascend.chushou.c.b
             public void a(int i, String str) {
                 if (h.isEmpty(str)) {
-                    str = e.this.c.getString(a.i.add_blacklist_failed, e.this.mRY.mUserNickname);
+                    str = e.this.c.getString(a.i.add_blacklist_failed, e.this.moK.mUserNickname);
                 }
                 g.c(e.this.c, str);
             }

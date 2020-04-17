@@ -2,6 +2,7 @@ package com.idlefish.flutterboost;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.RequiresApi;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.DynamicLayout;
 import android.text.Editable;
 import android.text.Layout;
@@ -32,7 +33,7 @@ class XInputConnectionAdaptor extends BaseInputConnection {
         this.textInputChannel = textInputChannel;
         this.mEditable = editable;
         this.mBatchCount = 0;
-        this.mLayout = new DynamicLayout(this.mEditable, new TextPaint(), Integer.MAX_VALUE, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+        this.mLayout = new DynamicLayout(this.mEditable, new TextPaint(), ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
         this.mImm = (InputMethodManager) view.getContext().getSystemService("input_method");
     }
 

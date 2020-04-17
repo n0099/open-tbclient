@@ -30,7 +30,7 @@ public class hd {
             try {
                 ArrayList<hk> value = entry.getValue();
                 if (value != null && value.size() != 0) {
-                    com.xiaomi.channel.commonutils.logger.b.m45a("TinyData is uploaded immediately item size:" + value.size());
+                    com.xiaomi.channel.commonutils.logger.b.m50a("TinyData is uploaded immediately item size:" + value.size());
                     hfVar.a(value, value.get(0).e(), entry.getKey());
                 }
             } catch (Exception e) {
@@ -41,14 +41,14 @@ public class hd {
     public static void a(Context context, hf hfVar, List<hk> list) {
         HashMap<String, ArrayList<hk>> a = a(context, list);
         if (a == null || a.size() == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m45a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m50a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
         } else {
             a(context, hfVar, a);
         }
     }
 
     private static void a(Context context, hk hkVar) {
-        if (hkVar.f464a) {
+        if (hkVar.f465a) {
             hkVar.a("push_sdk_channel");
         }
         if (TextUtils.isEmpty(hkVar.d())) {

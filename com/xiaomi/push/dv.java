@@ -17,7 +17,7 @@ public class dv extends dx {
         Bundle extras;
         StringBuilder sb = new StringBuilder();
         try {
-            Intent registerReceiver = this.f245a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            Intent registerReceiver = this.f246a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             if (registerReceiver != null && (extras = registerReceiver.getExtras()) != null) {
                 Set<String> keySet = extras.keySet();
                 JSONObject jSONObject = new JSONObject();
@@ -40,19 +40,19 @@ public class dv extends dx {
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo155a() {
+    public int mo160a() {
         return 20;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hi mo155a() {
+    public hi mo160a() {
         return hi.Battery;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo155a() {
+    public String mo160a() {
         return b();
     }
 }

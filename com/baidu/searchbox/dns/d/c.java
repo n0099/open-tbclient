@@ -2,6 +2,7 @@ package com.baidu.searchbox.dns.d;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.dns.statistics.HttpDNSStat;
@@ -16,15 +17,14 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes13.dex */
 public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a.b> {
-    private static boolean L = false;
-    private static String M = null;
-    private static long N = -1;
-    private static boolean P = false;
-    private static HttpDNSStat Q;
+    private static String L = null;
+    private static long M = -1;
+    private static boolean O = false;
+    private static HttpDNSStat P;
     private boolean E;
     private String F;
     private int H;
-    private boolean O = false;
+    private boolean N = false;
 
     public c(boolean z, String str, int i) {
         this.E = z;
@@ -34,16 +34,19 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
 
     @Override // com.baidu.searchbox.dns.d.c.b
     protected String q() {
-        return L ? SapiUtils.COOKIE_HTTPS_URL_PREFIX + r() + "/v5/0001/" : SapiUtils.COOKIE_HTTPS_URL_PREFIX + r() + "/v2/0001/";
+        if (!DnsUtil.DEBUG || TextUtils.isEmpty(DnsUtil.httpDnsDebugAddress)) {
+            return SapiUtils.COOKIE_HTTPS_URL_PREFIX + r() + (DnsUtil.iPv6TestEnable ? "/v6/0001/" : "/v5/0001/");
+        }
+        return DnsUtil.httpDnsDebugAddress;
     }
 
     private String r() {
-        return (P && !TextUtils.isEmpty(M) && this.H == 2) ? M : "180.76.76.112";
+        return (O && !TextUtils.isEmpty(L) && this.H == 2) ? L : "180.76.76.112";
     }
 
     private void s() {
         com.baidu.searchbox.dns.d.a a2;
-        if (P && this.H == 2 && N > 0 && System.currentTimeMillis() - N > 1800000 && (a2 = b.o().a("httpsdns.baidu.com", false, 2)) != null) {
+        if (O && this.H == 2 && M > 0 && System.currentTimeMillis() - M > 1800000 && (a2 = b.o().a("httpsdns.baidu.com", false, 2)) != null) {
             if (DnsUtil.DEBUG) {
                 Log.d(DnsUtil.TAG, " start update domain task: httpsdns.baidu.com");
             }
@@ -57,22 +60,18 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
     public com.baidu.searchbox.dns.d.a.b x() {
         s();
         com.baidu.searchbox.dns.d.a.b bVar = (com.baidu.searchbox.dns.d.a.b) super.x();
-        if (this.O) {
+        if (this.N) {
             u();
         }
         return bVar;
     }
 
     public static void k(String str) {
-        M = str;
+        L = str;
     }
 
     public static void a(long j) {
-        N = j;
-    }
-
-    public static void a(boolean z) {
-        L = z;
+        M = j;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -81,14 +80,13 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         HashMap hashMap = new HashMap();
         if (this.E) {
             hashMap.put("label", this.F);
-            if (L) {
-                hashMap.put(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, com.baidu.searchbox.dns.a.a.e().g());
-            }
         } else {
             hashMap.put(Config.DEVICE_NAME, this.F);
         }
-        if (L) {
-            hashMap.put("type", "ipv4,ipv6");
+        hashMap.put(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, com.baidu.searchbox.dns.a.a.e().g());
+        hashMap.put("type", "ipv4,ipv6");
+        if (DnsUtil.iPv6TestEnable) {
+            hashMap.put(TbEnum.ParamKey.GROUP, DnsUtil.iPv6Perfer ? "ipv6" : "ipv4");
         }
         return hashMap;
     }
@@ -109,7 +107,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         if (DnsUtil.DEBUG) {
             Log.d(DnsUtil.TAG, " server error: " + i);
         }
-        this.O = true;
+        this.N = true;
     }
 
     @Override // com.baidu.searchbox.dns.d.c.a
@@ -117,13 +115,13 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
         if (DnsUtil.DEBUG) {
             Log.d(DnsUtil.TAG, " exception: ", exc);
         }
-        this.O = true;
+        this.N = true;
     }
 
     private void u() {
-        if (P && this.H == 2) {
-            M = null;
-            N = -1L;
+        if (O && this.H == 2) {
+            L = null;
+            M = -1L;
             if (DnsUtil.DEBUG) {
                 Log.d(DnsUtil.TAG, "changeToBGPServer");
             }
@@ -132,7 +130,7 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
 
     @Override // com.baidu.searchbox.dns.d.c.a
     protected boolean v() {
-        return true;
+        return q().toLowerCase().startsWith("https");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -171,10 +169,10 @@ public class c extends com.baidu.searchbox.dns.d.c.b<com.baidu.searchbox.dns.d.a
     }
 
     public static void b(boolean z) {
-        P = z;
+        O = z;
     }
 
     public static void a(HttpDNSStat httpDNSStat) {
-        Q = httpDNSStat;
+        P = httpDNSStat;
     }
 }

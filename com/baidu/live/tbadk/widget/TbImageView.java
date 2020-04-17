@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -133,29 +134,29 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0100a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0126a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0126a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.Q(view);
+                    TbImageView.this.mGestureDetector.S(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0126a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0126a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.Q(view);
+                        TbImageView.this.mGestureDetector.S(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
@@ -189,29 +190,29 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         this.mLoadedWidth = 0;
         this.mLoadedHeight = 0;
         this.isPageIdRegisterMessage = false;
-        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0100a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
+        this.mInternalGestureDetector = new com.baidu.live.tieba.pb.a.a(new a.InterfaceC0126a() { // from class: com.baidu.live.tbadk.widget.TbImageView.1
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0126a
             public boolean onDoubleTap(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.mGestureDetector != null) {
-                    TbImageView.this.mGestureDetector.Q(view);
+                    TbImageView.this.mGestureDetector.S(view);
                     return TbImageView.this.mGestureDetector.onDoubleTap(motionEvent);
                 }
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0126a
             public boolean onDoubleTapEvent(View view, MotionEvent motionEvent) {
                 return false;
             }
 
-            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0100a
+            @Override // com.baidu.live.tieba.pb.a.a.InterfaceC0126a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
                 if (TbImageView.this.getBdImage() != null || TbImageView.this.getDrawable() != null || !TbImageView.this.mInterceptOnClick) {
                     if (TbImageView.this.mOnClickListener != null) {
                         TbImageView.this.mOnClickListener.onClick(view);
                         return true;
                     } else if (TbImageView.this.mGestureDetector != null) {
-                        TbImageView.this.mGestureDetector.Q(view);
+                        TbImageView.this.mGestureDetector.S(view);
                         return TbImageView.this.mGestureDetector.onSingleTapConfirmed(motionEvent);
                     } else {
                         return false;
@@ -328,7 +329,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             this.mNeedRecomputeMatrix = true;
             this.mIsGif = false;
             requestLayout();
-        } else if (getBdImage() != null) {
+        } else if (getBdImage() != null && getBdImage().getImage() != null && !getBdImage().getImage().isRecycled()) {
             invalidate();
             if (this.mEvent != null) {
                 this.mEvent.onComplete(str, true);
@@ -432,8 +433,8 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     }
 
     @Override // android.view.View
-    protected void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
+    protected void onVisibilityChanged(@NonNull View view, int i) {
+        super.onVisibilityChanged(view, i);
         if (i == 8 || i == 4) {
             stopLoad();
         } else {
@@ -580,9 +581,11 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
 
     @Override // com.baidu.live.adp.newwidget.imageview.IRefresh
     public void refresh() {
-        if (!TextUtils.isEmpty(this.mUrl) && this.mCurUsedBdImage == null) {
-            realLoadBitmap(this.mUrl, this.mType);
-            invalidate();
+        if (!TextUtils.isEmpty(this.mUrl)) {
+            if (this.mCurUsedBdImage == null || this.mCurUsedBdImage.getImage() == null || this.mCurUsedBdImage.getImage().isRecycled()) {
+                realLoadBitmap(this.mUrl, this.mType);
+                invalidate();
+            }
         }
     }
 

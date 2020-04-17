@@ -71,7 +71,7 @@ public abstract class Animator implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Animator m40clone() {
+    public Animator m43clone() {
         try {
             Animator animator = (Animator) super.clone();
             if (this.mListeners != null) {

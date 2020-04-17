@@ -40,10 +40,10 @@ public class WXEmojiObject implements WXMediaMessage.IMediaObject {
         if ((this.emojiData == null || this.emojiData.length == 0) && (this.emojiPath == null || this.emojiPath.length() == 0)) {
             Log.e(TAG, "checkArgs fail, both arguments is null");
             return false;
-        } else if (this.emojiData != null && this.emojiData.length > CONTENT_LENGTH_LIMIT) {
+        } else if (this.emojiData != null && this.emojiData.length > 10485760) {
             Log.e(TAG, "checkArgs fail, emojiData is too large");
             return false;
-        } else if (this.emojiPath == null || getFileSize(this.emojiPath) <= CONTENT_LENGTH_LIMIT) {
+        } else if (this.emojiPath == null || getFileSize(this.emojiPath) <= 10485760) {
             return true;
         } else {
             Log.e(TAG, "checkArgs fail, emojiSize is too large");

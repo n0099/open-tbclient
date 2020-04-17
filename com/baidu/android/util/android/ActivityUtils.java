@@ -52,6 +52,12 @@ public final class ActivityUtils {
                 return false;
             }
             return false;
+        } catch (Exception e3) {
+            if (DEBUG) {
+                Log.d(TAG, e3.getMessage());
+                return false;
+            }
+            return false;
         }
     }
 

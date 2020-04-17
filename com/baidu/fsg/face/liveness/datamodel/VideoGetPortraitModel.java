@@ -1,8 +1,8 @@
 package com.baidu.fsg.face.liveness.datamodel;
 
 import android.content.Context;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
@@ -63,7 +63,7 @@ public class VideoGetPortraitModel implements IBeanResponse, Serializable {
         if (!TextUtils.isEmpty(this.readingContent)) {
             arrayList.addAll(Arrays.asList(this.readingContent.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR)));
         }
-        arrayList.add(HanziToPinyin.Token.SEPARATOR);
+        arrayList.add(" ");
         return arrayList;
     }
 
@@ -80,10 +80,7 @@ public class VideoGetPortraitModel implements IBeanResponse, Serializable {
         }
         if (!TextUtils.isEmpty(this.videoMaxSize)) {
             i = Integer.parseInt(this.videoMaxSize);
-            if (i <= 0) {
-                return i;
-            }
-            return Integer.MAX_VALUE;
+            return i <= 0 ? i : ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }
         i = Integer.MAX_VALUE;
         if (i <= 0) {

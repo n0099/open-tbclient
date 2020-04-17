@@ -16,15 +16,15 @@ import java.util.List;
 import tbclient.User;
 /* loaded from: classes11.dex */
 public class PersonCenterDynamicTabModel extends BdBaseModel {
-    private TbPageContext cVv;
-    private User jrX;
-    private a jsj;
+    private TbPageContext duG;
+    private User kcn;
+    private a kcz;
     private long mUid;
     private long mCursor = 0;
     private boolean mHasMore = false;
     private final List<bj> mThreadDataList = new ArrayList();
     private BdUniqueId mTag = BdUniqueId.gen();
-    private final com.baidu.adp.framework.listener.a jsk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647) { // from class: com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel.1
+    private final com.baidu.adp.framework.listener.a kcA = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647) { // from class: com.baidu.tieba.personPolymeric.tab.model.PersonCenterDynamicTabModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
@@ -46,8 +46,8 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                     j = 0;
                 }
                 if (responsedMessage.getError() != 0) {
-                    if (PersonCenterDynamicTabModel.this.jsj != null) {
-                        PersonCenterDynamicTabModel.this.jsj.rE(PersonCenterDynamicTabModel.this.mCursor == 0);
+                    if (PersonCenterDynamicTabModel.this.kcz != null) {
+                        PersonCenterDynamicTabModel.this.kcz.sI(PersonCenterDynamicTabModel.this.mCursor == 0);
                         return;
                     }
                     return;
@@ -56,8 +56,8 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
                     PersonCenterDynamicTabModel.this.mThreadDataList.addAll(list);
                 }
                 PersonCenterDynamicTabModel.this.mHasMore = z;
-                if (PersonCenterDynamicTabModel.this.jsj != null) {
-                    PersonCenterDynamicTabModel.this.jsj.c(PersonCenterDynamicTabModel.this.mThreadDataList, PersonCenterDynamicTabModel.this.mHasMore, PersonCenterDynamicTabModel.this.mCursor == 0);
+                if (PersonCenterDynamicTabModel.this.kcz != null) {
+                    PersonCenterDynamicTabModel.this.kcz.c(PersonCenterDynamicTabModel.this.mThreadDataList, PersonCenterDynamicTabModel.this.mHasMore, PersonCenterDynamicTabModel.this.mCursor == 0);
                 }
                 PersonCenterDynamicTabModel.this.mCursor = j;
             }
@@ -68,27 +68,27 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public interface a {
         void c(List<bj> list, boolean z, boolean z2);
 
-        void rE(boolean z);
+        void sI(boolean z);
     }
 
     public PersonCenterDynamicTabModel(TbPageContext tbPageContext, long j) {
-        this.cVv = tbPageContext;
+        this.duG = tbPageContext;
         this.mUid = j;
-        this.jsk.setTag(this.mTag);
-        MessageManager.getInstance().registerListener(this.jsk);
+        this.kcA.setTag(this.mTag);
+        MessageManager.getInstance().registerListener(this.kcA);
     }
 
-    public void AJ() {
+    public void FH() {
         this.mCursor = 0L;
         this.mThreadDataList.clear();
-        ew(this.mCursor);
+        fi(this.mCursor);
     }
 
-    public void bcK() {
-        ew(this.mCursor);
+    public void blB() {
+        fi(this.mCursor);
     }
 
-    private void ew(long j) {
+    private void fi(long j) {
         PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.mUid, j, 10);
         personCenterDynamicTabRequestMessage.setTag(this.mTag);
         MessageManager.getInstance().sendMessage(personCenterDynamicTabRequestMessage);
@@ -98,13 +98,13 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         this.mCursor = 0L;
         this.mHasMore = false;
         this.mThreadDataList.clear();
-        if (this.jsk != null) {
-            MessageManager.getInstance().unRegisterListener(this.jsk);
+        if (this.kcA != null) {
+            MessageManager.getInstance().unRegisterListener(this.kcA);
         }
     }
 
     public void a(a aVar) {
-        this.jsj = aVar;
+        this.kcz = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -117,8 +117,8 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         return false;
     }
 
-    public void b(User user) {
-        this.jrX = user;
+    public void d(User user) {
+        this.kcn = user;
     }
 
     public boolean isHasMore() {

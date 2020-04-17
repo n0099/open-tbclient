@@ -16,7 +16,7 @@ public class e {
 
     public static void a(Drawable drawable, d dVar) {
         if (drawable != null && dVar != null) {
-            dVar.o(drawable);
+            dVar.k(drawable);
         }
     }
 
@@ -29,7 +29,7 @@ public class e {
         }
     }
 
-    public static int dv(int i, int i2) {
+    public static int df(int i, int i2) {
         if (i2 != 255) {
             if (i2 == 0) {
                 return i & 16777215;
@@ -39,7 +39,7 @@ public class e {
         return i;
     }
 
-    public static int HL(int i) {
+    public static int Gm(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

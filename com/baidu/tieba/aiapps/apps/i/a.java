@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.picture.params.LaunchParams;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.adaptation.a.f;
@@ -42,7 +41,7 @@ public class a implements f {
         }
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(optString));
         request.setDestinationInExternalPublicDir("", optString.substring(optString.lastIndexOf("/") + 1));
-        DownloadManager downloadManager = (DownloadManager) AppRuntime.getAppContext().getSystemService(LaunchParams.SRC_TYPE_DOWNLOAD);
+        DownloadManager downloadManager = (DownloadManager) AppRuntime.getAppContext().getSystemService("download");
         if (downloadManager != null) {
             downloadManager.enqueue(request);
             return c.startActivitySafely(context, new Intent("android.intent.action.VIEW_DOWNLOADS"));

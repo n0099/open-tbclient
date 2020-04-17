@@ -17,11 +17,11 @@ public interface g {
 
         void c(c cVar);
 
-        void e(int i, String str);
+        void d(int i, String str);
 
-        void h(byte[] bArr);
+        void k(byte[] bArr);
 
-        void hZ();
+        void mE();
 
         void onOpen(Map<String, String> map);
 

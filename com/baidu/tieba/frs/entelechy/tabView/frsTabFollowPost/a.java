@@ -20,98 +20,98 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes9.dex */
 public class a {
-    private String emF;
-    private View gyN;
-    private BaseFragment gyO;
-    private TextView gyP;
-    private FrsTabSortSwitchButton gyQ;
-    private int gyR;
-    private FrsTabSortSwitchButton.a gyS = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
+    private String eQf;
+    private View hij;
+    private BaseFragment hik;
+    private TextView hil;
+    private FrsTabSortSwitchButton him;
+    private int hin;
+    private FrsTabSortSwitchButton.a hio = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
-        public boolean tq(int i) {
-            if (com.baidu.tieba.frs.a.bDd().bDe()) {
+        public boolean tO(int i) {
+            if (com.baidu.tieba.frs.a.bND().bNE()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
-                a.this.gyO.showToast(R.string.neterror);
+                a.this.hik.showToast(R.string.neterror);
                 return false;
             }
-            if (a.this.gyO instanceof FrsNewAreaFragment) {
-                if (((FrsNewAreaFragment) a.this.gyO).bJK() == null || ((FrsNewAreaFragment) a.this.gyO).bJL() == null) {
+            if (a.this.hik instanceof FrsNewAreaFragment) {
+                if (((FrsNewAreaFragment) a.this.hik).bUh() == null || ((FrsNewAreaFragment) a.this.hik).bUi() == null) {
                     return false;
                 }
-            } else if (!(a.this.gyO instanceof FrsCommonTabFragment)) {
+            } else if (!(a.this.hik instanceof FrsCommonTabFragment)) {
                 return false;
             } else {
-                if (((FrsCommonTabFragment) a.this.gyO).bGS() == null || ((FrsCommonTabFragment) a.this.gyO).bGT() == null) {
+                if (((FrsCommonTabFragment) a.this.hik).bRt() == null || ((FrsCommonTabFragment) a.this.hik).bRu() == null) {
                     return false;
                 }
             }
-            if (a.this.gyR == i) {
+            if (a.this.hin == i) {
                 return true;
             }
-            a.this.gyR = i;
-            if (a.this.gyR != 7) {
-                aa.aSw();
-                e.cMw();
+            a.this.hin = i;
+            if (a.this.hin != 7) {
+                aa.baF();
+                e.cXs();
             } else {
-                e.cMv();
+                e.cXr();
             }
-            if (a.this.gyO instanceof FrsNewAreaFragment) {
-                ((FrsNewAreaFragment) a.this.gyO).bJK().tT(a.this.gyQ.tt(a.this.gyR));
-                ((FrsNewAreaFragment) a.this.gyO).bJL().startPullRefresh();
+            if (a.this.hik instanceof FrsNewAreaFragment) {
+                ((FrsNewAreaFragment) a.this.hik).bUh().ur(a.this.him.tR(a.this.hin));
+                ((FrsNewAreaFragment) a.this.hik).bUi().startPullRefresh();
             } else {
-                ((FrsCommonTabFragment) a.this.gyO).setSortType(g.ul(a.this.gyQ.tt(a.this.gyR)));
-                ((FrsCommonTabFragment) a.this.gyO).bGT().hv(true);
+                ((FrsCommonTabFragment) a.this.hik).setSortType(g.uI(a.this.him.tR(a.this.hin)));
+                ((FrsCommonTabFragment) a.this.hik).bRu().it(true);
             }
-            a.this.bHE();
+            a.this.bSd();
             return true;
         }
     };
 
     public void setFid(String str) {
-        this.emF = str;
+        this.eQf = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bHE() {
+    public void bSd() {
         an anVar = new an("c11437");
-        anVar.X("obj_type", this.gyQ.tt(this.gyR));
-        anVar.cx("fid", this.emF);
+        anVar.af("obj_type", this.him.tR(this.hin));
+        anVar.cI("fid", this.eQf);
         TiebaStatic.log(anVar);
     }
 
     public a(BaseFragment baseFragment, RelativeLayout relativeLayout) {
-        this.gyR = -1;
+        this.hin = -1;
         if (baseFragment != null && relativeLayout != null) {
-            this.gyO = baseFragment;
-            this.gyN = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-            this.gyP = (TextView) this.gyN.findViewById(R.id.sort_tab_sort_name);
-            this.gyQ = (FrsTabSortSwitchButton) this.gyN.findViewById(R.id.sort_tab_switch_btn);
-            this.gyQ.setOnSwitchChangeListener(this.gyS);
-            this.gyR = this.gyQ.getState();
+            this.hik = baseFragment;
+            this.hij = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
+            this.hil = (TextView) this.hij.findViewById(R.id.sort_tab_sort_name);
+            this.him = (FrsTabSortSwitchButton) this.hij.findViewById(R.id.sort_tab_switch_btn);
+            this.him.setOnSwitchChangeListener(this.hio);
+            this.hin = this.him.getState();
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.gyQ != null) {
-            this.gyQ.onChangeSkinType();
+        if (this.him != null) {
+            this.him.onChangeSkinType();
         }
-        am.setViewTextColor(this.gyP, (int) R.color.cp_cont_b);
-        am.setBackgroundColor(this.gyN, R.color.cp_bg_line_d);
+        am.setViewTextColor(this.hil, (int) R.color.cp_cont_b);
+        am.setBackgroundColor(this.hij, R.color.cp_bg_line_d);
     }
 
     public void setData(List<FrsTabInfo> list) {
-        if (this.gyQ != null) {
-            this.gyQ.setData(list);
+        if (this.him != null) {
+            this.him.setData(list);
         }
     }
 
     public void changeState(int i) {
-        if (this.gyQ != null) {
-            this.gyQ.changeState(g.um(i));
-            this.gyR = this.gyQ.getState();
+        if (this.him != null) {
+            this.him.changeState(g.uJ(i));
+            this.hin = this.him.getState();
         }
     }
 }

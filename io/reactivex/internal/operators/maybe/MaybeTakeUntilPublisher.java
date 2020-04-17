@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.maybe;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
@@ -9,13 +8,13 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
-    final org.a.b<U> other;
+    final org.a.b<U> mSk;
 
     @Override // io.reactivex.k
     protected void b(m<? super T> mVar) {
         TakeUntilMainMaybeObserver takeUntilMainMaybeObserver = new TakeUntilMainMaybeObserver(mVar);
         mVar.onSubscribe(takeUntilMainMaybeObserver);
-        this.other.subscribe(takeUntilMainMaybeObserver.other);
+        this.mSk.subscribe(takeUntilMainMaybeObserver.other);
         this.source.a(takeUntilMainMaybeObserver);
     }
 
@@ -96,12 +95,13 @@ public final class MaybeTakeUntilPublisher<T, U> extends a<T, T> {
 
             @Override // io.reactivex.j, org.a.c
             public void onSubscribe(d dVar) {
-                SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+                if (SubscriptionHelper.setOnce(this, dVar)) {
+                    dVar.request(Long.MAX_VALUE);
+                }
             }
 
             @Override // org.a.c
             public void onNext(Object obj) {
-                SubscriptionHelper.cancel(this);
                 this.parent.otherComplete();
             }
 

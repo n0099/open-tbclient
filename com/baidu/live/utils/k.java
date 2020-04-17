@@ -11,14 +11,13 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.extraparams.interfaces.IExtraParams;
 import com.baidu.live.tbadk.widget.TbImageView;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.lang.reflect.Method;
 import org.apache.http.HttpHost;
 /* loaded from: classes3.dex */
 public class k {
     private static boolean hasNavBar(Context context) {
         Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", PraiseDataPassUtil.KEY_FROM_OS);
+        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
         if (identifier != 0) {
             boolean z = resources.getBoolean(identifier);
             String navBarOverride = getNavBarOverride();
@@ -46,7 +45,7 @@ public class k {
     public static int getNavigationBarHeight(Context context) {
         Resources resources;
         int identifier;
-        if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS)) <= 0) {
+        if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", "android")) <= 0) {
             return 0;
         }
         return resources.getDimensionPixelSize(identifier);
@@ -77,7 +76,7 @@ public class k {
         }
     }
 
-    public static boolean eg(String str) {
+    public static boolean eZ(String str) {
         if (str.contains("·") || str.contains("•")) {
             if (str.matches("^[\\u4e00-\\u9fa5]+[·•][\\u4e00-\\u9fa5]+$")) {
                 return true;
@@ -88,7 +87,7 @@ public class k {
         return false;
     }
 
-    public static boolean Bh() {
+    public static boolean Gf() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }
@@ -99,7 +98,7 @@ public class k {
         return true;
     }
 
-    public static boolean Bi() {
+    public static boolean Gg() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }

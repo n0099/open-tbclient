@@ -28,6 +28,6 @@ final class StringsKt__StringsKt$rangesDelimitedBy$2 extends Lambda implements k
         if (a < 0) {
             return null;
         }
-        return kotlin.j.k(Integer.valueOf(a), 1);
+        return kotlin.j.j(Integer.valueOf(a), 1);
     }
 }

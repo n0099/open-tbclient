@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.BackpressureOverflowStrategy;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -17,7 +16,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
+        this.mRJ.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
     }
 
     /* loaded from: classes7.dex */
@@ -46,7 +45,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -82,7 +81,7 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
                         try {
                             this.onOverflow.run();
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.H(th);
+                            io.reactivex.exceptions.a.L(th);
                             this.s.cancel();
                             onError(th);
                         }

@@ -8,43 +8,43 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.m;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c, l> {
-    private o enF;
-    private m enK;
+    private o eRd;
+    private m eRi;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.enO);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.eRm);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: F */
+    /* renamed from: G */
     public l b(ViewGroup viewGroup) {
-        this.enK = new m(this.mPageContext, viewGroup);
-        if (this.enF != null) {
-            this.enK.a(this.enF);
+        this.eRi = new m(this.mPageContext, viewGroup);
+        if (this.eRd != null) {
+            this.eRi.a(this.eRd);
         }
-        return new l(this.enK);
+        return new l(this.eRi);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar, l lVar) {
-        if (lVar == null || lVar.enK == null) {
+        if (lVar == null || lVar.eRi == null) {
             return null;
         }
-        lVar.enK.a(cVar);
+        lVar.eRi.a(cVar);
         return lVar.getView();
     }
 
     public void a(o oVar) {
-        this.enF = oVar;
-        if (this.enK != null) {
-            this.enK.a(this.enF);
+        this.eRd = oVar;
+        if (this.eRi != null) {
+            this.eRi.a(this.eRd);
         }
     }
 }

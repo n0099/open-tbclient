@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.j> implements View.OnClickListener {
-    private View erk;
-    private com.baidu.tieba.personPolymeric.b.b joe;
-    private TextView jti;
-    private TextView jtj;
-    private ImageView jtk;
+    private View eUH;
+    private com.baidu.tieba.personPolymeric.b.b jYs;
+    private ImageView kdA;
+    private TextView kdy;
+    private TextView kdz;
     private View mRootView;
 
     public h(TbPageContext<?> tbPageContext) {
@@ -22,21 +22,21 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.card_privacy_setting_rootview);
-        this.erk = view.findViewById(R.id.top_divider_line);
-        this.jtk = (ImageView) view.findViewById(R.id.lock_img);
-        this.jti = (TextView) view.findViewById(R.id.one_public_tv);
-        this.jtj = (TextView) view.findViewById(R.id.card_hint_txt);
-        this.jti.setOnClickListener(this);
+        this.eUH = view.findViewById(R.id.top_divider_line);
+        this.kdA = (ImageView) view.findViewById(R.id.lock_img);
+        this.kdy = (TextView) view.findViewById(R.id.one_public_tv);
+        this.kdz = (TextView) view.findViewById(R.id.card_hint_txt);
+        this.kdy.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             am.setBackgroundResource(this.mRootView, R.color.cp_bg_line_d);
-            am.setBackgroundResource(this.erk, R.color.cp_bg_line_e);
-            am.setViewTextColor(this.jtj, R.color.cp_cont_d, 1);
-            am.setImageResource(this.jtk, R.drawable.pic_pop_key);
-            am.setViewTextColor(this.jti, R.color.cp_link_tip_c, 1);
+            am.setBackgroundResource(this.eUH, R.color.cp_bg_line_e);
+            am.setViewTextColor(this.kdz, R.color.cp_cont_d, 1);
+            am.setImageResource(this.kdA, R.drawable.pic_pop_key);
+            am.setViewTextColor(this.kdy, R.color.cp_link_tip_c, 1);
         }
         this.mSkinType = i;
     }
@@ -56,23 +56,23 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (this.erk != null) {
-            if (jVar.fOM) {
-                this.erk.setVisibility(8);
+        if (this.eUH != null) {
+            if (jVar.gtt) {
+                this.eUH.setVisibility(8);
             } else {
-                this.erk.setVisibility(0);
+                this.eUH.setVisibility(0);
             }
         }
     }
 
     public void b(com.baidu.tieba.personPolymeric.b.b bVar) {
-        this.joe = bVar;
+        this.jYs = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.joe != null && view == this.jti) {
-            this.joe.cwW();
+        if (view != null && this.jYs != null && view == this.kdy) {
+            this.jYs.cHH();
         }
     }
 }

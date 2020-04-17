@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.parallel;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.schedulers.h;
@@ -14,7 +13,7 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
-    final io.reactivex.parallel.a<? extends T> nAt;
+    final io.reactivex.parallel.a<? extends T> mTU;
     final int prefetch;
     final v scheduler;
 
@@ -27,10 +26,10 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
                 ((h) this.scheduler).a(length, new a(cVarArr, cVarArr2));
             } else {
                 for (int i = 0; i < length; i++) {
-                    a(i, cVarArr, cVarArr2, this.scheduler.dJI());
+                    a(i, cVarArr, cVarArr2, this.scheduler.dCG());
                 }
             }
-            this.nAt.a(cVarArr2);
+            this.mTU.a(cVarArr2);
         }
     }
 
@@ -46,23 +45,23 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
 
     /* loaded from: classes7.dex */
     final class a implements h.a {
-        final c<T>[] nAx;
+        final c<T>[] mTY;
         final c<? super T>[] subscribers;
 
         a(c<? super T>[] cVarArr, c<T>[] cVarArr2) {
             this.subscribers = cVarArr;
-            this.nAx = cVarArr2;
+            this.mTY = cVarArr2;
         }
 
         @Override // io.reactivex.internal.schedulers.h.a
         public void a(int i, v.c cVar) {
-            ParallelRunOn.this.a(i, this.subscribers, this.nAx, cVar);
+            ParallelRunOn.this.a(i, this.subscribers, this.mTY, cVar);
         }
     }
 
     @Override // io.reactivex.parallel.a
-    public int dJS() {
-        return this.nAt.dJS();
+    public int dCR() {
+        return this.mTU.dCR();
     }
 
     /* loaded from: classes7.dex */
@@ -139,7 +138,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
 
         final void schedule() {
             if (getAndIncrement() == 0) {
-                this.worker.D(this);
+                this.worker.I(this);
             }
         }
     }
@@ -225,7 +224,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
                         }
                     }
                 }
-                if (j2 != 0 && j != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j2 != 0 && j != Long.MAX_VALUE) {
                     this.requested.addAndGet(-j2);
                 }
                 int i5 = get();
@@ -323,7 +322,7 @@ public final class ParallelRunOn<T> extends io.reactivex.parallel.a<T> {
                         }
                     }
                 }
-                if (j2 != 0 && j != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j2 != 0 && j != Long.MAX_VALUE) {
                     this.requested.addAndGet(-j2);
                 }
                 int i5 = get();

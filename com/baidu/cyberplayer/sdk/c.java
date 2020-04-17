@@ -1,124 +1,86 @@
 package com.baidu.cyberplayer.sdk;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
-import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 /* loaded from: classes.dex */
 public class c {
-    private static String a = null;
-    private static CyberPlayerCoreProvider b = null;
+    private static c a;
+    private boolean b = true;
+    private String c = null;
+    private String d = null;
+    private boolean e = true;
+    private boolean f = true;
+    private String g = null;
+    private boolean h = false;
 
-    public static PlayerProvider a(int i, CyberPlayerManager.HttpDNS httpDNS) {
-        if (a(1)) {
-            return b.createCyberPlayer(i, httpDNS);
-        }
-        return null;
+    private c() {
     }
 
-    public static String a() {
-        return b != null ? b.getInitError() : a;
-    }
-
-    public static void a(String str) {
-        if (a(1)) {
-            b.stopPrefetch(str);
-        }
-    }
-
-    public static void a(String str, String str2, String str3, int i, int i2, CyberPlayerManager.HttpDNS httpDNS, String str4) {
-        if (!com.baidu.cyberplayer.sdk.remote.f.a().a(str, str2, str3, i, i2) && a(1)) {
-            b.prefetch(str, TextUtils.isEmpty(str2) ? "dumedia/6.14.2.2" : str2.indexOf("dumedia") == -1 ? str2 + " dumedia/" + SDKVersion.VERSION : str2, str3, i, i2, httpDNS, str4);
-        }
-    }
-
-    public static boolean a(int i) {
-        if (b != null) {
-            return b.isLoaded(i);
-        }
-        return false;
-    }
-
-    public static boolean a(Context context, ClassLoader classLoader, int i, Map<String, String> map) throws FileNotFoundException, ClassNotFoundException {
-        if (!a(i)) {
-            if (b == null) {
-                try {
-                    b = (CyberPlayerCoreProvider) Class.forName("com.baidu.media.duplayer.CyberPlayerCoreImpl", true, classLoader).newInstance();
-                    a = null;
-                } catch (ClassNotFoundException e) {
-                    throw e;
-                } catch (Exception e2) {
-                    a = e2.toString();
-                    b = null;
-                }
+    public static synchronized c a() {
+        c cVar;
+        synchronized (c.class) {
+            if (a == null) {
+                a = new c();
             }
-            if (b != null) {
-                try {
-                    b.init(context, i, map);
-                } catch (FileNotFoundException e3) {
-                    throw e3;
-                }
+            cVar = a;
+        }
+        return cVar;
+    }
+
+    public String a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            if (TextUtils.isEmpty(this.g)) {
+                String cfgValue = CyberCfgManager.getInstance().getCfgValue("update_core_server", "");
+                return TextUtils.isEmpty(cfgValue) ? "https://b.bdstatic.com/searchbox/androidvideo" : cfgValue;
             }
+            return this.g;
         }
-        return a(i);
+        return str;
     }
 
-    public static boolean a(byte[] bArr, int i, byte[] bArr2) {
-        if (a(1)) {
-            b.duplayerEncrypt(bArr, i, bArr2);
-            return true;
-        }
-        return false;
+    public void a(boolean z) {
+        this.h = z;
     }
 
-    public static String b() {
-        return b != null ? b.getCoreVersion() : "";
-    }
-
-    public static boolean b(String str) {
-        if (a(1)) {
-            return b.hasCacheFile(str);
-        }
-        return false;
-    }
-
-    public static CyberAudioRecorder c() {
-        if (a(5)) {
-            return b.createCyberAudioRecorder();
-        }
-        return null;
-    }
-
-    public static void d() {
-        if (a(1)) {
-            b.forceCleanFilecache();
+    public boolean b() {
+        if (!this.b) {
+            CyberLog.i("CyberGlobalSetting", "isStatisticsUploadEnable closed");
+            return false;
+        } else if (g()) {
+            return false;
+        } else {
+            return CyberCfgManager.getInstance().getCfgBoolValue("enable_upload_session_log", true);
         }
     }
 
-    public static boolean e() {
-        return b != null;
+    public String c() {
+        if (TextUtils.isEmpty(this.c)) {
+            String cfgValue = CyberCfgManager.getInstance().getCfgValue("upload_session_server", "");
+            return TextUtils.isEmpty(cfgValue) ? "https://browserkernel.baidu.com/kw?r_en=true&type=" : cfgValue;
+        }
+        return this.c;
     }
 
-    public static void f() {
-        if (a(1)) {
-            b.updateCfg();
+    public String d() {
+        if (TextUtils.isEmpty(this.d)) {
+            return CyberCfgManager.getInstance().a(CyberCfgManager.getInstance().getCfgValue("update_cloud_cfg_server", "https://browserkernel.baidu.com/video"));
         }
+        return this.d;
     }
 
-    public static long g() {
-        if (a(1)) {
-            return b.caculateFolderSize();
+    public boolean e() {
+        if (g()) {
+            return false;
         }
-        return 0L;
+        return this.e;
     }
 
-    public static HashMap<Integer, Long> h() {
-        if (a(1)) {
-            return b.getSystemInfraInfo();
-        }
-        return null;
+    public boolean f() {
+        return this.f && !g();
+    }
+
+    public synchronized boolean g() {
+        CyberLog.d("CyberGlobalSetting", "isSFSwitchEnabled:" + this.h);
+        return this.h;
     }
 }

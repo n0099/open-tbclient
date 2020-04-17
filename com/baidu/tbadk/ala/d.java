@@ -16,7 +16,7 @@ public interface d {
 
     boolean a(int i, String str, LinearLayout.LayoutParams layoutParams);
 
-    View ayF();
+    View aGQ();
 
     void destroy();
 

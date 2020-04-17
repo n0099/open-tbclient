@@ -26,7 +26,7 @@ public class d extends ab {
         if (DEBUG) {
             Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (eVar != null && eVar.JI()) {
+        if (eVar != null && eVar.Ru()) {
             if (DEBUG) {
                 Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
             }
@@ -51,35 +51,35 @@ public class d extends ab {
                 return false;
             }
             boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-            com.baidu.swan.apps.core.d.e GH = ((SwanAppActivity) context).GH();
-            if (GH == null) {
+            com.baidu.swan.apps.core.d.e Ou = ((SwanAppActivity) context).Ou();
+            if (Ou == null) {
                 com.baidu.swan.apps.console.c.e("showLoading", "none fragment");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
                 return false;
             }
-            com.baidu.swan.apps.core.d.b Oq = GH.Oq();
-            if (!(Oq instanceof a.InterfaceC0283a)) {
+            com.baidu.swan.apps.core.d.b We = Ou.We();
+            if (!(We instanceof a.InterfaceC0313a)) {
                 com.baidu.swan.apps.console.c.e("showLoading", "fragment not support");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
                 return false;
             }
-            com.baidu.swan.apps.res.widget.floatlayer.a GC = ((a.InterfaceC0283a) Oq).GC();
-            if (GC == null) {
+            com.baidu.swan.apps.res.widget.floatlayer.a Op = ((a.InterfaceC0313a) We).Op();
+            if (Op == null) {
                 com.baidu.swan.apps.console.c.e("showLoading", "can't get floatLayer");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
                 return false;
             }
-            View view = GC.getView();
+            View view = Op.getView();
             if (view instanceof LoadingView) {
                 loadingView = (LoadingView) view;
             } else {
                 loadingView = new LoadingView(context);
-                GC.ap(loadingView);
+                Op.aq(loadingView);
             }
             if (!TextUtils.isEmpty(optString)) {
                 loadingView.setMsg(optString);
             }
-            GC.setMask(optBoolean);
+            Op.setMask(optBoolean);
             com.baidu.swan.apps.console.c.i("showLoading", "show loading success");
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;

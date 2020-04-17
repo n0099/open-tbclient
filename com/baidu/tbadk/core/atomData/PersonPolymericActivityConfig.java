@@ -9,7 +9,6 @@ public class PersonPolymericActivityConfig extends IntentConfig {
     public static final String IS_BIGV = "is_bigv";
     public static final String IS_SHOW_THREAD_TOP = "is_show_thread_top";
     public static final String IS_USER_SELF = "is_user_self";
-    public static final String KEY_URI = "key_uri";
     public static final String RESOURCE_TYPE = "resouce_type";
 
     public PersonPolymericActivityConfig(Context context) {
@@ -45,7 +44,7 @@ public class PersonPolymericActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra("key_uri", uri);
+            intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }
 }

@@ -19,14 +19,14 @@ public class d {
         return this.error == null;
     }
 
-    public String bT(String str, String str2) {
+    public String ce(String str, String str2) {
         if (isSuccess()) {
-            return a.pH(str);
+            return a.qU(str);
         }
-        return a.M(str, str2, apR());
+        return a.M(str, str2, ayd());
     }
 
-    public String apR() {
+    public String ayd() {
         return this.error;
     }
 
@@ -34,11 +34,11 @@ public class d {
         return this.data;
     }
 
-    public static Object apS() {
+    public static Object aye() {
         return new JsObject();
     }
 
-    public static String hW(int i) {
+    public static String id(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -50,7 +50,7 @@ public class d {
             default:
                 return "unknown";
             case 6:
-                return "array";
+                return com.baidu.fsg.base.statistics.b.j;
             case 7:
                 return "string";
             case 8:
@@ -66,11 +66,11 @@ public class d {
         }
     }
 
-    public static d X(@Nullable Object obj) {
+    public static d Y(@Nullable Object obj) {
         return new d(null, obj);
     }
 
-    public static d pI(@NonNull String str) {
+    public static d qV(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -78,7 +78,7 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String M = a.M(str, str2, dVar.apR());
+        String M = a.M(str, str2, dVar.ayd());
         bVar.throwJSException(JSExceptionType.Error, M);
         return M;
     }

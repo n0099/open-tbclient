@@ -12,7 +12,6 @@ import com.baidu.down.statistic.ThreadSpeedStat;
 import com.baidu.down.utils.Utils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidubce.http.Headers;
-import com.google.android.exoplayer2.Format;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -191,7 +190,7 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
             } else if (!this.mTrunked) {
                 String onGetResponseHeader3 = iCommonRequestHandler.onGetResponseHeader("Transfer-Encoding");
                 if (onGetResponseHeader3 != null && ("trunked".equalsIgnoreCase(onGetResponseHeader3) || HTTP.CHUNK_CODING.equalsIgnoreCase(onGetResponseHeader3))) {
-                    this.mFileTotalBytes = Format.OFFSET_SAMPLE_RELATIVE;
+                    this.mFileTotalBytes = Long.MAX_VALUE;
                     this.mTrunked = true;
                     sendFileLengthMessage();
                     return 0L;

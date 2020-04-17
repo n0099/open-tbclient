@@ -19,18 +19,18 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NoDataView extends LinearLayout {
-    private TbImageView dgl;
-    private LinearLayout dgm;
-    private TextView dgn;
-    private TextView dgo;
-    private TextView dgp;
-    private TBSpecificationBtn dgq;
-    private TBSpecificationBtn dgr;
-    private TBSpecificationBtn dgs;
-    private int dgt;
-    private View dgu;
-    private NoDataViewFactory.ImgType dgv;
-    private int dgw;
+    private TbImageView dFI;
+    private LinearLayout dFJ;
+    private TextView dFK;
+    private TextView dFL;
+    private TextView dFM;
+    private TBSpecificationBtn dFN;
+    private TBSpecificationBtn dFO;
+    private TBSpecificationBtn dFP;
+    private int dFQ;
+    private View dFR;
+    private NoDataViewFactory.ImgType dFS;
+    private int dFT;
     private Context mContext;
     private View mRootView;
 
@@ -47,31 +47,31 @@ public class NoDataView extends LinearLayout {
 
     private void init(Context context, AttributeSet attributeSet) {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.no_data_view, this);
-        this.dgl = (TbImageView) this.mRootView.findViewById(R.id.iv_no_data_img);
-        this.dgl.setDefaultBgResource(0);
-        this.dgl.setDefaultResource(0);
-        this.dgl.setDefaultErrorResource(0);
-        this.dgm = (LinearLayout) this.mRootView.findViewById(R.id.title_container);
-        this.dgn = (TextView) this.mRootView.findViewById(R.id.tv_text_reamrk);
-        this.dgo = (TextView) this.mRootView.findViewById(R.id.tv_subtitle);
-        this.dgp = (TextView) this.mRootView.findViewById(R.id.tv_title);
-        this.dgq = (TBSpecificationBtn) this.mRootView.findViewById(R.id.btn_func);
+        this.dFI = (TbImageView) this.mRootView.findViewById(R.id.iv_no_data_img);
+        this.dFI.setDefaultBgResource(0);
+        this.dFI.setDefaultResource(0);
+        this.dFI.setDefaultErrorResource(0);
+        this.dFJ = (LinearLayout) this.mRootView.findViewById(R.id.title_container);
+        this.dFK = (TextView) this.mRootView.findViewById(R.id.tv_text_reamrk);
+        this.dFL = (TextView) this.mRootView.findViewById(R.id.tv_subtitle);
+        this.dFM = (TextView) this.mRootView.findViewById(R.id.tv_title);
+        this.dFN = (TBSpecificationBtn) this.mRootView.findViewById(R.id.btn_func);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-        this.dgq.setTextSize(R.dimen.tbds42);
-        this.dgq.setConfig(bVar);
-        this.dgu = (LinearLayout) this.mRootView.findViewById(R.id.two_button_layout);
-        aHF();
+        this.dFN.setTextSize(R.dimen.tbds42);
+        this.dFN.setConfig(bVar);
+        this.dFR = (LinearLayout) this.mRootView.findViewById(R.id.two_button_layout);
+        aPX();
     }
 
-    private void aHF() {
+    private void aPX() {
         int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
         if (equipmentHeight > 0) {
             int i = (int) (equipmentHeight * 0.11d);
-            ViewGroup.LayoutParams layoutParams = this.dgl.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.dFI.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.dgl.setLayoutParams(marginLayoutParams);
+                this.dFI.setLayoutParams(marginLayoutParams);
             }
         }
     }
@@ -87,98 +87,98 @@ public class NoDataView extends LinearLayout {
             ((TbPageContext) eVar).getLayoutMode().setNightMode(i == 1);
             ((TbPageContext) eVar).getLayoutMode().onModeChanged(this);
         }
-        if (this.dgq != null) {
-            this.dgq.aHS();
+        if (this.dFN != null) {
+            this.dFN.aQp();
         }
-        if (this.dgr != null) {
-            this.dgr.aHS();
+        if (this.dFO != null) {
+            this.dFO.aQp();
         }
-        if (this.dgs != null) {
-            this.dgs.aHS();
+        if (this.dFP != null) {
+            this.dFP.aQp();
         }
-        if (this.dgv == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.dgl.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_08));
-        } else if (this.dgv == NoDataViewFactory.ImgType.NODATA) {
-            this.dgl.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_05));
-        } else if (this.dgv == NoDataViewFactory.ImgType.LOCAL) {
-            this.dgl.setImageBitmap(am.getBitmap565Quality(this.dgw));
-        } else if (this.dgv == NoDataViewFactory.ImgType.ANTI) {
-            this.dgl.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_05));
-        } else if (this.dgv == NoDataViewFactory.ImgType.NETERROR) {
-            this.dgl.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_08));
+        if (this.dFS == NoDataViewFactory.ImgType.WEBVIEW) {
+            this.dFI.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_08));
+        } else if (this.dFS == NoDataViewFactory.ImgType.NODATA) {
+            this.dFI.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_05));
+        } else if (this.dFS == NoDataViewFactory.ImgType.LOCAL) {
+            this.dFI.setImageBitmap(am.getBitmap565Quality(this.dFT));
+        } else if (this.dFS == NoDataViewFactory.ImgType.ANTI) {
+            this.dFI.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_05));
+        } else if (this.dFS == NoDataViewFactory.ImgType.NETERROR) {
+            this.dFI.setImageBitmap(am.getBitmap565Quality(R.drawable.new_pic_emotion_08));
         } else {
-            this.dgl.setImageBitmap(am.getBitmap565Quality(this.dgt));
+            this.dFI.setImageBitmap(am.getBitmap565Quality(this.dFQ));
         }
     }
 
     public void setTextOption(NoDataViewFactory.d dVar) {
         if (dVar != null) {
             if (!TextUtils.isEmpty(dVar.mTitle)) {
-                this.dgp.setText(dVar.mTitle);
-                this.dgp.setVisibility(0);
+                this.dFM.setText(dVar.mTitle);
+                this.dFM.setVisibility(0);
             } else {
-                this.dgp.setVisibility(8);
+                this.dFM.setVisibility(8);
             }
             if (!TextUtils.isEmpty(dVar.mSubTitle)) {
-                this.dgo.setVisibility(0);
-                this.dgo.setText(dVar.mSubTitle);
-                if (TextUtils.isEmpty(dVar.mTitle) && dVar.dgE >= 0) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dgo.getLayoutParams();
-                    layoutParams.topMargin = dVar.dgE;
-                    this.dgo.setLayoutParams(layoutParams);
+                this.dFL.setVisibility(0);
+                this.dFL.setText(dVar.mSubTitle);
+                if (TextUtils.isEmpty(dVar.mTitle) && dVar.dGb >= 0) {
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dFL.getLayoutParams();
+                    layoutParams.topMargin = dVar.dGb;
+                    this.dFL.setLayoutParams(layoutParams);
                 }
                 if (dVar.mDrawableId != 0) {
                     setSubTitleCompoundDrawable(dVar.mDrawableId);
                 }
             } else {
-                this.dgo.setVisibility(8);
+                this.dFL.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(dVar.dgD)) {
-                this.dgn.setText(dVar.dgD);
-                this.dgn.setVisibility(0);
+            if (!TextUtils.isEmpty(dVar.dGa)) {
+                this.dFK.setText(dVar.dGa);
+                this.dFK.setVisibility(0);
                 return;
             }
-            this.dgn.setVisibility(8);
+            this.dFK.setVisibility(8);
         }
     }
 
     public void setImgOption(NoDataViewFactory.c cVar) {
         if (cVar != null) {
-            this.dgv = cVar.dgC;
-            this.dgw = cVar.dgw;
-            switch (cVar.dgC) {
+            this.dFS = cVar.dFZ;
+            this.dFT = cVar.dFT;
+            switch (cVar.dFZ) {
                 case FINDBAR:
-                    this.dgt = R.drawable.new_pic_emotion_01;
+                    this.dFQ = R.drawable.new_pic_emotion_01;
                     break;
                 case EMOTION:
-                    this.dgt = R.drawable.new_pic_emotion_02;
+                    this.dFQ = R.drawable.new_pic_emotion_02;
                     break;
                 case CREATE:
-                    this.dgt = R.drawable.new_pic_emotion_03;
+                    this.dFQ = R.drawable.new_pic_emotion_03;
                     break;
                 case COLLECTION:
-                    this.dgt = R.drawable.new_pic_emotion_04;
+                    this.dFQ = R.drawable.new_pic_emotion_04;
                     break;
                 case NODATA:
-                    this.dgt = R.drawable.new_pic_emotion_05;
+                    this.dFQ = R.drawable.new_pic_emotion_05;
                     break;
                 case ANTI:
-                    this.dgt = R.drawable.new_pic_emotion_05;
+                    this.dFQ = R.drawable.new_pic_emotion_05;
                     break;
                 case SINGALL:
-                    this.dgt = R.drawable.new_pic_emotion_06;
+                    this.dFQ = R.drawable.new_pic_emotion_06;
                     break;
                 case GIFT:
-                    this.dgt = R.drawable.new_pic_emotion_07;
+                    this.dFQ = R.drawable.new_pic_emotion_07;
                     break;
                 case WEBVIEW:
-                    this.dgt = R.drawable.new_pic_emotion_08;
+                    this.dFQ = R.drawable.new_pic_emotion_08;
                     break;
                 case NETERROR:
-                    this.dgt = R.drawable.new_pic_emotion_08;
+                    this.dFQ = R.drawable.new_pic_emotion_08;
                     break;
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dgl.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dFI.getLayoutParams();
             if (cVar.mMarginTop >= 0) {
                 layoutParams.setMargins(0, cVar.mMarginTop, 0, 0);
             }
@@ -186,41 +186,41 @@ public class NoDataView extends LinearLayout {
                 layoutParams.height = cVar.mHeight;
                 layoutParams.width = cVar.mWidth;
             }
-            this.dgl.setLayoutParams(layoutParams);
+            this.dFI.setLayoutParams(layoutParams);
         }
     }
 
     public void setButtonOption(NoDataViewFactory.b bVar) {
         if (bVar == null) {
-            this.dgq.setVisibility(8);
-            this.dgu.setVisibility(8);
+            this.dFN.setVisibility(8);
+            this.dFR.setVisibility(8);
             return;
         }
-        NoDataViewFactory.a aVar = bVar.dgz;
-        NoDataViewFactory.a aVar2 = bVar.dgA;
+        NoDataViewFactory.a aVar = bVar.dFW;
+        NoDataViewFactory.a aVar2 = bVar.dFX;
         if (aVar2 == null && aVar != null) {
-            this.dgq.setOnClickListener(aVar.dgy);
-            this.dgq.setText(aVar.mText);
-            this.dgq.setVisibility(0);
-            if (bVar.dgB >= 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dgq.getLayoutParams();
-                layoutParams.topMargin = bVar.dgB;
-                this.dgq.setLayoutParams(layoutParams);
+            this.dFN.setOnClickListener(aVar.dFV);
+            this.dFN.setText(aVar.mText);
+            this.dFN.setVisibility(0);
+            if (bVar.dFY >= 0) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dFN.getLayoutParams();
+                layoutParams.topMargin = bVar.dFY;
+                this.dFN.setLayoutParams(layoutParams);
             }
         }
         if (aVar2 != null && aVar != null) {
-            this.dgr = (TBSpecificationBtn) this.dgu.findViewById(R.id.btn_left);
-            this.dgs = (TBSpecificationBtn) this.dgu.findViewById(R.id.btn_right);
+            this.dFO = (TBSpecificationBtn) this.dFR.findViewById(R.id.btn_left);
+            this.dFP = (TBSpecificationBtn) this.dFR.findViewById(R.id.btn_right);
             com.baidu.tbadk.core.view.commonBtn.b bVar2 = new com.baidu.tbadk.core.view.commonBtn.b();
-            this.dgr.setTextSize(R.dimen.ds32);
-            this.dgr.setConfig(bVar2);
-            this.dgs.setTextSize(R.dimen.ds32);
-            this.dgs.setConfig(bVar2);
-            this.dgr.setOnClickListener(aVar.dgy);
-            this.dgr.setText(aVar.mText);
-            this.dgs.setOnClickListener(aVar2.dgy);
-            this.dgs.setText(aVar2.mText);
-            this.dgu.setVisibility(0);
+            this.dFO.setTextSize(R.dimen.ds32);
+            this.dFO.setConfig(bVar2);
+            this.dFP.setTextSize(R.dimen.ds32);
+            this.dFP.setConfig(bVar2);
+            this.dFO.setOnClickListener(aVar.dFV);
+            this.dFO.setText(aVar.mText);
+            this.dFP.setOnClickListener(aVar2.dFV);
+            this.dFP.setText(aVar2.mText);
+            this.dFR.setVisibility(0);
         }
     }
 
@@ -228,26 +228,26 @@ public class NoDataView extends LinearLayout {
         onChangeSkinType(eVar, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void aHG() {
-        this.dgl.setImageDrawable(null);
-        this.dgl.startLoad(null, 10, false);
+    public void aPY() {
+        this.dFI.setImageDrawable(null);
+        this.dFI.startLoad(null, 10, false);
     }
 
     public void setTitleTextColor(int i) {
-        if (this.dgp != null) {
-            am.setViewTextColor(this.dgp, i, 1);
+        if (this.dFM != null) {
+            am.setViewTextColor(this.dFM, i, 1);
         }
     }
 
     public void setSubTitleTextColor(int i) {
-        if (this.dgo != null) {
-            am.setViewTextColor(this.dgo, i, 1);
+        if (this.dFL != null) {
+            am.setViewTextColor(this.dFL, i, 1);
         }
     }
 
     public void setRemarkTextColor(int i) {
-        if (this.dgn != null) {
-            am.setViewTextColor(this.dgn, i, 1);
+        if (this.dFK != null) {
+            am.setViewTextColor(this.dFK, i, 1);
         }
     }
 
@@ -256,18 +256,18 @@ public class NoDataView extends LinearLayout {
         int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds32);
         int dimens2 = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds8);
         drawable.setBounds(0, 0, dimens, dimens);
-        this.dgo.setCompoundDrawablePadding(dimens2);
-        this.dgo.setCompoundDrawables(drawable, null, null, null);
+        this.dFL.setCompoundDrawablePadding(dimens2);
+        this.dFL.setCompoundDrawables(drawable, null, null, null);
     }
 
     public void setSubTitleTextSize(int i) {
-        if (this.dgo != null) {
-            this.dgo.setTextSize(i);
+        if (this.dFL != null) {
+            this.dFL.setTextSize(i);
         }
     }
 
     public TextView getSuTextView() {
-        return this.dgo;
+        return this.dFL;
     }
 
     public void a(NoDataViewFactory.c cVar, com.baidu.adp.base.e<?> eVar) {
@@ -276,8 +276,8 @@ public class NoDataView extends LinearLayout {
     }
 
     public void setTitleContainerMargin(@DimenRes int i, @DimenRes int i2) {
-        if (this.dgm != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dgm.getLayoutParams();
+        if (this.dFJ != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dFJ.getLayoutParams();
             layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, i);
             layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, i2);
         }

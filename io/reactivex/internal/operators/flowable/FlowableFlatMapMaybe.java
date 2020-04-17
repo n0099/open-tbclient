@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -19,7 +18,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.nyr.a((j) new FlatMapMaybeSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.mRJ.a((j) new FlatMapMaybeSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes7.dex */
@@ -50,7 +49,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
                 if (this.maxConcurrency == Integer.MAX_VALUE) {
-                    dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                    dVar.request(Long.MAX_VALUE);
                 } else {
                     dVar.request(this.maxConcurrency);
                 }
@@ -67,7 +66,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
                     oVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 this.s.cancel();
                 onError(th);
             }
@@ -157,7 +156,7 @@ public final class FlowableFlatMapMaybe<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.dJD());
+                aVar = new io.reactivex.internal.queue.a<>(io.reactivex.g.dCB());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }

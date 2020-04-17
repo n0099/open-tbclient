@@ -20,20 +20,20 @@ import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 /* loaded from: classes9.dex */
 public class b {
-    private a hRR;
-    private ArrayList<m> hRS;
     public boolean hasMore;
+    private a iBI;
+    private ArrayList<m> iBJ;
     private BdUniqueId uniqueId;
-    private boolean hRQ = false;
+    private boolean iBH = false;
     private long lastId = 0;
-    private com.baidu.adp.framework.listener.a hRT = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
+    private com.baidu.adp.framework.listener.a iBK = new com.baidu.adp.framework.listener.a(1002211, CmdConfigSocket.CMD_AGREE_ME) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = false;
             if (responsedMessage != null) {
                 if (responsedMessage.hasError()) {
-                    if (b.this.hRR != null) {
-                        b.this.hRR.onFailed(responsedMessage.getErrorString());
+                    if (b.this.iBI != null) {
+                        b.this.iBI.onFailed(responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -56,7 +56,7 @@ public class b {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void al(ArrayList<m> arrayList);
+        void an(ArrayList<m> arrayList);
 
         void onFailed(String str);
     }
@@ -69,26 +69,26 @@ public class b {
     public b(TbPageContext tbPageContext, a aVar) {
         if (tbPageContext != null) {
             this.uniqueId = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.hRT);
-            this.hRR = aVar;
+            tbPageContext.registerListener(this.iBK);
+            this.iBI = aVar;
         }
     }
 
-    public void bNo() {
-        aAb();
-        aAa();
+    public void bXP() {
+        aIo();
+        aIn();
     }
 
-    public void bGM() {
+    public void bRn() {
         this.lastId = 0L;
-        aAa();
+        aIn();
     }
 
-    public void bck() {
-        aAa();
+    public void blb() {
+        aIn();
     }
 
-    private void aAb() {
+    private void aIo() {
         new BdAsyncTask<Void, Void, ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a>>() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -97,8 +97,8 @@ public class b {
             public ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList = new ArrayList<>();
-                l<byte[]> cp = com.baidu.tbadk.core.c.a.aEF().cp("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
-                if (cp != null && (bArr = cp.get("agree_me_cache_key")) != null) {
+                l<byte[]> cA = com.baidu.tbadk.core.c.a.aMT().cA("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
+                if (cA != null && (bArr = cA.get("agree_me_cache_key")) != null) {
                     try {
                         AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
                         if (agreeMeResIdl.data != null) {
@@ -130,7 +130,7 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    private void aAa() {
+    private void aIn() {
         AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
         agreeMeRequestMessage.id = this.lastId;
         agreeMeRequestMessage.setTag(this.uniqueId);
@@ -139,41 +139,41 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList) {
-        if (!this.hRQ) {
-            if (v.isEmpty(this.hRS)) {
-                this.hRS = new ArrayList<>();
+        if (!this.iBH) {
+            if (v.isEmpty(this.iBJ)) {
+                this.iBJ = new ArrayList<>();
             } else {
-                this.hRS.clear();
+                this.iBJ.clear();
             }
-            this.hRS.addAll(arrayList);
-            m mVar = (m) v.getItem(this.hRS, this.hRS.size() - 1);
+            this.iBJ.addAll(arrayList);
+            m mVar = (m) v.getItem(this.iBJ, this.iBJ.size() - 1);
             if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
                 this.lastId = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
             }
-            if (this.hRR != null && !v.isEmpty(this.hRS)) {
-                this.hRR.al(this.hRS);
+            if (this.iBI != null && !v.isEmpty(this.iBJ)) {
+                this.iBI.an(this.iBJ);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList, boolean z) {
-        this.hRQ = true;
-        if (v.isEmpty(this.hRS)) {
-            this.hRS = new ArrayList<>();
+        this.iBH = true;
+        if (v.isEmpty(this.iBJ)) {
+            this.iBJ = new ArrayList<>();
         }
         if (!z) {
-            this.hRS.addAll(arrayList);
+            this.iBJ.addAll(arrayList);
         } else {
-            this.hRS.clear();
-            this.hRS.addAll(0, arrayList);
+            this.iBJ.clear();
+            this.iBJ.addAll(0, arrayList);
         }
-        m mVar = (m) v.getItem(this.hRS, this.hRS.size() - 1);
+        m mVar = (m) v.getItem(this.iBJ, this.iBJ.size() - 1);
         if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
             this.lastId = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
         }
-        if (this.hRR != null) {
-            this.hRR.al(this.hRS);
+        if (this.iBI != null) {
+            this.iBI.an(this.iBJ);
         }
     }
 }

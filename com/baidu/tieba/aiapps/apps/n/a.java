@@ -7,16 +7,16 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes12.dex */
 public class a {
     public static boolean getNightModeSwitcherState() {
-        return com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState();
+        return com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState();
     }
 
-    public static void hL(boolean z) {
+    public static void iJ(boolean z) {
         Intent intent = new Intent("com.baidu.swan.skin.nightmodechanged");
         intent.putExtra("key_night_mode", z);
         LocalBroadcastManager.getInstance(AppRuntime.getAppContext()).sendBroadcast(intent);
     }
 
-    public static void bbp() {
+    public static void bjs() {
         int defaultNightMode = AppCompatDelegate.getDefaultNightMode();
         int i = getNightModeSwitcherState() ? 2 : 1;
         if (defaultNightMode != i) {

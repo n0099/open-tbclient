@@ -1,9 +1,16 @@
 package com.baidu.adp.widget.ListView;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
-public interface t {
-    boolean b(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
+public class t extends com.baidu.tieba.card.data.b {
+    public static final BdUniqueId Vm = BdUniqueId.gen();
+    private int position = 0;
+    public int resId = R.drawable.new_pic_emotion_06;
+    public String showText;
+
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return Vm;
+    }
 }

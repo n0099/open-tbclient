@@ -6,8 +6,8 @@ import org.json.JSONObject;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class h {
-    private static String bcF;
-    public static final h bcG = new h();
+    private static String bAT;
+    public static final h bAU = new h();
 
     private h() {
     }
@@ -15,39 +15,39 @@ public final class h {
     public final void d(int i, JSONObject jSONObject) {
         q.j(jSONObject, "jsonObject");
         if (i == 0) {
-            M(jSONObject);
+            X(jSONObject);
         }
     }
 
-    private final void M(JSONObject jSONObject) {
+    private final void X(JSONObject jSONObject) {
         String optString = jSONObject.optString("uk");
         f.c(Long.valueOf(jSONObject.optLong("refresh_time")));
-        com.baidu.swan.apps.storage.c.b afu = com.baidu.swan.apps.storage.c.h.afu();
-        afu.putString("alliance_login_uk", optString);
-        Long Jv = f.Jv();
-        if (Jv != null) {
-            afu.putLong("ma_bduss_refresh_time", Jv.longValue());
+        com.baidu.swan.apps.storage.c.b anz = com.baidu.swan.apps.storage.c.h.anz();
+        anz.putString("alliance_login_uk", optString);
+        Long Rh = f.Rh();
+        if (Rh != null) {
+            anz.putLong("ma_bduss_refresh_time", Rh.longValue());
         }
     }
 
-    private final String JA() {
-        com.baidu.swan.apps.storage.c.b afu = com.baidu.swan.apps.storage.c.h.afu();
-        if (afu != null) {
-            return afu.getString("alliance_login_uk", null);
+    private final String Rm() {
+        com.baidu.swan.apps.storage.c.b anz = com.baidu.swan.apps.storage.c.h.anz();
+        if (anz != null) {
+            return anz.getString("alliance_login_uk", null);
         }
         return null;
     }
 
     public final String getUid() {
-        String str = bcF;
+        String str = bAT;
         if (str == null || l.isBlank(str)) {
-            bcF = JA();
+            bAT = Rm();
         }
-        return bcF;
+        return bAT;
     }
 
-    public final void JB() {
-        com.baidu.swan.apps.storage.c.h.afu().putString("alliance_login_uk", "");
-        bcF = null;
+    public final void Rn() {
+        com.baidu.swan.apps.storage.c.h.anz().putString("alliance_login_uk", "");
+        bAT = null;
     }
 }

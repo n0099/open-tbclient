@@ -1,5 +1,5 @@
 package com.baidu.searchbox.unitedscheme;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public class UnitedSchemeStatusCode {
     public static final int ERR_ACL_CHECK_FAIL = 402;
     public static final int ERR_ACTION_NOT_FOUND = 302;

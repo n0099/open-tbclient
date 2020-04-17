@@ -1,10 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-public class ao {
-    public Object ext;
-    public String forumId;
-    public String forumName;
-    public boolean gti = false;
-    public int pn;
-    public String stType;
+
+import java.util.ArrayList;
+/* loaded from: classes8.dex */
+public interface ao {
+    void a(int i, int i2, av avVar, ArrayList<com.baidu.adp.widget.ListView.m> arrayList);
 }

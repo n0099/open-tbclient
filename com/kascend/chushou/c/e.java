@@ -2,11 +2,13 @@ package com.kascend.chushou.c;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.tbadk.img.effect.FilterImageAction;
-import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.tbadk.TbConfig;
 import com.coremedia.iso.boxes.MetaBox;
@@ -83,7 +85,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static ParserRet r(JSONObject jSONObject, String str) {
+    public static ParserRet t(JSONObject jSONObject, String str) {
         Exception exc;
         ArrayList arrayList;
         String str2;
@@ -251,7 +253,7 @@ public class e {
                                                         chatInfo.mPrivilegeInfo.mAvatarFrame = jSONObject4.optString("avatarFrame");
                                                         chatInfo.mGift.mRepeatedBg = jSONObject4.optString("ucombo_bg");
                                                         if (jSONObject4.has("nav")) {
-                                                            chatInfo.mItem = a.dx(jSONObject4.optJSONObject("nav"));
+                                                            chatInfo.mItem = a.dA(jSONObject4.optJSONObject("nav"));
                                                         }
                                                         if (jSONObject4.has("gift")) {
                                                             JSONObject jSONObject5 = jSONObject4.getJSONObject("gift");
@@ -273,7 +275,7 @@ public class e {
                                                         if (jSONObject4.has("coolNickname")) {
                                                             JSONObject jSONObject6 = jSONObject4.getJSONObject("coolNickname");
                                                             chatInfo.mCoolNickname = new RichTextPlus();
-                                                            chatInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.ST(jSONObject6.optString("nickname"));
+                                                            chatInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject6.optString("nickname"));
                                                             chatInfo.mCoolNickname.mFontColors = (ArrayList) a(jSONObject6.optJSONArray("colors"));
                                                             if (!h.isEmpty(chatInfo.mCoolNickname.mNicknameRichText)) {
                                                                 chatInfo.mCoolNickname.mNickName = "";
@@ -289,7 +291,7 @@ public class e {
                                                         if (jSONObject4.has("coolContent")) {
                                                             JSONObject jSONObject7 = jSONObject4.getJSONObject("coolContent");
                                                             chatInfo.mCoolContent = new RichTextPlus();
-                                                            chatInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.ST(jSONObject7.optString("content"));
+                                                            chatInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject7.optString("content"));
                                                             chatInfo.mCoolContent.mFontColors = (ArrayList) a(jSONObject7.optJSONArray("colors"));
                                                             if (!h.isEmpty(chatInfo.mCoolContent.mContentRichText)) {
                                                                 chatInfo.mCoolContent.mContent = "";
@@ -305,8 +307,8 @@ public class e {
                                                         if (jSONObject4.has("coolMessage")) {
                                                             JSONObject jSONObject8 = jSONObject4.getJSONObject("coolMessage");
                                                             chatInfo.mCoolMessage = new RichTextPlus();
-                                                            chatInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.ST(jSONObject8.optString("content"));
-                                                            chatInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.ST(jSONObject8.optString("nickname"));
+                                                            chatInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject8.optString("content"));
+                                                            chatInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject8.optString("nickname"));
                                                             chatInfo.mCoolMessage.mBgImage = jSONObject8.optString("bgImage");
                                                             if (!h.isEmpty(chatInfo.mCoolMessage.mNicknameRichText)) {
                                                                 chatInfo.mCoolMessage.mNickName = "";
@@ -332,7 +334,7 @@ public class e {
                                                     }
                                                 }
                                                 chatInfo.mCreatedTime = optJSONObject.optLong("createdTime");
-                                                chatInfo.mContentRichText = tv.chushou.zues.toolkit.richtext.b.ST(chatInfo.mContent);
+                                                chatInfo.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(chatInfo.mContent);
                                                 if (chatInfo.mContentRichText != null && chatInfo.mContentRichText.size() > 0) {
                                                     chatInfo.mContent = "";
                                                     StringBuilder sb5 = new StringBuilder();
@@ -343,7 +345,7 @@ public class e {
                                                     }
                                                     chatInfo.mContent = sb5.toString();
                                                 }
-                                                chatInfo.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.ST(chatInfo.mUserNickname);
+                                                chatInfo.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(chatInfo.mUserNickname);
                                                 if (chatInfo.mNicknameRichText != null && chatInfo.mNicknameRichText.size() > 0) {
                                                     chatInfo.mPrivilegeInfo.mRichNickname = chatInfo.mNicknameRichText;
                                                     chatInfo.mUserNickname = "";
@@ -763,7 +765,7 @@ public class e {
                                                         OnlineVipItem onlineVipItem = new OnlineVipItem();
                                                         onlineVipItem.mUid = optJSONObject4.optString("uid");
                                                         onlineVipItem.mAvatar = optJSONObject4.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-                                                        onlineVipItem.mScore = optJSONObject4.optString("score");
+                                                        onlineVipItem.mScore = optJSONObject4.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                                                         onlineVip4.mOnlineVipItems.add(onlineVipItem);
                                                     }
                                                 }
@@ -1123,7 +1125,7 @@ public class e {
                                                                     micMemberInfo.nickname = optJSONObject6.optString("nickname");
                                                                     micMemberInfo.contributePoint = optJSONObject6.optLong("contributePoint");
                                                                     micMemberInfo.contributeRank = optJSONObject6.optInt("contributeRank");
-                                                                    micMemberInfo.order = optJSONObject6.optInt("order");
+                                                                    micMemberInfo.order = optJSONObject6.optInt(IMConstants.SERVICE_TYPE_ORDER);
                                                                     micMemberInfo.micStatus = optJSONObject6.optInt("micStatus");
                                                                     arrayList37.add(micMemberInfo);
                                                                 } catch (Exception e8) {
@@ -1278,39 +1280,39 @@ public class e {
                                                 } else if (optInt == 10006) {
                                                     int optInt2 = optJSONObject3.optInt("style", -1);
                                                     if (optInt2 == 1) {
-                                                        com.kascend.chushou.player.ui.h5.c.a dJ = dJ(optJSONObject3);
+                                                        com.kascend.chushou.player.ui.h5.c.a dM = dM(optJSONObject3);
                                                         if (arrayList29 == null) {
                                                             arrayList29 = new ArrayList();
                                                         }
-                                                        arrayList29.add(dJ);
+                                                        arrayList29.add(dM);
                                                         cVar4 = cVar2;
                                                         bVar3 = bVar2;
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else if (optInt2 == 2) {
-                                                        com.kascend.chushou.player.ui.h5.c.e dH = dH(optJSONObject3);
+                                                        com.kascend.chushou.player.ui.h5.c.e dK = dK(optJSONObject3);
                                                         if (arrayList30 == null) {
                                                             arrayList30 = new ArrayList();
                                                         }
-                                                        arrayList30.add(dH);
+                                                        arrayList30.add(dK);
                                                         cVar4 = cVar2;
                                                         bVar3 = bVar2;
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else if (optInt2 == 3) {
-                                                        arrayList23.add(dI(optJSONObject3));
+                                                        arrayList23.add(dL(optJSONObject3));
                                                         cVar4 = cVar2;
                                                         bVar3 = bVar2;
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else if (optInt2 == 5) {
-                                                        cVar4 = dI(optJSONObject3);
+                                                        cVar4 = dL(optJSONObject3);
                                                         bVar3 = bVar2;
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else if (optInt2 == 7) {
                                                         cVar4 = cVar2;
-                                                        bVar3 = dK(optJSONObject3);
+                                                        bVar3 = dN(optJSONObject3);
                                                         arrayList14 = arrayList29;
                                                         arrayList15 = arrayList30;
                                                     } else {
@@ -1465,7 +1467,7 @@ public class e {
                                                     bangInfo4 = bangInfo5;
                                                 } else if (optInt == 10011) {
                                                     if (optJSONObject3.optInt("style", -1) == 3) {
-                                                        arrayList23.add(dI(optJSONObject3));
+                                                        arrayList23.add(dL(optJSONObject3));
                                                     }
                                                     z3 = z2;
                                                     onlineVip5 = onlineVip4;
@@ -1513,7 +1515,7 @@ public class e {
                                                             case 3:
                                                                 JSONObject optJSONObject7 = optJSONObject3.optJSONObject("PKInfo");
                                                                 if (optJSONObject7 != null) {
-                                                                    pkNotifyInfo = dF(optJSONObject7);
+                                                                    pkNotifyInfo = dI(optJSONObject7);
                                                                     pkNotifyInfo.mAction = 3;
                                                                 }
                                                                 arrayList24.add(pkNotifyInfo);
@@ -1563,7 +1565,7 @@ public class e {
                                                                 pkNotifyInfo6.mPkUserNickname = optJSONObject3.optString("pkUserNickname");
                                                                 pkNotifyInfo6.mPkUserAvatar = optJSONObject3.optString("pkUserAvatar");
                                                                 pkNotifyInfo6.mMaxPKDuration = optJSONObject3.optLong("maxPKDuration");
-                                                                pkNotifyInfo6.destinyInfo = dE(optJSONObject3.optJSONObject("destinyInfo"));
+                                                                pkNotifyInfo6.destinyInfo = dH(optJSONObject3.optJSONObject("destinyInfo"));
                                                                 arrayList24.add(pkNotifyInfo6);
                                                                 break;
                                                             case 8:
@@ -1869,13 +1871,13 @@ public class e {
                                                     JSONObject optJSONObject10 = optJSONObject9.optJSONObject("landscape");
                                                     if (optJSONObject10 != null) {
                                                         aVar.o = optJSONObject10.optString("url", "");
-                                                        aVar.nez = dG(optJSONObject10);
+                                                        aVar.mAZ = dJ(optJSONObject10);
                                                         aVar.a = optJSONObject10.optInt("duration", 0);
                                                     }
                                                     JSONObject optJSONObject11 = optJSONObject9.optJSONObject("portrait");
                                                     if (optJSONObject11 != null) {
                                                         aVar.o = optJSONObject11.optString("url", "");
-                                                        aVar.neA = dG(optJSONObject11);
+                                                        aVar.mBa = dJ(optJSONObject11);
                                                         aVar.a = optJSONObject11.optInt("duration", 0);
                                                     }
                                                     if (arrayList11 == null) {
@@ -2261,7 +2263,7 @@ public class e {
         return parserRet;
     }
 
-    public static ParserRet dv(JSONObject jSONObject) {
+    public static ParserRet dy(JSONObject jSONObject) {
         int i = -1;
         if (jSONObject != null) {
             tv.chushou.zues.utils.e.d("Parser_Player", "parseSendDanmu :" + jSONObject.toString());
@@ -2301,7 +2303,7 @@ public class e {
                         }
                     }
                     if (jSONObject2.has("richNickname")) {
-                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.ST(jSONObject2.getString("richNickname"));
+                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject2.getString("richNickname"));
                     }
                     JSONArray optJSONArray = jSONObject2.optJSONArray("emojiPrivileges");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -2330,7 +2332,7 @@ public class e {
         return parserRet;
     }
 
-    public static ParserRet dz(JSONObject jSONObject) {
+    public static ParserRet dC(JSONObject jSONObject) {
         ArrayList arrayList;
         int i;
         ArrayList arrayList2;
@@ -2463,7 +2465,7 @@ public class e {
                         privilegeInfo.mMedals = arrayList2;
                     }
                     if (jSONObject2.has("richNickname")) {
-                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.ST(jSONObject2.getString("richNickname"));
+                        privilegeInfo.mRichNickname = tv.chushou.zues.toolkit.richtext.b.Qi(jSONObject2.getString("richNickname"));
                     }
                     JSONArray optJSONArray = jSONObject2.optJSONArray("emojiPrivileges");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -2510,19 +2512,19 @@ public class e {
         if (jSONObject.has("coolPrivileges") && (optJSONObject = jSONObject.optJSONObject("coolPrivileges")) != null) {
             if (optJSONObject.has("coolNickname") && (optJSONObject4 = optJSONObject.optJSONObject("coolNickname")) != null) {
                 privilegeInfo.mCoolNickname = new RichTextPlus();
-                privilegeInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.ST(optJSONObject4.optString("nickname"));
+                privilegeInfo.mCoolNickname.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(optJSONObject4.optString("nickname"));
                 privilegeInfo.mCoolNickname.mFontColors = (ArrayList) a(optJSONObject4.optJSONArray("colors"));
             }
             if (optJSONObject.has("coolContent") && (optJSONObject3 = optJSONObject.optJSONObject("coolContent")) != null) {
                 privilegeInfo.mCoolContent = new RichTextPlus();
-                privilegeInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.ST(optJSONObject3.optString("content"));
+                privilegeInfo.mCoolContent.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(optJSONObject3.optString("content"));
                 privilegeInfo.mCoolContent.mFontColors = (ArrayList) a(optJSONObject3.optJSONArray("colors"));
             }
             if (optJSONObject.has("coolMessage") && (optJSONObject2 = optJSONObject.optJSONObject("coolMessage")) != null) {
                 privilegeInfo.mCoolMessage = new RichTextPlus();
-                privilegeInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.ST(optJSONObject2.optString("nickname"));
+                privilegeInfo.mCoolMessage.mNicknameRichText = tv.chushou.zues.toolkit.richtext.b.Qi(optJSONObject2.optString("nickname"));
                 privilegeInfo.mCoolMessage.mBgImage = optJSONObject2.optString("bgImage");
-                privilegeInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.ST(optJSONObject2.optString("content"));
+                privilegeInfo.mCoolMessage.mContentRichText = tv.chushou.zues.toolkit.richtext.b.Qi(optJSONObject2.optString("content"));
             }
         }
     }
@@ -2540,14 +2542,14 @@ public class e {
         return arrayList;
     }
 
-    public static ParserRet dA(JSONObject jSONObject) {
+    public static ParserRet dD(JSONObject jSONObject) {
         int i = -1;
         CycleLiveRoomInfo cycleLiveRoomInfo = null;
         if (jSONObject != null) {
             i = jSONObject.optInt("code");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                cycleLiveRoomInfo = dD(optJSONObject);
+                cycleLiveRoomInfo = dG(optJSONObject);
             }
         }
         ParserRet parserRet = new ParserRet();
@@ -2556,7 +2558,7 @@ public class e {
         return parserRet;
     }
 
-    public static ParserRet dB(JSONObject jSONObject) {
+    public static ParserRet dE(JSONObject jSONObject) {
         JSONObject optJSONObject;
         int i = -1;
         PkNotifyInfo pkNotifyInfo = null;
@@ -2564,7 +2566,7 @@ public class e {
             i = jSONObject.optInt("code");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("PKInfo")) != null) {
-                pkNotifyInfo = dF(optJSONObject);
+                pkNotifyInfo = dI(optJSONObject);
             }
         }
         ParserRet parserRet = new ParserRet();
@@ -2573,18 +2575,18 @@ public class e {
         return parserRet;
     }
 
-    public static ParserRet dC(JSONObject jSONObject) {
+    public static ParserRet dF(JSONObject jSONObject) {
         String str;
         PrivilegeInfo privilegeInfo;
-        ListItem dx;
-        ListItem dx2;
+        ListItem dA;
+        ListItem dA2;
         JSONObject optJSONObject;
         JSONArray optJSONArray;
         JSONArray optJSONArray2;
         JSONObject optJSONObject2;
         JSONArray optJSONArray3;
-        ListItem dx3;
-        ListItem dx4;
+        ListItem dA3;
+        ListItem dA4;
         RoomExpandInfo roomExpandInfo = null;
         int i = -1;
         if (jSONObject == null) {
@@ -2602,14 +2604,14 @@ public class e {
                     roomExpandInfo2.mExpandNavList = arrayList;
                     for (int i2 = 0; i2 < optJSONArray4.length(); i2++) {
                         JSONObject optJSONObject4 = optJSONArray4.optJSONObject(i2);
-                        if (optJSONObject4 != null && (dx4 = a.dx(optJSONObject4)) != null) {
-                            arrayList.add(dx4);
+                        if (optJSONObject4 != null && (dA4 = a.dA(optJSONObject4)) != null) {
+                            arrayList.add(dA4);
                         }
                     }
                 }
                 JSONObject optJSONObject5 = optJSONObject3.optJSONObject("displayH5Nav");
                 if (optJSONObject5 != null) {
-                    roomExpandInfo2.mTopWebAdItem = a.dx(optJSONObject5);
+                    roomExpandInfo2.mTopWebAdItem = a.dA(optJSONObject5);
                 }
                 JSONObject optJSONObject6 = optJSONObject3.optJSONObject("ads");
                 if (optJSONObject6 != null && (optJSONArray3 = optJSONObject6.optJSONArray("giftBarAdNavList")) != null) {
@@ -2619,8 +2621,8 @@ public class e {
                     }
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                         JSONObject optJSONObject7 = optJSONArray3.optJSONObject(i3);
-                        if (optJSONObject7 != null && (dx3 = a.dx(optJSONObject7)) != null) {
-                            arrayList2.add(dx3);
+                        if (optJSONObject7 != null && (dA3 = a.dA(optJSONObject7)) != null) {
+                            arrayList2.add(dA3);
                         }
                     }
                     roomExpandInfo2.mGiftTopRightIcons.clear();
@@ -2646,7 +2648,7 @@ public class e {
                     for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
                         JSONObject optJSONObject9 = optJSONArray2.optJSONObject(i4);
                         if (optJSONObject9 != null) {
-                            arrayList3.add(dH(optJSONObject9));
+                            arrayList3.add(dK(optJSONObject9));
                         }
                     }
                     roomExpandInfo2.mRedpacketBeanList = arrayList3;
@@ -2656,20 +2658,20 @@ public class e {
                     for (int i5 = 0; i5 < optJSONArray.length(); i5++) {
                         JSONObject optJSONObject11 = optJSONArray.optJSONObject(i5);
                         if (optJSONObject11 != null) {
-                            roomExpandInfo2.mLuckList.add(dI(optJSONObject11));
+                            roomExpandInfo2.mLuckList.add(dL(optJSONObject11));
                         }
                     }
                 }
                 JSONObject optJSONObject12 = optJSONObject3.optJSONObject("vote");
                 if (optJSONObject12 != null && (optJSONObject = optJSONObject12.optJSONObject("currentVote")) != null) {
-                    roomExpandInfo2.mVoteItem = dI(optJSONObject);
+                    roomExpandInfo2.mVoteItem = dL(optJSONObject);
                 }
                 JSONArray optJSONArray5 = optJSONObject3.optJSONArray("cornerH5NavList");
                 if (optJSONArray5 != null && optJSONArray5.length() > 0) {
                     for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
                         JSONObject optJSONObject13 = optJSONArray5.optJSONObject(i6);
                         if (optJSONObject13 != null) {
-                            roomExpandInfo2.mInteractH5Item.add(dK(optJSONObject13));
+                            roomExpandInfo2.mInteractH5Item.add(dN(optJSONObject13));
                         }
                     }
                 }
@@ -2678,7 +2680,7 @@ public class e {
                     for (int i7 = 0; i7 < optJSONArray6.length(); i7++) {
                         JSONObject optJSONObject14 = optJSONArray6.optJSONObject(i7);
                         if (optJSONObject14 != null) {
-                            roomExpandInfo2.mInteractNavItem.add(dK(optJSONObject14));
+                            roomExpandInfo2.mInteractNavItem.add(dN(optJSONObject14));
                         }
                     }
                 }
@@ -2698,22 +2700,22 @@ public class e {
                 if (optJSONObject16 != null) {
                     JSONObject optJSONObject17 = optJSONObject16.optJSONObject("payConfig");
                     if (optJSONObject17 != null) {
-                        roomExpandInfo2.mIconConfig.payConfig.display = optJSONObject17.optBoolean(LogConfig.KEY_DISPLAY, true);
+                        roomExpandInfo2.mIconConfig.payConfig.display = optJSONObject17.optBoolean("display", true);
                         roomExpandInfo2.mIconConfig.payConfig.icon = optJSONObject17.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
                         roomExpandInfo2.mIconConfig.payConfig.notifyIcon = optJSONObject17.optString("notifyIcon");
                     }
                     JSONObject optJSONObject18 = optJSONObject16.optJSONObject("giftConfig");
                     if (optJSONObject18 != null) {
-                        roomExpandInfo2.mIconConfig.giftConfig.display = optJSONObject18.optBoolean(LogConfig.KEY_DISPLAY, true);
+                        roomExpandInfo2.mIconConfig.giftConfig.display = optJSONObject18.optBoolean("display", true);
                         roomExpandInfo2.mIconConfig.giftConfig.icon = optJSONObject18.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
                         roomExpandInfo2.mIconConfig.giftConfig.notifyIcon = optJSONObject18.optString("notifyIcon");
                     }
                     JSONObject optJSONObject19 = optJSONObject16.optJSONObject("bangConfig");
                     if (optJSONObject19 != null) {
-                        roomExpandInfo2.mIconConfig.bangConfig.display = optJSONObject19.optBoolean(LogConfig.KEY_DISPLAY, true);
+                        roomExpandInfo2.mIconConfig.bangConfig.display = optJSONObject19.optBoolean("display", true);
                     }
                     JSONArray optJSONArray8 = optJSONObject16.optJSONArray("bottomList");
-                    if (!h.Z(optJSONArray8)) {
+                    if (!h.aa(optJSONArray8)) {
                         for (int i9 = 0; i9 < optJSONArray8.length(); i9++) {
                             JSONObject optJSONObject20 = optJSONArray8.optJSONObject(i9);
                             if (optJSONObject20 != null) {
@@ -2730,15 +2732,15 @@ public class e {
                                         configDetail.mNotifyType = optJSONObject21.optString("notifyType");
                                         JSONObject optJSONObject22 = optJSONObject21.optJSONObject("portrait");
                                         if (optJSONObject22 != null) {
-                                            configDetail.mPortrait = dG(optJSONObject22);
+                                            configDetail.mPortrait = dJ(optJSONObject22);
                                         }
                                         JSONObject optJSONObject23 = optJSONObject21.optJSONObject("landscape");
                                         if (optJSONObject23 != null) {
-                                            configDetail.mLandscape = dG(optJSONObject23);
+                                            configDetail.mLandscape = dJ(optJSONObject23);
                                         }
                                     }
                                     JSONArray optJSONArray9 = optJSONObject20.optJSONArray("configList");
-                                    if (!h.Z(optJSONArray9)) {
+                                    if (!h.aa(optJSONArray9)) {
                                         for (int i10 = 0; i10 < optJSONArray9.length(); i10++) {
                                             JSONObject optJSONObject24 = optJSONArray9.optJSONObject(i10);
                                             if (optJSONObject24 != null) {
@@ -2753,11 +2755,11 @@ public class e {
                                                     configDetail2.mNotifyType = optJSONObject25.optString("notifyType");
                                                     JSONObject optJSONObject26 = optJSONObject25.optJSONObject("portrait");
                                                     if (optJSONObject26 != null) {
-                                                        configDetail2.mPortrait = dG(optJSONObject26);
+                                                        configDetail2.mPortrait = dJ(optJSONObject26);
                                                     }
                                                     JSONObject optJSONObject27 = optJSONObject25.optJSONObject("landscape");
                                                     if (optJSONObject27 != null) {
-                                                        configDetail2.mLandscape = dG(optJSONObject27);
+                                                        configDetail2.mLandscape = dJ(optJSONObject27);
                                                     }
                                                 }
                                                 configDetail.configDetails.add(configDetail2);
@@ -2772,7 +2774,7 @@ public class e {
                 }
                 JSONObject optJSONObject28 = optJSONObject3.optJSONObject("h5Tips");
                 if (optJSONObject28 != null) {
-                    roomExpandInfo2.mH5Tips = dJ(optJSONObject28);
+                    roomExpandInfo2.mH5Tips = dM(optJSONObject28);
                 }
                 JSONObject optJSONObject29 = optJSONObject3.optJSONObject("autoBang");
                 if (optJSONObject29 != null) {
@@ -2788,8 +2790,8 @@ public class e {
                     }
                     for (int i11 = 0; i11 < optJSONArray10.length(); i11++) {
                         JSONObject optJSONObject30 = optJSONArray10.optJSONObject(i11);
-                        if (optJSONObject30 != null && (dx2 = a.dx(optJSONObject30)) != null) {
-                            arrayList4.add(dx2);
+                        if (optJSONObject30 != null && (dA2 = a.dA(optJSONObject30)) != null) {
+                            arrayList4.add(dA2);
                         }
                     }
                     roomExpandInfo2.mRelatedRoomList.clear();
@@ -2802,14 +2804,14 @@ public class e {
                     }
                     for (int i12 = 0; i12 < optJSONArray11.length(); i12++) {
                         JSONObject optJSONObject31 = optJSONArray11.optJSONObject(i12);
-                        if (optJSONObject31 != null && (dx = a.dx(optJSONObject31)) != null) {
-                            roomExpandInfo2.mShopWindowInfos.add(dx);
+                        if (optJSONObject31 != null && (dA = a.dA(optJSONObject31)) != null) {
+                            roomExpandInfo2.mShopWindowInfos.add(dA);
                         }
                     }
                 }
                 JSONObject optJSONObject32 = optJSONObject3.optJSONObject("PKInfo");
                 if (optJSONObject32 != null) {
-                    roomExpandInfo2.mPkNotifyInfo = dF(optJSONObject32);
+                    roomExpandInfo2.mPkNotifyInfo = dI(optJSONObject32);
                 }
                 JSONObject optJSONObject33 = optJSONObject3.optJSONObject("trumpetPocket");
                 if (optJSONObject33 != null) {
@@ -2882,7 +2884,7 @@ public class e {
         return parserRet;
     }
 
-    public static CycleLiveRoomInfo dD(JSONObject jSONObject) {
+    public static CycleLiveRoomInfo dG(JSONObject jSONObject) {
         CycleLiveRoomInfo cycleLiveRoomInfo = new CycleLiveRoomInfo();
         cycleLiveRoomInfo.uid = jSONObject.optString("uid");
         cycleLiveRoomInfo.eventDesc = jSONObject.optString("eventDesc");
@@ -2897,7 +2899,7 @@ public class e {
         return cycleLiveRoomInfo;
     }
 
-    private static PkNotifyInfo.DestinyInfo dE(JSONObject jSONObject) {
+    private static PkNotifyInfo.DestinyInfo dH(JSONObject jSONObject) {
         PkNotifyInfo.DestinyInfo destinyInfo = new PkNotifyInfo.DestinyInfo();
         if (jSONObject != null) {
             destinyInfo.destinyId = h.parseInt(jSONObject.optString("destinyId"));
@@ -2907,7 +2909,7 @@ public class e {
         return destinyInfo;
     }
 
-    private static PkNotifyInfo dF(JSONObject jSONObject) {
+    private static PkNotifyInfo dI(JSONObject jSONObject) {
         PkNotifyInfo pkNotifyInfo = new PkNotifyInfo();
         if (pkNotifyInfo.mPkUpdateInfo == null) {
             pkNotifyInfo.mPkUpdateInfo = new PkUpdateInfo();
@@ -2996,7 +2998,7 @@ public class e {
         }
         JSONObject optJSONObject5 = jSONObject.optJSONObject("destinyInfo");
         if (optJSONObject5 != null) {
-            pkNotifyInfo.destinyInfo = dE(optJSONObject5);
+            pkNotifyInfo.destinyInfo = dH(optJSONObject5);
         }
         return pkNotifyInfo;
     }
@@ -3008,19 +3010,19 @@ public class e {
         dVar.k = jSONObject.optString("maskColor", "");
         dVar.l = jSONObject.optInt("priority", 0);
         dVar.p = jSONObject.optString("key", "");
-        dVar.q = jSONObject.optString("displayType", "94");
+        dVar.q = jSONObject.optString("displayType", HttpConfig.UBC_HTTP_ID);
         JSONObject optJSONObject = jSONObject.optJSONObject("landscape");
         if (optJSONObject != null) {
-            dVar.nez = dG(optJSONObject);
+            dVar.mAZ = dJ(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("portrait");
         if (optJSONObject2 != null) {
-            dVar.neA = dG(optJSONObject2);
+            dVar.mBa = dJ(optJSONObject2);
         }
         dVar.o = jSONObject.optString("url", "");
     }
 
-    private static H5Positon dG(JSONObject jSONObject) {
+    private static H5Positon dJ(JSONObject jSONObject) {
         H5Positon h5Positon = new H5Positon();
         h5Positon.mWidth = jSONObject.optInt("width", 0);
         h5Positon.mHeight = jSONObject.optInt("height", 0);
@@ -3028,14 +3030,14 @@ public class e {
         return h5Positon;
     }
 
-    private static com.kascend.chushou.player.ui.h5.c.e dH(JSONObject jSONObject) {
+    private static com.kascend.chushou.player.ui.h5.c.e dK(JSONObject jSONObject) {
         com.kascend.chushou.player.ui.h5.c.e eVar = new com.kascend.chushou.player.ui.h5.c.e();
         a(jSONObject, eVar);
-        eVar.QY(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, ""));
+        eVar.OI(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, ""));
         return eVar;
     }
 
-    private static com.kascend.chushou.player.ui.h5.c.c dI(JSONObject jSONObject) {
+    private static com.kascend.chushou.player.ui.h5.c.c dL(JSONObject jSONObject) {
         com.kascend.chushou.player.ui.h5.c.c cVar = new com.kascend.chushou.player.ui.h5.c.c();
         a(jSONObject, cVar);
         cVar.a = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON, "");
@@ -3051,7 +3053,7 @@ public class e {
         return cVar;
     }
 
-    public static com.kascend.chushou.player.ui.h5.c.a dJ(JSONObject jSONObject) {
+    public static com.kascend.chushou.player.ui.h5.c.a dM(JSONObject jSONObject) {
         com.kascend.chushou.player.ui.h5.c.a aVar = new com.kascend.chushou.player.ui.h5.c.a();
         a(jSONObject, aVar);
         aVar.a = jSONObject.optInt("duration", 0);
@@ -3061,7 +3063,7 @@ public class e {
         return aVar;
     }
 
-    public static com.kascend.chushou.player.ui.h5.c.b dK(JSONObject jSONObject) {
+    public static com.kascend.chushou.player.ui.h5.c.b dN(JSONObject jSONObject) {
         com.kascend.chushou.player.ui.h5.c.b bVar = new com.kascend.chushou.player.ui.h5.c.b();
         a(jSONObject, bVar);
         bVar.c = jSONObject.optInt("duration", 0);
@@ -3074,7 +3076,7 @@ public class e {
         return bVar;
     }
 
-    public static ParserRet dL(JSONObject jSONObject) {
+    public static ParserRet dO(JSONObject jSONObject) {
         long j = 0;
         int optInt = jSONObject.optInt("code", -1);
         String optString = jSONObject.optString("message", "");
@@ -3105,10 +3107,10 @@ public class e {
         if (jSONArray == null && jSONArray2 == null) {
             return true;
         }
-        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dQw().S(tv.chushou.basis.d.a.b.b.class);
+        tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dJv().S(tv.chushou.basis.d.a.b.b.class);
         if (bVar != null) {
             str = bVar.getAppKey();
-            str2 = bVar.dEG();
+            str2 = bVar.dyG();
         } else {
             str = null;
         }

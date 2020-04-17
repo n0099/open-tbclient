@@ -29,6 +29,7 @@ public class AlaLiveSwitchData extends BaseData {
     public String mRedPkg;
     public String mRotaryTable;
     public String mShareBtn;
+    public String mSuperConsumer;
     public String mVideoGoodslist;
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
@@ -47,6 +48,7 @@ public class AlaLiveSwitchData extends BaseData {
             this.mPopupWindow = jSONObject.optString("f_modal");
             this.mAudience = jSONObject.optString("c_audience");
             this.mFirstCharge = jSONObject.optString("s_firstCharge");
+            this.mSuperConsumer = jSONObject.optString("f_large_charge");
             this.mRotaryTable = jSONObject.optString("s_rotary_table");
             this.mShareBtn = jSONObject.optString("s_shareBtn");
             this.mRedPkg = jSONObject.optString("f_live_effect_redpacket");
@@ -73,6 +75,7 @@ public class AlaLiveSwitchData extends BaseData {
             jSONObject.put("f_modal", this.mPopupWindow);
             jSONObject.put("c_audience", this.mAudience);
             jSONObject.put("s_firstCharge", this.mFirstCharge);
+            jSONObject.put("f_large_charge", this.mSuperConsumer);
             jSONObject.put("s_rotary_table", this.mRotaryTable);
             jSONObject.put("s_shareBtn", this.mShareBtn);
             jSONObject.put("f_live_effect_redpacket", this.mRedPkg);
@@ -144,6 +147,10 @@ public class AlaLiveSwitchData extends BaseData {
 
     public boolean isFirstChargeUnabled() {
         return TextUtils.equals(this.mFirstCharge, "0");
+    }
+
+    public boolean isEntrySuperCustomerUnabled() {
+        return TextUtils.equals(this.mSuperConsumer, "0");
     }
 
     public boolean isRotaryTableUnabled() {

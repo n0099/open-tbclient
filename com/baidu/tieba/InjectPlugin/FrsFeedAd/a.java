@@ -3,26 +3,26 @@ package com.baidu.tieba.InjectPlugin.FrsFeedAd;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.InjectPlugin.a.f;
-import com.baidu.tieba.recapp.n;
+import com.baidu.tieba.recapp.m;
 /* loaded from: classes8.dex */
 public class a extends f {
-    protected n dTv;
+    protected m etu;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public a(n nVar, BdUniqueId bdUniqueId) {
-        super(nVar.getTbPageContext().getPageActivity(), bdUniqueId);
-        this.dTv = nVar;
+    public a(m mVar, BdUniqueId bdUniqueId) {
+        super(mVar.getTbPageContext().getPageActivity(), bdUniqueId);
+        this.etu = mVar;
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a.f, com.baidu.adp.widget.ListView.a
     public View getView(int i, View view, ViewGroup viewGroup, Object obj) {
         if (obj instanceof b) {
             b bVar = (b) obj;
-            com.baidu.tieba.InjectPlugin.a.a nU = ((com.baidu.tieba.InjectPlugin.a.b) this.dTv).nU(1);
-            if (nU instanceof d) {
-                return ((d) nU).getView(i, view, viewGroup, bVar.aVB());
+            com.baidu.tieba.InjectPlugin.a.a oh = ((com.baidu.tieba.InjectPlugin.a.b) this.etu).oh(1);
+            if (oh instanceof d) {
+                return ((d) oh).getView(i, view, viewGroup, bVar.bdL());
             }
             return null;
         }
@@ -30,11 +30,11 @@ public class a extends f {
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    public v.a a(ViewGroup viewGroup, Object obj) {
+    public y.a a(ViewGroup viewGroup, Object obj) {
         if (b.l(getType()) != -1 && (obj instanceof b)) {
-            com.baidu.tieba.InjectPlugin.a.a nU = ((com.baidu.tieba.InjectPlugin.a.b) this.dTv).nU(1);
-            if (nU instanceof d) {
-                return ((d) nU).a(viewGroup, ((b) obj).aVB());
+            com.baidu.tieba.InjectPlugin.a.a oh = ((com.baidu.tieba.InjectPlugin.a.b) this.etu).oh(1);
+            if (oh instanceof d) {
+                return ((d) oh).a(viewGroup, ((b) obj).bdL());
             }
             return null;
         }
@@ -42,11 +42,11 @@ public class a extends f {
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    public void a(int i, ViewGroup viewGroup, v.a aVar, Object obj) {
+    public void a(int i, ViewGroup viewGroup, y.a aVar, Object obj) {
         if (obj instanceof b) {
-            com.baidu.tieba.InjectPlugin.a.a nU = ((com.baidu.tieba.InjectPlugin.a.b) this.dTv).nU(1);
-            if (nU instanceof d) {
-                ((d) nU).a(i, viewGroup, aVar, ((b) obj).aVB());
+            com.baidu.tieba.InjectPlugin.a.a oh = ((com.baidu.tieba.InjectPlugin.a.b) this.etu).oh(1);
+            if (oh instanceof d) {
+                ((d) oh).a(i, viewGroup, aVar, ((b) obj).bdL());
             }
         }
     }

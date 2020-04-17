@@ -5,20 +5,20 @@ import com.xiaomi.push.hk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public class al implements Runnable {
-    final /* synthetic */ MiTinyDataClient.a.C0754a a;
+    final /* synthetic */ MiTinyDataClient.a.C0778a a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ hk f35a;
+    final /* synthetic */ hk f36a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(MiTinyDataClient.a.C0754a c0754a, hk hkVar) {
-        this.a = c0754a;
-        this.f35a = hkVar;
+    public al(MiTinyDataClient.a.C0778a c0778a, hk hkVar) {
+        this.a = c0778a;
+        this.f36a = hkVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.f28a.add(this.f35a);
+        this.a.f29a.add(this.f36a);
         this.a.a();
     }
 }

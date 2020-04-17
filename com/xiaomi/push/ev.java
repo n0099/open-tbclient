@@ -3,6 +3,8 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.ar.recorder.MovieRecorder;
 import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.manager.ClientReportClient;
@@ -11,10 +13,10 @@ public class ev {
     private static volatile ev a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f324a;
+    private Context f325a;
 
     private ev(Context context) {
-        this.f324a = context;
+        this.f325a = context;
     }
 
     public static ev a(Context context) {
@@ -30,9 +32,9 @@ public class ev {
 
     private void a(com.xiaomi.clientreport.data.a aVar) {
         if (aVar instanceof PerfClientReport) {
-            ClientReportClient.reportPerf(this.f324a, (PerfClientReport) aVar);
+            ClientReportClient.reportPerf(this.f325a, (PerfClientReport) aVar);
         } else if (aVar instanceof EventClientReport) {
-            ClientReportClient.reportEvent(this.f324a, (EventClientReport) aVar);
+            ClientReportClient.reportEvent(this.f325a, (EventClientReport) aVar);
         }
     }
 
@@ -40,7 +42,7 @@ public class ev {
         if (i < 0 || j2 < 0 || j <= 0) {
             return;
         }
-        PerfClientReport a2 = eu.a(this.f324a, i, j, j2);
+        PerfClientReport a2 = eu.a(this.f325a, i, j, j2);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_6_19");
         a(a2);
@@ -50,28 +52,28 @@ public class ev {
         if (intent == null) {
             return;
         }
-        a(str, eu.m258a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), i, System.currentTimeMillis(), str2);
+        a(str, eu.m263a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), i, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
         if (intent == null) {
             return;
         }
-        a(str, eu.m258a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), 5001, System.currentTimeMillis(), str2);
+        a(str, eu.m263a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, Throwable th) {
         if (intent == null) {
             return;
         }
-        a(str, eu.m258a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), 5001, System.currentTimeMillis(), th.getMessage());
+        a(str, eu.m263a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra("messageId"), ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), th.getMessage());
     }
 
     public void a(String str, String str2, String str3, int i, long j, String str4) {
         if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
-        EventClientReport a2 = eu.a(this.f324a, str2, str3, i, j, str4);
+        EventClientReport a2 = eu.a(this.f325a, str2, str3, i, j, str4);
         a2.setAppPackageName(str);
         a2.setSdkVersion("3_6_19");
         a(a2);
@@ -86,14 +88,14 @@ public class ev {
     }
 
     public void a(String str, String str2, String str3, Throwable th) {
-        a(str, str2, str3, 5001, System.currentTimeMillis(), th.getMessage());
+        a(str, str2, str3, ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), th.getMessage());
     }
 
     public void b(String str, String str2, String str3, String str4) {
-        a(str, str2, str3, 5001, System.currentTimeMillis(), str4);
+        a(str, str2, str3, ARPMessageType.MSG_TYPE_RES_REQUEST, System.currentTimeMillis(), str4);
     }
 
     public void c(String str, String str2, String str3, String str4) {
-        a(str, str2, str3, 4002, System.currentTimeMillis(), str4);
+        a(str, str2, str3, MovieRecorder.ERROR_CODE_ON_STOP, System.currentTimeMillis(), str4);
     }
 }

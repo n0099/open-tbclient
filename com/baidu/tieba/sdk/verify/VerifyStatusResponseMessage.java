@@ -18,8 +18,4 @@ public class VerifyStatusResponseMessage extends JsonHttpResponsedMessage {
             this.verifyStatus = jSONObject.optInt(SmsLoginView.f.j, 0);
         }
     }
-
-    public boolean cFe() {
-        return this.verifyStatus == 1;
-    }
 }

@@ -6,11 +6,11 @@ import android.support.v4.app.NotificationManagerCompat;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class a {
-    public static boolean j(TbPageContext tbPageContext) {
+    public static boolean m(TbPageContext tbPageContext) {
         return NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();
     }
 
-    public static void k(TbPageContext tbPageContext) {
+    public static void n(TbPageContext tbPageContext) {
         try {
             Intent intent = new Intent();
             intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");

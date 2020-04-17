@@ -205,7 +205,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         if (com.baidu.platform.comapi.wnplatform.a.a().d() || this.h) {
         }
         if (wLocData.accuracy < 80.0f) {
-            this.c = wLocData.m23clone();
+            this.c = wLocData.m24clone();
             a(this.c, CashierData.SDK);
             if (wLocData.isIndoorMode) {
                 a++;
@@ -222,7 +222,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(WLocData wLocData, String str) {
         ArrayList arrayList;
-        this.b = wLocData.m23clone();
+        this.b = wLocData.m24clone();
         GeoPoint a2 = com.baidu.platform.comapi.wnplatform.o.b.a(wLocData.longitude, wLocData.latitude);
         g.setLongitudeE6(a2.getLongitudeE6());
         g.setLatitudeE6(a2.getLatitudeE6());

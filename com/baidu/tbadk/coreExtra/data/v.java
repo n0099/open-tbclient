@@ -7,7 +7,7 @@ public class v {
     private String link_url;
     private long start_time;
 
-    public String aJD() {
+    public String aSa() {
         return this.link_url;
     }
 

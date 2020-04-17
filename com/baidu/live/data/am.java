@@ -1,35 +1,19 @@
 package com.baidu.live.data;
 
-import android.text.TextUtils;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class am {
-    private String acQ;
-    private String acR;
+    public JSONObject auY;
+    public JSONObject auZ;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public am(String str) {
-        parserJson(str);
+    public am(JSONObject jSONObject) {
+        parseData(jSONObject);
     }
 
-    public boolean qL() {
-        return "1".equals(this.acQ) && !TextUtils.isEmpty(this.acR);
-    }
-
-    public String qM() {
-        return this.acR;
-    }
-
-    private void parserJson(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.acQ = jSONObject.optString("is_open");
-                this.acR = jSONObject.optString("homepage_url");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+    private void parseData(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.auY = jSONObject.optJSONObject("bubble_effect");
+            this.auZ = jSONObject.optJSONObject("nickname_effect");
         }
     }
 }

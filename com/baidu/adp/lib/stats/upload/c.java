@@ -12,7 +12,7 @@ public class c {
     public static BdUploadingLogInfo d(com.baidu.adp.lib.stats.base.a aVar) {
         ArrayList arrayList;
         ArrayList<com.baidu.adp.lib.stats.base.d> e = e(aVar);
-        BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.hn(), aVar.ho());
+        BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getTrackLogWriteDir(), aVar.lR(), aVar.lS());
         if (e != null && e.size() > 0) {
             if (e.size() > 1) {
                 Collections.sort(e, new e());
@@ -44,12 +44,12 @@ public class c {
 
     private static ArrayList<com.baidu.adp.lib.stats.base.d> e(com.baidu.adp.lib.stats.base.a aVar) {
         ArrayList arrayList = new ArrayList();
-        File[] R = com.baidu.adp.lib.stats.base.c.R(aVar.hn());
-        if (R != null) {
-            for (File file : R) {
+        File[] aq = com.baidu.adp.lib.stats.base.c.aq(aVar.lR());
+        if (aq != null) {
+            for (File file : aq) {
                 if (file.isFile()) {
                     String name = file.getName();
-                    if (!TextUtils.isEmpty(name) && name.startsWith(aVar.hp()) && name.contains("Uploading")) {
+                    if (!TextUtils.isEmpty(name) && name.startsWith(aVar.lT()) && name.contains("Uploading")) {
                         arrayList.add(new com.baidu.adp.lib.stats.base.d(name, file.length(), file.lastModified()));
                     }
                 }
@@ -62,7 +62,7 @@ public class c {
         while (it.hasNext()) {
             com.baidu.adp.lib.stats.base.d dVar = (com.baidu.adp.lib.stats.base.d) it.next();
             if (dVar != null) {
-                long j = dVar.tC;
+                long j = dVar.Ms;
                 if (j != 0 && j + 604800000 < currentTimeMillis) {
                     arrayList3.add(dVar.mFileName);
                 } else {
@@ -71,7 +71,7 @@ public class c {
             }
         }
         if (arrayList3.size() > 0) {
-            com.baidu.adp.lib.stats.base.c.a(arrayList3, aVar.hn());
+            com.baidu.adp.lib.stats.base.c.a(arrayList3, aVar.lR());
         }
         return arrayList2;
     }

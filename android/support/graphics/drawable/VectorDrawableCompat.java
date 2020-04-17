@@ -32,7 +32,6 @@ import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -1198,7 +1197,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
 
         public String nodesToString(PathParser.PathDataNode[] pathDataNodeArr) {
             float[] fArr;
-            String str = HanziToPinyin.Token.SEPARATOR;
+            String str = " ";
             for (int i = 0; i < pathDataNodeArr.length; i++) {
                 str = str + pathDataNodeArr[i].mType + ":";
                 for (int i2 = 0; i2 < pathDataNodeArr[i].mParams.length; i2++) {

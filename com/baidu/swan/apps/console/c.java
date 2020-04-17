@@ -2,7 +2,6 @@ package com.baidu.swan.apps.console;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.a;
@@ -11,14 +10,14 @@ import com.baidu.swan.apps.y.f;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes11.dex */
 public class c {
-    private static boolean bjX = false;
+    private static boolean bIf = false;
 
-    public static void ci(boolean z) {
-        bjX = z;
+    public static void de(boolean z) {
+        bIf = z;
     }
 
-    public static boolean Lx() {
-        return bjX;
+    public static boolean Tl() {
+        return bIf;
     }
 
     public static void v(String str, String str2) {
@@ -64,12 +63,12 @@ public class c {
     }
 
     private static void p(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3) && bjX) {
+        if (!TextUtils.isEmpty(str3) && bIf) {
             StringBuilder sb = new StringBuilder();
-            String formatDate = h.getFormatDate(h.getCurrDate(), DateTimeUtil.TIME_FORMAT);
+            String a = h.a(h.aoQ(), "yyyy-MM-dd HH:mm:ss");
             String fileName = getFileName();
-            sb.append(formatDate).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
-            f.WV().Wz().ap(str, sb.toString());
+            sb.append(a).append("  ").append(fileName).append("  ").append("line:").append(getLineNumber()).append("\n").append("module:").append(str2).append("\n").append(str3);
+            f.aeK().aeo().ay(str, sb.toString());
         }
     }
 

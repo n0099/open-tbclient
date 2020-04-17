@@ -20,21 +20,21 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.b;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class AlaEnterEffectDetailActivity extends BaseActivity {
-    private com.baidu.tieba.ala.personcenter.privilege.b fwf;
-    private com.baidu.tieba.ala.personcenter.privilege.a fwg;
-    private AlaEnterEffectData fyj;
-    private String fyk;
-    private a fyl;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.b fym;
-    private b fyn;
-    private b.a fyo = new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.1
+    private com.baidu.tieba.ala.personcenter.privilege.b gaF;
+    private com.baidu.tieba.ala.personcenter.privilege.a gaG;
+    private AlaEnterEffectData gcJ;
+    private String gcK;
+    private a gcL;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.b gcM;
+    private b gcN;
+    private b.a gcO = new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.1
         @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.b.a
-        public void kb(boolean z) {
-            if (AlaEnterEffectDetailActivity.this.fyj != null) {
+        public void lf(boolean z) {
+            if (AlaEnterEffectDetailActivity.this.gcJ != null) {
                 AlaEnterEffectDetailActivity.this.showToast(R.string.operation_success);
                 Intent intent = new Intent();
-                if (z != (AlaEnterEffectDetailActivity.this.fyj.use_status == 1)) {
-                    intent.putExtra("key_selected_effect_id", AlaEnterEffectDetailActivity.this.fyj.id);
+                if (z != (AlaEnterEffectDetailActivity.this.gcJ.use_status == 1)) {
+                    intent.putExtra("key_selected_effect_id", AlaEnterEffectDetailActivity.this.gcJ.id);
                     intent.putExtra("key_status_is_selected", z);
                 }
                 AlaEnterEffectDetailActivity.this.setResult(-1, intent);
@@ -43,32 +43,32 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         }
 
         @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.b.a
-        public void zJ(String str) {
+        public void Bo(String str) {
             AlaEnterEffectDetailActivity.this.showToast(str);
         }
     };
-    private a.InterfaceC0484a fyp = new a.InterfaceC0484a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.5
-        @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.a.InterfaceC0484a
-        public void Bu() {
-            if (AlaEnterEffectDetailActivity.this.fyj != null) {
-                if (AlaEnterEffectDetailActivity.this.fyj.isOwn) {
-                    if (TextUtils.isEmpty(AlaEnterEffectDetailActivity.this.fyk) || AlaEnterEffectDetailActivity.this.fyk.equals(AlaEnterEffectDetailActivity.this.fyj.id)) {
-                        if (AlaEnterEffectDetailActivity.this.fyj != null) {
-                            AlaEnterEffectDetailActivity.this.fyn.ac(AlaEnterEffectDetailActivity.this.fyj.id, AlaEnterEffectDetailActivity.this.fyj.use_status != 1);
+    private a.InterfaceC0520a gcP = new a.InterfaceC0520a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.5
+        @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.a.InterfaceC0520a
+        public void Hy() {
+            if (AlaEnterEffectDetailActivity.this.gcJ != null) {
+                if (AlaEnterEffectDetailActivity.this.gcJ.isOwn) {
+                    if (TextUtils.isEmpty(AlaEnterEffectDetailActivity.this.gcK) || AlaEnterEffectDetailActivity.this.gcK.equals(AlaEnterEffectDetailActivity.this.gcJ.id)) {
+                        if (AlaEnterEffectDetailActivity.this.gcJ != null) {
+                            AlaEnterEffectDetailActivity.this.gcN.ai(AlaEnterEffectDetailActivity.this.gcJ.id, AlaEnterEffectDetailActivity.this.gcJ.use_status != 1);
                             return;
                         }
                         return;
                     }
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(AlaEnterEffectDetailActivity.this.getActivity());
-                    aVar.fI(false);
+                    aVar.gF(false);
                     aVar.setAutoNight(false);
-                    aVar.jW(R.string.ala_effect_replace_tip);
+                    aVar.kd(R.string.ala_effect_replace_tip);
                     aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.5.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
-                            if (AlaEnterEffectDetailActivity.this.fyj != null) {
-                                AlaEnterEffectDetailActivity.this.fyn.ac(AlaEnterEffectDetailActivity.this.fyj.id, AlaEnterEffectDetailActivity.this.fyj.use_status != 1);
+                            if (AlaEnterEffectDetailActivity.this.gcJ != null) {
+                                AlaEnterEffectDetailActivity.this.gcN.ai(AlaEnterEffectDetailActivity.this.gcJ.id, AlaEnterEffectDetailActivity.this.gcJ.use_status != 1);
                             }
                         }
                     });
@@ -79,14 +79,14 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                         }
                     });
                     aVar.b(AlaEnterEffectDetailActivity.this.getPageContext());
-                    aVar.aEG();
-                } else if (3 != AlaEnterEffectDetailActivity.this.fyj.categoryType && 2 == AlaEnterEffectDetailActivity.this.fyj.categoryType) {
-                    if (AlaEnterEffectDetailActivity.this.fyj.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                        if (AlaEnterEffectDetailActivity.this.fwf != null) {
-                            AlaEnterEffectDetailActivity.this.fwf.de(AlaEnterEffectDetailActivity.this.fyj.price);
+                    aVar.aMU();
+                } else if (3 != AlaEnterEffectDetailActivity.this.gcJ.categoryType && 2 == AlaEnterEffectDetailActivity.this.gcJ.categoryType) {
+                    if (AlaEnterEffectDetailActivity.this.gcJ.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                        if (AlaEnterEffectDetailActivity.this.gaF != null) {
+                            AlaEnterEffectDetailActivity.this.gaF.dM(AlaEnterEffectDetailActivity.this.gcJ.price);
                         }
-                    } else if (AlaEnterEffectDetailActivity.this.fwg != null) {
-                        AlaEnterEffectDetailActivity.this.fwg.au(AlaEnterEffectDetailActivity.this.fyj.id, AlaEnterEffectDetailActivity.this.fyj.propId);
+                    } else if (AlaEnterEffectDetailActivity.this.gaG != null) {
+                        AlaEnterEffectDetailActivity.this.gaG.aE(AlaEnterEffectDetailActivity.this.gcJ.id, AlaEnterEffectDetailActivity.this.gcJ.propId);
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
-        this.fyn = new b(this.fyo);
+        this.gcN = new b(this.gcO);
         Serializable serializableExtra = getIntent().getSerializableExtra("key_effect_data");
         if (!(serializableExtra instanceof AlaEnterEffectData)) {
             showToast(R.string.tb_err_unknown);
@@ -106,41 +106,41 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             finish();
             return;
         }
-        this.fyj = (AlaEnterEffectData) serializableExtra;
-        this.fyk = getIntent().getStringExtra("key_selected_effect_id");
-        this.fyl = new a(getActivity(), this.fyj);
-        this.fyl.a(this.fyp);
-        this.fyl.bsL().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.2
+        this.gcJ = (AlaEnterEffectData) serializableExtra;
+        this.gcK = getIntent().getStringExtra("key_selected_effect_id");
+        this.gcL = new a(getActivity(), this.gcJ);
+        this.gcL.a(this.gcP);
+        this.gcL.bCt().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AlaEnterEffectDetailActivity.this.setResult(0);
                 AlaEnterEffectDetailActivity.this.finish();
             }
         });
-        setContentView(this.fyl.bsL());
-        this.fym = new com.baidu.tieba.ala.personcenter.privilege.entereffect.b(getActivity(), this.fyl.bsL());
-        this.fwf = new com.baidu.tieba.ala.personcenter.privilege.b(getPageContext());
-        this.fwf.a(new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.3
+        setContentView(this.gcL.bCt());
+        this.gcM = new com.baidu.tieba.ala.personcenter.privilege.entereffect.b(getActivity(), this.gcL.bCt());
+        this.gaF = new com.baidu.tieba.ala.personcenter.privilege.b(getPageContext());
+        this.gaF.a(new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.3
             @Override // com.baidu.tieba.ala.personcenter.privilege.b.a
-            public void ka(boolean z) {
-                if (z && AlaEnterEffectDetailActivity.this.fyj != null) {
-                    if (AlaEnterEffectDetailActivity.this.fyj.price <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                        AlaEnterEffectDetailActivity.this.fyl.zK(AlaEnterEffectDetailActivity.this.getString(R.string.ala_enter_effect_tdou_buy));
+            public void le(boolean z) {
+                if (z && AlaEnterEffectDetailActivity.this.gcJ != null) {
+                    if (AlaEnterEffectDetailActivity.this.gcJ.price <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                        AlaEnterEffectDetailActivity.this.gcL.Bp(AlaEnterEffectDetailActivity.this.getString(R.string.ala_enter_effect_tdou_buy));
                     } else {
-                        AlaEnterEffectDetailActivity.this.fyl.zK(AlaEnterEffectDetailActivity.this.getString(R.string.ala_enter_effect_get_t_dou));
+                        AlaEnterEffectDetailActivity.this.gcL.Bp(AlaEnterEffectDetailActivity.this.getString(R.string.ala_enter_effect_get_t_dou));
                     }
                 }
             }
         });
-        this.fwg = new com.baidu.tieba.ala.personcenter.privilege.a(getPageContext(), new a.InterfaceC0477a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.4
-            @Override // com.baidu.tieba.ala.personcenter.privilege.a.InterfaceC0477a
-            public void l(boolean z, String str) {
+        this.gaG = new com.baidu.tieba.ala.personcenter.privilege.a(getPageContext(), new a.InterfaceC0513a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectDetailActivity.4
+            @Override // com.baidu.tieba.ala.personcenter.privilege.a.InterfaceC0513a
+            public void m(boolean z, String str) {
                 if (z) {
-                    if (AlaEnterEffectDetailActivity.this.fyj != null && AlaEnterEffectDetailActivity.this.fyl != null) {
-                        AlaEnterEffectDetailActivity.this.fyj.isOwn = true;
-                        AlaEnterEffectDetailActivity.this.fyl.d(AlaEnterEffectDetailActivity.this.fyj);
+                    if (AlaEnterEffectDetailActivity.this.gcJ != null && AlaEnterEffectDetailActivity.this.gcL != null) {
+                        AlaEnterEffectDetailActivity.this.gcJ.isOwn = true;
+                        AlaEnterEffectDetailActivity.this.gcL.d(AlaEnterEffectDetailActivity.this.gcJ);
                         AlaEnterEffectDetailActivity.this.showToast(R.string.ala_enter_effect_tdou_buy_success);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_ENTER_EFFECT_BUY_SUCCESS, AlaEnterEffectDetailActivity.this.fyj.id));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_ENTER_EFFECT_BUY_SUCCESS, AlaEnterEffectDetailActivity.this.gcJ.id));
                     }
                 } else if (!StringUtils.isNull(str)) {
                     AlaEnterEffectDetailActivity.this.showToast(str);
@@ -166,8 +166,8 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.fyj != null && this.fym != null) {
-            this.fym.a(this.fyj);
+        if (this.gcJ != null && this.gcM != null) {
+            this.gcM.a(this.gcJ);
         }
     }
 
@@ -175,11 +175,11 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fyn != null) {
-            this.fyn.onDestroy();
+        if (this.gcN != null) {
+            this.gcN.onDestroy();
         }
-        if (this.fym != null) {
-            this.fym.onDestory();
+        if (this.gcM != null) {
+            this.gcM.onDestory();
         }
     }
 }

@@ -468,7 +468,7 @@ public class PraiseResourceAPSManager implements NightModeChangeListener {
     }
 
     public static File getPraiseDownloadDir() {
-        File file = new File(getPraiseRootDir(), "download");
+        File file = new File(getPraiseRootDir(), PRAISE_DOWNLOAD_DIR_NAME);
         if (!file.exists()) {
             file.mkdirs();
         }

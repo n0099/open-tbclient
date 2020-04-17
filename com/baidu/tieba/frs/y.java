@@ -1,19 +1,7 @@
 package com.baidu.tieba.frs;
-
-import android.util.SparseArray;
-/* loaded from: classes.dex */
+/* loaded from: classes9.dex */
 public class y {
-    private static y gsQ = new y();
-    private SparseArray<z> gsP = new SparseArray<>();
-
-    private y() {
-    }
-
-    public static y bFO() {
-        return gsQ;
-    }
-
-    public z ta(int i) {
-        return this.gsP.get(i);
-    }
+    public boolean dGN = true;
+    public an hbN;
+    public int tabId;
 }

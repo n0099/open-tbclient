@@ -13,10 +13,10 @@ import com.baidu.live.u.a;
 import com.baidu.live.view.RatioTbImageView;
 /* loaded from: classes3.dex */
 public class PlayBackItemView extends RelativeLayout {
-    private RatioTbImageView fuj;
-    private LinearLayout fuk;
-    private TextView ful;
-    private TextView fum;
+    private RatioTbImageView fYH;
+    private LinearLayout fYI;
+    private TextView fYJ;
+    private TextView fYK;
     private TextView mTitleView;
 
     public PlayBackItemView(Context context) {
@@ -36,23 +36,23 @@ public class PlayBackItemView extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_palyback_item, this);
-        this.fuk = (LinearLayout) findViewById(a.g.playback_info_layout);
-        this.fuj = (RatioTbImageView) findViewById(a.g.playback_cover);
-        this.ful = (TextView) findViewById(a.g.playback_audience_count);
-        this.fum = (TextView) findViewById(a.g.playback_time);
+        this.fYI = (LinearLayout) findViewById(a.g.playback_info_layout);
+        this.fYH = (RatioTbImageView) findViewById(a.g.playback_cover);
+        this.fYJ = (TextView) findViewById(a.g.playback_audience_count);
+        this.fYK = (TextView) findViewById(a.g.playback_time);
         this.mTitleView = (TextView) findViewById(a.g.playback_title);
     }
 
     public void setData(String str, long j, long j2, String str2) {
-        this.fuj.startLoad(str, 10, false);
+        this.fYH.startLoad(str, 10, false);
         if (UtilHelper.getRealScreenOrientation(getContext()) == 2) {
-            this.fuk.setVisibility(8);
+            this.fYI.setVisibility(8);
         } else {
-            this.fuk.setVisibility(0);
-            String format = String.format(getContext().getString(a.i.ala_person_audience), com.baidu.tieba.ala.person.d.a.dd(j));
+            this.fYI.setVisibility(0);
+            String format = String.format(getContext().getString(a.i.ala_person_audience), com.baidu.tieba.ala.person.d.a.dL(j));
             String timeInterval = StringHelper.getTimeInterval(j2);
-            this.ful.setText(format);
-            this.fum.setText(timeInterval);
+            this.fYJ.setText(format);
+            this.fYK.setText(timeInterval);
         }
         if (StringUtils.isNull(str2)) {
             this.mTitleView.setText(StringHelper.STRING_MORE);

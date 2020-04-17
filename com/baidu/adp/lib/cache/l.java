@@ -19,20 +19,20 @@ public interface l<T> {
     public interface c<T> extends l<T> {
         void clearAndClose();
 
-        k<T> fB();
-
         String getNameSpace();
+
+        k<T> kf();
     }
 
     void a(String str, a<T> aVar);
-
-    b<T> ad(String str);
 
     void asyncRemove(String str);
 
     void asyncSet(String str, T t, long j);
 
     void asyncSetForever(String str, T t);
+
+    b<T> bs(String str);
 
     T get(String str);
 

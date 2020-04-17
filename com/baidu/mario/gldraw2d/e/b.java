@@ -23,7 +23,7 @@ public class b {
         }
     }
 
-    public static void c(float[] fArr, float f) {
+    public static void a(float[] fArr, float f) {
         if (fArr == null) {
             Log.e(TAG, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
         }
@@ -78,11 +78,11 @@ public class b {
         }
     }
 
-    public static void b(float[] fArr, float f, float f2) {
+    public static void a(float[] fArr, float f, float f2) {
         Matrix.translateM(fArr, 0, f, f2, 1.0f);
     }
 
-    public static void g(float[] fArr) {
+    public static void u(float[] fArr) {
         Matrix.setIdentityM(fArr, 0);
     }
 }

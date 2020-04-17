@@ -14,14 +14,14 @@ import com.baidu.swan.apps.y.f;
 public class a {
     static final /* synthetic */ boolean $assertionsDisabled;
     private static final boolean DEBUG;
-    private long bXh;
-    private b bXi;
-    private final c.a bXj;
+    private long cvY;
+    private b cvZ;
+    private final c.a cwa;
 
     /* renamed from: com.baidu.swan.apps.ao.j.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private static class C0209a {
-        public static final a bXl = new a();
+    private static class C0239a {
+        public static final a cwc = new a();
     }
 
     static {
@@ -30,12 +30,12 @@ public class a {
     }
 
     private a() {
-        this.bXh = 0L;
-        this.bXj = new c.a() { // from class: com.baidu.swan.apps.ao.j.b.a.1
+        this.cvY = 0L;
+        this.cwa = new c.a() { // from class: com.baidu.swan.apps.ao.j.b.a.1
             @Override // com.baidu.swan.apps.af.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.bXi != null) {
-                    a.this.bXi.aG(a.this.bXh);
+                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.cvZ != null) {
+                    a.this.cvZ.bl(a.this.cvY);
                 }
             }
         };
@@ -44,27 +44,27 @@ public class a {
         }
         Vibrator vibrator = (Vibrator) AppRuntime.getAppContext().getSystemService("vibrator");
         if (vibrator != null) {
-            this.bXi = new b(vibrator);
+            this.cvZ = new b(vibrator);
         }
     }
 
-    public static a agb() {
-        return C0209a.bXl;
+    public static a aog() {
+        return C0239a.cwc;
     }
 
-    void aG(long j) {
-        this.bXh = j;
-        if (this.bXi == null) {
+    void bl(long j) {
+        this.cvY = j;
+        if (this.cvZ == null) {
             if (DEBUG) {
                 throw new RuntimeException("not support vibration");
             }
         } else if (checkVibratePermission()) {
-            this.bXi.aG(this.bXh);
+            this.cvZ.bl(this.cvY);
         } else {
             String[] strArr = {"android.permission.VIBRATE"};
-            f WV = f.WV();
-            if (WV != null) {
-                WV.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.bXj);
+            f aeK = f.aeK();
+            if (aeK != null) {
+                aeK.a(CyberPlayerManager.MEDIA_INFO_VIDEO_TRACK_LAGGING, strArr, this.cwa);
             }
         }
     }
@@ -77,12 +77,12 @@ public class a {
         return true;
     }
 
-    public void agc() {
-        aG(15L);
+    public void aoh() {
+        bl(15L);
     }
 
-    public void agd() {
-        aG(400L);
+    public void aoi() {
+        bl(400L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -95,7 +95,7 @@ public class a {
         }
 
         @SuppressLint({"MissingPermission"})
-        void aG(long j) {
+        void bl(long j) {
             try {
                 if (com.baidu.swan.apps.as.a.hasOreo()) {
                     this.mVibrator.vibrate(VibrationEffect.createOneShot(j, -1));

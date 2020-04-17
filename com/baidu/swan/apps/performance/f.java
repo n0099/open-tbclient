@@ -20,14 +20,14 @@ import org.json.JSONObject;
 public final class f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     @Deprecated
-    private static b bHV;
+    private static b cgE;
 
-    private static b ZX() {
-        if (bHV == null) {
-            bHV = new b();
-            a(bHV);
+    private static b aic() {
+        if (cgE == null) {
+            cgE = new b();
+            a(cgE);
         }
-        return bHV;
+        return cgE;
     }
 
     private static void a(b bVar) {
@@ -38,52 +38,52 @@ public final class f {
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "onEvent " + aVar);
         }
-        s.k(aVar.eventId, aVar.toJSONObject());
+        s.onEvent(aVar.eventId, aVar.toJSONObject());
     }
 
     @Deprecated
-    public static synchronized HybridUbcFlow ZY() {
-        HybridUbcFlow jO;
+    public static synchronized HybridUbcFlow aid() {
+        HybridUbcFlow lb;
         synchronized (f.class) {
-            jO = jO("startup");
+            lb = lb("startup");
         }
-        return jO;
+        return lb;
     }
 
-    public static synchronized HybridUbcFlow jO(String str) {
-        HybridUbcFlow jO;
+    public static synchronized HybridUbcFlow lb(String str) {
+        HybridUbcFlow lb;
         synchronized (f.class) {
-            jO = ZX().jO(str);
+            lb = aic().lb(str);
         }
-        return jO;
+        return lb;
     }
 
-    public static synchronized HybridUbcFlow aX(String str, String str2) {
-        HybridUbcFlow aX;
+    public static synchronized HybridUbcFlow bh(String str, String str2) {
+        HybridUbcFlow bh;
         synchronized (f.class) {
-            aX = ZX().aX(str, str2);
+            bh = aic().bh(str, str2);
         }
-        return aX;
+        return bh;
     }
 
-    public static synchronized void jU(String str) {
+    public static synchronized void lh(String str) {
         synchronized (f.class) {
-            ZX().jP(str);
-        }
-    }
-
-    public static synchronized void bb(String str, String str2) {
-        synchronized (f.class) {
-            ZX().aY(str, str2);
+            aic().lc(str);
         }
     }
 
-    public static synchronized void bc(String str, String str2) {
+    public static synchronized void bl(String str, String str2) {
         synchronized (f.class) {
-            HybridUbcFlow jQ = ZX().jQ(str);
-            if (jQ != null) {
-                ZX().jO(str2).c(jQ);
-                jU(str);
+            aic().bi(str, str2);
+        }
+    }
+
+    public static synchronized void bm(String str, String str2) {
+        synchronized (f.class) {
+            HybridUbcFlow ld = aic().ld(str);
+            if (ld != null) {
+                aic().lb(str2).c(ld);
+                lh(str);
             }
         }
     }
@@ -102,25 +102,25 @@ public final class f {
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup: info=" + bVar);
         }
-        if (bVar != null && bVar.VR() != null) {
+        if (bVar != null && bVar.adG() != null) {
             final String page = bVar.getPage();
             m.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.performance.f.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    HybridUbcFlow jO = f.jO("startup");
-                    String VM = TextUtils.isEmpty(com.baidu.swan.apps.x.b.b.this.VM()) ? "NA" : com.baidu.swan.apps.x.b.b.this.VM();
+                    HybridUbcFlow lb = f.lb("startup");
+                    String adB = TextUtils.isEmpty(com.baidu.swan.apps.x.b.b.this.adB()) ? "NA" : com.baidu.swan.apps.x.b.b.this.adB();
                     if (com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 1) {
-                        jO.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
+                        lb.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
                     }
-                    jO.k("from", "swan");
-                    jO.k("source", VM);
-                    jO.ba("appid", com.baidu.swan.apps.x.b.b.this.getAppId());
-                    jO.ba("swan", com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.x.b.b.this.QT(), com.baidu.swan.apps.x.b.b.this.getAppFrameType()));
-                    jO.ba("mobile", j.agM());
-                    jO.ba("net", SwanAppNetworkUtils.Zc().type);
-                    jO.ba(ETAG.KEY_APP_VERSION, com.baidu.swan.apps.x.b.b.this.getVersion());
-                    jO.ba("thirdversion", com.baidu.swan.apps.x.b.b.this.getVersionCode());
-                    jO.k("from", com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 1 ? "swangame" : "swan");
+                    lb.p("from", "swan");
+                    lb.p("source", adB);
+                    lb.bk("appid", com.baidu.swan.apps.x.b.b.this.getAppId());
+                    lb.bk("swan", com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.x.b.b.this.YI(), com.baidu.swan.apps.x.b.b.this.getAppFrameType()));
+                    lb.bk("mobile", j.aoS());
+                    lb.bk("net", SwanAppNetworkUtils.ahi().type);
+                    lb.bk(ETAG.KEY_APP_VERSION, com.baidu.swan.apps.x.b.b.this.getVersion());
+                    lb.bk("thirdversion", com.baidu.swan.apps.x.b.b.this.getVersionCode());
+                    lb.p("from", com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 1 ? "swangame" : "swan");
                     HashSet hashSet = new HashSet();
                     hashSet.add(BuyTBeanActivityConfig.CALLBACK);
                     hashSet.add(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
@@ -131,17 +131,17 @@ public final class f {
                     if (TextUtils.isEmpty(deleteQueryParam)) {
                         deleteQueryParam = "";
                     }
-                    jO.ba("path", deleteQueryParam);
-                    jO.ba("launchid", com.baidu.swan.apps.x.b.b.this.Wf());
+                    lb.bk("path", deleteQueryParam);
+                    lb.bk("launchid", com.baidu.swan.apps.x.b.b.this.adU());
                     if (com.baidu.swan.apps.x.b.b.this.getAppFrameType() == 0) {
-                        jO.ZD();
+                        lb.ahI();
                     }
                 }
             }, "recordFromLaunchInfo");
         }
     }
 
-    public static void jV(String str) {
+    public static void li(String str) {
         String str2;
         char c = 65535;
         switch (str.hashCode()) {
@@ -178,31 +178,31 @@ public final class f {
                 str2 = "-1";
                 break;
         }
-        jO("startup").ba("package_type", str2);
+        lb("startup").bk("package_type", str2);
     }
 
     /* loaded from: classes11.dex */
     public static class a extends com.baidu.swan.apps.statistic.a.e {
-        private static int bHW = 35;
-        public JSONObject bHX;
-        private boolean bHY = true;
+        private static int cgF = 35;
+        public JSONObject cgG;
+        private boolean cgH = true;
         final String eventId;
 
         public a(String str) {
             this.eventId = str;
         }
 
-        public a jW(String str) {
+        public a lj(String str) {
             this.mFrom = str;
             return this;
         }
 
-        public a jX(String str) {
+        public a lk(String str) {
             this.mType = str;
             return this;
         }
 
-        public a jY(String str) {
+        public a ll(String str) {
             this.mSource = str;
             return this;
         }
@@ -210,18 +210,18 @@ public final class f {
         @Override // com.baidu.swan.apps.statistic.a.e
         public JSONObject toJSONObject() {
             this.mSource = TextUtils.isEmpty(this.mSource) ? "NA" : this.mSource;
-            if (this.bVx == null) {
-                this.bVx = new JSONObject();
+            if (this.cun == null) {
+                this.cun = new JSONObject();
             }
             try {
-                if (this.bHX != null) {
-                    if (this.bHY) {
-                        String hf = ai.hf(bHW);
-                        if (!TextUtils.isEmpty(hf)) {
-                            this.bHX.put("stacktrace", hf);
+                if (this.cgG != null) {
+                    if (this.cgH) {
+                        String hm = ai.hm(cgF);
+                        if (!TextUtils.isEmpty(hm)) {
+                            this.cgG.put("stacktrace", hm);
                         }
                     }
-                    this.bVx.put("info", this.bHX);
+                    this.cun.put("info", this.cgG);
                 }
             } catch (JSONException e) {
                 if (DEBUG) {

@@ -40,13 +40,13 @@ public final class b implements Runnable {
             }
             Log.d(EngineManager.LOG_TAG, "start check zeus update");
             this.a.getAppContext();
-            com.baidu.browser.sailor.webkit.update.a mG = com.baidu.browser.sailor.webkit.update.a.mG();
+            com.baidu.browser.sailor.webkit.update.a ri = com.baidu.browser.sailor.webkit.update.a.ri();
             Context appContext = this.a.getAppContext();
             if (com.baidu.browser.sailor.util.b.a(appContext)) {
-                a.C0049a c0049a = new a.C0049a(appContext, "https://mbrowser.baidu.com/api/update/kernel?version=");
+                a.C0070a c0070a = new a.C0070a(appContext, "https://mbrowser.baidu.com/api/update/kernel?version=");
                 BdNet bdNet = new BdNet(appContext);
-                bdNet.setEventListener(c0049a);
-                bdNet.start(c0049a, false);
+                bdNet.setEventListener(c0070a);
+                bdNet.start(c0070a, false);
             }
         }
     }

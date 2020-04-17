@@ -12,68 +12,68 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a implements View.OnClickListener {
-    private ViewGroup fDk;
-    private TextView hWp;
-    private TextView hWq;
-    private ImageView hWr;
-    private TextView hWs;
-    private ImageView hWt;
-    private TextView hWu;
-    private int hWv;
-    private int hWw;
-    private int hWx;
+    private ViewGroup ghL;
+    private TextView iGg;
+    private TextView iGh;
+    private ImageView iGi;
+    private TextView iGj;
+    private ImageView iGk;
+    private TextView iGl;
+    private int iGm;
+    private int iGn;
+    private int iGo;
 
     public a(Context context) {
-        this.fDk = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
-        this.hWp = (TextView) this.fDk.findViewById(R.id.choose_like_label);
-        this.hWq = (TextView) this.fDk.findViewById(R.id.recommend_interest_thread);
-        this.hWr = (ImageView) this.fDk.findViewById(R.id.male_icon);
-        this.hWs = (TextView) this.fDk.findViewById(R.id.male_text);
-        this.hWt = (ImageView) this.fDk.findViewById(R.id.female_icon);
-        this.hWu = (TextView) this.fDk.findViewById(R.id.female_text);
-        this.hWr.setOnClickListener(this);
-        this.hWt.setOnClickListener(this);
+        this.ghL = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
+        this.iGg = (TextView) this.ghL.findViewById(R.id.choose_like_label);
+        this.iGh = (TextView) this.ghL.findViewById(R.id.recommend_interest_thread);
+        this.iGi = (ImageView) this.ghL.findViewById(R.id.male_icon);
+        this.iGj = (TextView) this.ghL.findViewById(R.id.male_text);
+        this.iGk = (ImageView) this.ghL.findViewById(R.id.female_icon);
+        this.iGl = (TextView) this.ghL.findViewById(R.id.female_text);
+        this.iGi.setOnClickListener(this);
+        this.iGk.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        am.setViewTextColor(this.hWp, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.hWq, (int) R.color.cp_cont_d);
-        am.setImageResource(this.hWr, R.drawable.img_lable_boy_n);
-        am.setViewTextColor(this.hWs, (int) R.color.cp_cont_d);
-        am.setImageResource(this.hWt, R.drawable.img_lable_girl_n);
-        am.setViewTextColor(this.hWu, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.iGg, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.iGh, (int) R.color.cp_cont_d);
+        am.setImageResource(this.iGi, R.drawable.img_lable_boy_n);
+        am.setViewTextColor(this.iGj, (int) R.color.cp_cont_d);
+        am.setImageResource(this.iGk, R.drawable.img_lable_girl_n);
+        am.setViewTextColor(this.iGl, (int) R.color.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
         if (v.getCount(list) == 2) {
-            this.hWv = list.get(0).labelId;
-            this.hWw = list.get(1).labelId;
+            this.iGm = list.get(0).labelId;
+            this.iGn = list.get(1).labelId;
         }
     }
 
-    public ViewGroup cby() {
-        return this.fDk;
+    public ViewGroup clZ() {
+        return this.ghL;
     }
 
-    public int cbz() {
-        return this.hWx;
+    public int cma() {
+        return this.iGo;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
         int i = R.color.cp_cont_d;
-        if (view == this.hWr) {
+        if (view == this.iGi) {
             z = true;
         } else {
-            z = view == this.hWt ? false : false;
+            z = view == this.iGk ? false : false;
         }
-        this.hWx = z ? this.hWv : this.hWw;
-        am.setImageResource(this.hWr, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-        am.setViewTextColor(this.hWs, z ? R.color.cp_link_tip_a : R.color.cp_cont_d);
-        am.setImageResource(this.hWt, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
-        TextView textView = this.hWu;
+        this.iGo = z ? this.iGm : this.iGn;
+        am.setImageResource(this.iGi, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
+        am.setViewTextColor(this.iGj, z ? R.color.cp_link_tip_a : R.color.cp_cont_d);
+        am.setImageResource(this.iGk, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
+        TextView textView = this.iGl;
         if (!z) {
             i = R.color.cp_cont_h;
         }

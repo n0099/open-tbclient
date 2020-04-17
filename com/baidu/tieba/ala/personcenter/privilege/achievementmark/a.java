@@ -25,40 +25,40 @@ import com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.MarkLevel
 import com.baidu.tieba.ala.personcenter.privilege.b;
 /* loaded from: classes3.dex */
 public class a extends Dialog {
-    private static final int fvM = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds36);
-    private static final int fvN = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
-    private TbImageView fvO;
-    private FrameLayout fvP;
-    private TextView fvQ;
-    private RelativeLayout fvR;
-    private TextView fvS;
-    private TextView fvT;
-    private MarkLevelGroup fvU;
-    private TextView fvV;
-    private com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b fvW;
-    private d fvX;
-    private AlaUpdateMarkStatusModel fvY;
-    private InterfaceC0478a fvZ;
-    private LinearLayout fwa;
-    private TextView fwb;
-    private TextView fwc;
-    private LinearLayout fwd;
-    private TextView fwe;
-    private com.baidu.tieba.ala.personcenter.privilege.b fwf;
-    private com.baidu.tieba.ala.personcenter.privilege.a fwg;
+    private static final int aJz = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds36);
+    private static final int gan = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
+    private LinearLayout gaA;
+    private TextView gaB;
+    private TextView gaC;
+    private LinearLayout gaD;
+    private TextView gaE;
+    private com.baidu.tieba.ala.personcenter.privilege.b gaF;
+    private com.baidu.tieba.ala.personcenter.privilege.a gaG;
+    private TbImageView gao;
+    private FrameLayout gap;
+    private TextView gaq;
+    private RelativeLayout gar;
+    private TextView gas;
+    private TextView gat;
+    private MarkLevelGroup gau;
+    private TextView gav;
+    private com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b gaw;
+    private d gax;
+    private AlaUpdateMarkStatusModel gay;
+    private InterfaceC0514a gaz;
     private TbPageContext mPageContext;
     private View mRootView;
 
     /* renamed from: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0478a {
+    public interface InterfaceC0514a {
         void a(boolean z, com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b bVar);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0478a interfaceC0478a) {
+    public a(TbPageContext tbPageContext, InterfaceC0514a interfaceC0514a) {
         super(tbPageContext.getPageActivity());
         this.mPageContext = tbPageContext;
-        this.fvZ = interfaceC0478a;
+        this.gaz = interfaceC0514a;
     }
 
     @Override // android.app.Dialog
@@ -71,18 +71,18 @@ public class a extends Dialog {
         getWindow().requestFeature(1);
         initView();
         initDialog();
-        dQ();
+        zq();
     }
 
-    private void dQ() {
-        this.fvY = new AlaUpdateMarkStatusModel(getContext());
-        this.fvY.a(new AlaUpdateMarkStatusModel.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.1
+    private void zq() {
+        this.gay = new AlaUpdateMarkStatusModel(getContext());
+        this.gay.a(new AlaUpdateMarkStatusModel.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.1
             @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaUpdateMarkStatusModel.a
             public void onResult(boolean z, String str) {
-                a.this.fvV.setEnabled(true);
+                a.this.gav.setEnabled(true);
                 if (z) {
-                    if (a.this.fvZ != null) {
-                        a.this.fvZ.a(true, a.this.fvW);
+                    if (a.this.gaz != null) {
+                        a.this.gaz.a(true, a.this.gaw);
                     }
                     a.this.dismiss();
                     return;
@@ -93,30 +93,30 @@ public class a extends Dialog {
                 a.this.mPageContext.showToast(str);
             }
         });
-        this.fwf = new com.baidu.tieba.ala.personcenter.privilege.b(this.mPageContext);
-        this.fwf.a(new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.2
+        this.gaF = new com.baidu.tieba.ala.personcenter.privilege.b(this.mPageContext);
+        this.gaF.a(new b.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.2
             @Override // com.baidu.tieba.ala.personcenter.privilege.b.a
-            public void ka(boolean z) {
-                if (z && a.this.fvW.price <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                    a.this.bsr();
-                    a.this.bss();
-                    a.this.bsq();
+            public void le(boolean z) {
+                if (z && a.this.gaw.price <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                    a.this.bBZ();
+                    a.this.bCa();
+                    a.this.bBY();
                 }
             }
         });
-        this.fwg = new com.baidu.tieba.ala.personcenter.privilege.a(this.mPageContext, new a.InterfaceC0477a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.3
-            @Override // com.baidu.tieba.ala.personcenter.privilege.a.InterfaceC0477a
-            public void l(boolean z, String str) {
+        this.gaG = new com.baidu.tieba.ala.personcenter.privilege.a(this.mPageContext, new a.InterfaceC0513a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.3
+            @Override // com.baidu.tieba.ala.personcenter.privilege.a.InterfaceC0513a
+            public void m(boolean z, String str) {
                 if (z) {
-                    if (a.this.fvW != null) {
+                    if (a.this.gaw != null) {
                         a.this.mPageContext.showToast(R.string.ala_achievement_tdou_buy_success);
-                        if (a.this.fvZ != null) {
-                            a.this.fvZ.a(true, a.this.fvW);
+                        if (a.this.gaz != null) {
+                            a.this.gaz.a(true, a.this.gaw);
                         }
-                        a.this.fvW.qR(2);
-                        a.this.bsr();
-                        a.this.bss();
-                        a.this.bsq();
+                        a.this.gaw.rk(2);
+                        a.this.bBZ();
+                        a.this.bCa();
+                        a.this.bBY();
                     }
                 } else if (!StringUtils.isNull(str)) {
                     a.this.mPageContext.showToast(str);
@@ -140,218 +140,218 @@ public class a extends Dialog {
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.fvZ != null) {
-                    a.this.fvZ.a(false, a.this.fvW);
+                if (a.this.gaz != null) {
+                    a.this.gaz.a(false, a.this.gaw);
                 }
                 a.this.dismiss();
             }
         });
-        this.fvO = (TbImageView) this.mRootView.findViewById(R.id.mark_img);
-        this.fvO.setDefaultBgResource(R.color.transparent);
-        this.fvO.setDefaultResource(R.drawable.pic_live_honor);
-        this.fvO.setDefaultErrorResource(R.drawable.pic_live_honor);
-        this.fvP = (FrameLayout) this.mRootView.findViewById(R.id.mark_img_layout);
-        this.fvQ = (TextView) this.mRootView.findViewById(R.id.mark_title);
-        this.fvR = (RelativeLayout) this.mRootView.findViewById(R.id.mark_desc_layout);
-        this.fvS = (TextView) this.mRootView.findViewById(R.id.mark_desc);
-        this.fvT = (TextView) this.mRootView.findViewById(R.id.mark_upgrade_desc);
-        this.fvU = (MarkLevelGroup) this.mRootView.findViewById(R.id.mark_level_view);
-        this.fvU.setCallback(new MarkLevelGroup.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.5
+        this.gao = (TbImageView) this.mRootView.findViewById(R.id.mark_img);
+        this.gao.setDefaultBgResource(R.color.transparent);
+        this.gao.setDefaultResource(R.drawable.pic_live_honor);
+        this.gao.setDefaultErrorResource(R.drawable.pic_live_honor);
+        this.gap = (FrameLayout) this.mRootView.findViewById(R.id.mark_img_layout);
+        this.gaq = (TextView) this.mRootView.findViewById(R.id.mark_title);
+        this.gar = (RelativeLayout) this.mRootView.findViewById(R.id.mark_desc_layout);
+        this.gas = (TextView) this.mRootView.findViewById(R.id.mark_desc);
+        this.gat = (TextView) this.mRootView.findViewById(R.id.mark_upgrade_desc);
+        this.gau = (MarkLevelGroup) this.mRootView.findViewById(R.id.mark_level_view);
+        this.gau.setCallback(new MarkLevelGroup.a() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.5
             @Override // com.baidu.tieba.ala.personcenter.privilege.achievementmark.view.MarkLevelGroup.a
-            public void cX(String str, String str2) {
-                a.this.cW(str, str2);
+            public void dl(String str, String str2) {
+                a.this.dk(str, str2);
             }
         });
-        this.fvV = (TextView) this.mRootView.findViewById(R.id.mark_ops_btn);
-        this.fwc = (TextView) this.mRootView.findViewById(R.id.mark_limit_time);
-        this.fwa = (LinearLayout) findViewById(R.id.mark_tdou_layout);
-        this.fwb = (TextView) findViewById(R.id.mark_tdou_price);
-        this.fwd = (LinearLayout) findViewById(R.id.user_tdou_layout);
-        this.fwe = (TextView) findViewById(R.id.user_tdou_price);
+        this.gav = (TextView) this.mRootView.findViewById(R.id.mark_ops_btn);
+        this.gaC = (TextView) this.mRootView.findViewById(R.id.mark_limit_time);
+        this.gaA = (LinearLayout) findViewById(R.id.mark_tdou_layout);
+        this.gaB = (TextView) findViewById(R.id.mark_tdou_price);
+        this.gaD = (LinearLayout) findViewById(R.id.user_tdou_layout);
+        this.gaE = (TextView) findViewById(R.id.user_tdou_price);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsq() {
-        this.fvS.setVisibility(4);
-        this.fvT.setVisibility(4);
-        this.fwa.setVisibility(4);
-        this.fvU.setVisibility(4);
-        this.fwd.setVisibility(8);
-        if (this.fvW.bsE()) {
-            this.fwa.setVisibility(0);
-            this.fwd.setVisibility(0);
-            this.fwb.setText(AlaStringHelper.formatLowercasekDou(this.fvW.price));
+    public void bBY() {
+        this.gas.setVisibility(4);
+        this.gat.setVisibility(4);
+        this.gaA.setVisibility(4);
+        this.gau.setVisibility(4);
+        this.gaD.setVisibility(8);
+        if (this.gaw.bCm()) {
+            this.gaA.setVisibility(0);
+            this.gaD.setVisibility(0);
+            this.gaB.setText(AlaStringHelper.formatLowercasekDou(this.gaw.price));
             Drawable drawable = getContext().getResources().getDrawable(R.drawable.icon_huobi_tdou);
             int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.ds24);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-            this.fwe.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.ds4));
-            this.fwe.setCompoundDrawables(drawable, null, null, null);
-            this.fwe.setText(AlaStringHelper.formatLowercasekDou(TbadkCoreApplication.getInst().currentAccountTdouNum));
-            if (this.fvW.bsA() == 1) {
-                this.fwd.setVisibility(8);
+            this.gaE.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.ds4));
+            this.gaE.setCompoundDrawables(drawable, null, null, null);
+            this.gaE.setText(AlaStringHelper.formatLowercasekDou(TbadkCoreApplication.getInst().currentAccountTdouNum));
+            if (this.gaw.bCi() == 1) {
+                this.gaD.setVisibility(8);
             }
-        } else if (this.fvW.bsF()) {
-            this.fvS.setVisibility(0);
-            this.fvS.setText(this.fvW.getDescription());
+        } else if (this.gaw.bCn()) {
+            this.gas.setVisibility(0);
+            this.gas.setText(this.gaw.getDescription());
         } else {
-            this.fvU.setVisibility(0);
-            this.fvS.setVisibility(0);
-            this.fvT.setVisibility(0);
-            this.fvS.setText(this.fvW.getDescription());
-            this.fvT.setText(this.fvW.bsB());
-            this.fvU.c(this.fvW);
+            this.gau.setVisibility(0);
+            this.gas.setVisibility(0);
+            this.gat.setVisibility(0);
+            this.gas.setText(this.gaw.getDescription());
+            this.gat.setText(this.gaw.bCj());
+            this.gau.c(this.gaw);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cW(String str, String str2) {
+    public void dk(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            this.fvO.startLoad(String.valueOf((int) R.drawable.pic_live_honor), 24, false);
+            this.gao.startLoad(String.valueOf((int) R.drawable.pic_live_honor), 24, false);
         } else {
-            this.fvO.startLoad(str, 10, false);
+            this.gao.startLoad(str, 10, false);
         }
-        this.fvQ.setText(str2);
+        this.gaq.setText(str2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bsr() {
-        switch (this.fvW.bsA()) {
+    public void bBZ() {
+        switch (this.gaw.bCi()) {
             case 0:
-                if (this.fvW.bsE()) {
-                    this.fvV.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_enter_effect_tdou_buy);
-                    this.fvV.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d));
-                    if (this.fvW.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                        this.fvV.setText(R.string.ala_achievement_get_tdou_label);
+                if (this.gaw.bCm()) {
+                    this.gav.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_enter_effect_tdou_buy);
+                    this.gav.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d));
+                    if (this.gaw.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                        this.gav.setText(R.string.ala_achievement_get_tdou_label);
                         break;
                     }
-                } else if (this.fvW.bsF()) {
-                    this.fvV.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_nobility_open);
-                    this.fvV.setTextColor(getContext().getResources().getColor(R.color.ala_nobility_bottom_btn_color));
+                } else if (this.gaw.bCn()) {
+                    this.gav.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_nobility_open);
+                    this.gav.setTextColor(getContext().getResources().getColor(R.color.ala_nobility_bottom_btn_color));
                     break;
                 } else {
-                    this.fvV.setBackgroundResource(R.drawable.transparent_bg);
-                    this.fvV.setTextSize(0, fvM);
-                    this.fvV.setText(R.string.ala_achievement_mark_status_unlock);
-                    this.fvV.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
+                    this.gav.setBackgroundResource(R.drawable.transparent_bg);
+                    this.gav.setTextSize(0, aJz);
+                    this.gav.setText(R.string.ala_achievement_mark_status_unlock);
+                    this.gav.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
                     break;
                 }
                 break;
             case 1:
-                if (this.fvW.bsE()) {
-                    this.fvV.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_achievement_unwear_mark);
-                    this.fvV.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
+                if (this.gaw.bCm()) {
+                    this.gav.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_achievement_unwear_mark);
+                    this.gav.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
                     break;
-                } else if (this.fvW.bsF()) {
-                    this.fvV.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_achievement_unwear_mark);
-                    this.fvV.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
+                } else if (this.gaw.bCn()) {
+                    this.gav.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_achievement_unwear_mark);
+                    this.gav.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
                     break;
                 } else {
-                    this.fvV.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_achievement_unwear_mark);
-                    this.fvV.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
+                    this.gav.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_achievement_unwear_mark);
+                    this.gav.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
                     break;
                 }
             case 2:
-                if (this.fvW.bsE()) {
-                    this.fvV.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_achievement_wear_mark);
-                    this.fvV.setTextColor(getContext().getResources().getColorStateList(R.color.cp_bg_line_d));
+                if (this.gaw.bCm()) {
+                    this.gav.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_achievement_wear_mark);
+                    this.gav.setTextColor(getContext().getResources().getColorStateList(R.color.cp_bg_line_d));
                     break;
-                } else if (this.fvW.bsF()) {
-                    this.fvV.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_achievement_wear_mark);
-                    this.fvV.setTextColor(getContext().getResources().getColorStateList(R.color.ala_nobility_bottom_btn_color));
+                } else if (this.gaw.bCn()) {
+                    this.gav.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_achievement_wear_mark);
+                    this.gav.setTextColor(getContext().getResources().getColorStateList(R.color.ala_nobility_bottom_btn_color));
                     break;
                 } else {
-                    this.fvV.setBackgroundResource(R.drawable.mark_ops_btn_bg_wear_selector);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_achievement_wear_mark);
-                    this.fvV.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_wear_color));
+                    this.gav.setBackgroundResource(R.drawable.mark_ops_btn_bg_wear_selector);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_achievement_wear_mark);
+                    this.gav.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_wear_color));
                     break;
                 }
             case 3:
-                if (this.fvW.bsE()) {
-                    this.fvV.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_enter_effect_tdou_buy);
-                    this.fvV.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d));
-                    if (this.fvW.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                        this.fvV.setText(R.string.ala_achievement_get_tdou_label);
+                if (this.gaw.bCm()) {
+                    this.gav.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_enter_effect_tdou_buy);
+                    this.gav.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d));
+                    if (this.gaw.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                        this.gav.setText(R.string.ala_achievement_get_tdou_label);
                         break;
                     }
-                } else if (this.fvW.bsF()) {
-                    this.fvV.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
-                    this.fvV.setTextSize(0, fvN);
-                    this.fvV.setText(R.string.ala_nobility_open);
-                    this.fvV.setTextColor(getContext().getResources().getColor(R.color.ala_nobility_bottom_btn_color));
+                } else if (this.gaw.bCn()) {
+                    this.gav.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
+                    this.gav.setTextSize(0, gan);
+                    this.gav.setText(R.string.ala_nobility_open);
+                    this.gav.setTextColor(getContext().getResources().getColor(R.color.ala_nobility_bottom_btn_color));
                     break;
                 } else {
-                    this.fvV.setBackgroundResource(R.drawable.transparent_bg);
-                    this.fvV.setTextSize(0, fvM);
-                    this.fvV.setText(R.string.ala_achievement_mark_status_expired);
-                    this.fvV.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
+                    this.gav.setBackgroundResource(R.drawable.transparent_bg);
+                    this.gav.setTextSize(0, aJz);
+                    this.gav.setText(R.string.ala_achievement_mark_status_expired);
+                    this.gav.setTextColor(getContext().getResources().getColor(R.color.cp_bg_line_d_alpha60));
                     break;
                 }
                 break;
         }
-        this.fvV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.6
+        this.gav.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.fvW.bsA() == 0 || 3 == a.this.fvW.bsA()) {
-                    if (a.this.fvW.bsE()) {
-                        if (a.this.fvW.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                            if (a.this.fwf != null) {
-                                a.this.fwf.de(a.this.fvW.price);
+                if (a.this.gaw.bCi() == 0 || 3 == a.this.gaw.bCi()) {
+                    if (a.this.gaw.bCm()) {
+                        if (a.this.gaw.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
+                            if (a.this.gaF != null) {
+                                a.this.gaF.dM(a.this.gaw.price);
                             }
-                        } else if (a.this.fwg != null) {
-                            a.this.fwg.l(a.this.fvW.bsx(), a.this.fvW.propId, false);
+                        } else if (a.this.gaG != null) {
+                            a.this.gaG.l(a.this.gaw.bCf(), a.this.gaw.propId, false);
                         }
-                    } else if (!a.this.fvW.bsF()) {
+                    } else if (!a.this.gaw.bCn()) {
                         a.this.dismiss();
                     }
-                } else if (!a.this.fvW.bsw() || 2 != a.this.fvW.bsA()) {
-                    a.this.bst();
+                } else if (!a.this.gaw.bCe() || 2 != a.this.gaw.bCi()) {
+                    a.this.bCb();
                 } else {
-                    a.this.ND();
+                    a.this.Vq();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bss() {
-        if (this.fvW.bsA() == 1 || this.fvW.bsA() == 2) {
-            this.fwc.setVisibility(0);
-            this.fwc.setText(this.fvW.bsD());
+    public void bCa() {
+        if (this.gaw.bCi() == 1 || this.gaw.bCi() == 2) {
+            this.gaC.setVisibility(0);
+            this.gaC.setText(this.gaw.bCl());
             return;
         }
-        this.fwc.setVisibility(8);
+        this.gaC.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ND() {
+    public void Vq() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
         aVar.setMessageShowCenter(true);
-        aVar.fI(false);
-        aVar.jV(R.string.ala_achievement_ops_alert_title);
-        aVar.jW(R.string.ala_achievement_ops_alert_content);
+        aVar.gF(false);
+        aVar.kc(R.string.ala_achievement_ops_alert_title);
+        aVar.kd(R.string.ala_achievement_ops_alert_content);
         aVar.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.7
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                a.this.fvV.setEnabled(false);
-                a.this.bst();
+                a.this.gav.setEnabled(false);
+                a.this.bCb();
             }
         });
         aVar.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.8
@@ -360,27 +360,27 @@ public class a extends Dialog {
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.mPageContext).aEG();
+        aVar.b(this.mPageContext).aMU();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bst() {
-        if (1 == this.fvW.bsA()) {
-            this.fvY.q(false, this.fvW.bsx());
-        } else if (2 == this.fvW.bsA()) {
-            this.fvY.q(true, this.fvW.bsx());
+    public void bCb() {
+        if (1 == this.gaw.bCi()) {
+            this.gay.r(false, this.gaw.bCf());
+        } else if (2 == this.gaw.bCi()) {
+            this.gay.r(true, this.gaw.bCf());
         }
     }
 
     @Override // android.app.Dialog, android.content.DialogInterface
     public void dismiss() {
         super.dismiss();
-        this.fvX = null;
+        this.gax = null;
     }
 
     public void onDestroy() {
-        if (this.fvY != null) {
-            this.fvY.onDestroy();
+        if (this.gay != null) {
+            this.gay.onDestroy();
         }
     }
 }

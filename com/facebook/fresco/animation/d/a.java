@@ -3,60 +3,60 @@ package com.facebook.fresco.animation.d;
 import com.facebook.fresco.animation.a.d;
 /* loaded from: classes13.dex */
 public class a implements b {
-    private long lQV = -1;
-    private final d lQd;
+    private final d lXI;
+    private long lYA = -1;
 
     public a(d dVar) {
-        this.lQd = dVar;
+        this.lXI = dVar;
     }
 
     @Override // com.facebook.fresco.animation.d.b
-    public int K(long j, long j2) {
-        if (!doa() && j / dnZ() >= this.lQd.getLoopCount()) {
+    public int I(long j, long j2) {
+        if (!dpX() && j / dpW() >= this.lXI.getLoopCount()) {
             return -1;
         }
-        return fj(j % dnZ());
+        return fP(j % dpW());
     }
 
-    public long dnZ() {
-        if (this.lQV != -1) {
-            return this.lQV;
+    public long dpW() {
+        if (this.lYA != -1) {
+            return this.lYA;
         }
-        this.lQV = 0L;
-        int frameCount = this.lQd.getFrameCount();
+        this.lYA = 0L;
+        int frameCount = this.lXI.getFrameCount();
         for (int i = 0; i < frameCount; i++) {
-            this.lQV += this.lQd.HZ(i);
+            this.lYA += this.lXI.GA(i);
         }
-        return this.lQV;
+        return this.lYA;
     }
 
     @Override // com.facebook.fresco.animation.d.b
-    public long fi(long j) {
+    public long fO(long j) {
         long j2 = 0;
-        long dnZ = dnZ();
-        if (dnZ == 0) {
+        long dpW = dpW();
+        if (dpW == 0) {
             return -1L;
         }
-        if (doa() || j / dnZ() < this.lQd.getLoopCount()) {
-            long j3 = j % dnZ;
-            int frameCount = this.lQd.getFrameCount();
+        if (dpX() || j / dpW() < this.lXI.getLoopCount()) {
+            long j3 = j % dpW;
+            int frameCount = this.lXI.getFrameCount();
             for (int i = 0; i < frameCount && j2 <= j3; i++) {
-                j2 += this.lQd.HZ(i);
+                j2 += this.lXI.GA(i);
             }
             return (j2 - j3) + j;
         }
         return -1L;
     }
 
-    public boolean doa() {
-        return this.lQd.getLoopCount() == 0;
+    public boolean dpX() {
+        return this.lXI.getLoopCount() == 0;
     }
 
-    int fj(long j) {
+    int fP(long j) {
         int i = 0;
         long j2 = 0;
         do {
-            j2 += this.lQd.HZ(i);
+            j2 += this.lXI.GA(i);
             i++;
         } while (j >= j2);
         return i - 1;

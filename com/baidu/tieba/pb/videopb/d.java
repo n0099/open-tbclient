@@ -7,122 +7,122 @@ import com.baidu.tbadk.core.util.v;
 import java.util.LinkedList;
 /* loaded from: classes9.dex */
 public class d {
-    private boolean NK;
-    private com.baidu.tieba.pb.data.e iGv;
-    private com.baidu.tieba.pb.data.e jaQ;
-    private Rect jaS;
-    private boolean jaT;
-    private p<bj> jaR = new p<>();
-    private LinkedList<com.baidu.tieba.pb.data.e> jaU = new LinkedList<>();
-    private p<bj> jaV = new p<>();
-    private p<bj> jaW = new p<>();
-    private p<Boolean> jaX = new p<>();
-    private p<Boolean> jaY = new p<>();
-    private p<Boolean> jaZ = new p<>();
-    private p<Integer> jba = new p<>();
+    private boolean agt;
+    private com.baidu.tieba.pb.data.e jKY;
+    private Rect jLa;
+    private boolean jLb;
+    private com.baidu.tieba.pb.data.e jqC;
+    private p<bj> jKZ = new p<>();
+    private LinkedList<com.baidu.tieba.pb.data.e> jLc = new LinkedList<>();
+    private p<bj> jLd = new p<>();
+    private p<bj> jLe = new p<>();
+    private p<Boolean> jLf = new p<>();
+    private p<Boolean> jLg = new p<>();
+    private p<Boolean> jLh = new p<>();
+    private p<Integer> jLi = new p<>();
 
     public void I(com.baidu.tieba.pb.data.e eVar) {
-        this.jaQ = eVar;
+        this.jKY = eVar;
         setData(eVar);
-        this.jaV.setValue(null);
-        this.jaR.setValue(eVar.ckP());
+        this.jLd.setValue(null);
+        this.jKZ.setValue(eVar.cvu());
     }
 
-    public com.baidu.tieba.pb.data.e ctA() {
-        return this.jaQ;
+    public com.baidu.tieba.pb.data.e cEg() {
+        return this.jKY;
     }
 
-    public com.baidu.tieba.pb.data.e ctB() {
-        return this.iGv;
+    public com.baidu.tieba.pb.data.e cEh() {
+        return this.jqC;
     }
 
     public void setData(com.baidu.tieba.pb.data.e eVar) {
-        this.iGv = eVar;
+        this.jqC = eVar;
         if (eVar != null) {
-            this.jaR.setValue(eVar.ckP());
-            if (!v.isEmpty(eVar.clm())) {
-                aP(eVar.clm().get(0));
+            this.jKZ.setValue(eVar.cvu());
+            if (!v.isEmpty(eVar.cvR())) {
+                aQ(eVar.cvR().get(0));
             }
         }
     }
 
-    public p<bj> ctC() {
-        return this.jaR;
+    public p<bj> cEi() {
+        return this.jKZ;
     }
 
     public boolean isFromCDN() {
-        return this.NK;
+        return this.agt;
     }
 
     public void setFromCDN(boolean z) {
-        this.NK = z;
+        this.agt = z;
     }
 
     public void i(Rect rect) {
-        this.jaS = rect;
+        this.jLa = rect;
     }
 
-    public Rect ctD() {
-        return this.jaS;
+    public Rect cEj() {
+        return this.jLa;
     }
 
-    public void ra(boolean z) {
-        this.jaT = z;
+    public void se(boolean z) {
+        this.jLb = z;
     }
 
-    public boolean ctE() {
-        return this.jaT;
+    public boolean cEk() {
+        return this.jLb;
     }
 
-    public LinkedList<com.baidu.tieba.pb.data.e> ctF() {
-        return this.jaU;
-    }
-
-    public void aO(bj bjVar) {
-        this.jaV.setValue(bjVar);
+    public LinkedList<com.baidu.tieba.pb.data.e> cEl() {
+        return this.jLc;
     }
 
     public void aP(bj bjVar) {
-        this.jaW.setValue(bjVar);
+        this.jLd.setValue(bjVar);
     }
 
-    public p<bj> ctG() {
-        return this.jaV;
+    public void aQ(bj bjVar) {
+        this.jLe.setValue(bjVar);
     }
 
-    public p<bj> ctH() {
-        return this.jaW;
+    public p<bj> cEm() {
+        return this.jLd;
     }
 
-    public p<Boolean> ctI() {
-        return this.jaX;
+    public p<bj> cEn() {
+        return this.jLe;
     }
 
-    public void rb(boolean z) {
-        this.jaX.setValue(Boolean.valueOf(z));
+    public p<Boolean> cEo() {
+        return this.jLf;
     }
 
-    public p<Boolean> ctJ() {
-        return this.jaY;
+    public void sf(boolean z) {
+        this.jLf.setValue(Boolean.valueOf(z));
     }
 
-    public void rc(boolean z) {
-        this.jaY.postValue(Boolean.valueOf(z));
+    public p<Boolean> cEp() {
+        return this.jLg;
+    }
+
+    public void sg(boolean z) {
+        this.jLg.postValue(Boolean.valueOf(z));
     }
 
     public void setIsLoading(boolean z) {
-        this.jaZ.setValue(Boolean.valueOf(z));
+        this.jLh.setValue(Boolean.valueOf(z));
     }
 
-    public p<Boolean> ctK() {
-        return this.jaZ;
+    public p<Boolean> cEq() {
+        return this.jLh;
     }
 
     public void setCurrentTab(int i) {
-        this.jba.setValue(Integer.valueOf(i));
+        this.jLi.setValue(Integer.valueOf(i));
     }
 
-    public p<Integer> ctL() {
-        return this.jba;
+    public p<Integer> cEr() {
+        return this.jLi;
     }
 }

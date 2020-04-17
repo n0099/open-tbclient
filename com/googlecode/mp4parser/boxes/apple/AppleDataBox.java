@@ -2,6 +2,7 @@ package com.googlecode.mp4parser.boxes.apple;
 
 import com.baidu.android.imsdk.utils.BaseUtils;
 import com.baidu.live.adp.lib.util.FieldUtil;
+import com.baidu.searchbox.http.HttpConfig;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.swan.games.utils.so.SoUtils;
@@ -19,12 +20,12 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public abstract class AppleDataBox extends AbstractBox {
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_5 = null;
     private static HashMap<String, String> language;
     int dataCountry;
     int dataLanguage;
@@ -81,7 +82,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataCountry(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.NV(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Jp(i)));
         this.dataCountry = i;
     }
 
@@ -91,7 +92,7 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     public void setDataLanguage(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.NV(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Jp(i)));
         this.dataLanguage = i;
     }
 
@@ -230,7 +231,7 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put("91", "Rundi");
         language.put("92", "Nyanja");
         language.put(BaseUtils.METHOD_RECEIVEESSAGE, "Malagasy");
-        language.put("94", "Esperanto");
+        language.put(HttpConfig.UBC_HTTP_ID, "Esperanto");
         language.put("128", "Welsh");
         language.put("129", "Basque");
         language.put("130", "Catalan");

@@ -10,46 +10,46 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class c extends b<com.baidu.tbadk.core.data.a> {
-    private BjhArticleLayout Kb;
-    private com.baidu.tbadk.core.data.a Kc;
-    private View.OnClickListener Ke;
+    private BjhArticleLayout acZ;
+    private com.baidu.tbadk.core.data.a ada;
+    private View.OnClickListener adb;
 
     public c(Context context) {
         super(context);
-        this.Ke = new View.OnClickListener() { // from class: com.baidu.card.c.1
+        this.adb = new View.OnClickListener() { // from class: com.baidu.card.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.a(c.this.JX.getView(), c.this.Kc);
+                c.this.a(c.this.acV.getView(), c.this.ada);
             }
         };
-        this.Kb = new BjhArticleLayout(context);
-        this.Kb.setJumpToPbListener(this.Ke);
+        this.acZ = new BjhArticleLayout(context);
+        this.acZ.setJumpToPbListener(this.adb);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.Kb;
+        return this.acZ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        this.Kc = aVar;
-        this.Kb.A(aVar);
+        this.ada = aVar;
+        this.acZ.A(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
-    public void mS() {
-        super.mS();
+    public void rk() {
+        super.rk();
         a(1, new a.b() { // from class: com.baidu.card.c.2
             @Override // com.baidu.card.a.a.b
-            public boolean a(a.C0052a c0052a) {
-                if (c.this.Kc != null && c.this.Kc.aAj() != null) {
-                    com.baidu.tieba.card.l.zV(c.this.Kc.aAj().getId());
-                    com.baidu.tieba.card.l.a(c.this.Kb.getTitle(), c.this.Kc.aAj().getId(), (int) R.color.cp_cont_a, (int) R.color.cp_cont_d);
+            public boolean a(a.C0074a c0074a) {
+                if (c.this.ada != null && c.this.ada.aIw() != null) {
+                    com.baidu.tieba.card.l.BB(c.this.ada.aIw().getId());
+                    com.baidu.tieba.card.l.a(c.this.acZ.getTitle(), c.this.ada.aIw().getId(), (int) R.color.cp_cont_a, (int) R.color.cp_cont_d);
                 }
                 return false;
             }
@@ -59,29 +59,29 @@ public class c extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.b
     public void setOnCardSubClickListener(com.baidu.tieba.card.z<com.baidu.tbadk.core.data.a> zVar) {
         super.setOnCardSubClickListener(zVar);
-        this.Kb.setSubClickListener(zVar);
+        this.acZ.setSubClickListener(zVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, com.baidu.adp.widget.ListView.m mVar) {
-        if (((this.Kc instanceof com.baidu.tieba.card.data.e) || (this.Kc instanceof bj)) && (view.getTag() instanceof af)) {
+        if (((this.ada instanceof com.baidu.tieba.card.data.e) || (this.ada instanceof bj)) && (view.getTag() instanceof af)) {
             af afVar = (af) view.getTag();
             if (mVar instanceof com.baidu.tieba.card.data.e) {
-                com.baidu.tieba.card.data.e eVar = (com.baidu.tieba.card.data.e) this.Kc;
+                com.baidu.tieba.card.data.e eVar = (com.baidu.tieba.card.data.e) this.ada;
                 eVar.objType = 1;
-                au.a((com.baidu.tbadk.core.data.a) eVar, view.getContext(), eVar.cRt.cUF ? 2 : 1, false);
-                afVar.nk().b(new a.C0052a(1));
+                au.a((com.baidu.tbadk.core.data.a) eVar, view.getContext(), eVar.dqA.dtQ ? 2 : 1, false);
+                afVar.rD().b(new a.C0074a(1));
             } else if (mVar instanceof bj) {
-                bj bjVar = (bj) this.Kc;
+                bj bjVar = (bj) this.ada;
                 bjVar.objType = 1;
                 au.a((com.baidu.tbadk.core.data.a) bjVar, view.getContext(), 3, false);
-                afVar.nk().b(new a.C0052a(1));
+                afVar.rD().b(new a.C0074a(1));
             }
         }
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.Kb.onChangeSkinType(tbPageContext, i);
+        this.acZ.onChangeSkinType(tbPageContext, i);
     }
 }

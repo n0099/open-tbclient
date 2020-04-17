@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.parallel;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.g;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.b;
@@ -17,13 +16,13 @@ import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelSortedJoin<T> extends g<T> {
     final Comparator<? super T> comparator;
-    final a<List<T>> nAt;
+    final a<List<T>> mTU;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.nAt.dJS(), this.comparator);
+        SortedJoinSubscription sortedJoinSubscription = new SortedJoinSubscription(cVar, this.mTU.dCR(), this.comparator);
         cVar.onSubscribe(sortedJoinSubscription);
-        this.nAt.a(sortedJoinSubscription.subscribers);
+        this.mTU.a(sortedJoinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -142,7 +141,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
             if (r6 == 0) goto L81;
          */
         /* JADX WARN: Code restructure failed: missing block: B:56:0x00f5, code lost:
-            if (r12 == com.google.android.exoplayer2.Format.OFFSET_SAMPLE_RELATIVE) goto L81;
+            if (r12 == Long.MAX_VALUE) goto L81;
          */
         /* JADX WARN: Code restructure failed: missing block: B:57:0x00f7, code lost:
             r15.requested.addAndGet(-r6);
@@ -218,7 +217,7 @@ public final class ParallelSortedJoin<T> extends g<T> {
                                                 i3 = i4;
                                             }
                                         } catch (Throwable th2) {
-                                            io.reactivex.exceptions.a.H(th2);
+                                            io.reactivex.exceptions.a.L(th2);
                                             cancelAll();
                                             Arrays.fill(listArr, (Object) null);
                                             if (!this.error.compareAndSet(null, th2)) {
@@ -269,7 +268,9 @@ public final class ParallelSortedJoin<T> extends g<T> {
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(Long.MAX_VALUE);
+            }
         }
 
         public void onNext(List<T> list) {

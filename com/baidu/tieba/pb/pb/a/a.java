@@ -5,15 +5,15 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.pb.data.e;
 /* loaded from: classes9.dex */
 public interface a {
-    void P(View.OnClickListener onClickListener);
+    void Q(View.OnClickListener onClickListener);
 
-    void dH(String str);
+    void eA(String str);
 
-    void pC(boolean z);
+    void qG(boolean z);
 
-    void pD(boolean z);
+    void qH(boolean z);
 
-    void pE(boolean z);
+    void qI(boolean z);
 
     void setData(e eVar);
 
@@ -25,5 +25,5 @@ public interface a {
 
     void setOnLongClickListener(View.OnLongClickListener onLongClickListener);
 
-    void y(View.OnClickListener onClickListener);
+    void z(View.OnClickListener onClickListener);
 }

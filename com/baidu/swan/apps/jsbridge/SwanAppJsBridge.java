@@ -30,14 +30,14 @@ public class SwanAppJsBridge extends a {
         if (DEBUG) {
             Log.d(TAG, "slave id: " + str + " data: " + str2);
         }
-        e.z("postMessage", "PostMsg setData handle");
+        e.D("postMessage", "PostMsg setData handle");
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             i = 202;
         } else {
             d dVar = new d(str, str2);
-            e.z("postMessage", "PostMsg setData start");
-            f.WV().a(dVar, false);
-            e.z("postMessage", "PostMsg setData end");
+            e.D("postMessage", "PostMsg setData start");
+            f.aeK().a(dVar, false);
+            e.D("postMessage", "PostMsg setData end");
         }
         return UnitedSchemeUtility.wrapCallbackParams(i).toString();
     }

@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.tb.airbnb.lottie.a.b.o;
 /* loaded from: classes6.dex */
 public class l implements com.tb.airbnb.lottie.model.content.b {
-    private final e nsH;
-    private final m<PointF, PointF> nsI;
-    private final g nsJ;
-    private final b nsK;
-    private final d nsL;
+    private final e mPs;
+    private final m<PointF, PointF> mPt;
+    private final g mPu;
+    private final b mPv;
+    private final d mPw;
     @Nullable
-    private final b nsM;
+    private final b mPx;
     @Nullable
-    private final b nsN;
+    private final b mPy;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.nsH = eVar;
-        this.nsI = mVar;
-        this.nsJ = gVar;
-        this.nsK = bVar;
-        this.nsL = dVar;
-        this.nsM = bVar2;
-        this.nsN = bVar3;
+        this.mPs = eVar;
+        this.mPt = mVar;
+        this.mPu = gVar;
+        this.mPv = bVar;
+        this.mPw = dVar;
+        this.mPx = bVar2;
+        this.mPy = bVar3;
     }
 
-    public e dHs() {
-        return this.nsH;
+    public e dBu() {
+        return this.mPs;
     }
 
-    public m<PointF, PointF> dHt() {
-        return this.nsI;
+    public m<PointF, PointF> dBv() {
+        return this.mPt;
     }
 
-    public g dHu() {
-        return this.nsJ;
+    public g dBw() {
+        return this.mPu;
     }
 
-    public b dHv() {
-        return this.nsK;
+    public b dBx() {
+        return this.mPv;
     }
 
-    public d dHw() {
-        return this.nsL;
-    }
-
-    @Nullable
-    public b dHx() {
-        return this.nsM;
+    public d dBy() {
+        return this.mPw;
     }
 
     @Nullable
-    public b dHy() {
-        return this.nsN;
+    public b dBz() {
+        return this.mPx;
     }
 
-    public o dHz() {
+    @Nullable
+    public b dBA() {
+        return this.mPy;
+    }
+
+    public o dBB() {
         return new o(this);
     }
 

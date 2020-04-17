@@ -9,21 +9,21 @@ import com.baidu.searchbox.v8engine.event.EventTarget;
 public interface b extends TypedCallbackHandler, JSRuntime, com.baidu.swan.apps.core.container.a {
     byte[] a(JsSerializeValue jsSerializeValue, boolean z);
 
-    EventTarget anA();
+    com.baidu.swan.games.e.b.b avK();
 
-    com.baidu.swan.games.e.a.a anB();
+    EventTarget avM();
 
-    com.baidu.swan.games.e.b.b anx();
+    EventTarget avN();
 
-    EventTarget anz();
+    com.baidu.swan.games.e.a.a avO();
 
-    void bE(String str, String str2);
+    JsSerializeValue b(byte[] bArr, boolean z);
 
-    JsSerializeValue c(byte[] bArr, boolean z);
+    void bP(String str, String str2);
 
     String getInitBasePath();
 
-    boolean m(Runnable runnable);
+    boolean p(Runnable runnable);
 
     void postOnJSThread(Runnable runnable);
 

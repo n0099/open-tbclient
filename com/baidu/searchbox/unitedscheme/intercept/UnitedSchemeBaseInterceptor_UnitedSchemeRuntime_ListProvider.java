@@ -3,7 +3,7 @@ package com.baidu.searchbox.unitedscheme.intercept;
 import com.baidu.pyramid.a.a;
 import com.baidu.swan.apps.scheme.a.b;
 import com.baidu.swan.apps.scheme.a.c;
-import com.baidu.tieba.publisher.a.n;
+import com.baidu.tieba.write.b.a.n;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implements a {

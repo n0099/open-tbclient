@@ -13,18 +13,18 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableCreate<T> extends io.reactivex.g<T> {
-    final i<T> nyE;
-    final BackpressureStrategy nyF;
+    final i<T> mRX;
+    final BackpressureStrategy mRY;
 
     public FlowableCreate(i<T> iVar, BackpressureStrategy backpressureStrategy) {
-        this.nyE = iVar;
-        this.nyF = backpressureStrategy;
+        this.mRX = iVar;
+        this.mRY = backpressureStrategy;
     }
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         BaseEmitter latestAsyncEmitter;
-        switch (this.nyF) {
+        switch (this.mRY) {
             case MISSING:
                 latestAsyncEmitter = new MissingEmitter(cVar);
                 break;
@@ -38,14 +38,14 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
                 latestAsyncEmitter = new LatestAsyncEmitter(cVar);
                 break;
             default:
-                latestAsyncEmitter = new BufferAsyncEmitter(cVar, dJD());
+                latestAsyncEmitter = new BufferAsyncEmitter(cVar, dCB());
                 break;
         }
         cVar.onSubscribe(latestAsyncEmitter);
         try {
-            this.nyE.subscribe(latestAsyncEmitter);
+            this.mRX.subscribe(latestAsyncEmitter);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             latestAsyncEmitter.onError(th);
         }
     }
@@ -172,11 +172,6 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
         public h<T> serialize() {
             return this;
         }
-
-        @Override // java.util.concurrent.atomic.AtomicInteger
-        public String toString() {
-            return this.emitter.toString();
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -272,11 +267,6 @@ public final class FlowableCreate<T> extends io.reactivex.g<T> {
 
         public final h<T> serialize() {
             return new SerializedEmitter(this);
-        }
-
-        @Override // java.util.concurrent.atomic.AtomicLong
-        public String toString() {
-            return String.format("%s{%s}", getClass().getSimpleName(), super.toString());
         }
     }
 

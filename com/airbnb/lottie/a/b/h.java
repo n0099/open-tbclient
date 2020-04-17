@@ -9,16 +9,16 @@ public class h extends com.airbnb.lottie.e.a<PointF> {
     private Path path;
 
     public h(com.airbnb.lottie.e eVar, com.airbnb.lottie.e.a<PointF> aVar) {
-        super(eVar, aVar.kp, aVar.kq, aVar.kr, aVar.ec, aVar.ks);
-        boolean z = (this.kq == 0 || this.kp == 0 || !((PointF) this.kp).equals(((PointF) this.kq).x, ((PointF) this.kq).y)) ? false : true;
-        if (this.kq != 0 && !z) {
-            this.path = com.airbnb.lottie.d.f.a((PointF) this.kp, (PointF) this.kq, aVar.kv, aVar.kx);
+        super(eVar, aVar.FL, aVar.FM, aVar.FN, aVar.zN, aVar.FO);
+        boolean z = (this.FM == 0 || this.FL == 0 || !((PointF) this.FL).equals(((PointF) this.FM).x, ((PointF) this.FM).y)) ? false : true;
+        if (this.FM != 0 && !z) {
+            this.path = com.airbnb.lottie.d.f.a((PointF) this.FL, (PointF) this.FM, aVar.FR, aVar.FT);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public Path bG() {
+    public Path hd() {
         return this.path;
     }
 }

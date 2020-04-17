@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
@@ -11,7 +10,7 @@ public final class FlowableTake<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new TakeSubscriber(cVar, this.limit));
+        this.mRJ.a((j) new TakeSubscriber(cVar, this.limit));
     }
 
     /* loaded from: classes7.dex */
@@ -66,9 +65,7 @@ public final class FlowableTake<T> extends a<T, T> {
                 this.done = true;
                 this.subscription.cancel();
                 this.actual.onError(th);
-                return;
             }
-            io.reactivex.e.a.onError(th);
         }
 
         @Override // org.a.c
@@ -83,7 +80,7 @@ public final class FlowableTake<T> extends a<T, T> {
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 if (!get() && compareAndSet(false, true) && j >= this.limit) {
-                    this.subscription.request(Format.OFFSET_SAMPLE_RELATIVE);
+                    this.subscription.request(Long.MAX_VALUE);
                 } else {
                     this.subscription.request(j);
                 }

@@ -1,5 +1,6 @@
 package com.google.protobuf;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.google.protobuf.ByteString;
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +34,7 @@ public class RopeByteString extends ByteString {
             i2 = i;
             i = i3;
         }
-        arrayList.add(Integer.MAX_VALUE);
+        arrayList.add(Integer.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED));
         minLengthByDepth = new int[arrayList.size()];
         int i4 = 0;
         while (true) {

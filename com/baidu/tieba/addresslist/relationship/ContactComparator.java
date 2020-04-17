@@ -17,16 +17,16 @@ public class ContactComparator implements Serializable, Comparator<com.baidu.tba
         if (aVar2 == null) {
             return 1;
         }
-        String aMt = aVar.aMt();
-        String aMt2 = aVar2.aMt();
-        if (!TextUtils.isEmpty(aMt) && !TextUtils.isEmpty(aMt2) && !aMt.equals(aMt2)) {
-            if ("#".equals(aMt)) {
+        String aUQ = aVar.aUQ();
+        String aUQ2 = aVar2.aUQ();
+        if (!TextUtils.isEmpty(aUQ) && !TextUtils.isEmpty(aUQ2) && !aUQ.equals(aUQ2)) {
+            if ("#".equals(aUQ)) {
                 return 1;
             }
-            if ("#".equals(aMt2)) {
+            if ("#".equals(aUQ2)) {
                 return -1;
             }
-            return aMt.compareToIgnoreCase(aMt2);
+            return aUQ.compareToIgnoreCase(aUQ2);
         }
         String userName = aVar.getUserName();
         String userName2 = aVar2.getUserName();

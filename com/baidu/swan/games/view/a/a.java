@@ -10,18 +10,18 @@ public class a extends e {
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.bVx == null) {
-            this.bVx = new JSONObject();
+        if (this.cun == null) {
+            this.cun = new JSONObject();
         }
         try {
-            this.bVx.put("error_code", this.mErrorCode);
+            this.cun.put("error_code", this.mErrorCode);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
         if (DEBUG) {
-            Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.bVx + "\t " + Thread.currentThread().getId());
+            Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.cun + "\t " + Thread.currentThread().getId());
         }
         return super.toJSONObject();
     }

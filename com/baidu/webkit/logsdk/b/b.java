@@ -142,8 +142,8 @@ public final class b {
     }
 
     public final void a(JSONObject jSONObject, boolean z, SharedPreferences.Editor editor) throws JSONException {
-        if (jSONObject.has("array")) {
-            JSONArray jSONArray = jSONObject.getJSONArray("array");
+        if (jSONObject.has(com.baidu.fsg.base.statistics.b.j)) {
+            JSONArray jSONArray = jSONObject.getJSONArray(com.baidu.fsg.base.statistics.b.j);
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                 if (jSONObject2.has(ExtraParamsManager.PARAM_LOG_TYPE)) {

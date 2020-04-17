@@ -10,17 +10,17 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes7.dex */
 class b {
-    static b bG = new b();
-    private final Map<Class, a> bH = new HashMap();
-    private final Map<Class, Boolean> bI = new HashMap();
+    static b xK = new b();
+    private final Map<Class, a> xL = new HashMap();
+    private final Map<Class, Boolean> xM = new HashMap();
 
     b() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean e(Class cls) {
-        if (this.bI.containsKey(cls)) {
-            return this.bI.get(cls).booleanValue();
+        if (this.xM.containsKey(cls)) {
+            return this.xM.get(cls).booleanValue();
         }
         Method[] f = f(cls);
         for (Method method : f) {
@@ -29,7 +29,7 @@ class b {
                 return true;
             }
         }
-        this.bI.put(cls, false);
+        this.xM.put(cls, false);
         return false;
     }
 
@@ -43,7 +43,7 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a g(Class cls) {
-        a aVar = this.bH.get(cls);
+        a aVar = this.xL.get(cls);
         if (aVar == null) {
             return a(cls, null);
         }
@@ -66,10 +66,10 @@ class b {
         Class superclass = cls.getSuperclass();
         HashMap hashMap = new HashMap();
         if (superclass != null && (g = g(superclass)) != null) {
-            hashMap.putAll(g.bK);
+            hashMap.putAll(g.xO);
         }
         for (Class<?> cls2 : cls.getInterfaces()) {
-            for (Map.Entry<C0001b, Lifecycle.Event> entry : g(cls2).bK.entrySet()) {
+            for (Map.Entry<C0001b, Lifecycle.Event> entry : g(cls2).xO.entrySet()) {
                 a(hashMap, entry.getKey(), entry.getValue(), cls);
             }
         }
@@ -93,12 +93,12 @@ class b {
                 } else {
                     i = 1;
                 }
-                Lifecycle.Event aA = rVar.aA();
+                Lifecycle.Event fW = rVar.fW();
                 if (parameterTypes.length > 1) {
                     if (!parameterTypes[1].isAssignableFrom(Lifecycle.Event.class)) {
                         throw new IllegalArgumentException("invalid parameter type. second arg must be an event");
                     }
-                    if (aA != Lifecycle.Event.ON_ANY) {
+                    if (fW != Lifecycle.Event.ON_ANY) {
                         throw new IllegalArgumentException("Second arg is supported only for ON_ANY value");
                     }
                     i = 2;
@@ -106,32 +106,32 @@ class b {
                 if (parameterTypes.length > 2) {
                     throw new IllegalArgumentException("cannot have more than 2 params");
                 }
-                a(hashMap, new C0001b(i, method), aA, cls);
+                a(hashMap, new C0001b(i, method), fW, cls);
                 z = true;
             }
             i2++;
             z2 = z;
         }
         a aVar = new a(hashMap);
-        this.bH.put(cls, aVar);
-        this.bI.put(cls, Boolean.valueOf(z2));
+        this.xL.put(cls, aVar);
+        this.xM.put(cls, Boolean.valueOf(z2));
         return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static class a {
-        final Map<Lifecycle.Event, List<C0001b>> bJ = new HashMap();
-        final Map<C0001b, Lifecycle.Event> bK;
+        final Map<Lifecycle.Event, List<C0001b>> xN = new HashMap();
+        final Map<C0001b, Lifecycle.Event> xO;
 
         a(Map<C0001b, Lifecycle.Event> map) {
-            this.bK = map;
+            this.xO = map;
             for (Map.Entry<C0001b, Lifecycle.Event> entry : map.entrySet()) {
                 Lifecycle.Event value = entry.getValue();
-                List<C0001b> list = this.bJ.get(value);
+                List<C0001b> list = this.xN.get(value);
                 if (list == null) {
                     list = new ArrayList<>();
-                    this.bJ.put(value, list);
+                    this.xN.put(value, list);
                 }
                 list.add(entry.getKey());
             }
@@ -139,8 +139,8 @@ class b {
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a(j jVar, Lifecycle.Event event, Object obj) {
-            a(this.bJ.get(event), jVar, event, obj);
-            a(this.bJ.get(Lifecycle.Event.ON_ANY), jVar, event, obj);
+            a(this.xN.get(event), jVar, event, obj);
+            a(this.xN.get(Lifecycle.Event.ON_ANY), jVar, event, obj);
         }
 
         private static void a(List<C0001b> list, j jVar, Lifecycle.Event event, Object obj) {
@@ -156,18 +156,18 @@ class b {
     /* renamed from: android.arch.lifecycle.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
     public static class C0001b {
-        final int mCallType;
         final Method mMethod;
+        final int xP;
 
         C0001b(int i, Method method) {
-            this.mCallType = i;
+            this.xP = i;
             this.mMethod = method;
             this.mMethod.setAccessible(true);
         }
 
         void b(j jVar, Lifecycle.Event event, Object obj) {
             try {
-                switch (this.mCallType) {
+                switch (this.xP) {
                     case 0:
                         this.mMethod.invoke(obj, new Object[0]);
                         return;
@@ -195,11 +195,11 @@ class b {
                 return false;
             }
             C0001b c0001b = (C0001b) obj;
-            return this.mCallType == c0001b.mCallType && this.mMethod.getName().equals(c0001b.mMethod.getName());
+            return this.xP == c0001b.xP && this.mMethod.getName().equals(c0001b.mMethod.getName());
         }
 
         public int hashCode() {
-            return (this.mCallType * 31) + this.mMethod.getName().hashCode();
+            return (this.xP * 31) + this.mMethod.getName().hashCode();
         }
     }
 }

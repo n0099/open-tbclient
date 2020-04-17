@@ -341,7 +341,7 @@ public final class Utility {
     public static void startIMService(Context context) {
         LogUtils.i(TAG, "--- Start IM Service ---");
         try {
-            context.startService(new Intent(context, IMService.class));
+            IMService.enqueueWork(context, new Intent(context, IMService.class));
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -374,7 +374,7 @@ public final class Utility {
         creatMethodIntent.putExtra("contacter", j2);
         creatMethodIntent.putExtra("category", j);
         try {
-            context.startService(creatMethodIntent);
+            IMService.enqueueWork(context, creatMethodIntent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
@@ -403,14 +403,14 @@ public final class Utility {
         if (mDeviceId != null) {
             return mDeviceId;
         }
-        mDeviceId = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getString(Constants.KEY_DEVICE_ID, Constants.KEY_DEVICE_ID);
+        mDeviceId = context.getSharedPreferences(Constants.PREF_COMMON_DATA, 0).getString("device_id", "device_id");
         return mDeviceId;
     }
 
     public static void setDeviceId(Context context, String str) {
         mDeviceId = str;
         LogUtils.d(TAG, "set device id as " + str);
-        writeStringData(context, Constants.KEY_DEVICE_ID, str);
+        writeStringData(context, "device_id", str);
     }
 
     public static String getLocalIp() {
@@ -456,7 +456,7 @@ public final class Utility {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
         }
         try {
-            context.startService(creatMethodIntent);
+            IMService.enqueueWork(context, creatMethodIntent);
         } catch (Exception e) {
             ListenerManager.getInstance().removeListener(str);
             LogUtils.e(TAG, "Exception ", e);
@@ -590,7 +590,7 @@ public final class Utility {
         try {
             Intent intent = new Intent(IMConstants.LONG_CONNECTION_STATE);
             intent.setPackage(context.getPackageName());
-            intent.putExtra(IMConstants.KEY_CONNECTION_STATE, i);
+            intent.putExtra("lcs", i);
             context.sendBroadcast(intent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
@@ -838,5 +838,30 @@ public final class Utility {
 
     public static boolean isAndroidQAndAbove() {
         return Build.VERSION.SDK_INT >= 29;
+    }
+
+    public static int getBusinessType(int i, int i2) {
+        if (i == 7 && i2 == 16) {
+            return 4;
+        }
+        if (i == 7 && i2 == 21) {
+            return 6;
+        }
+        if (i != 7 || i2 > 0) {
+            if (i == 17) {
+                return 7;
+            }
+            if (i == 1 || i == 5) {
+                return 8;
+            }
+            if (i == 23) {
+                return 9;
+            }
+            if (i == 19) {
+                return 10;
+            }
+            return i == 25 ? 20 : 3;
+        }
+        return 3;
     }
 }

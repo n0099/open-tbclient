@@ -1,6 +1,5 @@
 package rx.internal.util;
 
-import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes6.dex */
 public final class BackpressureDrainManager extends AtomicLong implements rx.f {
@@ -12,9 +11,9 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void U(Throwable th);
+        void Y(Throwable th);
 
-        boolean ch(Object obj);
+        boolean bQ(Object obj);
 
         Object peek();
 
@@ -62,13 +61,13 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
             do {
                 j2 = get();
                 z = j2 == 0;
-                if (j2 == Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j2 == Long.MAX_VALUE) {
                     break;
-                } else if (j == Format.OFFSET_SAMPLE_RELATIVE) {
+                } else if (j == Long.MAX_VALUE) {
                     j3 = j;
                     z = true;
                 } else {
-                    j3 = j2 > Format.OFFSET_SAMPLE_RELATIVE - j ? Long.MAX_VALUE : j2 + j;
+                    j3 = j2 > Long.MAX_VALUE - j ? Long.MAX_VALUE : j2 + j;
                 }
             } while (!compareAndSet(j2, j3));
             if (z) {
@@ -105,7 +104,7 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
         r4 = true;
      */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x0057, code lost:
-        if (get() != com.google.android.exoplayer2.Format.OFFSET_SAMPLE_RELATIVE) goto L37;
+        if (get() != Long.MAX_VALUE) goto L37;
      */
     /* JADX WARN: Code restructure failed: missing block: B:39:0x0059, code lost:
         if (r4 != false) goto L34;
@@ -135,7 +134,7 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
         r4 = false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:56:0x007f, code lost:
-        r0 = com.google.android.exoplayer2.Format.OFFSET_SAMPLE_RELATIVE;
+        r0 = Long.MAX_VALUE;
      */
     /* JADX WARN: Code restructure failed: missing block: B:57:0x0084, code lost:
         monitor-exit(r13);
@@ -193,13 +192,13 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
                                 if (z) {
                                     if (aVar.peek() == null) {
                                         i = 1;
-                                        aVar.U(this.exception);
+                                        aVar.Y(this.exception);
                                         return;
                                     }
                                 }
                                 Object poll = aVar.poll();
                                 if (poll != null) {
-                                    if (!aVar.ch(poll)) {
+                                    if (!aVar.bQ(poll)) {
                                         j2--;
                                         i2++;
                                     } else {

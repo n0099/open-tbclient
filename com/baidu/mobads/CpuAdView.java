@@ -7,7 +7,7 @@ import com.baidu.mobads.CpuInfoManager;
 import com.baidu.mobads.component.XAdView;
 /* loaded from: classes10.dex */
 public final class CpuAdView extends RelativeLayout {
-    private com.baidu.mobads.production.b.b aPd;
+    private com.baidu.mobads.production.b.b bkU;
 
     public CpuAdView(Context context) {
         super(context);
@@ -16,8 +16,8 @@ public final class CpuAdView extends RelativeLayout {
     public CpuAdView(Context context, String str, String str2, CpuInfoManager.UrlListener urlListener) {
         super(context);
         XAdView xAdView = new XAdView(context);
-        this.aPd = new com.baidu.mobads.production.b.b(context, xAdView, str, str2);
-        this.aPd.request();
+        this.bkU = new com.baidu.mobads.production.b.b(context, xAdView, str, str2);
+        this.bkU.request();
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }
 }

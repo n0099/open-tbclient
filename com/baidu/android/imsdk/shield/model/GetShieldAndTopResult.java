@@ -21,7 +21,10 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         }
     };
     public static final String TAG = "GetShieldAndTopResult";
+    private int mChatType;
     private long mContacter;
+    private int mDisturbStatus;
+    private long mDisturbTime;
     private int mMarkTop;
     private long mMarkTopTime;
     private int mShield;
@@ -38,6 +41,9 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         this.mShield = parcel.readInt();
         this.mShieldTime = parcel.readLong();
         this.mContacter = parcel.readLong();
+        this.mChatType = parcel.readInt();
+        this.mDisturbStatus = parcel.readInt();
+        this.mDisturbTime = parcel.readLong();
     }
 
     public int getMarkTop() {
@@ -80,6 +86,30 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         this.mContacter = j;
     }
 
+    public void setChatType(int i) {
+        this.mChatType = i;
+    }
+
+    public void setDisturbStatus(int i) {
+        this.mDisturbStatus = i;
+    }
+
+    public void setDisturbTime(long j) {
+        this.mDisturbTime = j;
+    }
+
+    public int getChatType() {
+        return this.mChatType;
+    }
+
+    public int getDisturbStatus() {
+        return this.mDisturbStatus;
+    }
+
+    public long getDisturbTime() {
+        return this.mDisturbTime;
+    }
+
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
@@ -94,5 +124,8 @@ public class GetShieldAndTopResult extends HttpHelper.ResponseResult implements 
         parcel.writeInt(this.mShield);
         parcel.writeLong(this.mShieldTime);
         parcel.writeLong(this.mContacter);
+        parcel.writeInt(this.mChatType);
+        parcel.writeInt(this.mDisturbStatus);
+        parcel.writeLong(this.mDisturbTime);
     }
 }

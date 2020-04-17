@@ -9,8 +9,8 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ArrayList<a> csd;
-    private int cse;
+    private ArrayList<a> cQY;
+    private int cQZ;
     private String mSavePath;
     private String mVideoPath;
 
@@ -18,10 +18,10 @@ public class e {
         if (DEBUG) {
             Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
         }
-        this.csd = q(arrayList);
+        this.cQY = q(arrayList);
         this.mVideoPath = str;
         this.mSavePath = str2;
-        this.cse = this.csd.size();
+        this.cQZ = this.cQY.size();
     }
 
     public void a(final c cVar) {
@@ -29,19 +29,19 @@ public class e {
             m.postOnSerial(new Runnable() { // from class: com.baidu.swan.games.screenrecord.a.e.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    ArrayList<long[]> apy = e.this.apy();
+                    ArrayList<long[]> axK = e.this.axK();
                     d dVar = new d();
                     dVar.videoPath = e.this.mVideoPath;
-                    dVar.csc = apy;
+                    dVar.cQX = axK;
                     dVar.clipPath = e.this.mSavePath;
-                    com.baidu.swan.games.l.a.aoM().a(dVar, cVar);
+                    com.baidu.swan.games.l.a.awZ().a(dVar, cVar);
                 }
             }, "clipVideo");
         }
     }
 
     private ArrayList<a> q(ArrayList<b> arrayList) {
-        a apx;
+        a axJ;
         ArrayList<a> arrayList2 = new ArrayList<>();
         if (arrayList == null || arrayList.size() == 0) {
             return arrayList2;
@@ -49,25 +49,25 @@ public class e {
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && (apx = next.apx()) != null) {
-                arrayList2.add(apx);
+            if (next != null && (axJ = next.axJ()) != null) {
+                arrayList2.add(axJ);
             }
         }
         return arrayList2;
     }
 
-    public ArrayList<long[]> apy() {
+    public ArrayList<long[]> axK() {
         ArrayList<long[]> arrayList = new ArrayList<>();
-        if (this.cse == 0) {
+        if (this.cQZ == 0) {
             return arrayList;
         }
         if (DEBUG) {
-            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.csd);
+            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.cQY);
         }
-        Collections.sort(this.csd, new a.C0347a());
-        a aVar = this.csd.get(0);
-        for (int i = 1; i < this.cse; i++) {
-            a aVar2 = this.csd.get(i);
+        Collections.sort(this.cQY, new a.C0377a());
+        a aVar = this.cQY.get(0);
+        for (int i = 1; i < this.cQZ; i++) {
+            a aVar2 = this.cQY.get(i);
             if (!aVar.b(aVar2)) {
                 arrayList.add(a.a(aVar));
                 aVar = aVar2;

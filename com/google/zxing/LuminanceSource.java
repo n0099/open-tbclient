@@ -1,4 +1,6 @@
 package com.google.zxing;
+
+import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes10.dex */
 public abstract class LuminanceSource {
     private final int height;
@@ -55,7 +57,7 @@ public abstract class LuminanceSource {
             for (int i2 = 0; i2 < this.width; i2++) {
                 int i3 = bArr[i2] & 255;
                 if (i3 < 64) {
-                    c = '#';
+                    c = UgcConstant.TOPIC_PATTERN_TAG;
                 } else if (i3 < 128) {
                     c = '+';
                 } else if (i3 < 192) {

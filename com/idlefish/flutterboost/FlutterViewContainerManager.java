@@ -22,6 +22,7 @@ public class FlutterViewContainerManager implements IContainerManager {
     private final Map<IFlutterViewContainer, IContainerRecord> mRecordMap = new LinkedHashMap();
     private final Set<ContainerRef> mRefs = new HashSet();
     private final Stack<IContainerRecord> mRecordStack = new Stack<>();
+    public final Stack<IContainerRecord> mShowRecord = new Stack<>();
     private final Map<String, OnResult> mOnResults = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,6 +40,23 @@ public class FlutterViewContainerManager implements IContainerManager {
         }
         this.mRefs.add(new ContainerRef(containerRecord.uniqueId(), iFlutterViewContainer));
         return containerRecord;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void pushShowRecord(IContainerRecord iContainerRecord) {
+        this.mShowRecord.push(iContainerRecord);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void removeShowRecord(IContainerRecord iContainerRecord) {
+        this.mShowRecord.remove(iContainerRecord);
+    }
+
+    public IContainerRecord popShowRecord() {
+        if (this.mShowRecord.isEmpty()) {
+            return null;
+        }
+        return this.mShowRecord.pop();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

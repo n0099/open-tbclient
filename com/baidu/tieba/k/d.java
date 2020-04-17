@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import org.json.JSONArray;
 /* loaded from: classes10.dex */
 public class d {
-    public static boolean e(File file, String str) {
+    public static boolean g(File file, String str) {
         return a(file, str, true);
     }
 
@@ -48,7 +48,7 @@ public class d {
         }
     }
 
-    public static void EU(String str) {
+    public static void GB(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -57,7 +57,7 @@ public class d {
         }
     }
 
-    public static String M(File file) {
+    public static String O(File file) {
         FileInputStream fileInputStream;
         StringBuilder sb = new StringBuilder();
         try {
@@ -96,21 +96,21 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray EV(String str) {
+    public static JSONArray GC(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
         }
         File file = new File(str);
         if (file.exists()) {
-            String M = M(file);
-            String[] split = M.split("\n");
+            String O = O(file);
+            String[] split = O.split("\n");
             if (split.length > 0) {
                 for (String str2 : split) {
                     b(str2, jSONArray);
                 }
             } else {
-                b(M, jSONArray);
+                b(O, jSONArray);
             }
             com.baidu.tbadk.core.util.m.deleteFile(file);
             return jSONArray;
@@ -131,9 +131,9 @@ public class d {
         }
     }
 
-    public static void EW(String str) {
+    public static void GD(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.irF + g.a.irw + str));
+            com.baidu.tbadk.core.util.m.deleteFileOrDir(new File(g.a.jbH + g.a.jby + str));
         }
     }
 }

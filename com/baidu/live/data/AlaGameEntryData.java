@@ -22,7 +22,7 @@ public class AlaGameEntryData implements Parcelable, IAdapterData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: bn */
+        /* renamed from: bA */
         public AlaGameEntryData[] newArray(int i) {
             return new AlaGameEntryData[i];
         }

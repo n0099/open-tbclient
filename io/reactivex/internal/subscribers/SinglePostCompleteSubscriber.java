@@ -37,7 +37,7 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
             if ((j2 & Long.MIN_VALUE) != 0) {
                 onDrop(r);
                 return;
-            } else if ((j2 & Long.MAX_VALUE) != 0) {
+            } else if ((j2 & REQUEST_MASK) != 0) {
                 lazySet(-9223372036854775807L);
                 this.actual.onNext(r);
                 this.actual.onComplete();
@@ -70,11 +70,12 @@ public abstract class SinglePostCompleteSubscriber<T, R> extends AtomicLong impl
                     }
                     return;
                 }
-            } while (!compareAndSet(j2, io.reactivex.internal.util.b.ad(j2, j)));
+            } while (!compareAndSet(j2, io.reactivex.internal.util.b.L(j2, j)));
             this.s.request(j);
         }
     }
 
+    @Override // org.a.d
     public void cancel() {
         this.s.cancel();
     }

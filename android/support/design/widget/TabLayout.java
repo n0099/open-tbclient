@@ -29,6 +29,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.content.res.AppCompatResources;
+import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.TooltipCompat;
 import android.text.Layout;
 import android.text.TextUtils;
@@ -128,7 +129,7 @@ public class TabLayout extends HorizontalScrollView {
     public TabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mTabs = new ArrayList<>();
-        this.mTabMaxWidth = Integer.MAX_VALUE;
+        this.mTabMaxWidth = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.mSelectedListeners = new ArrayList<>();
         this.mTabViewPool = new Pools.SimplePool(12);
         ThemeUtils.checkAppCompatTheme(context);

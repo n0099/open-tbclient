@@ -1,6 +1,6 @@
 package okhttp3.internal.connection;
 
-import com.google.android.exoplayer2.Format;
+import android.support.v7.widget.ActivityChooserView;
 import java.io.IOException;
 import java.lang.ref.Reference;
 import java.net.ConnectException;
@@ -64,13 +64,15 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     private Protocol protocol;
     private Socket rawSocket;
     private final Route route;
+    List<Route> routeList;
     private BufferedSink sink;
     private Socket socket;
     private BufferedSource source;
     public int successCount;
     public int allocationLimit = 1;
     public final List<Reference<StreamAllocation>> allocations = new ArrayList();
-    public long idleAtNanos = Format.OFFSET_SAMPLE_RELATIVE;
+    public long idleAtNanos = Long.MAX_VALUE;
+    boolean isFallbackConn = false;
 
     public RealConnection(ConnectionPool connectionPool, Route route) {
         this.connectionPool = connectionPool;
@@ -293,7 +295,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                 contentLength = 0;
             }
             Source newFixedLengthSource = http1Codec.newFixedLengthSource(contentLength);
-            Util.skipAll(newFixedLengthSource, Integer.MAX_VALUE, TimeUnit.MILLISECONDS);
+            Util.skipAll(newFixedLengthSource, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.MILLISECONDS);
             newFixedLengthSource.close();
             switch (build.code()) {
                 case 200:

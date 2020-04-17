@@ -14,21 +14,21 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes10.dex */
 public class g extends com.baidu.tieba.frs.h<h, i> {
-    private View.OnClickListener dgy;
+    private View.OnClickListener dFV;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dgy = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
+        this.dFV = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof Integer) {
                     int intValue = ((Integer) view.getTag()).intValue();
                     if (g.this.getItem(intValue) instanceof h) {
                         h hVar = (h) g.this.getItem(intValue);
-                        int bVq = hVar.bVq();
-                        if (bVq == 0 && (hVar.nq() instanceof GroupPermData)) {
-                            g.this.a((GroupPermData) hVar.nq());
-                        } else if (bVq == 1) {
+                        int cfR = hVar.cfR();
+                        if (cfR == 0 && (hVar.rJ() instanceof GroupPermData)) {
+                            g.this.a((GroupPermData) hVar.rJ());
+                        } else if (cfR == 1) {
                             bc.checkUpIsLogin(g.this.mPageContext.getPageActivity());
                         }
                     }
@@ -39,9 +39,9 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bz */
+    /* renamed from: bB */
     public i b(ViewGroup viewGroup) {
-        return new i(LayoutInflater.from(this.mContext).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null), this.dgy);
+        return new i(LayoutInflater.from(this.mContext).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null), this.dFV);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         if (hVar != null) {
-            iVar.a(hVar.bVr(), hVar.bVn(), hVar.bVo(), hVar.bVp());
-            iVar.hBT.setTag(Integer.valueOf(i));
+            iVar.a(hVar.cfS(), hVar.cfO(), hVar.cfP(), hVar.cfQ());
+            iVar.ilH.setTag(Integer.valueOf(i));
         }
         return view;
     }

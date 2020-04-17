@@ -1,165 +1,414 @@
 package com.baidu.cyberplayer.sdk.remote;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
+import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+import android.text.TextUtils;
+import android.view.Surface;
 import com.baidu.cyberplayer.sdk.CyberLog;
+import com.baidu.cyberplayer.sdk.CyberPlayer;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.remote.b;
-import java.io.Serializable;
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f {
-    private static volatile f a;
-    private com.baidu.cyberplayer.sdk.remote.b b;
-    private String c;
-    private int d;
-    private Class<?> e;
+public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener {
+    private CyberPlayer a;
+    private int b;
+    private RemotePlayerService c;
+    private Surface e;
+    private RemoteCallbackList<d> d = new RemoteCallbackList<>();
     private final Object f = new Object();
-    private ArrayList<WeakReference<b>> g = new ArrayList<>();
-    private ServiceConnection h = new ServiceConnection() { // from class: com.baidu.cyberplayer.sdk.remote.f.1
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            CyberLog.i("RemotePlayer", "RemotePlayer service connected");
-            f.this.b = b.a.a(iBinder);
-            try {
-                f.this.b.asBinder().linkToDeath(f.this.i, 0);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                f.this.b = null;
-            }
-        }
 
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            CyberLog.e("RemotePlayer", "RemotePlayer service disconnected");
-            f.this.b = null;
-        }
-    };
-    private IBinder.DeathRecipient i = new IBinder.DeathRecipient() { // from class: com.baidu.cyberplayer.sdk.remote.f.2
-        @Override // android.os.IBinder.DeathRecipient
-        public void binderDied() {
-            CyberLog.i("RemotePlayer", "RemotePlayer service binder died");
-            if (f.this.b != null) {
-                f.this.b.asBinder().unlinkToDeath(f.this.i, 0);
-                f.this.b = null;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(int i, RemotePlayerService remotePlayerService) {
+        this.b = i;
+        this.c = remotePlayerService;
+    }
+
+    private CyberPlayer q() {
+        if (this.a == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new CyberPlayer(this.b, this, false);
+                    this.a.setOnPreparedListener(this);
+                    this.a.setOnCompletionListener(this);
+                    this.a.setOnBufferingUpdateListener(this);
+                    this.a.setOnVideoSizeChangedListener(this);
+                    this.a.setOnSeekCompleteListener(this);
+                    this.a.setOnErrorListener(this);
+                    this.a.setOnInfoListener(this);
+                }
             }
-            synchronized (f.this.f) {
-                Iterator it = f.this.g.iterator();
-                while (it.hasNext()) {
-                    b bVar = (b) ((WeakReference) it.next()).get();
-                    if (bVar != null) {
-                        bVar.a();
-                    } else {
-                        it.remove();
+        }
+        return this.a;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public int a() {
+        return q().getDecodeMode();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(float f) {
+        q().setSpeed(f);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(float f, float f2) {
+        q().setVolume(f, f2);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(int i) {
+        q().setWakeMode(CyberPlayerManager.getApplicationContext(), i);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(int i, int i2, long j, String str) {
+        q().sendCommand(i, i2, j, str);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(long j) {
+        q().seekTo(j);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(Surface surface) {
+        q().setSurface(surface);
+        synchronized (this.f) {
+            if (this.e != null && this.e != surface) {
+                this.e.release();
+            }
+            this.e = surface;
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(d dVar) {
+        this.d.register(dVar);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(e eVar) {
+        q().setDataSource(CyberPlayerManager.getApplicationContext(), eVar.a(), eVar.b());
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("is_remote_play", 1);
+            a(1003, 0, 0L, jSONObject.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(String str, String str2) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (str.equals(CyberPlayerManager.OPT_PCDN_NETHANDLE)) {
+            if (TextUtils.isEmpty(str2) || this.c == null) {
+                return;
+            }
+            q().setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(this.c.getPCDNNetHandle()));
+        } else if (!str.equals(CyberPlayerManager.OPT_KERNEL_NET_NETHANDLE)) {
+            q().setOption(str, str2);
+        } else if (TextUtils.isEmpty(str2) || this.c == null) {
+        } else {
+            q().setOption(CyberPlayerManager.OPT_KERNEL_NET_NETHANDLE, String.valueOf(this.c.getKernelNetHandle()));
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(String str, boolean z) {
+        q().changeProxyDynamic(str, z);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void a(boolean z) {
+        q().setScreenOnWhilePlaying(z);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void b() {
+        q().prepareAsync();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void b(d dVar) {
+        this.d.unregister(dVar);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void b(boolean z) {
+        q().setLooping(z);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void c() {
+        q().start();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void c(boolean z) {
+        q().setEnableDumediaUA(z);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void d() {
+        q().stop();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void d(boolean z) {
+        q().muteOrUnmuteAudio(z);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void e() {
+        q().pause();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public int f() {
+        return q().getVideoWidth();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public int g() {
+        return q().getVideoHeight();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.HttpDNS
+    public List<String> getIpList(String str) {
+        ArrayList arrayList = null;
+        synchronized (this.d) {
+            int beginBroadcast = this.d.beginBroadcast();
+            for (int i = 0; i < beginBroadcast; i++) {
+                d broadcastItem = this.d.getBroadcastItem(i);
+                if (broadcastItem != null) {
+                    try {
+                        ArrayList arrayList2 = new ArrayList();
+                        arrayList2.add(str);
+                        broadcastItem.a("onHttpDNS", arrayList2);
+                        arrayList = arrayList2.size() > 0 ? arrayList2 : arrayList;
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
                     }
                 }
             }
-            f.this.a(f.this.e, f.this.c, f.this.d, CyberPlayerManager.getInstallOpts());
+            this.d.finishBroadcast();
         }
-    };
+        return arrayList;
+    }
 
-    /* loaded from: classes.dex */
-    public static class a extends b.a {
-        RemotePlayerService a;
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public boolean h() {
+        return q().isPlaying();
+    }
 
-        public a(RemotePlayerService remotePlayerService) {
-            this.a = remotePlayerService;
-        }
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public int i() {
+        return q().getCurrentPosition();
+    }
 
-        @Override // com.baidu.cyberplayer.sdk.remote.b
-        public IBinder a(int i) {
-            CyberLog.i("RemotePlayer", "RemotePlayer create");
-            return new e(i, this.a);
-        }
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public int j() {
+        return q().getCurrentPositionSync();
+    }
 
-        @Override // com.baidu.cyberplayer.sdk.remote.b
-        public void a(String str, String str2, String str3, int i, int i2) {
-            if (i == 0) {
-                CyberLog.i("RemotePlayer", "RemotePlayer prefetch");
-                CyberPlayerManager.prefetch(str, str2, str3, i2, null);
-            } else if (i == 1) {
-                CyberLog.i("RemotePlayer", "RemotePlayer preconnect");
-                CyberPlayerManager.preconnect(str, str2, str3, i2, null);
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public int k() {
+        return q().getDuration();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void l() {
+        synchronized (this) {
+            if (this.a != null) {
+                this.a.release();
             }
+            this.a = null;
         }
-    }
-
-    /* loaded from: classes.dex */
-    public interface b {
-        void a();
-    }
-
-    private f() {
-    }
-
-    public static f a() {
-        if (a == null) {
-            a = new f();
+        synchronized (this.d) {
+            this.d.kill();
         }
-        return a;
-    }
-
-    public IBinder a(int i) {
-        if (this.b != null) {
-            try {
-                return this.b.a(i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return null;
-    }
-
-    public void a(b bVar) {
-        synchronized (this.f) {
-            this.g.add(new WeakReference<>(bVar));
-        }
-    }
-
-    public void a(Class<?> cls, String str, int i, Map<String, String> map) {
-        if (cls == null) {
-            return;
-        }
-        CyberLog.i("RemotePlayer", "RemotePlayer connect service");
-        this.e = cls;
-        this.c = str;
-        this.d = i;
-        Intent intent = new Intent(CyberPlayerManager.getApplicationContext(), this.e);
-        intent.putExtra("clientID", this.c);
-        intent.putExtra("installType", this.d);
-        intent.putExtra("installOpts", (Serializable) map);
-        CyberPlayerManager.getApplicationContext().bindService(intent, this.h, 1);
-    }
-
-    public boolean a(String str, String str2, String str3, int i, int i2) {
-        if (this.b == null) {
-            return false;
-        }
-        try {
-            this.b.a(str, str2, str3, i, i2);
-            return true;
-        } catch (RemoteException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public void b(b bVar) {
-        synchronized (this.f) {
-            Iterator<WeakReference<b>> it = this.g.iterator();
-            while (it.hasNext()) {
-                b bVar2 = it.next().get();
-                if (bVar2 == null || bVar2.equals(bVar)) {
-                    it.remove();
+        if (this.e != null) {
+            synchronized (this.f) {
+                if (this.e != null && this.e.isValid()) {
+                    CyberLog.i("remotePlayer", "release mSurface");
+                    this.e.release();
+                    this.e = null;
                 }
             }
         }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public void m() {
+        q().reset();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public boolean n() {
+        return q().isLooping();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public long o() {
+        return q().getPlayedTime();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
+    public void onBufferingUpdate(int i) {
+        synchronized (this.d) {
+            int beginBroadcast = this.d.beginBroadcast();
+            for (int i2 = 0; i2 < beginBroadcast; i2++) {
+                d broadcastItem = this.d.getBroadcastItem(i2);
+                if (broadcastItem != null) {
+                    try {
+                        broadcastItem.a(i);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            this.d.finishBroadcast();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        synchronized (this.d) {
+            int beginBroadcast = this.d.beginBroadcast();
+            for (int i = 0; i < beginBroadcast; i++) {
+                d broadcastItem = this.d.getBroadcastItem(i);
+                if (broadcastItem != null) {
+                    try {
+                        broadcastItem.b();
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            this.d.finishBroadcast();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
+    public boolean onError(int i, int i2, Object obj) {
+        boolean z;
+        boolean a;
+        synchronized (this.d) {
+            int beginBroadcast = this.d.beginBroadcast();
+            int i3 = 0;
+            z = false;
+            while (i3 < beginBroadcast) {
+                d broadcastItem = this.d.getBroadcastItem(i3);
+                if (broadcastItem != null) {
+                    try {
+                        a = broadcastItem.a(i, i2, obj instanceof String ? (String) obj : null);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    i3++;
+                    z = a;
+                }
+                a = z;
+                i3++;
+                z = a;
+            }
+            this.d.finishBroadcast();
+        }
+        return z;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
+    public boolean onInfo(int i, int i2, Object obj) {
+        boolean z;
+        boolean b;
+        synchronized (this.d) {
+            int beginBroadcast = this.d.beginBroadcast();
+            int i3 = 0;
+            z = false;
+            while (i3 < beginBroadcast) {
+                d broadcastItem = this.d.getBroadcastItem(i3);
+                if (broadcastItem != null) {
+                    try {
+                        b = broadcastItem.b(i, i2, obj instanceof String ? (String) obj : null);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                    i3++;
+                    z = b;
+                }
+                b = z;
+                i3++;
+                z = b;
+            }
+            this.d.finishBroadcast();
+        }
+        return z;
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
+        synchronized (this.d) {
+            int beginBroadcast = this.d.beginBroadcast();
+            for (int i = 0; i < beginBroadcast; i++) {
+                d broadcastItem = this.d.getBroadcastItem(i);
+                if (broadcastItem != null) {
+                    try {
+                        broadcastItem.a();
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            this.d.finishBroadcast();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
+    public void onSeekComplete() {
+        synchronized (this.d) {
+            int beginBroadcast = this.d.beginBroadcast();
+            for (int i = 0; i < beginBroadcast; i++) {
+                d broadcastItem = this.d.getBroadcastItem(i);
+                if (broadcastItem != null) {
+                    try {
+                        broadcastItem.c();
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            this.d.finishBroadcast();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
+    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
+        synchronized (this.d) {
+            int beginBroadcast = this.d.beginBroadcast();
+            for (int i5 = 0; i5 < beginBroadcast; i5++) {
+                d broadcastItem = this.d.getBroadcastItem(i5);
+                if (broadcastItem != null) {
+                    try {
+                        broadcastItem.a(i, i2, i3, i4);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            this.d.finishBroadcast();
+        }
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.remote.b
+    public long p() {
+        return q().getDownloadSpeed();
     }
 }

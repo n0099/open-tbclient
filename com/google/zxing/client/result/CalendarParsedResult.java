@@ -1,6 +1,5 @@
 package com.google.zxing.client.result;
 
-import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -161,7 +160,7 @@ public final class CalendarParsedResult extends ParsedResult {
     }
 
     private static DateFormat buildDateFormat() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DateTimeUtil.DAY_FORMAT, Locale.ENGLISH);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd", Locale.ENGLISH);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         return simpleDateFormat;
     }

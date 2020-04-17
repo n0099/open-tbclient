@@ -3,15 +3,14 @@ package com.baidu.swan.facade.provider.a;
 import android.database.Cursor;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a {
-    public static HashMap<String, PMSAppInfo> ajB() {
-        Cursor query = com.baidu.swan.pms.database.provider.a.atF().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
+    public static HashMap<String, PMSAppInfo> arJ() {
+        Cursor query = com.baidu.swan.pms.database.provider.a.aBP().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
         HashMap<String, PMSAppInfo> hashMap = new HashMap<>();
         if (query != null && query.moveToFirst()) {
-            int columnIndex = query.getColumnIndex(Constants.APP_ID);
+            int columnIndex = query.getColumnIndex("app_id");
             int columnIndex2 = query.getColumnIndex("app_key");
             int columnIndex3 = query.getColumnIndex("app_sign");
             int columnIndex4 = query.getColumnIndex("version_code");

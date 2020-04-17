@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.ar.constants.HttpConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -48,7 +49,7 @@ public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
         try {
             JSONObject jSONObject = new JSONObject(getMsgContent());
             this.time = jSONObject.optLong("time");
-            this.deviceType = jSONObject.optString("device_type");
+            this.deviceType = jSONObject.optString(HttpConstants.DEVICE_TYPE);
             return true;
         } catch (JSONException e) {
             LogUtils.e(LogUtils.TAG, "parseJsonString", e);

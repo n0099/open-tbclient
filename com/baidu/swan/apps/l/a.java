@@ -132,7 +132,7 @@ public class a {
                     runnable = new Runnable() { // from class: com.baidu.swan.apps.l.a.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            bVar.cX(i2);
+                            bVar.dm(i2);
                         }
                     };
                     break;

@@ -13,7 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes8.dex */
 public final class m {
-    private static ActivityManager RV;
+    private static ActivityManager ako;
     private static Context mContext;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x007a */
@@ -164,15 +164,15 @@ public final class m {
     public static String E() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (RV == null) {
+        if (ako == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            RV.getMemoryInfo(memoryInfo2);
-            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\navailMem: ").append(com.baidu.crabsdk.c.c.s(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.s(memoryInfo2.threshold)).append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = RV.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
-                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.s(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.s(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.s(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
+            ako.getMemoryInfo(memoryInfo2);
+            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\navailMem: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo2.threshold)).append("\n");
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = ako.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("getMemInfo error!!!", e);
@@ -183,7 +183,7 @@ public final class m {
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            RV = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            ako = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 }

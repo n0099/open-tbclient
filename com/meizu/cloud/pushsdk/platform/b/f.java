@@ -7,7 +7,6 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
@@ -105,7 +104,7 @@ public class f extends c<PushSwitchStatus> {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected Intent c() {
         Intent intent = new Intent();
-        intent.putExtra(Constants.APP_ID, this.f);
+        intent.putExtra("app_id", this.f);
         intent.putExtra("app_key", this.g);
         intent.putExtra("strategy_package_name", this.e.getPackageName());
         intent.putExtra("push_id", this.b);

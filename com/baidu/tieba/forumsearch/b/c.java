@@ -7,38 +7,38 @@ import tbclient.SearchPostForum.DataRes;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes11.dex */
 public class c {
-    private SearchForum gnL;
-    private List<SearchForum> gnM;
-    private ArrayList<m> gnN;
-    private String gnk;
+    private SearchForum gWR;
+    private List<SearchForum> gWS;
+    private ArrayList<m> gWT;
+    private String gWq;
 
     public c(String str) {
-        this.gnk = str;
+        this.gWq = str;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.gnL = dataRes.exact_match;
-            this.gnM = dataRes.fuzzy_match;
-            this.gnN = new ArrayList<>();
-            b bVar = new b(this.gnk);
-            if (this.gnL != null) {
-                bVar.a(this.gnL);
-                this.gnN.add(bVar);
+            this.gWR = dataRes.exact_match;
+            this.gWS = dataRes.fuzzy_match;
+            this.gWT = new ArrayList<>();
+            b bVar = new b(this.gWq);
+            if (this.gWR != null) {
+                bVar.a(this.gWR);
+                this.gWT.add(bVar);
             }
-            if (this.gnM != null) {
-                for (SearchForum searchForum : this.gnM) {
+            if (this.gWS != null) {
+                for (SearchForum searchForum : this.gWS) {
                     if (searchForum != null) {
-                        b bVar2 = new b(this.gnk);
+                        b bVar2 = new b(this.gWq);
                         bVar2.a(searchForum);
-                        this.gnN.add(bVar2);
+                        this.gWT.add(bVar2);
                     }
                 }
             }
         }
     }
 
-    public ArrayList<m> bDb() {
-        return this.gnN;
+    public ArrayList<m> bNB() {
+        return this.gWT;
     }
 }

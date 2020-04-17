@@ -3,6 +3,7 @@ package com.vivo.push.util;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.NetWorkUtils;
+import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -72,7 +73,7 @@ public final class k {
             return false;
         }
         p.d("Device", "Build.MANUFACTURER is " + Build.MANUFACTURER);
-        return Build.MANUFACTURER.toLowerCase().contains("bbk") || Build.MANUFACTURER.toLowerCase().startsWith("vivo");
+        return Build.MANUFACTURER.toLowerCase().contains("bbk") || Build.MANUFACTURER.toLowerCase().startsWith(RomUtils.MANUFACTURER_VIVO);
     }
 
     public static boolean c() {
@@ -81,7 +82,7 @@ public final class k {
             return false;
         }
         p.d("Device", "Build.MANUFACTURER is " + Build.MANUFACTURER);
-        return Build.MANUFACTURER.toLowerCase().contains("oppo");
+        return Build.MANUFACTURER.toLowerCase().contains(RomUtils.MANUFACTURER_OPPO);
     }
 
     static {

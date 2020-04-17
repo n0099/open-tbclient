@@ -11,8 +11,8 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 /* loaded from: classes.dex */
 public class RoundFrameLayout extends FrameLayout {
-    private RectF jG;
-    private Path kLd;
+    private RectF Fd;
+    private Path lvA;
 
     public RoundFrameLayout(Context context) {
         super(context);
@@ -31,15 +31,15 @@ public class RoundFrameLayout extends FrameLayout {
 
     private void init() {
         setWillNotDraw(false);
-        this.kLd = new Path();
-        this.jG = new RectF();
+        this.lvA = new Path();
+        this.Fd = new RectF();
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        this.jG.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-        this.kLd.addOval(this.jG, Path.Direction.CW);
+        this.Fd.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        this.lvA.addOval(this.Fd, Path.Direction.CW);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -50,7 +50,7 @@ public class RoundFrameLayout extends FrameLayout {
         int saveLayer = canvas.saveLayer(0.0f, 0.0f, getWidth(), getHeight(), null, 31);
         super.dispatchDraw(canvas);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.MULTIPLY));
-        canvas.drawPath(this.kLd, paint);
+        canvas.drawPath(this.lvA, paint);
         canvas.restoreToCount(saveLayer);
         paint.setXfermode(null);
     }

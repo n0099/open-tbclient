@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -16,7 +15,7 @@ public final class FlowableThrottleFirstTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dJI()));
+        this.mRJ.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dCG()));
     }
 
     /* loaded from: classes7.dex */
@@ -43,7 +42,7 @@ public final class FlowableThrottleFirstTimed<T> extends a<T, T> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 

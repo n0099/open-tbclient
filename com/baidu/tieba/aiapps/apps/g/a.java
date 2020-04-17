@@ -7,15 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class a implements com.baidu.swan.menu.b {
-    private SparseArray<String> egk = new SparseArray<>();
+    private SparseArray<String> eGa = new SparseArray<>();
 
     public a() {
-        this.egk.put(38, "favor");
-        this.egk.put(35, "launcher");
-    }
-
-    @Override // com.baidu.swan.menu.b
-    public void f(int i, List<i> list) {
+        this.eGa.put(38, "favor");
+        this.eGa.put(35, "launcher");
     }
 
     @Override // com.baidu.swan.menu.b
@@ -24,7 +20,11 @@ public class a implements com.baidu.swan.menu.b {
 
     @Override // com.baidu.swan.menu.b
     public void h(int i, List<i> list) {
-        i(i, list);
+    }
+
+    @Override // com.baidu.swan.menu.b
+    public void i(int i, List<i> list) {
+        j(i, list);
     }
 
     @Override // com.baidu.swan.menu.b
@@ -32,11 +32,11 @@ public class a implements com.baidu.swan.menu.b {
         return false;
     }
 
-    private void i(int i, List<i> list) {
-        if (!ai.ahl() && list != null && list.size() > 0) {
+    private void j(int i, List<i> list) {
+        if (!ai.apt() && list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (i iVar : list) {
-                if (this.egk.get(iVar.getItemId()) != null) {
+                if (this.eGa.get(iVar.getItemId()) != null) {
                     arrayList.add(iVar);
                 }
             }

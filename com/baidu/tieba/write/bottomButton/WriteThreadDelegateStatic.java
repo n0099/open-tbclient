@@ -14,7 +14,7 @@ import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
 import com.baidu.tbadk.mainTab.d;
 import com.baidu.tieba.R;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class WriteThreadDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {

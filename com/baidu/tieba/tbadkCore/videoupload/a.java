@@ -2,67 +2,68 @@ package com.baidu.tieba.tbadkCore.videoupload;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.tbadk.switchs.ChunkUploadSwitch;
 import com.baidu.tieba.k.h;
 import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int kll = 524288;
-    private static int klm = 6144000;
-    private static int kln = 524288;
-    private h kjC;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b klo;
+    private static int kVr = 524288;
+    private static int kVs = 6144000;
+    private static int kVt = 524288;
+    private h kTI;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b kVu;
 
     public a(h hVar) {
-        this.kjC = hVar;
+        this.kTI = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.klo = new d(str2, kln, this.kjC);
+                this.kVu = new d(str2, kVt, this.kTI);
             } else {
-                this.klo = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, kll, klm, this.kjC);
+                this.kVu = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, kVr, kVs, this.kTI);
             }
-            this.klo.a(eVar);
-            return this.klo.bv(str2, i);
+            this.kVu.a(eVar);
+            return this.kVu.bF(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.kjC != null) {
-                this.kjC.l(306, -4399, com.baidu.tieba.k.a.q(e));
+            if (this.kTI != null) {
+                this.kTI.l(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.k.a.s(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.klo != null) {
-            this.klo.cancel();
+        if (this.kVu != null) {
+            this.kVu.cancel();
         }
     }
 
-    public static void CQ(int i) {
+    public static void Du(int i) {
         if (i <= 0) {
-            kln = 524288;
+            kVt = 524288;
         } else {
-            kln = i;
+            kVt = i;
         }
     }
 
-    public static void CR(int i) {
+    public static void Dv(int i) {
         if (i <= 0) {
-            kll = 524288;
+            kVr = 524288;
         } else {
-            kll = i;
+            kVr = i;
         }
     }
 
-    public static void CS(int i) {
+    public static void Dw(int i) {
         if (i <= 0) {
-            klm = 6144000;
+            kVs = 6144000;
         } else {
-            klm = i;
+            kVs = i;
         }
     }
 }

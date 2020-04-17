@@ -9,13 +9,13 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a extends d {
-    private com.baidu.tieba.easterEgg.d fSM;
-    private HashMap<String, String> fSN;
-    private Gson fSO;
+    private com.baidu.tieba.easterEgg.d gxu;
+    private HashMap<String, String> gxv;
+    private Gson gxw;
 
     public a(int i) {
         super(i);
-        this.fSO = new Gson();
+        this.gxw = new Gson();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,39 +23,39 @@ public class a extends d {
     /* renamed from: d */
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String Ak = Ak(httpMessageTask.getUrl());
-        if (Ak != null && this.fSM != null) {
+        String BQ = BQ(httpMessageTask.getUrl());
+        if (BQ != null && this.gxu != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.fSO.toJson(netMessage.getSocketMessage().getData());
+                    json = this.gxw.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.fSO.toJson(httpMessage.getParams());
+                json = this.gxw.toJson(httpMessage.getParams());
             }
-            this.fSM.ak(httpMessageTask.getUrl(), this.fSO.toJson(Ak), this.fSO.toJson(json));
+            this.gxu.aj(httpMessageTask.getUrl(), this.gxw.toJson(BQ), this.gxw.toJson(json));
         }
         return httpMessage;
     }
 
-    public String Ak(String str) {
+    public String BQ(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.fSN != null) {
-            return this.fSN.get(replace);
+        if (this.gxv != null) {
+            return this.gxv.get(replace);
         }
         return null;
     }
 
-    public void q(HashMap<String, String> hashMap) {
-        this.fSN = hashMap;
+    public void F(HashMap<String, String> hashMap) {
+        this.gxv = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.fSM = dVar;
+        this.gxu = dVar;
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.play.i;
 /* loaded from: classes9.dex */
 public class VCacheClientStatic {
-    private static CustomMessageListener dXZ = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
+    private static CustomMessageListener exU = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -18,7 +18,7 @@ public class VCacheClientStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.aXy().ep(TbadkCoreApplication.getInst().getContext());
+                        b.bfD().eb(TbadkCoreApplication.getInst().getContext());
                     }
                 }).start();
             }
@@ -26,16 +26,16 @@ public class VCacheClientStatic {
     };
 
     static {
-        aXD();
-        MessageManager.getInstance().registerListener(dXZ);
+        bfI();
+        MessageManager.getInstance().registerListener(exU);
     }
 
-    private static void aXD() {
+    private static void bfI() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, new CustomMessageTask.CustomRunnable<i>() { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<i> run(CustomMessage<i> customMessage) {
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, b.aXy());
+                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_GET_VIDEO_CACHE_CLIENT, b.bfD());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

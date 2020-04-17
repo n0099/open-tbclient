@@ -2,9 +2,9 @@ package io.reactivex.internal.util;
 /* loaded from: classes7.dex */
 public final class g<T> {
     final float loadFactor;
+    T[] mVD;
     int mask;
     int maxSize;
-    T[] nCc;
     int size;
 
     public g() {
@@ -13,31 +13,31 @@ public final class g<T> {
 
     public g(int i, float f) {
         this.loadFactor = f;
-        int NG = h.NG(i);
-        this.mask = NG - 1;
-        this.maxSize = (int) (NG * f);
-        this.nCc = (T[]) new Object[NG];
+        int Ja = h.Ja(i);
+        this.mask = Ja - 1;
+        this.maxSize = (int) (Ja * f);
+        this.mVD = (T[]) new Object[Ja];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.nCc;
+        T[] tArr = this.mVD;
         int i = this.mask;
-        int NF = NF(t.hashCode()) & i;
-        T t3 = tArr[NF];
+        int IZ = IZ(t.hashCode()) & i;
+        T t3 = tArr[IZ];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                NF = (NF + 1) & i;
-                t2 = tArr[NF];
+                IZ = (IZ + 1) & i;
+                t2 = tArr[IZ];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[NF] = t;
+        tArr[IZ] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class g<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.nCc;
+        T[] tArr = this.mVD;
         int i = this.mask;
-        int NF = NF(t.hashCode()) & i;
-        T t3 = tArr[NF];
+        int IZ = IZ(t.hashCode()) & i;
+        T t3 = tArr[IZ];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return a(NF, tArr, i);
+            return a(IZ, tArr, i);
         }
         do {
-            NF = (NF + 1) & i;
-            t2 = tArr[NF];
+            IZ = (IZ + 1) & i;
+            t2 = tArr[IZ];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return a(NF, tArr, i);
+        return a(IZ, tArr, i);
     }
 
     boolean a(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class g<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int NF = NF(t.hashCode()) & i2;
+                int IZ = IZ(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= NF && NF > i3) {
+                    if (i >= IZ && IZ > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < NF && NF <= i3) {
+                } else if (i < IZ && IZ <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -97,7 +97,7 @@ public final class g<T> {
     }
 
     void rehash() {
-        T[] tArr = this.nCc;
+        T[] tArr = this.mVD;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -110,30 +110,30 @@ public final class g<T> {
                 do {
                     i3--;
                 } while (tArr[i3] == null);
-                int NF = NF(tArr[i3].hashCode()) & i2;
-                if (tArr2[NF] != null) {
+                int IZ = IZ(tArr[i3].hashCode()) & i2;
+                if (tArr2[IZ] != null) {
                     do {
-                        NF = (NF + 1) & i2;
-                    } while (tArr2[NF] != null);
+                        IZ = (IZ + 1) & i2;
+                    } while (tArr2[IZ] != null);
                 }
-                tArr2[NF] = tArr[i3];
+                tArr2[IZ] = tArr[i3];
                 i4 = i5;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.nCc = tArr2;
+                this.mVD = tArr2;
                 return;
             }
         }
     }
 
-    static int NF(int i) {
+    static int IZ(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
 
-    public Object[] dKh() {
-        return this.nCc;
+    public Object[] dDg() {
+        return this.mVD;
     }
 
     public int size() {

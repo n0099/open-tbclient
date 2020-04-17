@@ -17,6 +17,7 @@ import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -468,7 +469,7 @@ public class JavaBeanDeserializer implements ObjectDeserializer {
                                         jSONLexerBase.nextTokenWithColon(4);
                                         if (jSONLexerBase.token() == 4) {
                                             String stringVal2 = jSONLexerBase.stringVal();
-                                            if ("@".equals(stringVal2)) {
+                                            if (UgcConstant.AT_RULE_TAG.equals(stringVal2)) {
                                                 obj3 = parseContext4.object;
                                             } else if (IStringUtil.TOP_PATH.equals(stringVal2)) {
                                                 ParseContext parseContext6 = parseContext4.parent;

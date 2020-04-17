@@ -11,6 +11,7 @@ import android.os.Message;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.android.bbalbs.common.util.CommonParam;
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.coremedia.iso.boxes.AuthorBox;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
@@ -69,7 +70,7 @@ public class LBSAuthManager {
                 if ((currentTimeMillis - j) / 3600000.0d >= 24.0d) {
                     i = 601;
                 } else {
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
                     if (!simpleDateFormat.format(Long.valueOf(currentTimeMillis)).equals(simpleDateFormat.format(Long.valueOf(j)))) {
                         i = 601;
                     }

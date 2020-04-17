@@ -8,10 +8,10 @@ import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.a;
 /* loaded from: classes8.dex */
 public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, n {
-    protected ad JX;
-    private Boolean JY = false;
-    private com.baidu.tieba.card.z<T> JZ;
-    public a Ka;
+    protected ad acV;
+    private Boolean acW = false;
+    private com.baidu.tieba.card.z<T> acX;
+    public a acY;
     protected Context mContext;
 
     /* loaded from: classes8.dex */
@@ -27,32 +27,32 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
     }
 
     public void a(ad adVar) {
-        this.JX = adVar;
+        this.acV = adVar;
     }
 
-    public void aK(int i) {
+    public void aW(int i) {
     }
 
-    public void aL(int i) {
+    public void aX(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void mS() {
+    public void rk() {
     }
 
-    public com.baidu.tieba.card.z<T> mT() {
-        return this.JZ;
+    public com.baidu.tieba.card.z<T> rl() {
+        return this.acX;
     }
 
     public void setOnCardSubClickListener(com.baidu.tieba.card.z<T> zVar) {
-        this.JZ = zVar;
+        this.acX = zVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.JX.a(i, bVar);
+        this.acV.a(i, bVar);
     }
 
-    public void aM(int i) {
+    public void aY(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -68,11 +68,11 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements m<T>, 
         }
     }
 
-    public Boolean mU() {
-        return this.JY;
+    public Boolean rm() {
+        return this.acW;
     }
 
     public void b(Boolean bool) {
-        this.JY = bool;
+        this.acW = bool;
     }
 }

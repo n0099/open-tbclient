@@ -68,7 +68,6 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(IdentifyImageSwitch.class);
         SwitchManager.getInstance().registerSwitch(EncSigNewSwitch.class);
         SwitchManager.getInstance().registerSwitch(LoginDefaultTypeSmsSwitch.class);
-        SwitchManager.getInstance().registerSwitch(VideoPlayerReuseSwitch.class);
         SwitchManager.getInstance().registerSwitch(FaceFeedbackEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(BenchmarkSwitch.class);
         SwitchManager.getInstance().registerSwitch(RedirectInterceptionSwitch.class);
@@ -92,7 +91,9 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(FlutterPersonAttentionEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterForumDetailEnableSwitch.class);
         SwitchManager.getInstance().registerSwitch(FlutterMyTabEnableSwitch.class);
-        SwitchManager.getInstance().registerSwitch(FlutterHuaWeiSwitch.class);
         SwitchManager.getInstance().registerSwitch(NativeCrashHandler.class);
+        SwitchManager.getInstance().registerSwitch(FlutterConcernForumEnableSwitch.class);
+        SwitchManager.getInstance().registerSwitch(FlutterAttachSwitch.class);
+        SwitchManager.getInstance().registerSwitch(XiaomiWebViewInitSwitch.class);
     }
 }

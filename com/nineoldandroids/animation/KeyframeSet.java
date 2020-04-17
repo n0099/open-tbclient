@@ -1,7 +1,6 @@
 package com.nineoldandroids.animation;
 
 import android.view.animation.Interpolator;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.nineoldandroids.animation.Keyframe;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -105,12 +104,12 @@ public class KeyframeSet {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public KeyframeSet m43clone() {
+    public KeyframeSet m46clone() {
         ArrayList<Keyframe> arrayList = this.mKeyframes;
         int size = this.mKeyframes.size();
         Keyframe[] keyframeArr = new Keyframe[size];
         for (int i = 0; i < size; i++) {
-            keyframeArr[i] = arrayList.get(i).m42clone();
+            keyframeArr[i] = arrayList.get(i).m45clone();
         }
         return new KeyframeSet(keyframeArr);
     }
@@ -159,7 +158,7 @@ public class KeyframeSet {
     }
 
     public String toString() {
-        String str = HanziToPinyin.Token.SEPARATOR;
+        String str = " ";
         int i = 0;
         while (i < this.mNumKeyframes) {
             String str2 = str + this.mKeyframes.get(i).getValue() + "  ";

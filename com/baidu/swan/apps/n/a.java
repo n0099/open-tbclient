@@ -17,16 +17,16 @@ public final class a {
         String format;
         String s;
         if (aVar != null && aVar2 != null) {
-            e.z("postMessage", "dispatchJSEvent start.");
+            e.D("postMessage", "dispatchJSEvent start.");
             if (aVar.isWebView()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.buG);
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.bSM);
                 s = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                s = s(NotificationCompat.CATEGORY_EVENT, "type", aVar2.buG);
+                s = s(NotificationCompat.CATEGORY_EVENT, "type", aVar2.bSM);
             }
-            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, s + aVar2.hI(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", b(aVar), NotificationCompat.CATEGORY_EVENT));
-            e.z("postMessage", "dispatchJSEvent buildEvent");
+            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, s + aVar2.iW(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", b(aVar), NotificationCompat.CATEGORY_EVENT));
+            e.D("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
                 Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);
             }
@@ -53,7 +53,7 @@ public final class a {
             return;
         }
         aVar.evaluateJavascript(str, null);
-        e.z("postMessage", "dispatchJSEvent evaluateJavascript");
+        e.D("postMessage", "dispatchJSEvent evaluateJavascript");
     }
 
     private static String b(com.baidu.swan.apps.core.container.a aVar) {
@@ -70,7 +70,7 @@ public final class a {
         return String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, JSONObject.quote(str3));
     }
 
-    public static String c(String str, String str2, JSONObject jSONObject) {
+    public static String b(String str, String str2, JSONObject jSONObject) {
         return (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || jSONObject == null) ? "" : String.format(Locale.getDefault(), "%s.%s = %s;", str, str2, jSONObject);
     }
 }

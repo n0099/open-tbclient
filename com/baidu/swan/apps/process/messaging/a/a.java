@@ -28,7 +28,7 @@ public class a {
     }
 
     public static void I(Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.a.aaO().a(new c(300, bundle));
+        com.baidu.swan.apps.process.messaging.a.aiT().a(new c(300, bundle));
     }
 
     public static void o(Message message) {
@@ -41,7 +41,7 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.l(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.a.b.b.a.aaM().a(bVar);
+        com.baidu.swan.apps.process.a.b.b.a.aiR().a(bVar);
     }
 
     public static void p(Message message) {
@@ -65,8 +65,8 @@ public class a {
         com.baidu.swan.apps.process.a.a.b.a(i, str, str2, bundle);
     }
 
-    public static void d(int i, Bundle bundle) {
-        com.baidu.swan.apps.process.messaging.a.aaO().a(new c(302, bundle).e(i));
+    public static void c(int i, Bundle bundle) {
+        com.baidu.swan.apps.process.messaging.a.aiT().a(new c(302, bundle).e(i));
     }
 
     public static void q(Message message) {
@@ -79,6 +79,6 @@ public class a {
         Bundle bundle = (Bundle) message.obj;
         com.baidu.swan.apps.process.a.b.a.b bVar = new com.baidu.swan.apps.process.a.b.a.b(bundle.getString("key_observer_id", ""));
         bVar.l(bundle.getBundle("key_result_data"));
-        com.baidu.swan.apps.process.a.b.b.a.aaM().a(bVar);
+        com.baidu.swan.apps.process.a.b.b.a.aiR().a(bVar);
     }
 }

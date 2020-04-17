@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.write.upload.ForwardUploadData;
 /* loaded from: classes.dex */
 public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
@@ -31,6 +32,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String POST_WRITE_CALLBACK_DATA = "post_write_callback_data";
     public static final String PREFIX_DATA = "prefix_data";
     public static final String PRIVATE_THREAD = "private_thread";
+    public static final String PUBLISH_FORWARD_UPLOAD_DATA = "publish_forward_upload_data";
     public static final String THREAD_ID = "thread_id";
     public static final String TITLE = "write_title";
     public static final String TRANSMIT_ORIGIN_THREAD_CONTENT = "transmit_origin_thread_content";
@@ -118,6 +120,12 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
         if (getIntent() != null) {
             getIntent().putExtra("tab_list", frsTabInfoData);
+        }
+    }
+
+    public void setForwardUploadData(ForwardUploadData forwardUploadData) {
+        if (getIntent() != null) {
+            getIntent().putExtra(PUBLISH_FORWARD_UPLOAD_DATA, forwardUploadData);
         }
     }
 }

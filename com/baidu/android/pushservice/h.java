@@ -21,7 +21,6 @@ import com.baidu.android.pushservice.d.z;
 import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.coloros.mcssdk.mode.CommandMessage;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
 public class h {
     private static h c;
@@ -113,7 +112,7 @@ public class h {
     private boolean f(Intent intent) {
         com.baidu.android.pushservice.a.f c2;
         String stringExtra = intent.getStringExtra("package_name");
-        String stringExtra2 = intent.getStringExtra(Constants.APP_ID);
+        String stringExtra2 = intent.getStringExtra("app_id");
         if (TextUtils.isEmpty(stringExtra2) && (c2 = com.baidu.android.pushservice.a.b.a(this.a).c(stringExtra)) != null) {
             stringExtra2 = c2.a();
         }
@@ -238,7 +237,7 @@ public class h {
     private void u(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_SEND_MSG_TO_USER ", this.a);
-        a(new w(lVar, this.a, intent.getStringExtra(Constants.APP_ID), intent.getStringExtra("user_id"), intent.getStringExtra("push_ msg_key"), intent.getStringExtra("push_ msg")));
+        a(new w(lVar, this.a, intent.getStringExtra("app_id"), intent.getStringExtra("user_id"), intent.getStringExtra("push_ msg_key"), intent.getStringExtra("push_ msg")));
     }
 
     private void v(Intent intent) {
@@ -270,13 +269,13 @@ public class h {
         } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
             PublicMsg publicMsg2 = (PublicMsg) intent.getParcelableExtra("public_msg");
             if (com.baidu.android.pushservice.i.l.b(this.a, publicMsg2)) {
-                publicMsg2.handlePrivateNotification(this.a, action, intent.getStringExtra("msg_id"), intent.getStringExtra(Constants.APP_ID), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
+                publicMsg2.handlePrivateNotification(this.a, action, intent.getStringExtra("msg_id"), intent.getStringExtra("app_id"), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
                 return true;
             }
             return true;
         } else if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(action)) {
             com.baidu.android.pushservice.i.l.b("push_passthrough: receive  click delete and notified action", this.a);
-            com.baidu.android.pushservice.g.i.a(this.a, intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra(Constants.APP_ID) ? intent.getStringExtra(Constants.APP_ID) : null, action);
+            com.baidu.android.pushservice.g.i.a(this.a, intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
             return true;
         } else if ("com.baidu.pushservice.action.TOKEN".equals(action)) {
             com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< ACTION_TOKEN ", this.a);

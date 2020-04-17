@@ -4,6 +4,7 @@ import alaim.LiveInfo;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import java.io.Serializable;
@@ -132,7 +133,7 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
             this.media_pic = jSONObject.optString("media_pic");
             this.thread_id = jSONObject.optLong("thread_id");
             this.comment_count = jSONObject.optInt("comment_count");
-            this.screen_direction = jSONObject.optInt("screen_direction");
+            this.screen_direction = jSONObject.optInt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
             this.live_type = jSONObject.optInt("live_type", 1);
             if (this.live_type != 2) {
                 this.live_type = 1;

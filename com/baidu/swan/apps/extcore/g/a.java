@@ -21,26 +21,26 @@ import java.util.Locale;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean eT(int i) {
-        return h.afu().getBoolean(eU(i), false);
+    public static boolean eY(int i) {
+        return h.anz().getBoolean(eZ(i), false);
     }
 
-    public static void q(int i, boolean z) {
-        h.afu().putBoolean(eU(i), z);
+    public static void u(int i, boolean z) {
+        h.anz().putBoolean(eZ(i), z);
     }
 
     @NonNull
-    private static String eU(int i) {
+    private static String eZ(int i) {
         return i == 1 ? "key_is_need_update_game_ext_preset" : "key_is_need_update_preset";
     }
 
-    private static ArrayList<Long> Sh() {
-        ExtensionCore QU;
+    private static ArrayList<Long> ZW() {
+        ExtensionCore YJ;
         ArrayList<Long> arrayList = new ArrayList<>();
-        for (c cVar : e.abx().abz()) {
-            SwanAppCores abn = cVar.abn();
-            if (abn != null && cVar.abo() && (QU = abn.QU()) != null && !arrayList.contains(Long.valueOf(QU.extensionCoreVersionCode))) {
-                arrayList.add(Long.valueOf(QU.extensionCoreVersionCode));
+        for (c cVar : e.ajC().ajE()) {
+            SwanAppCores ajs = cVar.ajs();
+            if (ajs != null && cVar.ajt() && (YJ = ajs.YJ()) != null && !arrayList.contains(Long.valueOf(YJ.extensionCoreVersionCode))) {
+                arrayList.add(Long.valueOf(YJ.extensionCoreVersionCode));
             }
         }
         if (DEBUG) {
@@ -52,7 +52,7 @@ public class a {
     public static void w(Bundle bundle) {
         if (bundle != null) {
             if (!ProcessUtils.isMainProcess()) {
-                com.baidu.swan.apps.process.messaging.a.aaO().a(new com.baidu.swan.apps.process.messaging.c(18, bundle).dt(true));
+                com.baidu.swan.apps.process.messaging.a.aiT().a(new com.baidu.swan.apps.process.messaging.c(18, bundle).ep(true));
                 return;
             }
             String string = bundle.getString("arg_dst_folder");
@@ -80,7 +80,7 @@ public class a {
                     }
                 }
             }
-            arrayList.addAll(Sh());
+            arrayList.addAll(ZW());
             if (DEBUG) {
                 Log.d("ExtCore-Utils", "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray()));
             }
@@ -108,16 +108,16 @@ public class a {
         return false;
     }
 
-    public static long hP(@Nullable String str) {
-        String[] hQ = hQ(str);
-        if (hQ == null) {
+    public static long jd(@Nullable String str) {
+        String[] je = je(str);
+        if (je == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < hQ.length ? Integer.valueOf(hQ[i]).intValue() : 0L);
+                j = (j << 16) | (i < je.length ? Integer.valueOf(je[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -132,7 +132,7 @@ public class a {
         return j;
     }
 
-    public static String ah(long j) {
+    public static String aL(long j) {
         StringBuilder sb = new StringBuilder();
         for (int i = 2; i >= 0; i--) {
             sb.append(String.format(Locale.US, "%d", Long.valueOf((j >> (i * 16)) & 65535)));
@@ -141,16 +141,16 @@ public class a {
             }
         }
         if (DEBUG) {
-            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == hP(sb.toString())));
+            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == jd(sb.toString())));
         }
         return sb.toString();
     }
 
-    public static boolean eV(int i) {
-        return i == 1 ? com.baidu.swan.apps.ah.a.a.aax() : com.baidu.swan.apps.ah.a.a.aaw();
+    public static boolean fa(int i) {
+        return i == 1 ? com.baidu.swan.apps.ah.a.a.aiC() : com.baidu.swan.apps.ah.a.a.aiB();
     }
 
-    private static String[] hQ(@Nullable String str) {
+    private static String[] je(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

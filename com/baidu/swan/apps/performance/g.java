@@ -6,47 +6,47 @@ import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.x.b.b;
 /* loaded from: classes11.dex */
 public class g {
-    public static void jZ(String str) {
-        if (TextUtils.equals(f.aX("route", str).jS("sub_state"), "1")) {
-            f.aX("route", str).f(new UbcFlowEvent("na_end_sub_package_download"));
+    public static void lm(String str) {
+        if (TextUtils.equals(f.bh("route", str).lf("sub_state"), "1")) {
+            f.bh("route", str).f(new UbcFlowEvent("na_end_sub_package_download"));
         }
     }
 
     public static void a(b.a aVar, String str) {
-        f.aX("route", str).f(new UbcFlowEvent("na_pre_load_slave_ok"));
+        f.bh("route", str).f(new UbcFlowEvent("na_pre_load_slave_ok"));
         if (aVar != null) {
-            if (aVar.brX != null) {
-                aVar.brX.fa(str);
+            if (aVar.bQe != null) {
+                aVar.bQe.gm(str);
             }
-            f.aX("route", str).f(new UbcFlowEvent("na_pre_load_slave_start").au(aVar.bsa)).f(new UbcFlowEvent("na_pre_load_slave_end").au(aVar.bsb));
+            f.bh("route", str).f(new UbcFlowEvent("na_pre_load_slave_start").aZ(aVar.bQg)).f(new UbcFlowEvent("na_pre_load_slave_end").aZ(aVar.bQh));
         }
     }
 
-    public static void ka(String str) {
-        com.baidu.swan.apps.ac.e.df(true);
-        f.bb("route", str);
-        f.aX("route", str).f(new UbcFlowEvent("na_first_receive_action")).ba("sub_state", "0");
+    public static void ln(String str) {
+        com.baidu.swan.apps.ac.e.eb(true);
+        f.bl("route", str);
+        f.bh("route", str).f(new UbcFlowEvent("na_first_receive_action")).bk("sub_state", "0");
     }
 
-    public static void A(int i, String str) {
-        HybridUbcFlow aX = f.aX("route", str);
+    public static void R(int i, String str) {
+        HybridUbcFlow bh = f.bh("route", str);
         if (i == 6 || i == 4 || i == 1) {
-            aX.a(HybridUbcFlow.SubmitStrategy.ROUTE_NA);
+            bh.a(HybridUbcFlow.SubmitStrategy.ROUTE_NA);
         } else {
-            aX.a(HybridUbcFlow.SubmitStrategy.ROUTE);
+            bh.a(HybridUbcFlow.SubmitStrategy.ROUTE);
         }
-        aX.k("type", Integer.valueOf(i));
+        bh.p("type", Integer.valueOf(i));
     }
 
-    public static void kb(String str) {
-        b.a GJ;
-        com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
-        if (acI != null && (GJ = acI.GJ()) != null) {
-            f.aX("route", str).ba("appid", GJ.getAppId()).ba("launchid", GJ.Wf()).k("from", "swan").ba("web_widget_state", "0").ZD();
+    public static void lo(String str) {
+        b.a Ow;
+        com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
+        if (akN != null && (Ow = akN.Ow()) != null) {
+            f.bh("route", str).bk("appid", Ow.getAppId()).bk("launchid", Ow.adU()).p("from", "swan").bk("web_widget_state", "0").ahI();
         }
     }
 
-    public static void kc(String str) {
-        f.aX("route", str).f(new UbcFlowEvent("web_widget_first_screen_finish")).ba("web_widget_state", "1").ZG();
+    public static void lp(String str) {
+        f.bh("route", str).f(new UbcFlowEvent("web_widget_first_screen_finish")).bk("web_widget_state", "1").ahL();
     }
 }

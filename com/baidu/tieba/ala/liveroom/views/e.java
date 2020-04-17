@@ -4,24 +4,24 @@ public interface e {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void boG();
+        void bxY();
 
-        void boH();
+        void bxZ();
     }
 
     /* loaded from: classes3.dex */
     public interface b {
-        void boI();
+        void bya();
 
-        void boJ();
+        void byb();
 
-        void boK();
+        void byc();
 
-        boolean boL();
+        boolean byd();
 
-        void boM();
+        void bye();
 
-        void boN();
+        void byf();
 
         void onCloseClicked();
     }

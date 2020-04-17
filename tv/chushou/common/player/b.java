@@ -1,25 +1,25 @@
 package tv.chushou.common.player;
 /* loaded from: classes5.dex */
 public interface b {
-    void MO(int i);
+    void Ii(int i);
 
-    void MP(int i);
+    void Ij(int i);
 
-    void dCS();
+    void dxk();
 
-    void dCT();
+    void dxl();
 
-    void dCU();
+    void dxm();
 
-    void dCV();
+    void dxn();
 
-    void dCW();
+    void dxo();
 
-    void dCX();
+    void dxp();
 
-    void dCY();
+    void dxq();
 
-    void dCZ();
+    void dxr();
 
-    void dDa();
+    void dxs();
 }

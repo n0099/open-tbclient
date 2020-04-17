@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.tbadkCore.data.AppData;
 import com.baidu.tieba.tbadkCore.data.m;
 /* loaded from: classes13.dex */
-public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baidu.tieba.recapp.m {
-    protected BaseFragmentActivity gsB;
+public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baidu.tieba.recapp.l {
+    protected BaseFragmentActivity gCG;
 
     public i(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.gsB = baseFragmentActivity;
+        this.gCG = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ce */
+    /* renamed from: cg */
     public j b(ViewGroup viewGroup) {
-        View view = new View(this.gsB.getPageContext().getPageActivity());
+        View view = new View(this.gCG.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new j(view);
     }
@@ -30,10 +30,10 @@ public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baid
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, j jVar) {
         boolean z = false;
-        AppData cLj = mVar.cLj();
-        if (cLj != null) {
-            com.baidu.tbadk.core.data.c cVar = cLj.advertAppContext;
-            if (cLj.goods != null && cLj.goods.goods_style == -1001) {
+        AppData cWf = mVar.cWf();
+        if (cWf != null) {
+            com.baidu.tbadk.core.data.c cVar = cWf.advertAppContext;
+            if (cWf.goods != null && cWf.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.c.b(cVar, mVar.getPosition(), z);
@@ -41,7 +41,7 @@ public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baid
         return jVar.getView();
     }
 
-    @Override // com.baidu.tieba.recapp.m
+    @Override // com.baidu.tieba.recapp.l
     public void setIsFromCDN(boolean z) {
     }
 }

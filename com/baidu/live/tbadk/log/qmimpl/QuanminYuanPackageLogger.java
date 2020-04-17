@@ -13,9 +13,9 @@ public class QuanminYuanPackageLogger implements IYuanPackageLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_ONERMB_GIFTBAG);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put("type", j);
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -33,7 +33,7 @@ public class QuanminYuanPackageLogger implements IYuanPackageLogger {
             jSONObject.put("tab", "liveroom");
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_ONERMB_GIFTBAG);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put("type", j);
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -51,7 +51,7 @@ public class QuanminYuanPackageLogger implements IYuanPackageLogger {
             jSONObject.put("tab", "liveroom");
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_ONERMB_GIFTBAG_CLOSE);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put("type", j);
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");

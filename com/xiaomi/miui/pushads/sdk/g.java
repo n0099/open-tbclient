@@ -8,22 +8,22 @@ class g {
     private File a;
 
     /* renamed from: a  reason: collision with other field name */
-    private StringBuilder f84a;
+    private StringBuilder f85a;
 
     public void a() {
         try {
             FileWriter fileWriter = new FileWriter(this.a, true);
-            fileWriter.write(this.f84a.toString());
+            fileWriter.write(this.f85a.toString());
             fileWriter.flush();
             fileWriter.close();
-            this.f84a.delete(0, this.f84a.length());
+            this.f85a.delete(0, this.f85a.length());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void a(String str, long j, int i) {
-        this.f84a.append(str + "\t" + j + "\t" + i);
-        this.f84a.append("\r\n");
+        this.f85a.append(str + "\t" + j + "\t" + i);
+        this.f85a.append("\r\n");
     }
 }

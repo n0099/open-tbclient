@@ -6,7 +6,7 @@ import io.reactivex.u;
 public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     protected final u<? super R> actual;
     protected boolean done;
-    protected io.reactivex.internal.a.b<T> nyi;
+    protected io.reactivex.internal.a.b<T> mRA;
     protected io.reactivex.disposables.b s;
     protected int sourceMode;
 
@@ -19,20 +19,20 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
             if (bVar instanceof io.reactivex.internal.a.b) {
-                this.nyi = (io.reactivex.internal.a.b) bVar;
+                this.mRA = (io.reactivex.internal.a.b) bVar;
             }
-            if (dJN()) {
+            if (dCM()) {
                 this.actual.onSubscribe(this);
-                dJO();
+                dCN();
             }
         }
     }
 
-    protected boolean dJN() {
+    protected boolean dCM() {
         return true;
     }
 
-    protected void dJO() {
+    protected void dCN() {
     }
 
     @Override // io.reactivex.u
@@ -46,8 +46,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void I(Throwable th) {
-        io.reactivex.exceptions.a.H(th);
+    public final void M(Throwable th) {
+        io.reactivex.exceptions.a.L(th);
         this.s.dispose();
         onError(th);
     }
@@ -61,8 +61,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int NB(int i) {
-        io.reactivex.internal.a.b<T> bVar = this.nyi;
+    public final int IV(int i) {
+        io.reactivex.internal.a.b<T> bVar = this.mRA;
         if (bVar == null || (i & 4) != 0) {
             return 0;
         }
@@ -86,12 +86,12 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
 
     @Override // io.reactivex.internal.a.g
     public boolean isEmpty() {
-        return this.nyi.isEmpty();
+        return this.mRA.isEmpty();
     }
 
     @Override // io.reactivex.internal.a.g
     public void clear() {
-        this.nyi.clear();
+        this.mRA.clear();
     }
 
     @Override // io.reactivex.internal.a.g

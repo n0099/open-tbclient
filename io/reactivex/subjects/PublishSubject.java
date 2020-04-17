@@ -5,12 +5,12 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class PublishSubject<T> extends b<T> {
-    static final PublishDisposable[] nDi = new PublishDisposable[0];
-    static final PublishDisposable[] nDj = new PublishDisposable[0];
+    static final PublishDisposable[] mWG = new PublishDisposable[0];
+    static final PublishDisposable[] mWH = new PublishDisposable[0];
     Throwable error;
-    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(nDj);
+    final AtomicReference<PublishDisposable<T>[]> subscribers = new AtomicReference<>(mWH);
 
-    public static <T> PublishSubject<T> dKs() {
+    public static <T> PublishSubject<T> dDr() {
         return new PublishSubject<>();
     }
 
@@ -18,7 +18,7 @@ public final class PublishSubject<T> extends b<T> {
     }
 
     @Override // io.reactivex.q
-    protected void a(u<? super T> uVar) {
+    public void a(u<? super T> uVar) {
         PublishDisposable<T> publishDisposable = new PublishDisposable<>(uVar, this);
         uVar.onSubscribe(publishDisposable);
         if (a(publishDisposable)) {
@@ -41,7 +41,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr == nDi) {
+            if (publishDisposableArr == mWG) {
                 return false;
             }
             int length = publishDisposableArr.length;
@@ -57,7 +57,7 @@ public final class PublishSubject<T> extends b<T> {
         PublishDisposable<T>[] publishDisposableArr2;
         do {
             publishDisposableArr = this.subscribers.get();
-            if (publishDisposableArr != nDi && publishDisposableArr != nDj) {
+            if (publishDisposableArr != mWG && publishDisposableArr != mWH) {
                 int length = publishDisposableArr.length;
                 int i = -1;
                 int i2 = 0;
@@ -73,7 +73,7 @@ public final class PublishSubject<T> extends b<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        publishDisposableArr2 = nDj;
+                        publishDisposableArr2 = mWH;
                     } else {
                         publishDisposableArr2 = new PublishDisposable[length - 1];
                         System.arraycopy(publishDisposableArr, 0, publishDisposableArr2, 0, i);
@@ -90,7 +90,7 @@ public final class PublishSubject<T> extends b<T> {
 
     @Override // io.reactivex.u
     public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.subscribers.get() == nDi) {
+        if (this.subscribers.get() == mWG) {
             bVar.dispose();
         }
     }
@@ -98,28 +98,30 @@ public final class PublishSubject<T> extends b<T> {
     @Override // io.reactivex.u
     public void onNext(T t) {
         io.reactivex.internal.functions.a.h(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        for (PublishDisposable<T> publishDisposable : this.subscribers.get()) {
-            publishDisposable.onNext(t);
+        if (this.subscribers.get() != mWG) {
+            for (PublishDisposable<T> publishDisposable : this.subscribers.get()) {
+                publishDisposable.onNext(t);
+            }
         }
     }
 
     @Override // io.reactivex.u
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == nDi) {
+        if (this.subscribers.get() == mWG) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.error = th;
-        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nDi)) {
+        for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(mWG)) {
             publishDisposable.onError(th);
         }
     }
 
     @Override // io.reactivex.u
     public void onComplete() {
-        if (this.subscribers.get() != nDi) {
-            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(nDi)) {
+        if (this.subscribers.get() != mWG) {
+            for (PublishDisposable<T> publishDisposable : this.subscribers.getAndSet(mWG)) {
                 publishDisposable.onComplete();
             }
         }

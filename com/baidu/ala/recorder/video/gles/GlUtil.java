@@ -3,7 +3,6 @@ package com.baidu.ala.recorder.video.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -56,7 +55,7 @@ public class GlUtil {
         GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
         if (iArr[0] == 0) {
             Log.e("Grafika", "Could not compile shader " + i + ":");
-            Log.e("Grafika", HanziToPinyin.Token.SEPARATOR + GLES20.glGetShaderInfoLog(glCreateShader));
+            Log.e("Grafika", " " + GLES20.glGetShaderInfoLog(glCreateShader));
             GLES20.glDeleteShader(glCreateShader);
             return 0;
         }

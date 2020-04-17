@@ -9,8 +9,8 @@ import java.util.TreeSet;
 public abstract class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     protected static final String TAG = a.class.getSimpleName();
-    double bGn = 1.0d;
-    protected Set<Integer> bGo;
+    double ceX = 1.0d;
+    protected Set<Integer> ceY;
 
     public abstract boolean a(Bitmap bitmap, Rect rect);
 
@@ -22,27 +22,27 @@ public abstract class a {
         return rect.top < rect.bottom && rect.bottom <= bitmap.getHeight() && rect.left < rect.right && rect.right <= bitmap.getWidth();
     }
 
-    public void fB(int i) {
-        if (this.bGo == null) {
-            this.bGo = new TreeSet();
+    public void fI(int i) {
+        if (this.ceY == null) {
+            this.ceY = new TreeSet();
         } else {
-            this.bGo.clear();
+            this.ceY.clear();
         }
         if (DEBUG) {
             Log.d(TAG, "set color " + String.format("#%06X", Integer.valueOf(16777215 & i)));
         }
-        this.bGo.add(Integer.valueOf(i));
+        this.ceY.add(Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void g(double d) {
-        this.bGn = d;
+    public void l(double d) {
+        this.ceX = d;
     }
 
     /* renamed from: com.baidu.swan.apps.ac.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0200a {
-        public static a jD(String str) {
+    public static class C0230a {
+        public static a kQ(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case -2129978548:

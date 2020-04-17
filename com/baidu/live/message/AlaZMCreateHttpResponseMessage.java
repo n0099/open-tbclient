@@ -4,28 +4,28 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaZMCreateHttpResponseMessage extends JsonHttpResponsedMessage {
-    private String awP;
-    private String awQ;
-    private long awR;
+    private String aQs;
+    private String aQt;
+    private long aQu;
 
     public AlaZMCreateHttpResponseMessage() {
         super(1021062);
-        this.awP = null;
-        this.awQ = null;
-        this.awR = 0L;
+        this.aQs = null;
+        this.aQt = null;
+        this.aQu = 0L;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.awP = jSONObject.optString("biz_url");
-            this.awQ = jSONObject.optString("biz_no");
-            this.awR = jSONObject.optLong("cert_id");
+            this.aQs = jSONObject.optString("biz_url");
+            this.aQt = jSONObject.optString("biz_no");
+            this.aQu = jSONObject.optLong("cert_id");
         }
     }
 
-    public long yY() {
-        return this.awR;
+    public long DS() {
+        return this.aQu;
     }
 }

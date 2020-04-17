@@ -24,11 +24,11 @@ public final class IntrinsicsKt__IntrinsicsJvmKt$createCoroutineFromSuspendFunct
         switch (this.label) {
             case 0:
                 this.label = 1;
-                i.bQ(obj);
+                i.bz(obj);
                 return this.$block.invoke(this);
             case 1:
                 this.label = 2;
-                i.bQ(obj);
+                i.bz(obj);
                 return obj;
             default:
                 throw new IllegalStateException("This coroutine had already completed".toString());

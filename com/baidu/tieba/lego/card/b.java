@@ -19,11 +19,11 @@ public class b extends e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b hZq = new b();
+        private static final b iJj = new b();
     }
 
-    public static b ccd() {
-        return a.hZq;
+    public static b cmE() {
+        return a.iJj;
     }
 
     public synchronized void a(e eVar) {
@@ -31,7 +31,7 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void cce() {
+    protected void cmF() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -84,12 +84,12 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo DZ(String str) {
+    public static ICardInfo FH(String str) {
         try {
-            ICardInfo cV = cV(new JSONObject(str));
-            if (cV != null) {
-                if (cV.isValid()) {
-                    return cV;
+            ICardInfo dg = dg(new JSONObject(str));
+            if (dg != null) {
+                if (dg.isValid()) {
+                    return dg;
                 }
             }
             return null;
@@ -102,15 +102,15 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo Ea(String str) throws Exception {
-        ICardInfo cV = cV(new JSONObject(str));
-        if (cV == null || !cV.isValid()) {
+    public static ICardInfo FI(String str) throws Exception {
+        ICardInfo dg = dg(new JSONObject(str));
+        if (dg == null || !dg.isValid()) {
             return null;
         }
-        return cV;
+        return dg;
     }
 
-    public static ICardInfo cV(JSONObject jSONObject) throws CardParseException {
-        return ccd().d(jSONObject, jSONObject.optInt("card_type"));
+    public static ICardInfo dg(JSONObject jSONObject) throws CardParseException {
+        return cmE().d(jSONObject, jSONObject.optInt("card_type"));
     }
 }

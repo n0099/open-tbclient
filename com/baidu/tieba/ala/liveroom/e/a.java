@@ -7,25 +7,25 @@ import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private long fai;
-    private TextView faj;
+    private long fEw;
+    private TextView fEx;
     private TbPageContext mContext;
     private View mView;
 
-    public void cV(long j) {
-        if (j > this.fai) {
-            this.fai = j;
-            blB();
+    public void dD(long j) {
+        if (j > this.fEw) {
+            this.fEw = j;
+            buU();
         }
     }
 
-    public void blA() {
-        this.fai = 0L;
-        blB();
+    public void buT() {
+        this.fEw = 0L;
+        buU();
     }
 
-    private void blB() {
-        this.faj.setText(String.format(this.mContext.getString(a.i.sdk_charm_name), StringHelper.formatTosepara((int) this.fai)));
+    private void buU() {
+        this.fEx.setText(String.format(this.mContext.getString(a.i.sdk_charm_name), StringHelper.formatTosepara((int) this.fEw)));
     }
 
     public View getView() {

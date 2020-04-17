@@ -3,7 +3,6 @@ package com.baidu.android.util.io;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
@@ -26,7 +25,6 @@ public final class PathUtils {
     private static String sCacheDir = null;
     private static String sImageCacheDirBaseForFresco;
     private static String sImageCacheDirForImageloader;
-    private static String sImageCacheDirForNuomiSDK;
     private static String sImageCacheDirForOther;
 
     private PathUtils() {
@@ -34,29 +32,26 @@ public final class PathUtils {
 
     static {
         sImageCacheDirForImageloader = null;
-        sImageCacheDirForNuomiSDK = null;
         sImageCacheDirBaseForFresco = null;
         sImageCacheDirForOther = null;
         sImageCacheDirBaseForFresco = getCacheDirectory(AppRuntime.getAppContext());
         sImageCacheDirForImageloader = getImageCacheDirForImageLoader(AppRuntime.getAppContext());
-        sImageCacheDirForNuomiSDK = getImageCacheDirForNuomiSDK(AppRuntime.getAppContext());
         sImageCacheDirForOther = getImageCacheDirForOthers(AppRuntime.getAppContext());
     }
 
+    @Deprecated
     public static String getExternalStorageDir(Context context) {
-        File cacheDir;
+        File file = null;
         if (isExternalStorageWritable()) {
-            cacheDir = Environment.getExternalStorageDirectory();
-        } else {
-            cacheDir = context.getCacheDir();
+            file = Environment.getExternalStorageDirectory();
         }
-        if (cacheDir == null) {
+        if (file == null) {
             return "";
         }
-        if (!cacheDir.exists()) {
-            cacheDir.mkdirs();
+        if (!file.exists()) {
+            file.mkdirs();
         }
-        return cacheDir.getAbsolutePath();
+        return file.getAbsolutePath();
     }
 
     public static String getImageCacheDirectoryForOthers(Context context) {
@@ -64,13 +59,6 @@ public final class PathUtils {
             sImageCacheDirForOther = getImageCacheDirForOthers(context);
         }
         return sImageCacheDirForOther;
-    }
-
-    public static String getImageCacheDirectoryForNuomiSDK(Context context) {
-        if (TextUtils.isEmpty(sImageCacheDirForNuomiSDK)) {
-            sImageCacheDirForNuomiSDK = getImageCacheDirForNuomiSDK(context);
-        }
-        return sImageCacheDirForNuomiSDK;
     }
 
     public static String getImageCacheDirectoryBaseForFresco(Context context) {
@@ -93,15 +81,9 @@ public final class PathUtils {
             return sCacheDir;
         }
         File file = null;
-        if (Build.VERSION.SDK_INT >= 8) {
-            try {
-                file = context.getExternalCacheDir();
-            } catch (Exception e) {
-            }
-        }
-        if (file == null && isExternalStorageWritable()) {
-            File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            file = externalStorageDirectory != null ? new File(externalStorageDirectory, DIRECTORY_DATA_CACHE) : externalStorageDirectory;
+        try {
+            file = context.getExternalCacheDir();
+        } catch (Exception e) {
         }
         if (file == null) {
             file = context.getCacheDir();
@@ -139,32 +121,21 @@ public final class PathUtils {
     }
 
     public static File getDownloadDirectory(Context context) {
-        File file;
         boolean z = true;
-        if (isExternalStorageWritable()) {
-            File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            if (isBaiduDirectoryWritable()) {
-                file = new File(externalStorageDirectory, PATH_DEFAULT_DOWNLOAD);
-            } else {
-                file = new File(externalStorageDirectory, PATH_DEFAULT_DOWNLOAD2);
-            }
-            if (file != null) {
-                if (file.exists()) {
-                    if (file.isDirectory()) {
-                        z = false;
-                    } else {
-                        deleteFile(file);
-                    }
+        File externalFilesDir = context.getExternalFilesDir("downloads");
+        if (externalFilesDir != null) {
+            if (externalFilesDir.exists()) {
+                if (externalFilesDir.isDirectory()) {
+                    z = false;
+                } else {
+                    deleteFile(externalFilesDir);
                 }
-                if (z) {
-                    file.mkdirs();
-                    return file;
-                }
-                return file;
             }
-            return file;
+            if (z) {
+                externalFilesDir.mkdirs();
+            }
         }
-        return null;
+        return externalFilesDir;
     }
 
     public static boolean isExternalStorageWritable() {
@@ -183,55 +154,10 @@ public final class PathUtils {
         }
     }
 
-    private static boolean isBaiduDirectoryWritable() {
-        return isDirectoryWritable(new File(Environment.getExternalStorageDirectory(), DIRECTORY_DATA_CACHE));
-    }
-
-    private static boolean isDirectoryWritable(File file) {
-        System.currentTimeMillis();
-        boolean z = false;
-        if (TextUtils.equals("mounted", Environment.getExternalStorageState())) {
-            File externalStorageDirectory = Environment.getExternalStorageDirectory();
-            if (externalStorageDirectory.exists() && externalStorageDirectory.canWrite() && file != null && file.exists()) {
-                try {
-                    if (file.isDirectory()) {
-                        File file2 = new File(file, ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB");
-                        if (file2.exists()) {
-                            File file3 = new File(file, ".696E5309-E4A7-27C0-A787-0B2CEBF1F1AB__temp");
-                            z = file2.renameTo(file3);
-                            if (z) {
-                                file3.renameTo(file2);
-                            }
-                        } else {
-                            z = file2.createNewFile();
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        System.currentTimeMillis();
-        return z;
-    }
-
     @SuppressLint({"NewApi"})
     private static String getImageCacheDirForImageLoader(Context context) {
         String cacheDirectory = getCacheDirectory(context);
         return !TextUtils.isEmpty(cacheDirectory) ? new File(cacheDirectory, DIRCTORY_IMAGE_CACHE_FOR_IMAGELOADER).getAbsolutePath() : "";
-    }
-
-    @SuppressLint({"NewApi"})
-    private static String getImageCacheDirForNuomiSDK(Context context) {
-        String cacheDirectory = getCacheDirectory(context);
-        if (TextUtils.isEmpty(cacheDirectory)) {
-            return "";
-        }
-        File file = new File(cacheDirectory, DIRCTORY_IMAGE_CACHE_FOR_NUOMI_SDK);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        return file.getAbsolutePath();
     }
 
     @SuppressLint({"NewApi"})

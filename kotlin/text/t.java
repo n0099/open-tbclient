@@ -51,9 +51,9 @@ public class t extends s {
         boolean z;
         kotlin.jvm.internal.q.j(charSequence, "receiver$0");
         if (charSequence.length() != 0) {
-            kotlin.b.h s = l.s(charSequence);
-            if (!(s instanceof Collection) || !((Collection) s).isEmpty()) {
-                Iterator<Integer> it = s.iterator();
+            kotlin.b.h r = l.r(charSequence);
+            if (!(r instanceof Collection) || !((Collection) r).isEmpty()) {
+                Iterator<Integer> it = r.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;

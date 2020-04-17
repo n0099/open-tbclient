@@ -1,25 +1,25 @@
 package com.baidu.tbadk.o;
 /* loaded from: classes.dex */
 public class b {
-    private int dFI;
-    private String dFJ;
+    public long Ka = -1;
+    public long Kb = -1;
+    public long Kc = -1;
+    private int efp;
+    private String efq;
     private int errorCode;
     private String exception;
-    public long qZ = -1;
-    public long ra = -1;
-    public long rb = -1;
     private String url;
 
     public void setErrorCode(int i) {
         this.errorCode = i;
     }
 
-    public void aq(String str) {
+    public void bF(String str) {
         this.exception = str;
     }
 
-    public void vI(String str) {
-        this.dFJ = str;
+    public void wX(String str) {
+        this.efq = str;
     }
 
     public String getUrl() {
@@ -30,11 +30,11 @@ public class b {
         this.url = str;
     }
 
-    public String aRD() {
-        return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.dFI + "-dnsStatus-" + this.dFJ + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.qZ + "-fileLength-" + this.ra + "-contentLen-" + this.rb;
+    public String aZN() {
+        return "-netErrorCode-" + this.errorCode + "-serverCode-" + this.efp + "-dnsStatus-" + this.efq + "-exception-" + this.exception + "-url-" + this.url + "-dataLenth-" + this.Ka + "-fileLength-" + this.Kb + "-contentLen-" + this.Kc;
     }
 
-    public void mQ(int i) {
-        this.dFI = i;
+    public void nb(int i) {
+        this.efp = i;
     }
 }

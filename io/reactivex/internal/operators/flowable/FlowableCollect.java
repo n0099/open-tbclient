@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -9,12 +8,12 @@ import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
 public final class FlowableCollect<T, U> extends a<T, U> {
     final io.reactivex.c.b<? super U, ? super T> collector;
-    final Callable<? extends U> nyz;
+    final Callable<? extends U> mRS;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
         try {
-            this.nyr.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.h(this.nyz.call(), "The initial value supplied is null"), this.collector));
+            this.mRJ.a((j) new CollectSubscriber(cVar, io.reactivex.internal.functions.a.h(this.mRS.call(), "The initial value supplied is null"), this.collector));
         } catch (Throwable th) {
             EmptySubscription.error(th, cVar);
         }
@@ -39,7 +38,7 @@ public final class FlowableCollect<T, U> extends a<T, U> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -48,9 +47,9 @@ public final class FlowableCollect<T, U> extends a<T, U> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.collector.i((U) this.u, t);
+                    this.collector.h((U) this.u, t);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     this.s.cancel();
                     onError(th);
                 }

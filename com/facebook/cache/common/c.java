@@ -8,10 +8,10 @@ public final class c {
     public static List<String> a(b bVar) {
         try {
             if (bVar instanceof d) {
-                List<b> cacheKeys = ((d) bVar).getCacheKeys();
-                ArrayList arrayList = new ArrayList(cacheKeys.size());
-                for (int i = 0; i < cacheKeys.size(); i++) {
-                    arrayList.add(c(cacheKeys.get(i)));
+                List<b> dml = ((d) bVar).dml();
+                ArrayList arrayList = new ArrayList(dml.size());
+                for (int i = 0; i < dml.size(); i++) {
+                    arrayList.add(c(dml.get(i)));
                 }
                 return arrayList;
             }
@@ -25,13 +25,13 @@ public final class c {
 
     public static String b(b bVar) {
         try {
-            return bVar instanceof d ? c(((d) bVar).getCacheKeys().get(0)) : c(bVar);
+            return bVar instanceof d ? c(((d) bVar).dml().get(0)) : c(bVar);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }
 
     private static String c(b bVar) throws UnsupportedEncodingException {
-        return com.facebook.common.util.b.al(bVar.dks().getBytes("UTF-8"));
+        return com.facebook.common.util.b.ac(bVar.dmk().getBytes("UTF-8"));
     }
 }

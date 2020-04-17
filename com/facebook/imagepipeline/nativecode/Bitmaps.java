@@ -23,7 +23,7 @@ public class Bitmaps {
         a.load();
     }
 
-    public static void aa(Bitmap bitmap) {
+    public static void ab(Bitmap bitmap) {
         g.checkNotNull(bitmap);
         nativePinBitmap(bitmap);
     }
@@ -38,7 +38,7 @@ public class Bitmaps {
 
     @TargetApi(19)
     public static void a(Bitmap bitmap, int i, int i2, Bitmap.Config config) {
-        g.checkArgument(bitmap.getAllocationByteCount() >= (i * i2) * com.facebook.d.a.d(config));
+        g.checkArgument(bitmap.getAllocationByteCount() >= (i * i2) * com.facebook.d.a.e(config));
         bitmap.reconfigure(i, i2, config);
     }
 }

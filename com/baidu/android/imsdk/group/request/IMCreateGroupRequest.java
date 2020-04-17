@@ -16,7 +16,6 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.pushservice.PushConstants;
@@ -98,7 +97,7 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                 return;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(IMCreateGroupRequest.this.mKey);
-            LogUtils.d(IMCreateGroupRequest.TAG, "IMCreateGroupRequest  " + i + HanziToPinyin.Token.SEPARATOR + str);
+            LogUtils.d(IMCreateGroupRequest.TAG, "IMCreateGroupRequest  " + i + " " + str);
             if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                 LogUtils.d(IMCreateGroupRequest.TAG, "IMCreateGroupRequest listener is null ");
                 return;

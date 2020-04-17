@@ -20,26 +20,26 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int nd = 0;
+    private static int Gl = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
         try {
             Class<?> cls = obj.getClass();
             if (str == null || str.equals("")) {
-                stringBuffer.append(eL() + cls.getSimpleName() + " = {\n");
+                stringBuffer.append(jq() + cls.getSimpleName() + " = {\n");
             } else {
                 stringBuffer.append(str + " = {\n");
             }
             while (cls != null && m(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    nd++;
+                    Gl++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    nd--;
+                    Gl--;
                 }
                 cls = cls.getSuperclass();
             }
-            stringBuffer.append(eL() + "}\n");
+            stringBuffer.append(jq() + "}\n");
         } catch (IllegalAccessException e) {
             stringBuffer.append(e.toString());
         }
@@ -60,14 +60,14 @@ public class b {
         for (int i = 0; i < fieldArr.length; i++) {
             fieldArr[i].setAccessible(true);
             if (!Modifier.isStatic(fieldArr[i].getModifiers())) {
-                stringBuffer.append(c(eL() + fieldArr[i].getName(), fieldArr[i].get(obj), list));
+                stringBuffer.append(c(jq() + fieldArr[i].getName(), fieldArr[i].get(obj), list));
             }
         }
     }
 
-    private static String eL() {
+    private static String jq() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < nd; i++) {
+        for (int i = 0; i < Gl; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -219,7 +219,7 @@ public class b {
         return str + " = " + p(obj) + "\n";
     }
 
-    private static String c(String str, Object obj) {
+    private static String d(String str, Object obj) {
         if (obj == null) {
             return str + ": null\n";
         }
@@ -232,11 +232,11 @@ public class b {
         return str + " = " + obj.toString() + "\n\r";
     }
 
-    public static void d(String str, Object obj) {
+    public static void e(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.nq) {
+        if (d.Gw) {
             stringBuffer.append("Message_Type: " + str + "\n");
-            stringBuffer.append(c("", obj));
+            stringBuffer.append(d("", obj));
             stringBuffer.append("----------------------------------------------------------\n");
             String[] split = stringBuffer.toString().split("\n");
             for (String str2 : split) {

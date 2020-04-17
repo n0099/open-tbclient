@@ -4,22 +4,22 @@ import android.content.Context;
 /* loaded from: classes.dex */
 public class l {
     private Context context;
-    public int dxM;
-    public int dxN;
-    public boolean dxO;
-    public int dxQ;
-    public int dxR;
-    public int[] dxT;
-    public m dxa;
+    public m dWH;
+    public int[] dXA;
+    public int dXt;
+    public int dXu;
+    public boolean dXv;
+    public int dXx;
+    public int dXy;
     public int id;
     public String name;
-    public boolean dxP = true;
-    public boolean dxS = false;
+    public boolean dXw = true;
+    public boolean dXz = false;
 
     public l(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.dxQ = i2;
+        this.dXx = i2;
     }
 
     public l(Context context, String str, int i) {
@@ -32,7 +32,7 @@ public class l {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.dxQ = i2;
+        this.dXx = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,10 +40,10 @@ public class l {
         return this.context;
     }
 
-    public boolean lZ() {
+    public boolean qB() {
         return true;
     }
 
-    public void gF(boolean z) {
+    public void hD(boolean z) {
     }
 }

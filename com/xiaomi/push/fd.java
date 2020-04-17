@@ -8,16 +8,16 @@ import java.util.List;
 public class fd implements ir<fd, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public String f348a;
+    public String f349a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<fc> f349a;
+    public List<fc> f350a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f350b;
+    public String f351b;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f347a = new jh("StatsEvents");
+    private static final jh f348a = new jh("StatsEvents");
     private static final iz a = new iz("", Constants.GZIP_CAST_TYPE, 1);
     private static final iz b = new iz("", Constants.GZIP_CAST_TYPE, 2);
     private static final iz c = new iz("", (byte) 15, 3);
@@ -27,8 +27,8 @@ public class fd implements ir<fd, Object>, Serializable, Cloneable {
 
     public fd(String str, List<fc> list) {
         this();
-        this.f348a = str;
-        this.f349a = list;
+        this.f349a = str;
+        this.f350a = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,15 +39,15 @@ public class fd implements ir<fd, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (getClass().equals(fdVar.getClass())) {
-            int compareTo = Boolean.valueOf(m265a()).compareTo(Boolean.valueOf(fdVar.m265a()));
+            int compareTo = Boolean.valueOf(m270a()).compareTo(Boolean.valueOf(fdVar.m270a()));
             if (compareTo == 0) {
-                if (!m265a() || (a4 = is.a(this.f348a, fdVar.f348a)) == 0) {
+                if (!m270a() || (a4 = is.a(this.f349a, fdVar.f349a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(fdVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a3 = is.a(this.f350b, fdVar.f350b)) == 0) {
+                        if (!b() || (a3 = is.a(this.f351b, fdVar.f351b)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(fdVar.c()));
                             if (compareTo3 == 0) {
-                                if (!c() || (a2 = is.a(this.f349a, fdVar.f349a)) == 0) {
+                                if (!c() || (a2 = is.a(this.f350a, fdVar.f350a)) == 0) {
                                     return 0;
                                 }
                                 return a2;
@@ -66,63 +66,63 @@ public class fd implements ir<fd, Object>, Serializable, Cloneable {
     }
 
     public fd a(String str) {
-        this.f350b = str;
+        this.f351b = str;
         return this;
     }
 
     public void a() {
-        if (this.f348a == null) {
+        if (this.f349a == null) {
             throw new jd("Required field 'uuid' was not present! Struct: " + toString());
         }
-        if (this.f349a == null) {
+        if (this.f350a == null) {
             throw new jd("Required field 'events' was not present! Struct: " + toString());
         }
     }
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m470a();
+        jcVar.m475a();
         while (true) {
-            iz m466a = jcVar.m466a();
-            if (m466a.a == 0) {
+            iz m471a = jcVar.m471a();
+            if (m471a.a == 0) {
                 jcVar.f();
                 a();
                 return;
             }
-            switch (m466a.f788a) {
+            switch (m471a.f789a) {
                 case 1:
-                    if (m466a.a == 11) {
-                        this.f348a = jcVar.m471a();
+                    if (m471a.a == 11) {
+                        this.f349a = jcVar.m476a();
                         break;
                     } else {
-                        jf.a(jcVar, m466a.a);
+                        jf.a(jcVar, m471a.a);
                         break;
                     }
                 case 2:
-                    if (m466a.a == 11) {
-                        this.f350b = jcVar.m471a();
+                    if (m471a.a == 11) {
+                        this.f351b = jcVar.m476a();
                         break;
                     } else {
-                        jf.a(jcVar, m466a.a);
+                        jf.a(jcVar, m471a.a);
                         break;
                     }
                 case 3:
-                    if (m466a.a == 15) {
-                        ja m467a = jcVar.m467a();
-                        this.f349a = new ArrayList(m467a.f791a);
-                        for (int i = 0; i < m467a.f791a; i++) {
+                    if (m471a.a == 15) {
+                        ja m472a = jcVar.m472a();
+                        this.f350a = new ArrayList(m472a.f792a);
+                        for (int i = 0; i < m472a.f792a; i++) {
                             fc fcVar = new fc();
                             fcVar.a(jcVar);
-                            this.f349a.add(fcVar);
+                            this.f350a.add(fcVar);
                         }
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m466a.a);
+                        jf.a(jcVar, m471a.a);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m466a.a);
+                    jf.a(jcVar, m471a.a);
                     break;
             }
             jcVar.g();
@@ -130,68 +130,68 @@ public class fd implements ir<fd, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m265a() {
-        return this.f348a != null;
+    public boolean m270a() {
+        return this.f349a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m266a(fd fdVar) {
+    public boolean m271a(fd fdVar) {
         if (fdVar == null) {
             return false;
         }
-        boolean m265a = m265a();
-        boolean m265a2 = fdVar.m265a();
-        if ((m265a || m265a2) && !(m265a && m265a2 && this.f348a.equals(fdVar.f348a))) {
+        boolean m270a = m270a();
+        boolean m270a2 = fdVar.m270a();
+        if ((m270a || m270a2) && !(m270a && m270a2 && this.f349a.equals(fdVar.f349a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = fdVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f350b.equals(fdVar.f350b))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f351b.equals(fdVar.f351b))) {
             return false;
         }
         boolean c2 = c();
         boolean c3 = fdVar.c();
-        return !(c2 || c3) || (c2 && c3 && this.f349a.equals(fdVar.f349a));
+        return !(c2 || c3) || (c2 && c3 && this.f350a.equals(fdVar.f350a));
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
         a();
-        jcVar.a(f347a);
-        if (this.f348a != null) {
-            jcVar.a(a);
-            jcVar.a(this.f348a);
-            jcVar.b();
-        }
-        if (this.f350b != null && b()) {
-            jcVar.a(b);
-            jcVar.a(this.f350b);
-            jcVar.b();
-        }
+        jcVar.a(f348a);
         if (this.f349a != null) {
+            jcVar.a(a);
+            jcVar.a(this.f349a);
+            jcVar.b();
+        }
+        if (this.f351b != null && b()) {
+            jcVar.a(b);
+            jcVar.a(this.f351b);
+            jcVar.b();
+        }
+        if (this.f350a != null) {
             jcVar.a(c);
-            jcVar.a(new ja((byte) 12, this.f349a.size()));
-            for (fc fcVar : this.f349a) {
+            jcVar.a(new ja((byte) 12, this.f350a.size()));
+            for (fc fcVar : this.f350a) {
                 fcVar.b(jcVar);
             }
             jcVar.e();
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m474a();
+        jcVar.m479a();
     }
 
     public boolean b() {
-        return this.f350b != null;
+        return this.f351b != null;
     }
 
     public boolean c() {
-        return this.f349a != null;
+        return this.f350a != null;
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof fd)) {
-            return m266a((fd) obj);
+            return m271a((fd) obj);
         }
         return false;
     }
@@ -203,26 +203,26 @@ public class fd implements ir<fd, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("StatsEvents(");
         sb.append("uuid:");
-        if (this.f348a == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.f348a);
-        }
-        if (b()) {
-            sb.append(", ");
-            sb.append("operator:");
-            if (this.f350b == null) {
-                sb.append("null");
-            } else {
-                sb.append(this.f350b);
-            }
-        }
-        sb.append(", ");
-        sb.append("events:");
         if (this.f349a == null) {
             sb.append("null");
         } else {
             sb.append(this.f349a);
+        }
+        if (b()) {
+            sb.append(", ");
+            sb.append("operator:");
+            if (this.f351b == null) {
+                sb.append("null");
+            } else {
+                sb.append(this.f351b);
+            }
+        }
+        sb.append(", ");
+        sb.append("events:");
+        if (this.f350a == null) {
+            sb.append("null");
+        } else {
+            sb.append(this.f350a);
         }
         sb.append(")");
         return sb.toString();

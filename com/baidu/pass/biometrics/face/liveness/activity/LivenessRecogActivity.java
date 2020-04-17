@@ -281,7 +281,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                         LivenessRecogActivity.this.livenessStat.faceMatchType = LivenessStat.TYPE_FACE_MATCH_PASS;
                         passFaceRecogResult.setResultCode(0);
                     } else {
-                        LivenessRecogActivity.this.livenessStat.faceMatchType = LivenessStat.TYPE_FACE_MATCH_FAIL;
+                        LivenessRecogActivity.this.livenessStat.faceMatchType = "fail";
                         passFaceRecogResult.setResultCode(-302);
                     }
                     passFaceRecogResult.callbackkey = contrastPortraitResult.callbackkey;
@@ -335,7 +335,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     /* JADX INFO: Access modifiers changed from: private */
     public void callbackFailureOrContinueFaceDetect(int i, String str) {
         if (this.currentConstrastBeanPos == this.totalConstrastBeanCount) {
-            this.livenessStat.faceMatchType = LivenessStat.TYPE_FACE_MATCH_FAIL;
+            this.livenessStat.faceMatchType = "fail";
             if (this.callback != null) {
                 PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
                 passFaceRecogResult.setResultCode(i);
@@ -1568,7 +1568,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     public void dofaceMatch() {
         if (this.isLast) {
             if (this.callback != null) {
-                this.livenessStat.faceMatchType = LivenessStat.TYPE_FACE_MATCH_FAIL;
+                this.livenessStat.faceMatchType = "fail";
                 PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
                 passFaceRecogResult.setResultCode(-206);
                 passFaceRecogResult.setResultMsg(PassBiometricResult.ERROR_MSG_SERVER_ERROR);
@@ -1582,7 +1582,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.currentConstrastBeanPos++;
         if (this.portraitList == null || this.currentConstrastBeanPos > this.portraitList.size()) {
             if (this.callback != null) {
-                this.livenessStat.faceMatchType = LivenessStat.TYPE_FACE_MATCH_FAIL;
+                this.livenessStat.faceMatchType = "fail";
                 PassFaceRecogResult passFaceRecogResult2 = new PassFaceRecogResult();
                 passFaceRecogResult2.setResultCode(-206);
                 passFaceRecogResult2.setResultMsg(PassBiometricResult.ERROR_MSG_SERVER_ERROR);
@@ -1691,7 +1691,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     /* JADX INFO: Access modifiers changed from: private */
     public void handlePortraitContrastFail(ContrastPortraitResult contrastPortraitResult) {
         if (this.isLast) {
-            this.livenessStat.faceMatchType = LivenessStat.TYPE_FACE_MATCH_FAIL;
+            this.livenessStat.faceMatchType = "fail";
             if (this.callback != null) {
                 PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
                 passFaceRecogResult.setResultCode(contrastPortraitResult.getResultCode());
@@ -1710,7 +1710,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     public void handlePortraitContrastSuc(ContrastPortraitResult contrastPortraitResult) {
         if (contrastPortraitResult.getResultCode() != 0) {
             handlePortraitContrastFail(contrastPortraitResult);
-            this.livenessStat.faceMatchType = LivenessStat.TYPE_FACE_MATCH_FAIL;
+            this.livenessStat.faceMatchType = "fail";
             return;
         }
         this.voiceCredential = contrastPortraitResult.callbackkey;

@@ -17,11 +17,11 @@ import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide.a {
-    private View cus;
-    private View kpi;
-    private LinearLayout kpj;
-    private View.OnClickListener kpk;
-    private LinearLayout kpl;
+    private View cTp;
+    private View kZo;
+    private LinearLayout kZp;
+    private View.OnClickListener kZq;
+    private LinearLayout kZr;
     private Context mContext;
     private TextView mSubTitle;
     private TextView mTitle;
@@ -33,21 +33,21 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
     }
 
     private void init() {
-        this.cus = View.inflate(this.mContext, R.layout.new_user_box, null);
-        setContentView(this.cus);
+        this.cTp = View.inflate(this.mContext, R.layout.new_user_box, null);
+        setContentView(this.cTp);
         setCanceledOnTouchOutside(true);
-        this.kpl = (LinearLayout) this.cus.findViewById(R.id.box_close_layout);
-        this.mTitle = (TextView) this.cus.findViewById(R.id.prompt_title);
-        this.mSubTitle = (TextView) this.cus.findViewById(R.id.prompt_sub_title);
-        this.kpi = this.cus.findViewById(R.id.view_layout);
-        this.kpj = (LinearLayout) this.cus.findViewById(R.id.layout_content);
-        this.kpi.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_blue_up));
+        this.kZr = (LinearLayout) this.cTp.findViewById(R.id.box_close_layout);
+        this.mTitle = (TextView) this.cTp.findViewById(R.id.prompt_title);
+        this.mSubTitle = (TextView) this.cTp.findViewById(R.id.prompt_sub_title);
+        this.kZo = this.cTp.findViewById(R.id.view_layout);
+        this.kZp = (LinearLayout) this.cTp.findViewById(R.id.layout_content);
+        this.kZo.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_blue_up));
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.kpk = onClickListener;
-        this.kpl.setOnClickListener(onClickListener);
+        this.kZq = onClickListener;
+        this.kZr.setOnClickListener(onClickListener);
     }
 
     @Override // android.app.Dialog, com.baidu.tieba.tblauncherInterestGuide.a
@@ -64,14 +64,14 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
         ArrayList<InterestFrsData.Card> card_list = tag.getCard_list();
         int i = 0;
         while (i < card_list.size()) {
-            View view = new a(card_list.get(i), this.kpk).getView();
-            this.kpj.addView(view);
+            View view = new a(card_list.get(i), this.kZq).getView();
+            this.kZp.addView(view);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view.getLayoutParams();
             int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds40);
             layoutParams.setMargins(0, i == 0 ? this.mContext.getResources().getDimensionPixelSize(R.dimen.ds52) : dimensionPixelSize, 0, dimensionPixelSize);
             view.setLayoutParams(layoutParams);
             if (i != card_list.size() - 1) {
-                this.kpj.addView(LayoutInflater.from(this.mContext).inflate(R.layout.new_user_line_item, (ViewGroup) null));
+                this.kZp.addView(LayoutInflater.from(this.mContext).inflate(R.layout.new_user_line_item, (ViewGroup) null));
             }
             i++;
         }
@@ -83,16 +83,16 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void CX(int i) {
-        View findViewWithTag = this.kpj.findViewWithTag(Integer.valueOf(i));
+    public void DB(int i) {
+        View findViewWithTag = this.kZp.findViewWithTag(Integer.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof LinearLayout)) {
             new a(findViewWithTag).setIsLike(true);
         }
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void CY(int i) {
-        View findViewWithTag = this.kpj.findViewWithTag(Integer.valueOf(i));
+    public void DC(int i) {
+        View findViewWithTag = this.kZp.findViewWithTag(Integer.valueOf(i));
         if (findViewWithTag != null && (findViewWithTag instanceof LinearLayout)) {
             new a(findViewWithTag).setIsLike(false);
         }
@@ -100,7 +100,7 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public View getRootView() {
-        return this.cus;
+        return this.cTp;
     }
 
     @Override // android.app.Dialog, com.baidu.tieba.tblauncherInterestGuide.a
@@ -114,8 +114,8 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
 
     /* loaded from: classes9.dex */
     private class a {
-        TextView alt;
-        private LinearLayout kpn;
+        TextView aDI;
+        private LinearLayout kZt;
         private ImageView mImgView;
         TextView mName;
         View mView;
@@ -137,9 +137,9 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
 
         public void initUI() {
             this.mName = (TextView) this.mView.findViewById(R.id.tv_fname);
-            this.alt = (TextView) this.mView.findViewById(R.id.tv_cdesc);
+            this.aDI = (TextView) this.mView.findViewById(R.id.tv_cdesc);
             this.mImgView = (ImageView) this.mView.findViewById(R.id.iv_like);
-            this.kpn = (LinearLayout) this.mView.findViewById(R.id.ll_like);
+            this.kZt = (LinearLayout) this.mView.findViewById(R.id.ll_like);
         }
 
         public void setIsLike(boolean z) {
@@ -153,8 +153,8 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
         private void a(InterestFrsData.Card card, View.OnClickListener onClickListener) {
             Drawable drawable;
             initUI();
-            this.kpn.setOnClickListener(onClickListener);
-            this.kpn.setTag(card);
+            this.kZt.setOnClickListener(onClickListener);
+            this.kZt.setTag(card);
             this.mName.setText(card.getFname());
             if (card.getOrder() == 1) {
                 drawable = e.this.mContext.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_rise);
@@ -162,7 +162,7 @@ public class e extends Dialog implements com.baidu.tieba.tblauncherInterestGuide
                 drawable = card.getOrder() == 2 ? e.this.mContext.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_decline) : null;
             }
             this.mName.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, drawable, (Drawable) null);
-            this.alt.setText(card.getCdesc());
+            this.aDI.setText(card.getCdesc());
             setIsLike(card.getIs_like() != 0);
         }
     }

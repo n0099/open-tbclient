@@ -20,8 +20,8 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes9.dex */
 public class a {
-    private BdUniqueId dBK;
-    private final com.baidu.adp.framework.listener.a fQT = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private BdUniqueId ebv;
+    private final com.baidu.adp.framework.listener.a gvB = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,31 +33,31 @@ public class a {
             }
         }
     };
-    private TopicDetailView hie;
+    private TopicDetailView hRN;
 
     public a(TopicDetailView topicDetailView) {
-        this.hie = topicDetailView;
+        this.hRN = topicDetailView;
     }
 
     public void j(BdUniqueId bdUniqueId) {
-        this.dBK = bdUniqueId;
-        this.fQT.setTag(bdUniqueId);
-        this.fQT.getHttpMessageListener().setSelfListener(true);
-        this.fQT.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.fQT);
+        this.ebv = bdUniqueId;
+        this.gvB.setTag(bdUniqueId);
+        this.gvB.getHttpMessageListener().setSelfListener(true);
+        this.gvB.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.gvB);
     }
 
-    public RunnableC0521a A(long j, long j2) {
-        return new RunnableC0521a(j2, j);
+    public RunnableC0558a B(long j, long j2) {
+        return new RunnableC0558a(j2, j);
     }
 
     /* renamed from: com.baidu.tieba.homepage.topic.topicdetail.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class RunnableC0521a implements Runnable {
+    public class RunnableC0558a implements Runnable {
         private long postId;
         private long threadId;
 
-        public RunnableC0521a(long j, long j2) {
+        public RunnableC0558a(long j, long j2) {
             this.threadId = j;
             this.postId = j2;
         }
@@ -68,11 +68,11 @@ public class a {
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (ar.aGH().aGI()) {
+            if (ar.aOV().aOW()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.dBK);
+            requestGetMyPostNetMessage.setTag(a.this.ebv);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -89,9 +89,9 @@ public class a {
             ThreadInfo build = builder.build(true);
             bj bjVar = new bj();
             bjVar.a(build);
-            bjVar.bu(new Date().getTime());
+            bjVar.bZ(new Date().getTime());
             if (k.ab(bjVar)) {
-                this.hie.aD(bjVar);
+                this.hRN.aE(bjVar);
             }
         }
     }

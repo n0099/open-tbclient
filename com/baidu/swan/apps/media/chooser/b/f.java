@@ -1,16 +1,17 @@
 package com.baidu.swan.apps.media.chooser.b;
 
+import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f {
     public String callback;
     public int sourceType = 3;
-    public boolean bDk = true;
-    public String bDl = "back";
-    public int bDm = 60;
+    public boolean cbI = true;
+    public String cbJ = "back";
+    public int cbK = 60;
 
-    public static f an(JSONObject jSONObject) {
+    public static f ay(JSONObject jSONObject) {
         f fVar = new f();
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
@@ -22,7 +23,7 @@ public class f {
                     char c = 65535;
                     switch (optString.hashCode()) {
                         case -1367751899:
-                            if (optString.equals("camera")) {
+                            if (optString.equals(PixelReadParams.DEFAULT_FILTER_ID)) {
                                 c = 1;
                                 break;
                             }
@@ -45,13 +46,13 @@ public class f {
                 }
                 fVar.sourceType = i;
             }
-            fVar.bDk = jSONObject.optBoolean("compressed", true);
+            fVar.cbI = jSONObject.optBoolean("compressed", true);
             int optInt = jSONObject.optInt("maxDuration", 60);
             if (optInt > 60) {
                 optInt = 60;
             }
-            fVar.bDm = optInt;
-            fVar.bDl = jSONObject.optString("camera");
+            fVar.cbK = optInt;
+            fVar.cbJ = jSONObject.optString(PixelReadParams.DEFAULT_FILTER_ID);
             fVar.callback = jSONObject.optString("cb");
         }
         return fVar;

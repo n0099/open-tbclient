@@ -13,7 +13,7 @@ public abstract class a {
     protected TextView b;
     protected Context c;
     protected List<c> a = new ArrayList();
-    protected com.kascend.chushou.c.b mQN = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
+    protected com.kascend.chushou.c.b mny = new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.player.a.a.1
         @Override // com.kascend.chushou.c.b
         public void a() {
         }
@@ -23,7 +23,7 @@ public abstract class a {
             int optInt = jSONObject.optInt("code", -1);
             String optString = jSONObject.optString("message", "");
             if (optInt == 0) {
-                g.Os(a.i.report_success);
+                g.JO(a.i.report_success);
             } else {
                 a(optInt, optString);
             }

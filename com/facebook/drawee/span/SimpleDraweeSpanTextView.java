@@ -26,7 +26,7 @@ public class SimpleDraweeSpanTextView extends TextView {
             if (cVarArr != null && f.floatValue() != 0.0f) {
                 for (int i = 0; i < cVarArr.length; i++) {
                     if (cVarArr[i] != null) {
-                        cVarArr[i].br(f.floatValue());
+                        cVarArr[i].aH(f.floatValue());
                     }
                 }
             }
@@ -59,7 +59,7 @@ public class SimpleDraweeSpanTextView extends TextView {
         super.onAttachedToWindow();
         this.mIsAttached = true;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.m36do(this);
+            this.mDraweeStringBuilder.df(this);
         }
         startAni();
     }
@@ -69,7 +69,7 @@ public class SimpleDraweeSpanTextView extends TextView {
         super.onFinishTemporaryDetach();
         this.mIsAttached = true;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.m36do(this);
+            this.mDraweeStringBuilder.df(this);
         }
     }
 
@@ -77,7 +77,7 @@ public class SimpleDraweeSpanTextView extends TextView {
     protected void onDetachedFromWindow() {
         this.mIsAttached = false;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.dp(this);
+            this.mDraweeStringBuilder.dg(this);
         }
         endAni();
         super.onDetachedFromWindow();
@@ -87,7 +87,7 @@ public class SimpleDraweeSpanTextView extends TextView {
     public void onStartTemporaryDetach() {
         this.mIsAttached = false;
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.dp(this);
+            this.mDraweeStringBuilder.dg(this);
         }
         super.onStartTemporaryDetach();
     }
@@ -105,13 +105,13 @@ public class SimpleDraweeSpanTextView extends TextView {
             }
         }
         if (this.mDraweeStringBuilder != null && this.mIsAttached) {
-            this.mDraweeStringBuilder.m36do(this);
+            this.mDraweeStringBuilder.df(this);
         }
     }
 
     public void detachCurrentDraweeSpanStringBuilder() {
         if (this.mDraweeStringBuilder != null) {
-            this.mDraweeStringBuilder.dp(this);
+            this.mDraweeStringBuilder.dg(this);
         }
         this.mDraweeStringBuilder = null;
     }

@@ -19,7 +19,7 @@ import com.facebook.drawee.generic.RoundingParams;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class e {
-    private static final Drawable lPs = new ColorDrawable(0);
+    private static final Drawable lWO = new ColorDrawable(0);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
@@ -42,7 +42,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static o a(com.facebook.drawee.drawable.c cVar, p.b bVar) {
-        Drawable f = f(cVar.setDrawable(lPs), bVar);
+        Drawable f = f(cVar.setDrawable(lWO), bVar);
         cVar.setDrawable(f);
         g.checkNotNull(f, "Parent has no child drawable!");
         return (o) f;
@@ -51,17 +51,17 @@ public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(com.facebook.drawee.drawable.c cVar, @Nullable RoundingParams roundingParams) {
         Drawable drawable = cVar.getDrawable();
-        if (roundingParams != null && roundingParams.dnA() == RoundingParams.RoundingMethod.OVERLAY_COLOR) {
+        if (roundingParams != null && roundingParams.dpt() == RoundingParams.RoundingMethod.OVERLAY_COLOR) {
             if (drawable instanceof RoundedCornersDrawable) {
                 RoundedCornersDrawable roundedCornersDrawable = (RoundedCornersDrawable) drawable;
                 a((j) roundedCornersDrawable, roundingParams);
-                roundedCornersDrawable.setOverlayColor(roundingParams.dnB());
+                roundedCornersDrawable.setOverlayColor(roundingParams.dpu());
                 return;
             }
-            cVar.setDrawable(a(cVar.setDrawable(lPs), roundingParams));
+            cVar.setDrawable(a(cVar.setDrawable(lWO), roundingParams));
         } else if (drawable instanceof RoundedCornersDrawable) {
-            cVar.setDrawable(((RoundedCornersDrawable) drawable).setCurrent(lPs));
-            lPs.setCallback(null);
+            cVar.setDrawable(((RoundedCornersDrawable) drawable).setCurrent(lWO));
+            lWO.setCallback(null);
         }
     }
 
@@ -69,11 +69,11 @@ public class e {
     public static void a(com.facebook.drawee.drawable.c cVar, @Nullable RoundingParams roundingParams, Resources resources) {
         com.facebook.drawee.drawable.c a = a(cVar);
         Drawable drawable = a.getDrawable();
-        if (roundingParams != null && roundingParams.dnA() == RoundingParams.RoundingMethod.BITMAP_ONLY) {
+        if (roundingParams != null && roundingParams.dpt() == RoundingParams.RoundingMethod.BITMAP_ONLY) {
             if (drawable instanceof j) {
                 a((j) drawable, roundingParams);
             } else if (drawable != null) {
-                a.setDrawable(lPs);
+                a.setDrawable(lWO);
                 a.setDrawable(b(drawable, roundingParams, resources));
             }
         } else if (drawable instanceof j) {
@@ -83,10 +83,10 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Drawable a(@Nullable Drawable drawable, @Nullable RoundingParams roundingParams) {
-        if (drawable != null && roundingParams != null && roundingParams.dnA() == RoundingParams.RoundingMethod.OVERLAY_COLOR) {
+        if (drawable != null && roundingParams != null && roundingParams.dpt() == RoundingParams.RoundingMethod.OVERLAY_COLOR) {
             RoundedCornersDrawable roundedCornersDrawable = new RoundedCornersDrawable(drawable);
             a((j) roundedCornersDrawable, roundingParams);
-            roundedCornersDrawable.setOverlayColor(roundingParams.dnB());
+            roundedCornersDrawable.setOverlayColor(roundingParams.dpu());
             return roundedCornersDrawable;
         }
         return drawable;
@@ -94,10 +94,10 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Drawable a(@Nullable Drawable drawable, @Nullable RoundingParams roundingParams, Resources resources) {
-        if (drawable != null && roundingParams != null && roundingParams.dnA() == RoundingParams.RoundingMethod.BITMAP_ONLY) {
+        if (drawable != null && roundingParams != null && roundingParams.dpt() == RoundingParams.RoundingMethod.BITMAP_ONLY) {
             if (drawable instanceof com.facebook.drawee.drawable.g) {
                 com.facebook.drawee.drawable.c a = a((com.facebook.drawee.drawable.g) drawable);
-                a.setDrawable(b(a.setDrawable(lPs), roundingParams, resources));
+                a.setDrawable(b(a.setDrawable(lWO), roundingParams, resources));
                 return drawable;
             }
             return b(drawable, roundingParams, resources);
@@ -120,25 +120,25 @@ public class e {
             a((j) a, roundingParams);
             return a;
         } else {
-            com.facebook.common.c.a.g("WrappingUtils", "Don't know how to round that drawable: %s", drawable);
+            com.facebook.common.c.a.k("WrappingUtils", "Don't know how to round that drawable: %s", drawable);
             return drawable;
         }
     }
 
     static void a(j jVar, RoundingParams roundingParams) {
-        jVar.vp(roundingParams.dny());
-        jVar.k(roundingParams.dnz());
-        jVar.p(roundingParams.getBorderColor(), roundingParams.getBorderWidth());
-        jVar.bm(roundingParams.getPadding());
-        jVar.vq(roundingParams.dnE());
+        jVar.vD(roundingParams.dpr());
+        jVar.y(roundingParams.dps());
+        jVar.n(roundingParams.getBorderColor(), roundingParams.getBorderWidth());
+        jVar.aC(roundingParams.dpx());
+        jVar.vE(roundingParams.dpy());
     }
 
     static void a(j jVar) {
-        jVar.vp(false);
+        jVar.vD(false);
         jVar.setRadius(0.0f);
-        jVar.p(0, 0.0f);
-        jVar.bm(0.0f);
-        jVar.vq(false);
+        jVar.n(0, 0.0f);
+        jVar.aC(0.0f);
+        jVar.vE(false);
     }
 
     static com.facebook.drawee.drawable.c a(com.facebook.drawee.drawable.c cVar) {

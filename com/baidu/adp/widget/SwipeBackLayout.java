@@ -22,9 +22,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 /* loaded from: classes.dex */
 public class SwipeBackLayout extends FrameLayout {
-    private boolean BV;
-    private boolean BW;
-    private b BX;
+    private boolean Vr;
+    private boolean Vs;
+    private b Vt;
     private int mActivePointerId;
     private Activity mActivity;
     private int mAlphaBgColor;
@@ -76,8 +76,8 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
-        this.BV = false;
-        this.BW = false;
+        this.Vr = false;
+        this.Vs = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -92,8 +92,8 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
-        this.BV = false;
-        this.BW = false;
+        this.Vr = false;
+        this.Vs = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -108,8 +108,8 @@ public class SwipeBackLayout extends FrameLayout {
         this.mIsTouchModeMargin = false;
         this.mAlphaBgColor = 0;
         this.mColorRect = new Rect();
-        this.BV = false;
-        this.BW = false;
+        this.Vr = false;
+        this.Vs = false;
         this.mIsSupportNight = true;
         init(context);
     }
@@ -144,7 +144,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     public void onChangeSkinType(int i) {
         if (this.mIsSwipeBackEnabled) {
-            if (this.BW) {
+            if (this.Vs) {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else if (this.mIsSupportNight && i == 1) {
                 this.mRealContentView.setBackgroundResource(R.color.swipe_layout_night_bg);
@@ -155,7 +155,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void forceChangeSkinType(int i) {
-        if (this.BW) {
+        if (this.Vs) {
             this.mRealContentView.setBackgroundResource(R.color.transparent);
         } else if (this.mIsSupportNight && i == 1) {
             this.mRealContentView.setBackgroundResource(R.color.swipe_layout_night_bg);
@@ -166,7 +166,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     public void setIsSupportNight(boolean z) {
         if (!z) {
-            if (this.BW) {
+            if (this.Vs) {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else {
                 this.mRealContentView.setBackgroundResource(R.color.swipe_layout_normal_bg);
@@ -202,10 +202,10 @@ public class SwipeBackLayout extends FrameLayout {
         }
     }
 
-    private boolean l(MotionEvent motionEvent) {
+    private boolean j(MotionEvent motionEvent) {
         int action = motionEvent.getAction() & 255;
-        if ((action == 1 || action == 3) && this.BV) {
-            this.BV = false;
+        if ((action == 1 || action == 3) && this.Vr) {
+            this.Vr = false;
             this.mIsSwipeBackEnabled = true;
             return true;
         }
@@ -215,7 +215,7 @@ public class SwipeBackLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-        l(motionEvent);
+        j(motionEvent);
         return dispatchTouchEvent;
     }
 
@@ -281,8 +281,8 @@ public class SwipeBackLayout extends FrameLayout {
                         scrollOrigin();
                         this.mIsFinish = false;
                     }
-                    if (this.BX != null) {
-                        this.BX.onSlidingEnd(this.mIsFinish);
+                    if (this.Vt != null) {
+                        this.Vt.onSlidingEnd(this.mIsFinish);
                         return true;
                     }
                     return true;
@@ -294,8 +294,8 @@ public class SwipeBackLayout extends FrameLayout {
                     scrollOrigin();
                     this.mIsFinish = false;
                 }
-                if (this.BX != null) {
-                    this.BX.onSlidingEnd(this.mIsFinish);
+                if (this.Vt != null) {
+                    this.Vt.onSlidingEnd(this.mIsFinish);
                     break;
                 }
                 break;
@@ -338,8 +338,8 @@ public class SwipeBackLayout extends FrameLayout {
             float abs2 = Math.abs(y - this.mLastMotionY);
             if (f > 0.0f && abs > this.mMoveDistance && abs > abs2) {
                 this.mIsSilding = true;
-                if (this.BX != null) {
-                    this.BX.onSlidingStart();
+                if (this.Vt != null) {
+                    this.Vt.onSlidingStart();
                 }
                 this.mLastMotionX = x;
                 this.mLastMotionY = y;
@@ -368,7 +368,10 @@ public class SwipeBackLayout extends FrameLayout {
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
+        try {
+            super.onLayout(z, i, i2, i3, i4);
+        } catch (Throwable th) {
+        }
         if (z) {
             this.mViewWidth = getWidth();
         }
@@ -438,7 +441,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void disableSwipeJustOnce() {
-        this.BV = true;
+        this.Vr = true;
         this.mIsSwipeBackEnabled = false;
     }
 
@@ -451,7 +454,7 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void setBgTransparent() {
-        this.BW = true;
+        this.Vs = true;
         if (this.mRealContentView != null) {
             this.mRealContentView.setBackgroundResource(R.color.transparent);
         }
@@ -477,6 +480,6 @@ public class SwipeBackLayout extends FrameLayout {
     }
 
     public void setOnSlidingStateChangeListener(b bVar) {
-        this.BX = bVar;
+        this.Vt = bVar;
     }
 }

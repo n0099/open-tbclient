@@ -5,61 +5,61 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.b.o;
 /* loaded from: classes6.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e hN;
-    private final m<PointF, PointF> hO;
-    private final g hP;
-    private final b hQ;
-    private final d hR;
+    private final e Dq;
+    private final m<PointF, PointF> Dr;
+    private final g Ds;
+    private final b Dt;
+    private final d Du;
     @Nullable
-    private final b hS;
+    private final b Dv;
     @Nullable
-    private final b hT;
+    private final b Dw;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.hN = eVar;
-        this.hO = mVar;
-        this.hP = gVar;
-        this.hQ = bVar;
-        this.hR = dVar;
-        this.hS = bVar2;
-        this.hT = bVar3;
+        this.Dq = eVar;
+        this.Dr = mVar;
+        this.Ds = gVar;
+        this.Dt = bVar;
+        this.Du = dVar;
+        this.Dv = bVar2;
+        this.Dw = bVar3;
     }
 
-    public e cp() {
-        return this.hN;
+    public e hM() {
+        return this.Dq;
     }
 
-    public m<PointF, PointF> cq() {
-        return this.hO;
+    public m<PointF, PointF> hN() {
+        return this.Dr;
     }
 
-    public g cr() {
-        return this.hP;
+    public g hO() {
+        return this.Ds;
     }
 
-    public b cs() {
-        return this.hQ;
+    public b hP() {
+        return this.Dt;
     }
 
-    public d ct() {
-        return this.hR;
-    }
-
-    @Nullable
-    public b cu() {
-        return this.hS;
+    public d hQ() {
+        return this.Du;
     }
 
     @Nullable
-    public b cv() {
-        return this.hT;
+    public b hR() {
+        return this.Dv;
     }
 
-    public o cw() {
+    @Nullable
+    public b hS() {
+        return this.Dw;
+    }
+
+    public o hT() {
         return new o(this);
     }
 

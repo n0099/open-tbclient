@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import com.baidu.ala.atomdata.AlaAdminListActivityConfig;
-import com.baidu.live.adp.base.BdBaseApplication;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.BaseFragmentActivity;
 import com.baidu.live.tbadk.core.util.SkinManager;
 import com.baidu.live.tbadk.core.view.NavigationBar;
@@ -14,8 +12,8 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.live.personcenter.admin.c.a;
 /* loaded from: classes3.dex */
 public class AlaAdminListActivity extends BaseFragmentActivity {
-    private NoNetworkView eLn;
-    private a eLo;
+    private NoNetworkView fpG;
+    private a fpH;
     private NavigationBar mNavigationBar;
     private View rootView;
 
@@ -24,27 +22,22 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         String str;
         super.onCreate(bundle);
-        if (BdBaseApplication.getInst() == null) {
-            if (TbConfig.sdkInitCallback == null) {
-                super.finish();
-                return;
+        if (!isFinishing()) {
+            setContentView(a.h.sdk_prc_person_adminlist_layout);
+            Intent intent = getIntent();
+            if (intent == null) {
+                str = null;
+            } else {
+                str = intent.getStringExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID);
             }
-            TbConfig.sdkInitCallback.initSdk();
+            this.rootView = findViewById(a.g.ala_person_adminlist_rootview);
+            this.mNavigationBar = (NavigationBar) findViewById(a.g.ala_person_adminlist_navigation_bar);
+            this.fpG = (NoNetworkView) findViewById(a.g.ala_person_adminlist_no_network_view);
+            this.fpH = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
+            this.fpH.onCreate(bundle);
+            this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.mNavigationBar.setCenterTextTitle(getString(a.i.sdk_prc_person_live_admin));
         }
-        setContentView(a.h.sdk_prc_person_adminlist_layout);
-        Intent intent = getIntent();
-        if (intent == null) {
-            str = null;
-        } else {
-            str = intent.getStringExtra(AlaAdminListActivityConfig.ALA_LIVE_CUR_LIVE_ID);
-        }
-        this.rootView = findViewById(a.g.ala_person_adminlist_rootview);
-        this.mNavigationBar = (NavigationBar) findViewById(a.g.ala_person_adminlist_navigation_bar);
-        this.eLn = (NoNetworkView) findViewById(a.g.ala_person_adminlist_no_network_view);
-        this.eLo = new com.baidu.tieba.ala.live.personcenter.admin.c.a(getPageContext(), this.rootView, str);
-        this.eLo.onCreate(bundle);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(getString(a.i.sdk_prc_person_live_admin));
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragmentActivity
@@ -55,11 +48,11 @@ public class AlaAdminListActivity extends BaseFragmentActivity {
         }
         SkinManager.setBackgroundResource(this.mNavigationBar, a.d.sdk_cp_bg_line_d);
         SkinManager.setBackgroundResource(this.rootView, a.d.sdk_cp_bg_line_d);
-        if (this.eLn != null) {
-            this.eLn.onChangeSkinType(getPageContext(), i);
+        if (this.fpG != null) {
+            this.fpG.onChangeSkinType(getPageContext(), i);
         }
-        if (this.eLo != null) {
-            this.eLo.onChangeSkinType(i);
+        if (this.fpH != null) {
+            this.fpH.onChangeSkinType(i);
         }
     }
 }

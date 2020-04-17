@@ -36,7 +36,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.ImageView;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.base.BdActivityStack;
 import com.baidu.live.adp.base.BdBaseApplication;
@@ -59,6 +58,7 @@ import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import com.baidu.live.tbadk.core.view.VerticalImageSpan;
 import com.baidu.live.tbadk.pagestayduration.IPageStayDuration;
 import com.baidu.live.u.a;
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
 import com.baidu.webkit.internal.ETAG;
@@ -347,7 +347,7 @@ public class UtilHelper {
     }
 
     public static String getCurrentDay() {
-        return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date());
     }
 
     public static boolean isSupportGesture(Context context) {
@@ -1091,7 +1091,7 @@ public class UtilHelper {
         }
         VerticalImageSpan verticalImageSpan = new VerticalImageSpan(bitmapDrawable);
         int length = spannableStringBuilder.length();
-        spannableStringBuilder.append((CharSequence) HanziToPinyin.Token.SEPARATOR);
+        spannableStringBuilder.append((CharSequence) " ");
         if (z) {
             spannableStringBuilder.setSpan(verticalImageSpan, length, spannableStringBuilder.length(), 17);
             spannableStringBuilder.append((CharSequence) str);

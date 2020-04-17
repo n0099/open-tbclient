@@ -18,8 +18,8 @@ public class g extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject eb(int i) {
-        return super.eb(i);
+    public /* bridge */ /* synthetic */ JSONObject eg(int i) {
+        return super.eg(i);
     }
 
     public g(j jVar) {
@@ -30,20 +30,20 @@ public class g extends a {
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
         if (d == null) {
-            unitedSchemeEntity.result = eb(201);
+            unitedSchemeEntity.result = eg(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove action parse model is null");
             return false;
         }
         com.baidu.swan.apps.component.components.d.a aVar = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);
         if (aVar == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: fina a null component");
-            unitedSchemeEntity.result = eb(1001);
+            unitedSchemeEntity.result = eg(1001);
             return false;
         }
-        com.baidu.swan.apps.component.b.c KK = aVar.KK();
-        boolean isSuccess = KK.isSuccess();
+        com.baidu.swan.apps.component.b.c Sy = aVar.Sy();
+        boolean isSuccess = Sy.isSuccess();
         if (!isSuccess) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: " + KK.msg);
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: " + Sy.msg);
         }
         a(unitedSchemeEntity, callbackHandler, isSuccess);
         return isSuccess;

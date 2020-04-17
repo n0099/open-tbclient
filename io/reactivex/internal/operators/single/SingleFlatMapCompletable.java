@@ -3,7 +3,6 @@ package io.reactivex.internal.operators.single;
 import io.reactivex.aa;
 import io.reactivex.c;
 import io.reactivex.c.h;
-import io.reactivex.disposables.b;
 import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.y;
@@ -21,7 +20,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
     }
 
     /* loaded from: classes7.dex */
-    static final class FlatMapCompletableObserver<T> extends AtomicReference<b> implements c, b, y<T> {
+    static final class FlatMapCompletableObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -2177128922851101253L;
         final c actual;
         final h<? super T, ? extends e> mapper;
@@ -42,7 +41,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
         }
 
         @Override // io.reactivex.c
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             DisposableHelper.replace(this, bVar);
         }
 
@@ -54,7 +53,7 @@ public final class SingleFlatMapCompletable<T> extends io.reactivex.a {
                     eVar.a(this);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 onError(th);
             }
         }

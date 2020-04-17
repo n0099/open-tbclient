@@ -9,10 +9,10 @@ public interface a extends d {
 
     /* renamed from: com.baidu.swan.apps.r.e.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0277a {
-        void TI();
+    public interface InterfaceC0307a {
+        void abx();
 
-        void fd(int i);
+        void fi(int i);
 
         void onEnded();
 
@@ -25,17 +25,17 @@ public interface a extends d {
         void onPrepared();
     }
 
-    void TJ();
+    void a(@NonNull InterfaceC0307a interfaceC0307a);
 
-    void TK();
+    boolean abA();
 
-    boolean TL();
+    void aby();
 
-    void a(@NonNull InterfaceC0277a interfaceC0277a);
+    void abz();
 
     boolean c(String str, String str2, String str3, boolean z);
 
-    void cH(boolean z);
+    void dD(boolean z);
 
     Context getContext();
 
@@ -49,7 +49,7 @@ public interface a extends d {
 
     boolean isPlaying();
 
-    void m(int i, int i2, int i3, int i4);
+    void l(int i, int i2, int i3, int i4);
 
     void pause();
 

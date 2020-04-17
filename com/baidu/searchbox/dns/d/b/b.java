@@ -1,5 +1,6 @@
 package com.baidu.searchbox.dns.d.b;
 
+import android.support.v7.widget.ActivityChooserView;
 import java.util.Iterator;
 import java.util.Queue;
 import java.util.concurrent.ExecutorService;
@@ -12,21 +13,21 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class b {
     private int Z = 15;
     private int aa = 1;
-    private final Queue<a> ab = E();
-    private final Queue<a> ac = F();
+    private final Queue<a> ab = G();
+    private final Queue<a> ac = H();
     private ExecutorService ad;
 
-    protected abstract Queue<a> E();
+    protected abstract Queue<a> G();
 
-    protected abstract Queue<a> F();
+    protected abstract Queue<a> H();
 
-    protected String G() {
+    protected String I() {
         return "Searchbox Dispatcher #";
     }
 
-    public synchronized ExecutorService H() {
+    public synchronized ExecutorService J() {
         if (this.ad == null) {
-            this.ad = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c(G(), false));
+            this.ad = new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new SynchronousQueue(), c(I(), false));
         }
         return this.ad;
     }
@@ -34,7 +35,7 @@ public abstract class b {
     public synchronized void a(a aVar) {
         if (this.ac.size() < this.Z && c(aVar) < this.aa) {
             this.ac.add(aVar);
-            H().execute(aVar);
+            J().execute(aVar);
         } else {
             this.ab.add(aVar);
         }
@@ -43,10 +44,10 @@ public abstract class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void b(a aVar) {
         this.ac.remove(aVar);
-        I();
+        K();
     }
 
-    private synchronized void I() {
+    private synchronized void K() {
         if (this.ac.size() < this.Z && !this.ab.isEmpty()) {
             Iterator<a> it = this.ab.iterator();
             while (it.hasNext()) {
@@ -54,7 +55,7 @@ public abstract class b {
                 if (c(next) < this.aa) {
                     it.remove();
                     this.ac.add(next);
-                    H().execute(next);
+                    J().execute(next);
                 }
                 if (this.ac.size() >= this.Z) {
                     break;

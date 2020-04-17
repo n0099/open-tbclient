@@ -6,37 +6,37 @@ import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class r {
-    private ArrayList<t> cOA = new ArrayList<>();
-    private String cOy;
-    private int cOz;
+    private String dnD;
+    private int dnE;
+    private ArrayList<t> dnF = new ArrayList<>();
     private int height;
     private String obj_id;
     private int width;
 
-    public ArrayList<t> aAA() {
-        return this.cOA;
+    public ArrayList<t> aIN() {
+        return this.dnF;
     }
 
     public void v(ArrayList<t> arrayList) {
-        this.cOA = arrayList;
+        this.dnF = arrayList;
     }
 
-    public String aAB() {
+    public String aIO() {
         return this.obj_id;
     }
 
     public void a(ActivityHead activityHead) {
         if (activityHead != null) {
-            this.cOz = activityHead.activity_type.intValue();
-            this.cOy = activityHead.activity_title;
+            this.dnE = activityHead.activity_type.intValue();
+            this.dnD = activityHead.activity_title;
             this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
             this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
             this.obj_id = activityHead.obj_id;
-            au(activityHead.head_imgs);
+            aD(activityHead.head_imgs);
         }
     }
 
-    public void au(List<HeadImgs> list) {
+    public void aD(List<HeadImgs> list) {
         if (!com.baidu.tbadk.core.util.v.isEmpty(list)) {
             for (HeadImgs headImgs : list) {
                 a(headImgs);
@@ -48,7 +48,7 @@ public class r {
         if (headImgs != null) {
             t tVar = new t();
             tVar.b(headImgs);
-            this.cOA.add(tVar);
+            this.dnF.add(tVar);
         }
     }
 }

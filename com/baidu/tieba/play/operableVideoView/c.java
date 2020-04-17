@@ -17,77 +17,77 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.VideoItemData;
 /* loaded from: classes.dex */
 public class c extends d {
-    private VideoSerializeVideoThreadInfo gPp;
-    private VideoItemData jza;
-    private bj jzb;
+    private VideoSerializeVideoThreadInfo hzo;
+    private VideoItemData kjc;
+    private bj kjd;
 
     public c(Context context, View view) {
         super(context, view);
-        rX(false);
+        tb(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
     public void init() {
         super.init();
-        this.jzP.setOnTouchListener(null);
-        this.jzP.setOnClickListener(this);
+        this.kjT.setOnTouchListener(null);
+        this.kjT.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a
     public void setData(bj bjVar) {
         super.setData(bjVar);
-        this.jzb = bjVar;
-        if (this.Pj) {
-            this.jza = new VideoItemData();
-            this.jza.buildWithThreadData(bjVar);
+        this.kjd = bjVar;
+        if (this.ahK) {
+            this.kjc = new VideoItemData();
+            this.kjc.buildWithThreadData(bjVar);
             return;
         }
-        this.gPp = new VideoSerializeVideoThreadInfo();
-        this.gPp.copyFromThreadInfo(bjVar);
-        this.gPp.source = bjVar.mRecomSource;
-        this.gPp.extra = bjVar.mRecomExtra;
-        this.gPp.ab_tag = bjVar.mRecomAbTag;
-        this.gPp.weight = bjVar.mRecomWeight;
+        this.hzo = new VideoSerializeVideoThreadInfo();
+        this.hzo.copyFromThreadInfo(bjVar);
+        this.hzo.source = bjVar.mRecomSource;
+        this.hzo.extra = bjVar.mRecomExtra;
+        this.hzo.ab_tag = bjVar.mRecomAbTag;
+        this.hzo.weight = bjVar.mRecomWeight;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cun() {
+    public void cET() {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cum() {
-        this.jzt = 32;
+    public void cES() {
+        this.kjw = 32;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == R.id.video_mute) {
-                cAb();
+                cKL();
             } else if (!j.isNetWorkAvailable()) {
                 l.showToast(this.mContext, (int) R.string.no_network_guide);
-            } else if (this.Pj) {
-                if (this.jza != null) {
-                    ei(this.jza.forum_id, this.jza.thread_id);
+            } else if (this.ahK) {
+                if (this.kjc != null) {
+                    ex(this.kjc.forum_id, this.kjc.thread_id);
                 }
-            } else if (this.gPp != null) {
-                ei(this.gPp.forumId, this.gPp.threadId);
+            } else if (this.hzo != null) {
+                ex(this.hzo.forumId, this.hzo.threadId);
             }
         }
     }
 
-    private void ei(String str, String str2) {
+    private void ex(String str, String str2) {
         PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mContext);
         pbActivityConfig.createNormalCfg(str2, null, null);
         pbActivityConfig.setForumId(String.valueOf(str));
-        pbActivityConfig.setThreadData(this.jzb);
-        pbActivityConfig.setVideoOriginArea(au.aP(this.jzP));
+        pbActivityConfig.setThreadData(this.kjd);
+        pbActivityConfig.setVideoOriginArea(au.aQ(this.kjT));
         pbActivityConfig.setNeedPreLoad(true);
-        i.ak(this.jzb);
+        i.am(this.kjd);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
-        if (this.Ni != null) {
-            this.Ni.onClick(cyL());
+        if (this.afS != null) {
+            this.afS.onClick(cJq());
         }
     }
 
@@ -98,14 +98,14 @@ public class c extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.operableVideoView.d
-    public void cuk() {
-        if (this.jzz == this.jzs) {
-            czT();
+    public void cEQ() {
+        if (this.kjD == this.kjv) {
+            cKD();
         }
     }
 
-    public void czT() {
-        zG(this.jzt);
+    public void cKD() {
+        Ah(this.kjw);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.d, com.baidu.tieba.play.operableVideoView.a

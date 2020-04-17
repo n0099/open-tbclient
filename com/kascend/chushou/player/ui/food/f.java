@@ -27,11 +27,11 @@ public class f extends k {
     protected LinearLayout e;
     protected ImageView i;
     protected FrameLayout j;
-    protected FrescoThumbnailView mSF;
-    protected FrescoThumbnailView mZw;
-    protected FrescoThumbnailView ndf;
-    protected ItemTagView ndg;
-    protected FrescoThumbnailView ndh;
+    protected FrescoThumbnailView mpp;
+    protected FrescoThumbnailView mvU;
+    protected FrescoThumbnailView mzG;
+    protected ItemTagView mzH;
+    protected FrescoThumbnailView mzI;
 
     @Override // com.kascend.chushou.player.ui.food.k
     int a() {
@@ -43,16 +43,16 @@ public class f extends k {
     @SuppressLint({"ClickableViewAccessibility"})
     public void f(FoodView foodView) {
         super.f(foodView);
-        this.j = (FrameLayout) MY(a.f.fl_holder);
-        this.a = (ImageView) MY(a.f.iv_ad_close_top);
-        this.b = (TextView) MY(a.f.tv_ad_name);
-        this.c = (TextView) MY(a.f.tv_ad_desc);
-        this.mSF = (FrescoThumbnailView) MY(a.f.iv_cover_ad_small);
-        this.e = (LinearLayout) MY(a.f.ll_ad_small);
+        this.j = (FrameLayout) Is(a.f.fl_holder);
+        this.a = (ImageView) Is(a.f.iv_ad_close_top);
+        this.b = (TextView) Is(a.f.tv_ad_name);
+        this.c = (TextView) Is(a.f.tv_ad_desc);
+        this.mpp = (FrescoThumbnailView) Is(a.f.iv_cover_ad_small);
+        this.e = (LinearLayout) Is(a.f.ll_ad_small);
         this.a.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.ndt.c();
+                f.this.mzU.c();
             }
         });
         this.e.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.f.2
@@ -73,20 +73,20 @@ public class f extends k {
                 }
             }
         });
-        this.mZw = (FrescoThumbnailView) MY(a.f.iv_cover_ad);
-        this.ndf = (FrescoThumbnailView) MY(a.f.iv_cover_ad_wangmai);
-        this.ndh = (FrescoThumbnailView) MY(a.f.iv_frame_border);
-        this.ndg = (ItemTagView) MY(a.f.iv_icon);
+        this.mvU = (FrescoThumbnailView) Is(a.f.iv_cover_ad);
+        this.mzG = (FrescoThumbnailView) Is(a.f.iv_cover_ad_wangmai);
+        this.mzI = (FrescoThumbnailView) Is(a.f.iv_frame_border);
+        this.mzH = (ItemTagView) Is(a.f.iv_icon);
         int dip2px = tv.chushou.zues.utils.a.dip2px(this.q, 2.0f);
-        this.ndg.a(dip2px, dip2px, dip2px, dip2px);
-        this.i = (ImageView) MY(a.f.iv_ad_close);
+        this.mzH.a(dip2px, dip2px, dip2px, dip2px);
+        this.i = (ImageView) Is(a.f.iv_ad_close);
         this.i.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.ndt.c();
+                f.this.mzU.c();
             }
         });
-        this.mZw.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.f.4
+        this.mvU.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.f.4
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getActionMasked() == 0) {
@@ -104,7 +104,7 @@ public class f extends k {
                 }
             }
         });
-        this.ndf.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.f.5
+        this.mzG.setOnTouchListener(new View.OnTouchListener() { // from class: com.kascend.chushou.player.ui.food.f.5
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getActionMasked() == 0) {
@@ -129,61 +129,61 @@ public class f extends k {
     public void a(ListItem listItem, k.a aVar) {
         a(listItem, this.j);
         if ("32".equals(listItem.mDisplayStyle)) {
-            Point hc = tv.chushou.zues.utils.a.hc(this.ndt.getContext());
-            int i = hc.x;
-            ViewGroup.LayoutParams layoutParams = this.ndt.getLayoutParams();
+            Point gh = tv.chushou.zues.utils.a.gh(this.mzU.getContext());
+            int i = gh.x;
+            ViewGroup.LayoutParams layoutParams = this.mzU.getLayoutParams();
             layoutParams.height = i / 5;
             layoutParams.width = i;
-            this.ndt.setLayoutParams(layoutParams);
-            if (this.ndh != null) {
-                this.ndh.setVisibility(8);
+            this.mzU.setLayoutParams(layoutParams);
+            if (this.mzI != null) {
+                this.mzI.setVisibility(8);
             }
             if (b()) {
                 this.e.setVisibility(8);
-                this.mZw.setVisibility(8);
+                this.mvU.setVisibility(8);
                 this.j.setVisibility(0);
                 return;
             }
             this.j.setVisibility(8);
-            this.mZw.setVisibility(0);
+            this.mvU.setVisibility(0);
             this.e.setVisibility(0);
             this.e.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.f.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    f.this.ndt.b(f.this.m, f.this.n, f.this.o, f.this.p);
+                    f.this.mzU.b(f.this.m, f.this.n, f.this.o, f.this.p);
                 }
             });
-            com.kascend.chushou.a.a.dCm().b(listItem, this.mSF, hc.x / 5, ((hc.x / 5) * 360) / 144, ((hc.x / 5) * 144) / 144);
+            com.kascend.chushou.a.a.dwE().b(listItem, this.mpp, gh.x / 5, ((gh.x / 5) * 360) / 144, ((gh.x / 5) * 144) / 144);
             return;
         }
-        Point hc2 = tv.chushou.zues.utils.a.hc(this.ndt.getContext());
-        int min = Math.min(hc2.x, hc2.y);
+        Point gh2 = tv.chushou.zues.utils.a.gh(this.mzU.getContext());
+        int min = Math.min(gh2.x, gh2.y);
         int i2 = min / 5;
-        if (com.kascend.chushou.a.a.dCm().a(listItem, this.ndt, min, (min * 144) / 720, (min * 77) / 720) == 0) {
-            ViewGroup.LayoutParams layoutParams2 = this.ndt.getLayoutParams();
+        if (com.kascend.chushou.a.a.dwE().a(listItem, this.mzU, min, (min * 144) / 720, (min * 77) / 720) == 0) {
+            ViewGroup.LayoutParams layoutParams2 = this.mzU.getLayoutParams();
             layoutParams2.width = min;
             layoutParams2.height = i2;
-            this.ndt.setLayoutParams(layoutParams2);
+            this.mzU.setLayoutParams(layoutParams2);
         }
         if (b()) {
             this.j.setVisibility(0);
-            this.mZw.setVisibility(8);
-            this.ndf.setVisibility(8);
+            this.mvU.setVisibility(8);
+            this.mzG.setVisibility(8);
             this.e.setVisibility(8);
             c();
-            if (this.ndh != null) {
-                this.ndh.setVisibility(8);
+            if (this.mzI != null) {
+                this.mzI.setVisibility(8);
                 return;
             }
             return;
         }
         this.j.setVisibility(8);
-        this.mZw.setVisibility(0);
+        this.mvU.setVisibility(0);
         this.e.setVisibility(8);
-        this.mZw.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.f.7
+        this.mvU.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.f.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                f.this.ndt.b(f.this.m, f.this.n, f.this.o, f.this.p);
+                f.this.mzU.b(f.this.m, f.this.n, f.this.o, f.this.p);
             }
         });
     }
@@ -197,32 +197,32 @@ public class f extends k {
     @Override // com.kascend.chushou.player.ui.food.k
     public void a(ListItem listItem, boolean z, boolean z2) {
         if (b()) {
-            if (dEA() != null) {
-                dEA().loadUrl(listItem.mCover);
+            if (dyA() != null) {
+                dyA().loadUrl(listItem.mCover);
                 a(listItem, a.f.fl_holder);
             }
         } else if (z2) {
-            this.mZw.xw(tv.chushou.widget.a.c.dQL());
+            this.mvU.xW(tv.chushou.widget.a.c.dJK());
             return;
         } else {
-            this.mZw.setBlur(false);
+            this.mvU.setBlur(false);
             if (!PayHelper.STATUS_SUCC.equals(listItem.mType) || listItem.mAdExtraInfo == null || com.kascend.chushou.a.a.y != tv.chushou.zues.utils.h.parseInt(listItem.mAdExtraInfo.mMarketId) || tv.chushou.zues.utils.h.isEmpty(listItem.mAdExtraInfo.marketPositionCode)) {
-                ((ViewGroup) MY(a.f.rl_wangmai)).setVisibility(8);
-                this.mZw.setAnim(true);
-                this.mZw.i(listItem.mCover, tv.chushou.widget.a.c.dQL(), 0, 0);
-                this.ndf.setVisibility(8);
-                if (this.ndh != null) {
+                ((ViewGroup) Is(a.f.rl_wangmai)).setVisibility(8);
+                this.mvU.setAnim(true);
+                this.mvU.i(listItem.mCover, tv.chushou.widget.a.c.dJK(), 0, 0);
+                this.mzG.setVisibility(8);
+                if (this.mzI != null) {
                     if (tv.chushou.zues.utils.h.isEmpty(listItem.borderImage)) {
-                        this.ndh.setVisibility(8);
+                        this.mzI.setVisibility(8);
                     } else {
-                        this.ndh.setVisibility(0);
-                        this.ndh.i(listItem.borderImage, a.c.transparent, -1, -1);
+                        this.mzI.setVisibility(0);
+                        this.mzI.i(listItem.borderImage, a.c.transparent, -1, -1);
                     }
                 }
                 if (this.e.getVisibility() == 0) {
                     this.b.setText(listItem.mName);
                     this.c.setText(listItem.mDesc);
-                    this.mSF.i(listItem.mCover, tv.chushou.widget.a.c.dQL(), 0, 0);
+                    this.mpp.i(listItem.mCover, tv.chushou.widget.a.c.dJK(), 0, 0);
                 }
             }
             a(listItem, a.f.iv_cover_ad);
@@ -237,10 +237,10 @@ public class f extends k {
     }
 
     private void a(ListItem listItem, @IdRes int i) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ndg.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mzH.getLayoutParams();
         if (listItem.mAdExtraInfo != null) {
             int dip2px = tv.chushou.zues.utils.a.dip2px(this.q, 2.0f);
-            this.ndg.a(dip2px, dip2px, dip2px, dip2px);
+            this.mzH.a(dip2px, dip2px, dip2px, dip2px);
             switch (listItem.mAdExtraInfo.mDisplayTagLocation) {
                 case 1:
                     if (Build.VERSION.SDK_INT >= 17) {
@@ -298,9 +298,9 @@ public class f extends k {
             layoutParams.addRule(10);
             layoutParams.setMargins(tv.chushou.zues.utils.a.dip2px(this.q, 8.0f), tv.chushou.zues.utils.a.dip2px(this.q, 8.0f), 0, 0);
             int dip2px2 = tv.chushou.zues.utils.a.dip2px(this.q, 2.0f);
-            this.ndg.a(dip2px2, dip2px2, dip2px2, dip2px2);
+            this.mzH.a(dip2px2, dip2px2, dip2px2, dip2px2);
         }
-        this.ndg.setLayoutParams(layoutParams);
-        this.ndg.a(listItem);
+        this.mzH.setLayoutParams(layoutParams);
+        this.mzH.a(listItem);
     }
 }

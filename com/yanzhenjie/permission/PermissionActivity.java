@@ -14,15 +14,15 @@ import android.view.Window;
 @RequiresApi(api = 23)
 /* loaded from: classes6.dex */
 public final class PermissionActivity extends Activity {
-    private static a nul;
+    private static a mQV;
 
     /* loaded from: classes6.dex */
     interface a {
-        void X(@NonNull String[] strArr);
+        void W(@NonNull String[] strArr);
     }
 
     public static void a(Context context, String[] strArr, a aVar) {
-        nul = aVar;
+        mQV = aVar;
         Intent intent = new Intent(context, PermissionActivity.class);
         intent.setFlags(268435456);
         intent.putExtra("KEY_INPUT_PERMISSIONS", strArr);
@@ -32,9 +32,9 @@ public final class PermissionActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        aC(this);
+        av(this);
         String[] stringArrayExtra = getIntent().getStringArrayExtra("KEY_INPUT_PERMISSIONS");
-        if (stringArrayExtra != null && nul != null) {
+        if (stringArrayExtra != null && mQV != null) {
             requestPermissions(stringArrayExtra, 1);
         } else {
             finish();
@@ -43,8 +43,8 @@ public final class PermissionActivity extends Activity {
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (nul != null) {
-            nul.X(strArr);
+        if (mQV != null) {
+            mQV.W(strArr);
         }
         finish();
     }
@@ -52,7 +52,7 @@ public final class PermissionActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        nul = null;
+        mQV = null;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -63,7 +63,7 @@ public final class PermissionActivity extends Activity {
         return super.onKeyDown(i, keyEvent);
     }
 
-    private static void aC(Activity activity) {
+    private static void av(Activity activity) {
         if (Build.VERSION.SDK_INT >= 21) {
             Window window = activity.getWindow();
             View decorView = window.getDecorView();

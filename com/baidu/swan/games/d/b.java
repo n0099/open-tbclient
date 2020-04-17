@@ -4,26 +4,26 @@ import com.baidu.swan.d.c;
 import java.io.File;
 /* loaded from: classes11.dex */
 public class b {
-    public static File RW() {
-        return com.baidu.swan.games.k.a.pg("aigames_debug_dashboard");
+    public static File ZL() {
+        return com.baidu.swan.games.k.a.qt("aigames_debug_dashboard");
     }
 
-    public static void RX() {
-        File RW = RW();
-        if (RW.exists()) {
-            c.deleteFile(RW);
+    public static void ZM() {
+        File ZL = ZL();
+        if (ZL.exists()) {
+            c.deleteFile(ZL);
         }
     }
 
-    public static File RY() {
-        File RW = RW();
-        if (!RW.exists()) {
-            RW.mkdirs();
+    public static File ZN() {
+        File ZL = ZL();
+        if (!ZL.exists()) {
+            ZL.mkdirs();
         }
-        return new File(RW, "debugDashboard.zip");
+        return new File(ZL, "debugDashboard.zip");
     }
 
-    public static String anr() {
+    public static String avE() {
         return "meter.js";
     }
 }

@@ -7,83 +7,82 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData dmE;
+    private AntiData dMz;
     private String forumId;
-    private final ArrayList<bj> goa;
-    private boolean gob;
-    private b goc;
-    private boolean god;
-    private boolean goe;
+    private final ArrayList<bj> gXg;
+    private boolean gXh;
+    private b gXi;
+    private boolean gXj;
 
     /* loaded from: classes.dex */
     public interface b {
         void J(boolean z, boolean z2);
 
-        void bDl();
+        void bNJ();
 
-        void sB(int i);
+        void sY(int i);
     }
 
     private a() {
-        this.gob = false;
-        this.goa = new ArrayList<>();
+        this.gXh = false;
+        this.gXg = new ArrayList<>();
     }
 
-    public static a bDd() {
-        return C0503a.gof;
+    public static a bND() {
+        return C0540a.gXk;
     }
 
-    public boolean bDe() {
-        return this.gob;
+    public boolean bNE() {
+        return this.gXh;
     }
 
     public void I(boolean z, boolean z2) {
-        this.gob = z;
-        if (this.goc != null) {
-            this.goc.J(this.gob, z2);
+        this.gXh = z;
+        if (this.gXi != null) {
+            this.gXi.J(this.gXh, z2);
         }
     }
 
-    public boolean ai(bj bjVar) {
+    public boolean ak(bj bjVar) {
         if (bjVar == null) {
             return false;
         }
-        if (this.goa.size() > 29) {
-            if (this.goc != null) {
-                this.goc.bDl();
+        if (this.gXg.size() > 29) {
+            if (this.gXi != null) {
+                this.gXi.bNJ();
                 return false;
             }
             return false;
         }
-        this.goa.add(bjVar);
-        if (this.goc != null) {
-            this.goc.sB(this.goa.size());
+        this.gXg.add(bjVar);
+        if (this.gXi != null) {
+            this.gXi.sY(this.gXg.size());
         }
         return true;
     }
 
-    public List<bj> bDf() {
-        return this.goa;
+    public List<bj> bNF() {
+        return this.gXg;
     }
 
-    public void aj(bj bjVar) {
-        this.goa.remove(bjVar);
-        if (this.goc != null) {
-            this.goc.sB(this.goa.size());
+    public void al(bj bjVar) {
+        this.gXg.remove(bjVar);
+        if (this.gXi != null) {
+            this.gXi.sY(this.gXg.size());
         }
     }
 
     public void clearData() {
-        Iterator<bj> it = this.goa.iterator();
+        Iterator<bj> it = this.gXg.iterator();
         while (it.hasNext()) {
             bj next = it.next();
             if (next != null) {
-                next.fD(false);
+                next.gA(false);
             }
         }
-        this.goa.clear();
-        if (this.goc != null) {
-            this.goc.sB(0);
+        this.gXg.clear();
+        if (this.gXi != null) {
+            this.gXi.sY(0);
         }
     }
 
@@ -93,22 +92,22 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.goc = bVar;
+        this.gXi = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0503a {
-        private static a gof = new a();
+    public static class C0540a {
+        private static a gXk = new a();
     }
 
-    public AntiData bDg() {
-        return this.dmE;
+    public AntiData bNG() {
+        return this.dMz;
     }
 
     public void b(AntiData antiData) {
-        this.dmE = antiData;
+        this.dMz = antiData;
     }
 
     public String getForumId() {
@@ -119,25 +118,13 @@ public class a {
         this.forumId = str;
     }
 
-    public boolean bDh() {
-        return this.god;
+    public void ml(boolean z) {
+        this.gXj = z;
     }
 
-    public void lg(boolean z) {
-        this.god = z;
-    }
-
-    public boolean bDi() {
-        return this.goe;
-    }
-
-    public void lh(boolean z) {
-        this.goe = z;
-    }
-
-    public void cc(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.goa)) {
-            Iterator<bj> it = this.goa.iterator();
+    public void co(List<String> list) {
+        if (!com.baidu.tbadk.core.util.v.isEmpty(list) && !com.baidu.tbadk.core.util.v.isEmpty(this.gXg)) {
+            Iterator<bj> it = this.gXg.iterator();
             while (it.hasNext()) {
                 bj next = it.next();
                 int i = 0;
@@ -153,13 +140,13 @@ public class a {
                     }
                 }
             }
-            if (this.goc != null) {
-                this.goc.sB(this.goa.size());
+            if (this.gXi != null) {
+                this.gXi.sY(this.gXg.size());
             }
         }
     }
 
-    public boolean bDj() {
-        return this.dmE != null && this.dmE.isMultiDeleteEnable();
+    public boolean bNH() {
+        return this.dMz != null && this.dMz.isMultiDeleteEnable() && this.gXj;
     }
 }

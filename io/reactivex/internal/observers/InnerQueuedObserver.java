@@ -10,12 +10,12 @@ public final class InnerQueuedObserver<T> extends AtomicReference<io.reactivex.d
     private static final long serialVersionUID = -5417183359794346637L;
     volatile boolean done;
     int fusionMode;
-    final b<T> parent;
+    final c<T> parent;
     final int prefetch;
     g<T> queue;
 
-    public InnerQueuedObserver(b<T> bVar, int i) {
-        this.parent = bVar;
+    public InnerQueuedObserver(c<T> cVar, int i) {
+        this.parent = cVar;
         this.prefetch = i;
     }
 
@@ -37,7 +37,7 @@ public final class InnerQueuedObserver<T> extends AtomicReference<io.reactivex.d
                     return;
                 }
             }
-            this.queue = i.NH(-this.prefetch);
+            this.queue = i.Jb(-this.prefetch);
         }
     }
 

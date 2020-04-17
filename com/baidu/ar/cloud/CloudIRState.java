@@ -1,0 +1,7 @@
+package com.baidu.ar.cloud;
+/* loaded from: classes3.dex */
+public enum CloudIRState {
+    START,
+    SUCCESS,
+    ERROR
+}

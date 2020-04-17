@@ -2,6 +2,7 @@ package com.baidu.platform.comapi.walknavi.d.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.npc.ArBridge;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
@@ -150,7 +151,7 @@ public class d implements ArBridge.d {
 
     private void h() {
         a(9);
-        a(1901);
+        a(ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE);
         a(1001);
         a(1003);
         a(1005);
@@ -189,7 +190,7 @@ public class d implements ArBridge.d {
             case 1007:
                 this.c.a(7, hashMap);
                 return;
-            case 1901:
+            case ARPMessageType.MSG_TYPE_LUA_SDK_BRIDGE /* 1901 */:
                 if ("animation_end".equalsIgnoreCase(hashMap.get(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE).toString())) {
                     this.c.a(2, hashMap);
                     return;

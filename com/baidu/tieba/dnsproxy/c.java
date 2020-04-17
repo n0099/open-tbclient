@@ -6,7 +6,6 @@ import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Collection;
@@ -16,10 +15,10 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
-    boolean fRD;
+    boolean gwl;
 
     public c(boolean z) {
-        this.fRD = z;
+        this.gwl = z;
         setPriority(4);
     }
 
@@ -32,8 +31,8 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String sb;
         String str;
         StringBuilder sb2;
-        l<String> a = BdCacheService.fz().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.fRD) {
+        l<String> a = BdCacheService.kd().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+        if (this.gwl) {
             String str2 = a.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) DnsProxyResponseData.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -60,7 +59,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String bwP = new a().bwP();
+            String bGB = new a().bGB();
             StringBuilder sb3 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb3.length() > 0) {
@@ -68,12 +67,12 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb3.append(str3);
             }
-            String str4 = "http://" + bwP + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
+            String str4 = "http://" + bGB + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
-            eVar.fX().setUrl(str4);
-            cVar.c(-1, -1, -1);
-            byte[] bArr = eVar.fY().retBytes;
+            eVar.kB().setUrl(str4);
+            cVar.d(-1, -1, -1);
+            byte[] bArr = eVar.kC().retBytes;
             StringBuilder sb4 = null;
             if (bArr != null) {
                 try {
@@ -118,7 +117,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.bwR().h(hashSet);
+                    b.bGD().i(hashSet);
                     publishProgress(hashMap3);
                     a.setForever("dnsproxycachedata", str);
                     sb2 = sb5;
@@ -126,17 +125,17 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     sb = "parser response error return null";
                     sb2 = null;
                 } else {
-                    sb = dnsProxyResponseData2.getErrno() + HanziToPinyin.Token.SEPARATOR + dnsProxyResponseData2.getErrmsg();
+                    sb = dnsProxyResponseData2.getErrno() + " " + dnsProxyResponseData2.getErrmsg();
                     sb2 = null;
                 }
                 sb4 = sb2;
-            } else if (eVar.ga() != null) {
-                sb = eVar.ga().exception;
+            } else if (eVar.kE() != null) {
+                sb = eVar.kE().exception;
             } else {
                 StringBuilder sb7 = new StringBuilder();
-                List<com.baidu.adp.lib.network.http.d> fZ = eVar.fZ();
-                if (fZ != null) {
-                    for (com.baidu.adp.lib.network.http.d dVar : fZ) {
+                List<com.baidu.adp.lib.network.http.d> kD = eVar.kD();
+                if (kD != null) {
+                    for (com.baidu.adp.lib.network.http.d dVar : kD) {
                         if (dVar != null && !TextUtils.isEmpty(dVar.exception)) {
                             if (sb7.length() > 0) {
                                 sb7.append(Constants.ACCEPT_TIME_SEPARATOR_SP);

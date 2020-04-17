@@ -19,21 +19,21 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.media.c.a bbU;
-    private JSONObject bbV;
+    private com.baidu.swan.apps.media.c.a bAi;
+    private JSONObject bAj;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.c.a aVar) {
         this.mContext = context;
-        this.bbV = jSONObject;
-        this.bbU = aVar;
+        this.bAj = jSONObject;
+        this.bAi = aVar;
     }
 
-    private String c(String str, HashMap<String, String> hashMap) {
+    private String b(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        if (this.bbU != null) {
-            hashMap2.put("cur_time", String.valueOf(this.bbU.getDuration() / 1000));
+        if (this.bAi != null) {
+            hashMap2.put("cur_time", String.valueOf(this.bAi.getDuration() / 1000));
         }
         hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
         hashMap.putAll(hashMap2);
@@ -54,11 +54,11 @@ public class b {
         return str;
     }
 
-    public void fb(String str) {
-        d(str, new HashMap<>());
+    public void gn(String str) {
+        c(str, new HashMap<>());
     }
 
-    public void d(String str, HashMap<String, String> hashMap) {
+    public void c(String str, HashMap<String, String> hashMap) {
         if (TextUtils.equals(str, "da_area")) {
             hashMap.put("da_page", "VIDEODETAIL_TAIL");
         } else if (TextUtils.equals(str, "lpin") || TextUtils.equals(str, "lpout")) {
@@ -67,18 +67,18 @@ public class b {
             hashMap.put("da_page", "VIDEOADDETAI");
         }
         hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.isWifiNetworkConnected(this.mContext) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONArray optJSONArray = this.bbV != null ? this.bbV.optJSONArray(str) : null;
+        JSONArray optJSONArray = this.bAj != null ? this.bAj.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
                 if (SwanAppNetworkUtils.isNetworkConnected(this.mContext) && !TextUtils.isEmpty(optString)) {
-                    final String c = c(optString, hashMap);
-                    HttpUrl parse = HttpUrl.parse(c);
+                    final String b = b(optString, hashMap);
+                    HttpUrl parse = HttpUrl.parse(b);
                     if (parse != null) {
                         Request build = new Request.Builder().url(parse.newBuilder().build()).build();
-                        e acJ = e.acJ();
-                        if (acJ != null) {
-                            acJ.acU().a(build, new Callback() { // from class: com.baidu.swan.apps.adlanding.b.1
+                        e akO = e.akO();
+                        if (akO != null) {
+                            akO.akZ().a(build, new Callback() { // from class: com.baidu.swan.apps.adlanding.b.1
                                 @Override // okhttp3.Callback
                                 public void onFailure(Call call, IOException iOException) {
                                     if (b.DEBUG) {
@@ -89,7 +89,7 @@ public class b {
                                 @Override // okhttp3.Callback
                                 public void onResponse(Call call, Response response) {
                                     if (b.DEBUG) {
-                                        Log.d("AlsSender", "onResponse: respCode:" + response.code() + ", url:" + c + ", msg:" + response.message());
+                                        Log.d("AlsSender", "onResponse: respCode:" + response.code() + ", url:" + b + ", msg:" + response.message());
                                     }
                                 }
                             });

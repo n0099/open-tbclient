@@ -11,22 +11,22 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableRepeatWhen<T> extends a<T, T> {
-    final h<? super io.reactivex.g<Object>, ? extends org.a.b<?>> nza;
+    final h<? super io.reactivex.g<Object>, ? extends org.a.b<?>> mSy;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        io.reactivex.processors.a<T> dKk = UnicastProcessor.NI(8).dKk();
+        io.reactivex.processors.a<T> dDj = UnicastProcessor.Jc(8).dDj();
         try {
-            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.nza.apply(dKk), "handler returned a null Publisher");
-            WhenReceiver whenReceiver = new WhenReceiver(this.nyr);
-            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, dKk, whenReceiver);
+            org.a.b bVar2 = (org.a.b) io.reactivex.internal.functions.a.h(this.mSy.apply(dDj), "handler returned a null Publisher");
+            WhenReceiver whenReceiver = new WhenReceiver(this.mRJ);
+            RepeatWhenSubscriber repeatWhenSubscriber = new RepeatWhenSubscriber(bVar, dDj, whenReceiver);
             whenReceiver.subscriber = repeatWhenSubscriber;
             cVar.onSubscribe(repeatWhenSubscriber);
             bVar2.subscribe(whenReceiver);
             whenReceiver.onNext(0);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             EmptySubscription.error(th, cVar);
         }
     }

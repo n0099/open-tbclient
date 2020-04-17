@@ -5,104 +5,104 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int dla;
-    private List<m> dlg;
-    private List<m> dlh;
-    private boolean dli;
-    private boolean dlj;
-    private int dlk = 2;
-    private int dll = 1;
+    private int dKU;
+    private List<m> dLa;
+    private List<m> dLb;
+    private boolean dLc;
+    private boolean dLd;
+    private int dLe = 2;
+    private int dLf = 1;
 
     public d(List<m> list, boolean z, int i) {
-        this.dla = 2;
-        this.dlg = list;
-        this.dlj = z;
-        this.dla = i;
-        aD(list);
+        this.dKU = 2;
+        this.dLa = list;
+        this.dLd = z;
+        this.dKU = i;
+        aM(list);
     }
 
-    public void aD(List<m> list) {
-        if (list != null && list.size() >= this.dlk && list.size() <= this.dla) {
-            this.dli = true;
-        } else if (list.size() > this.dla && this.dlj) {
-            this.dli = true;
+    public void aM(List<m> list) {
+        if (list != null && list.size() >= this.dLe && list.size() <= this.dKU) {
+            this.dLc = true;
+        } else if (list.size() > this.dKU && this.dLd) {
+            this.dLc = true;
         } else {
-            this.dli = false;
+            this.dLc = false;
         }
-        this.dlh = aIH();
+        this.dLb = aRd();
     }
 
-    private List<m> aIH() {
+    private List<m> aRd() {
         ArrayList arrayList = new ArrayList();
-        if (this.dlg != null) {
-            if (this.dli) {
-                if (this.dlg.size() > this.dla && this.dlg.size() >= this.dll) {
-                    arrayList.addAll(this.dlg.subList(0, this.dla));
-                    arrayList.addAll(0, this.dlg.subList(this.dla - this.dll, this.dla));
-                    arrayList.addAll(this.dlg.subList(0, this.dll));
+        if (this.dLa != null) {
+            if (this.dLc) {
+                if (this.dLa.size() > this.dKU && this.dLa.size() >= this.dLf) {
+                    arrayList.addAll(this.dLa.subList(0, this.dKU));
+                    arrayList.addAll(0, this.dLa.subList(this.dKU - this.dLf, this.dKU));
+                    arrayList.addAll(this.dLa.subList(0, this.dLf));
                 } else {
-                    arrayList.addAll(this.dlg);
-                    arrayList.addAll(0, this.dlg.subList(this.dlg.size() - this.dll, this.dlg.size()));
-                    arrayList.addAll(this.dlg.subList(0, this.dll));
+                    arrayList.addAll(this.dLa);
+                    arrayList.addAll(0, this.dLa.subList(this.dLa.size() - this.dLf, this.dLa.size()));
+                    arrayList.addAll(this.dLa.subList(0, this.dLf));
                 }
-            } else if (this.dlg != null && this.dlg.size() > 0 && this.dlg.size() >= this.dll) {
-                arrayList.addAll(this.dlg.subList(0, this.dll));
+            } else if (this.dLa != null && this.dLa.size() > 0 && this.dLa.size() >= this.dLf) {
+                arrayList.addAll(this.dLa.subList(0, this.dLf));
             }
         }
         return arrayList;
     }
 
-    public int lD(int i) {
-        if (this.dli) {
-            int size = this.dlh.size();
+    public int lP(int i) {
+        if (this.dLc) {
+            int size = this.dLb.size();
             if (i == 0) {
-                return (size - 1) - this.dll;
+                return (size - 1) - this.dLf;
             }
-            if (i == size - this.dll) {
-                return this.dll;
+            if (i == size - this.dLf) {
+                return this.dLf;
             }
             return i;
         }
         return i;
     }
 
-    public int lE(int i) {
-        if (this.dli) {
-            return i - this.dll;
+    public int lQ(int i) {
+        if (this.dLc) {
+            return i - this.dLf;
         }
         return i;
     }
 
-    public int aII() {
-        if (this.dlg == null) {
+    public int aRe() {
+        if (this.dLa == null) {
             return 0;
         }
-        return this.dlg.size();
+        return this.dLa.size();
     }
 
-    public int aIJ() {
-        if (this.dli) {
-            return this.dll;
+    public int aRf() {
+        if (this.dLc) {
+            return this.dLf;
         }
         return 0;
     }
 
-    public void lF(int i) {
-        this.dla = i;
-        aD(this.dlg);
+    public void lR(int i) {
+        this.dKU = i;
+        aM(this.dLa);
     }
 
-    public void lG(int i) {
-        this.dlk = i;
-        aD(this.dlg);
+    public void lS(int i) {
+        this.dLe = i;
+        aM(this.dLa);
     }
 
-    public List<m> aIK() {
-        return this.dlh;
+    public List<m> aRg() {
+        return this.dLb;
     }
 
-    public void lH(int i) {
-        this.dll = i;
-        aD(this.dlg);
+    public void lT(int i) {
+        this.dLf = i;
+        aM(this.dLa);
     }
 }

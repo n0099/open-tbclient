@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.v;
 import io.reactivex.w;
@@ -18,7 +17,7 @@ public final class SingleObserveOn<T> extends w<T> {
     }
 
     /* loaded from: classes7.dex */
-    static final class ObserveOnSingleObserver<T> extends AtomicReference<b> implements b, y<T>, Runnable {
+    static final class ObserveOnSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T>, Runnable {
         private static final long serialVersionUID = 3528003840217436037L;
         final y<? super T> actual;
         Throwable error;
@@ -31,7 +30,7 @@ public final class SingleObserveOn<T> extends w<T> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.setOnce(this, bVar)) {
                 this.actual.onSubscribe(this);
             }
@@ -40,13 +39,13 @@ public final class SingleObserveOn<T> extends w<T> {
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             this.value = t;
-            DisposableHelper.replace(this, this.scheduler.C(this));
+            DisposableHelper.replace(this, this.scheduler.H(this));
         }
 
         @Override // io.reactivex.y
         public void onError(Throwable th) {
             this.error = th;
-            DisposableHelper.replace(this, this.scheduler.C(this));
+            DisposableHelper.replace(this, this.scheduler.H(this));
         }
 
         /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */

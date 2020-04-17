@@ -7,40 +7,40 @@ import java.nio.channels.Pipe;
 /* loaded from: classes11.dex */
 public class d extends g.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String bxF;
-    private final com.baidu.swan.pms.a.d bxG;
+    private final String bVL;
+    private final com.baidu.swan.pms.a.d bVM;
 
     public d(String str, com.baidu.swan.pms.a.d dVar) {
         super("check_sign");
-        this.bxF = str;
-        this.bxG = dVar;
+        this.bVL = str;
+        this.bVM = dVar;
     }
 
     @Override // com.baidu.swan.apps.t.g.a
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        com.baidu.swan.apps.ap.a my;
-        com.baidu.swan.apps.x.c.a iL = com.baidu.swan.apps.x.c.a.iL(bundle.getString("launch_id"));
-        iL.Wm().iO("SignChecker").fm(1);
+        com.baidu.swan.apps.ap.a nL;
+        com.baidu.swan.apps.x.c.a jY = com.baidu.swan.apps.x.c.a.jY(bundle.getString("launch_id"));
+        jY.aeb().kb("SignChecker").fr(1);
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            my = com.baidu.swan.apps.core.pms.d.a.a(sourceChannel, this.bxF, this.bxG);
+            nL = com.baidu.swan.apps.core.pms.d.a.a(sourceChannel, this.bVL, this.bVM);
         } catch (IOException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            my = new com.baidu.swan.apps.ap.a().aI(11L).aJ(2300L).my("inputStream IOException:" + e.toString());
-            com.baidu.swan.apps.ap.e.agr().f(my);
-            iL.aS("SignChecker", my.toString());
+            nL = new com.baidu.swan.apps.ap.a().bn(11L).bo(2300L).nL("inputStream IOException:" + e.toString());
+            com.baidu.swan.apps.ap.e.aow().f(nL);
+            jY.bc("SignChecker", nL.toString());
         } finally {
             com.baidu.swan.apps.as.b.b.a(sourceChannel);
         }
-        iL.aS("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-        boolean z = my == null;
-        if (my != null) {
-            iL.aS("SignChecker", my.toString());
-            TW().putLong("result_error_code", my.agn());
+        jY.bc("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
+        boolean z = nL == null;
+        if (nL != null) {
+            jY.bc("SignChecker", nL.toString());
+            abL().putLong("result_error_code", nL.aos());
         }
-        iL.aS("SignChecker", "done: " + z);
+        jY.bc("SignChecker", "done: " + z);
         return z;
     }
 }

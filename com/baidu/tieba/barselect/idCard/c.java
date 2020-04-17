@@ -6,32 +6,32 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes8.dex */
 public class c {
-    static Timer fFw = null;
-    private static int fFx = Runtime.getRuntime().availableProcessors();
-    private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(fFx);
+    static Timer gkb = null;
+    private static int gkc = Runtime.getRuntime().availableProcessors();
+    private static ExecutorService fixedThreadPool = Executors.newFixedThreadPool(gkc);
 
     public static void execute(Runnable runnable) {
         fixedThreadPool.execute(runnable);
     }
 
-    public static Timer o(final Runnable runnable) {
-        if (fFw != null) {
-            return fFw;
+    public static Timer t(final Runnable runnable) {
+        if (gkb != null) {
+            return gkb;
         }
-        fFw = new Timer();
-        fFw.scheduleAtFixedRate(new TimerTask() { // from class: com.baidu.tieba.barselect.idCard.c.1
+        gkb = new Timer();
+        gkb.scheduleAtFixedRate(new TimerTask() { // from class: com.baidu.tieba.barselect.idCard.c.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 runnable.run();
             }
         }, 0L, 2000L);
-        return fFw;
+        return gkb;
     }
 
-    public static void buK() {
-        if (fFw != null) {
-            fFw.cancel();
-            fFw = null;
+    public static void bEw() {
+        if (gkb != null) {
+            gkb.cancel();
+            gkb = null;
         }
     }
 }

@@ -3,30 +3,30 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes9.dex */
 public class a {
-    private static a haa = new a();
-    private long hab = 0;
-    private SparseArray<Long> hac = new SparseArray<>();
-    private SparseArray<Long> had = new SparseArray<>();
-    private SparseArray<Long> hae = new SparseArray<>();
-    private SparseArray<Long> haf = new SparseArray<>();
+    private static a hJQ = new a();
+    private long creatTime = 0;
+    private SparseArray<Long> hJR = new SparseArray<>();
+    private SparseArray<Long> hJS = new SparseArray<>();
+    private SparseArray<Long> hJT = new SparseArray<>();
+    private SparseArray<Long> hJU = new SparseArray<>();
 
     private a() {
     }
 
-    public static a bNH() {
-        return haa;
+    public static a bYi() {
+        return hJQ;
     }
 
     public long getCreateTime() {
-        return this.hab;
+        return this.creatTime;
     }
 
     public void setCreateTime(long j) {
-        this.hab = j;
+        this.creatTime = j;
     }
 
-    public long vd(int i) {
-        Long l = this.had.get(i);
+    public long vB(int i) {
+        Long l = this.hJS.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +34,11 @@ public class a {
     }
 
     public void n(long j, int i) {
-        this.had.put(i, Long.valueOf(j));
+        this.hJS.put(i, Long.valueOf(j));
     }
 
-    public long ve(int i) {
-        Long l = this.hac.get(i);
+    public long vC(int i) {
+        Long l = this.hJR.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,11 +46,11 @@ public class a {
     }
 
     public void o(long j, int i) {
-        this.hac.put(i, Long.valueOf(j));
+        this.hJR.put(i, Long.valueOf(j));
     }
 
-    public long vf(int i) {
-        Long l = this.hae.get(i);
+    public long vD(int i) {
+        Long l = this.hJT.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void p(long j, int i) {
-        this.hae.put(i, Long.valueOf(j));
+        this.hJT.put(i, Long.valueOf(j));
     }
 
-    public long vg(int i) {
-        Long l = this.haf.get(i);
+    public long vE(int i) {
+        Long l = this.hJU.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void q(long j, int i) {
-        this.haf.put(i, Long.valueOf(j));
+        this.hJU.put(i, Long.valueOf(j));
     }
 }

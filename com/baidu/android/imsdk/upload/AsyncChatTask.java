@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.upload;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
 import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
 import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
@@ -49,8 +48,12 @@ public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferL
     }
 
     public void execute() {
-        if (this.mFilePath == null && this.mMsgListener != null) {
-            this.mMsgListener.onFailed(1007, this.mType, this.mFilePath);
+        if (this.mFilePath == null) {
+            if (this.mMsgListener != null) {
+                this.mMsgListener.onFailed(1007, this.mType, this.mFilePath);
+                return;
+            }
+            return;
         }
         File file = new File(this.mFilePath);
         final int chatType = this.mMsg.getChatType();
@@ -68,7 +71,7 @@ public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferL
             } else if (this.mType == 2) {
                 this.mContentType = MimeType.Audio.AMR;
                 ChatMsgManager.audioTrans(this.mContext, this.mFilePath, this.mContentType, "amr", DuzhanUpMsgCreator.getReqType(chatType), new BIMValueCallBack() { // from class: com.baidu.android.imsdk.upload.AsyncChatTask.1
-                    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [112=6, 113=6] */
+                    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [113=6, 114=6] */
                     /* JADX WARN: Removed duplicated region for block: B:44:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
                     @Override // com.baidu.android.imsdk.group.BIMValueCallBack
                     /*
@@ -95,7 +98,7 @@ public class AsyncChatTask implements IGenBosObjectUrlListener, IUploadTransferL
                                     fileOutputStream = fileOutputStream2;
                                     try {
                                         new IMTrack.CrashBuilder(AsyncChatTask.this.mContext).exception(Log.getStackTraceString(exc)).build();
-                                        AsyncChatTask.this.onGenBosObjectUrlListener(ResponseCode.PROTOCOL_EXP, Constants.ERROR_MSG_HTTP_RESPONSE_ERROR, null, null, null);
+                                        AsyncChatTask.this.onGenBosObjectUrlListener(1023, Constants.ERROR_MSG_HTTP_RESPONSE_ERROR, null, null, null);
                                         LogUtils.e(AsyncChatTask.TAG, exc.getMessage());
                                         if (fileOutputStream != null) {
                                             try {

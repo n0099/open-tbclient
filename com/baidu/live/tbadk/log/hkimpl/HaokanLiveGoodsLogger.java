@@ -12,11 +12,11 @@ public class HaokanLiveGoodsLogger implements ILiveGoodsLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", "shopping_car_icon");
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("live_id", str);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -28,7 +28,7 @@ public class HaokanLiveGoodsLogger implements ILiveGoodsLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", "shopping_list_tooltip");
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("live_id", str);
@@ -43,7 +43,7 @@ public class HaokanLiveGoodsLogger implements ILiveGoodsLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", "shopping_guide");
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("live_id", str);

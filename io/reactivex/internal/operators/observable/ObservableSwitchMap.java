@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.observable;
 
 import io.reactivex.c.h;
-import io.reactivex.internal.a.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.t;
@@ -75,7 +74,7 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
                 } while (!this.active.compareAndSet(switchMapInnerObserver, switchMapInnerObserver3));
                 tVar.subscribe(switchMapInnerObserver3);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 this.s.dispose();
                 onError(th);
             }
@@ -83,15 +82,15 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            if (!this.done && this.errors.addThrowable(th)) {
+            if (this.done || !this.errors.addThrowable(th)) {
                 if (!this.delayErrors) {
                     disposeInner();
                 }
-                this.done = true;
-                drain();
+                io.reactivex.e.a.onError(th);
                 return;
             }
-            io.reactivex.e.a.onError(th);
+            this.done = true;
+            drain();
         }
 
         @Override // io.reactivex.u
@@ -126,19 +125,15 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
         }
 
         void drain() {
-            g<R> gVar;
             boolean z;
-            Object obj;
             if (getAndIncrement() == 0) {
                 u<? super R> uVar = this.actual;
-                AtomicReference<SwitchMapInnerObserver<T, R>> atomicReference = this.active;
-                boolean z2 = this.delayErrors;
                 int i = 1;
                 while (!this.cancelled) {
                     if (this.done) {
-                        boolean z3 = atomicReference.get() == null;
-                        if (z2) {
-                            if (z3) {
+                        boolean z2 = this.active.get() == null;
+                        if (this.delayErrors) {
+                            if (z2) {
                                 Throwable th = this.errors.get();
                                 if (th != null) {
                                     uVar.onError(th);
@@ -151,59 +146,44 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
                         } else if (this.errors.get() != null) {
                             uVar.onError(this.errors.terminate());
                             return;
-                        } else if (z3) {
+                        } else if (z2) {
                             uVar.onComplete();
                             return;
                         }
                     }
-                    SwitchMapInnerObserver<T, R> switchMapInnerObserver = atomicReference.get();
-                    if (switchMapInnerObserver != null && (gVar = switchMapInnerObserver.queue) != null) {
+                    SwitchMapInnerObserver<T, R> switchMapInnerObserver = this.active.get();
+                    if (switchMapInnerObserver != null) {
+                        io.reactivex.internal.queue.a<R> aVar = switchMapInnerObserver.queue;
                         if (switchMapInnerObserver.done) {
-                            boolean isEmpty = gVar.isEmpty();
-                            if (z2) {
+                            boolean isEmpty = aVar.isEmpty();
+                            if (this.delayErrors) {
                                 if (isEmpty) {
-                                    atomicReference.compareAndSet(switchMapInnerObserver, null);
+                                    this.active.compareAndSet(switchMapInnerObserver, null);
                                 }
                             } else if (this.errors.get() != null) {
                                 uVar.onError(this.errors.terminate());
                                 return;
                             } else if (isEmpty) {
-                                atomicReference.compareAndSet(switchMapInnerObserver, null);
+                                this.active.compareAndSet(switchMapInnerObserver, null);
                             }
                         }
-                        boolean z4 = false;
                         while (!this.cancelled) {
-                            if (switchMapInnerObserver != atomicReference.get()) {
+                            if (switchMapInnerObserver != this.active.get()) {
                                 z = true;
-                            } else if (!z2 && this.errors.get() != null) {
+                            } else if (!this.delayErrors && this.errors.get() != null) {
                                 uVar.onError(this.errors.terminate());
                                 return;
                             } else {
-                                boolean z5 = switchMapInnerObserver.done;
-                                try {
-                                    obj = (Object) gVar.poll();
-                                    z = z4;
-                                } catch (Throwable th2) {
-                                    io.reactivex.exceptions.a.H(th2);
-                                    this.errors.addThrowable(th2);
-                                    atomicReference.compareAndSet(switchMapInnerObserver, null);
-                                    if (!z2) {
-                                        disposeInner();
-                                        this.s.dispose();
-                                        this.done = true;
-                                    } else {
-                                        switchMapInnerObserver.cancel();
-                                    }
-                                    obj = (Object) null;
+                                boolean z3 = switchMapInnerObserver.done;
+                                Object obj = (R) aVar.poll();
+                                boolean z4 = obj == null;
+                                if (z3 && z4) {
+                                    this.active.compareAndSet(switchMapInnerObserver, null);
                                     z = true;
-                                }
-                                boolean z6 = obj == null;
-                                if (z5 && z6) {
-                                    atomicReference.compareAndSet(switchMapInnerObserver, null);
-                                    z = true;
-                                } else if (!z6) {
+                                } else if (z4) {
+                                    z = false;
+                                } else {
                                     uVar.onNext(obj);
-                                    z4 = z;
                                 }
                             }
                             if (z) {
@@ -238,44 +218,26 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
     /* loaded from: classes7.dex */
     public static final class SwitchMapInnerObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements u<R> {
         private static final long serialVersionUID = 3837284832786408377L;
-        final int bufferSize;
         volatile boolean done;
         final long index;
         final SwitchMapObserver<T, R> parent;
-        volatile g<R> queue;
+        final io.reactivex.internal.queue.a<R> queue;
 
         SwitchMapInnerObserver(SwitchMapObserver<T, R> switchMapObserver, long j, int i) {
             this.parent = switchMapObserver;
             this.index = j;
-            this.bufferSize = i;
+            this.queue = new io.reactivex.internal.queue.a<>(i);
         }
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            if (DisposableHelper.setOnce(this, bVar)) {
-                if (bVar instanceof io.reactivex.internal.a.b) {
-                    io.reactivex.internal.a.b bVar2 = (io.reactivex.internal.a.b) bVar;
-                    int requestFusion = bVar2.requestFusion(7);
-                    if (requestFusion == 1) {
-                        this.queue = bVar2;
-                        this.done = true;
-                        this.parent.drain();
-                        return;
-                    } else if (requestFusion == 2) {
-                        this.queue = bVar2;
-                        return;
-                    }
-                }
-                this.queue = new io.reactivex.internal.queue.a(this.bufferSize);
-            }
+            DisposableHelper.setOnce(this, bVar);
         }
 
         @Override // io.reactivex.u
         public void onNext(R r) {
             if (this.index == this.parent.unique) {
-                if (r != null) {
-                    this.queue.offer(r);
-                }
+                this.queue.offer(r);
                 this.parent.drain();
             }
         }

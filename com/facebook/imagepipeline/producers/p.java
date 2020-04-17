@@ -3,16 +3,16 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes12.dex */
 public class p implements aj<com.facebook.imagepipeline.g.e> {
-    private final com.facebook.imagepipeline.c.e lTQ;
-    private final com.facebook.imagepipeline.c.f lTR;
-    private final com.facebook.imagepipeline.c.e lUW;
-    private final aj<com.facebook.imagepipeline.g.e> lWS;
+    private final com.facebook.imagepipeline.c.e mbD;
+    private final com.facebook.imagepipeline.c.f mbE;
+    private final com.facebook.imagepipeline.c.e mcH;
+    private final aj<com.facebook.imagepipeline.g.e> meD;
 
     public p(com.facebook.imagepipeline.c.e eVar, com.facebook.imagepipeline.c.e eVar2, com.facebook.imagepipeline.c.f fVar, aj<com.facebook.imagepipeline.g.e> ajVar) {
-        this.lUW = eVar;
-        this.lTQ = eVar2;
-        this.lTR = fVar;
-        this.lWS = ajVar;
+        this.mcH = eVar;
+        this.mbD = eVar2;
+        this.mbE = fVar;
+        this.meD = ajVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -21,45 +21,45 @@ public class p implements aj<com.facebook.imagepipeline.g.e> {
     }
 
     private void e(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        if (akVar.drX().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
-            kVar.g(null, 1);
+        if (akVar.dtV().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+            kVar.h(null, 1);
         } else {
-            this.lWS.c(akVar.drV().dpp() ? new a(kVar, akVar, this.lUW, this.lTQ, this.lTR) : kVar, akVar);
+            this.meD.c(akVar.dtT().drn() ? new a(kVar, akVar, this.mcH, this.mbD, this.mbE) : kVar, akVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public static class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private final com.facebook.imagepipeline.c.e lTQ;
-        private final com.facebook.imagepipeline.c.f lTR;
-        private final com.facebook.imagepipeline.c.e lUW;
-        private final ak lXf;
+        private final com.facebook.imagepipeline.c.e mbD;
+        private final com.facebook.imagepipeline.c.f mbE;
+        private final com.facebook.imagepipeline.c.e mcH;
+        private final ak meQ;
 
         private a(k<com.facebook.imagepipeline.g.e> kVar, ak akVar, com.facebook.imagepipeline.c.e eVar, com.facebook.imagepipeline.c.e eVar2, com.facebook.imagepipeline.c.f fVar) {
             super(kVar);
-            this.lXf = akVar;
-            this.lUW = eVar;
-            this.lTQ = eVar2;
-            this.lTR = fVar;
+            this.meQ = akVar;
+            this.mcH = eVar;
+            this.mbD = eVar2;
+            this.mbE = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
-        public void f(com.facebook.imagepipeline.g.e eVar, int i) {
-            if (IQ(i) || eVar == null || dC(i, 10) || eVar.dqX() == com.facebook.c.c.lRr) {
-                dsh().g(eVar, i);
+        public void g(com.facebook.imagepipeline.g.e eVar, int i) {
+            if (Hs(i) || eVar == null || dm(i, 10) || eVar.dsV() == com.facebook.c.c.lYW) {
+                duf().h(eVar, i);
                 return;
             }
-            ImageRequest drV = this.lXf.drV();
-            com.facebook.cache.common.b c = this.lTR.c(drV, this.lXf.dmD());
-            if (drV.dsN() == ImageRequest.CacheChoice.SMALL) {
-                this.lTQ.a(c, eVar);
+            ImageRequest dtT = this.meQ.dtT();
+            com.facebook.cache.common.b c = this.mbE.c(dtT, this.meQ.dow());
+            if (dtT.duK() == ImageRequest.CacheChoice.SMALL) {
+                this.mbD.a(c, eVar);
             } else {
-                this.lUW.a(c, eVar);
+                this.mcH.a(c, eVar);
             }
-            dsh().g(eVar, i);
+            duf().h(eVar, i);
         }
     }
 }

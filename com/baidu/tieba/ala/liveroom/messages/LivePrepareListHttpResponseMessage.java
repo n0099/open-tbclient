@@ -9,9 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class LivePrepareListHttpResponseMessage extends JsonHttpResponsedMessage {
-    public String fhF;
-    public String fhG;
-    public List<String> fhH;
+    public String fLR;
+    public String fLS;
+    public List<String> fLT;
 
     public LivePrepareListHttpResponseMessage() {
         super(1021147);
@@ -22,15 +22,15 @@ public class LivePrepareListHttpResponseMessage extends JsonHttpResponsedMessage
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.fhF = optJSONObject.optString(LogConfig.LIVE_SHARE_HK_WEIBO);
-            this.fhG = optJSONObject.optString("tencent");
+            this.fLR = optJSONObject.optString(LogConfig.LIVE_SHARE_HK_WEIBO);
+            this.fLS = optJSONObject.optString("tencent");
             JSONArray optJSONArray = optJSONObject.optJSONArray("title");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fhH = new ArrayList();
+                this.fLT = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     String optString = optJSONArray.optString(i2);
                     if (!TextUtils.isEmpty(optString)) {
-                        this.fhH.add(optString);
+                        this.fLT.add(optString);
                     }
                 }
             }

@@ -5,7 +5,7 @@ import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
 /* loaded from: classes13.dex */
 public final class b {
-    public static final SecureRandom PZ = new SecureRandom();
+    public static final SecureRandom aiz = new SecureRandom();
 
     public static int a(BigInteger bigInteger) {
         return (bigInteger.bitLength() + 7) >> 3;
@@ -39,14 +39,14 @@ public final class b {
     }
 
     public static byte[] a(byte[] bArr, d dVar) {
-        return a(bArr, dVar.nH(), dVar.nI());
+        return a(bArr, dVar.sa(), dVar.sb());
     }
 
     private static byte[] a(byte[] bArr, BigInteger bigInteger, BigInteger bigInteger2) {
         return a(a(bArr, bigInteger).modPow(bigInteger2, bigInteger), a(bigInteger));
     }
 
-    public static byte[] j(byte[] bArr, int i, int i2) {
+    public static byte[] l(byte[] bArr, int i, int i2) {
         if (i == 0 && i2 == bArr.length) {
             return bArr;
         }

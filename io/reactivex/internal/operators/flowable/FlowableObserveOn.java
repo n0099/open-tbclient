@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
@@ -23,11 +22,11 @@ public final class FlowableObserveOn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        v.c dJI = this.scheduler.dJI();
+        v.c dCG = this.scheduler.dCG();
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.nyr.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, dJI, this.delayError, this.prefetch));
+            this.mRJ.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, dCG, this.delayError, this.prefetch));
         } else {
-            this.nyr.a((j) new ObserveOnSubscriber(cVar, dJI, this.delayError, this.prefetch));
+            this.mRJ.a((j) new ObserveOnSubscriber(cVar, dCG, this.delayError, this.prefetch));
         }
     }
 
@@ -118,7 +117,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
 
         final void trySchedule() {
             if (getAndIncrement() == 0) {
-                this.worker.D(this);
+                this.worker.I(this);
             }
         }
 
@@ -247,7 +246,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         this.s.cancel();
                         cVar.onError(th);
                         this.worker.dispose();
@@ -297,7 +296,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             cVar.onNext(obj);
                             long j4 = 1 + j2;
                             if (j4 == this.limit) {
-                                j = j3 != Format.OFFSET_SAMPLE_RELATIVE ? this.requested.addAndGet(-j4) : j3;
+                                j = j3 != Long.MAX_VALUE ? this.requested.addAndGet(-j4) : j3;
                                 this.s.request(j4);
                                 j4 = 0;
                             } else {
@@ -309,7 +308,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         this.s.cancel();
                         gVar.clear();
                         cVar.onError(th);
@@ -434,7 +433,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         this.s.cancel();
                         aVar.onError(th);
                         this.worker.dispose();
@@ -493,7 +492,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         this.s.cancel();
                         gVar.clear();
                         aVar.onError(th);

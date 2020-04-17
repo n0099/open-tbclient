@@ -1,9 +1,9 @@
 package com.baidu.swan.apps.media.chooser.c;
 /* loaded from: classes11.dex */
 public interface a {
-    void XC();
+    void afA();
 
-    void XD();
+    void afy();
 
-    void clickContainer();
+    void afz();
 }

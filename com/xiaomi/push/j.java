@@ -19,11 +19,11 @@ final class j {
         private final String a;
 
         /* renamed from: a  reason: collision with other field name */
-        private final boolean f789a;
+        private final boolean f790a;
 
         a(String str, boolean z) {
             this.a = str;
-            this.f789a = z;
+            this.f790a = z;
         }
 
         public String a() {
@@ -36,18 +36,18 @@ final class j {
         private final LinkedBlockingQueue<IBinder> a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f790a;
+        boolean f791a;
 
         private b() {
-            this.f790a = false;
+            this.f791a = false;
             this.a = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder a() {
-            if (this.f790a) {
+            if (this.f791a) {
                 throw new IllegalStateException();
             }
-            this.f790a = true;
+            this.f791a = true;
             return this.a.poll(30000L, TimeUnit.MILLISECONDS);
         }
 

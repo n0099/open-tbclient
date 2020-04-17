@@ -12,7 +12,7 @@ public class f extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void an(boolean z) {
+    public void aK(boolean z) {
         getIntent().putExtra("is_from_flower_guide", z);
     }
 }

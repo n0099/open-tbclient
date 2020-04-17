@@ -1,6 +1,7 @@
 package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes13.dex */
 public class PrivacySettingMessage extends HttpMessage {
     private String opt;
@@ -10,7 +11,7 @@ public class PrivacySettingMessage extends HttpMessage {
         super(1001506);
         this.opt = str;
         this.val = i;
-        addParam("opt", str);
+        addParam(UgcConstant.UGC_TAG_OPTION, str);
         addParam("val", String.valueOf(i));
     }
 

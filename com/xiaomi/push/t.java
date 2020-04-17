@@ -9,7 +9,7 @@ public class t {
     private static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static String f944a = null;
+    private static String f945a = null;
 
     public static int a() {
         try {
@@ -24,16 +24,16 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m559a() {
+    public static Context m564a() {
         return a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m560a() {
+    public static synchronized String m565a() {
         String str;
         synchronized (t.class) {
-            if (f944a != null) {
-                str = f944a;
+            if (f945a != null) {
+                str = f945a;
             } else {
                 String str2 = Build.VERSION.INCREMENTAL;
                 if (a() <= 0) {
@@ -50,14 +50,14 @@ public class t {
                 } else {
                     str = str2;
                 }
-                f944a = str;
+                f945a = str;
             }
         }
         return str;
     }
 
     public static String a(Context context) {
-        if (l.m482b()) {
+        if (l.m487b()) {
             return "";
         }
         String str = (String) at.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
@@ -65,17 +65,17 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m561a(Context context) {
+    public static void m566a(Context context) {
         a = context.getApplicationContext();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m562a() {
+    public static boolean m567a() {
         return TextUtils.equals((String) at.a("android.os.SystemProperties", "get", "sys.boot_completed"), "1");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m563a(Context context) {
+    public static boolean m568a(Context context) {
         try {
             return (context.getApplicationInfo().flags & 2) != 0;
         } catch (Exception e) {
@@ -85,12 +85,12 @@ public class t {
     }
 
     private static String b() {
-        f944a = s.a("ro.build.version.emui", "");
-        return f944a;
+        f945a = s.a("ro.build.version.emui", "");
+        return f945a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m564b() {
+    public static boolean m569b() {
         try {
             return Class.forName("miui.os.Build").getField("IS_GLOBAL_BUILD").getBoolean(false);
         } catch (ClassNotFoundException e) {
@@ -105,16 +105,16 @@ public class t {
     private static String c() {
         String a2 = s.a("ro.build.version.opporom", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("ColorOS_")) {
-            f944a = "ColorOS_" + a2;
+            f945a = "ColorOS_" + a2;
         }
-        return f944a;
+        return f945a;
     }
 
     private static String d() {
         String a2 = s.a("ro.vivo.os.version", "");
         if (!TextUtils.isEmpty(a2) && !a2.startsWith("FuntouchOS_")) {
-            f944a = "FuntouchOS_" + a2;
+            f945a = "FuntouchOS_" + a2;
         }
-        return f944a;
+        return f945a;
     }
 }

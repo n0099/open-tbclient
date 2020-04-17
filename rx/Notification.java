@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes6.dex */
 public final class Notification<T> {
-    private static final Notification<Void> nPi = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind nPh;
-    private final Throwable throwable;
+    private static final Notification<Void> niO = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind niM;
+    private final Throwable niN;
     private final T value;
 
     /* loaded from: classes6.dex */
@@ -13,26 +13,26 @@ public final class Notification<T> {
         OnCompleted
     }
 
-    public static <T> Notification<T> ca(T t) {
+    public static <T> Notification<T> bJ(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
-    public static <T> Notification<T> Q(Throwable th) {
+    public static <T> Notification<T> U(Throwable th) {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> dOo() {
-        return (Notification<T>) nPi;
+    public static <T> Notification<T> dHn() {
+        return (Notification<T>) niO;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.throwable = th;
-        this.nPh = kind;
+        this.niN = th;
+        this.niM = kind;
     }
 
-    public Throwable getThrowable() {
-        return this.throwable;
+    public Throwable dHo() {
+        return this.niN;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return dOs() && this.value != null;
+        return dHs() && this.value != null;
     }
 
-    public boolean dOp() {
-        return dJF() && this.throwable != null;
+    public boolean dHp() {
+        return dCD() && this.niN != null;
     }
 
-    public Kind dOq() {
-        return this.nPh;
+    public Kind dHq() {
+        return this.niM;
     }
 
-    public boolean dJF() {
-        return dOq() == Kind.OnError;
+    public boolean dCD() {
+        return dHq() == Kind.OnError;
     }
 
-    public boolean dOr() {
-        return dOq() == Kind.OnCompleted;
+    public boolean dHr() {
+        return dHq() == Kind.OnCompleted;
     }
 
-    public boolean dOs() {
-        return dOq() == Kind.OnNext;
+    public boolean dHs() {
+        return dHq() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dOq());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(dHq());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (dOp()) {
-            append.append(' ').append(getThrowable().getMessage());
+        if (dHp()) {
+            append.append(' ').append(dHo().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = dOq().hashCode();
+        int hashCode = dHq().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (dOp()) {
-            return (hashCode * 31) + getThrowable().hashCode();
+        if (dHp()) {
+            return (hashCode * 31) + dHo().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.dOq() != dOq() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.throwable != notification.throwable && (this.throwable == null || !this.throwable.equals(notification.throwable))))) {
+            if (notification.dHq() != dHq() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.niN != notification.niN && (this.niN == null || !this.niN.equals(notification.niN))))) {
                 z = false;
             }
             return z;

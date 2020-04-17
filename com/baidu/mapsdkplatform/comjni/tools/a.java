@@ -1,16 +1,17 @@
 package com.baidu.mapsdkplatform.comjni.tools;
 
 import android.os.Bundle;
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.mapapi.model.inner.Point;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class a {
     public static double a(Point point, Point point2) {
         Bundle bundle = new Bundle();
-        bundle.putDouble("x1", point.x);
-        bundle.putDouble("y1", point.y);
-        bundle.putDouble("x2", point2.x);
-        bundle.putDouble("y2", point2.y);
+        bundle.putDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1, point.x);
+        bundle.putDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1, point.y);
+        bundle.putDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X2, point2.x);
+        bundle.putDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y2, point2.y);
         JNITools.GetDistanceByMC(bundle);
         return bundle.getDouble("distance");
     }

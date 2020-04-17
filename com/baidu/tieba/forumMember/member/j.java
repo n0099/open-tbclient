@@ -4,22 +4,22 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes10.dex */
 public class j implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId glJ = BdUniqueId.gen();
+    public static final BdUniqueId gUP = BdUniqueId.gen();
     private String forumId;
     private String forumName;
-    private u glK;
+    private u gUQ;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return glJ;
+        return gUP;
     }
 
-    public u bCE() {
-        return this.glK;
+    public u bNe() {
+        return this.gUQ;
     }
 
     public void a(u uVar) {
-        this.glK = uVar;
+        this.gUQ = uVar;
     }
 
     public String getForumId() {

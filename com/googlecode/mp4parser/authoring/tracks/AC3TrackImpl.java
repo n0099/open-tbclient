@@ -113,7 +113,7 @@ public class AC3TrackImpl extends AbstractTrack {
                 i = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
                 break;
             case 1:
-                i = StreamConfig.Audio.AUDIO_FREQUENCY;
+                i = 44100;
                 break;
             case 2:
                 i = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;

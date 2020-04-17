@@ -28,15 +28,14 @@ public class DeferredScalarDisposable<T> extends BasicIntQueueDisposable<T> {
     public final void complete(T t) {
         int i = get();
         if ((i & 54) == 0) {
-            u<? super T> uVar = this.actual;
             if (i == 8) {
                 this.value = t;
                 lazySet(16);
-                uVar.onNext(null);
             } else {
                 lazySet(2);
-                uVar.onNext(t);
             }
+            u<? super T> uVar = this.actual;
+            uVar.onNext(t);
             if (get() != 4) {
                 uVar.onComplete();
             }

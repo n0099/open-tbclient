@@ -1,6 +1,5 @@
 package com.baidu.ubs.analytics.b;
 
-import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.ubs.analytics.c.g;
 import com.baidu.ubs.analytics.d;
 import com.baidu.ubs.analytics.d.j;
@@ -29,12 +28,12 @@ public final class b {
 
     /* loaded from: classes8.dex */
     public interface a<T> {
-        void Lq(String str);
+        void E(String str);
 
         void a(T t);
     }
 
-    public static String l(String str, Map<String, Object> map) {
+    public static String m(String str, Map<String, Object> map) {
         String str2;
         String stringBuffer;
         if (map.size() <= 0) {
@@ -59,10 +58,10 @@ public final class b {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
+            httpURLConnection.setReadTimeout(20000);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestProperty("token", d.cXN().k());
+            httpURLConnection.setRequestProperty("token", d.dkW().k());
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), "utf-8"));
             printWriter.write(str2);
             printWriter.flush();
@@ -100,7 +99,7 @@ public final class b {
         try {
             try {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                httpURLConnection.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
+                httpURLConnection.setReadTimeout(20000);
                 httpURLConnection.setConnectTimeout(40000);
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
@@ -109,7 +108,7 @@ public final class b {
                 httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
-                httpURLConnection.setRequestProperty("token", d.cXN().k());
+                httpURLConnection.setRequestProperty("token", d.dkW().k());
                 if (file != null) {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     StringBuffer stringBuffer = new StringBuffer();
@@ -136,7 +135,7 @@ public final class b {
                         dataOutputStream.flush();
                         dataOutputStream.close();
                         if (httpURLConnection.getResponseCode() != 200) {
-                            com.baidu.ubs.analytics.d.b.Lt(file.getAbsolutePath() + "     上传文件失败…………");
+                            com.baidu.ubs.analytics.d.b.I(file.getAbsolutePath() + "     上传文件失败…………");
                             httpURLConnection.disconnect();
                             try {
                                 fileInputStream.close();
@@ -225,9 +224,9 @@ public final class b {
             httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
             httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str.toString().getBytes("UTF-8").length));
-            httpURLConnection.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
+            httpURLConnection.setReadTimeout(20000);
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setRequestProperty("token", d.cXN().k());
+            httpURLConnection.setRequestProperty("token", d.dkW().k());
             httpURLConnection.connect();
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(str.getBytes("UTF-8"));
@@ -249,12 +248,12 @@ public final class b {
                     }
                 }
             } else {
-                com.baidu.ubs.analytics.d.b.Lt("上传log失败    ");
+                com.baidu.ubs.analytics.d.b.I("上传log失败    ");
                 httpURLConnection.disconnect();
                 return null;
             }
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.b.Lt("上传log失败    " + e.getMessage());
+            com.baidu.ubs.analytics.d.b.I("上传log失败    " + e.getMessage());
             j.a(e);
             return null;
         }
@@ -267,7 +266,7 @@ public final class b {
         }
         if (str == null) {
             if (aVar != null) {
-                aVar.Lq("-1");
+                aVar.E("-1");
                 return false;
             }
             return false;
@@ -285,18 +284,18 @@ public final class b {
             return true;
         } else if (jSONObject.getString("status").equals("1")) {
             if (aVar != null) {
-                aVar.Lq(jSONObject.optString("status"));
+                aVar.E(jSONObject.optString("status"));
             }
-            com.baidu.ubs.analytics.d.b.Lt("net status  error ");
+            com.baidu.ubs.analytics.d.b.I("net status  error ");
             return false;
         } else {
             if (jSONObject.getString("status").equals("2")) {
-                g.d(d.cXN().getContext());
-                com.baidu.ubs.analytics.d.b.Lt("net  token error ");
+                g.d(d.dkW().getContext());
+                com.baidu.ubs.analytics.d.b.I("net  token error ");
                 return false;
             }
             if (aVar != null) {
-                aVar.Lq("-1");
+                aVar.E("-1");
                 return false;
             }
             return false;

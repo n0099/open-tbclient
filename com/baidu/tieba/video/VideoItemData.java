@@ -17,14 +17,14 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public static final Parcelable.Creator<VideoItemData> CREATOR = new Parcelable.Creator<VideoItemData>() { // from class: com.baidu.tieba.video.VideoItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ai */
+        /* renamed from: ab */
         public VideoItemData createFromParcel(Parcel parcel) {
             return new VideoItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: DA */
+        /* renamed from: Ee */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }
@@ -95,43 +95,43 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public VideoItemData buildWithThreadData(bj bjVar) {
         if (bjVar != null) {
             this.thread_id = bjVar.getTid();
-            this.post_id = bjVar.aCb();
-            if (bjVar.aCI() != null) {
-                this.thumbnail_url = bjVar.aCI().thumbnail_url;
-                this.video_url = bjVar.aCI().video_url;
-                this.video_height = String.valueOf(bjVar.aCI().video_height);
-                this.video_width = String.valueOf(bjVar.aCI().video_width);
-                this.mMd5 = bjVar.aCI().video_md5;
-                this.video_duration = bjVar.aCI().video_duration.intValue();
-                this.play_count = bjVar.aCI().play_count.intValue();
-                this.isVerticalVideo = bjVar.aCI().is_vertical.intValue();
+            this.post_id = bjVar.aKo();
+            if (bjVar.aKV() != null) {
+                this.thumbnail_url = bjVar.aKV().thumbnail_url;
+                this.video_url = bjVar.aKV().video_url;
+                this.video_height = String.valueOf(bjVar.aKV().video_height);
+                this.video_width = String.valueOf(bjVar.aKV().video_width);
+                this.mMd5 = bjVar.aKV().video_md5;
+                this.video_duration = bjVar.aKV().video_duration.intValue();
+                this.play_count = bjVar.aKV().play_count.intValue();
+                this.isVerticalVideo = bjVar.aKV().is_vertical.intValue();
             }
-            this.comment_num = String.valueOf(bjVar.aCi());
-            this.agree_num = String.valueOf(bjVar.aDL());
-            this.share_num = String.valueOf(bjVar.aDP());
+            this.comment_num = String.valueOf(bjVar.aKv());
+            this.agree_num = String.valueOf(bjVar.aLZ());
+            this.share_num = String.valueOf(bjVar.aMd());
             this.title = bjVar.getTitle();
             this.forum_id = String.valueOf(bjVar.getFid());
             this.baijiahaoData = bjVar.getBaijiahaoData();
-            this.forum_name = bjVar.aCw();
-            this.is_agreed = String.valueOf(bjVar.aDN());
-            if (bjVar.aCr() != null) {
+            this.forum_name = bjVar.aKJ();
+            this.is_agreed = String.valueOf(bjVar.aMb());
+            if (bjVar.aKE() != null) {
                 UserItemData userItemData = new UserItemData();
-                userItemData.user_name = bjVar.aCr().getUserName();
-                userItemData.name_show = bjVar.aCr().getName_show();
-                userItemData.portrait = bjVar.aCr().getPortrait();
-                userItemData.user_id = bjVar.aCr().getUserId();
-                userItemData.is_follow = bjVar.aCr().hadConcerned() ? "1" : "0";
-                if (bjVar.aCr().getBaijiahaoInfo() != null) {
-                    userItemData.bjhAvatar = bjVar.aCr().getBaijiahaoInfo().avatar;
+                userItemData.user_name = bjVar.aKE().getUserName();
+                userItemData.name_show = bjVar.aKE().getName_show();
+                userItemData.portrait = bjVar.aKE().getPortrait();
+                userItemData.user_id = bjVar.aKE().getUserId();
+                userItemData.is_follow = bjVar.aKE().hadConcerned() ? "1" : "0";
+                if (bjVar.aKE().getBaijiahaoInfo() != null) {
+                    userItemData.bjhAvatar = bjVar.aKE().getBaijiahaoInfo().avatar;
                 }
                 this.author_info = userItemData;
             }
-            this.act_info = bjVar.aBd();
+            this.act_info = bjVar.aJq();
             this.mRecomAbTag = bjVar.mRecomAbTag;
             this.mRecomSource = bjVar.mRecomSource;
             this.mRecomWeight = bjVar.mRecomWeight;
             this.mRecomExtra = bjVar.mRecomExtra;
-            this.isBjhVideo = bjVar.aEm();
+            this.isBjhVideo = bjVar.aMA();
             this.forbidComment = bjVar.forbidComment;
             this.noCommetStr = bjVar.noCommetStr;
         }
@@ -175,8 +175,8 @@ public class VideoItemData implements Parcelable, b, Serializable {
                 }
                 this.author_info = userItemData;
             }
-            this.act_info = originalThreadInfo.aBd();
-            this.isBjhVideo = originalThreadInfo.aBh();
+            this.act_info = originalThreadInfo.aJq();
+            this.isBjhVideo = originalThreadInfo.aJu();
         }
         return this;
     }

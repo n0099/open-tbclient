@@ -7,11 +7,10 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.Utils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.cyberplayer.sdk.remote.f;
+import com.baidu.cyberplayer.sdk.m;
+import com.baidu.cyberplayer.sdk.remote.g;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.cyberplayer.sdk.statistics.d;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -22,9 +21,9 @@ import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public class c {
     private static c a;
-    private volatile int e;
     private Context f;
     private final Object c = new Object();
+    private volatile int e = 0;
     private Handler g = new Handler(Looper.getMainLooper()) { // from class: com.baidu.cyberplayer.sdk.b.c.1
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         @Override // android.os.Handler
@@ -108,8 +107,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Object obj) {
         com.baidu.cyberplayer.sdk.statistics.b.a(this.f, (int) DpStatConstants.ACTION_LIB_LOAD_RESULT, (HashMap) obj);
-        Utils.g();
-        d.a().a(this.f);
+        m.h();
         CyberLog.d("CyberCoreLoaderManager", "onLoad session:" + obj);
     }
 
@@ -125,7 +123,7 @@ public class c {
                 HashMap hashMap = new HashMap();
                 hashMap.put("loadcode", Integer.toString(i3));
                 hashMap.put("detail", str2);
-                hashMap.put("processname", Utils.b(CyberPlayerManager.getApplicationContext()));
+                hashMap.put("processname", m.l());
                 c.this.a(hashMap);
                 Message obtainMessage = c.this.g.obtainMessage();
                 obtainMessage.what = 1;
@@ -149,10 +147,10 @@ public class c {
                 HashMap hashMap = new HashMap();
                 hashMap.put("loadcode", Integer.toString(0));
                 hashMap.put("corever", CyberPlayerManager.getCoreVersion());
-                hashMap.put("processname", Utils.b(CyberPlayerManager.getApplicationContext()));
+                hashMap.put("processname", m.l());
                 c.this.a(hashMap);
-                if (Utils.a(CyberPlayerManager.getApplicationContext()) && CyberPlayerManager.getRemoteServiceClass() != null && !CyberCfgManager.getInstance().getCfgBoolValue("remote_forbidden", false)) {
-                    f.a().a(CyberPlayerManager.getRemoteServiceClass(), CyberPlayerManager.getClientID(), CyberPlayerManager.getInstallType(), CyberPlayerManager.getInstallOpts());
+                if (m.m() && CyberPlayerManager.getRemoteServiceClass() != null && !CyberCfgManager.getInstance().getCfgBoolValue("remote_forbidden", false)) {
+                    g.a().a(CyberPlayerManager.getRemoteServiceClass(), CyberPlayerManager.getClientID(), CyberPlayerManager.getInstallType(), CyberPlayerManager.getInstallOpts());
                 }
                 Message obtainMessage = c.this.g.obtainMessage();
                 obtainMessage.what = 0;

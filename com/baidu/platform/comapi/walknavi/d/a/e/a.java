@@ -3,13 +3,10 @@ package com.baidu.platform.comapi.walknavi.d.a.e;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.platform.comapi.walknavi.d.a.f.d;
 import com.baidu.platform.comapi.walknavi.d.a.g.b;
 import com.baidu.platform.comapi.walknavi.d.a.g.e;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
-import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +48,7 @@ public class a {
         hashMap.put("event_id", str);
         hashMap.put("request_id", this.d);
         if (this.c != null) {
-            hashMap.put(FrsArActivityConfig.AR_TYPE, String.valueOf(this.c.c()));
+            hashMap.put("ar_type", String.valueOf(this.c.c()));
         }
         com.baidu.platform.comapi.walknavi.d.a.g.a.a("params is : " + hashMap.toString());
         if (this.e != null) {
@@ -71,21 +68,21 @@ public class a {
                 if (!TextUtils.isEmpty(this.c.a())) {
                     jSONObject.put("ar_key", this.c.a());
                 }
-                jSONObject.put(FrsArActivityConfig.AR_ID, this.c.b());
+                jSONObject.put("ar_id", this.c.b());
             }
             com.baidu.platform.comapi.walknavi.d.a.f.e.a(context, jSONObject);
             jSONObject.put("time", String.valueOf(Long.valueOf(System.currentTimeMillis())));
-            jSONObject.put("os_type", PraiseDataPassUtil.KEY_FROM_OS);
-            jSONObject.put(BdStatsConstant.StatsKey.OS_VERSION, Build.MODEL);
-            jSONObject.put("device_type", Build.BRAND);
-            jSONObject.put(Constants.KEY_DEVICE_ID, uuid);
-            jSONObject.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.SDK_INT);
+            jSONObject.put(HttpConstants.HTTP_OS_TYPE, "android");
+            jSONObject.put("os_version", Build.MODEL);
+            jSONObject.put(HttpConstants.DEVICE_TYPE, Build.BRAND);
+            jSONObject.put("device_id", uuid);
+            jSONObject.put("os_version", Build.VERSION.SDK_INT);
             jSONObject.put("app_version", b.a());
-            jSONObject.put("engine_version", b.a());
+            jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, b.a());
             if (!TextUtils.isEmpty(b.a(context))) {
-                jSONObject.put(com.xiaomi.mipush.sdk.Constants.APP_ID, b.a(context));
+                jSONObject.put("app_id", b.a(context));
             }
-            jSONObject.put("system_version", Build.VERSION.SDK_INT);
+            jSONObject.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         } catch (Exception e) {
         }
         this.b = new d(str, null);

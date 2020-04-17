@@ -34,8 +34,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.live.tbadk.log.LogConfig;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -203,14 +201,14 @@ public class AuthAgent extends BaseApi {
         a2.putString("scope", this.d);
         a2.putString("client_id", this.b.getAppId());
         if (isOEM) {
-            a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + PraiseDataPassUtil.KEY_FROM_OS + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+            a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
             a2.putString("pf", Constants.DEFAULT_PF);
         }
         String str = (System.currentTimeMillis() / 1000) + "";
         a2.putString("sign", h.b(e.a(), str));
         a2.putString("time", str);
-        a2.putString(LogConfig.KEY_DISPLAY, "mobile");
+        a2.putString("display", "mobile");
         a2.putString(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "token");
         a2.putString(WBConstants.AUTH_PARAMS_REDIRECT_URL, "auth://tauth.qq.com/");
         a2.putString("cancel_display", "1");
@@ -262,7 +260,7 @@ public class AuthAgent extends BaseApi {
             a2.putString("scope", this.d);
             a2.putString("client_id", this.b.getAppId());
             if (isOEM) {
-                a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + PraiseDataPassUtil.KEY_FROM_OS + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+                a2.putString("pf", "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
             } else {
                 a2.putString("pf", Constants.DEFAULT_PF);
             }

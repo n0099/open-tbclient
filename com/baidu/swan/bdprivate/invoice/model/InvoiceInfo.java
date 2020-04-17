@@ -10,14 +10,14 @@ public class InvoiceInfo implements Parcelable, c {
     public static final Parcelable.Creator<InvoiceInfo> CREATOR = new Parcelable.Creator<InvoiceInfo>() { // from class: com.baidu.swan.bdprivate.invoice.model.InvoiceInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: D */
+        /* renamed from: w */
         public InvoiceInfo createFromParcel(Parcel parcel) {
             return new InvoiceInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hu */
+        /* renamed from: hB */
         public InvoiceInfo[] newArray(int i) {
             return new InvoiceInfo[i];
         }
@@ -125,7 +125,7 @@ public class InvoiceInfo implements Parcelable, c {
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.model.c
-    public void bg(JSONObject jSONObject) {
+    public void br(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mId = jSONObject.optLong("id");
             this.mType = jSONObject.optInt("type");

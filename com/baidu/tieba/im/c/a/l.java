@@ -3,6 +3,7 @@ package com.baidu.tieba.im.c.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
@@ -20,7 +21,7 @@ public class l implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage == null || !(customMessage instanceof RequestLocalHistoryMessage)) {
             return null;
         }
-        byte[] bArr = com.baidu.tbadk.core.c.a.aEF().sP("tb.im_official_history").get(TbadkApplication.getCurrentAccount() + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+        byte[] bArr = com.baidu.tbadk.core.c.a.aMT().uc("tb.im_official_history").get(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + ((RequestLocalHistoryMessage) customMessage).getData());
         if (bArr == null) {
             return null;
         }

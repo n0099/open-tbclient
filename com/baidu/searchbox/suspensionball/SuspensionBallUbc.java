@@ -3,7 +3,7 @@ package com.baidu.searchbox.suspensionball;
 import android.text.TextUtils;
 import com.baidu.pyramid.runtime.service.c;
 import com.baidu.ubc.Flow;
-import com.baidu.ubc.a;
+import com.baidu.ubc.aa;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
@@ -61,7 +61,7 @@ public class SuspensionBallUbc {
     }
 
     private static void ubcClickEvent(String str, String str2, String str3, String str4) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
+        aa aaVar = (aa) c.a(aa.SERVICE_REFERENCE);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("from", FROM_VALUE);
@@ -80,7 +80,7 @@ public class SuspensionBallUbc {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        aVar.k(UBC_EVENT_ID, jSONObject);
+        aaVar.onEvent(UBC_EVENT_ID, jSONObject);
     }
 
     public static void timeAddToClick(long j) {
@@ -92,7 +92,7 @@ public class SuspensionBallUbc {
     }
 
     private static void ubcTimeEvent(String str, long j) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
+        aa aaVar = (aa) c.a(aa.SERVICE_REFERENCE);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("from", FROM_VALUE);
@@ -105,7 +105,7 @@ public class SuspensionBallUbc {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        aVar.k(UBC_TIME_ID, jSONObject);
+        aaVar.onEvent(UBC_TIME_ID, jSONObject);
     }
 
     public static Flow startPageShow(String str) {
@@ -113,7 +113,7 @@ public class SuspensionBallUbc {
     }
 
     public static void endUbcFlow(Flow flow) {
-        ((a) c.a(a.SERVICE_REFERENCE)).a(flow);
+        ((aa) c.a(aa.SERVICE_REFERENCE)).flowEnd(flow);
     }
 
     public static Flow startSuspensionBallShow() {
@@ -121,7 +121,7 @@ public class SuspensionBallUbc {
     }
 
     private static Flow startUbcFlow(String str, String str2) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
+        aa aaVar = (aa) c.a(aa.SERVICE_REFERENCE);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("from", FROM_VALUE);
@@ -134,6 +134,6 @@ public class SuspensionBallUbc {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return aVar.p(UBC_TIME_ID, jSONObject);
+        return aaVar.beginFlow(UBC_TIME_ID, jSONObject);
     }
 }

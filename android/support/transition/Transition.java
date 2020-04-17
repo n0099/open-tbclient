@@ -24,7 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
-import com.google.android.exoplayer2.Format;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -355,7 +355,7 @@ public abstract class Transition implements Cloneable {
         Animator animator;
         Animator animator2;
         ArrayMap<Animator, AnimationInfo> runningAnimators = getRunningAnimators();
-        long j = Format.OFFSET_SAMPLE_RELATIVE;
+        long j = Long.MAX_VALUE;
         SparseIntArray sparseIntArray = new SparseIntArray();
         int size = arrayList.size();
         int i = 0;
@@ -1226,7 +1226,7 @@ public abstract class Transition implements Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String toString(String str) {
         String str2;
-        String str3 = str + getClass().getSimpleName() + "@" + Integer.toHexString(hashCode()) + ": ";
+        String str3 = str + getClass().getSimpleName() + UgcConstant.AT_RULE_TAG + Integer.toHexString(hashCode()) + ": ";
         if (this.mDuration != -1) {
             str3 = str3 + "dur(" + this.mDuration + ") ";
         }

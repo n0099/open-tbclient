@@ -6,15 +6,14 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private l dwL;
-    private boolean dwM;
+    private l dWs;
+    private boolean dWt;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -22,9 +21,9 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, l lVar) {
         super(context);
         this.mSkinType = 0;
-        this.dwM = false;
+        this.dWt = false;
         if (lVar != null) {
-            this.dwL = lVar;
+            this.dWs = lVar;
             setIcon();
             setToolId(lVar.id);
         }
@@ -35,11 +34,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public void setIcon() {
-        if (this.dwL != null) {
-            if (this.dwL.dxO) {
-                setImageDrawable(SvgManager.aGG().w(this.dwL.dxM, this.dwL.dxN, this.mSkinType));
+        if (this.dWs != null) {
+            if (this.dWs.dXv) {
+                setImageDrawable(SvgManager.aOU().y(this.dWs.dXt, this.dWs.dXu, this.mSkinType));
             } else {
-                am.setImageResource(this, this.dwL.dxM, this.mSkinType);
+                am.setImageResource(this, this.dWs.dXt, this.mSkinType);
             }
         }
     }
@@ -60,11 +59,11 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        aOx();
+        aWO();
         setVisibility(8);
     }
 
-    public void va(String str) {
+    public void wn(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -81,7 +80,7 @@ public class BLauncher extends ImageView implements g {
             }
             am.setViewTextColor(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
-            if (!str.equals(HanziToPinyin.Token.SEPARATOR)) {
+            if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
                 am.setBackgroundResource(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
@@ -95,7 +94,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void aOx() {
+    public void aWO() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -110,9 +109,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                aOx();
+                aWO();
             } else if (aVar.data instanceof String) {
-                va((String) aVar.data);
+                wn((String) aVar.data);
             }
         }
     }
@@ -132,11 +131,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.dwM;
+        return this.dWt;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.dwM = z;
+        this.dWt = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

@@ -6,13 +6,12 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private String appId;
-    private String cBk;
-    private long cBl = 0;
+    private String dai;
+    private long daj = 0;
     private String downloadUrl;
     private String md5;
     private String sign;
@@ -24,12 +23,12 @@ public class a {
     }
 
     @NonNull
-    public static a bM(@NonNull JSONObject jSONObject) {
+    public static a bX(@NonNull JSONObject jSONObject) {
         a aVar = new a();
         aVar.appId = jSONObject.optString("appKey");
         JSONObject optJSONObject = jSONObject.optJSONObject("packageInfo");
         if (optJSONObject != null) {
-            aVar.cBk = optJSONObject.optString("bundle_id");
+            aVar.dai = optJSONObject.optString("bundle_id");
             aVar.downloadUrl = optJSONObject.optString("download_url");
             aVar.md5 = optJSONObject.optString("md5");
             aVar.sign = optJSONObject.optString("sign");
@@ -43,7 +42,7 @@ public class a {
     @NonNull
     public static a q(@NonNull Cursor cursor) {
         a aVar = new a();
-        int columnIndex = cursor.getColumnIndex(Constants.APP_ID);
+        int columnIndex = cursor.getColumnIndex("app_id");
         int columnIndex2 = cursor.getColumnIndex("bundle_id");
         int columnIndex3 = cursor.getColumnIndex(SharedPrefConfig.VERSION_NAME);
         int columnIndex4 = cursor.getColumnIndex("version_code");
@@ -54,7 +53,7 @@ public class a {
         int columnIndex9 = cursor.getColumnIndex(IMConstants.MSG_ROW_ID);
         String string = cursor.getString(columnIndex2);
         if (!TextUtils.isEmpty(string)) {
-            aVar.cBk = string;
+            aVar.dai = string;
             aVar.appId = cursor.getString(columnIndex);
             aVar.versionName = cursor.getString(columnIndex3);
             aVar.versionCode = cursor.getInt(columnIndex4);
@@ -62,23 +61,23 @@ public class a {
             aVar.md5 = cursor.getString(columnIndex6);
             aVar.sign = cursor.getString(columnIndex7);
             aVar.downloadUrl = cursor.getString(columnIndex8);
-            aVar.cBl = cursor.getLong(columnIndex9);
+            aVar.daj = cursor.getLong(columnIndex9);
         }
         return aVar;
     }
 
-    public boolean PX() {
-        return (TextUtils.isEmpty(this.appId) || TextUtils.isEmpty(this.cBk) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.sign) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
+    public boolean XM() {
+        return (TextUtils.isEmpty(this.appId) || TextUtils.isEmpty(this.dai) || this.versionCode <= 0 || this.size <= 0 || TextUtils.isEmpty(this.md5) || TextUtils.isEmpty(this.sign) || TextUtils.isEmpty(this.downloadUrl)) ? false : true;
     }
 
     @NonNull
     public String toString() {
-        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.cBk + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.cBl + '}';
+        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.dai + "', versionCode=" + this.versionCode + ", versionName='" + this.versionName + "', size=" + this.size + ", md5='" + this.md5 + "', sign='" + this.sign + "', downloadUrl='" + this.downloadUrl + "', rawid=" + this.daj + '}';
     }
 
     @NonNull
-    public String Rd() {
-        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.cBk + "', versionCode=" + this.versionCode + ", md5='" + this.md5 + "'}";
+    public String YS() {
+        return "SwanMiniPackageInfo{appId='" + this.appId + "', bundleId='" + this.dai + "', versionCode=" + this.versionCode + ", md5='" + this.md5 + "'}";
     }
 
     public String getAppId() {
@@ -86,7 +85,7 @@ public class a {
     }
 
     public String getBundleId() {
-        return this.cBk;
+        return this.dai;
     }
 
     public int getVersionCode() {

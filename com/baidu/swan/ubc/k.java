@@ -1,24 +1,17 @@
 package com.baidu.swan.ubc;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public interface k {
-    int Gz();
+    void C(String str, int i);
 
-    ExecutorService HR();
+    int Om();
 
-    l IE();
+    ExecutorService PD();
 
-    String UZ();
-
-    String Zt();
-
-    boolean Zu();
-
-    boolean Zv();
+    l Qq();
 
     void a(String str, int i, JSONArray jSONArray);
 
@@ -26,9 +19,17 @@ public interface k {
 
     void a(String str, String str2, int i, String str3, long j, int i2);
 
+    String acO();
+
+    boolean ahA();
+
+    String ahy();
+
+    boolean ahz();
+
     void c(String str, Object obj, int i);
 
-    String co(Context context);
+    String cc(Context context);
 
     void f(String str, int i, String str2);
 
@@ -42,9 +43,5 @@ public interface k {
 
     String getUserId(Context context);
 
-    SQLiteDatabase getWritableDatabase();
-
-    boolean jI(String str);
-
-    void u(String str, int i);
+    boolean kV(String str);
 }

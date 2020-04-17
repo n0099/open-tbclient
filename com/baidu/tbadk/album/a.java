@@ -1,14 +1,15 @@
 package com.baidu.tbadk.album;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
-    public static final String ALBUM_ID_ALL = String.valueOf(Integer.MAX_VALUE);
+    public static final String ALBUM_ID_ALL = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     public static final String ALBUM_ID_VIDEO = String.valueOf(2147483646);
     private String albumId;
-    private MediaFileInfo cKi;
     private int count;
+    private MediaFileInfo djo;
     private List<MediaFileInfo> fileList;
     private String name;
 
@@ -40,19 +41,19 @@ public class a {
         this.count++;
     }
 
-    public ImageFileInfo ayG() {
-        if (this.cKi instanceof ImageFileInfo) {
-            return (ImageFileInfo) this.cKi;
+    public ImageFileInfo aGR() {
+        if (this.djo instanceof ImageFileInfo) {
+            return (ImageFileInfo) this.djo;
         }
         return null;
     }
 
     public void a(MediaFileInfo mediaFileInfo) {
-        this.cKi = mediaFileInfo;
+        this.djo = mediaFileInfo;
     }
 
-    public MediaFileInfo ayH() {
-        return this.cKi;
+    public MediaFileInfo aGS() {
+        return this.djo;
     }
 
     public List<MediaFileInfo> getFileList() {

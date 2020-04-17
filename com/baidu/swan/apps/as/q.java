@@ -21,7 +21,7 @@ import javax.microedition.khronos.egl.EGLSurface;
 public final class q {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static int[] getMaxTextureSize() {
+    public static int[] aoY() {
         int[] iArr = new int[1];
         GLES10.glGetIntegerv(3379, iArr, 0);
         if (iArr[0] != 0) {
@@ -57,11 +57,11 @@ public final class q {
         return Uri.parse(str);
     }
 
-    public static File mK(String str) {
-        return bt(com.baidu.swan.apps.y.f.WV().WC().afs(), str);
+    public static File nX(String str) {
+        return bE(com.baidu.swan.apps.y.f.aeK().aer().anx(), str);
     }
 
-    public static File bt(String str, String str2) {
+    public static File bE(String str, String str2) {
         if (DEBUG) {
             Log.d("ImageUtils", "获取temp路径");
         }

@@ -19,11 +19,11 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
     @Override // io.reactivex.g
     public void a(org.a.c<? super C> cVar) {
         if (this.size == this.skip) {
-            this.nyr.a((j) new a(cVar, this.size, this.bufferSupplier));
+            this.mRJ.a((j) new a(cVar, this.size, this.bufferSupplier));
         } else if (this.skip > this.size) {
-            this.nyr.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.mRJ.a((j) new PublisherBufferSkipSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         } else {
-            this.nyr.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
+            this.mRJ.a((j) new PublisherBufferOverlappingSubscriber(cVar, this.size, this.skip, this.bufferSupplier));
         }
     }
 
@@ -46,7 +46,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         @Override // org.a.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                this.s.request(io.reactivex.internal.util.b.ae(j, this.size));
+                this.s.request(io.reactivex.internal.util.b.M(j, this.size));
             }
         }
 
@@ -72,7 +72,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
                         c = (C) io.reactivex.internal.functions.a.h(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
                         this.buffer = c;
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         cancel();
                         onError(th);
                         return;
@@ -136,10 +136,10 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
                 if (get() == 0 && compareAndSet(0, 1)) {
-                    this.s.request(io.reactivex.internal.util.b.ad(io.reactivex.internal.util.b.ae(j, this.size), io.reactivex.internal.util.b.ae(this.skip - this.size, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.L(io.reactivex.internal.util.b.M(j, this.size), io.reactivex.internal.util.b.M(this.skip - this.size, j - 1)));
                     return;
                 }
-                this.s.request(io.reactivex.internal.util.b.ae(this.skip, j));
+                this.s.request(io.reactivex.internal.util.b.M(this.skip, j));
             }
         }
 
@@ -167,7 +167,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
                         c = (C) io.reactivex.internal.functions.a.h(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer");
                         this.buffer = c;
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         cancel();
                         onError(th);
                         return;
@@ -240,10 +240,10 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
         public void request(long j) {
             if (SubscriptionHelper.validate(j) && !i.a(j, this.actual, this.buffers, this, this)) {
                 if (!this.once.get() && this.once.compareAndSet(false, true)) {
-                    this.s.request(io.reactivex.internal.util.b.ad(this.size, io.reactivex.internal.util.b.ae(this.skip, j - 1)));
+                    this.s.request(io.reactivex.internal.util.b.L(this.size, io.reactivex.internal.util.b.M(this.skip, j - 1)));
                     return;
                 }
-                this.s.request(io.reactivex.internal.util.b.ae(this.skip, j));
+                this.s.request(io.reactivex.internal.util.b.M(this.skip, j));
             }
         }
 
@@ -273,7 +273,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends io
                     try {
                         arrayDeque.offer((Collection) io.reactivex.internal.functions.a.h(this.bufferSupplier.call(), "The bufferSupplier returned a null buffer"));
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         cancel();
                         onError(th);
                         return;

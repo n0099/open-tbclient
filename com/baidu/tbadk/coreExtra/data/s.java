@@ -1,4 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
+
+import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class s {
     private int FrsMaxCache;
@@ -6,10 +8,7 @@ public class s {
     private int maxCache;
 
     public int getMaxCache() {
-        if (this.maxCache == 0) {
-            return Integer.MAX_VALUE;
-        }
-        return this.maxCache;
+        return this.maxCache == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.maxCache;
     }
 
     public void setMaxCache(String str) {

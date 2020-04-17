@@ -8,14 +8,14 @@ public class SwanAppDeleteInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppDeleteInfo> CREATOR = new Parcelable.Creator<SwanAppDeleteInfo>() { // from class: com.baidu.swan.apps.env.SwanAppDeleteInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: v */
+        /* renamed from: o */
         public SwanAppDeleteInfo createFromParcel(Parcel parcel) {
             return new SwanAppDeleteInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eM */
+        /* renamed from: eR */
         public SwanAppDeleteInfo[] newArray(int i) {
             return new SwanAppDeleteInfo[i];
         }

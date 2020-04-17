@@ -1,33 +1,34 @@
 package com.baidu.tieba.enterForum.home;
 
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.enterForum.recommend.RecommendFragment;
-import java.util.ArrayList;
+import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
 import java.util.List;
 /* loaded from: classes9.dex */
-public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
-    private BaseFragment fWy;
+public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements com.baidu.tbadk.widget.tab.a {
+    private BaseFragment gBr;
     private boolean isPrimary;
+    private FragmentManager mFragmentManager;
     private List<a> mFragments;
     private int mPrimaryPosition;
 
     /* loaded from: classes9.dex */
     public static class a {
         public Fragment fragment;
+        public boolean gBs;
+        public String tabName;
         public String title;
     }
 
     public EnterForumTabPagerAdapter(FragmentManager fragmentManager, List<a> list) {
         super(fragmentManager);
         this.mPrimaryPosition = -1;
-        this.mFragments = new ArrayList();
-        if (list != null && list.size() > 0) {
-            this.mFragments.addAll(list);
-        }
+        this.mFragmentManager = fragmentManager;
+        this.mFragments = list;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
@@ -52,11 +53,24 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
     }
 
     @Override // android.support.v4.view.PagerAdapter
+    public int getItemPosition(@NonNull Object obj) {
+        return this.mFragmentManager.getFragments().contains(obj) ? -1 : -2;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
         if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null) {
             return null;
         }
         return this.mFragments.get(i).title;
+    }
+
+    @Override // com.baidu.tbadk.widget.tab.a
+    public boolean nM(int i) {
+        if (this.mFragments == null || i < 0 || i >= this.mFragments.size() || this.mFragments.get(i) == null || !(this.mFragments.get(i).fragment instanceof EnterForumTabFeedFragment)) {
+            return false;
+        }
+        return this.mFragments.get(i).gBs;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
@@ -70,19 +84,9 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
             if (obj instanceof BaseFragment) {
                 BaseFragment baseFragment = (BaseFragment) obj;
                 baseFragment.setPrimary(true);
-                this.fWy = baseFragment;
+                this.gBr = baseFragment;
             }
         }
-    }
-
-    public int byF() {
-        if (this.fWy instanceof EnterForumFragment) {
-            return 1;
-        }
-        if (this.fWy instanceof RecommendFragment) {
-            return 2;
-        }
-        return -1;
     }
 
     public void setPrimary(boolean z) {
@@ -90,8 +94,8 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
     }
 
     public String getCurrentPageKey() {
-        if (this.fWy instanceof BaseFragment) {
-            return this.fWy.getCurrentPageKey();
+        if (this.gBr instanceof BaseFragment) {
+            return this.gBr.getCurrentPageKey();
         }
         return null;
     }

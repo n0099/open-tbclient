@@ -1,146 +1,55 @@
 package com.baidu.l.a;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
-import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.runtime.e;
-import com.opensource.svgaplayer.SVGAImageView;
-import com.opensource.svgaplayer.d;
-import com.opensource.svgaplayer.f;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.SharedPreferences;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class a extends com.baidu.swan.apps.component.a.d.a<SVGAImageView, b> {
-    private d baN;
+public class a {
+    private static boolean lPv = false;
+    private static long lPw = 10080;
+    private static long lPx = 10;
+    private static final AtomicBoolean lPy = new AtomicBoolean(false);
+    private static HashMap<Integer, Boolean> lPz = new HashMap<>();
+    public static HashMap<Integer, Long> lPA = new HashMap<>();
 
-    public a(@Nullable Context context, @NonNull b bVar) {
-        super(context, bVar);
-        this.baN = null;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.component.b.a
-    @NonNull
-    /* renamed from: bl */
-    public SVGAImageView bm(@NonNull Context context) {
-        return new SVGAImageView(context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.component.b.a
-    /* renamed from: a */
-    public void ac(@NonNull final SVGAImageView sVGAImageView) {
-        String str;
-        FileInputStream fileInputStream;
-        super.ac(sVGAImageView);
-        if (this.baN == null) {
-            this.baN = new d(sVGAImageView.getContext());
-        }
-        final b bVar = (b) KL();
-        sVGAImageView.setLoops(bVar.loop ? 1 : 0);
-        if (!TextUtils.isEmpty(bVar.path)) {
-            if (bVar.path.startsWith("bdfile://")) {
-                str = com.baidu.swan.apps.storage.b.bo(bVar.path, e.acI().id);
-            } else {
-                str = bVar.path;
-            }
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                    fileInputStream = null;
+    public static synchronized void fH(Context context) {
+        synchronized (a.class) {
+            if (!lPy.get()) {
+                SharedPreferences fI = fI(context);
+                Iterator<Integer> it = b.lPB.iterator();
+                while (it.hasNext()) {
+                    int intValue = it.next().intValue();
+                    lPA.put(Integer.valueOf(intValue), Long.valueOf(fI.getLong("cache_" + intValue, 10080L)));
+                    lPz.put(Integer.valueOf(intValue), Boolean.valueOf(fI.getBoolean("close_" + intValue, false)));
                 }
-                this.baN.b(fileInputStream, str, new d.c() { // from class: com.baidu.l.a.a.1
-                    @Override // com.opensource.svgaplayer.d.c
-                    public void a(f fVar) {
-                        sVGAImageView.setImageDrawable(new com.opensource.svgaplayer.b(fVar));
-                        if (bVar.autoPlay) {
-                            sVGAImageView.startAnimation();
-                        }
-                    }
-
-                    @Override // com.opensource.svgaplayer.d.c
-                    public void onError() {
-                        if (a.DEBUG) {
-                            Log.e("Component-SvgaView", "svga parse error");
-                        }
-                    }
-                }, true);
-            }
-        }
-        if (!bVar.loop) {
-            b(sVGAImageView, bVar);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.component.a.d.a, com.baidu.swan.apps.component.b.a
-    public void a(@NonNull SVGAImageView sVGAImageView, @NonNull b bVar, @NonNull com.baidu.swan.apps.component.d.b bVar2) {
-        super.a((a) sVGAImageView, (SVGAImageView) bVar, bVar2);
-        a(sVGAImageView, bVar);
-    }
-
-    private void a(@NonNull SVGAImageView sVGAImageView, @NonNull b bVar) {
-        if (KP()) {
-            if (DEBUG) {
-                Log.d("Component-SvgaView", "renderAction");
-            }
-            String str = bVar.action;
-            if (TextUtils.equals(str, AlaStaticKeys.ALA_STATIC_VALUE_PLAY)) {
-                sVGAImageView.startAnimation();
-            } else if (TextUtils.equals(str, "pause")) {
-                sVGAImageView.pauseAnimation();
-            } else if (TextUtils.equals(str, "stop")) {
-                sVGAImageView.stopAnimation();
+                lPA.put(20001, Long.MAX_VALUE);
+                lPz.put(20001, true);
+                lPy.set(true);
             }
         }
     }
 
-    private void b(@NonNull SVGAImageView sVGAImageView, @NonNull final b bVar) {
-        final JSONObject jSONObject = new JSONObject();
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", bVar.biB);
-            jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", bVar.biA);
-            jSONObject.put("data", jSONObject2.toString());
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
+    public static boolean dlF() {
+        return false;
+    }
+
+    public static boolean FP(int i) {
+        if (lPz.containsKey(Integer.valueOf(i))) {
+            return lPz.get(Integer.valueOf(i)).booleanValue();
         }
-        sVGAImageView.setCallback(new com.opensource.svgaplayer.a() { // from class: com.baidu.l.a.a.2
-            @Override // com.opensource.svgaplayer.a
-            public void onPause() {
-            }
+        return true;
+    }
 
-            @Override // com.opensource.svgaplayer.a
-            public void onFinished() {
-                if (!bVar.loop) {
-                    com.baidu.swan.apps.view.b.b.a.a(bVar.biB, bVar.biA, "animateview", "ended", jSONObject);
-                }
-            }
+    public static long FQ(int i) {
+        if (lPA.containsKey(Integer.valueOf(i))) {
+            return lPA.get(Integer.valueOf(i)).longValue();
+        }
+        return Long.MAX_VALUE;
+    }
 
-            @Override // com.opensource.svgaplayer.a
-            public void Gw() {
-                c.d("Component-SvgaView", "onAnimationRepeat ");
-            }
-
-            @Override // com.opensource.svgaplayer.a
-            public void b(int i, double d) {
-            }
-        });
+    private static SharedPreferences fI(Context context) {
+        return context.getSharedPreferences("CONFIG_RUNTIME", 0);
     }
 }

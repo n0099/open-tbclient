@@ -6,6 +6,7 @@ import android.support.v4.view.NestedScrollingChildHelper;
 import android.support.v4.view.NestedScrollingParent;
 import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -58,7 +59,7 @@ public class DrawerContainer extends FrameLayout implements NestedScrollingChild
         super(context);
         this.mTouchState = 0;
         this.mSecondSpringBackTop = 0;
-        this.mSecondSpringBackGap = Integer.MAX_VALUE;
+        this.mSecondSpringBackGap = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.mDeltaDumpY = 0.0f;
         this.mRefreshBingo = false;
         init(context);
@@ -68,7 +69,7 @@ public class DrawerContainer extends FrameLayout implements NestedScrollingChild
         super(context, attributeSet);
         this.mTouchState = 0;
         this.mSecondSpringBackTop = 0;
-        this.mSecondSpringBackGap = Integer.MAX_VALUE;
+        this.mSecondSpringBackGap = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.mDeltaDumpY = 0.0f;
         this.mRefreshBingo = false;
         init(context);
@@ -78,7 +79,7 @@ public class DrawerContainer extends FrameLayout implements NestedScrollingChild
         super(context, attributeSet, i);
         this.mTouchState = 0;
         this.mSecondSpringBackTop = 0;
-        this.mSecondSpringBackGap = Integer.MAX_VALUE;
+        this.mSecondSpringBackGap = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.mDeltaDumpY = 0.0f;
         this.mRefreshBingo = false;
         init(context);

@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class r {
@@ -61,7 +60,7 @@ public class r {
         @TargetApi(14)
         private boolean c(Context context) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(e, "bool", PraiseDataPassUtil.KEY_FROM_OS);
+            int identifier = resources.getIdentifier(e, "bool", "android");
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
                 if ("1".equals(r.b)) {
@@ -102,7 +101,7 @@ public class r {
         }
 
         private int a(Resources resources, String str) {
-            int identifier = resources.getIdentifier(str, "dimen", PraiseDataPassUtil.KEY_FROM_OS);
+            int identifier = resources.getIdentifier(str, "dimen", "android");
             if (identifier > 0) {
                 return resources.getDimensionPixelSize(identifier);
             }

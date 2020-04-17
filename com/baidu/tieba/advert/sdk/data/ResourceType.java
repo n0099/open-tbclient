@@ -2,7 +2,7 @@ package com.baidu.tieba.advert.sdk.data;
 /* loaded from: classes10.dex */
 public enum ResourceType {
     ID("id"),
-    ARRAY("array"),
+    ARRAY(com.baidu.fsg.base.statistics.b.j),
     LAYOUT("layout"),
     STYLE("style"),
     STRING("string"),

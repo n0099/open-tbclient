@@ -19,18 +19,18 @@ import com.baidu.swan.bdprivate.invoice.e;
 import com.baidu.swan.bdprivate.invoice.model.InvoiceInfo;
 /* loaded from: classes11.dex */
 public class InvoiceInfoEditView extends FrameLayout implements e {
-    private RadioGroup cen;
-    private ViewSwitcher ceo;
-    private InvoiceCompanyInfoView cep;
-    private InvoicePersonalInfoView ceq;
-    private TextWatcher cer;
-    private RadioGroup.OnCheckedChangeListener ces;
-    private b cet;
-    private LinearLayout ceu;
-    private TextView cev;
-    private RadioButton cew;
-    private RadioButton cex;
-    private View cey;
+    private RadioGroup cDl;
+    private ViewSwitcher cDm;
+    private InvoiceCompanyInfoView cDn;
+    private InvoicePersonalInfoView cDo;
+    private TextWatcher cDp;
+    private RadioGroup.OnCheckedChangeListener cDq;
+    private b cDr;
+    private LinearLayout cDs;
+    private TextView cDt;
+    private RadioButton cDu;
+    private RadioButton cDv;
+    private View cDw;
     private Context mContext;
 
     public InvoiceInfoEditView(@NonNull Context context) {
@@ -49,39 +49,39 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
     private void init(Context context) {
         this.mContext = context;
         inflate(context, b.f.invoice_info_edit_view, this);
-        this.cen = (RadioGroup) findViewById(b.e.invoice_type_group);
-        this.ceo = (ViewSwitcher) findViewById(b.e.invoice_type_switcher);
-        this.cev = (TextView) findViewById(b.e.invoice_type_desc);
-        this.cew = (RadioButton) findViewById(b.e.invoice_type_company);
-        this.cex = (RadioButton) findViewById(b.e.invoice_type_personal);
-        this.cey = findViewById(b.e.divider_line);
-        this.ceu = (LinearLayout) findViewById(b.e.invoice_type_area);
-        this.cev.setTextColor(getResources().getColor(b.C0318b.invoice_type));
-        this.cew.setTextColor(getResources().getColor(b.C0318b.invoice_type_company));
-        this.cew.setButtonDrawable(getResources().getDrawable(b.d.radio_button_selector));
-        this.cex.setTextColor(getResources().getColor(b.C0318b.invoice_type_personal));
-        this.cex.setButtonDrawable(getResources().getDrawable(b.d.radio_button_selector));
-        this.cey.setBackground(getResources().getDrawable(b.C0318b.invoice_info_item_divider_line));
-        this.ceu.setBackground(getResources().getDrawable(b.C0318b.invoice_edit_view_bg));
-        this.ces = new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.swan.bdprivate.invoice.ui.InvoiceInfoEditView.1
+        this.cDl = (RadioGroup) findViewById(b.e.invoice_type_group);
+        this.cDm = (ViewSwitcher) findViewById(b.e.invoice_type_switcher);
+        this.cDt = (TextView) findViewById(b.e.invoice_type_desc);
+        this.cDu = (RadioButton) findViewById(b.e.invoice_type_company);
+        this.cDv = (RadioButton) findViewById(b.e.invoice_type_personal);
+        this.cDw = findViewById(b.e.divider_line);
+        this.cDs = (LinearLayout) findViewById(b.e.invoice_type_area);
+        this.cDt.setTextColor(getResources().getColor(b.C0348b.invoice_type));
+        this.cDu.setTextColor(getResources().getColor(b.C0348b.invoice_type_company));
+        this.cDu.setButtonDrawable(getResources().getDrawable(b.d.radio_button_selector));
+        this.cDv.setTextColor(getResources().getColor(b.C0348b.invoice_type_personal));
+        this.cDv.setButtonDrawable(getResources().getDrawable(b.d.radio_button_selector));
+        this.cDw.setBackground(getResources().getDrawable(b.C0348b.invoice_info_item_divider_line));
+        this.cDs.setBackground(getResources().getDrawable(b.C0348b.invoice_edit_view_bg));
+        this.cDq = new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.swan.bdprivate.invoice.ui.InvoiceInfoEditView.1
             @Override // android.widget.RadioGroup.OnCheckedChangeListener
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i == b.e.invoice_type_company) {
-                    InvoiceInfoEditView.this.ceo.setDisplayedChild(0);
+                    InvoiceInfoEditView.this.cDm.setDisplayedChild(0);
                 } else if (i == b.e.invoice_type_personal) {
-                    InvoiceInfoEditView.this.ceo.setDisplayedChild(1);
+                    InvoiceInfoEditView.this.cDm.setDisplayedChild(1);
                 }
-                if (InvoiceInfoEditView.this.cet != null) {
-                    InvoiceInfoEditView.this.cet.aiF();
+                if (InvoiceInfoEditView.this.cDr != null) {
+                    InvoiceInfoEditView.this.cDr.aqN();
                 }
             }
         };
-        this.cen.setOnCheckedChangeListener(this.ces);
-        this.cep = new InvoiceCompanyInfoView(context);
-        this.ceq = new InvoicePersonalInfoView(context);
-        this.ceo.addView(this.cep, 0);
-        this.ceo.addView(this.ceq, 1);
-        this.cer = new TextWatcher() { // from class: com.baidu.swan.bdprivate.invoice.ui.InvoiceInfoEditView.2
+        this.cDl.setOnCheckedChangeListener(this.cDq);
+        this.cDn = new InvoiceCompanyInfoView(context);
+        this.cDo = new InvoicePersonalInfoView(context);
+        this.cDm.addView(this.cDn, 0);
+        this.cDm.addView(this.cDo, 1);
+        this.cDp = new TextWatcher() { // from class: com.baidu.swan.bdprivate.invoice.ui.InvoiceInfoEditView.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -92,42 +92,42 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                InvoiceInfoEditView.this.aiM();
+                InvoiceInfoEditView.this.aqU();
             }
         };
-        this.ceq.setTextChangedListener(this.cer);
-        this.cep.setTextChangedListener(this.cer);
-        this.cen.check(b.e.invoice_type_company);
+        this.cDo.setTextChangedListener(this.cDp);
+        this.cDn.setTextChangedListener(this.cDp);
+        this.cDl.check(b.e.invoice_type_company);
     }
 
-    public void aiL() {
-        if (this.ceq != null) {
-            this.ceq.a(this.cer);
+    public void aqT() {
+        if (this.cDo != null) {
+            this.cDo.a(this.cDp);
         }
-        if (this.cep != null) {
-            this.cep.a(this.cer);
+        if (this.cDn != null) {
+            this.cDn.a(this.cDp);
         }
     }
 
     public void setInputStatusListener(com.baidu.swan.bdprivate.invoice.b bVar) {
-        this.cet = bVar;
+        this.cDr = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiM() {
-        if (this.cet != null) {
-            if (aiH()) {
-                this.cet.aiD();
+    public void aqU() {
+        if (this.cDr != null) {
+            if (aqP()) {
+                this.cDr.aqL();
             } else {
-                this.cet.aiE();
+                this.cDr.aqM();
             }
         }
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.e
-    public boolean aiH() {
+    public boolean aqP() {
         e currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.aiH();
+        return currentInvoiceView != null && currentInvoiceView.aqP();
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.e
@@ -142,30 +142,30 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
     public void d(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             if (invoiceInfo.mType == 0) {
-                this.cen.check(b.e.invoice_type_company);
-                this.cep.d(invoiceInfo);
+                this.cDl.check(b.e.invoice_type_company);
+                this.cDn.d(invoiceInfo);
             } else if (invoiceInfo.mType == 1) {
-                this.cen.check(b.e.invoice_type_personal);
-                this.ceq.d(invoiceInfo);
+                this.cDl.check(b.e.invoice_type_personal);
+                this.cDo.d(invoiceInfo);
             }
         }
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.e
-    public boolean aiI() {
+    public boolean aqQ() {
         e currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.aiI();
+        return currentInvoiceView != null && currentInvoiceView.aqQ();
     }
 
     private e getCurrentInvoiceView() {
-        if (this.ceo == null) {
+        if (this.cDm == null) {
             return null;
         }
-        if (this.ceo.getDisplayedChild() == 0) {
-            return this.cep;
+        if (this.cDm.getDisplayedChild() == 0) {
+            return this.cDn;
         }
-        if (this.ceo.getDisplayedChild() == 1) {
-            return this.ceq;
+        if (this.cDm.getDisplayedChild() == 1) {
+            return this.cDo;
         }
         return null;
     }

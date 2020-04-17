@@ -3,7 +3,6 @@ package com.baidu.crabsdk.c;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.crabsdk.b.p;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.ByteArrayOutputStream;
@@ -16,14 +15,18 @@ import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class c {
-    private static SimpleDateFormat Sm;
-    private static PackageManager Sn;
+    private static SimpleDateFormat akD;
+    private static PackageManager akE;
+
+    public static String Q(long j) {
+        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
+    }
 
     public static String a(Date date) {
-        if (Sm == null) {
-            Sm = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (akD == null) {
+            akD = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return Sm.format(date);
+        return akD.format(date);
     }
 
     public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
@@ -128,7 +131,7 @@ public final class c {
         return bArr2;
     }
 
-    public static byte[] cm(String str) {
+    public static byte[] dh(String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -136,11 +139,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (Sn == null) {
-            Sn = context.getPackageManager();
+        if (akE == null) {
+            akE = context.getPackageManager();
         }
         try {
-            return Sn.checkPermission(str, context.getPackageName()) == 0;
+            return akE.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -164,20 +167,16 @@ public final class c {
             th = th.getCause();
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
-        String oi = p.oi();
+        String sC = p.sC();
         for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().contains(oi)) {
+            if (stackTrace[i].getClassName().contains(sC)) {
                 return stackTrace[i].toString();
             }
         }
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static String os() {
-        return new SimpleDateFormat(DateTimeUtil.DAY_FORMAT).format(new Date(System.currentTimeMillis()));
-    }
-
-    public static String s(long j) {
-        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
+    public static String sM() {
+        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 }

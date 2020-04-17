@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.tencent.mm.opensdk.channel.MMessageActV2;
@@ -95,7 +96,7 @@ final class WXApiImplV10 implements IWXAPI {
                 resp.templateID = parse.getQueryParameter("template_id");
                 resp.scene = d.b(parse.getQueryParameter(FaceBaseDTO.KEY_BUSINESS_SCENE));
                 resp.action = parse.getQueryParameter("action");
-                resp.reserved = parse.getQueryParameter("reserved");
+                resp.reserved = parse.getQueryParameter(GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED);
                 iWXAPIEventHandler.onResp(resp);
                 z = true;
             } else if (queryParameter.contains("invoice_auth_insert")) {
@@ -452,12 +453,12 @@ final class WXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         Log.d(TAG, "register app " + this.context.getPackageName());
-        a.C0742a c0742a = new a.C0742a();
-        c0742a.a = "com.tencent.mm";
-        c0742a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-        c0742a.content = "weixin://registerapp?appid=" + this.appId;
-        c0742a.b = j;
-        return a.a(this.context, c0742a);
+        a.C0766a c0766a = new a.C0766a();
+        c0766a.a = "com.tencent.mm";
+        c0766a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+        c0766a.content = "weixin://registerapp?appid=" + this.appId;
+        c0766a.b = j;
+        return a.a(this.context, c0766a);
     }
 
     @Override // com.tencent.mm.opensdk.openapi.IWXAPI
@@ -596,10 +597,10 @@ final class WXApiImplV10 implements IWXAPI {
             return;
         }
         Log.d(TAG, "unregister app " + this.context.getPackageName());
-        a.C0742a c0742a = new a.C0742a();
-        c0742a.a = "com.tencent.mm";
-        c0742a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-        c0742a.content = "weixin://unregisterapp?appid=" + this.appId;
-        a.a(this.context, c0742a);
+        a.C0766a c0766a = new a.C0766a();
+        c0766a.a = "com.tencent.mm";
+        c0766a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+        c0766a.content = "weixin://unregisterapp?appid=" + this.appId;
+        a.a(this.context, c0766a);
     }
 }

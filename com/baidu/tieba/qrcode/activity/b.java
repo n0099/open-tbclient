@@ -35,102 +35,102 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b implements QRCodeView.a {
-    private com.baidu.tieba.ueg.c hUt;
-    private boolean jEq;
-    private final com.baidu.tieba.qrcode.activity.a jEx;
-    private c jEy;
-    private C0594b jEz;
+    private com.baidu.tieba.ueg.c iEk;
+    private boolean koj;
+    private final com.baidu.tieba.qrcode.activity.a koq;
+    private c kor;
+    private C0633b kos;
     private final TbPageContext mTbPageContext;
 
     public b(com.baidu.tieba.qrcode.activity.a aVar, TbPageContext tbPageContext) {
-        this.jEx = aVar;
+        this.koq = aVar;
         this.mTbPageContext = tbPageContext;
     }
 
-    public void sc(boolean z) {
-        this.jEq = z;
+    public void tg(boolean z) {
+        this.koj = z;
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void Hw(String str) {
+    public void Ja(String str) {
         if (StringUtils.isNull(str)) {
-            this.jEx.cBS();
-            this.jEx.cBQ();
-        } else if (this.jEq) {
+            this.koq.cMr();
+            this.koq.cMp();
+        } else if (this.koj) {
             Intent intent = new Intent();
             intent.putExtra(QRCodeScanActivityConfig.RESULT_SCAN_CODE, str);
             this.mTbPageContext.getPageActivity().setResult(-1, intent);
             this.mTbPageContext.getPageActivity().finish();
-        } else if (Hz(str)) {
-            this.jEx.cBS();
+        } else if (Jd(str)) {
+            this.koq.cMr();
         } else if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
-            this.jEx.cBS();
-            HA(str);
-        } else if (Hy(str)) {
-            this.jEx.cBS();
+            this.koq.cMr();
+            Je(str);
+        } else if (Jc(str)) {
+            this.koq.cMr();
             this.mTbPageContext.getPageActivity().finish();
-        } else if (!aq.tz(str)) {
-            this.jEx.cBS();
-            this.jEx.cBQ();
+        } else if (!aq.uM(str)) {
+            this.koq.cMr();
+            this.koq.cMp();
         } else {
-            Hx(str);
+            Jb(str);
         }
     }
 
-    private void Hx(final String str) {
+    private void Jb(final String str) {
         if (!l.isNetOk()) {
-            this.jEx.cBS();
+            this.koq.cMr();
             l.showToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getResources().getString(R.string.network_not_available));
             return;
         }
-        if (this.hUt != null && !this.hUt.isCancelled()) {
-            this.hUt.cancel();
+        if (this.iEk != null && !this.iEk.isCancelled()) {
+            this.iEk.cancel();
         }
-        this.hUt = new com.baidu.tieba.ueg.c(str, new c.a() { // from class: com.baidu.tieba.qrcode.activity.b.1
+        this.iEk = new com.baidu.tieba.ueg.c(str, new c.a() { // from class: com.baidu.tieba.qrcode.activity.b.1
             @Override // com.baidu.tieba.ueg.c.a
-            public void cbg() {
-                b.this.jEx.cBS();
+            public void clH() {
+                b.this.koq.cMr();
                 b.this.openUrl(str);
             }
 
             @Override // com.baidu.tieba.ueg.c.a
-            public void cbh() {
-                b.this.jEx.cBS();
-                b.this.jEx.Hv(str);
+            public void clI() {
+                b.this.koq.cMr();
+                b.this.koq.IZ(str);
             }
 
             @Override // com.baidu.tieba.ueg.c.a
-            public void cbi() {
-                b.this.jEx.cBS();
-                b.this.jEx.cBT();
+            public void clJ() {
+                b.this.koq.cMr();
+                b.this.koq.cMs();
             }
 
             @Override // com.baidu.tieba.ueg.c.a
             public void onError(String str2) {
-                b.this.jEx.cBS();
-                b.this.jEx.cBQ();
+                b.this.koq.cMr();
+                b.this.koq.cMp();
             }
         });
-        this.hUt.setPriority(3);
-        this.hUt.execute(new String[0]);
+        this.iEk.setPriority(3);
+        this.iEk.execute(new String[0]);
     }
 
     public void openUrl(String str) {
-        ba.aGK().b(this.mTbPageContext, new String[]{str});
+        ba.aOY().b(this.mTbPageContext, new String[]{str});
         this.mTbPageContext.getPageActivity().finish();
     }
 
-    private boolean Hy(String str) {
+    private boolean Jc(String str) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_QR_CODE_LOGIN, null, str);
         return runTask != null && runTask.getData() != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue();
     }
 
-    private boolean Hz(String str) {
+    private boolean Jd(String str) {
         if (StringUtils.isNULL(str)) {
             return false;
         }
         if (str.startsWith("tiebaclient:")) {
-            HC(str);
+            Jg(str);
             return true;
         } else if (str.contains("smartapp.baidu.com/mappconsole/api/packagescheme") || str.contains("mappconsole/api/packagescheme")) {
             new a().execute(str);
@@ -140,7 +140,7 @@ public class b implements QRCodeView.a {
         }
     }
 
-    private void HA(String str) {
+    private void Je(String str) {
         CookieSyncManager.createInstance(this.mTbPageContext.getPageActivity());
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
@@ -151,42 +151,42 @@ public class b implements QRCodeView.a {
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.a
-    public void cBU() {
+    public void cMt() {
         l.showToast(this.mTbPageContext.getPageActivity(), (int) R.string.disallow_camera_permission);
         this.mTbPageContext.getPageActivity().finish();
     }
 
-    public void HB(String str) {
+    public void Jf(String str) {
         if (!StringUtils.isNull(str)) {
-            this.jEx.cBR();
-            if (this.jEy != null) {
-                this.jEy.cancel();
+            this.koq.cMq();
+            if (this.kor != null) {
+                this.kor.cancel();
             }
-            this.jEy = new c();
-            this.jEy.execute(str);
+            this.kor = new c();
+            this.kor.execute(str);
         }
     }
 
-    public void cBV() {
+    public void cMu() {
         if (this.mTbPageContext != null && this.mTbPageContext.getPageActivity() != null) {
             if (Build.VERSION.SDK_INT < 23 || (this.mTbPageContext.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 && this.mTbPageContext.getPageActivity().checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0)) {
                 String b = b(this.mTbPageContext.getPageActivity().getContentResolver());
-                if (!TextUtils.isEmpty(b) && !b.endsWith(".gif") && !b.endsWith(".GIF") && !b.equals(com.baidu.tbadk.core.sharedPref.b.aFH().getString("key_gallery_last_image_path", null))) {
-                    if (this.jEz != null) {
-                        this.jEz.cancel();
+                if (!TextUtils.isEmpty(b) && !b.endsWith(".gif") && !b.endsWith(".GIF") && !b.equals(com.baidu.tbadk.core.sharedPref.b.aNV().getString("key_gallery_last_image_path", null))) {
+                    if (this.kos != null) {
+                        this.kos.cancel();
                     }
-                    this.jEz = new C0594b(new C0594b.a() { // from class: com.baidu.tieba.qrcode.activity.b.2
-                        @Override // com.baidu.tieba.qrcode.activity.b.C0594b.a
-                        public void ek(String str, String str2) {
+                    this.kos = new C0633b(new C0633b.a() { // from class: com.baidu.tieba.qrcode.activity.b.2
+                        @Override // com.baidu.tieba.qrcode.activity.b.C0633b.a
+                        public void ez(String str, String str2) {
                             if (!TextUtils.isEmpty(str)) {
-                                com.baidu.tbadk.core.sharedPref.b.aFH().putString("key_gallery_last_image_path", str);
+                                com.baidu.tbadk.core.sharedPref.b.aNV().putString("key_gallery_last_image_path", str);
                                 if (!TextUtils.isEmpty(str2)) {
-                                    b.this.jEx.ej(str, str2);
+                                    b.this.koq.ey(str, str2);
                                 }
                             }
                         }
                     });
-                    this.jEz.execute(b);
+                    this.kos.execute(b);
                 }
             }
         }
@@ -194,18 +194,18 @@ public class b implements QRCodeView.a {
 
     /* renamed from: com.baidu.tieba.qrcode.activity.b$b  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0594b extends BdAsyncTask<String, Void, String> {
+    public static class C0633b extends BdAsyncTask<String, Void, String> {
         private String filePath;
-        private a jEC;
+        private a kov;
 
         /* renamed from: com.baidu.tieba.qrcode.activity.b$b$a */
         /* loaded from: classes10.dex */
         public interface a {
-            void ek(String str, String str2);
+            void ez(String str, String str2);
         }
 
-        public C0594b(a aVar) {
-            this.jEC = aVar;
+        public C0633b(a aVar) {
+            this.kov = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -216,16 +216,16 @@ public class b implements QRCodeView.a {
                 return null;
             }
             this.filePath = strArr[0];
-            return com.baidu.tieba.qrcode.lib.zxing.a.HD(this.filePath);
+            return com.baidu.tieba.qrcode.lib.zxing.a.Jh(this.filePath);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0594b) str);
-            if (this.jEC != null) {
-                this.jEC.ek(this.filePath, str);
+            super.onPostExecute((C0633b) str);
+            if (this.kov != null) {
+                this.kov.ez(this.filePath, str);
             }
         }
     }
@@ -296,16 +296,16 @@ public class b implements QRCodeView.a {
     }
 
     public void onDestroy() {
-        if (this.hUt != null && !this.hUt.isCancelled()) {
-            this.hUt.cancel();
+        if (this.iEk != null && !this.iEk.isCancelled()) {
+            this.iEk.cancel();
         }
-        if (this.jEy != null) {
-            this.jEy.cancel();
-            this.jEy = null;
+        if (this.kor != null) {
+            this.kor.cancel();
+            this.kor = null;
         }
-        if (this.jEz != null) {
-            this.jEz.cancel();
-            this.jEz = null;
+        if (this.kos != null) {
+            this.kos.cancel();
+            this.kos = null;
         }
     }
 
@@ -318,7 +318,7 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            b.this.jEx.cBR();
+            b.this.koq.cMq();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -328,7 +328,7 @@ public class b implements QRCodeView.a {
             if (strArr == null || strArr.length <= 0) {
                 return null;
             }
-            return com.baidu.tieba.qrcode.lib.zxing.a.HD(strArr[0]);
+            return com.baidu.tieba.qrcode.lib.zxing.a.Jh(strArr[0]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -336,8 +336,8 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((c) str);
-            b.this.jEx.cBS();
-            b.this.Hw(str);
+            b.this.koq.cMr();
+            b.this.Ja(str);
         }
     }
 
@@ -371,12 +371,12 @@ public class b implements QRCodeView.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            b.this.HC(str);
+            b.this.Jg(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HC(final String str) {
+    public void Jg(final String str) {
         if (!StringUtils.isNull(str) && str.startsWith("tiebaclient:")) {
             if (Build.VERSION.SDK_INT <= 21) {
                 l.showToast(this.mTbPageContext.getPageActivity(), (int) R.string.ai_apps_not_support);

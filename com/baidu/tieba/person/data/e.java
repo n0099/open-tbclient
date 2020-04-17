@@ -4,14 +4,14 @@ import com.baidu.adp.widget.ListView.m;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class e {
-    private ArrayList<m> cWf;
-    private boolean jhW = true;
+    private ArrayList<m> dvq;
+    private boolean jSe = true;
 
-    public void aN(ArrayList<m> arrayList) {
-        this.cWf = arrayList;
+    public void aP(ArrayList<m> arrayList) {
+        this.dvq = arrayList;
     }
 
-    public void rl(boolean z) {
-        this.jhW = z;
+    public void sp(boolean z) {
+        this.jSe = z;
     }
 }

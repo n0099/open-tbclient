@@ -1,7 +1,7 @@
 package com.baidu.searchbox.dns.d.b;
 /* loaded from: classes13.dex */
 public class d {
-    public static b L() {
+    public static b N() {
         return a.ai;
     }
 

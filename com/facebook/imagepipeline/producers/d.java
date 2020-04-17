@@ -8,36 +8,36 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes12.dex */
 public class d implements ak {
-    private final Object lMb;
-    private final ImageRequest lMc;
     @GuardedBy("this")
-    private boolean lMm;
-    private final am lWU;
-    private final ImageRequest.RequestLevel lWV;
-    @GuardedBy("this")
-    private Priority lWW;
-    @GuardedBy("this")
-    private boolean lWX;
+    private boolean lTG;
+    private final Object lTv;
+    private final ImageRequest lTw;
     private final String mId;
+    private final am meF;
+    private final ImageRequest.RequestLevel meG;
     @GuardedBy("this")
-    private boolean Vh = false;
+    private Priority meH;
+    @GuardedBy("this")
+    private boolean meI;
+    @GuardedBy("this")
+    private boolean dLA = false;
     @GuardedBy("this")
     private final List<al> mCallbacks = new ArrayList();
 
     public d(ImageRequest imageRequest, String str, am amVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        this.lMc = imageRequest;
+        this.lTw = imageRequest;
         this.mId = str;
-        this.lWU = amVar;
-        this.lMb = obj;
-        this.lWV = requestLevel;
-        this.lMm = z;
-        this.lWW = priority;
-        this.lWX = z2;
+        this.meF = amVar;
+        this.lTv = obj;
+        this.meG = requestLevel;
+        this.lTG = z;
+        this.meH = priority;
+        this.meI = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public ImageRequest drV() {
-        return this.lMc;
+    public ImageRequest dtT() {
+        return this.lTw;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
@@ -46,33 +46,33 @@ public class d implements ak {
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public am drW() {
-        return this.lWU;
+    public am dtU() {
+        return this.meF;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public Object dmD() {
-        return this.lMb;
+    public Object dow() {
+        return this.lTv;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public ImageRequest.RequestLevel drX() {
-        return this.lWV;
+    public ImageRequest.RequestLevel dtV() {
+        return this.meG;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean drY() {
-        return this.lMm;
+    public synchronized boolean dtW() {
+        return this.lTG;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized Priority drZ() {
-        return this.lWW;
+    public synchronized Priority dtX() {
+        return this.meH;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
-    public synchronized boolean dsa() {
-        return this.lWX;
+    public synchronized boolean dtY() {
+        return this.meI;
     }
 
     @Override // com.facebook.imagepipeline.producers.ak
@@ -80,26 +80,26 @@ public class d implements ak {
         boolean z = false;
         synchronized (this) {
             this.mCallbacks.add(alVar);
-            if (this.Vh) {
+            if (this.dLA) {
                 z = true;
             }
         }
         if (z) {
-            alVar.don();
+            alVar.dqk();
         }
     }
 
     public void cancel() {
-        eV(dsb());
+        eW(dtZ());
     }
 
     @Nullable
-    public synchronized List<al> vz(boolean z) {
+    public synchronized List<al> vM(boolean z) {
         ArrayList arrayList;
-        if (z == this.lMm) {
+        if (z == this.lTG) {
             arrayList = null;
         } else {
-            this.lMm = z;
+            this.lTG = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -108,51 +108,43 @@ public class d implements ak {
     @Nullable
     public synchronized List<al> a(Priority priority) {
         ArrayList arrayList;
-        if (priority == this.lWW) {
+        if (priority == this.meH) {
             arrayList = null;
         } else {
-            this.lWW = priority;
+            this.meH = priority;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<al> vA(boolean z) {
+    public synchronized List<al> vN(boolean z) {
         ArrayList arrayList;
-        if (z == this.lWX) {
+        if (z == this.meI) {
             arrayList = null;
         } else {
-            this.lWX = z;
+            this.meI = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<al> dsb() {
+    public synchronized List<al> dtZ() {
         ArrayList arrayList;
-        if (this.Vh) {
+        if (this.dLA) {
             arrayList = null;
         } else {
-            this.Vh = true;
+            this.dLA = true;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
-    }
-
-    public static void eV(@Nullable List<al> list) {
-        if (list != null) {
-            for (al alVar : list) {
-                alVar.don();
-            }
-        }
     }
 
     public static void eW(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dsc();
+                alVar.dqk();
             }
         }
     }
@@ -160,7 +152,7 @@ public class d implements ak {
     public static void eX(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dsd();
+                alVar.dua();
             }
         }
     }
@@ -168,7 +160,15 @@ public class d implements ak {
     public static void eY(@Nullable List<al> list) {
         if (list != null) {
             for (al alVar : list) {
-                alVar.dse();
+                alVar.dub();
+            }
+        }
+    }
+
+    public static void eZ(@Nullable List<al> list) {
+        if (list != null) {
+            for (al alVar : list) {
+                alVar.duc();
             }
         }
     }

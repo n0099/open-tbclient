@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
@@ -9,14 +8,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSkipUntil<T, U> extends a<T, T> {
-    final org.a.b<U> other;
+    final org.a.b<U> mSk;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         SkipUntilMainSubscriber skipUntilMainSubscriber = new SkipUntilMainSubscriber(cVar);
         cVar.onSubscribe(skipUntilMainSubscriber);
-        this.other.subscribe(skipUntilMainSubscriber.other);
-        this.nyr.a((j) skipUntilMainSubscriber);
+        this.mSk.subscribe(skipUntilMainSubscriber.other);
+        this.mRJ.a((j) skipUntilMainSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -86,7 +85,9 @@ public final class FlowableSkipUntil<T, U> extends a<T, T> {
 
             @Override // io.reactivex.j, org.a.c
             public void onSubscribe(org.a.d dVar) {
-                SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+                if (SubscriptionHelper.setOnce(this, dVar)) {
+                    dVar.request(Long.MAX_VALUE);
+                }
             }
 
             @Override // org.a.c

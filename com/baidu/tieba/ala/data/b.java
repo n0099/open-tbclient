@@ -4,70 +4,71 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public h ezT;
-    public a ezU;
+    public h fen;
+    public a feo;
 
     public void parserJson(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("red_packet_info");
         if (optJSONObject != null) {
-            this.ezT = new h();
-            this.ezT.parserJson(optJSONObject);
+            this.fen = new h();
+            this.fen.parserJson(optJSONObject);
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("user_cond");
         if (optJSONObject2 != null) {
-            this.ezU = new a();
-            this.ezU.parserJson(optJSONObject2);
+            this.feo = new a();
+            this.feo.parserJson(optJSONObject2);
         }
     }
 
-    public boolean beo() {
-        return this.ezT != null && this.ezT.status == 5;
+    public boolean bnE() {
+        return this.fen != null && this.fen.status == 5;
     }
 
-    public boolean bep() {
-        return this.ezT != null && this.ezT.status == 4;
+    public boolean bnF() {
+        return this.fen != null && this.fen.status == 4;
     }
 
     public boolean isValid() {
-        return this.ezT != null && (this.ezT.status == 2 || this.ezT.status == 3);
+        return this.fen != null && (this.fen.status == 2 || this.fen.status == 3);
     }
 
-    public boolean beq() {
-        return (this.ezT == null || this.ezU == null || this.ezT.status != 2) ? false : true;
+    public boolean bnG() {
+        return (this.fen == null || this.feo == null || this.fen.status != 2) ? false : true;
     }
 
-    public boolean ber() {
-        return this.ezU != null && this.ezU.ezV == 1;
+    public boolean bnH() {
+        return this.feo != null && this.feo.fep == 1;
     }
 
-    public long bes() {
-        if (this.ezU != null) {
-            return this.ezU.ezW;
+    public long bnI() {
+        if (this.feo != null) {
+            return this.feo.feq;
         }
         return 0L;
     }
 
-    public boolean bet() {
-        return this.ezU != null && ((this.ezU.ezX && !this.ezU.aqx) || (this.ezU.ezY && !this.ezU.ezZ));
+    public boolean bnJ() {
+        return this.feo != null && ((this.feo.fer && !this.feo.aJg) || (this.feo.fes && !this.feo.fet));
     }
 
-    public boolean beu() {
-        return this.ezU != null && (this.ezU.ezX || this.ezU.ezY);
+    public boolean bnK() {
+        return this.feo != null && (this.feo.fer || this.feo.fes);
     }
 
-    public boolean bev() {
-        return (this.ezU == null || !this.ezU.ezX || this.ezU.aqx) ? false : true;
+    public boolean bnL() {
+        return (this.feo == null || !this.feo.fer || this.feo.aJg) ? false : true;
     }
 
-    public boolean bew() {
-        return (this.ezU == null || !this.ezU.ezY || this.ezU.ezZ) ? false : true;
+    public boolean bnM() {
+        return (this.feo == null || !this.feo.fes || this.feo.fet) ? false : true;
     }
 
-    public int cF(long j) {
+    public int dn(long j) {
         return 100 - ((int) (((j * 1.0d) / 180.0d) * 100.0d));
     }
 
-    public String[] cG(long j) {
+    /* renamed from: do  reason: not valid java name */
+    public String[] m32do(long j) {
         String[] strArr = new String[2];
         if (j <= 60) {
             if (j < 0) {
@@ -98,26 +99,26 @@ public class b {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public boolean aqx;
-        public boolean eAa;
-        public String eAb;
-        public boolean eAc;
-        public int ezV;
-        public long ezW;
-        public boolean ezX;
-        public boolean ezY;
-        public boolean ezZ;
+        public boolean aJg;
+        public int fep;
+        public long feq;
+        public boolean fer;
+        public boolean fes;
+        public boolean fet;
+        public boolean feu;
+        public String fev;
+        public boolean few;
 
         public void parserJson(JSONObject jSONObject) {
-            this.ezX = jSONObject.optInt("need_follow") == 1;
-            this.ezY = jSONObject.optInt("need_send_gift") == 1;
-            this.aqx = jSONObject.optInt("follow") == 1;
-            this.ezZ = jSONObject.optInt("send_gift") == 1;
-            this.eAa = jSONObject.optInt("need_follow_sender") == 1;
-            this.eAb = jSONObject.optString("sender_user_id");
-            this.eAc = jSONObject.optInt("follow_sender") == 1;
-            this.ezV = jSONObject.optInt("loot_result");
-            this.ezW = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+            this.fer = jSONObject.optInt("need_follow") == 1;
+            this.fes = jSONObject.optInt("need_send_gift") == 1;
+            this.aJg = jSONObject.optInt("follow") == 1;
+            this.fet = jSONObject.optInt("send_gift") == 1;
+            this.feu = jSONObject.optInt("need_follow_sender") == 1;
+            this.fev = jSONObject.optString("sender_user_id");
+            this.few = jSONObject.optInt("follow_sender") == 1;
+            this.fep = jSONObject.optInt("loot_result");
+            this.feq = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         }
     }
 }

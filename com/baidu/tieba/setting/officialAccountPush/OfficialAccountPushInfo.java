@@ -8,14 +8,14 @@ public class OfficialAccountPushInfo implements Parcelable {
     public static final Parcelable.Creator<OfficialAccountPushInfo> CREATOR = new Parcelable.Creator<OfficialAccountPushInfo>() { // from class: com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: ae */
+        /* renamed from: X */
         public OfficialAccountPushInfo createFromParcel(Parcel parcel) {
             return new OfficialAccountPushInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: BR */
+        /* renamed from: Cr */
         public OfficialAccountPushInfo[] newArray(int i) {
             return new OfficialAccountPushInfo[i];
         }

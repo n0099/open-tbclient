@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.c;
 
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 /* loaded from: classes3.dex */
-public class l extends v.a {
-    public m enK;
+public class l extends y.a {
+    public m eRi;
 
     public l(m mVar) {
         super(mVar.getView());
-        this.enK = mVar;
+        this.eRi = mVar;
     }
 }

@@ -25,29 +25,29 @@ import com.baidu.tieba.play.h;
 import java.util.Map;
 /* loaded from: classes12.dex */
 public class SwanVideoView extends FrameLayout {
-    private static h efC;
-    private static l efD;
-    private boolean bEt;
-    private FrameLayout efA;
-    private com.baidu.tieba.aiapps.apps.media.videoplayer.a.a efB;
-    g.f efE;
-    private g.a efF;
-    private g.b efG;
-    private g.e efH;
-    private g.InterfaceC0591g efI;
-    a.InterfaceC0417a efJ;
-    private int efo;
-    private boolean efp;
-    private MediaController efq;
-    private g efr;
-    private int efs;
-    private long eft;
-    private boolean efu;
-    private boolean efv;
-    private RelativeLayout efw;
-    private ProgressBar efx;
-    private TextView efy;
-    private a efz;
+    private static h eFs;
+    private static l eFt;
+    private boolean cdc;
+    private int eFe;
+    private boolean eFf;
+    private MediaController eFg;
+    private g eFh;
+    private int eFi;
+    private long eFj;
+    private boolean eFk;
+    private boolean eFl;
+    private RelativeLayout eFm;
+    private ProgressBar eFn;
+    private TextView eFo;
+    private a eFp;
+    private FrameLayout eFq;
+    private com.baidu.tieba.aiapps.apps.media.videoplayer.a.a eFr;
+    g.f eFu;
+    private g.a eFv;
+    private g.b eFw;
+    private g.e eFx;
+    private g.InterfaceC0630g eFy;
+    a.InterfaceC0448a eFz;
     private Context mAppContext;
     private int mCurrentState;
     private Map<String, String> mHeaders;
@@ -61,289 +61,289 @@ public class SwanVideoView extends FrameLayout {
     public SwanVideoView(Context context) {
         super(context);
         this.mCurrentState = 0;
-        this.eft = -1L;
-        this.efv = true;
-        this.efo = 0;
-        this.efE = new g.f() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.2
+        this.eFj = -1L;
+        this.eFl = true;
+        this.eFe = 0;
+        this.eFu = new g.f() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.2
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 SwanVideoView.this.setCurrentState(2);
                 SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.onPrepared();
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.onPrepared();
                 }
                 SwanVideoView.this.mVideoWidth = gVar.getVideoWidth();
                 SwanVideoView.this.mVideoHeight = gVar.getVideoHeight();
-                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0 && SwanVideoView.this.mVideoSarNum != 0 && SwanVideoView.this.mVideoSarDen != 0 && SwanVideoView.this.efz != null) {
-                    SwanVideoView.this.efz.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
-                    SwanVideoView.this.efz.setVideoSampleAspectRatio(SwanVideoView.this.mVideoSarNum, SwanVideoView.this.mVideoSarDen);
+                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0 && SwanVideoView.this.mVideoSarNum != 0 && SwanVideoView.this.mVideoSarDen != 0 && SwanVideoView.this.eFp != null) {
+                    SwanVideoView.this.eFp.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
+                    SwanVideoView.this.eFp.setVideoSampleAspectRatio(SwanVideoView.this.mVideoSarNum, SwanVideoView.this.mVideoSarDen);
                 }
-                if (SwanVideoView.this.efp) {
+                if (SwanVideoView.this.eFf) {
                     SwanVideoView.this.start();
                 }
             }
         };
-        this.efF = new g.a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.3
+        this.eFv = new g.a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.3
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(g gVar) {
                 Log.d("SwanVideoView", "onCompletion");
                 SwanVideoView.this.setCacheViewVisibility(false);
                 SwanVideoView.this.setCurrentState(5);
-                SwanVideoView.this.efp = false;
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.onEnd();
+                SwanVideoView.this.eFf = false;
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.onEnd();
                 }
             }
         };
-        this.efG = new g.b() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.4
+        this.eFw = new g.b() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.4
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i, int i2) {
                 SwanVideoView.this.setCurrentState(-1);
-                SwanVideoView.this.efp = false;
+                SwanVideoView.this.eFf = false;
                 SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.g(i, i2, null);
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.g(i, i2, null);
                 }
-                return SwanVideoView.this.efB != null;
+                return SwanVideoView.this.eFr != null;
             }
         };
-        this.efH = new g.e() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.5
+        this.eFx = new g.e() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.5
             @Override // com.baidu.tieba.play.g.e
             public boolean onInfo(g gVar, int i, int i2) {
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.a(SwanVideoView.this);
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.a(SwanVideoView.this);
                 }
-                return SwanVideoView.this.efB != null;
+                return SwanVideoView.this.eFr != null;
             }
         };
-        this.efI = new g.InterfaceC0591g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
-            @Override // com.baidu.tieba.play.g.InterfaceC0591g
+        this.eFy = new g.InterfaceC0630g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
+            @Override // com.baidu.tieba.play.g.InterfaceC0630g
             public void b(g gVar) {
                 SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.onSeekEnd();
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.onSeekEnd();
                 }
             }
         };
-        this.efJ = new a.InterfaceC0417a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0417a
+        this.eFz = new a.InterfaceC0448a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0448a
             public void a(a.b bVar, int i, int i2, int i3) {
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0417a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0448a
             public void a(a.b bVar, int i, int i2) {
-                if (bVar.baz() == SwanVideoView.this.efz && SwanVideoView.this.efr != null) {
-                    SwanVideoView.this.a(SwanVideoView.this.efr, bVar);
-                    SwanVideoView.this.efr.a(SwanVideoView.this.mAppContext, SwanVideoView.this.mUri, SwanVideoView.this.mHeaders, bVar.baA(), SwanVideoView.this.mUri.getHost(), false);
+                if (bVar.biC() == SwanVideoView.this.eFp && SwanVideoView.this.eFh != null) {
+                    SwanVideoView.this.a(SwanVideoView.this.eFh, bVar);
+                    SwanVideoView.this.eFh.a(SwanVideoView.this.mAppContext, SwanVideoView.this.mUri, SwanVideoView.this.mHeaders, bVar.biD(), SwanVideoView.this.mUri.getHost());
                 }
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0417a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0448a
             public void a(a.b bVar) {
             }
         };
-        ez(context);
+        el(context);
     }
 
     public SwanVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mCurrentState = 0;
-        this.eft = -1L;
-        this.efv = true;
-        this.efo = 0;
-        this.efE = new g.f() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.2
+        this.eFj = -1L;
+        this.eFl = true;
+        this.eFe = 0;
+        this.eFu = new g.f() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.2
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 SwanVideoView.this.setCurrentState(2);
                 SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.onPrepared();
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.onPrepared();
                 }
                 SwanVideoView.this.mVideoWidth = gVar.getVideoWidth();
                 SwanVideoView.this.mVideoHeight = gVar.getVideoHeight();
-                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0 && SwanVideoView.this.mVideoSarNum != 0 && SwanVideoView.this.mVideoSarDen != 0 && SwanVideoView.this.efz != null) {
-                    SwanVideoView.this.efz.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
-                    SwanVideoView.this.efz.setVideoSampleAspectRatio(SwanVideoView.this.mVideoSarNum, SwanVideoView.this.mVideoSarDen);
+                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0 && SwanVideoView.this.mVideoSarNum != 0 && SwanVideoView.this.mVideoSarDen != 0 && SwanVideoView.this.eFp != null) {
+                    SwanVideoView.this.eFp.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
+                    SwanVideoView.this.eFp.setVideoSampleAspectRatio(SwanVideoView.this.mVideoSarNum, SwanVideoView.this.mVideoSarDen);
                 }
-                if (SwanVideoView.this.efp) {
+                if (SwanVideoView.this.eFf) {
                     SwanVideoView.this.start();
                 }
             }
         };
-        this.efF = new g.a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.3
+        this.eFv = new g.a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.3
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(g gVar) {
                 Log.d("SwanVideoView", "onCompletion");
                 SwanVideoView.this.setCacheViewVisibility(false);
                 SwanVideoView.this.setCurrentState(5);
-                SwanVideoView.this.efp = false;
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.onEnd();
+                SwanVideoView.this.eFf = false;
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.onEnd();
                 }
             }
         };
-        this.efG = new g.b() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.4
+        this.eFw = new g.b() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.4
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i, int i2) {
                 SwanVideoView.this.setCurrentState(-1);
-                SwanVideoView.this.efp = false;
+                SwanVideoView.this.eFf = false;
                 SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.g(i, i2, null);
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.g(i, i2, null);
                 }
-                return SwanVideoView.this.efB != null;
+                return SwanVideoView.this.eFr != null;
             }
         };
-        this.efH = new g.e() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.5
+        this.eFx = new g.e() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.5
             @Override // com.baidu.tieba.play.g.e
             public boolean onInfo(g gVar, int i, int i2) {
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.a(SwanVideoView.this);
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.a(SwanVideoView.this);
                 }
-                return SwanVideoView.this.efB != null;
+                return SwanVideoView.this.eFr != null;
             }
         };
-        this.efI = new g.InterfaceC0591g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
-            @Override // com.baidu.tieba.play.g.InterfaceC0591g
+        this.eFy = new g.InterfaceC0630g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
+            @Override // com.baidu.tieba.play.g.InterfaceC0630g
             public void b(g gVar) {
                 SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.onSeekEnd();
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.onSeekEnd();
                 }
             }
         };
-        this.efJ = new a.InterfaceC0417a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0417a
+        this.eFz = new a.InterfaceC0448a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0448a
             public void a(a.b bVar, int i, int i2, int i3) {
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0417a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0448a
             public void a(a.b bVar, int i, int i2) {
-                if (bVar.baz() == SwanVideoView.this.efz && SwanVideoView.this.efr != null) {
-                    SwanVideoView.this.a(SwanVideoView.this.efr, bVar);
-                    SwanVideoView.this.efr.a(SwanVideoView.this.mAppContext, SwanVideoView.this.mUri, SwanVideoView.this.mHeaders, bVar.baA(), SwanVideoView.this.mUri.getHost(), false);
+                if (bVar.biC() == SwanVideoView.this.eFp && SwanVideoView.this.eFh != null) {
+                    SwanVideoView.this.a(SwanVideoView.this.eFh, bVar);
+                    SwanVideoView.this.eFh.a(SwanVideoView.this.mAppContext, SwanVideoView.this.mUri, SwanVideoView.this.mHeaders, bVar.biD(), SwanVideoView.this.mUri.getHost());
                 }
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0417a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0448a
             public void a(a.b bVar) {
             }
         };
-        ez(context);
+        el(context);
     }
 
     public SwanVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mCurrentState = 0;
-        this.eft = -1L;
-        this.efv = true;
-        this.efo = 0;
-        this.efE = new g.f() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.2
+        this.eFj = -1L;
+        this.eFl = true;
+        this.eFe = 0;
+        this.eFu = new g.f() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.2
             @Override // com.baidu.tieba.play.g.f
             public void onPrepared(g gVar) {
                 SwanVideoView.this.setCurrentState(2);
                 SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.onPrepared();
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.onPrepared();
                 }
                 SwanVideoView.this.mVideoWidth = gVar.getVideoWidth();
                 SwanVideoView.this.mVideoHeight = gVar.getVideoHeight();
-                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0 && SwanVideoView.this.mVideoSarNum != 0 && SwanVideoView.this.mVideoSarDen != 0 && SwanVideoView.this.efz != null) {
-                    SwanVideoView.this.efz.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
-                    SwanVideoView.this.efz.setVideoSampleAspectRatio(SwanVideoView.this.mVideoSarNum, SwanVideoView.this.mVideoSarDen);
+                if (SwanVideoView.this.mVideoWidth != 0 && SwanVideoView.this.mVideoHeight != 0 && SwanVideoView.this.mVideoSarNum != 0 && SwanVideoView.this.mVideoSarDen != 0 && SwanVideoView.this.eFp != null) {
+                    SwanVideoView.this.eFp.setVideoSize(SwanVideoView.this.mVideoWidth, SwanVideoView.this.mVideoHeight);
+                    SwanVideoView.this.eFp.setVideoSampleAspectRatio(SwanVideoView.this.mVideoSarNum, SwanVideoView.this.mVideoSarDen);
                 }
-                if (SwanVideoView.this.efp) {
+                if (SwanVideoView.this.eFf) {
                     SwanVideoView.this.start();
                 }
             }
         };
-        this.efF = new g.a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.3
+        this.eFv = new g.a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.3
             @Override // com.baidu.tieba.play.g.a
             public void onCompletion(g gVar) {
                 Log.d("SwanVideoView", "onCompletion");
                 SwanVideoView.this.setCacheViewVisibility(false);
                 SwanVideoView.this.setCurrentState(5);
-                SwanVideoView.this.efp = false;
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.onEnd();
+                SwanVideoView.this.eFf = false;
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.onEnd();
                 }
             }
         };
-        this.efG = new g.b() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.4
+        this.eFw = new g.b() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.4
             @Override // com.baidu.tieba.play.g.b
             public boolean onError(g gVar, int i2, int i22) {
                 SwanVideoView.this.setCurrentState(-1);
-                SwanVideoView.this.efp = false;
+                SwanVideoView.this.eFf = false;
                 SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.g(i2, i22, null);
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.g(i2, i22, null);
                 }
-                return SwanVideoView.this.efB != null;
+                return SwanVideoView.this.eFr != null;
             }
         };
-        this.efH = new g.e() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.5
+        this.eFx = new g.e() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.5
             @Override // com.baidu.tieba.play.g.e
             public boolean onInfo(g gVar, int i2, int i22) {
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.a(SwanVideoView.this);
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.a(SwanVideoView.this);
                 }
-                return SwanVideoView.this.efB != null;
+                return SwanVideoView.this.eFr != null;
             }
         };
-        this.efI = new g.InterfaceC0591g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
-            @Override // com.baidu.tieba.play.g.InterfaceC0591g
+        this.eFy = new g.InterfaceC0630g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
+            @Override // com.baidu.tieba.play.g.InterfaceC0630g
             public void b(g gVar) {
                 SwanVideoView.this.setCacheViewVisibility(false);
-                if (SwanVideoView.this.efB != null) {
-                    SwanVideoView.this.efB.onSeekEnd();
+                if (SwanVideoView.this.eFr != null) {
+                    SwanVideoView.this.eFr.onSeekEnd();
                 }
             }
         };
-        this.efJ = new a.InterfaceC0417a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0417a
+        this.eFz = new a.InterfaceC0448a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0448a
             public void a(a.b bVar, int i2, int i22, int i3) {
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0417a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0448a
             public void a(a.b bVar, int i2, int i22) {
-                if (bVar.baz() == SwanVideoView.this.efz && SwanVideoView.this.efr != null) {
-                    SwanVideoView.this.a(SwanVideoView.this.efr, bVar);
-                    SwanVideoView.this.efr.a(SwanVideoView.this.mAppContext, SwanVideoView.this.mUri, SwanVideoView.this.mHeaders, bVar.baA(), SwanVideoView.this.mUri.getHost(), false);
+                if (bVar.biC() == SwanVideoView.this.eFp && SwanVideoView.this.eFh != null) {
+                    SwanVideoView.this.a(SwanVideoView.this.eFh, bVar);
+                    SwanVideoView.this.eFh.a(SwanVideoView.this.mAppContext, SwanVideoView.this.mUri, SwanVideoView.this.mHeaders, bVar.biD(), SwanVideoView.this.mUri.getHost());
                 }
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0417a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0448a
             public void a(a.b bVar) {
             }
         };
-        ez(context);
+        el(context);
     }
 
     static {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_QUICK_PLAYER_FACTORY, h.class);
         if (runTask != null) {
-            efC = (h) runTask.getData();
+            eFs = (h) runTask.getData();
         }
         CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, l.class);
         if (runTask2 != null) {
-            efD = (l) runTask2.getData();
+            eFt = (l) runTask2.getData();
         }
     }
 
-    private void ez(Context context) {
+    private void el(Context context) {
         this.mAppContext = context.getApplicationContext();
-        this.efA = new FrameLayout(context);
+        this.eFq = new FrameLayout(context);
         ViewGroup.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.efA.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        addView(this.efA, layoutParams);
-        this.efq = new MediaController(context);
+        this.eFq.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+        addView(this.eFq, layoutParams);
+        this.eFg = new MediaController(context);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
         layoutParams2.gravity = 80;
-        this.efq.setVisibility(8);
-        addView(this.efq, layoutParams2);
-        this.efq.o(this);
-        baE();
-        baD();
+        this.eFg.setVisibility(8);
+        addView(this.eFg, layoutParams2);
+        this.eFg.o(this);
+        biH();
+        biG();
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
@@ -351,11 +351,11 @@ public class SwanVideoView extends FrameLayout {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (SwanVideoView.this.efv) {
-                    if (SwanVideoView.this.efq.getVisibility() != 0) {
-                        SwanVideoView.this.efq.baK();
+                if (SwanVideoView.this.eFl) {
+                    if (SwanVideoView.this.eFg.getVisibility() != 0) {
+                        SwanVideoView.this.eFg.biN();
                     } else {
-                        SwanVideoView.this.efq.hide();
+                        SwanVideoView.this.eFg.hide();
                     }
                 }
             }
@@ -363,44 +363,44 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public void setSurface(SurfaceTexture surfaceTexture) {
-        this.efr.setSurface(surfaceTexture);
+        this.eFh.setSurface(surfaceTexture);
         this.mSurfaceTexture = surfaceTexture;
     }
 
-    private void baD() {
-        this.efw = new RelativeLayout(getContext());
+    private void biG() {
+        this.eFm = new RelativeLayout(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-        this.efw.setVisibility(8);
-        addView(this.efw, layoutParams);
+        this.eFm.setVisibility(8);
+        addView(this.eFm, layoutParams);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams2.addRule(13);
-        this.efx = new ProgressBar(getContext());
-        this.efx.setId(16908308);
-        this.efx.setMax(100);
-        this.efx.setProgress(10);
-        this.efx.setSecondaryProgress(100);
-        this.efw.addView(this.efx, layoutParams2);
+        this.eFn = new ProgressBar(getContext());
+        this.eFn.setId(16908308);
+        this.eFn.setMax(100);
+        this.eFn.setProgress(10);
+        this.eFn.setSecondaryProgress(100);
+        this.eFm.addView(this.eFn, layoutParams2);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams3.addRule(9);
         layoutParams3.addRule(3, 16908308);
-        this.efy = new TextView(getContext());
-        this.efy.setTextColor(-1);
-        this.efy.setText(R.string.laoding);
-        this.efy.setGravity(1);
-        this.efw.addView(this.efy, layoutParams3);
+        this.eFo = new TextView(getContext());
+        this.eFo.setTextColor(-1);
+        this.eFo.setText(R.string.laoding);
+        this.eFo.setGravity(1);
+        this.eFm.addView(this.eFo, layoutParams3);
     }
 
     public void setVideoPlayerCallback(com.baidu.tieba.aiapps.apps.media.videoplayer.a.a aVar) {
-        this.efB = aVar;
-        if (this.efq != null) {
-            this.efq.setToggleScreenListener(aVar);
+        this.eFr = aVar;
+        if (this.eFg != null) {
+            this.eFg.setToggleScreenListener(aVar);
         }
     }
 
-    public void cK(boolean z) {
-        if (this.efr != null) {
+    public void dG(boolean z) {
+        if (this.eFh != null) {
             float f = z ? 0.0f : 1.0f;
-            this.efr.setVolume(f, f);
+            this.eFh.setVolume(f, f);
         }
     }
 
@@ -412,8 +412,8 @@ public class SwanVideoView extends FrameLayout {
     public void setCurrentState(int i) {
         if (this.mCurrentState != i) {
             this.mCurrentState = i;
-            if (this.efq != null) {
-                this.efq.baH();
+            if (this.eFg != null) {
+                this.eFg.biK();
             }
         }
     }
@@ -421,29 +421,29 @@ public class SwanVideoView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void setCacheViewVisibility(boolean z) {
         if (z) {
-            this.efw.setVisibility(0);
+            this.eFm.setVisibility(0);
         } else {
-            this.efw.setVisibility(8);
+            this.eFm.setVisibility(8);
         }
     }
 
-    private void baE() {
+    private void biH() {
         setRenderView(new TextureRenderView(getContext()));
     }
 
     protected void setRenderView(a aVar) {
-        if (this.efz != null) {
-            if (this.efr != null) {
+        if (this.eFp != null) {
+            if (this.eFh != null) {
             }
-            View view = this.efz.getView();
-            this.efz.b(this.efJ);
-            this.efz.release();
-            this.efz = null;
-            this.efA.removeView(view);
+            View view = this.eFp.getView();
+            this.eFp.b(this.eFz);
+            this.eFp.release();
+            this.eFp = null;
+            this.eFq.removeView(view);
         }
         if (aVar != null) {
-            this.efz = aVar;
-            aVar.setAspectRatio(this.efo);
+            this.eFp = aVar;
+            aVar.setAspectRatio(this.eFe);
             if (this.mVideoWidth > 0 && this.mVideoHeight > 0) {
                 aVar.setVideoSize(this.mVideoWidth, this.mVideoHeight);
             }
@@ -451,16 +451,16 @@ public class SwanVideoView extends FrameLayout {
                 aVar.setVideoSampleAspectRatio(this.mVideoSarNum, this.mVideoSarDen);
             }
             aVar.setVideoSampleAspectRatio(this.mVideoSarNum, this.mVideoSarDen);
-            View view2 = this.efz.getView();
+            View view2 = this.eFp.getView();
             view2.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
-            this.efA.addView(view2);
-            this.efz.a(this.efJ);
+            this.eFq.addView(view2);
+            this.eFp.a(this.eFz);
         }
     }
 
     public void setVideoPath(String str) {
         this.mUri = Uri.parse(str);
-        baF();
+        biI();
         requestLayout();
         invalidate();
     }
@@ -470,120 +470,120 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public void stopPlayback() {
-        if (this.efr != null) {
-            this.efr.pause();
-            aWH();
-            this.efp = false;
+        if (this.eFh != null) {
+            this.eFh.pause();
+            beN();
+            this.eFf = false;
         }
     }
 
-    public void baF() {
+    public void biI() {
         if (this.mUri != null) {
             try {
-                if (efC != null) {
-                    this.efr = efC.aWO();
+                if (eFs != null) {
+                    this.eFh = eFs.beU();
                     if ("https".equals(this.mUri.getScheme())) {
-                        this.efr.forceUseSystemMediaPlayer(true);
+                        this.eFh.forceUseSystemMediaPlayer(true);
                     }
                 }
-                this.efr.setOnPreparedListener(this.efE);
-                this.efr.a(this.efH);
-                this.efr.setOnCompletionListener(this.efF);
-                this.efr.setOnErrorListener(this.efG);
-                this.efr.setOnSeekCompleteListener(this.efI);
-                this.efs = 0;
+                this.eFh.setOnPreparedListener(this.eFu);
+                this.eFh.a(this.eFx);
+                this.eFh.setOnCompletionListener(this.eFv);
+                this.eFh.setOnErrorListener(this.eFw);
+                this.eFh.setOnSeekCompleteListener(this.eFy);
+                this.eFi = 0;
                 setCacheViewVisibility(true);
                 setCurrentState(1);
             } catch (IllegalArgumentException e) {
                 setCurrentState(-1);
-                this.efp = false;
-                this.efG.onError(this.efr, 1, 0);
+                this.eFf = false;
+                this.eFw.onError(this.eFh, 1, 0);
             }
         }
     }
 
     public void setLooping(boolean z) {
-        this.efu = z;
-        if (this.efr != null) {
-            this.efr.setLooping(this.efu);
+        this.eFk = z;
+        if (this.eFh != null) {
+            this.eFh.setLooping(this.eFk);
         }
     }
 
     public void setMuted(boolean z) {
-        if (this.efr != null) {
+        if (this.eFh != null) {
             setVolume(z ? 0.0f : 1.0f);
-            this.bEt = z;
-            if (this.efq != null && this.efv) {
-                this.efq.setMute(this.bEt);
+            this.cdc = z;
+            if (this.eFg != null && this.eFl) {
+                this.eFg.setMute(this.cdc);
             }
         }
     }
 
     public boolean isMute() {
-        return this.bEt;
+        return this.cdc;
     }
 
     public void setVolume(float f) {
-        if (this.efr != null) {
-            this.efr.setVolume(f, f);
+        if (this.eFh != null) {
+            this.eFh.setVolume(f, f);
         }
     }
 
     public void setMediaControllerEnabled(boolean z) {
-        this.efv = z;
+        this.eFl = z;
     }
 
     public void release() {
-        aWH();
-        this.efp = false;
-        if (this.efz != null) {
-            this.efz.release();
+        beN();
+        this.eFf = false;
+        if (this.eFp != null) {
+            this.eFp.release();
         }
-        if (this.efq != null) {
-            this.efq.setToggleScreenListener(null);
-            this.efq.o(null);
-            this.efq = null;
+        if (this.eFg != null) {
+            this.eFg.setToggleScreenListener(null);
+            this.eFg.o(null);
+            this.eFg = null;
         }
-        if (this.efB != null) {
-            this.efB = null;
+        if (this.eFr != null) {
+            this.eFr = null;
         }
     }
 
-    private void aWH() {
-        if (this.efr != null) {
-            this.efr.release();
-            this.efr = null;
+    private void beN() {
+        if (this.eFh != null) {
+            this.eFh.release();
+            this.eFh = null;
             setCurrentState(0);
         }
     }
 
     public void start() {
-        if (this.efr != null) {
+        if (this.eFh != null) {
             if (this.mCurrentState == -1 || this.mCurrentState == 5) {
                 if (this.mCurrentState == 5) {
-                    this.efr.pause();
+                    this.eFh.pause();
                 }
                 setCacheViewVisibility(true);
                 setCurrentState(1);
             } else if (isInPlaybackState()) {
-                this.efr.start();
+                this.eFh.start();
                 setCurrentState(3);
             }
-            this.efp = true;
+            this.eFf = true;
         }
     }
 
     public void pause() {
-        if (isInPlaybackState() && this.efr.isPlaying()) {
-            this.efr.pause();
+        if (isInPlaybackState() && this.eFh.isPlaying()) {
+            this.eFh.pause();
             setCurrentState(4);
         }
-        this.efp = false;
+        this.eFf = false;
     }
 
     public int getBufferPercentage() {
-        if (this.efr != null) {
-            return this.efs;
+        if (this.eFh != null) {
+            return this.eFi;
         }
         return 0;
     }
@@ -597,55 +597,55 @@ public class SwanVideoView extends FrameLayout {
 
     public int getDuration() {
         if (isInPlaybackState()) {
-            return this.efr.getDuration();
+            return this.eFh.getDuration();
         }
         return 0;
     }
 
     public int getCurrentPosition() {
         if (isInPlaybackState()) {
-            return this.efr.getCurrentPosition();
+            return this.eFh.getCurrentPosition();
         }
         return 0;
     }
 
     public void seekTo(int i) {
         if (isInPlaybackState()) {
-            if (i >= this.efr.getDuration()) {
-                i = this.efr.getDuration() - 1000;
+            if (i >= this.eFh.getDuration()) {
+                i = this.eFh.getDuration() - 1000;
             }
-            this.efr.seekTo(i);
+            this.eFh.seekTo(i);
             setCacheViewVisibility(true);
         }
     }
 
     public boolean isPlaying() {
-        return isInPlaybackState() && this.efr.isPlaying();
+        return isInPlaybackState() && this.eFh.isPlaying();
     }
 
     private boolean isInPlaybackState() {
-        return (this.efr == null || this.mCurrentState == -1 || this.mCurrentState == 0 || this.mCurrentState == 1) ? false : true;
+        return (this.eFh == null || this.mCurrentState == -1 || this.mCurrentState == 0 || this.mCurrentState == 1) ? false : true;
     }
 
     public int getVideoWidth() {
-        return this.efr.getVideoWidth();
+        return this.eFh.getVideoWidth();
     }
 
     public int getVideoHeight() {
-        return this.efr.getVideoHeight();
+        return this.eFh.getVideoHeight();
     }
 
     public void setVideoScalingMode(int i) {
         if (i == 1 || i == 2 || i == 3) {
             if (i == 1) {
-                this.efo = 0;
+                this.eFe = 0;
             } else if (i == 2) {
-                this.efo = 1;
+                this.eFe = 1;
             } else {
-                this.efo = 3;
+                this.eFe = 3;
             }
-            if (this.efz != null) {
-                this.efz.setAspectRatio(this.efo);
+            if (this.eFp != null) {
+                this.eFp.setAspectRatio(this.eFe);
                 return;
             }
             return;
@@ -658,8 +658,8 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public Bitmap getBitmap() {
-        if (this.efz != null) {
-            return this.efz.getBitmap();
+        if (this.eFp != null) {
+            return this.eFp.getBitmap();
         }
         return null;
     }

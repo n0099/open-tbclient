@@ -5,48 +5,48 @@ import java.lang.ref.WeakReference;
 import java.util.Stack;
 /* loaded from: classes8.dex */
 public final class d {
-    private Stack<WeakReference<Activity>> kXP;
+    private Stack<WeakReference<Activity>> lOt;
 
     /* synthetic */ d(byte b) {
         this();
     }
 
     private d() {
-        this.kXP = new Stack<>();
+        this.lOt = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> cXU() {
-        return this.kXP;
+    public final Stack<WeakReference<Activity>> dld() {
+        return this.lOt;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(WeakReference<Activity> weakReference) {
-        this.kXP.add(weakReference);
+        this.lOt.add(weakReference);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(Activity activity) {
-        if (this.kXP != null) {
+        if (this.lOt != null) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.kXP.size()) {
+                if (i2 >= this.lOt.size()) {
                     break;
                 }
-                if (this.kXP.get(i2).get() == activity) {
-                    this.kXP.remove(this.kXP.get(i2));
+                if (this.lOt.get(i2).get() == activity) {
+                    this.lOt.remove(this.lOt.get(i2));
                 }
                 i = i2 + 1;
             }
         }
-        cXV();
+        dle();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final String cXV() {
+    public final String dle() {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < this.kXP.size(); i++) {
-            Activity activity = this.kXP.get(i).get();
+        for (int i = 0; i < this.lOt.size(); i++) {
+            Activity activity = this.lOt.get(i).get();
             if (activity != null) {
                 sb.append(activity.getClass().getSimpleName());
                 sb.append("->");
@@ -58,6 +58,6 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        private static final d kXQ = new d((byte) 0);
+        private static final d lOu = new d((byte) 0);
     }
 }

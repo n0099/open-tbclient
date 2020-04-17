@@ -12,15 +12,15 @@ public class b extends c {
     @Nullable
     private volatile Handler mMainHandler;
     private final Object mLock = new Object();
-    private ExecutorService bv = Executors.newFixedThreadPool(2);
+    private ExecutorService xz = Executors.newFixedThreadPool(2);
 
     @Override // android.arch.a.a.c
-    public void c(Runnable runnable) {
-        this.bv.execute(runnable);
+    public void e(Runnable runnable) {
+        this.xz.execute(runnable);
     }
 
     @Override // android.arch.a.a.c
-    public void d(Runnable runnable) {
+    public void f(Runnable runnable) {
         if (this.mMainHandler == null) {
             synchronized (this.mLock) {
                 if (this.mMainHandler == null) {

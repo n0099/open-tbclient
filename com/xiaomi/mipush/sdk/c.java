@@ -15,10 +15,10 @@ public final class c implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean m82b;
+        boolean m87b;
         String b;
-        m82b = b.m82b(this.a);
-        if (m82b) {
+        m87b = b.m87b(this.a);
+        if (m87b) {
             b = b.b(com.xiaomi.push.service.ag.a(this.a).a(hl.AggregationSdkMonitorDepth.a(), 4));
             if (TextUtils.isEmpty(b)) {
                 return;

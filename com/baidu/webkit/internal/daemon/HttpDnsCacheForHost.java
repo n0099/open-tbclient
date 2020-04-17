@@ -1,7 +1,6 @@
 package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.net.BdNet;
@@ -97,7 +96,7 @@ public class HttpDnsCacheForHost implements INetListener {
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
-            String replace = new String(byteArray, "utf-8").replace(HanziToPinyin.Token.SEPARATOR, Constants.ACCEPT_TIME_SEPARATOR_SP);
+            String replace = new String(byteArray, "utf-8").replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SP);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put(this.mExternalHost, replace);
             WebSettingsGlobalBlink.setHttpDnsExtHostEngine(jSONObject.toString());

@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import android.support.v7.widget.ActivityChooserView;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -183,7 +184,7 @@ final class WireInput {
     private WireInput(InputStream inputStream) {
         this.bufferOffset = 0L;
         this.pos = 0;
-        this.currentLimit = Integer.MAX_VALUE;
+        this.currentLimit = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.input = inputStream;
         this.buffer = new byte[1024];
     }
@@ -191,7 +192,7 @@ final class WireInput {
     private WireInput(byte[] bArr, int i, int i2) {
         this.bufferOffset = 0L;
         this.pos = 0;
-        this.currentLimit = Integer.MAX_VALUE;
+        this.currentLimit = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.input = null;
         this.buffer = bArr;
         this.bufferOffset = -i;

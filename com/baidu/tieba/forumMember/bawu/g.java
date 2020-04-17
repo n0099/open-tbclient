@@ -17,13 +17,13 @@ import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class g {
-    private BdListView AG;
-    private com.baidu.tbadk.coreExtra.view.c dlZ;
-    private BawuTeamInfoActivity gkW;
-    private h gkX;
-    private NoNetworkView gkY;
-    private boolean gkZ = false;
-    private h.b gla;
+    private BdListView TX;
+    private com.baidu.tbadk.coreExtra.view.c dLU;
+    private BawuTeamInfoActivity gUd;
+    private h gUe;
+    private NoNetworkView gUf;
+    private boolean gUg = false;
+    private h.b gUh;
     private NavigationBar mNavigationBar;
     private View mParent;
     private View mRoot;
@@ -33,88 +33,88 @@ public class g {
     }
 
     public g(BawuTeamInfoActivity bawuTeamInfoActivity) {
-        this.gkW = bawuTeamInfoActivity;
-        this.mRoot = LayoutInflater.from(this.gkW.getPageContext().getPageActivity()).inflate(R.layout.bawu_team_info_activity_layout, (ViewGroup) null);
-        this.gkW.setContentView(this.mRoot);
+        this.gUd = bawuTeamInfoActivity;
+        this.mRoot = LayoutInflater.from(this.gUd.getPageContext().getPageActivity()).inflate(R.layout.bawu_team_info_activity_layout, (ViewGroup) null);
+        this.gUd.setContentView(this.mRoot);
         this.mParent = this.mRoot.findViewById(R.id.root_bawu_team_info);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.gkW.getString(R.string.bawu_manager_team));
+        this.mNavigationBar.setCenterTextTitle(this.gUd.getString(R.string.bawu_manager_team));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
-        this.gkY = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
-        this.AG = (BdListView) this.mRoot.findViewById(R.id.listview_bawu_team_info);
-        this.gkX = new h(this.gkW.getPageContext());
-        this.AG.setAdapter((ListAdapter) this.gkX);
-        this.gla = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
+        this.gUf = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.TX = (BdListView) this.mRoot.findViewById(R.id.listview_bawu_team_info);
+        this.gUe = new h(this.gUd.getPageContext());
+        this.TX.setAdapter((ListAdapter) this.gUe);
+        this.gUh = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tieba.forumMember.bawu.h.b
-            public void AX(String str) {
+            public void CH(String str) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    ba.aGK().b(g.this.gkW.getPageContext(), new String[]{str});
+                    ba.aOY().b(g.this.gUd.getPageContext(), new String[]{str});
                 } else {
                     g.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 }
             }
         };
-        this.gkX.a(this.gla);
+        this.gUe.a(this.gUh);
     }
 
     public void a(ArrayList<i> arrayList, p pVar, boolean z) {
         if (arrayList == null || arrayList.size() <= 0) {
-            this.gkZ = true;
+            this.gUg = true;
         } else {
-            this.gkZ = false;
+            this.gUg = false;
         }
-        if (z && this.gkZ) {
-            bCz();
+        if (z && this.gUg) {
+            bMZ();
             return;
         }
-        bCA();
-        this.gkX.ak(arrayList);
-        this.gkX.a(pVar);
-        this.gkX.notifyDataSetChanged();
+        bNa();
+        this.gUe.am(arrayList);
+        this.gUe.a(pVar);
+        this.gUe.notifyDataSetChanged();
     }
 
-    public boolean bCy() {
-        return this.gkZ;
+    public boolean bMY() {
+        return this.gUg;
     }
 
     public void onChangeSkinType(int i) {
-        this.gkW.getLayoutMode().setNightMode(i == 1);
-        this.gkW.getLayoutMode().onModeChanged(this.mRoot);
-        this.mNavigationBar.onChangeSkinType(this.gkW.getPageContext(), i);
-        this.gkY.onChangeSkinType(this.gkW.getPageContext(), i);
-        this.gkX.notifyDataSetChanged();
+        this.gUd.getLayoutMode().setNightMode(i == 1);
+        this.gUd.getLayoutMode().onModeChanged(this.mRoot);
+        this.mNavigationBar.onChangeSkinType(this.gUd.getPageContext(), i);
+        this.gUf.onChangeSkinType(this.gUd.getPageContext(), i);
+        this.gUe.notifyDataSetChanged();
     }
 
-    public void bCz() {
-        this.AG.setVisibility(8);
-        this.gkW.showNetRefreshView(this.mRoot, this.gkW.getPageContext().getResources().getString(R.string.no_data_text), true);
+    public void bMZ() {
+        this.TX.setVisibility(8);
+        this.gUd.showNetRefreshView(this.mRoot, this.gUd.getPageContext().getResources().getString(R.string.no_data_text), true);
     }
 
-    public void bCA() {
-        this.gkW.hideNetRefreshView(this.mRoot);
-        this.AG.setVisibility(0);
+    public void bNa() {
+        this.gUd.hideNetRefreshView(this.mRoot);
+        this.TX.setVisibility(0);
     }
 
     public void e(NoNetworkView.a aVar) {
-        this.gkY.a(aVar);
+        this.gUf.a(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
-        if (this.dlZ == null) {
-            this.dlZ = new com.baidu.tbadk.coreExtra.view.c(this.gkW);
+        if (this.dLU == null) {
+            this.dLU = new com.baidu.tbadk.coreExtra.view.c(this.gUd);
         }
-        this.dlZ.aMS();
-        this.dlZ.setAccountData(accountData);
-        this.dlZ.ma(1);
+        this.dLU.aVp();
+        this.dLU.setAccountData(accountData);
+        this.dLU.mm(1);
     }
 
     public void onDestroy() {
-        if (this.dlZ != null) {
-            this.dlZ.onDestroy();
+        if (this.dLU != null) {
+            this.dLU.onDestroy();
         }
     }
 }

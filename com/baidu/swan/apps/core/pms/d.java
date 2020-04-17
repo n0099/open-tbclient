@@ -12,21 +12,21 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class d extends j {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.pms.f.e bpZ;
-    private a bqa;
-    private com.baidu.swan.pms.a.a<a.C0364a> bqb = new com.baidu.swan.pms.a.a<a.C0364a>() { // from class: com.baidu.swan.apps.core.pms.d.1
+    private com.baidu.swan.pms.f.e bOg;
+    private a bOh;
+    private com.baidu.swan.pms.a.a<a.C0394a> bOi = new com.baidu.swan.pms.a.a<a.C0394a>() { // from class: com.baidu.swan.apps.core.pms.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: b */
-        public String K(a.C0364a c0364a) {
-            if (c0364a == null) {
+        public String L(a.C0394a c0394a) {
+            if (c0394a == null) {
                 return null;
             }
-            if (c0364a.category == 0) {
-                return com.baidu.swan.apps.core.pms.d.a.PK();
+            if (c0394a.category == 0) {
+                return com.baidu.swan.apps.core.pms.d.a.Xz();
             }
-            if (c0364a.category == 1) {
-                return com.baidu.swan.apps.core.pms.d.a.PL();
+            if (c0394a.category == 1) {
+                return com.baidu.swan.apps.core.pms.d.a.XA();
             }
             return null;
         }
@@ -44,8 +44,8 @@ public class d extends j {
                     @Override // java.lang.Runnable
                     public void run() {
                         pMSAppInfo.o(pMSAppInfo2);
-                        pMSAppInfo.atL();
-                        if (com.baidu.swan.pms.database.a.aty().m(pMSAppInfo)) {
+                        pMSAppInfo.aBV();
+                        if (com.baidu.swan.pms.database.a.aBI().m(pMSAppInfo)) {
                             com.baidu.swan.apps.core.pms.d.a.d(pMSAppInfo);
                         }
                     }
@@ -63,79 +63,79 @@ public class d extends j {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: c */
-        public void I(a.C0364a c0364a) {
-            super.I(c0364a);
+        public void J(a.C0394a c0394a) {
+            super.J(c0394a);
             if (d.DEBUG) {
-                Log.i("SwanAppBatchDownloadCallback", "onDownloadStart: " + c0364a.cBk);
+                Log.i("SwanAppBatchDownloadCallback", "onDownloadStart: " + c0394a.dai);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: d */
-        public void J(a.C0364a c0364a) {
+        public void K(a.C0394a c0394a) {
             if (d.DEBUG) {
-                Log.i("SwanAppBatchDownloadCallback", "onDownloading:" + c0364a.cBk);
+                Log.i("SwanAppBatchDownloadCallback", "onDownloading:" + c0394a.dai);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: e */
-        public void H(a.C0364a c0364a) {
-            super.H(c0364a);
+        public void I(a.C0394a c0394a) {
+            super.I(c0394a);
             if (d.DEBUG) {
-                Log.i("SwanAppBatchDownloadCallback", "onDownloadProgress: " + c0364a.cCc.currentSize + "/" + c0364a.cCc.size);
+                Log.i("SwanAppBatchDownloadCallback", "onDownloadProgress: " + c0394a.dbc.currentSize + "/" + c0394a.dbc.size);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
-        public void a(a.C0364a c0364a, com.baidu.swan.pms.model.a aVar) {
-            super.a((AnonymousClass1) c0364a, aVar);
+        public void a(a.C0394a c0394a, com.baidu.swan.pms.model.a aVar) {
+            super.a((AnonymousClass1) c0394a, aVar);
             if (d.DEBUG) {
                 Log.i("SwanAppBatchDownloadCallback", "onDownloadError：" + aVar.toString());
             }
-            com.baidu.swan.apps.ap.a my = new com.baidu.swan.apps.ap.a().aI(11L).aJ(aVar.errorNo).mx("批量下载，主包下载失败：" + c0364a.cBk).my(aVar.toString());
-            if (c0364a.errorCode != 0) {
+            com.baidu.swan.apps.ap.a nL = new com.baidu.swan.apps.ap.a().bn(11L).bo(aVar.errorNo).nK("批量下载，主包下载失败：" + c0394a.dai).nL(aVar.toString());
+            if (c0394a.errorCode != 0) {
                 if (d.DEBUG) {
-                    Log.e("SwanAppBatchDownloadCallback", "onDownloadError: " + my.toString());
+                    Log.e("SwanAppBatchDownloadCallback", "onDownloadError: " + nL.toString());
                 }
-            } else if (c0364a.cCc != null) {
-                d.this.bpZ.f(c0364a.cCc);
-                c.Pn().a(c0364a.cCc, PMSDownloadType.BATCH, my);
-                com.baidu.swan.d.c.deleteFile(c0364a.cCc.filePath);
+            } else if (c0394a.dbc != null) {
+                d.this.bOg.f(c0394a.dbc);
+                c.Xc().a(c0394a.dbc, PMSDownloadType.BATCH, nL);
+                com.baidu.swan.d.c.deleteFile(c0394a.dbc.filePath);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: f */
-        public void G(final a.C0364a c0364a) {
-            super.G(c0364a);
+        public void H(final a.C0394a c0394a) {
+            super.H(c0394a);
             if (d.DEBUG) {
-                Log.d("SwanAppBatchDownloadCallback", "onFileDownloaded: " + c0364a.cCc);
+                Log.d("SwanAppBatchDownloadCallback", "onFileDownloaded: " + c0394a.dbc);
             }
             m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.core.pms.d.1.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    d.this.a(c0364a);
+                    d.this.a(c0394a);
                 }
-            }, c0364a.cCc.cBk + " 下载完成，执行签名校验-重命名-解压-DB");
+            }, c0394a.dbc.dai + " 下载完成，执行签名校验-重命名-解压-DB");
         }
     };
 
     @Override // com.baidu.swan.pms.a.g
-    public void Ne() {
-        super.Ne();
+    public void UR() {
+        super.UR();
         if (DEBUG) {
             Log.e("SwanAppBatchDownloadCallback", "onFetchStart");
         }
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Pp() {
-        super.Pp();
+    public void Xe() {
+        super.Xe();
         if (DEBUG) {
             Log.e("SwanAppBatchDownloadCallback", "onFetchSuccess");
         }
@@ -147,58 +147,58 @@ public class d extends j {
         if (DEBUG) {
             Log.e("SwanAppBatchDownloadCallback", "onFetchError: " + aVar.toString());
         }
-        if (this.bqa != null) {
-            this.bqa.eF(aVar.errorNo);
+        if (this.bOh != null) {
+            this.bOh.eK(aVar.errorNo);
         }
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Pl() {
-        super.Pl();
+    public void Xa() {
+        super.Xa();
         if (DEBUG) {
             Log.e("SwanAppBatchDownloadCallback", "onNoPackage");
         }
-        if (this.bqa != null) {
-            this.bqa.Pl();
+        if (this.bOh != null) {
+            this.bOh.Xa();
         }
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.f.e eVar) {
         super.a(eVar);
-        this.bpZ = eVar;
+        this.bOg = eVar;
         if (DEBUG) {
-            Log.e("SwanAppBatchDownloadCallback", "onPrepareDownload: " + eVar.auw());
+            Log.e("SwanAppBatchDownloadCallback", "onPrepareDownload: " + eVar.aCH());
         }
     }
 
     @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
-    public void Pk() {
-        super.Pk();
+    public void WZ() {
+        super.WZ();
         if (DEBUG) {
             Log.e("SwanAppBatchDownloadCallback", "onTotalPkgDownloadFinish");
         }
-        if (this.bqa != null) {
-            this.bqa.Pk();
+        if (this.bOh != null) {
+            this.bOh.WZ();
         }
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public com.baidu.swan.pms.a.a<a.C0364a> Pq() {
-        return this.bqb;
+    public com.baidu.swan.pms.a.a<a.C0394a> Xf() {
+        return this.bOi;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0364a c0364a) {
-        if (c0364a != null && c0364a.cCc != null && c0364a.cCd != null) {
-            if (!ab.d(new File(c0364a.cCc.filePath), c0364a.cCc.sign)) {
+    public void a(a.C0394a c0394a) {
+        if (c0394a != null && c0394a.dbc != null && c0394a.dbd != null) {
+            if (!ab.e(new File(c0394a.dbc.filePath), c0394a.dbc.sign)) {
                 if (DEBUG) {
                     Log.e("SwanAppBatchDownloadCallback", "onMainPkgDownload: 签名校验失败");
                     return;
                 }
                 return;
             }
-            com.baidu.swan.apps.ap.a b = com.baidu.swan.apps.core.pms.d.a.b(c0364a.cCc);
+            com.baidu.swan.apps.ap.a b = com.baidu.swan.apps.core.pms.d.a.b(c0394a.dbc);
             if (b != null) {
                 if (DEBUG) {
                     Log.e("SwanAppBatchDownloadCallback", "onMainPkgDownload: 重命名失败，" + b);
@@ -206,7 +206,7 @@ public class d extends j {
                 }
                 return;
             }
-            com.baidu.swan.apps.ap.a a = com.baidu.swan.apps.core.pms.d.a.a(c0364a.cCc, this);
+            com.baidu.swan.apps.ap.a a = com.baidu.swan.apps.core.pms.d.a.a(c0394a.dbc, this);
             if (a != null) {
                 if (DEBUG) {
                     Log.e("SwanAppBatchDownloadCallback", "onMainPkgDownload: 解压失败，" + a);
@@ -214,18 +214,18 @@ public class d extends j {
                 }
                 return;
             }
-            c0364a.cCd.atL();
-            com.baidu.swan.apps.core.pms.d.a.a(c0364a.cCd, c0364a.cCc);
-            if (!com.baidu.swan.pms.database.a.aty().a(c0364a.cCc, c0364a.cCd)) {
+            c0394a.dbd.aBV();
+            com.baidu.swan.apps.core.pms.d.a.a(c0394a.dbd, c0394a.dbc);
+            if (!com.baidu.swan.pms.database.a.aBI().a(c0394a.dbc, c0394a.dbd)) {
                 if (DEBUG) {
                     Log.e("SwanAppBatchDownloadCallback", "onMainPkgDownload: 存储DB失败");
                     return;
                 }
                 return;
             }
-            this.bpZ.g(c0364a.cCc);
-            if (!c0364a.cCe) {
-                com.baidu.swan.apps.core.pms.d.a.d(c0364a.cCd);
+            this.bOg.g(c0394a.dbc);
+            if (!c0394a.dbe) {
+                com.baidu.swan.apps.core.pms.d.a.d(c0394a.dbd);
             }
         }
     }

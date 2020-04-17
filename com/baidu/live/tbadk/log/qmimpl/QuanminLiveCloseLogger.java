@@ -12,7 +12,7 @@ public class QuanminLiveCloseLogger implements ILiveCloseLogger {
     public void doAccessLiveCloseGuestLog(String str, String str2, String str3, String str4) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tab", LogConfig.TAB_LIVE_END);
+            jSONObject.put("tab", "live_end");
             jSONObject.put("k", LogConfig.KEY_ACCESS);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -30,8 +30,8 @@ public class QuanminLiveCloseLogger implements ILiveCloseLogger {
             jSONObject.put("tab", "liveroom");
             jSONObject.put("k", "click");
             jSONObject.put("v", "follow");
-            jSONObject.put(LogConfig.LOG_VID, str3);
-            jSONObject.put("loc", LogConfig.TAB_LIVE_END);
+            jSONObject.put("vid", str3);
+            jSONObject.put("loc", "live_end");
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
             jSONObject = LogManager.addOtherParamsToJson(jSONObject, str4, false, true);
@@ -45,11 +45,11 @@ public class QuanminLiveCloseLogger implements ILiveCloseLogger {
     public void doClickNoFollowLiveCloseGuestLog(String str, String str2, String str3, String str4) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tab", LogConfig.TAB_LIVE_END);
+            jSONObject.put("tab", "live_end");
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_FOLLOW_CANCEL);
-            jSONObject.put(LogConfig.LOG_VID, str3);
-            jSONObject.put("loc", LogConfig.TAB_LIVE_END);
+            jSONObject.put("vid", str3);
+            jSONObject.put("loc", "live_end");
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
             jSONObject = LogManager.addOtherParamsToJson(jSONObject, str4, false, false);
@@ -63,10 +63,10 @@ public class QuanminLiveCloseLogger implements ILiveCloseLogger {
     public void doClickChangeSomeLiveCloseGuestLog(String str, String str2, String str3, String str4) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tab", LogConfig.TAB_LIVE_END);
+            jSONObject.put("tab", "live_end");
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_VIDEO_REFRESH);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
             jSONObject = LogManager.addOtherParamsToJson(jSONObject, str4, false, false);
@@ -80,9 +80,9 @@ public class QuanminLiveCloseLogger implements ILiveCloseLogger {
     public void doShowRecommendLiveCloseGuestLog(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tab", LogConfig.TAB_LIVE_END);
+            jSONObject.put("tab", "live_end");
             jSONObject.put("k", LogConfig.KEY_VIDEO_SHOW);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put("pos", str6);
             jSONObject.put("type", "live");
@@ -99,9 +99,9 @@ public class QuanminLiveCloseLogger implements ILiveCloseLogger {
     public void doReadRecommendLiveCloseGuestLog(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tab", LogConfig.TAB_LIVE_END);
+            jSONObject.put("tab", "live_end");
             jSONObject.put("k", LogConfig.KEY_VIDEO_READ);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put("pos", str6);
             jSONObject.put("type", "live");
@@ -121,7 +121,7 @@ public class QuanminLiveCloseLogger implements ILiveCloseLogger {
             jSONObject.put("tab", "live_close");
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_SHOWOFF);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_OTHER_ID, str2);
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -136,7 +136,7 @@ public class QuanminLiveCloseLogger implements ILiveCloseLogger {
     public void doNoticeStaytimeLiveCloseGuestLog(String str, String str2, String str3, long j, String str4) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("tab", LogConfig.TAB_LIVE_END);
+            jSONObject.put("tab", "live_end");
             jSONObject.put("k", LogConfig.KEY_NOTICE);
             jSONObject.put("v", LogConfig.VALUE_STAYTIME);
             jSONObject.put("tag", "");

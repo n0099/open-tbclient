@@ -104,7 +104,7 @@ public class r {
             return false;
         }
         try {
-            c.T(activity);
+            c.P(activity);
             return true;
         } catch (Exception e) {
             return true;

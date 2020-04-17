@@ -38,13 +38,13 @@ public class c extends g {
                 for (String str2 : list) {
                     CookieManager.getInstance().setCookie(str, str2);
                 }
-                MP();
+                UC();
             } catch (Exception e) {
             }
         }
     }
 
-    public void MP() {
+    public void UC() {
         if (com.baidu.swan.apps.as.a.hasLollipop()) {
             CookieManager.getInstance().flush();
         } else {

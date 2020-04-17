@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportViewManager;
@@ -67,17 +67,17 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         if (webDTO == null || (i2 = webDTO.closeExitAnimId) == 0) {
             i2 = i6;
         }
-        int i7 = i == 0 ? a.C0075a.sapi_sdk_slide_right_in : i;
-        int i8 = i2 == 0 ? a.C0075a.sapi_sdk_slide_right_out : i2;
+        int i7 = i == 0 ? a.C0090a.sapi_sdk_slide_right_in : i;
+        int i8 = i2 == 0 ? a.C0090a.sapi_sdk_slide_right_out : i2;
         if (z) {
-            int i9 = a.C0075a.sapi_sdk_slide_left_out;
+            int i9 = a.C0090a.sapi_sdk_slide_left_out;
             if (webDTO == null || (i4 = webDTO.openExitAnimId) == 0) {
                 i4 = i9;
             }
             overridePendingTransition(i7, i4);
             return;
         }
-        int i10 = a.C0075a.sapi_sdk_slide_left_in;
+        int i10 = a.C0090a.sapi_sdk_slide_left_in;
         if (webDTO == null || (i3 = webDTO.closeEnterAnimId) == 0) {
             i3 = i10;
         }
@@ -204,7 +204,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         HashMap hashMap = new HashMap();
         hashMap.put(BdStatsConstant.StatsType.ERROR, Log.getStackTraceString(th));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
-        hashMap.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE);
+        hashMap.put("os_version", Build.VERSION.RELEASE);
         r.a("webview_init_error", hashMap);
     }
 

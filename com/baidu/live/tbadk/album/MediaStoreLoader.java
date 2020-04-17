@@ -14,7 +14,6 @@ import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.live.tbadk.img.ImageFileInfo;
-import com.baidu.searchbox.picture.component.BaseBrowseView;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -134,7 +133,7 @@ public class MediaStoreLoader {
             long j = cursor.getLong(cursor.getColumnIndex("date_added"));
             int i = cursor.getInt(cursor.getColumnIndex("_size"));
             long j2 = cursor.getLong(cursor.getColumnIndex("date_modified"));
-            boolean endsWith = string4.endsWith(BaseBrowseView.IMG_TYPE_GIF);
+            boolean endsWith = string4.endsWith("gif");
             if (!endsWith || i <= MAX_GIF_FILE_SIZE) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setAlbumnId(string);

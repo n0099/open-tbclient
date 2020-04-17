@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
@@ -16,7 +15,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.mRJ.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes7.dex */
@@ -46,7 +45,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
                 this.actual.onSubscribe(this);
                 int i = this.maxConcurrency;
                 if (i == Integer.MAX_VALUE) {
-                    dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                    dVar.request(Long.MAX_VALUE);
                 } else {
                     dVar.request(i);
                 }
@@ -63,7 +62,7 @@ public final class FlowableFlatMapCompletable<T> extends a<T, T> {
                     eVar.a(innerConsumer);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 this.s.cancel();
                 onError(th);
             }

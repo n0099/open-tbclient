@@ -2,29 +2,29 @@ package com.baidu.tieba.ala.frsgamelive.c;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext eDK;
-    private d eDL;
+    private TbPageContext fie;
+    private d fif;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.eDK = tbPageContext;
+        this.fie = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.eDL = new d(this.eDK);
-        ((ViewGroup) getView()).addView(this.eDL.getView());
+        this.fif = new d(this.fie);
+        ((ViewGroup) getView()).addView(this.fif.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.eDL != null) {
-            this.eDL.onChangeSkinType(tbPageContext, i);
+        if (this.fif != null) {
+            this.fif.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -36,8 +36,8 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.cRt != null && this.eDL != null) {
-            this.eDL.a(cVar.cRt);
+        if (cVar != null && cVar.dqA != null && this.fif != null) {
+            this.fif.a(cVar.dqA);
         }
     }
 
@@ -46,18 +46,18 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     public void c(com.baidu.tieba.ala.d dVar) {
-        if (this.eDL != null) {
-            this.eDL.d(dVar);
+        if (this.fif != null) {
+            this.fif.d(dVar);
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends v.a {
-        public f eDM;
+    public static class a extends y.a {
+        public f fig;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.eDM = fVar;
+            this.fig = fVar;
         }
     }
 }

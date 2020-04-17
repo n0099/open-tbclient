@@ -24,8 +24,8 @@ public class c extends com.kascend.chushou.view.base.a {
     private String i;
     private int j;
     private String k;
-    private FrescoThumbnailView ndf;
-    private a nhm;
+    private a mDT;
+    private FrescoThumbnailView mzG;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -63,7 +63,7 @@ public class c extends com.kascend.chushou.view.base.a {
     }
 
     @Override // com.kascend.chushou.view.base.a
-    public View b(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(a.h.dialog_send_loyalfans, viewGroup, false);
         ((TextView) inflate.findViewById(a.f.tv_title)).setText(Html.fromHtml(this.b.getString(a.i.send_loyalfans)));
         ((RelativeLayout) inflate.findViewById(a.f.rl_top)).setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.b.c.1
@@ -75,7 +75,7 @@ public class c extends com.kascend.chushou.view.base.a {
         this.a = (TextView) inflate.findViewById(a.f.tv_point);
         this.d = (TextView) inflate.findViewById(a.f.tv_cancel);
         this.e = (TextView) inflate.findViewById(a.f.tv_sure);
-        this.ndf = (FrescoThumbnailView) inflate.findViewById(a.f.iv_icon);
+        this.mzG = (FrescoThumbnailView) inflate.findViewById(a.f.iv_icon);
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.b.c.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -85,8 +85,8 @@ public class c extends com.kascend.chushou.view.base.a {
         this.e.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.b.c.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.nhm != null) {
-                    c.this.nhm.a(c.this.j, c.this.h);
+                if (c.this.mDT != null) {
+                    c.this.mDT.a(c.this.j, c.this.h);
                 }
             }
         });
@@ -106,11 +106,11 @@ public class c extends com.kascend.chushou.view.base.a {
 
     @Override // com.kascend.chushou.view.base.a
     public void a(View view) {
-        this.ndf.i(this.i, a.e.default_gift, b.a.medium, b.a.medium);
+        this.mzG.i(this.i, a.e.default_gift, b.a.ntY, b.a.ntY);
         this.a.setText(String.format(this.b.getString(a.i.send_loyalfans3), Integer.valueOf(this.j)));
     }
 
     public void a(a aVar) {
-        this.nhm = aVar;
+        this.mDT = aVar;
     }
 }

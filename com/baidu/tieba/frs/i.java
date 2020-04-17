@@ -3,22 +3,22 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes.dex */
 public class i {
-    private static String goR;
-    public static i goQ = null;
-    private static bj NR = null;
+    private static String gXW;
+    public static i gXV = null;
+    private static bj agz = null;
 
-    public static synchronized void ak(bj bjVar) {
+    public static synchronized void am(bj bjVar) {
         synchronized (i.class) {
-            goR = bjVar.tid;
-            NR = bjVar;
+            gXW = bjVar.tid;
+            agz = bjVar;
         }
     }
 
-    public static bj bDM() {
-        return NR;
+    public static bj bOl() {
+        return agz;
     }
 
-    public static String bDN() {
-        return goR;
+    public static String bOm() {
+        return gXW;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.swan.bdprivate.address.c;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -9,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    public List<d> UM = new ArrayList();
+    public List<d> amU = new ArrayList();
     public String code;
     public String name;
 
-    public static d bd(JSONObject jSONObject) {
+    public static d bo(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -23,9 +22,9 @@ public class d {
         JSONArray optJSONArray = jSONObject.optJSONArray("children");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                d bd = bd(optJSONArray.optJSONObject(i));
-                if (bd != null) {
-                    dVar.UM.add(bd);
+                d bo = bo(optJSONArray.optJSONObject(i));
+                if (bo != null) {
+                    dVar.amU.add(bo);
                 }
             }
         }
@@ -47,11 +46,11 @@ public class d {
         }
     }
 
-    public boolean aiw() {
-        return this.UM.size() > 0;
+    public boolean aqE() {
+        return this.amU.size() > 0;
     }
 
-    public static String af(List<d> list) {
+    public static String an(List<d> list) {
         StringBuilder sb = new StringBuilder();
         if (list != null) {
             int i = 0;
@@ -62,7 +61,7 @@ public class d {
                 }
                 d dVar = list.get(i2);
                 if (i2 != 0) {
-                    sb.append(HanziToPinyin.Token.SEPARATOR);
+                    sb.append(" ");
                 }
                 sb.append(dVar.name);
                 i = i2 + 1;

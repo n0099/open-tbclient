@@ -35,17 +35,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class a implements a.InterfaceC0610a {
-    private String fQY;
-    private boolean fQV = false;
-    private boolean fQW = false;
-    private boolean fQX = false;
+public class a implements a.InterfaceC0651a {
+    private String gvG;
+    private boolean gvD = false;
+    private boolean gvE = false;
+    private boolean gvF = false;
     private CustomMessageListener mAccountChangeListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                a.this.bwE();
+                a.this.bGq();
             }
         }
     };
@@ -58,27 +58,27 @@ public class a implements a.InterfaceC0610a {
             }
         }
     };
-    private CustomMessageListener tR = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.d.a.3
+    private CustomMessageListener MI = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.d.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                a.this.bwF();
+                a.this.bGr();
             }
         }
     };
 
-    @Override // com.baidu.tieba.t.a.InterfaceC0610a
+    @Override // com.baidu.tieba.t.a.InterfaceC0651a
     public void initSdk(Application application) {
         MessageManager.getInstance().registerListener(this.mSyncFinishListener);
         MessageManager.getInstance().registerListener(this.mAccountChangeListener);
-        MessageManager.getInstance().registerListener(this.tR);
-        if (!this.fQV) {
-            g(application);
+        MessageManager.getInstance().registerListener(this.MI);
+        if (!this.gvD) {
+            f(application);
         }
     }
 
-    private boolean g(Application application) {
+    private boolean f(Application application) {
         try {
             CrabSDK.setConstantSameCrashExceedLimit(3);
             CrabSDK.setOnCrashExceedListener(new OnCrashExceedListener() { // from class: com.baidu.tieba.d.a.4
@@ -96,10 +96,10 @@ public class a implements a.InterfaceC0610a {
             } else {
                 CrabSDK.init(application, "b14ed41a92769403");
             }
-            this.fQV = true;
-            bwE();
-            o(null);
-            bwF();
+            this.gvD = true;
+            bGq();
+            q(null);
+            bGr();
             CrabSDK.setChannel(TbConfig.getCurrentFrom());
             CrabSDK.setEnableLog(isDebugMode);
             if (isDebugMode) {
@@ -112,9 +112,9 @@ public class a implements a.InterfaceC0610a {
                 CrabSDK.setUploadLimitOfAnrInOneday(-1);
                 CrabSDK.setUrlRecordLimit(10);
             } else {
-                if (bwz()) {
+                if (bGl()) {
                     CrabSDK.disableBlockCatch();
-                } else if (bwB()) {
+                } else if (bGn()) {
                     CrabSDK.disableBlockCatch();
                 } else {
                     CrabSDK.disableBlockCatch();
@@ -137,69 +137,69 @@ public class a implements a.InterfaceC0610a {
             CrabSDK.setOnAnrCrashListener(new OnAnrCrashListener() { // from class: com.baidu.tieba.d.a.5
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onAnrStarted(Map map) {
-                    a.this.bwE();
-                    a.this.o(null);
+                    a.this.bGq();
+                    a.this.q(null);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onCrashStarted(Thread thread, Throwable th) {
-                    a.this.bwE();
-                    a.this.o(th);
+                    a.this.bGq();
+                    a.this.q(th);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onNativeCrashStarted(String str) {
-                    a.this.bwE();
-                    a.this.o(null);
+                    a.this.bGq();
+                    a.this.q(null);
                 }
             });
-            bwC();
-            bwD();
+            bGo();
+            bGp();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-            this.fQV = false;
+            this.gvD = false;
             return false;
         }
     }
 
-    private boolean bwz() {
+    private boolean bGl() {
         return TbConfig.getVersionType() == 2;
     }
 
-    private boolean bwA() {
+    private boolean bGm() {
         return TbConfig.getVersionType() == 1;
     }
 
-    private boolean bwB() {
+    private boolean bGn() {
         return TbConfig.getVersionType() == 3;
     }
 
-    private void bwC() {
-        if (this.fQV && this.fQW) {
+    private void bGo() {
+        if (this.gvD && this.gvE) {
             CrabSDK.disableBlockCatch();
         }
     }
 
-    private void bwD() {
-        if (this.fQV && this.fQX) {
+    private void bGp() {
+        if (this.gvD && this.gvF) {
             CrabSDK.closeAnrHandler();
         }
     }
 
-    public void bwE() {
-        dc(TbadkCoreApplication.getInst().getCuidGalaxy2(), TbadkCoreApplication.getCurrentAccount());
+    public void bGq() {
+        dq(TbadkCoreApplication.getInst().getCuidGalaxy2(), TbadkCoreApplication.getCurrentAccount());
     }
 
-    public void dc(String str, String str2) {
-        if (this.fQV) {
+    public void dq(String str, String str2) {
+        if (this.gvD) {
             CrabSDK.setUid(str);
             CrabSDK.setUserName(str2);
         }
     }
 
-    public void bwF() {
-        if (this.fQV) {
+    public void bGr() {
+        if (this.gvD) {
             if (j.isWifiNet()) {
                 CrabSDK.setCollectScreenshot(true);
             } else {
@@ -209,21 +209,21 @@ public class a implements a.InterfaceC0610a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o(Throwable th) {
-        if (this.fQV) {
+    public void q(Throwable th) {
+        if (this.gvD) {
             HashMap hashMap = new HashMap();
-            hashMap.put("version_type", bwG());
+            hashMap.put("version_type", bGs());
             hashMap.put("version", TbConfig.getVersion());
             hashMap.put("sub_version", TbConfig.getSubVersion());
-            hashMap.put("plugin_info", p(th));
-            hashMap.put("lastFlutterPage", this.fQY);
+            hashMap.put("plugin_info", r(th));
+            hashMap.put("lastFlutterPage", this.gvG);
             CrabSDK.setUsersCustomKV(hashMap);
         }
     }
 
-    @Override // com.baidu.tieba.t.a.InterfaceC0610a
+    @Override // com.baidu.tieba.t.a.InterfaceC0651a
     public void setLastFlutterPage(String str) {
-        this.fQY = str;
+        this.gvG = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00e5, code lost:
@@ -234,7 +234,7 @@ public class a implements a.InterfaceC0610a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String p(Throwable th) {
+    private String r(Throwable th) {
         boolean z;
         String str;
         StringBuilder sb = new StringBuilder();
@@ -244,19 +244,19 @@ public class a implements a.InterfaceC0610a {
                 while (it.hasNext()) {
                     Plugin next = it.next();
                     if (next != null) {
-                        PluginSetting bb = PluginPackageManager.js().bb(next.getPackageName());
+                        PluginSetting cq = PluginPackageManager.nV().cq(next.getPackageName());
                         sb.append(next.getPackageName());
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                         sb.append(next.getCurrentPluginMode());
                         sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                        if (bb != null) {
-                            sb.append(new File(bb.apkPath).exists());
+                        if (cq != null) {
+                            sb.append(new File(cq.apkPath).exists());
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                             sb.append(next.getVersionCode());
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                            sb.append(bb.tempVersionCode);
+                            sb.append(cq.tempVersionCode);
                             sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                            if (bb.enable) {
+                            if (cq.enable) {
                                 sb.append("true");
                             } else {
                                 sb.append("false");
@@ -279,13 +279,13 @@ public class a implements a.InterfaceC0610a {
             if (!th.getMessage().contains("java.lang.ClassNotFoundException")) {
             }
             try {
-                PluginSettings jS = c.jV().jS();
-                if (jS != null) {
-                    sb2.append(jS.getContainerVersion());
+                PluginSettings ow = c.oz().ow();
+                if (ow != null) {
+                    sb2.append(ow.getContainerVersion());
                     sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                    sb2.append(jS.getForbiddenFeatures());
+                    sb2.append(ow.getForbiddenFeatures());
                     sb2.append("#");
-                    for (PluginSetting pluginSetting : jS.getPlugins().values()) {
+                    for (PluginSetting pluginSetting : ow.getPlugins().values()) {
                         if (pluginSetting != null) {
                             sb2.append(pluginSetting.packageName);
                             sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
@@ -306,66 +306,66 @@ public class a implements a.InterfaceC0610a {
                 } else {
                     sb2.append("pluginSettings_is_null");
                 }
-                str = b.jf().toString();
+                str = b.nI().toString();
                 z = true;
             } catch (Exception e2) {
                 z2 = true;
                 z = z2;
                 str = "";
-                String str2 = th.getMessage() + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.a.eH().eI();
+                String str2 = th.getMessage() + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.a.jm().jn();
                 if (z) {
                 }
             }
-            String str22 = th.getMessage() + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.a.eH().eI();
+            String str22 = th.getMessage() + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.a.jm().jn();
             return z ? str22 + "\n--PluginSettings--" + sb2.toString() + "\n--PluginTrace--" + str : str22;
         }
         z = false;
         str = "";
-        String str222 = th.getMessage() + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.a.eH().eI();
+        String str222 = th.getMessage() + "--pluginInfo-" + sb.toString() + "\n--activityStack--" + com.baidu.adp.base.a.jm().jn();
         if (z) {
         }
     }
 
-    private String bwG() {
+    private String bGs() {
         if (BdBaseApplication.getInst().isDebugMode()) {
             return "DebugBuild";
         }
-        if (bwB()) {
+        if (bGn()) {
             return "ReleasedBuild";
         }
-        if (bwz()) {
+        if (bGl()) {
             return "GrayBuild";
         }
-        if (!bwA()) {
+        if (!bGm()) {
             return "DefaultBuild";
         }
         return "DailyBuild";
     }
 
-    @Override // com.baidu.tieba.t.a.InterfaceC0610a
+    @Override // com.baidu.tieba.t.a.InterfaceC0651a
     public void onPause(Activity activity) {
-        if (this.fQV && activity != null) {
+        if (this.gvD && activity != null) {
             CrabSDK.onPause(activity);
         }
     }
 
-    @Override // com.baidu.tieba.t.a.InterfaceC0610a
+    @Override // com.baidu.tieba.t.a.InterfaceC0651a
     public void onResume(Activity activity) {
-        if (this.fQV && activity != null) {
+        if (this.gvD && activity != null) {
             CrabSDK.onResume(activity);
         }
     }
 
-    @Override // com.baidu.tieba.t.a.InterfaceC0610a
+    @Override // com.baidu.tieba.t.a.InterfaceC0651a
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.fQV && activity != null && motionEvent != null) {
+        if (this.gvD && activity != null && motionEvent != null) {
             CrabSDK.behaviorRecordEvent(motionEvent, activity);
         }
     }
 
-    @Override // com.baidu.tieba.t.a.InterfaceC0610a
+    @Override // com.baidu.tieba.t.a.InterfaceC0651a
     public void uploadException(Exception exc) {
-        if (this.fQV && exc != null) {
+        if (this.gvD && exc != null) {
             CrabSDK.uploadException(exc);
         }
     }

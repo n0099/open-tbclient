@@ -13,13 +13,13 @@ import com.baidu.live.utils.i;
 /* loaded from: classes3.dex */
 public class b {
     private long count;
-    private com.baidu.tieba.ala.liveroom.operation.b eSg;
-    private TextView eUf;
-    private ImageView eUg;
+    private com.baidu.tieba.ala.liveroom.operation.b fwA;
+    private ImageView fyA;
+    private TextView fyz;
     private boolean isHost;
     private Context mContext;
     private View mView = null;
-    private boolean eUh = true;
+    private boolean fyB = true;
 
     public b(Context context, boolean z) {
         this.isHost = false;
@@ -32,26 +32,26 @@ public class b {
         this.mView = View.inflate(this.mContext, a.h.ala_liveroom_audience_count_layout, null);
         this.mView.setMinimumWidth(this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds90));
         this.mView.setId(a.g.ala_liveroom_audience_count_layout);
-        this.eUf = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
-        this.eUg = (ImageView) this.mView.findViewById(a.g.close_imageView);
+        this.fyz = (TextView) this.mView.findViewById(a.g.ala_live_room_audience_count);
+        this.fyA = (ImageView) this.mView.findViewById(a.g.close_imageView);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.eUg.setVisibility(0);
-            this.eUg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
+            this.fyA.setVisibility(0);
+            this.fyA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.eSg != null) {
-                        b.this.eSg.m(view, 8);
+                    if (b.this.fwA != null) {
+                        b.this.fwA.l(view, 8);
                     }
                 }
             });
         } else {
-            this.eUg.setVisibility(8);
+            this.fyA.setVisibility(8);
         }
-        this.eUf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
+        this.fyz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.audiencelist.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.eSg != null) {
-                    b.this.eSg.m(view, 14);
+                if (b.this.fwA != null) {
+                    b.this.fwA.l(view, 14);
                 }
             }
         });
@@ -61,7 +61,7 @@ public class b {
         if (this.mView.getParent() != null) {
             ((ViewGroup) this.mView.getParent()).removeView(this.mView);
         }
-        cD(j);
+        dk(j);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds72));
         layoutParams.addRule(11);
         layoutParams.addRule(8, i);
@@ -70,27 +70,27 @@ public class b {
     }
 
     public void setVisible(int i) {
-        if (this.eUh) {
+        if (this.fyB) {
             this.mView.setVisibility(i);
         } else {
             this.mView.setVisibility(8);
         }
     }
 
-    public void jj(boolean z) {
+    public void kk(boolean z) {
         if (z) {
-            this.eUg.setVisibility(0);
+            this.fyA.setVisibility(0);
         } else {
-            this.eUg.setVisibility(8);
+            this.fyA.setVisibility(8);
         }
     }
 
-    public void cD(long j) {
+    public void dk(long j) {
         if (j < 0) {
             j = 0;
         }
         this.count = j;
-        this.eUf.setText(i.numFormatOverWanNaForAudienceNum(j));
+        this.fyz.setText(i.numFormatOverWanNaForAudienceNum(j));
     }
 
     public long getCount() {
@@ -98,12 +98,12 @@ public class b {
     }
 
     public void a(com.baidu.tieba.ala.liveroom.operation.b bVar) {
-        this.eSg = bVar;
+        this.fwA = bVar;
     }
 
-    public void jk(boolean z) {
-        if (this.eUf != null) {
-            this.eUf.setEnabled(z);
+    public void kl(boolean z) {
+        if (this.fyz != null) {
+            this.fyz.setEnabled(z);
         }
     }
 }

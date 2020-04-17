@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.support.media.ExifInterface;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.ar.pose.PoseAR;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -15,7 +16,7 @@ public class ef {
     }
 
     public static String a(String str) {
-        return Base64.encodeToString(ay.m139a(str), 2);
+        return Base64.encodeToString(ay.m144a(str), 2);
     }
 
     public static String a(HashMap<String, String> hashMap) {
@@ -40,7 +41,7 @@ public class ef {
     public static String b(HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
         if (hashMap != null) {
-            hashMap2.put("event_type", hashMap.get("event_type") + "");
+            hashMap2.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY) + "");
             hashMap2.put("description", hashMap.get("description") + "");
             String str = hashMap.get("awake_info");
             if (!TextUtils.isEmpty(str)) {

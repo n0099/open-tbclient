@@ -9,57 +9,57 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d {
-    private static volatile d dYg;
-    private ArrayList<Integer> dYc = new ArrayList<>();
-    private c dYd;
-    private a dYh;
-    private List<an> dYi;
+    private static volatile d eyb;
+    private ArrayList<Integer> exX = new ArrayList<>();
+    private c exY;
+    private a eyc;
+    private List<an> eyd;
 
-    public static d aXK() {
-        if (dYg == null) {
+    public static d bfP() {
+        if (eyb == null) {
             synchronized (c.class) {
-                if (dYg == null) {
-                    dYg = new d();
+                if (eyb == null) {
+                    eyb = new d();
                 }
             }
         }
-        return dYg;
+        return eyb;
     }
 
     private d() {
-        this.dYc.add(1);
-        this.dYc.add(2);
-        this.dYd = new c();
-        this.dYh = new a(this.dYd, this.dYc);
-        oj(com.baidu.tbadk.core.sharedPref.b.aFH().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
+        this.exX.add(1);
+        this.exX.add(2);
+        this.exY = new c();
+        this.eyc = new a(this.exY, this.exX);
+        ow(com.baidu.tbadk.core.sharedPref.b.aNV().getInt(SharedPrefConfig.KEY_ABTEST_CHANNEL, 0));
     }
 
-    public int ai(String str, int i) {
-        if (this.dYh == null) {
+    public int ar(String str, int i) {
+        if (this.eyc == null) {
             return 0;
         }
-        return this.dYh.ai(str, i);
+        return this.eyc.ar(str, i);
     }
 
-    public void wP(String str) {
-        if (this.dYh != null) {
-            this.dYh.wO(str);
+    public void yb(String str) {
+        if (this.eyc != null) {
+            this.eyc.ya(str);
         }
     }
 
     public void e(an anVar) {
         if (anVar != null) {
-            if (this.dYi == null) {
-                this.dYi = new ArrayList();
+            if (this.eyd == null) {
+                this.eyd = new ArrayList();
             }
-            this.dYi.add(anVar);
+            this.eyd.add(anVar);
         }
     }
 
-    public void cu(String str, String str2) {
-        if (!v.isEmpty(this.dYi) && this.dYd != null && this.dYd.aXI()) {
+    public void cF(String str, String str2) {
+        if (!v.isEmpty(this.eyd) && this.exY != null && this.exY.bfN()) {
             int i = -1;
-            for (an anVar : this.dYi) {
+            for (an anVar : this.eyd) {
                 if (anVar != null) {
                     if (anVar.getPosition() == 0) {
                         a(str, str2, anVar);
@@ -70,12 +70,12 @@ public class d {
                     i = i;
                 }
             }
-            this.dYi.clear();
+            this.eyd.clear();
         }
     }
 
     public void a(String str, String str2, an anVar) {
-        if (anVar != null && this.dYd != null && this.dYd.aXI()) {
+        if (anVar != null && this.exY != null && this.exY.bfN()) {
             HashMap hashMap = new HashMap();
             List<Object> params = anVar.getParams();
             if (params != null) {
@@ -99,20 +99,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (aq.isEmpty(str) || this.dYd == null || !this.dYd.aXI()) {
-            com.baidu.ubs.analytics.a.Lj(str);
+        if (aq.isEmpty(str) || this.exY == null || !this.exY.bfN()) {
+            com.baidu.ubs.analytics.a.Nx(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (aq.isEmpty(str) || this.dYd == null || !this.dYd.aXI()) {
-            com.baidu.ubs.analytics.a.Lk(str);
+        if (aq.isEmpty(str) || this.exY == null || !this.exY.bfN()) {
+            com.baidu.ubs.analytics.a.Ny(str);
         }
     }
 
-    public void oj(int i) {
-        if (this.dYd != null) {
-            this.dYd.oj(i);
+    public void ow(int i) {
+        if (this.exY != null) {
+            this.exY.ow(i);
         }
     }
 }

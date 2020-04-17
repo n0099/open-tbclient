@@ -1,19 +1,22 @@
 package com.baidu.tieba.ala.liveroom.t;
 
-import android.app.ActivityManager;
-import android.content.ComponentName;
-import android.content.Context;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.List;
+import com.baidu.live.data.u;
 /* loaded from: classes3.dex */
 public class a {
-    public static boolean eH(Context context) {
-        ComponentName componentName;
-        ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
-        if (activityManager == null) {
-            return false;
+    private static volatile a fPC;
+    public u aQA = new u();
+
+    public static a bzZ() {
+        if (fPC == null) {
+            synchronized (a.class) {
+                if (fPC == null) {
+                    fPC = new a();
+                }
+            }
         }
-        List<ActivityManager.RunningTaskInfo> runningTasks = activityManager.getRunningTasks(1);
-        return (runningTasks == null || runningTasks.isEmpty() || (componentName = runningTasks.get(0).topActivity) == null || componentName.getPackageName().equals(context.getPackageName())) ? false : true;
+        return fPC;
+    }
+
+    private a() {
     }
 }

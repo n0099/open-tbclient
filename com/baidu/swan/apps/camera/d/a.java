@@ -1,16 +1,17 @@
 package com.baidu.swan.apps.camera.d;
 
 import android.text.TextUtils;
+import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
-    private String bgm;
-    public String bgn;
+    private String bEx;
+    public String bEy;
     private String devicePosition;
 
     public a(String str) {
-        super("camera", "cameraId");
+        super(PixelReadParams.DEFAULT_FILTER_ID, "cameraId");
         try {
             parseFromJson(new JSONObject(str));
         } catch (JSONException e) {
@@ -22,36 +23,36 @@ public class a extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.devicePosition = jSONObject.optString("devicePosition", "back");
-        this.bgm = jSONObject.optString("flash", "auto");
-        this.bgn = jSONObject.optString("cameraId");
+        this.bEx = jSONObject.optString("flash", "auto");
+        this.bEy = jSONObject.optString("cameraId");
     }
 
     public boolean isFrontCamera() {
         return TextUtils.equals(this.devicePosition, "front");
     }
 
-    public String Km() {
-        return C0230a.gk(this.bgm);
+    public String Sa() {
+        return C0260a.hy(this.bEx);
     }
 
     public int getWidth() {
-        if (this.biE == null) {
+        if (this.bGM == null) {
             return 0;
         }
-        return this.biE.getWidth();
+        return this.bGM.getWidth();
     }
 
     public int getHeight() {
-        if (this.biE == null) {
+        if (this.bGM == null) {
             return 0;
         }
-        return this.biE.getHeight();
+        return this.bGM.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private static class C0230a {
-        static String gk(String str) {
+    private static class C0260a {
+        static String hy(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

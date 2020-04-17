@@ -11,7 +11,7 @@ import com.baidu.swan.game.ad.entity.AdResponseInfo;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class a {
-    private a.InterfaceC0327a chL;
+    private a.InterfaceC0357a cGH;
     private Context mContext;
 
     public a(Context context) {
@@ -46,14 +46,14 @@ public class a {
                 /* renamed from: a */
                 public void onSuccess(AdResponseInfo adResponseInfo, int i) {
                     if (adResponseInfo == null) {
-                        a.this.nM("200000");
+                        a.this.pb("200000");
                     } else if (adResponseInfo.getAdInstanceList().size() > 0) {
-                        final AdElementInfo akt = adResponseInfo.akt();
+                        final AdElementInfo asF = adResponseInfo.asF();
                         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (a.this.chL != null) {
-                                    a.this.chL.b(akt);
+                                if (a.this.cGH != null) {
+                                    a.this.cGH.b(asF);
                                 }
                             }
                         });
@@ -62,38 +62,38 @@ public class a {
                         if (errorCode.equals("0")) {
                             errorCode = "201000";
                         }
-                        a.this.nM(errorCode);
+                        a.this.pb(errorCode);
                     }
                 }
 
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
-                    a.this.nM("3010002");
+                    a.this.pb("3010002");
                 }
             };
             if (SwanAppNetworkUtils.isNetworkConnected(this.mContext)) {
-                String akE = dVar.akE();
+                String asQ = dVar.asQ();
                 if (bVar != null) {
-                    bVar.a(akE, responseCallback);
+                    bVar.a(asQ, responseCallback);
                     return;
                 }
                 return;
             }
-            nM("3010003");
+            pb("3010003");
         }
     }
 
-    public void a(a.InterfaceC0327a interfaceC0327a) {
-        this.chL = interfaceC0327a;
+    public void a(a.InterfaceC0357a interfaceC0357a) {
+        this.cGH = interfaceC0357a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nM(final String str) {
+    public void pb(final String str) {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.c.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.chL != null) {
-                    a.this.chL.nH(str);
+                if (a.this.cGH != null) {
+                    a.this.cGH.oW(str);
                 }
             }
         });

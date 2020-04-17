@@ -20,9 +20,9 @@ class an extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.a.a == this.a.f867a.f854a) {
-            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f867a.g);
-            this.a.f867a.f854a = null;
+        if (this.a.a == this.a.f868a.f855a) {
+            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f868a.g);
+            this.a.f868a.f855a = null;
         }
     }
 }

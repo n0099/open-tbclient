@@ -14,10 +14,10 @@ public class TbRichTextCommInfo extends OrmObject {
     public static final int URL_VALIDITY_INVALID = 1;
     public static final int URL_VALIDITY_NORMAL = 0;
     public static final int URL_VALIDITY_VALID = 2;
-    private int dOT;
-    private String dOU;
-    private String dOV;
-    private int dOW;
+    private int eoN;
+    private String eoO;
+    private String eoP;
+    private int eoQ;
     private String mLink;
     private String mText;
     private int mType;
@@ -26,37 +26,37 @@ public class TbRichTextCommInfo extends OrmObject {
         this.mText = null;
         this.mLink = null;
         this.mType = 0;
-        this.dOW = 0;
+        this.eoQ = 0;
     }
 
     public TbRichTextCommInfo(JSONObject jSONObject) {
         this.mText = null;
         this.mLink = null;
         this.mType = 0;
-        this.dOW = 0;
+        this.eoQ = 0;
         if (jSONObject != null) {
             this.mText = jSONObject.optString("text");
             this.mLink = jSONObject.optString("link");
             this.mType = jSONObject.optInt("type", 0);
-            this.dOW = jSONObject.optInt(ConstantData.Logo.LOGO_JUMP_URL_TPYE, 0);
-            this.dOT = jSONObject.optInt("is_native_app", 0);
-            if (this.dOT == 1) {
+            this.eoQ = jSONObject.optInt(ConstantData.Logo.LOGO_JUMP_URL_TPYE, 0);
+            this.eoN = jSONObject.optInt("is_native_app", 0);
+            if (this.eoN == 1) {
                 if (jSONObject.optJSONObject("native_app") == null) {
-                    this.dOT = 0;
+                    this.eoN = 0;
                     return;
                 }
-                this.dOU = jSONObject.optString("jump_and");
-                this.dOV = jSONObject.optString("download_and");
-                if (TextUtils.isEmpty(this.dOU) || TextUtils.isEmpty(this.dOV)) {
-                    this.dOT = 0;
+                this.eoO = jSONObject.optString("jump_and");
+                this.eoP = jSONObject.optString("download_and");
+                if (TextUtils.isEmpty(this.eoO) || TextUtils.isEmpty(this.eoP)) {
+                    this.eoN = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.dOU += ";download_url:" + this.dOV + ";web_play_url:" + this.mLink;
+                    this.eoO += ";download_url:" + this.eoP + ";web_play_url:" + this.mLink;
                 } else if (this.mType == 5) {
-                    this.dOU += ";download_url:" + this.dOV + ";web_play_url:" + this.mText;
+                    this.eoO += ";download_url:" + this.eoP + ";web_play_url:" + this.mText;
                 }
-                this.dOU += ";is_native_app=1";
+                this.eoO += ";is_native_app=1";
             }
         }
     }
@@ -65,31 +65,31 @@ public class TbRichTextCommInfo extends OrmObject {
         this.mText = null;
         this.mLink = null;
         this.mType = 0;
-        this.dOW = 0;
+        this.eoQ = 0;
         if (pbContent != null) {
             this.mText = pbContent.text;
             this.mLink = pbContent.link;
             this.mType = pbContent.type.intValue();
-            this.dOW = pbContent.url_type.intValue();
-            this.dOT = pbContent.is_native_app.intValue();
-            if (this.dOT == 1) {
+            this.eoQ = pbContent.url_type.intValue();
+            this.eoN = pbContent.is_native_app.intValue();
+            if (this.eoN == 1) {
                 NativeApp nativeApp = pbContent.native_app;
                 if (nativeApp == null) {
-                    this.dOT = 0;
+                    this.eoN = 0;
                     return;
                 }
-                this.dOU = nativeApp.jump_and;
-                this.dOV = nativeApp.download_and;
-                if (TextUtils.isEmpty(this.dOU) || TextUtils.isEmpty(this.dOV)) {
-                    this.dOT = 0;
+                this.eoO = nativeApp.jump_and;
+                this.eoP = nativeApp.download_and;
+                if (TextUtils.isEmpty(this.eoO) || TextUtils.isEmpty(this.eoP)) {
+                    this.eoN = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.dOU += ";download_url:" + this.dOV + ";web_play_url:" + this.mLink;
+                    this.eoO += ";download_url:" + this.eoP + ";web_play_url:" + this.mLink;
                 } else if (this.mType == 5) {
-                    this.dOU += ";download_url:" + this.dOV + ";web_play_url:" + this.mText;
+                    this.eoO += ";download_url:" + this.eoP + ";web_play_url:" + this.mText;
                 }
-                this.dOU += ";is_native_app=1";
+                this.eoO += ";is_native_app=1";
             }
         }
     }
@@ -98,7 +98,7 @@ public class TbRichTextCommInfo extends OrmObject {
         this.mText = null;
         this.mLink = null;
         this.mType = 0;
-        this.dOW = 0;
+        this.eoQ = 0;
         this.mText = str;
         this.mLink = str2;
     }
@@ -119,16 +119,16 @@ public class TbRichTextCommInfo extends OrmObject {
         return this.mLink;
     }
 
-    public int aTZ() {
-        return this.dOT;
+    public int bcj() {
+        return this.eoN;
     }
 
-    public String aUa() {
-        return this.dOU;
+    public String bck() {
+        return this.eoO;
     }
 
-    public int aUb() {
-        return this.dOW;
+    public int bcl() {
+        return this.eoQ;
     }
 
     public void trim() {

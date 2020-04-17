@@ -15,16 +15,16 @@ public class c implements SoUtils.a {
     @Override // com.baidu.swan.games.utils.so.SoUtils.a
     public void onEvent(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
-            String str3 = Arrays.toString(new String[]{Build.CPU_ABI, Build.CPU_ABI2}) + "\n" + com.baidu.swan.apps.c.getVersion() + "\n" + pP("v8.engine") + "\n" + pP("zeusv8") + "\n" + str2;
+            String str3 = Arrays.toString(new String[]{Build.CPU_ABI, Build.CPU_ABI2}) + "\n" + com.baidu.swan.apps.c.getVersion() + "\n" + rc("v8.engine") + "\n" + rc("zeusv8") + "\n" + str2;
             if (DEBUG) {
                 Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
             }
-            new a.C0297a(10007).lC(str).lE(str3).lD(com.baidu.swan.apps.runtime.e.acK()).Wp();
+            new a.C0327a(10007).mP(str).mR(str3).mQ(com.baidu.swan.apps.runtime.e.akP()).aee();
         }
     }
 
-    private String pP(String str) {
-        File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(com.baidu.swan.apps.w.a.TZ(), str);
+    private String rc(String str) {
+        File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(com.baidu.swan.apps.w.a.abO(), str);
         return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, findSoFilesInLibrary == null ? null : findSoFilesInLibrary.getAbsolutePath(), Long.valueOf(findSoFilesInLibrary == null ? 0L : findSoFilesInLibrary.length()));
     }
 }

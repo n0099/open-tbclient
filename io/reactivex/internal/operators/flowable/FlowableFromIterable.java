@@ -1,20 +1,19 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.Iterator;
 /* loaded from: classes7.dex */
 public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
-    final Iterable<? extends T> nyO;
+    final Iterable<? extends T> mSh;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            a(cVar, this.nyO.iterator());
+            a(cVar, this.mSh.iterator());
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             EmptySubscription.error(th, cVar);
         }
     }
@@ -29,7 +28,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                 cVar.onSubscribe(new IteratorSubscription(cVar, it));
             }
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             EmptySubscription.error(th, cVar);
         }
     }
@@ -80,7 +79,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
         @Override // org.a.d
         public final void request(long j) {
             if (SubscriptionHelper.validate(j) && io.reactivex.internal.util.b.a(this, j) == 0) {
-                if (j == Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j == Long.MAX_VALUE) {
                     fastPath();
                 } else {
                     slowPath(j);
@@ -128,7 +127,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                     return;
                                 }
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.H(th);
+                                io.reactivex.exceptions.a.L(th);
                                 cVar.onError(th);
                                 return;
                             }
@@ -139,7 +138,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.H(th2);
+                    io.reactivex.exceptions.a.L(th2);
                     cVar.onError(th2);
                     return;
                 }
@@ -173,7 +172,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                         }
                                         j2++;
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.H(th);
+                                        io.reactivex.exceptions.a.L(th);
                                         cVar.onError(th);
                                         return;
                                     }
@@ -184,7 +183,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                 return;
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.H(th2);
+                            io.reactivex.exceptions.a.L(th2);
                             cVar.onError(th2);
                             return;
                         }
@@ -241,7 +240,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                     return;
                                 }
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.H(th);
+                                io.reactivex.exceptions.a.L(th);
                                 aVar.onError(th);
                                 return;
                             }
@@ -252,7 +251,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.H(th2);
+                    io.reactivex.exceptions.a.L(th2);
                     aVar.onError(th2);
                     return;
                 }
@@ -287,7 +286,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                             j2++;
                                         }
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.H(th);
+                                        io.reactivex.exceptions.a.L(th);
                                         aVar.onError(th);
                                         return;
                                     }
@@ -298,7 +297,7 @@ public final class FlowableFromIterable<T> extends io.reactivex.g<T> {
                                 return;
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.H(th2);
+                            io.reactivex.exceptions.a.L(th2);
                             aVar.onError(th2);
                             return;
                         }

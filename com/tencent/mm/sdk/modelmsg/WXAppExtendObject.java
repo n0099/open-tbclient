@@ -49,10 +49,10 @@ public class WXAppExtendObject implements WXMediaMessage.IMediaObject {
         } else if (this.filePath != null && this.filePath.length() > PATH_LENGTH_LIMIT) {
             a.a(TAG, "checkArgs fail, filePath is invalid");
             return false;
-        } else if (this.filePath != null && getFileSize(this.filePath) > CONTENT_LENGTH_LIMIT) {
+        } else if (this.filePath != null && getFileSize(this.filePath) > 10485760) {
             a.a(TAG, "checkArgs fail, fileSize is too large");
             return false;
-        } else if (this.fileData == null || this.fileData.length <= CONTENT_LENGTH_LIMIT) {
+        } else if (this.fileData == null || this.fileData.length <= 10485760) {
             return true;
         } else {
             a.a(TAG, "checkArgs fail, fileData is too large");

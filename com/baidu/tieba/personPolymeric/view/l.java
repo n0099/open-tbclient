@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes11.dex */
 public class l extends com.baidu.tbadk.k.c {
-    private static final int jtB = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
-    private static final int jtC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
+    private static final int kdR = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
+    private static final int kdS = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
 
     public l(Context context, View.OnClickListener onClickListener) {
         super(context, onClickListener);
@@ -16,12 +16,12 @@ public class l extends com.baidu.tbadk.k.c {
     }
 
     private void initView() {
-        if (this.dBx != null && (this.dBx.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dBx.getLayoutParams();
-            layoutParams.width = jtB;
-            layoutParams.height = jtB;
-            layoutParams.topMargin = jtC;
-            this.dBx.setLayoutParams(layoutParams);
+        if (this.ebj != null && (this.ebj.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ebj.getLayoutParams();
+            layoutParams.width = kdR;
+            layoutParams.height = kdR;
+            layoutParams.topMargin = kdS;
+            this.ebj.setLayoutParams(layoutParams);
         }
     }
 }

@@ -6,7 +6,6 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.format.Time;
 import android.text.style.ForegroundColorSpan;
-import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.BdStringHelper;
@@ -15,7 +14,6 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.u.a;
 import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.baidu.swan.games.utils.so.SoUtils;
-import com.google.android.exoplayer2.Format;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -42,7 +40,7 @@ public class StringHelper extends BdStringHelper {
     private static String TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_hour);
     private static String TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_minute);
     private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(a.i.sdk_time_second);
-    private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT);
+    private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
     private static Date date = new Date();
 
@@ -268,7 +266,7 @@ public class StringHelper extends BdStringHelper {
         if (abs <= 120000) {
             return "刚刚";
         }
-        if (abs >= Format.OFFSET_SAMPLE_RELATIVE) {
+        if (abs >= Long.MAX_VALUE) {
             return "一个月前";
         }
         if (abs / MS_TO_DAY != 0) {
@@ -288,7 +286,7 @@ public class StringHelper extends BdStringHelper {
         if (abs <= 120000) {
             return "刚刚";
         }
-        if (abs >= Format.OFFSET_SAMPLE_RELATIVE || abs / MS_TO_DAY != 0) {
+        if (abs >= Long.MAX_VALUE || abs / MS_TO_DAY != 0) {
             return "";
         }
         if (abs / MS_TO_HOUR != 0) {
@@ -1475,5 +1473,19 @@ public class StringHelper extends BdStringHelper {
             return sb.append("#").append(replaceAll.substring(0, i2 + 1)).append(str2).append("#").toString();
         }
         return sb.append("#").append(replaceAll).append("#").toString();
+    }
+
+    public static String formatValue(long j) {
+        if (j < 10000) {
+            return String.valueOf(j);
+        }
+        if (j < 100000000) {
+            return round((j * 1.0d) / 10000.0d, 1) + "万";
+        }
+        return round((j * 1.0d) / 1.0E8d, 2) + "亿";
+    }
+
+    private static double round(double d, int i) {
+        return new BigDecimal(Double.toString(d)).divide(new BigDecimal("1"), i, 4).doubleValue();
     }
 }

@@ -25,21 +25,21 @@ class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @WorkerThread
     @Nullable
-    public Pair<FileExtension, InputStream> dv() {
+    public Pair<FileExtension, InputStream> iU() {
         FileExtension fileExtension;
         try {
-            File R = R(this.url);
-            if (R == null) {
+            File bh = bh(this.url);
+            if (bh == null) {
                 return null;
             }
             try {
-                FileInputStream fileInputStream = new FileInputStream(R);
-                if (R.getAbsolutePath().endsWith(".zip")) {
+                FileInputStream fileInputStream = new FileInputStream(bh);
+                if (bh.getAbsolutePath().endsWith(".zip")) {
                     fileExtension = FileExtension.Zip;
                 } else {
                     fileExtension = FileExtension.Json;
                 }
-                d.debug("Cache hit for " + this.url + " at " + R.getAbsolutePath());
+                d.debug("Cache hit for " + this.url + " at " + bh.getAbsolutePath());
                 return new Pair<>(fileExtension, fileInputStream);
             } catch (FileNotFoundException e) {
                 return null;
@@ -82,7 +82,7 @@ class a {
     }
 
     @Nullable
-    private File R(String str) throws FileNotFoundException {
+    private File bh(String str) throws FileNotFoundException {
         File file = new File(this.appContext.getCacheDir(), a(str, FileExtension.Json, false));
         if (!file.exists()) {
             File file2 = new File(this.appContext.getCacheDir(), a(str, FileExtension.Zip, false));

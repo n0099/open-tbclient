@@ -8,11 +8,11 @@ import com.baidu.live.data.AlaLivePersonData;
 public interface j {
     void C(Object obj);
 
+    View Dv();
+
+    void Dw();
+
     void a(com.baidu.live.liveroom.g.a aVar);
 
     void a(g gVar, FrameLayout frameLayout, RelativeLayout relativeLayout, AlaLivePersonData alaLivePersonData);
-
-    View yB();
-
-    void yC();
 }

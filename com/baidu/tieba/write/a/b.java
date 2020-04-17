@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private final ArrayList<MetaData> kPZ = new ArrayList<>();
-    private HashMap<String, String> kQa = null;
+    private final ArrayList<MetaData> lzr = new ArrayList<>();
+    private HashMap<String, String> lzs = null;
 
     public void f(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
             if (z) {
                 try {
-                    if (this.kQa == null) {
-                        this.kQa = new HashMap<>();
+                    if (this.lzs == null) {
+                        this.lzs = new HashMap<>();
                     }
                 } catch (Exception e) {
                     BdLog.detailException(e);
@@ -30,9 +30,9 @@ public class b {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i));
                     if (!TextUtils.isEmpty(metaData.getName_show())) {
-                        this.kPZ.add(metaData);
+                        this.lzr.add(metaData);
                         if (z) {
-                            this.kQa.put(metaData.getName_show(), metaData.getPortrait());
+                            this.lzs.put(metaData.getName_show(), metaData.getPortrait());
                         }
                     }
                 }
@@ -40,7 +40,7 @@ public class b {
         }
     }
 
-    public void KR(String str) {
+    public void Mv(String str) {
         try {
             f(new JSONObject(str), true);
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class b {
         }
     }
 
-    public ArrayList<MetaData> cVh() {
-        return this.kPZ;
+    public ArrayList<MetaData> dfD() {
+        return this.lzr;
     }
 }

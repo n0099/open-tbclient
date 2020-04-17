@@ -52,7 +52,7 @@ public class LivenessRecogResult extends a {
     public JSONObject toJSONObject() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("errno", getResultCode());
+            jSONObject.put(BaseJsonData.TAG_ERRNO, getResultCode());
             jSONObject.put(BaseJsonData.TAG_ERRMSG, getResultMsg());
             if (this.resultCode == 0) {
                 if (!TextUtils.isEmpty(this.callbackkey)) {

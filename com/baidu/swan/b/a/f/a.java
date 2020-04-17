@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    String bPF;
-    String bVA;
-    String bVC;
-    String bVD;
-    String bVG;
+    String cor;
+    String cuq;
+    String cuu;
+    String cuv;
+    String cuy;
     String mAppId;
     String mAppVersion;
     String mFrom;
@@ -22,45 +22,45 @@ public class a {
     public a() {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.bVA = "";
-        this.bVC = "";
-        this.bVD = "";
+        this.cuq = "";
+        this.cuu = "";
+        this.cuv = "";
         this.mScheme = "";
-        this.bVG = "";
-        if (e.acJ() != null) {
-            b.a acL = e.acJ().acL();
-            this.mFrom = f.gs(acL.getAppFrameType());
-            this.mAppId = acL.getAppId();
-            this.mSource = acL.VM();
-            this.bVC = acL.VS().getString("aiapp_extra_need_download", "");
-            this.bVD = acL.VS().getString("aiapp_extra_preset_pkg", "");
-            this.mScheme = acL.VO();
-            this.bVG = acL.getPage();
-            this.bPF = acL.Wf();
-            this.mAppVersion = acL.getVersion();
-            this.bVA = acL.getVersionCode();
+        this.cuy = "";
+        if (e.akO() != null) {
+            b.a akQ = e.akO().akQ();
+            this.mFrom = f.gz(akQ.getAppFrameType());
+            this.mAppId = akQ.getAppId();
+            this.mSource = akQ.adB();
+            this.cuu = akQ.adH().getString("aiapp_extra_need_download", "");
+            this.cuv = akQ.adH().getString("aiapp_extra_preset_pkg", "");
+            this.mScheme = akQ.adD();
+            this.cuy = akQ.getPage();
+            this.cor = akQ.adU();
+            this.mAppVersion = akQ.getVersion();
+            this.cuq = akQ.getVersionCode();
         }
     }
 
     public a(JSONObject jSONObject) {
         this.mFrom = "swan";
         this.mAppVersion = "";
-        this.bVA = "";
-        this.bVC = "";
-        this.bVD = "";
+        this.cuq = "";
+        this.cuu = "";
+        this.cuv = "";
         this.mScheme = "";
-        this.bVG = "";
+        this.cuy = "";
         if (jSONObject != null && jSONObject.length() != 0) {
             this.mFrom = jSONObject.optString("from", "swan");
             this.mAppId = jSONObject.optString("appId");
             this.mSource = jSONObject.optString("source");
-            this.bVC = jSONObject.optString("needDown");
-            this.bVD = jSONObject.optString("isPreset");
+            this.cuu = jSONObject.optString("needDown");
+            this.cuv = jSONObject.optString("isPreset");
             this.mScheme = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
-            this.bVG = jSONObject.optString("extPage");
-            this.bPF = jSONObject.optString("launchId", null);
+            this.cuy = jSONObject.optString("extPage");
+            this.cor = jSONObject.optString("launchId", null);
             this.mAppVersion = jSONObject.optString("appVersion");
-            this.bVA = jSONObject.optString("thirdVersion");
+            this.cuq = jSONObject.optString("thirdVersion");
         }
     }
 
@@ -70,13 +70,13 @@ public class a {
             jSONObject.put("from", this.mFrom);
             jSONObject.put("appId", this.mAppId);
             jSONObject.put("source", this.mSource);
-            jSONObject.put("needDown", this.bVC);
-            jSONObject.put("isPreset", this.bVD);
+            jSONObject.put("needDown", this.cuu);
+            jSONObject.put("isPreset", this.cuv);
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, this.mScheme);
-            jSONObject.put("extPage", this.bVG);
-            jSONObject.put("launchId", this.bPF);
+            jSONObject.put("extPage", this.cuy);
+            jSONObject.put("launchId", this.cor);
             jSONObject.put("appVersion", this.mAppVersion);
-            jSONObject.put("thirdVersion", this.bVA);
+            jSONObject.put("thirdVersion", this.cuq);
         } catch (JSONException e) {
             e.printStackTrace();
         }

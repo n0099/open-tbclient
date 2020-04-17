@@ -3,47 +3,47 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class d implements h {
-    private Byte pq;
+    private Byte Ir;
 
     public d(byte b) {
-        this.pq = Byte.valueOf(b);
+        this.Ir = Byte.valueOf(b);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
         Class<?> fieldClass = cVar.getFieldClass();
         if (fieldClass == Byte.class || fieldClass == Byte.TYPE) {
-            return Byte.valueOf(this.pq.byteValue());
+            return Byte.valueOf(this.Ir.byteValue());
         }
         if (fieldClass == Short.class || fieldClass == Short.TYPE) {
-            return Short.valueOf(this.pq.shortValue());
+            return Short.valueOf(this.Ir.shortValue());
         }
         if (fieldClass == Integer.class || fieldClass == Integer.TYPE) {
-            return Integer.valueOf(this.pq.intValue());
+            return Integer.valueOf(this.Ir.intValue());
         }
         if (fieldClass == Long.class || fieldClass == Long.TYPE) {
-            return Long.valueOf(this.pq.longValue());
+            return Long.valueOf(this.Ir.longValue());
         }
         if (fieldClass == Float.class || fieldClass == Float.TYPE) {
-            return Float.valueOf(this.pq.floatValue());
+            return Float.valueOf(this.Ir.floatValue());
         }
         if (fieldClass == Double.class || fieldClass == Double.TYPE) {
-            return Double.valueOf(this.pq.doubleValue());
+            return Double.valueOf(this.Ir.doubleValue());
         }
         if (fieldClass == Character.class || fieldClass == Character.TYPE) {
-            return Character.valueOf((char) this.pq.intValue());
+            return Character.valueOf((char) this.Ir.intValue());
         }
         if (fieldClass == Boolean.class || fieldClass == Boolean.TYPE) {
-            return Boolean.valueOf(this.pq.byteValue() == 0);
+            return Boolean.valueOf(this.Ir.byteValue() == 0);
         } else if (fieldClass == String.class) {
-            return String.valueOf(this.pq);
+            return String.valueOf(this.Ir);
         } else {
             if (fieldClass == char[].class) {
-                return String.valueOf(this.pq).toCharArray();
+                return String.valueOf(this.Ir).toCharArray();
             }
             if (fieldClass == byte[].class) {
                 try {
-                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.pq), 0);
+                    return com.baidu.adp.lib.util.c.decode(String.valueOf(this.Ir), 0);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

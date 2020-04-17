@@ -39,9 +39,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(7));
-            PersonalSettingItemData dD = e.bYv().dD(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (dD != null) {
-                buildNormalItem.setGroupSetting(dD);
+            PersonalSettingItemData dS = e.ciW().dS(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (dS != null) {
+                buildNormalItem.setGroupSetting(dS);
             }
             insertShowData(buildNormalItem, this.mList);
         }

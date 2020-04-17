@@ -2,6 +2,7 @@ package com.baidu.sapi2.outsdk;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.outsdk.c;
@@ -36,7 +37,7 @@ public class b {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     try {
-                        jSONObject.put("errno", 0);
+                        jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                         jSONObject.put("appid", sapiConfiguration.context.getPackageName());
                         JSONObject jSONObject2 = new JSONObject(obj.toString());
                         int optInt = jSONObject2.optInt("code");
@@ -72,7 +73,7 @@ public class b {
         if ((System.currentTimeMillis() / 1000) - SapiContext.getInstance(sapiConfiguration.context).getLong("china_telecom_expired_time", 0L) < 3300) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                 jSONObject.put("appid", sapiConfiguration.context.getPackageName());
                 jSONObject.put("token", c.m);
                 jSONObject.put("code", 0);

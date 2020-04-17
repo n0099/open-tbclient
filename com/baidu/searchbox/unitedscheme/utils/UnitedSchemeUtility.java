@@ -6,8 +6,6 @@ import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.NullableCallbackHandler;
@@ -25,9 +23,9 @@ import java.util.List;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public final class UnitedSchemeUtility {
-    private static final boolean DEBUG = SchemeConfig.DEBUG;
+    private static final boolean DEBUG = false;
     private static final String PARAMS_KEY = "params";
     private static final String TAG = "UnitedSchemeUtility";
 
@@ -73,10 +71,7 @@ public final class UnitedSchemeUtility {
             return Integer.parseInt(lowerCase.substring(1));
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            if (!UnitedSchemeConstants.DEBUG) {
-                return -1;
-            }
-            throw e;
+            return -1;
         }
     }
 
@@ -137,9 +132,6 @@ public final class UnitedSchemeUtility {
                 try {
                     hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
                 } catch (IllegalArgumentException e) {
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
                 }
             }
         }
@@ -245,22 +237,13 @@ public final class UnitedSchemeUtility {
     }
 
     public static JSONObject callCallback(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        if (callbackHandler == null || TextUtils.isEmpty(str) || jSONObject == null) {
-            if (DEBUG) {
-                throw new IllegalArgumentException("argument can not be null");
-            }
-            return jSONObject;
-        }
-        return callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), jSONObject);
+        return (callbackHandler == null || TextUtils.isEmpty(str) || jSONObject == null) ? jSONObject : callCallback(callbackHandler, new UnitedSchemeEntity(Uri.parse(str)), jSONObject);
     }
 
     public static JSONObject callCallback(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject) {
         String path;
         if (callbackHandler != null && unitedSchemeEntity != null && jSONObject != null && (jSONObject.optInt("status") <= 0 || ((path = unitedSchemeEntity.getUri().getPath()) != null && !path.toLowerCase().startsWith("/feed/iswebp")))) {
             String param = unitedSchemeEntity.getParam(BuyTBeanActivityConfig.CALLBACK);
-            if (DEBUG) {
-                Log.d(TAG, unitedSchemeEntity.getUri().toString() + " callCallback " + param + HanziToPinyin.Token.SEPARATOR + jSONObject.toString());
-            }
             if ((!TextUtils.isEmpty(param) || (callbackHandler instanceof NullableCallbackHandler)) && !unitedSchemeEntity.isCallbackInvoked()) {
                 safeCallback(callbackHandler, unitedSchemeEntity, jSONObject.toString(), param);
                 unitedSchemeEntity.markCallbackInvoked();
@@ -274,9 +257,6 @@ public final class UnitedSchemeUtility {
     }
 
     public static void safeCallback(final CallbackHandler callbackHandler, final UnitedSchemeEntity unitedSchemeEntity, final String str, final String str2) {
-        if (DEBUG) {
-            Log.i(TAG, "safeCallback handler:" + callbackHandler + "; params:" + str + ";callback:" + str2);
-        }
         if (Looper.myLooper() == Looper.getMainLooper()) {
             safeCallbackOnUiThread(callbackHandler, unitedSchemeEntity, str, str2);
         } else {
@@ -291,17 +271,11 @@ public final class UnitedSchemeUtility {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void safeCallbackOnUiThread(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2) {
-        if (DEBUG) {
-            Log.i(TAG, "safeCallback callback:" + str2);
-        }
         if ((callbackHandler instanceof NullableCallbackHandler) || (callbackHandler != null && !TextUtils.isEmpty(str2))) {
             if (unitedSchemeEntity != null) {
                 if (!TextUtils.equals(getSameOriginUri(unitedSchemeEntity.getReferUrl()), getSameOriginUri(callbackHandler.getCurrentPageUrl()))) {
                     return;
                 }
-            }
-            if (DEBUG) {
-                Log.i(TAG, "safeCallback check success");
             }
             callbackHandler.handleSchemeDispatchCallback(str2, str);
         }
@@ -328,10 +302,6 @@ public final class UnitedSchemeUtility {
         try {
             return new JSONObject(param);
         } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-                return null;
-            }
             return null;
         }
     }

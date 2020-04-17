@@ -27,33 +27,33 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        final a dgA;
-        final int dgB;
-        final a dgz;
+        final a dFW;
+        final a dFX;
+        final int dFY;
 
         private b(a aVar) {
-            this.dgz = aVar.dgz;
-            this.dgA = aVar.dgA;
-            this.dgB = aVar.dgB;
+            this.dFW = aVar.dFW;
+            this.dFX = aVar.dFX;
+            this.dFY = aVar.dFY;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private a dgz = null;
-            private a dgA = null;
-            private int dgB = -1;
+            private a dFW = null;
+            private a dFX = null;
+            private int dFY = -1;
 
             public a b(a aVar) {
-                this.dgz = aVar;
+                this.dFW = aVar;
                 return this;
             }
 
-            public a lc(int i) {
-                this.dgB = i;
+            public a lm(int i) {
+                this.dFY = i;
                 return this;
             }
 
-            public b aHH() {
+            public b aPZ() {
                 return new b(this);
             }
         }
@@ -61,78 +61,78 @@ public class NoDataViewFactory {
         public static b a(a aVar) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            return aVar2.aHH();
+            return aVar2.aPZ();
         }
 
         public static b a(a aVar, int i) {
             a aVar2 = new a();
             aVar2.b(aVar);
-            aVar2.lc(i);
-            return aVar2.aHH();
+            aVar2.lm(i);
+            return aVar2.aPZ();
         }
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        View.OnClickListener dgy;
+        View.OnClickListener dFV;
         String mText;
 
         public a(String str, View.OnClickListener onClickListener) {
             this.mText = str;
-            this.dgy = onClickListener;
+            this.dFV = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        final ImgType dgC;
-        final int dgw;
+        final int dFT;
+        final ImgType dFZ;
         final int mHeight;
         final int mMarginTop;
         final int mWidth;
 
         private c(a aVar) {
-            this.dgC = aVar.dgC;
+            this.dFZ = aVar.dFZ;
             this.mMarginTop = aVar.mMarginTop;
-            this.dgw = aVar.dgw;
+            this.dFT = aVar.dFT;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private ImgType dgC = ImgType.NONE;
+            private ImgType dFZ = ImgType.NONE;
             private int mMarginTop = -1;
-            private int dgw = -1;
+            private int dFT = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.dgC = imgType;
+                this.dFZ = imgType;
                 return this;
             }
 
-            public a ld(int i) {
+            public a ln(int i) {
                 this.mMarginTop = i;
                 return this;
             }
 
-            public a le(int i) {
-                this.dgw = i;
+            public a lo(int i) {
+                this.dFT = i;
                 return this;
             }
 
-            public a lf(int i) {
+            public a lp(int i) {
                 this.mHeight = i;
                 return this;
             }
 
-            public a lg(int i) {
+            public a lq(int i) {
                 this.mWidth = i;
                 return this;
             }
 
-            public c aHI() {
+            public c aQa() {
                 return new c(this);
             }
         }
@@ -140,31 +140,31 @@ public class NoDataViewFactory {
         public static c a(ImgType imgType, int i) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.ld(i);
-            return aVar.aHI();
+            aVar.ln(i);
+            return aVar.aQa();
         }
 
         public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
             a aVar = new a();
             aVar.b(imgType);
-            aVar.le(i);
-            aVar.ld(i2);
-            aVar.lf(i3);
-            aVar.lg(i4);
-            return aVar.aHI();
+            aVar.lo(i);
+            aVar.ln(i2);
+            aVar.lp(i3);
+            aVar.lq(i4);
+            return aVar.aQa();
         }
 
         public static c a(ImgType imgType) {
             a aVar = new a();
             aVar.b(imgType);
-            return aVar.aHI();
+            return aVar.aQa();
         }
     }
 
     /* loaded from: classes.dex */
     public static class d {
-        final String dgD;
-        final int dgE;
+        final String dGa;
+        final int dGb;
         final int mDrawableId;
         final String mSubTitle;
         final String mTitle;
@@ -172,8 +172,8 @@ public class NoDataViewFactory {
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
             this.mSubTitle = aVar.mSubTitle;
-            this.dgD = aVar.dgD;
-            this.dgE = aVar.dgF;
+            this.dGa = aVar.dGa;
+            this.dGb = aVar.dGc;
             this.mDrawableId = aVar.mDrawableId;
         }
 
@@ -181,56 +181,56 @@ public class NoDataViewFactory {
         public static class a {
             private String mTitle = null;
             private String mSubTitle = null;
-            private String dgD = null;
-            private int dgF = -1;
+            private String dGa = null;
+            private int dGc = -1;
             private int mDrawableId = 0;
 
-            public a tW(String str) {
+            public a vj(String str) {
                 this.mTitle = str;
                 return this;
             }
 
-            public a tX(String str) {
+            public a vk(String str) {
                 this.mSubTitle = str;
                 return this;
             }
 
-            public a li(int i) {
-                this.dgF = i;
+            public a ls(int i) {
+                this.dGc = i;
                 return this;
             }
 
-            public d aHJ() {
+            public d aQb() {
                 return new d(this);
             }
         }
 
-        public static d aE(int i, int i2) {
+        public static d aI(int i, int i2) {
             a aVar = new a();
-            aVar.tX(TbadkCoreApplication.getInst().getResources().getString(i));
-            aVar.li(i2);
-            return aVar.aHJ();
+            aVar.vk(TbadkCoreApplication.getInst().getResources().getString(i));
+            aVar.ls(i2);
+            return aVar.aQb();
         }
 
-        public static d lh(int i) {
-            return tV(TbadkCoreApplication.getInst().getResources().getString(i));
+        public static d lr(int i) {
+            return vi(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
-        public static d aF(int i, int i2) {
-            return cz(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
+        public static d aJ(int i, int i2) {
+            return cK(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d tV(String str) {
+        public static d vi(String str) {
             a aVar = new a();
-            aVar.tX(str);
-            return aVar.aHJ();
+            aVar.vk(str);
+            return aVar.aQb();
         }
 
-        public static d cz(String str, String str2) {
+        public static d cK(String str, String str2) {
             a aVar = new a();
-            aVar.tX(str);
-            aVar.tW(str2);
-            return aVar.aHJ();
+            aVar.vk(str);
+            aVar.vj(str2);
+            return aVar.aQb();
         }
     }
 

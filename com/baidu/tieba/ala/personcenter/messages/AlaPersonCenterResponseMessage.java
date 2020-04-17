@@ -2,11 +2,11 @@ package com.baidu.tieba.ala.personcenter.messages;
 
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ala.personcenter.c.b;
+import com.baidu.tieba.ala.personcenter.c.c;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
-    private b data;
+    private c data;
     private int errCode;
     private String errMsg;
 
@@ -26,7 +26,7 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
         this.errMsg = str;
     }
 
-    public b getPersonCenterData() {
+    public c getPersonCenterData() {
         return this.data;
     }
 
@@ -34,7 +34,7 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
         super(i);
         this.errCode = 0;
         this.errMsg = "";
-        this.data = new b();
+        this.data = new c();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -42,7 +42,7 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
-            this.errCode = jSONObject.optInt("errno");
+            this.errCode = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
             this.errMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
             this.data.parseJson(jSONObject);
         }

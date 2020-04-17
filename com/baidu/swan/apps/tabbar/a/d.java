@@ -21,17 +21,17 @@ public class d extends a {
             return false;
         }
         int optInt = optParamsAsJo.optInt("index");
-        if (JR()) {
+        if (RE()) {
             com.baidu.swan.apps.console.c.e("CloseTabBarRedDotAction", "fail not TabBar page");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
             return false;
         }
-        com.baidu.swan.apps.tabbar.b.a JQ = JQ();
-        if (JQ == null) {
+        com.baidu.swan.apps.tabbar.b.a RD = RD();
+        if (RD == null) {
             com.baidu.swan.apps.console.c.e("CloseTabBarRedDotAction", "tabBarViewController is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!JQ.hb(optInt)) {
+        } else if (!RD.hi(optInt)) {
             com.baidu.swan.apps.console.c.e("closeTabBarRedDot", "close red dot fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

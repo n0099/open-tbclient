@@ -7,9 +7,9 @@ public class UbcFlowEvent {
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String bHZ = "NA";
-    private RecordType bIa = RecordType.KEEP;
-    private boolean bIb = false;
+    private String cgI = "NA";
+    private RecordType cgJ = RecordType.KEEP;
+    private boolean cgK = false;
 
     /* loaded from: classes11.dex */
     public enum RecordType {
@@ -23,7 +23,7 @@ public class UbcFlowEvent {
         this.id = str;
     }
 
-    public UbcFlowEvent au(long j) {
+    public UbcFlowEvent aZ(long j) {
         if (j < 0) {
             j = 0;
         }
@@ -31,7 +31,7 @@ public class UbcFlowEvent {
         return this;
     }
 
-    public long ZZ() {
+    public long aie() {
         return this.mTime;
     }
 
@@ -39,39 +39,39 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent kd(String str) {
-        this.bHZ = str;
+    public UbcFlowEvent lq(String str) {
+        this.cgI = str;
         return this;
     }
 
-    public String aaa() {
-        return this.bHZ;
+    public String aif() {
+        return this.cgI;
     }
 
-    public UbcFlowEvent dh(boolean z) {
-        this.bIb = z;
+    public UbcFlowEvent ed(boolean z) {
+        this.cgK = z;
         return this;
     }
 
-    public boolean aab() {
-        return this.bIb;
+    public boolean aig() {
+        return this.cgK;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.bIa = recordType;
+        this.cgJ = recordType;
         return this;
     }
 
-    public RecordType aac() {
-        return this.bIa;
+    public RecordType aih() {
+        return this.cgJ;
     }
 
     public String toString() {
         Locale locale = Locale.getDefault();
         Object[] objArr = new Object[3];
-        objArr[0] = Long.valueOf(ZZ());
+        objArr[0] = Long.valueOf(aie());
         objArr[1] = this.id;
-        objArr[2] = aab() ? "(justLocalRecord)" : "";
+        objArr[2] = aig() ? "(justLocalRecord)" : "";
         return String.format(locale, "Event at %d id = %s %s", objArr);
     }
 }

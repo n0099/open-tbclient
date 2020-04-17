@@ -86,7 +86,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                     }
                     subscribeInner(tVar);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     this.s.dispose();
                     onError(th);
                 }
@@ -96,18 +96,14 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
         void subscribeInner(t<? extends U> tVar) {
             t<? extends U> tVar2 = tVar;
             while (tVar2 instanceof Callable) {
-                if (tryEmitScalar((Callable) tVar2) && this.maxConcurrency != Integer.MAX_VALUE) {
-                    boolean z = false;
+                tryEmitScalar((Callable) tVar2);
+                if (this.maxConcurrency != Integer.MAX_VALUE) {
                     synchronized (this) {
                         tVar2 = this.sources.poll();
                         if (tVar2 == null) {
                             this.wip--;
-                            z = true;
+                            return;
                         }
-                    }
-                    if (z) {
-                        drain();
-                        return;
                     }
                 } else {
                     return;
@@ -176,41 +172,38 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
             } while (!this.observers.compareAndSet(innerObserverArr, innerObserverArr2));
         }
 
-        boolean tryEmitScalar(Callable<? extends U> callable) {
+        void tryEmitScalar(Callable<? extends U> callable) {
             try {
                 U call = callable.call();
-                if (call == null) {
-                    return true;
-                }
-                if (get() == 0 && compareAndSet(0, 1)) {
-                    this.actual.onNext(call);
-                    if (decrementAndGet() == 0) {
-                        return true;
-                    }
-                } else {
-                    f<U> fVar = this.queue;
-                    if (fVar == null) {
-                        if (this.maxConcurrency == Integer.MAX_VALUE) {
-                            fVar = new io.reactivex.internal.queue.a<>(this.bufferSize);
-                        } else {
-                            fVar = new SpscArrayQueue<>(this.maxConcurrency);
+                if (call != null) {
+                    if (get() == 0 && compareAndSet(0, 1)) {
+                        this.actual.onNext(call);
+                        if (decrementAndGet() == 0) {
+                            return;
                         }
-                        this.queue = fVar;
+                    } else {
+                        f<U> fVar = this.queue;
+                        if (fVar == null) {
+                            if (this.maxConcurrency == Integer.MAX_VALUE) {
+                                fVar = new io.reactivex.internal.queue.a<>(this.bufferSize);
+                            } else {
+                                fVar = new SpscArrayQueue<>(this.maxConcurrency);
+                            }
+                            this.queue = fVar;
+                        }
+                        if (!fVar.offer(call)) {
+                            onError(new IllegalStateException("Scalar queue full?!"));
+                            return;
+                        } else if (getAndIncrement() != 0) {
+                            return;
+                        }
                     }
-                    if (!fVar.offer(call)) {
-                        onError(new IllegalStateException("Scalar queue full?!"));
-                        return true;
-                    } else if (getAndIncrement() != 0) {
-                        return false;
-                    }
+                    drainLoop();
                 }
-                drainLoop();
-                return true;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 this.errors.addThrowable(th);
                 drain();
-                return true;
             }
         }
 
@@ -276,17 +269,16 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:72:0x00ce, code lost:
-            if (r11 != null) goto L52;
+        /* JADX WARN: Code restructure failed: missing block: B:64:0x00ba, code lost:
+            if (r11 != null) goto L46;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         void drainLoop() {
-            int i;
             boolean z;
             u<? super U> uVar = this.actual;
-            int i2 = 1;
+            int i = 1;
             while (!checkTerminate()) {
                 f<U> fVar = this.queue;
                 if (fVar != null) {
@@ -303,14 +295,7 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                 f<U> fVar2 = this.queue;
                 InnerObserver<?, ?>[] innerObserverArr = this.observers.get();
                 int length = innerObserverArr.length;
-                if (this.maxConcurrency != Integer.MAX_VALUE) {
-                    synchronized (this) {
-                        i = this.sources.size();
-                    }
-                } else {
-                    i = 0;
-                }
-                if (z2 && ((fVar2 == null || fVar2.isEmpty()) && length == 0 && i == 0)) {
+                if (z2 && ((fVar2 == null || fVar2.isEmpty()) && length == 0)) {
                     Throwable terminate = this.errors.terminate();
                     if (terminate != ExceptionHelper.TERMINATED) {
                         if (terminate == null) {
@@ -325,26 +310,26 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                 }
                 if (length != 0) {
                     long j = this.lastId;
-                    int i3 = this.lastIndex;
-                    if (length <= i3 || innerObserverArr[i3].id != j) {
-                        if (length <= i3) {
-                            i3 = 0;
+                    int i2 = this.lastIndex;
+                    if (length <= i2 || innerObserverArr[i2].id != j) {
+                        if (length <= i2) {
+                            i2 = 0;
                         }
-                        for (int i4 = 0; i4 < length && innerObserverArr[i3].id != j; i4++) {
-                            i3++;
-                            if (i3 == length) {
-                                i3 = 0;
+                        for (int i3 = 0; i3 < length && innerObserverArr[i2].id != j; i3++) {
+                            i2++;
+                            if (i2 == length) {
+                                i2 = 0;
                             }
                         }
-                        this.lastIndex = i3;
-                        this.lastId = innerObserverArr[i3].id;
+                        this.lastIndex = i2;
+                        this.lastId = innerObserverArr[i2].id;
                     }
-                    int i5 = i3;
+                    int i4 = i2;
                     boolean z3 = false;
-                    int i6 = 0;
-                    while (i6 < length) {
+                    int i5 = 0;
+                    while (i5 < length) {
                         if (!checkTerminate()) {
-                            InnerObserver<T, U> innerObserver = innerObserverArr[i5];
+                            InnerObserver<T, U> innerObserver = innerObserverArr[i4];
                             while (!checkTerminate()) {
                                 g<U> gVar = innerObserver.queue;
                                 if (gVar != null) {
@@ -359,12 +344,12 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.H(th);
+                                            io.reactivex.exceptions.a.L(th);
                                             innerObserver.dispose();
                                             this.errors.addThrowable(th);
                                             if (!checkTerminate()) {
                                                 removeInner(innerObserver);
-                                                i6++;
+                                                i5++;
                                                 z3 = true;
                                             } else {
                                                 return;
@@ -381,18 +366,18 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                                     }
                                     z3 = true;
                                 }
-                                i5++;
-                                if (i5 == length) {
-                                    i5 = 0;
+                                i4++;
+                                if (i4 == length) {
+                                    i4 = 0;
                                 }
-                                i6++;
+                                i5++;
                             }
                             return;
                         }
                         return;
                     }
-                    this.lastIndex = i5;
-                    this.lastId = innerObserverArr[i5].id;
+                    this.lastIndex = i4;
+                    this.lastId = innerObserverArr[i4].id;
                     z = z3;
                 } else {
                     z = false;
@@ -411,11 +396,11 @@ public final class ObservableFlatMap<T, U> extends a<T, U> {
                         continue;
                     }
                 } else {
-                    int addAndGet = addAndGet(-i2);
+                    int addAndGet = addAndGet(-i);
                     if (addAndGet == 0) {
                         return;
                     }
-                    i2 = addAndGet;
+                    i = addAndGet;
                 }
             }
         }

@@ -5,29 +5,29 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class c extends d {
-    private String chV;
-    private String chW;
-    private String chX;
-    private String chY;
+    private String cGR;
+    private String cGS;
+    private String cGT;
+    private String cGU;
 
     public c(Context context, b bVar) {
         super(context, bVar);
-        this.chV = "banner";
-        this.chW = "32";
-        this.chX = "MSSP,ANTI,NMON";
-        this.chY = "LP,DL";
+        this.cGR = "banner";
+        this.cGS = "32";
+        this.cGT = "MSSP,ANTI,NMON";
+        this.cGU = "LP,DL";
     }
 
     @Override // com.baidu.swan.game.ad.c.d
-    protected HashMap<String, String> akD() {
+    protected HashMap<String, String> asP() {
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("act", this.chY);
-        hashMap.put("prod", this.chV);
-        hashMap.put("at", this.chW);
-        hashMap.put(IXAdRequestInfo.FET, this.chX);
-        if (this.cin != null) {
-            hashMap.put("w", "" + this.cin.aky());
-            hashMap.put("h", "" + this.cin.akz());
+        hashMap.put("act", this.cGU);
+        hashMap.put("prod", this.cGR);
+        hashMap.put("at", this.cGS);
+        hashMap.put(IXAdRequestInfo.FET, this.cGT);
+        if (this.cHi != null) {
+            hashMap.put("w", "" + this.cHi.asK());
+            hashMap.put("h", "" + this.cHi.asL());
         }
         return hashMap;
     }

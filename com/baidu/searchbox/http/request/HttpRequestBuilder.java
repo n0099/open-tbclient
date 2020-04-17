@@ -5,6 +5,7 @@ import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import java.net.Proxy;
 import java.util.List;
 import java.util.Map;
 import okhttp3.Headers;
@@ -16,6 +17,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     protected CookieManager cookieManager;
     protected boolean enableRetry;
     protected JSONObject extraUserLog;
+    protected boolean followRedirects;
+    protected boolean followSslRedirects;
     protected Headers.Builder headersBuilder;
     protected AbstractHttpManager httpManager;
     protected HttpUrl httpUrl;
@@ -24,6 +27,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     protected LogInterceptor.Level logLevel;
     protected String logTag;
     protected IAsyncRequestParamsHandler paramsHandler;
+    protected Proxy proxy;
     protected int readTimeout;
     protected int requestFrom;
     protected Object tag;
@@ -37,6 +41,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.logLevel = null;
         this.isWifiOnly = false;
         this.requestFrom = 0;
+        this.followSslRedirects = true;
+        this.followRedirects = true;
         this.httpManager = abstractHttpManager;
         this.headersBuilder = new Headers.Builder();
     }
@@ -47,6 +53,8 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.logLevel = null;
         this.isWifiOnly = false;
         this.requestFrom = 0;
+        this.followSslRedirects = true;
+        this.followRedirects = true;
         if (abstractHttpManager != null) {
             this.httpManager = abstractHttpManager;
         } else {
@@ -71,6 +79,9 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.isReqNetStatEnable = httpRequest.isReqNetStatEnable;
         this.requestFrom = httpRequest.requestFrom;
         this.extraUserLog = httpRequest.extraUserLog;
+        this.proxy = httpRequest.proxy;
+        this.followRedirects = httpRequest.followRedirects;
+        this.followSslRedirects = httpRequest.followSslRedirects;
     }
 
     public RequestCall makeRequestCall() {
@@ -243,6 +254,21 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
 
     public T extraUserLog(JSONObject jSONObject) {
         this.extraUserLog = jSONObject;
+        return this;
+    }
+
+    public T proxy(Proxy proxy) {
+        this.proxy = proxy;
+        return this;
+    }
+
+    public T followSslRedirects(boolean z) {
+        this.followSslRedirects = z;
+        return this;
+    }
+
+    public T followRedirects(boolean z) {
+        this.followRedirects = z;
         return this;
     }
 }

@@ -1,11 +1,12 @@
 package com.baidu.tieba.lego.card.d;
 
 import android.graphics.Color;
+import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class a {
-    public static int cF(String str) {
+    public static int dA(String str) {
         if (str == null || str.length() == 0) {
-            return Integer.MAX_VALUE;
+            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }
         try {
             if (!str.startsWith("#")) {
@@ -13,11 +14,11 @@ public class a {
             }
             return Color.parseColor(str);
         } catch (Exception e) {
-            return Integer.MAX_VALUE;
+            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }
     }
 
-    public static boolean xz(int i) {
+    public static boolean xZ(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

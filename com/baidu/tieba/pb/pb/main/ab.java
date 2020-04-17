@@ -5,20 +5,20 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes9.dex */
 public class ab extends PostData {
-    public static final BdUniqueId iNV = BdUniqueId.gen();
-    public com.baidu.tbadk.core.data.as iNW;
-    public com.baidu.tbadk.core.data.as iNX;
-    public com.baidu.tbadk.core.data.as iNY;
+    public static final BdUniqueId jye = BdUniqueId.gen();
+    public com.baidu.tbadk.core.data.as jyf;
+    public com.baidu.tbadk.core.data.as jyg;
+    public com.baidu.tbadk.core.data.as jyh;
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return iNV;
+        return jye;
     }
 
     public boolean hasData() {
-        if (this.iNW == null || StringUtils.isNull(this.iNW.summary)) {
-            if (this.iNX == null || StringUtils.isNull(this.iNX.summary)) {
-                return (this.iNY == null || StringUtils.isNull(this.iNY.summary)) ? false : true;
+        if (this.jyf == null || StringUtils.isNull(this.jyf.summary)) {
+            if (this.jyg == null || StringUtils.isNull(this.jyg.summary)) {
+                return (this.jyh == null || StringUtils.isNull(this.jyh.summary)) ? false : true;
             }
             return true;
         }

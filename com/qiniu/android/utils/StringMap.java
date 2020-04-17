@@ -11,7 +11,7 @@ public final class StringMap {
 
     /* loaded from: classes5.dex */
     public interface Consumer {
-        void G(String str, Object obj);
+        void K(String str, Object obj);
     }
 
     public StringMap() {
@@ -22,19 +22,19 @@ public final class StringMap {
         this.map = map;
     }
 
-    public StringMap H(String str, Object obj) {
+    public StringMap L(String str, Object obj) {
         this.map.put(str, obj);
         return this;
     }
 
-    public StringMap B(Map<String, String> map) {
+    public StringMap z(Map<String, String> map) {
         this.map.putAll(map);
         return this;
     }
 
     public void a(Consumer consumer) {
         for (Map.Entry<String, Object> entry : this.map.entrySet()) {
-            consumer.G(entry.getKey(), entry.getValue());
+            consumer.K(entry.getKey(), entry.getValue());
         }
     }
 
@@ -45,17 +45,17 @@ public final class StringMap {
     /* renamed from: com.qiniu.android.utils.StringMap$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass1 implements Consumer {
-        private boolean nqR;
-        final /* synthetic */ StringBuilder nqS;
+        private boolean mNA;
+        final /* synthetic */ StringBuilder mNB;
 
         @Override // com.qiniu.android.utils.StringMap.Consumer
-        public void G(String str, Object obj) {
-            if (this.nqR) {
-                this.nqS.append(ETAG.ITEM_SEPARATOR);
+        public void K(String str, Object obj) {
+            if (this.mNA) {
+                this.mNB.append(ETAG.ITEM_SEPARATOR);
             }
             try {
-                this.nqS.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
-                this.nqR = true;
+                this.mNB.append(URLEncoder.encode(str, "UTF-8")).append('=').append(URLEncoder.encode(obj.toString(), "UTF-8"));
+                this.mNA = true;
             } catch (UnsupportedEncodingException e) {
                 throw new AssertionError(e);
             }

@@ -7,11 +7,11 @@ public interface d {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cG(boolean z);
+        void dC(boolean z);
     }
 
-    @Nullable
-    String Tx();
-
     void a(@NonNull a aVar);
+
+    @Nullable
+    String abm();
 }

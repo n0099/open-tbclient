@@ -3,11 +3,11 @@ package com.baidu.swan.apps.adaptation.a;
 import android.content.Context;
 /* loaded from: classes11.dex */
 public interface ai {
-    void HS();
+    void PE();
 
-    ai HT();
+    ai PF();
 
-    void HU();
+    void PG();
 
     void a(com.baidu.swan.apps.media.d.c cVar, Context context);
 

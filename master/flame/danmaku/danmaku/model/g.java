@@ -1,24 +1,24 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public class g {
-    private float factor = 1.0f;
-    private long nHT;
+    private long nbu;
+    private float nbv = 1.0f;
     public long value;
 
     public g(long j) {
-        this.nHT = j;
+        this.nbu = j;
         this.value = j;
     }
 
     public void setValue(long j) {
-        this.nHT = j;
-        this.value = ((float) this.nHT) * this.factor;
+        this.nbu = j;
+        this.value = ((float) this.nbu) * this.nbv;
     }
 
-    public void bF(float f) {
-        if (this.factor != f) {
-            this.factor = f;
-            this.value = ((float) this.nHT) * f;
+    public void aM(float f) {
+        if (this.nbv != f) {
+            this.nbv = f;
+            this.value = ((float) this.nbu) * f;
         }
     }
 }

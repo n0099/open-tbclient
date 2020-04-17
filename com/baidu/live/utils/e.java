@@ -1,9 +1,9 @@
 package com.baidu.live.utils;
 
 import android.text.TextUtils;
-import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.tbadk.pay.PayConfig;
 import com.tencent.connect.common.Constants;
 import java.text.ParseException;
@@ -20,7 +20,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String ec(String str) {
+    public static String eV(String str) {
         String substring;
         String substring2;
         int i = 0;
@@ -35,17 +35,17 @@ public class e {
         } else if (str.length() == 15) {
             str2 = str.substring(0, 6) + Constants.VIA_ACT_TYPE_NINETEEN + str.substring(6, 15);
         }
-        if (!ed(str2)) {
+        if (!eW(str2)) {
             return "身份证号错误";
         }
         String substring3 = str2.substring(6, 10);
         substring = str2.substring(10, 12);
         substring2 = str2.substring(12, 14);
-        if (!ee(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
+        if (!eX(substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2)) {
             return "身份证号错误";
         }
         GregorianCalendar gregorianCalendar = new GregorianCalendar();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
         try {
             String str3 = substring3 + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + substring2;
             if (gregorianCalendar.get(1) - Integer.parseInt(substring3) <= 150) {
@@ -62,7 +62,7 @@ public class e {
         if (Integer.parseInt(substring2) > 31 || Integer.parseInt(substring2) == 0) {
             return "身份证号错误";
         }
-        if (Be().get(str2.substring(0, 2)) == null) {
+        if (Gc().get(str2.substring(0, 2)) == null) {
             return "身份证号错误";
         }
         for (int i2 = 0; i2 < 17; i2++) {
@@ -72,13 +72,13 @@ public class e {
         if (str.length() == 18 && !str4.equalsIgnoreCase(str)) {
             return "身份证号错误";
         }
-        if (!ef(str)) {
+        if (!eY(str)) {
             return "未满18岁哦";
         }
         return HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
     }
 
-    private static Hashtable Be() {
+    private static Hashtable Gc() {
         Hashtable hashtable = new Hashtable();
         hashtable.put("11", "北京");
         hashtable.put("12", "天津");
@@ -118,20 +118,20 @@ public class e {
         return hashtable;
     }
 
-    private static boolean ed(String str) {
+    private static boolean eW(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public static boolean ee(String str) {
+    public static boolean eX(String str) {
         return Pattern.compile("^((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))(\\s(((0?[0-9])|([1-2][0-3]))\\:([0-5]?[0-9])((\\s)|(\\:([0-5]?[0-9])))))?$").matcher(str).matches();
     }
 
-    public static boolean ef(String str) {
+    public static boolean eY(String str) {
         if (TextUtils.isEmpty(str) || str.length() < 15) {
             return false;
         }
         try {
-            return new Date().after(new SimpleDateFormat(DateTimeUtil.DAY_FORMAT).parse(String.valueOf(Integer.parseInt(str.substring(6, 10)) + 18) + str.substring(10, 14)));
+            return new Date().after(new SimpleDateFormat("yyyyMMdd").parse(String.valueOf(Integer.parseInt(str.substring(6, 10)) + 18) + str.substring(10, 14)));
         } catch (Exception e) {
             e.printStackTrace();
             return false;

@@ -6,25 +6,25 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class a {
-    private static int aZh = 1;
-    private static int aZi = 2;
-    private static int aZj = 3;
-    private Map<String, String> aZk = new HashMap();
-    private Map<String, String> aZl = new HashMap();
-    private SharedPreferences aZm;
+    private static int bxH = 1;
+    private static int bxI = 2;
+    private static int bxJ = 3;
+    private Map<String, String> bxK = new HashMap();
+    private Map<String, String> bxL = new HashMap();
+    private SharedPreferences bxM;
 
     public void b(SharedPreferences sharedPreferences) {
-        this.aZm = sharedPreferences;
+        this.bxM = sharedPreferences;
     }
 
     public void setValue(int i, String str, String str2) {
-        if (i == aZh) {
-            this.aZk.put(str, str2);
-        } else if (i == aZi) {
-            this.aZl.put(str, str2);
-        } else if (i == aZj) {
-            if (this.aZm != null) {
-                this.aZm.edit().putString(str, str2).commit();
+        if (i == bxH) {
+            this.bxK.put(str, str2);
+        } else if (i == bxI) {
+            this.bxL.put(str, str2);
+        } else if (i == bxJ) {
+            if (this.bxM != null) {
+                this.bxM.edit().putString(str, str2).commit();
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -33,13 +33,13 @@ public class a {
 
     public String getValue(int i, String str) {
         String str2 = null;
-        if (i == aZh) {
-            str2 = this.aZk.get(str);
-        } else if (i == aZi) {
-            str2 = this.aZl.get(str);
-        } else if (i == aZj) {
-            if (this.aZm != null) {
-                str2 = this.aZm.getString(str, "");
+        if (i == bxH) {
+            str2 = this.bxK.get(str);
+        } else if (i == bxI) {
+            str2 = this.bxL.get(str);
+        } else if (i == bxJ) {
+            if (this.bxM != null) {
+                str2 = this.bxM.getString(str, "");
             } else {
                 Log.e("TAG", "prefs data store is null");
             }
@@ -51,6 +51,6 @@ public class a {
     }
 
     public void clearARMemory() {
-        this.aZk.clear();
+        this.bxK.clear();
     }
 }

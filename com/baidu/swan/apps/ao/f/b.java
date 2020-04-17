@@ -1,15 +1,15 @@
 package com.baidu.swan.apps.ao.f;
 /* loaded from: classes11.dex */
 public class b {
-    private a bXa;
+    private a cvR;
 
     public void a(a aVar) {
-        this.bXa = aVar;
+        this.cvR = aVar;
     }
 
-    public void gV(int i) {
-        if (this.bXa != null) {
-            this.bXa.gU(i);
+    public void hc(int i) {
+        if (this.cvR != null) {
+            this.cvR.hb(i);
         }
     }
 }

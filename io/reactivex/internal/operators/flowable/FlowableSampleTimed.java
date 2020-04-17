@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.SequentialDisposable;
@@ -13,7 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSampleTimed<T> extends a<T, T> {
-    final boolean emitLast;
+    final boolean mSB;
     final long period;
     final v scheduler;
     final TimeUnit unit;
@@ -21,10 +20,10 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.emitLast) {
-            this.nyr.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
+        if (this.mSB) {
+            this.mRJ.a((j) new SampleTimedEmitLast(bVar, this.period, this.unit, this.scheduler));
         } else {
-            this.nyr.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
+            this.mRJ.a((j) new SampleTimedNoLast(bVar, this.period, this.unit, this.scheduler));
         }
     }
 
@@ -54,7 +53,7 @@ public final class FlowableSampleTimed<T> extends a<T, T> {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
                 this.timer.replace(this.scheduler.a(this, this.period, this.period, this.unit));
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 

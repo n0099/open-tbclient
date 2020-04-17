@@ -117,7 +117,7 @@ public final class ag {
         return str;
     }
 
-    public static String mQ(String str) {
+    public static String od(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith(File.separator)) {
                 str = str.substring(1);
@@ -130,8 +130,8 @@ public final class ag {
         return str;
     }
 
-    public static String mR(String str) {
-        return mQ(delAllParamsFromUrl(str));
+    public static String oe(String str) {
+        return od(delAllParamsFromUrl(str));
     }
 
     public static String getParams(String str) {

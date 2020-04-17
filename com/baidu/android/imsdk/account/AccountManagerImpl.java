@@ -6,9 +6,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.account.request.IMGetMsgSettingSwitchRequest;
 import com.baidu.android.imsdk.account.request.IMGetPaidByAppidRequest;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
 import com.baidu.android.imsdk.account.request.IMGetUidByUkRequest;
+import com.baidu.android.imsdk.account.request.IMSetMsgSettingSwitchRequest;
 import com.baidu.android.imsdk.account.request.IMUserLoginByTokenMsg;
 import com.baidu.android.imsdk.account.request.IMUserLogoutMsg;
 import com.baidu.android.imsdk.account.request.IMUserQueryPrivacyRequest;
@@ -21,7 +23,6 @@ import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.mcast.McastManagerImpl;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
@@ -191,7 +192,7 @@ public class AccountManagerImpl {
         }
         LogUtils.d(TAG, "login type :" + i);
         LogUtils.d(TAG, "start login loginState:" + LoginManager.getInstance(mContext).getCurrentState());
-        LogUtils.d(TAG, "current version:" + IMConfigInternal.getInstance().getSDKVersionValue(mContext) + HanziToPinyin.Token.SEPARATOR + IMConfigInternal.getInstance().getSDKVersionValue(mContext));
+        LogUtils.d(TAG, "current version:" + IMConfigInternal.getInstance().getSDKVersionValue(mContext) + " " + IMConfigInternal.getInstance().getSDKVersionValue(mContext));
         Utility.writeLoginFlag(mContext, "5N_1", "login begin");
         McastManagerImpl.getInstance(mContext);
         McastManagerImpl.resetHeartBeat(60000);
@@ -296,7 +297,7 @@ public class AccountManagerImpl {
             this.mToken = str2;
             Utility.writeAccessToken(mContext, str2);
             try {
-                mContext.startService(creatMethodIntent);
+                IMService.enqueueWork(mContext, creatMethodIntent);
                 Utility.writeLoginFlag(mContext, "6Y", "startLoginService");
             } catch (Exception e) {
                 Utility.writeLoginFlag(mContext, "6N_1", "startLoginService exception");
@@ -388,7 +389,7 @@ public class AccountManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, i);
             try {
-                mContext.startService(creatMethodIntent);
+                IMService.enqueueWork(mContext, creatMethodIntent);
                 return;
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
@@ -472,7 +473,7 @@ public class AccountManagerImpl {
             intent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             intent.putExtra(Constants.EXTRA_DISCONNECT, "1");
             intent.setPackage(mContext.getPackageName());
-            mContext.startService(intent);
+            IMService.enqueueWork(mContext, intent);
         } catch (Exception e) {
             LogUtils.e(TAG, LogConfig.DISCONNECT, e);
             IMListener removeListener = ListenerManager.getInstance().removeListener(str);
@@ -585,7 +586,7 @@ public class AccountManagerImpl {
             Intent intent = new Intent(mContext, IMService.class);
             intent.setPackage(mContext.getPackageName());
             intent.setAction(Constants.ACTION_STOP);
-            mContext.startService(intent);
+            IMService.enqueueWork(mContext, intent);
             return true;
         } catch (Exception e) {
             LogUtils.e(TAG, "Stop Service SecurityException");
@@ -599,7 +600,7 @@ public class AccountManagerImpl {
     }
 
     public void onSetPrivacyResult(String str, int i, String str2, int i2) {
-        LogUtils.d(TAG, "onSetPrivacyResult " + i + HanziToPinyin.Token.SEPARATOR + str2 + HanziToPinyin.Token.SEPARATOR + i2);
+        LogUtils.d(TAG, "onSetPrivacyResult " + i + " " + str2 + " " + i2);
         ISetNotificationPrivacyListener iSetNotificationPrivacyListener = (ISetNotificationPrivacyListener) ListenerManager.getInstance().removeListener(str);
         if (iSetNotificationPrivacyListener != null) {
             iSetNotificationPrivacyListener.onResult(i, str2);
@@ -613,11 +614,11 @@ public class AccountManagerImpl {
     }
 
     public void onQueryPrivacyResult(int i, String str, int i2) {
-        LogUtils.d(TAG, "onQueryPrivacyResult " + i + HanziToPinyin.Token.SEPARATOR + str + HanziToPinyin.Token.SEPARATOR + i2);
+        LogUtils.d(TAG, "onQueryPrivacyResult " + i + " " + str + " " + i2);
         if (i == 0) {
             Utility.writePrivate(mContext, i2);
         } else {
-            LogUtils.e(TAG, "sync account privacy error " + i + HanziToPinyin.Token.SEPARATOR + str);
+            LogUtils.e(TAG, "sync account privacy error " + i + " " + str);
         }
     }
 
@@ -635,7 +636,7 @@ public class AccountManagerImpl {
             Intent intent = new Intent(mContext, IMService.class);
             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
             intent.setPackage(mContext.getPackageName());
-            mContext.startService(intent);
+            IMService.enqueueWork(mContext, intent);
         } catch (Exception e) {
             LogUtils.e(TAG, "tryConnection failed......");
         }
@@ -718,5 +719,27 @@ public class AccountManagerImpl {
 
     public boolean getMediaRole() {
         return this.isMediaRole;
+    }
+
+    public void getMsgSettingSwitchStatus(IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener) {
+        if (iGetMsgSettingSwitchListener != null) {
+            if (isLogin()) {
+                IMGetMsgSettingSwitchRequest iMGetMsgSettingSwitchRequest = new IMGetMsgSettingSwitchRequest(mContext, iGetMsgSettingSwitchListener);
+                HttpHelper.executor(mContext, iMGetMsgSettingSwitchRequest, iMGetMsgSettingSwitchRequest);
+                return;
+            }
+            iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, 0, 0);
+        }
+    }
+
+    public void setMsgSettingSwitchStatus(int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
+        if (iSetMsgSettingSwitchListener != null) {
+            if (isLogin()) {
+                IMSetMsgSettingSwitchRequest iMSetMsgSettingSwitchRequest = new IMSetMsgSettingSwitchRequest(mContext, i, i2, iSetMsgSettingSwitchListener);
+                HttpHelper.executor(mContext, iMSetMsgSettingSwitchRequest, iMSetMsgSettingSwitchRequest);
+                return;
+            }
+            iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+        }
     }
 }

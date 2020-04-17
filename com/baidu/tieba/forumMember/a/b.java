@@ -5,25 +5,25 @@ import com.baidu.adp.widget.ListView.m;
 import tbclient.GetMemberInfo.MemberGodInfo;
 /* loaded from: classes10.dex */
 public class b implements m {
-    public static final BdUniqueId gll = BdUniqueId.gen();
-    private int glm;
+    public static final BdUniqueId gUs = BdUniqueId.gen();
+    private int gUt;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gll;
+        return gUs;
     }
 
-    public int bCB() {
-        return this.glm;
+    public int bNb() {
+        return this.gUt;
     }
 
-    public void sr(int i) {
-        this.glm = i;
+    public void sO(int i) {
+        this.gUt = i;
     }
 
     public void a(MemberGodInfo memberGodInfo) {
         if (memberGodInfo != null && memberGodInfo.forum_god_list != null && memberGodInfo.forum_god_list.size() > 0) {
-            sr(memberGodInfo.forum_god_num.intValue());
+            sO(memberGodInfo.forum_god_num.intValue());
         }
     }
 }

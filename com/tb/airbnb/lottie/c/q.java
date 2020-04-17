@@ -12,31 +12,31 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 class q {
+    private static SparseArrayCompat<WeakReference<Interpolator>> Fu;
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
-    private static SparseArrayCompat<WeakReference<Interpolator>> jX;
 
     q() {
     }
 
-    private static SparseArrayCompat<WeakReference<Interpolator>> dB() {
-        if (jX == null) {
-            jX = new SparseArrayCompat<>();
+    private static SparseArrayCompat<WeakReference<Interpolator>> ja() {
+        if (Fu == null) {
+            Fu = new SparseArrayCompat<>();
         }
-        return jX;
+        return Fu;
     }
 
     @Nullable
-    private static WeakReference<Interpolator> o(int i) {
+    private static WeakReference<Interpolator> N(int i) {
         WeakReference<Interpolator> weakReference;
         synchronized (q.class) {
-            weakReference = dB().get(i);
+            weakReference = ja().get(i);
         }
         return weakReference;
     }
 
     private static void a(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            jX.put(i, weakReference);
+            Fu.put(i, weakReference);
         }
     }
 
@@ -213,17 +213,17 @@ class q {
             pointF4.y = com.tb.airbnb.lottie.d.e.clamp(pointF4.y, -100.0f, 100.0f);
             pointF5.x = com.tb.airbnb.lottie.d.e.clamp(pointF5.x, -f, f);
             pointF5.y = com.tb.airbnb.lottie.d.e.clamp(pointF5.y, -100.0f, 100.0f);
-            int c2 = com.tb.airbnb.lottie.d.f.c(pointF4.x, pointF4.y, pointF5.x, pointF5.y);
-            WeakReference<Interpolator> o = o(c2);
-            if (o == null) {
+            int d = com.tb.airbnb.lottie.d.f.d(pointF4.x, pointF4.y, pointF5.x, pointF5.y);
+            WeakReference<Interpolator> N = N(d);
+            if (N == null) {
                 interpolator2 = null;
             } else {
-                interpolator2 = o.get();
+                interpolator2 = N.get();
             }
-            if (o == null || interpolator2 == null) {
+            if (N == null || interpolator2 == null) {
                 interpolator2 = PathInterpolatorCompat.create(pointF4.x / f, pointF4.y / f, pointF5.x / f, pointF5.y / f);
                 try {
-                    a(c2, new WeakReference(interpolator2));
+                    a(d, new WeakReference(interpolator2));
                 } catch (ArrayIndexOutOfBoundsException e) {
                 }
             }
@@ -232,8 +232,8 @@ class q {
             interpolator = LINEAR_INTERPOLATOR;
         }
         com.tb.airbnb.lottie.e.a<T> aVar = new com.tb.airbnb.lottie.e.a<>(dVar, t2, t3, interpolator, f2, null);
-        aVar.kv = pointF6;
-        aVar.kx = pointF7;
+        aVar.FR = pointF6;
+        aVar.FT = pointF7;
         return aVar;
     }
 

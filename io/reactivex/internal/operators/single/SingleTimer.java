@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.single;
 
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.v;
 import io.reactivex.w;
@@ -21,7 +20,7 @@ public final class SingleTimer extends w<Long> {
     }
 
     /* loaded from: classes7.dex */
-    static final class TimerDisposable extends AtomicReference<b> implements b, Runnable {
+    static final class TimerDisposable extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, Runnable {
         private static final long serialVersionUID = 8465401857522493082L;
         final y<? super Long> actual;
 
@@ -44,7 +43,7 @@ public final class SingleTimer extends w<Long> {
             return DisposableHelper.isDisposed(get());
         }
 
-        void setFuture(b bVar) {
+        void setFuture(io.reactivex.disposables.b bVar) {
             DisposableHelper.replace(this, bVar);
         }
     }

@@ -1,12 +1,12 @@
 package com.baidu.live.h;
 
 import android.view.View;
-import com.baidu.live.data.m;
+import com.baidu.live.data.n;
 /* loaded from: classes3.dex */
 public interface a {
-    void a(m mVar);
+    void a(n nVar);
 
-    void bV(int i);
+    void ck(int i);
 
     View getView();
 

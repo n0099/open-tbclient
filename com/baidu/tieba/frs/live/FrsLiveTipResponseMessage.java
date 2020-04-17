@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.live;
 
+import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -63,7 +64,7 @@ public class FrsLiveTipResponseMessage extends JsonHttpResponsedMessage {
         alaLiveInfoCoreData.groupID = jSONObject.optLong("group_id");
         alaLiveInfoCoreData.sessionID = jSONObject.optString("session_id");
         alaLiveInfoCoreData.liveType = jSONObject.optInt("live_type");
-        alaLiveInfoCoreData.screenDirection = jSONObject.optInt("screen_direction");
+        alaLiveInfoCoreData.screenDirection = jSONObject.optInt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
         alaLiveInfoCoreData.liveTitle = jSONObject.optString("description");
         alaLiveInfoCoreData.liveCover = jSONObject.optString("cover");
         JSONObject optJSONObject = jSONObject.optJSONObject("session_info_backup");

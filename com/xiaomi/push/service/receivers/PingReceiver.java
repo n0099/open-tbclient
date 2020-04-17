@@ -16,7 +16,7 @@ public class PingReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         b.c(intent.getPackage() + " is the package name");
         if (!ap.o.equals(intent.getAction())) {
-            b.m45a("cancel the old ping timer");
+            b.m50a("cancel the old ping timer");
             ew.a();
         } else if (TextUtils.equals(context.getPackageName(), intent.getPackage())) {
             b.c("Ping XMChannelService on timer");
@@ -24,7 +24,7 @@ public class PingReceiver extends BroadcastReceiver {
                 Intent intent2 = new Intent(context, XMPushService.class);
                 intent2.putExtra(ETAG.KEY_TIME_STAMP, System.currentTimeMillis());
                 intent2.setAction("com.xiaomi.push.timer");
-                ax.a(context).m523a(intent2);
+                ax.a(context).m528a(intent2);
             } catch (Exception e) {
                 b.a(e);
             }

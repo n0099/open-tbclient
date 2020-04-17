@@ -3,9 +3,9 @@ package com.baidu.swan.apps.core.g;
 import android.app.Activity;
 /* loaded from: classes11.dex */
 public interface a {
-    void H(Activity activity);
+    void D(Activity activity);
 
-    com.baidu.swan.apps.core.container.a JG();
+    com.baidu.swan.apps.core.container.a Rs();
 
     void a(com.baidu.swan.apps.core.b bVar);
 

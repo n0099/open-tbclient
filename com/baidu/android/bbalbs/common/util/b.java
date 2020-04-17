@@ -48,7 +48,7 @@ import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class b {
     private static final String a;
-    private static C0033b e;
+    private static C0035b e;
     private final Context b;
     private int c = 0;
     private PublicKey d;
@@ -75,20 +75,20 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.bbalbs.common.util.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0033b {
+    public static class C0035b {
         public String a;
         public String b;
         public int c;
 
-        private C0033b() {
+        private C0035b() {
             this.c = 2;
         }
 
-        /* synthetic */ C0033b(com.baidu.android.bbalbs.common.util.c cVar) {
+        /* synthetic */ C0035b(com.baidu.android.bbalbs.common.util.c cVar) {
             this();
         }
 
-        public static C0033b a(String str) {
+        public static C0035b a(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -100,11 +100,11 @@ public final class b {
                 if (TextUtils.isEmpty(string) || string2 == null) {
                     return null;
                 }
-                C0033b c0033b = new C0033b();
-                c0033b.a = string;
-                c0033b.b = string2;
-                c0033b.c = i;
-                return c0033b;
+                C0035b c0035b = new C0035b();
+                c0035b.a = string;
+                c0035b.b = string2;
+                c0035b.c = i;
+                return c0035b;
             } catch (JSONException e) {
                 b.b(e);
                 return null;
@@ -438,12 +438,12 @@ public final class b {
         return strArr;
     }
 
-    private C0033b b() {
+    private C0035b b() {
         boolean z;
-        C0033b c0033b;
-        C0033b c0033b2;
+        C0035b c0035b;
+        C0035b c0035b2;
         String str;
-        C0033b c0033b3;
+        C0035b c0035b3;
         String str2;
         String str3 = null;
         boolean z2 = false;
@@ -464,7 +464,7 @@ public final class b {
             z = z3;
         }
         File file = new File(this.b.getFilesDir(), "libcuid.so");
-        C0033b a3 = file.exists() ? C0033b.a(f(a(file))) : null;
+        C0035b a3 = file.exists() ? C0035b.a(f(a(file))) : null;
         if (a3 == null) {
             this.c |= 16;
             List<a> a4 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
@@ -480,64 +480,64 @@ public final class b {
                     if (!aVar2.d) {
                         File file2 = new File(new File(aVar2.a.dataDir, str2), "libcuid.so");
                         if (file2.exists()) {
-                            c0033b = C0033b.a(f(a(file2)));
-                            if (c0033b != null) {
+                            c0035b = C0035b.a(f(a(file2)));
+                            if (c0035b != null) {
                                 break;
                             }
                         } else {
-                            c0033b = a3;
+                            c0035b = a3;
                         }
-                        a3 = c0033b;
+                        a3 = c0035b;
                     }
                 }
             }
         }
-        c0033b = a3;
-        if (c0033b == null) {
-            c0033b = C0033b.a(f(b("com.baidu.deviceid.v2")));
+        c0035b = a3;
+        if (c0035b == null) {
+            c0035b = C0035b.a(f(b("com.baidu.deviceid.v2")));
         }
         boolean c2 = c("android.permission.READ_EXTERNAL_STORAGE");
-        if (c0033b == null && c2) {
+        if (c0035b == null && c2) {
             this.c |= 2;
-            c0033b2 = e();
+            c0035b2 = e();
         } else {
-            c0033b2 = c0033b;
+            c0035b2 = c0035b;
         }
-        if (c0033b2 == null) {
+        if (c0035b2 == null) {
             this.c |= 8;
-            c0033b2 = d();
+            c0035b2 = d();
         }
-        if (c0033b2 == null && c2) {
+        if (c0035b2 == null && c2) {
             this.c |= 1;
             str = h("");
-            c0033b2 = d(str);
+            c0035b2 = d(str);
             z2 = true;
         } else {
             str = null;
         }
-        if (c0033b2 == null) {
+        if (c0035b2 == null) {
             this.c |= 4;
             if (!z2) {
                 str = h("");
             }
-            C0033b c0033b4 = new C0033b(null);
+            C0035b c0035b4 = new C0035b(null);
             String c3 = c(this.b);
-            c0033b4.a = com.baidu.android.bbalbs.common.a.c.a((Build.VERSION.SDK_INT < 23 ? str + c3 + UUID.randomUUID().toString() : "com.baidu" + c3).getBytes(), true);
-            c0033b4.b = str;
-            c0033b3 = c0033b4;
+            c0035b4.a = com.baidu.android.bbalbs.common.a.c.a((Build.VERSION.SDK_INT < 23 ? str + c3 + UUID.randomUUID().toString() : "com.baidu" + c3).getBytes(), true);
+            c0035b4.b = str;
+            c0035b3 = c0035b4;
         } else {
-            c0033b3 = c0033b2;
+            c0035b3 = c0035b2;
         }
         File file3 = new File(this.b.getFilesDir(), "libcuid.so");
         if ((this.c & 16) != 0 || !file3.exists()) {
-            String e2 = TextUtils.isEmpty(null) ? e(c0033b3.a()) : null;
+            String e2 = TextUtils.isEmpty(null) ? e(c0035b3.a()) : null;
             a(e2);
             str3 = e2;
         }
         boolean c4 = c();
         if (c4 && ((this.c & 2) != 0 || TextUtils.isEmpty(b("com.baidu.deviceid.v2")))) {
             if (TextUtils.isEmpty(str3)) {
-                str3 = e(c0033b3.a());
+                str3 = e(c0035b3.a());
             }
             a("com.baidu.deviceid.v2", str3);
         }
@@ -545,21 +545,21 @@ public final class b {
             File file4 = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
             if ((this.c & 8) != 0 || !file4.exists()) {
                 if (TextUtils.isEmpty(str3)) {
-                    str3 = e(c0033b3.a());
+                    str3 = e(c0035b3.a());
                 }
                 g(str3);
             }
         }
         if (c4 && ((this.c & 1) != 0 || TextUtils.isEmpty(b("com.baidu.deviceid")))) {
-            a("com.baidu.deviceid", c0033b3.a);
+            a("com.baidu.deviceid", c0035b3.a);
         }
-        if (c4 && !TextUtils.isEmpty(c0033b3.b)) {
+        if (c4 && !TextUtils.isEmpty(c0035b3.b)) {
             File file5 = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid");
             if ((this.c & 2) != 0 || !file5.exists()) {
-                b(c0033b3.b, c0033b3.a);
+                b(c0035b3.b, c0035b3.a);
             }
         }
-        return c0033b3;
+        return c0035b3;
     }
 
     public static String b(Context context) {
@@ -620,7 +620,7 @@ public final class b {
         return this.b.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
-    private C0033b d() {
+    private C0035b d() {
         String b = b("com.baidu.deviceid");
         String b2 = b("bd_setting_i");
         if (TextUtils.isEmpty(b2)) {
@@ -634,15 +634,15 @@ public final class b {
         if (TextUtils.isEmpty(b)) {
             return null;
         }
-        C0033b c0033b = new C0033b(null);
-        c0033b.a = b;
-        c0033b.b = b2;
-        return c0033b;
+        C0035b c0035b = new C0035b(null);
+        c0035b.a = b;
+        c0035b.b = b2;
+        return c0035b;
     }
 
-    private static C0033b d(Context context) {
+    private static C0035b d(Context context) {
         if (e == null) {
-            synchronized (C0033b.class) {
+            synchronized (C0035b.class) {
                 if (e == null) {
                     SystemClock.uptimeMillis();
                     e = new b(context).b();
@@ -659,7 +659,7 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private C0033b d(String str) {
+    private C0035b d(String str) {
         String str2;
         String[] split;
         boolean z = false;
@@ -713,10 +713,10 @@ public final class b {
                 }
             }
             if (TextUtils.isEmpty(str3)) {
-                C0033b c0033b = new C0033b(null);
-                c0033b.a = str3;
-                c0033b.b = str2;
-                return c0033b;
+                C0035b c0035b = new C0035b(null);
+                c0035b.a = str3;
+                c0035b.b = str2;
+                return c0035b;
             }
             return null;
         }
@@ -727,13 +727,13 @@ public final class b {
         }
     }
 
-    private C0033b e() {
+    private C0035b e() {
         File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
         if (file.exists()) {
             String a2 = a(file);
             if (!TextUtils.isEmpty(a2)) {
                 try {
-                    return C0033b.a(new String(com.baidu.android.bbalbs.common.a.a.b(a, a, com.baidu.android.bbalbs.common.a.b.a(a2.getBytes()))));
+                    return C0035b.a(new String(com.baidu.android.bbalbs.common.a.a.b(a, a, com.baidu.android.bbalbs.common.a.b.a(a2.getBytes()))));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

@@ -157,7 +157,7 @@ public class FastScroller extends RecyclerView.ItemDecoration implements Recycle
         }
         if (this.mState == 2 && i != 2) {
             this.mVerticalThumbDrawable.setState(EMPTY_STATE_SET);
-            resetHideDelay(HIDE_DELAY_AFTER_DRAGGING_MS);
+            resetHideDelay(1200);
         } else if (i == 1) {
             resetHideDelay(1500);
         }

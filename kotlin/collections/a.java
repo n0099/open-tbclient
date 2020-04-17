@@ -76,7 +76,7 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public <T> T[] toArray(T[] tArr) {
-        kotlin.jvm.internal.q.j(tArr, "array");
+        kotlin.jvm.internal.q.j(tArr, com.baidu.fsg.base.statistics.b.j);
         T[] tArr2 = (T[]) kotlin.jvm.internal.n.a(this, tArr);
         if (tArr2 == null) {
             throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
@@ -90,7 +90,7 @@ public abstract class a<E> implements Collection<E> {
             return false;
         }
         for (E e : this) {
-            if (kotlin.jvm.internal.q.h(e, obj)) {
+            if (kotlin.jvm.internal.q.k(e, obj)) {
                 return true;
             }
         }

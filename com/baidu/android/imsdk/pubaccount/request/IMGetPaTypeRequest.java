@@ -7,7 +7,6 @@ import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONException;
@@ -38,9 +37,9 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
         int i2;
         String str;
         int i3;
-        LogUtils.d("imsdk", "IMGetPaTypeRequest " + this.mPaId + "  " + i + HanziToPinyin.Token.SEPARATOR + bArr);
+        LogUtils.d("imsdk", "IMGetPaTypeRequest " + this.mPaId + "  " + i + " " + bArr);
         String str2 = new String(bArr);
-        LogUtils.d("imsdk", "IMGetPaTypeRequest " + this.mPaId + "  " + i + HanziToPinyin.Token.SEPARATOR + str2);
+        LogUtils.d("imsdk", "IMGetPaTypeRequest " + this.mPaId + "  " + i + " " + str2);
         String str3 = Constants.ERROR_MSG_SUCCESS;
         int i4 = -1;
         try {
@@ -67,7 +66,7 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
-        LogUtils.d("imsdk", "IMGetPaTypeRequest " + this.mPaId + "  " + i + HanziToPinyin.Token.SEPARATOR + bArr);
+        LogUtils.d("imsdk", "IMGetPaTypeRequest " + this.mPaId + "  " + i + " " + bArr);
         Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
         PaManagerImpl.getInstance(this.mContext).onGetPaTypeResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mPaId, -1);
     }

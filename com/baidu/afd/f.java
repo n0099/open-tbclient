@@ -1,6 +1,8 @@
 package com.baidu.afd;
 
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,7 +13,7 @@ public class f {
         if (jSONObject == null) {
             throw new ParseError(1, "afd/entry retun null");
         }
-        if (jSONObject.optInt("errno", 0) > 0) {
+        if (jSONObject.optInt(BaseJsonData.TAG_ERRNO, 0) > 0) {
             return new e();
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("res");
@@ -45,7 +47,7 @@ public class f {
             }
             boolean z = optJSONObject.optInt("advisible", 1) == 0;
             if (z) {
-                str2 = optJSONObject.has("ext_info") ? optJSONObject.optString("ext_info", null) : null;
+                str2 = optJSONObject.has(UgcConstant.EXT_INFO) ? optJSONObject.optString(UgcConstant.EXT_INFO, null) : null;
             } else {
                 str2 = null;
             }
@@ -76,7 +78,7 @@ public class f {
                 throw new ParseError(1, "adInfo has no extraParam info");
             }
             if (z) {
-                return a.H(str2, str);
+                return a.L(str2, str);
             }
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("material");
             if (optJSONArray3 == null || optJSONArray3.length() == 0) {
@@ -96,8 +98,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.Dq = z;
-                eVar.Dr = com.baidu.tieba.lego.card.b.DZ(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.WL = z;
+                eVar.WM = com.baidu.tieba.lego.card.b.FH(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

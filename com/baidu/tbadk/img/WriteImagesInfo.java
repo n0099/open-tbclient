@@ -7,6 +7,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.m;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -95,6 +96,20 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
 
     public LinkedList<ImageFileInfo> getChosedFiles() {
         return this.chosedFiles;
+    }
+
+    public ArrayList<String> getChosedUriStr() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        if (this.chosedFiles != null) {
+            Iterator<ImageFileInfo> it = this.chosedFiles.iterator();
+            while (it.hasNext()) {
+                String contentUriStr = it.next().getContentUriStr();
+                if (!TextUtils.isEmpty(contentUriStr)) {
+                    arrayList.add(contentUriStr);
+                }
+            }
+        }
+        return arrayList;
     }
 
     public ImageFileInfo getImageInfoAt(int i) {
@@ -224,7 +239,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             while (descendingIterator.hasNext()) {
                 ImageFileInfo next = descendingIterator.next();
                 if (next != null && !next.isHasAddPostQualityAction()) {
-                    next.addPersistAction(com.baidu.tbadk.img.effect.d.aK(ar.aGH().getPostImageSize(), ar.aGH().getPostImageHeightLimit()));
+                    next.addPersistAction(com.baidu.tbadk.img.effect.d.aO(ar.aOV().getPostImageSize(), ar.aOV().getPostImageHeightLimit()));
                     next.setHasAddPostQualityAction(true);
                 }
             }

@@ -1,205 +1,404 @@
 package com.baidu.cyberplayer.sdk;
 
-import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.opengl.GLSurfaceView;
+import android.opengl.Matrix;
+import android.os.Build;
+import android.view.Surface;
+import com.baidu.cyberplayer.sdk.i;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes.dex */
-public class e {
+public class e implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
+    protected a a;
+    private int h;
+    private int i;
     private int j;
-    private int a = 0;
-    private int b = 0;
-    private int c = 1;
-    private int d = 1;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
-    private int h = 0;
-    private int i = 0;
-    private float[] k = new float[2];
+    private int k;
+    private int l;
+    private int m;
+    private SurfaceTexture n;
+    private Surface o;
+    private boolean s;
+    private f t;
+    private i.a y;
+    private final float[] b = {-1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
+    private final String d = "uniform mat4 uMVPMatrix;\nuniform mat4 uSTMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n  gl_Position = uMVPMatrix * aPosition;\n  vTextureCoord = (uSTMatrix * aTextureCoord).xy;\n}\n";
+    private final String e = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n  gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
+    private float[] f = new float[16];
+    private float[] g = new float[16];
+    private boolean p = false;
+    private final Object q = new Object();
+    private final Object r = new Object();
+    private boolean u = false;
+    private float v = 1.0f;
+    private int w = 0;
+    private int x = 0;
+    private FloatBuffer c = ByteBuffer.allocateDirect(this.b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void a();
+    }
 
     public e() {
-        this.j = 0;
-        this.k[0] = 1.0f;
-        this.k[1] = 1.0f;
-        this.j = CyberCfgManager.getInstance().getCfgIntValue("display_mode", 2);
+        this.c.put(this.b).position(0);
+        Matrix.setIdentityM(this.g, 0);
+        this.s = false;
+        this.t = new f();
     }
 
-    public void a() {
-        this.a = 0;
-        this.b = 0;
-        this.c = 1;
-        this.d = 1;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.i = 0;
-        this.k[0] = 1.0f;
-        this.k[1] = 1.0f;
-        this.j = CyberCfgManager.getInstance().getCfgIntValue("display_mode", 2);
+    private int a(int i, String str) {
+        int glCreateShader = GLES20.glCreateShader(i);
+        if (glCreateShader != 0) {
+            GLES20.glShaderSource(glCreateShader, str);
+            GLES20.glCompileShader(glCreateShader);
+            int[] iArr = new int[1];
+            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
+            if (iArr[0] == 0) {
+                CyberLog.e("CyberRender", "Could not compile shader " + i + ":");
+                CyberLog.e("CyberRender", GLES20.glGetShaderInfoLog(glCreateShader));
+                GLES20.glDeleteShader(glCreateShader);
+                return 0;
+            }
+        }
+        return glCreateShader;
     }
 
-    public boolean a(int i) {
-        if (this.f != i) {
-            this.f = i;
-            this.g = ((this.e + 360) - i) % 360;
+    private int a(String str, String str2) {
+        int a2;
+        int a3 = a(35633, str);
+        if (a3 == 0 || (a2 = a(35632, str2)) == 0) {
+            return 0;
+        }
+        int glCreateProgram = GLES20.glCreateProgram();
+        if (glCreateProgram != 0) {
+            GLES20.glAttachShader(glCreateProgram, a3);
+            a("glAttachShader");
+            GLES20.glAttachShader(glCreateProgram, a2);
+            a("glAttachShader");
+            GLES20.glLinkProgram(glCreateProgram);
+            int[] iArr = new int[1];
+            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
+            if (iArr[0] != 1) {
+                CyberLog.e("CyberRender", "Could not link program: ");
+                CyberLog.e("CyberRender", GLES20.glGetProgramInfoLog(glCreateProgram));
+                GLES20.glDeleteProgram(glCreateProgram);
+                return 0;
+            }
+        }
+        return glCreateProgram;
+    }
+
+    private static void a(SurfaceTexture surfaceTexture) {
+        if (surfaceTexture != null) {
+            try {
+                surfaceTexture.setOnFrameAvailableListener(null);
+                surfaceTexture.release();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private boolean a(String str) {
+        int glGetError = GLES20.glGetError();
+        if (glGetError != 0) {
+            CyberLog.e("CyberRender", str + ": glError " + glGetError);
             return true;
         }
         return false;
     }
 
-    public boolean a(int i, int i2) {
-        if (this.a == i && this.b == i2) {
-            return false;
-        }
-        this.a = i;
-        this.b = i2;
-        return true;
+    private void b(int i, int i2, int i3, int i4) {
+        CyberLog.i("CyberRender", "drawSmallScreen called width:" + i3 + " height:" + i4);
+        GLES20.glViewport(i, i2, i3, i4);
+        e();
+        CyberLog.i("CyberRender", "drawSmallScreen called end");
     }
 
-    public boolean a(int i, int i2, int i3, int i4) {
-        if (this.h == i && i2 == this.i && this.c == i3 && this.d == i4) {
-            return false;
+    private void c(int i, int i2, int i3, int i4) {
+        if (this.y != null) {
+            this.y.a(i3, i4, d(i, i2, i3, i4));
         }
-        this.h = i;
-        this.i = i2;
-        if (i4 == 0 || i3 == 0) {
-            this.c = 1;
-            this.d = 1;
-            return true;
+    }
+
+    private Buffer d(int i, int i2, int i3, int i4) {
+        CyberLog.i("CyberRender", "=> getFrame width:" + i3 + " height:" + i4);
+        IntBuffer wrap = IntBuffer.wrap(new int[i3 * i4]);
+        wrap.position(0);
+        GLES20.glPixelStorei(3333, 4);
+        GLES20.glReadPixels(i, i2, i3, i4, 6408, 5121, wrap);
+        return wrap;
+    }
+
+    private void e() {
+        if (this.h == 0) {
+            return;
         }
-        this.c = i3;
-        this.d = i4;
-        return true;
+        GLES20.glUseProgram(this.h);
+        a("glUseProgram");
+        GLES20.glActiveTexture(33984);
+        GLES20.glBindTexture(36197, this.i);
+        this.c.position(0);
+        GLES20.glVertexAttribPointer(this.l, 3, 5126, false, 20, (Buffer) this.c);
+        a("glVertexAttribPointer maPosition");
+        GLES20.glEnableVertexAttribArray(this.l);
+        a("glEnableVertexAttribArray maPositionHandle");
+        this.c.position(3);
+        GLES20.glVertexAttribPointer(this.m, 3, 5126, false, 20, (Buffer) this.c);
+        a("glVertexAttribPointer maTextureHandle");
+        GLES20.glEnableVertexAttribArray(this.m);
+        a("glEnableVertexAttribArray maTextureHandle");
+        Matrix.setIdentityM(this.f, 0);
+        float[] c = this.t.c();
+        Matrix.scaleM(this.f, 0, c[0], c[1], 0.0f);
+        Matrix.rotateM(this.f, 0, this.t.d(), 0.0f, 0.0f, 1.0f);
+        GLES20.glUniformMatrix4fv(this.j, 1, false, this.f, 0);
+        GLES20.glUniformMatrix4fv(this.k, 1, false, this.g, 0);
+        GLES20.glDrawArrays(5, 0, 4);
+        a("glDrawArrays");
+        GLES20.glFinish();
+    }
+
+    private void f() {
+        a(this.n);
+        int[] iArr = new int[1];
+        GLES20.glGenTextures(1, iArr, 0);
+        this.i = iArr[0];
+        this.n = new SurfaceTexture(this.i);
+        this.n.setOnFrameAvailableListener(this);
+        i();
+        a("detachGL");
+    }
+
+    private void g() {
+        synchronized (this.q) {
+            try {
+                if (this.p) {
+                    if (this.n != null) {
+                        this.n.updateTexImage();
+                        this.n.getTransformMatrix(this.g);
+                    }
+                    this.p = false;
+                    if (!this.s) {
+                        this.s = true;
+                        if (this.y != null) {
+                            this.y.a(System.currentTimeMillis());
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void h() {
+        if (Build.VERSION.SDK_INT < 16) {
+            return;
+        }
+        try {
+            if (this.n != null) {
+                this.n.attachToGLContext(this.i);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void i() {
+        if (Build.VERSION.SDK_INT < 16) {
+            return;
+        }
+        try {
+            if (this.n != null) {
+                this.n.detachFromGLContext();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void j() {
+        if (this.u && this.s) {
+            synchronized (this.r) {
+                if (this.u) {
+                    if (this.v > 1.0f) {
+                        this.v = 1.0f;
+                    }
+                    int i = this.w;
+                    int i2 = this.x;
+                    this.u = false;
+                    CyberLog.i("CyberRender", "drawScreenSnapshot called");
+                    int g = this.t.g();
+                    int h = this.t.h();
+                    int round = Math.round(g * this.v);
+                    int round2 = Math.round(h * this.v);
+                    if (round <= 0 || round2 <= 0) {
+                        return;
+                    }
+                    CyberLog.i("CyberRender", "drawScreenSnapshot called mSurfaceWidth:" + g + " mSurfaceHeight:" + h + " snapWidth:" + round + " snapHeight:" + round2);
+                    GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                    GLES20.glClear(16640);
+                    b(i, i2, round, round2);
+                    c(i, i2, round, round2);
+                    if (round != g || round2 != h) {
+                        GLES20.glClearColor(255.0f, 255.0f, 255.0f, 1.0f);
+                        GLES20.glClear(16640);
+                    }
+                    GLES20.glViewport(0, 0, this.t.g(), this.t.h());
+                    if (this.a != null) {
+                        this.a.a();
+                    }
+                    CyberLog.i("CyberRender", "drawScreenSnapshot called end x:" + i + " y:" + i2);
+                }
+            }
+        }
+    }
+
+    public synchronized void a() {
+        a(this.n);
+        this.n = null;
+        if (this.o != null) {
+            this.o.release();
+        }
+        this.o = null;
+    }
+
+    public void a(float f, int i, int i2) {
+        synchronized (this.r) {
+            this.u = true;
+            this.v = f;
+            this.w = i;
+            this.x = i2;
+        }
+        if (this.a != null) {
+            this.a.a();
+        }
+    }
+
+    public void a(int i) {
+        if (this.t.c(i)) {
+            this.t.b();
+        }
+    }
+
+    public void a(int i, int i2, int i3, int i4) {
+        if (this.t.a(i, i2, i3, i4)) {
+            this.t.b();
+        }
+    }
+
+    public void a(a aVar) {
+        this.a = aVar;
+    }
+
+    public void a(i.a aVar) {
+        this.y = aVar;
     }
 
     public void b() {
-        float f;
-        float f2;
-        float f3 = 1.0f;
-        if (this.a == 0 || this.b == 0 || this.h == 0 || this.i == 0) {
+        this.t.a();
+    }
+
+    public void b(int i) {
+        if (this.t.b(i)) {
+            this.t.b();
+        }
+    }
+
+    public synchronized Surface c() {
+        a();
+        f();
+        if (this.n != null) {
+            this.o = new Surface(this.n);
+        }
+        this.p = false;
+        this.s = false;
+        return this.o;
+    }
+
+    public void c(int i) {
+        if (this.t.a(i)) {
+            this.t.b();
+        }
+    }
+
+    public synchronized SurfaceTexture d() {
+        return this.n;
+    }
+
+    @Override // android.opengl.GLSurfaceView.Renderer
+    public void onDrawFrame(GL10 gl10) {
+        h();
+        g();
+        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        GLES20.glClear(16640);
+        e();
+        i();
+        j();
+    }
+
+    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+        synchronized (this.q) {
+            if (surfaceTexture != this.n) {
+                return;
+            }
+            this.p = true;
+            if (this.a != null) {
+                this.a.a();
+            }
+        }
+    }
+
+    @Override // android.opengl.GLSurfaceView.Renderer
+    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
+        GLES20.glViewport(0, 0, i, i2);
+        this.t.a(i, i2);
+        this.t.b();
+    }
+
+    @Override // android.opengl.GLSurfaceView.Renderer
+    public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
+        this.h = a("uniform mat4 uMVPMatrix;\nuniform mat4 uSTMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n  gl_Position = uMVPMatrix * aPosition;\n  vTextureCoord = (uSTMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n  gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n");
+        if (this.h == 0) {
             return;
         }
-        boolean z = this.j == 0 || this.j == 2;
-        float f4 = (this.b * 1.0f) / this.a;
-        float f5 = (this.i * 1.0f) / this.h;
-        if ((this.g == 90 || this.g == 270) && this.i != 0) {
-            f5 = (this.h * 1.0f) / this.i;
-            if (z) {
-                f = ((this.c * 1.0f) / this.d) * f5;
-            }
-            f = f5;
-        } else {
-            if (z) {
-                f = ((this.d * 1.0f) / this.c) * f5;
-            }
-            f = f5;
+        this.l = GLES20.glGetAttribLocation(this.h, "aPosition");
+        a("glGetAttribLocation aPosition");
+        if (this.l == -1) {
+            throw new RuntimeException("Could not get attrib location for aPosition");
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.a + " mSurfaceHeight:" + this.b + " mDisplayMode:" + this.j);
-        switch (this.j) {
-            case 0:
-                if (f <= f4) {
-                    f3 = f4 / f;
-                    f2 = 1.0f;
-                    break;
-                } else {
-                    f2 = f / f4;
-                    break;
-                }
-            case 1:
-                f2 = 1.0f;
-                break;
-            case 2:
-                if (f <= f4) {
-                    f2 = f / f4;
-                    break;
-                } else {
-                    f3 = f4 / f;
-                    f2 = 1.0f;
-                    break;
-                }
-            case 3:
-                if (0.8f <= f4) {
-                    f2 = 0.8f / f4;
-                    break;
-                } else {
-                    f3 = f4 / 0.8f;
-                    f2 = 1.0f;
-                    break;
-                }
-            case 4:
-                if (0.75f <= f4) {
-                    f2 = 0.75f / f4;
-                    break;
-                } else {
-                    f3 = f4 / 0.75f;
-                    f2 = 1.0f;
-                    break;
-                }
-            case 5:
-                if (0.5625f <= f4) {
-                    f2 = 0.5625f / f4;
-                    break;
-                } else {
-                    f3 = f4 / 0.5625f;
-                    f2 = 1.0f;
-                    break;
-                }
-            case 6:
-                f2 = (this.i * 1.0f) / this.b;
-                f3 = (this.h * 1.0f) / this.a;
-                break;
-            default:
-                if (f <= f4) {
-                    f2 = f / f4;
-                    break;
-                } else {
-                    f3 = f4 / f;
-                    f2 = 1.0f;
-                    break;
-                }
+        this.m = GLES20.glGetAttribLocation(this.h, "aTextureCoord");
+        a("glGetAttribLocation aTextureCoord");
+        if (this.m == -1) {
+            throw new RuntimeException("Could not get attrib location for aTextureCoord");
         }
-        this.k[0] = f3;
-        this.k[1] = f2;
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f3 + " sy:" + f2);
-    }
-
-    public boolean b(int i) {
-        if (this.e != i) {
-            this.e = i;
-            this.g = ((360 - this.f) + i) % 360;
-            return true;
+        this.j = GLES20.glGetUniformLocation(this.h, "uMVPMatrix");
+        a("glGetUniformLocation uMVPMatrix");
+        if (this.j == -1) {
+            throw new RuntimeException("Could not get attrib location for uMVPMatrix");
         }
-        return false;
-    }
-
-    public boolean c(int i) {
-        if (this.j != i) {
-            this.j = i;
-            return true;
+        this.k = GLES20.glGetUniformLocation(this.h, "uSTMatrix");
+        a("glGetUniformLocation uSTMatrix");
+        if (this.j == -1) {
+            throw new RuntimeException("Could not get attrib location for uSTMatrix");
         }
-        return false;
-    }
-
-    public float[] c() {
-        return this.k;
-    }
-
-    public int d() {
-        return this.g;
-    }
-
-    public int e() {
-        return this.h;
-    }
-
-    public int f() {
-        return this.i;
-    }
-
-    public int g() {
-        return this.a;
-    }
-
-    public int h() {
-        return this.b;
+        GLES20.glTexParameterf(36197, 10241, 9728.0f);
+        GLES20.glTexParameterf(36197, 10240, 9729.0f);
+        if (this.y == null || !this.y.a(0)) {
+            return;
+        }
+        synchronized (this.q) {
+            this.p = false;
+        }
     }
 }

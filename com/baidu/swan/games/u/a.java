@@ -5,15 +5,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    public com.baidu.swan.games.u.a.d csx;
-    private int csy;
+    public com.baidu.swan.games.u.a.d cRs;
+    private int cRt;
     private long ts;
     public int type;
 
     public a(int i, com.baidu.swan.games.u.a.d dVar) {
         this.type = i;
-        this.csx = dVar;
-        this.csy = d.apI() ? 20 : 10;
+        this.cRs = dVar;
+        this.cRt = d.axU() ? 20 : 10;
         this.ts = System.currentTimeMillis();
     }
 
@@ -21,10 +21,10 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", this.type);
-            jSONObject.put("stage", this.csy);
+            jSONObject.put("stage", this.cRt);
             jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.ts);
-            if (this.csx != null) {
-                jSONObject.put("msg", this.csx.toJSON());
+            if (this.cRs != null) {
+                jSONObject.put("msg", this.cRs.toJSON());
             }
         } catch (JSONException e) {
         }

@@ -16,89 +16,89 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b rw = null;
-    private com.baidu.adp.lib.network.http.a.a ru;
+    private static b Kv = null;
+    private com.baidu.adp.lib.network.http.a.a Ku;
     private HashMap<String, com.baidu.adp.lib.network.http.a.a> mCache = new HashMap<>();
-    private InterfaceC0018b rz = null;
-    private int rA = 0;
+    private InterfaceC0020b Kw = null;
+    private int Kx = 0;
 
     /* renamed from: com.baidu.adp.lib.network.http.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0018b {
-        void q(String str, String str2);
+    public interface InterfaceC0020b {
+        void u(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b gi() {
-        if (rw == null) {
+    public static b kL() {
+        if (Kv == null) {
             synchronized (b.class) {
-                if (rw == null) {
-                    rw = new b();
+                if (Kv == null) {
+                    Kv = new b();
                 }
             }
         }
-        return rw;
+        return Kv;
     }
 
-    public void a(InterfaceC0018b interfaceC0018b) {
-        this.rz = interfaceC0018b;
+    public void a(InterfaceC0020b interfaceC0020b) {
+        this.Kw = interfaceC0020b;
     }
 
-    public c an(String str) {
+    public c bC(String str) {
         c cVar = new c();
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.h(System.currentTimeMillis()) && aVar.gh() != null && aVar.gh().size() > 0) {
-            cVar.as(aVar.gh().get(0));
+        if (aVar != null && !aVar.F(System.currentTimeMillis()) && aVar.kK() != null && aVar.kK().size() > 0) {
+            cVar.bH(aVar.kK().get(0));
         }
         return cVar;
     }
 
-    public c o(String str, String str2) {
+    public c t(String str, String str2) {
         c cVar = new c();
         if (k.isEmpty(str)) {
             return cVar;
         }
         com.baidu.adp.lib.network.http.a.a aVar = this.mCache.get(str);
-        if (aVar != null && !aVar.h(System.currentTimeMillis()) && aVar.gh() != null && aVar.gh().size() > 0) {
-            for (int i = 0; i < aVar.gh().size(); i++) {
-                if (!k.t(str2, aVar.gh().get(i))) {
-                    cVar.O(i);
-                    cVar.as(aVar.gh().get(i));
+        if (aVar != null && !aVar.F(System.currentTimeMillis()) && aVar.kK() != null && aVar.kK().size() > 0) {
+            for (int i = 0; i < aVar.kK().size(); i++) {
+                if (!k.z(str2, aVar.kK().get(i))) {
+                    cVar.aa(i);
+                    cVar.bH(aVar.kK().get(i));
                     return cVar;
-                } else if (i == aVar.gh().size() - 1) {
-                    cVar.O(0);
-                    cVar.as(aVar.gh().get(0));
+                } else if (i == aVar.kK().size() - 1) {
+                    cVar.aa(0);
+                    cVar.bH(aVar.kK().get(0));
                     return cVar;
                 }
             }
         }
         for (int i2 = 0; i2 < 3; i2++) {
-            cVar.gk();
-            cVar.R(i2);
+            cVar.kN();
+            cVar.ad(i2);
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.adp.lib.network.http.a.a a2 = a(str, cVar);
-            cVar.i(System.currentTimeMillis() - currentTimeMillis);
-            if (a2 != null && a2.gh() != null && a2.gh().size() > 0) {
-                a2.g(300L);
+            cVar.G(System.currentTimeMillis() - currentTimeMillis);
+            if (a2 != null && a2.kK() != null && a2.kK().size() > 0) {
+                a2.E(300L);
                 this.mCache.put(str, a2);
-                for (int i3 = 0; i3 < a2.gh().size(); i3++) {
-                    if (!k.t(str2, a2.gh().get(i2))) {
-                        cVar.O(i3);
-                        cVar.as(a2.gh().get(i3));
+                for (int i3 = 0; i3 < a2.kK().size(); i3++) {
+                    if (!k.z(str2, a2.kK().get(i2))) {
+                        cVar.aa(i3);
+                        cVar.bH(a2.kK().get(i3));
                         return cVar;
-                    } else if (i3 == a2.gh().size() - 1) {
-                        cVar.O(0);
-                        cVar.as(a2.gh().get(0));
+                    } else if (i3 == a2.kK().size() - 1) {
+                        cVar.aa(0);
+                        cVar.bH(a2.kK().get(0));
                         return cVar;
                     }
                 }
                 continue;
             } else {
                 com.baidu.adp.lib.network.http.a.a aVar2 = this.mCache.get(str);
-                if (aVar2 != null && aVar2.gh() != null && aVar2.gh().size() > 0) {
-                    cVar.as(aVar2.gh().get(0));
+                if (aVar2 != null && aVar2.kK() != null && aVar2.kK().size() > 0) {
+                    cVar.bH(aVar2.kK().get(0));
                     return cVar;
                 }
             }
@@ -106,26 +106,26 @@ public class b {
         return cVar;
     }
 
-    public boolean ao(String str) {
+    public boolean bD(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (ap(str) && this.ru.gh().size() > this.rA) {
-            if (this.rz != null) {
-                InterfaceC0018b interfaceC0018b = this.rz;
-                List<String> gh = this.ru.gh();
-                int i = this.rA;
-                this.rA = i + 1;
-                interfaceC0018b.q(gh.get(i), str);
+        if (bE(str) && this.Ku.kK().size() > this.Kx) {
+            if (this.Kw != null) {
+                InterfaceC0020b interfaceC0020b = this.Kw;
+                List<String> kK = this.Ku.kK();
+                int i = this.Kx;
+                this.Kx = i + 1;
+                interfaceC0020b.u(kK.get(i), str);
             }
             return true;
-        } else if (this.ru != null && this.ru.gh() != null && this.ru.gh().size() <= this.rA) {
-            this.rA = 0;
-            this.ru = null;
+        } else if (this.Ku != null && this.Ku.kK() != null && this.Ku.kK().size() <= this.Kx) {
+            this.Kx = 0;
+            this.Ku = null;
             return false;
         } else {
-            this.rA = 0;
-            this.ru = null;
+            this.Kx = 0;
+            this.Ku = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -133,8 +133,8 @@ public class b {
         }
     }
 
-    private boolean ap(String str) {
-        return (this.ru == null || TextUtils.isEmpty(str) || !str.equals(this.ru.getHost()) || this.ru.gh() == null || this.ru.gh().size() == 0 || this.ru.h(System.currentTimeMillis()) || this.ru.gh().size() <= this.rA) ? false : true;
+    private boolean bE(String str) {
+        return (this.Ku == null || TextUtils.isEmpty(str) || !str.equals(this.Ku.getHost()) || this.Ku.kK() == null || this.Ku.kK().size() == 0 || this.Ku.F(System.currentTimeMillis()) || this.Ku.kK().size() <= this.Kx) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -159,10 +159,10 @@ public class b {
         if (k.isEmpty(str)) {
             return null;
         }
-        cVar.J(true);
+        cVar.ai(true);
         StringBuffer stringBuffer = new StringBuffer();
         try {
-            if (cVar.gj()) {
+            if (cVar.kM()) {
                 HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL("http://180.76.76.112/v2/0011/?dn=" + str).openConnection();
                 try {
                     httpURLConnection3.setDoOutput(true);
@@ -180,7 +180,7 @@ public class b {
                     inputStream = null;
                     e = e;
                     httpURLConnection = httpURLConnection3;
-                    cVar.aq(e.getClass().getName());
+                    cVar.bF(e.getClass().getName());
                     if (e instanceof SSLException) {
                     }
                     e.printStackTrace();
@@ -222,7 +222,7 @@ public class b {
                     public boolean verify(String str2, SSLSession sSLSession) {
                         boolean verify = HttpsURLConnection.getDefaultHostnameVerifier().verify("httpsdns.baidu.com", sSLSession);
                         if (!verify) {
-                            cVar.K(true);
+                            cVar.aj(true);
                         }
                         return verify;
                     }
@@ -246,9 +246,9 @@ public class b {
                                 stringBuffer.append(readLine);
                             } catch (Exception e2) {
                                 e = e2;
-                                cVar.aq(e.getClass().getName());
+                                cVar.bF(e.getClass().getName());
                                 if (e instanceof SSLException) {
-                                    cVar.K(true);
+                                    cVar.aj(true);
                                 }
                                 e.printStackTrace();
                                 if (inputStreamReader != null) {
@@ -293,13 +293,13 @@ public class b {
                     }
                     com.baidu.adp.lib.network.http.a.a aVar = new com.baidu.adp.lib.network.http.a.a();
                     aVar.setStartTime(System.currentTimeMillis());
-                    cVar.gk();
-                    com.baidu.adp.lib.network.http.a.a am = aVar.am(stringBuffer.toString());
+                    cVar.kN();
+                    com.baidu.adp.lib.network.http.a.a bB = aVar.bB(stringBuffer.toString());
                     if (inputStreamReader != null) {
                         try {
                             inputStreamReader.close();
                         } catch (Exception e5) {
-                            return am;
+                            return bB;
                         }
                     }
                     if (inputStream != null) {
@@ -310,9 +310,9 @@ public class b {
                     }
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
-                        return am;
+                        return bB;
                     }
-                    return am;
+                    return bB;
                 } catch (Exception e6) {
                     e = e6;
                     bufferedReader = null;
@@ -380,14 +380,14 @@ public class b {
         public void onProgressUpdate(com.baidu.adp.lib.network.http.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
-                b.this.ru = aVarArr[0];
-                if (aVarArr[0].gh() != null && aVarArr[0].gh().size() > 0 && b.this.rz != null) {
-                    b.this.rz.q(aVarArr[0].gh().get(0), aVarArr[0].getHost());
+                b.this.Ku = aVarArr[0];
+                if (aVarArr[0].kK() != null && aVarArr[0].kK().size() > 0 && b.this.Kw != null) {
+                    b.this.Kw.u(aVarArr[0].kK().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.rz != null) {
-                b.this.rz.q(null, null);
+            if (b.this.Kw != null) {
+                b.this.Kw.u(null, null);
             }
         }
 

@@ -3,12 +3,11 @@ package com.baidu.adp.lib.util;
 import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 /* loaded from: classes.dex */
 public class a {
     public static int getNavigationBarHeight(Context context) {
         int identifier;
-        if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS)) > 0) {
+        if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android")) > 0) {
             return context.getResources().getDimensionPixelSize(identifier);
         }
         return 0;

@@ -15,16 +15,16 @@ public class v extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected com.facebook.imagepipeline.g.e h(ImageRequest imageRequest) throws IOException {
-        return f(this.mAssetManager.open(j(imageRequest), 2), i(imageRequest));
+    protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
+        return f(this.mAssetManager.open(i(imageRequest), 2), h(imageRequest));
     }
 
-    private int i(ImageRequest imageRequest) {
+    private int h(ImageRequest imageRequest) {
         AssetFileDescriptor assetFileDescriptor;
         Throwable th;
         int i;
         try {
-            assetFileDescriptor = this.mAssetManager.openFd(j(imageRequest));
+            assetFileDescriptor = this.mAssetManager.openFd(i(imageRequest));
         } catch (IOException e) {
             assetFileDescriptor = null;
         } catch (Throwable th2) {
@@ -62,11 +62,11 @@ public class v extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dsf() {
+    protected String dud() {
         return "LocalAssetFetchProducer";
     }
 
-    private static String j(ImageRequest imageRequest) {
-        return imageRequest.dsO().getPath().substring(1);
+    private static String i(ImageRequest imageRequest) {
+        return imageRequest.duL().getPath().substring(1);
     }
 }

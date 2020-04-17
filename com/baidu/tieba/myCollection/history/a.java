@@ -14,20 +14,20 @@ import com.baidu.tieba.R;
 import java.util.Date;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, b> {
-    private TextView diw;
-    private TextView fum;
-    private TextView ivf;
+    private TextView dIp;
+    private TextView fYK;
+    private TextView jfk;
     private View mLine;
     private View mRootView;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.ivf = (TextView) view.findViewById(R.id.title);
-        this.diw = (TextView) view.findViewById(R.id.content);
-        this.diw.setSingleLine();
-        this.diw.setEllipsize(TextUtils.TruncateAt.END);
-        this.fum = (TextView) view.findViewById(R.id.time);
+        this.jfk = (TextView) view.findViewById(R.id.title);
+        this.dIp = (TextView) view.findViewById(R.id.content);
+        this.dIp.setSingleLine();
+        this.dIp.setEllipsize(TextUtils.TruncateAt.END);
+        this.fYK = (TextView) view.findViewById(R.id.time);
         this.mLine = view.findViewById(R.id.line);
     }
 
@@ -37,34 +37,34 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void ai(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.ai(aVar);
         if (aVar != null) {
-            if (this.ivf != null) {
+            if (this.jfk != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.ivf.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                        this.jfk.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.ivf.setText(aVar.getDescription());
+                        this.jfk.setText(aVar.getDescription());
                     }
-                } else if (aVar.cim() != null) {
+                } else if (aVar.csT() != null) {
                     if (aVar.isShareThread()) {
-                        this.ivf.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.cim()));
+                        this.jfk.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.csT()));
                     } else {
-                        this.ivf.setText(aVar.cim());
+                        this.jfk.setText(aVar.csT());
                     }
                 }
             }
-            if (this.diw != null) {
+            if (this.dIp != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.diw.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
+                    this.dIp.setText(String.format(getString(R.string.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.diw.setText(aVar.getForumName());
+                    this.dIp.setText(aVar.getForumName());
                 }
             }
-            if (this.fum != null) {
+            if (this.fYK != null) {
                 String j = aq.j(new Date(aVar.getTime()));
                 if (j == null) {
                     j = "";
                 }
-                this.fum.setText(j);
+                this.fYK.setText(j);
             }
         }
     }
@@ -74,9 +74,9 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundResource(this.mRootView, R.drawable.list_item_selector);
         am.setBackgroundResource(this.mLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(this.ivf, R.color.cp_cont_b, 1);
-        am.setViewTextColor(this.diw, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.fum, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.jfk, R.color.cp_cont_b, 1);
+        am.setViewTextColor(this.dIp, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.fYK, R.color.cp_cont_d, 1);
         return true;
     }
 }

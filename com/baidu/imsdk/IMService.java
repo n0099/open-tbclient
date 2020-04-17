@@ -1,10 +1,10 @@
 package com.baidu.imsdk;
 
-import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
-import android.os.IBinder;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ABIMService;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.IMManager;
@@ -18,7 +18,8 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class IMService extends Service {
+public class IMService extends ABIMService {
+    public static final int JOB_ID = 200108;
     private static final int SERVICE_STOPPED_DELAY = 1000;
     private static final String TAG = "IMService";
     public static Handler mHandler;
@@ -33,7 +34,15 @@ public class IMService extends Service {
         }
     };
 
-    @Override // android.app.Service
+    public static void enqueueWork(Context context, Intent intent) {
+        try {
+            enqueueWork(context, IMService.class, (int) JOB_ID, intent);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "IMService enqueueWork", e);
+        }
+    }
+
+    @Override // android.support.v4.app.JobIntentService, android.app.Service
     public void onCreate() {
         super.onCreate();
         mHandler = new Handler(getMainLooper());
@@ -55,7 +64,7 @@ public class IMService extends Service {
     }
 
     private void registerLcpNotify() {
-        for (int i : new int[]{96, 196}) {
+        for (int i : new int[]{96, Constants.METHOD_MEDIA_NOTIFY, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG}) {
             registerNotify(2, Integer.valueOf(i).intValue());
         }
         registerNotify(3, 196);
@@ -65,17 +74,16 @@ public class IMService extends Service {
     private void registerNotify(int i, int i2) {
     }
 
-    @Override // android.app.Service
+    @Override // android.support.v4.app.JobIntentService, android.app.Service
     public void onDestroy() {
         super.onDestroy();
         if (!isSmallFlow) {
-            IMSDK.getInstance(getApplicationContext()).destory(false, null);
         }
         this.registerLcp = false;
     }
 
-    @Override // android.app.Service
-    public synchronized int onStartCommand(Intent intent, int i, int i2) {
+    @Override // android.support.v4.app.JobIntentService
+    public synchronized void onHandleWork(@NonNull Intent intent) {
         LogUtils.d(TAG, "-- onStartCommand -- " + intent + ", isSmallFlow :" + isSmallFlow);
         if (intent == null) {
             intent = new Intent();
@@ -97,12 +105,6 @@ public class IMService extends Service {
                 ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
             }
         }
-        return 2;
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
     }
 
     private void stopSelf(boolean z) {

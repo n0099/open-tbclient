@@ -74,7 +74,7 @@ public final class MaybeZipArray<T, R> extends k<R> {
                 try {
                     this.actual.onSuccess(io.reactivex.internal.functions.a.h(this.zipper.apply(this.values), "The zipper returned a null value"));
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     this.actual.onError(th);
                 }
             }

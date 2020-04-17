@@ -2,6 +2,7 @@ package com.baidu.pass.http;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
@@ -18,7 +19,7 @@ public class PassHttpClient {
             return new Thread(runnable, "pass_net_work_request_thread # " + this.a.getAndIncrement());
         }
     };
-    private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), a);
+    private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), a);
     private a c;
 
     static {

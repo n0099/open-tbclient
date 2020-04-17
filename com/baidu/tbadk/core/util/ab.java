@@ -11,12 +11,12 @@ public class ab {
     public static boolean checkLocationForBaiduLocation(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.k.a.EE()) {
+        if (com.baidu.h.a.KP()) {
             if (context == null) {
                 return false;
             }
             try {
-                z = com.baidu.k.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
+                z = com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
             } catch (Exception e) {
                 e = e;
                 z = false;
@@ -36,11 +36,11 @@ public class ab {
     }
 
     public static boolean checkLocationForGoogle(Context context) {
-        if (com.baidu.k.a.EE()) {
+        if (com.baidu.h.a.KP()) {
             if (context != null) {
                 try {
-                    if (!com.baidu.k.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
-                        if (!com.baidu.k.a.a.checkPermissionGranted(context, "android.permission.ACCESS_COARSE_LOCATION")) {
+                    if (!com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
+                        if (!com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.ACCESS_COARSE_LOCATION")) {
                             return false;
                         }
                     }
@@ -56,12 +56,12 @@ public class ab {
     }
 
     public static boolean checkCamera(Context context) {
-        if (!com.baidu.k.a.EE()) {
+        if (!com.baidu.h.a.KP()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.k.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+                return com.baidu.h.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -71,12 +71,12 @@ public class ab {
     }
 
     public static boolean checkRecodeAudio(Context context) {
-        if (!com.baidu.k.a.EE()) {
+        if (!com.baidu.h.a.KP()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.k.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
+                return com.baidu.h.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -86,12 +86,12 @@ public class ab {
     }
 
     public static boolean checkReadPhoneState(Context context) {
-        if (!com.baidu.k.a.EE()) {
+        if (!com.baidu.h.a.KP()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.k.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
+                return com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.READ_PHONE_STATE");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -101,12 +101,12 @@ public class ab {
     }
 
     public static boolean checkWriteExternalStorage(Context context) {
-        if (!com.baidu.k.a.EE()) {
+        if (!com.baidu.h.a.KP()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.k.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+                return com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -115,16 +115,16 @@ public class ab {
         return false;
     }
 
-    public static boolean e(Activity activity, int i) {
+    public static boolean d(Activity activity, int i) {
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_COARSE_LOCATION");
         permissionJudgePolicy.appendRequestPermission(activity, "android.permission.ACCESS_FINE_LOCATION");
-        return permissionJudgePolicy.f(activity, i);
+        return permissionJudgePolicy.e(activity, i);
     }
 
     public static void requestWriteExternalStorage(Activity activity, int i) {
         try {
-            com.baidu.k.a.a.requestPermissions(activity, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, i);
+            com.baidu.h.a.a.requestPermissions(activity, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -152,13 +152,13 @@ public class ab {
         return permissionJudgePolicy.a(activity, i, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one);
     }
 
-    public static boolean ay(Context context, String str) {
-        if (!com.baidu.k.a.EE()) {
+    public static boolean as(Context context, String str) {
+        if (!com.baidu.h.a.KP()) {
             return true;
         }
         if (context != null) {
             try {
-                return com.baidu.k.a.a.checkPermissionGranted(context, str);
+                return com.baidu.h.a.a.checkPermissionGranted(context, str);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return false;

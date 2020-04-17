@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import com.baidu.searchbox.ugc.model.MusicData;
 import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
 /* loaded from: classes13.dex */
 public interface IUgcHostInterface<T> {
@@ -51,6 +52,19 @@ public interface IUgcHostInterface<T> {
         public String processUrl(String str) {
             return null;
         }
+
+        @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
+        public long getCapturePluginVersion() {
+            return 0L;
+        }
+
+        @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
+        public void invokePluginForMusicResult(Context context, MusicData musicData) {
+        }
+
+        @Override // com.baidu.searchbox.ugc.bridge.IUgcHostInterface
+        public void gotoDownloadMusic(Context context, MusicData musicData) {
+        }
     };
     public static final String LOG_TAG = "IUgcHostInterface";
 
@@ -63,10 +77,16 @@ public interface IUgcHostInterface<T> {
         void requestResult(String str, Boolean bool);
     }
 
+    long getCapturePluginVersion();
+
     boolean getNightModeSwitcherState();
 
     @Nullable
     Context getRnActivity(Context context);
+
+    void gotoDownloadMusic(Context context, MusicData musicData);
+
+    void invokePluginForMusicResult(Context context, MusicData musicData);
 
     boolean isPermissionGroupGranted(Context context, String[] strArr);
 

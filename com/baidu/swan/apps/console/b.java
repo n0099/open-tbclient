@@ -13,29 +13,29 @@ import com.baidu.swan.apps.storage.c.g;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.Lv().putBoolean(str, z);
+            a.Tj().putBoolean(str, z);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0235b.class, q(str, z));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0265b.class, v(str, z));
         }
     }
 
-    public static void ch(boolean z) {
-        e acI = e.acI();
-        if (acI != null) {
-            putBoolean(gy(acI.getAppKey()), z);
+    public static void dd(boolean z) {
+        e akN = e.akN();
+        if (akN != null) {
+            putBoolean(hL(akN.getAppKey()), z);
         }
     }
 
-    public static boolean gx(String str) {
-        return !TextUtils.isEmpty(str) && a.Lv().getBoolean(gy(str), false);
+    public static boolean hK(String str) {
+        return !TextUtils.isEmpty(str) && a.Tj().getBoolean(hL(str), false);
     }
 
-    private static String gy(String str) {
-        String bp = com.baidu.swan.apps.w.a.Ue().bp(com.baidu.swan.apps.w.a.TZ());
-        return "consoleSwitch" + str + (TextUtils.isEmpty(bp) ? "" : aa.toHash(bp.getBytes(), false));
+    private static String hL(String str) {
+        String bd = com.baidu.swan.apps.w.a.abT().bd(com.baidu.swan.apps.w.a.abO());
+        return "consoleSwitch" + str + (TextUtils.isEmpty(bd) ? "" : aa.toHash(bd.getBytes(), false));
     }
 
-    public static Bundle q(String str, boolean z) {
+    public static Bundle v(String str, boolean z) {
         Bundle bundle = new Bundle();
         bundle.putString("key", str);
         bundle.putBoolean("value", z);
@@ -51,25 +51,25 @@ public class b {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.swan.apps.console.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static final class C0234a {
-            private static final a bjW = new a();
+        public static final class C0264a {
+            private static final a bIe = new a();
         }
 
-        public static a Lv() {
-            return C0234a.bjW;
+        public static a Tj() {
+            return C0264a.bIe;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.console.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0235b extends ProviderDelegation {
-        private C0235b() {
+    public static class C0265b extends ProviderDelegation {
+        private C0265b() {
         }
 
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
-            a.Lv().putBoolean(bundle.getString("key"), bundle.getBoolean("value"));
+            a.Tj().putBoolean(bundle.getString("key"), bundle.getBoolean("value"));
             return Bundle.EMPTY;
         }
     }

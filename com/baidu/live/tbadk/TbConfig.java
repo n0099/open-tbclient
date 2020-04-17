@@ -44,7 +44,7 @@ public class TbConfig {
     public static final int POST_IMAGE_QUALITY = 85;
     public static final int POST_IMAGE_SMALL = 1500;
     public static final boolean PROMOTED_DEFAULT = true;
-    public static final String SDK_VERSION = "3.6.0";
+    public static final String SDK_VERSION = "3.7.1";
     public static final String ST_TYPE_USE = "use";
     private static String SUBAPP_NAME = null;
     private static int SUBAPP_VERSION = 0;
@@ -68,6 +68,7 @@ public class TbConfig {
     public static final int VIEW_IMAGE_QUALITY_LOW_VALUE = 45;
     public static final int WEBP_FAILURE_MAX = 5;
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
+    public static String forceImContent;
     private static boolean isInitAppServerMap;
     public static ISdkInitCallback sdkInitCallback;
     public static String SERVER_ADDRESS = "https://tiebac.baidu.com/";
@@ -97,6 +98,8 @@ public class TbConfig {
     public static String FILE_OUTPUT_FILE_ROOT_PATH = "";
     private static Map<Integer, String> mapAppServer = new HashMap();
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
+    public static boolean isForceNoticeIm = false;
+    public static int forceImType = 0;
 
     /* loaded from: classes3.dex */
     public static final class PassConfig {

@@ -14,6 +14,7 @@ import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -74,7 +75,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
             jSONObject.put("account_type", AccountManagerImpl.getInstance(this.mContext).getLoginType());
             jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
             jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-            jSONObject.put("device_type", 2);
+            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
             if (AccountManager.isCuidLogin(this.mContext)) {
                 jSONObject.put("token", AccountManager.getToken(this.mContext));

@@ -15,13 +15,13 @@ public class a {
         h.b().d(str, str2);
     }
 
-    public static void flush() {
-        h.b().a(false);
-    }
-
-    public static void gt(Context context) {
+    public static void fT(Context context) {
         h.b().a(context);
         h.b().a(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
+    }
+
+    public static void flush() {
+        h.b().a(false);
     }
 
     public static void i(String str, String str2) {

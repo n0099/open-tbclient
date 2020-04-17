@@ -3,31 +3,31 @@ package com.baidu.tieba.quickWebView;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class d {
-    private static d jGs;
-    private HashMap<String, com.baidu.tieba.quickWebView.data.a> jGr = new HashMap<>();
+    private static d kql;
+    private HashMap<String, com.baidu.tieba.quickWebView.data.a> kqk = new HashMap<>();
 
-    public static d cCu() {
-        if (jGs == null) {
+    public static d cMT() {
+        if (kql == null) {
             synchronized (d.class) {
-                if (jGs == null) {
-                    jGs = new d();
+                if (kql == null) {
+                    kql = new d();
                 }
             }
         }
-        return jGs;
+        return kql;
     }
 
     private d() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a HH(String str) {
-        if (this.jGr == null) {
+    public com.baidu.tieba.quickWebView.data.a Jl(String str) {
+        if (this.kqk == null) {
             return null;
         }
-        return this.jGr.get(str);
+        return this.kqk.get(str);
     }
 
-    public void r(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
-        this.jGr = hashMap;
+    public void G(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
+        this.kqk = hashMap;
     }
 }

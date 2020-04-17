@@ -51,15 +51,15 @@ public class WebPImage implements c, b {
         nativeFinalize();
     }
 
-    public static WebPImage A(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.dkp();
+    public static WebPImage z(long j, int i) {
+        com.facebook.imagepipeline.nativecode.b.dme();
         g.checkArgument(j != 0);
         return nativeCreateFromNativeMemory(j, i);
     }
 
     @Override // com.facebook.imagepipeline.animated.a.c
-    public b z(long j, int i) {
-        return A(j, i);
+    public b y(long j, int i) {
+        return z(j, i);
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
@@ -78,7 +78,7 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public int[] getFrameDurations() {
+    public int[] dmf() {
         return nativeGetFrameDurations();
     }
 
@@ -89,8 +89,8 @@ public class WebPImage implements c, b {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: Hw */
-    public WebPFrame Hv(int i) {
+    /* renamed from: FX */
+    public WebPFrame FW(int i) {
         return nativeGetFrame(i);
     }
 
@@ -100,17 +100,17 @@ public class WebPImage implements c, b {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean dkq() {
+    public boolean dmg() {
         return true;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo Ht(int i) {
-        WebPFrame Hv = Hv(i);
+    public AnimatedDrawableFrameInfo FU(int i) {
+        WebPFrame FW = FW(i);
         try {
-            return new AnimatedDrawableFrameInfo(i, Hv.getXOffset(), Hv.getYOffset(), Hv.getWidth(), Hv.getHeight(), Hv.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, Hv.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+            return new AnimatedDrawableFrameInfo(i, FW.getXOffset(), FW.getYOffset(), FW.getWidth(), FW.getHeight(), FW.dmi() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, FW.dmh() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
         } finally {
-            Hv.dispose();
+            FW.dispose();
         }
     }
 }

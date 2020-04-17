@@ -26,20 +26,20 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.tieba.tbadkCore.location.a;
 /* loaded from: classes10.dex */
 public class SelectLocationActivity extends NavigationBarActivity {
-    private BdListView fPr;
-    private ImageView igm;
-    private b ign;
-    private TextView igo;
-    private AdapterView.OnItemClickListener hrj = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.1
+    private BdListView gtY;
+    private ImageView iQp;
+    private b iQq;
+    private TextView iQr;
+    private AdapterView.OnItemClickListener iaS = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.1
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            if (SelectLocationActivity.this.ign != null) {
+            if (SelectLocationActivity.this.iQq != null) {
                 MessageManager messageManager = MessageManager.getInstance();
                 if (i != 0) {
-                    Object item = SelectLocationActivity.this.ign.getItem(i);
-                    if (item instanceof a.C0614a) {
-                        a.C0614a c0614a = (a.C0614a) item;
-                        messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0614a.getName(), c0614a.getAddr(), c0614a.getSn()));
+                    Object item = SelectLocationActivity.this.iQq.getItem(i);
+                    if (item instanceof a.C0655a) {
+                        a.C0655a c0655a = (a.C0655a) item;
+                        messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0655a.getName(), c0655a.getAddr(), c0655a.getSn()));
                         SelectLocationActivity.this.finish();
                         return;
                     }
@@ -50,7 +50,7 @@ public class SelectLocationActivity extends NavigationBarActivity {
             }
         }
     };
-    private CustomMessageListener igp = new CustomMessageListener(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY) { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.2
+    private CustomMessageListener iQs = new CustomMessageListener(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY) { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -65,24 +65,24 @@ public class SelectLocationActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.select_location_activity);
-        this.ecv.setCenterTextTitle(getPageContext().getString(R.string.select_position_title));
-        this.igm = (ImageView) this.ecv.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.igm.getLayoutParams();
+        this.eCi.setCenterTextTitle(getPageContext().getString(R.string.select_position_title));
+        this.iQp = (ImageView) this.eCi.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search, (View.OnClickListener) null);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iQp.getLayoutParams();
         layoutParams.setMargins(0, 0, l.getDimens(getPageContext().getPageActivity(), R.dimen.ds10), 0);
-        this.igm.setLayoutParams(layoutParams);
-        this.igm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.3
+        this.iQp.setLayoutParams(layoutParams);
+        this.iQp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new SearchLocationActivityConfig(SelectLocationActivity.this.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_CLOSE_SELECT_LOCATION_ACTIVITY)));
             }
         });
-        this.fPr = (BdListView) findViewById(R.id.select_position_list);
-        this.ign = new b(this);
-        this.fPr.setAdapter((ListAdapter) this.ign);
-        this.fPr.setOnItemClickListener(this.hrj);
-        registerListener(this.igp);
-        this.ecv.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
-        this.igo = this.ecv.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.cancel), new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.4
+        this.gtY = (BdListView) findViewById(R.id.select_position_list);
+        this.iQq = new b(this);
+        this.gtY.setAdapter((ListAdapter) this.iQq);
+        this.gtY.setOnItemClickListener(this.iaS);
+        registerListener(this.iQs);
+        this.eCi.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_LEFT).removeAllViews();
+        this.iQr = this.eCi.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.cancel), new View.OnClickListener() { // from class: com.baidu.tieba.location.selectpoi.SelectLocationActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SelectLocationActivity.this.finish();
@@ -94,9 +94,9 @@ public class SelectLocationActivity extends NavigationBarActivity {
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ign.notifyDataSetChanged();
-        SvgManager.aGG().a(this.igm, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        am.setViewTextColor(this.igo, (int) R.color.navi_back_text_color);
+        this.iQq.notifyDataSetChanged();
+        SvgManager.aOU().a(this.iQp, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_b, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        am.setViewTextColor(this.iQr, (int) R.color.navi_back_text_color);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

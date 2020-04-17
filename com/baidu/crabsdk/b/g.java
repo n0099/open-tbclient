@@ -8,14 +8,14 @@ import android.os.Build;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 /* loaded from: classes8.dex */
 public final class g {
-    private static Intent RQ;
+    private static Intent akk;
 
     public static void e(Context context) {
-        if (RQ != null || context == null) {
+        if (akk != null || context == null) {
             return;
         }
         try {
-            RQ = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            akk = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             com.baidu.crabsdk.c.a.v("Battery Broadcast Regist Success");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("Register Battery Error!", e);
@@ -45,11 +45,11 @@ public final class g {
     }
 
     public static String y() {
-        if (RQ == null) {
+        if (akk == null) {
             return "N/A";
         }
         try {
-            return ((int) ((RQ.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0) * 100.0f) / RQ.getIntExtra("scale", 100))) + "%";
+            return ((int) ((akk.getIntExtra(ComboPraiseProvider.RES_KEY_PREFIX_PRAISE_LEVEL, 0) * 100.0f) / akk.getIntExtra("scale", 100))) + "%";
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("Get Battery Error!", e);
             return "N/A";

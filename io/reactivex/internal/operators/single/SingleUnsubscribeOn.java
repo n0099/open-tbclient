@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.v;
 import io.reactivex.w;
@@ -18,10 +17,10 @@ public final class SingleUnsubscribeOn<T> extends w<T> {
     }
 
     /* loaded from: classes7.dex */
-    static final class UnsubscribeOnSingleObserver<T> extends AtomicReference<b> implements b, y<T>, Runnable {
+    static final class UnsubscribeOnSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T>, Runnable {
         private static final long serialVersionUID = 3256698449646456986L;
         final y<? super T> actual;
-        b ds;
+        io.reactivex.disposables.b ds;
         final v scheduler;
 
         UnsubscribeOnSingleObserver(y<? super T> yVar, v vVar) {
@@ -31,10 +30,10 @@ public final class SingleUnsubscribeOn<T> extends w<T> {
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            b andSet = getAndSet(DisposableHelper.DISPOSED);
+            io.reactivex.disposables.b andSet = getAndSet(DisposableHelper.DISPOSED);
             if (andSet != DisposableHelper.DISPOSED) {
                 this.ds = andSet;
-                this.scheduler.C(this);
+                this.scheduler.H(this);
             }
         }
 
@@ -49,7 +48,7 @@ public final class SingleUnsubscribeOn<T> extends w<T> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.setOnce(this, bVar)) {
                 this.actual.onSubscribe(this);
             }

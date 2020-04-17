@@ -19,7 +19,7 @@ public class KeepLiveStatic {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Boolean) {
                     if (((Boolean) data).booleanValue()) {
-                        a.eH().currentActivity();
+                        a.jm().currentActivity();
                     } else {
                         KeepLiveUtil.startForKeeplive(TbadkCoreApplication.getInst().getApplicationContext());
                     }

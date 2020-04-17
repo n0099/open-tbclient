@@ -7,9 +7,9 @@ import kotlin.TypeCastException;
 @kotlin.h
 /* loaded from: classes7.dex */
 final class ak<T> extends d<T> implements RandomAccess {
-    private int aDS;
+    private int aXB;
     private final int capacity;
-    private final Object[] nDM;
+    private final Object[] mXl;
     private int size;
 
     public ak(int i) {
@@ -17,7 +17,7 @@ final class ak<T> extends d<T> implements RandomAccess {
         if (!(this.capacity >= 0)) {
             throw new IllegalArgumentException(("ring buffer capacity should not be negative but it is " + this.capacity).toString());
         }
-        this.nDM = new Object[this.capacity];
+        this.mXl = new Object[this.capacity];
     }
 
     public final int getCapacity() {
@@ -31,8 +31,8 @@ final class ak<T> extends d<T> implements RandomAccess {
 
     @Override // kotlin.collections.d, java.util.List
     public T get(int i) {
-        d.nDD.eo(i, size());
-        return (T) this.nDM[(this.aDS + i) % getCapacity()];
+        d.mXc.dz(i, size());
+        return (T) this.mXl[(this.aXB + i) % getCapacity()];
     }
 
     public final boolean isFull() {
@@ -48,15 +48,15 @@ final class ak<T> extends d<T> implements RandomAccess {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
             this.count = ak.this.size();
-            this.index = ak.this.aDS;
+            this.index = ak.this.aXB;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.collections.ak$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // kotlin.collections.b
-        protected void dKA() {
+        protected void dDz() {
             if (this.count != 0) {
-                bR(ak.this.nDM[this.index]);
+                bA(ak.this.mXl[this.index]);
                 this.index = (this.index + 1) % ak.this.getCapacity();
                 this.count--;
                 return;
@@ -76,21 +76,21 @@ final class ak<T> extends d<T> implements RandomAccess {
     @Override // kotlin.collections.a, java.util.Collection
     public <T> T[] toArray(T[] tArr) {
         int i = 0;
-        kotlin.jvm.internal.q.j(tArr, "array");
+        kotlin.jvm.internal.q.j(tArr, com.baidu.fsg.base.statistics.b.j);
         if (tArr.length < size()) {
             tArr = (T[]) Arrays.copyOf(tArr, size());
             kotlin.jvm.internal.q.i(tArr, "java.util.Arrays.copyOf(this, newSize)");
         }
         int size = size();
-        int i2 = this.aDS;
+        int i2 = this.aXB;
         int i3 = 0;
         while (i3 < size && i2 < this.capacity) {
-            tArr[i3] = this.nDM[i2];
+            tArr[i3] = this.mXl[i2];
             i2++;
             i3++;
         }
         while (i3 < size) {
-            tArr[i3] = this.nDM[i];
+            tArr[i3] = this.mXl[i];
             i3++;
             i++;
         }
@@ -115,13 +115,13 @@ final class ak<T> extends d<T> implements RandomAccess {
         if (isFull()) {
             throw new IllegalStateException("ring buffer is full");
         }
-        this.nDM[(this.aDS + size()) % getCapacity()] = t;
+        this.mXl[(this.aXB + size()) % getCapacity()] = t;
         this.size = size() + 1;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: kotlin.collections.ak<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public final void NL(int i) {
+    public final void Jf(int i) {
         if (!(i >= 0)) {
             throw new IllegalArgumentException(("n shouldn't be negative but it is " + i).toString());
         }
@@ -129,15 +129,15 @@ final class ak<T> extends d<T> implements RandomAccess {
             throw new IllegalArgumentException(("n shouldn't be greater than the buffer size: n = " + i + ", size = " + size()).toString());
         }
         if (i > 0) {
-            int i2 = this.aDS;
+            int i2 = this.aXB;
             int capacity = (i2 + i) % getCapacity();
             if (i2 > capacity) {
-                a(this.nDM, null, i2, this.capacity);
-                a(this.nDM, null, 0, capacity);
+                a(this.mXl, null, i2, this.capacity);
+                a(this.mXl, null, 0, capacity);
             } else {
-                a(this.nDM, null, i2, capacity);
+                a(this.mXl, null, i2, capacity);
             }
-            this.aDS = capacity;
+            this.aXB = capacity;
             this.size = size() - i;
         }
     }

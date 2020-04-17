@@ -13,14 +13,14 @@ public class b {
             return false;
         }
         try {
-            return com.baidu.k.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+            return com.baidu.h.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.k.a.EE();
+            return !com.baidu.h.a.KP();
         }
     }
 
-    public static boolean h(Context context, int i) {
+    public static boolean f(Context context, int i) {
         if (context == null) {
             return false;
         }

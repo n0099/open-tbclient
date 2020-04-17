@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.idl.license.License;
 import com.baidu.idl.util.FileUtil;
 import com.baidu.idl.util.NetUtil;
@@ -86,11 +86,11 @@ public class Statistics {
                                 String str2 = (String) entry.getKey();
                                 String[] split = ((String) entry.getValue()).split(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                                 for (String str3 : split) {
-                                    sb.append(Statistics.this.appId).append(HanziToPinyin.Token.SEPARATOR);
-                                    sb.append(Statistics.this.userId).append(HanziToPinyin.Token.SEPARATOR);
-                                    sb.append(str2).append(HanziToPinyin.Token.SEPARATOR);
-                                    sb.append(str3).append(HanziToPinyin.Token.SEPARATOR);
-                                    sb.append(Statistics.this.au_version).append(HanziToPinyin.Token.SEPARATOR);
+                                    sb.append(Statistics.this.appId).append(" ");
+                                    sb.append(Statistics.this.userId).append(" ");
+                                    sb.append(str2).append(" ");
+                                    sb.append(str3).append(" ");
+                                    sb.append(Statistics.this.au_version).append(" ");
                                     sb.append(Statistics.this.al_version);
                                     sb.append("\n");
                                 }
@@ -122,7 +122,7 @@ public class Statistics {
                             }
                             byteArrayOutputStream.flush();
                             JSONObject jSONObject = new JSONObject(new String(byteArrayOutputStream.toByteArray(), "UTF-8"));
-                            return new StatisticsResult(jSONObject.getInt("errno"), jSONObject.getString("errnmsg"));
+                            return new StatisticsResult(jSONObject.getInt(BaseJsonData.TAG_ERRNO), jSONObject.getString("errnmsg"));
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */

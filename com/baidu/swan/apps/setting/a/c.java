@@ -41,12 +41,12 @@ public class c extends ab {
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: a */
-                    public void D(com.baidu.swan.apps.setting.b.a aVar) {
+                    public void E(com.baidu.swan.apps.setting.b.a aVar) {
                         com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                        if (!aVar.aeH()) {
+                        if (!aVar.amM()) {
                             com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, optString);
                         } else {
-                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.bTO, 0).toString());
+                            callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.csD, 0).toString());
                         }
                     }
                 });

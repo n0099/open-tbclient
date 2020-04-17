@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.utils;
 
 import android.content.Context;
 import android.util.Pair;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import java.security.MessageDigest;
@@ -100,11 +99,11 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getConnectTimeout() {
-        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        return 15000;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getReadTimeout() {
-        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        return 15000;
     }
 }

@@ -3,20 +3,25 @@ package com.idlefish.flutterboost.containers;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.widget.ContinuousAnimationView;
+import com.baidu.tieba.R;
 import com.idlefish.flutterboost.FlutterBoost;
+import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.containers.BoostFlutterActivity;
 import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
 import io.flutter.embedding.android.FlutterEngineConfigurator;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
-import io.flutter.embedding.android.SplashScreenProvider;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterShellArgs;
 import io.flutter.plugin.platform.PlatformPlugin;
@@ -24,8 +29,20 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class FlutterFragment extends BaseFragment implements FlutterActivityAndFragmentDelegate.Host {
+    protected static final String ARG_APP_BUNDLE_PATH = "app_bundle_path";
+    protected static final String ARG_CACHED_ENGINE_ID = "cached_engine_id";
+    protected static final String ARG_DART_ENTRYPOINT = "dart_entrypoint";
+    protected static final String ARG_DESTROY_ENGINE_WITH_FRAGMENT = "destroy_engine_with_fragment";
+    protected static final String ARG_FLUTTERVIEW_RENDER_MODE = "flutterview_render_mode";
+    protected static final String ARG_FLUTTERVIEW_TRANSPARENCY_MODE = "flutterview_transparency_mode";
+    protected static final String ARG_FLUTTER_INITIALIZATION_ARGS = "initialization_args";
+    protected static final String ARG_INITIAL_ROUTE = "initial_route";
+    protected static final String ARG_SHOULD_ATTACH_ENGINE_TO_ACTIVITY = "should_attach_engine_to_activity";
+    protected static final String EXTRA_PARAMS = "params";
+    protected static final String EXTRA_URL = "url";
+    private static final String TAG = "NewFlutterFragment";
     private FlutterActivityAndFragmentDelegate delegate;
-    private boolean isShow;
+    private boolean isResumedOrVisibleToUser;
 
     @Override // android.support.v4.app.Fragment, com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @Nullable
@@ -33,15 +50,45 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         return super.getActivity();
     }
 
+    @NonNull
+    public static FlutterFragment createDefault() {
+        return new NewEngineFragmentBuilder().build();
+    }
+
+    @NonNull
+    public static NewEngineFragmentBuilder withNewEngine() {
+        return new NewEngineFragmentBuilder();
+    }
+
     /* loaded from: classes6.dex */
     public static class NewEngineFragmentBuilder {
-        private FlutterShellArgs shellArgs = null;
-        private FlutterView.RenderMode renderMode = FlutterView.RenderMode.surface;
-        private FlutterView.TransparencyMode transparencyMode = FlutterView.TransparencyMode.transparent;
-        private boolean shouldAttachEngineToActivity = true;
-        private String url = "";
-        private Map params = new HashMap();
-        private final Class<? extends FlutterFragment> fragmentClass = FlutterFragment.class;
+        private final Class<? extends FlutterFragment> fragmentClass;
+        private Map params;
+        private FlutterView.RenderMode renderMode;
+        private FlutterShellArgs shellArgs;
+        private boolean shouldAttachEngineToActivity;
+        private FlutterView.TransparencyMode transparencyMode;
+        private String url;
+
+        public NewEngineFragmentBuilder() {
+            this.shellArgs = null;
+            this.renderMode = FlutterView.RenderMode.surface;
+            this.transparencyMode = FlutterView.TransparencyMode.transparent;
+            this.shouldAttachEngineToActivity = true;
+            this.url = "";
+            this.params = new HashMap();
+            this.fragmentClass = FlutterFragment.class;
+        }
+
+        public NewEngineFragmentBuilder(@NonNull Class<? extends FlutterFragment> cls) {
+            this.shellArgs = null;
+            this.renderMode = FlutterView.RenderMode.surface;
+            this.transparencyMode = FlutterView.TransparencyMode.transparent;
+            this.shouldAttachEngineToActivity = true;
+            this.url = "";
+            this.params = new HashMap();
+            this.fragmentClass = cls;
+        }
 
         public NewEngineFragmentBuilder url(@NonNull String str) {
             this.url = str;
@@ -52,15 +99,15 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         protected Bundle createArgs() {
             Bundle bundle = new Bundle();
             if (this.shellArgs != null) {
-                bundle.putStringArray("initialization_args", this.shellArgs.toArray());
+                bundle.putStringArray(FlutterFragment.ARG_FLUTTER_INITIALIZATION_ARGS, this.shellArgs.toArray());
             }
             BoostFlutterActivity.SerializableMap serializableMap = new BoostFlutterActivity.SerializableMap();
             serializableMap.setMap(this.params);
             bundle.putString("url", this.url);
             bundle.putSerializable("params", serializableMap);
-            bundle.putString("flutterview_render_mode", this.renderMode != null ? this.renderMode.name() : FlutterView.RenderMode.surface.name());
-            bundle.putString("flutterview_transparency_mode", this.transparencyMode != null ? this.transparencyMode.name() : FlutterView.TransparencyMode.transparent.name());
-            bundle.putBoolean("destroy_engine_with_fragment", true);
+            bundle.putString(FlutterFragment.ARG_FLUTTERVIEW_RENDER_MODE, this.renderMode != null ? this.renderMode.name() : FlutterView.RenderMode.surface.name());
+            bundle.putString(FlutterFragment.ARG_FLUTTERVIEW_TRANSPARENCY_MODE, this.transparencyMode != null ? this.transparencyMode.name() : FlutterView.TransparencyMode.transparent.name());
+            bundle.putBoolean(FlutterFragment.ARG_DESTROY_ENGINE_WITH_FRAGMENT, true);
             return bundle;
         }
 
@@ -77,6 +124,10 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
                 throw new RuntimeException("Could not instantiate NewFlutterFragment subclass (" + this.fragmentClass.getName() + ")", e);
             }
         }
+    }
+
+    protected XFlutterView getFlutterView() {
+        return this.delegate.getFlutterView();
     }
 
     public FlutterFragment() {
@@ -105,24 +156,38 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (!this.isShow) {
-            this.isShow = true;
+        if (!this.isResumedOrVisibleToUser) {
+            this.isResumedOrVisibleToUser = true;
             this.delegate.onResume();
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        if (this.isShow) {
-            this.delegate.onPrimary(isPrimary());
+    @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
+    public void setUserVisibleHint(boolean z) {
+        if (this.delegate != null) {
+            if (z) {
+                if (!this.isResumedOrVisibleToUser) {
+                    this.isResumedOrVisibleToUser = true;
+                    this.delegate.onResume();
+                }
+            } else if (this.isResumedOrVisibleToUser) {
+                this.isResumedOrVisibleToUser = false;
+                this.delegate.onPause();
+            }
         }
+    }
+
+    public void onPostResume() {
+        this.delegate.onPostResume();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
-        this.isShow = false;
         super.onPause();
-        this.delegate.onPause();
+        if (this.isResumedOrVisibleToUser) {
+            this.isResumedOrVisibleToUser = false;
+            this.delegate.onPause();
+        }
     }
 
     @Override // android.support.v4.app.Fragment
@@ -145,9 +210,17 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         this.delegate = null;
     }
 
-    @Override // android.support.v4.app.Fragment, com.baidu.k.a.a.InterfaceC0078a
+    @Override // android.support.v4.app.Fragment, com.baidu.h.a.a.InterfaceC0100a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         this.delegate.onRequestPermissionsResult(i, strArr, iArr);
+    }
+
+    public void onNewIntent(@NonNull Intent intent) {
+        this.delegate.onNewIntent(intent);
+    }
+
+    public void onBackPressed() {
+        this.delegate.onBackPressed();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -157,32 +230,68 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
         }
     }
 
+    public void onUserLeaveHint() {
+        this.delegate.onUserLeaveHint();
+    }
+
+    public void onTrimMemory(int i) {
+        this.delegate.onTrimMemory(i);
+    }
+
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
         this.delegate.onLowMemory();
     }
 
+    @NonNull
+    private Context getContextCompat() {
+        return Build.VERSION.SDK_INT >= 23 ? getContext() : getActivity();
+    }
+
+    @NonNull
+    public FlutterShellArgs getFlutterShellArgs() {
+        String[] stringArray = getArguments().getStringArray(ARG_FLUTTER_INITIALIZATION_ARGS);
+        if (stringArray == null) {
+            stringArray = new String[0];
+        }
+        return new FlutterShellArgs(stringArray);
+    }
+
+    @NonNull
+    public FlutterView.RenderMode getRenderMode() {
+        return FlutterView.RenderMode.valueOf(getArguments().getString(ARG_FLUTTERVIEW_RENDER_MODE, FlutterView.RenderMode.surface.name()));
+    }
+
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @NonNull
     public FlutterView.TransparencyMode getTransparencyMode() {
-        return FlutterView.TransparencyMode.valueOf(getArguments().getString("flutterview_transparency_mode", FlutterView.TransparencyMode.transparent.name()));
+        return FlutterView.TransparencyMode.valueOf(getArguments().getString(ARG_FLUTTERVIEW_TRANSPARENCY_MODE, FlutterView.TransparencyMode.transparent.name()));
     }
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @Nullable
     public SplashScreen provideSplashScreen() {
-        SplashScreenProvider activity = getActivity();
-        if (activity instanceof SplashScreenProvider) {
-            return activity.provideSplashScreen();
-        }
-        return null;
+        FrameLayout frameLayout = new FrameLayout(getActivity());
+        frameLayout.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        ContinuousAnimationView continuousAnimationView = new ContinuousAnimationView(getActivity());
+        am.a(continuousAnimationView, R.raw.lottie_full_screen_refresh);
+        continuousAnimationView.setSpeed(1.2f);
+        continuousAnimationView.setLayoutParams(new FrameLayout.LayoutParams(290, 304, 17));
+        frameLayout.addView(continuousAnimationView);
+        continuousAnimationView.playAnimation();
+        return new ViewSplashScreen(frameLayout);
     }
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @Nullable
     public FlutterEngine provideFlutterEngine(@NonNull Context context) {
         return FlutterBoost.instance().engineProvider();
+    }
+
+    @Nullable
+    public FlutterEngine getFlutterEngine() {
+        return this.delegate.getFlutterEngine();
     }
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
@@ -205,6 +314,10 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
     public void cleanUpFlutterEngine(@NonNull FlutterEngine flutterEngine) {
     }
 
+    public boolean shouldAttachEngineToActivity() {
+        return true;
+    }
+
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public String getContainerUrl() {
         return getArguments().getString("url");
@@ -212,6 +325,8 @@ public class FlutterFragment extends BaseFragment implements FlutterActivityAndF
 
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     public Map getContainerUrlParams() {
-        return ((BoostFlutterActivity.SerializableMap) getArguments().getSerializable("params")).getMap();
+        Map<String, Object> map = ((BoostFlutterActivity.SerializableMap) getArguments().getSerializable("params")).getMap();
+        map.put("isShowWhenCreate", Boolean.valueOf(isPrimary()));
+        return map;
     }
 }

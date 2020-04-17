@@ -12,46 +12,46 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.core.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0243a {
-        void Ng();
+    public interface InterfaceC0273a {
+        void UT();
 
-        void Nh();
+        void UU();
 
-        void eq(int i);
+        void ev(int i);
     }
 
-    public static void a(String str, final int i, InterfaceC0243a interfaceC0243a, final String str2, String str3) {
+    public static void a(String str, final int i, InterfaceC0273a interfaceC0273a, final String str2, String str3) {
         if (DEBUG) {
             Log.d("SwanPreDownload", "AppId: " + str + ", scene: " + str2);
         }
         if (TextUtils.isEmpty(str)) {
-            if (interfaceC0243a != null) {
-                interfaceC0243a.Ng();
+            if (interfaceC0273a != null) {
+                interfaceC0273a.UT();
             }
-        } else if (!gN(h.afu().getString("predownload_network_switch", "1"))) {
-            if (interfaceC0243a != null) {
-                interfaceC0243a.eq(6);
+        } else if (!ib(h.anz().getString("predownload_network_switch", "1"))) {
+            if (interfaceC0273a != null) {
+                interfaceC0273a.ev(6);
             }
         } else {
             c cVar = new c(str, TextUtils.equals("swangame", str3) ? 1 : 0);
-            cVar.qB("1");
-            cVar.qC(str2);
-            com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.b.a(str, interfaceC0243a) { // from class: com.baidu.swan.apps.core.a.a.a.1
+            cVar.rO("1");
+            cVar.rP(str2);
+            com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.b.a(str, interfaceC0273a) { // from class: com.baidu.swan.apps.core.a.a.a.1
                 @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-                public void Ne() {
-                    this.bqr = str2;
+                public void UR() {
+                    this.bOy = str2;
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.f
-                protected int Nf() {
+                protected int US() {
                     return i;
                 }
 
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
-                public void av(String str4, String str5) {
-                    super.av(str4, str5);
-                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bqq != null) {
-                        this.bqq.add(new UbcFlowEvent(str5));
+                public void aE(String str4, String str5) {
+                    super.aE(str4, str5);
+                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bOx != null) {
+                        this.bOx.add(new UbcFlowEvent(str5));
                     }
                 }
             });
@@ -64,7 +64,7 @@ public final class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean gN(String str) {
+    public static boolean ib(String str) {
         boolean z = true;
         if (!TextUtils.equals(str, "0")) {
             if (!TextUtils.equals(str, "1")) {

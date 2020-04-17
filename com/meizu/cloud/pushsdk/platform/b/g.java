@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes8.dex */
 public class g extends c<UnRegisterStatus> {
@@ -38,7 +37,7 @@ public class g extends c<UnRegisterStatus> {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected Intent c() {
         Intent intent = new Intent();
-        intent.putExtra(Constants.APP_ID, this.f);
+        intent.putExtra("app_id", this.f);
         intent.putExtra("app_key", this.g);
         intent.putExtra("strategy_package_name", this.e.getPackageName());
         intent.putExtra("strategy_type", g());

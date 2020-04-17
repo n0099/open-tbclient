@@ -26,33 +26,33 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes10.dex */
 public class l extends BaseAdapter {
-    private final MembersActivity hCC;
-    private a hCD;
-    private boolean hCE;
-    private boolean hCG;
-    private final Set<Long> hCH = new HashSet();
-    private final List<UserData> hCI = new ArrayList();
-    private ArrayList<IconData> hCJ = null;
-    private boolean hCF = false;
+    private final MembersActivity imr;
+    private a ims;
+    private boolean imt;
+    private boolean imv;
+    private final Set<Long> imw = new HashSet();
+    private final List<UserData> imx = new ArrayList();
+    private ArrayList<IconData> imy = null;
+    private boolean imu = false;
 
     /* loaded from: classes10.dex */
     public interface a {
-        void wC(int i);
+        void xa(int i);
     }
 
     public void a(a aVar) {
-        this.hCD = aVar;
+        this.ims = aVar;
     }
 
-    public void cX(List<UserData> list) {
-        this.hCI.addAll(list);
+    public void di(List<UserData> list) {
+        this.imx.addAll(list);
     }
 
-    public void cY(List<Long> list) {
+    public void dj(List<Long> list) {
         if (list != null && list.size() > 0) {
             for (Long l : list) {
                 long longValue = l.longValue();
-                Iterator<UserData> it = this.hCI.iterator();
+                Iterator<UserData> it = this.imx.iterator();
                 while (it.hasNext()) {
                     if (it.next().getUserIdLong() == longValue) {
                         it.remove();
@@ -62,65 +62,65 @@ public class l extends BaseAdapter {
         }
     }
 
-    public void bVD() {
-        this.hCH.clear();
+    public void cge() {
+        this.imw.clear();
     }
 
-    public Set<Long> bVE() {
-        return this.hCH;
+    public Set<Long> cgf() {
+        return this.imw;
     }
 
     public void f(Long l) {
         if (com.baidu.adp.lib.util.l.isMainThread()) {
-            if (this.hCH.contains(l)) {
-                this.hCH.remove(l);
+            if (this.imw.contains(l)) {
+                this.imw.remove(l);
             } else {
-                this.hCH.add(l);
+                this.imw.add(l);
             }
             notifyDataSetChanged();
-            if (this.hCD != null) {
-                this.hCD.wC(this.hCH.size());
+            if (this.ims != null) {
+                this.ims.xa(this.imw.size());
             }
         }
     }
 
     public void reset(boolean z) {
         if (z) {
-            this.hCI.clear();
+            this.imx.clear();
         }
-        this.hCF = false;
-        this.hCE = true;
+        this.imu = false;
+        this.imt = true;
     }
 
     public l(MembersActivity membersActivity) {
-        this.hCC = membersActivity;
+        this.imr = membersActivity;
     }
 
-    public void nF(boolean z) {
-        this.hCE = z;
+    public void oJ(boolean z) {
+        this.imt = z;
     }
 
-    public boolean bVF() {
-        return this.hCE;
+    public boolean cgg() {
+        return this.imt;
     }
 
-    public void nG(boolean z) {
-        this.hCF = z;
+    public void oK(boolean z) {
+        this.imu = z;
     }
 
-    public boolean bSN() {
-        return this.hCG;
+    public boolean cdm() {
+        return this.imv;
     }
 
-    public void nH(boolean z) {
-        this.hCG = z;
+    public void oL(boolean z) {
+        this.imv = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hCI != null) {
-            int size = this.hCI.size();
-            if (this.hCF) {
+        if (this.imx != null) {
+            int size = this.imx.size();
+            if (this.imu) {
                 return size + 1;
             }
             return size;
@@ -130,12 +130,12 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return v.getItem(this.hCI, i);
+        return v.getItem(this.imx, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.hCF && i == getCount() - 1) {
+        if (this.imu && i == getCount() - 1) {
             return -2L;
         }
         return i;
@@ -155,30 +155,30 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         View view2;
-        if (this.hCI != null) {
+        if (this.imx != null) {
             if (view == null) {
                 b bVar2 = new b();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.hCC.getPageContext().getPageActivity()).inflate(R.layout.im_members_list_foot, viewGroup, false);
-                    bVar2.hCL = (LinearLayout) inflate.findViewById(R.id.list_more);
-                    bVar2.hCM = (TextView) inflate.findViewById(R.id.more_title);
-                    bVar2.hCN = (ProgressBar) inflate.findViewById(R.id.more_progress);
+                    View inflate = LayoutInflater.from(this.imr.getPageContext().getPageActivity()).inflate(R.layout.im_members_list_foot, viewGroup, false);
+                    bVar2.imA = (LinearLayout) inflate.findViewById(R.id.list_more);
+                    bVar2.imB = (TextView) inflate.findViewById(R.id.more_title);
+                    bVar2.imC = (ProgressBar) inflate.findViewById(R.id.more_progress);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.hCC.getPageContext().getPageActivity()).inflate(R.layout.im_members_list_item, viewGroup, false);
-                    bVar2.hCP = (HeadImageView) inflate2.findViewById(R.id.item_head);
-                    bVar2.hCP.setIsRound(false);
-                    bVar2.hCP.setAutoChangeStyle(true);
-                    bVar2.hBD = (TextView) inflate2.findViewById(R.id.item_name);
-                    bVar2.hCQ = (ImageView) inflate2.findViewById(R.id.item_sex);
-                    bVar2.hCR = (TextView) inflate2.findViewById(R.id.item_time);
-                    bVar2.hCS = (TextView) inflate2.findViewById(R.id.item_address);
-                    bVar2.hCO = (ImageView) inflate2.findViewById(R.id.item_check);
-                    bVar2.Np = (UserIconBox) inflate2.findViewById(R.id.user_tshow_icon_box);
-                    bVar2.hCT = inflate2.findViewById(R.id.list_line);
-                    bVar2.hCU = inflate2.findViewById(R.id.list_bottom_line);
-                    bVar2.hCT.setVisibility(i < getCount() + (-1) ? 0 : 8);
-                    bVar2.hCU.setVisibility(i < getCount() + (-1) ? 8 : 0);
+                    View inflate2 = LayoutInflater.from(this.imr.getPageContext().getPageActivity()).inflate(R.layout.im_members_list_item, viewGroup, false);
+                    bVar2.imE = (HeadImageView) inflate2.findViewById(R.id.item_head);
+                    bVar2.imE.setIsRound(false);
+                    bVar2.imE.setAutoChangeStyle(true);
+                    bVar2.ilr = (TextView) inflate2.findViewById(R.id.item_name);
+                    bVar2.imF = (ImageView) inflate2.findViewById(R.id.item_sex);
+                    bVar2.imG = (TextView) inflate2.findViewById(R.id.item_time);
+                    bVar2.imH = (TextView) inflate2.findViewById(R.id.item_address);
+                    bVar2.imD = (ImageView) inflate2.findViewById(R.id.item_check);
+                    bVar2.afZ = (UserIconBox) inflate2.findViewById(R.id.user_tshow_icon_box);
+                    bVar2.imI = inflate2.findViewById(R.id.list_line);
+                    bVar2.imJ = inflate2.findViewById(R.id.list_bottom_line);
+                    bVar2.imI.setVisibility(i < getCount() + (-1) ? 0 : 8);
+                    bVar2.imJ.setVisibility(i < getCount() + (-1) ? 8 : 0);
                     view2 = inflate2;
                 }
                 view2.setTag(bVar2);
@@ -188,82 +188,82 @@ public class l extends BaseAdapter {
                 bVar = (b) view.getTag();
             }
             if (getItemViewType(i) == 1) {
-                if (this.hCE) {
-                    bVar.hCM.setText(R.string.members_load_more_person);
-                    bVar.hCN.setVisibility(0);
+                if (this.imt) {
+                    bVar.imB.setText(R.string.members_load_more_person);
+                    bVar.imC.setVisibility(0);
                 } else {
-                    bVar.hCM.setText(R.string.members_no_more_person);
-                    bVar.hCN.setVisibility(8);
+                    bVar.imB.setText(R.string.members_no_more_person);
+                    bVar.imC.setVisibility(8);
                 }
             } else {
                 UserData userData = (UserData) getItem(i);
                 if (userData != null) {
-                    bVar.hCP.setTag(null);
+                    bVar.imE.setTag(null);
                     String portrait = userData.getPortrait();
                     if (!aq.isEmpty(portrait)) {
-                        bVar.hCP.startLoad(portrait, 12, false);
+                        bVar.imE.startLoad(portrait, 12, false);
                     }
-                    bVar.hBD.setText(userData.getName_show());
+                    bVar.ilr.setText(userData.getName_show());
                     switch (userData.getSex()) {
                         case 1:
-                            bVar.hCQ.setVisibility(0);
-                            am.setImageResource(bVar.hCQ, R.drawable.icon_pop_qz_boy);
+                            bVar.imF.setVisibility(0);
+                            am.setImageResource(bVar.imF, R.drawable.icon_pop_qz_boy);
                             break;
                         case 2:
-                            bVar.hCQ.setVisibility(0);
-                            am.setImageResource(bVar.hCQ, R.drawable.icon_pop_qz_girl);
+                            bVar.imF.setVisibility(0);
+                            am.setImageResource(bVar.imF, R.drawable.icon_pop_qz_girl);
                             break;
                         default:
-                            bVar.hCQ.setVisibility(8);
+                            bVar.imF.setVisibility(8);
                             break;
                     }
-                    bVar.hCR.setText(c(userData));
-                    bVar.hCS.setText(userData.getPosition());
-                    this.hCJ = userData.getTShowInfo();
-                    if (bVar.Np != null) {
-                        bVar.Np.a(this.hCJ, 2, this.hCC.getResources().getDimensionPixelSize(R.dimen.ds38), this.hCC.getResources().getDimensionPixelSize(R.dimen.ds38), this.hCC.getResources().getDimensionPixelSize(R.dimen.ds8), true);
+                    bVar.imG.setText(c(userData));
+                    bVar.imH.setText(userData.getPosition());
+                    this.imy = userData.getTShowInfo();
+                    if (bVar.afZ != null) {
+                        bVar.afZ.a(this.imy, 2, this.imr.getResources().getDimensionPixelSize(R.dimen.ds38), this.imr.getResources().getDimensionPixelSize(R.dimen.ds38), this.imr.getResources().getDimensionPixelSize(R.dimen.ds8), true);
                     }
-                    if (this.hCG) {
-                        bVar.hCO.setVisibility(userData.getPermission().isController() ? 4 : 0);
+                    if (this.imv) {
+                        bVar.imD.setVisibility(userData.getPermission().isController() ? 4 : 0);
                         Long valueOf = Long.valueOf(userData.getUserIdLong());
-                        bVar.hCO.setTag(valueOf);
-                        bVar.hCO.setSelected(this.hCH.contains(valueOf));
-                        bVar.hCO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
+                        bVar.imD.setTag(valueOf);
+                        bVar.imD.setSelected(this.imw.contains(valueOf));
+                        bVar.imD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view3) {
                                 view3.setSelected(!view3.isSelected());
                                 if (view3.getTag() instanceof Long) {
                                     Long l = (Long) view3.getTag();
                                     if (view3.isSelected()) {
-                                        l.this.hCH.add(l);
+                                        l.this.imw.add(l);
                                     } else {
-                                        l.this.hCH.remove(l);
+                                        l.this.imw.remove(l);
                                     }
-                                    if (l.this.hCD != null) {
-                                        l.this.hCD.wC(l.this.hCH.size());
+                                    if (l.this.ims != null) {
+                                        l.this.ims.xa(l.this.imw.size());
                                     }
                                 }
                             }
                         });
                     } else {
-                        bVar.hCO.setVisibility(8);
+                        bVar.imD.setVisibility(8);
                     }
-                    bX(view);
+                    cf(view);
                 }
             }
         }
         return view;
     }
 
-    private void bX(View view) {
-        this.hCC.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.hCC.getLayoutMode().onModeChanged(view);
+    private void cf(View view) {
+        this.imr.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.imr.getLayoutMode().onModeChanged(view);
     }
 
     private String c(UserData userData) {
         long lastReplyTime;
-        MembersModel bVx = this.hCC.bVx();
-        switch (bVx.getOrderType()) {
+        MembersModel cfY = this.imr.cfY();
+        switch (cfY.getOrderType()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
                 break;
@@ -278,8 +278,8 @@ public class l extends BaseAdapter {
                 break;
         }
         if (lastReplyTime <= 0) {
-            if (bVx.getOrderType() == 1) {
-                return this.hCC.getPageContext().getString(R.string.members_no_speak);
+            if (cfY.getOrderType() == 1) {
+                return this.imr.getPageContext().getString(R.string.members_no_speak);
             }
             return "";
         }
@@ -288,18 +288,18 @@ public class l extends BaseAdapter {
 
     /* loaded from: classes10.dex */
     static class b {
-        UserIconBox Np = null;
-        TextView hBD;
-        LinearLayout hCL;
-        TextView hCM;
-        ProgressBar hCN;
-        ImageView hCO;
-        HeadImageView hCP;
-        ImageView hCQ;
-        TextView hCR;
-        TextView hCS;
-        View hCT;
-        View hCU;
+        UserIconBox afZ = null;
+        TextView ilr;
+        LinearLayout imA;
+        TextView imB;
+        ProgressBar imC;
+        ImageView imD;
+        HeadImageView imE;
+        ImageView imF;
+        TextView imG;
+        TextView imH;
+        View imI;
+        View imJ;
 
         b() {
         }

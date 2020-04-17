@@ -10,14 +10,14 @@ import com.baidu.tieba.write.write.message.RequestGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseHttpGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class StickerModel extends BdBaseModel {
-    private a kWU;
-    private com.baidu.adp.framework.listener.a kWV;
+    private a lGV;
+    private com.baidu.adp.framework.listener.a lGW;
 
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.kWV = new com.baidu.adp.framework.listener.a(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
+        this.lGW = new com.baidu.adp.framework.listener.a(1003341, CmdConfigSocket.CMD_GET_STICKET_LIST) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -28,18 +28,18 @@ public class StickerModel extends BdBaseModel {
                         } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                             list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                         }
-                        if (StickerModel.this.kWU != null) {
-                            StickerModel.this.kWU.eB(list);
+                        if (StickerModel.this.lGV != null) {
+                            StickerModel.this.lGV.eQ(list);
                         }
                     }
                 }
             }
         };
-        registerListener(this.kWV);
+        registerListener(this.lGW);
     }
 
     public void a(a aVar) {
-        this.kWU = aVar;
+        this.lGV = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

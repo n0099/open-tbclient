@@ -1,7 +1,8 @@
 package com.baidu.sapi2;
 
 import android.graphics.drawable.Drawable;
-import com.baidu.i.a.a;
+import android.support.v7.widget.ActivityChooserView;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 /* loaded from: classes6.dex */
 public class PassportViewManager implements c {
@@ -13,9 +14,9 @@ public class PassportViewManager implements c {
     /* loaded from: classes6.dex */
     public static class TitleViewModule implements c {
         public static final int DEFAULT_TEXT_COLOR = PassportViewManager.a.context.getResources().getColor(a.b.sapi_sdk_edit_text_color);
-        public int bgColor = Integer.MAX_VALUE;
-        public int bgHeight = Integer.MAX_VALUE;
-        public int leftBtnImgResId = Integer.MAX_VALUE;
+        public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        public int bgHeight = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        public int leftBtnImgResId = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         public int leftBtnImgVisible = 0;
         public int leftBtnTextColor = DEFAULT_TEXT_COLOR;
         public String leftBtnText = null;

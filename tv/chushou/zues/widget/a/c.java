@@ -21,7 +21,7 @@ public class c extends com.facebook.drawee.span.b {
     public c a(CharSequence charSequence, Object... objArr) {
         append(charSequence);
         for (Object obj : objArr) {
-            b(obj, length() - charSequence.length(), length());
+            a(obj, length() - charSequence.length(), length());
         }
         return this;
     }
@@ -30,27 +30,27 @@ public class c extends com.facebook.drawee.span.b {
         append(charSequence);
         Iterator<Object> it = arrayList.iterator();
         while (it.hasNext()) {
-            b(it.next(), length() - charSequence.length(), length());
+            a(it.next(), length() - charSequence.length(), length());
         }
         return this;
     }
 
     public c a(CharSequence charSequence, Object obj) {
         append(charSequence);
-        b(obj, length() - charSequence.length(), length());
+        a(obj, length() - charSequence.length(), length());
         return this;
     }
 
     public c a(CharSequence charSequence, ImageSpan imageSpan) {
         String str = "." + ((Object) charSequence);
         append(str);
-        b(imageSpan, length() - str.length(), (length() - str.length()) + 1);
+        a(imageSpan, length() - str.length(), (length() - str.length()) + 1);
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.text.SpannableStringBuilder, android.text.Editable, java.lang.Appendable
-    /* renamed from: w */
+    /* renamed from: v */
     public c append(CharSequence charSequence) {
         super.append(charSequence);
         return this;
@@ -75,7 +75,7 @@ public class c extends com.facebook.drawee.span.b {
         return this;
     }
 
-    public c O(Context context, @DrawableRes int i) {
+    public c J(Context context, @DrawableRes int i) {
         Drawable drawable = ContextCompat.getDrawable(context, i);
         if (drawable != null) {
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
@@ -84,7 +84,7 @@ public class c extends com.facebook.drawee.span.b {
         return this;
     }
 
-    private void b(Object obj, int i, int i2) {
+    private void a(Object obj, int i, int i2) {
         setSpan(obj, i, i2, this.flag);
     }
 }

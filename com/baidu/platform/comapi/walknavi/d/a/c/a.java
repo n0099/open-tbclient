@@ -1,7 +1,6 @@
 package com.baidu.platform.comapi.walknavi.d.a.c;
 
 import com.baidu.platform.comapi.walknavi.d.a.a.b;
-import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -37,8 +36,8 @@ public final class a {
                 if (jSONObject2.has("version_code")) {
                     bVar.e(jSONObject2.getString("version_code"));
                 }
-                if (jSONObject2.has(FrsArActivityConfig.AR_TYPE)) {
-                    bVar.b(Integer.parseInt(jSONObject2.getString(FrsArActivityConfig.AR_TYPE)));
+                if (jSONObject2.has("ar_type")) {
+                    bVar.b(Integer.parseInt(jSONObject2.getString("ar_type")));
                 }
                 if (jSONObject2.has("md5")) {
                     bVar.f(jSONObject2.getString("md5"));

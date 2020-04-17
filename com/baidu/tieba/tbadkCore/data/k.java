@@ -5,30 +5,30 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.Timgs;
 /* loaded from: classes.dex */
 public class k implements com.baidu.tbadk.core.flow.a.a {
-    private String Yn;
+    private String aqw;
     private int height;
-    private String khV;
-    private String khW;
-    private String khX;
+    private String kSc;
+    private String kSd;
+    private String kSe;
     private String subTitle;
     private int urlFlag;
     private int width;
 
     public k(Timgs timgs) {
-        this.khV = null;
+        this.kSc = null;
         this.urlFlag = 0;
-        this.khW = null;
-        this.khX = null;
-        this.Yn = null;
+        this.kSd = null;
+        this.kSe = null;
+        this.aqw = null;
         this.subTitle = null;
         this.width = 1;
         this.height = 1;
         if (timgs != null) {
-            this.khV = timgs.img_url;
+            this.kSc = timgs.img_url;
             this.urlFlag = timgs.flag.intValue();
-            this.khW = timgs.url;
-            this.khX = timgs.big_cdn_url;
-            this.Yn = timgs.des_main;
+            this.kSd = timgs.url;
+            this.kSe = timgs.big_cdn_url;
+            this.aqw = timgs.des_main;
             this.subTitle = timgs.des_sub;
             String str = timgs.bsize;
             if (str != null) {
@@ -51,15 +51,15 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.khV;
+        return this.kSc;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String aAE() {
-        return this.khW;
+    public String aIR() {
+        return this.kSd;
     }
 
-    public String cLe() {
-        return this.khV;
+    public String cWa() {
+        return this.kSc;
     }
 }

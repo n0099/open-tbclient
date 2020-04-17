@@ -8,29 +8,29 @@ import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.core.BaseFragment;
 import com.baidu.live.u.a;
-import com.baidu.tieba.ala.e.a;
+import com.baidu.tieba.ala.f.a;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes3.dex */
 public class AlaChallengeHistoryListFragment extends BaseFragment {
-    private a eBL;
-    private com.baidu.tieba.ala.c.a eBM;
-    private a.InterfaceC0430a eBN = new a.InterfaceC0430a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
-        @Override // com.baidu.tieba.ala.e.a.InterfaceC0430a
+    private boolean eIg;
+    private a fge;
+    private com.baidu.tieba.ala.d.a fgf;
+    private a.InterfaceC0465a fgg = new a.InterfaceC0465a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
+        @Override // com.baidu.tieba.ala.f.a.InterfaceC0465a
         public void a(int i, String str, Object obj) {
             if (i != 0 && !StringUtils.isNull(str)) {
-                if (AlaChallengeHistoryListFragment.this.eBM != null) {
-                    AlaChallengeHistoryListFragment.this.eBM.yF(AlaChallengeHistoryListFragment.this.getString(a.i.ala_rank_list_net_error));
+                if (AlaChallengeHistoryListFragment.this.fgf != null) {
+                    AlaChallengeHistoryListFragment.this.fgf.An(AlaChallengeHistoryListFragment.this.getString(a.i.ala_rank_list_net_error));
                 }
             } else if (obj != null && (obj instanceof AlaGetChallengeHistoryListResponseMessage)) {
                 AlaGetChallengeHistoryListResponseMessage alaGetChallengeHistoryListResponseMessage = (AlaGetChallengeHistoryListResponseMessage) obj;
-                AlaChallengeHistoryListFragment.this.eBM.a(alaGetChallengeHistoryListResponseMessage.ejS, alaGetChallengeHistoryListResponseMessage.fpH);
+                AlaChallengeHistoryListFragment.this.fgf.a(alaGetChallengeHistoryListResponseMessage.eJE, alaGetChallengeHistoryListResponseMessage.fUc);
             }
         }
     };
-    private boolean eir;
     private String portrait;
 
-    public static AlaChallengeHistoryListFragment g(int i, String str, boolean z) {
+    public static AlaChallengeHistoryListFragment h(int i, String str, boolean z) {
         AlaChallengeHistoryListFragment alaChallengeHistoryListFragment = new AlaChallengeHistoryListFragment();
         Bundle bundle = new Bundle();
         bundle.putString("portrait", str);
@@ -44,15 +44,15 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         this.portrait = arguments.getString("portrait");
-        this.eir = arguments.getBoolean("is_from_host");
+        this.eIg = arguments.getBoolean("is_from_host");
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.eBM = new com.baidu.tieba.ala.c.a(getPageContext());
-        this.eBL = new com.baidu.tieba.ala.e.a(getPageContext(), this.eBN);
+        this.fgf = new com.baidu.tieba.ala.d.a(getPageContext());
+        this.fge = new com.baidu.tieba.ala.f.a(getPageContext(), this.fgg);
         refreshData();
-        return this.eBM.getView();
+        return this.fgf.getView();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment
@@ -64,17 +64,17 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
 
     private void refreshData() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.eBL.zz(this.portrait);
-        } else if (this.eBM != null) {
-            this.eBM.yF(getString(a.i.ala_rank_list_no_net));
+            this.fge.Be(this.portrait);
+        } else if (this.fgf != null) {
+            this.fgf.An(getString(a.i.ala_rank_list_no_net));
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.eBL != null) {
-            this.eBL.destroy();
+        if (this.fge != null) {
+            this.fge.destroy();
         }
     }
 

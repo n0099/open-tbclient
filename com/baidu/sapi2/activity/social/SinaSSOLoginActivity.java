@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.support.v4.app.NotificationCompat;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.i.a.a.a.a;
+import com.baidu.f.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;

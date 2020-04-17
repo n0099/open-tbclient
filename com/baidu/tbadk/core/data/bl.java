@@ -6,17 +6,17 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class bl {
-    private String cUR;
-    private String cUS;
-    private int cUT;
-    private String cUU;
-    private long cUV;
-    private String cUW;
+    private String duc;
+    private String dud;
+    private int due;
+    private String duf;
+    private long dug;
+    private String duh;
     private String imgUrl;
     private String subTitle;
     private String summary;
 
-    public String aAJ() {
+    public String aIW() {
         return this.imgUrl;
     }
 
@@ -24,36 +24,36 @@ public class bl {
         return this.summary;
     }
 
-    public String aEr() {
-        return this.cUS;
+    public String aMF() {
+        return this.dud;
     }
 
-    public int aEs() {
-        return this.cUT;
+    public int aMG() {
+        return this.due;
     }
 
-    public String aEt() {
-        return this.cUU;
+    public String aMH() {
+        return this.duf;
     }
 
-    public long aEu() {
-        return this.cUV;
+    public long aMI() {
+        return this.dug;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
             this.imgUrl = topCode.img_url;
-            this.cUR = topCode.game_link;
+            this.duc = topCode.game_link;
             this.summary = topCode.summary;
-            this.cUS = topCode.code_link;
-            this.cUT = topCode.get_type.intValue();
-            this.cUU = topCode.surplusgift;
+            this.dud = topCode.code_link;
+            this.due = topCode.get_type.intValue();
+            this.duf = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.cUV = 0L;
+                this.dug = 0L;
             } else {
-                this.cUV = topCode.giftworth.longValue();
+                this.dug = topCode.giftworth.longValue();
             }
-            this.cUW = topCode.type_text;
+            this.duh = topCode.type_text;
             this.subTitle = topCode.subtitle;
         }
     }
@@ -62,13 +62,13 @@ public class bl {
         if (jSONObject != null) {
             try {
                 this.imgUrl = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-                this.cUR = jSONObject.optString("game_link");
+                this.duc = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.cUS = jSONObject.optString("code_link");
-                this.cUT = jSONObject.optInt("get_type", 1);
-                this.cUU = jSONObject.optString("surplusgift");
-                this.cUV = jSONObject.optLong("giftworth", 0L);
-                this.cUW = jSONObject.optString("type_text");
+                this.dud = jSONObject.optString("code_link");
+                this.due = jSONObject.optInt("get_type", 1);
+                this.duf = jSONObject.optString("surplusgift");
+                this.dug = jSONObject.optLong("giftworth", 0L);
+                this.duh = jSONObject.optString("type_text");
                 this.subTitle = jSONObject.optString("subtitle");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -76,8 +76,8 @@ public class bl {
         }
     }
 
-    public String aEv() {
-        return this.cUW;
+    public String aMJ() {
+        return this.duh;
     }
 
     public String getSubTitle() {

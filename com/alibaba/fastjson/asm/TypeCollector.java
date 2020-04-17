@@ -2,7 +2,6 @@ package com.alibaba.fastjson.asm;
 
 import android.support.media.ExifInterface;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.minivideo.effect.core.entity.AEffectParams;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
@@ -16,7 +15,7 @@ public class TypeCollector {
             put("byte", "B");
             put("char", "C");
             put("short", ExifInterface.LATITUDE_SOUTH);
-            put(AEffectParams.VALUE_TYPE_FLOAT, "F");
+            put("float", "F");
             put("long", "J");
             put("double", "D");
         }

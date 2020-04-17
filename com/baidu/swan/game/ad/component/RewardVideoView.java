@@ -11,7 +11,7 @@ import com.baidu.swan.apps.media.c.c;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class RewardVideoView extends RelativeLayout {
-    private a bbU;
+    private a bAi;
     private Context mContext;
     private boolean mIsMute;
 
@@ -26,20 +26,20 @@ public class RewardVideoView extends RelativeLayout {
     public RewardVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        initPlayer();
+        Mc();
     }
 
-    public void V(String str) {
-        c akn = akn();
-        akn.mSrc = str;
-        this.bbU.d(akn);
-        this.bbU.cL(false);
+    public void bk(String str) {
+        c asy = asy();
+        asy.mSrc = str;
+        this.bAi.d(asy);
+        this.bAi.dH(false);
     }
 
-    public void cK(boolean z) {
-        if (this.bbU != null) {
+    public void dG(boolean z) {
+        if (this.bAi != null) {
             this.mIsMute = z;
-            this.bbU.cK(z);
+            this.bAi.dG(z);
         }
     }
 
@@ -48,18 +48,18 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.bbU;
+        return this.bAi;
     }
 
-    private void initPlayer() {
-        e acI = e.acI();
-        if (acI != null) {
-            this.bbU = new a(acI.acE(), akn());
+    private void Mc() {
+        e akN = e.akN();
+        if (akN != null) {
+            this.bAi = new a(akN.akJ(), asy());
             this.mIsMute = true;
-            this.bbU.cK(this.mIsMute);
+            this.bAi.dG(this.mIsMute);
             FrameLayout frameLayout = new FrameLayout(this.mContext);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.bbU.b(frameLayout);
+            this.bAi.b(frameLayout);
         }
     }
 
@@ -69,14 +69,14 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    private c akn() {
+    private c asy() {
         c cVar = new c();
-        cVar.bAL = "SwanAdPlayer";
-        cVar.biA = "SwanAdPlayer";
-        cVar.bAT = true;
-        cVar.bEt = this.mIsMute;
-        cVar.bEC = false;
-        cVar.bEL = false;
+        cVar.bYS = "SwanAdPlayer";
+        cVar.bGI = "SwanAdPlayer";
+        cVar.bZa = true;
+        cVar.cdc = this.mIsMute;
+        cVar.cdk = false;
+        cVar.cdu = false;
         return cVar;
     }
 }

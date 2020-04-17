@@ -17,7 +17,7 @@ public class a extends c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.apps.api.module.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0224a {
+    public interface InterfaceC0254a {
         b a(e eVar, String str);
     }
 
@@ -25,23 +25,23 @@ public class a extends c {
         super(bVar);
     }
 
-    public b fR(String str) {
+    public b hf(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start set storage sync");
         }
-        return fS(str);
+        return hg(str);
     }
 
-    public b fS(String str) {
+    public b hg(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start set storage");
         }
-        e acI = e.acI();
-        if (acI == null) {
+        e akN = e.akN();
+        if (akN == null) {
             return new b(1001, "swan app is null");
         }
-        Pair<b, JSONObject> aq = com.baidu.swan.apps.api.c.b.aq("Api-Storage", str);
-        b bVar = (b) aq.first;
+        Pair<b, JSONObject> az = com.baidu.swan.apps.api.c.b.az("Api-Storage", str);
+        b bVar = (b) az.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Storage", "parse fail");
@@ -49,7 +49,7 @@ public class a extends c {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aq.second;
+        JSONObject jSONObject = (JSONObject) az.second;
         String optString = jSONObject.optString("key");
         if (TextUtils.isEmpty(optString)) {
             if (DEBUG) {
@@ -58,55 +58,55 @@ public class a extends c {
             return new b(1001, "empty key");
         }
         String optString2 = jSONObject.optString("data");
-        com.baidu.swan.apps.storage.c acQ = acI.acQ();
-        if (!acQ.available() && acQ.afl().getString(optString, "").length() < optString2.length()) {
+        com.baidu.swan.apps.storage.c akV = akN.akV();
+        if (!akV.available() && akV.anq().getString(optString, "").length() < optString2.length()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Storage", "not available");
             }
             return new b(1001, "not available");
         }
-        acQ.afl().putString(optString, optString2);
-        com.baidu.swan.apps.ap.e.bYc.update();
+        akV.anq().putString(optString, optString2);
+        com.baidu.swan.apps.ap.e.cwU.update();
         return new b(0);
     }
 
-    public b JZ() {
+    public b RM() {
         if (DEBUG) {
             Log.d("Api-Storage", "start clear storage sync");
         }
-        return Ka();
+        return RN();
     }
 
-    public b Ka() {
+    public b RN() {
         if (DEBUG) {
             Log.d("Api-Storage", "start clear storage");
         }
-        e acI = e.acI();
-        if (acI == null) {
+        e akN = e.akN();
+        if (akN == null) {
             return new b(1001, "swan app is null");
         }
-        acI.acQ().afl().edit().clear().apply();
-        com.baidu.swan.apps.ap.e.bYc.update();
+        akN.akV().anq().edit().clear().apply();
+        com.baidu.swan.apps.ap.e.cwU.update();
         return new b(0);
     }
 
-    public b fT(String str) {
+    public b hh(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start remove storage sync");
         }
-        return fU(str);
+        return hi(str);
     }
 
-    public b fU(String str) {
+    public b hi(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start remove storage");
         }
-        e acI = e.acI();
-        if (acI == null) {
+        e akN = e.akN();
+        if (akN == null) {
             return new b(1001, "swan app is null");
         }
-        Pair<b, JSONObject> aq = com.baidu.swan.apps.api.c.b.aq("Api-Storage", str);
-        b bVar = (b) aq.first;
+        Pair<b, JSONObject> az = com.baidu.swan.apps.api.c.b.az("Api-Storage", str);
+        b bVar = (b) az.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Storage", "parse fail");
@@ -114,36 +114,36 @@ public class a extends c {
             }
             return bVar;
         }
-        String optString = ((JSONObject) aq.second).optString("key");
+        String optString = ((JSONObject) az.second).optString("key");
         if (TextUtils.isEmpty(optString)) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Storage", "empty key");
             }
             return new b(1001, "empty key");
         }
-        acI.acQ().afl().remove(optString);
-        com.baidu.swan.apps.ap.e.bYc.update();
+        akN.akV().anq().remove(optString);
+        com.baidu.swan.apps.ap.e.cwU.update();
         return new b(0);
     }
 
-    public b fV(String str) {
+    public b hj(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start get storage sync");
         }
-        return a(str, new InterfaceC0224a() { // from class: com.baidu.swan.apps.api.module.j.a.1
-            @Override // com.baidu.swan.apps.api.module.j.a.InterfaceC0224a
+        return a(str, new InterfaceC0254a() { // from class: com.baidu.swan.apps.api.module.j.a.1
+            @Override // com.baidu.swan.apps.api.module.j.a.InterfaceC0254a
             public b a(e eVar, String str2) {
-                String string = eVar.acQ().afl().getString(str2, "");
+                String string = eVar.akV().anq().getString(str2, "");
                 try {
-                    JSONObject fX = a.fX(string);
-                    if (fX == null) {
-                        fX = new JSONObject();
+                    JSONObject hl = a.hl(string);
+                    if (hl == null) {
+                        hl = new JSONObject();
                         if (TextUtils.isEmpty(string)) {
                             string = "";
                         }
-                        fX.put("data", string);
+                        hl.put("data", string);
                     }
-                    return new b(0, fX);
+                    return new b(0, hl);
                 } catch (JSONException e) {
                     if (c.DEBUG) {
                         e.printStackTrace();
@@ -154,24 +154,24 @@ public class a extends c {
         });
     }
 
-    public b fW(String str) {
+    public b hk(String str) {
         if (DEBUG) {
             Log.d("Api-Storage", "start get storage");
         }
-        return a(str, new InterfaceC0224a() { // from class: com.baidu.swan.apps.api.module.j.a.2
-            @Override // com.baidu.swan.apps.api.module.j.a.InterfaceC0224a
+        return a(str, new InterfaceC0254a() { // from class: com.baidu.swan.apps.api.module.j.a.2
+            @Override // com.baidu.swan.apps.api.module.j.a.InterfaceC0254a
             public b a(e eVar, String str2) {
-                String string = eVar.acQ().afl().getString(str2, "");
+                String string = eVar.akV().anq().getString(str2, "");
                 try {
-                    JSONObject fX = a.fX(string);
-                    if (fX == null) {
-                        fX = new JSONObject();
+                    JSONObject hl = a.hl(string);
+                    if (hl == null) {
+                        hl = new JSONObject();
                         if (TextUtils.isEmpty(string)) {
                             string = "";
                         }
-                        fX.put("data", string);
+                        hl.put("data", string);
                     }
-                    return new b(0, fX);
+                    return new b(0, hl);
                 } catch (JSONException e) {
                     if (c.DEBUG) {
                         e.printStackTrace();
@@ -182,17 +182,17 @@ public class a extends c {
         });
     }
 
-    public b Kb() {
-        e acI = e.acI();
-        if (acI == null) {
+    public b RO() {
+        e akN = e.akN();
+        if (akN == null) {
             return new b(1001, "swan app is null");
         }
-        com.baidu.swan.apps.storage.c acQ = acI.acQ();
+        com.baidu.swan.apps.storage.c akV = akN.akV();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("keys", new JSONArray((Collection) acQ.afl().getAll().keySet()));
-            jSONObject.put("currentSize", acQ.afn() / 1024);
-            jSONObject.put("limitSize", acQ.afo() / 1024);
+            jSONObject.put("keys", new JSONArray((Collection) akV.anq().getAll().keySet()));
+            jSONObject.put("currentSize", akV.ans() / 1024);
+            jSONObject.put("limitSize", akV.ant() / 1024);
             return new b(0, jSONObject);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -202,13 +202,13 @@ public class a extends c {
         }
     }
 
-    private b a(String str, InterfaceC0224a interfaceC0224a) {
-        e acI = e.acI();
-        if (acI == null) {
+    private b a(String str, InterfaceC0254a interfaceC0254a) {
+        e akN = e.akN();
+        if (akN == null) {
             return new b(1001, "swan app is null");
         }
-        Pair<b, JSONObject> aq = com.baidu.swan.apps.api.c.b.aq("Api-Storage", str);
-        b bVar = (b) aq.first;
+        Pair<b, JSONObject> az = com.baidu.swan.apps.api.c.b.az("Api-Storage", str);
+        b bVar = (b) az.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Storage", "parse fail");
@@ -216,17 +216,17 @@ public class a extends c {
             }
             return bVar;
         }
-        String optString = ((JSONObject) aq.second).optString("key");
+        String optString = ((JSONObject) az.second).optString("key");
         if (TextUtils.isEmpty(optString)) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-Storage", "empty key");
             }
             return new b(202, "empty key");
         }
-        return interfaceC0224a.a(acI, optString);
+        return interfaceC0254a.a(akN, optString);
     }
 
-    public static JSONObject fX(String str) {
+    public static JSONObject hl(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

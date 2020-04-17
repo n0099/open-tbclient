@@ -108,7 +108,7 @@ public class AlaLivePKPlayer {
                 this.mNativePlayFlags = 1;
             }
         } else if (this.mAudioPlayer == null) {
-            this.mAudioPlayer = new AlaAudioPlayer(StreamConfig.Audio.AUDIO_FREQUENCY, 4, this.mEnableRtcACE);
+            this.mAudioPlayer = new AlaAudioPlayer(44100, 4, this.mEnableRtcACE);
         }
         if (this.mNDKAdapter != null && this.mNDKAdapter.getNativeObject() != 0) {
             this.mNDKAdapter.setVideoFillModel(1, 2);

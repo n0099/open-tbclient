@@ -1,34 +1,36 @@
 package com.facebook.imagepipeline.g;
+
+import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes13.dex */
 public class g implements h {
-    public static final h lVN = k(Integer.MAX_VALUE, true, true);
-    boolean lVO;
-    boolean lVP;
+    public static final h mdy = i(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, true, true);
     int mQuality;
+    boolean mdA;
+    boolean mdz;
 
     private g(int i, boolean z, boolean z2) {
         this.mQuality = i;
-        this.lVO = z;
-        this.lVP = z2;
+        this.mdz = z;
+        this.mdA = z2;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public int drc() {
+    public int dta() {
         return this.mQuality;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean drd() {
-        return this.lVO;
+    public boolean dtb() {
+        return this.mdz;
     }
 
     @Override // com.facebook.imagepipeline.g.h
-    public boolean dre() {
-        return this.lVP;
+    public boolean dtc() {
+        return this.mdA;
     }
 
     public int hashCode() {
-        return ((this.lVO ? 4194304 : 0) ^ this.mQuality) ^ (this.lVP ? 8388608 : 0);
+        return ((this.mdz ? 4194304 : 0) ^ this.mQuality) ^ (this.mdA ? 8388608 : 0);
     }
 
     public boolean equals(Object obj) {
@@ -37,12 +39,12 @@ public class g implements h {
         }
         if (obj instanceof g) {
             g gVar = (g) obj;
-            return this.mQuality == gVar.mQuality && this.lVO == gVar.lVO && this.lVP == gVar.lVP;
+            return this.mQuality == gVar.mQuality && this.mdz == gVar.mdz && this.mdA == gVar.mdA;
         }
         return false;
     }
 
-    public static h k(int i, boolean z, boolean z2) {
+    public static h i(int i, boolean z, boolean z2) {
         return new g(i, z, z2);
     }
 }

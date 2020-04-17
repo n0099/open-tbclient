@@ -4,13 +4,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.o;
-import com.baidu.adp.widget.ListView.v;
-import com.baidu.adp.widget.ListView.v.a;
+import com.baidu.adp.widget.ListView.y;
+import com.baidu.adp.widget.ListView.y.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes9.dex */
-public abstract class a<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected o iHV;
-    protected com.baidu.tieba.pb.pb.a iYm;
+public abstract class a<T, V extends y.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected com.baidu.tieba.pb.pb.a jIu;
+    protected o jsc;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -23,13 +23,13 @@ public abstract class a<T, V extends v.a> extends com.baidu.adp.widget.ListView.
         super(aVar.getPageContext().getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.iYm = aVar;
+        this.jIu = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
     protected View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.iHV = (o) viewGroup;
+        this.jsc = (o) viewGroup;
         return null;
     }
 

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.view.commonBtn;
 
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -8,93 +9,98 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class a {
-    boolean cVw;
-    protected int dka;
-    int dkb;
-    int dkc;
-    private int dkf;
-    boolean dkg;
-    protected InterfaceC0380a dkm;
-    boolean dkl = true;
-    final int[] dkd = new int[2];
-    int dkh = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int dki = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    int dkj = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds4);
-    int dkk = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-    int bjD = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-    int dke = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+    protected int dJT;
+    int dJU;
+    int dJV;
+    private int dJY;
+    boolean dJZ;
+    protected InterfaceC0411a dKg;
+    boolean duH;
+    boolean dKe = true;
+    GradientDrawable.Orientation dKf = GradientDrawable.Orientation.LEFT_RIGHT;
+    final int[] dJW = new int[2];
+    int dKa = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    int dKb = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    int dKc = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds4);
+    int dKd = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+    int bHL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+    int dJX = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.core.view.commonBtn.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0380a {
-        void aIt();
+    public interface InterfaceC0411a {
+        void aQP();
 
-        void aIu();
+        void aQQ();
 
-        void aIv();
+        void aQR();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract Drawable ak(float f);
+    public abstract Drawable U(float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable aIw() {
-        return lq(this.dkd[0]);
+    public Drawable aQS() {
+        return lC(this.dJW[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable aIx() {
-        return lq(this.dkd[1]);
+    public Drawable aQT() {
+        return lC(this.dJW[1]);
     }
 
-    private Drawable lq(int i) {
+    private Drawable lC(int i) {
         Drawable drawable;
-        if (this.cVw) {
-            drawable = SvgManager.aGG().a(i, this.dkf > 0 ? this.dkf : this.dka, SvgManager.SvgResourceStateType.NORMAL);
+        if (this.duH) {
+            drawable = SvgManager.aOU().a(i, this.dJY > 0 ? this.dJY : this.dJT, SvgManager.SvgResourceStateType.NORMAL);
         } else {
             drawable = am.getDrawable(i);
         }
         if (drawable != null) {
-            drawable.setBounds(0, 0, this.dke, this.dke);
+            drawable.setBounds(0, 0, this.dJX, this.dJX);
         }
         return drawable;
     }
 
     public void k(int i, int i2, boolean z) {
-        if (this.dkd[0] != i || this.dkd[1] != i2 || this.cVw != z) {
-            this.dkd[0] = i;
-            this.dkd[1] = i2;
-            this.cVw = z;
-            if (this.dkm != null) {
-                this.dkm.aIu();
+        if (this.dJW[0] != i || this.dJW[1] != i2 || this.duH != z) {
+            this.dJW[0] = i;
+            this.dJW[1] = i2;
+            this.duH = z;
+            if (this.dKg != null) {
+                this.dKg.aQQ();
             }
         }
     }
 
-    public void lr(int i) {
-        if (i > 0 && this.dke != i) {
-            this.dke = i;
-            if (this.dkm != null) {
-                this.dkm.aIt();
+    public void lD(int i) {
+        if (i > 0 && this.dJX != i) {
+            this.dJX = i;
+            if (this.dKg != null) {
+                this.dKg.aQP();
             }
         }
     }
 
-    public void aG(int i, int i2) {
+    public void aK(int i, int i2) {
         if (i > 0) {
-            this.dkk = i;
+            this.dKd = i;
         }
         if (i2 > 0) {
-            this.bjD = i2;
+            this.bHL = i2;
         }
     }
 
-    public void ls(int i) {
-        this.dkh = i;
+    public void lE(int i) {
+        this.dKa = i;
     }
 
-    public void lt(int i) {
-        this.dki = i;
+    public void lF(int i) {
+        this.dKb = i;
+    }
+
+    public void a(GradientDrawable.Orientation orientation) {
+        this.dKf = orientation;
     }
 }

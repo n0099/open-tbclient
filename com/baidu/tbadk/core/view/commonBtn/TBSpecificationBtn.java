@@ -16,47 +16,47 @@ import com.baidu.tbadk.core.view.commonBtn.a;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class TBSpecificationBtn extends View {
-    public Object djR;
-    private a djS;
-    private Drawable djT;
-    private Drawable djU;
-    private Drawable djV;
-    private boolean djW;
-    private boolean djX;
-    private a.InterfaceC0380a djY;
+    public Object dJK;
+    private a dJL;
+    private Drawable dJM;
+    private Drawable dJN;
+    private Drawable dJO;
+    private boolean dJP;
+    private boolean dJQ;
+    private a.InterfaceC0411a dJR;
     private String text;
     private Paint textPaint;
     private int textWidth;
 
     public TBSpecificationBtn(Context context) {
         super(context);
-        this.djR = null;
+        this.dJK = null;
         this.text = "";
-        this.djW = true;
-        this.djX = true;
-        this.djY = new a.InterfaceC0380a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
-            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0380a
-            public void aIt() {
+        this.dJP = true;
+        this.dJQ = true;
+        this.dJR = new a.InterfaceC0411a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
+            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0411a
+            public void aQP() {
                 int width = TBSpecificationBtn.this.getWidth();
-                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.djS.dkh * 2) != width) {
+                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dJL.dKa * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
                 }
             }
 
-            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0380a
-            public void aIu() {
-                TBSpecificationBtn.this.aIr();
+            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0411a
+            public void aQQ() {
+                TBSpecificationBtn.this.aQN();
                 int width = TBSpecificationBtn.this.getWidth();
-                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.djS.dkh * 2) != width) {
+                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dJL.dKa * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
                 } else {
                     TBSpecificationBtn.this.invalidate();
                 }
             }
 
-            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0380a
-            public void aIv() {
-                TBSpecificationBtn.this.aIs();
+            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0411a
+            public void aQR() {
+                TBSpecificationBtn.this.aQO();
                 TBSpecificationBtn.this.invalidate();
             }
         };
@@ -65,33 +65,33 @@ public class TBSpecificationBtn extends View {
 
     public TBSpecificationBtn(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.djR = null;
+        this.dJK = null;
         this.text = "";
-        this.djW = true;
-        this.djX = true;
-        this.djY = new a.InterfaceC0380a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
-            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0380a
-            public void aIt() {
+        this.dJP = true;
+        this.dJQ = true;
+        this.dJR = new a.InterfaceC0411a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
+            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0411a
+            public void aQP() {
                 int width = TBSpecificationBtn.this.getWidth();
-                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.djS.dkh * 2) != width) {
+                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dJL.dKa * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
                 }
             }
 
-            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0380a
-            public void aIu() {
-                TBSpecificationBtn.this.aIr();
+            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0411a
+            public void aQQ() {
+                TBSpecificationBtn.this.aQN();
                 int width = TBSpecificationBtn.this.getWidth();
-                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.djS.dkh * 2) != width) {
+                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dJL.dKa * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
                 } else {
                     TBSpecificationBtn.this.invalidate();
                 }
             }
 
-            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0380a
-            public void aIv() {
-                TBSpecificationBtn.this.aIs();
+            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0411a
+            public void aQR() {
+                TBSpecificationBtn.this.aQO();
                 TBSpecificationBtn.this.invalidate();
             }
         };
@@ -100,33 +100,33 @@ public class TBSpecificationBtn extends View {
 
     public TBSpecificationBtn(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.djR = null;
+        this.dJK = null;
         this.text = "";
-        this.djW = true;
-        this.djX = true;
-        this.djY = new a.InterfaceC0380a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
-            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0380a
-            public void aIt() {
+        this.dJP = true;
+        this.dJQ = true;
+        this.dJR = new a.InterfaceC0411a() { // from class: com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn.1
+            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0411a
+            public void aQP() {
                 int width = TBSpecificationBtn.this.getWidth();
-                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.djS.dkh * 2) != width) {
+                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dJL.dKa * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
                 }
             }
 
-            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0380a
-            public void aIu() {
-                TBSpecificationBtn.this.aIr();
+            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0411a
+            public void aQQ() {
+                TBSpecificationBtn.this.aQN();
                 int width = TBSpecificationBtn.this.getWidth();
-                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.djS.dkh * 2) != width) {
+                if (width > 0 && TBSpecificationBtn.this.getLayoutParams().width == -2 && TBSpecificationBtn.this.getContentWidth() + (TBSpecificationBtn.this.dJL.dKa * 2) != width) {
                     TBSpecificationBtn.this.requestLayout();
                 } else {
                     TBSpecificationBtn.this.invalidate();
                 }
             }
 
-            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0380a
-            public void aIv() {
-                TBSpecificationBtn.this.aIs();
+            @Override // com.baidu.tbadk.core.view.commonBtn.a.InterfaceC0411a
+            public void aQR() {
+                TBSpecificationBtn.this.aQO();
                 TBSpecificationBtn.this.invalidate();
             }
         };
@@ -134,8 +134,8 @@ public class TBSpecificationBtn extends View {
     }
 
     private void init() {
-        this.djS = new c();
-        this.djS.dkm = this.djY;
+        this.dJL = new c();
+        this.dJL.dKg = this.dJR;
         this.textPaint = new Paint();
         this.textPaint.setTextSize(l.getDimens(getContext(), R.dimen.tbds36));
         this.textPaint.setAntiAlias(true);
@@ -143,14 +143,14 @@ public class TBSpecificationBtn extends View {
 
     public void setConfig(a aVar) {
         if (aVar != null) {
-            this.djS = aVar;
-            this.djS.dkm = this.djY;
-            this.djW = true;
+            this.dJL = aVar;
+            this.dJL.dKg = this.dJR;
+            this.dJP = true;
         }
     }
 
     public a getStyleConfig() {
-        return this.djS;
+        return this.dJL;
     }
 
     public void setText(String str) {
@@ -162,7 +162,7 @@ public class TBSpecificationBtn extends View {
         int width = getWidth();
         if (width > 0) {
             if (getLayoutParams().width == -2) {
-                if (getContentWidth() + (this.djS.dkh * 2) != width) {
+                if (getContentWidth() + (this.dJL.dKa * 2) != width) {
                     requestLayout();
                     return;
                 } else {
@@ -178,37 +178,37 @@ public class TBSpecificationBtn extends View {
         this.textPaint.setTextSize(l.getDimens(getContext(), i));
         this.textWidth = (int) this.textPaint.measureText(this.text);
         int width = getWidth();
-        if (width > 0 && getLayoutParams().width == -2 && getContentWidth() + (this.djS.dkh * 2) != width) {
+        if (width > 0 && getLayoutParams().width == -2 && getContentWidth() + (this.dJL.dKa * 2) != width) {
             requestLayout();
             return;
         }
         int height = getHeight();
-        if (height > 0 && getLayoutParams().height == -2 && ((int) this.textPaint.getTextSize()) + (this.djS.dki * 2) != height) {
+        if (height > 0 && getLayoutParams().height == -2 && ((int) this.textPaint.getTextSize()) + (this.dJL.dKb * 2) != height) {
             requestLayout();
         }
     }
 
     public void setClickState(boolean z) {
-        this.djX = z;
+        this.dJQ = z;
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int measureWidth = measureWidth(i);
-        setMeasuredDimension(measureWidth, !this.djS.dkg ? measureHeight(i2) : measureWidth);
+        setMeasuredDimension(measureWidth, !this.dJL.dJZ ? measureHeight(i2) : measureWidth);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIr() {
-        this.djU = this.djS.aIw();
-        this.djV = this.djS.aIx();
+    public void aQN() {
+        this.dJN = this.dJL.aQS();
+        this.dJO = this.dJL.aQT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIs() {
+    public void aQO() {
         if (getHeight() != 0) {
-            this.djT = this.djS.ak(getHeight() / 2);
+            this.dJM = this.dJL.U(getHeight() / 2);
         }
     }
 
@@ -217,7 +217,7 @@ public class TBSpecificationBtn extends View {
         if (View.MeasureSpec.getMode(i) == 1073741824) {
             return View.MeasureSpec.getSize(i);
         }
-        return (int) Math.max(this.djS.dkk, contentWidth + (this.djS.dkh * 2) + getPaddingLeft() + getPaddingRight());
+        return (int) Math.max(this.dJL.dKd, contentWidth + (this.dJL.dKa * 2) + getPaddingLeft() + getPaddingRight());
     }
 
     private int measureHeight(int i) {
@@ -225,22 +225,22 @@ public class TBSpecificationBtn extends View {
         if (View.MeasureSpec.getMode(i) == 1073741824) {
             return View.MeasureSpec.getSize(i);
         }
-        return (int) Math.max(this.djS.bjD, textSize + (this.djS.dki * 2) + getPaddingTop() + getPaddingBottom());
+        return (int) Math.max(this.dJL.bHL, textSize + (this.dJL.dKb * 2) + getPaddingTop() + getPaddingBottom());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getContentWidth() {
         int i = 0;
-        if (this.djS.dkd[0] > 0) {
-            i = this.djS.dke;
+        if (this.dJL.dJW[0] > 0) {
+            i = this.dJL.dJX;
             if (!StringUtils.isNull(this.text)) {
-                i += this.djS.dkj;
+                i += this.dJL.dKc;
             }
         }
-        if (this.djS.dkd[1] > 0) {
-            i = this.djS.dke;
+        if (this.dJL.dJW[1] > 0) {
+            i = this.dJL.dJX;
             if (!StringUtils.isNull(this.text)) {
-                i += this.djS.dkj;
+                i += this.dJL.dKc;
             }
         }
         return i + this.textWidth;
@@ -248,67 +248,55 @@ public class TBSpecificationBtn extends View {
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.djW) {
-            aIs();
-            aIr();
-            this.djW = false;
+        if (this.dJP) {
+            aQO();
+            aQN();
+            this.dJP = false;
         }
-        if (this.djT != null) {
-            if (this.djT instanceof GradientDrawable) {
-                ((GradientDrawable) this.djT).setCornerRadius(getHeight() / 2);
+        if (this.dJM != null) {
+            if (this.dJM instanceof GradientDrawable) {
+                ((GradientDrawable) this.dJM).setCornerRadius(getHeight() / 2);
             }
-            this.djT.setBounds(0, 0, getWidth(), getHeight());
-            this.djT.draw(canvas);
+            this.dJM.setBounds(0, 0, getWidth(), getHeight());
+            this.dJM.draw(canvas);
         }
         int width = ((getWidth() - getContentWidth()) - getPaddingRight()) / 2;
         int height = (getHeight() + getPaddingTop()) / 2;
-        int i = this.djS.dke / 2;
-        if (this.djU != null) {
-            this.djU.setBounds(width, height - i, this.djS.dke + width, height + i);
-            this.djU.draw(canvas);
-            width += this.djS.dke + this.djS.dkj;
+        int i = this.dJL.dJX / 2;
+        if (this.dJN != null) {
+            this.dJN.setBounds(width, height - i, this.dJL.dJX + width, height + i);
+            this.dJN.draw(canvas);
+            width += this.dJL.dJX + this.dJL.dKc;
         }
-        if (this.djV != null) {
-            this.djV.setBounds(this.djS.dkj + width, height - i, this.djS.dkj + width + this.djS.dke, height + i);
-            this.djV.draw(canvas);
+        if (this.dJO != null) {
+            this.dJO.setBounds(this.dJL.dKc + width, height - i, this.dJL.dKc + width + this.dJL.dJX, height + i);
+            this.dJO.draw(canvas);
         }
         if (!StringUtils.isNull(this.text)) {
             Paint.FontMetrics fontMetrics = this.textPaint.getFontMetrics();
             float height2 = ((((getHeight() - getPaddingBottom()) + getPaddingTop()) + this.textPaint.getTextSize()) / 2.0f) - (fontMetrics.ascent - fontMetrics.top);
-            this.textPaint.setColor(this.djS.dkl ? am.getColor(this.djS.dka) : this.djS.dka);
+            this.textPaint.setColor(this.dJL.dKe ? am.getColor(this.dJL.dJT) : this.dJL.dJT);
             canvas.drawText(this.text, width, height2, this.textPaint);
         }
     }
 
     @Override // android.view.View
     protected void drawableStateChanged() {
-        boolean z = true;
-        boolean z2 = false;
-        int[] drawableState = getDrawableState();
-        int length = drawableState.length;
-        int i = 0;
-        while (true) {
-            if (i < length) {
-                int i2 = drawableState[i];
-                if (i2 == -16842910) {
-                    break;
-                } else if (i2 == 16842919) {
-                    z = false;
-                    z2 = true;
-                    break;
-                } else {
-                    i++;
-                }
-            } else {
-                z = false;
-                break;
+        int[] drawableState;
+        boolean z = false;
+        boolean z2 = true;
+        for (int i : getDrawableState()) {
+            if (i == 16842910) {
+                z2 = false;
+            } else if (i == 16842919) {
+                z = true;
             }
         }
-        if (!this.djX) {
+        if (!this.dJQ) {
             setAlpha(1.0f);
-        } else if (z) {
-            setAlpha(0.3f);
         } else if (z2) {
+            setAlpha(0.3f);
+        } else if (z) {
             setAlpha(0.5f);
         } else {
             setAlpha(1.0f);
@@ -316,9 +304,9 @@ public class TBSpecificationBtn extends View {
         super.drawableStateChanged();
     }
 
-    public void aHS() {
-        aIr();
-        aIs();
+    public void aQp() {
+        aQN();
+        aQO();
         invalidate();
     }
 }

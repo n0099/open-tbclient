@@ -5,22 +5,22 @@ import com.baidu.swan.d.c;
 import java.io.File;
 /* loaded from: classes11.dex */
 public final class b {
-    public static File RW() {
+    public static File ZL() {
         return new File(ac.getStorageList().get(0).mPath, "/aiapps_debug_extension_core/");
     }
 
-    public static void RX() {
-        File RW = RW();
-        if (RW.exists()) {
-            c.deleteFile(RW);
+    public static void ZM() {
+        File ZL = ZL();
+        if (ZL.exists()) {
+            c.deleteFile(ZL);
         }
     }
 
-    public static File RY() {
-        File RW = RW();
-        if (!RW.exists()) {
-            RW.mkdirs();
+    public static File ZN() {
+        File ZL = ZL();
+        if (!ZL.exists()) {
+            ZL.mkdirs();
         }
-        return new File(RW, "debugExtensionCore.zip");
+        return new File(ZL, "debugExtensionCore.zip");
     }
 }

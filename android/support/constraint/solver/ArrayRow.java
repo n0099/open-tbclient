@@ -2,7 +2,6 @@ package android.support.constraint.solver;
 
 import android.support.constraint.solver.LinearSystem;
 import android.support.constraint.solver.SolverVariable;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 /* loaded from: classes7.dex */
 public class ArrayRow implements LinearSystem.Row {
     private static final boolean DEBUG = false;
@@ -65,7 +64,7 @@ public class ArrayRow implements LinearSystem.Row {
                     if (f == 1.0f) {
                         str2 = str4 + solverVariable;
                     } else {
-                        str2 = str4 + f + HanziToPinyin.Token.SEPARATOR + solverVariable;
+                        str2 = str4 + f + " " + solverVariable;
                     }
                     str4 = str2;
                     z = true;

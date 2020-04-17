@@ -1,13 +1,13 @@
 package com.baidu.swan.ubc;
 /* loaded from: classes11.dex */
 class f {
-    private String cEQ;
-    private String cER;
-    private int cES;
-    private String cET;
-    private int cEU;
-    private int cEV;
-    private String cEW;
+    private String ddQ;
+    private String ddR;
+    private int ddS;
+    private String ddT;
+    private int ddU;
+    private int ddV;
+    private String ddW;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,14 +15,14 @@ class f {
 
     public f(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.cEQ = str2;
-        this.cER = str3;
-        this.cES = i;
+        this.ddQ = str2;
+        this.ddR = str3;
+        this.ddS = i;
         this.mType = str4;
-        this.cET = str5;
+        this.ddT = str5;
     }
 
-    public void iU(int i) {
+    public void jb(int i) {
         this.mRate = i;
     }
 
@@ -30,39 +30,39 @@ class f {
         this.mCategory = str;
     }
 
-    public void iV(int i) {
-        this.cEU = i;
+    public void jc(int i) {
+        this.ddU = i;
     }
 
-    public void iW(int i) {
-        this.cEV = i;
+    public void jd(int i) {
+        this.ddV = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String avp() {
-        return this.cEQ;
+    public String aDA() {
+        return this.ddQ;
     }
 
-    public String avq() {
-        return this.cER;
+    public String aDB() {
+        return this.ddR;
     }
 
     public int getTimeout() {
-        return this.cES;
+        return this.ddS;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String avr() {
-        return this.cET;
+    public String aDC() {
+        return this.ddT;
     }
 
-    public int avs() {
+    public int aDD() {
         return this.mRate;
     }
 
@@ -70,19 +70,19 @@ class f {
         return this.mCategory;
     }
 
-    public int avt() {
-        return this.cEU;
+    public int aDE() {
+        return this.ddU;
     }
 
-    public int avu() {
-        return this.cEV;
+    public int aDF() {
+        return this.ddV;
     }
 
-    public void qV(String str) {
-        this.cEW = str;
+    public void si(String str) {
+        this.ddW = str;
     }
 
-    public String avv() {
-        return this.cEW;
+    public String aDG() {
+        return this.ddW;
     }
 }

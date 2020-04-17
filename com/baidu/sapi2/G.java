@@ -9,8 +9,8 @@ import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.FillUsernameCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
@@ -228,7 +228,7 @@ public final class G {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(SapiCallBack<SapiResponse> sapiCallBack, String str) {
         try {
-            int parseInt = Integer.parseInt(new JSONObject(str).optString("errno"));
+            int parseInt = Integer.parseInt(new JSONObject(str).optString(BaseJsonData.TAG_ERRNO));
             if (parseInt != 0) {
                 sapiCallBack.onSystemError(parseInt);
             } else {
@@ -245,7 +245,7 @@ public final class G {
     /* JADX INFO: Access modifiers changed from: package-private */
     public int b(String str) {
         try {
-            return new JSONObject(str).getInt("errno");
+            return new JSONObject(str).getInt(BaseJsonData.TAG_ERRNO);
         } catch (Exception e) {
             Log.e(e);
             return -100;
@@ -565,7 +565,7 @@ public final class G {
             a2.put("json", "1");
             a2.put("type", SocialType.IQIYI.getType() + "");
             a2.put("act", "special");
-            a2.put(LogConfig.KEY_DISPLAY, "native");
+            a2.put("display", "native");
             new HttpClientWrap().get(i(), a2, null, w(), new p(this, Looper.getMainLooper(), iqiyiLoginCallback, iqiyiLoginResult));
             return;
         }

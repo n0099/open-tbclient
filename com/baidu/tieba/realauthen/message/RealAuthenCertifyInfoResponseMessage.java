@@ -17,7 +17,7 @@ public class RealAuthenCertifyInfoResponseMessage extends JsonHttpResponsedMessa
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.errno = jSONObject.optInt("errno");
+            this.errno = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
             this.errmsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
         }
     }

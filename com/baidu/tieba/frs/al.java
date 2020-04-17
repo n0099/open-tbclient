@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface al {
-    String getForumId();
+    void bOe();
 
-    String getForumName();
+    void bmn();
 }

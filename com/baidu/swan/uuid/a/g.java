@@ -17,22 +17,22 @@ public class g implements b<String> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
     public void put(String str) {
-        rm(str);
+        sA(str);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: agM */
+    /* renamed from: aoS */
     public String get() {
-        return aws();
+        return aED();
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean awm() {
+    public boolean aEx() {
         return TextUtils.isEmpty(get());
     }
 
-    private void rm(String str) {
+    private void sA(String str) {
         if (com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.WRITE_SETTINGS")) {
             try {
                 Settings.System.putString(this.mContext.getContentResolver(), "com.baidu.uuid", str);
@@ -41,7 +41,7 @@ public class g implements b<String> {
         }
     }
 
-    private String aws() {
+    private String aED() {
         if (com.baidu.swan.uuid.b.c.hasPermission(this.mContext, "android.permission.WRITE_SETTINGS")) {
             try {
                 return Settings.System.getString(this.mContext.getContentResolver(), "com.baidu.uuid");

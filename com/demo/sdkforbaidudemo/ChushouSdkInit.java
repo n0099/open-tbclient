@@ -56,9 +56,9 @@ public class ChushouSdkInit {
             hashMap.put("from", from);
         }
         hashMap.put("net_type", String.valueOf(j.netType()));
-        String aSq = w.aSq();
-        if (!TextUtils.isEmpty(aSq)) {
-            hashMap.put("oaid", aSq);
+        String baz = w.baz();
+        if (!TextUtils.isEmpty(baz)) {
+            hashMap.put("oaid", baz);
         }
         hashMap.put("cuid", TbadkCoreApplication.getInst().getCuid());
         hashMap.put("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());

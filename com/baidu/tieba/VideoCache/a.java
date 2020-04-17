@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private List<d> dWV = new ArrayList();
-    private long dWW = 0;
+    private List<d> ewP = new ArrayList();
+    private long ewQ = 0;
 
-    public List<d> aXa() {
-        return this.dWV;
+    public List<d> bfe() {
+        return this.ewP;
     }
 
-    public long aXb() {
-        return this.dWW;
+    public long bff() {
+        return this.ewQ;
     }
 
     public void a(d dVar) {
-        if (this.dWV != null) {
-            this.dWV.add(dVar);
+        if (this.ewP != null) {
+            this.ewP.add(dVar);
             if (dVar != null) {
-                this.dWW += dVar.getCurrentSize();
+                this.ewQ += dVar.bfo();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.dWV != null) {
-            this.dWV.remove(dVar);
+        if (this.ewP != null) {
+            this.ewP.remove(dVar);
             if (dVar != null) {
-                this.dWW -= dVar.getCurrentSize();
+                this.ewQ -= dVar.bfo();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.dWV != null) {
-            d dVar = this.dWV.get(i);
+        if (this.ewP != null) {
+            d dVar = this.ewP.get(i);
             if (dVar != null) {
-                this.dWW -= dVar.getCurrentSize();
+                this.ewQ -= dVar.bfo();
             }
-            this.dWV.remove(i);
+            this.ewP.remove(i);
         }
     }
 
-    public int aXc() {
-        if (this.dWV != null) {
-            return this.dWV.size();
+    public int bfg() {
+        if (this.ewP != null) {
+            return this.ewP.size();
         }
         return 0;
     }
 
-    public d nZ(int i) {
-        if (this.dWV != null) {
-            return this.dWV.get(i);
+    public d om(int i) {
+        if (this.ewP != null) {
+            return this.ewP.get(i);
         }
         return null;
     }

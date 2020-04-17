@@ -15,9 +15,9 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static final ProtoAdapter<SpriteEntity> ADAPTER = new ProtoAdapter_SpriteEntity();
     public static final String DEFAULT_IMAGEKEY = "";
     private static final long serialVersionUID = 0;
-    @WireField(dGX = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", dGY = WireField.Label.REPEATED, tag = 2)
+    @WireField(dAZ = "com.opensource.svgaplayer.proto.FrameEntity#ADAPTER", dBa = WireField.Label.REPEATED, tag = 2)
     public final List<FrameEntity> frames;
-    @WireField(dGX = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
     public SpriteEntity(String str, List<FrameEntity> list) {
@@ -27,7 +27,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public SpriteEntity(String str, List<FrameEntity> list, ByteString byteString) {
         super(ADAPTER, byteString);
         this.imageKey = str;
-        this.frames = a.u("frames", list);
+        this.frames = a.v("frames", list);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,7 +37,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public Message.a<SpriteEntity, Builder> newBuilder2() {
         Builder builder = new Builder();
         builder.imageKey = this.imageKey;
-        builder.frames = a.t("frames", this.frames);
+        builder.frames = a.u("frames", this.frames);
         builder.addUnknownFields(unknownFields());
         return builder;
     }
@@ -77,7 +77,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
-        public List<FrameEntity> frames = a.dHa();
+        public List<FrameEntity> frames = a.dBc();
         public String imageKey;
 
         public Builder imageKey(String str) {
@@ -86,7 +86,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
 
         public Builder frames(List<FrameEntity> list) {
-            a.fq(list);
+            a.fe(list);
             this.frames = list;
             return this;
         }
@@ -126,11 +126,11 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public SpriteEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dGP = cVar.dGP();
+            long dAR = cVar.dAR();
             while (true) {
-                int dGQ = cVar.dGQ();
-                if (dGQ != -1) {
-                    switch (dGQ) {
+                int dAS = cVar.dAS();
+                if (dAS != -1) {
+                    switch (dAS) {
                         case 1:
                             builder.imageKey(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -138,12 +138,12 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                             builder.frames.add(FrameEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dGR = cVar.dGR();
-                            builder.addUnknownField(dGQ, dGR, dGR.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dAT = cVar.dAT();
+                            builder.addUnknownField(dAS, dAT, dAT.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.ha(dGP);
+                    cVar.gc(dAR);
                     return builder.build();
                 }
             }

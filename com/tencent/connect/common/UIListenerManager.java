@@ -4,7 +4,6 @@ import android.content.Intent;
 import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobads.openad.c.b;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
 import com.tencent.open.utils.j;
@@ -121,7 +120,7 @@ public class UIListenerManager {
         } else if ("action_share".equals(stringExtra)) {
             String stringExtra3 = intent.getStringExtra("result");
             String stringExtra4 = intent.getStringExtra(IIntercepter.TYPE_RESPONSE);
-            if (UgcUBCUtils.UGC_TIME_CANCEL.equals(stringExtra3)) {
+            if ("cancel".equals(stringExtra3)) {
                 iUiListener.onCancel();
             } else if (BdStatsConstant.StatsType.ERROR.equals(stringExtra3)) {
                 iUiListener.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
@@ -187,7 +186,7 @@ public class UIListenerManager {
             } else if ("action_share".equals(stringExtra)) {
                 String stringExtra3 = intent.getStringExtra("result");
                 String stringExtra4 = intent.getStringExtra(IIntercepter.TYPE_RESPONSE);
-                if (UgcUBCUtils.UGC_TIME_CANCEL.equals(stringExtra3)) {
+                if ("cancel".equals(stringExtra3)) {
                     iUiListener2.onCancel();
                 } else if (BdStatsConstant.StatsType.ERROR.equals(stringExtra3)) {
                     iUiListener2.onError(new UiError(-6, "unknown error", stringExtra4 + ""));

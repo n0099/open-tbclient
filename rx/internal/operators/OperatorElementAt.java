@@ -1,13 +1,12 @@
 package rx.internal.operators;
 
-import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.d;
 /* loaded from: classes6.dex */
 public final class OperatorElementAt<T> implements d.b<T, T> {
     final T defaultValue;
     final int index;
-    final boolean nRp;
+    final boolean nkV;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -37,7 +36,7 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             @Override // rx.e
             public void onCompleted() {
                 if (this.currentIndex <= OperatorElementAt.this.index) {
-                    if (OperatorElementAt.this.nRp) {
+                    if (OperatorElementAt.this.nkV) {
                         jVar.onNext(OperatorElementAt.this.defaultValue);
                         jVar.onCompleted();
                         return;
@@ -70,7 +69,7 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
                 throw new IllegalArgumentException("n >= 0 required");
             }
             if (j > 0 && compareAndSet(false, true)) {
-                this.actual.request(Format.OFFSET_SAMPLE_RELATIVE);
+                this.actual.request(Long.MAX_VALUE);
             }
         }
     }

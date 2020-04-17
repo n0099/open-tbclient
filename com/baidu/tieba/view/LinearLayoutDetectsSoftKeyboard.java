@@ -10,12 +10,12 @@ import com.baidu.adp.lib.util.l;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
-    private a kKx;
+    private a luL;
     Rect rect;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bp(boolean z);
+        void bT(boolean z);
     }
 
     public LinearLayoutDetectsSoftKeyboard(Context context, AttributeSet attributeSet) {
@@ -24,7 +24,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     }
 
     public void setOnSoftKeyBoardShownListener(a aVar) {
-        this.kKx = aVar;
+        this.luL = aVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -34,21 +34,21 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         Activity activity = (Activity) getContext();
         activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.rect);
         int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.rect.top) - size;
-        if (this.kKx != null) {
+        if (this.luL != null) {
             if (MenuKeyUtils.hasSmartBar()) {
                 if (height > l.dip2px(activity, 48.0f) + 128) {
                     z = true;
-                    this.kKx.bp(z);
+                    this.luL.bT(z);
                 }
                 z = false;
-                this.kKx.bp(z);
+                this.luL.bT(z);
             } else {
                 if (height > 128) {
                     z = true;
-                    this.kKx.bp(z);
+                    this.luL.bT(z);
                 }
                 z = false;
-                this.kKx.bp(z);
+                this.luL.bT(z);
             }
         }
         super.onMeasure(i, i2);

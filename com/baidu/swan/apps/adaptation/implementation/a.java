@@ -7,49 +7,49 @@ import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.swan.apps.adaptation.a.j {
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public int Hc() {
+    public int OP() {
         return 10150;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public boolean Hd() {
+    public boolean OQ() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public boolean He() {
+    public boolean OR() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public int Hf() {
+    public int OS() {
         return 5000;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public void dS(int i) {
+    public void dX(int i) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public void Hg() {
-        com.baidu.swan.apps.core.j.b.bX(AppRuntime.getAppContext()).Hg();
+    public void OT() {
+        com.baidu.swan.apps.core.j.b.bL(AppRuntime.getAppContext()).OT();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public void a(final a.InterfaceC0245a interfaceC0245a) {
-        com.baidu.swan.apps.core.j.b.bX(AppRuntime.getAppContext()).a(new b.a() { // from class: com.baidu.swan.apps.adaptation.implementation.a.1
+    public void a(final a.InterfaceC0275a interfaceC0275a) {
+        com.baidu.swan.apps.core.j.b.bL(AppRuntime.getAppContext()).a(new b.a() { // from class: com.baidu.swan.apps.adaptation.implementation.a.1
             @Override // com.baidu.swan.apps.core.j.b.a
-            public void Hi() {
-                if (interfaceC0245a != null) {
-                    interfaceC0245a.Hi();
+            public void OV() {
+                if (interfaceC0275a != null) {
+                    interfaceC0275a.OV();
                 }
-                com.baidu.swan.apps.core.j.b.bX(AppRuntime.getAppContext()).b(this);
+                com.baidu.swan.apps.core.j.b.bL(AppRuntime.getAppContext()).b(this);
             }
         });
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.j
-    public VideoPlayerFactory Hh() {
+    public VideoPlayerFactory OU() {
         return null;
     }
 }

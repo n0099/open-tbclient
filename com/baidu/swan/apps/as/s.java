@@ -23,7 +23,7 @@ public final class s {
         }
     }
 
-    public static JSONArray mL(String str) {
+    public static JSONArray nY(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONArray();
         }

@@ -11,15 +11,15 @@ import master.flame.danmaku.danmaku.model.l;
 public class d implements l {
     private int mSize;
     private int mSortType;
-    public Collection<master.flame.danmaku.danmaku.model.d> nJQ;
-    private d nJR;
-    private master.flame.danmaku.danmaku.model.d nJS;
-    private master.flame.danmaku.danmaku.model.d nJT;
-    private master.flame.danmaku.danmaku.model.d nJU;
-    private master.flame.danmaku.danmaku.model.d nJV;
-    private l.a nJW;
-    private boolean nJX;
-    private Object nJY;
+    private boolean ndA;
+    private Object ndB;
+    public Collection<master.flame.danmaku.danmaku.model.d> ndt;
+    private d ndu;
+    private master.flame.danmaku.danmaku.model.d ndv;
+    private master.flame.danmaku.danmaku.model.d ndw;
+    private master.flame.danmaku.danmaku.model.d ndx;
+    private master.flame.danmaku.danmaku.model.d ndy;
+    private l.a ndz;
 
     public d() {
         this(0, false);
@@ -32,7 +32,7 @@ public class d implements l {
     public d(int i, boolean z) {
         this.mSize = 0;
         this.mSortType = 0;
-        this.nJY = new Object();
+        this.ndB = new Object();
         l.a aVar = null;
         if (i == 0) {
             aVar = new l.d(z);
@@ -42,12 +42,12 @@ public class d implements l {
             aVar = new l.f(z);
         }
         if (i == 4) {
-            this.nJQ = new LinkedList();
+            this.ndt = new LinkedList();
         } else {
-            this.nJX = z;
-            aVar.wT(z);
-            this.nJQ = new TreeSet(aVar);
-            this.nJW = aVar;
+            this.ndA = z;
+            aVar.wy(z);
+            this.ndt = new TreeSet(aVar);
+            this.ndz = aVar;
         }
         this.mSortType = i;
         this.mSize = 0;
@@ -56,7 +56,7 @@ public class d implements l {
     public d(Collection<master.flame.danmaku.danmaku.model.d> collection) {
         this.mSize = 0;
         this.mSortType = 0;
-        this.nJY = new Object();
+        this.ndB = new Object();
         o(collection);
     }
 
@@ -65,12 +65,12 @@ public class d implements l {
     }
 
     public void o(Collection<master.flame.danmaku.danmaku.model.d> collection) {
-        if (this.nJX && this.mSortType != 4) {
-            this.nJQ.clear();
-            this.nJQ.addAll(collection);
-            collection = this.nJQ;
+        if (this.ndA && this.mSortType != 4) {
+            this.ndt.clear();
+            this.ndt.addAll(collection);
+            collection = this.ndt;
         } else {
-            this.nJQ = collection;
+            this.ndt = collection;
         }
         if (collection instanceof List) {
             this.mSortType = 4;
@@ -80,9 +80,9 @@ public class d implements l {
 
     @Override // master.flame.danmaku.danmaku.model.l
     public boolean k(master.flame.danmaku.danmaku.model.d dVar) {
-        if (this.nJQ != null) {
+        if (this.ndt != null) {
             try {
-                if (this.nJQ.add(dVar)) {
+                if (this.ndt.add(dVar)) {
                     this.mSize++;
                     return true;
                 }
@@ -98,82 +98,82 @@ public class d implements l {
         if (dVar == null) {
             return false;
         }
-        if (dVar.dMk()) {
+        if (dVar.dFk()) {
             dVar.setVisibility(false);
         }
-        if (this.nJQ.remove(dVar)) {
+        if (this.ndt.remove(dVar)) {
             this.mSize--;
             return true;
         }
         return false;
     }
 
-    private Collection<master.flame.danmaku.danmaku.model.d> aj(long j, long j2) {
-        if (this.mSortType == 4 || this.nJQ == null || this.nJQ.size() == 0) {
+    private Collection<master.flame.danmaku.danmaku.model.d> R(long j, long j2) {
+        if (this.mSortType == 4 || this.ndt == null || this.ndt.size() == 0) {
             return null;
         }
-        if (this.nJR == null) {
-            this.nJR = new d(this.nJX);
-            this.nJR.nJY = this.nJY;
+        if (this.ndu == null) {
+            this.ndu = new d(this.ndA);
+            this.ndu.ndB = this.ndB;
         }
-        if (this.nJV == null) {
-            this.nJV = Sn("start");
+        if (this.ndy == null) {
+            this.ndy = PC("start");
         }
-        if (this.nJU == null) {
-            this.nJU = Sn("end");
+        if (this.ndx == null) {
+            this.ndx = PC("end");
         }
-        this.nJV.setTime(j);
-        this.nJU.setTime(j2);
-        return ((SortedSet) this.nJQ).subSet(this.nJV, this.nJU);
+        this.ndy.setTime(j);
+        this.ndx.setTime(j2);
+        return ((SortedSet) this.ndt).subSet(this.ndy, this.ndx);
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public l ag(long j, long j2) {
-        Collection<master.flame.danmaku.danmaku.model.d> aj = aj(j, j2);
-        if (aj == null || aj.isEmpty()) {
+    public l O(long j, long j2) {
+        Collection<master.flame.danmaku.danmaku.model.d> R = R(j, j2);
+        if (R == null || R.isEmpty()) {
             return null;
         }
-        return new d(new LinkedList(aj));
+        return new d(new LinkedList(R));
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public l ah(long j, long j2) {
-        if (this.nJQ == null || this.nJQ.size() == 0) {
+    public l P(long j, long j2) {
+        if (this.ndt == null || this.ndt.size() == 0) {
             return null;
         }
-        if (this.nJR == null) {
+        if (this.ndu == null) {
             if (this.mSortType == 4) {
-                this.nJR = new d(4);
-                this.nJR.nJY = this.nJY;
-                synchronized (this.nJY) {
-                    this.nJR.o(this.nJQ);
+                this.ndu = new d(4);
+                this.ndu.ndB = this.ndB;
+                synchronized (this.ndB) {
+                    this.ndu.o(this.ndt);
                 }
             } else {
-                this.nJR = new d(this.nJX);
-                this.nJR.nJY = this.nJY;
+                this.ndu = new d(this.ndA);
+                this.ndu.ndB = this.ndB;
             }
         }
         if (this.mSortType == 4) {
-            return this.nJR;
+            return this.ndu;
         }
-        if (this.nJS == null) {
-            this.nJS = Sn("start");
+        if (this.ndv == null) {
+            this.ndv = PC("start");
         }
-        if (this.nJT == null) {
-            this.nJT = Sn("end");
+        if (this.ndw == null) {
+            this.ndw = PC("end");
         }
-        if (this.nJR != null && j - this.nJS.dMt() >= 0 && j2 <= this.nJT.dMt()) {
-            return this.nJR;
+        if (this.ndu != null && j - this.ndv.dFt() >= 0 && j2 <= this.ndw.dFt()) {
+            return this.ndu;
         }
-        this.nJS.setTime(j);
-        this.nJT.setTime(j2);
-        synchronized (this.nJY) {
-            this.nJR.o(((SortedSet) this.nJQ).subSet(this.nJS, this.nJT));
+        this.ndv.setTime(j);
+        this.ndw.setTime(j2);
+        synchronized (this.ndB) {
+            this.ndu.o(((SortedSet) this.ndt).subSet(this.ndv, this.ndw));
         }
-        return this.nJR;
+        return this.ndu;
     }
 
-    private master.flame.danmaku.danmaku.model.d Sn(String str) {
+    private master.flame.danmaku.danmaku.model.d PC(String str) {
         return new master.flame.danmaku.danmaku.model.e(str);
     }
 
@@ -184,77 +184,77 @@ public class d implements l {
 
     @Override // master.flame.danmaku.danmaku.model.l
     public void clear() {
-        if (this.nJQ != null) {
-            this.nJQ.clear();
+        if (this.ndt != null) {
+            this.ndt.clear();
             this.mSize = 0;
         }
-        if (this.nJR != null) {
-            this.nJR = null;
-            this.nJS = Sn("start");
-            this.nJT = Sn("end");
+        if (this.ndu != null) {
+            this.ndu = null;
+            this.ndv = PC("start");
+            this.ndw = PC("end");
         }
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public master.flame.danmaku.danmaku.model.d dMB() {
-        if (this.nJQ != null && !this.nJQ.isEmpty()) {
+    public master.flame.danmaku.danmaku.model.d dFB() {
+        if (this.ndt != null && !this.ndt.isEmpty()) {
             if (this.mSortType == 4) {
-                return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.nJQ).peek();
+                return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.ndt).peek();
             }
-            return (master.flame.danmaku.danmaku.model.d) ((SortedSet) this.nJQ).first();
+            return (master.flame.danmaku.danmaku.model.d) ((SortedSet) this.ndt).first();
         }
         return null;
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
-    public master.flame.danmaku.danmaku.model.d dMC() {
-        if (this.nJQ != null && !this.nJQ.isEmpty()) {
+    public master.flame.danmaku.danmaku.model.d dFC() {
+        if (this.ndt != null && !this.ndt.isEmpty()) {
             if (this.mSortType == 4) {
-                return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.nJQ).peekLast();
+                return (master.flame.danmaku.danmaku.model.d) ((LinkedList) this.ndt).peekLast();
             }
-            return (master.flame.danmaku.danmaku.model.d) ((SortedSet) this.nJQ).last();
+            return (master.flame.danmaku.danmaku.model.d) ((SortedSet) this.ndt).last();
         }
         return null;
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
     public boolean m(master.flame.danmaku.danmaku.model.d dVar) {
-        return this.nJQ != null && this.nJQ.contains(dVar);
+        return this.ndt != null && this.ndt.contains(dVar);
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
     public boolean isEmpty() {
-        return this.nJQ == null || this.nJQ.isEmpty();
+        return this.ndt == null || this.ndt.isEmpty();
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
     public void a(l.b<? super master.flame.danmaku.danmaku.model.d, ?> bVar) {
-        synchronized (this.nJY) {
+        synchronized (this.ndB) {
             b(bVar);
         }
     }
 
     @Override // master.flame.danmaku.danmaku.model.l
     public void b(l.b<? super master.flame.danmaku.danmaku.model.d, ?> bVar) {
-        bVar.dMD();
-        Iterator<master.flame.danmaku.danmaku.model.d> it = this.nJQ.iterator();
+        bVar.dFD();
+        Iterator<master.flame.danmaku.danmaku.model.d> it = this.ndt.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             master.flame.danmaku.danmaku.model.d next = it.next();
             if (next != null) {
-                int bV = bVar.bV(next);
-                if (bV == 1) {
+                int bE = bVar.bE(next);
+                if (bE == 1) {
                     break;
-                } else if (bV == 2) {
+                } else if (bE == 2) {
                     it.remove();
-                } else if (bV == 3) {
+                } else if (bE == 3) {
                     it.remove();
                     break;
                 }
             }
         }
-        bVar.dME();
+        bVar.dFE();
     }
 }

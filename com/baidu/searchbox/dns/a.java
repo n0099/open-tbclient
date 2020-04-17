@@ -13,7 +13,7 @@ public class a {
     private static volatile a b;
     private boolean d;
     private ConnectivityManager e;
-    private C0179a f;
+    private C0212a f;
     private boolean g = false;
     private Context mContext;
     private static long a = 5000;
@@ -40,7 +40,7 @@ public class a {
             this.e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(c);
-            this.f = new C0179a();
+            this.f = new C0212a();
             this.mContext.registerReceiver(this.f, intentFilter);
             this.g = true;
         }
@@ -66,8 +66,8 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    private class C0179a extends BroadcastReceiver {
-        private C0179a() {
+    private class C0212a extends BroadcastReceiver {
+        private C0212a() {
         }
 
         @Override // android.content.BroadcastReceiver
@@ -76,6 +76,7 @@ public class a {
             if (DnsUtil.DEBUG) {
                 Log.d(DnsUtil.TAG, " action: " + intent.getAction() + " isConnected: " + a.this.d + " isSticky: " + isInitialStickyBroadcast());
             }
+            DnsUtil.initNetworkStackType();
             if (a.this.d && !isInitialStickyBroadcast()) {
                 if (DnsUtil.DEBUG) {
                     Log.d(DnsUtil.TAG, "clear dns cache and force update domain");

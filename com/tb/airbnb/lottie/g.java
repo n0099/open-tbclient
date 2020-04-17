@@ -5,9 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 /* loaded from: classes6.dex */
 public class g {
+    private final String Au;
     @Nullable
     private Bitmap bitmap;
-    private final String eL;
     private final String fileName;
     private final int height;
     private final String id;
@@ -19,7 +19,7 @@ public class g {
         this.height = i2;
         this.id = str;
         this.fileName = str2;
-        this.eL = str3;
+        this.Au = str3;
     }
 
     public String getId() {
@@ -30,8 +30,8 @@ public class g {
         return this.fileName;
     }
 
-    public String bx() {
-        return this.eL;
+    public String gU() {
+        return this.Au;
     }
 
     @Nullable

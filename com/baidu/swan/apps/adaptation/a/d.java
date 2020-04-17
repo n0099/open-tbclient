@@ -3,53 +3,53 @@ package com.baidu.swan.apps.adaptation.a;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public interface d {
-    boolean HA();
+    String OW();
 
-    long HB();
+    boolean OX();
 
-    boolean HC();
+    int OY();
 
-    boolean HD();
+    boolean OZ();
 
-    int HE();
+    boolean Pa();
 
-    boolean HF();
+    boolean Pb();
 
-    String Hj();
+    boolean Pc();
 
-    boolean Hk();
+    boolean Pd();
 
-    int Hl();
+    String Pe();
 
-    boolean Hm();
+    boolean Pf();
 
-    boolean Hn();
+    boolean Pg();
 
-    boolean Ho();
+    boolean Ph();
 
-    boolean Hp();
+    String Pi();
 
-    boolean Hq();
+    boolean Pj();
 
-    String Hr();
+    boolean Pk();
 
-    boolean Hs();
+    long Pl();
 
-    boolean Ht();
+    boolean Pm();
 
-    boolean Hu();
+    boolean Pn();
 
-    String Hv();
+    long Po();
 
-    boolean Hw();
+    boolean Pp();
 
-    boolean Hx();
+    boolean Pq();
 
-    long Hy();
+    int Pr();
 
-    boolean Hz();
+    boolean Ps();
 
-    boolean dT(int i);
+    boolean dY(int i);
 
     JSONObject getRawSwitch();
 

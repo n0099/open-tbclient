@@ -5,26 +5,26 @@ import java.util.concurrent.ScheduledFuture;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public class am implements Runnable {
-    final /* synthetic */ MiTinyDataClient.a.C0754a a;
+    final /* synthetic */ MiTinyDataClient.a.C0778a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(MiTinyDataClient.a.C0754a c0754a) {
-        this.a = c0754a;
+    public am(MiTinyDataClient.a.C0778a c0778a) {
+        this.a = c0778a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         ScheduledFuture scheduledFuture;
         ScheduledFuture scheduledFuture2;
-        if (this.a.f28a.size() != 0) {
+        if (this.a.f29a.size() != 0) {
             this.a.b();
             return;
         }
-        scheduledFuture = this.a.f29a;
+        scheduledFuture = this.a.f30a;
         if (scheduledFuture != null) {
-            scheduledFuture2 = this.a.f29a;
+            scheduledFuture2 = this.a.f30a;
             scheduledFuture2.cancel(false);
-            this.a.f29a = null;
+            this.a.f30a = null;
         }
     }
 }

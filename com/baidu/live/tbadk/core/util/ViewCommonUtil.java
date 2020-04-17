@@ -28,7 +28,7 @@ public class ViewCommonUtil {
         View findViewById;
         int[] iArr = {activity.getWindow().getDecorView().getWidth(), activity.getWindow().getDecorView().getHeight()};
         if (Build.VERSION.SDK_INT > 21 && (findViewById = activity.getWindow().getDecorView().findViewById(16908336)) != null && findViewById.getVisibility() == 0) {
-            if (iArr[0] > iArr[1]) {
+            if (iArr[0] > iArr[1] && iArr[0] > findViewById.getWidth()) {
                 iArr[0] = iArr[0] - findViewById.getWidth();
             } else {
                 iArr[1] = iArr[1] - findViewById.getHeight();

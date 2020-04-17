@@ -11,24 +11,24 @@ public class a extends h implements PersonalizePageView.a, BigdaySwipeRefreshLay
     }
 
     @Override // com.baidu.tbadk.core.view.g
-    public boolean aHY() {
+    public boolean aQu() {
         return true;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public int bPp() {
+    public int bZQ() {
         return 0;
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void bPq() {
+    public void bZR() {
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void bPr() {
+    public void bZS() {
     }
 
     @Override // com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout.a
-    public void bPs() {
+    public void bZT() {
     }
 }

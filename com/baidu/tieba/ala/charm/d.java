@@ -1,251 +1,216 @@
 package com.baidu.tieba.ala.charm;
 
-import android.content.Context;
-import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.message.CustomMessage;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.RedPacketCharmInfo;
-import com.baidu.live.data.au;
-import com.baidu.live.data.m;
+import com.baidu.live.adp.widget.listview.BdListView;
+import com.baidu.live.data.AlaLiveUserInfoData;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.AlaPersonCardActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.live.tbadk.core.util.ViewHelper;
+import com.baidu.live.tbadk.core.view.PbListView;
+import com.baidu.live.tbadk.widget.CommonEmptyView;
 import com.baidu.live.u.a;
-import com.baidu.live.utils.j;
+import com.baidu.live.utils.i;
+import com.baidu.tieba.ala.charm.view.CharmItemView;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class d implements com.baidu.live.q.a {
-    private m alp;
-    private ViewGroup ewN;
-    private ViewGroup.LayoutParams ewO;
-    private ViewGroup ewP;
-    private RedPacketCharmView ewQ;
-    private RedPacketCharmInfo ewR;
-    private CountDownTimer ewS;
-    private boolean ewT;
-    private Context mContext;
+public class d {
+    private boolean aMq;
+    private String aMr;
+    private TextView evl;
+    private ALaCharmCardActivity faA;
+    private CommonEmptyView faB;
+    private com.baidu.tieba.ala.charm.view.g faC;
+    private View faD;
+    private String faE;
+    private View.OnClickListener faF = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.5
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            ViewHelper.checkUpIsLogin(view.getContext());
+        }
+    };
+    private PbListView far;
+    private String mGroupId;
+    private BdListView mListView;
+    private String mLiveId;
+    private String mOtherParams;
+    private View mRootView;
 
-    public d(Context context) {
-        this.mContext = context;
+    public d(ALaCharmCardActivity aLaCharmCardActivity, String str, String str2, boolean z, String str3, String str4, String str5) {
+        this.faA = aLaCharmCardActivity;
+        this.mGroupId = str;
+        this.mLiveId = str2;
+        this.aMq = z;
+        this.aMr = str3;
+        this.faE = str5;
+        this.mRootView = this.faA.getLayoutInflater().inflate(a.h.online_list_detail_layout, (ViewGroup) null);
+        this.mListView = (BdListView) this.mRootView.findViewById(a.g.detail_list);
+        this.faB = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
+        if (TbadkCoreApplication.isLogin()) {
+            this.mRootView.findViewById(a.g.toLogin_layout).setVisibility(8);
+        } else {
+            str4 = TextUtils.isEmpty(str4) ? "主播" : str4;
+            TextView textView = (TextView) this.mRootView.findViewById(a.g.toLogin_text);
+            String string = this.faA.getString(a.i.online_toLogin);
+            Object[] objArr = new Object[1];
+            objArr[0] = str4.length() > 5 ? str4.substring(0, 5) + StringHelper.STRING_MORE : str4;
+            textView.setText(String.format(string, objArr));
+            textView.setOnClickListener(this.faF);
+            this.mRootView.findViewById(a.g.toLogin_layout).setVisibility(0);
+        }
+        this.faC = new com.baidu.tieba.ala.charm.view.g(aLaCharmCardActivity.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.faC);
+        this.mListView.setEmptyView(this.faB);
+        this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.charm.d.1
+            @Override // android.widget.AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+                d.this.a(d.this.faC.getItem(i));
+            }
+        });
+        this.evl = (TextView) this.mRootView.findViewById(a.g.top_text);
+        if (this.far == null) {
+            this.far = new PbListView(this.faA);
+            this.far.setTextColor(this.faA.getResources().getColor(a.d.sdk_cp_cont_j));
+            this.far.setSkinType(0);
+            this.far.setContainerBackgroundColorResId(a.d.sdk_transparent);
+            this.far.createView();
+        }
     }
 
-    @Override // com.baidu.live.q.a
-    public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        reset(true);
-        this.ewN = viewGroup;
-        this.ewO = layoutParams;
-        bdY();
+    public void a(List<com.baidu.live.data.g> list, AlaLiveUserInfoData alaLiveUserInfoData, long j) {
+        if (this.aMq) {
+            dl(j);
+        }
+        this.faC.setData(list);
+        a(list, alaLiveUserInfoData);
     }
 
-    @Override // com.baidu.live.q.a
-    public boolean m(m mVar) {
-        int i;
-        if (mVar == null || mVar.mLiveInfo == null) {
-            if (this.ewP != null) {
-                this.ewP.setVisibility(8);
-                return false;
+    private void a(List<com.baidu.live.data.g> list, AlaLiveUserInfoData alaLiveUserInfoData) {
+        final int i;
+        int i2 = 0;
+        if (TbadkCoreApplication.isLogin() && !this.aMq && alaLiveUserInfoData != null) {
+            final int paddingBottom = this.mListView.getPaddingBottom();
+            final int dimensionPixelSize = this.faA.getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds128);
+            this.mListView.setPadding(this.mListView.getPaddingLeft(), this.mListView.getPaddingTop(), this.mListView.getRight(), this.mListView.getResources().getDimensionPixelOffset(a.e.sdk_ds128) + paddingBottom);
+            this.faD = this.mRootView.findViewById(a.g.layout_bottom);
+            this.faD.setVisibility(0);
+            CharmItemView charmItemView = (CharmItemView) this.mRootView.findViewById(a.g.item_bottom);
+            charmItemView.setData(2, alaLiveUserInfoData.rank, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
+            charmItemView.fcm.setData(alaLiveUserInfoData);
+            charmItemView.fci.setTextColor(1728053247);
+            charmItemView.fcl.setVisibility(8);
+            if (!TextUtils.isEmpty(this.faE)) {
+                if (list != null) {
+                    while (true) {
+                        i = i2;
+                        if (i >= list.size()) {
+                            break;
+                        }
+                        com.baidu.live.data.g gVar = list.get(i);
+                        if (gVar != null && gVar.aqe != null && String.valueOf(gVar.aqe.userId).equals(this.faE)) {
+                            break;
+                        }
+                        i2 = i + 1;
+                    }
+                }
+                i = -1;
+                if (i + 1 > 0 && i + 1 <= 100) {
+                    this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.charm.d.2
+                        @Override // android.widget.AbsListView.OnScrollListener
+                        public void onScrollStateChanged(AbsListView absListView, int i3) {
+                        }
+
+                        @Override // android.widget.AbsListView.OnScrollListener
+                        public void onScroll(AbsListView absListView, int i3, int i4, int i5) {
+                            if (i >= i3 && i < i3 + i4) {
+                                d.this.mListView.setPadding(d.this.mListView.getPaddingLeft(), d.this.mListView.getPaddingTop(), d.this.mListView.getPaddingRight(), paddingBottom);
+                                d.this.faD.setVisibility(8);
+                                return;
+                            }
+                            d.this.mListView.setPadding(d.this.mListView.getPaddingLeft(), d.this.mListView.getPaddingTop(), d.this.mListView.getPaddingRight(), paddingBottom + dimensionPixelSize);
+                            d.this.faD.setVisibility(0);
+                        }
+                    });
+                }
             }
-            return false;
         }
-        this.alp = mVar;
-        RedPacketCharmInfo redPacketCharmInfo = mVar.mLiveInfo.redpacketCharmInfo;
-        if (!a(redPacketCharmInfo)) {
-            reset(false);
-            if (this.ewP != null) {
-                this.ewP.setVisibility(8);
-                return false;
-            }
-            return false;
-        }
-        if (this.ewP == null || this.ewN.indexOfChild(this.ewP) < 0) {
-            bdY();
-        }
-        if (this.ewQ == null || (this.ewP != null && this.ewP.indexOfChild(this.ewQ) < 0)) {
-            this.ewQ = new RedPacketCharmView(this.ewP.getContext());
-            this.ewP.addView(this.ewQ, new FrameLayout.LayoutParams(-2, -2));
-            this.ewQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.1
+    }
+
+    public void jm(boolean z) {
+        if (z) {
+            this.faB.reset();
+            this.faB.setTitle(a.i.online_empty_text);
+            this.faB.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
+            this.faB.setVisibility(0);
+            this.faB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.bdZ();
+                    d.this.VI();
+                }
+            });
+            return;
+        }
+        this.faB.setVisibility(8);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(com.baidu.live.data.g gVar) {
+        if (gVar != null && gVar.aqe != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.faA.getPageContext().getPageActivity(), gVar.aqe.userId + "", gVar.aqe.userName, gVar.aqe.portrait, gVar.aqe.sex, gVar.aqe.levelId, null, null, 0L, gVar.aqe.fansCount, gVar.aqe.fansCount, gVar.aqe.userStatus, this.mGroupId, this.mLiveId, this.aMq, this.aMr, null, gVar.aqe.userName, this.mOtherParams)));
+        }
+    }
+
+    public void dk(long j) {
+        if (this.evl != null) {
+            this.evl.setText(String.format(this.faA.getString(a.i.online_count), i.numFormatOverWanNaForAudienceNum(j)));
+        }
+    }
+
+    private void dl(long j) {
+        ((TextView) this.mRootView.findViewById(a.g.tv_value_total)).setText(String.format(this.faA.getString(a.i.charm_host_total_value), StringHelper.formatValue(j)));
+    }
+
+    public View getRootView() {
+        return this.mRootView;
+    }
+
+    public void l(View.OnClickListener onClickListener) {
+        this.faB.reset();
+        this.faB.setTitle(a.i.sdk_net_fail_tip);
+        this.faB.setRefreshButton(a.i.sdk_net_refresh_btn_text, onClickListener);
+        this.faB.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.faB.setVisibility(0);
+    }
+
+    public void blt() {
+        this.faB.setVisibility(8);
+    }
+
+    public void ad(String str, boolean z) {
+        this.mListView.setNextPage(this.far);
+        this.far.endLoadDataWithNoMore(str);
+        if (z) {
+            this.far.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.4
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view) {
+                    d.this.VI();
                 }
             });
         }
-        long j = redPacketCharmInfo.startTime - redPacketCharmInfo.serverTime;
-        if (j <= 0) {
-            redPacketCharmInfo.status = 3;
-        }
-        if (redPacketCharmInfo.count > 1) {
-            i = redPacketCharmInfo.status == 3 ? redPacketCharmInfo.count - 1 : redPacketCharmInfo.count;
-        } else {
-            i = 0;
-        }
-        oY(i);
-        this.ewQ.setAvatar(redPacketCharmInfo.senderAvatar);
-        switch (redPacketCharmInfo.status) {
-            case 2:
-                if (j > 60) {
-                    this.ewQ.oZ(1);
-                } else {
-                    this.ewQ.oZ(2);
-                }
-                if (b(redPacketCharmInfo)) {
-                    this.ewQ.setCountDownTimer(String.valueOf(j), j.M(1000 * j));
-                    cE(j * 1000);
-                    break;
-                }
-                break;
-            case 3:
-                bea();
-                this.ewQ.oZ(3);
-                break;
-            default:
-                this.ewQ.oZ(1);
-                break;
-        }
-        this.ewR = redPacketCharmInfo;
-        this.ewP.setVisibility(this.ewT ? 0 : 8);
-        return true;
-    }
-
-    @Override // com.baidu.live.q.a
-    public void setCanVisible(boolean z) {
-        this.ewT = z;
-        if (this.ewP != null) {
-            this.ewP.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    @Override // com.baidu.live.q.a
-    public void bW(int i) {
-        LinearLayout.LayoutParams layoutParams;
-        int dimensionPixelOffset;
-        if (this.ewP != null && (this.ewP.getLayoutParams() instanceof LinearLayout.LayoutParams) && (layoutParams = (LinearLayout.LayoutParams) this.ewP.getLayoutParams()) != null) {
-            if (i == 2) {
-                dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds10);
-            } else {
-                dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
-            }
-            layoutParams.topMargin = dimensionPixelOffset;
-            this.ewP.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.live.q.a
-    public void b(ViewGroup.LayoutParams layoutParams) {
-        this.ewO = layoutParams;
-        if (this.ewP != null) {
-            this.ewP.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.live.q.a
-    public void sQ() {
-        reset(true);
-    }
-
-    @Override // com.baidu.live.q.a
-    public void release() {
-        sQ();
-    }
-
-    private void bdY() {
-        this.ewP = new FrameLayout(this.ewN.getContext());
-        this.ewP.setBackgroundColor(0);
-        this.ewP.setTag(a.g.sdk_pvl_layout_priority_tag_key, 3);
-        this.ewN.addView(this.ewP, this.ewO);
-    }
-
-    private boolean a(RedPacketCharmInfo redPacketCharmInfo) {
-        return (redPacketCharmInfo == null || TextUtils.isEmpty(redPacketCharmInfo.id) || (redPacketCharmInfo.status != 2 && redPacketCharmInfo.status != 3) || redPacketCharmInfo.count <= 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bdZ() {
-        if (this.alp != null && this.ewR != null) {
-            au auVar = new au();
-            auVar.adL = this.ewR.id;
-            auVar.liveId = String.valueOf(this.alp.mLiveInfo.live_id);
-            auVar.adM = String.valueOf(this.alp.Ya.userId);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, auVar));
-        }
-    }
-
-    private boolean b(RedPacketCharmInfo redPacketCharmInfo) {
-        return this.ewR == null || TextUtils.isEmpty(this.ewR.id) || !this.ewR.id.equals(redPacketCharmInfo.id) || this.ewR.status != redPacketCharmInfo.status || this.ewR.startTime <= 0 || this.ewR.startTime != redPacketCharmInfo.startTime;
-    }
-
-    private void cE(long j) {
-        bea();
-        this.ewS = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.charm.d.2
-            @Override // android.os.CountDownTimer
-            public void onTick(long j2) {
-                if (d.this.ewQ != null) {
-                    long round = Math.round(j2 / 1000.0d);
-                    d.this.ewQ.setCountDownTimer(String.valueOf(round), j.M(1000 * round));
-                    if (round <= 60) {
-                        d.this.ewQ.oZ(2);
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913133, Long.valueOf(round)));
-                }
-            }
-
-            @Override // android.os.CountDownTimer
-            public void onFinish() {
-                int i;
-                if (d.this.ewQ != null) {
-                    d.this.ewQ.oZ(3);
-                    if (d.this.ewR != null) {
-                        d dVar = d.this;
-                        if (d.this.ewR.count > 1) {
-                            i = d.this.ewR.count - 1;
-                        } else {
-                            i = 0;
-                        }
-                        dVar.oY(i);
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913133, 0L));
-                }
-            }
-        };
-        this.ewS.start();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void oY(int i) {
-        if (this.ewQ != null) {
-            String str = "";
-            if (i > 99) {
-                str = "99+";
-            } else if (i >= 1) {
-                str = String.valueOf(i);
-            }
-            this.ewQ.setBadge(TextUtils.isEmpty(str) ? false : true, str);
-        }
-    }
-
-    private void bea() {
-        if (this.ewS != null) {
-            this.ewS.cancel();
-        }
-    }
-
-    private void reset(boolean z) {
-        this.ewT = true;
-        this.ewR = null;
-        bea();
-        hT(z);
-    }
-
-    private void hT(boolean z) {
-        if (this.ewQ != null) {
-            this.ewQ.release();
-            if (this.ewQ.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.ewQ.getParent()).removeView(this.ewQ);
-            }
-        }
-        if (z && this.ewP != null && (this.ewP.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.ewP.getParent()).removeView(this.ewP);
-        }
+    public void VI() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913062));
     }
 }

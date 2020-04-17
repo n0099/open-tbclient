@@ -16,31 +16,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b extends k {
-    private d fSM;
-    private HashMap<String, String> fSN;
-    private Gson fSO;
-    private SparseArray<String> fSP;
+    private d gxu;
+    private HashMap<String, String> gxv;
+    private Gson gxw;
+    private SparseArray<String> gxx;
 
     public b(int i) {
         super(i);
-        this.fSO = new Gson();
-        bxq();
+        this.gxw = new Gson();
+        bHc();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.f
     /* renamed from: d */
     public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        String str = this.fSP.get(socketMessage.getCmd());
-        if (str != null && this.fSN != null && this.fSN.get(str) != null && this.fSM != null) {
-            this.fSM.ak(str, this.fSO.toJson(this.fSN.get(str)), this.fSO.toJson(this.fSO.toJson(socketMessage.getData())));
+        String str = this.gxx.get(socketMessage.getCmd());
+        if (str != null && this.gxv != null && this.gxv.get(str) != null && this.gxu != null) {
+            this.gxu.aj(str, this.gxw.toJson(this.gxv.get(str)), this.gxw.toJson(this.gxw.toJson(socketMessage.getData())));
         }
         return socketMessage;
     }
 
-    private void bxq() {
+    private void bHc() {
         int i;
-        this.fSP = new SparseArray<>();
+        this.gxx = new SparseArray<>();
         ArrayList<HttpMessageTask> findHttpTasks = MessageManager.getInstance().findHttpTasks();
         if (!v.isEmpty(findHttpTasks)) {
             for (int i2 = 0; i2 < findHttpTasks.size(); i2++) {
@@ -50,18 +50,18 @@ public class b extends k {
                     String str = split[1];
                     String str2 = split[0];
                     if (!aq.isEmpty(str) && str.contains(ETAG.EQUAL) && (i = com.baidu.adp.lib.f.b.toInt(str.split("[=]")[1], 0)) != 0) {
-                        this.fSP.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
+                        this.gxx.put(i, str2.replace(TbConfig.SERVER_ADDRESS, ""));
                     }
                 }
             }
         }
     }
 
-    public void q(HashMap<String, String> hashMap) {
-        this.fSN = hashMap;
+    public void F(HashMap<String, String> hashMap) {
+        this.gxv = hashMap;
     }
 
     public void a(d dVar) {
-        this.fSM = dVar;
+        this.gxu = dVar;
     }
 }

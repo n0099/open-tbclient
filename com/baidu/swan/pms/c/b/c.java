@@ -12,25 +12,25 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
-    /* renamed from: bQ */
-    public com.baidu.swan.pms.c.c.c bp(JSONObject jSONObject) {
-        return com.baidu.swan.pms.f.d.bX(jSONObject);
+    /* renamed from: cb */
+    public com.baidu.swan.pms.c.c.c bA(JSONObject jSONObject) {
+        return com.baidu.swan.pms.f.d.ci(jSONObject);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
-    public com.baidu.swan.pms.model.a R(com.baidu.swan.pms.c.c.c cVar) {
-        this.cBy.Pp();
+    public com.baidu.swan.pms.model.a S(com.baidu.swan.pms.c.c.c cVar) {
+        this.dax.Xe();
         com.baidu.swan.pms.f.e eVar = new com.baidu.swan.pms.f.e();
-        a(cVar.cCj, eVar);
-        if (eVar.auw() == 0) {
-            this.cBy.Pl();
+        a(cVar.dbj, eVar);
+        if (eVar.aCH() == 0) {
+            this.dax.Xa();
             return null;
         }
-        this.cBy.a(eVar);
-        com.baidu.swan.pms.c.a.a.a(cVar, this.cBy);
+        this.dax.a(eVar);
+        com.baidu.swan.pms.c.a.a.a(cVar, this.dax);
         return null;
     }
 
@@ -38,15 +38,15 @@ public class c extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.c> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: b */
-    public boolean Q(com.baidu.swan.pms.c.c.c cVar) {
+    public boolean R(com.baidu.swan.pms.c.c.c cVar) {
         if (cVar == null) {
             return false;
         }
-        return cVar.cCj == null || cVar.cCj.PX();
+        return cVar.dbj == null || cVar.dbj.XM();
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String ajo() {
+    protected String arw() {
         return "getplugin";
     }
 }

@@ -19,7 +19,7 @@ public class VeloceIpcResult {
         void a(@NonNull VeloceIpcResult veloceIpcResult);
     }
 
-    public static VeloceIpcResult g(int i, Bundle bundle) {
+    public static VeloceIpcResult f(int i, Bundle bundle) {
         VeloceIpcResult veloceIpcResult = new VeloceIpcResult();
         veloceIpcResult.mResultCode = i;
         veloceIpcResult.mResult = bundle;

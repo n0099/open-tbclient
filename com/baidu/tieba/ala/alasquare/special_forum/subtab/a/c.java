@@ -3,25 +3,25 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.a;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.special_forum.data.e> {
-    private a etq;
+    private a eWL;
 
     public c(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.etq = new a(getView());
+        this.eWL = new a(getView());
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setViewTextColor(this.etq.textView, (int) R.color.cp_cont_d);
-        am.setBackgroundColor(this.etq.cWh, R.color.cp_bg_line_c);
+        am.setViewTextColor(this.eWL.textView, (int) R.color.cp_cont_d);
+        am.setBackgroundColor(this.eWL.dvs, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -39,16 +39,16 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.spec
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends v.a {
-        public View cWh;
-        public View cus;
+    public static class a extends y.a {
+        public View cTp;
+        public View dvs;
         public TextView textView;
 
         public a(View view) {
             super(view);
-            this.cus = view;
-            this.textView = (TextView) this.cus.findViewById(R.id.tv_empty);
-            this.cWh = this.cus.findViewById(R.id.devider_line);
+            this.cTp = view;
+            this.textView = (TextView) this.cTp.findViewById(R.id.tv_empty);
+            this.dvs = this.cTp.findViewById(R.id.devider_line);
         }
     }
 }

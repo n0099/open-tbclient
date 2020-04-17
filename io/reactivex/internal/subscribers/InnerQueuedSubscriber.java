@@ -42,7 +42,7 @@ public final class InnerQueuedSubscriber<T> extends AtomicReference<d> implement
                     return;
                 }
             }
-            this.queue = i.NH(this.prefetch);
+            this.queue = i.Jb(this.prefetch);
             i.a(dVar, this.prefetch);
         }
     }

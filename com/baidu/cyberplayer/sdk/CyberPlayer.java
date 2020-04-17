@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import java.io.FileDescriptor;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,9 +16,10 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class CyberPlayer {
     private PlayerProvider a;
+    private boolean b;
 
     public CyberPlayer() {
-        this(2, null);
+        this(0, null);
     }
 
     public CyberPlayer(int i) {
@@ -29,7 +31,8 @@ public class CyberPlayer {
     }
 
     public CyberPlayer(int i, CyberPlayerManager.HttpDNS httpDNS, boolean z) {
-        this.a = j.a().a(i, httpDNS, z);
+        this.b = true;
+        this.a = k.a().a(i, httpDNS, z);
     }
 
     public void changeProxyDynamic(String str, boolean z) {
@@ -56,7 +59,7 @@ public class CyberPlayer {
         if (this.a != null) {
             return this.a.getDecodeMode();
         }
-        return 2;
+        return 0;
     }
 
     public long getDownloadSpeed() {
@@ -102,6 +105,13 @@ public class CyberPlayer {
         return this.a != null && this.a.isPlaying();
     }
 
+    public boolean isRemotePlayer() {
+        if (this.a != null) {
+            return this.a.isRemotePlayer();
+        }
+        return false;
+    }
+
     public void muteOrUnmuteAudio(boolean z) {
         if (this.a != null) {
             this.a.muteOrUnmuteAudio(z);
@@ -124,7 +134,8 @@ public class CyberPlayer {
         if (this.a != null) {
             this.a.release();
         }
-        Utils.i();
+        m.j();
+        CyberCfgManager.getInstance().a();
     }
 
     public void reset() {
@@ -147,23 +158,35 @@ public class CyberPlayer {
 
     public void setDataSource(Context context, Uri uri) {
         if (this.a != null) {
-            this.a.setDataSource(context, uri);
+            String a = CyberCfgManager.getInstance().a("force_url", (String) null);
+            if (TextUtils.isEmpty(a)) {
+                this.a.setDataSource(context, uri);
+            } else {
+                this.a.setDataSource(context, Uri.parse(a));
+            }
         }
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) {
         if (this.a != null) {
-            if (map == null) {
-                map = new HashMap<>();
+            if (this.b) {
+                if (map == null) {
+                    map = new HashMap<>();
+                }
+                String str = map.get("User-Agent");
+                if (TextUtils.isEmpty(str)) {
+                    str = "dumedia/7.7.2.14";
+                } else if (str.indexOf("dumedia") == -1) {
+                    str = str + " dumedia/" + SDKVersion.VERSION;
+                }
+                map.put("User-Agent", str);
             }
-            String str = map.get("User-Agent");
-            if (TextUtils.isEmpty(str)) {
-                str = "dumedia/6.14.2.2";
-            } else if (str.indexOf("dumedia") == -1) {
-                str = str + " dumedia/" + SDKVersion.VERSION;
+            String a = CyberCfgManager.getInstance().a("force_url", (String) null);
+            if (TextUtils.isEmpty(a)) {
+                this.a.setDataSource(context, uri, map);
+            } else {
+                this.a.setDataSource(context, Uri.parse(a), map);
             }
-            map.put("User-Agent", str);
-            this.a.setDataSource(context, uri, map);
         }
     }
 
@@ -175,13 +198,25 @@ public class CyberPlayer {
 
     public void setDataSource(String str) {
         if (this.a != null) {
-            this.a.setDataSource(str);
+            String a = CyberCfgManager.getInstance().a("force_url", (String) null);
+            if (TextUtils.isEmpty(a)) {
+                this.a.setDataSource(str);
+            } else {
+                this.a.setDataSource(a);
+            }
         }
     }
 
     public void setDisplay(SurfaceHolder surfaceHolder) {
         if (this.a != null) {
             this.a.setDisplay(surfaceHolder);
+        }
+    }
+
+    public void setEnableDumediaUA(boolean z) {
+        this.b = z;
+        if (this.a != null) {
+            this.a.setEnableDumediaUA(z);
         }
     }
 
@@ -201,13 +236,17 @@ public class CyberPlayer {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        } else if (str.equals(CyberPlayerManager.STR_PLAYBACK_INIT_INFO)) {
+        } else if (str.equals(CyberPlayerManager.STR_STAGE_INFO)) {
             if (obj == null || !(obj instanceof Map)) {
                 return;
             }
-            sendCommand(1004, 0, 0L, new JSONObject((Map) obj).toString());
-        } else if (str.equals(CyberPlayerManager.STR_STAGE_INFO) && obj != null && (obj instanceof Map)) {
             sendCommand(1001, 0, 0L, new JSONObject((Map) obj).toString());
+        } else if (str.equals(CyberPlayerManager.STR_STATISTICS_INFO) && obj != null && (obj instanceof Map)) {
+            Map map = (Map) obj;
+            String str2 = (String) map.get("type");
+            int parseInt = TextUtils.isEmpty(str2) ? 0 : Integer.parseInt(str2);
+            map.remove("type");
+            sendCommand(1003, parseInt, 0L, new JSONObject((Map) obj).toString());
         }
     }
 

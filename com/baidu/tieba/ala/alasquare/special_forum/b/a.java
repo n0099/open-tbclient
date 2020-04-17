@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public abstract class a {
-    protected int elF;
-    protected com.baidu.tieba.ala.alasquare.special_forum.data.a etL;
+    protected int ePf;
+    protected com.baidu.tieba.ala.alasquare.special_forum.data.a eXg;
     protected View mMaskView;
     protected int mScreenWidth;
     protected TbPageContext mTbPageContext;
@@ -19,7 +19,7 @@ public abstract class a {
 
     public abstract View getContentView();
 
-    public abstract void hS(boolean z);
+    public abstract void iR(boolean z);
 
     public abstract void init();
 
@@ -34,14 +34,14 @@ public abstract class a {
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mScreenWidth = l.getEquipmentWidth(this.mTbPageContext.getPageActivity());
-        this.elF = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
+        this.ePf = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
     }
 
     public void a(com.baidu.tieba.ala.alasquare.special_forum.data.a aVar) {
-        this.etL = aVar;
+        this.eXg = aVar;
     }
 
-    public void N(ViewGroup viewGroup) {
+    public void O(ViewGroup viewGroup) {
         if (viewGroup != null) {
             viewGroup.removeAllViews();
             viewGroup.addView(getContentView());
@@ -49,9 +49,9 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bdA() {
+    public View bmr() {
         this.mMaskView = new View(this.mTbPageContext.getPageActivity());
-        this.mMaskView.setLayoutParams(new FrameLayout.LayoutParams(this.mScreenWidth, this.elF));
+        this.mMaskView.setLayoutParams(new FrameLayout.LayoutParams(this.mScreenWidth, this.ePf));
         this.mMaskView.setBackgroundDrawable(new ColorDrawable(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.black_alpha30)));
         return this.mMaskView;
     }
@@ -62,13 +62,13 @@ public abstract class a {
     public void resume() {
     }
 
-    public void bdB() {
+    public void bms() {
         this.mScreenWidth = l.getEquipmentWidth(this.mTbPageContext.getPageActivity());
-        this.elF = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
+        this.ePf = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
         if (this.mMaskView != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mMaskView.getLayoutParams();
             layoutParams.width = this.mScreenWidth;
-            layoutParams.height = this.elF;
+            layoutParams.height = this.ePf;
             this.mMaskView.setLayoutParams(layoutParams);
         }
     }

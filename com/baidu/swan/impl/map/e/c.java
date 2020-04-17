@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
 public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
-    BaiduMap cvX;
-    private List<OverlayOptions> cyo;
-    List<Overlay> cyp;
+    BaiduMap cUT;
+    private List<OverlayOptions> cXl;
+    List<Overlay> cXm;
 
-    public abstract List<OverlayOptions> asB();
+    public abstract List<OverlayOptions> aAL();
 
     public c(BaiduMap baiduMap) {
-        this.cvX = null;
-        this.cyo = null;
-        this.cyp = null;
-        this.cvX = baiduMap;
-        if (this.cyo == null) {
-            this.cyo = new ArrayList();
+        this.cUT = null;
+        this.cXl = null;
+        this.cXm = null;
+        this.cUT = baiduMap;
+        if (this.cXl == null) {
+            this.cXl = new ArrayList();
         }
-        if (this.cyp == null) {
-            this.cyp = new ArrayList();
-        }
-    }
-
-    public final void asD() {
-        if (this.cvX != null) {
-            asE();
-            if (asB() != null) {
-                this.cyo.addAll(asB());
-            }
-            for (OverlayOptions overlayOptions : this.cyo) {
-                this.cyp.add(this.cvX.addOverlay(overlayOptions));
-            }
+        if (this.cXm == null) {
+            this.cXm = new ArrayList();
         }
     }
 
-    public final void asE() {
-        if (this.cvX != null) {
-            for (Overlay overlay : this.cyp) {
+    public final void aAN() {
+        if (this.cUT != null) {
+            aAO();
+            if (aAL() != null) {
+                this.cXl.addAll(aAL());
+            }
+            for (OverlayOptions overlayOptions : this.cXl) {
+                this.cXm.add(this.cUT.addOverlay(overlayOptions));
+            }
+        }
+    }
+
+    public final void aAO() {
+        if (this.cUT != null) {
+            for (Overlay overlay : this.cXm) {
                 overlay.remove();
             }
-            this.cyo.clear();
-            this.cyp.clear();
+            this.cXl.clear();
+            this.cXm.clear();
         }
     }
 
-    public void asF() {
-        if (this.cvX != null && this.cyp.size() > 0) {
+    public void aAP() {
+        if (this.cUT != null && this.cXm.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.cyp) {
+            for (Overlay overlay : this.cXm) {
                 if (overlay instanceof Marker) {
                     builder.include(((Marker) overlay).getPosition());
                 }
             }
-            this.cvX.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            this.cUT.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

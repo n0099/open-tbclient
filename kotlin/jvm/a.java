@@ -1,6 +1,5 @@
 package kotlin.jvm;
 
-import com.baidu.minivideo.effect.core.entity.AEffectParams;
 import kotlin.TypeCastException;
 import kotlin.h;
 import kotlin.jvm.internal.l;
@@ -12,7 +11,7 @@ public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [61=10] */
     public static final <T> Class<T> a(c<T> cVar) {
         q.j(cVar, "receiver$0");
-        Class<T> cls = (Class<T>) ((l) cVar).dKU();
+        Class<T> cls = (Class<T>) ((l) cVar).dDT();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {
@@ -60,7 +59,7 @@ public final class a {
                         }
                         break;
                     case 97526364:
-                        if (name.equals(AEffectParams.VALUE_TYPE_FLOAT)) {
+                        if (name.equals("float")) {
                             cls = (Class<T>) Float.class;
                             break;
                         }

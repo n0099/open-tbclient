@@ -15,7 +15,7 @@ public class a implements e {
     }
 
     @Override // com.baidu.swan.apps.performance.b.e
-    public long aad() {
+    public long aii() {
         if (this.mStartTime < 0 || this.mEndTime < 0) {
             return -1L;
         }

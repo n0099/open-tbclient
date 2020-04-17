@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private boolean cUE;
-    private String emF;
-    private String emG;
+    private boolean dtP;
+    private String eQf;
+    private String eQg;
     private boolean hasMore = false;
-    private List<String> epb = new ArrayList();
-    private List<SdkLiveInfoData> epc = new ArrayList();
-    private List<m> epd = new ArrayList();
+    private List<String> eSy = new ArrayList();
+    private List<SdkLiveInfoData> eSz = new ArrayList();
+    private List<m> eSA = new ArrayList();
 
     public a(List<SdkLiveInfoData> list, boolean z, String str, String str2) {
-        this.cUE = false;
+        this.dtP = false;
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.cUE = true;
+            this.dtP = true;
         }
-        this.emF = str;
-        this.emG = str2;
+        this.eQf = str;
+        this.eQg = str2;
         k(list, z);
     }
 
@@ -31,12 +31,12 @@ public class a {
         if (list == null) {
             return false;
         }
-        boolean bi = bi(list);
+        boolean bs = bs(list);
         this.hasMore = z;
-        return bi;
+        return bs;
     }
 
-    private boolean bi(List<SdkLiveInfoData> list) {
+    private boolean bs(List<SdkLiveInfoData> list) {
         if (v.isEmpty(list)) {
             return false;
         }
@@ -44,45 +44,45 @@ public class a {
         for (SdkLiveInfoData sdkLiveInfoData : list) {
             if (sdkLiveInfoData != null) {
                 String str = sdkLiveInfoData.roomId;
-                if (!this.epb.contains(str)) {
+                if (!this.eSy.contains(str)) {
                     arrayList.add(sdkLiveInfoData);
-                    this.epb.add(str);
+                    this.eSy.add(str);
                 }
             }
         }
         if (v.isEmpty(arrayList)) {
             return false;
         }
-        this.epc.addAll(arrayList);
-        this.epd = bj(this.epc);
-        return !v.isEmpty(this.epd);
+        this.eSz.addAll(arrayList);
+        this.eSA = bt(this.eSz);
+        return !v.isEmpty(this.eSA);
     }
 
-    private ArrayList<m> bj(List<SdkLiveInfoData> list) {
+    private ArrayList<m> bt(List<SdkLiveInfoData> list) {
         ArrayList<m> arrayList = new ArrayList<>();
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
             e eVar = new e();
             com.baidu.tieba.ala.alasquare.a.a aVar = new com.baidu.tieba.ala.alasquare.a.a();
-            aVar.ekj = list.get(i);
+            aVar.eNJ = list.get(i);
             aVar.isLeft = true;
-            aVar.cUE = this.cUE;
-            aVar.fid = this.emF;
-            aVar.fname = this.emG;
+            aVar.dtP = this.dtP;
+            aVar.fid = this.eQf;
+            aVar.fname = this.eQg;
             aVar.position = i + 1;
-            eVar.emn = aVar;
+            eVar.ePN = aVar;
             if (i + 1 < size) {
                 com.baidu.tieba.ala.alasquare.a.a aVar2 = new com.baidu.tieba.ala.alasquare.a.a();
-                aVar2.ekj = list.get(i + 1);
-                aVar2.cUE = this.cUE;
-                aVar2.fid = this.emF;
-                aVar2.fname = this.emG;
+                aVar2.eNJ = list.get(i + 1);
+                aVar2.dtP = this.dtP;
+                aVar2.fid = this.eQf;
+                aVar2.fname = this.eQg;
                 aVar2.position = i + 2;
-                eVar.emo = aVar2;
+                eVar.ePO = aVar2;
                 aVar2.isRight = true;
             } else {
                 aVar.isLeft = false;
-                aVar.ekk = true;
+                aVar.eNK = true;
             }
             arrayList.add(eVar);
         }
@@ -95,22 +95,22 @@ public class a {
 
     public List<m> getData() {
         ArrayList arrayList = new ArrayList();
-        if (!v.isEmpty(this.epd)) {
-            arrayList.addAll(this.epd);
+        if (!v.isEmpty(this.eSA)) {
+            arrayList.addAll(this.eSA);
         }
         return arrayList;
     }
 
     public void clear() {
         this.hasMore = false;
-        if (this.epb != null) {
-            this.epb.clear();
+        if (this.eSy != null) {
+            this.eSy.clear();
         }
-        if (this.epc != null) {
-            this.epc.clear();
+        if (this.eSz != null) {
+            this.eSz.clear();
         }
-        if (this.epd != null) {
-            this.epd.clear();
+        if (this.eSA != null) {
+            this.eSA.clear();
         }
     }
 }

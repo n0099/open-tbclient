@@ -8,9 +8,7 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.tbadk.BaseActivity;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.view.NavigationBar;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
@@ -24,15 +22,10 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     @Override // com.baidu.live.tbadk.BaseActivity, com.baidu.live.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (BdBaseApplication.getInst() == null) {
-            if (TbConfig.sdkInitCallback == null) {
-                super.finish();
-                return;
-            }
-            TbConfig.sdkInitCallback.initSdk();
+        if (!isFinishing()) {
+            setContentView(a.h.sdk_no_network_more_view);
+            initUI();
         }
-        setContentView(a.h.sdk_no_network_more_view);
-        initUI();
     }
 
     protected void initUI() {

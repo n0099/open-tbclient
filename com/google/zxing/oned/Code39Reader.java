@@ -1,5 +1,6 @@
 package com.google.zxing.oned;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
@@ -134,7 +135,7 @@ public final class Code39Reader extends OneDReader {
         int length = iArr.length;
         int i = 0;
         while (true) {
-            int i2 = Integer.MAX_VALUE;
+            int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             for (int i3 : iArr) {
                 if (i3 < i2 && i3 > i) {
                     i2 = i3;

@@ -13,7 +13,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.f.e;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.swan.apps.adaptation.a.u;
 import com.baidu.swan.apps.media.chooser.c.c;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -27,8 +26,8 @@ import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class a implements u {
     private static BroadcastReceiver broadcastReceiver = null;
-    c eer;
-    CustomMessageListener ees = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
+    c eEi;
+    CustomMessageListener eEj = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -47,7 +46,7 @@ public class a implements u {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.eer != null) {
+                        if (a.this.eEi != null) {
                             ArrayList arrayList = new ArrayList();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -56,19 +55,19 @@ public class a implements u {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.eer.U(arrayList);
+                                a.this.eEi.ac(arrayList);
                             } else {
-                                a.this.eer.jc(UgcUBCUtils.UGC_TIME_CANCEL);
+                                a.this.eEi.kp("cancel");
                             }
                         }
-                    } else if (a.this.eer != null) {
-                        a.this.eer.jc(BdStatsConstant.StatsType.ERROR);
+                    } else if (a.this.eEi != null) {
+                        a.this.eEi.kp(BdStatsConstant.StatsType.ERROR);
                     }
-                    e.gx().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1.1
+                    e.lb().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.eer = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.ees);
+                            a.this.eEi = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.eEj);
                         }
                     });
                 }
@@ -76,11 +75,11 @@ public class a implements u {
             intent = null;
             if (intent == null) {
             }
-            e.gx().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1.1
+            e.lb().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.eer = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.ees);
+                    a.this.eEi = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.eEj);
                 }
             });
         }

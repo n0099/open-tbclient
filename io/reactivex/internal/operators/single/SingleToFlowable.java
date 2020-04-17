@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.disposables.b;
 import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
@@ -23,14 +22,14 @@ public final class SingleToFlowable<T> extends g<T> {
     /* loaded from: classes7.dex */
     static final class SingleToFlowableObserver<T> extends DeferredScalarSubscription<T> implements y<T> {
         private static final long serialVersionUID = 187782011903685568L;
-        b d;
+        io.reactivex.disposables.b d;
 
         SingleToFlowableObserver(c<? super T> cVar) {
             super(cVar);
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.validate(this.d, bVar)) {
                 this.d = bVar;
                 this.actual.onSubscribe(this);

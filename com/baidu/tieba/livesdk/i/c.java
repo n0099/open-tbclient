@@ -3,76 +3,47 @@ package com.baidu.tieba.livesdk.i;
 import android.content.Context;
 import android.net.Uri;
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.ala.helper.AlaLiveDebugInfo;
-import com.baidu.ala.player.AlaLivePlayer;
-import com.baidu.ala.player.AlaLivePlayerCallback;
+import com.baidu.cyberplayer.sdk.BVideoView;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.live.tbadk.TbConfig;
+import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c implements com.baidu.live.liveroom.e.a {
-    private int fkg = 1;
-    private int fkh = -1;
-    private AlaLivePlayer fki;
-    private com.baidu.live.liveroom.e.c ifB;
-    private boolean isPlaying;
+    private static boolean mHasInit = false;
+    private com.baidu.live.liveroom.e.c fOB;
+    private BVideoView iPt;
     private Uri mUri;
 
-    public c(Context context) {
-        if (this.fki == null) {
-            this.fki = AlaLivePlayer.createLivePlayer(context);
-        }
-        BdLog.e("TbLivePlayerImpl init()" + this.fki);
+    public c() {
+        coB();
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void d(Context context, Uri uri) {
-        if (this.fki == null) {
-            this.fki = AlaLivePlayer.createLivePlayer(context);
-        }
+        coB();
+        this.iPt = new BVideoView(context);
+        HashMap hashMap = new HashMap();
+        hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, SoUtils.SO_EVENT_ID_DEFAULT);
+        hashMap.put(CyberPlayerManager.STAGE_INFO_TITLE, "tieba");
+        this.iPt.setExternalInfo(CyberPlayerManager.STR_STAGE_INFO, hashMap);
         this.mUri = uri;
-        BdLog.e("TbLivePlayerImpl=" + this.fki + "|mUri=" + this.mUri);
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void a(com.baidu.live.liveroom.e.c cVar) {
-        this.ifB = cVar;
-        if (this.fki != null) {
-            this.fki.setPlayerCallback(new AlaLivePlayerCallback() { // from class: com.baidu.tieba.livesdk.i.c.1
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onStreamChanged(int i, int i2) {
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onDebugInfo(int i, AlaLiveDebugInfo alaLiveDebugInfo) {
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onBufferingEvent(int i, int i2, long j, int i3) {
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onFrameDelay(int i, int i2, int i3) {
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onFirstFrame(int i, int i2, int i3) {
-                    if (c.this.ifB != null) {
-                        c.this.ifB.a(c.this, CyberPlayerManager.MEDIA_INFO_FIRST_DISP_INTERVAL, i);
+        this.fOB = cVar;
+        if (this.iPt != null) {
+            this.iPt.setOnInfoListener(new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.livesdk.i.c.1
+                @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
+                public boolean onInfo(int i, int i2, Object obj) {
+                    if (c.this.fOB != null) {
+                        c.this.fOB.a(c.this, i, i2);
+                        return false;
                     }
-                    BdLog.e("TbLivePlayerImpl onFirstFrame()" + i);
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onStreamStuck(int i, int i2, int i3) {
-                }
-
-                @Override // com.baidu.ala.player.AlaLivePlayerCallback
-                public void onFastOpen(int i, int i2) {
+                    return false;
                 }
             });
         }
@@ -80,82 +51,80 @@ public class c implements com.baidu.live.liveroom.e.a {
 
     @Override // com.baidu.live.liveroom.e.a
     public void setDecodeMode(int i) {
-    }
-
-    @Override // com.baidu.live.liveroom.e.a
-    public void b(int i, JSONObject jSONObject) {
-        if (jSONObject != null) {
-            if (this.fkh == -1) {
-                this.fkh = i;
-            }
-            if (this.fki != null) {
-                this.fki.setStatConfigBeforeStart(TbadkCoreApplication.getInst().getApp().getFilesDir().getAbsolutePath() + "/live_sdk_log/", "http://c.tieba.baidu.com/ala/sys/mlog", com.baidu.live.v.a.zs().awM.ZP);
-                this.fki.setStartInfo(i, jSONObject.optString("LIVE_ID"), jSONObject.optString("SESSION_ID"), jSONObject.optString("CLIENT_IP"), jSONObject.optString("LEVEL"), jSONObject.optInt("SESSION_LINE"), TbConfig.getSubappType());
-            }
+        if (this.iPt != null) {
+            this.iPt.setDecodeMode(i);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.a
-    public View getPlayerView() {
-        return this.fki;
+    public void b(int i, JSONObject jSONObject) {
     }
 
     @Override // com.baidu.live.liveroom.e.a
-    public void cf(int i) {
+    public View getPlayerView() {
+        return this.iPt;
+    }
+
+    @Override // com.baidu.live.liveroom.e.a
+    public void cu(int i) {
+        if (this.iPt != null) {
+            this.iPt.setVisibility(i);
+        }
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void c(Uri uri) {
         this.mUri = uri;
+        if (this.iPt != null) {
+            this.iPt.setVideoURI(this.mUri);
+        }
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void setVideoScalingMode(int i) {
-        if (this.fki != null) {
-            this.fki.setRenderVideoModel(this.fkh, 1);
+        if (this.iPt != null) {
+            this.iPt.setVideoScalingMode(i);
         }
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void start() {
-        if (this.fkh == -1) {
-            this.fkh = 1;
+        if (this.iPt != null) {
+            this.iPt.start();
         }
-        if (this.fkg == 3) {
-            this.fki.resume();
-            this.fkg = 2;
-            return;
-        }
-        AlaLivePlayer.AlaLivePlayerConf alaLivePlayerConf = new AlaLivePlayer.AlaLivePlayerConf();
-        alaLivePlayerConf.index = this.fkh;
-        alaLivePlayerConf.url = this.mUri.toString();
-        alaLivePlayerConf.param = new LinearLayout.LayoutParams(-1, -1);
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(alaLivePlayerConf);
-        this.fki.start2(arrayList);
-        this.fkg = 2;
-        BdLog.e("TbLivePlayerImpl start() mUri=" + this.mUri + "|index=" + this.fkh);
-        this.isPlaying = true;
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void stop() {
-        if (this.fki != null) {
-            this.fki.stop();
-            this.fkg = 4;
+        if (this.iPt != null) {
+            this.iPt.stopPlayback();
         }
-        BdLog.e("TbLivePlayerImpl stop() mUri=" + this.mUri);
-        this.isPlaying = false;
     }
 
     @Override // com.baidu.live.liveroom.e.a
     public void release() {
-        if (this.fki != null) {
-            this.fki.stop();
-            this.fki.destroy();
-            this.fkg = 4;
+        if (this.iPt != null) {
+            this.iPt.stopPlayback();
+            this.iPt.reset();
         }
-        BdLog.e("TbLivePlayerImpl release() mUri=" + this.mUri);
-        this.isPlaying = false;
+    }
+
+    @Override // com.baidu.live.liveroom.e.a
+    public void b(int i, Map<String, String> map) {
+        if (i == 1 && this.iPt != null && map != null) {
+            map.put("type", "20487");
+            this.iPt.setExternalInfo(CyberPlayerManager.STR_STATISTICS_INFO, map);
+        }
+    }
+
+    public static synchronized void coB() {
+        synchronized (c.class) {
+            if (!mHasInit) {
+                mHasInit = true;
+                if (!CyberPlayerManager.isCoreLoaded(1)) {
+                    CyberPlayerManager.install(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().getCuid(), null, 1, null, null, null);
+                }
+            }
+        }
     }
 }

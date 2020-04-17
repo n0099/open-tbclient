@@ -3,6 +3,7 @@ package com.baidu.swan.bdprivate.c.c;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -37,11 +38,11 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.acS().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.c.b.1
+        eVar.akX().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void D(h<b.d> hVar) {
+            public void E(h<b.d> hVar) {
                 b.this.a(hVar, context, callbackHandler, optString);
             }
         });
@@ -61,24 +62,24 @@ public class b extends ab {
 
     private void a(Context context, String str, CallbackHandler callbackHandler) {
         Context appContext = AppRuntime.getAppContext();
-        String bq = com.baidu.swan.apps.w.a.Ue().bq(appContext);
-        String ahk = ai.ahk();
-        String ce = com.baidu.swan.bdprivate.a.a.ce(context);
-        String bp = com.baidu.swan.apps.w.a.Ue().bp(appContext);
-        String cookie = com.baidu.swan.apps.w.a.Ux().Ix().getCookie(".baidu.com");
+        String be = com.baidu.swan.apps.w.a.abT().be(appContext);
+        String aps = ai.aps();
+        String bS = com.baidu.swan.bdprivate.a.a.bS(context);
+        String bd = com.baidu.swan.apps.w.a.abT().bd(appContext);
+        String cookie = com.baidu.swan.apps.w.a.acm().Qj().getCookie(".baidu.com");
         String cookieValue = ag.getCookieValue(cookie, "BAIDUID");
         String cookieValue2 = ag.getCookieValue(cookie, "H_WISE_SIDS");
         if (DEBUG) {
-            Log.d("GetSysInfoAction", "cuid = " + bq + ", imei = " + ahk + ", zid = " + ce + ", uid = " + bp + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
+            Log.d("GetSysInfoAction", "cuid = " + be + ", imei = " + aps + ", zid = " + bS + ", uid = " + bd + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", bq);
-            jSONObject.put("imei", ahk);
-            jSONObject.put("zid", ce);
-            jSONObject.put("uid", bp);
+            jSONObject.put("cuid", be);
+            jSONObject.put("imei", aps);
+            jSONObject.put("zid", bS);
+            jSONObject.put("uid", bd);
             jSONObject.put("baidu_id", cookieValue);
-            jSONObject.put("sid", cookieValue2);
+            jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SID, cookieValue2);
             c.i("GetSysInfo", "fetch commonSysInfo success");
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

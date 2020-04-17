@@ -1,13 +1,13 @@
 package com.baidu.cesium.c.a;
 /* loaded from: classes13.dex */
 abstract class f {
-    final b Qe;
+    final b aiD;
     final int c;
     byte[] d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(b bVar) {
-        this.Qe = bVar;
+        this.aiD = bVar;
         this.c = bVar.a();
     }
 

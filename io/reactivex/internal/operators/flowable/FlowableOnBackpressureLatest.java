@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -10,7 +9,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new BackpressureLatestSubscriber(cVar));
+        this.mRJ.a((j) new BackpressureLatestSubscriber(cVar));
     }
 
     /* loaded from: classes7.dex */
@@ -33,7 +32,7 @@ public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 

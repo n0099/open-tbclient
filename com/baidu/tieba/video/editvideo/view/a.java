@@ -27,16 +27,16 @@ import com.baidu.tieba.video.editvideo.view.MaskVideoView;
 import java.util.List;
 /* loaded from: classes10.dex */
 public class a extends com.baidu.adp.base.c {
-    private k.c cWc;
-    private i jnQ;
-    private MaskVideoView kAj;
-    private b kAk;
-    private d kAl;
-    private c kAm;
-    private FrameLayout kAn;
-    private FragmentTabWidget kAo;
-    private h kjC;
-    private com.baidu.tieba.video.editvideo.a kzb;
+    private k.c dvn;
+    private i jYe;
+    private h kTI;
+    private com.baidu.tieba.video.editvideo.a ljs;
+    private MaskVideoView lkB;
+    private b lkC;
+    private d lkD;
+    private c lkE;
+    private FrameLayout lkF;
+    private FragmentTabWidget lkG;
     public int mCurrentTabIndex;
     private boolean mIsMute;
     private MediaPlayer mMediaPlayer;
@@ -47,143 +47,143 @@ public class a extends com.baidu.adp.base.c {
     public a(e eVar, com.baidu.tieba.video.editvideo.a aVar, View view, h hVar) {
         super(eVar);
         this.mCurrentTabIndex = 0;
-        this.cWc = new k.c() { // from class: com.baidu.tieba.video.editvideo.view.a.6
+        this.dvn = new k.c() { // from class: com.baidu.tieba.video.editvideo.view.a.6
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(k kVar, int i, View view2) {
                 switch (i) {
                     case 0:
-                        if (a.this.kzb != null) {
-                            a.this.kzb.cQb();
+                        if (a.this.ljs != null) {
+                            a.this.ljs.daX();
                             break;
                         }
                         break;
                     case 1:
-                        if (a.this.kzb != null) {
-                            a.this.kzb.finishPage();
+                        if (a.this.ljs != null) {
+                            a.this.ljs.finishPage();
                             break;
                         }
                         break;
                 }
-                if (a.this.jnQ != null && a.this.jnQ.isShowing() && a.this.getPageContext() != null) {
-                    a.this.jnQ.dismiss();
+                if (a.this.jYe != null && a.this.jYe.isShowing() && a.this.getPageContext() != null) {
+                    a.this.jYe.dismiss();
                 }
             }
         };
-        this.kzb = aVar;
+        this.ljs = aVar;
         this.mRootView = view;
-        this.kjC = hVar;
+        this.kTI = hVar;
         this.mResources = view.getResources();
-        this.kAk = new b(this.mContext, this);
-        this.kAl = new d(this.mContext, this, this.kjC);
-        this.kAm = new c(this.mContext, this);
-        this.kAk.cW(this.mRootView);
-        this.kAl.cW(this.mRootView);
-        this.kAm.cW(this.mRootView);
+        this.lkC = new b(this.mContext, this);
+        this.lkD = new d(this.mContext, this, this.kTI);
+        this.lkE = new c(this.mContext, this);
+        this.lkC.de(this.mRootView);
+        this.lkD.de(this.mRootView);
+        this.lkE.de(this.mRootView);
         initView();
-        cQH();
+        dbE();
     }
 
     private void initView() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.navigation_bar);
-        this.kAj = (MaskVideoView) this.mRootView.findViewById(R.id.video_view);
-        this.kAj.setPreserveEGLContextOnPause(true);
-        this.kAj.setZOrderMediaOverlay(true);
-        this.kAj.setPostMonitorManager(this.kjC);
-        this.kAn = (FrameLayout) this.mRootView.findViewById(R.id.edit_container);
-        this.kAn.addView(this.kAk.getRootView());
-        this.kAo = (FragmentTabWidget) this.mRootView.findViewById(R.id.tab_widget);
-        bcO();
-        cQG();
-        this.kAn.addView(this.kAl.getRootView());
-        this.kAn.addView(this.kAm.getRootView());
-        this.kAl.getRootView().setVisibility(8);
-        this.kAm.getRootView().setVisibility(8);
+        this.lkB = (MaskVideoView) this.mRootView.findViewById(R.id.video_view);
+        this.lkB.setPreserveEGLContextOnPause(true);
+        this.lkB.setZOrderMediaOverlay(true);
+        this.lkB.setPostMonitorManager(this.kTI);
+        this.lkF = (FrameLayout) this.mRootView.findViewById(R.id.edit_container);
+        this.lkF.addView(this.lkC.getRootView());
+        this.lkG = (FragmentTabWidget) this.mRootView.findViewById(R.id.tab_widget);
+        blF();
+        dbD();
+        this.lkF.addView(this.lkD.getRootView());
+        this.lkF.addView(this.lkE.getRootView());
+        this.lkD.getRootView().setVisibility(8);
+        this.lkE.getRootView().setVisibility(8);
     }
 
-    private boolean cQF() {
+    private boolean dbC() {
         return Build.VERSION.SDK_INT >= 18;
     }
 
-    private void cQG() {
+    private void dbD() {
         String[] stringArray = this.mResources.getStringArray(R.array.edit_video_tab);
         for (int i = 0; i < stringArray.length; i++) {
             FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.mContext.getPageActivity());
             fragmentTabIndicator.setText(stringArray[i]);
             fragmentTabIndicator.setTextColorResId(R.color.edit_video_tab_title_color);
             fragmentTabIndicator.setTextSize(0, this.mResources.getDimension(R.dimen.fontsize34));
-            this.kAo.addView(fragmentTabIndicator, i);
+            this.lkG.addView(fragmentTabIndicator, i);
         }
-        if (!cQF() && this.kAo.getChildAt(1) != null) {
-            this.kAo.getChildAt(1).setVisibility(8);
+        if (!dbC() && this.lkG.getChildAt(1) != null) {
+            this.lkG.getChildAt(1).setVisibility(8);
         }
-        this.kAo.setDiverColor(this.mResources.getColor(R.color.cp_cont_b));
-        this.kAo.setCurrentTab(this.mCurrentTabIndex, true, false);
-        this.kAo.setBackGroundDrawableResId(R.color.cp_bg_line_d);
-        this.kAo.setDviderRectWidth(l.getDimens(this.mContext.getPageActivity(), R.dimen.ds64));
-        this.kAo.setTabSelectionListener(new FragmentTabWidget.a() { // from class: com.baidu.tieba.video.editvideo.view.a.1
+        this.lkG.setDiverColor(this.mResources.getColor(R.color.cp_cont_b));
+        this.lkG.setCurrentTab(this.mCurrentTabIndex, true, false);
+        this.lkG.setBackGroundDrawableResId(R.color.cp_bg_line_d);
+        this.lkG.setDviderRectWidth(l.getDimens(this.mContext.getPageActivity(), R.dimen.ds64));
+        this.lkG.setTabSelectionListener(new FragmentTabWidget.a() { // from class: com.baidu.tieba.video.editvideo.view.a.1
             @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
             public void onTabSelectionChanged(int i2, boolean z) {
                 if (i2 != a.this.mCurrentTabIndex) {
                     switch (i2) {
                         case 0:
-                            a.this.kAk.getRootView().setVisibility(0);
-                            a.this.kAl.getRootView().setVisibility(8);
-                            a.this.kAm.getRootView().setVisibility(8);
-                            a.this.kAk.tu(true);
-                            a.this.kAl.tu(false);
-                            a.this.kAm.tu(false);
+                            a.this.lkC.getRootView().setVisibility(0);
+                            a.this.lkD.getRootView().setVisibility(8);
+                            a.this.lkE.getRootView().setVisibility(8);
+                            a.this.lkC.uv(true);
+                            a.this.lkD.uv(false);
+                            a.this.lkE.uv(false);
                             break;
                         case 1:
-                            a.this.kAm.getRootView().setVisibility(0);
-                            a.this.kAl.getRootView().setVisibility(8);
-                            a.this.kAk.getRootView().setVisibility(8);
-                            a.this.kAk.tu(false);
-                            if (TextUtils.isEmpty(a.this.kAl.cQO())) {
-                                a.this.kAl.tu(false);
+                            a.this.lkE.getRootView().setVisibility(0);
+                            a.this.lkD.getRootView().setVisibility(8);
+                            a.this.lkC.getRootView().setVisibility(8);
+                            a.this.lkC.uv(false);
+                            if (TextUtils.isEmpty(a.this.lkD.dbL())) {
+                                a.this.lkD.uv(false);
                             } else {
-                                a.this.kAl.tu(true);
+                                a.this.lkD.uv(true);
                             }
-                            a.this.kAm.tu(true);
+                            a.this.lkE.uv(true);
                             break;
                         case 2:
-                            a.this.kAl.getRootView().setVisibility(0);
-                            a.this.kAk.getRootView().setVisibility(8);
-                            a.this.kAm.getRootView().setVisibility(8);
-                            a.this.kAk.tu(false);
-                            a.this.kAl.tu(true);
-                            a.this.kAm.tu(false);
+                            a.this.lkD.getRootView().setVisibility(0);
+                            a.this.lkC.getRootView().setVisibility(8);
+                            a.this.lkE.getRootView().setVisibility(8);
+                            a.this.lkC.uv(false);
+                            a.this.lkD.uv(true);
+                            a.this.lkE.uv(false);
                             break;
                     }
                     a.this.mCurrentTabIndex = i2;
-                    a.this.kAo.setCurrentTab(a.this.mCurrentTabIndex, true, true);
-                    a.this.cQH();
-                    a.this.cQI();
+                    a.this.lkG.setCurrentTab(a.this.mCurrentTabIndex, true, true);
+                    a.this.dbE();
+                    a.this.dbF();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQH() {
+    public void dbE() {
         an anVar = new an("c12424");
-        anVar.X("obj_locate", this.mCurrentTabIndex == 0 ? 1 : 3);
+        anVar.af("obj_locate", this.mCurrentTabIndex == 0 ? 1 : 3);
         TiebaStatic.log(anVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQI() {
+    public void dbF() {
         if (this.mCurrentTabIndex == 0) {
-            cQM();
-            cQK();
+            dbJ();
+            dbH();
             return;
         }
         replay();
     }
 
     public void replay() {
-        cQM();
-        this.kAj.start();
-        this.kAj.seekTo(0);
+        dbJ();
+        this.lkB.start();
+        this.lkB.seekTo(0);
     }
 
     public void setMute(boolean z) {
@@ -199,50 +199,50 @@ public class a extends com.baidu.adp.base.c {
     }
 
     public void onPause() {
-        cQM();
-        this.kAk.onPause();
-        this.kAl.onPause();
-        this.kAm.onPause();
+        dbJ();
+        this.lkC.onPause();
+        this.lkD.onPause();
+        this.lkE.onPause();
     }
 
     public void onResume() {
-        this.kAj.onResume();
+        this.lkB.onResume();
         if (this.mCurrentTabIndex != 0) {
-            this.kAj.resumeMedia();
+            this.lkB.resumeMedia();
         }
-        this.kAk.onResume();
-        this.kAl.onResume();
-        this.kAm.onResume();
+        this.lkC.onResume();
+        this.lkD.onResume();
+        this.lkE.onResume();
     }
 
-    public MaskVideoView cQJ() {
-        return this.kAj;
+    public MaskVideoView dbG() {
+        return this.lkB;
     }
 
-    public Bitmap z(Bitmap bitmap) {
-        return this.kAk.z(bitmap);
+    public Bitmap B(Bitmap bitmap) {
+        return this.lkC.B(bitmap);
     }
 
     public void setMusicData(List<MusicData> list) {
-        this.kAl.setMusicData(list);
+        this.lkD.setMusicData(list);
     }
 
-    public void ep(List<PendantData> list) {
-        this.kAk.ep(list);
+    public void eE(List<PendantData> list) {
+        this.lkC.eE(list);
     }
 
     public void a(com.baidu.tieba.video.editvideo.b.a aVar) {
-        if (this.kAm != null) {
-            this.kAm.a(aVar);
+        if (this.lkE != null) {
+            this.lkE.a(aVar);
         }
     }
 
     public void setData(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.kAk.setData(str);
-                this.kAj.setVideoPath(str);
-                this.kAj.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.editvideo.view.a.2
+                this.lkC.setData(str);
+                this.lkB.setVideoPath(str);
+                this.lkB.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.editvideo.view.a.2
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
                         a.this.mMediaPlayer = mediaPlayer;
@@ -251,19 +251,19 @@ public class a extends com.baidu.adp.base.c {
                         } else {
                             a.this.mMediaPlayer.setVolume(1.0f, 1.0f);
                         }
-                        com.baidu.adp.lib.f.e.gx().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.a.2.1
+                        com.baidu.adp.lib.f.e.lb().postDelayed(new Runnable() { // from class: com.baidu.tieba.video.editvideo.view.a.2.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                a.this.kAk.cQU();
+                                a.this.lkC.dbR();
                             }
                         }, 200L);
                         if (Build.VERSION.SDK_INT >= 17) {
-                            a.this.kAj.start();
+                            a.this.lkB.start();
                             mediaPlayer.setOnInfoListener(new MediaPlayer.OnInfoListener() { // from class: com.baidu.tieba.video.editvideo.view.a.2.2
                                 @Override // android.media.MediaPlayer.OnInfoListener
                                 public boolean onInfo(MediaPlayer mediaPlayer2, int i, int i2) {
                                     if (i == 3 && a.this.mCurrentTabIndex == 0) {
-                                        a.this.kAj.pause();
+                                        a.this.lkB.pause();
                                         return true;
                                     }
                                     return true;
@@ -271,15 +271,15 @@ public class a extends com.baidu.adp.base.c {
                             });
                             return;
                         }
-                        a.this.kAj.seekTo(a.this.kAk.getCurrentPosition());
+                        a.this.lkB.seekTo(a.this.lkC.getCurrentPosition());
                     }
                 });
-                this.kAj.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.video.editvideo.view.a.3
+                this.lkB.setOnCompletionListener(new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.video.editvideo.view.a.3
                     @Override // android.media.MediaPlayer.OnCompletionListener
                     public void onCompletion(MediaPlayer mediaPlayer) {
                         if (a.this.mCurrentTabIndex != 0) {
                             a.this.replay();
-                            a.this.kAl.replay();
+                            a.this.lkD.replay();
                         }
                     }
                 });
@@ -289,44 +289,44 @@ public class a extends com.baidu.adp.base.c {
         }
     }
 
-    public void cQK() {
-        if (this.kAj != null) {
-            this.kAj.seekTo(this.kAk.getCurrentPosition());
+    public void dbH() {
+        if (this.lkB != null) {
+            this.lkB.seekTo(this.lkC.getCurrentPosition());
         }
     }
 
-    public void cQL() {
-        if (this.kAj != null) {
-            this.kAj.DH(this.kAk.getCurrentPosition());
+    public void dbI() {
+        if (this.lkB != null) {
+            this.lkB.El(this.lkC.getCurrentPosition());
         }
     }
 
-    public void cQM() {
-        if (this.kAj != null) {
-            this.kAj.cQR();
+    public void dbJ() {
+        if (this.lkB != null) {
+            this.lkB.dbO();
         }
     }
 
-    public void cQN() {
-        if (this.kAj != null) {
-            this.kAj.onPause();
+    public void dbK() {
+        if (this.lkB != null) {
+            this.lkB.onPause();
         }
     }
 
     public void onChangeSkinType(e eVar, int i) {
         this.mNavigationBar.onChangeSkinType(eVar, i);
-        this.kAo.onChangeSkinType(i);
-        this.kAo.setDiverColor(am.getColor(i, R.color.cp_cont_b));
+        this.lkG.onChangeSkinType(i);
+        this.lkG.setDiverColor(am.getColor(i, R.color.cp_cont_b));
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_d);
-        if (this.kAk != null) {
-            this.kAk.onChangeSkinType(eVar, i);
+        if (this.lkC != null) {
+            this.lkC.onChangeSkinType(eVar, i);
         }
-        if (this.kAl != null) {
-            this.kAl.onChangeSkinType(eVar, i);
+        if (this.lkD != null) {
+            this.lkD.onChangeSkinType(eVar, i);
         }
     }
 
-    private void bcO() {
+    private void blF() {
         this.mNavigationBar.setCenterTextTitle(this.mResources.getString(R.string.select_cover));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.a.4
             @Override // android.view.View.OnClickListener
@@ -337,59 +337,59 @@ public class a extends com.baidu.adp.base.c {
         am.setViewTextColor(this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.mResources.getString(R.string.select_cover_next), new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.view.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.kAk.hideSoftKeyPad();
-                if (a.this.kzb != null) {
-                    a.this.kzb.onNext();
+                a.this.lkC.hideSoftKeyPad();
+                if (a.this.ljs != null) {
+                    a.this.ljs.onNext();
                 }
             }
         }), (int) R.color.cp_cont_f);
     }
 
     public String getText() {
-        return this.kAk.getText();
+        return this.lkC.getText();
     }
 
     public int getCurrentPosition() {
-        if (this.kAj == null) {
+        if (this.lkB == null) {
             return 0;
         }
-        return this.kAj.getCurrentPosition();
+        return this.lkB.getCurrentPosition();
     }
 
     public void showDialog() {
-        if (this.jnQ == null) {
+        if (this.jYe == null) {
             String[] strArr = {getPageContext().getString(R.string.save), getPageContext().getString(R.string.not_save)};
-            this.jnQ = new i(getPageContext());
-            this.jnQ.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.save_video_title));
-            this.jnQ.a(TbadkCoreApplication.getInst().getResources().getString(R.string.save_video_title), strArr, this.cWc);
+            this.jYe = new i(getPageContext());
+            this.jYe.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.save_video_title));
+            this.jYe.a(TbadkCoreApplication.getInst().getResources().getString(R.string.save_video_title), strArr, this.dvn);
         }
-        this.jnQ.showDialog();
+        this.jYe.showDialog();
     }
 
-    public void eI(String str, String str2) {
-        this.kAl.eI(str, str2);
+    public void eX(String str, String str2) {
+        this.lkD.eX(str, str2);
     }
 
-    public void cQd() {
-        if (this.kzb != null) {
-            this.kzb.cQd();
+    public void daZ() {
+        if (this.ljs != null) {
+            this.ljs.daZ();
         }
     }
 
-    public String cQO() {
-        return this.kAl.cQO();
+    public String dbL() {
+        return this.lkD.dbL();
     }
 
-    public String cQP() {
-        return this.kAl.cQP();
+    public String dbM() {
+        return this.lkD.dbM();
     }
 
     public boolean isMute() {
         return this.mIsMute;
     }
 
-    public boolean cQQ() {
-        return this.kAl.cQQ();
+    public boolean dbN() {
+        return this.lkD.dbN();
     }
 
     public View getRootView() {
@@ -397,21 +397,21 @@ public class a extends com.baidu.adp.base.c {
     }
 
     public void release() {
-        if (this.kAk != null) {
-            this.kAk.release();
+        if (this.lkC != null) {
+            this.lkC.release();
         }
-        if (this.kAj != null) {
-            this.kAj.stopPlayback();
+        if (this.lkB != null) {
+            this.lkB.stopPlayback();
         }
     }
 
-    public void aA(Intent intent) {
-        this.kAl.aA(intent);
+    public void az(Intent intent) {
+        this.lkD.az(intent);
     }
 
     public void setGenMaskCoverListener(MaskVideoView.b bVar) {
-        if (bVar != null && cQJ() != null) {
-            cQJ().setGenMaskCoverListener(bVar);
+        if (bVar != null && dbG() != null) {
+            dbG().setGenMaskCoverListener(bVar);
         }
     }
 }

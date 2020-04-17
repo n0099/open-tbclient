@@ -814,7 +814,7 @@ public class ComboPraiseManager {
             this.mComboPraiseView.addPraiseStatusListener(new IPraiseStatusListener() { // from class: com.baidu.searchbox.ui.animview.praise.ComboPraiseManager.5
                 @Override // com.baidu.searchbox.ui.animview.praise.view.IPraiseStatusListener
                 public void onTargetPraiseCntReached(int i, String str, String str2, String str3) {
-                    if (ComboPraiseRuntime.getContext() != null) {
+                    if (!TextUtils.equals(PraiseSourceDef.NA_PRAISE_SRC_MINI_VIDEO_DETAIL_SCREEN, ComboPraiseManager.this.mPraiseConfig.mPraiseSource) && ComboPraiseRuntime.getContext() != null) {
                         NotifyPraiseAnimCallBack notifyPraiseAnimCallBack = new NotifyPraiseAnimCallBack() { // from class: com.baidu.searchbox.ui.animview.praise.ComboPraiseManager.5.1
                             @Override // com.baidu.searchbox.ui.animview.praise.ComboPraiseManager.NotifyPraiseAnimCallBack
                             public void notifyPraiseAnimStatus(boolean z) {
@@ -982,12 +982,8 @@ public class ComboPraiseManager {
     }
 
     private int calculateOffsetY() {
-        View searchTargetView;
-        if (this.mIsNAOrWebCall || this.mCtx == null) {
-            return 0;
-        }
-        View decorView = this.mCtx.getWindow().getDecorView();
-        if (decorView == null) {
+        View decorView;
+        if (this.mIsNAOrWebCall || this.mCtx == null || (decorView = this.mCtx.getWindow().getDecorView()) == null) {
             return 0;
         }
         String str = this.mPraiseConfig.mPraiseSource;
@@ -1040,43 +1036,22 @@ public class ComboPraiseManager {
             case 0:
             case 1:
             case 2:
-                View searchTargetView2 = searchTargetView(decorView, SEARCH_BAR_NAME_H5_FEEDNEWS);
-                if (searchTargetView2 == null) {
-                    return 0;
+                View searchTargetView = searchTargetView(decorView, SEARCH_BAR_NAME_H5_FEEDNEWS);
+                if (searchTargetView != null) {
+                    return searchTargetView.getTop();
                 }
-                return searchTargetView2.getTop();
+                return 0;
             case 3:
             case 4:
             case 5:
-                View searchTargetView3 = searchTargetView(decorView, SEARCH_BAR_NAME_H5_WENDA);
-                if (searchTargetView3 == null) {
-                    return 0;
-                }
-                int[] iArr = new int[2];
-                searchTargetView3.getLocationOnScreen(iArr);
-                return searchTargetView3.getHeight() + (iArr[1] - DeviceUtil.ScreenInfo.getStatusBarHeight());
-            case 6:
-                View searchTargetView4 = searchTargetView(decorView, SEARCH_BAR_NAME_HN_SMALL);
-                if (searchTargetView4 == null || searchTargetView4.getParent() == null) {
-                    return 0;
-                }
-                ViewGroup viewGroup = (ViewGroup) searchTargetView4.getParent();
-                if (viewGroup == null || viewGroup.getParent() == null) {
-                    return 0;
-                }
-                ViewGroup viewGroup2 = (ViewGroup) viewGroup.getParent();
-                View searchTargetView5 = searchTargetView(decorView, SEARCH_BAR_NAME_HN_BIG);
-                if (searchTargetView5 != null && (searchTargetView = searchTargetView(decorView, SEARCH_BAR_NAME_HOME_BACKGROUND)) != null) {
-                    if (viewGroup2.getVisibility() == 0 && searchTargetView.getVisibility() != 0) {
-                        View searchTargetView6 = searchTargetView(decorView, SEARCH_BAR_NAME_HN_FEED_TAB_LAYOUT);
-                        if (searchTargetView6 == null) {
-                            return 0;
-                        }
-                        return viewGroup2.getHeight() + searchTargetView6.getHeight();
-                    }
-                    return searchTargetView5.getHeight();
+                View searchTargetView2 = searchTargetView(decorView, SEARCH_BAR_NAME_H5_WENDA);
+                if (searchTargetView2 != null) {
+                    int[] iArr = new int[2];
+                    searchTargetView2.getLocationOnScreen(iArr);
+                    return (iArr[1] - DeviceUtil.ScreenInfo.getStatusBarHeight()) + searchTargetView2.getHeight();
                 }
                 return 0;
+            case 6:
             default:
                 return 0;
         }

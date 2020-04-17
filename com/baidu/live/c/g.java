@@ -5,7 +5,6 @@ import com.baidu.live.tbadk.core.frameworkdata.IntentAction;
 import com.baidu.live.tbadk.core.frameworkdata.IntentConfig;
 import com.baidu.sapi2.dto.FaceBaseDTO;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class g extends IntentConfig {
     public g(Context context, String str, String str2, String str3, String str4, int i, String str5, String str6, boolean z, int i2, int i3, int i4, boolean z2, int i5, String str7, String str8, boolean z3, int i6) {
@@ -16,7 +15,7 @@ public class g extends IntentConfig {
         getIntent().putExtra("room_id", str4);
         getIntent().putExtra("is_block", i);
         getIntent().putExtra(FaceBaseDTO.KEY_BUSINESS_SCENE, str5);
-        getIntent().putExtra(Constants.APP_ID, str6);
+        getIntent().putExtra("app_id", str6);
         getIntent().putExtra("can_graffiti", z);
         getIntent().putExtra("custom_tab_id", i2);
         getIntent().putExtra("custom_category_id", i3);
@@ -30,19 +29,27 @@ public class g extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
     }
 
-    public void ao(boolean z) {
+    public void aL(boolean z) {
         getIntent().putExtra("is_new_user", z);
     }
 
-    public void bh(int i) {
+    public void aM(boolean z) {
+        getIntent().putExtra("entry_super_customer", z);
+    }
+
+    public void bu(int i) {
         getIntent().putExtra("guard_club_join_amount", i);
     }
 
-    public void ap(boolean z) {
+    public void aN(boolean z) {
         getIntent().putExtra("is_redpkg_unable", z);
     }
 
-    public void aq(boolean z) {
+    public void aO(boolean z) {
         getIntent().putExtra("throne_enabled", z);
+    }
+
+    public void dH(String str) {
+        getIntent().putExtra("bg_info", str);
     }
 }

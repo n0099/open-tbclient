@@ -3,6 +3,7 @@ package com.baidu.sapi2.utils;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v7.widget.ActivityChooserView;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -41,7 +42,7 @@ public class ThreadPoolService implements com.baidu.sapi2.c {
 
     private ThreadPoolService() {
         this.d = new t(this, Looper.getMainLooper());
-        this.poolService = new ThreadPoolExecutor(6, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), a);
+        this.poolService = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), a);
         if (Build.VERSION.SDK_INT >= 9) {
             this.poolService.allowCoreThreadTimeOut(true);
         }

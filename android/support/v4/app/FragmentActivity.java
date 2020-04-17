@@ -678,7 +678,7 @@ public class FragmentActivity extends BaseFragmentActivityApi16 implements aa, A
         boolean z = false;
         for (Fragment fragment : fragmentManager.getFragments()) {
             if (fragment != null) {
-                if (fragment.getLifecycle().au().isAtLeast(Lifecycle.State.STARTED)) {
+                if (fragment.getLifecycle().fQ().isAtLeast(Lifecycle.State.STARTED)) {
                     fragment.mLifecycleRegistry.a(state);
                     z = true;
                 }

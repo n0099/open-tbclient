@@ -41,7 +41,7 @@ public abstract class AbstractService implements c {
     /* JADX INFO: Access modifiers changed from: protected */
     public int getErrorCode(String str) {
         try {
-            return new JSONObject(str).getInt("errno");
+            return new JSONObject(str).getInt(BaseJsonData.TAG_ERRNO);
         } catch (Exception e) {
             Log.e(e);
             return -100;

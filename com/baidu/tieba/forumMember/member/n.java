@@ -6,27 +6,27 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tieba.R;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes10.dex */
-public class n extends v.a {
-    public LinearLayout glX;
-    public LinearLayout glY;
-    public LinearLayout glZ;
-    public LinearLayout gma;
-    public HeadImageView gmb;
-    public HeadImageView gmc;
-    public HeadImageView gmd;
-    public HeadImageView gme;
-    public TextView gmf;
-    public TextView gmg;
-    public TextView gmh;
-    public TextView gmi;
-    public NoPressedLinearLayout gmj;
+public class n extends y.a {
+    public LinearLayout gVd;
+    public LinearLayout gVe;
+    public LinearLayout gVf;
+    public LinearLayout gVg;
+    public HeadImageView gVh;
+    public HeadImageView gVi;
+    public HeadImageView gVj;
+    public HeadImageView gVk;
+    public TextView gVl;
+    public TextView gVm;
+    public TextView gVn;
+    public TextView gVo;
+    public NoPressedLinearLayout gVp;
     public TextView mTitleView;
 
     public n(View view, View.OnClickListener onClickListener) {
@@ -35,35 +35,35 @@ public class n extends v.a {
         int color = am.getColor(R.color.black_alpha10);
         this.mTitleView = (TextView) view.findViewById(R.id.title_text_view);
         this.mTitleView.setOnClickListener(onClickListener);
-        this.glX = (LinearLayout) view.findViewById(R.id.member1);
-        this.gmb = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
-        this.gmf = (TextView) view.findViewById(R.id.textview_user_name1);
-        this.gmb.setIsRound(true);
-        this.gmb.setBorderColor(color);
-        this.gmb.setBorderWidth(dimens);
-        this.gmb.setOnClickListener(onClickListener);
-        this.glY = (LinearLayout) view.findViewById(R.id.member2);
-        this.gmc = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
-        this.gmg = (TextView) view.findViewById(R.id.textview_user_name2);
-        this.gmc.setIsRound(true);
-        this.gmc.setBorderColor(color);
-        this.gmc.setBorderWidth(dimens);
-        this.gmc.setOnClickListener(onClickListener);
-        this.glZ = (LinearLayout) view.findViewById(R.id.member3);
-        this.gmd = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
-        this.gmh = (TextView) view.findViewById(R.id.textview_user_name3);
-        this.gmd.setIsRound(true);
-        this.gmd.setBorderColor(color);
-        this.gmd.setBorderWidth(dimens);
-        this.gmd.setOnClickListener(onClickListener);
-        this.gma = (LinearLayout) view.findViewById(R.id.member4);
-        this.gme = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
-        this.gmi = (TextView) view.findViewById(R.id.textview_user_name4);
-        this.gme.setIsRound(true);
-        this.gme.setBorderColor(color);
-        this.gme.setBorderWidth(dimens);
-        this.gme.setOnClickListener(onClickListener);
-        this.gmj = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
+        this.gVd = (LinearLayout) view.findViewById(R.id.member1);
+        this.gVh = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
+        this.gVl = (TextView) view.findViewById(R.id.textview_user_name1);
+        this.gVh.setIsRound(true);
+        this.gVh.setBorderColor(color);
+        this.gVh.setBorderWidth(dimens);
+        this.gVh.setOnClickListener(onClickListener);
+        this.gVe = (LinearLayout) view.findViewById(R.id.member2);
+        this.gVi = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
+        this.gVm = (TextView) view.findViewById(R.id.textview_user_name2);
+        this.gVi.setIsRound(true);
+        this.gVi.setBorderColor(color);
+        this.gVi.setBorderWidth(dimens);
+        this.gVi.setOnClickListener(onClickListener);
+        this.gVf = (LinearLayout) view.findViewById(R.id.member3);
+        this.gVj = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
+        this.gVn = (TextView) view.findViewById(R.id.textview_user_name3);
+        this.gVj.setIsRound(true);
+        this.gVj.setBorderColor(color);
+        this.gVj.setBorderWidth(dimens);
+        this.gVj.setOnClickListener(onClickListener);
+        this.gVg = (LinearLayout) view.findViewById(R.id.member4);
+        this.gVk = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
+        this.gVo = (TextView) view.findViewById(R.id.textview_user_name4);
+        this.gVk.setIsRound(true);
+        this.gVk.setBorderColor(color);
+        this.gVk.setBorderWidth(dimens);
+        this.gVk.setOnClickListener(onClickListener);
+        this.gVp = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub, int i) {
@@ -76,32 +76,32 @@ public class n extends v.a {
             }
             switch (i) {
                 case 0:
-                    this.gmb.startLoad(str, 12, false);
-                    this.gmb.setTag(bawuRoleInfoPub);
-                    this.gmb.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.gmf.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.glX.setVisibility(0);
+                    this.gVh.startLoad(str, 12, false);
+                    this.gVh.setTag(bawuRoleInfoPub);
+                    this.gVh.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.gVl.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.gVd.setVisibility(0);
                     return;
                 case 1:
-                    this.gmc.startLoad(str, 12, false);
-                    this.gmc.setTag(bawuRoleInfoPub);
-                    this.gmc.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.gmg.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.glY.setVisibility(0);
+                    this.gVi.startLoad(str, 12, false);
+                    this.gVi.setTag(bawuRoleInfoPub);
+                    this.gVi.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.gVm.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.gVe.setVisibility(0);
                     return;
                 case 2:
-                    this.gmd.startLoad(str, 12, false);
-                    this.gmd.setTag(bawuRoleInfoPub);
-                    this.gmd.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.gmh.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.glZ.setVisibility(0);
+                    this.gVj.startLoad(str, 12, false);
+                    this.gVj.setTag(bawuRoleInfoPub);
+                    this.gVj.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.gVn.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.gVf.setVisibility(0);
                     return;
                 case 3:
-                    this.gme.startLoad(str, 12, false);
-                    this.gme.setTag(bawuRoleInfoPub);
-                    this.gme.setContentDescription(bawuRoleInfoPub.user_name);
-                    this.gmi.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-                    this.gma.setVisibility(0);
+                    this.gVk.startLoad(str, 12, false);
+                    this.gVk.setTag(bawuRoleInfoPub);
+                    this.gVk.setContentDescription(bawuRoleInfoPub.user_name);
+                    this.gVo.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+                    this.gVg.setVisibility(0);
                     return;
                 default:
                     return;
@@ -109,22 +109,22 @@ public class n extends v.a {
         }
     }
 
-    public void lc(boolean z) {
-        if (this.gmb.getVisibility() == 0) {
-            this.gmb.setIsNight(z);
-            this.gmb.refresh();
+    public void mh(boolean z) {
+        if (this.gVh.getVisibility() == 0) {
+            this.gVh.setIsNight(z);
+            this.gVh.refresh();
         }
-        if (this.gmc.getVisibility() == 0) {
-            this.gmc.setIsNight(z);
-            this.gmc.refresh();
+        if (this.gVi.getVisibility() == 0) {
+            this.gVi.setIsNight(z);
+            this.gVi.refresh();
         }
-        if (this.gmd.getVisibility() == 0) {
-            this.gmd.setIsNight(z);
-            this.gmd.refresh();
+        if (this.gVj.getVisibility() == 0) {
+            this.gVj.setIsNight(z);
+            this.gVj.refresh();
         }
-        if (this.gme.getVisibility() == 0) {
-            this.gme.setIsNight(z);
-            this.gme.refresh();
+        if (this.gVk.getVisibility() == 0) {
+            this.gVk.setIsNight(z);
+            this.gVk.refresh();
         }
     }
 }

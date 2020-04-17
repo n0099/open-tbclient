@@ -25,7 +25,7 @@ public final class k<V> {
     }
 
     @Nullable
-    public Throwable by() {
+    public Throwable gV() {
         return this.exception;
     }
 
@@ -36,10 +36,10 @@ public final class k<V> {
         if (obj instanceof k) {
             k kVar = (k) obj;
             if (getValue() == null || !getValue().equals(kVar.getValue())) {
-                if (by() == null || kVar.by() == null) {
+                if (gV() == null || kVar.gV() == null) {
                     return false;
                 }
-                return by().toString().equals(by().toString());
+                return gV().toString().equals(gV().toString());
             }
             return true;
         }
@@ -47,6 +47,6 @@ public final class k<V> {
     }
 
     public int hashCode() {
-        return Arrays.hashCode(new Object[]{getValue(), by()});
+        return Arrays.hashCode(new Object[]{getValue(), gV()});
     }
 }

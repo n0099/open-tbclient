@@ -1,24 +1,21 @@
 package io.reactivex.internal.operators.single;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.aa;
 import io.reactivex.internal.disposables.DisposableHelper;
-import io.reactivex.internal.observers.c;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.b;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class SingleDelayWithPublisher<T, U> extends w<T> {
-    final b<U> other;
+    final org.a.b<U> mSk;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.other.subscribe(new OtherSubscriber(yVar, this.source));
+        this.mSk.subscribe(new OtherSubscriber(yVar, this.source));
     }
 
     /* loaded from: classes7.dex */
@@ -39,7 +36,7 @@ public final class SingleDelayWithPublisher<T, U> extends w<T> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -63,7 +60,7 @@ public final class SingleDelayWithPublisher<T, U> extends w<T> {
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.source.a(new c(this, this.actual));
+                this.source.a(new io.reactivex.internal.observers.d(this, this.actual));
             }
         }
 

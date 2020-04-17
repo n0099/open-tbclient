@@ -11,11 +11,11 @@ public interface f {
         void onFailed(int i);
     }
 
-    com.baidu.swan.apps.scheme.actions.f.b Vk();
-
-    void Vl();
-
     void a(String str, boolean z, boolean z2, a aVar);
+
+    com.baidu.swan.apps.scheme.actions.f.b acZ();
+
+    void ada();
 
     double[] b(@NonNull com.baidu.swan.apps.scheme.actions.f.b bVar, @NonNull String str);
 }

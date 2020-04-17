@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.data;
 /* loaded from: classes3.dex */
 public class l {
-    private String abe;
-    private int eAG;
-    private String eAH;
-    private String eAI;
-    private String ehA;
-    private String ehO;
+    private String ats;
+    private String eHE;
+    private String eHq;
+    private int feZ;
+    private String ffa;
+    private String ffb;
     private String mIcon;
     private String mName;
     public int mStatus;
@@ -15,29 +15,29 @@ public class l {
     }
 
     public l(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i) {
-        this.eAH = str;
+        this.ffa = str;
         this.mIcon = str2;
         this.mName = str3;
-        this.eAI = str4;
-        this.ehO = str5;
-        this.ehA = str6;
-        this.abe = str7;
+        this.ffb = str4;
+        this.eHE = str5;
+        this.eHq = str6;
+        this.ats = str7;
         this.mStatus = i;
     }
 
-    public int bex() {
-        return this.eAG;
+    public int bnN() {
+        return this.feZ;
     }
 
-    public void pj(int i) {
-        this.eAG = i;
+    public void pE(int i) {
+        this.feZ = i;
     }
 
-    public String bey() {
-        return this.eAH;
+    public String bnO() {
+        return this.ffa;
     }
 
-    public String bez() {
+    public String bnP() {
         return this.mIcon;
     }
 
@@ -45,15 +45,15 @@ public class l {
         return this.mName;
     }
 
-    public String beA() {
-        return this.eAI;
+    public String bnQ() {
+        return this.ffb;
     }
 
-    public String beB() {
-        return this.ehO;
+    public String bnR() {
+        return this.eHE;
     }
 
-    public String beC() {
-        return this.ehA;
+    public String bnS() {
+        return this.eHq;
     }
 }

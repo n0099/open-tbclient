@@ -1,9 +1,7 @@
 package io.reactivex.internal.operators.single;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.aa;
 import io.reactivex.c.h;
-import io.reactivex.disposables.b;
 import io.reactivex.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
@@ -27,7 +25,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
         private static final long serialVersionUID = -8938804753851907758L;
         final c<? super R> actual;
         volatile boolean cancelled;
-        b d;
+        io.reactivex.disposables.b d;
         volatile Iterator<? extends R> it;
         final h<? super T, ? extends Iterable<? extends R>> mapper;
         boolean outputFused;
@@ -39,7 +37,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.validate(this.d, bVar)) {
                 this.d = bVar;
                 this.actual.onSubscribe(this);
@@ -57,7 +55,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                 this.it = it;
                 drain();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 this.actual.onError(th);
             }
         }
@@ -97,7 +95,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                 while (true) {
                     if (it2 != null) {
                         long j = this.requested.get();
-                        if (j == Format.OFFSET_SAMPLE_RELATIVE) {
+                        if (j == Long.MAX_VALUE) {
                             slowPath(cVar, it2);
                             return;
                         }
@@ -114,7 +112,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.H(th);
+                                            io.reactivex.exceptions.a.L(th);
                                             cVar.onError(th);
                                             return;
                                         }
@@ -122,7 +120,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                                         return;
                                     }
                                 } catch (Throwable th2) {
-                                    io.reactivex.exceptions.a.H(th2);
+                                    io.reactivex.exceptions.a.L(th2);
                                     cVar.onError(th2);
                                     return;
                                 }
@@ -161,7 +159,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.H(th);
+                            io.reactivex.exceptions.a.L(th);
                             cVar.onError(th);
                             return;
                         }
@@ -169,7 +167,7 @@ public final class SingleFlatMapIterableFlowable<T, R> extends g<R> {
                         return;
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.H(th2);
+                    io.reactivex.exceptions.a.L(th2);
                     cVar.onError(th2);
                     return;
                 }

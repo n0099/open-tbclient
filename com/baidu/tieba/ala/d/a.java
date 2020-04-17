@@ -1,103 +1,84 @@
 package com.baidu.tieba.ala.d;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.ala.AlaCmdConfigCustom;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.adp.lib.safe.ShowUtil;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.live.adp.widget.listview.BdListView;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.core.BaseFragmentActivity;
+import com.baidu.live.tbadk.core.util.ListUtils;
 import com.baidu.live.u.a;
+import com.baidu.tieba.ala.data.k;
+import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class a implements View.OnClickListener {
-    public TextView eKI;
-    public TextView eKJ;
-    public TextView eKK;
-    private Context mContext;
-    private AlertDialog mDialog;
-    Handler handler = new Handler();
-    CustomMessageListener ahe = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.d.a.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (a.this.mDialog != null && a.this.mDialog.isShowing()) {
-                a.this.dismiss();
+public class a {
+    private Activity caH;
+    private BdListView foT;
+    private LinearLayout foU;
+    private LinearLayout foV;
+    private com.baidu.tieba.ala.adapter.a foW;
+    private AlaChallengeHistoryHeaderView foX;
+    private TextView foY;
+    private TbPageContext<BaseFragmentActivity> mTbPageContext;
+    private View view;
+
+    public a(TbPageContext<BaseFragmentActivity> tbPageContext) {
+        this.mTbPageContext = tbPageContext;
+        this.caH = this.mTbPageContext.getPageActivity();
+        initView();
+    }
+
+    private void initView() {
+        this.view = LayoutInflater.from(this.caH).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
+        this.foT = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
+        this.foT.setVisibility(4);
+        this.foU = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
+        this.foV = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
+        this.foY = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
+        this.foW = new com.baidu.tieba.ala.adapter.a(this.caH);
+        this.foT.setAdapter((ListAdapter) this.foW);
+        this.foX = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
+        this.foT.setEmptyView(this.foU);
+    }
+
+    public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, k kVar) {
+        this.foT.setVisibility(0);
+        if (!ListUtils.isEmpty(arrayList) && kVar != null) {
+            if (this.foX.getParent() == null) {
+                if (this.foX.getParent() != null) {
+                    ((ViewGroup) this.foX.getParent()).removeView(this.foX);
+                }
+                this.foT.addHeaderView(this.foX);
+                this.foX.setData(kVar);
             }
+        } else if (this.foX.getParent() != null) {
+            ((ViewGroup) this.foX.getParent()).removeView(this.foX);
         }
-    };
-    private Runnable eKL = new Runnable() { // from class: com.baidu.tieba.ala.d.a.3
-        @Override // java.lang.Runnable
-        public void run() {
-            a.this.dismiss();
+        if (this.foW != null && arrayList != null) {
+            this.foW.setData(arrayList);
         }
-    };
-    private View mRootView = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(a.h.ala_level_up_dialog, (ViewGroup) null);
-    public ImageView closeImg = (ImageView) this.mRootView.findViewById(a.g.close_img);
-
-    public a(Context context) {
-        this.mContext = context;
-        this.closeImg.setOnClickListener(this);
-        this.mRootView.setOnClickListener(this);
-        this.eKI = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLevel);
-        this.eKJ = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipNum);
-        this.eKK = (TextView) this.mRootView.findViewById(a.g.tvLevelUpTipLebel);
     }
 
-    private void bgu() {
-        MessageManager.getInstance().registerListener(this.ahe);
-    }
-
-    public void x(String str, String str2, boolean z) {
-        this.eKK.setVisibility(z ? 0 : 8);
-        this.eKI.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_level, str2));
-        this.eKJ.setText(this.mContext.getResources().getString(a.i.ala_task_level_up_tip_flower_num, str));
-    }
-
-    public void show() {
-        this.mDialog = new AlertDialog.Builder(this.mContext, a.j.sdk_dialog_window).create();
-        this.mDialog.setCanceledOnTouchOutside(true);
-        this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.d.a.2
-            @Override // android.content.DialogInterface.OnDismissListener
-            public void onDismiss(DialogInterface dialogInterface) {
-                MessageManager.getInstance().unRegisterListener(a.this.ahe);
+    public void An(String str) {
+        if (!StringUtils.isNull(str)) {
+            if (this.foW != null && this.foW.getCount() <= 0) {
+                this.foU.setVisibility(8);
+                this.foV.setVisibility(0);
+                this.foY.setText(str);
+                return;
             }
-        });
-        if (this.mContext instanceof Activity) {
-            ShowUtil.showDialog(this.mDialog, (Activity) this.mContext);
-            this.handler.postDelayed(this.eKL, 5000L);
-        }
-        Window window = this.mDialog.getWindow();
-        if (window != null) {
-            window.setGravity(17);
-            window.setBackgroundDrawableResource(17170445);
-            window.setContentView(this.mRootView);
-        }
-        bgu();
-    }
-
-    public void dismiss() {
-        if (this.handler != null) {
-            this.handler.removeCallbacks(this.eKL);
-        }
-        if (this.mDialog != null && (this.mContext instanceof Activity)) {
-            ShowUtil.dismissDialog(this.mDialog, (Activity) this.mContext);
+            BdUtilHelper.showToast(this.caH, str, 1);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getId() == a.g.close_img || view == this.mRootView) {
-            dismiss();
-        }
+    public View getView() {
+        return this.view;
     }
 }

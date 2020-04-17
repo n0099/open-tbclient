@@ -19,10 +19,10 @@ public class d implements r {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public void l(Map<String, String> map) {
+    public void j(Map<String, String> map) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.r
-    public void m(Map<String, String> map) {
+    public void k(Map<String, String> map) {
     }
 }

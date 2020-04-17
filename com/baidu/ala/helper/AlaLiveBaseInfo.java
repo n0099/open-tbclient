@@ -1,9 +1,9 @@
 package com.baidu.ala.helper;
 
 import android.os.Build;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.adp.lib.util.BdNetTypeUtil;
 import com.baidu.live.data.AlaLiveStreamSessionInfo;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -11,6 +11,7 @@ public class AlaLiveBaseInfo {
     public static final String STREAM_TYPE_RECV = "RECV";
     public static final String STREAM_TYPE_SEND = "SEND";
     public static final String mOSType = "AND";
+    public String mAppVer;
     public String mClientIp;
     public String mCuid;
     public String mLiveId;
@@ -18,13 +19,23 @@ public class AlaLiveBaseInfo {
     public String mPkId;
     public String mSessionId;
     public int mSessionLine;
-    public String mStreamLine = AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT;
+    public String mStreamLine;
     public String mStreamType;
     public String mSubAppType;
     public String mUid;
     public static final String mOSModel = Build.MODEL;
     public static final String mOSVer = Build.VERSION.RELEASE;
-    public static final String mAppVer = TbConfig.getVersion();
+
+    public AlaLiveBaseInfo() {
+        this.mAppVer = "9.0.0";
+        this.mStreamLine = AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT;
+    }
+
+    public AlaLiveBaseInfo(String str) {
+        this.mAppVer = "9.0.0";
+        this.mStreamLine = AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT;
+        this.mAppVer = str;
+    }
 
     public String toJsonString() {
         this.mCuid = TbadkCoreApplication.getClientId();
@@ -32,11 +43,11 @@ public class AlaLiveBaseInfo {
         this.mNetWork = BdNetTypeUtil.netTypeNameInUpperCase();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt("appVer", mAppVer == null ? "" : mAppVer);
+            jSONObject.putOpt("appVer", this.mAppVer == null ? "" : this.mAppVer);
             jSONObject.putOpt("clientIp", this.mClientIp == null ? "" : this.mClientIp);
             jSONObject.putOpt("deviceId", this.mCuid == null ? "" : this.mCuid);
             jSONObject.putOpt("network", this.mNetWork == null ? "" : this.mNetWork);
-            jSONObject.putOpt("osType", mOSType == 0 ? "" : mOSType);
+            jSONObject.putOpt(HttpConstants.HTTP_OS_TYPE_OLD, mOSType == 0 ? "" : mOSType);
             jSONObject.putOpt("osVer", mOSVer == null ? "" : mOSVer);
             jSONObject.putOpt("streamType", this.mStreamType == null ? "" : this.mStreamType);
             jSONObject.putOpt("uid", this.mUid == null ? "" : this.mUid);

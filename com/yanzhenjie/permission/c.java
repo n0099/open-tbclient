@@ -6,21 +6,21 @@ import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
 class c implements h {
-    private static final com.yanzhenjie.permission.a.a nuf = new com.yanzhenjie.permission.a.b();
-    private String[] IL;
-    private com.yanzhenjie.permission.b.b nug;
-    private a nuh;
-    private a nui;
+    private static final com.yanzhenjie.permission.a.a mQP = new com.yanzhenjie.permission.a.b();
+    private String[] abS;
+    private com.yanzhenjie.permission.b.b mQQ;
+    private a mQR;
+    private a mQS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.yanzhenjie.permission.b.b bVar) {
-        this.nug = bVar;
+        this.mQQ = bVar;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
-    public h W(String... strArr) {
-        this.IL = strArr;
+    public h V(String... strArr) {
+        this.abS = strArr;
         return this;
     }
 
@@ -33,50 +33,50 @@ class c implements h {
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h a(a aVar) {
-        this.nuh = aVar;
+        this.mQR = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     @NonNull
     public h b(a aVar) {
-        this.nui = aVar;
+        this.mQS = aVar;
         return this;
     }
 
     @Override // com.yanzhenjie.permission.h
     public void start() {
-        List<String> a = a(this.nug, this.IL);
+        List<String> a = a(this.mQQ, this.abS);
         if (a.isEmpty()) {
-            dIy();
+            dCA();
         } else {
-            fs(a);
+            fg(a);
         }
     }
 
-    private void dIy() {
-        if (this.nuh != null) {
-            List<String> asList = Arrays.asList(this.IL);
+    private void dCA() {
+        if (this.mQR != null) {
+            List<String> asList = Arrays.asList(this.abS);
             try {
-                this.nuh.onAction(asList);
+                this.mQR.onAction(asList);
             } catch (Exception e) {
-                if (this.nui != null) {
-                    this.nui.onAction(asList);
+                if (this.mQS != null) {
+                    this.mQS.onAction(asList);
                 }
             }
         }
     }
 
-    private void fs(@NonNull List<String> list) {
-        if (this.nui != null) {
-            this.nui.onAction(list);
+    private void fg(@NonNull List<String> list) {
+        if (this.mQS != null) {
+            this.mQS.onAction(list);
         }
     }
 
     private static List<String> a(@NonNull com.yanzhenjie.permission.b.b bVar, @NonNull String... strArr) {
         ArrayList arrayList = new ArrayList(1);
         for (String str : strArr) {
-            if (!nuf.e(bVar.getContext(), str)) {
+            if (!mQP.e(bVar.getContext(), str)) {
                 arrayList.add(str);
             }
         }

@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.internal.IMSettings;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
@@ -119,7 +118,7 @@ public class RedNotifyMsg extends NotifyMsg implements Parcelable, NoProGuard {
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
         String uid = AccountManager.getUid(IMSettings.getsContext());
-        LogUtils.d("", "FDEBUG" + uid + HanziToPinyin.Token.SEPARATOR + this.mReceveId + HanziToPinyin.Token.SEPARATOR + this.mSendId);
+        LogUtils.d("", "FDEBUG" + uid + " " + this.mReceveId + " " + this.mSendId);
         if (this.mReceveId.equals(uid)) {
             if (this.mSendId.equals(uid)) {
                 return "你领取了自己的红包";

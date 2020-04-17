@@ -4,19 +4,19 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.FrameLayout;
-import com.baidu.live.data.bb;
-import com.baidu.live.data.z;
+import com.baidu.live.data.ab;
+import com.baidu.live.data.be;
 import com.baidu.live.im.view.LandscapeImBarrageItemView;
 import com.baidu.live.u.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LandscapeImBarrageTrackView extends FrameLayout {
-    private a avk;
-    private int avl;
-    private int avm;
-    private boolean avn;
-    private List<View> avo;
+    private a aOM;
+    private int aON;
+    private int aOO;
+    private boolean aOP;
+    private List<View> aOQ;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -31,39 +31,39 @@ public class LandscapeImBarrageTrackView extends FrameLayout {
     }
 
     public void setCallback(a aVar) {
-        this.avk = aVar;
+        this.aOM = aVar;
     }
 
-    public boolean yj() {
-        return this.avn;
+    public boolean Db() {
+        return this.aOP;
     }
 
     public void setCanAddNext() {
-        this.avn = true;
+        this.aOP = true;
     }
 
-    public void a(bb bbVar, z zVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
-        this.avn = false;
-        LandscapeImBarrageItemView b = b(bbVar, zVar, aVar, str, str2, i);
+    public void a(be beVar, ab abVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
+        this.aOP = false;
+        LandscapeImBarrageItemView b = b(beVar, abVar, aVar, str, str2, i);
         b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         int measuredWidth = b.getMeasuredWidth();
-        b.avh = getWidth() + b.getMeasuredWidth();
-        b.avg = ((b.avh * 1.0f) / this.avl) * 1000.0f;
+        b.aOJ = getWidth() + b.getMeasuredWidth();
+        b.aOI = ((b.aOJ * 1.0f) / this.aON) * 1000.0f;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(measuredWidth, -1);
         layoutParams.leftMargin = getWidth();
         addView(b, layoutParams);
     }
 
-    public void yk() {
-        if (this.avo != null && !this.avo.isEmpty()) {
-            for (View view : this.avo) {
+    public void Dc() {
+        if (this.aOQ != null && !this.aOQ.isEmpty()) {
+            for (View view : this.aOQ) {
                 removeView(view);
             }
-            this.avo.clear();
+            this.aOQ.clear();
         }
         int childCount = getChildCount();
         if (childCount <= 0) {
-            yl();
+            Dd();
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -78,11 +78,11 @@ public class LandscapeImBarrageTrackView extends FrameLayout {
     private void a(LandscapeImBarrageItemView landscapeImBarrageItemView, long j) {
         int i;
         long j2 = j - landscapeImBarrageItemView.timeStamp;
-        if (j2 > landscapeImBarrageItemView.avg) {
-            this.avo.add(landscapeImBarrageItemView);
+        if (j2 > landscapeImBarrageItemView.aOI) {
+            this.aOQ.add(landscapeImBarrageItemView);
             return;
         }
-        int i2 = (int) (((((float) j2) * 1.0f) / 1000.0f) * this.avl);
+        int i2 = (int) (((((float) j2) * 1.0f) / 1000.0f) * this.aON);
         if (i2 < getWidth()) {
             i = getWidth() - i2;
         } else {
@@ -91,46 +91,46 @@ public class LandscapeImBarrageTrackView extends FrameLayout {
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) landscapeImBarrageItemView.getLayoutParams();
         layoutParams.leftMargin = i;
         landscapeImBarrageItemView.setLayoutParams(layoutParams);
-        if (indexOfChild(landscapeImBarrageItemView) == getChildCount() - 1 && landscapeImBarrageItemView.getMeasuredWidth() + i + this.avm < getWidth()) {
-            yl();
+        if (indexOfChild(landscapeImBarrageItemView) == getChildCount() - 1 && landscapeImBarrageItemView.getMeasuredWidth() + i + this.aOO < getWidth()) {
+            Dd();
         }
     }
 
     public void release() {
         removeAllViews();
-        if (this.avo != null) {
-            this.avo.clear();
+        if (this.aOQ != null) {
+            this.aOQ.clear();
         }
     }
 
     private void init() {
         setBackgroundColor(0);
-        this.avo = new ArrayList();
-        this.avl = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
-        this.avm = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
+        this.aOQ = new ArrayList();
+        this.aON = getResources().getDimensionPixelOffset(a.e.sdk_ds110);
+        this.aOO = getResources().getDimensionPixelOffset(a.e.sdk_ds120);
     }
 
-    private LandscapeImBarrageItemView b(bb bbVar, z zVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
+    private LandscapeImBarrageItemView b(be beVar, ab abVar, com.baidu.live.data.a aVar, String str, String str2, int i) {
         LandscapeImBarrageItemView landscapeImBarrageItemView = new LandscapeImBarrageItemView(getContext());
-        landscapeImBarrageItemView.setEffectInfo(zVar);
+        landscapeImBarrageItemView.setEffectInfo(abVar);
         landscapeImBarrageItemView.setDisplayInfo(aVar, str2, str, i);
-        landscapeImBarrageItemView.setUIInfo(bbVar, false);
+        landscapeImBarrageItemView.setUIInfo(beVar, false);
         landscapeImBarrageItemView.setCallback(new LandscapeImBarrageItemView.a() { // from class: com.baidu.live.im.view.LandscapeImBarrageTrackView.1
             @Override // com.baidu.live.im.view.LandscapeImBarrageItemView.a
             public void c(com.baidu.live.data.a aVar2) {
-                if (LandscapeImBarrageTrackView.this.avk != null) {
-                    LandscapeImBarrageTrackView.this.avk.c(aVar2);
+                if (LandscapeImBarrageTrackView.this.aOM != null) {
+                    LandscapeImBarrageTrackView.this.aOM.c(aVar2);
                 }
             }
         });
         return landscapeImBarrageItemView;
     }
 
-    private void yl() {
-        if (!this.avn) {
-            this.avn = true;
-            if (this.avk != null) {
-                this.avk.a(this);
+    private void Dd() {
+        if (!this.aOP) {
+            this.aOP = true;
+            if (this.aOM != null) {
+                this.aOM.a(this);
             }
         }
     }

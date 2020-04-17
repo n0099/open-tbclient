@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public class a {
     private List<b> userList = new ArrayList();
 
-    public void cC(JSONObject jSONObject) {
+    public void cN(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("admins")) != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 b bVar = new b();
-                bVar.cC(optJSONObject);
+                bVar.cN(optJSONObject);
                 this.userList.add(bVar);
             }
         }

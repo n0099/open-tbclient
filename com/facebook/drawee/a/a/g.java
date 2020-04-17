@@ -8,30 +8,30 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class g {
-    private com.facebook.imagepipeline.f.a lLA;
+    private com.facebook.imagepipeline.f.a lSV;
     @Nullable
-    private j<Boolean> lLD;
-    private p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> lLL;
-    private com.facebook.drawee.components.a lLV;
-    private Executor lLW;
+    private j<Boolean> lSY;
+    private p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> lTf;
+    private com.facebook.drawee.components.a lTp;
+    private Executor lTq;
     @Nullable
-    private ImmutableList<com.facebook.imagepipeline.f.a> lLX;
+    private ImmutableList<com.facebook.imagepipeline.f.a> lTr;
     private Resources mResources;
 
     public void a(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.f.a aVar2, Executor executor, p<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> pVar, @Nullable ImmutableList<com.facebook.imagepipeline.f.a> immutableList, @Nullable j<Boolean> jVar) {
         this.mResources = resources;
-        this.lLV = aVar;
-        this.lLA = aVar2;
-        this.lLW = executor;
-        this.lLL = pVar;
-        this.lLX = immutableList;
-        this.lLD = jVar;
+        this.lTp = aVar;
+        this.lSV = aVar2;
+        this.lTq = executor;
+        this.lTf = pVar;
+        this.lTr = immutableList;
+        this.lSY = jVar;
     }
 
-    public d dmk() {
-        d a = a(this.mResources, this.lLV, this.lLA, this.lLW, this.lLL, this.lLX);
-        if (this.lLD != null) {
-            a.vh(this.lLD.get().booleanValue());
+    public d dod() {
+        d a = a(this.mResources, this.lTp, this.lSV, this.lTq, this.lTf, this.lTr);
+        if (this.lSY != null) {
+            a.vv(this.lSY.get().booleanValue());
         }
         return a;
     }

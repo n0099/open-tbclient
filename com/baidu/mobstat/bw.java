@@ -727,7 +727,7 @@ public class bw {
         } else if (!TextUtils.isEmpty(a("ro.vivo.os.version"))) {
             str = "funtouch";
         } else if (!TextUtils.isEmpty(a("ro.smartisan.version"))) {
-            str = "smartisan";
+            str = RomUtils.MANUFACTURER_SMARTISAN;
         }
         if (TextUtils.isEmpty(str)) {
             String a2 = a(RomUtils.PROP_RO_BUILD_DISPLAY_ID);

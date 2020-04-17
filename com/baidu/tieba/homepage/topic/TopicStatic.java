@@ -1,6 +1,7 @@
 package com.baidu.tieba.homepage.topic;
 
 import android.content.Intent;
+import android.net.Uri;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.StringUtils;
@@ -27,35 +28,35 @@ import com.baidu.tieba.tbadkCore.a.a;
 public class TopicStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(TopicDetailActivityConfig.class, TopicDetailActivity.class);
-        bPF();
-        bPG();
-        bPH();
-        bPI();
-        bPJ();
+        cag();
+        cah();
+        cai();
+        caj();
+        bIm();
     }
 
-    private static void bPF() {
+    private static void cag() {
         a.a(309628, ResponseSocketGetTopicListMessage.class, false, false);
         a.a(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
     }
 
-    private static void bPG() {
+    private static void cah() {
         a.a(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
         a.a(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
     }
 
-    private static void bPH() {
+    private static void cai() {
         a.a(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
         a.a(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
     }
 
-    private static void bPI() {
+    private static void caj() {
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, BlessSocketResponseMessage.class, false, false);
         a.a(CmdConfigSocket.CMD_TOPIC_BLESS, 1003065, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
-    private static void bPJ() {
-        ba.aGK().a(new ba.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
+    private static void bIm() {
+        ba.aOY().a(new ba.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null) {
@@ -82,6 +83,11 @@ public class TopicStatic {
                         e.printStackTrace();
                         return 1;
                     }
+                } else if (lowerCase.contains("unidispatch/topicdetail")) {
+                    TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(tbPageContext.getPageActivity());
+                    topicDetailActivityConfig.setUri(Uri.parse(lowerCase));
+                    tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, topicDetailActivityConfig));
+                    return 0;
                 } else {
                     return 3;
                 }

@@ -1,7 +1,6 @@
 package com.baidu.browser.sailor.webkit.loader;
 
 import android.content.Context;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
@@ -156,7 +155,7 @@ public class BdWebkitManager implements INoProGuard {
         } else if (a.c == mWebkitType$25688051) {
             z2 = WebKitFactory.setEngine(1);
         }
-        Log.d(" initResult " + init + HanziToPinyin.Token.SEPARATOR + z2);
+        Log.d(" initResult " + init + " " + z2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

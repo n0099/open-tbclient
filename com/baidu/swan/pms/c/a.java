@@ -14,28 +14,28 @@ import okhttp3.MediaType;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    private static HttpManager cBv = HttpManager.newHttpManager(AppRuntime.getAppContext());
-    private static CookieManager cBw = com.baidu.swan.pms.d.ats().Vd();
+    private static HttpManager dau = HttpManager.newHttpManager(AppRuntime.getAppContext());
+    private static CookieManager dav = com.baidu.swan.pms.d.aBC().acS();
 
     public static void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, StatResponseCallback<String> statResponseCallback) {
         if (TextUtils.isEmpty(str)) {
             throw new InvalidParameterException("PMS request URL is empty");
         }
-        PostStringRequest.PostStringRequestBuilder mediaType = cBv.postStringRequest().url(e.g(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE));
+        PostStringRequest.PostStringRequestBuilder mediaType = dau.postStringRequest().url(e.h(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE));
         if (map2 != null) {
             mediaType.addHeaders(map2);
         }
-        mediaType.cookieManager(cBw).enableStat(true).build().executeStat(statResponseCallback);
+        mediaType.cookieManager(dav).enableStat(true).build().executeStat(statResponseCallback);
     }
 
     public static void a(String str, Map<String, String> map, Map<String, String> map2, StatResponseCallback<String> statResponseCallback) {
         if (TextUtils.isEmpty(str)) {
             throw new InvalidParameterException("PMS request URL is empty");
         }
-        GetRequest.GetRequestBuilder url = cBv.getRequest().url(e.g(str, map));
+        GetRequest.GetRequestBuilder url = dau.getRequest().url(e.h(str, map));
         if (map2 != null) {
             url.addHeaders(map2);
         }
-        url.cookieManager(cBw).enableStat(true).build().executeStat(statResponseCallback);
+        url.cookieManager(dav).enableStat(true).build().executeStat(statResponseCallback);
     }
 }

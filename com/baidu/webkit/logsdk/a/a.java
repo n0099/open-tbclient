@@ -9,10 +9,10 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.fsg.base.statistics.j;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.xiaomi.mipush.sdk.Constants;
@@ -145,7 +145,7 @@ public final class a {
                 }
                 return "unknown";
             }
-            return LivenessStat.TYPE_FACE_MATCH_FAIL;
+            return "fail";
         } catch (Exception e) {
             com.baidu.webkit.logsdk.d.c.a(e);
             return com.baidu.fsg.base.statistics.b.k;
@@ -293,7 +293,7 @@ public final class a {
                 c = 65535;
                 break;
             case -19457365:
-                if (str.equals("network_type")) {
+                if (str.equals(HttpConstants.NETWORK_TYPE)) {
                     c = 2;
                     break;
                 }
@@ -322,7 +322,7 @@ public final class a {
             jSONObject.put("package", context.getPackageName());
             jSONObject.put("version_code", g(context));
             jSONObject.put("display_density", e(context));
-            jSONObject.put("network_type", ((TelephonyManager) context.getSystemService("phone")).getNetworkType());
+            jSONObject.put(HttpConstants.NETWORK_TYPE, ((TelephonyManager) context.getSystemService("phone")).getNetworkType());
             jSONObject.put("operator", h(context));
             jSONObject.put("build_display", Build.DISPLAY);
             String e = e();
@@ -591,7 +591,7 @@ public final class a {
                 }
                 break;
             case -19457365:
-                if (str.equals("network_type")) {
+                if (str.equals(HttpConstants.NETWORK_TYPE)) {
                     c = 22;
                     break;
                 }

@@ -16,6 +16,7 @@ import com.baidu.mobads.production.v;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.h;
 import com.baidu.mobads.utils.n;
+import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -66,7 +67,7 @@ public class c extends com.baidu.mobads.production.b {
 
     @Override // com.baidu.mobads.production.b
     protected void h() {
-        this.m = 8000;
+        this.m = CoolPraiseGuideLottieView.ANIM_DURATION;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProd

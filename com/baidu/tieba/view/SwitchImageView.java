@@ -6,67 +6,67 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 /* loaded from: classes.dex */
 public class SwitchImageView extends AppCompatImageView {
-    private int kLh;
-    private int kLi;
-    private boolean kLj;
-    private com.baidu.tbadk.core.util.d.a kLk;
-    private com.baidu.tbadk.core.util.d.a kLl;
+    private int lvE;
+    private int lvF;
+    private boolean lvG;
+    private com.baidu.tbadk.core.util.d.a lvH;
+    private com.baidu.tbadk.core.util.d.a lvI;
     private int mCurrentState;
 
     public SwitchImageView(Context context) {
         super(context);
-        this.kLj = false;
+        this.lvG = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kLj = false;
+        this.lvG = false;
         init();
     }
 
     public SwitchImageView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kLj = false;
+        this.lvG = false;
         init();
     }
 
     private void init() {
         this.mCurrentState = 0;
-        this.kLh = 0;
-        this.kLi = 0;
+        this.lvE = 0;
+        this.lvF = 0;
     }
 
     public void setStateImage(int i, int i2) {
-        this.kLh = i;
-        this.kLi = i2;
+        this.lvE = i;
+        this.lvF = i2;
     }
 
     public void setSvgStateImage(com.baidu.tbadk.core.util.d.a aVar, com.baidu.tbadk.core.util.d.a aVar2) {
-        this.kLk = aVar;
-        this.kLl = aVar2;
-        this.kLj = true;
+        this.lvH = aVar;
+        this.lvI = aVar2;
+        this.lvG = true;
     }
 
     public void setState(int i) {
         if (i == 0) {
             this.mCurrentState = 0;
-            if (this.kLj) {
-                setImageDrawable(this.kLk.getDrawable());
+            if (this.lvG) {
+                setImageDrawable(this.lvH.getDrawable());
             } else {
-                setImageResource(this.kLh);
+                setImageResource(this.lvE);
             }
         } else if (i == 1) {
             this.mCurrentState = 1;
-            if (this.kLj) {
-                setImageDrawable(this.kLl.getDrawable());
+            if (this.lvG) {
+                setImageDrawable(this.lvI.getDrawable());
             } else {
-                setImageResource(this.kLi);
+                setImageResource(this.lvF);
             }
         }
     }
 
-    public void cTX() {
+    public void deM() {
         if (this.mCurrentState == 0) {
             this.mCurrentState = 1;
             setState(1);

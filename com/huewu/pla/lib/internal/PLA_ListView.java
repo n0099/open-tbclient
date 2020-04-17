@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.util.SparseBooleanArray;
 import android.view.MotionEvent;
@@ -272,7 +273,7 @@ public class PLA_ListView extends PLA_AbsListView {
             this.mItemCount = this.mAdapter.getCount();
             this.mDataSetObserver = new PLA_AdapterView.b();
             this.mAdapter.registerDataSetObserver(this.mDataSetObserver);
-            this.mRecycler.co(this.mAdapter.getViewTypeCount());
+            this.mRecycler.cD(this.mAdapter.getViewTypeCount());
         } else {
             this.mAreAllItemsSelectable = true;
         }
@@ -304,7 +305,7 @@ public class PLA_ListView extends PLA_AbsListView {
             for (int i = 0; i < size; i++) {
                 PLA_AbsListView.LayoutParams layoutParams = (PLA_AbsListView.LayoutParams) arrayList.get(i).view.getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.azb = false;
+                    layoutParams.aSI = false;
                 }
             }
         }
@@ -440,8 +441,8 @@ public class PLA_ListView extends PLA_AbsListView {
             measureScrapChild(obtainView, 0, i);
             int measuredWidth = obtainView.getMeasuredWidth();
             i3 = obtainView.getMeasuredHeight();
-            if (recycleOnMeasure() && this.mRecycler.cp(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).aza)) {
-                this.mRecycler.dy(obtainView);
+            if (recycleOnMeasure() && this.mRecycler.cE(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).aSH)) {
+                this.mRecycler.dp(obtainView);
             }
             i4 = measuredWidth;
         }
@@ -463,8 +464,8 @@ public class PLA_ListView extends PLA_AbsListView {
             layoutParams = new PLA_AbsListView.LayoutParams(-1, -2, 0);
             view.setLayoutParams(layoutParams);
         }
-        layoutParams.aza = this.mAdapter.getItemViewType(i);
-        layoutParams.azc = true;
+        layoutParams.aSH = this.mAdapter.getItemViewType(i);
+        layoutParams.aSJ = true;
         int childMeasureSpec = ViewGroup.getChildMeasureSpec(i2, this.mListPadding.left + this.mListPadding.right, layoutParams.width);
         int i3 = layoutParams.height;
         if (i3 > 0) {
@@ -499,9 +500,9 @@ public class PLA_ListView extends PLA_AbsListView {
             View obtainView = obtainView(i2, zArr);
             measureScrapChild(obtainView, i2, i);
             int i9 = i2 > 0 ? i7 + i8 : i7;
-            if (recycleOnMeasure && fVar.cp(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).aza)) {
+            if (recycleOnMeasure && fVar.cE(((PLA_AbsListView.LayoutParams) obtainView.getLayoutParams()).aSH)) {
                 com.huewu.pla.lib.a.i("measureHeightOfChildren");
-                fVar.dy(obtainView);
+                fVar.dp(obtainView);
             }
             i7 = obtainView.getMeasuredHeight() + i9;
             if (i7 >= i4) {
@@ -663,10 +664,10 @@ public class PLA_ListView extends PLA_AbsListView {
                 PLA_AbsListView.f fVar = this.mRecycler;
                 if (z2) {
                     for (int i2 = childCount - 1; i2 >= 0; i2--) {
-                        fVar.dy(getChildAt(i2));
+                        fVar.dp(getChildAt(i2));
                     }
                 } else {
-                    fVar.D(childCount, i);
+                    fVar.C(childCount, i);
                 }
                 switch (this.mLayoutMode) {
                     case 1:
@@ -724,7 +725,7 @@ public class PLA_ListView extends PLA_AbsListView {
                         onLayoutSyncFinished(this.mSyncPosition);
                         break;
                 }
-                fVar.zP();
+                fVar.EN();
                 if (this.mTouchMode <= 0 || this.mTouchMode >= 3) {
                     this.mSelectedTop = 0;
                     this.mSelectorRect.setEmpty();
@@ -763,7 +764,7 @@ public class PLA_ListView extends PLA_AbsListView {
 
     private View makeAndAddView(int i, int i2, boolean z, boolean z2) {
         View obtainView;
-        if (!this.mDataChanged && (obtainView = this.mRecycler.cq(i)) != null) {
+        if (!this.mDataChanged && (obtainView = this.mRecycler.cF(i)) != null) {
             setupChild(obtainView, i, i2, z, getItemLeft(i), z2, true);
         } else {
             onItemAddedToList(i, z);
@@ -771,7 +772,7 @@ public class PLA_ListView extends PLA_AbsListView {
             com.huewu.pla.lib.a.i("makeAndAddView:" + i);
             obtainView = obtainView(i, this.mIsScrap);
             if (obtainView == null) {
-                com.huewu.pla.lib.a.QS("child is null:" + i);
+                com.huewu.pla.lib.a.OC("child is null:" + i);
             } else {
                 setupChild(obtainView, i, i2, z, itemLeft, z2, this.mIsScrap[0]);
             }
@@ -795,14 +796,14 @@ public class PLA_ListView extends PLA_AbsListView {
         if (layoutParams == null) {
             layoutParams = new PLA_AbsListView.LayoutParams(-1, -2, 0);
         }
-        layoutParams.aza = this.mAdapter.getItemViewType(i);
-        layoutParams.azd = i;
-        if ((z3 && !layoutParams.azc) || (layoutParams.azb && layoutParams.aza == -2)) {
+        layoutParams.aSH = this.mAdapter.getItemViewType(i);
+        layoutParams.aSK = i;
+        if ((z3 && !layoutParams.aSJ) || (layoutParams.aSI && layoutParams.aSH == -2)) {
             attachViewToParent(view, z ? -1 : 0, layoutParams);
         } else {
-            layoutParams.azc = false;
-            if (layoutParams.aza == -2) {
-                layoutParams.azb = true;
+            layoutParams.aSJ = false;
+            if (layoutParams.aSH == -2) {
+                layoutParams.aSI = true;
             }
             addViewInLayout(view, z ? -1 : 0, layoutParams, true);
         }
@@ -984,9 +985,9 @@ public class PLA_ListView extends PLA_AbsListView {
             while (true) {
                 View view = childAt;
                 if (view.getBottom() < i3) {
-                    if (fVar.cp(((PLA_AbsListView.LayoutParams) view.getLayoutParams()).aza)) {
+                    if (fVar.cE(((PLA_AbsListView.LayoutParams) view.getLayoutParams()).aSH)) {
                         detachViewFromParent(view);
-                        fVar.dy(view);
+                        fVar.dp(view);
                     } else {
                         removeViewInLayout(view);
                     }
@@ -1011,9 +1012,9 @@ public class PLA_ListView extends PLA_AbsListView {
                 int i4 = childCount2;
                 View view2 = childAt3;
                 if (view2.getTop() > height) {
-                    if (fVar.cp(((PLA_AbsListView.LayoutParams) view2.getLayoutParams()).aza)) {
+                    if (fVar.cE(((PLA_AbsListView.LayoutParams) view2.getLayoutParams()).aSH)) {
                         detachViewFromParent(view2);
-                        fVar.dy(view2);
+                        fVar.dp(view2);
                     } else {
                         removeViewInLayout(view2);
                     }
@@ -1317,7 +1318,7 @@ public class PLA_ListView extends PLA_AbsListView {
                 layoutChildren();
             }
             Rect rect2 = this.mTempRect;
-            int i5 = Integer.MAX_VALUE;
+            int i5 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             int childCount = getChildCount();
             int i6 = this.mFirstPosition;
             while (i3 < childCount) {

@@ -1,236 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.searchbox.publisher.controller.IPublisherManagerInterface;
-import com.baidu.searchbox.publisher.controller.PublisherManagerFactory;
-import com.baidu.searchbox.ugc.model.UgcConstant;
-import com.baidu.searchbox.ugc.utils.UgcServerApiUtils;
-import com.baidu.searchbox.ugc.webjs.UgcSchemeModel;
-import com.baidu.searchbox.ugc.webjs.UnitedSchemeUGCDispatcher;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bc;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.data.h;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes2.dex */
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.s;
+import com.baidu.adp.lib.util.u;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.an;
+import java.io.File;
+import java.io.FileInputStream;
+import java.security.PublicKey;
+/* loaded from: classes.dex */
 public class e {
-    private static com.baidu.tieba.publisher.service.a dWH;
-    private static PermissionJudgePolicy mPermissionJudgement;
-    private static IPublisherManagerInterface mPublisherInterfaceManager;
-
-    public static com.baidu.tieba.publisher.service.a aWV() {
-        if (dWH == null) {
-            dWH = new com.baidu.tieba.publisher.service.a();
+    public static boolean m(String str, File file) {
+        if (TextUtils.isEmpty(str) || file == null || !file.exists()) {
+            TiebaStatic.log(new an("c10836").cI("obj_type", "checkRSA input args is null"));
+            return false;
         }
-        return dWH;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static boolean en(Context context) {
-        return bc.checkUpIsLogin(context);
-    }
-
-    public static void a(final Activity activity, final h hVar) {
-        if (mPermissionJudgement == null) {
-            mPermissionJudgement = new PermissionJudgePolicy();
-        }
-        mPermissionJudgement.clearRequestPermissionList();
-        mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        mPermissionJudgement.a(new PermissionJudgePolicy.a() { // from class: com.baidu.tieba.e.1
-            @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.a
-            public void onPermissionsGranted() {
-                if (e.en(activity)) {
-                    UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
-                    ugcSchemeModel.publishType = "0";
-                    if (!StringUtils.isNull(hVar.placeholder)) {
-                        ugcSchemeModel.placeholder = hVar.placeholder;
-                    } else {
-                        ugcSchemeModel.placeholder = TbadkCoreApplication.getInst().getString(R.string.main_body);
-                    }
-                    if (!StringUtils.isNull(hVar.placeTitle)) {
-                        ugcSchemeModel.placeTitle = hVar.placeTitle;
-                    } else {
-                        ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_place_title);
-                    }
-                    ugcSchemeModel.sourceFrom = "tieba";
-                    ugcSchemeModel.serverTopicsRule = 0;
-                    try {
-                        JSONObject jSONObject = new JSONObject("{\"poi_id\":\"\"}");
-                        jSONObject.put(UgcConstant.POI_ID, UgcServerApiUtils.getLocationInfo());
-                        ugcSchemeModel.location = jSONObject.toString();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    ugcSchemeModel.atSchema = "https://mbd.baidu.com/webpage?type=topic&action=at";
-                    ugcSchemeModel.url = "publisher?action=ugc&cmd=177";
-                    ugcSchemeModel.callType = 1;
-                    ugcSchemeModel.ugcCallback = "tieba";
-                    UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.1.1
-                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
-                        public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvP != null) {
-                                hVar.dvP.onSuccess();
-                            }
-                        }
-
-                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
-                        public String getCurrentPageUrl() {
-                            return null;
-                        }
-                    });
-                    if (e.mPublisherInterfaceManager == null) {
-                        IPublisherManagerInterface unused = e.mPublisherInterfaceManager = PublisherManagerFactory.get();
-                    }
-                    e.mPublisherInterfaceManager.openPublisher(activity, ugcSchemeModel, -1);
-                }
+        try {
+            PublicKey loadRSAPublicKey = u.loadRSAPublicKey(com.baidu.adp.lib.util.c.decode("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
+            if (loadRSAPublicKey == null) {
+                TiebaStatic.log(new an("c10836").cI("obj_type", "publicKeyCode is null").cI("obj_source", file.getName()));
+                return false;
             }
-        });
-        mPermissionJudgement.startRequestPermission(activity);
+            byte[] decodeHex = decodeHex(str);
+            if (decodeHex == null || decodeHex.length <= 0) {
+                TiebaStatic.log(new an("c10836").cI("obj_type", "server_data is null").cI("obj_source", file.getName()));
+                return false;
+            }
+            byte[] decryptWithRSA = u.decryptWithRSA(loadRSAPublicKey, decodeHex);
+            if (decryptWithRSA == null || decryptWithRSA.length <= 0) {
+                TiebaStatic.log(new an("c10836").cI("obj_type", "des is null").cI("obj_source", file.getName()));
+                return false;
+            }
+            String trim = new String(decryptWithRSA, "UTF-8").trim();
+            String md5 = s.toMd5(new FileInputStream(file));
+            if (md5 != null) {
+                md5 = md5.trim();
+            }
+            if (TextUtils.isEmpty(md5) || TextUtils.isEmpty(trim)) {
+                TiebaStatic.log(new an("c10836").cI("obj_type", "apkMd5 or serverMD5 is null").cI("obj_source", file.getName()));
+                return false;
+            } else if (md5.equalsIgnoreCase(trim)) {
+                return true;
+            } else {
+                TiebaStatic.log(new an("c10836").cI("obj_type", "apkMd5 != serverMD5").cI("obj_source", file.getName()));
+                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
+                return false;
+            }
+        } catch (Exception e) {
+            TiebaStatic.log(new an("c10836").cI("obj_type", "exception:" + e.getMessage()).cI("obj_source", file.getName()));
+            BdLog.e("download MD5 RSA ERROR！Exception:" + e.getMessage() + " ; file:" + file.getName());
+            return false;
+        }
     }
 
-    public static void b(final Activity activity, final h hVar) {
-        if (mPermissionJudgement == null) {
-            mPermissionJudgement = new PermissionJudgePolicy();
+    private static int f(char c) {
+        int digit = Character.digit(c, 16);
+        if (digit == -1) {
+            throw new RuntimeException("Illegal hexadecimal character " + c);
         }
-        mPermissionJudgement.clearRequestPermissionList();
-        mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        mPermissionJudgement.a(new PermissionJudgePolicy.a() { // from class: com.baidu.tieba.e.2
-            @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.a
-            public void onPermissionsGranted() {
-                if (e.en(activity)) {
-                    UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
-                    ugcSchemeModel.publishType = "4";
-                    if (!StringUtils.isNull(hVar.placeholder)) {
-                        ugcSchemeModel.placeholder = hVar.placeholder;
-                    } else {
-                        ugcSchemeModel.placeholder = TbadkCoreApplication.getInst().getString(R.string.main_body);
-                    }
-                    if (!StringUtils.isNull(hVar.placeTitle)) {
-                        ugcSchemeModel.placeTitle = hVar.placeTitle;
-                    } else {
-                        ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_place_title);
-                    }
-                    ugcSchemeModel.sourceFrom = "tieba";
-                    ugcSchemeModel.serverTopicsRule = 0;
-                    try {
-                        JSONObject jSONObject = new JSONObject("{\"poi_id\":\"\"}");
-                        jSONObject.put(UgcConstant.POI_ID, UgcServerApiUtils.getLocationInfo());
-                        ugcSchemeModel.location = jSONObject.toString();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    ugcSchemeModel.atSchema = "https://mbd.baidu.com/webpage?type=topic&action=at";
-                    ugcSchemeModel.url = "publisher?action=ugc&cmd=177";
-                    ugcSchemeModel.callType = 1;
-                    ugcSchemeModel.ugcCallback = "tieba";
-                    UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.2.1
-                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
-                        public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvP != null) {
-                                hVar.dvP.onSuccess();
-                            }
-                        }
-
-                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
-                        public String getCurrentPageUrl() {
-                            return null;
-                        }
-                    });
-                    if (e.mPublisherInterfaceManager == null) {
-                        IPublisherManagerInterface unused = e.mPublisherInterfaceManager = PublisherManagerFactory.get();
-                    }
-                    e.mPublisherInterfaceManager.openPublisher(activity, ugcSchemeModel, -1);
-                }
-            }
-        });
-        mPermissionJudgement.startRequestPermission(activity);
+        return digit;
     }
 
-    public static void c(final Activity activity, final h hVar) {
-        if (mPermissionJudgement == null) {
-            mPermissionJudgement = new PermissionJudgePolicy();
+    public static byte[] decodeHex(String str) {
+        int i = 0;
+        if (str == null) {
+            throw new IllegalArgumentException("binary string is null");
         }
-        mPermissionJudgement.clearRequestPermissionList();
-        mPermissionJudgement.appendRequestPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE");
-        mPermissionJudgement.a(new PermissionJudgePolicy.a() { // from class: com.baidu.tieba.e.3
-            @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.a
-            public void onPermissionsGranted() {
-                if (e.en(activity)) {
-                    UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
-                    ugcSchemeModel.url = "publisher?action=ugc&cmd=177";
-                    ugcSchemeModel.atSchema = "https://mbd.baidu.com/webpage?type=topic&action=at";
-                    ugcSchemeModel.publishType = "5";
-                    ugcSchemeModel.callType = 1;
-                    if (!StringUtils.isNull(hVar.placeholder)) {
-                        ugcSchemeModel.placeholder = hVar.placeholder;
-                    } else {
-                        ugcSchemeModel.placeholder = TbadkCoreApplication.getInst().getString(R.string.publisher_forward_place_hint);
-                    }
-                    if (!StringUtils.isNull(hVar.placeTitle)) {
-                        ugcSchemeModel.placeTitle = hVar.placeTitle;
-                    } else {
-                        ugcSchemeModel.placeTitle = TbadkCoreApplication.getInst().getString(R.string.publisher_forward_place_title);
-                    }
-                    ugcSchemeModel.sourceFrom = "tieba";
-                    if (!StringUtils.isNull(hVar.dvQ)) {
-                        ugcSchemeModel.forwardContent = hVar.dvQ;
-                    }
-                    if (hVar.dvR != null) {
-                        try {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("title", hVar.dvR.title);
-                            jSONObject.put("ref_type", hVar.dvR.ref_type);
-                            jSONObject.put("thumbpic", hVar.dvR.thumbpic);
-                            jSONObject.put("channel", hVar.dvR.channel);
-                            jSONObject.put("url", hVar.dvR.url);
-                            jSONObject.put("account_type", hVar.dvR.dwa);
-                            jSONObject.put("id", hVar.dvR.id);
-                            jSONObject.put("nid", hVar.dvR.nid);
-                            jSONObject.put("video_duration", hVar.dvR.video_duration);
-                            jSONObject.put(TableDefine.PaSubscribeColumns.COLUMN_AVATAR, hVar.dvR.avatar);
-                            jSONObject.put("tid", hVar.dvR.tid);
-                            ugcSchemeModel.referenceDt = jSONObject.toString();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (hVar.dvS != null) {
-                        try {
-                            JSONObject jSONObject2 = new JSONObject();
-                            jSONObject2.put("share_type", hVar.dvS.dvX);
-                            jSONObject2.put("forward_rel_id", hVar.dvS.dvY);
-                            jSONObject2.put("forward_is_comment", hVar.dvS.dvZ);
-                            ugcSchemeModel.ext = jSONObject2.toString();
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                    ugcSchemeModel.ugcCallback = "tieba";
-                    UnitedSchemeUGCDispatcher.sSchemeCallbackHandlerMap.put("publish", new CallbackHandler() { // from class: com.baidu.tieba.e.3.1
-                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
-                        public void handleSchemeDispatchCallback(String str, String str2) {
-                            if (hVar.dvP != null) {
-                                hVar.dvP.onSuccess();
-                            }
-                        }
-
-                        @Override // com.baidu.searchbox.unitedscheme.CallbackHandler
-                        public String getCurrentPageUrl() {
-                            return null;
-                        }
-                    });
-                    if (e.mPublisherInterfaceManager == null) {
-                        IPublisherManagerInterface unused = e.mPublisherInterfaceManager = PublisherManagerFactory.get();
-                    }
-                    e.mPublisherInterfaceManager.openPublisher(activity, ugcSchemeModel, -1);
-                }
-            }
-        });
-        mPermissionJudgement.startRequestPermission(activity);
+        char[] charArray = str.toCharArray();
+        byte[] bArr = new byte[charArray.length / 2];
+        if (charArray.length % 2 != 0) {
+            return null;
+        }
+        for (int i2 = 0; i + 1 < charArray.length && i2 < bArr.length; i2++) {
+            int i3 = i + 1;
+            int f = f(charArray[i]) << 4;
+            i = i3 + 1;
+            bArr[i2] = (byte) (f(charArray[i3]) | f);
+        }
+        return bArr;
     }
 }

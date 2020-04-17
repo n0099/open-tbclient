@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class c extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.c.c> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String Tv() {
+    public String abk() {
         return "pageScrollBack";
     }
 
@@ -14,6 +14,6 @@ public class c extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.c.c> {
     @Override // com.baidu.swan.apps.r.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.r.c.c cVar) {
         a(cVar, command.what, null, true);
-        cVar.TB();
+        cVar.abq();
     }
 }

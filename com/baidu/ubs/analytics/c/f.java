@@ -5,8 +5,8 @@ public final class f {
     private static boolean al = false;
     private static long am = 30000;
     private static boolean ap = false;
-    private static long kXT;
-    private static long kXU;
+    private static long lOx;
+    private static long lOy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(long j) {
@@ -14,22 +14,22 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long cXY() {
+    public static long dlh() {
         return am;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long cXZ() {
-        return kXT;
+    public static long dli() {
+        return lOx;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void b(long j) {
-        kXT = j;
+        lOx = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean oz() {
+    public static boolean sT() {
         return ak;
     }
 
@@ -44,10 +44,10 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(long j) {
-        kXU = j;
+        lOy = j;
     }
 
-    public static long cYa() {
-        return kXU;
+    public static long dlj() {
+        return lOy;
     }
 }

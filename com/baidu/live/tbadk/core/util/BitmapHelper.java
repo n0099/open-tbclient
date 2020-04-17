@@ -15,7 +15,6 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.SparseArray;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.CloseUtil;
 import com.baidu.live.tbadk.TbConfig;
@@ -810,7 +809,7 @@ public class BitmapHelper {
                                             if (sb != null) {
                                                 sb.append("OOM ");
                                                 if (e != null) {
-                                                    sb.append(e.getClass().getName() + HanziToPinyin.Token.SEPARATOR + e.getMessage());
+                                                    sb.append(e.getClass().getName() + " " + e.getMessage());
                                                 }
                                             }
                                             if (sb != null && sb.length() == 0 && r2) {
@@ -824,7 +823,7 @@ public class BitmapHelper {
                                             if (sb != null) {
                                                 sb.append("Error ");
                                                 if (e != null) {
-                                                    sb.append(e.getClass().getName() + HanziToPinyin.Token.SEPARATOR + e.getMessage());
+                                                    sb.append(e.getClass().getName() + " " + e.getMessage());
                                                 }
                                             }
                                             if (sb != null && sb.length() == 0 && r2) {
@@ -936,7 +935,7 @@ public class BitmapHelper {
                                             r2 = z;
                                             e = e2;
                                             if (e != null && sb != null) {
-                                                sb.append(e.getClass().getName() + HanziToPinyin.Token.SEPARATOR + e.getMessage());
+                                                sb.append(e.getClass().getName() + " " + e.getMessage());
                                             }
                                             if (sb != null && sb.length() == 0 && r2) {
                                                 sb.append("UnKnow Error");
@@ -956,7 +955,7 @@ public class BitmapHelper {
                                             TbadkCoreApplication.getInst().onAppMemoryLow();
                                             e.printStackTrace();
                                             if (e != null && sb != null) {
-                                                sb.append(e.getClass().getName() + HanziToPinyin.Token.SEPARATOR + e.getMessage());
+                                                sb.append(e.getClass().getName() + " " + e.getMessage());
                                             }
                                             if (sb != null && sb.length() == 0 && r2) {
                                                 sb.append("UnKnow Error");
@@ -974,7 +973,7 @@ public class BitmapHelper {
                                             r2 = z;
                                             e = e6;
                                             if (e != null && sb != null) {
-                                                sb.append(e.getClass().getName() + HanziToPinyin.Token.SEPARATOR + e.getMessage());
+                                                sb.append(e.getClass().getName() + " " + e.getMessage());
                                             }
                                             if (sb != null && sb.length() == 0 && r2) {
                                                 sb.append("UnKnow Error");

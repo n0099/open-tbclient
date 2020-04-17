@@ -9,7 +9,6 @@ import com.baidu.down.loopj.android.http.exp.RetryStrategyException;
 import com.baidu.down.retry.RetryRequestInfo;
 import com.baidu.down.utils.Utils;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.datachannel.Contract;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -93,7 +92,7 @@ public class HttpDNSCacheInfo {
                     RetryRequestInfo retryRequestInfo = new RetryRequestInfo();
                     retryRequestInfo.url = str2;
                     retryRequestInfo.header = new HashMap();
-                    retryRequestInfo.header.put(Contract.SCHEME_KEY_HOST, this.mHost);
+                    retryRequestInfo.header.put("host", this.mHost);
                     arrayList.add(retryRequestInfo);
                 }
                 if (!Utils.isEmpty(this.mRetryRequestUrl)) {
@@ -109,7 +108,7 @@ public class HttpDNSCacheInfo {
                     RetryRequestInfo retryRequestInfo2 = new RetryRequestInfo();
                     retryRequestInfo2.url = str2;
                     retryRequestInfo2.header = new HashMap();
-                    retryRequestInfo2.header.put(Contract.SCHEME_KEY_HOST, this.mHost);
+                    retryRequestInfo2.header.put("host", this.mHost);
                     arrayList.add(retryRequestInfo2);
                     break;
                 }
@@ -119,7 +118,7 @@ public class HttpDNSCacheInfo {
                     RetryRequestInfo retryRequestInfo3 = new RetryRequestInfo();
                     retryRequestInfo3.url = str2;
                     retryRequestInfo3.header = new HashMap();
-                    retryRequestInfo3.header.put(Contract.SCHEME_KEY_HOST, this.mHost);
+                    retryRequestInfo3.header.put("host", this.mHost);
                     arrayList.add(retryRequestInfo3);
                     break;
                 }

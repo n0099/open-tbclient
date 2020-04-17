@@ -18,20 +18,20 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.media.c.a.g
     public boolean a(com.baidu.swan.apps.media.c.a aVar, com.baidu.swan.apps.media.c.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.console.c.i("video", "fullscreen, video id:" + cVar.bAL + " slave id: " + cVar.biB);
-        a(aVar, cVar.bEx, unitedSchemeEntity, callbackHandler);
+        com.baidu.swan.apps.console.c.i("video", "fullscreen, video id:" + cVar.bYS + " slave id: " + cVar.bGJ);
+        a(aVar, cVar.bsM, unitedSchemeEntity, callbackHandler);
         return true;
     }
 
     private void a(com.baidu.swan.apps.media.c.a aVar, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         HashMap<String, String> params = unitedSchemeEntity.getParams();
         if (params != null && !params.isEmpty()) {
-            aVar.f(z, l(params));
+            aVar.g(z, z(params));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    private int l(HashMap<String, String> hashMap) {
+    private int z(HashMap<String, String> hashMap) {
         String str = hashMap.get("params");
         if (!TextUtils.isEmpty(str)) {
             try {

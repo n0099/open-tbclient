@@ -131,8 +131,8 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.dOF()) {
-                    aVar.bK(sb.toString());
+                synchronized (aVar.dHF()) {
+                    aVar.bt(sb.toString());
                 }
                 return;
             }
@@ -153,9 +153,9 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static abstract class a {
-        abstract void bK(Object obj);
+        abstract void bt(Object obj);
 
-        abstract Object dOF();
+        abstract Object dHF();
 
         a() {
         }
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class b extends a {
-        private final PrintStream nxS;
+        private final PrintStream mRk;
 
         b(PrintStream printStream) {
-            this.nxS = printStream;
+            this.mRk = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dOF() {
-            return this.nxS;
+        Object dHF() {
+            return this.mRk;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bK(Object obj) {
-            this.nxS.println(obj);
+        void bt(Object obj) {
+            this.mRk.println(obj);
         }
     }
 
     /* loaded from: classes6.dex */
     static final class c extends a {
-        private final PrintWriter nxT;
+        private final PrintWriter mRl;
 
         c(PrintWriter printWriter) {
-            this.nxT = printWriter;
+            this.mRl = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object dOF() {
-            return this.nxT;
+        Object dHF() {
+            return this.mRl;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bK(Object obj) {
-            this.nxT.println(obj);
+        void bt(Object obj) {
+            this.mRl.println(obj);
         }
     }
 

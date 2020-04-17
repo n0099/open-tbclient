@@ -3,6 +3,7 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.m;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
@@ -65,7 +66,7 @@ public class UserData extends MetaData {
     private List<MyGroup> mGroup;
     private boolean mIsSelectTail;
     private List<MyLikeForum> mLikeForum;
-    private List<com.baidu.adp.widget.ListView.m> mPhotoAlbum;
+    private List<m> mPhotoAlbum;
     private long mTDouNum;
     private int managerLevel;
     private int markCount;
@@ -270,19 +271,19 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            n nVar = new n();
-            nVar.uU(getPortraitH());
-            nVar.uV(getPortrait());
-            nVar.gv(true);
-            this.mPhotoAlbum.add(nVar);
+            l lVar = new l();
+            lVar.wh(getPortraitH());
+            lVar.wi(getPortrait());
+            lVar.ht(true);
+            this.mPhotoAlbum.add(lVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
-                        n nVar2 = new n();
-                        nVar2.uU(userPics.big);
-                        nVar2.uV(userPics.small);
-                        nVar2.gv(false);
-                        this.mPhotoAlbum.add(nVar2);
+                        l lVar2 = new l();
+                        lVar2.wh(userPics.big);
+                        lVar2.wi(userPics.small);
+                        lVar2.ht(false);
+                        this.mPhotoAlbum.add(lVar2);
                     }
                 }
             }
@@ -481,22 +482,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                n nVar = new n();
-                nVar.uU(getPortraitH());
-                nVar.uV(getPortrait());
-                nVar.gv(true);
-                this.mPhotoAlbum.add(nVar);
+                l lVar = new l();
+                lVar.wh(getPortraitH());
+                lVar.wi(getPortrait());
+                lVar.ht(true);
+                this.mPhotoAlbum.add(lVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            n nVar2 = new n();
-                            nVar2.uU(jSONObject2.optString("big"));
-                            nVar2.uV(jSONObject2.optString("small"));
-                            nVar2.gv(false);
-                            this.mPhotoAlbum.add(nVar2);
+                            l lVar2 = new l();
+                            lVar2.wh(jSONObject2.optString("big"));
+                            lVar2.wi(jSONObject2.optString("small"));
+                            lVar2.ht(false);
+                            this.mPhotoAlbum.add(lVar2);
                         }
                     }
                 }
@@ -736,7 +737,7 @@ public class UserData extends MetaData {
         return this.mTDouNum;
     }
 
-    public List<com.baidu.adp.widget.ListView.m> getPhotoAlbum() {
+    public List<m> getPhotoAlbum() {
         return this.mPhotoAlbum;
     }
 

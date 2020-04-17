@@ -5,7 +5,6 @@ import com.baidu.android.imsdk.CallBack;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.util.devices.NetWorkUtils;
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
                 if (i == 0) {
                     GetGroupfoForRecordHandler.this.deleteUUid();
                     if (arrayList2.size() == 0) {
-                        LogUtils.e(HanziToPinyin.Token.SEPARATOR, "STAR Recordhandler get groupinfo size is 0");
+                        LogUtils.e(" ", "STAR Recordhandler get groupinfo size is 0");
                         callBack.onError(3, 1, 0L);
                         return;
                     }

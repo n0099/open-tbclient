@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -20,13 +19,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class h extends ab {
-    private final int cdk;
-    private final String cdm;
+    private final int cCk;
+    private final String cCl;
 
     public h(j jVar) {
         super(jVar, "/swanAPI/thirdPartyLogin");
-        this.cdk = 10008;
-        this.cdm = "app not installed";
+        this.cCk = 10008;
+        this.cCl = "app not installed";
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -46,17 +45,17 @@ public class h extends ab {
             return false;
         }
         final String optString2 = optParamsAsJo.optString("type", "");
-        int ni = ni(optString2);
+        int ox = ox(optString2);
         final b.a aVar = new b.a(optParamsAsJo);
         final Bundle bundle = new Bundle();
-        bundle.putInt("key_login_mode", ni);
-        eVar.acS().b(context, "mapp_i_login", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.h.1
+        bundle.putInt("key_login_mode", ox);
+        eVar.akX().b(context, "mapp_i_login", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void D(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void E(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    if (h.this.as(context, optString2)) {
+                    if (h.this.am(context, optString2)) {
                         h.this.a(eVar, (Activity) context, aVar, callbackHandler, optString, bundle);
                         return;
                     } else {
@@ -73,16 +72,16 @@ public class h extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.runtime.e eVar, Activity activity, final b.a aVar, final CallbackHandler callbackHandler, final String str, Bundle bundle) {
-        eVar.acS().a(activity, aVar, bundle, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<e.c>>() { // from class: com.baidu.swan.bdprivate.c.a.h.2
+        eVar.akX().a(activity, aVar, bundle, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<e.c>>() { // from class: com.baidu.swan.bdprivate.c.a.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void D(com.baidu.swan.apps.setting.oauth.h<e.c> hVar) {
+            public void E(com.baidu.swan.apps.setting.oauth.h<e.c> hVar) {
                 if (!hVar.isOk()) {
-                    com.baidu.swan.apps.console.c.w("ThirdPartyLoginAction", hVar.getErrorCode() + HanziToPinyin.Token.SEPARATOR + aVar.toString());
-                    String gn = com.baidu.swan.apps.setting.oauth.c.gn(hVar.getErrorCode());
-                    if (!TextUtils.isEmpty(gn)) {
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), gn).toString());
+                    com.baidu.swan.apps.console.c.w("ThirdPartyLoginAction", hVar.getErrorCode() + " " + aVar.toString());
+                    String gv = com.baidu.swan.apps.setting.oauth.c.gv(hVar.getErrorCode());
+                    if (!TextUtils.isEmpty(gv)) {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode(), gv).toString());
                     } else {
                         callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(hVar.getErrorCode()).toString());
                     }
@@ -104,7 +103,7 @@ public class h extends ab {
         });
     }
 
-    private int ni(String str) {
+    private int ox(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:
@@ -155,7 +154,7 @@ public class h extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean as(Context context, String str) {
+    public boolean am(Context context, String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -791575966:

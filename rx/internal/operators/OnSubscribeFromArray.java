@@ -1,6 +1,5 @@
 package rx.internal.operators;
 
-import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 /* loaded from: classes6.dex */
@@ -34,7 +33,7 @@ public final class OnSubscribeFromArray<T> implements d.a<T> {
             if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
-            if (j == Format.OFFSET_SAMPLE_RELATIVE) {
+            if (j == Long.MAX_VALUE) {
                 if (a.e(this, j) == 0) {
                     fastPath();
                 }

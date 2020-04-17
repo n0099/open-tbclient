@@ -10,19 +10,19 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
-public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.e, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
+public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.f, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.e.fve);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.f.fZE);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aw */
+    /* renamed from: ax */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.a(this.mPageContext));
     }
@@ -30,35 +30,35 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bvQ() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.f fVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
+        if (aVar.bFB() == null) {
             return null;
         }
-        a(eVar, aVar.bvQ());
-        aVar.bvQ().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.d.1
+        a(fVar, aVar.bFB());
+        aVar.bFB().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                d.this.a(eVar);
+                d.this.a(fVar);
             }
         });
-        return aVar.bvQ().getView();
+        return aVar.bFB().getView();
     }
 
-    private void a(com.baidu.tieba.ala.personcenter.c.e eVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
-        if (eVar.getPersonCenterData() != null) {
-            aVar.qS(0);
+    private void a(com.baidu.tieba.ala.personcenter.c.f fVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
+        if (fVar.getPersonCenterData() != null) {
+            aVar.rl(0);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_admin));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.ala.personcenter.c.e eVar) {
-        if (eVar != null && eVar.getPersonCenterData() != null) {
-            com.baidu.tieba.ala.personcenter.c.b personCenterData = eVar.getPersonCenterData();
+    public void a(com.baidu.tieba.ala.personcenter.c.f fVar) {
+        if (fVar != null && fVar.getPersonCenterData() != null) {
+            com.baidu.tieba.ala.personcenter.c.c personCenterData = fVar.getPersonCenterData();
             String str = "";
-            if (personCenterData.bso() != null && personCenterData.isHost()) {
-                str = personCenterData.bso().live_id;
+            if (personCenterData.bBW() != null && personCenterData.isHost()) {
+                str = personCenterData.bBW().live_id;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaAdminListActivityConfig(this.mPageContext.getPageActivity(), str)));
         }

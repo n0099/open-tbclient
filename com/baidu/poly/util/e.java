@@ -6,24 +6,7 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 /* loaded from: classes11.dex */
 public class e {
-    private static NetworkInfo getActiveNetworkInfo() {
-        ConnectivityManager connectivityManager;
-        Context EP = f.EP();
-        if (EP != null && (connectivityManager = (ConnectivityManager) EP.getSystemService("connectivity")) != null) {
-            return connectivityManager.getActiveNetworkInfo();
-        }
-        return null;
-    }
-
-    public static String getNetworkType() {
-        NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-        if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return "0";
-        }
-        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? t(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
-    }
-
-    private static String t(int i, String str) {
+    private static String K(int i, String str) {
         switch (i) {
             case 1:
             case 2:
@@ -50,5 +33,22 @@ public class e {
             default:
                 return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "3";
         }
+    }
+
+    private static NetworkInfo getActiveNetworkInfo() {
+        ConnectivityManager connectivityManager;
+        Context Lb = f.Lb();
+        if (Lb != null && (connectivityManager = (ConnectivityManager) Lb.getSystemService("connectivity")) != null) {
+            return connectivityManager.getActiveNetworkInfo();
+        }
+        return null;
+    }
+
+    public static String getNetworkType() {
+        NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+        if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
+            return "0";
+        }
+        return activeNetworkInfo.getType() == 1 ? "4" : activeNetworkInfo.getType() == 0 ? K(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
     }
 }

@@ -9,6 +9,6 @@ public abstract class e extends f {
     }
 
     @Override // org.java_websocket.framing.f
-    public void dNZ() throws InvalidDataException {
+    public void dGZ() throws InvalidDataException {
     }
 }

@@ -17,6 +17,7 @@ import com.baidu.android.pushservice.i.j;
 import com.baidu.android.pushservice.i.k;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.webkit.internal.ETAG;
@@ -322,7 +323,7 @@ public class e {
                             }
                             return;
                         }
-                        int i3 = new JSONObject(com.baidu.android.pushservice.g.a.b.a(a2.a())).getInt("errno");
+                        int i3 = new JSONObject(com.baidu.android.pushservice.g.a.b.a(a2.a())).getInt(BaseJsonData.TAG_ERRNO);
                         if (syncCallback != null) {
                             syncCallback.onSyncResult(i3);
                         }

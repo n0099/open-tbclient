@@ -25,7 +25,7 @@ class u implements Runnable {
                 c cVar = this.a.b;
                 String str = this.a.a;
                 context3 = this.a.b.l;
-                cVar.a(str, com.baidu.platform.comapi.wnplatform.o.a.a.b(context3, R.string.status_bar_notification_info_overflow), 4);
+                cVar.a(str, com.baidu.platform.comapi.wnplatform.o.a.a.b(context3, R.string.Waiting), 4);
                 return;
             }
             return;

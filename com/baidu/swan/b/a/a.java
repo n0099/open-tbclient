@@ -19,20 +19,20 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a cjm;
-    private b cjn = new b();
-    private b cjo = new b();
-    private DownloadManager cjp = DownloadManager.getInstance(AppRuntime.getAppContext());
-    private com.baidu.swan.b.a.b.b cjq = new com.baidu.swan.b.a.b.b(this.cjp);
-    private JSONObject cjr;
+    private static volatile a cIh;
+    private b cIi = new b();
+    private b cIj = new b();
+    private DownloadManager cIk = DownloadManager.getInstance(AppRuntime.getAppContext());
+    private com.baidu.swan.b.a.b.b cIl = new com.baidu.swan.b.a.b.b(this.cIk);
+    private JSONObject cIm;
 
     private a() {
-        this.cjq.alg();
-        this.cjq.ale();
-        akY();
-        akZ();
+        this.cIl.att();
+        this.cIl.atr();
+        atl();
+        atm();
         if (DEBUG) {
-            this.cjp.registerOnProgressChangeListener(new DownloadManager.OnProgressChangeListener() { // from class: com.baidu.swan.b.a.a.1
+            this.cIk.registerOnProgressChangeListener(new DownloadManager.OnProgressChangeListener() { // from class: com.baidu.swan.b.a.a.1
                 @Override // com.baidu.down.manage.DownloadManager.OnProgressChangeListener
                 public void onProgressChanged(long j, int i, long j2) {
                     Log.d("GameCenterAppManager", "onProgressChanged downloadId = " + j + ",percentage = " + i + ",speed = " + j2);
@@ -41,194 +41,194 @@ public class a {
         }
     }
 
-    public static a akV() {
-        if (cjm == null) {
+    public static a ati() {
+        if (cIh == null) {
             synchronized (a.class) {
-                if (cjm == null) {
-                    cjm = new a();
+                if (cIh == null) {
+                    cIh = new a();
                 }
             }
         }
-        return cjm;
+        return cIh;
     }
 
-    private boolean akW() {
+    private boolean atj() {
         return !ProcessUtils.isMainProcess();
     }
 
-    public void bq(JSONObject jSONObject) {
+    public void bB(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cjr = jSONObject;
+            this.cIm = jSONObject;
         }
     }
 
     public void a(String str, String str2, String str3, @NonNull com.baidu.swan.b.a.d.b bVar) {
-        if (akW()) {
+        if (atj()) {
             bVar.b(new com.baidu.swan.b.a.e.a(31006, "is not in main process"));
         } else if (!SwanAppNetworkUtils.isNetworkConnected(null)) {
             bVar.b(new com.baidu.swan.b.a.e.a(31014, "network is not connected"));
         } else if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             bVar.b(new com.baidu.swan.b.a.e.a(31007, "invalid params"));
-        } else if (com.baidu.swan.b.a.c.a.at(AppRuntime.getAppContext(), str2)) {
+        } else if (com.baidu.swan.b.a.c.a.an(AppRuntime.getAppContext(), str2)) {
             bVar.b(new com.baidu.swan.b.a.e.a(31005, "apk is already installed"));
         } else {
-            this.cjq.oe(str);
-            Download alb = new com.baidu.swan.b.a.b.a().nY(str).nZ(str2).oa(str3).alb();
-            this.cjp.start(alb);
-            if (alb.getId() != null) {
-                this.cjn.f(String.valueOf(alb.getId()), bVar);
+            this.cIl.pt(str);
+            Download ato = new com.baidu.swan.b.a.b.a().pn(str).po(str2).pp(str3).ato();
+            this.cIk.start(ato);
+            if (ato.getId() != null) {
+                this.cIi.f(String.valueOf(ato.getId()), bVar);
             }
         }
     }
 
     public void a(String str, @NonNull com.baidu.swan.b.a.d.b bVar) {
-        if (akW()) {
+        if (atj()) {
             bVar.b(new com.baidu.swan.b.a.e.a(31006, "is not in main process"));
         } else if (TextUtils.isEmpty(str)) {
             bVar.b(new com.baidu.swan.b.a.e.a(31007, "invalid params"));
         } else {
-            Download ob = this.cjq.ob(str);
-            if (ob == null) {
+            Download pq = this.cIl.pq(str);
+            if (pq == null) {
                 bVar.b(new com.baidu.swan.b.a.e.a(31008, "download is not exist"));
             } else {
-                bVar.b(new c(ob));
+                bVar.b(new c(pq));
             }
         }
     }
 
     public void a(@NonNull com.baidu.swan.b.a.d.b bVar) {
-        if (akW()) {
+        if (atj()) {
             bVar.b(new com.baidu.swan.b.a.e.a(31006, "is not in main process"));
             return;
         }
-        Collection<Download> ald = this.cjq.ald();
-        if (ald == null || ald.isEmpty()) {
+        Collection<Download> atq = this.cIl.atq();
+        if (atq == null || atq.isEmpty()) {
             bVar.b(new com.baidu.swan.b.a.e.a(31008, "download is not exist"));
         } else {
-            bVar.b(new c(ald));
+            bVar.b(new c(atq));
         }
     }
 
     public void b(String str, @NonNull com.baidu.swan.b.a.d.b bVar) {
-        if (akW()) {
+        if (atj()) {
             bVar.b(new com.baidu.swan.b.a.e.a(31006, "is not in main process"));
         } else if (!SwanAppNetworkUtils.isNetworkConnected(null)) {
             bVar.b(new com.baidu.swan.b.a.e.a(31014, "network is not connected"));
         } else if (TextUtils.isEmpty(str)) {
             bVar.b(new com.baidu.swan.b.a.e.a(31007, "invalid params"));
         } else {
-            Download ob = this.cjq.ob(str);
-            if (ob == null) {
+            Download pq = this.cIl.pq(str);
+            if (pq == null) {
                 bVar.b(new com.baidu.swan.b.a.e.a(31008, "download is not exist"));
-            } else if (ob.getState() == Download.DownloadState.FINISH) {
+            } else if (pq.getState() == Download.DownloadState.FINISH) {
                 bVar.b(new com.baidu.swan.b.a.e.a(31012, "download is finished"));
             } else {
-                this.cjn.f(String.valueOf(ob.getId()), bVar);
-                this.cjp.resume(ob.getId().longValue());
+                this.cIi.f(String.valueOf(pq.getId()), bVar);
+                this.cIk.resume(pq.getId().longValue());
             }
         }
     }
 
     public void c(String str, @NonNull com.baidu.swan.b.a.d.b bVar) {
-        if (akW()) {
+        if (atj()) {
             bVar.b(new com.baidu.swan.b.a.e.a(31006, "is not in main process"));
         } else if (TextUtils.isEmpty(str)) {
             bVar.b(new com.baidu.swan.b.a.e.a(31007, "invalid params"));
         } else {
-            Download ob = this.cjq.ob(str);
-            if (ob == null) {
+            Download pq = this.cIl.pq(str);
+            if (pq == null) {
                 bVar.b(new com.baidu.swan.b.a.e.a(31008, "download is not exist"));
-            } else if (ob.getState() != Download.DownloadState.WAITING && ob.getState() != Download.DownloadState.DOWNLOADING) {
+            } else if (pq.getState() != Download.DownloadState.WAITING && pq.getState() != Download.DownloadState.DOWNLOADING) {
                 bVar.b(new com.baidu.swan.b.a.e.a(31013, "download is not started"));
             } else {
-                this.cjp.pause(ob.getId().longValue());
-                bVar.b(new c(ob));
+                this.cIk.pause(pq.getId().longValue());
+                bVar.b(new c(pq));
             }
         }
     }
 
     public void d(String str, @NonNull com.baidu.swan.b.a.d.b bVar) {
-        if (akW()) {
+        if (atj()) {
             bVar.b(new com.baidu.swan.b.a.e.a(31006, "is not in main process"));
         } else if (TextUtils.isEmpty(str)) {
             bVar.b(new com.baidu.swan.b.a.e.a(31007, "invalid params"));
         } else {
-            Collection<Download> od = this.cjq.od(str);
-            if (od == null || od.isEmpty()) {
+            Collection<Download> ps = this.cIl.ps(str);
+            if (ps == null || ps.isEmpty()) {
                 bVar.b(new com.baidu.swan.b.a.e.a(31008, "download is not exist"));
                 return;
             }
-            this.cjq.f(od);
-            bVar.b(new c(od));
+            this.cIl.f(ps);
+            bVar.b(new c(ps));
         }
     }
 
     public String a(String str, @NonNull com.baidu.swan.b.a.d.a aVar) {
-        if (akW()) {
+        if (atj()) {
             aVar.b(new com.baidu.swan.b.a.e.a(31006, "is not in main process"));
             return null;
         } else if (TextUtils.isEmpty(str)) {
             aVar.b(new com.baidu.swan.b.a.e.a(31007, "invalid params"));
             return null;
         } else {
-            Download ob = this.cjq.ob(str);
-            if (ob == null) {
+            Download pq = this.cIl.pq(str);
+            if (pq == null) {
                 aVar.b(new com.baidu.swan.b.a.e.a(31008, "download is not exist"));
                 return null;
-            } else if (ob.getCurrentbytes().longValue() < ob.getTotalbytes().longValue()) {
+            } else if (pq.getCurrentbytes().longValue() < pq.getTotalbytes().longValue()) {
                 aVar.b(new com.baidu.swan.b.a.e.a(31017, "download is not finished"));
                 return null;
             } else {
-                String realDownloadDir = ob.getRealDownloadDir();
-                String fileName = ob.getFileName();
-                String keyByUser = ob.getKeyByUser();
+                String realDownloadDir = pq.getRealDownloadDir();
+                String fileName = pq.getFileName();
+                String keyByUser = pq.getKeyByUser();
                 if (DEBUG) {
                     Log.d("GameCenterAppManager", "installApp packageName:" + keyByUser + ",fileDir:" + realDownloadDir + ",fileName:" + fileName);
                 }
                 if (TextUtils.isEmpty(keyByUser) || TextUtils.isEmpty(realDownloadDir) || TextUtils.isEmpty(fileName)) {
                     aVar.b(new com.baidu.swan.b.a.e.a(31001, "database no package or file name"));
-                    this.cjq.oe(str);
+                    this.cIl.pt(str);
                     return null;
                 }
                 String str2 = realDownloadDir + File.separator + fileName;
-                if (com.baidu.swan.b.a.c.a.at(AppRuntime.getAppContext(), keyByUser)) {
+                if (com.baidu.swan.b.a.c.a.an(AppRuntime.getAppContext(), keyByUser)) {
                     aVar.b(new c("apk is already installed"));
-                    nX(str2);
+                    pm(str2);
                     return null;
                 }
                 File file = new File(str2);
                 if (!file.isFile() || !file.exists()) {
                     aVar.b(new com.baidu.swan.b.a.e.a(31002, "file is not exist"));
-                    this.cjq.oe(str);
+                    this.cIl.pt(str);
                     return null;
                 }
                 aVar.setPackageName(keyByUser);
                 aVar.setFilePath(str2);
-                this.cjo.f(keyByUser, aVar);
-                if (!com.baidu.swan.b.a.c.a.og(str2)) {
+                this.cIj.f(keyByUser, aVar);
+                if (!com.baidu.swan.b.a.c.a.pu(str2)) {
                     e(keyByUser, aVar);
                     aVar.b(new com.baidu.swan.b.a.e.a(31004, "apk install fail"));
-                    this.cjq.oe(str);
+                    this.cIl.pt(str);
                 }
                 return keyByUser;
             }
         }
     }
 
-    public synchronized void akX() {
-        this.cjq.akX();
+    public synchronized void atk() {
+        this.cIl.atk();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nW(String str) {
-        this.cjn.removeEventListener(str);
+    public void pl(String str) {
+        this.cIi.removeEventListener(str);
     }
 
     public void e(String str, com.baidu.swan.b.a.d.b bVar) {
-        this.cjo.g(str, bVar);
+        this.cIj.g(str, bVar);
     }
 
-    public boolean nX(String str) {
+    public boolean pm(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -247,8 +247,8 @@ public class a {
         return false;
     }
 
-    private void akY() {
-        this.cjp.registerOnStateChangeListener(new DownloadManager.OnStateChangeListener() { // from class: com.baidu.swan.b.a.a.2
+    private void atl() {
+        this.cIk.registerOnStateChangeListener(new DownloadManager.OnStateChangeListener() { // from class: com.baidu.swan.b.a.a.2
             @Override // com.baidu.down.manage.DownloadManager.OnStateChangeListener
             public void onStateChanged(long j, Download download) {
                 if (download != null && download.getId() != null) {
@@ -257,22 +257,22 @@ public class a {
                         Log.d("GameCenterAppManager", "onStateChanged downloadId = " + j + ",eventType:" + valueOf + ",download = " + download);
                     }
                     if (download.getState() == Download.DownloadState.FINISH) {
-                        com.baidu.swan.b.a.f.c.a(download.getKeyByUser(), "startDownload", "success", null, new com.baidu.swan.b.a.f.a(a.this.cjr));
+                        com.baidu.swan.b.a.f.c.a(download.getKeyByUser(), "startDownload", "success", null, new com.baidu.swan.b.a.f.a(a.this.cIm));
                     }
-                    if (a.this.cjn.hasEventListener(valueOf)) {
-                        switch (AnonymousClass4.cjs[download.getState().ordinal()]) {
+                    if (a.this.cIi.hasEventListener(valueOf)) {
+                        switch (AnonymousClass4.cIn[download.getState().ordinal()]) {
                             case 1:
-                                a.this.cjn.a(valueOf, new c(download));
-                                a.this.nW(valueOf);
-                                a.this.cjq.alf();
+                                a.this.cIi.a(valueOf, new c(download));
+                                a.this.pl(valueOf);
+                                a.this.cIl.ats();
                                 return;
                             case 2:
-                                a.this.cjn.a(valueOf, new com.baidu.swan.b.a.e.a(31015, "download is canceled"));
-                                a.this.nW(valueOf);
+                                a.this.cIi.a(valueOf, new com.baidu.swan.b.a.e.a(31015, "download is canceled"));
+                                a.this.pl(valueOf);
                                 return;
                             case 3:
-                                a.this.cjn.a(valueOf, new com.baidu.swan.b.a.e.a(download.getFailedType().intValue(), TextUtils.isEmpty(download.getFailedReason()) ? "download is failed" : download.getFailedReason()));
-                                a.this.nW(valueOf);
+                                a.this.cIi.a(valueOf, new com.baidu.swan.b.a.e.a(download.getFailedType().intValue(), TextUtils.isEmpty(download.getFailedReason()) ? "download is failed" : download.getFailedReason()));
+                                a.this.pl(valueOf);
                                 return;
                             default:
                                 return;
@@ -286,25 +286,25 @@ public class a {
     /* renamed from: com.baidu.swan.b.a.a$4  reason: invalid class name */
     /* loaded from: classes11.dex */
     static /* synthetic */ class AnonymousClass4 {
-        static final /* synthetic */ int[] cjs = new int[Download.DownloadState.values().length];
+        static final /* synthetic */ int[] cIn = new int[Download.DownloadState.values().length];
 
         static {
             try {
-                cjs[Download.DownloadState.FINISH.ordinal()] = 1;
+                cIn[Download.DownloadState.FINISH.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                cjs[Download.DownloadState.CANCEL.ordinal()] = 2;
+                cIn[Download.DownloadState.CANCEL.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                cjs[Download.DownloadState.FAILED.ordinal()] = 3;
+                cIn[Download.DownloadState.FAILED.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }
     }
 
-    private synchronized void akZ() {
+    private synchronized void atm() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addDataScheme("package");
         intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
@@ -317,7 +317,7 @@ public class a {
                         if (a.DEBUG) {
                             Log.d("GameCenterAppManager", "AddPackageReceiver packageName = " + schemeSpecificPart);
                         }
-                        a.this.cjo.a(schemeSpecificPart, new c((String) null));
+                        a.this.cIj.a(schemeSpecificPart, new c((String) null));
                         a.this.e(schemeSpecificPart, null);
                     }
                 }

@@ -5,12 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.live.tbadk.BaseActivity;
-import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.pay.PayConfig;
 import com.baidu.live.tbadk.util.PageDialogHelper;
 import com.baidu.tieba.ala.live.a;
@@ -18,7 +16,7 @@ import com.baidu.tieba.ala.live.c.a;
 import com.baidu.tieba.ala.live.c.c;
 /* loaded from: classes3.dex */
 public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
-    public static final String TAG = "MAActivity";
+    public static final String TAG = "AlaSdkWalletActivity";
     private AlaSdkWalletActivity mActivity;
     private Context mContext;
     private PayConfig mCurPayConfig;
@@ -30,7 +28,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
         @Override // com.baidu.tieba.ala.live.a.b
         public void doFinish() {
             if (AlaSdkWalletActivity.this.mPayController != null) {
-                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bgA());
+                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bpR());
                 AlaSdkWalletActivity.this.finish();
             }
         }
@@ -38,7 +36,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
         @Override // com.baidu.tieba.ala.live.a.b
         public void doPay(String str) {
             if (AlaSdkWalletActivity.this.mPayController != null) {
-                AlaSdkWalletActivity.this.mPayController.yI(str);
+                AlaSdkWalletActivity.this.mPayController.Aq(str);
             }
         }
     };
@@ -47,7 +45,7 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view") && AlaSdkWalletActivity.this.mPayController != null) {
-                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bgA());
+                AlaSdkWalletActivity.this.setResult(-1, AlaSdkWalletActivity.this.mPayController.bpR());
                 AlaSdkWalletActivity.this.finish();
             }
         }
@@ -63,44 +61,39 @@ public class AlaSdkWalletActivity extends BaseActivity<AlaSdkWalletActivity> {
             requestWindowFeature(1);
         }
         super.onCreate(bundle);
-        if (BdBaseApplication.getInst() == null) {
-            if (TbConfig.sdkInitCallback == null) {
-                super.finish();
+        if (!isFinishing()) {
+            if (this.isPayDialog) {
+                PageDialogHelper.setDialogLayout(getActivity());
+            }
+            setSwipeBackEnabled(false);
+            setActivityBgTransparent();
+            registerListener();
+            this.mContext = getPageContext().getPageActivity();
+            this.mActivity = this;
+            this.mPayController = c.a(this);
+            if (this.mPayController == null) {
+                finish();
                 return;
             }
-            TbConfig.sdkInitCallback.initSdk();
-        }
-        if (this.isPayDialog) {
-            PageDialogHelper.setDialogLayout(getActivity());
-        }
-        setSwipeBackEnabled(false);
-        setActivityBgTransparent();
-        registerListener();
-        this.mContext = getPageContext().getPageActivity();
-        this.mActivity = this;
-        this.mPayController = c.a(this);
-        if (this.mPayController == null) {
-            finish();
-            return;
-        }
-        this.mPayController.a(new a.InterfaceC0448a() { // from class: com.baidu.tieba.ala.live.AlaSdkWalletActivity.2
-            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0448a
-            public void yG(String str) {
-                AlaSdkWalletActivity.this.mViewController = new a(AlaSdkWalletActivity.this.mActivity, AlaSdkWalletActivity.this.mCallback, AlaSdkWalletActivity.this.mCurPayConfig);
-                AlaSdkWalletActivity.this.mViewController.isValidData(str);
-                AlaSdkWalletActivity.this.mViewController.hideLoadingView();
-                AlaSdkWalletActivity.this.mViewController.setup();
-            }
-
-            @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0448a
-            public void a(boolean z, Intent intent) {
-                if (AlaSdkWalletActivity.this.mViewController != null) {
-                    AlaSdkWalletActivity.this.mViewController.payResult(z);
+            this.mPayController.a(new a.InterfaceC0483a() { // from class: com.baidu.tieba.ala.live.AlaSdkWalletActivity.2
+                @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0483a
+                public void Ao(String str) {
+                    AlaSdkWalletActivity.this.mViewController = new a(AlaSdkWalletActivity.this.mActivity, AlaSdkWalletActivity.this.mCallback, AlaSdkWalletActivity.this.mCurPayConfig);
+                    AlaSdkWalletActivity.this.mViewController.isValidData(str);
+                    AlaSdkWalletActivity.this.mViewController.hideLoadingView();
+                    AlaSdkWalletActivity.this.mViewController.setup();
                 }
-                AlaSdkWalletActivity.this.finish();
-            }
-        });
-        this.mPayController.d(this.mCurPayConfig);
+
+                @Override // com.baidu.tieba.ala.live.c.a.InterfaceC0483a
+                public void a(boolean z, Intent intent) {
+                    if (AlaSdkWalletActivity.this.mViewController != null) {
+                        AlaSdkWalletActivity.this.mViewController.payResult(z);
+                    }
+                    AlaSdkWalletActivity.this.finish();
+                }
+            });
+            this.mPayController.d(this.mCurPayConfig);
+        }
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity

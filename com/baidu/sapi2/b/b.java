@@ -19,7 +19,7 @@ public class b extends SapiResult {
     public String a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("errno", getResultCode());
+            jSONObject.put(BaseJsonData.TAG_ERRNO, getResultCode());
             jSONObject.put(BaseJsonData.TAG_ERRMSG, getResultMsg());
         } catch (JSONException e) {
         }

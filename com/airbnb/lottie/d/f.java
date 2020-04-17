@@ -10,12 +10,12 @@ import com.airbnb.lottie.a.a.r;
 import java.io.Closeable;
 /* loaded from: classes6.dex */
 public final class f {
-    private static final PathMeasure gQ = new PathMeasure();
-    private static final Path gS = new Path();
-    private static final Path km = new Path();
+    private static final PathMeasure Cs = new PathMeasure();
+    private static final Path Cu = new Path();
+    private static final Path FI = new Path();
     private static final float[] points = new float[4];
-    private static final float kn = (float) Math.sqrt(2.0d);
-    private static float ko = -1.0f;
+    private static final float FJ = (float) Math.sqrt(2.0d);
+    private static float FK = -1.0f;
 
     public static Path a(PointF pointF, PointF pointF2, PointF pointF3, PointF pointF4) {
         Path path = new Path();
@@ -42,26 +42,26 @@ public final class f {
     public static float b(Matrix matrix) {
         points[0] = 0.0f;
         points[1] = 0.0f;
-        points[2] = kn;
-        points[3] = kn;
+        points[2] = FJ;
+        points[3] = FJ;
         matrix.mapPoints(points);
         return ((float) Math.hypot(points[2] - points[0], points[3] - points[1])) / 2.0f;
     }
 
     public static void a(Path path, @Nullable r rVar) {
         if (rVar != null) {
-            a(path, rVar.bO().getValue().floatValue() / 100.0f, rVar.bP().getValue().floatValue() / 100.0f, rVar.bQ().getValue().floatValue() / 360.0f);
+            a(path, rVar.hl().getValue().floatValue() / 100.0f, rVar.hm().getValue().floatValue() / 100.0f, rVar.hn().getValue().floatValue() / 360.0f);
         }
     }
 
     public static void a(Path path, float f, float f2, float f3) {
         com.airbnb.lottie.d.beginSection("applyTrimPathIfNeeded");
-        gQ.setPath(path, false);
-        float length = gQ.getLength();
+        Cs.setPath(path, false);
+        float length = Cs.getLength();
         if (f == 1.0f && f2 == 0.0f) {
-            com.airbnb.lottie.d.F("applyTrimPathIfNeeded");
+            com.airbnb.lottie.d.aV("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f2 - f) - 1.0f) < 0.01d) {
-            com.airbnb.lottie.d.F("applyTrimPathIfNeeded");
+            com.airbnb.lottie.d.aV("applyTrimPathIfNeeded");
         } else {
             float f4 = length * f;
             float f5 = length * f2;
@@ -82,25 +82,25 @@ public final class f {
             }
             if (f7 == f8) {
                 path.reset();
-                com.airbnb.lottie.d.F("applyTrimPathIfNeeded");
+                com.airbnb.lottie.d.aV("applyTrimPathIfNeeded");
                 return;
             }
             if (f7 >= f8) {
                 f7 -= length;
             }
-            gS.reset();
-            gQ.getSegment(f7, f8, gS, true);
+            Cu.reset();
+            Cs.getSegment(f7, f8, Cu, true);
             if (f8 > length) {
-                km.reset();
-                gQ.getSegment(0.0f, f8 % length, km, true);
-                gS.addPath(km);
+                FI.reset();
+                Cs.getSegment(0.0f, f8 % length, FI, true);
+                Cu.addPath(FI);
             } else if (f7 < 0.0f) {
-                km.reset();
-                gQ.getSegment(f7 + length, length, km, true);
-                gS.addPath(km);
+                FI.reset();
+                Cs.getSegment(f7 + length, length, FI, true);
+                Cu.addPath(FI);
             }
-            path.set(gS);
-            com.airbnb.lottie.d.F("applyTrimPathIfNeeded");
+            path.set(Cu);
+            com.airbnb.lottie.d.aV("applyTrimPathIfNeeded");
         }
     }
 
@@ -117,7 +117,7 @@ public final class f {
         return true;
     }
 
-    public static int c(float f, float f2, float f3, float f4) {
+    public static int d(float f, float f2, float f3, float f4) {
         int i = 17;
         if (f != 0.0f) {
             i = (int) (527 * f);
@@ -134,10 +134,10 @@ public final class f {
         return i;
     }
 
-    public static float dL() {
-        if (ko == -1.0f) {
-            ko = Resources.getSystem().getDisplayMetrics().density;
+    public static float jk() {
+        if (FK == -1.0f) {
+            FK = Resources.getSystem().getDisplayMetrics().density;
         }
-        return ko;
+        return FK;
     }
 }

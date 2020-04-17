@@ -1,6 +1,7 @@
 package com.baidu.sapi2;
 
 import android.content.Context;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.sapi2.S;
 import com.baidu.sapi2.utils.Log;
@@ -443,7 +444,7 @@ public final class SapiConfiguration implements c {
 
         public Builder setNeedOpenid(boolean z) {
             this.da = z;
-            SapiContext.MAX_SHARE_ACCOUNTS = Integer.MAX_VALUE;
+            SapiContext.MAX_SHARE_ACCOUNTS = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             return this;
         }
 

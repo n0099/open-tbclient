@@ -1,183 +1,171 @@
 package com.baidu.tieba.recapp.report;
 
-import com.baidu.live.tbadk.core.data.ConstantData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.v;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.Abstract;
+import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class b {
-    private DownloadStaticsData downloadStaticsData;
-    private String extInfo;
-    private String jNA;
-    private String jNB;
-    private JSONObject jNk;
-    private String jNm;
-    private JSONObject jNn;
-    private int jNo;
-    private String jNp;
-    private int jNq;
-    private int jNr;
-    private int jNs;
-    private int jNt;
-    private int jNu;
-    private int jNv;
-    private String jNw;
-    private String jNx;
-    private String jNy;
-    private String jNz;
-    private String placeId;
-    private int Er = -1;
-    private int Et = -1;
-    private int pageNumber = -1;
-    private long jNl = System.currentTimeMillis() / 1000;
+    private static b kwA;
+    private List<JSONObject> kwB;
+    private List<JSONObject> kwC;
+    private List<JSONObject> kwD;
 
-    public void Ib(String str) {
-        this.extInfo = str;
-    }
-
-    public void Bg(int i) {
-        this.Er = i;
-        if (this.jNn != null) {
-            try {
-                this.jNn.put("da_type", i);
-            } catch (JSONException e) {
-                e.printStackTrace();
+    public static b cOf() {
+        if (kwA == null) {
+            synchronized (b.class) {
+                if (kwA == null) {
+                    kwA = new b();
+                }
             }
         }
+        return kwA;
     }
 
-    public void Bh(int i) {
-        this.Et = i;
-    }
-
-    public void setPageNumber(int i) {
-        this.pageNumber = i;
-    }
-
-    public void Ic(String str) {
-        this.placeId = str;
-    }
-
-    public void Id(String str) {
-        this.jNm = str;
-    }
-
-    public void Ie(String str) {
-    }
-
-    public void Bi(int i) {
-        this.jNr = i;
-    }
-
-    public void Bj(int i) {
-        this.jNs = i;
-    }
-
-    public void Bk(int i) {
-        this.jNt = i;
-    }
-
-    public void Bl(int i) {
-        this.jNu = i;
-    }
-
-    public void Bm(int i) {
-        this.jNv = i;
-    }
-
-    public void If(String str) {
-        this.jNw = str;
-    }
-
-    public void setDownloadStaticsData(DownloadStaticsData downloadStaticsData) {
-        this.downloadStaticsData = downloadStaticsData;
-        if (downloadStaticsData != null) {
-            this.Et = com.baidu.adp.lib.f.b.toInt(downloadStaticsData.getAdPosition(), 0);
-            this.jNm = downloadStaticsData.getPrice();
-            this.extInfo = downloadStaticsData.getExtensionInfo();
+    public void el(List<JSONObject> list) {
+        if (this.kwB == null) {
+            this.kwB = new ArrayList();
         }
+        this.kwB.clear();
+        this.kwB.addAll(list);
     }
 
-    public void ep(String str, String str2) {
-        if (this.jNk == null) {
-            this.jNk = new JSONObject();
+    public String cOg() {
+        if (v.isEmpty(this.kwB)) {
+            return "";
+        }
+        JSONArray jSONArray = new JSONArray();
+        for (JSONObject jSONObject : this.kwB) {
+            if (jSONObject != null) {
+                jSONArray.put(jSONObject);
+            }
         }
         try {
-            this.jNk.put(str, str2);
-        } catch (Exception e) {
+            return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return "";
         }
     }
 
-    public JSONObject cDJ() {
-        if (this.jNn != null) {
-            return this.jNn;
+    public void em(List<JSONObject> list) {
+        if (this.kwC == null) {
+            this.kwC = new ArrayList();
+        }
+        this.kwC.clear();
+        this.kwC.addAll(list);
+    }
+
+    public String cOh() {
+        if (v.isEmpty(this.kwC)) {
+            return "";
+        }
+        JSONArray jSONArray = new JSONArray();
+        for (JSONObject jSONObject : this.kwC) {
+            if (jSONObject != null) {
+                jSONArray.put(jSONObject);
+            }
+        }
+        try {
+            return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    public void en(List<JSONObject> list) {
+        if (this.kwD == null) {
+            this.kwD = new ArrayList();
+        }
+        this.kwD.clear();
+        this.kwD.addAll(list);
+    }
+
+    public String cOi() {
+        if (v.isEmpty(this.kwD)) {
+            return "";
+        }
+        JSONArray jSONArray = new JSONArray();
+        for (JSONObject jSONObject : this.kwD) {
+            if (jSONObject != null) {
+                jSONArray.put(jSONObject);
+            }
+        }
+        try {
+            return com.baidu.adp.lib.util.c.encodeBytes(jSONArray.toString().getBytes("UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    public void cOj() {
+        if (this.kwD != null) {
+            this.kwD.clear();
+            this.kwD = null;
+        }
+    }
+
+    public static JSONObject a(ThreadInfo threadInfo, String str) {
+        String str2;
+        if (threadInfo == null) {
+            return null;
+        }
+        String str3 = "" + threadInfo.tid;
+        String str4 = (StringUtils.isNull(str3) || "0".equals(str3)) ? "" + threadInfo.id : str3;
+        if (threadInfo.video_info == null) {
+            str2 = "0";
+        } else {
+            str2 = "" + threadInfo.video_info.video_duration;
+        }
+        StringBuilder sb = new StringBuilder();
+        List<Abstract> list = threadInfo._abstract;
+        if (list != null) {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 >= list.size()) {
+                    break;
+                }
+                if (list.get(i2) != null && list.get(i2).type.intValue() == 0) {
+                    sb.append(list.get(i2).text);
+                }
+                i = i2 + 1;
+            }
+        }
+        String sb2 = sb.toString();
+        String str5 = "" + threadInfo.author_id;
+        if (threadInfo.author != null && threadInfo.author.id != null && threadInfo.author.id.longValue() != 0) {
+            str5 = "" + threadInfo.author.id;
+        }
+        if (StringUtils.isNull(str)) {
+            str = threadInfo.fname;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            if (this.Et != -1) {
-                jSONObject.put("da_locate", this.Et);
-            }
-            if (this.Er != -1) {
-                jSONObject.put("da_type", this.Er);
-            }
-            jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.jNl);
-            if (this.pageNumber != -1) {
-                jSONObject.put("da_page_num", this.pageNumber);
-            }
-            jSONObject.put("da_price", this.jNm);
-            jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-            jSONObject.put("ext1", this.jNo);
-            jSONObject.put("ext3", this.jNq);
-            jSONObject.put("ext2", this.jNp);
-            jSONObject.put("da_ext1", this.jNr);
-            jSONObject.put("da_ext2", this.jNs);
-            jSONObject.put("da_ext3", this.jNt);
-            jSONObject.put("da_ext4", this.jNu);
-            jSONObject.put("da_ext5", this.jNv);
-            jSONObject.put("da_menu1", this.jNx);
-            jSONObject.put("da_menu2", this.jNy);
-            jSONObject.put("da_menu3", this.jNz);
-            jSONObject.put("da_page", this.jNA);
-            jSONObject.put("place_id", this.placeId);
-            jSONObject.put("lego_extra", this.jNw);
-            if (this.downloadStaticsData != null) {
-                jSONObject.put("da_range", this.downloadStaticsData.getDa_range());
-                jSONObject.put("da_range_nt", this.downloadStaticsData.getDa_range_nt());
-                jSONObject.put("da_page", this.downloadStaticsData.getDa_page());
-                jSONObject.put("da_menu3", this.downloadStaticsData.getFid());
-                jSONObject.put(ConstantData.Logo.LOGO_AD_APK_PACKAGE_NAME, this.downloadStaticsData.getApk_name());
-            }
-            jSONObject.put("da_area", this.jNB);
+            jSONObject.put("title", threadInfo.title);
+            jSONObject.put("tid", str4);
+            jSONObject.put("fname", str);
+            jSONObject.put("abstract", sb2);
+            jSONObject.put("author_id", str5);
+            jSONObject.put("video_duration", str2);
         } catch (JSONException e) {
+            e.printStackTrace();
         }
-        if (this.jNk != null) {
-            try {
-                jSONObject.put("ext", this.jNk);
-            } catch (Exception e2) {
-            }
-        }
-        this.jNn = jSONObject;
         return jSONObject;
     }
 
-    public void Ig(String str) {
-        this.jNx = str;
-    }
-
-    public void Ih(String str) {
-        this.jNy = str;
-    }
-
-    public void Ii(String str) {
-        this.jNz = str;
-    }
-
-    public void Ij(String str) {
-        this.jNA = str;
-    }
-
-    public void Ik(String str) {
-        this.jNB = str;
+    public static JSONObject e(ThreadInfo threadInfo) {
+        if (threadInfo == null) {
+            return null;
+        }
+        return a(threadInfo, threadInfo.fname);
     }
 }

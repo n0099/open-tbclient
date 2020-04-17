@@ -1,27 +1,18 @@
 package com.baidu.live.im;
 
 import android.view.View;
+import java.util.List;
 /* loaded from: classes3.dex */
 public interface j {
+    void Be();
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void wE();
-    }
+    void a(String str, String str2, boolean z, String str3);
 
-    void a(com.baidu.live.data.m mVar);
+    View getView();
 
-    void a(com.baidu.live.data.m mVar, boolean z);
+    void onKeyboardVisibilityChanged(boolean z);
 
-    void a(a aVar);
+    void setMsgData(List<com.baidu.live.im.data.a> list);
 
-    void release();
-
-    void setOtherParams(String str);
-
-    View wC();
-
-    void wD();
-
-    void wb();
+    void setNeedTopAlphaShade(boolean z);
 }

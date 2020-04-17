@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class FlowableZip<T, R> extends io.reactivex.g<R> {
     final int bufferSize;
     final boolean delayError;
-    final Iterable<? extends org.a.b<? extends T>> nys;
+    final Iterable<? extends org.a.b<? extends T>> mRK;
     final org.a.b<? extends T>[] sources;
     final h<? super Object[], ? extends R> zipper;
 
@@ -27,7 +27,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
         if (bVarArr3 == null) {
             int i = 0;
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
-            for (org.a.b<? extends T> bVar : this.nys) {
+            for (org.a.b<? extends T> bVar : this.mRK) {
                 if (i == bVarArr4.length) {
                     bVarArr2 = new org.a.b[(i >> 2) + i];
                     System.arraycopy(bVarArr4, 0, bVarArr2, 0, i);
@@ -202,7 +202,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
             r0 = move-exception;
          */
         /* JADX WARN: Code restructure failed: missing block: B:73:0x012e, code lost:
-            io.reactivex.exceptions.a.H(r0);
+            io.reactivex.exceptions.a.L(r0);
             r14.errors.addThrowable(r0);
          */
         /* JADX WARN: Code restructure failed: missing block: B:74:0x0138, code lost:
@@ -245,7 +245,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
             r0 = r0 + 1;
          */
         /* JADX WARN: Code restructure failed: missing block: B:88:0x0173, code lost:
-            if (r12 == com.google.android.exoplayer2.Format.OFFSET_SAMPLE_RELATIVE) goto L121;
+            if (r12 == Long.MAX_VALUE) goto L121;
          */
         /* JADX WARN: Code restructure failed: missing block: B:89:0x0175, code lost:
             r14.requested.addAndGet(-r6);
@@ -304,7 +304,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
                                             z = true;
                                         }
                                     } catch (Throwable th) {
-                                        io.reactivex.exceptions.a.H(th);
+                                        io.reactivex.exceptions.a.L(th);
                                         this.errors.addThrowable(th);
                                         if (!this.delayErrors) {
                                             cancelAll();
@@ -323,7 +323,7 @@ public final class FlowableZip<T, R> extends io.reactivex.g<R> {
                                 j2 = 1 + j3;
                                 Arrays.fill(objArr, (Object) null);
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.H(th2);
+                                io.reactivex.exceptions.a.L(th2);
                                 cancelAll();
                                 this.errors.addThrowable(th2);
                                 cVar.onError(this.errors.terminate());

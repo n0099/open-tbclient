@@ -6,7 +6,7 @@ import android.os.Build;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
 import java.lang.reflect.Field;

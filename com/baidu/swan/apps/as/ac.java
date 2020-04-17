@@ -5,7 +5,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -49,7 +48,7 @@ public final class ac {
         boolean z = false;
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
-        String afj = com.baidu.swan.apps.storage.b.afj();
+        String ano = com.baidu.swan.apps.storage.b.ano();
         boolean z2 = com.baidu.swan.apps.as.a.hasGingerbread() ? !Environment.isExternalStorageRemovable() : false;
         String externalStorageState = Environment.getExternalStorageState();
         z = (externalStorageState.equals("mounted") || externalStorageState.equals("mounted_ro")) ? true : true;
@@ -71,16 +70,16 @@ public final class ac {
                         if (DEBUG) {
                             Log.d("StorageUtils", readLine);
                         }
-                        StringTokenizer stringTokenizer = new StringTokenizer(readLine, HanziToPinyin.Token.SEPARATOR);
+                        StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
                         String nextToken = stringTokenizer.nextToken();
                         String nextToken2 = stringTokenizer.nextToken();
                         if (!hashSet.contains(nextToken2)) {
                             stringTokenizer.nextToken();
                             boolean contains = Arrays.asList(stringTokenizer.nextToken().split(Constants.ACCEPT_TIME_SEPARATOR_SP)).contains("ro");
                             if (readLine.contains("vfat") || readLine.contains("/mnt")) {
-                                if (nextToken2.equals(afj)) {
-                                    hashSet.add(afj);
-                                    hashMap.put(nextToken, new a(afj, z2, contains, -1));
+                                if (nextToken2.equals(ano)) {
+                                    hashSet.add(ano);
+                                    hashMap.put(nextToken, new a(ano, z2, contains, -1));
                                 } else if (readLine.contains("/dev/block/vold")) {
                                     if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
                                         hashSet.add(nextToken2);
@@ -125,8 +124,8 @@ public final class ac {
                             arrayList.add(aVar);
                         }
                     }
-                    if (!hashSet.contains(afj) && z) {
-                        arrayList.add(0, new a(afj, z2, equals, -1));
+                    if (!hashSet.contains(ano) && z) {
+                        arrayList.add(0, new a(ano, z2, equals, -1));
                     }
                     com.baidu.swan.d.c.closeSafely(bufferedReader2);
                 } catch (FileNotFoundException e) {

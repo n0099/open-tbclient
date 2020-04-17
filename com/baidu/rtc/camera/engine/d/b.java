@@ -4,23 +4,23 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 /* loaded from: classes6.dex */
 public final class b {
-    private com.baidu.rtc.camera.engine.a.b aWW;
-    private d aWX;
-    private f aWY;
-    private final Object aWZ;
+    private com.baidu.rtc.camera.engine.a.b bvr;
+    private d bvs;
+    private f bvt;
+    private final Object bvu;
 
     private b() {
-        this.aWZ = new Object();
-        this.aWW = com.baidu.rtc.camera.engine.a.b.Fs();
+        this.bvu = new Object();
+        this.bvr = com.baidu.rtc.camera.engine.a.b.Ne();
     }
 
     /* loaded from: classes6.dex */
     private static class a {
-        private static b aXa = new b();
+        private static b bvv = new b();
     }
 
-    public static b Fy() {
-        return a.aXa;
+    public static b Nk() {
+        return a.bvv;
     }
 
     public c a(com.baidu.rtc.camera.engine.b.a aVar) {
@@ -28,67 +28,67 @@ public final class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aY(Context context) {
-        synchronized (this.aWZ) {
-            this.aWY = new f(context, "RenderThread");
-            this.aWY.start();
-            this.aWX = new d(this.aWY);
-            this.aWY.a(this.aWX);
+    public void aQ(Context context) {
+        synchronized (this.bvu) {
+            this.bvt = new f(context, "RenderThread");
+            this.bvt.start();
+            this.bvs = new d(this.bvt);
+            this.bvt.a(this.bvs);
         }
     }
 
-    public void d(SurfaceTexture surfaceTexture) {
-        if (this.aWX != null) {
-            this.aWX.sendMessage(this.aWX.obtainMessage(1, surfaceTexture));
+    public void c(SurfaceTexture surfaceTexture) {
+        if (this.bvs != null) {
+            this.bvs.sendMessage(this.bvs.obtainMessage(1, surfaceTexture));
         }
     }
 
-    public void K(int i, int i2) {
-        if (this.aWX != null) {
-            this.aWX.sendMessage(this.aWX.obtainMessage(2, i, i2));
+    public void M(int i, int i2) {
+        if (this.bvs != null) {
+            this.bvs.sendMessage(this.bvs.obtainMessage(2, i, i2));
         }
     }
 
-    public void Fz() {
-        if (this.aWX != null) {
-            this.aWX.sendMessage(this.aWX.obtainMessage(3));
+    public void Nl() {
+        if (this.bvs != null) {
+            this.bvs.sendMessage(this.bvs.obtainMessage(3));
         }
     }
 
     public void requestRender() {
-        if (this.aWY != null) {
-            this.aWY.requestRender();
+        if (this.bvt != null) {
+            this.bvt.requestRender();
         }
     }
 
-    public void Dk() {
-        if (this.aWX != null) {
-            synchronized (this.aWZ) {
-                this.aWX.sendMessage(this.aWX.obtainMessage(6));
+    public void startRecording() {
+        if (this.bvs != null) {
+            synchronized (this.bvu) {
+                this.bvs.sendMessage(this.bvs.obtainMessage(6));
             }
         }
     }
 
     public void stopRecording() {
-        if (this.aWX != null) {
-            synchronized (this.aWZ) {
-                this.aWX.sendEmptyMessage(8);
+        if (this.bvs != null) {
+            synchronized (this.bvu) {
+                this.bvs.sendEmptyMessage(8);
             }
         }
     }
 
     public void switchCamera() {
-        if (this.aWX != null) {
-            synchronized (this.aWZ) {
-                this.aWX.sendEmptyMessage(16);
+        if (this.bvs != null) {
+            synchronized (this.bvu) {
+                this.bvs.sendEmptyMessage(16);
             }
         }
     }
 
-    public void Fv() {
-        if (this.aWX != null) {
-            synchronized (this.aWZ) {
-                this.aWX.sendEmptyMessage(9);
+    public void Nh() {
+        if (this.bvs != null) {
+            synchronized (this.bvu) {
+                this.bvs.sendEmptyMessage(9);
             }
         }
     }

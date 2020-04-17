@@ -1,7 +1,6 @@
 package android.support.constraint.solver;
 
 import android.support.constraint.solver.SolverVariable;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
 public class ArrayLinkedVariables {
@@ -551,7 +550,7 @@ public class ArrayLinkedVariables {
         for (int i2 = 0; i2 < i; i2++) {
             SolverVariable variable = getVariable(i2);
             if (variable != null) {
-                System.out.print(variable + " = " + getVariableValue(i2) + HanziToPinyin.Token.SEPARATOR);
+                System.out.print(variable + " = " + getVariableValue(i2) + " ");
             }
         }
         System.out.println(" }");

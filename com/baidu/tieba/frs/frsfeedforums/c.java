@@ -10,21 +10,21 @@ import com.baidu.tieba.frs.h;
 import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes9.dex */
 public class c extends h<l, d> {
-    protected a gAL;
-    private boolean gxq;
+    private boolean hgL;
+    protected a hkh;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.gxq = z;
+        this.hgL = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aX */
+    /* renamed from: aZ */
     public d b(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_feed_item_layout, (ViewGroup) null);
-        this.gAL = new a(this.mPageContext, inflate, 2, this.gxq, this.mPageId);
+        this.hkh = new a(this.mPageContext, inflate, 2, this.hgL, this.mPageId);
         return new d(inflate);
     }
 
@@ -34,7 +34,7 @@ public class c extends h<l, d> {
     public View a(int i, View view, ViewGroup viewGroup, l lVar, d dVar) {
         super.a(i, view, viewGroup, (ViewGroup) lVar, (l) dVar);
         if (lVar != null) {
-            this.gAL.f(lVar.getForumId(), lVar.cKI());
+            this.hkh.f(lVar.getForumId(), lVar.cVE());
         }
         return view;
     }

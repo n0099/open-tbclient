@@ -11,13 +11,13 @@ public class b extends j {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.g
-    /* renamed from: d */
+    /* renamed from: e */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage == null) {
             return null;
         }
         if (socketResponsedMessage.getError() == 2260104) {
-            n.aSg();
+            n.bap();
             return socketResponsedMessage;
         }
         return socketResponsedMessage;

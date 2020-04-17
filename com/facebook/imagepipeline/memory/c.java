@@ -15,36 +15,22 @@ public class c extends BasePool<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: IE */
-    public Bitmap Iv(int i) {
+    /* renamed from: Hg */
+    public Bitmap GX(int i) {
         return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: X */
-    public void bp(Bitmap bitmap) {
+    /* renamed from: Y */
+    public void bf(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         bitmap.recycle();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int Iw(int i) {
-        return i;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: Y */
-    public int bq(Bitmap bitmap) {
-        com.facebook.common.internal.g.checkNotNull(bitmap);
-        return bitmap.getAllocationByteCount();
-    }
-
-    @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int Ix(int i) {
+    protected int GY(int i) {
         return i;
     }
 
@@ -52,7 +38,21 @@ public class c extends BasePool<Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: Z */
-    public boolean br(Bitmap bitmap) {
+    public int bg(Bitmap bitmap) {
+        com.facebook.common.internal.g.checkNotNull(bitmap);
+        return bitmap.getAllocationByteCount();
+    }
+
+    @Override // com.facebook.imagepipeline.memory.BasePool
+    protected int GZ(int i) {
+        return i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.facebook.imagepipeline.memory.BasePool
+    /* renamed from: aa */
+    public boolean bh(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         return !bitmap.isRecycled() && bitmap.isMutable();
     }

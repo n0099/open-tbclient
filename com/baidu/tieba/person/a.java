@@ -14,20 +14,20 @@ public class a {
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
-            C0586a c0586a = new C0586a();
-            c0586a.jhq = str;
-            c0586a.jhr = bVar;
-            c0586a.execute("");
+            C0624a c0624a = new C0624a();
+            c0624a.jRy = str;
+            c0624a.jRz = bVar;
+            c0624a.execute("");
         }
     }
 
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    private static class C0586a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String jhq;
-        public b jhr;
+    private static class C0624a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String jRy;
+        public b jRz;
 
-        private C0586a() {
+        private C0624a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: B */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.f("user_pics").U(m.getFileDireciory(this.jhq), false);
+            return new com.baidu.tbadk.img.f("user_pics").Z(m.getFileDireciory(this.jRy), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,14 +44,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.jhr != null) {
+            if (this.jRz != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.jhr.a(i, str, imageUploadResult);
+                this.jRz.a(i, str, imageUploadResult);
             }
         }
     }

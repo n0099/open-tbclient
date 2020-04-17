@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void ab(String str, String str2, String str3) {
+    public static void aa(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             if (DEBUG) {
                 Log.e("LiveStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str + " ,liveId: " + str2);
@@ -20,6 +20,6 @@ public class c {
         hashMap.put("liveId", str2);
         hashMap.put("data", str3);
         hashMap.put("wvID", str);
-        com.baidu.swan.apps.y.f.WV().a(new com.baidu.swan.apps.n.a.b("live", hashMap));
+        com.baidu.swan.apps.y.f.aeK().a(new com.baidu.swan.apps.n.a.b("live", hashMap));
     }
 }

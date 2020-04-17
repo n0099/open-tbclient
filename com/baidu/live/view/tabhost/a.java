@@ -7,9 +7,9 @@ public interface a {
 
     void enterForeground();
 
+    View getPanelView();
+
     String getTitle();
 
     void onChangeSkinType(int i);
-
-    View wj();
 }

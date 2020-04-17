@@ -13,7 +13,6 @@ import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.t.a;
 import com.idlefish.flutterboost.BoostPluginRegistry;
 import com.idlefish.flutterboost.FlutterBoost;
@@ -168,13 +167,6 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         if (activityPluginBinding != null && activityPluginBinding.getActivity() != this.host.getActivity()) {
             this.flutterEngine.getActivityControlSurface().attachToActivity(this.host.getActivity(), this.host.getLifecycle());
         }
-    }
-
-    public void onPrimary(boolean z) {
-        a.getInstance().setLastFlutterPage(getContainerUrl());
-        this.mSyncer.onPrimary(z);
-        BdLog.v("onPrimary()");
-        ensureAlive();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -352,6 +344,13 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
         Intent intent = new Intent();
         if (hashMap != null) {
             intent.putExtra("_flutter_result_", hashMap);
+        }
+        if (hashMap != null && hashMap.size() > 0) {
+            for (Map.Entry entry : hashMap.entrySet()) {
+                if ((entry.getKey() instanceof String) && (entry.getValue() instanceof String)) {
+                    intent.putExtra((String) entry.getKey(), (String) entry.getValue());
+                }
+            }
         }
         activity.setResult(-1, intent);
     }

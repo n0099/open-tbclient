@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import com.baidu.android.util.time.DateTimeUtil;
 import com.meizu.cloud.pushsdk.NotificationService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
@@ -198,7 +197,7 @@ public class c extends a<MessageV3> {
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SCHEDULE_NOTIFICATION);
         PendingIntent service = PendingIntent.getService(c(), 0, intent, MinSdkChecker.isSupportSetDrawableSmallIcon() ? 67108864 : 1073741824);
         String startShowTime = messageV3.getmTimeDisplaySetting().getStartShowTime();
-        String format = TextUtils.isEmpty(startShowTime) ? null : new SimpleDateFormat(DateTimeUtil.TIME_FORMAT).format(new Date(Long.valueOf(startShowTime).longValue()));
+        String format = TextUtils.isEmpty(startShowTime) ? null : new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(Long.valueOf(startShowTime).longValue()));
         long longValue = Long.valueOf(startShowTime).longValue() - System.currentTimeMillis();
         com.meizu.cloud.a.a.i("AbstractMessageHandler", "after " + (longValue / 1000) + " seconds Notification AlarmManager execute At " + format);
         if (Build.VERSION.SDK_INT < 19) {

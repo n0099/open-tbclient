@@ -8,17 +8,17 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes11.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
-    private volatile b btG;
+    private volatile b bRN;
 
-    private b Rs() {
-        if (this.btG == null) {
+    private b Zh() {
+        if (this.bRN == null) {
             synchronized (SwanAppFavoriteProvider.class) {
-                if (this.btG == null) {
-                    this.btG = new b();
+                if (this.bRN == null) {
+                    this.bRN = new b();
                 }
             }
         }
-        return this.btG;
+        return this.bRN;
     }
 
     @Override // android.content.ContentProvider
@@ -29,28 +29,28 @@ public class SwanAppFavoriteProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return Rs().query(uri, strArr, str, strArr2, str2);
+        return Zh().query(uri, strArr, str, strArr2, str2);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        return Rs().getType(uri);
+        return Zh().getType(uri);
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        return Rs().insert(uri, contentValues);
+        return Zh().insert(uri, contentValues);
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return Rs().delete(uri, str, strArr);
+        return Zh().delete(uri, str, strArr);
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        return Rs().update(uri, contentValues, str, strArr);
+        return Zh().update(uri, contentValues, str, strArr);
     }
 }

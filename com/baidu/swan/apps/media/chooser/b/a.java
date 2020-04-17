@@ -12,7 +12,7 @@ public class a extends Scroller {
             return (f2 * f2 * f2 * f2 * f2) + 1.0f;
         }
     };
-    private boolean bDa;
+    private boolean cbx;
 
     public a(Context context) {
         this(context, sInterpolator);
@@ -22,13 +22,13 @@ public class a extends Scroller {
         super(context, interpolator);
     }
 
-    public void cU(boolean z) {
-        this.bDa = z;
+    public void dQ(boolean z) {
+        this.cbx = z;
     }
 
     @Override // android.widget.Scroller
     public void startScroll(int i, int i2, int i3, int i4, int i5) {
-        if (this.bDa) {
+        if (this.cbx) {
             super.startScroll(i, i2, i3, i4, 0);
         } else {
             super.startScroll(i, i2, i3, i4, i5);

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.elasticthread.task;
 
 import android.os.SystemClock;
-/* loaded from: classes13.dex */
+/* loaded from: classes11.dex */
 public class ElasticTask implements Runnable {
     private long id;
     private ElasticTaskCallback mCallback;
@@ -13,14 +13,14 @@ public class ElasticTask implements Runnable {
     private long timeOnExecute;
     private long timeOnQueue;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes11.dex */
     public interface ElasticTaskCallback {
         void afterExecuteTask();
 
         void beforeExecuteTask();
     }
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes11.dex */
     public enum Status {
         WAITING,
         RUNNING,

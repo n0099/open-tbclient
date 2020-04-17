@@ -14,7 +14,7 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class t {
     public static com.airbnb.lottie.e d(JsonReader jsonReader) throws IOException {
-        float dL = com.airbnb.lottie.d.f.dL();
+        float jk = com.airbnb.lottie.d.f.jk();
         float f = 0.0f;
         float f2 = 0.0f;
         float f3 = 0.0f;
@@ -118,7 +118,7 @@ public class t {
                     case 5:
                         String[] split = jsonReader.nextString().split("\\.");
                         if (!com.airbnb.lottie.d.f.c(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
-                            eVar.G("Lottie only supports bodymovin >= 4.4.0");
+                            eVar.aW("Lottie only supports bodymovin >= 4.4.0");
                             break;
                         } else {
                             break;
@@ -146,7 +146,7 @@ public class t {
                 f = f6;
             } else {
                 jsonReader.endObject();
-                eVar.a(new Rect(0, 0, (int) (i4 * dL), (int) (i3 * dL)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
+                eVar.a(new Rect(0, 0, (int) (i4 * jk), (int) (i3 * jk)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
                 return eVar;
             }
         }
@@ -157,7 +157,7 @@ public class t {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             Layer q = s.q(jsonReader, eVar);
-            if (q.dn() == Layer.LayerType.Image) {
+            if (q.iM() == Layer.LayerType.Image) {
                 i++;
             }
             list.add(q);

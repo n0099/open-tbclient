@@ -7,9 +7,9 @@ import android.graphics.Rect;
 import android.net.Uri;
 /* loaded from: classes11.dex */
 public interface d {
-    Bitmap decodeRegion(Rect rect, int i);
+    Point a(Context context, Bitmap bitmap) throws Exception;
 
-    Point init(Context context, Bitmap bitmap) throws Exception;
+    Bitmap decodeRegion(Rect rect, int i);
 
     Point init(Context context, Uri uri) throws Exception;
 

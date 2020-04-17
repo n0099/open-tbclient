@@ -1,120 +1,71 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.FrsTabInfo;
-/* loaded from: classes.dex */
-public class ad {
-    private String forumGameLabel;
-    private String forumId;
-    private String forumName;
-    private String fut;
-    private List<FrsTabInfo> gow;
-    private final List<com.baidu.tbadk.mainTab.b> gox = new LinkedList();
-    private Context mContext;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes8.dex */
+public class ad extends SparseArray<ak> {
+    public BdUniqueId ebv = null;
 
-    public ad(Context context, List<FrsTabInfo> list) {
-        this.gow = list;
-        this.mContext = context;
-    }
-
-    public boolean te(int i) {
-        if (i < 100 && !com.baidu.tbadk.core.util.v.isEmpty(this.gow)) {
-            for (FrsTabInfo frsTabInfo : this.gow) {
-                if (frsTabInfo.tab_id.intValue() == i) {
-                    return true;
+    public void a(ao aoVar) {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ak valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(aoVar);
                 }
-            }
-            return false;
-        }
-        return false;
-    }
-
-    public List<FrsTabInfo> bDD() {
-        return this.gow;
-    }
-
-    public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.getFragmentTabStructure() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.gox) {
-                if (bVar2 != null && bVar2.getFragmentTabStructure() != null && bVar2.getFragmentTabStructure().type == bVar.getFragmentTabStructure().type) {
-                    return;
-                }
-            }
-            this.gox.add(bVar);
-        }
-    }
-
-    public void bFV() {
-        boolean z;
-        LinkedList linkedList = new LinkedList();
-        LinkedList linkedList2 = new LinkedList();
-        for (FrsTabInfo frsTabInfo : this.gow) {
-            Iterator<com.baidu.tbadk.mainTab.b> it = this.gox.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z = false;
-                    break;
-                }
-                com.baidu.tbadk.mainTab.b next = it.next();
-                if (next.getFragmentTabStructure() != null && frsTabInfo.tab_id.intValue() == next.getFragmentTabStructure().type) {
-                    linkedList.add(next);
-                    z = true;
-                    break;
-                }
-            }
-            if (!z) {
-                linkedList2.add(frsTabInfo);
+                i = i2 + 1;
+            } else {
+                return;
             }
         }
-        if (!com.baidu.tbadk.core.util.v.isEmpty(linkedList2)) {
-            this.gow.removeAll(linkedList2);
+    }
+
+    public void init() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ak valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
         }
-        this.gox.clear();
-        if (!com.baidu.tbadk.core.util.v.isEmpty(linkedList)) {
-            this.gox.addAll(linkedList);
+    }
+
+    public void destory() {
+        int i = 0;
+        while (true) {
+            int i2 = i;
+            if (i2 < size()) {
+                ak valueAt = valueAt(i2);
+                if (valueAt != null) {
+                    valueAt.a(null);
+                    valueAt.bqt();
+                }
+                i = i2 + 1;
+            } else {
+                return;
+            }
         }
     }
 
-    public Context getContext() {
-        return this.mContext;
+    public void a(int i, ak akVar) {
+        if (i > 100) {
+            i = 100;
+        }
+        put(i, akVar);
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bDE() {
-        return this.gox;
-    }
-
-    public void setForumName(String str) {
-        this.forumName = str;
-    }
-
-    public String getForumName() {
-        return this.forumName;
-    }
-
-    public void setForumId(String str) {
-        this.forumId = str;
-    }
-
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public void setForumGameLabel(String str) {
-        this.forumGameLabel = str;
-    }
-
-    public String getForumGameLabel() {
-        return this.forumGameLabel;
-    }
-
-    public void zG(String str) {
-        this.fut = str;
-    }
-
-    public String bFW() {
-        return this.fut;
+    public ak tz(int i) {
+        if (i > 100) {
+            i = 100;
+        }
+        return get(i);
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.util.f;
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.n;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.play.s;
 import com.baidubce.http.Headers;
@@ -18,57 +17,57 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 /* loaded from: classes.dex */
 public class f {
-    private b ddy;
-    private a ddz;
+    private b dCX;
+    private a dCY;
     private String mUrl;
 
     public f(String str, b bVar) {
         this.mUrl = str;
-        this.ddy = bVar;
+        this.dCX = bVar;
     }
 
     public void load() {
         if (TextUtils.isEmpty(this.mUrl)) {
             g.log("VideoLoaderImp url == null");
-        } else if (s.wH(this.mUrl) != null) {
-            if (this.ddy != null) {
+        } else if (s.xT(this.mUrl) != null) {
+            if (this.dCX != null) {
                 g.log("complete file has exist, 不需要下载");
-                this.ddy.onSuccess(this.mUrl);
+                this.dCX.onSuccess(this.mUrl);
             }
         } else {
-            String wJ = s.wJ(this.mUrl);
-            if (TextUtils.isEmpty(wJ)) {
-                this.ddy.cy(this.mUrl, "dir is null");
+            String xV = s.xV(this.mUrl);
+            if (TextUtils.isEmpty(xV)) {
+                this.dCX.cJ(this.mUrl, "dir is null");
                 g.log("dir is null " + this.mUrl);
                 return;
             }
-            File file = new File(wJ + "/segments");
+            File file = new File(xV + "/segments");
             if (!file.exists()) {
                 file.mkdirs();
             }
             File file2 = new File(file, "0");
             if (file2.exists()) {
                 g.log("segment has exist " + this.mUrl);
-                this.ddy.onSuccess(this.mUrl);
+                this.dCX.onSuccess(this.mUrl);
                 return;
             }
-            this.ddz = new a(this.mUrl, wJ, file2.getAbsolutePath(), this.ddy);
-            this.ddz.execute(new Void[0]);
+            this.dCY = new a(this.mUrl, xV, file2.getAbsolutePath(), this.dCX);
+            this.dCY.execute(new Void[0]);
         }
     }
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<Void, Void, Boolean> {
-        private String ddA;
-        private String ddB;
-        private b ddy;
+        private b dCX;
+        private String dCZ;
+        private String dDa;
         private String mVideoUrl;
 
         public a(String str, String str2, String str3, b bVar) {
             this.mVideoUrl = str;
-            this.ddA = str3;
-            this.ddy = bVar;
-            this.ddB = str2;
+            this.dCZ = str3;
+            this.dCX = bVar;
+            this.dDa = str2;
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [179=5, 180=4, 182=4, 183=4, 184=4] */
@@ -86,17 +85,17 @@ public class f {
             FileOutputStream fileOutputStream;
             String str;
             try {
-                g.log("start load  " + this.mVideoUrl + " des file " + this.ddA);
+                g.log("start load  " + this.mVideoUrl + " des file " + this.dCZ);
                 HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.mVideoUrl).openConnection();
                 try {
-                    httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-" + e.aHq().getSize());
-                    int timeOutAuto = com.baidu.adp.framework.c.b.fc().fd().getTimeOutAuto();
+                    httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-" + e.aPI().getSize());
+                    int timeOutAuto = com.baidu.adp.framework.c.b.jH().jI().getTimeOutAuto();
                     if (timeOutAuto == 0) {
                         timeOutAuto = 5000;
                     }
                     g.log("connectTimeout " + timeOutAuto);
                     httpURLConnection2.setConnectTimeout(timeOutAuto);
-                    int timeOutAuto2 = com.baidu.adp.framework.c.b.fc().ff().getTimeOutAuto();
+                    int timeOutAuto2 = com.baidu.adp.framework.c.b.jH().jK().getTimeOutAuto();
                     int i = timeOutAuto2 != 0 ? timeOutAuto2 : 5000;
                     g.log("readTimeout " + i);
                     httpURLConnection2.setReadTimeout(i);
@@ -167,12 +166,12 @@ public class f {
                         }
                         fileOutputStream.write(bArr, 0, read);
                     }
-                    g.log("download success   des: " + this.ddA + "  mVideoUrl " + this.mVideoUrl);
+                    g.log("download success   des: " + this.dCZ + "  mVideoUrl " + this.mVideoUrl);
                     File file = new File(str);
                     if (file.exists()) {
-                        File file2 = new File(this.ddA);
+                        File file2 = new File(this.dCZ);
                         if (file2.exists()) {
-                            g.log("des file exist " + this.ddA + "  mVideoUrl " + this.mVideoUrl);
+                            g.log("des file exist " + this.dCZ + "  mVideoUrl " + this.mVideoUrl);
                             file.delete();
                             if (httpURLConnection2 != null) {
                                 httpURLConnection2.disconnect();
@@ -184,9 +183,9 @@ public class f {
                         }
                         file.renameTo(file2);
                     }
-                    f.t(this.ddB, System.currentTimeMillis());
-                    new File(this.ddB, "header_downloaded").createNewFile();
-                    g.log("rename success   des: " + this.ddA + "  mVideoUrl " + this.mVideoUrl);
+                    f.u(this.dDa, System.currentTimeMillis());
+                    new File(this.dDa, "header_downloaded").createNewFile();
+                    g.log("rename success   des: " + this.dCZ + "  mVideoUrl " + this.mVideoUrl);
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
@@ -233,11 +232,11 @@ public class f {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool.booleanValue()) {
-                if (this.ddy != null) {
-                    this.ddy.onSuccess(this.mVideoUrl);
+                if (this.dCX != null) {
+                    this.dCX.onSuccess(this.mVideoUrl);
                 }
-            } else if (this.ddy != null) {
-                this.ddy.cy(this.mVideoUrl, LivenessStat.TYPE_FACE_MATCH_FAIL);
+            } else if (this.dCX != null) {
+                this.dCX.cJ(this.mVideoUrl, "fail");
             }
         }
 
@@ -245,20 +244,20 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.ddy != null) {
-                this.ddy.tO(this.mVideoUrl);
+            if (this.dCX != null) {
+                this.dCX.vb(this.mVideoUrl);
             }
         }
     }
 
     public void release() {
         g.log("release url: " + this.mUrl);
-        this.ddz = null;
-        this.ddy = null;
+        this.dCY = null;
+        this.dCX = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void t(String str, long j) {
+    public static void u(String str, long j) {
         BufferedWriter bufferedWriter;
         File file = new File(str);
         if (!file.exists()) {

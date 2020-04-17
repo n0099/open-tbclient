@@ -7,40 +7,40 @@ import com.baidu.live.data.d;
 import com.baidu.live.data.e;
 import com.baidu.live.gift.g;
 import com.baidu.live.gift.i;
-import com.baidu.live.gift.r;
-import com.baidu.live.gift.v;
+import com.baidu.live.gift.s;
+import com.baidu.live.gift.w;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class a implements v {
-    private com.baidu.live.gift.c.a aop;
+public class a implements w {
+    private com.baidu.live.gift.c.a aGH;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
-        dQ();
+        zq();
     }
 
-    @Override // com.baidu.live.gift.v
-    public void sP() {
-        this.aop.uS();
+    @Override // com.baidu.live.gift.w
+    public void xi() {
+        this.aGH.zn();
     }
 
-    @Override // com.baidu.live.gift.v
-    public void sQ() {
+    @Override // com.baidu.live.gift.w
+    public void xj() {
     }
 
-    @Override // com.baidu.live.gift.v
+    @Override // com.baidu.live.gift.w
     public void release() {
-        if (this.aop != null) {
-            this.aop.release();
+        if (this.aGH != null) {
+            this.aGH.release();
         }
     }
 
-    private void dQ() {
-        this.aop = new com.baidu.live.gift.c.a();
-        this.aop.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
+    private void zq() {
+        this.aGH = new com.baidu.live.gift.c.a();
+        this.aGH.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
             public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<d> arrayList2, ArrayList<e> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
@@ -58,51 +58,51 @@ public class a implements v {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, List<i> list) {
         if (z) {
-            r.sC().s(list);
+            s.wV().w(list);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, int i, String str, String str2, int i2) {
         if (z) {
-            q(str2, i2);
+            w(str2, i2);
             return;
         }
         if (!TextUtils.isEmpty(str)) {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.aop == null) {
-                this.aop = new com.baidu.live.gift.c.a();
+            if (this.aGH == null) {
+                this.aGH = new com.baidu.live.gift.c.a();
             }
-            this.aop.uS();
+            this.aGH.zn();
         }
     }
 
-    private void q(String str, int i) {
+    private void w(String str, int i) {
         List<i> datas;
-        if (!TextUtils.isEmpty(str) && (datas = r.sC().getDatas()) != null) {
+        if (!TextUtils.isEmpty(str) && (datas = s.wV().getDatas()) != null) {
             ArrayList<i> arrayList = new ArrayList(datas);
             for (i iVar : arrayList) {
-                List<g> sd = iVar.sd();
-                if (sd != null) {
+                List<g> ww = iVar.ww();
+                if (ww != null) {
                     if (i == 0) {
-                        Iterator<g> it = sd.iterator();
+                        Iterator<g> it = ww.iterator();
                         while (it.hasNext()) {
-                            if (it.next().rC().equals(str)) {
+                            if (it.next().vV().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (g gVar : sd) {
-                            if (gVar.rC().equals(str)) {
-                                gVar.agx.agE = i;
+                        for (g gVar : ww) {
+                            if (gVar.vV().equals(str)) {
+                                gVar.ayN.ayU = i;
                             }
                         }
                     }
                 }
             }
-            r.sC().s(arrayList);
+            s.wV().w(arrayList);
         }
     }
 }

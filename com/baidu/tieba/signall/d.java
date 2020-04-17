@@ -8,19 +8,19 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d implements ae {
     private String avatar;
+    private int eVH;
     private String errorMsg;
-    private int esl;
     private int forumId;
     private String forumName;
     private boolean isSigned;
-    private int jZU;
-    private int jZV;
-    private int jZW;
-    private int jZX;
-    private boolean jZY;
-    private boolean jZZ;
-    private boolean kaa;
-    private int kab;
+    private int kJh;
+    private int kJi;
+    private int kJj;
+    private int kJk;
+    private boolean kJl;
+    private boolean kJm;
+    private boolean kJn;
+    private int kJo;
 
     public int getForumId() {
         return this.forumId;
@@ -34,82 +34,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int cJd() {
-        return this.jZU;
+    public int cTG() {
+        return this.kJh;
     }
 
-    public int cJe() {
-        return this.esl;
+    public int cTH() {
+        return this.eVH;
     }
 
-    public int cJf() {
-        return this.jZV;
+    public int cTI() {
+        return this.kJi;
     }
 
-    public int cJg() {
-        return this.jZW;
+    public int cTJ() {
+        return this.kJj;
     }
 
-    public int cJh() {
-        return this.jZX;
+    public int cTK() {
+        return this.kJk;
     }
 
-    public void Cm(int i) {
-        this.jZU = i;
+    public void CM(int i) {
+        this.kJh = i;
     }
 
-    public void Cn(int i) {
-        this.esl = i;
+    public void CN(int i) {
+        this.eVH = i;
     }
 
-    public void Co(int i) {
-        this.jZV = i;
+    public void CO(int i) {
+        this.kJi = i;
     }
 
-    public boolean bdm() {
+    public boolean bmd() {
         return this.isSigned;
     }
 
-    public void sF(boolean z) {
+    public void tG(boolean z) {
         this.isSigned = z;
-        this.jZU = 1;
+        this.kJh = 1;
     }
 
-    public boolean cJi() {
-        return this.jZZ;
+    public boolean cTL() {
+        return this.kJm;
     }
 
-    public void sG(boolean z) {
-        this.jZZ = z;
-        this.jZU = 0;
+    public void tH(boolean z) {
+        this.kJm = z;
+        this.kJh = 0;
     }
 
-    public boolean cJj() {
-        return this.kaa;
+    public boolean cTM() {
+        return this.kJn;
     }
 
-    public void sH(boolean z) {
-        this.kaa = z;
+    public void tI(boolean z) {
+        this.kJn = z;
     }
 
-    public int cJk() {
-        return this.kab;
+    public int cTN() {
+        return this.kJo;
     }
 
-    public void Cp(int i) {
-        this.kab = i;
+    public void CP(int i) {
+        this.kJo = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean cJl() {
-        return this.jZY;
+    public boolean cTO() {
+        return this.kJl;
     }
 
-    public void sI(boolean z) {
-        this.jZY = z;
+    public void tJ(boolean z) {
+        this.kJl = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.jZU = jSONObject.optInt("is_sign_in");
-            this.esl = jSONObject.optInt("cont_sign_num");
-            this.jZV = jSONObject.optInt("user_level");
-            this.jZW = jSONObject.optInt("user_exp");
-            this.jZX = jSONObject.optInt("need_exp");
-            if (this.jZU != 0) {
+            this.kJh = jSONObject.optInt("is_sign_in");
+            this.eVH = jSONObject.optInt("cont_sign_num");
+            this.kJi = jSONObject.optInt("user_level");
+            this.kJj = jSONObject.optInt("user_exp");
+            this.kJk = jSONObject.optInt("need_exp");
+            if (this.kJh != 0) {
                 this.isSigned = true;
-                this.jZZ = false;
+                this.kJm = false;
             }
         }
     }

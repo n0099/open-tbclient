@@ -1,12 +1,11 @@
 package rx.internal.operators;
 
-import com.google.android.exoplayer2.Format;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 /* loaded from: classes6.dex */
 public final class OnSubscribeFromIterable<T> implements d.a<T> {
-    final Iterable<? extends T> nQm;
+    final Iterable<? extends T> njS;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -17,12 +16,12 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
         if (iterable == null) {
             throw new NullPointerException("iterable must not be null");
         }
-        this.nQm = iterable;
+        this.njS = iterable;
     }
 
     public void call(rx.j<? super T> jVar) {
         try {
-            Iterator<? extends T> it = this.nQm.iterator();
+            Iterator<? extends T> it = this.njS.iterator();
             boolean hasNext = it.hasNext();
             if (!jVar.isUnsubscribed()) {
                 if (!hasNext) {
@@ -50,8 +49,8 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
 
         @Override // rx.f
         public void request(long j) {
-            if (get() != Format.OFFSET_SAMPLE_RELATIVE) {
-                if (j == Format.OFFSET_SAMPLE_RELATIVE && compareAndSet(0L, Format.OFFSET_SAMPLE_RELATIVE)) {
+            if (get() != Long.MAX_VALUE) {
+                if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                     fastPath();
                 } else if (j > 0 && a.e(this, j) == 0) {
                     slowPath(j);

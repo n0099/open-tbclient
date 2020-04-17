@@ -18,27 +18,27 @@ class fe {
         if (!TextUtils.isEmpty(bVar.f)) {
             cVar.e(bVar.f);
         }
-        cVar.b(bVar.f862a ? "1" : "0");
+        cVar.b(bVar.f863a ? "1" : "0");
         if (TextUtils.isEmpty(bVar.d)) {
             cVar.c("XIAOMI-SASL");
         } else {
             cVar.c(bVar.d);
         }
         ff ffVar = new ff();
-        ffVar.c(bVar.f863b);
+        ffVar.c(bVar.f864b);
         ffVar.a(Integer.parseInt(bVar.g));
-        ffVar.b(bVar.f860a);
+        ffVar.b(bVar.f861a);
         ffVar.a("BIND", (String) null);
         ffVar.a(ffVar.e());
-        com.xiaomi.channel.commonutils.logger.b.m45a("[Slim]: bind id=" + ffVar.e());
+        com.xiaomi.channel.commonutils.logger.b.m50a("[Slim]: bind id=" + ffVar.e());
         HashMap hashMap = new HashMap();
         hashMap.put("challenge", str);
         hashMap.put("token", bVar.c);
         hashMap.put("chid", bVar.g);
-        hashMap.put("from", bVar.f863b);
+        hashMap.put("from", bVar.f864b);
         hashMap.put("id", ffVar.e());
         hashMap.put("to", "xiaomi.com");
-        if (bVar.f862a) {
+        if (bVar.f863a) {
             hashMap.put("kick", "1");
         } else {
             hashMap.put("kick", "0");

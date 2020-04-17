@@ -91,7 +91,7 @@ public class b {
             return null;
         }
         Class<?> fieldClass = cVar.getFieldClass();
-        Type[] fp = cVar.fp();
+        Type[] jU = cVar.jU();
         if (fieldClass.isArray()) {
             Object newInstance = Array.newInstance(fieldClass.getComponentType(), arrayList.size());
             Iterator<Object> it = arrayList.iterator();
@@ -109,7 +109,7 @@ public class b {
                 Iterator<Object> it2 = arrayList.iterator();
                 while (it2.hasNext()) {
                     h r = g.r(it2.next());
-                    if (fp != null && fp.length >= 1 && (g4 = r.g(new c(fp[0]))) != null) {
+                    if (jU != null && jU.length >= 1 && (g4 = r.g(new c(jU[0]))) != null) {
                         a.add(g4);
                     }
                 }
@@ -121,7 +121,7 @@ public class b {
                 Iterator<Object> it3 = arrayList.iterator();
                 while (it3.hasNext()) {
                     h r2 = g.r(it3.next());
-                    if (fp != null && fp.length >= 1 && (g3 = r2.g(new c(fp[0]))) != null) {
+                    if (jU != null && jU.length >= 1 && (g3 = r2.g(new c(jU[0]))) != null) {
                         c.add(g3);
                     }
                 }
@@ -133,7 +133,7 @@ public class b {
                 Iterator<Object> it4 = arrayList.iterator();
                 while (it4.hasNext()) {
                     h r3 = g.r(it4.next());
-                    if (fp != null && fp.length >= 1 && (g2 = r3.g(new c(fp[0]))) != null) {
+                    if (jU != null && jU.length >= 1 && (g2 = r3.g(new c(jU[0]))) != null) {
                         b.add(g2);
                     }
                 }
@@ -145,8 +145,8 @@ public class b {
                 Iterator<Object> it5 = arrayList.iterator();
                 while (it5.hasNext()) {
                     h r4 = g.r(it5.next());
-                    if (fp != null && fp.length >= 2) {
-                        g = r4.g(new c(fp[1]));
+                    if (jU != null && jU.length >= 2) {
+                        g = r4.g(new c(jU[1]));
                     } else {
                         g = r4.g(new c(String.class));
                     }
@@ -166,7 +166,7 @@ public class b {
             while (it6.hasNext()) {
                 Object next = it6.next();
                 h r5 = g.r(next);
-                if (fp != null && fp.length >= 1 && r5.g(new c(fp[0])) != null) {
+                if (jU != null && jU.length >= 1 && r5.g(new c(jU[0])) != null) {
                     sparseArray.put(i2, next);
                 }
                 i2++;

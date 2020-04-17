@@ -1,6 +1,5 @@
 package rx.subjects;
 
-import com.google.android.exoplayer2.Format;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
@@ -16,7 +15,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes6.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> nWd;
+    final State<T> npO;
 
     public static <T> UnicastSubject<T> a(int i, rx.functions.a aVar) {
         return new UnicastSubject<>(new State(i, aVar));
@@ -24,22 +23,22 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.nWd = state;
+        this.npO = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.nWd.onNext(t);
+        this.npO.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.nWd.onError(th);
+        this.npO.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.nWd.onCompleted();
+        this.npO.onCompleted();
     }
 
     /* loaded from: classes6.dex */
@@ -63,9 +62,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.dPq() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.dIq() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.dPq() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.dIq() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }
@@ -189,7 +188,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                     if (jVar != null) {
                         if (!checkTerminated(this.done, queue.isEmpty(), jVar)) {
                             long j2 = get();
-                            z = j2 == Format.OFFSET_SAMPLE_RELATIVE;
+                            z = j2 == Long.MAX_VALUE;
                             long j3 = 0;
                             long j4 = j2;
                             while (true) {
@@ -211,7 +210,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                                         j3 = 1 + j;
                                     } catch (Throwable th) {
                                         queue.clear();
-                                        rx.exceptions.a.H(th);
+                                        rx.exceptions.a.L(th);
                                         jVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                         return;
                                     }

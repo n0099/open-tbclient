@@ -11,7 +11,7 @@ public final class a {
 
     /* renamed from: com.tencent.mm.opensdk.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0742a {
+    public static class C0766a {
         public String a;
         public String action;
         public long b;
@@ -19,25 +19,25 @@ public final class a {
         public String content;
     }
 
-    public static boolean a(Context context, C0742a c0742a) {
+    public static boolean a(Context context, C0766a c0766a) {
         if (context == null) {
             Log.e("MicroMsg.SDK.MMessage", "send fail, invalid argument");
             return false;
-        } else if (d.a(c0742a.action)) {
+        } else if (d.a(c0766a.action)) {
             Log.e("MicroMsg.SDK.MMessage", "send fail, action is null");
             return false;
         } else {
-            String str = d.a(c0742a.a) ? null : c0742a.a + ".permission.MM_MESSAGE";
-            Intent intent = new Intent(c0742a.action);
-            if (c0742a.bundle != null) {
-                intent.putExtras(c0742a.bundle);
+            String str = d.a(c0766a.a) ? null : c0766a.a + ".permission.MM_MESSAGE";
+            Intent intent = new Intent(c0766a.action);
+            if (c0766a.bundle != null) {
+                intent.putExtras(c0766a.bundle);
             }
             String packageName = context.getPackageName();
             intent.putExtra("_mmessage_sdkVersion", 620823552);
             intent.putExtra("_mmessage_appPackage", packageName);
-            intent.putExtra("_mmessage_content", c0742a.content);
-            intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c0742a.b);
-            intent.putExtra("_mmessage_checksum", b.a(c0742a.content, 620823552, packageName));
+            intent.putExtra("_mmessage_content", c0766a.content);
+            intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c0766a.b);
+            intent.putExtra("_mmessage_checksum", b.a(c0766a.content, 620823552, packageName));
             context.sendBroadcast(intent, str);
             Log.d("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str);
             return true;

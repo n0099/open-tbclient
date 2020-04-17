@@ -12,41 +12,41 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 /* loaded from: classes11.dex */
 public class b {
-    private UriMatcher btI = new UriMatcher(-1);
-    public static final String btH = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + btH);
+    private UriMatcher bRP = new UriMatcher(-1);
+    public static final String bRO = AppRuntime.getApplication().getPackageName() + ".swan.favorite";
+    public static final Uri CONTENT_URI = Uri.parse("content://" + bRO);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b() {
-        this.btI.addURI(btH, "favorite", 0);
-        this.btI.addURI(btH, "favorite_and_aps", 1);
-        this.btI.addURI(btH, "history", 2);
-        this.btI.addURI(btH, "history_with_app", 3);
-        this.btI.addURI(btH, "favorite_with_aps_pms", 4);
-        this.btI.addURI(btH, "history_with_aps_pms", 5);
+        this.bRP.addURI(bRO, "favorite", 0);
+        this.bRP.addURI(bRO, "favorite_and_aps", 1);
+        this.bRP.addURI(bRO, "history", 2);
+        this.bRP.addURI(bRO, "history_with_app", 3);
+        this.bRP.addURI(bRO, "favorite_with_aps_pms", 4);
+        this.bRP.addURI(bRO, "history_with_aps_pms", 5);
     }
 
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        switch (this.btI.match(uri)) {
+        switch (this.bRP.match(uri)) {
             case 0:
-                Cursor a = SwanAppDbControl.ca(AppRuntime.getAppContext()).a(strArr, str, strArr2, str2);
+                Cursor a = SwanAppDbControl.bO(AppRuntime.getAppContext()).a(strArr, str, strArr2, str2);
                 a.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return a;
             case 1:
-                Cursor b = SwanAppDbControl.ca(AppRuntime.getAppContext()).b(strArr, str, strArr2, str2);
+                Cursor b = SwanAppDbControl.bO(AppRuntime.getAppContext()).b(strArr, str, strArr2, str2);
                 b.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return b;
             case 2:
-                return SwanAppDbControl.ca(AppRuntime.getAppContext()).c(strArr, str, strArr2, str2);
+                return SwanAppDbControl.bO(AppRuntime.getAppContext()).c(strArr, str, strArr2, str2);
             case 3:
-                Cursor d = SwanAppDbControl.ca(AppRuntime.getAppContext()).d(strArr, str, strArr2, str2);
+                Cursor d = SwanAppDbControl.bO(AppRuntime.getAppContext()).d(strArr, str, strArr2, str2);
                 d.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return d;
             case 4:
-                Cursor Rp = a.Rp();
-                Rp.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                return Rp;
+                Cursor Ze = a.Ze();
+                Ze.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                return Ze;
             case 5:
                 int i = -1;
                 try {
@@ -60,9 +60,9 @@ public class b {
                 if (queryParameter == null) {
                     queryParameter = "";
                 }
-                Cursor z = com.baidu.swan.apps.database.a.b.z(queryParameter, i);
-                z.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                return z;
+                Cursor H = com.baidu.swan.apps.database.a.b.H(queryParameter, i);
+                H.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                return H;
             default:
                 return null;
         }
@@ -70,9 +70,9 @@ public class b {
 
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        switch (this.btI.match(uri)) {
+        switch (this.bRP.match(uri)) {
             case 0:
-                long b = SwanAppDbControl.ca(AppRuntime.getAppContext()).b(contentValues);
+                long b = SwanAppDbControl.bO(AppRuntime.getAppContext()).b(contentValues);
                 if (b >= 0) {
                     return ContentUris.withAppendedId(CONTENT_URI.buildUpon().build(), b);
                 }
@@ -81,9 +81,9 @@ public class b {
             default:
                 return null;
             case 2:
-                long c = SwanAppDbControl.ca(AppRuntime.getAppContext()).c(contentValues);
+                long c = SwanAppDbControl.bO(AppRuntime.getAppContext()).c(contentValues);
                 if (c >= 0) {
-                    Rt();
+                    Zi();
                     return ContentUris.withAppendedId(CONTENT_URI.buildUpon().build(), c);
                 }
                 return null;
@@ -91,16 +91,16 @@ public class b {
     }
 
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        switch (this.btI.match(uri)) {
+        switch (this.bRP.match(uri)) {
             case 0:
-                return SwanAppDbControl.ca(AppRuntime.getAppContext()).b(str, strArr);
+                return SwanAppDbControl.bO(AppRuntime.getAppContext()).b(str, strArr);
             case 1:
             default:
                 return 0;
             case 2:
-                int c = SwanAppDbControl.ca(AppRuntime.getAppContext()).c(str, strArr);
+                int c = SwanAppDbControl.bO(AppRuntime.getAppContext()).c(str, strArr);
                 if (c > 0) {
-                    Rt();
+                    Zi();
                     return c;
                 }
                 return c;
@@ -108,16 +108,16 @@ public class b {
     }
 
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        switch (this.btI.match(uri)) {
+        switch (this.bRP.match(uri)) {
             case 0:
-                return SwanAppDbControl.ca(AppRuntime.getAppContext()).a(contentValues, str, strArr);
+                return SwanAppDbControl.bO(AppRuntime.getAppContext()).a(contentValues, str, strArr);
             case 1:
             default:
                 return 0;
             case 2:
-                int b = SwanAppDbControl.ca(AppRuntime.getAppContext()).b(contentValues, str, strArr);
+                int b = SwanAppDbControl.bO(AppRuntime.getAppContext()).b(contentValues, str, strArr);
                 if (b > 0) {
-                    Rt();
+                    Zi();
                     return b;
                 }
                 return b;
@@ -129,8 +129,8 @@ public class b {
         return null;
     }
 
-    private static void Rt() {
-        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.Ru(), (ContentObserver) null, false);
-        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.Rv(), (ContentObserver) null, false);
+    private static void Zi() {
+        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.Zj(), (ContentObserver) null, false);
+        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.Zk(), (ContentObserver) null, false);
     }
 }

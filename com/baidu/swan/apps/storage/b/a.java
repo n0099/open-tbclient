@@ -2,56 +2,56 @@ package com.baidu.swan.apps.storage.b;
 /* loaded from: classes11.dex */
 public class a implements c {
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mf(String str) {
+    public String ns(String str) {
         return str;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mg(String str) {
+    public String nt(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mh(String str) {
+    public String nu(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mi(String str) {
+    public String nv(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mj(String str) {
+    public String nw(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mk(String str) {
+    public String nx(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String afs() {
+    public String anx() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lY(String str) {
+    public String nl(String str) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean lT(String str) {
+    public boolean ng(String str) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean aD(long j) {
+    public boolean bi(long j) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public void aE(long j) {
+    public void bj(long j) {
     }
 }

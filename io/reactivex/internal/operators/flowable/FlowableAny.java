@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.j;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -10,7 +9,7 @@ public final class FlowableAny<T> extends a<T, Boolean> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super Boolean> cVar) {
-        this.nyr.a((io.reactivex.j) new AnySubscriber(cVar, this.predicate));
+        this.mRJ.a((io.reactivex.j) new AnySubscriber(cVar, this.predicate));
     }
 
     /* loaded from: classes7.dex */
@@ -30,7 +29,7 @@ public final class FlowableAny<T> extends a<T, Boolean> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -44,7 +43,7 @@ public final class FlowableAny<T> extends a<T, Boolean> {
                         complete(true);
                     }
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     this.s.cancel();
                     onError(th);
                 }

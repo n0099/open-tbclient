@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.chatmessage.IMediaDeleteChatSessionListener;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,6 +17,9 @@ import org.json.JSONObject;
 public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
     private static final String TAG = "IMMediaDeleteSessionRequest";
     private long mContacter;
+    private long mContactorPauid;
+    private String mContactorThirdid;
+    private int mContactorType;
     private String mKey;
     private long mLastTime;
 
@@ -35,10 +39,24 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
     }
 
     public IMMediaDeleteSessionRequest(Context context, long j, long j2, String str) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContacter = j;
         this.mLastTime = j2;
         this.mKey = str;
+    }
+
+    public IMMediaDeleteSessionRequest(Context context, long j, int i, long j2, String str, long j3, String str2) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
+        this.mContext = context;
+        this.mContacter = j;
+        this.mLastTime = j3;
+        this.mKey = str2;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
+        this.mContactorThirdid = str;
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -46,7 +64,18 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
         JSONObject jSONObject = new JSONObject();
         try {
             putCommonParams(jSONObject);
-            jSONObject.put("contacter", Utility.transBDUID(String.valueOf(this.mContacter)));
+            if (this.mContacter > 0) {
+                jSONObject.put("contacter", Utility.transBDUID(String.valueOf(this.mContacter)));
+            }
+            if (this.mContactorType >= 0) {
+                jSONObject.put("contacter_type", this.mContactorType);
+            }
+            if (this.mContactorPauid > 0) {
+                jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+            }
+            if (!TextUtils.isEmpty(this.mContactorThirdid)) {
+                jSONObject.put("contacter_third_id", this.mContactorThirdid);
+            }
             jSONObject.put("lastmsg_time", this.mLastTime);
             jSONObject.put("sign", generateSign(jSONObject));
         } catch (JSONException e) {

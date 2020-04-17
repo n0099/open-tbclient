@@ -30,22 +30,22 @@ import java.util.List;
 public class c implements com.baidu.swan.bdprivate.a.a.a {
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void a(Context context, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
-        a.aZK().a(context, bundle, aVar);
+        a.bhO().a(context, bundle, aVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public boolean isLogin(Context context) {
-        return a.aZK().isLogin();
+        return a.bhO().isLogin();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getBduss(Context context) {
-        return a.aZK().getBduss();
+        return a.bhO().getBduss();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public String getUid(Context context) {
-        return a.aZK().getUid();
+        return a.bhO().getUid();
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -63,16 +63,16 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public z dd(Context context) {
+    public z cR(Context context) {
         z zVar = new z();
-        zVar.displayName = a.aZK().getDisplayName();
-        zVar.aqz = a.aZK().aZM();
+        zVar.displayName = a.bhO().getDisplayName();
+        zVar.aJi = a.bhO().bhQ();
         return zVar;
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
     public void b(com.baidu.swan.apps.a.c cVar) {
-        a.aZK().a(cVar);
+        a.bhO().a(cVar);
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
@@ -129,8 +129,8 @@ public class c implements com.baidu.swan.bdprivate.a.a.a {
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a
-    public String da(Context context) {
-        return h.afu().getString("bd_box_ptoken", "");
+    public String cO(Context context) {
+        return h.anz().getString("bd_box_ptoken", "");
     }
 
     @Override // com.baidu.swan.bdprivate.a.a.a

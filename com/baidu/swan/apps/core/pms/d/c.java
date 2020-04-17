@@ -14,7 +14,7 @@ public class c {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void h(Bitmap bitmap);
+        void i(Bitmap bitmap);
     }
 
     public static void a(String str, final int i, final a aVar) {
@@ -23,9 +23,9 @@ public class c {
             a(i, aVar, "download icon fail: icon url is null");
             return;
         }
-        com.facebook.drawee.a.a.c.dlY().e(ImageRequestBuilder.Y(uri).dta(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.d.c.1
+        com.facebook.drawee.a.a.c.dnR().e(ImageRequestBuilder.Z(uri).duW(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.d.c.1
             @Override // com.facebook.imagepipeline.e.b
-            protected void onNewResultImpl(Bitmap bitmap) {
+            protected void h(Bitmap bitmap) {
                 Bitmap copy;
                 if (bitmap == null || bitmap.isRecycled()) {
                     c.a(i, a.this, "download icon fail: bitmap is null or is recycled");
@@ -38,7 +38,7 @@ public class c {
                         copy = bitmap.copy(bitmap.getConfig(), true);
                     }
                     if (a.this != null) {
-                        a.this.h(copy);
+                        a.this.i(copy);
                     }
                 } catch (Exception e) {
                     c.a(i, a.this, "download icon fail: " + e.getMessage());
@@ -46,25 +46,25 @@ public class c {
             }
 
             @Override // com.facebook.datasource.a
-            protected void onFailureImpl(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
+            protected void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
                 c.a(i, a.this, "download icon fail: onFailureImpl");
             }
 
             @Override // com.facebook.datasource.a, com.facebook.datasource.d
-            public void onCancellation(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
-                super.onCancellation(bVar);
+            public void b(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> bVar) {
+                super.b(bVar);
                 c.a(i, a.this, "download icon fail: onCancellation");
             }
-        }, i.dld());
+        }, i.dmW());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(int i, a aVar, String str) {
-        com.baidu.swan.apps.ap.a my = new com.baidu.swan.apps.ap.a().aI(4L).aJ(10L).my(str);
-        e.agr().f(my);
-        f.b(new d().e(my).lM(f.gs(i)));
+        com.baidu.swan.apps.ap.a nL = new com.baidu.swan.apps.ap.a().bn(4L).bo(10L).nL(str);
+        e.aow().f(nL);
+        f.b(new d().e(nL).mZ(f.gz(i)));
         if (aVar != null) {
-            aVar.h(null);
+            aVar.i(null);
         }
     }
 }

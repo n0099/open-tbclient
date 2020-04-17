@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes10.dex */
 public class b {
-    private List<a> hWd;
-    private List<Integer> hWe;
-    private List<a> hWh;
+    private List<a> iFU;
+    private List<Integer> iFV;
+    private List<a> iFY;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.isEmpty(dataRes.sex_taglist)) {
-                this.hWh = new ArrayList();
-                q(this.hWh, dataRes.sex_taglist);
+                this.iFY = new ArrayList();
+                q(this.iFY, dataRes.sex_taglist);
             }
             if (!v.isEmpty(dataRes.taglist)) {
-                this.hWd = new ArrayList();
-                this.hWe = new ArrayList();
-                q(this.hWd, dataRes.taglist);
+                this.iFU = new ArrayList();
+                this.iFV = new ArrayList();
+                q(this.iFU, dataRes.taglist);
             }
         }
     }
@@ -33,23 +33,23 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.hWe != null && aVar.isFollow) {
-                        this.hWe.add(Integer.valueOf(aVar.labelId));
+                    if (this.iFV != null && aVar.isFollow) {
+                        this.iFV.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
         }
     }
 
-    public List<a> cbr() {
-        return this.hWh;
+    public List<a> clS() {
+        return this.iFY;
     }
 
-    public List<a> cbs() {
-        return this.hWd;
+    public List<a> clT() {
+        return this.iFU;
     }
 
-    public List<Integer> cbt() {
-        return this.hWe;
+    public List<Integer> clU() {
+        return this.iFV;
     }
 }

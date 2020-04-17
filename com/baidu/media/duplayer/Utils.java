@@ -4,21 +4,30 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.Proxy;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
 import android.os.StatFs;
+import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import dalvik.system.BaseDexClassLoader;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class Utils {
     public static String a = "filecache-Utils";
     public static int b = 536870912;
     public static String c = ".video_cache";
+    private static volatile int d = -1;
+    private static volatile int e = -1;
+    private static volatile int f = -1;
+    private static volatile String g = null;
 
     public static long a() {
         long j = -1;
@@ -32,7 +41,7 @@ public class Utils {
                     j = statFs.getAvailableBlocks() * statFs.getBlockSize();
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception e2) {
             CyberLog.d(a, "SDCard no free space");
         }
         return j;
@@ -46,13 +55,49 @@ public class Utils {
             } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
                 str = context.getExternalCacheDir().getPath();
             }
-        } catch (Exception e) {
+        } catch (Exception e2) {
         }
         return str;
     }
 
+    public static void a(int i) {
+        nativeSetMaxConcurrentOperationCount(i);
+    }
+
+    public static void a(File file) {
+        try {
+            if (file.isDirectory()) {
+                for (File file2 : file.listFiles()) {
+                    a(file2);
+                }
+            }
+            if (file.exists()) {
+                file.delete();
+            }
+        } catch (Exception e2) {
+            CyberLog.w(a, e2.toString());
+        }
+    }
+
     public static void a(String str) {
         nativeSetFileacheWorkDirectory(str);
+    }
+
+    public static void a(String str, String str2) {
+        nativeVideoSRInit(str, str2);
+    }
+
+    public static void a(String str, boolean z) {
+        if (CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_MONITOR, false)) {
+            try {
+                String str2 = Build.DISPLAY;
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "sdk-" + Build.VERSION.SDK_INT;
+                }
+                nativeMonitorInit(str, str2, z);
+            } catch (Exception e2) {
+            }
+        }
     }
 
     public static void a(byte[] bArr, int i, byte[] bArr2) {
@@ -73,13 +118,19 @@ public class Utils {
     }
 
     public static String b(Context context) {
-        String str = a(context) + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+        String a2 = a(context);
+        String str = TextUtils.isEmpty(a2) ? null : a2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
         String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
-        if (a() < 10485760) {
+        CyberLog.i(a, "Utils.getExternalStorageSpace():" + a());
+        if (a() < 10485760 || str == null) {
             str = str2;
         }
         new File(str).mkdirs();
-        return str + File.separator + "video_session_log_" + CyberPlayerManager.getCoreVersion() + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+        if (!d(context)) {
+            str = str + File.separator + "remote";
+        }
+        CyberLog.i(a, "getVideoStatisticsPath folder:" + str);
+        return str;
     }
 
     public static void c() {
@@ -96,8 +147,8 @@ public class Utils {
                 return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
             }
             return false;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return false;
         }
     }
@@ -110,23 +161,17 @@ public class Utils {
         if (context == null) {
             return false;
         }
-        String packageName = context.getPackageName();
-        int myPid = Process.myPid();
-        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
-            if (runningAppProcessInfo.pid == myPid) {
-                return runningAppProcessInfo.processName.equals(packageName);
+        if (d < 0) {
+            if (context.getPackageName().equals(f(context))) {
+                d = 1;
+            } else {
+                d = 0;
             }
         }
-        return false;
+        return d == 1;
     }
 
-    public static String e() {
-        Context applicationContext = CyberPlayerManager.getApplicationContext();
-        File filesDir = applicationContext.getFilesDir();
-        return filesDir != null ? filesDir.getAbsolutePath() : "/data/data/" + applicationContext.getPackageName() + "/files";
-    }
-
-    public static synchronized void f() {
+    public static synchronized void e() {
         synchronized (Utils.class) {
             Map<String, String> cfgMap = CyberCfgManager.getInstance().getCfgMap();
             if (cfgMap != null && cfgMap.size() > 0) {
@@ -139,13 +184,115 @@ public class Utils {
         }
     }
 
+    public static boolean e(Context context) {
+        if (context == null) {
+            return false;
+        }
+        if (e < 0) {
+            if ((context.getPackageName() + ":media").equals(f(context))) {
+                e = 1;
+            } else {
+                e = 0;
+            }
+        }
+        return e == 1;
+    }
+
+    public static String f() {
+        if (f < 0) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                f = Process.is64Bit() ? 1 : 0;
+            } else {
+                f = ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64") ? 1 : 0;
+            }
+        }
+        return f == 1 ? "arm64-v8a" : "armeabi-v7a";
+    }
+
+    public static String f(Context context) {
+        if (TextUtils.isEmpty(g)) {
+            g = g(context);
+            if (TextUtils.isEmpty(g)) {
+                g = g();
+            }
+            return g;
+        }
+        return g;
+    }
+
+    private static String g() {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        BufferedReader bufferedReader3 = null;
+        try {
+            bufferedReader2 = new BufferedReader(new FileReader("/proc/" + Process.myPid() + "/cmdline"));
+        } catch (Exception e2) {
+            bufferedReader = null;
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            String readLine = bufferedReader2.readLine();
+            if (!TextUtils.isEmpty(readLine)) {
+                readLine = readLine.trim();
+            }
+            if (bufferedReader2 != null) {
+                try {
+                    bufferedReader2.close();
+                    return readLine;
+                } catch (IOException e3) {
+                    return readLine;
+                }
+            }
+            return readLine;
+        } catch (Exception e4) {
+            bufferedReader = bufferedReader2;
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e5) {
+                }
+            }
+            return null;
+        } catch (Throwable th2) {
+            th = th2;
+            bufferedReader3 = bufferedReader2;
+            if (bufferedReader3 != null) {
+                try {
+                    bufferedReader3.close();
+                } catch (IOException e6) {
+                }
+            }
+            throw th;
+        }
+    }
+
+    private static String g(Context context) {
+        int myPid = Process.myPid();
+        try {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+        } catch (Exception e2) {
+        }
+        return null;
+    }
+
     private static native long nativeCaculateFolderSize();
 
     private static native void nativeCleanFilecache();
 
     private static native void nativeKernelEncrypt(byte[] bArr, int i, byte[] bArr2);
 
+    private static native void nativeMonitorInit(String str, String str2, boolean z);
+
     private static native void nativeSetFileacheWorkDirectory(String str);
 
+    private static native void nativeSetMaxConcurrentOperationCount(int i);
+
     private static native void nativeUpdateCfgOpts(String[] strArr, String[] strArr2);
+
+    private static native void nativeVideoSRInit(String str, String str2);
 }

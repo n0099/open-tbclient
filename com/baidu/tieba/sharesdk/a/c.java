@@ -11,49 +11,49 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class c extends b {
-    private IUiListener jXC;
-    private final com.baidu.adp.lib.e.b<f.a> jXE;
+    private IUiListener kGM;
+    private final com.baidu.adp.lib.e.b<f.a> kGO;
 
     public c(Context context) {
         super(context);
-        this.jXE = new com.baidu.adp.lib.e.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.kGO = new com.baidu.adp.lib.e.b<f.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
             /* renamed from: a */
             public void onLoaded(f.a aVar, String str, int i) {
                 super.onLoaded(aVar, str, i);
-                if (aVar == null || aVar.dce == null || TextUtils.isEmpty(aVar.path)) {
-                    c.this.cF(2, 4);
+                if (aVar == null || aVar.dBt == null || TextUtils.isEmpty(aVar.path)) {
+                    c.this.cL(2, 4);
                 }
-                c.this.ID(aVar.path);
+                c.this.Kg(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                c.this.cF(3, 4);
+                c.this.cL(3, 4);
             }
         };
-        this.jXu = 4;
+        this.kGE = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.jXB == null) {
-            cF(2, 4);
+        if (shareEntity == null || this.kGL == null) {
+            cL(2, 4);
             if (bVar != null) {
-                bVar.cE(0, 2);
+                bVar.cK(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
-            cF(2, 4);
+            cL(2, 4);
             if (bVar != null) {
-                bVar.cE(0, 2);
+                bVar.cK(0, 2);
             }
         } else {
-            this.jXC = new b.a(bVar);
-            if (shareEntity.cHQ() != 0) {
+            this.kGM = new b.a(bVar);
+            if (shareEntity.cSo() != 0) {
                 b(shareEntity);
             } else {
                 c(shareEntity);
@@ -62,23 +62,23 @@ public class c extends b {
     }
 
     private void b(ShareEntity shareEntity) {
-        if (uz(shareEntity.cHO())) {
-            ID(shareEntity.cHO());
-        } else if (w(shareEntity.getImageUri())) {
-            ID(shareEntity.getImageUri().getPath());
+        if (vN(shareEntity.cSm())) {
+            Kg(shareEntity.cSm());
+        } else if (y(shareEntity.getImageUri())) {
+            Kg(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.e.c.gr().a(shareEntity.aAJ(), 34, this.jXE, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.e.c.kV().a(shareEntity.aIW(), 34, this.kGO, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ID(String str) {
+    public void Kg(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.jXC != null) {
-            this.jXB.shareToQQ((Activity) this.context, bundle, this.jXC);
+        if (this.kGM != null) {
+            this.kGL.shareToQQ((Activity) this.context, bundle, this.kGM);
         }
     }
 
@@ -89,12 +89,12 @@ public class c extends b {
         bundle.putString("summary", shareEntity.getContent());
         bundle.putString("targetUrl", shareEntity.getLinkUrl());
         ArrayList<String> arrayList = new ArrayList<>();
-        if (!TextUtils.isEmpty(shareEntity.aAJ())) {
-            arrayList.add(shareEntity.aAJ());
+        if (!TextUtils.isEmpty(shareEntity.aIW())) {
+            arrayList.add(shareEntity.aIW());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.jXC != null) {
-            this.jXB.shareToQzone((Activity) this.context, bundle, this.jXC);
+        if (this.kGM != null) {
+            this.kGL.shareToQzone((Activity) this.context, bundle, this.kGM);
         }
     }
 }

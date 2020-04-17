@@ -6,91 +6,91 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String qh = "_crashtime";
-    public static String qi = "_crashtype";
-    private int qj;
-    private int ql;
-    private b qm;
+    public static String Jk = "_crashtime";
+    public static String Jl = "_crashtype";
+    private int Jm;
+    private int Jn;
+    private b Jo;
 
     public c(b bVar) {
-        this.qj = 0;
-        this.ql = 0;
-        this.qm = null;
+        this.Jm = 0;
+        this.Jn = 0;
+        this.Jo = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.qm = bVar;
-        if (this.qm.getMaxCrashTimes() > 0 && this.qm.fE() != null) {
-            this.qj = fH();
-            if (this.qj == -1) {
+        this.Jo = bVar;
+        if (this.Jo.getMaxCrashTimes() > 0 && this.Jo.ki() != null) {
+            this.Jm = kl();
+            if (this.Jm == -1) {
                 reset();
             }
         }
-        if (!bVar.fD()) {
-            this.ql = fG();
+        if (!bVar.kh()) {
+            this.Jn = kk();
         }
-        this.qm.f(this.ql, true);
+        this.Jo.i(this.Jn, true);
     }
 
-    public b fF() {
-        return this.qm;
+    public b kj() {
+        return this.Jo;
     }
 
     public String getName() {
-        return this.qm.getName();
+        return this.Jo.getName();
     }
 
     public int getDefaultType() {
-        return this.qm.getDefaultType();
+        return this.Jo.getDefaultType();
     }
 
     public int getType() {
-        return this.ql;
+        return this.Jn;
     }
 
-    public boolean H(int i) {
-        if (this.qm.getMaxCrashTimes() >= 0 && this.qj >= this.qm.getMaxCrashTimes() + 2) {
-            i = this.qm.getOffType();
+    public boolean T(int i) {
+        if (this.Jo.getMaxCrashTimes() >= 0 && this.Jm >= this.Jo.getMaxCrashTimes() + 2) {
+            i = this.Jo.getOffType();
         }
-        if (i == this.ql) {
+        if (i == this.Jn) {
             return false;
         }
-        this.ql = i;
-        this.qm.f(this.ql, false);
-        I(i);
+        this.Jn = i;
+        this.Jo.i(this.Jn, false);
+        U(i);
         return true;
     }
 
-    public boolean aj(String str) {
+    public boolean by(String str) {
         String[] switchLibs;
-        String[] fE;
-        if (str == null || this.qm.getMaxCrashTimes() <= 0) {
+        String[] ki;
+        if (str == null || this.Jo.getMaxCrashTimes() <= 0) {
             return false;
         }
-        if (this.qm.fE() != null) {
-            for (String str2 : this.qm.fE()) {
+        if (this.Jo.ki() != null) {
+            for (String str2 : this.Jo.ki()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.qj++;
-                    J(this.qj);
-                    if (this.qj >= this.qm.getMaxCrashTimes()) {
-                        I(this.qm.getOffType());
-                        this.ql = this.qm.getOffType();
-                        this.qm.f(this.qm.getOffType(), false);
+                    this.Jm++;
+                    V(this.Jm);
+                    if (this.Jm >= this.Jo.getMaxCrashTimes()) {
+                        U(this.Jo.getOffType());
+                        this.Jn = this.Jo.getOffType();
+                        this.Jo.i(this.Jo.getOffType(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.qm.getSwitchLibs() != null) {
-            for (String str3 : this.qm.getSwitchLibs()) {
+        if (this.Jo.getSwitchLibs() != null) {
+            for (String str3 : this.Jo.getSwitchLibs()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.qj++;
-                    J(this.qj);
-                    if (this.qj >= this.qm.getMaxCrashTimes()) {
-                        I(this.qm.getOffType());
-                        this.ql = this.qm.getOffType();
-                        this.qm.f(this.qm.getOffType(), false);
+                    this.Jm++;
+                    V(this.Jm);
+                    if (this.Jm >= this.Jo.getMaxCrashTimes()) {
+                        U(this.Jo.getOffType());
+                        this.Jn = this.Jo.getOffType();
+                        this.Jo.i(this.Jo.getOffType(), false);
                         return true;
                     }
                     return true;
@@ -100,31 +100,31 @@ public class c {
         return false;
     }
 
-    private void I(int i) {
+    private void U(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.qm.getName() + qi, i);
+        edit.putInt(this.Jo.getName() + Jl, i);
         edit.commit();
     }
 
-    private int fG() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.qm.getName() + qi, this.qm.getDefaultType());
+    private int kk() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Jo.getName() + Jl, this.Jo.getDefaultType());
     }
 
-    private int fH() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.qm.getName() + qh, -1);
+    private int kl() {
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.Jo.getName() + Jk, -1);
     }
 
-    private void J(int i) {
+    private void V(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.qm.getName() + qh, i);
+        edit.putInt(this.Jo.getName() + Jk, i);
         edit.commit();
     }
 
     public void reset() {
-        this.qj = 0;
+        this.Jm = 0;
     }
 
-    public void K(int i) {
-        this.qj = i;
+    public void W(int i) {
+        this.Jm = i;
     }
 }

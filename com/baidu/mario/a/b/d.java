@@ -1,47 +1,47 @@
 package com.baidu.mario.a.b;
 /* loaded from: classes11.dex */
 public class d {
-    private String aLj = "/sdcard/AR/video/arvideo.mp4";
-    private int aLk = 0;
-    private long aLl = 0;
-    private boolean aLm = true;
+    private String mOutputFile = "/sdcard/AR/video/arvideo.mp4";
+    private int mOutputFormat = 0;
+    private long mOutputTotalMs = 0;
+    private boolean mVideoIncluded = true;
     private int mVideoWidth = 720;
     private int mVideoHeight = 1280;
-    private String aLn = "video/avc";
-    private int aLo = 8294400;
-    private int aLp = 30;
-    private int aLq = 1;
-    private boolean aLr = false;
-    private String aLs = "audio/mp4a-latm";
-    private int aLt = 1;
-    private int aLu = 128000;
-    private int aLv = 16000;
-    private int aLw = 1024;
+    private String mVideoCodec = "video/avc";
+    private int mVideoBitrate = 8294400;
+    private int mVideoFrameRate = 30;
+    private int mVideoIFrameInterval = 1;
+    private boolean mAudioIncluded = false;
+    private String mAudioCodec = "audio/mp4a-latm";
+    private int mAudioChannel = 1;
+    private int mAudioBitrate = 128000;
+    private int mAudioSampleRate = 16000;
+    private int mAudioFrameSize = 1024;
 
-    public String Dv() {
-        return this.aLj;
+    public String getOutputFile() {
+        return this.mOutputFile;
     }
 
     public void setOutputFile(String str) {
         if (str != null && !str.isEmpty()) {
-            this.aLj = str;
+            this.mOutputFile = str;
         }
     }
 
-    public int Dw() {
-        return this.aLk;
+    public int getOutputFormat() {
+        return this.mOutputFormat;
     }
 
-    public long Dx() {
-        return this.aLl;
+    public long getOutputTotalMs() {
+        return this.mOutputTotalMs;
     }
 
-    public void Z(long j) {
-        this.aLl = j;
+    public void setOutputTotalMs(long j) {
+        this.mOutputTotalMs = j;
     }
 
-    public boolean Dy() {
-        return this.aLm;
+    public boolean isVideoIncluded() {
+        return this.mVideoIncluded;
     }
 
     public int getVideoWidth() {
@@ -60,59 +60,59 @@ public class d {
         this.mVideoHeight = i;
     }
 
-    public String Dz() {
-        return this.aLn;
+    public String getVideoCodec() {
+        return this.mVideoCodec;
     }
 
-    public int DA() {
-        return this.aLo;
+    public int getVideoBitrate() {
+        return this.mVideoBitrate;
     }
 
-    public int DB() {
-        return this.aLp;
+    public int getVideoFrameRate() {
+        return this.mVideoFrameRate;
     }
 
-    public int DC() {
-        return this.aLq;
+    public int getVideoIFrameInterval() {
+        return this.mVideoIFrameInterval;
     }
 
-    public boolean DD() {
-        return this.aLr;
+    public boolean isAudioIncluded() {
+        return this.mAudioIncluded;
     }
 
-    public void bK(boolean z) {
-        this.aLr = z;
+    public void setAudioIncluded(boolean z) {
+        this.mAudioIncluded = z;
     }
 
-    public String DE() {
-        return this.aLs;
+    public String getAudioCodec() {
+        return this.mAudioCodec;
     }
 
-    public int DF() {
-        return this.aLt;
+    public int getAudioChannel() {
+        return this.mAudioChannel;
     }
 
-    public void df(int i) {
-        this.aLt = i;
+    public void setAudioChannel(int i) {
+        this.mAudioChannel = i;
     }
 
-    public int DG() {
-        return this.aLu;
+    public int getAudioBitrate() {
+        return this.mAudioBitrate;
     }
 
-    public int DH() {
-        return this.aLv;
+    public int getAudioSampleRate() {
+        return this.mAudioSampleRate;
     }
 
-    public void dg(int i) {
-        this.aLv = i;
+    public void setAudioSampleRate(int i) {
+        this.mAudioSampleRate = i;
     }
 
-    public int DI() {
-        return this.aLw;
+    public int getAudioFrameSize() {
+        return this.mAudioFrameSize;
     }
 
-    public void dh(int i) {
-        this.aLw = i;
+    public void setAudioFrameSize(int i) {
+        this.mAudioFrameSize = i;
     }
 }

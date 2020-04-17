@@ -44,7 +44,7 @@ public final class UserCard {
         if (this != obj) {
             if (obj instanceof UserCard) {
                 UserCard userCard = (UserCard) obj;
-                if (!q.h(this.managerLevel, userCard.managerLevel) || !q.h(this.family, userCard.family) || !q.h(this.userCardInfo, userCard.userCardInfo)) {
+                if (!q.k(this.managerLevel, userCard.managerLevel) || !q.k(this.family, userCard.family) || !q.k(this.userCardInfo, userCard.userCardInfo)) {
                 }
             }
             return false;
@@ -133,10 +133,10 @@ public final class UserCard {
                     return false;
                 }
                 Family family = (Family) obj;
-                if (!q.h(this.customCard, family.customCard) || !q.h(this.icon, family.icon)) {
+                if (!q.k(this.customCard, family.customCard) || !q.k(this.icon, family.icon)) {
                     return false;
                 }
-                if (!(this.id == family.id) || !q.h(this.name, family.name)) {
+                if (!(this.id == family.id) || !q.k(this.name, family.name)) {
                     return false;
                 }
             }
@@ -254,13 +254,13 @@ public final class UserCard {
                     return false;
                 }
                 UserCardInfo userCardInfo = (UserCardInfo) obj;
-                if (!q.h(this.avatar, userCardInfo.avatar) || !q.h(this.gender, userCardInfo.gender)) {
+                if (!q.k(this.avatar, userCardInfo.avatar) || !q.k(this.gender, userCardInfo.gender)) {
                     return false;
                 }
-                if (!(this.level == userCardInfo.level) || !q.h(this.levelMedal, userCardInfo.levelMedal) || !q.h(this.meta, userCardInfo.meta) || !q.h(this.nickname, userCardInfo.nickname)) {
+                if (!(this.level == userCardInfo.level) || !q.k(this.levelMedal, userCardInfo.levelMedal) || !q.k(this.meta, userCardInfo.meta) || !q.k(this.nickname, userCardInfo.nickname)) {
                     return false;
                 }
-                if (!(this.professional == userCardInfo.professional) || !q.h(this.signature, userCardInfo.signature) || !q.h(this.uid, userCardInfo.uid) || !q.h(this.gloriouslyUid, userCardInfo.gloriouslyUid) || !q.h(this.gloriouslyUidColor, userCardInfo.gloriouslyUidColor) || !q.h(this.gloriouslyUidMedal, userCardInfo.gloriouslyUidMedal)) {
+                if (!(this.professional == userCardInfo.professional) || !q.k(this.signature, userCardInfo.signature) || !q.k(this.uid, userCardInfo.uid) || !q.k(this.gloriouslyUid, userCardInfo.gloriouslyUid) || !q.k(this.gloriouslyUidColor, userCardInfo.gloriouslyUidColor) || !q.k(this.gloriouslyUidMedal, userCardInfo.gloriouslyUidMedal)) {
                     return false;
                 }
             }
@@ -457,13 +457,13 @@ public final class UserCard {
                     return false;
                 }
                 UserCardMeta userCardMeta = (UserCardMeta) obj;
-                if (!(this.bangCount == userCardMeta.bangCount) || !q.h(this.cardFrame, userCardMeta.cardFrame) || !q.h(this.cardHeadBackground, userCardMeta.cardHeadBackground)) {
+                if (!(this.bangCount == userCardMeta.bangCount) || !q.k(this.cardFrame, userCardMeta.cardFrame) || !q.k(this.cardHeadBackground, userCardMeta.cardHeadBackground)) {
                     return false;
                 }
                 if (!(this.fansCount == userCardMeta.fansCount)) {
                     return false;
                 }
-                if (!(this.giftPointCount == userCardMeta.giftPointCount) || !q.h(this.hiddenList, userCardMeta.hiddenList)) {
+                if (!(this.giftPointCount == userCardMeta.giftPointCount) || !q.k(this.hiddenList, userCardMeta.hiddenList)) {
                     return false;
                 }
                 if (!(this.idolsCount == userCardMeta.idolsCount)) {
@@ -472,7 +472,7 @@ public final class UserCard {
                 if (!(this.isBanned == userCardMeta.isBanned)) {
                     return false;
                 }
-                if (!(this.isSubscribed == userCardMeta.isSubscribed) || !q.h(this.managerLevel, userCardMeta.managerLevel) || !q.h(this.medalList, userCardMeta.medalList) || !q.h(this.nobleMedal, userCardMeta.nobleMedal)) {
+                if (!(this.isSubscribed == userCardMeta.isSubscribed) || !q.k(this.managerLevel, userCardMeta.managerLevel) || !q.k(this.medalList, userCardMeta.medalList) || !q.k(this.nobleMedal, userCardMeta.nobleMedal)) {
                     return false;
                 }
                 if (!(this.professional == userCardMeta.professional)) {
@@ -679,7 +679,7 @@ public final class UserCard {
             if (this != obj) {
                 if (obj instanceof Medal) {
                     Medal medal = (Medal) obj;
-                    if (!q.h(this.url, medal.url) || !q.h(this.introductionUrl, medal.introductionUrl)) {
+                    if (!q.k(this.url, medal.url) || !q.k(this.introductionUrl, medal.introductionUrl)) {
                     }
                 }
                 return false;

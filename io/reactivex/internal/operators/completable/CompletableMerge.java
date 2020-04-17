@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.completable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.a;
 import io.reactivex.c;
 import io.reactivex.e;
@@ -57,7 +56,7 @@ public final class CompletableMerge extends a {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
                 if (this.maxConcurrency == Integer.MAX_VALUE) {
-                    dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                    dVar.request(Long.MAX_VALUE);
                 } else {
                     dVar.request(this.maxConcurrency);
                 }

@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.adp.widget.ListView.b {
-    private ImageView eDR;
-    private TextView eDS;
+    private ImageView fil;
+    private TextView fim;
     private View mBottomLine;
     private View.OnClickListener mClickListener;
     private Context mContext;
@@ -26,23 +26,23 @@ public class i extends com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public View createView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.ala_frs_game_more_live_layout, (ViewGroup) null);
-        this.eDS = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
-        this.eDR = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
+        this.fim = (TextView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_tip);
+        this.fil = (ImageView) this.mRootView.findViewById(R.id.ala_game_frs_more_live_icon);
         this.mTopLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_top_line);
         this.mBottomLine = this.mRootView.findViewById(R.id.ala_game_frs_more_live_bottom_line);
-        pm(TbadkCoreApplication.getInst().getSkinType());
+        pH(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
     }
 
-    public void pm(int i) {
+    public void pH(int i) {
         if (this.mRootView != null) {
             am.setBackgroundResource(this.mRootView, R.drawable.addresslist_item_bg);
         }
-        if (this.eDS != null) {
-            am.setViewTextColor(this.eDS, (int) R.color.cp_link_tip_c);
+        if (this.fim != null) {
+            am.setViewTextColor(this.fim, (int) R.color.cp_link_tip_c);
         }
-        if (this.eDR != null) {
-            am.setImageResource(this.eDR, R.drawable.icon_inf_arrowblue_n);
+        if (this.fil != null) {
+            am.setImageResource(this.fil, R.drawable.icon_inf_arrowblue_n);
         }
         if (this.mTopLine != null) {
             am.setBackgroundResource(this.mTopLine, R.color.cp_bg_line_c);

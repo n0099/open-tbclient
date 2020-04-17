@@ -11,6 +11,7 @@ import android.support.v7.view.menu.MenuBuilder;
 import android.support.v7.view.menu.MenuItemImpl;
 import android.support.v7.view.menu.MenuPresenter;
 import android.support.v7.view.menu.MenuView;
+import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
@@ -230,7 +231,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         long j6 = j3;
         int i23 = i12;
         while (i17 > 0 && i23 > 0) {
-            int i24 = Integer.MAX_VALUE;
+            int i24 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             long j7 = 0;
             int i25 = 0;
             int i26 = 0;

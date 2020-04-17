@@ -29,6 +29,7 @@ public class PbPageRequestMessage extends NetMessage {
     private Integer lz;
     private int mAfterAdThreadCount;
     private String mLocate;
+    private String mSchemeUrl;
     private Integer mark;
     private String message_click;
     private Integer message_id;
@@ -68,6 +69,7 @@ public class PbPageRequestMessage extends NetMessage {
         this.obj_source = "";
         this.fromSmartFrs = 0;
         this.isReqAd = 0;
+        this.mSchemeUrl = "";
     }
 
     public void setRefreshCount(int i) {
@@ -278,6 +280,14 @@ public class PbPageRequestMessage extends NetMessage {
         return this.pn;
     }
 
+    public String getSchemeUrl() {
+        return this.mSchemeUrl;
+    }
+
+    public void setSchemeUrl(String str) {
+        this.mSchemeUrl = str;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -320,7 +330,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.cDF().cDI();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.cOb().cOe();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
@@ -333,6 +343,8 @@ public class PbPageRequestMessage extends NetMessage {
             builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
             builder.ori_ugc_vid = this.oriUgcVid;
             builder.after_ad_thread_count = Integer.valueOf(this.mAfterAdThreadCount);
+            builder.ad_context_list = com.baidu.tieba.recapp.report.b.cOf().cOi();
+            builder.up_schema = this.mSchemeUrl;
             com.baidu.tbadk.util.t.a(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);

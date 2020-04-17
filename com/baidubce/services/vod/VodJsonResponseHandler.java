@@ -1,6 +1,5 @@
 package com.baidubce.services.vod;
 
-import com.baidu.searchbox.datachannel.Contract;
 import com.baidubce.http.BceHttpResponse;
 import com.baidubce.http.handler.BceJsonResponseHandler;
 import com.baidubce.model.AbstractBceResponse;
@@ -34,7 +33,7 @@ public class VodJsonResponseHandler extends BceJsonResponseHandler {
                 generateMediaIdResponse.setMediaId(jSONObject.getString("mediaId"));
                 generateMediaIdResponse.setSourceBucket(jSONObject.getString("sourceBucket"));
                 generateMediaIdResponse.setSourceKey(jSONObject.getString("sourceKey"));
-                generateMediaIdResponse.setEndPoint(jSONObject.getString(Contract.SCHEME_KEY_HOST));
+                generateMediaIdResponse.setEndPoint(jSONObject.getString("host"));
             } else if (abstractBceResponse instanceof ProcessMediaResponse) {
                 ((ProcessMediaResponse) abstractBceResponse).setMediaId(jSONObject.getString("mediaId"));
             } else if (abstractBceResponse instanceof GetMediaResourceResponse) {

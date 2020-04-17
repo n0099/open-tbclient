@@ -9,47 +9,47 @@ public class de extends dd.b {
     final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ dd f228a;
+    final /* synthetic */ dd f229a;
 
     /* renamed from: a  reason: collision with other field name */
-    File f229a;
+    File f230a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f230a;
+    final /* synthetic */ String f231a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Date f231a;
+    final /* synthetic */ Date f232a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ boolean f232a;
+    final /* synthetic */ boolean f233a;
     final /* synthetic */ String b;
 
     /* renamed from: b  reason: collision with other field name */
-    final /* synthetic */ Date f233b;
+    final /* synthetic */ Date f234b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public de(dd ddVar, int i, Date date, Date date2, String str, String str2, boolean z) {
         super();
-        this.f228a = ddVar;
+        this.f229a = ddVar;
         this.a = i;
-        this.f231a = date;
-        this.f233b = date2;
-        this.f230a = str;
+        this.f232a = date;
+        this.f234b = date2;
+        this.f231a = str;
         this.b = str2;
-        this.f232a = z;
+        this.f233a = z;
     }
 
     @Override // com.xiaomi.push.dd.b, com.xiaomi.push.al.b
     public void b() {
         if (aa.d()) {
             try {
-                File file = new File(this.f228a.f221a.getExternalFilesDir(null) + "/.logcache");
+                File file = new File(this.f229a.f222a.getExternalFilesDir(null) + "/.logcache");
                 file.mkdirs();
                 if (file.isDirectory()) {
                     dc dcVar = new dc();
                     dcVar.a(this.a);
-                    this.f229a = dcVar.a(this.f228a.f221a, this.f231a, this.f233b, file);
+                    this.f230a = dcVar.a(this.f229a.f222a, this.f232a, this.f234b, file);
                 }
             } catch (NullPointerException e) {
             }
@@ -58,10 +58,10 @@ public class de extends dd.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo218c() {
-        if (this.f229a != null && this.f229a.exists()) {
-            this.f228a.f222a.add(new dd.c(this.f230a, this.b, this.f229a, this.f232a));
+    public void mo223c() {
+        if (this.f230a != null && this.f230a.exists()) {
+            this.f229a.f223a.add(new dd.c(this.f231a, this.b, this.f230a, this.f233a));
         }
-        this.f228a.a(0L);
+        this.f229a.a(0L);
     }
 }

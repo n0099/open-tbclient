@@ -16,14 +16,14 @@ public class c implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Type[] fp = cVar.fp();
+        Type[] jU = cVar.jU();
         Set<String> keySet = this.bundle.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
             Object obj = this.bundle.get(str);
-            if (fp != null && fp.length >= 2) {
+            if (jU != null && jU.length >= 2) {
                 try {
-                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.q(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(fp[1])));
+                    jSONObject.put(str, com.baidu.adp.lib.OrmObject.toolsystem.orm.d.f.q(obj).a(new com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c(jU[1])));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

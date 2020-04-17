@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.searchbox.ugc.model.QuestionResponseModel;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -62,7 +61,7 @@ public class HtmlMsg extends NormalMsg {
             return false;
         }
         try {
-            this.mHtml = new JSONObject(jsonContent).optString(QuestionResponseModel.TEXT);
+            this.mHtml = new JSONObject(jsonContent).optString("html");
             return true;
         } catch (JSONException e) {
             LogUtils.e(TAG, "parse json err!", e);
@@ -84,7 +83,7 @@ public class HtmlMsg extends NormalMsg {
     private String getTextJson(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(QuestionResponseModel.TEXT, str);
+            jSONObject.put("html", str);
         } catch (JSONException e) {
             LogUtils.e(LogUtils.TAG, "getTextJson", e);
         }

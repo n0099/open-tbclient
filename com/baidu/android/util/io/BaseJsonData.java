@@ -96,7 +96,7 @@ public class BaseJsonData {
     public static BaseJsonData fromJson(JSONObject jSONObject) {
         JSONObject jSONObject2;
         try {
-            int i = jSONObject.getInt("errno");
+            int i = jSONObject.getInt(TAG_ERRNO);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONObject != null) {

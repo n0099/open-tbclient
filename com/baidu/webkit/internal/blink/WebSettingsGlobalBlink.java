@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.webkit.internal.ABTestConstants;
@@ -1566,7 +1567,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
         while (keys.hasNext()) {
             String next = keys.next();
             jSONObject.getString(next);
-            if ("manufacturer".equals(next)) {
+            if (HttpConstants.HTTP_MANUFACTURER.equals(next)) {
                 if (!Build.MANUFACTURER.equals(jSONObject.getString(next))) {
                     return false;
                 }

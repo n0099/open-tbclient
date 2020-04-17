@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.account.request;
 import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
@@ -152,11 +151,11 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getConnectTimeout() {
-        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        return 15000;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getReadTimeout() {
-        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        return 15000;
     }
 }

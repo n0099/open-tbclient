@@ -10,34 +10,34 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bYj;
+    private static String cxb;
 
-    public static String agt() {
-        return mA("swan");
+    public static String aoy() {
+        return nN("swan");
     }
 
-    public static String Rz() {
-        return mA("swangame");
+    public static String Zo() {
+        return nN("swangame");
     }
 
-    private static String mA(String str) {
-        String hostName = com.baidu.swan.apps.w.a.UK().getHostName();
+    private static String nN(String str) {
+        String hostName = com.baidu.swan.apps.w.a.acz().getHostName();
         a aVar = new a();
-        aVar.mB(str).mC(c.getVersion()).mD(hostName).mE(getVersionName()).mF(getOSVersion());
-        return aVar.agu();
+        aVar.nO(str).nP(c.getVersion()).nQ(hostName).nR(getVersionName()).nS(getOSVersion());
+        return aVar.aoz();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.w.a.TZ();
+        return com.baidu.swan.apps.w.a.abO();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(bYj)) {
-            return bYj;
+        if (!TextUtils.isEmpty(cxb)) {
+            return cxb;
         }
         try {
-            bYj = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return bYj;
+            cxb = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return cxb;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -56,54 +56,54 @@ public class b {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private static String bYo = "%s/%s";
-        private static String bYp = "%s-%s/%s";
-        private static String bYq = "(Baidu; P1 %s)";
-        private static String bYr = "%s/%s";
-        private String QH;
-        private String bYk;
-        private String bYl;
-        private String bYm;
-        private String bYn;
+        private static String cxg = "%s/%s";
+        private static String cxh = "%s-%s/%s";
+        private static String cxi = "(Baidu; P1 %s)";
+        private static String cxj = "%s/%s";
+        private String ajg;
+        private String cxc;
+        private String cxd;
+        private String cxe;
+        private String cxf;
 
-        public a mB(String str) {
-            this.bYk = str;
+        public a nO(String str) {
+            this.cxc = str;
             return this;
         }
 
-        public a mC(String str) {
-            this.bYl = str;
+        public a nP(String str) {
+            this.cxd = str;
             return this;
         }
 
-        public a mD(String str) {
-            this.bYm = str;
+        public a nQ(String str) {
+            this.cxe = str;
             return this;
         }
 
-        public a mE(String str) {
-            this.bYn = str;
+        public a nR(String str) {
+            this.cxf = str;
             return this;
         }
 
-        public a mF(String str) {
-            this.QH = str;
+        public a nS(String str) {
+            this.ajg = str;
             return this;
         }
 
-        public String agu() {
-            String format = String.format(bYo, this.bYk, this.bYl);
-            String format2 = String.format(bYp, this.bYk, this.bYm, this.bYn);
-            String format3 = String.format(bYr, this.bYm, this.bYn);
-            String format4 = String.format(bYq, this.QH);
-            if (agv()) {
+        public String aoz() {
+            String format = String.format(cxg, this.cxc, this.cxd);
+            String format2 = String.format(cxh, this.cxc, this.cxe, this.cxf);
+            String format3 = String.format(cxj, this.cxe, this.cxf);
+            String format4 = String.format(cxi, this.ajg);
+            if (aoA()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean agv() {
-            return TextUtils.equals("baiduboxapp", this.bYm);
+        private boolean aoA() {
+            return TextUtils.equals("baiduboxapp", this.cxe);
         }
     }
 }

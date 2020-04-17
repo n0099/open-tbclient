@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -31,7 +30,6 @@ import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-import okhttp3.Response;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes12.dex */
 public final class FileUtils {
@@ -130,21 +128,16 @@ public final class FileUtils {
     }
 
     public static File saveFile(Context context, byte[] bArr, String str, String str2) {
-        File file;
         if (context == null || bArr == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        if (PathUtils.isExternalStorageWritable()) {
-            file = new File(Environment.getExternalStorageDirectory(), str);
-        } else {
-            file = new File(context.getCacheDir(), str);
+        File externalFilesDir = context.getExternalFilesDir(str);
+        if (!externalFilesDir.exists()) {
+            externalFilesDir.mkdirs();
         }
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        File file2 = new File(file, str2);
-        saveFileCommon(bArr, file2);
-        return file2;
+        File file = new File(externalFilesDir, str2);
+        saveFileCommon(bArr, file);
+        return file;
     }
 
     public static void saveFileCommon(byte[] bArr, File file) {
@@ -164,7 +157,7 @@ public final class FileUtils {
         return file;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [391=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [382=4] */
     /* JADX WARN: Removed duplicated region for block: B:37:0x0028 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -223,7 +216,7 @@ public final class FileUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [439=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [430=4] */
     /* JADX WARN: Removed duplicated region for block: B:37:0x0028 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -276,7 +269,7 @@ public final class FileUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [480=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [471=4] */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r3v3, types: [java.io.OutputStream, java.io.Closeable, java.io.FileOutputStream] */
     public static long copyFile(File file, File file2) {
@@ -363,9 +356,6 @@ public final class FileUtils {
     @TargetApi(8)
     private static String getDeviceCacheDir(Context context) {
         File externalCacheDir = context.getExternalCacheDir();
-        if (externalCacheDir == null && PathUtils.isExternalStorageWritable()) {
-            externalCacheDir = Environment.getExternalStorageDirectory();
-        }
         if (externalCacheDir == null) {
             externalCacheDir = context.getCacheDir();
         }
@@ -378,7 +368,7 @@ public final class FileUtils {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [576=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [559=4] */
     public static void saveToGzip(byte[] bArr, File file) {
         GZIPOutputStream gZIPOutputStream;
         ByteArrayInputStream byteArrayInputStream = null;
@@ -444,7 +434,7 @@ public final class FileUtils {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [641=4, 643=4, 644=4, 645=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [624=4, 626=4, 627=4, 628=4] */
     public static boolean cache(Context context, String str, byte[] bArr, int i) {
         boolean z = false;
         if (bArr == null) {
@@ -660,7 +650,7 @@ public final class FileUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [868=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [851=4] */
     public static boolean unGzipFile(File file, File file2) {
         GZIPInputStream gZIPInputStream;
         FileInputStream fileInputStream;
@@ -726,7 +716,7 @@ public final class FileUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [930=4, 940=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [913=4, 923=4] */
     public static boolean unzipFile(String str, String str2) {
         BufferedInputStream bufferedInputStream;
         FileOutputStream fileOutputStream;
@@ -841,7 +831,7 @@ public final class FileUtils {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1008=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [991=4] */
     public static boolean unzipFileFromAsset(String str, String str2, Context context) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
@@ -981,7 +971,7 @@ public final class FileUtils {
         return str;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1131=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1114=4] */
     @Nullable
     public static String readAssetData(Context context, String str) {
         InputStream inputStream;
@@ -1182,129 +1172,5 @@ public final class FileUtils {
             }
         }
         return null;
-    }
-
-    public static long downloadStream(String str, String str2, String str3) {
-        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-            return 0L;
-        }
-        return downloadStream(new File(str, str2), str3);
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1379=4] */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v16, types: [java.io.OutputStream, java.io.FileOutputStream] */
-    public static long downloadStream(File file, String str) {
-        InputStream inputStream;
-        Closeable closeable;
-        long j;
-        ?? fileOutputStream;
-        InputStream inputStream2 = null;
-        if (TextUtils.isEmpty(str) || file == null) {
-            return 0L;
-        }
-        try {
-            Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(str).build().executeSync();
-            if (executeSync == null || executeSync.code() != 200) {
-                closeable = null;
-                j = 0;
-            } else {
-                inputStream = executeSync.body().byteStream();
-                if (inputStream != null) {
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                    } catch (Exception e) {
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                    try {
-                        inputStream2 = inputStream;
-                        j = copyStream(inputStream, fileOutputStream);
-                        closeable = fileOutputStream;
-                    } catch (Exception e2) {
-                        inputStream2 = fileOutputStream;
-                        Closeables.closeSafely(inputStream);
-                        Closeables.closeSafely(inputStream2);
-                        return 0L;
-                    } catch (Throwable th2) {
-                        inputStream2 = fileOutputStream;
-                        th = th2;
-                        Closeables.closeSafely(inputStream);
-                        Closeables.closeSafely(inputStream2);
-                        throw th;
-                    }
-                } else {
-                    closeable = null;
-                    inputStream2 = inputStream;
-                    j = 0;
-                }
-            }
-            Closeables.closeSafely(inputStream2);
-            Closeables.closeSafely(closeable);
-            return j;
-        } catch (Exception e3) {
-            inputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            inputStream = null;
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1423=4] */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v20, types: [java.io.OutputStream, java.io.FileOutputStream] */
-    public static long downloadStream(File file, String str, int i, int i2) {
-        InputStream inputStream;
-        Closeable closeable;
-        long j;
-        InputStream inputStream2 = null;
-        if (TextUtils.isEmpty(str) || file == null) {
-            return 0L;
-        }
-        try {
-            Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(str).connectionTimeout(i).readTimeout(i2).build().executeSync();
-            if (executeSync == null || executeSync.code() != 200) {
-                closeable = null;
-                j = 0;
-            } else {
-                inputStream = executeSync.body().byteStream();
-                if (inputStream != null) {
-                    try {
-                        ?? fileOutputStream = new FileOutputStream(file);
-                        try {
-                            inputStream2 = inputStream;
-                            j = copyStream(inputStream, fileOutputStream);
-                            closeable = fileOutputStream;
-                        } catch (Exception e) {
-                            inputStream2 = fileOutputStream;
-                            Closeables.closeSafely(inputStream);
-                            Closeables.closeSafely(inputStream2);
-                            return 0L;
-                        } catch (Throwable th) {
-                            inputStream2 = fileOutputStream;
-                            th = th;
-                            Closeables.closeSafely(inputStream);
-                            Closeables.closeSafely(inputStream2);
-                            throw th;
-                        }
-                    } catch (Exception e2) {
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                } else {
-                    closeable = null;
-                    inputStream2 = inputStream;
-                    j = 0;
-                }
-            }
-            Closeables.closeSafely(inputStream2);
-            Closeables.closeSafely(closeable);
-            return j;
-        } catch (Exception e3) {
-            inputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            inputStream = null;
-        }
     }
 }

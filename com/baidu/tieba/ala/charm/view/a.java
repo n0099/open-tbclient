@@ -12,63 +12,63 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> cWf = new ArrayList<>();
-    private View.OnClickListener exC;
-    private View.OnClickListener exD;
-    private View.OnClickListener exE;
-    private int mFromType;
+    private ArrayList<ALaCharmData> dvq = new ArrayList<>();
+    private View.OnClickListener fbG;
+    private View.OnClickListener fbH;
+    private View.OnClickListener fbI;
+    private int fbJ;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.mFromType = 1;
+        this.fbJ = 1;
         this.mPageContext = tbPageContext;
-        this.mFromType = i;
+        this.fbJ = i;
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.exC = onClickListener;
+        this.fbG = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.exE = onClickListener;
+        this.fbI = onClickListener;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.exD = onClickListener;
+        this.fbH = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.cWf.clear();
-            this.cWf.addAll(arrayList);
+            this.dvq.clear();
+            this.dvq.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
-    public void T(ArrayList<ALaCharmData> arrayList) {
+    public void U(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.cWf.addAll(arrayList);
+            this.dvq.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cWf == null) {
+        if (this.dvq == null) {
             return 0;
         }
-        return this.cWf.size();
+        return this.dvq.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: pb */
+    /* renamed from: pw */
     public ALaCharmData getItem(int i) {
-        if (this.cWf == null) {
+        if (this.dvq == null) {
             return null;
         }
-        return this.cWf.get(i);
+        return this.dvq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.mFromType == 1) {
+            if (this.fbJ == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.mFromType == 2) {
+            } else if (this.fbJ == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            d dVar2 = new d(inflate, this.mFromType);
-            dVar2.p(this.exE);
-            dVar2.m(this.exC);
-            dVar2.q(this.exD);
+            d dVar2 = new d(inflate, this.fbJ);
+            dVar2.p(this.fbI);
+            dVar2.m(this.fbG);
+            dVar2.q(this.fbH);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -105,9 +105,9 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public void X(String str, boolean z) {
-        if (this.cWf != null && str != null) {
-            Iterator<ALaCharmData> it = this.cWf.iterator();
+    public void ac(String str, boolean z) {
+        if (this.dvq != null && str != null) {
+            Iterator<ALaCharmData> it = this.dvq.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

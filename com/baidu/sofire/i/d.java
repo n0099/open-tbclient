@@ -23,9 +23,7 @@ import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.sofire.MyActivity;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyReceiver;
@@ -427,7 +425,7 @@ public final class d {
                             str3 = z2 ? null : "must have at least one '.' separator";
                         }
                     }
-                    if (str3 != null && !PraiseDataPassUtil.KEY_FROM_OS.equals(attributeValue)) {
+                    if (str3 != null && !"android".equals(attributeValue)) {
                         return null;
                     }
                     if (str2.equals("provider")) {
@@ -755,7 +753,7 @@ public final class d {
             return false;
         }
         try {
-            Runtime.getRuntime().exec("chmod " + str + HanziToPinyin.Token.SEPARATOR + str2 + "\n").waitFor();
+            Runtime.getRuntime().exec("chmod " + str + " " + str2 + "\n").waitFor();
             return true;
         } catch (Throwable th) {
             com.baidu.sofire.b.d();

@@ -6,7 +6,6 @@ import com.baidu.android.imsdk.db.DBManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
@@ -15,7 +14,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NewAckMessage extends Message {
     private Context mContext;
-    private JSONArray mJsonArray = null;
+    private JSONArray mJsonArray;
     private long mTriggerId;
     private List<Tripule> tripules;
 
@@ -39,7 +38,7 @@ public class NewAckMessage extends Message {
         private long ukToUser;
         private JSONObject jack = null;
         private boolean isReliable = false;
-        private String osName = PraiseDataPassUtil.KEY_FROM_OS;
+        private String osName = "android";
 
         public Tripule(long j, String str, long j2, String str2, int i, String str3, long j3, long j4, long j5, int i2, int i3, int i4, String str4, String str5, String str6) {
             this.msgid = j;
@@ -110,6 +109,7 @@ public class NewAckMessage extends Message {
     }
 
     public NewAckMessage(Context context, long j, long j2) {
+        this.mJsonArray = null;
         this.mContext = null;
         initCommonParameter(context);
         this.mUk = j;
@@ -119,7 +119,13 @@ public class NewAckMessage extends Message {
         setNeedReplay(true);
         setType(95);
         this.mPriority = 16;
-        saveCmdMessage(context, this, null, this.mPriority);
+    }
+
+    public NewAckMessage(Context context, long j, long j2, boolean z) {
+        this(context, j, j2);
+        if (!z) {
+            saveCmdMessage(context, this, null, this.mPriority);
+        }
     }
 
     public static NewAckMessage parseBody(Context context, String str, String str2, String str3) throws Exception {
@@ -144,7 +150,7 @@ public class NewAckMessage extends Message {
                 this.mAppid = AccountManager.getAppid(this.mContext);
             }
             jSONObject.put("appid", this.mAppid);
-            jSONObject.put(Constants.KEY_DEVICE_ID, Utility.getIMDeviceId(this.mContext));
+            jSONObject.put("device_id", Utility.getIMDeviceId(this.mContext));
             jSONObject.put("msgs", this.mJsonArray);
             this.mBody = jSONObject.toString();
         } catch (JSONException e) {

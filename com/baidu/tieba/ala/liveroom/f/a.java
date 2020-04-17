@@ -11,86 +11,87 @@ import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.u.a;
 import com.baidu.live.view.d;
-import com.baidu.live.view.web.e;
+import com.baidu.live.view.web.f;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.ala.liveroom.f.b;
 /* loaded from: classes3.dex */
-public class a implements e, b.a {
-    private CustomMessageListener aot;
-    private b fan;
-    private d fao;
+public class a implements f, b.a {
+    private CustomMessageListener aGM;
+    private b fEB;
+    private d fEC;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        uV();
+        zr();
     }
 
-    public void yT(String str) {
-        this.fan = new b(this.mPageContext.getPageActivity());
-        this.fan.a(this);
-        this.fan.b(this);
-        this.fan.bdN().setBackgroundColor(xM(str));
-        this.fan.show(str);
+    public void AB(String str) {
+        this.fEB = new b(this.mPageContext.getPageActivity());
+        this.fEB.a(this);
+        this.fEB.b(this);
+        this.fEB.bmE().setBackgroundColor(zq(str));
+        this.fEB.show(str);
     }
 
     public void resume() {
-        if (this.fan != null && this.fan.isShowing() && this.fan.bdN() != null) {
-            this.fan.bdN().onResume();
-            this.fan.bdN().reload();
+        if (this.fEB != null && this.fEB.isShowing() && this.fEB.bmE() != null) {
+            this.fEB.bmE().onResume();
+            this.fEB.bmE().reload();
         }
     }
 
     public void pause() {
-        if (this.fan != null && this.fan.isShowing() && this.fan.bdN() != null) {
-            this.fan.bdN().onPause();
+        if (this.fEB != null && this.fEB.isShowing() && this.fEB.bmE() != null) {
+            this.fEB.bmE().onPause();
         }
     }
 
     public void release() {
-        blC();
-        MessageManager.getInstance().unRegisterListener(this.aot);
+        buV();
+        MessageManager.getInstance().unRegisterListener(this.aGM);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.f.b.a
     public boolean a(String str, final JsResult jsResult) {
-        this.fao = new d(this.mPageContext.getPageActivity());
-        this.fao.setCancelable(false);
-        this.fao.setCanceledOnTouchOutside(false);
-        this.fao.bz(false);
-        this.fao.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
-        this.fao.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
+        this.fEC = new d(this.mPageContext.getPageActivity());
+        this.fEC.setCancelable(false);
+        this.fEC.setCanceledOnTouchOutside(false);
+        this.fEC.ci(false);
+        this.fEC.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
+        this.fEC.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
             @Override // com.baidu.live.view.d.a
-            public void Bu() {
+            public void Hy() {
                 if (jsResult != null) {
                     jsResult.confirm();
                 }
             }
 
             @Override // com.baidu.live.view.d.a
-            public void Bv() {
+            public void Hz() {
                 if (jsResult != null) {
                     jsResult.cancel();
                 }
             }
         });
-        this.fao.show();
+        this.fEC.show();
         return true;
     }
 
-    private void uV() {
-        this.aot = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
+    private void zr() {
+        this.aGM = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.this.blC();
+                    a.this.buV();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aot);
+        MessageManager.getInstance().registerListener(this.aGM);
     }
 
-    private int xM(String str) {
+    private int zq(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -101,24 +102,25 @@ public class a implements e, b.a {
         }
         try {
             int parseInt = Integer.parseInt(queryParameter.substring(6, 8), 16);
-            return (parseInt < 0 || parseInt > 255) ? 0 : ColorUtils.setAlphaComponent(Color.parseColor('#' + queryParameter.substring(0, 6)), parseInt);
+            return (parseInt < 0 || parseInt > 255) ? 0 : ColorUtils.setAlphaComponent(Color.parseColor(UgcConstant.TOPIC_PATTERN_TAG + queryParameter.substring(0, 6)), parseInt);
         } catch (Exception e) {
             return 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blC() {
-        if (this.fan != null) {
-            this.fan.dismiss();
+    public void buV() {
+        if (this.fEB != null) {
+            this.fEB.dismiss();
         }
-        if (this.fao != null) {
-            this.fao.release();
+        if (this.fEC != null) {
+            this.fEC.release();
         }
     }
 
-    @Override // com.baidu.live.view.web.e
-    public void cY(int i) {
-        blC();
+    @Override // com.baidu.live.view.web.f
+    /* renamed from: do */
+    public void mo22do(int i) {
+        buV();
     }
 }

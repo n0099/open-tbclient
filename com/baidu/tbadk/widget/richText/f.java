@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f extends ClickableSpan {
-    private String dPx;
-    private int dPy;
+    private String epr;
+    private int eps;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -42,8 +42,8 @@ public class f extends ClickableSpan {
         this.mType = i;
     }
 
-    public void nx(int i) {
-        this.dPy = i;
+    public void nJ(int i) {
+        this.eps = i;
     }
 
     public void setColor(int i) {
@@ -54,12 +54,12 @@ public class f extends ClickableSpan {
         this.textColor = i;
     }
 
-    public void ny(int i) {
+    public void nK(int i) {
         this.urlType = i;
     }
 
-    public void wh(String str) {
-        this.dPx = str;
+    public void xt(String str) {
+        this.epr = str;
     }
 
     public String getLink() {
@@ -70,7 +70,7 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
             textPaint.setColor(am.getColor(this.textColor));
-        } else if (aUw()) {
+        } else if (bcG()) {
             textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.cp_link_tip_c));
         } else {
             textPaint.setColor(textPaint.linkColor);
@@ -78,18 +78,18 @@ public class f extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.dPy == 1 && aUw()) {
+        } else if (this.eps == 1 && bcG()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_c);
             } else {
                 textPaint.bgColor = am.getColor(R.color.cp_bg_line_z);
             }
-        } else if (this.dPy == 2) {
+        } else if (this.eps == 2) {
             textPaint.bgColor = am.getColor(R.color.transparent);
         }
     }
 
-    private boolean aUw() {
+    private boolean bcG() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -104,7 +104,7 @@ public class f extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.dPx));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.epr));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -114,7 +114,7 @@ public class f extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new an(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).X("obj_source", i2).X("obj_type", i));
+            TiebaStatic.log(new an(TbadkCoreStatisticKey.PB_URL_CLICK_KEY).af("obj_source", i2).af("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
@@ -126,25 +126,25 @@ public class f extends ClickableSpan {
                     hVar.e(context, str, false);
                     return;
                 case 16:
-                    hVar.aC(context, str);
+                    hVar.aw(context, str);
                     return;
                 case 18:
                     hVar.e(context, str, true);
                     return;
                 case 32:
-                    hVar.aD(context, str);
+                    hVar.ax(context, str);
                     return;
                 case 64:
-                    hVar.aE(context, str);
+                    hVar.ay(context, str);
                     return;
                 case 128:
-                    hVar.aF(context, str);
+                    hVar.az(context, str);
                     return;
                 case 256:
                     hVar.r(context, str, str2);
                     return;
                 case 1024:
-                    hVar.aG(context, str);
+                    hVar.aA(context, str);
                     return;
                 default:
                     return;

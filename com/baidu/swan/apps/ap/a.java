@@ -4,22 +4,22 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.Locale;
 /* loaded from: classes11.dex */
 public final class a {
-    private a bXQ = null;
-    private long bXR = 0;
-    private long bXS = 0;
-    private long bXT = 2;
+    private a cwI = null;
+    private long cwJ = 0;
+    private long cwK = 0;
+    private long cwL = 2;
     private String mDesc = "";
     private final StringBuilder mDetails = new StringBuilder();
-    private boolean bXU = false;
+    private boolean cwM = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(agn()), Long.valueOf(agi()), Long.valueOf(agj()), Long.valueOf(agk()), agl()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aos()), Long.valueOf(aon()), Long.valueOf(aoo()), Long.valueOf(aop()), aoq()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(agi()), Long.valueOf(agj()), Long.valueOf(agk())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aon()), Long.valueOf(aoo()), Long.valueOf(aop())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", agm()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aor()));
         }
         return sb.toString();
     }
@@ -28,34 +28,34 @@ public final class a {
         return toString(-100);
     }
 
-    public a aH(long j) {
-        this.bXT = a(j, 9L, "platform");
+    public a bm(long j) {
+        this.cwL = a(j, 9L, "platform");
         return this;
     }
 
-    public long agi() {
-        return this.bXT;
+    public long aon() {
+        return this.cwL;
     }
 
-    public a aI(long j) {
-        this.bXR = a(j, 999L, "feature");
+    public a bn(long j) {
+        this.cwJ = a(j, 999L, "feature");
         return this;
     }
 
-    public long agj() {
-        return this.bXR;
+    public long aoo() {
+        return this.cwJ;
     }
 
-    public a aJ(long j) {
-        this.bXS = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
+    public a bo(long j) {
+        this.cwK = a(j, 9999L, BdStatsConstant.StatsType.ERROR);
         return this;
     }
 
-    public long agk() {
-        return this.bXS;
+    public long aop() {
+        return this.cwK;
     }
 
-    public a mx(String str) {
+    public a nK(String str) {
         if (str == null) {
             str = "";
         }
@@ -63,43 +63,43 @@ public final class a {
         return this;
     }
 
-    public String agl() {
+    public String aoq() {
         return this.mDesc;
     }
 
-    public a my(String str) {
+    public a nL(String str) {
         this.mDetails.append(str).append("\n");
         return this;
     }
 
-    public StringBuilder agm() {
+    public StringBuilder aor() {
         return this.mDetails;
     }
 
-    public long agn() {
-        return (agi() * 10000000) + (agj() * 10000) + (agk() * 1);
+    public long aos() {
+        return (aon() * 10000000) + (aoo() * 10000) + (aop() * 1);
     }
 
-    public a aK(long j) {
-        aH(j / 10000000);
+    public a bp(long j) {
+        bm(j / 10000000);
         long j2 = j % 10000000;
-        aI(j2 / 10000);
-        aJ((j2 % 10000) / 1);
+        bn(j2 / 10000);
+        bo((j2 % 10000) / 1);
         return this;
     }
 
-    public boolean ago() {
-        return this.bXU;
+    public boolean aot() {
+        return this.cwM;
     }
 
-    public void agp() {
-        this.bXU = true;
+    public void aou() {
+        this.cwM = true;
     }
 
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            my("illegalFallback " + str + "::" + String.valueOf(j));
+            nL("illegalFallback " + str + "::" + String.valueOf(j));
         }
         return z ? j2 : j;
     }

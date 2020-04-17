@@ -13,46 +13,46 @@ import com.baidu.swan.games.view.webview.GameWebViewManager;
 /* loaded from: classes11.dex */
 public class b implements am {
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public com.baidu.swan.apps.core.g.a n(Context context, int i) {
-        return new com.baidu.swan.apps.core.g.b().o(context, i);
+    public com.baidu.swan.apps.core.g.a h(Context context, int i) {
+        return new com.baidu.swan.apps.core.g.b().i(context, i);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public com.baidu.swan.apps.adaptation.b.c bt(Context context) {
+    public com.baidu.swan.apps.adaptation.b.c bh(Context context) {
         return new SwanAppSlaveManager(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public com.baidu.swan.apps.adaptation.b.a bu(Context context) {
+    public com.baidu.swan.apps.adaptation.b.a bi(Context context) {
         return new com.baidu.swan.apps.core.c.d(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public com.baidu.swan.apps.adaptation.b.a bv(Context context) {
+    public com.baidu.swan.apps.adaptation.b.a bj(Context context) {
         return new h(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public f bw(Context context) {
+    public f bk(Context context) {
         return new SwanAppSimpleH5Widget(context);
     }
 
-    public f bA(Context context) {
+    public f bo(Context context) {
         return new SwanAppAdLandingWebViewWidget(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public f bx(Context context) {
+    public f bl(Context context) {
         return new i(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public f by(Context context) {
+    public f bm(Context context) {
         return new com.baidu.swan.apps.c.a.b.a.b(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public g bz(Context context) {
+    public g bn(Context context) {
         return new GameWebViewManager(context);
     }
 }

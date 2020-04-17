@@ -6,9 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d {
-    public boolean eAo;
-    public ArrayList<a> eAp;
-    public long ezW;
+    public boolean feI;
+    public ArrayList<a> feJ;
+    public long feq;
     public String portrait;
     public String userName;
 
@@ -18,18 +18,18 @@ public class d {
             this.userName = optJSONObject.optString("user_name");
             this.portrait = optJSONObject.optString("bd_portrait");
         }
-        this.eAo = jSONObject.optInt("loot_result") == 1;
-        this.ezW = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+        this.feI = jSONObject.optInt("loot_result") == 1;
+        this.feq = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         JSONArray optJSONArray = jSONObject.optJSONArray("loot_list");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             int length = optJSONArray.length();
-            this.eAp = new ArrayList<>(length);
+            this.feJ = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                 if (jSONObject2 != null) {
                     a aVar = new a();
                     aVar.parserJson(jSONObject2);
-                    this.eAp.add(aVar);
+                    this.feJ.add(aVar);
                 }
             }
         }
@@ -37,7 +37,7 @@ public class d {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public long eAq;
+        public long feK;
         public String portrait;
         public String userId;
         public String userName;
@@ -46,7 +46,7 @@ public class d {
             this.userId = jSONObject.optString("user_id");
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString("bd_portrait");
-            this.eAq = jSONObject.optLong(LogConfig.LOG_AMOUNT);
+            this.feK = jSONObject.optLong(LogConfig.LOG_AMOUNT);
         }
     }
 }

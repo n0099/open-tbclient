@@ -2,6 +2,7 @@ package com.baidu.searchbox.datachannel;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes13.dex */
 public class Contract {
     public static final String ACCOUNT_LOGIN_STATUS = "com.baidu.channel.account.loginstatus";
@@ -52,6 +53,6 @@ public class Contract {
 
     public static String getDataChannelReceiverHostKey(String str, Object obj) {
         String str2 = TextUtils.isEmpty(str) ? DEFAULT_HOST : str;
-        return obj == null ? str2 : str2 + "@" + String.valueOf(obj.hashCode());
+        return obj == null ? str2 : str2 + UgcConstant.AT_RULE_TAG + String.valueOf(obj.hashCode());
     }
 }

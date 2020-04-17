@@ -8,7 +8,7 @@ public class j {
     public String message;
 
     public void parserJson(JSONObject jSONObject) {
-        this.errorNo = jSONObject.optString("errno");
+        this.errorNo = jSONObject.optString(BaseJsonData.TAG_ERRNO);
         this.message = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
     }
 }

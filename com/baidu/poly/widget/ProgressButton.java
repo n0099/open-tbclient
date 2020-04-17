@@ -13,10 +13,10 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes11.dex */
 public class ProgressButton extends FrameLayout {
-    private boolean aSA;
-    private ImageView aSf;
-    private TextView aSg;
-    private Animation aSh;
+    private boolean boC;
+    private ImageView boi;
+    private TextView boj;
+    private Animation bok;
 
     public ProgressButton(Context context) {
         this(context, null);
@@ -24,23 +24,23 @@ public class ProgressButton extends FrameLayout {
 
     private void c(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(b.f.button_progress, (ViewGroup) this, true);
-        this.aSg = (TextView) findViewById(b.e.text_view);
-        this.aSf = (ImageView) findViewById(b.e.progress_bar);
-        this.aSh = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.boj = (TextView) findViewById(b.e.text_view);
+        this.boi = (ImageView) findViewById(b.e.progress_bar);
+        this.bok = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.i.ProgressButton);
-        this.aSg.setTextColor(obtainStyledAttributes.getColor(b.i.ProgressButton_textColor, -1));
+        this.boj.setTextColor(obtainStyledAttributes.getColor(b.i.ProgressButton_textColor, -1));
         obtainStyledAttributes.recycle();
     }
 
     public void setEnable(boolean z) {
         super.setEnabled(z);
-        this.aSA = z;
+        this.boC = z;
     }
 
     @Override // android.view.View
     public void setPressed(boolean z) {
         super.setPressed(z);
-        if (this.aSA) {
+        if (this.boC) {
             setAlpha(z ? 0.2f : 1.0f);
         } else {
             setAlpha(0.2f);
@@ -48,15 +48,15 @@ public class ProgressButton extends FrameLayout {
     }
 
     public void setText(String str) {
-        this.aSg.setText(str);
-        this.aSf.setVisibility(4);
-        this.aSg.setVisibility(0);
+        this.boj.setText(str);
+        this.boi.setVisibility(4);
+        this.boj.setVisibility(0);
     }
 
     public void startLoading() {
-        this.aSf.setVisibility(0);
-        this.aSf.startAnimation(this.aSh);
-        this.aSg.setVisibility(4);
+        this.boi.setVisibility(0);
+        this.boi.startAnimation(this.bok);
+        this.boj.setVisibility(4);
     }
 
     public ProgressButton(Context context, AttributeSet attributeSet) {

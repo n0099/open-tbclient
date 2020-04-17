@@ -4,15 +4,15 @@ import android.graphics.PointF;
 import com.tb.airbnb.lottie.model.a.m;
 /* loaded from: classes6.dex */
 public class PolystarShape implements b {
+    private final Type mOz;
+    private final com.tb.airbnb.lottie.model.a.b mPN;
+    private final com.tb.airbnb.lottie.model.a.b mPO;
+    private final com.tb.airbnb.lottie.model.a.b mPP;
+    private final com.tb.airbnb.lottie.model.a.b mPQ;
+    private final com.tb.airbnb.lottie.model.a.b mPR;
+    private final m<PointF, PointF> mPt;
+    private final com.tb.airbnb.lottie.model.a.b mPv;
     private final String name;
-    private final Type nrQ;
-    private final m<PointF, PointF> nsI;
-    private final com.tb.airbnb.lottie.model.a.b nsK;
-    private final com.tb.airbnb.lottie.model.a.b ntc;
-    private final com.tb.airbnb.lottie.model.a.b ntd;
-    private final com.tb.airbnb.lottie.model.a.b nte;
-    private final com.tb.airbnb.lottie.model.a.b ntf;
-    private final com.tb.airbnb.lottie.model.a.b ntg;
 
     /* loaded from: classes6.dex */
     public enum Type {
@@ -38,50 +38,50 @@ public class PolystarShape implements b {
 
     public PolystarShape(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3, com.tb.airbnb.lottie.model.a.b bVar4, com.tb.airbnb.lottie.model.a.b bVar5, com.tb.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
-        this.nrQ = type;
-        this.ntc = bVar;
-        this.nsI = mVar;
-        this.nsK = bVar2;
-        this.ntd = bVar3;
-        this.nte = bVar4;
-        this.ntf = bVar5;
-        this.ntg = bVar6;
+        this.mOz = type;
+        this.mPN = bVar;
+        this.mPt = mVar;
+        this.mPv = bVar2;
+        this.mPO = bVar3;
+        this.mPP = bVar4;
+        this.mPQ = bVar5;
+        this.mPR = bVar6;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dHM() {
-        return this.nrQ;
+    public Type dBO() {
+        return this.mOz;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dHN() {
-        return this.ntc;
+    public com.tb.airbnb.lottie.model.a.b dBP() {
+        return this.mPN;
     }
 
-    public m<PointF, PointF> dHt() {
-        return this.nsI;
+    public m<PointF, PointF> dBv() {
+        return this.mPt;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dHv() {
-        return this.nsK;
+    public com.tb.airbnb.lottie.model.a.b dBx() {
+        return this.mPv;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dHO() {
-        return this.ntd;
+    public com.tb.airbnb.lottie.model.a.b dBQ() {
+        return this.mPO;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dHP() {
-        return this.nte;
+    public com.tb.airbnb.lottie.model.a.b dBR() {
+        return this.mPP;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dHQ() {
-        return this.ntf;
+    public com.tb.airbnb.lottie.model.a.b dBS() {
+        return this.mPQ;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dHR() {
-        return this.ntg;
+    public com.tb.airbnb.lottie.model.a.b dBT() {
+        return this.mPR;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b

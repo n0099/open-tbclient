@@ -2,12 +2,12 @@ package com.baidu.tieba.ala.frsgamelive.c;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private h eDN;
+    private h fih;
     private TbPageContext mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -17,20 +17,20 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     private void initView() {
-        this.eDN = new h(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.eDN.getView());
+        this.fih = new h(this.mPageContext);
+        ((ViewGroup) getView()).addView(this.fih.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.eDN != null) {
-            this.eDN.onChangeSkinType(tbPageContext, i);
+        if (this.fih != null) {
+            this.fih.onChangeSkinType(tbPageContext, i);
         }
     }
 
     public void c(com.baidu.tieba.ala.d dVar) {
-        if (this.eDN != null) {
-            this.eDN.d(dVar);
+        if (this.fih != null) {
+            this.fih.d(dVar);
         }
     }
 
@@ -42,8 +42,8 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.cRt != null && this.eDN != null) {
-            this.eDN.a(cVar.cRt);
+        if (cVar != null && cVar.dqA != null && this.fih != null) {
+            this.fih.a(cVar.dqA);
         }
     }
 
@@ -52,12 +52,12 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     /* loaded from: classes3.dex */
-    public static class a extends v.a {
-        public g eDO;
+    public static class a extends y.a {
+        public g fii;
 
         public a(g gVar) {
             super(gVar.getView());
-            this.eDO = gVar;
+            this.fii = gVar;
         }
     }
 }

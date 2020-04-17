@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.subscriptions.EmptySubscription;
@@ -13,17 +12,17 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final boolean delayError;
-    final h<? super io.reactivex.g<T>, ? extends org.a.b<? extends R>> nyU;
+    final h<? super io.reactivex.g<T>, ? extends org.a.b<? extends R>> mSn;
     final int prefetch;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         a aVar = new a(this.prefetch, this.delayError);
         try {
-            ((org.a.b) io.reactivex.internal.functions.a.h(this.nyU.apply(aVar), "selector returned a null Publisher")).subscribe(new b(cVar, aVar));
-            this.nyr.a((j) aVar);
+            ((org.a.b) io.reactivex.internal.functions.a.h(this.mSn.apply(aVar), "selector returned a null Publisher")).subscribe(new b(cVar, aVar));
+            this.mRJ.a((j) aVar);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             EmptySubscription.error(th, cVar);
         }
     }
@@ -31,12 +30,12 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
     /* loaded from: classes7.dex */
     static final class b<R> implements j<R>, org.a.d {
         final org.a.c<? super R> actual;
-        final a<?> nyX;
+        final a<?> mSr;
         org.a.d s;
 
         b(org.a.c<? super R> cVar, a<?> aVar) {
             this.actual = cVar;
-            this.nyX = aVar;
+            this.mSr = aVar;
         }
 
         @Override // io.reactivex.j, org.a.c
@@ -55,13 +54,13 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
         @Override // org.a.c
         public void onError(Throwable th) {
             this.actual.onError(th);
-            this.nyX.dispose();
+            this.mSr.dispose();
         }
 
         @Override // org.a.c
         public void onComplete() {
             this.actual.onComplete();
-            this.nyX.dispose();
+            this.mSr.dispose();
         }
 
         @Override // org.a.d
@@ -72,14 +71,14 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
         @Override // org.a.d
         public void cancel() {
             this.s.cancel();
-            this.nyX.dispose();
+            this.mSr.dispose();
         }
     }
 
     /* loaded from: classes7.dex */
     static final class a<T> extends io.reactivex.g<T> implements io.reactivex.disposables.b, j<T> {
-        static final MulticastSubscription[] nyV = new MulticastSubscription[0];
-        static final MulticastSubscription[] nyW = new MulticastSubscription[0];
+        static final MulticastSubscription[] mSo = new MulticastSubscription[0];
+        static final MulticastSubscription[] mSq = new MulticastSubscription[0];
         int consumed;
         final boolean delayError;
         volatile boolean done;
@@ -90,7 +89,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
         int sourceMode;
         final AtomicInteger wip = new AtomicInteger();
         final AtomicReference<org.a.d> s = new AtomicReference<>();
-        final AtomicReference<MulticastSubscription<T>[]> subscribers = new AtomicReference<>(nyV);
+        final AtomicReference<MulticastSubscription<T>[]> subscribers = new AtomicReference<>(mSo);
 
         a(int i, boolean z) {
             this.prefetch = i;
@@ -117,7 +116,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
                         return;
                     }
                 }
-                this.queue = i.NH(this.prefetch);
+                this.queue = i.Jb(this.prefetch);
                 i.a(dVar, this.prefetch);
             }
         }
@@ -172,7 +171,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
             MulticastSubscription<T>[] multicastSubscriptionArr2;
             do {
                 multicastSubscriptionArr = this.subscribers.get();
-                if (multicastSubscriptionArr == nyW) {
+                if (multicastSubscriptionArr == mSq) {
                     return false;
                 }
                 int length = multicastSubscriptionArr.length;
@@ -188,8 +187,8 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
             MulticastSubscription<T>[] multicastSubscriptionArr2;
             do {
                 multicastSubscriptionArr = this.subscribers.get();
-                int length = multicastSubscriptionArr.length;
-                if (length != 0) {
+                if (multicastSubscriptionArr != mSq && multicastSubscriptionArr != mSo) {
+                    int length = multicastSubscriptionArr.length;
                     int i = -1;
                     int i2 = 0;
                     while (true) {
@@ -204,7 +203,7 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            multicastSubscriptionArr2 = nyV;
+                            multicastSubscriptionArr2 = mSo;
                         } else {
                             multicastSubscriptionArr2 = new MulticastSubscription[length - 1];
                             System.arraycopy(multicastSubscriptionArr, 0, multicastSubscriptionArr2, 0, i);
@@ -241,143 +240,103 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
         }
 
         void drain() {
-            int i;
-            int i2;
             Throwable th;
-            boolean z;
             Throwable th2;
             if (this.wip.getAndIncrement() == 0) {
+                int i = 1;
                 io.reactivex.internal.a.g<T> gVar = this.queue;
-                int i3 = this.consumed;
-                int i4 = this.limit;
-                boolean z2 = this.sourceMode != 1;
-                AtomicReference<MulticastSubscription<T>[]> atomicReference = this.subscribers;
-                int i5 = 1;
-                io.reactivex.internal.a.g<T> gVar2 = gVar;
-                MulticastSubscription<T>[] multicastSubscriptionArr = atomicReference.get();
-                int i6 = i3;
+                int i2 = this.consumed;
+                int i3 = this.limit;
+                boolean z = this.sourceMode != 1;
                 while (true) {
+                    MulticastSubscription<T>[] multicastSubscriptionArr = this.subscribers.get();
                     int length = multicastSubscriptionArr.length;
-                    if (gVar2 == null || length == 0) {
-                        i = i6;
-                    } else {
-                        long j = Format.OFFSET_SAMPLE_RELATIVE;
+                    if (gVar != null && length != 0) {
+                        long j = Long.MAX_VALUE;
                         int length2 = multicastSubscriptionArr.length;
-                        int i7 = 0;
-                        int i8 = length;
-                        while (i7 < length2) {
-                            MulticastSubscription<T> multicastSubscription = multicastSubscriptionArr[i7];
-                            long j2 = multicastSubscription.get() - multicastSubscription.emitted;
-                            if (j2 != Long.MIN_VALUE) {
-                                if (j <= j2) {
-                                    j2 = j;
-                                }
-                            } else {
-                                i8--;
+                        int i4 = 0;
+                        while (i4 < length2) {
+                            long j2 = multicastSubscriptionArr[i4].get();
+                            if (j2 == Long.MIN_VALUE || j <= j2) {
                                 j2 = j;
                             }
-                            i7++;
+                            i4++;
                             j = j2;
                         }
-                        if (i8 == 0) {
-                            j = 0;
-                            i2 = i6;
-                        } else {
-                            i2 = i6;
-                        }
-                        while (j != 0) {
+                        long j3 = 0;
+                        while (j3 != j) {
                             if (isDisposed()) {
-                                gVar2.clear();
+                                gVar.clear();
                                 return;
                             }
-                            boolean z3 = this.done;
-                            if (z3 && !this.delayError && (th2 = this.error) != null) {
+                            boolean z2 = this.done;
+                            if (z2 && !this.delayError && (th2 = this.error) != null) {
                                 errorAll(th2);
                                 return;
                             }
                             try {
-                                T poll = gVar2.poll();
-                                boolean z4 = poll == null;
-                                if (z3 && z4) {
+                                T poll = gVar.poll();
+                                boolean z3 = poll == null;
+                                if (z2 && z3) {
                                     Throwable th3 = this.error;
                                     if (th3 != null) {
                                         errorAll(th3);
                                         return;
                                     } else {
-                                        dJP();
+                                        dCO();
                                         return;
                                     }
-                                } else if (!z4) {
-                                    boolean z5 = false;
-                                    int length3 = multicastSubscriptionArr.length;
-                                    int i9 = 0;
-                                    while (i9 < length3) {
-                                        MulticastSubscription<T> multicastSubscription2 = multicastSubscriptionArr[i9];
-                                        long j3 = multicastSubscription2.get();
-                                        if (j3 != Long.MIN_VALUE) {
-                                            if (j3 != Format.OFFSET_SAMPLE_RELATIVE) {
-                                                multicastSubscription2.emitted++;
-                                            }
-                                            multicastSubscription2.actual.onNext(poll);
-                                            z = z5;
-                                        } else {
-                                            z = true;
-                                        }
-                                        i9++;
-                                        z5 = z;
-                                    }
-                                    j--;
-                                    if (z2 && (i2 = i2 + 1) == i4) {
-                                        i2 = 0;
-                                        this.s.get().request(i4);
-                                    }
-                                    MulticastSubscription<T>[] multicastSubscriptionArr2 = atomicReference.get();
-                                    if (!z5) {
-                                        if (multicastSubscriptionArr2 != multicastSubscriptionArr) {
-                                        }
-                                    }
-                                    multicastSubscriptionArr = multicastSubscriptionArr2;
-                                    i6 = i2;
+                                } else if (z3) {
                                     break;
                                 } else {
-                                    break;
+                                    for (MulticastSubscription<T> multicastSubscription : multicastSubscriptionArr) {
+                                        if (multicastSubscription.get() != Long.MIN_VALUE) {
+                                            multicastSubscription.actual.onNext(poll);
+                                        }
+                                    }
+                                    j3++;
+                                    if (z && (i2 = i2 + 1) == i3) {
+                                        this.s.get().request(i3);
+                                        i2 = 0;
+                                    }
                                 }
                             } catch (Throwable th4) {
-                                io.reactivex.exceptions.a.H(th4);
+                                io.reactivex.exceptions.a.L(th4);
                                 SubscriptionHelper.cancel(this.s);
                                 errorAll(th4);
                                 return;
                             }
                         }
-                        if (j == 0) {
+                        if (j3 == j) {
                             if (isDisposed()) {
-                                gVar2.clear();
+                                gVar.clear();
                                 return;
                             }
-                            boolean z6 = this.done;
-                            if (z6 && !this.delayError && (th = this.error) != null) {
+                            boolean z4 = this.done;
+                            if (z4 && !this.delayError && (th = this.error) != null) {
                                 errorAll(th);
                                 return;
-                            } else if (z6 && gVar2.isEmpty()) {
+                            } else if (z4 && gVar.isEmpty()) {
                                 Throwable th5 = this.error;
                                 if (th5 != null) {
                                     errorAll(th5);
                                     return;
                                 } else {
-                                    dJP();
+                                    dCO();
                                     return;
                                 }
                             }
                         }
-                        i = i2;
+                        for (MulticastSubscription<T> multicastSubscription2 : multicastSubscriptionArr) {
+                            io.reactivex.internal.util.b.c(multicastSubscription2, j3);
+                        }
                     }
-                    this.consumed = i;
-                    i5 = this.wip.addAndGet(-i5);
-                    if (i5 != 0) {
-                        gVar2 = gVar2 == null ? this.queue : gVar2;
-                        int i10 = i;
-                        multicastSubscriptionArr = atomicReference.get();
-                        i6 = i10;
+                    int i5 = i2;
+                    this.consumed = i5;
+                    i = this.wip.addAndGet(-i);
+                    if (i != 0) {
+                        gVar = gVar == null ? this.queue : gVar;
+                        i2 = i5;
                     } else {
                         return;
                     }
@@ -387,16 +346,16 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
 
         void errorAll(Throwable th) {
             MulticastSubscription<T>[] andSet;
-            for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(nyW)) {
+            for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(mSq)) {
                 if (multicastSubscription.get() != Long.MIN_VALUE) {
                     multicastSubscription.actual.onError(th);
                 }
             }
         }
 
-        void dJP() {
+        void dCO() {
             MulticastSubscription<T>[] andSet;
-            for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(nyW)) {
+            for (MulticastSubscription<T> multicastSubscription : this.subscribers.getAndSet(mSq)) {
                 if (multicastSubscription.get() != Long.MIN_VALUE) {
                     multicastSubscription.actual.onComplete();
                 }
@@ -409,7 +368,6 @@ public final class FlowablePublishMulticast<T, R> extends io.reactivex.internal.
     public static final class MulticastSubscription<T> extends AtomicLong implements org.a.d {
         private static final long serialVersionUID = 8664815189257569791L;
         final org.a.c<? super T> actual;
-        long emitted;
         final a<T> parent;
 
         MulticastSubscription(org.a.c<? super T> cVar, a<T> aVar) {

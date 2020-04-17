@@ -1,9 +1,9 @@
 package com.baidu.live.liveroom.a;
 /* loaded from: classes3.dex */
 public interface a {
-    boolean cc(int i);
+    boolean cr(int i);
 
-    void cd(int i);
+    void cs(int i);
 
-    void ce(int i);
+    void ct(int i);
 }

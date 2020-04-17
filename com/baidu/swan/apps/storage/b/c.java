@@ -1,25 +1,25 @@
 package com.baidu.swan.apps.storage.b;
 /* loaded from: classes11.dex */
 public interface c {
-    boolean aD(long j);
+    String anx();
 
-    void aE(long j);
+    boolean bi(long j);
 
-    String afs();
+    void bj(long j);
 
-    boolean lT(String str);
+    boolean ng(String str);
 
-    String lY(String str);
+    String nl(String str);
 
-    String mf(String str);
+    String ns(String str);
 
-    String mg(String str);
+    String nt(String str);
 
-    String mh(String str);
+    String nu(String str);
 
-    String mi(String str);
+    String nv(String str);
 
-    String mj(String str);
+    String nw(String str);
 
-    String mk(String str);
+    String nx(String str);
 }

@@ -74,7 +74,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
 
     public void setStyle(int i) {
         if (i == 0) {
-            setSizeParameters(CENTER_RADIUS_LARGE, 3.0f, 12.0f, 6.0f);
+            setSizeParameters(CENTER_RADIUS_LARGE, STROKE_WIDTH_LARGE, 12.0f, 6.0f);
         } else {
             setSizeParameters(CENTER_RADIUS, STROKE_WIDTH, 10.0f, 5.0f);
         }
@@ -274,7 +274,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         updateRingColor(f, ring);
         ring.setStartTrim(ring.getStartingStartTrim() + (((ring.getStartingEndTrim() - MIN_PROGRESS_ARC) - ring.getStartingStartTrim()) * f));
         ring.setEndTrim(ring.getStartingEndTrim());
-        ring.setRotation(((((float) (Math.floor(ring.getStartingRotation() / MAX_PROGRESS_ARC) + 1.0d)) - ring.getStartingRotation()) * f) + ring.getStartingRotation());
+        ring.setRotation(((((float) (Math.floor(ring.getStartingRotation() / 0.8f) + 1.0d)) - ring.getStartingRotation()) * f) + ring.getStartingRotation());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

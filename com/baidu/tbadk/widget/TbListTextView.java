@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
@@ -65,7 +64,7 @@ public class TbListTextView extends TextView {
 
     private void fixSpannedWithSpaces(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a a2 = a(spannableStringBuilder, i, i2);
-        if (a2.bjA) {
+        if (a2.bHI) {
             a(i, i2, spannableStringBuilder, a2);
         } else {
             fallbackToString(i, i2);
@@ -79,12 +78,12 @@ public class TbListTextView extends TextView {
         for (Object obj : spans) {
             int spanStart = spannableStringBuilder.getSpanStart(obj);
             if (isNotSpace(spannableStringBuilder, spanStart - 1)) {
-                spannableStringBuilder.insert(spanStart, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanStart, " ");
                 arrayList.add(obj);
             }
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             if (isNotSpace(spannableStringBuilder, spanEnd)) {
-                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanEnd, " ");
                 arrayList2.add(obj);
             }
             try {
@@ -94,7 +93,7 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.aTe();
+        return a.bbo();
     }
 
     private boolean isNotSpace(CharSequence charSequence, int i) {
@@ -113,7 +112,7 @@ public class TbListTextView extends TextView {
             try {
                 setTextAndMeasure(spannableStringBuilder, i, i2);
             } catch (IndexOutOfBoundsException e) {
-                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanEnd, " ");
             }
         }
         boolean z = true;
@@ -124,7 +123,7 @@ public class TbListTextView extends TextView {
                 setTextAndMeasure(spannableStringBuilder, i, i2);
                 z = false;
             } catch (IndexOutOfBoundsException e2) {
-                spannableStringBuilder.insert(spanStart - 1, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanStart - 1, " ");
                 z = true;
             }
         }
@@ -141,7 +140,7 @@ public class TbListTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean bjA;
+        public final boolean bHI;
         public final List<Object> spansWithSpacesAfter;
         public final List<Object> spansWithSpacesBefore;
 
@@ -149,12 +148,12 @@ public class TbListTextView extends TextView {
             return new a(true, list, list2);
         }
 
-        public static a aTe() {
+        public static a bbo() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.bjA = z;
+            this.bHI = z;
             this.spansWithSpacesBefore = list;
             this.spansWithSpacesAfter = list2;
         }

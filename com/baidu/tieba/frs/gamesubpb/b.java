@@ -10,30 +10,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class b {
-    private final List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
-    private e cVR;
-    private BdTypeListView ekE;
-    private a gEq;
+    private final List<com.baidu.adp.widget.ListView.a> aMd = new ArrayList();
+    private e dvc;
+    private BdTypeListView eOe;
+    private a hnM;
 
     public b(e eVar, BdTypeListView bdTypeListView) {
-        this.cVR = eVar;
-        this.ekE = bdTypeListView;
-        wR();
+        this.dvc = eVar;
+        this.eOe = bdTypeListView;
+        BC();
     }
 
-    private void wR() {
-        this.gEq = new a((TbPageContext) this.cVR, d.gEM);
-        this.asP.add(this.gEq);
-        this.ekE.addAdapters(this.asP);
+    private void BC() {
+        this.hnM = new a((TbPageContext) this.dvc, d.hoi);
+        this.aMd.add(this.hnM);
+        this.eOe.addAdapters(this.aMd);
     }
 
     public void setData(List<m> list) {
-        if (this.ekE != null) {
-            this.ekE.setData(list);
+        if (this.eOe != null) {
+            this.eOe.setData(list);
         }
     }
 
-    public void setClickListener(a.InterfaceC0508a interfaceC0508a) {
-        this.gEq.setClickListener(interfaceC0508a);
+    public void setClickListener(a.InterfaceC0545a interfaceC0545a) {
+        this.hnM.setClickListener(interfaceC0545a);
     }
 }

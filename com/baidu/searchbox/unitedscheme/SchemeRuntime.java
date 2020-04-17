@@ -7,10 +7,10 @@ import com.baidu.swan.apps.scheme.d;
 /* loaded from: classes7.dex */
 public class SchemeRuntime {
     public static ISchemeIoc getSchemeIoc() {
-        return d.adL();
+        return d.alQ();
     }
 
     public static ISchemeHeadIoc getSchemeHeadIoc() {
-        return b.adK();
+        return b.alP();
     }
 }

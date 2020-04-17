@@ -13,7 +13,7 @@ public class HaokanGuardClubLogger implements IGuardClubLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_GROUP_MEMBER_TOOLTIP);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
         } catch (JSONException e) {
@@ -38,7 +38,7 @@ public class HaokanGuardClubLogger implements IGuardClubLogger {
     public void doDisplayLiveGuardLog(String str, String str2, String str3, String str4, String str5) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_GUARDIAN_TOOLTIP);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
@@ -57,7 +57,7 @@ public class HaokanGuardClubLogger implements IGuardClubLogger {
     public void doClickLiveRuleLog(String str, String str2, String str3, String str4, String str5) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_GUARDIAN_RULES_TOOLTIP);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
@@ -71,7 +71,7 @@ public class HaokanGuardClubLogger implements IGuardClubLogger {
     public void doDisplayLiveGuardButtonLog(String str, String str2, String str3, String str4) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_GUARDIAN_BUTTON);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
@@ -138,7 +138,7 @@ public class HaokanGuardClubLogger implements IGuardClubLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_JOIN_GROUP_POP);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -151,7 +151,7 @@ public class HaokanGuardClubLogger implements IGuardClubLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LEAVE_GUARD_HK);
         } catch (JSONException e) {
             e.printStackTrace();

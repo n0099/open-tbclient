@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.j;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
@@ -20,7 +19,7 @@ public final class FlowableRetryPredicate<T> extends a<T, T> {
     public void a(org.a.c<? super T> cVar) {
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        new RetrySubscriber(cVar, this.count, this.predicate, subscriptionArbiter, this.nyr).subscribeNext();
+        new RetrySubscriber(cVar, this.count, this.predicate, subscriptionArbiter, this.mRJ).subscribeNext();
     }
 
     /* loaded from: classes7.dex */
@@ -55,7 +54,7 @@ public final class FlowableRetryPredicate<T> extends a<T, T> {
         @Override // org.a.c
         public void onError(Throwable th) {
             long j = this.remaining;
-            if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+            if (j != Long.MAX_VALUE) {
                 this.remaining = j - 1;
             }
             if (j == 0) {
@@ -69,7 +68,7 @@ public final class FlowableRetryPredicate<T> extends a<T, T> {
                     subscribeNext();
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.H(th2);
+                io.reactivex.exceptions.a.L(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

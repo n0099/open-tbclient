@@ -3,6 +3,7 @@ package com.baidu.tbadk.baseEditMark;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -339,7 +340,7 @@ public class MarkData implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 String optString = optJSONArray.getJSONObject(0).optString("type");
-                if (aq.equals(optString, "pic")) {
+                if (aq.equals(optString, UgcUBCUtils.UGC_TYPE_PIC_BTN)) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("small_pic");
                 } else if (aq.equals(optString, "flash")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("vpic");

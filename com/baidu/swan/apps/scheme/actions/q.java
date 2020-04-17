@@ -34,7 +34,7 @@ public class q extends ab {
             }
         }
         com.baidu.swan.apps.console.c.i("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
-        com.baidu.swan.ubc.s.k(optString, optParamsAsJo);
+        com.baidu.swan.ubc.s.onEvent(optString, optParamsAsJo);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

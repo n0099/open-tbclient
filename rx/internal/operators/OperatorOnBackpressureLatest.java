@@ -1,6 +1,5 @@
 package rx.internal.operators;
 
-import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
@@ -61,7 +60,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
                     }
                 } while (!compareAndSet(j2, j3));
                 if (j2 == NOT_REQUESTED) {
-                    this.parent.requestMore(Format.OFFSET_SAMPLE_RELATIVE);
+                    this.parent.requestMore(Long.MAX_VALUE);
                 }
                 emit();
             }
@@ -192,10 +191,10 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class a<T> extends rx.j<T> {
-        private final LatestEmitter<T> nRX;
+        private final LatestEmitter<T> nlD;
 
         a(LatestEmitter<T> latestEmitter) {
-            this.nRX = latestEmitter;
+            this.nlD = latestEmitter;
         }
 
         @Override // rx.j
@@ -205,17 +204,17 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.nRX.onNext(t);
+            this.nlD.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.nRX.onError(th);
+            this.nlD.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.nRX.onCompleted();
+            this.nlD.onCompleted();
         }
 
         void requestMore(long j) {

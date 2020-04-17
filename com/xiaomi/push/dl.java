@@ -4,7 +4,7 @@ public class dl {
     private static volatile dl a;
 
     /* renamed from: a  reason: collision with other field name */
-    private dk f240a;
+    private dk f241a;
 
     public static dl a() {
         if (a == null) {
@@ -18,11 +18,11 @@ public class dl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dk m221a() {
-        return this.f240a;
+    public dk m226a() {
+        return this.f241a;
     }
 
     public void a(dk dkVar) {
-        this.f240a = dkVar;
+        this.f241a = dkVar;
     }
 }

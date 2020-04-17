@@ -53,7 +53,7 @@ public final class MaybeFlatMapCompletable<T> extends io.reactivex.a {
                     eVar.a(this);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 onError(th);
             }
         }

@@ -1,6 +1,5 @@
 package rx.observables;
 
-import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.c.c;
 import rx.d;
@@ -12,7 +11,7 @@ import rx.k;
 public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
     protected abstract S a(S s, e<? super T> eVar);
 
-    protected abstract S dPr();
+    protected abstract S dIr();
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -21,16 +20,16 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
 
     public final void call(j<? super T> jVar) {
         try {
-            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, dPr());
+            SubscriptionProducer subscriptionProducer = new SubscriptionProducer(jVar, this, dIr());
             jVar.add(subscriptionProducer);
             jVar.setProducer(subscriptionProducer);
         } catch (Throwable th) {
-            rx.exceptions.a.H(th);
+            rx.exceptions.a.L(th);
             jVar.onError(th);
         }
     }
 
-    protected void cl(S s) {
+    protected void bU(S s) {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -60,26 +59,26 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
             do {
                 j = get();
                 if (compareAndSet(0L, -1L)) {
-                    dPt();
+                    dIt();
                     return;
                 }
             } while (!compareAndSet(j, -2L));
         }
 
-        private boolean dPs() {
+        private boolean dIs() {
             if (this.hasTerminated || get() < -1) {
                 set(-1L);
-                dPt();
+                dIt();
                 return true;
             }
             return false;
         }
 
-        private void dPt() {
+        private void dIt() {
             try {
-                this.parent.cl(this.state);
+                this.parent.bU(this.state);
             } catch (Throwable th) {
-                rx.exceptions.a.H(th);
+                rx.exceptions.a.L(th);
                 c.onError(th);
             }
         }
@@ -87,7 +86,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
         @Override // rx.f
         public void request(long j) {
             if (j > 0 && rx.internal.operators.a.e(this, j) == 0) {
-                if (j == Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j == Long.MAX_VALUE) {
                     fastPath();
                 } else {
                     slowPath(j);
@@ -106,7 +105,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                     a(jVar, th);
                     return;
                 }
-            } while (!dPs());
+            } while (!dIs());
         }
 
         private void a(j<? super T> jVar, Throwable th) {
@@ -128,7 +127,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                     try {
                         this.onNextCalled = false;
                         a(syncOnSubscribe);
-                        if (!dPs()) {
+                        if (!dIs()) {
                             if (this.onNextCalled) {
                                 j2--;
                             }
@@ -142,7 +141,7 @@ public abstract class SyncOnSubscribe<S, T> implements d.a<T> {
                 } while (j2 != 0);
                 j = addAndGet(-j);
             } while (j > 0);
-            dPs();
+            dIs();
         }
 
         private void a(SyncOnSubscribe<S, T> syncOnSubscribe) {

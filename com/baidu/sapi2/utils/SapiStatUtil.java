@@ -3,7 +3,6 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -11,7 +10,6 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.m;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidubce.AbstractBceClient;
 import com.xiaomi.mipush.sdk.Constants;
@@ -166,7 +164,7 @@ public class SapiStatUtil {
         hashMap.put("read_sd_count", i3 + "");
         hashMap.put("app_count", i4 + "");
         hashMap.put("share_count", list.size() + "");
-        hashMap.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE);
+        hashMap.put("os_version", Build.VERSION.RELEASE);
         hashMap.put("chmod", shareStorage.readSpFromChmodFile ? "1" : "0");
         r.a("share_read", hashMap);
     }
@@ -194,7 +192,7 @@ public class SapiStatUtil {
         HashMap hashMap = new HashMap();
         hashMap.put("cuid", SapiUtils.getClientId(context));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
-        hashMap.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE);
+        hashMap.put("os_version", Build.VERSION.RELEASE);
         hashMap.put("success", str);
         r.a("get_sms_check_code_from_clip", hashMap);
     }
@@ -202,7 +200,7 @@ public class SapiStatUtil {
     public static void statThirdLoginEnter(SocialType socialType) {
         HashMap hashMap = new HashMap();
         hashMap.put("clientip", SapiUtils.getLocalIpAddress());
-        hashMap.put("client", PraiseDataPassUtil.KEY_FROM_OS);
+        hashMap.put("client", "android");
         hashMap.put(LoginActivityConfig.SOCIAL_TYPE, socialType.getType() + "");
         if (SocialType.SINA_WEIBO_SSO == socialType) {
             hashMap.put("is_sso", "1");

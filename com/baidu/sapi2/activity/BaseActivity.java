@@ -14,7 +14,7 @@ import android.webkit.ValueCallback;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
@@ -582,7 +582,7 @@ public class BaseActivity extends TitleActivity {
             public void onFailure(GetTplStokenResult getTplStokenResult) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("errno", getTplStokenResult.getResultCode());
+                    jSONObject.put(BaseJsonData.TAG_ERRNO, getTplStokenResult.getResultCode());
                     jSONObject.put(BaseJsonData.TAG_ERRMSG, getTplStokenResult.getResultMsg());
                 } catch (JSONException e2) {
                     Log.e(e2);
@@ -606,7 +606,7 @@ public class BaseActivity extends TitleActivity {
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("errno", -402);
+                    jSONObject.put(BaseJsonData.TAG_ERRNO, -402);
                     jSONObject.put(BaseJsonData.TAG_ERRMSG, "服务异常，请稍后再试");
                 } catch (JSONException e2) {
                     Log.e(e2);
@@ -644,7 +644,7 @@ public class BaseActivity extends TitleActivity {
                             if (jSONObject != null) {
                                 jSONObject.remove("faceimage");
                                 jSONObject.remove("imgdigests");
-                                jSONObject.put("errno", passFaceRecogResult.getResultCode());
+                                jSONObject.put(BaseJsonData.TAG_ERRNO, passFaceRecogResult.getResultCode());
                                 jSONObject.put(BaseJsonData.TAG_ERRMSG, passFaceRecogResult.getResultMsg());
                                 str = jSONObject.toString();
                             }
@@ -669,7 +669,7 @@ public class BaseActivity extends TitleActivity {
     public JSONObject a(int i, String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("errno", i);
+            jSONObject.put(BaseJsonData.TAG_ERRNO, i);
             jSONObject.put(BaseJsonData.TAG_ERRMSG, str);
             if (i == 0) {
                 if (!TextUtils.isEmpty(str2)) {

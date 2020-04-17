@@ -5,7 +5,7 @@ import android.support.constraint.solver.LinearSystem;
 import android.support.constraint.solver.SolverVariable;
 import android.support.constraint.solver.widgets.ConstraintAnchor;
 import android.support.media.ExifInterface;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
@@ -213,8 +213,8 @@ public class ConstraintWidget {
         this.mMatchConstraintDefaultHeight = 0;
         this.mMatchConstraintPercentWidth = 1.0f;
         this.mMatchConstraintPercentHeight = 1.0f;
-        this.mMatchConstraintMaxWidth = Integer.MAX_VALUE;
-        this.mMatchConstraintMaxHeight = Integer.MAX_VALUE;
+        this.mMatchConstraintMaxWidth = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        this.mMatchConstraintMaxHeight = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.mMatchConstraintMinWidth = 0;
         this.mMatchConstraintMinHeight = 0;
         this.mResolvedDimensionRatioSide = -1;
@@ -283,7 +283,7 @@ public class ConstraintWidget {
         this.mResolvedDimensionRatioSide = -1;
         this.mResolvedDimensionRatio = 1.0f;
         this.mBelongingGroup = null;
-        this.mMaxDimension = new int[]{Integer.MAX_VALUE, Integer.MAX_VALUE};
+        this.mMaxDimension = new int[]{ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED};
         this.mCircleConstraintAngle = 0.0f;
         this.mLeft = new ConstraintAnchor(this, ConstraintAnchor.Type.LEFT);
         this.mTop = new ConstraintAnchor(this, ConstraintAnchor.Type.TOP);
@@ -346,7 +346,7 @@ public class ConstraintWidget {
         this.mResolvedDimensionRatioSide = -1;
         this.mResolvedDimensionRatio = 1.0f;
         this.mBelongingGroup = null;
-        this.mMaxDimension = new int[]{Integer.MAX_VALUE, Integer.MAX_VALUE};
+        this.mMaxDimension = new int[]{ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED};
         this.mCircleConstraintAngle = 0.0f;
         this.mLeft = new ConstraintAnchor(this, ConstraintAnchor.Type.LEFT);
         this.mTop = new ConstraintAnchor(this, ConstraintAnchor.Type.TOP);
@@ -554,7 +554,7 @@ public class ConstraintWidget {
     }
 
     public String toString() {
-        return (this.mType != null ? "type: " + this.mType + HanziToPinyin.Token.SEPARATOR : "") + (this.mDebugName != null ? "id: " + this.mDebugName + HanziToPinyin.Token.SEPARATOR : "") + "(" + this.mX + ", " + this.mY + ") - (" + this.mWidth + " x " + this.mHeight + ") wrap: (" + this.mWrapWidth + " x " + this.mWrapHeight + ")";
+        return (this.mType != null ? "type: " + this.mType + " " : "") + (this.mDebugName != null ? "id: " + this.mDebugName + " " : "") + "(" + this.mX + ", " + this.mY + ") - (" + this.mWidth + " x " + this.mHeight + ") wrap: (" + this.mWrapWidth + " x " + this.mWrapHeight + ")";
     }
 
     int getInternalDrawX() {

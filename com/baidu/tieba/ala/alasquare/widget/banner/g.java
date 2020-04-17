@@ -3,6 +3,7 @@ package com.baidu.tieba.ala.alasquare.widget.banner;
 import android.graphics.PointF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -10,9 +11,9 @@ import android.view.View;
 /* loaded from: classes3.dex */
 public class g extends h {
     @Nullable
-    private f evp;
+    private f eYK;
     @Nullable
-    private f evq;
+    private f eYL;
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.h
     @Nullable
@@ -126,7 +127,7 @@ public class g extends h {
             } else {
                 end = fVar.getEnd() / 2;
             }
-            int i = Integer.MAX_VALUE;
+            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             int i2 = 0;
             while (i2 < childCount) {
                 View childAt = layoutManager.getChildAt(i2);
@@ -151,7 +152,7 @@ public class g extends h {
         View view2 = null;
         int childCount = layoutManager.getChildCount();
         if (childCount != 0) {
-            int i = Integer.MAX_VALUE;
+            int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             int i2 = 0;
             while (i2 < childCount) {
                 View childAt = layoutManager.getChildAt(i2);
@@ -172,17 +173,17 @@ public class g extends h {
 
     @NonNull
     private f c(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.evp == null || this.evp.mLayoutManager != layoutManager) {
-            this.evp = f.b(layoutManager);
+        if (this.eYK == null || this.eYK.mLayoutManager != layoutManager) {
+            this.eYK = f.b(layoutManager);
         }
-        return this.evp;
+        return this.eYK;
     }
 
     @NonNull
     private f d(@NonNull RecyclerView.LayoutManager layoutManager) {
-        if (this.evq == null || this.evq.mLayoutManager != layoutManager) {
-            this.evq = f.a(layoutManager);
+        if (this.eYL == null || this.eYL.mLayoutManager != layoutManager) {
+            this.eYL = f.a(layoutManager);
         }
-        return this.evq;
+        return this.eYL;
     }
 }

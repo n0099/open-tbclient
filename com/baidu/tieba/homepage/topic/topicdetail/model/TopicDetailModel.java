@@ -19,14 +19,14 @@ import com.baidu.tieba.message.RequestBlessMessage;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class TopicDetailModel extends BdBaseModel {
-    private com.baidu.adp.framework.listener.a heq;
-    private com.baidu.tieba.homepage.topic.topicdetail.a hig;
-    private com.baidu.tieba.homepage.topic.topicdetail.b.a hih;
+    private com.baidu.adp.framework.listener.a hOd;
+    private com.baidu.tieba.homepage.topic.topicdetail.a hRP;
+    private com.baidu.tieba.homepage.topic.topicdetail.b.a hRQ;
     private TbPageContext<?> mPageContext;
 
     public TopicDetailModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.heq = new com.baidu.adp.framework.listener.a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
+        this.hOd = new com.baidu.adp.framework.listener.a(1003065, CmdConfigSocket.CMD_TOPIC_BLESS) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -45,8 +45,8 @@ public class TopicDetailModel extends BdBaseModel {
                     if (j == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
                         j = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
                     }
-                    if (j != 0 && TopicDetailModel.this.hih != null && TopicDetailModel.this.hih.hhM != null && TopicDetailModel.this.hih.hhM.hhR != null && TopicDetailModel.this.hih.hhM.hhR.pkId == j) {
-                        TopicDetailModel.this.hih.hhM.hhR.userPkId = j2;
+                    if (j != 0 && TopicDetailModel.this.hRQ != null && TopicDetailModel.this.hRQ.hRw != null && TopicDetailModel.this.hRQ.hRw.hRB != null && TopicDetailModel.this.hRQ.hRw.hRB.pkId == j) {
+                        TopicDetailModel.this.hRQ.hRw.hRB.userPkId = j2;
                     }
                 }
             }
@@ -55,21 +55,21 @@ public class TopicDetailModel extends BdBaseModel {
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_DETAIL, 309629) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.hig != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.hRP != null) {
                     if (responsedMessage instanceof ResponseHttpGetTopicDetailMessage) {
-                        TopicDetailModel.this.hih = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.hRQ = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
                     if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
-                        TopicDetailModel.this.hih = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.hRQ = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
-                    TopicDetailModel.this.hig.a(responsedMessage.getError(), TopicDetailModel.this.hih);
+                    TopicDetailModel.this.hRP.a(responsedMessage.getError(), TopicDetailModel.this.hRQ);
                 }
             }
         });
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_THREAD, 309631) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.3
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.hig != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.hRP != null) {
                     List<m> list = null;
                     boolean z = false;
                     if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
@@ -80,21 +80,21 @@ public class TopicDetailModel extends BdBaseModel {
                         list = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getDataList();
                         z = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getHasMore();
                     }
-                    TopicDetailModel.this.hig.a(responsedMessage.getError(), z, list);
+                    TopicDetailModel.this.hRP.a(responsedMessage.getError(), z, list);
                 }
             }
         });
-        registerListener(this.heq);
+        registerListener(this.hOd);
     }
 
     public void a(com.baidu.tieba.homepage.topic.topicdetail.a aVar) {
-        this.hig = aVar;
+        this.hRP = aVar;
     }
 
-    public void dG(long j) {
+    public void ep(long j) {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.hig != null) {
-                this.hig.a(-1, null);
+            if (this.hRP != null) {
+                this.hRP.a(-1, null);
                 return;
             }
             return;
@@ -108,8 +108,8 @@ public class TopicDetailModel extends BdBaseModel {
 
     public void c(long j, long j2, long j3) {
         if (!j.isNetworkAvailableForImmediately()) {
-            if (this.hig != null) {
-                this.hig.a(-1, false, null);
+            if (this.hRP != null) {
+                this.hRP.a(-1, false, null);
                 return;
             }
             return;

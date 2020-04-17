@@ -16,51 +16,51 @@ import java.util.List;
 import tbclient.T;
 /* loaded from: classes9.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
-    private static List<String> hAK = new ArrayList();
-    private a iTC;
-    private final HttpMessageListener iTD;
+    private static List<String> iky = new ArrayList();
+    private a jDL;
+    private final HttpMessageListener jDM;
 
     /* loaded from: classes9.dex */
     public interface a {
-        void onFail(int i, String str);
+        void aS(List<String> list);
 
-        void onSuccess(List<String> list);
+        void onFail(int i, String str);
     }
 
     public GetSugMatchWordsModel(e<T> eVar) {
         super(eVar);
-        this.iTD = new HttpMessageListener(1003370) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
+        this.jDM = new HttpMessageListener(1003370) { // from class: com.baidu.tieba.pb.pb.main.emotion.model.GetSugMatchWordsModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.iTC != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003370 && (httpResponsedMessage instanceof GetSugMatchWordsResponseMessage) && GetSugMatchWordsModel.this.jDL != null) {
                     GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
                     if (!v.isEmpty(getSugMatchWordsResponseMessage.getData())) {
-                        GetSugMatchWordsModel.this.iTC.onSuccess(getSugMatchWordsResponseMessage.getData());
-                        GetSugMatchWordsModel.hAK.clear();
-                        GetSugMatchWordsModel.hAK.addAll(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.this.jDL.aS(getSugMatchWordsResponseMessage.getData());
+                        GetSugMatchWordsModel.iky.clear();
+                        GetSugMatchWordsModel.iky.addAll(getSugMatchWordsResponseMessage.getData());
                         return;
                     }
-                    GetSugMatchWordsModel.this.iTC.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
+                    GetSugMatchWordsModel.this.jDL.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
                 }
             }
         };
-        tj();
-        this.iTD.setSelfListener(true);
-        registerListener(this.iTD);
+        xC();
+        this.jDM.setSelfListener(true);
+        registerListener(this.jDM);
     }
 
-    private void tj() {
+    private void xC() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003370, TbConfig.SERVER_ADDRESS + Config.GET_PB_SUG_MATCH_WORDS);
         tbHttpMessageTask.setResponsedClass(GetSugMatchWordsResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public void b(a aVar) {
-        this.iTC = aVar;
-        if (this.iTC != null) {
-            if (!v.isEmpty(hAK)) {
-                this.iTC.onSuccess(hAK);
+        this.jDL = aVar;
+        if (this.jDL != null) {
+            if (!v.isEmpty(iky)) {
+                this.jDL.aS(iky);
             } else {
                 sendMessage(new HttpMessage(1003370));
             }
@@ -74,7 +74,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.iTD);
+        MessageManager.getInstance().unRegisterListener(this.jDM);
         MessageManager.getInstance().unRegisterTask(1003370);
         return true;
     }

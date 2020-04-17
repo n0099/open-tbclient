@@ -1,9 +1,9 @@
 package com.baidu.swan.a;
 /* loaded from: classes11.dex */
 public interface e<PKG> {
-    void E(int i, String str);
+    void Q(PKG pkg);
 
-    void P(PKG pkg);
+    void V(int i, String str);
 
-    void n(long j, long j2);
+    void o(long j, long j2);
 }

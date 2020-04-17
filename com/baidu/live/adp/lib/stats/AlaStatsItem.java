@@ -1,7 +1,6 @@
 package com.baidu.live.adp.lib.stats;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
@@ -163,6 +162,6 @@ public class AlaStatsItem {
     }
 
     public static String valueEscapeSpace(String str) {
-        return str.replace(HanziToPinyin.Token.SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("[", "(").replace("]", ")").replace(ETAG.ITEM_SEPARATOR, "|");
+        return str.replace(" ", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("[", "(").replace("]", ")").replace(ETAG.ITEM_SEPARATOR, "|");
     }
 }

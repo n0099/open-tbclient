@@ -13,14 +13,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public final class c extends a {
-    private ActivityManager St;
-    private int Su;
+    private ActivityManager akJ;
+    private int akK;
 
     public c(Context context) {
         super(context);
-        this.St = null;
-        this.Su = -100;
-        this.St = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.akJ = null;
+        this.akK = -100;
+        this.akJ = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
     }
 
     private static Map<String, Object> a(ActivityManager.ProcessErrorStateInfo processErrorStateInfo, String str) {
@@ -51,16 +51,16 @@ public final class c extends a {
             hashMap.put("processId", Integer.valueOf(processErrorStateInfo.pid));
             hashMap.put("processName", processErrorStateInfo.processName);
             hashMap.put("time", Long.valueOf(System.currentTimeMillis()));
-            hashMap.put("threadList", com.baidu.crabsdk.b.s.om());
+            hashMap.put("threadList", com.baidu.crabsdk.b.s.sG());
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("封装anr数据失败!", e);
         }
         try {
-            byte[] cv = i.cv(str);
-            if (cv == null || cv.length <= 0) {
+            byte[] dq = i.dq(str);
+            if (dq == null || dq.length <= 0) {
                 com.baidu.crabsdk.c.a.w("read trace file error! " + str);
             } else {
-                hashMap.put(Config.TRACE_PART, Base64.encodeToString(cv, 0));
+                hashMap.put(Config.TRACE_PART, Base64.encodeToString(dq, 0));
             }
         } catch (Exception e2) {
             com.baidu.crabsdk.c.a.f("wrap trace to anrRecord error!", e2);
@@ -72,33 +72,33 @@ public final class c extends a {
 
     private boolean h(String str) {
         try {
-            ActivityManager.ProcessErrorStateInfo ov = ov();
-            if (ov == null) {
+            ActivityManager.ProcessErrorStateInfo sP = sP();
+            if (sP == null) {
                 return false;
             }
-            if (ov.pid == Process.myPid()) {
-                com.baidu.crabsdk.c.a.cj("anr info catched...");
-                Map<String, Object> a = a(ov, str);
+            if (sP.pid == Process.myPid()) {
+                com.baidu.crabsdk.c.a.de("anr info catched...");
+                Map<String, Object> a = a(sP, str);
                 if (com.baidu.crabsdk.a.P != null) {
                     com.baidu.crabsdk.a.P.onAnrStarted(a);
                 }
-                Map<String, Object> a2 = g.a(this.Sq, (Throwable) null, false);
+                Map<String, Object> a2 = g.a(this.akH, (Throwable) null, false);
                 if (a2 == null) {
-                    com.baidu.crabsdk.c.a.ck("info map is null!");
+                    com.baidu.crabsdk.c.a.df("info map is null!");
                     return true;
                 }
                 a2.putAll(a);
                 g.b(a2);
-                i.a(this.Sq, i.g(a2));
+                i.a(this.akH, i.d(a2));
                 h.ag();
-                if (h.oy()) {
-                    com.baidu.crabsdk.c.a.cj("begin to upload anr info...");
-                    k.a(false, this.Sq);
+                if (h.sS()) {
+                    com.baidu.crabsdk.c.a.de("begin to upload anr info...");
+                    k.a(false, this.akH);
                 }
             } else {
-                com.baidu.crabsdk.c.a.cj("Anr occur! But not the current pid!" + Process.myPid());
+                com.baidu.crabsdk.c.a.de("Anr occur! But not the current pid!" + Process.myPid());
             }
-            com.baidu.crabsdk.c.a.cj("getLogcatErrorInfo return true");
+            com.baidu.crabsdk.c.a.de("getLogcatErrorInfo return true");
             return true;
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("getLogcatErrorInfo error!", e);
@@ -109,9 +109,9 @@ public final class c extends a {
         }
     }
 
-    private ActivityManager.ProcessErrorStateInfo ov() {
+    private ActivityManager.ProcessErrorStateInfo sP() {
         try {
-            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.St.getProcessesInErrorState();
+            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.akJ.getProcessesInErrorState();
             if (processesInErrorState != null) {
                 for (ActivityManager.ProcessErrorStateInfo processErrorStateInfo : processesInErrorState) {
                     if (processErrorStateInfo.condition == 2) {
@@ -127,10 +127,10 @@ public final class c extends a {
 
     @Override // com.baidu.crabsdk.sender.a
     public final void e(String str) {
-        if (this.Su != Process.myPid()) {
-            this.Su = Process.myPid();
+        if (this.akK != Process.myPid()) {
+            this.akK = Process.myPid();
             try {
-                com.baidu.crabsdk.c.a.cj("anr trace logic thread.");
+                com.baidu.crabsdk.c.a.de("anr trace logic thread.");
                 boolean h = h(str);
                 long nanoTime = System.nanoTime();
                 while (!h) {
@@ -141,7 +141,7 @@ public final class c extends a {
                     }
                     h = h(str);
                     if ((System.nanoTime() - nanoTime) / TimeUtils.NANOS_PER_MS > 30000) {
-                        com.baidu.crabsdk.c.a.ck("anr trace logic timeout!");
+                        com.baidu.crabsdk.c.a.df("anr trace logic timeout!");
                         return;
                     }
                 }

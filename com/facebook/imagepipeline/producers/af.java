@@ -10,9 +10,9 @@ public interface af<FETCH_STATE extends t> {
 
     /* loaded from: classes12.dex */
     public interface a {
-        void C(Throwable th);
+        void G(Throwable th);
 
-        void dlc();
+        void dmV();
 
         void g(InputStream inputStream, int i) throws IOException;
     }

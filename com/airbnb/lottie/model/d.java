@@ -6,9 +6,9 @@ import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes6.dex */
 public class d {
-    private final char hB;
-    private final String hC;
-    private final double hr;
+    private final double CU;
+    private final char De;
+    private final String Df;
     private final List<j> shapes;
     private final String style;
     private final double width;
@@ -19,14 +19,14 @@ public class d {
 
     public d(List<j> list, char c, double d, double d2, String str, String str2) {
         this.shapes = list;
-        this.hB = c;
-        this.hr = d;
+        this.De = c;
+        this.CU = d;
         this.width = d2;
         this.style = str;
-        this.hC = str2;
+        this.Df = str2;
     }
 
-    public List<j> cj() {
+    public List<j> hG() {
         return this.shapes;
     }
 
@@ -35,6 +35,6 @@ public class d {
     }
 
     public int hashCode() {
-        return a(this.hB, this.hC, this.style);
+        return a(this.De, this.Df, this.style);
     }
 }

@@ -25,13 +25,13 @@ public class c implements b<String> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.uuid.a.b
-    /* renamed from: agM */
+    /* renamed from: aoS */
     public String get() {
         return PreferenceManager.getDefaultSharedPreferences(this.mContext).getString("uuid_identity", null);
     }
 
     @Override // com.baidu.swan.uuid.a.b
-    public boolean awm() {
+    public boolean aEx() {
         return TextUtils.isEmpty(get());
     }
 }

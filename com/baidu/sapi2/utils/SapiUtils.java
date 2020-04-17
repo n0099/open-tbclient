@@ -45,7 +45,6 @@ import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.account.contants.LoginConstants;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -784,7 +783,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
                 } else {
                     hashMap2.put("islogin", "1");
                 }
-                hashMap2.put("client", PraiseDataPassUtil.KEY_FROM_OS);
+                hashMap2.put("client", "android");
                 r.a(r.a, hashMap2);
             }
             return urlParamsToMap;

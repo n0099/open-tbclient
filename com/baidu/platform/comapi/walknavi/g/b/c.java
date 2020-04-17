@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.baidu.ar.auth.FeatureCodes;
+import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.model.LatLng;
@@ -127,18 +129,18 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
         this.m = aVar;
         this.o = new ad(context, view);
         b(view);
-        this.H = (RelativeLayout) view.findViewById(R.raw.par_red_heart);
-        this.I = (RelativeLayout) view.findViewById(R.raw.par_snow_002);
-        this.G = (RelativeLayout) view.findViewById(R.raw.par_swirl);
+        this.H = (RelativeLayout) view.findViewById(2131165276);
+        this.I = (RelativeLayout) view.findViewById(2131165280);
+        this.G = (RelativeLayout) view.findViewById(2131165285);
         a(this.G);
-        this.J = (ImageView) view.findViewById(R.raw.par_snow_w_002);
+        this.J = (ImageView) view.findViewById(2131165281);
         if (com.baidu.platform.comapi.walknavi.b.a().l() != null && (imageToNormal = com.baidu.platform.comapi.walknavi.b.a().l().getImageToNormal()) != null) {
             this.J.setImageBitmap(imageToNormal);
         }
         this.J.setOnClickListener(new com.baidu.platform.comapi.walknavi.g.b.d(this));
-        this.K = (ImageView) view.findViewById(R.raw.par_star_burst);
+        this.K = (ImageView) view.findViewById(2131165282);
         a(view);
-        this.L = (ImageView) view.findViewById(R.raw.par_snow_001);
+        this.L = (ImageView) view.findViewById(2131165279);
         if (com.baidu.platform.comapi.walknavi.b.a().b()) {
             this.L.setVisibility(0);
             if (com.baidu.platform.comapi.walknavi.b.a().l() != null && (imageToAR = com.baidu.platform.comapi.walknavi.b.a().l().getImageToAR()) != null) {
@@ -148,24 +150,24 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
             this.L.setVisibility(8);
         }
         this.L.setOnClickListener(new r(this));
-        this.p = (RelativeLayout) view.findViewById(R.raw.par_sakula);
+        this.p = (RelativeLayout) view.findViewById(2131165277);
         if (com.baidu.platform.comapi.walknavi.b.a().r() != com.baidu.platform.comapi.walknavi.b.a) {
         }
-        this.q = (ImageButton) view.findViewById(R.raw.par_snow);
+        this.q = (ImageButton) view.findViewById(2131165278);
         this.q.setOnClickListener(new w(this));
-        this.y = (RelativeLayout) view.findViewById(R.raw.par_magic_in_001);
-        this.C = (ImageButton) view.findViewById(R.raw.par_magic_in_snow);
+        this.y = (RelativeLayout) view.findViewById(2131165269);
+        this.C = (ImageButton) view.findViewById(2131165272);
         this.C.setOnClickListener(new x(this));
-        this.B = (RelativeLayout) view.findViewById(R.raw.par_magic_in_003);
+        this.B = (RelativeLayout) view.findViewById(2131165271);
         this.B.setOnClickListener(new y(this));
-        this.A = (TextView) view.findViewById(R.raw.par_rain);
+        this.A = (TextView) view.findViewById(2131165275);
         this.D = true;
         this.A.setOnClickListener(new z(this));
-        this.z = (ImageButton) view.findViewById(R.raw.par_nuclues);
-        this.F = (RelativeLayout) view.findViewById(R.raw.par_minnie);
+        this.z = (ImageButton) view.findViewById(2131165274);
+        this.F = (RelativeLayout) view.findViewById(2131165273);
         this.F.setOnClickListener(this.ag);
         this.z.setOnClickListener(this.ag);
-        this.N = view.findViewById(R.raw.par_star_shine);
+        this.N = view.findViewById(2131165284);
         this.N.setOnClickListener(new aa(this));
     }
 
@@ -178,7 +180,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     private void a(View view) {
-        this.k = (FrameLayout) view.findViewById(R.raw.par_doctor_magic_particle);
+        this.k = (FrameLayout) view.findViewById(R.raw.sapi_camera_too_far);
     }
 
     private void a(String str, String str2) {
@@ -207,9 +209,9 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
             } else if (com.baidu.platform.comapi.wnplatform.a.a().c() && baseNpcModel.isLoadFromLocal()) {
                 a(baseNpcModel.getDownLoadKey(), baseNpcModel.getLocalPath());
             } else if (!NetworkUtil.isNetworkAvailable(this.l)) {
-                Toast.makeText(this.l, (int) R.string.permission_name_camera, 0).show();
+                Toast.makeText(this.l, (int) R.string.abc_font_family_body_2_material, 0).show();
             } else if (!NetworkUtil.isWifiState(this.l)) {
-                a(baseNpcModel.getDownLoadKey(), com.baidu.platform.comapi.wnplatform.o.a.a.b(this.l, R.string.str_danmu_hint1), 4);
+                a(baseNpcModel.getDownLoadKey(), com.baidu.platform.comapi.wnplatform.o.a.a.b(this.l, R.string.abc_font_family_body_1_material), 4);
             } else {
                 a(baseNpcModel.getDownLoadKey(), new ac(this, baseNpcModel));
             }
@@ -266,12 +268,12 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     private void b(View view) {
-        this.ac = view.findViewById(R.raw.par_heart);
-        this.aa = view.findViewById(R.raw.par_magic);
-        this.ab = view.findViewById(R.raw.par_heart_1);
-        this.ad = (TextView) view.findViewById(R.raw.par_magic_in);
-        this.ae = (ImageView) view.findViewById(R.raw.par_jason_flash);
-        this.af = (TextView) view.findViewById(R.raw.par_little_flame);
+        this.ac = view.findViewById(R.raw.shake_tone);
+        this.aa = view.findViewById(2131165267);
+        this.ab = view.findViewById(R.raw.sweep);
+        this.ad = (TextView) view.findViewById(2131165268);
+        this.ae = (ImageView) view.findViewById(R.raw.tnconfig);
+        this.af = (TextView) view.findViewById(2131165266);
     }
 
     public void a(int i) {
@@ -280,19 +282,19 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     private void a(RelativeLayout relativeLayout) {
-        this.c = (CheckBox) relativeLayout.findViewById(R.raw.release_date);
+        this.c = (CheckBox) relativeLayout.findViewById(2131165288);
         this.c.setOnCheckedChangeListener(this);
         if (com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
             this.c.setClickable(false);
         }
-        this.d = (CheckBox) relativeLayout.findViewById(R.raw.rim_video_too_far);
+        this.d = (CheckBox) relativeLayout.findViewById(2131165291);
         this.d.setOnCheckedChangeListener(this);
-        this.g = relativeLayout.findViewById(R.raw.rim_video_put_face_round);
-        this.h = (ImageView) relativeLayout.findViewById(R.raw.rim_video_too_near);
+        this.g = relativeLayout.findViewById(2131165290);
+        this.h = (ImageView) relativeLayout.findViewById(2131165292);
         l();
-        this.e = (CheckBox) relativeLayout.findViewById(R.raw.sapi_camera_blink);
+        this.e = (CheckBox) relativeLayout.findViewById(2131165294);
         this.e.setOnCheckedChangeListener(this);
-        this.f = (Button) relativeLayout.findViewById(R.raw.sapi_camera_nod);
+        this.f = (Button) relativeLayout.findViewById(2131165296);
         this.f.setOnClickListener(new k(this));
     }
 
@@ -316,7 +318,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 MapStatus.Builder builder = new MapStatus.Builder();
                 builder.overlook(0.0f);
                 builder.zoom(19.0f);
-                builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f992top + i.winRound.bottom) / 2) - ((int) (0.0d - ((Math.abs(i.winRound.bottom - i.winRound.f992top) - 75) * 0.25d)))));
+                builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f999top + i.winRound.bottom) / 2) - ((int) (0.0d - ((Math.abs(i.winRound.bottom - i.winRound.f999top) - 75) * 0.25d)))));
                 com.baidu.mapapi.model.inner.Point K = com.baidu.platform.comapi.walknavi.b.a().K();
                 if (K != null) {
                     builder.target(new LatLng(K.getmPty(), K.getmPtx()));
@@ -331,7 +333,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     public void c() {
         if (this.T) {
-            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0146c(this));
+            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0170c(this));
             String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
             if (TextUtils.isEmpty(a2)) {
                 b(true);
@@ -347,10 +349,10 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0146c implements g.a {
+    public static class C0170c implements g.a {
         private WeakReference<com.baidu.platform.comapi.walknavi.g.b.b> a;
 
-        public C0146c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
+        public C0170c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
             this.a = null;
             this.a = new WeakReference<>(bVar);
         }
@@ -459,7 +461,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (compoundButton.getId() == R.raw.release_date) {
+        if (compoundButton.getId() == 2131165288) {
             if (com.baidu.platform.comapi.walknavi.b.a().J() != 4) {
                 com.baidu.platform.comapi.wnplatform.d.a.c("yang12", "onCheckedChanged:sound_check:" + z);
                 if (z) {
@@ -478,7 +480,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 WNaviTTSPlayer.pauseVoiceTTSOutput();
                 com.baidu.platform.comapi.walknavi.b.a().H().b("WALKNAVI_VOICE_ON_OFF", false);
             }
-        } else if (compoundButton.getId() == R.raw.rim_video_too_far) {
+        } else if (compoundButton.getId() == 2131165291) {
             com.baidu.platform.comapi.wnplatform.d.a.c("yang12", "onCheckedChanged:panocheck:" + z);
             if (z) {
                 com.baidu.platform.comapi.walknavi.b.a().H().b("WALKNAVI_STREET_POI_ON_OFF", true);
@@ -491,7 +493,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
             com.baidu.platform.comapi.walknavi.b.a().D().b(false);
             com.baidu.platform.comapi.wnplatform.k.a.a().a("streetPoi", 0);
             com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG");
-        } else if (compoundButton.getId() == R.raw.sapi_camera_blink) {
+        } else if (compoundButton.getId() == 2131165294) {
             if (z) {
                 com.baidu.platform.comapi.walknavi.b.a().H().b("WALKNAVI_THREED_MAP_ON_OFF", true);
                 d(true);
@@ -517,7 +519,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 builder.overlook(0.0f);
                 com.baidu.platform.comapi.walknavi.b.a().b(0);
             }
-            com.baidu.platform.comapi.walknavi.b.a().G().a(i, 1300);
+            com.baidu.platform.comapi.walknavi.b.a().G().a(i, FeatureCodes.VO);
         }
     }
 
@@ -660,7 +662,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     private void a(String str, b bVar) {
-        com.baidu.platform.comapi.wnplatform.k.a.a().a("arKey", str);
+        com.baidu.platform.comapi.wnplatform.k.a.a().a(ARConfigKey.OLD_AR_KEY, str);
         com.baidu.platform.comapi.walknavi.d.e.c().a(str, new q(this, bVar));
     }
 

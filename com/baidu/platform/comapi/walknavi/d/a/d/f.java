@@ -6,11 +6,11 @@ import com.baidu.platform.comapi.walknavi.d.a.d.b;
 public class f implements Runnable {
     final /* synthetic */ boolean a;
     final /* synthetic */ h b;
-    final /* synthetic */ b.C0144b c;
+    final /* synthetic */ b.C0168b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(b.C0144b c0144b, boolean z, h hVar) {
-        this.c = c0144b;
+    public f(b.C0168b c0168b, boolean z, h hVar) {
+        this.c = c0168b;
         this.a = z;
         this.b = hVar;
     }

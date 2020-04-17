@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.webkit.CookieManager;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -227,11 +226,11 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getConnectTimeout() {
-        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        return 15000;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public int getReadTimeout() {
-        return BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        return 15000;
     }
 }

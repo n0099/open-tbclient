@@ -1,51 +1,54 @@
 package com.baidu.live.data;
 
-import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.f;
-import com.baidu.live.tbadk.core.data.BaseData;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ak extends BaseData {
-    public int acH;
-    public ArrayList<f> acI = new ArrayList<>();
+public class ak {
+    public String auI;
+    public String auJ;
+    public JSONObject auK;
+    public JSONObject auL;
+    public JSONObject auM;
+    public JSONObject auN;
+    public String auO;
+    public String auP;
+    public int auQ;
+    public String auR;
+    public int auS;
+    public int auT;
+    public int auU;
+    public int auV;
+    public String auW;
+    public String auX;
 
-    @Override // com.baidu.live.tbadk.core.data.BaseData
-    public void parserJson(JSONObject jSONObject) {
-        f.a aVar;
-        JSONArray optJSONArray;
+    public ak(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject != null) {
-                    this.acH = optJSONObject.optInt("interval");
-                }
-                if (this.acH <= 0) {
-                    this.acH = 5;
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("im_rate");
-                if (optJSONObject2 == null) {
-                    aVar = null;
-                } else {
-                    aVar = new f.a(optJSONObject2);
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("live_activity_new");
-                long optLong = jSONObject.optLong("time", 0L);
-                if (optJSONObject3 != null && (optJSONArray = optJSONObject3.optJSONArray("activity_info")) != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject4 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject4 != null) {
-                            f fVar = new f();
-                            fVar.a(aVar);
-                            fVar.parseJson(optJSONObject4);
-                            fVar.serverTime = optLong;
-                            this.acI.add(fVar);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+            this.auQ = jSONObject.optInt("join_amount");
+            this.auI = jSONObject.optString("guard_club_category");
+            this.auJ = jSONObject.optString("guard_club_gift_type");
+            this.auK = jSONObject.optJSONObject("club_level_icon_large");
+            this.auL = jSONObject.optJSONObject("club_level_icon_small");
+            this.auM = jSONObject.optJSONObject("member_level_icon");
+            this.auN = jSONObject.optJSONObject("level_discount");
+            JSONObject optJSONObject = jSONObject.optJSONObject("join_club_remind");
+            if (optJSONObject != null) {
+                this.auO = optJSONObject.optString("to_join");
+                this.auP = optJSONObject.optString("has_join");
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("join_club_guide");
+            if (optJSONObject2 != null) {
+                this.auR = optJSONObject2.optString("guide_text");
+                this.auS = optJSONObject2.optInt("show_times_daily");
+                this.auT = optJSONObject2.optInt("continue_show_times");
+                this.auU = optJSONObject2.optInt("condition");
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("attenuat_conf");
+            if (optJSONObject3 != null) {
+                this.auV = optJSONObject3.optInt("show_times_daily");
+            }
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("tips_img");
+            if (optJSONObject4 != null) {
+                this.auW = optJSONObject4.optString("attenuat_tip_img");
+                this.auX = optJSONObject4.optString("quit_tip_img");
             }
         }
     }

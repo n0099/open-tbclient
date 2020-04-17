@@ -19,8 +19,8 @@ import com.baidu.tieba.barselect.a.a;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes8.dex */
 public class AnnounceLayout extends CardBasicLayout {
-    private float diU;
-    private TextView fGE;
+    private float dIN;
+    private TextView glj;
     private Context mContext;
 
     public AnnounceLayout(Context context) {
@@ -29,7 +29,7 @@ public class AnnounceLayout extends CardBasicLayout {
 
     public AnnounceLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.diU = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds90) * 2);
+        this.dIN = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds90) * 2);
         initUI();
     }
 
@@ -41,53 +41,53 @@ public class AnnounceLayout extends CardBasicLayout {
         setGravity(17);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.announce_layout, (ViewGroup) this, true);
-        ns();
+        rL();
     }
 
-    private void ns() {
-        this.fGE = (TextView) findViewById(R.id.announce_content);
+    private void rL() {
+        this.glj = (TextView) findViewById(R.id.announce_content);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.fDc == null || this.fGM == null || this.status < 0) {
+        if (this.ghD == null || this.glr == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        if (this.status == a.fHb) {
-            this.diU = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds120) * 2);
+        if (this.status == a.glG) {
+            this.dIN = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds120) * 2);
         }
-        if (this.status == a.fHc || this.status == a.fHd) {
-            this.diU = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds96) * 2);
+        if (this.status == a.glH || this.status == a.glI) {
+            this.dIN = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds96) * 2);
         }
-        a(new SpannableStringBuilder(this.fGM.bud()));
+        a(new SpannableStringBuilder(this.glr.bDO()));
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder) {
         float f;
         if (spannableStringBuilder == null || TextUtils.isEmpty(spannableStringBuilder.toString())) {
-            this.fGE.setText(TbadkCoreApplication.getInst().getString(R.string.empty_announce));
-        } else if (!v.a(this.diU, this.fGE.getPaint(), spannableStringBuilder.toString(), 2)) {
-            this.fGE.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+            this.glj.setText(TbadkCoreApplication.getInst().getString(R.string.empty_announce));
+        } else if (!v.a(this.dIN, this.glj.getPaint(), spannableStringBuilder.toString(), 2)) {
+            this.glj.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
         } else {
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(StringHelper.STRING_MORE);
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.detail));
             spannableStringBuilder3.setSpan(new com.baidu.tbadk.widget.richText.f(2, null) { // from class: com.baidu.tieba.barselect.segment.AnnounceLayout.1
             }, 0, spannableStringBuilder3.length(), 17);
             spannableStringBuilder2.append((CharSequence) spannableStringBuilder3);
-            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.fGE.getPaint(), (int) this.diU, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            float f2 = this.diU;
+            StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), this.glj.getPaint(), (int) this.dIN, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            float f2 = this.dIN;
             if (staticLayout.getLineCount() >= 2) {
                 spannableStringBuilder.delete(staticLayout.getLineEnd(1), spannableStringBuilder.length());
-                f = this.diU - staticLayout.getLineWidth(1);
+                f = this.dIN - staticLayout.getLineWidth(1);
             } else {
                 f = f2;
             }
             CharSequence subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - 2, spannableStringBuilder.length());
-            float measureText = this.fGE.getPaint().measureText(spannableStringBuilder3.toString());
+            float measureText = this.glj.getPaint().measureText(spannableStringBuilder3.toString());
             int i = 2;
-            while (measureText > this.fGE.getPaint().measureText(subSequence.toString()) + f) {
+            while (measureText > this.glj.getPaint().measureText(subSequence.toString()) + f) {
                 i++;
                 if (spannableStringBuilder.length() - i < 0) {
                     break;
@@ -97,7 +97,7 @@ public class AnnounceLayout extends CardBasicLayout {
             if (spannableStringBuilder.length() - i > 0) {
                 spannableStringBuilder.replace(spannableStringBuilder.length() - i, spannableStringBuilder.length(), (CharSequence) spannableStringBuilder2);
             }
-            this.fGE.setText(spannableStringBuilder);
+            this.glj.setText(spannableStringBuilder);
         }
     }
 }

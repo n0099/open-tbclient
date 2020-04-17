@@ -9,34 +9,34 @@ import com.baidu.swan.apps.res.widget.dialog.g;
 import com.baidu.swan.apps.runtime.e;
 /* loaded from: classes11.dex */
 public class a {
-    private static boolean bjU;
+    private static boolean bIc;
 
     public static void i(Context context, boolean z) {
-        final e acI = e.acI();
-        if (acI != null) {
-            b.ch(z);
-            new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).kI(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.c.a()).dE(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
+        final e akN = e.akN();
+        if (akN != null) {
+            b.dd(z);
+            new g.a(context).e(context.getString(a.h.aiapps_debug_switch_title)).lV(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.c.a()).eA(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    SwanAppActivity acE = e.this.acE();
-                    if (acE != null && Build.VERSION.SDK_INT >= 21) {
-                        acE.finishAndRemoveTask();
+                    SwanAppActivity akJ = e.this.akJ();
+                    if (akJ != null && Build.VERSION.SDK_INT >= 21) {
+                        akJ.finishAndRemoveTask();
                     }
                     System.exit(0);
                 }
-            }).acs();
+            }).akx();
         }
     }
 
-    public static void bQ(Context context) {
-        i(context, !Lu());
+    public static void bE(Context context) {
+        i(context, !Ti());
     }
 
-    public static boolean Lu() {
-        return bjU;
+    public static boolean Ti() {
+        return bIc;
     }
 
-    public static void cg(boolean z) {
-        bjU = z;
+    public static void dc(boolean z) {
+        bIc = z;
     }
 }

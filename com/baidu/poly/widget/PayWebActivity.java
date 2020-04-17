@@ -23,7 +23,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 /* loaded from: classes11.dex */
 public class PayWebActivity extends Activity {
-    private Bundle aSu;
+    private Bundle bow;
     private ImageView i;
     private boolean j;
     private String k;
@@ -46,7 +46,7 @@ public class PayWebActivity extends Activity {
         Intent intent = getIntent();
         if (intent != null) {
             this.k = intent.getStringExtra("load_url");
-            this.aSu = intent.getBundleExtra("launch_payment_data");
+            this.bow = intent.getBundleExtra("launch_payment_data");
         }
     }
 
@@ -69,7 +69,7 @@ public class PayWebActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean eR(String str) {
+    public boolean fM(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -122,7 +122,7 @@ public class PayWebActivity extends Activity {
         super.onResume();
         if (this.j) {
             Intent intent = new Intent();
-            intent.putExtras(this.aSu);
+            intent.putExtras(this.bow);
             setResult(-1, intent);
             finish();
         }
@@ -156,7 +156,7 @@ public class PayWebActivity extends Activity {
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-            return PayWebActivity.this.eR(str);
+            return PayWebActivity.this.fM(str);
         }
 
         @Override // android.webkit.WebViewClient
@@ -168,7 +168,7 @@ public class PayWebActivity extends Activity {
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                return PayWebActivity.this.eR(uri);
+                return PayWebActivity.this.fM(uri);
             }
             return true;
         }

@@ -3,62 +3,62 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public abstract class f<E> extends g<E> {
-    protected static final int nUG = Integer.getInteger("sparse.shift", 0).intValue();
-    private static final long nUH;
-    private static final int nUI;
-    protected final E[] nDM;
-    protected final long nUJ;
+    protected static final int noo = Integer.getInteger("sparse.shift", 0).intValue();
+    private static final long nop;
+    private static final int noq;
+    protected final E[] mXl;
+    protected final long nor;
 
     static {
-        int Q = ae.nUR.Q(Object[].class);
+        int Q = ae.noB.Q(Object[].class);
         if (4 == Q) {
-            nUI = nUG + 2;
+            noq = noo + 2;
         } else if (8 == Q) {
-            nUI = nUG + 3;
+            noq = noo + 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        nUH = ae.nUR.R(Object[].class) + (32 << (nUI - nUG));
+        nop = ae.noB.R(Object[].class) + (32 << (noq - noo));
     }
 
     public f(int i) {
-        int NG = h.NG(i);
-        this.nUJ = NG - 1;
-        this.nDM = (E[]) new Object[(NG << nUG) + 64];
+        int Ja = h.Ja(i);
+        this.nor = Ja - 1;
+        this.mXl = (E[]) new Object[(Ja << noo) + 64];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final long hu(long j) {
-        return al(j, this.nUJ);
+    public final long gv(long j) {
+        return T(j, this.nor);
     }
 
-    protected final long al(long j, long j2) {
-        return nUH + ((j & j2) << nUI);
+    protected final long T(long j, long j2) {
+        return nop + ((j & j2) << noq);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(E[] eArr, long j, E e) {
-        ae.nUR.a(eArr, j, e);
+        ae.noB.a(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(E[] eArr, long j, E e) {
-        ae.nUR.b(eArr, j, e);
+        ae.noB.b(eArr, j, e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E a(E[] eArr, long j) {
-        return (E) ae.nUR.b(eArr, j);
+        return (E) ae.noB.c(eArr, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final E hv(long j) {
-        return b(this.nDM, j);
+    public final E gw(long j) {
+        return b(this.mXl, j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final E b(E[] eArr, long j) {
-        return (E) ae.nUR.c(eArr, j);
+        return (E) ae.noB.d(eArr, j);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable

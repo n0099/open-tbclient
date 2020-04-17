@@ -40,7 +40,6 @@ import android.webkit.URLUtil;
 import android.webkit.ValueCallback;
 import android.widget.AbsoluteLayout;
 import com.a.a.a.a.a.a.a;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.Statistics;
 import com.baidu.webkit.internal.f;
@@ -785,7 +784,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public WebView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, Resources.getSystem().getIdentifier("webViewStyle", "attr", PraiseDataPassUtil.KEY_FROM_OS));
+        this(context, attributeSet, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"));
     }
 
     public WebView(Context context, AttributeSet attributeSet, int i) {
@@ -817,7 +816,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public WebView(Context context, boolean z) {
-        super(context, null, Resources.getSystem().getIdentifier("webViewStyle", "attr", PraiseDataPassUtil.KEY_FROM_OS));
+        super(context, null, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"));
         this.mSetOverScrollModeBeforeProviderReady = -1;
         this.mDestroyed = false;
         this.mOnViewHierarchy = true;

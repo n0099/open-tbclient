@@ -1,6 +1,6 @@
 package com.xiaomi.push;
 
-import com.baidu.live.adp.framework.MessageConfig;
+import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes8.dex */
 public enum fb {
@@ -22,7 +22,7 @@ public enum fb {
     GSLB_TCP_UKNOWNHOST(Constants.REQUEST_SHARE_TO_TROOP_BAR),
     GSLB_TCP_ERR_OTHER(10199),
     GSLB_ERR(10999),
-    CONN_SUCCESS(MessageConfig.SOCKET_TIME_OUT_MS_2G),
+    CONN_SUCCESS(20000),
     CONN_TCP_NOACCESS(20101),
     CONN_TCP_NETUNREACH(20102),
     CONN_TCP_CONNREFUSED(20103),
@@ -58,14 +58,14 @@ public enum fb {
     CHANNEL_BOSH_ITEMNOTFIND(40401),
     CHANNEL_BOSH_EXCEPTION(40499),
     CHANNEL_TIMER_DELAYED(50001),
-    CHANNEL_STATS_COUNTER(8000);
+    CHANNEL_STATS_COUNTER(CoolPraiseGuideLottieView.ANIM_DURATION);
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f334a;
+    private final int f335a;
 
     fb(int i) {
-        this.f334a = i;
+        this.f335a = i;
     }
 
     public static fb a(int i) {
@@ -86,7 +86,7 @@ public enum fb {
                 return ICMP_PING_OK;
             case 8:
                 return CHANNEL_ONLINE_RATE;
-            case 8000:
+            case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
                 return CHANNEL_STATS_COUNTER;
             case 10000:
                 return GSLB_REQUEST_SUCCESS;
@@ -108,7 +108,7 @@ public enum fb {
                 return GSLB_TCP_ERR_OTHER;
             case 10999:
                 return GSLB_ERR;
-            case MessageConfig.SOCKET_TIME_OUT_MS_2G /* 20000 */:
+            case 20000:
                 return CONN_SUCCESS;
             case 20101:
                 return CONN_TCP_NOACCESS;
@@ -186,6 +186,6 @@ public enum fb {
     }
 
     public int a() {
-        return this.f334a;
+        return this.f335a;
     }
 }

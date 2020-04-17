@@ -1,30 +1,25 @@
 package com.baidu.b.a;
 
-import android.text.TextUtils;
-/* loaded from: classes12.dex */
+import android.content.Context;
+import com.baidu.adp.lib.util.h;
+import com.baidu.b.a.b.b;
+import com.baidu.b.a.b.c;
+import com.baidu.b.a.b.d;
+/* loaded from: classes13.dex */
 public class a {
-    private static a Qy;
-    private String mAppName;
+    private static boolean alk;
+    private static boolean alm;
 
-    private a() {
+    public static void init(Context context) {
+        alk = h.ml().loadLibrary("criusbase", 2);
+        alm = h.ml().loadLibrary("crius", 2);
     }
 
-    public static a nO() {
-        if (Qy == null) {
-            synchronized (a.class) {
-                if (Qy == null) {
-                    Qy = new a();
-                }
-            }
-        }
-        return Qy;
+    public static void a(b bVar) {
+        com.baidu.b.a.b.a.sX().b(bVar);
     }
 
-    public void setAppName(String str) {
-        this.mAppName = str;
-    }
-
-    public String getAppName() {
-        return !TextUtils.isEmpty(this.mAppName) ? this.mAppName : b.nP().getAppName();
+    public static void a(c cVar) {
+        d.sY().b(cVar);
     }
 }

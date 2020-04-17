@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaGetRankListResponseMessage extends JsonHttpResponsedMessage {
-    public ArrayList<g> eke;
-    public long fpP;
+    public ArrayList<g> eJQ;
+    public long fUk;
 
     public AlaGetRankListResponseMessage() {
         super(1021068);
@@ -20,15 +20,15 @@ public class AlaGetRankListResponseMessage extends JsonHttpResponsedMessage {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("data");
             if (optJSONArray != null) {
-                this.eke = new ArrayList<>();
+                this.eJQ = new ArrayList<>();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
                     g gVar = new g();
                     gVar.parserJson(optJSONObject);
-                    this.eke.add(gVar);
+                    this.eJQ.add(gVar);
                 }
             }
-            this.fpP = jSONObject.optLong("flower_reset_time", 0L);
+            this.fUk = jSONObject.optLong("flower_reset_time", 0L);
         }
     }
 }

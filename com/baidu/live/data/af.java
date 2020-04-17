@@ -1,29 +1,29 @@
 package com.baidu.live.data;
 
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class af {
-    public long abV;
-    public int abW;
-    public long createTime;
-    public String eventDesc;
-    public int eventType;
-    public long id;
-    public long liveId;
-    public long sendTime;
-    public long updateTime;
+    public List<ae> auf;
+    public String liveId;
 
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.id = jSONObject.optLong("id");
-            this.eventType = jSONObject.optInt("event_type");
-            this.abV = jSONObject.optLong("sender_uid");
-            this.liveId = jSONObject.optLong("live_id");
-            this.eventDesc = jSONObject.optString("event_desc");
-            this.createTime = jSONObject.optLong("create_time");
-            this.updateTime = jSONObject.optLong("update_time");
-            this.sendTime = jSONObject.optLong("send_time");
-            this.abW = jSONObject.optInt("send_flag");
+            this.liveId = jSONObject.optString("live_id");
+            JSONArray optJSONArray = jSONObject.optJSONArray("list");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                this.auf = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        ae aeVar = new ae();
+                        aeVar.parserJson(optJSONObject);
+                        this.auf.add(aeVar);
+                    }
+                }
+            }
         }
     }
 }

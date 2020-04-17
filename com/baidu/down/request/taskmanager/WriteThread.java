@@ -9,7 +9,6 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.task.AbstractTask;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.down.utils.Utils;
-import com.google.android.exoplayer2.Format;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -180,7 +179,7 @@ public class WriteThread implements Runnable {
                 abstractTask.mWriteFileLastTime = System.currentTimeMillis();
             }
             return abstractTask.mTaskHandler.mSupportRange && abstractTask.mProgressInfo.getCurrentLength() >= abstractTask.mTotalLength;
-        } else if (abstractTask.mTotalLength == Format.OFFSET_SAMPLE_RELATIVE) {
+        } else if (abstractTask.mTotalLength == Long.MAX_VALUE) {
             abstractTask.mTotalLength = byteArrayInfo.mFilePos;
             return true;
         } else {

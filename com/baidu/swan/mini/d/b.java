@@ -12,22 +12,22 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cAO = new a();
+    private a cZM = new a();
 
-    public void M(int i, @Nullable String str) {
-        this.cAO.record(i, str);
+    public void ad(int i, @Nullable String str) {
+        this.cZM.record(i, str);
     }
 
     public void m(@NonNull String str, int i, @Nullable String str2) {
-        this.cAO.l(str, i, str2);
+        this.cZM.l(str, i, str2);
     }
 
-    public void f(@NonNull final String str, @Nullable final Map<String, String> map) {
+    public void g(@NonNull final String str, @Nullable final Map<String, String> map) {
         m.postOnComputation(new Runnable() { // from class: com.baidu.swan.mini.d.b.1
             @Override // java.lang.Runnable
             public void run() {
-                JSONArray qj = b.this.cAO.qj(str);
-                if (qj != null) {
+                JSONArray rw = b.this.cZM.rw(str);
+                if (rw != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put("from", "swan");
@@ -37,9 +37,9 @@ public class b {
                                 jSONObject2.put(str2, map.get(str2));
                             }
                         }
-                        jSONObject2.put("info", qj);
+                        jSONObject2.put("info", rw);
                         jSONObject.put("ext", jSONObject2);
-                        b.this.j("1181", jSONObject);
+                        b.this.k("1181", jSONObject);
                     } catch (Exception e) {
                         if (b.DEBUG) {
                             e.printStackTrace();
@@ -69,7 +69,7 @@ public class b {
                         jSONObject2.put("bundleId", str3);
                     }
                     jSONObject.put("ext", jSONObject2);
-                    b.this.j("1182", jSONObject);
+                    b.this.k("1182", jSONObject);
                 } catch (Exception e) {
                     if (b.DEBUG) {
                         e.printStackTrace();
@@ -80,14 +80,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void j(@NonNull final String str, @NonNull final JSONObject jSONObject) {
+    public void k(@NonNull final String str, @NonNull final JSONObject jSONObject) {
         m.postOnIO(new Runnable() { // from class: com.baidu.swan.mini.d.b.3
             @Override // java.lang.Runnable
             public void run() {
                 if (b.DEBUG) {
                     Log.i("MiniStatisticsProcessor", "SwanMiniUbc == type(" + str + "), content:" + jSONObject.toString());
                 }
-                s.k(str, jSONObject);
+                s.onEvent(str, jSONObject);
             }
         }, "SwanMiniUbcReport");
     }

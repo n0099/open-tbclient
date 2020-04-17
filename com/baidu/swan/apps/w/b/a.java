@@ -5,27 +5,27 @@ import com.baidu.swan.apps.adaptation.a.o;
 /* loaded from: classes11.dex */
 public abstract class a implements o {
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Ih() {
+    public String PT() {
         return "https://ossapi.baidu.com/pms";
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Iu() {
-        return com.baidu.swan.apps.w.a.UK().getHostName();
+    public String Qg() {
+        return com.baidu.swan.apps.w.a.acz().getHostName();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Iv() {
+    public String Qh() {
         return "https://ossapi.baidu.com/ma/landingpage?t=service_agreement_m";
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Iw() {
-        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/navigate", com.baidu.swan.apps.h.c.bjS));
+    public String Qi() {
+        return com.baidu.swan.apps.h.c.processCommonParams(String.format("%s/ma/navigate", com.baidu.swan.apps.h.c.bIa));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public boolean HY() {
+    public boolean PK() {
         return isDebug();
     }
 
@@ -35,55 +35,55 @@ public abstract class a implements o {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Ib() {
+    public String PN() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Ic() {
+    public String PO() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public void Id() {
+    public void PP() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public void Ie() {
+    public void PQ() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String bs(Context context) {
+    public String bg(Context context) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String If() {
+    public String PR() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Ig() {
+    public String PS() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Iq() {
+    public String Qc() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Ir() {
+    public String Qd() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public String Is() {
+    public String Qe() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.o
-    public boolean It() {
+    public boolean Qf() {
         return false;
     }
 }

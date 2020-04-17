@@ -41,8 +41,8 @@ import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -69,7 +69,6 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.account.contants.LoginConstants;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.webkit.internal.ETAG;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
@@ -779,7 +778,7 @@ public final class SapiWebView extends WebView {
 
     public String getUaInfo() {
         String encode = URLEncoder.encode("Sapi_8.8.8.2_Android_" + SapiUtils.getAppName(getContext()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + SapiUtils.getVersionName(getContext()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (!TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + (!TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "") + "_Sapi");
-        return (!j() || TextUtils.isEmpty(this.D.userAgent)) ? encode : encode + HanziToPinyin.Token.SEPARATOR + this.D.userAgent;
+        return (!j() || TextUtils.isEmpty(this.D.userAgent)) ? encode : encode + " " + this.D.userAgent;
     }
 
     String getUniteVerifyUrl() {
@@ -1433,7 +1432,7 @@ public final class SapiWebView extends WebView {
                                     } catch (Throwable th) {
                                         JSONObject jSONObject = new JSONObject();
                                         try {
-                                            jSONObject.put("errno", 0);
+                                            jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                                             jSONObject.put("msg", "native function error");
                                             strArr[0] = jSONObject.toString();
                                             LinkedHashMap linkedHashMap = new LinkedHashMap(1);
@@ -1611,7 +1610,7 @@ public final class SapiWebView extends WebView {
                 list = new ArrayList<>();
             }
             list.add(new PassNameValuePair("clientfrom", "native"));
-            list.add(new PassNameValuePair("client", PraiseDataPassUtil.KEY_FROM_OS));
+            list.add(new PassNameValuePair("client", "android"));
             list.add(new PassNameValuePair("deliverParams", "1"));
             if (this.D.supportFaceLogin) {
                 list.add(new PassNameValuePair("scanface", "1"));
@@ -1745,7 +1744,7 @@ public final class SapiWebView extends WebView {
         } catch (NullPointerException e2) {
             Log.e(e2);
         }
-        settings.setUserAgentString(settings.getUserAgentString() + HanziToPinyin.Token.SEPARATOR + getUaInfo());
+        settings.setUserAgentString(settings.getUserAgentString() + " " + getUaInfo());
         settings.setTextSize(WebSettings.TextSize.NORMAL);
         settings.setDomStorageEnabled(true);
         setScrollBarStyle(0);
@@ -2432,7 +2431,7 @@ public final class SapiWebView extends WebView {
                                 socialResponse.socialUname = newPullParser.nextText();
                             } else if (name.equalsIgnoreCase("os_headurl")) {
                                 socialResponse.socialPortraitUrl = newPullParser.nextText();
-                            } else if (name.equalsIgnoreCase("os_type")) {
+                            } else if (name.equalsIgnoreCase(HttpConstants.HTTP_OS_TYPE)) {
                                 socialResponse.socialType = SocialType.getSocialType(Integer.parseInt(newPullParser.nextText()));
                             } else if (name.equalsIgnoreCase("notice_offline")) {
                                 socialResponse.offlineNotice = "1".equals(newPullParser.nextText());
@@ -2549,7 +2548,7 @@ public final class SapiWebView extends WebView {
                                 sapiAccountResponse = new SapiAccountResponse();
                                 sapiAccountResponse.errorMsg = newPullParser.nextText();
                             } else if (sapiAccountResponse2 != null) {
-                                if (name.equalsIgnoreCase("errno")) {
+                                if (name.equalsIgnoreCase(BaseJsonData.TAG_ERRNO)) {
                                     sapiAccountResponse2.errorCode = Integer.parseInt(newPullParser.nextText());
                                 } else if (name.equalsIgnoreCase(BdStatsConstant.StatsKey.UNAME)) {
                                     sapiAccountResponse2.username = newPullParser.nextText();
@@ -2580,7 +2579,7 @@ public final class SapiWebView extends WebView {
                                     sapiAccountResponse = sapiAccountResponse2;
                                 } else if (name.equalsIgnoreCase("os_headurl")) {
                                     sapiAccountResponse2.socialPortraitUrl = newPullParser.nextText();
-                                } else if (name.equalsIgnoreCase("os_type")) {
+                                } else if (name.equalsIgnoreCase(HttpConstants.HTTP_OS_TYPE)) {
                                     sapiAccountResponse2.socialType = SocialType.getSocialType(Integer.parseInt(newPullParser.nextText()));
                                 } else if (name.equalsIgnoreCase("incomplete_user")) {
                                     String nextText = newPullParser.nextText();

@@ -14,7 +14,7 @@ public final class ObservableDebounceTimed<T> extends io.reactivex.internal.oper
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
-        this.source.subscribe(new a(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.dJI()));
+        this.source.subscribe(new a(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.dCG()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -25,7 +25,7 @@ public final class ObservableDebounceTimed<T> extends io.reactivex.internal.oper
         volatile long index;
         io.reactivex.disposables.b s;
         final long timeout;
-        io.reactivex.disposables.b timer;
+        final AtomicReference<io.reactivex.disposables.b> timer = new AtomicReference<>();
         final TimeUnit unit;
         final v.c worker;
 
@@ -47,15 +47,16 @@ public final class ObservableDebounceTimed<T> extends io.reactivex.internal.oper
         @Override // io.reactivex.u
         public void onNext(T t) {
             if (!this.done) {
-                long j = this.index + 1;
+                long j = 1 + this.index;
                 this.index = j;
-                io.reactivex.disposables.b bVar = this.timer;
+                io.reactivex.disposables.b bVar = this.timer.get();
                 if (bVar != null) {
                     bVar.dispose();
                 }
                 DebounceEmitter debounceEmitter = new DebounceEmitter(t, j, this);
-                this.timer = debounceEmitter;
-                debounceEmitter.setResource(this.worker.c(debounceEmitter, this.timeout, this.unit));
+                if (this.timer.compareAndSet(bVar, debounceEmitter)) {
+                    debounceEmitter.setResource(this.worker.c(debounceEmitter, this.timeout, this.unit));
+                }
             }
         }
 
@@ -64,10 +65,6 @@ public final class ObservableDebounceTimed<T> extends io.reactivex.internal.oper
             if (this.done) {
                 io.reactivex.e.a.onError(th);
                 return;
-            }
-            io.reactivex.disposables.b bVar = this.timer;
-            if (bVar != null) {
-                bVar.dispose();
             }
             this.done = true;
             this.actual.onError(th);
@@ -78,16 +75,15 @@ public final class ObservableDebounceTimed<T> extends io.reactivex.internal.oper
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                io.reactivex.disposables.b bVar = this.timer;
-                if (bVar != null) {
-                    bVar.dispose();
+                io.reactivex.disposables.b bVar = this.timer.get();
+                if (bVar != DisposableHelper.DISPOSED) {
+                    DebounceEmitter debounceEmitter = (DebounceEmitter) bVar;
+                    if (debounceEmitter != null) {
+                        debounceEmitter.run();
+                    }
+                    this.actual.onComplete();
+                    this.worker.dispose();
                 }
-                DebounceEmitter debounceEmitter = (DebounceEmitter) bVar;
-                if (debounceEmitter != null) {
-                    debounceEmitter.run();
-                }
-                this.actual.onComplete();
-                this.worker.dispose();
             }
         }
 

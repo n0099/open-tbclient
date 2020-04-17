@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class e extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.c.c> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String Tv() {
+    public String abk() {
         return "showConfirmBar";
     }
 
@@ -15,6 +15,6 @@ public class e extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.c.c> {
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.r.c.c cVar) {
         int i = command.arg1;
         a(cVar, command.what, "(keyboardHeight)" + i, true);
-        cVar.fb(i);
+        cVar.fg(i);
     }
 }

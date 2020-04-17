@@ -1,6 +1,7 @@
 package com.kascend.chushou.toolkit.a;
 
 import com.baidu.android.imsdk.utils.BaseUtils;
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.tencent.connect.common.Constants;
 import tv.chushou.zues.utils.h;
@@ -84,7 +85,7 @@ public class b {
                     break;
                 }
                 break;
-            case 1600:
+            case FeatureCodes.ADVANCE_BEAUTY /* 1600 */:
                 if (str.equals(Constants.VIA_REPORT_TYPE_DATALINE)) {
                     c = 16;
                     break;

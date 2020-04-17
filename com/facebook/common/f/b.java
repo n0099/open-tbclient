@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes13.dex */
 public class b extends FilterInputStream {
-    private final byte[] lKN;
-    private int lKO;
-    private int lKP;
+    private final byte[] lSh;
+    private int lSi;
+    private int lSj;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.lKN = bArr;
+        this.lSh = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : dlA();
+        return read != -1 ? read : dnu();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int dlA = dlA();
-                if (dlA == -1) {
+                int dnu = dnu();
+                if (dnu == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) dlA;
+                bArr[i + i3] = (byte) dnu;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.lKO = this.lKP;
+            this.lSi = this.lSj;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.lKP = this.lKO;
+            this.lSj = this.lSi;
         }
     }
 
-    private int dlA() {
-        if (this.lKO >= this.lKN.length) {
+    private int dnu() {
+        if (this.lSi >= this.lSh.length) {
             return -1;
         }
-        byte[] bArr = this.lKN;
-        int i = this.lKO;
-        this.lKO = i + 1;
+        byte[] bArr = this.lSh;
+        int i = this.lSi;
+        this.lSi = i + 1;
         return bArr[i] & 255;
     }
 }

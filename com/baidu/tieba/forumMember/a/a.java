@@ -17,7 +17,7 @@ public class a extends h<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aD */
+    /* renamed from: aH */
     public c b(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(R.layout.manito_item_header, (ViewGroup) null));
     }
@@ -31,7 +31,7 @@ public class a extends h<b, c> {
             am.setBackgroundColor(cVar.getView(), R.color.cp_bg_line_d);
             am.setViewTextColor(cVar.title, R.color.cp_cont_b, 1);
         }
-        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.bCB())));
+        cVar.title.setText(String.format(this.mContext.getResources().getString(R.string.forum_manito_num), Integer.valueOf(bVar.bNb())));
         cVar.mSkinType = this.mSkinType;
         return view;
     }

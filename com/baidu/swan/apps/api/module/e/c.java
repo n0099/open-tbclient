@@ -13,17 +13,17 @@ public class c extends com.baidu.swan.apps.api.a.c {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.b.b fm(String str) {
+    public com.baidu.swan.apps.api.b.b gA(String str) {
         if (DEBUG) {
             Log.d("Api-NavigationBar", "set navigation bar title");
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> aq = com.baidu.swan.apps.api.c.b.aq("Api-NavigationBar", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) aq.first;
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> az = com.baidu.swan.apps.api.c.b.az("Api-NavigationBar", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) az.first;
         if (!bVar.isSuccess()) {
             com.baidu.swan.apps.console.c.e("Api-NavigationBar", "parse fail");
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aq.second;
+        JSONObject jSONObject = (JSONObject) az.second;
         if (jSONObject == null) {
             com.baidu.swan.apps.console.c.e("Api-NavigationBar", "paramsJson is null");
             return new com.baidu.swan.apps.api.b.b(1001);
@@ -33,8 +33,8 @@ public class c extends com.baidu.swan.apps.api.a.c {
             com.baidu.swan.apps.console.c.e("Api-NavigationBar", "title is null");
             return new com.baidu.swan.apps.api.b.b(1001);
         }
-        com.baidu.swan.apps.core.d.e GH = com.baidu.swan.apps.y.f.WV().GH();
-        if (GH == null) {
+        com.baidu.swan.apps.core.d.e Ou = com.baidu.swan.apps.y.f.aeK().Ou();
+        if (Ou == null) {
             com.baidu.swan.apps.console.c.e("Api-NavigationBar", "manager is null");
             return new com.baidu.swan.apps.api.b.b(1001);
         }
@@ -43,11 +43,11 @@ public class c extends com.baidu.swan.apps.api.a.c {
             com.baidu.swan.apps.console.c.e("Api-NavigationBar", "callback is null");
             return new com.baidu.swan.apps.api.b.b(1001, "callback is null");
         }
-        final com.baidu.swan.apps.core.d.b Oq = GH.Oq();
+        final com.baidu.swan.apps.core.d.b We = Ou.We();
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.c.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!(Oq != null && Oq.gS(optString))) {
+                if (!(We != null && We.ig(optString))) {
                     com.baidu.swan.apps.console.c.e("Api-NavigationBar", "set title fail");
                     c.this.a(optString2, new com.baidu.swan.apps.api.b.b(1001));
                 }
@@ -57,17 +57,17 @@ public class c extends com.baidu.swan.apps.api.a.c {
         return new com.baidu.swan.apps.api.b.b(0);
     }
 
-    public com.baidu.swan.apps.api.b.b fn(String str) {
+    public com.baidu.swan.apps.api.b.b gB(String str) {
         if (DEBUG) {
             Log.d("Api-NavigationBar", "set navigation bar color");
         }
-        com.baidu.swan.apps.core.d.e GH = com.baidu.swan.apps.y.f.WV().GH();
-        if (GH == null) {
+        com.baidu.swan.apps.core.d.e Ou = com.baidu.swan.apps.y.f.aeK().Ou();
+        if (Ou == null) {
             com.baidu.swan.apps.console.c.e("Api-NavigationBar", "manager is null");
             return new com.baidu.swan.apps.api.b.b(1001);
         }
-        Pair<com.baidu.swan.apps.api.b.b, JSONObject> aq = com.baidu.swan.apps.api.c.b.aq("Api-NavigationBar", str);
-        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) aq.first;
+        Pair<com.baidu.swan.apps.api.b.b, JSONObject> az = com.baidu.swan.apps.api.c.b.az("Api-NavigationBar", str);
+        com.baidu.swan.apps.api.b.b bVar = (com.baidu.swan.apps.api.b.b) az.first;
         if (!bVar.isSuccess()) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-NavigationBar", "parse fail");
@@ -75,7 +75,7 @@ public class c extends com.baidu.swan.apps.api.a.c {
             }
             return bVar;
         }
-        JSONObject jSONObject = (JSONObject) aq.second;
+        JSONObject jSONObject = (JSONObject) az.second;
         final String optString = jSONObject.optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("Api-NavigationBar", "callback is null");
@@ -84,19 +84,19 @@ public class c extends com.baidu.swan.apps.api.a.c {
         final String optString2 = jSONObject.optString("frontColor");
         final String optString3 = jSONObject.optString("backgroundColor");
         final JSONObject optJSONObject = jSONObject.optJSONObject("animation");
-        final com.baidu.swan.apps.core.d.b Oq = GH.Oq();
+        final com.baidu.swan.apps.core.d.b We = Ou.We();
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.c.2
             @Override // java.lang.Runnable
             public void run() {
-                if (Oq == null || !Oq.gT(optString2)) {
+                if (We == null || !We.ih(optString2)) {
                     com.baidu.swan.apps.console.c.e("Api-NavigationBar", "set title color fail");
                     c.this.a(optString, new com.baidu.swan.apps.api.b.b(1001));
-                } else if (!Oq.et(SwanAppConfigData.cF(optString3))) {
+                } else if (!We.ey(SwanAppConfigData.dA(optString3))) {
                     com.baidu.swan.apps.console.c.e("Api-NavigationBar", "set title background fail");
                     c.this.a(optString, new com.baidu.swan.apps.api.b.b(1001));
                 } else {
                     if (optJSONObject != null) {
-                        Oq.x(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
+                        We.O(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
                         com.baidu.swan.apps.console.c.i("Api-NavigationBar", "set action bar animator");
                     }
                     c.this.a(optString, new com.baidu.swan.apps.api.b.b(0));

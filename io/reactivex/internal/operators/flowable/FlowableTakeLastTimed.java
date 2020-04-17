@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.v;
@@ -18,7 +17,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
+        this.mRJ.a((j) new TakeLastTimedSubscriber(cVar, this.count, this.time, this.unit, this.scheduler, this.bufferSize, this.delayError));
     }
 
     /* loaded from: classes7.dex */
@@ -52,7 +51,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -84,7 +83,7 @@ public final class FlowableTakeLastTimed<T> extends a<T, T> {
         void trim(long j, io.reactivex.internal.queue.a<Object> aVar) {
             long j2 = this.time;
             long j3 = this.count;
-            boolean z = j3 == Format.OFFSET_SAMPLE_RELATIVE;
+            boolean z = j3 == Long.MAX_VALUE;
             while (!aVar.isEmpty()) {
                 if (((Long) aVar.peek()).longValue() < j - j2 || (!z && (aVar.size() >> 1) > j3)) {
                     aVar.poll();

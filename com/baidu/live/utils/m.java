@@ -4,67 +4,67 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.data.AlaLiveInfoData;
-import com.baidu.live.data.af;
+import com.baidu.live.data.ai;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class m {
-    private static Map<Long, Long> aDY = new HashMap();
-    private static Map<Long, Set<Long>> aDZ = new HashMap();
+    private static Map<Long, Long> aXK = new HashMap();
+    private static Map<Long, Set<Long>> aXL = new HashMap();
 
-    public static Long N(long j) {
-        if (aDY.containsKey(Long.valueOf(j))) {
-            return aDY.get(Long.valueOf(j));
+    public static Long ap(long j) {
+        if (aXK.containsKey(Long.valueOf(j))) {
+            return aXK.get(Long.valueOf(j));
         }
         return 0L;
     }
 
-    public static void f(long j, long j2) {
-        aDY.put(Long.valueOf(j), Long.valueOf(j2));
+    public static void g(long j, long j2) {
+        aXK.put(Long.valueOf(j), Long.valueOf(j2));
     }
 
-    public static boolean g(long j, long j2) {
+    public static boolean h(long j, long j2) {
         Set<Long> set;
-        if (aDZ.containsKey(Long.valueOf(j)) && (set = aDZ.get(Long.valueOf(j))) != null) {
+        if (aXL.containsKey(Long.valueOf(j)) && (set = aXL.get(Long.valueOf(j))) != null) {
             return set.contains(Long.valueOf(j2));
         }
         return false;
     }
 
-    public static void h(long j, long j2) {
-        if (!aDZ.containsKey(Long.valueOf(j))) {
+    public static void i(long j, long j2) {
+        if (!aXL.containsKey(Long.valueOf(j))) {
             HashSet hashSet = new HashSet();
             hashSet.add(Long.valueOf(j2));
-            aDZ.put(Long.valueOf(j), hashSet);
+            aXL.put(Long.valueOf(j), hashSet);
             return;
         }
-        Set<Long> set = aDZ.get(Long.valueOf(j));
+        Set<Long> set = aXL.get(Long.valueOf(j));
         if (set != null) {
             set.add(Long.valueOf(j2));
             return;
         }
         HashSet hashSet2 = new HashSet();
         hashSet2.add(Long.valueOf(j2));
-        aDZ.put(Long.valueOf(j), hashSet2);
+        aXL.put(Long.valueOf(j), hashSet2);
     }
 
-    public static void Bj() {
-        aDZ.clear();
+    public static void Gh() {
+        aXL.clear();
     }
 
-    public static void i(long j, long j2) {
+    public static void j(long j, long j2) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
         httpMessage.addParam("uid", j + "");
         httpMessage.addParam("live_id", j2 + "");
-        httpMessage.addParam("latest_event_id", N(j2) + "");
+        httpMessage.addParam("latest_event_id", ap(j2) + "");
         httpMessage.addParam("current_time", (System.currentTimeMillis() / 1000) + "");
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public static void a(af afVar, AlaLiveInfoData alaLiveInfoData) {
-        switch (afVar.eventType) {
+    public static void a(ai aiVar, AlaLiveInfoData alaLiveInfoData) {
+        switch (aiVar.eventType) {
             case 1001:
                 o.g(alaLiveInfoData.feed_id, alaLiveInfoData.live_id);
                 return;

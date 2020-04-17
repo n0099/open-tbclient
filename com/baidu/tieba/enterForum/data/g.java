@@ -1,51 +1,12 @@
 package com.baidu.tieba.enterForum.data;
-
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes9.dex */
-public class g {
-    private ArrayList<f> fVn = new ArrayList<>();
+public class g extends f {
+    public boolean gzP;
+    public String mTitle;
 
-    public ArrayList<f> byg() {
-        return this.fVn;
-    }
-
-    public void byh() {
-        Iterator<f> it = this.fVn.iterator();
-        while (it.hasNext()) {
-            it.next().rO(0);
-        }
-    }
-
-    public void bK(List<?> list) {
-        if (list != null) {
-            b(list, null);
-        }
-    }
-
-    public void b(List<?> list, Context context) {
-        if (list != null) {
-            try {
-                int size = list.size();
-                for (int i = 0; i < size; i++) {
-                    if (list.get(i) instanceof LikeForum) {
-                        f fVar = new f();
-                        fVar.a((LikeForum) list.get(i));
-                        if (!TextUtils.isEmpty(fVar.getName())) {
-                            this.fVn.add(fVar);
-                        }
-                    } else {
-                        return;
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+    public g(String str, boolean z) {
+        this.mTitle = str;
+        this.gzP = z;
+        setType(0);
     }
 }

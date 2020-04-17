@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.b.d;
 /* loaded from: classes11.dex */
@@ -188,7 +187,7 @@ public class b {
             });
             this.mHandler.removeCallbacks(this.mCancelRunnable);
             if (mIsDebug) {
-                Log.d("ToastCustom", UgcUBCUtils.UGC_TIME_CANCEL);
+                Log.d("ToastCustom", "cancel");
             }
         }
     }

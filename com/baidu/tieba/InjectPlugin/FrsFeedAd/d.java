@@ -2,25 +2,25 @@ package com.baidu.tieba.InjectPlugin.FrsFeedAd;
 
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import java.util.List;
 /* loaded from: classes8.dex */
 public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.InjectPlugin.a.c> {
-    v.a a(ViewGroup viewGroup, Object obj);
+    y.a a(ViewGroup viewGroup, Object obj);
 
-    void a(int i, ViewGroup viewGroup, v.a aVar, Object obj);
+    void a(int i, ViewGroup viewGroup, y.a aVar, Object obj);
 
     void a(List<c> list, String str, String str2, String str3, String str4, boolean z, int i);
 
     void a(List<c> list, List<c> list2, boolean z, int i);
 
-    void aS(List<Object> list);
+    void bc(List<Object> list);
 
-    List<Integer> aVE();
+    List<Integer> bdO();
 
     void changeSkinType(int i);
 
-    void d(List<c> list, int i);
+    void e(List<c> list, int i);
 
     View getView(int i, View view, ViewGroup viewGroup, Object obj);
 }

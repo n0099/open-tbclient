@@ -11,10 +11,10 @@ import com.xiaomi.push.gr;
 public class TrafficProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with other field name */
-    private SQLiteOpenHelper f803a;
+    private SQLiteOpenHelper f804a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f802a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+    public static final Uri f803a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
     private static final UriMatcher a = new UriMatcher(-1);
 
     static {
@@ -49,17 +49,17 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.f803a = new a(getContext());
+        this.f804a = new a(getContext());
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
-        synchronized (a.f804a) {
+        synchronized (a.f805a) {
             switch (a.match(uri)) {
                 case 1:
-                    query = this.f803a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+                    query = this.f804a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown URI " + uri);
@@ -75,7 +75,7 @@ public class TrafficProvider extends ContentProvider {
                 if (contentValues == null || !contentValues.containsKey("imsi")) {
                     return 0;
                 }
-                gr.m318a(contentValues.getAsString("imsi"));
+                gr.m323a(contentValues.getAsString("imsi"));
                 return 0;
             default:
                 return 0;

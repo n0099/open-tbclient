@@ -7,34 +7,34 @@ import org.json.JSONObject;
 public class a implements com.baidu.swan.apps.model.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    public c bzX;
+    public c bYd;
     public int color = 0;
-    public int bAw = ViewCompat.MEASURED_STATE_MASK;
+    public int bYC = ViewCompat.MEASURED_STATE_MASK;
     public int radius = -1;
     public float strokeWidth = 0.0f;
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null && jSONObject.has("radius")) {
-            this.bzX = new c();
-            this.bzX.parseFromJson(jSONObject);
-            if (this.bzX.isValid()) {
-                this.color = com.baidu.swan.apps.z.a.d.B(jSONObject.optString("color"), 0);
-                this.bAw = com.baidu.swan.apps.z.a.d.B(jSONObject.optString("fillColor"), ViewCompat.MEASURED_STATE_MASK);
+            this.bYd = new c();
+            this.bYd.parseFromJson(jSONObject);
+            if (this.bYd.isValid()) {
+                this.color = com.baidu.swan.apps.z.a.d.J(jSONObject.optString("color"), 0);
+                this.bYC = com.baidu.swan.apps.z.a.d.J(jSONObject.optString("fillColor"), ViewCompat.MEASURED_STATE_MASK);
                 this.radius = jSONObject.optInt("radius", -1);
-                this.strokeWidth = Math.abs(com.baidu.swan.apps.z.a.d.f(jSONObject.optDouble("strokeWidth", 0.0d)));
+                this.strokeWidth = Math.abs(com.baidu.swan.apps.z.a.d.k(jSONObject.optDouble("strokeWidth", 0.0d)));
             }
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (this.bzX == null || !this.bzX.isValid() || this.radius == -1) ? false : true;
+        return (this.bYd == null || !this.bYd.isValid() || this.radius == -1) ? false : true;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("coordinate ->").append(this.bzX).append("color ->").append(this.color).append("fillColor ->").append(this.bAw).append("radius ->").append(this.radius).append("strokeWidth ->").append(this.strokeWidth);
+        sb.append("coordinate ->").append(this.bYd).append("color ->").append(this.color).append("fillColor ->").append(this.bYC).append("radius ->").append(this.radius).append("strokeWidth ->").append(this.strokeWidth);
         return sb.toString();
     }
 }

@@ -8,31 +8,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes8.dex */
 public class c {
-    private static c QW;
-    private static Context QX;
-    private static ExecutorService QY;
+    private static c aju;
+    private static Context ajv;
+    private static ExecutorService ajw;
     private static boolean an = false;
-    public l QU;
-    public p QV;
+    public l ajs;
+    public p ajt;
 
     private c(Context context) {
-        QX = context;
-        this.QV = new p(Looper.getMainLooper().getThread(), a.W);
-        this.QU = new l(new d(this), context);
-        if (QY == null) {
-            QY = Executors.newSingleThreadExecutor();
+        ajv = context;
+        this.ajt = new p(Looper.getMainLooper().getThread(), a.W);
+        this.ajs = new l(new d(this), context);
+        if (ajw == null) {
+            ajw = Executors.newSingleThreadExecutor();
         }
     }
 
-    public static c as(Context context) {
-        if (QW == null) {
+    public static c ah(Context context) {
+        if (aju == null) {
             synchronized (c.class) {
-                if (QW == null) {
-                    QW = new c(context);
+                if (aju == null) {
+                    aju = new c(context);
                 }
             }
         }
-        return QW;
+        return aju;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,23 +42,23 @@ public class c {
         if (c.isEmpty()) {
             return;
         }
-        a nY = a.nY();
-        nY.QP = c;
-        nY.a(j, j2, j3, j4);
+        a st = a.st();
+        st.ajo = c;
+        st.a(j, j2, j3, j4);
     }
 
     public static void start() {
         an = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.Ra.start();
-            com.baidu.crabsdk.c.a.cj("start FrameMonitor...");
+            e.ajy.start();
+            com.baidu.crabsdk.c.a.de("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         an = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.Ra.stop();
+            e.ajy.stop();
         }
     }
 }

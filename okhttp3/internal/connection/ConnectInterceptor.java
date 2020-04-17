@@ -5,6 +5,7 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http.RealInterceptorChain;
 /* loaded from: classes7.dex */
 public final class ConnectInterceptor implements Interceptor {
@@ -19,6 +20,8 @@ public final class ConnectInterceptor implements Interceptor {
         RealInterceptorChain realInterceptorChain = (RealInterceptorChain) chain;
         Request request = realInterceptorChain.request();
         StreamAllocation streamAllocation = realInterceptorChain.streamAllocation();
-        return realInterceptorChain.proceed(request, streamAllocation, streamAllocation.newStream(this.client, chain, request, !request.method().equals("GET")), streamAllocation.connection());
+        HttpCodec newStream = streamAllocation.newStream(this.client, chain, request, !request.method().equals("GET"));
+        RealConnection connection = streamAllocation.connection();
+        return realInterceptorChain.proceed(request.newBuilder().addressList(connection.routeList).fallbackConn(connection.isFallbackConn).build(), streamAllocation, newStream, connection);
     }
 }

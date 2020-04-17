@@ -2,6 +2,7 @@ package android.support.v4.media;
 
 import android.os.Bundle;
 import android.support.annotation.RestrictTo;
+import android.support.v7.widget.ActivityChooserView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes6.dex */
 public class MediaBrowserCompatUtils {
@@ -16,7 +17,7 @@ public class MediaBrowserCompatUtils {
         int i;
         int i2;
         int i3;
-        int i4 = Integer.MAX_VALUE;
+        int i4 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         int i5 = bundle == null ? -1 : bundle.getInt(MediaBrowserCompat.EXTRA_PAGE, -1);
         int i6 = bundle2 == null ? -1 : bundle2.getInt(MediaBrowserCompat.EXTRA_PAGE, -1);
         int i7 = bundle == null ? -1 : bundle.getInt(MediaBrowserCompat.EXTRA_PAGE_SIZE, -1);

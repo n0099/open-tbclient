@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.DuzhanUpMsgCreator;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.sapi2.SapiContext;
@@ -36,7 +36,7 @@ public class IMSendMsg extends Message {
     private int mType;
 
     public IMSendMsg(Context context, long j, int i, String str, String str2, List<Long> list, List<Long> list2) {
-        LogUtils.d(TAG, "IMSendMsg " + j + HanziToPinyin.Token.SEPARATOR + i + "  " + str);
+        LogUtils.d(TAG, "IMSendMsg " + j + " " + i + "  " + str);
         this.mContext = context;
         initCommonParameter(context);
         this.mToUser = j;
@@ -141,11 +141,15 @@ public class IMSendMsg extends Message {
         long j;
         int i2;
         long j2 = -1;
+        String str2 = "";
         if (i == 0) {
             try {
                 if (jSONObject.has("msgid")) {
                     getChatMsg().setMsgId(jSONObject.getLong("msgid"));
                     j2 = jSONObject.optLong("time", -1L);
+                    if (jSONObject.optBoolean("display_tips")) {
+                        str2 = jSONObject.optString(TableDefine.MessageColumns.COLUME_TIPS);
+                    }
                 } else {
                     i = 1015;
                     str = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
@@ -154,7 +158,7 @@ public class IMSendMsg extends Message {
                 i2 = i;
             } catch (Exception e) {
                 LogUtils.e(TAG, "handle IMSendMsg exception :", e);
-                j = -1;
+                j = j2;
                 i2 = i;
             }
         } else {
@@ -165,6 +169,8 @@ public class IMSendMsg extends Message {
             i2 = i;
         }
         LogUtils.d(TAG, "errorCode:" + i2 + "  strMsg" + str);
+        getChatMsg().setTipsCode(i2);
+        getChatMsg().setTips(str2);
         ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i2, getChatMsg(), j, getListenerKey());
     }
 }

@@ -5,24 +5,24 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.config.core.b.a {
     @Override // com.baidu.swan.config.core.b.c
-    public void bj(JSONObject jSONObject) {
+    public void bu(JSONObject jSONObject) {
         if (jSONObject != null) {
-            bk(jSONObject.optJSONObject("swan_ext"));
-            bl(jSONObject.optJSONObject("game_ext"));
+            bv(jSONObject.optJSONObject("swan_ext"));
+            bw(jSONObject.optJSONObject("game_ext"));
         }
     }
 
-    private void bk(JSONObject jSONObject) {
-        JSONObject bi = bi(jSONObject);
-        if (bi != null) {
-            e.ajb().al(bi);
+    private void bv(JSONObject jSONObject) {
+        JSONObject bt = bt(jSONObject);
+        if (bt != null) {
+            e.arj().aw(bt);
         }
     }
 
-    private void bl(JSONObject jSONObject) {
-        JSONObject bi = bi(jSONObject);
-        if (bi != null) {
-            e.ajb().am(bi);
+    private void bw(JSONObject jSONObject) {
+        JSONObject bt = bt(jSONObject);
+        if (bt != null) {
+            e.arj().ax(bt);
         }
     }
 }

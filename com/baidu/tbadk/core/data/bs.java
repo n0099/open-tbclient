@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class bs {
-    public static VideoInfo ck(JSONObject jSONObject) {
+    public static VideoInfo cv(JSONObject jSONObject) {
         if (jSONObject != null) {
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_md5 = jSONObject.optString("video_md5");
@@ -25,15 +25,15 @@ public class bs {
             JSONArray optJSONArray = jSONObject.optJSONArray("video_desc");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    builder.video_desc.add(br.cj(optJSONArray.optJSONObject(i)));
+                    builder.video_desc.add(br.cu(optJSONArray.optJSONObject(i)));
                 }
             }
             builder.video_select_flag = Integer.valueOf(jSONObject.optInt("video_select_flag"));
             builder.video_type = Integer.valueOf(jSONObject.optInt(LogConfig.LOG_VIDEO_TYPE));
             builder.is_vertical = Integer.valueOf(jSONObject.optInt("is_vertical"));
-            builder.video_h265 = br.cj(jSONObject.optJSONObject("video_h265"));
+            builder.video_h265 = br.cu(jSONObject.optJSONObject("video_h265"));
             builder.mcn_lead_page = jSONObject.optString("mcn_lead_page");
-            builder.mcn_ad_card = ak.ch(jSONObject.optJSONObject("mcn_ad_card"));
+            builder.mcn_ad_card = ak.cs(jSONObject.optJSONObject("mcn_ad_card"));
             builder.wth_mid_loc = Double.valueOf(jSONObject.optDouble("wth_mid_loc"));
             builder.hth_mid_loc = Double.valueOf(jSONObject.optDouble("hth_mid_loc"));
             return builder.build(true);

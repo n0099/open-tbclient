@@ -1,15 +1,17 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface i {
-    void Fd(String str);
+    void GK(String str);
 
-    void Fe(String str);
+    void GL(String str);
 
-    String Ff(String str);
+    String GM(String str);
 
-    boolean Fg(String str);
+    boolean GN(String str);
 
-    void Fh(String str);
+    void GO(String str);
+
+    void Z(boolean z, boolean z2);
 
     String a(int i, int i2, int i3, String str, boolean z, long j, String str2);
 
@@ -17,33 +19,35 @@ public interface i {
 
     void a(b bVar);
 
-    void cgZ();
+    void crG();
 
-    void cha();
+    void crH();
 
-    void chb();
+    void crI();
 
-    void chc();
+    void crJ();
 
-    void chd();
+    void crK();
 
-    void che();
+    void crL();
 
-    String chf();
+    String crM();
 
-    String chg();
+    String crN();
 
     void e(long j, long j2, long j3);
 
     void m(int i, int i2, String str);
 
-    void oW(boolean z);
+    void qa(boolean z);
 
-    void oX(boolean z);
+    void qb(boolean z);
 
-    void yp(int i);
+    void s(long j, int i);
 
-    void yq(int i);
+    void yQ(int i);
 
-    void yr(int i);
+    void yR(int i);
+
+    void yS(int i);
 }

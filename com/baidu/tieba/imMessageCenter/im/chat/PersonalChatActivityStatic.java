@@ -58,13 +58,13 @@ import com.baidu.tieba.imMessageCenter.mention.i;
 import java.util.LinkedList;
 /* loaded from: classes9.dex */
 public class PersonalChatActivityStatic {
-    private static e hNn;
-    private static CustomMessageListener hNo = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
+    private static e ixe;
+    private static CustomMessageListener ixf = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                e unused = PersonalChatActivityStatic.hNn = null;
+                e unused = PersonalChatActivityStatic.ixe = null;
             }
         }
     };
@@ -89,8 +89,8 @@ public class PersonalChatActivityStatic {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003004, TbConfig.SERVER_ADDRESS + Config.FREIND_LIST_ADDRESS);
         tbHttpMessageTask.setResponsedClass(ResponseFriendListMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        bPJ();
-        MessageManager.getInstance().registerListener(hNo);
+        bIm();
+        MessageManager.getInstance().registerListener(ixf);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSONAL_CHAT, new CustomMessageTask.CustomRunnable<PersonalChatActivityConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<PersonalChatActivityConfig> run(final CustomMessage<PersonalChatActivityConfig> customMessage) {
@@ -101,9 +101,9 @@ public class PersonalChatActivityStatic {
                     ac.b(new ab<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.ab
-                        /* renamed from: aYM */
+                        /* renamed from: bgQ */
                         public Void doInBackground() {
-                            return m.bUX().l(linkedList);
+                            return m.cfy().l(linkedList);
                         }
                     }, new l<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -122,7 +122,7 @@ public class PersonalChatActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ba.aGK().a(new ba.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.3
+        ba.aOY().a(new ba.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -167,10 +167,10 @@ public class PersonalChatActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.huh != null && aVar.context != null) {
+                    if (aVar.idU != null && aVar.context != null) {
                         MsgReplyCardViewItemAdapter msgReplyCardViewItemAdapter = new MsgReplyCardViewItemAdapter(aVar.context, ChatMessage.TYPE_MSG_REPLY_CARD);
-                        msgReplyCardViewItemAdapter.nj(true);
-                        aVar.huh.add(msgReplyCardViewItemAdapter);
+                        msgReplyCardViewItemAdapter.on(true);
+                        aVar.idU.add(msgReplyCardViewItemAdapter);
                     }
                 }
             }
@@ -181,9 +181,9 @@ public class PersonalChatActivityStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                     if (TbadkCoreApplication.isLogin()) {
-                        i.cab().start();
+                        i.ckC().start();
                     } else {
-                        i.cab().destroy();
+                        i.ckC().destroy();
                     }
                 }
             }
@@ -193,24 +193,24 @@ public class PersonalChatActivityStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    i.cab().restart();
+                    i.ckC().restart();
                 } else {
-                    i.cab().destroy();
+                    i.ckC().destroy();
                 }
             }
         });
     }
 
-    public static e bYW() {
-        return hNn;
+    public static e cjx() {
+        return ixe;
     }
 
     public static void a(e eVar) {
-        hNn = eVar;
+        ixe = eVar;
     }
 
-    private static void bPJ() {
-        ba.aGK().a(new ba.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.8
+    private static void bIm() {
+        ba.aOY().a(new ba.a() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.8
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {

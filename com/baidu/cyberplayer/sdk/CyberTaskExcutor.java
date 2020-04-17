@@ -13,7 +13,8 @@ public final class CyberTaskExcutor {
     private final int b = 0;
     private final int c = 5;
     private final int d = 180;
-    private ExecutorService e = new ThreadPoolExecutor(0, 5, 180, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyberplayer-thread", 5));
+    private ExecutorService e = new ThreadPoolExecutor(0, 5, 180, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
+    private ExecutorService f = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
 
     /* loaded from: classes.dex */
     public static class a implements ThreadFactory {
@@ -56,5 +57,10 @@ public final class CyberTaskExcutor {
     @Keep
     public void execute(Runnable runnable) {
         this.e.execute(runnable);
+    }
+
+    @Keep
+    public void executeSingleThread(Runnable runnable) {
+        this.f.execute(runnable);
     }
 }

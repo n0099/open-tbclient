@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.parallel;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.b;
 import io.reactivex.internal.subscribers.DeferredScalarSubscriber;
 import io.reactivex.internal.subscriptions.EmptySubscription;
@@ -12,8 +11,8 @@ import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelCollect<T, C> extends a<C> {
     final b<? super C, ? super T> collector;
-    final a<? extends T> nAt;
-    final Callable<? extends C> nAu;
+    final a<? extends T> mTU;
+    final Callable<? extends C> mTV;
 
     @Override // io.reactivex.parallel.a
     public void a(c<? super C>[] cVarArr) {
@@ -22,14 +21,14 @@ public final class ParallelCollect<T, C> extends a<C> {
             c<? super Object>[] cVarArr2 = new c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.nAu.call(), "The initialSupplier returned a null value"), this.collector);
+                    cVarArr2[i] = new ParallelCollectSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.mTV.call(), "The initialSupplier returned a null value"), this.collector);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.nAt.a(cVarArr2);
+            this.mTU.a(cVarArr2);
         }
     }
 
@@ -40,8 +39,8 @@ public final class ParallelCollect<T, C> extends a<C> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dJS() {
-        return this.nAt.dJS();
+    public int dCR() {
+        return this.mTU.dCR();
     }
 
     /* loaded from: classes7.dex */
@@ -62,7 +61,7 @@ public final class ParallelCollect<T, C> extends a<C> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -71,9 +70,9 @@ public final class ParallelCollect<T, C> extends a<C> {
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    this.collector.i((C) this.collection, t);
+                    this.collector.h((C) this.collection, t);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     cancel();
                     onError(th);
                 }

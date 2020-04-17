@@ -7,44 +7,44 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static String aLD = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
-    private Set<String> aLE;
+    private static String bhk = com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("advert_hide_list");
+    private Set<String> bhl;
     private SharedPreferences mPreference;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public static b aLF = new b();
+        public static b bhm = new b();
     }
 
-    public static b DN() {
-        return a.aLF;
+    public static b JF() {
+        return a.bhm;
     }
 
     private b() {
         this.mPreference = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void ez(String str) {
+    public void ft(String str) {
         if (!StringUtils.isNull(str)) {
-            this.aLE = this.mPreference.getStringSet(aLD, null);
-            if (this.aLE == null) {
-                this.aLE = new HashSet();
+            this.bhl = this.mPreference.getStringSet(bhk, null);
+            if (this.bhl == null) {
+                this.bhl = new HashSet();
             }
-            this.aLE.add(str);
-            this.mPreference.edit().putStringSet(aLD, this.aLE).commit();
+            this.bhl.add(str);
+            this.mPreference.edit().putStringSet(bhk, this.bhl).commit();
         }
     }
 
-    public boolean eA(String str) {
+    public boolean fu(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (this.aLE == null) {
-            this.aLE = this.mPreference.getStringSet(aLD, null);
+        if (this.bhl == null) {
+            this.bhl = this.mPreference.getStringSet(bhk, null);
         }
-        if (this.aLE != null) {
-            return this.aLE.contains(str);
+        if (this.bhl != null) {
+            return this.bhl.contains(str);
         }
         return false;
     }

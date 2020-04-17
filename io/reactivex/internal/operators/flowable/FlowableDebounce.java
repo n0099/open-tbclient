@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.disposables.DisposableHelper;
@@ -15,7 +14,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
+        this.mRJ.a((j) new DebounceSubscriber(new io.reactivex.subscribers.b(cVar), this.debounceSelector));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -39,7 +38,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -59,7 +58,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
                         bVar2.subscribe(aVar);
                     }
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     cancel();
                     this.actual.onError(th);
                 }
@@ -114,12 +113,12 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
         static final class a<T, U> extends io.reactivex.subscribers.a<U> {
             boolean done;
             final long index;
-            final DebounceSubscriber<T, U> nyH;
+            final DebounceSubscriber<T, U> mSa;
             final AtomicBoolean once = new AtomicBoolean();
             final T value;
 
             a(DebounceSubscriber<T, U> debounceSubscriber, long j, T t) {
-                this.nyH = debounceSubscriber;
+                this.mSa = debounceSubscriber;
                 this.index = j;
                 this.value = t;
             }
@@ -135,7 +134,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
 
             void emit() {
                 if (this.once.compareAndSet(false, true)) {
-                    this.nyH.emit(this.index, this.value);
+                    this.mSa.emit(this.index, this.value);
                 }
             }
 
@@ -146,7 +145,7 @@ public final class FlowableDebounce<T, U> extends a<T, T> {
                     return;
                 }
                 this.done = true;
-                this.nyH.onError(th);
+                this.mSa.onError(th);
             }
 
             @Override // org.a.c

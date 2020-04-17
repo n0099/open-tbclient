@@ -26,12 +26,12 @@ import tv.chushou.basis.rxjava.annotation.Subscribe;
 @h
 /* loaded from: classes5.dex */
 public final class a extends com.kascend.chushou.view.base.a {
-    public static final C0703a ndU = new C0703a(null);
-    private int f = tv.chushou.widget.a.c.S(300.0f);
-    private int g = tv.chushou.widget.a.c.S(400.0f);
+    public static final C0727a mAv = new C0727a(null);
+    private int f = tv.chushou.widget.a.c.C(300.0f);
+    private int g = tv.chushou.widget.a.c.C(400.0f);
     private HashMap h;
-    private com.kascend.chushou.view.h5.b ndS;
-    private com.kascend.chushou.toolkit.b ndT;
+    private com.kascend.chushou.view.h5.b mAt;
+    private com.kascend.chushou.toolkit.b mAu;
 
     public void a() {
         if (this.h != null) {
@@ -42,25 +42,25 @@ public final class a extends com.kascend.chushou.view.base.a {
     @h
     /* renamed from: com.kascend.chushou.player.ui.h5.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0703a {
-        public final a QX(String str) {
+    public static final class C0727a {
+        public final a OH(String str) {
             return a(this, str, false, null, 0, 0, 30, null);
         }
 
-        private C0703a() {
+        private C0727a() {
         }
 
-        public /* synthetic */ C0703a(o oVar) {
+        public /* synthetic */ C0727a(o oVar) {
             this();
         }
 
-        public static /* synthetic */ a a(C0703a c0703a, String str, boolean z, com.kascend.chushou.toolkit.b bVar, int i, int i2, int i3, Object obj) {
-            return c0703a.a(str, (i3 & 2) != 0 ? true : z, (i3 & 4) != 0 ? null : bVar, (i3 & 8) != 0 ? tv.chushou.widget.a.c.S(300.0f) : i, (i3 & 16) != 0 ? tv.chushou.widget.a.c.S(400.0f) : i2);
+        public static /* synthetic */ a a(C0727a c0727a, String str, boolean z, com.kascend.chushou.toolkit.b bVar, int i, int i2, int i3, Object obj) {
+            return c0727a.a(str, (i3 & 2) != 0 ? true : z, (i3 & 4) != 0 ? null : bVar, (i3 & 8) != 0 ? tv.chushou.widget.a.c.C(300.0f) : i, (i3 & 16) != 0 ? tv.chushou.widget.a.c.C(400.0f) : i2);
         }
 
         public final a a(String str, boolean z, com.kascend.chushou.toolkit.b bVar, int i, int i2) {
             a aVar = new a();
-            aVar.ndT = bVar;
+            aVar.mAu = bVar;
             Bundle bundle = new Bundle();
             bundle.putString("url", str);
             bundle.putBoolean("canceledOutside", z);
@@ -77,16 +77,16 @@ public final class a extends com.kascend.chushou.view.base.a {
         Bundle arguments = getArguments();
         boolean z = arguments != null ? arguments.getBoolean("canceledOutside", false) : false;
         Bundle arguments2 = getArguments();
-        this.f = arguments2 != null ? arguments2.getInt("width", tv.chushou.widget.a.c.S(300.0f)) : tv.chushou.widget.a.c.S(300.0f);
+        this.f = arguments2 != null ? arguments2.getInt("width", tv.chushou.widget.a.c.C(300.0f)) : tv.chushou.widget.a.c.C(300.0f);
         Bundle arguments3 = getArguments();
-        this.g = arguments3 != null ? arguments3.getInt("height", tv.chushou.widget.a.c.S(400.0f)) : tv.chushou.widget.a.c.S(400.0f);
+        this.g = arguments3 != null ? arguments3.getInt("height", tv.chushou.widget.a.c.C(400.0f)) : tv.chushou.widget.a.c.C(400.0f);
         onCreateDialog.setCanceledOnTouchOutside(z);
         q.i(onCreateDialog, "dialog");
         return onCreateDialog;
     }
 
     @Override // com.kascend.chushou.view.base.a
-    public View b(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+    public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         q.j(layoutInflater, "inflater");
         View inflate = layoutInflater.inflate(a.h.dialog_fixed_size_h5, viewGroup, false);
         tv.chushou.zues.a.a.register(this);
@@ -112,16 +112,16 @@ public final class a extends com.kascend.chushou.view.base.a {
         h5Options.d = true;
         h5Options.f = false;
         com.kascend.chushou.widget.cswebview.a a = new com.kascend.chushou.widget.cswebview.a().a(new JSInterface(this.b)).a(new c());
-        if (this.ndT != null) {
+        if (this.mAu != null) {
             q.i(a, "extra");
-            a.a(this.ndT);
+            a.a(this.mAu);
         }
-        this.ndS = com.kascend.chushou.view.h5.b.b(h5Options, a);
+        this.mAt = com.kascend.chushou.view.h5.b.b(h5Options, a);
         FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
         int i = a.f.fl_container;
-        com.kascend.chushou.view.h5.b bVar = this.ndS;
+        com.kascend.chushou.view.h5.b bVar = this.mAt;
         if (bVar == null) {
-            q.dKW();
+            q.dDV();
         }
         beginTransaction.add(i, bVar).commitAllowingStateLoss();
         Dialog dialog = getDialog();
@@ -158,8 +158,8 @@ public final class a extends com.kascend.chushou.view.base.a {
         @Override // android.content.DialogInterface.OnKeyListener
         public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
             com.kascend.chushou.view.h5.b bVar;
-            com.kascend.chushou.view.h5.b bVar2 = a.this.ndS;
-            return bVar2 != null && bVar2.isAdded() && (bVar = a.this.ndS) != null && bVar.a(i, keyEvent);
+            com.kascend.chushou.view.h5.b bVar2 = a.this.mAt;
+            return bVar2 != null && bVar2.isAdded() && (bVar = a.this.mAt) != null && bVar.a(i, keyEvent);
         }
     }
 
@@ -180,9 +180,9 @@ public final class a extends com.kascend.chushou.view.base.a {
                 attributes.width = this.f;
                 attributes.height = this.g;
             } else {
-                Point hd = tv.chushou.zues.utils.a.hd(this.b);
+                Point gi = tv.chushou.zues.utils.a.gi(this.b);
                 attributes.width = tv.chushou.zues.utils.a.dip2px(this.b, 300.0f);
-                attributes.height = hd.y;
+                attributes.height = gi.y;
             }
             window.setAttributes(attributes);
         }
@@ -196,7 +196,7 @@ public final class a extends com.kascend.chushou.view.base.a {
 
     @Override // android.support.v4.app.DialogFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        tv.chushou.zues.a.a.cr(this);
+        tv.chushou.zues.a.a.ca(this);
         tv.chushou.zues.widget.kpswitch.b.d.hideKeyboard(getActivity());
         super.onDestroyView();
         a();
@@ -205,17 +205,17 @@ public final class a extends com.kascend.chushou.view.base.a {
     @Subscribe
     public final void onButtonUIEvent(com.kascend.chushou.player.ui.button.b bVar) {
         q.j(bVar, NotificationCompat.CATEGORY_EVENT);
-        if (b() || bVar.a != 7 || this.ndS == null) {
+        if (b() || bVar.a != 7 || this.mAt == null) {
             return;
         }
-        com.kascend.chushou.view.h5.b bVar2 = this.ndS;
+        com.kascend.chushou.view.h5.b bVar2 = this.mAt;
         if (bVar2 == null) {
-            q.dKW();
+            q.dDV();
         }
         if (bVar2.isAdded()) {
-            com.kascend.chushou.view.h5.b bVar3 = this.ndS;
+            com.kascend.chushou.view.h5.b bVar3 = this.mAt;
             if (bVar3 == null) {
-                q.dKW();
+                q.dDV();
             }
             bVar3.a("closeFloppyDisk()");
         }

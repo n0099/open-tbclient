@@ -1,25 +1,31 @@
 package com.baidu.tbadk.core.util.e;
 
 import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorRes;
 import android.view.View;
 import com.baidu.tbadk.core.util.e.a.b;
+import com.baidu.tbadk.core.util.e.a.c;
 /* loaded from: classes.dex */
 public class a {
-    public static com.baidu.tbadk.core.util.e.b.a aHe() {
-        return com.baidu.tbadk.core.util.e.b.a.aHp();
+    public static com.baidu.tbadk.core.util.e.b.a aPt() {
+        return com.baidu.tbadk.core.util.e.b.a.aPH();
     }
 
-    public static b aHf() {
-        return b.aHg();
+    public static c aPu() {
+        return c.aPy();
     }
 
     public static void d(View view, int i, int i2) {
         if (view != null) {
-            b.aHg().kI(1).kC(i).kE(i2).aQ(view);
+            c.aPy().kS(1).kM(i).kO(i2).aR(view);
         }
     }
 
-    public static b c(Drawable drawable, Drawable drawable2) {
-        return b.aHg().kI(1).f(drawable).g(drawable2);
+    public static b aC(@ColorRes int i, @ColorRes int i2) {
+        return b.aPv().kI(1).kH(i2).kG(i);
+    }
+
+    public static c c(Drawable drawable, Drawable drawable2) {
+        return c.aPy().kS(1).f(drawable).g(drawable2);
     }
 }

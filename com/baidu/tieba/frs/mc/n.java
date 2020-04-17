@@ -7,31 +7,31 @@ import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 /* loaded from: classes9.dex */
 public class n implements MessageQueue.IdleHandler {
-    private FrsModelController gJi;
-    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> gJl;
-    private MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> gJm;
-    private MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> gJn;
+    private MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> hsB;
+    private MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> hsC;
+    private MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> hsD;
+    private FrsModelController hsy;
 
     public void f(FrsModelController frsModelController) {
-        this.gJi = frsModelController;
+        this.hsy = frsModelController;
     }
 
     public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage) {
-        this.gJm = mvcSocketResponsedMessage;
+        this.hsC = mvcSocketResponsedMessage;
     }
 
     public void a(MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage) {
-        this.gJn = mvcSocketMessage;
+        this.hsD = mvcSocketMessage;
     }
 
     public void a(MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.gJl = mvcNetMessage;
+        this.hsB = mvcNetMessage;
     }
 
     @Override // android.os.MessageQueue.IdleHandler
     public boolean queueIdle() {
-        if (this.gJi != null) {
-            this.gJi.b(this.gJm, this.gJn, this.gJl);
+        if (this.hsy != null) {
+            this.hsy.b(this.hsC, this.hsD, this.hsB);
         }
         return false;
     }

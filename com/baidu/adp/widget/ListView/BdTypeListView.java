@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView implements r<BdTypeListView> {
-    v mTypeAdapter;
+    y mTypeAdapter;
 
     public BdTypeListView(Context context) {
         super(context);
@@ -31,7 +31,7 @@ public class BdTypeListView extends BdListView implements r<BdTypeListView> {
 
     private void init() {
         if (this.mTypeAdapter == null) {
-            this.mTypeAdapter = new v();
+            this.mTypeAdapter = new y();
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener

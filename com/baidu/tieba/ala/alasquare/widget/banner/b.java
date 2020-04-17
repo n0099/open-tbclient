@@ -4,16 +4,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes3.dex */
 public abstract class b<T> extends RecyclerView.ViewHolder {
+    protected abstract void ag(View view);
+
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void h(int i, T t);
-
-    protected abstract void initView(View view);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void onChangeSkinType(int i);
 
     public b(View view) {
         super(view);
-        initView(view);
+        ag(view);
     }
 }

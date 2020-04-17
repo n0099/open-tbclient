@@ -29,17 +29,17 @@ public class CaptureDownloadService extends Service {
 
     public static void start(Context context, int i, String str, RequestTask requestTask) {
         Intent intent = new Intent(context, CaptureDownloadService.class);
-        intent.setAction(ACTION_DOWNLOAD);
-        intent.putExtra(EXTRA_POSITION, i);
-        intent.putExtra(EXTRA_TAG, str);
-        intent.putExtra(EXTRA_FILE_INFO, requestTask);
+        intent.setAction("com.baidu.ugc.download.ACTION_DOWNLOAD");
+        intent.putExtra("extra_position", i);
+        intent.putExtra("extra_tag", str);
+        intent.putExtra("extra_file_info", requestTask);
         context.startService(intent);
     }
 
     public static void pause(Context context, String str) {
         Intent intent = new Intent(context, CaptureDownloadService.class);
-        intent.setAction(ACTION_PAUSE);
-        intent.putExtra(EXTRA_TAG, str);
+        intent.setAction("com.baidu.ugc.download.ACTION_PAUSE");
+        intent.putExtra("extra_tag", str);
         context.startService(intent);
     }
 
@@ -49,8 +49,8 @@ public class CaptureDownloadService extends Service {
 
     public static void cancel(Context context, String str) {
         Intent intent = new Intent(context, CaptureDownloadService.class);
-        intent.setAction(ACTION_CANCEL);
-        intent.putExtra(EXTRA_TAG, str);
+        intent.setAction("com.baidu.ugc.download.ACTION_CANCEL");
+        intent.putExtra("extra_tag", str);
         context.startService(intent);
     }
 
@@ -60,7 +60,7 @@ public class CaptureDownloadService extends Service {
 
     public static void pauseAll(Context context) {
         Intent intent = new Intent(context, CaptureDownloadService.class);
-        intent.setAction(ACTION_PAUSE_ALL);
+        intent.setAction("com.baidu.ugc.download.ACTION_PAUSE_ALL");
         context.startService(intent);
     }
 
@@ -70,7 +70,7 @@ public class CaptureDownloadService extends Service {
 
     public static void cancelAll(Context context) {
         Intent intent = new Intent(context, CaptureDownloadService.class);
-        intent.setAction(ACTION_CANCEL_ALL);
+        intent.setAction("com.baidu.ugc.download.ACTION_CANCEL_ALL");
         context.startService(intent);
     }
 
@@ -89,7 +89,7 @@ public class CaptureDownloadService extends Service {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0036, code lost:
-        if (r3.equals(com.baidu.minivideo.plugin.capture.download.CaptureDownloadService.ACTION_DOWNLOAD) != false) goto L6;
+        if (r3.equals("com.baidu.ugc.download.ACTION_DOWNLOAD") != false) goto L6;
      */
     @Override // android.app.Service
     /*
@@ -99,26 +99,26 @@ public class CaptureDownloadService extends Service {
         char c = 0;
         if (intent != null) {
             String action = intent.getAction();
-            int intExtra = intent.getIntExtra(EXTRA_POSITION, 0);
-            RequestTask requestTask = (RequestTask) intent.getSerializableExtra(EXTRA_FILE_INFO);
-            String stringExtra = intent.getStringExtra(EXTRA_TAG);
+            int intExtra = intent.getIntExtra("extra_position", 0);
+            RequestTask requestTask = (RequestTask) intent.getSerializableExtra("extra_file_info");
+            String stringExtra = intent.getStringExtra("extra_tag");
             switch (action.hashCode()) {
                 case -2000112966:
-                    if (action.equals(ACTION_CANCEL)) {
+                    if (action.equals("com.baidu.ugc.download.ACTION_CANCEL")) {
                         c = 2;
                         break;
                     }
                     c = 65535;
                     break;
                 case -1148652932:
-                    if (action.equals(ACTION_CANCEL_ALL)) {
+                    if (action.equals("com.baidu.ugc.download.ACTION_CANCEL_ALL")) {
                         c = 4;
                         break;
                     }
                     c = 65535;
                     break;
                 case -929888424:
-                    if (action.equals(ACTION_PAUSE_ALL)) {
+                    if (action.equals("com.baidu.ugc.download.ACTION_PAUSE_ALL")) {
                         c = 3;
                         break;
                     }
@@ -127,7 +127,7 @@ public class CaptureDownloadService extends Service {
                 case -707184440:
                     break;
                 case 1610061206:
-                    if (action.equals(ACTION_PAUSE)) {
+                    if (action.equals("com.baidu.ugc.download.ACTION_PAUSE")) {
                         c = 1;
                         break;
                     }
@@ -220,9 +220,9 @@ public class CaptureDownloadService extends Service {
 
         private void sendBroadCast(RequestTask requestTask) {
             Intent intent = new Intent();
-            intent.setAction(CaptureDownloadService.ACTION_DOWNLOAD_BROAD_CAST);
-            intent.putExtra(CaptureDownloadService.EXTRA_POSITION, this.mPosition);
-            intent.putExtra(CaptureDownloadService.EXTRA_FILE_INFO, requestTask);
+            intent.setAction("com.baidu.ugc.download.ACTION_BROAD_CAST");
+            intent.putExtra("extra_position", this.mPosition);
+            intent.putExtra("extra_file_info", requestTask);
             this.mLocalBroadcastManager.sendBroadcast(intent);
         }
 

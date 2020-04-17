@@ -12,7 +12,6 @@ import com.baidu.lbsapi.panoramaview.PanoramaView;
 import com.baidu.lbsapi.panoramaview.PanoramaViewListener;
 import com.baidu.lbsapi.panoramaview.StatisticsCallback;
 import com.baidu.lbsapi.tools.Point;
-import com.baidu.searchbox.config.FontSizeConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -164,7 +163,7 @@ public class d implements b {
         if (!BMapManager.isIllegalPanoSDKUser()) {
             Bundle bundle = new Bundle();
             bundle.putString("text", "未认证key");
-            bundle.putFloat(FontSizeConfig.FONT_SIZE_COOKIE, 36.0f);
+            bundle.putFloat("fontsize", 36.0f);
             bundle.putInt("fontcolor", SupportMenu.CATEGORY_MASK);
             bundle.putInt("bgcolor", -1);
             bundle.putLong("padding", 16L);

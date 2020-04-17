@@ -1,8 +1,12 @@
 package com.baidu.tieba.frs;
 
-import java.util.List;
-/* loaded from: classes.dex */
-public class z {
-    public int gsR;
-    public List<x> gsS;
+import com.baidu.adp.BdUniqueId;
+/* loaded from: classes9.dex */
+public class z implements com.baidu.adp.widget.ListView.m {
+    public static final BdUniqueId hbY = BdUniqueId.gen();
+
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return hbY;
+    }
 }

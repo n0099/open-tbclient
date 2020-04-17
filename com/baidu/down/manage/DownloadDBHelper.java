@@ -5,7 +5,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.down.manage.DownloadConstants;
 /* loaded from: classes6.dex */
 public final class DownloadDBHelper extends SQLiteOpenHelper {
@@ -33,7 +32,7 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
 
     private void addColumn(SQLiteDatabase sQLiteDatabase, String str, String str2) {
         try {
-            sQLiteDatabase.execSQL("ALTER TABLE downloads ADD COLUMN " + str + HanziToPinyin.Token.SEPARATOR + str2);
+            sQLiteDatabase.execSQL("ALTER TABLE downloads ADD COLUMN " + str + " " + str2);
         } catch (SQLException e) {
             Log.e(TAG, "couldn't add column: " + e.toString());
         }

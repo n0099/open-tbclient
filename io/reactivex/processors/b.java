@@ -7,17 +7,17 @@ import org.a.d;
 final class b<T> extends a<T> {
     volatile boolean done;
     boolean emitting;
-    final a<T> nCT;
+    final a<T> mWr;
     io.reactivex.internal.util.a<Object> queue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a<T> aVar) {
-        this.nCT = aVar;
+        this.mWr = aVar;
     }
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
-        this.nCT.subscribe(cVar);
+        this.mWr.subscribe(cVar);
     }
 
     @Override // io.reactivex.j, org.a.c
@@ -44,7 +44,7 @@ final class b<T> extends a<T> {
             dVar.cancel();
             return;
         }
-        this.nCT.onSubscribe(dVar);
+        this.mWr.onSubscribe(dVar);
         emitLoop();
     }
 
@@ -63,7 +63,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.nCT.onNext(t);
+                    this.mWr.onNext(t);
                     emitLoop();
                 }
             }
@@ -86,7 +86,7 @@ final class b<T> extends a<T> {
                         aVar = new io.reactivex.internal.util.a<>(4);
                         this.queue = aVar;
                     }
-                    aVar.bM(NotificationLite.error(th));
+                    aVar.bv(NotificationLite.error(th));
                     return;
                 }
                 z = false;
@@ -95,7 +95,7 @@ final class b<T> extends a<T> {
             if (z) {
                 io.reactivex.e.a.onError(th);
             } else {
-                this.nCT.onError(th);
+                this.mWr.onError(th);
             }
         }
     }
@@ -116,7 +116,7 @@ final class b<T> extends a<T> {
                         return;
                     }
                     this.emitting = true;
-                    this.nCT.onComplete();
+                    this.mWr.onComplete();
                 }
             }
         }
@@ -133,7 +133,7 @@ final class b<T> extends a<T> {
                 }
                 this.queue = null;
             }
-            aVar.b(this.nCT);
+            aVar.b(this.mWr);
         }
     }
 }

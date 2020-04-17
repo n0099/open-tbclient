@@ -11,6 +11,7 @@ import com.baidu.ala.recorder.video.camera.AlaCameraRecorder;
 import com.baidu.ala.recorder.video.camera.ICameraStatusHandler;
 import com.baidu.ala.recorder.video.screen.AlaScreenRecorder;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder, ICameraStatusHandler {
     private Context mContext;
@@ -240,9 +241,9 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
     }
 
     @Override // com.baidu.ala.recorder.IFaceUnityOperator
-    public void onFilterSelected(String str) {
+    public void onFilterSelected(String str, float f) {
         if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
-            ((AlaCameraRecorder) this.mRealRecorder).onFilterSelected(str);
+            ((AlaCameraRecorder) this.mRealRecorder).onFilterSelected(str, f);
         }
     }
 
@@ -336,9 +337,15 @@ public class AlaLiveVideoRecorder implements IFaceUnityOperator, IVideoRecorder,
         }
     }
 
-    public void setDefBeautyParams(HashMap<String, Object> hashMap) {
+    public void setDefBeautyParams(ConcurrentHashMap<String, Object> concurrentHashMap) {
         if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
-            ((AlaCameraRecorder) this.mRealRecorder).setDefBeautyParams(hashMap);
+            ((AlaCameraRecorder) this.mRealRecorder).setDefBeautyParams(concurrentHashMap);
+        }
+    }
+
+    public void setBeautyJsonPath(String str) {
+        if (this.mRealRecorder != null && (this.mRealRecorder instanceof AlaCameraRecorder)) {
+            ((AlaCameraRecorder) this.mRealRecorder).setBeautyJsonPath(str);
         }
     }
 

@@ -18,7 +18,6 @@ import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.swan.apps.core.container.NgWebView;
-import com.google.android.exoplayer2.Format;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class SimpleWebview extends WebView implements View.OnLongClickListener, DownloadListener {
@@ -64,7 +63,7 @@ public class SimpleWebview extends WebView implements View.OnLongClickListener, 
             settings.setAllowUniversalAccessFromFileURLs(false);
         }
         settings.setAppCacheEnabled(true);
-        settings.setAppCacheMaxSize(Format.OFFSET_SAMPLE_RELATIVE);
+        settings.setAppCacheMaxSize(Long.MAX_VALUE);
         settings.setAppCachePath(context.getDir(NgWebView.APP_CACHE_PATH, 0).getPath());
         settings.setDatabaseEnabled(true);
         settings.setDomStorageEnabled(true);

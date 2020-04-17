@@ -11,10 +11,10 @@ import com.baidu.swan.apps.jsbridge.SwanAppPreloadJsBridge;
 import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.swan.apps.jsbridge.a byn;
-    private com.baidu.swan.apps.jsbridge.a byo;
-    private SwanAppUtilsJavaScriptInterface byp;
-    private com.baidu.swan.apps.api.a byq;
+    private com.baidu.swan.apps.jsbridge.a bWt;
+    private com.baidu.swan.apps.jsbridge.a bWu;
+    private SwanAppUtilsJavaScriptInterface bWv;
+    private com.baidu.swan.apps.api.a bWw;
 
     public void a(com.baidu.swan.apps.core.container.a aVar, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         if (aVar != null && context != null && callbackHandler != null && unitedSchemeMainDispatcher != null) {
@@ -28,20 +28,20 @@ public class a {
     }
 
     public void a(Context context, com.baidu.swan.apps.core.container.a aVar) {
-        this.byp = new SwanAppUtilsJavaScriptInterface(context, aVar);
-        this.byp.setSource("swan_");
-        aVar.addJavascriptInterface(this.byp, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-        this.byp.setForceShareLight(true);
+        this.bWv = new SwanAppUtilsJavaScriptInterface(context, aVar);
+        this.bWv.setSource("swan_");
+        aVar.addJavascriptInterface(this.bWv, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        this.bWv.setForceShareLight(true);
     }
 
     private void b(com.baidu.swan.apps.core.container.a aVar, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
-        this.byn = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
-        aVar.addJavascriptInterface(this.byn, "Bdbox_android_jsbridge");
-        this.byo = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
-        aVar.addJavascriptInterface(this.byo, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.bWt = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
+        aVar.addJavascriptInterface(this.bWt, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
+        this.bWu = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler);
+        aVar.addJavascriptInterface(this.bWu, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
         aVar.addJavascriptInterface(new SwanAppPreloadJsBridge(aVar), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
-        this.byq = new com.baidu.swan.apps.api.a(context, callbackHandler, aVar);
-        this.byq.a(aVar);
+        this.bWw = new com.baidu.swan.apps.api.a(context, callbackHandler, aVar);
+        this.bWw.a(aVar);
     }
 
     private void c(com.baidu.swan.apps.core.container.a aVar) {
@@ -49,23 +49,23 @@ public class a {
     }
 
     private void a(com.baidu.swan.apps.core.container.a aVar, Context context) {
-        this.byp = new SwanAppUtilsJavaScriptInterface(context, aVar);
-        this.byp.setSource("swan_");
-        aVar.addJavascriptInterface(this.byp, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
+        this.bWv = new SwanAppUtilsJavaScriptInterface(context, aVar);
+        this.bWv.setSource("swan_");
+        aVar.addJavascriptInterface(this.bWv, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
     }
 
-    public void H(Activity activity) {
-        if (this.byn != null) {
-            this.byn.setActivityRef(activity);
+    public void D(Activity activity) {
+        if (this.bWt != null) {
+            this.bWt.setActivityRef(activity);
         }
-        if (this.byo != null) {
-            this.byo.setActivityRef(activity);
+        if (this.bWu != null) {
+            this.bWu.setActivityRef(activity);
         }
-        if (this.byp != null) {
-            this.byp.setActivity(activity);
+        if (this.bWv != null) {
+            this.bWv.setActivity(activity);
         }
-        if (this.byq != null) {
-            this.byq.setActivityRef(activity);
+        if (this.bWw != null) {
+            this.bWw.setActivityRef(activity);
         }
     }
 }

@@ -3,21 +3,21 @@ package com.baidu.live.view.web;
 import android.webkit.JsResult;
 /* loaded from: classes3.dex */
 public interface b {
-    void BG();
+    void HK();
 
     boolean a(String str, JsResult jsResult);
 
     void c(String str, int i, String str2);
 
-    void cX(int i);
+    void dm(int i);
 
-    void ek(String str);
+    void fd(String str);
 
-    void el(String str);
+    void fe(String str);
 
-    void em(String str);
+    void ff(String str);
 
-    boolean en(String str);
+    boolean fg(String str);
 
-    boolean l(String str, boolean z);
+    boolean p(String str, boolean z);
 }

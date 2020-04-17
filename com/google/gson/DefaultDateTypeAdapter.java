@@ -28,8 +28,8 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(2, 2));
         }
-        if (d.dBf()) {
-            this.dateFormats.add(g.eh(2, 2));
+        if (d.dvx()) {
+            this.dateFormats.add(g.dt(2, 2));
         }
     }
 
@@ -50,8 +50,8 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateInstance(i));
         }
-        if (d.dBf()) {
-            this.dateFormats.add(g.MF(i));
+        if (d.dvx()) {
+            this.dateFormats.add(g.HZ(i));
         }
     }
 
@@ -66,8 +66,8 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         if (!Locale.getDefault().equals(Locale.US)) {
             this.dateFormats.add(DateFormat.getDateTimeInstance(i, i2));
         }
-        if (d.dBf()) {
-            this.dateFormats.add(g.eh(i, i2));
+        if (d.dvx()) {
+            this.dateFormats.add(g.dt(i, i2));
         }
     }
 
@@ -82,22 +82,22 @@ final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     @Override // com.google.gson.TypeAdapter
     public void write(b bVar, Date date) throws IOException {
         if (date == null) {
-            bVar.dBG();
+            bVar.dvY();
             return;
         }
         synchronized (this.dateFormats) {
-            bVar.QN(this.dateFormats.get(0).format(date));
+            bVar.Oy(this.dateFormats.get(0).format(date));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter
     public Date read(a aVar) throws IOException {
-        if (aVar.dBr() == JsonToken.NULL) {
-            aVar.dBw();
+        if (aVar.dvJ() == JsonToken.NULL) {
+            aVar.dvO();
             return null;
         }
-        Date deserializeToDate = deserializeToDate(aVar.dBv());
+        Date deserializeToDate = deserializeToDate(aVar.dvN());
         if (this.dateType != Date.class) {
             if (this.dateType == Timestamp.class) {
                 return new Timestamp(deserializeToDate.getTime());
