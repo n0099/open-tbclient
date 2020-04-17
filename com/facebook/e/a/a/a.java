@@ -7,22 +7,22 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ReplacementSpan;
 /* loaded from: classes13.dex */
 public class a extends ReplacementSpan {
-    private final int lZo;
-    private final Paint.FontMetricsInt lZp = new Paint.FontMetricsInt();
     private Rect mBounds;
     private final Drawable mDrawable;
     private int mHeight;
     private int mWidth;
+    private final int mgZ;
+    private final Paint.FontMetricsInt mha = new Paint.FontMetricsInt();
 
     public a(Drawable drawable, int i) {
         this.mDrawable = drawable;
-        this.lZo = i;
-        bu();
+        this.mgZ = i;
+        gR();
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        bu();
+        gR();
         if (fontMetricsInt == null) {
             return this.mWidth;
         }
@@ -45,21 +45,21 @@ public class a extends ReplacementSpan {
 
     @Override // android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        paint.getFontMetricsInt(this.lZp);
-        int a = a(this.lZp) + i4;
+        paint.getFontMetricsInt(this.mha);
+        int a = a(this.mha) + i4;
         canvas.translate(f, a);
         this.mDrawable.draw(canvas);
         canvas.translate(-f, -a);
     }
 
-    public void bu() {
+    public void gR() {
         this.mBounds = this.mDrawable.getBounds();
         this.mWidth = this.mBounds.width();
         this.mHeight = this.mBounds.height();
     }
 
     private int a(Paint.FontMetricsInt fontMetricsInt) {
-        switch (this.lZo) {
+        switch (this.mgZ) {
             case 0:
                 return fontMetricsInt.descent - this.mHeight;
             case 1:

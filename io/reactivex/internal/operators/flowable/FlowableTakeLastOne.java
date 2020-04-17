@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
@@ -8,7 +7,7 @@ import io.reactivex.j;
 public final class FlowableTakeLastOne<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new TakeLastOneSubscriber(cVar));
+        this.mRJ.a((j) new TakeLastOneSubscriber(cVar));
     }
 
     /* loaded from: classes7.dex */
@@ -25,7 +24,7 @@ public final class FlowableTakeLastOne<T> extends a<T, T> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 

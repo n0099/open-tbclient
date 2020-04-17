@@ -1,9 +1,13 @@
 package com.baidu.android.imsdk.chatmessage;
 
+import android.content.Context;
 import com.baidu.android.imsdk.chatuser.ChatUser;
 import com.baidu.android.imsdk.chatuser.IGetUserIdentityListener;
+import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
 import com.baidu.android.imsdk.pubaccount.IGetPaInfosListener;
 import com.baidu.android.imsdk.pubaccount.PaInfo;
+import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
+import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,6 +15,7 @@ import java.util.Map;
 /* loaded from: classes3.dex */
 public class IMMediaBuildSessionListener implements IGetUserIdentityListener, IGetPaInfosListener {
     private static final String TAG = "IMMediaBuildSessionListener";
+    private Context mContext;
     private boolean mHasMore;
     private IMediaGetChatSessionListener mListener;
     private int mNewNum;
@@ -19,9 +24,10 @@ public class IMMediaBuildSessionListener implements IGetUserIdentityListener, IG
     private List<ChatSession> mUserResultList = null;
     private List<ChatSession> mPaResultList = null;
 
-    public IMMediaBuildSessionListener(int i, boolean z, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+    public IMMediaBuildSessionListener(Context context, int i, boolean z, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         this.mNewNum = 0;
         this.mHasMore = false;
+        this.mContext = context;
         this.mNewNum = i;
         this.mHasMore = z;
         this.mListener = iMediaGetChatSessionListener;
@@ -83,18 +89,27 @@ public class IMMediaBuildSessionListener implements IGetUserIdentityListener, IG
         if (chatSession != null && paInfo != null) {
             chatSession.setName(paInfo.getNickName());
             chatSession.setChatType(paInfo.getSubtype());
+            chatSession.setBusinessType(Utility.getBusinessType(paInfo.getSubtype(), paInfo.getSubsetType()));
             chatSession.setIconUrl(paInfo.getAvatar());
             chatSession.setClassType(paInfo.getClassType());
             chatSession.setClassTitle(paInfo.getClassTitle());
             chatSession.setClassAvatar(paInfo.getClassavatar());
             chatSession.setClassShow(paInfo.getClassshow());
-            chatSession.setMarkTop(paInfo.getMarkTop());
-            chatSession.setMarkTopTime(paInfo.getMarkTopTime());
             chatSession.setShield(paInfo.getShield());
             chatSession.setShieldTime(paInfo.getShieldTime());
             chatSession.setVipId(paInfo.getVipId());
             chatSession.setVPortrait(paInfo.getVPortrait());
             chatSession.setCertification(paInfo.getIdentity());
+            try {
+                PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId());
+                if (queryPaInfo == null || queryPaInfo.getPaId() < 1) {
+                    paInfo.setMarkTop(chatSession.getMarkTop());
+                    paInfo.setMarkTopTime(chatSession.getLastMsgTime());
+                    PaInfoDBManager.getInstance(this.mContext).subscribePa(paInfo);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -102,17 +117,26 @@ public class IMMediaBuildSessionListener implements IGetUserIdentityListener, IG
         if (chatSession != null && chatUser != null) {
             chatSession.setName(chatUser.getUserName());
             chatSession.setChatType(0);
+            chatSession.setBusinessType(1);
             chatSession.setIconUrl(chatUser.getIconUrl());
             chatSession.setClassType(0);
             chatSession.setClassShow(0);
-            chatSession.setMarkTop(chatUser.getMarkTop());
-            chatSession.setMarkTopTime(chatUser.getMarkTopTime());
             chatSession.setShield(chatUser.getShield());
             chatSession.setShieldTime(chatUser.getShieldTime());
             chatSession.setVipId(chatUser.getVipId());
             chatSession.setVPortrait(chatUser.getVPortrait());
             chatSession.setCertification(chatUser.getIdentity());
             chatSession.setContacter(chatUser.getUk());
+            try {
+                ChatUser chatUser2 = ChatUserDBManager.getInstance(this.mContext).getChatUser(chatUser.getUk());
+                if (chatUser2 == null || chatUser2.getUk() < 1) {
+                    chatUser.setMarkTop(chatSession.getMarkTop());
+                    chatUser.setMarkTopTime(chatSession.getLastMsgTime());
+                    ChatUserDBManager.getInstance(this.mContext).updateUser(chatUser);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

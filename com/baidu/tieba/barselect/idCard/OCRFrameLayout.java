@@ -12,15 +12,15 @@ public class OCRFrameLayout extends ViewGroup {
 
     public OCRFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        g(attributeSet);
+        h(attributeSet);
     }
 
     public OCRFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        g(attributeSet);
+        h(attributeSet);
     }
 
-    private void g(AttributeSet attributeSet) {
+    private void h(AttributeSet attributeSet) {
     }
 
     @Override // android.view.ViewGroup, android.view.View

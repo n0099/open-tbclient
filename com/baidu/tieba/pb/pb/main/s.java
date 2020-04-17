@@ -10,116 +10,116 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes9.dex */
 public class s {
-    private RelativeLayout aDf;
-    private com.baidu.tieba.pb.data.e iGO;
-    private com.baidu.tbadk.editortools.pb.h iIK;
-    private PbFakeFloorModel iIL;
-    private String iIM;
-    private NewWriteModel.d iIN;
+    private RelativeLayout aWM;
+    private com.baidu.tieba.pb.data.e jqV;
+    private com.baidu.tbadk.editortools.pb.h jsR;
+    private PbFakeFloorModel jsS;
+    private String jsT;
+    private NewWriteModel.d jsU;
     private TbPageContext mPageContext;
 
     public s(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
         this.mPageContext = tbPageContext;
-        this.aDf = relativeLayout;
-        this.iIL = pbFakeFloorModel;
+        this.aWM = relativeLayout;
+        this.jsS = pbFakeFloorModel;
     }
 
-    public void cmF() {
-        if (this.iIK != null) {
-            this.iIK.aPx();
-            if (StringUtils.isNull(this.iIM)) {
-                this.iIK.onDestory();
+    public void cxl() {
+        if (this.jsR != null) {
+            this.jsR.aXO();
+            if (StringUtils.isNull(this.jsT)) {
+                this.jsR.onDestory();
             }
-            this.iIK.aOy().aOI();
+            this.jsR.aWP().aWZ();
         }
     }
 
     public void setPbData(com.baidu.tieba.pb.data.e eVar) {
-        this.iGO = eVar;
+        this.jqV = eVar;
     }
 
-    public void cmG() {
-        if (this.iIK != null && this.iIK.aOy() != null) {
-            this.iIK.aOy().aMV();
+    public void cxm() {
+        if (this.jsR != null && this.jsR.aWP() != null) {
+            this.jsR.aWP().aVs();
         }
     }
 
-    public boolean cmH() {
-        if (this.iIK == null || this.iIK.aOy() == null) {
+    public boolean cxn() {
+        if (this.jsR == null || this.jsR.aWP() == null) {
             return false;
         }
-        return this.iIK.aOy().aOA();
+        return this.jsR.aWP().aWR();
     }
 
-    private void at(String str, boolean z) {
-        if (this.aDf != null && this.iIK == null) {
+    private void az(String str, boolean z) {
+        if (this.aWM != null && this.jsR == null) {
             com.baidu.tbadk.editortools.pb.i iVar = new com.baidu.tbadk.editortools.pb.i(z);
             iVar.setHintText(str);
-            this.iIK = (com.baidu.tbadk.editortools.pb.h) iVar.dU(this.mPageContext.getPageActivity());
-            this.iIK.a(this.mPageContext);
-            this.iIK.b(this.iIL);
-            if (this.iGO != null) {
-                this.iIK.setThreadData(this.iGO.ckP());
+            this.jsR = (com.baidu.tbadk.editortools.pb.h) iVar.dI(this.mPageContext.getPageActivity());
+            this.jsR.a(this.mPageContext);
+            this.jsR.b(this.jsS);
+            if (this.jqV != null) {
+                this.jsR.setThreadData(this.jqV.cvu());
             }
-            this.iIK.aOy().gC(true);
-            this.iIK.g(this.mPageContext);
-            cmI();
-            this.iIK.b(this.iIN);
+            this.jsR.aWP().hA(true);
+            this.jsR.j(this.mPageContext);
+            cxo();
+            this.jsR.b(this.jsU);
         }
     }
 
     public void g(String str, String str2, String str3, boolean z) {
-        this.iIM = str2;
-        if (this.iIK == null) {
-            at(str3, z);
+        this.jsT = str2;
+        if (this.jsR == null) {
+            az(str3, z);
         } else {
-            this.iIK.b(this.iIL);
-            if (StringUtils.isNull(this.iIM)) {
-                this.iIK.g(this.mPageContext);
+            this.jsR.b(this.jsS);
+            if (StringUtils.isNull(this.jsT)) {
+                this.jsR.j(this.mPageContext);
             }
         }
-        this.iIK.setReplyId(str);
-        this.iIK.vt(str2);
-        if (this.iIK.aPm()) {
-            this.iIK.a((PostWriteCallBackData) null);
+        this.jsR.setReplyId(str);
+        this.jsR.wH(str2);
+        if (this.jsR.aXD()) {
+            this.jsR.a((PostWriteCallBackData) null);
         }
     }
 
-    private void cmI() {
-        if (this.aDf != null && this.iIK != null && this.iIK.aOy() != null) {
+    private void cxo() {
+        if (this.aWM != null && this.jsR != null && this.jsR.aWP() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.aDf.addView(this.iIK.aOy(), layoutParams);
+            this.aWM.addView(this.jsR.aWP(), layoutParams);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.iIK != null) {
-            this.iIK.onActivityResult(i, i2, intent);
+        if (this.jsR != null) {
+            this.jsR.onActivityResult(i, i2, intent);
         }
     }
 
     public void onStop() {
-        if (this.iIK != null) {
-            this.iIK.onStop();
+        if (this.jsR != null) {
+            this.jsR.onStop();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iIK != null && this.iIK.aOy() != null) {
-            this.iIK.aOy().onChangeSkinType(i);
+        if (this.jsR != null && this.jsR.aWP() != null) {
+            this.jsR.aWP().onChangeSkinType(i);
         }
     }
 
     public void a(NewWriteModel.d dVar) {
-        this.iIN = dVar;
-        if (this.iIK != null) {
-            this.iIK.b(dVar);
+        this.jsU = dVar;
+        if (this.jsR != null) {
+            this.jsR.b(dVar);
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.h cmJ() {
-        return this.iIK;
+    public com.baidu.tbadk.editortools.pb.h cxp() {
+        return this.jsR;
     }
 }

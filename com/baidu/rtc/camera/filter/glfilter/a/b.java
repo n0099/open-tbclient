@@ -4,8 +4,8 @@ import android.content.Context;
 import android.opengl.GLES30;
 /* loaded from: classes6.dex */
 public class b extends a {
-    private int aXA;
-    private float[] aXB;
+    private int bwa;
+    private float[] bwb;
 
     public b(Context context) {
         this(context, "uniform mat4 transformMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 textureCoordinate;\nvoid main() {\n    gl_Position = aPosition;\n    textureCoordinate = (transformMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 textureCoordinate;\nuniform samplerExternalOES inputTexture;\nvoid main() {\n    gl_FragColor = texture2D(inputTexture, textureCoordinate);\n}                                                          \n");
@@ -16,23 +16,23 @@ public class b extends a {
     }
 
     @Override // com.baidu.rtc.camera.filter.glfilter.a.a
-    public void FL() {
-        super.FL();
-        this.aXA = GLES30.glGetUniformLocation(this.mProgramHandle, "transformMatrix");
+    public void Nx() {
+        super.Nx();
+        this.bwa = GLES30.glGetUniformLocation(this.mProgramHandle, "transformMatrix");
     }
 
     @Override // com.baidu.rtc.camera.filter.glfilter.a.a
-    public int FP() {
+    public int NB() {
         return 36197;
     }
 
     @Override // com.baidu.rtc.camera.filter.glfilter.a.a
-    public void FM() {
-        super.FM();
-        GLES30.glUniformMatrix4fv(this.aXA, 1, false, this.aXB, 0);
+    public void Ny() {
+        super.Ny();
+        GLES30.glUniformMatrix4fv(this.bwa, 1, false, this.bwb, 0);
     }
 
-    public void h(float[] fArr) {
-        this.aXB = fArr;
+    public void v(float[] fArr) {
+        this.bwb = fArr;
     }
 }

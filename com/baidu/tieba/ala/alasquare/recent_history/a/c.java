@@ -27,8 +27,8 @@ import com.baidu.tieba.ala.alasquare.recent_history.b.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
-    private long eqR;
-    private a eqS;
+    private long eUo;
+    private a eUp;
     private Drawable mLeftDrawable;
 
     /* loaded from: classes3.dex */
@@ -38,12 +38,12 @@ public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.eqR = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
+        this.eUo = com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
         this.mLeftDrawable = am.getDrawable(this.mContext.getResources(), (int) R.drawable.icon_video_direct_seeding);
     }
 
     public void a(a aVar) {
-        this.eqS = aVar;
+        this.eUp = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -53,99 +53,99 @@ public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
         if (view == null) {
             bVar = new b();
             view = LayoutInflater.from(this.mContext).inflate(R.layout.square_recent_history_whole_item, (ViewGroup) null);
-            bVar.eqN = (TbImageView) view.findViewById(R.id.recent_history_whole_img);
-            bVar.eqN.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-            bVar.eqN.setIsRound(true);
-            bVar.eqN.setAutoChangeStyle(false);
-            bVar.eqN.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            bVar.cuv = (TextView) view.findViewById(R.id.recent_history_whole_user_name);
-            bVar.eqP = (TextView) view.findViewById(R.id.recent_history_whole_living_tag);
-            bVar.eqQ = (TextView) view.findViewById(R.id.recent_history_whole_send_gift_tag);
-            bVar.eqV = (TextView) view.findViewById(R.id.recent_history_whole_live_begin_time);
-            bVar.eqW = (TextView) view.findViewById(R.id.recent_history_whole_follow_btn);
-            bVar.eqX = (TextView) view.findViewById(R.id.recent_history_whole_unfollow_btn);
+            bVar.eUk = (TbImageView) view.findViewById(R.id.recent_history_whole_img);
+            bVar.eUk.setDefaultResource(R.drawable.icon_default_avatar100_bg);
+            bVar.eUk.setIsRound(true);
+            bVar.eUk.setAutoChangeStyle(false);
+            bVar.eUk.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            bVar.cTr = (TextView) view.findViewById(R.id.recent_history_whole_user_name);
+            bVar.eUm = (TextView) view.findViewById(R.id.recent_history_whole_living_tag);
+            bVar.eUn = (TextView) view.findViewById(R.id.recent_history_whole_send_gift_tag);
+            bVar.eUs = (TextView) view.findViewById(R.id.recent_history_whole_live_begin_time);
+            bVar.eUt = (TextView) view.findViewById(R.id.recent_history_whole_follow_btn);
+            bVar.eUu = (TextView) view.findViewById(R.id.recent_history_whole_unfollow_btn);
             am.setBackgroundColor(view, R.color.cp_bg_line_d);
-            am.setViewTextColor(bVar.cuv, (int) R.color.cp_cont_b);
-            am.setViewTextColor(bVar.eqV, (int) R.color.cp_cont_d);
-            am.setViewTextColor(bVar.eqW, (int) R.color.cp_cont_e);
-            am.setViewTextColor(bVar.eqX, (int) R.color.square_follow_btn_txt_color);
-            bVar.eqP.setCompoundDrawablesWithIntrinsicBounds(this.mLeftDrawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            am.setViewTextColor(bVar.eqQ, (int) R.color.cp_cont_h);
+            am.setViewTextColor(bVar.cTr, (int) R.color.cp_cont_b);
+            am.setViewTextColor(bVar.eUs, (int) R.color.cp_cont_d);
+            am.setViewTextColor(bVar.eUt, (int) R.color.cp_cont_e);
+            am.setViewTextColor(bVar.eUu, (int) R.color.square_follow_btn_txt_color);
+            bVar.eUm.setCompoundDrawablesWithIntrinsicBounds(this.mLeftDrawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            am.setViewTextColor(bVar.eUn, (int) R.color.cp_cont_h);
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
-        final com.baidu.tieba.ala.alasquare.recent_history.b.b oL = getItem(i);
-        if (oL != null && oL.cRt != null && oL.cRt.aCr() != null) {
-            final MetaData aCr = oL.cRt.aCr();
-            bVar.eqN.startLoad(aCr.getPortrait(), 12, false);
-            this.eqK = 0;
-            bVar.eqP.setVisibility(8);
-            bVar.eqQ.setVisibility(8);
-            if (!v.isEmpty(oL.tagList)) {
-                for (b.a aVar : oL.tagList) {
+        final com.baidu.tieba.ala.alasquare.recent_history.b.b pe = getItem(i);
+        if (pe != null && pe.dqA != null && pe.dqA.aKE() != null) {
+            final MetaData aKE = pe.dqA.aKE();
+            bVar.eUk.startLoad(aKE.getPortrait(), 12, false);
+            this.eUh = 0;
+            bVar.eUm.setVisibility(8);
+            bVar.eUn.setVisibility(8);
+            if (!v.isEmpty(pe.tagList)) {
+                for (b.a aVar : pe.tagList) {
                     if (aVar != null) {
-                        if (1 == aVar.Xu) {
-                            bVar.eqP.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar.era)) {
-                                bVar.eqP.setText(aVar.era);
+                        if (1 == aVar.apx) {
+                            bVar.eUm.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar.eUx)) {
+                                bVar.eUm.setText(aVar.eUx);
                             }
-                            this.eqK++;
-                        } else if (2 == aVar.Xu) {
-                            bVar.eqQ.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar.era)) {
-                                bVar.eqQ.setText(aVar.era);
+                            this.eUh++;
+                        } else if (2 == aVar.apx) {
+                            bVar.eUn.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar.eUx)) {
+                                bVar.eUn.setText(aVar.eUx);
                             }
-                            this.eqK++;
+                            this.eUh++;
                         }
                     }
                 }
             }
-            boolean z = oL.isFollow;
-            String name_show = aCr.getName_show();
-            if (this.eqK <= 1) {
+            boolean z = pe.isFollow;
+            String name_show = aKE.getName_show();
+            if (this.eUh <= 1) {
                 i2 = 14;
             } else {
                 i2 = z ? 12 : 10;
             }
-            bVar.cuv.setText(k.byteLength(name_show) > i2 ? aq.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE) : name_show);
-            bVar.eqV.setText(aq.getFormatTimeShort(oL.eqZ * 1000));
+            bVar.cTr.setText(k.byteLength(name_show) > i2 ? aq.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE) : name_show);
+            bVar.eUs.setText(aq.getFormatTimeShort(pe.eUw * 1000));
             a(z, bVar);
-            bVar.eqX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.a.c.1
+            bVar.eUu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.a.c.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (c.this.eqS != null) {
-                        c.this.eqS.a(oL);
+                    if (c.this.eUp != null) {
+                        c.this.eUp.a(pe);
                     }
                 }
             });
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.a.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    boolean bk = c.this.bk(oL.tagList);
+                    boolean bu = c.this.bu(pe.tagList);
                     an anVar = new an("c12661");
-                    anVar.cx("obj_id", oL.cRt.aCr().getUserId());
-                    anVar.X("obj_type", bk ? 1 : 0);
+                    anVar.cI("obj_id", pe.dqA.aKE().getUserId());
+                    anVar.af("obj_type", bu ? 1 : 0);
                     TiebaStatic.log(anVar);
-                    if (!c.this.bk(oL.tagList)) {
-                        c.this.d(aCr);
+                    if (!c.this.bu(pe.tagList)) {
+                        c.this.d(aKE);
                     } else {
-                        c.this.a(c.this.mPageContext, oL.cRt, "recent_history_whole_tab");
+                        c.this.a(c.this.mPageContext, pe.dqA, "recent_history_whole_tab");
                     }
                 }
             });
             an anVar = new an("c12660");
-            anVar.cx("obj_id", oL.cRt.aCr().getUserId());
-            com.baidu.tieba.ala.alasquare.c.a.bdd().e(anVar);
+            anVar.cI("obj_id", pe.dqA.aKE().getUserId());
+            com.baidu.tieba.ala.alasquare.c.a.blU().e(anVar);
         }
         return view;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bk(List<b.a> list) {
+    public boolean bu(List<b.a> list) {
         if (!v.isEmpty(list)) {
             for (b.a aVar : list) {
-                if (aVar != null && 1 == aVar.Xu) {
+                if (aVar != null && 1 == aVar.apx) {
                     return true;
                 }
             }
@@ -155,30 +155,30 @@ public class c extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
 
     private void a(boolean z, b bVar) {
         if (z) {
-            bVar.eqX.setVisibility(8);
-            bVar.eqW.setVisibility(0);
-            bVar.eqW.setEnabled(false);
+            bVar.eUu.setVisibility(8);
+            bVar.eUt.setVisibility(0);
+            bVar.eUt.setEnabled(false);
             return;
         }
-        bVar.eqW.setVisibility(8);
-        bVar.eqX.setVisibility(0);
+        bVar.eUt.setVisibility(8);
+        bVar.eUu.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.tbadk.data.MetaData metaData) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mContext).createNormalConfig(Long.valueOf(metaData.getUserId()).longValue(), String.valueOf(this.eqR).equals(metaData.getUserId()), metaData.isBigV())));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(this.mContext).createNormalConfig(Long.valueOf(metaData.getUserId()).longValue(), String.valueOf(this.eUo).equals(metaData.getUserId()), metaData.isBigV())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class b {
-        public TextView cuv;
-        public TbImageView eqN;
-        public TextView eqP;
-        public TextView eqQ;
-        public TextView eqV;
-        public TextView eqW;
-        public TextView eqX;
+        public TextView cTr;
+        public TbImageView eUk;
+        public TextView eUm;
+        public TextView eUn;
+        public TextView eUs;
+        public TextView eUt;
+        public TextView eUu;
 
         private b() {
         }

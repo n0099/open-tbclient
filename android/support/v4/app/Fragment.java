@@ -35,7 +35,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
@@ -263,7 +262,7 @@ public class Fragment implements aa, j, ComponentCallbacks, View.OnCreateContext
             sb.append(Integer.toHexString(this.mFragmentId));
         }
         if (this.mTag != null) {
-            sb.append(HanziToPinyin.Token.SEPARATOR);
+            sb.append(" ");
             sb.append(this.mTag);
         }
         sb.append('}');

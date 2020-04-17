@@ -2,12 +2,13 @@ package com.baidu.adp.lib.cache;
 
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final e pO;
+    protected final e IR;
     protected final boolean prefixNameSpaceToKey;
 
-    public abstract g<T> ab(String str);
+    public abstract g<T> bq(String str);
 
     public abstract void c(g<T> gVar);
 
@@ -16,60 +17,60 @@ public abstract class d<T> implements k<T> {
     protected abstract void removeExpiredItem(String str);
 
     public d(e eVar, boolean z) {
-        this.pO = eVar;
+        this.IR = eVar;
         this.prefixNameSpaceToKey = z;
     }
 
     protected String buildUniqueKey(String str, String str2) {
         if (this.prefixNameSpaceToKey) {
-            return str + "@" + str2;
+            return str + UgcConstant.AT_RULE_TAG + str2;
         }
         return str2;
     }
 
-    protected g<T> l(String str, String str2) {
+    protected g<T> q(String str, String str2) {
         String buildUniqueKey = buildUniqueKey(str, str2);
-        g<T> ab = ab(buildUniqueKey);
-        if (ab == null) {
+        g<T> bq = bq(buildUniqueKey);
+        if (bq == null) {
             if (BdLog.isDebugMode()) {
             }
             return null;
-        } else if (ab.timeToExpire < System.currentTimeMillis()) {
+        } else if (bq.timeToExpire < System.currentTimeMillis()) {
             removeExpiredItem(buildUniqueKey);
             if (BdLog.isDebugMode()) {
             }
             return null;
         } else {
-            if (this.pO.shouldUpdateLastHitTime()) {
-                ab.lastHitTime = System.currentTimeMillis();
-                c(ab);
+            if (this.IR.shouldUpdateLastHitTime()) {
+                bq.lastHitTime = System.currentTimeMillis();
+                c(bq);
             }
             if (BdLog.isDebugMode()) {
             }
-            return ab;
+            return bq;
         }
     }
 
     @Override // com.baidu.adp.lib.cache.k
     public T get(String str, String str2) {
-        g<T> l = l(str, str2);
-        if (l == null) {
+        g<T> q = q(str, str2);
+        if (q == null) {
             return null;
         }
-        return l.value;
+        return q.value;
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public l.b<T> m(String str, String str2) {
-        g<T> l = l(str, str2);
-        if (l == null) {
+    public l.b<T> r(String str, String str2) {
+        g<T> q = q(str, str2);
+        if (q == null) {
             return null;
         }
         l.b<T> bVar = new l.b<>();
         bVar.key = str2;
-        bVar.value = l.value;
-        bVar.timeToExpire = l.timeToExpire;
-        bVar.lastSaveTime = l.saveTime;
+        bVar.value = q.value;
+        bVar.timeToExpire = q.timeToExpire;
+        bVar.lastSaveTime = q.saveTime;
         return bVar;
     }
 
@@ -91,7 +92,7 @@ public abstract class d<T> implements k<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.k
-    public e fw() {
-        return this.pO;
+    public e ka() {
+        return this.IR;
     }
 }

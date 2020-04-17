@@ -60,20 +60,20 @@ public class r extends ab {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.performance.f.ZY().Z(q(optParamsAsJo.optJSONArray("data"))).ZF();
+                com.baidu.swan.apps.performance.f.aid().ah(r(optParamsAsJo.optJSONArray("data"))).ahK();
                 UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler);
                 ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.r.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        ai.ahi();
+                        ai.apq();
                     }
                 });
                 break;
             case 1:
-                r(optParamsAsJo.optJSONArray("data"));
+                s(optParamsAsJo.optJSONArray("data"));
                 break;
             case 2:
-                s(optParamsAsJo.optJSONArray("data"));
+                t(optParamsAsJo.optJSONArray("data"));
                 break;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
@@ -83,28 +83,28 @@ public class r extends ab {
         return true;
     }
 
-    List<UbcFlowEvent> q(JSONArray jSONArray) {
+    List<UbcFlowEvent> r(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
-            UbcFlowEvent X = X(jSONArray.optJSONObject(i));
-            if (X != null) {
-                X.kd("FE");
-                arrayList.add(X);
+            UbcFlowEvent ai = ai(jSONArray.optJSONObject(i));
+            if (ai != null) {
+                ai.lq("FE");
+                arrayList.add(ai);
             }
         }
         return arrayList;
     }
 
-    UbcFlowEvent X(JSONObject jSONObject) {
+    UbcFlowEvent ai(JSONObject jSONObject) {
         String optString = jSONObject.optString("actionId");
         long optLong = jSONObject.optLong("timestamp");
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        return new UbcFlowEvent(optString).au(optLong);
+        return new UbcFlowEvent(optString).aZ(optLong);
     }
 
-    private void r(JSONArray jSONArray) {
+    private void s(JSONArray jSONArray) {
         if (jSONArray != null) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SearchFlowEvent from FE, data: " + jSONArray);
@@ -118,7 +118,7 @@ public class r extends ab {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.bVM = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.cuE = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {
@@ -129,10 +129,10 @@ public class r extends ab {
         }
     }
 
-    private void s(JSONArray jSONArray) {
+    private void t(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.d Or = com.baidu.swan.apps.y.f.WV().Or();
-        if (Or != null) {
+        com.baidu.swan.apps.core.d.d Wf = com.baidu.swan.apps.y.f.aeK().Wf();
+        if (Wf != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -144,10 +144,10 @@ public class r extends ab {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        Or.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                        Wf.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
                     longValue = 0;
-                    Or.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                    Wf.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

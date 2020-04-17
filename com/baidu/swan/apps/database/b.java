@@ -2,11 +2,11 @@ package com.baidu.swan.apps.database;
 /* loaded from: classes11.dex */
 public final class b {
     private String appID;
-    private String btv;
-    private String btw;
-    private String btx;
-    public String bty;
-    public int btz;
+    private String bRC;
+    private String bRD;
+    private String bRE;
+    public String bRF;
+    public int bRG;
 
     public b(String str) {
         this.appID = str;
@@ -20,31 +20,31 @@ public final class b {
         this.appID = str;
     }
 
-    public String Re() {
-        return this.btv;
+    public String YT() {
+        return this.bRC;
     }
 
-    public void hx(String str) {
-        this.btv = str;
+    public void iL(String str) {
+        this.bRC = str;
     }
 
-    public String Rf() {
-        return this.btx;
+    public String YU() {
+        return this.bRE;
     }
 
-    public void hy(String str) {
-        this.btx = str;
+    public void iM(String str) {
+        this.bRE = str;
     }
 
-    public void hz(String str) {
-        this.bty = str;
+    public void iN(String str) {
+        this.bRF = str;
     }
 
-    public void hA(String str) {
-        this.btw = str;
+    public void iO(String str) {
+        this.bRD = str;
     }
 
     public void setAppFrameType(int i) {
-        this.btz = i;
+        this.bRG = i;
     }
 }

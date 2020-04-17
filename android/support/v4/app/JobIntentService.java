@@ -433,7 +433,8 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    GenericWorkItem dequeueWork() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public GenericWorkItem dequeueWork() {
         CompatWorkItem compatWorkItem;
         if (this.mJobImpl != null) {
             return this.mJobImpl.dequeueWork();

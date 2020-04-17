@@ -2,7 +2,6 @@ package com.baidu.lbsapi.panoramaview;
 
 import android.os.Bundle;
 import com.baidu.pano.platform.comapi.a.a;
-import com.baidu.searchbox.config.FontSizeConfig;
 /* loaded from: classes8.dex */
 public class TextMarker extends a {
     private String a;
@@ -18,7 +17,7 @@ public class TextMarker extends a {
     public Bundle toBundle(String str, Bundle bundle) {
         bundle.putInt("markerType", 1003);
         bundle.putString("text", this.a == null ? "" : this.a);
-        bundle.putInt(FontSizeConfig.FONT_SIZE_COOKIE, this.b == 0 ? 12 : this.b);
+        bundle.putInt("fontsize", this.b == 0 ? 12 : this.b);
         bundle.putInt("fontcolor", this.c);
         bundle.putInt("bgcolor", this.d);
         bundle.putInt("paddingleft", this.e);

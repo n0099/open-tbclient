@@ -1,16 +1,7 @@
 package com.baidu.j.b;
-/* loaded from: classes7.dex */
-public class b {
-    private static volatile a aQh;
-
-    public static synchronized a ED() {
-        a aVar;
-        synchronized (b.class) {
-            if (aQh == null) {
-                aQh = new a();
-            }
-            aVar = aQh;
-        }
-        return aVar;
+/* loaded from: classes6.dex */
+public class b extends com.baidu.swan.apps.component.a.d.b {
+    public b() {
+        super("RTC", "rtcId");
     }
 }

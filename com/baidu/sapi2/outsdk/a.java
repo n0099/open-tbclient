@@ -1,6 +1,7 @@
 package com.baidu.sapi2.outsdk;
 
 import android.text.TextUtils;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.outsdk.c;
 import com.baidu.sapi2.utils.Log;
@@ -70,7 +71,7 @@ public class a {
                         }
                     }
                     try {
-                        jSONObject.put("errno", 0);
+                        jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                         jSONObject.put("appid", sapiConfiguration.chinaMobileAppID);
                         jSONObject.put("code", jSONObject.optString("resultCode"));
                         Object[] objArr = new Object[1];

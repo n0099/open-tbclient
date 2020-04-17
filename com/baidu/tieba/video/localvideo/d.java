@@ -6,9 +6,9 @@ public class d {
     private long duration;
     private boolean hasLoaded = false;
     private long lastModified;
+    private String lmp;
     private String mimeType;
     private Bitmap thumbnailBitmap;
-    private String thumbnailPath;
     private int videoHeight;
     private String videoId;
     private String videoPath;
@@ -58,15 +58,15 @@ public class d {
         this.videoHeight = i;
     }
 
-    public void setThumbnailPath(String str) {
-        this.thumbnailPath = str;
+    public void LT(String str) {
+        this.lmp = str;
     }
 
     public long getLastModified() {
         return this.lastModified;
     }
 
-    public void setLastModified(long j) {
+    public void aS(long j) {
         this.lastModified = j;
     }
 
@@ -74,15 +74,15 @@ public class d {
         return this.thumbnailBitmap;
     }
 
-    public void setThumbnailBitmap(Bitmap bitmap) {
+    public void N(Bitmap bitmap) {
         this.thumbnailBitmap = bitmap;
     }
 
-    public void setHasLoaded(boolean z) {
+    public void uy(boolean z) {
         this.hasLoaded = z;
     }
 
-    public boolean hasLoaded() {
+    public boolean dcf() {
         return this.hasLoaded;
     }
 }

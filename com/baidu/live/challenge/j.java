@@ -3,8 +3,9 @@ package com.baidu.live.challenge;
 import com.baidu.live.challenge.ChallenfeInfoData;
 import com.baidu.live.data.AlaPersonChallengeData;
 import com.baidu.live.data.ad;
-import com.baidu.live.data.ae;
-import com.baidu.live.data.m;
+import com.baidu.live.data.ag;
+import com.baidu.live.data.ah;
+import com.baidu.live.data.n;
 import java.util.List;
 /* loaded from: classes3.dex */
 public interface j {
@@ -13,23 +14,23 @@ public interface j {
     public interface a {
         void a(boolean z, com.baidu.live.challenge.a aVar);
 
-        void g(int i, String str);
+        void f(int i, String str);
     }
 
     /* loaded from: classes3.dex */
     public interface b {
-        void bm(int i);
+        void bz(int i);
     }
 
     /* loaded from: classes3.dex */
     public interface c {
-        void b(ad adVar, ae aeVar, ae aeVar2);
+        void b(ag agVar, ah ahVar, ah ahVar2);
 
-        void c(ad adVar, ae aeVar, ae aeVar2);
+        void c(ag agVar, ah ahVar, ah ahVar2);
 
-        void d(ad adVar, ae aeVar, ae aeVar2);
+        void d(ag agVar, ah ahVar, ah ahVar2);
 
-        void e(ad adVar, ae aeVar, ae aeVar2);
+        void e(ag agVar, ah ahVar, ah ahVar2);
     }
 
     /* loaded from: classes3.dex */
@@ -38,33 +39,33 @@ public interface j {
 
         void b(int i, String str, com.baidu.live.challenge.a aVar);
 
-        void h(int i, String str);
+        void g(int i, String str);
     }
 
     /* loaded from: classes3.dex */
     public interface e {
-        int qj();
+        int uA();
     }
 
     /* loaded from: classes3.dex */
     public interface f {
-        void i(int i, String str);
+        void h(int i, String str);
 
-        void m(List<com.baidu.live.challenge.d> list);
+        void p(List<com.baidu.live.challenge.d> list);
     }
 
     /* loaded from: classes3.dex */
     public interface g {
         void a(com.baidu.live.challenge.d dVar);
 
-        void j(int i, String str);
+        void i(int i, String str);
     }
 
     /* loaded from: classes3.dex */
     public interface h {
         void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list);
 
-        void k(int i, String str);
+        void j(int i, String str);
     }
 
     /* loaded from: classes3.dex */
@@ -73,21 +74,29 @@ public interface j {
 
         void c(int i, String str, com.baidu.live.challenge.a aVar);
 
-        void l(int i, String str);
+        void k(int i, String str);
     }
 
     /* renamed from: com.baidu.live.challenge.j$j  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0081j {
-        void m(int i, String str);
+    public interface InterfaceC0105j {
+        void l(int i, String str);
 
-        void qk();
+        void uB();
     }
 
     /* loaded from: classes3.dex */
     public interface k {
-        void d(boolean z, String str);
+        void c(boolean z, String str);
     }
+
+    void R(long j);
+
+    void S(long j);
+
+    void T(long j);
+
+    void U(long j);
 
     void a(a aVar);
 
@@ -107,55 +116,49 @@ public interface j {
 
     void a(i iVar);
 
-    void a(InterfaceC0081j interfaceC0081j);
+    void a(InterfaceC0105j interfaceC0105j);
 
     void a(k kVar);
 
     void a(AlaPersonChallengeData alaPersonChallengeData);
 
-    void av(boolean z);
+    void a(ad adVar);
 
-    void bl(int i2);
+    void aT(boolean z);
 
-    void c(m mVar);
+    void by(int i2);
 
-    void cT(String str);
+    void c(n nVar);
 
     void d(long j, long j2);
+
+    void dJ(String str);
 
     void e(int i2, int i3, String str);
 
     void onDestroy();
 
-    void pP();
+    void r(int i2, int i3);
 
-    void pZ();
+    void ug();
 
-    void qa();
+    void uq();
 
-    void qb();
+    void ur();
 
-    void qc();
+    void us();
 
-    void qd();
+    void ut();
 
-    void qe();
+    void uu();
 
-    ChallenfeInfoData.ChallengeStatus qf();
+    void uv();
 
-    boolean qg();
+    ChallenfeInfoData.ChallengeStatus uw();
 
-    void qh();
+    boolean ux();
 
-    long qi();
+    void uy();
 
-    void s(int i2, int i3);
-
-    void t(long j);
-
-    void u(long j);
-
-    void v(long j);
-
-    void w(long j);
+    long uz();
 }

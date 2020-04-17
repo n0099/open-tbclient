@@ -7,7 +7,6 @@ import android.os.StatFs;
 import android.os.storage.StorageManager;
 import android.text.TextUtils;
 import com.baidu.android.common.others.java.ReflectionUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -94,7 +93,7 @@ public final class StorageUtils {
                         if (readLine == null) {
                             break;
                         }
-                        StringTokenizer stringTokenizer = new StringTokenizer(readLine, HanziToPinyin.Token.SEPARATOR);
+                        StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
                         String nextToken = stringTokenizer.nextToken();
                         String nextToken2 = stringTokenizer.nextToken();
                         if (!hashSet.contains(nextToken2)) {

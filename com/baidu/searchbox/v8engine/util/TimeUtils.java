@@ -1,7 +1,6 @@
 package com.baidu.searchbox.v8engine.util;
 
 import android.os.SystemClock;
-import com.baidu.android.util.time.DateTimeUtil;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -14,7 +13,7 @@ public class TimeUtils {
     private static final int SECONDS_PER_HOUR = 3600;
     private static final int SECONDS_PER_MINUTE = 60;
     private static final String TAG = "TimeUtils";
-    private static SimpleDateFormat sLoggingFormat = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT);
+    private static SimpleDateFormat sLoggingFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final Object sFormatSync = new Object();
     private static char[] sFormatStr = new char[29];
     private static char[] sTmpFormatStr = new char[29];

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.img;
 
 import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
@@ -23,6 +24,7 @@ public class ImageFileInfo extends MediaFileInfo {
     private String _cacheKey_all;
     private String _cacheKey_page;
     private String albumId;
+    private String contentUriStr;
     public String extra;
     private String filePath;
     private boolean hasAddPostQualityAction;
@@ -45,7 +47,7 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public String toCachedKey(boolean z) {
         if (getImageType() == 1) {
-            return com.baidu.adp.lib.e.c.gr().genCacheKey(this.filePath, 20);
+            return com.baidu.adp.lib.e.c.kV().genCacheKey(this.filePath, 20);
         }
         if (z) {
             if (this._cacheKey_all == null) {
@@ -112,6 +114,7 @@ public class ImageFileInfo extends MediaFileInfo {
         if (jSONObject != null) {
             this.filePath = jSONObject.optString("filePath", "");
             this.albumId = jSONObject.optString("albumId", null);
+            this.contentUriStr = jSONObject.optString("contentUriStr", null);
             this.isTempFile = jSONObject.optBoolean("isTempFile", false);
             this.serverImageCode = jSONObject.optString("serverImageCode", null);
             this.modifyTime = jSONObject.optString("modifyTime");
@@ -142,6 +145,9 @@ public class ImageFileInfo extends MediaFileInfo {
             jSONObject.put("filePath", this.filePath);
             if (this.albumId != null) {
                 jSONObject.put("albumId", this.albumId);
+            }
+            if (!TextUtils.isEmpty(this.contentUriStr)) {
+                jSONObject.put("contentUriStr", this.contentUriStr);
             }
             jSONObject.put("isTempFile", this.isTempFile);
             if (this.serverImageCode != null) {
@@ -186,6 +192,14 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public void setAlbumnId(String str) {
         this.albumId = str;
+    }
+
+    public String getContentUriStr() {
+        return this.contentUriStr;
+    }
+
+    public void setContentUriStr(String str) {
+        this.contentUriStr = str;
     }
 
     public boolean isTempFile() {
@@ -361,6 +375,7 @@ public class ImageFileInfo extends MediaFileInfo {
     public ImageFileInfo cloneWithoutFilterAction(boolean z) {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(getFilePath());
+        imageFileInfo.setContentUriStr(getContentUriStr());
         imageFileInfo.setModifyTime(getModifyTime());
         if (getPageActionsList() != null) {
             Iterator<ImageOperation> it = getPageActionsList().iterator();

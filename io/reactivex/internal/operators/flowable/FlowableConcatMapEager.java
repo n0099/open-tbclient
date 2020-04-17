@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.subscribers.InnerQueuedSubscriber;
@@ -19,7 +18,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        this.nyr.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
+        this.mRJ.a((j) new ConcatMapEagerDelayErrorSubscriber(cVar, this.mapper, this.maxConcurrency, this.prefetch, this.errorMode));
     }
 
     /* loaded from: classes7.dex */
@@ -52,7 +51,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(this.maxConcurrency == Integer.MAX_VALUE ? Format.OFFSET_SAMPLE_RELATIVE : this.maxConcurrency);
+                dVar.request(this.maxConcurrency == Integer.MAX_VALUE ? Long.MAX_VALUE : this.maxConcurrency);
             }
         }
 
@@ -63,14 +62,16 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                 InnerQueuedSubscriber<R> innerQueuedSubscriber = new InnerQueuedSubscriber<>(this, this.prefetch);
                 if (!this.cancelled) {
                     this.subscribers.offer(innerQueuedSubscriber);
-                    bVar.subscribe(innerQueuedSubscriber);
-                    if (this.cancelled) {
-                        innerQueuedSubscriber.cancel();
-                        drainAndCancel();
+                    if (!this.cancelled) {
+                        bVar.subscribe(innerQueuedSubscriber);
+                        if (this.cancelled) {
+                            innerQueuedSubscriber.cancel();
+                            drainAndCancel();
+                        }
                     }
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 this.s.cancel();
                 onError(th);
             }
@@ -223,7 +224,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                                         innerQueuedSubscriber2.requestOne();
                                     }
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.H(th);
+                                    io.reactivex.exceptions.a.L(th);
                                     this.current = null;
                                     innerQueuedSubscriber2.cancel();
                                     cancelAll();
@@ -250,7 +251,7 @@ public final class FlowableConcatMapEager<T, R> extends a<T, R> {
                                     this.s.request(1L);
                                     innerQueuedSubscriber = null;
                                     z2 = true;
-                                    if (j2 != 0 && j != Format.OFFSET_SAMPLE_RELATIVE) {
+                                    if (j2 != 0 && j != Long.MAX_VALUE) {
                                         this.requested.addAndGet(-j2);
                                     }
                                     if (z2 && (i = addAndGet(-i)) == 0) {

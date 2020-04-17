@@ -3,12 +3,13 @@ package com.baidu.sapi2.views;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.support.v7.widget.ActivityChooserView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes6.dex */
 public class p extends FrameLayout {
@@ -34,7 +35,7 @@ public class p extends FrameLayout {
         this.b = ObjectAnimator.ofFloat(this.c, "translationX", -300.0f, 300.0f);
         this.b.setDuration(1000L);
         this.b.setRepeatMode(1);
-        this.b.setRepeatCount(Integer.MAX_VALUE);
+        this.b.setRepeatCount(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         this.b.start();
     }
 

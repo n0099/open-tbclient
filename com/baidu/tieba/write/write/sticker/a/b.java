@@ -7,9 +7,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.MotionEvent;
 import com.baidu.tbadk.core.util.BitmapHelper;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private Bitmap kWY;
+    private Bitmap lGZ;
     private Context mContext;
     private Rect mRect = new Rect();
 
@@ -17,17 +17,17 @@ public class b {
         this.mContext = context;
     }
 
-    public void EE(int i) {
-        this.kWY = BitmapHelper.getResBitmap(this.mContext, i);
+    public void Ff(int i) {
+        this.lGZ = BitmapHelper.getResBitmap(this.mContext, i);
     }
 
     public void a(Canvas canvas, float f, float f2) {
-        if (this.kWY != null) {
-            this.mRect.left = (int) (f - (this.kWY.getWidth() / 2));
-            this.mRect.right = (int) ((this.kWY.getWidth() / 2) + f);
-            this.mRect.top = (int) (f2 - (this.kWY.getHeight() / 2));
-            this.mRect.bottom = (int) ((this.kWY.getHeight() / 2) + f2);
-            canvas.drawBitmap(this.kWY, (Rect) null, this.mRect, (Paint) null);
+        if (this.lGZ != null) {
+            this.mRect.left = (int) (f - (this.lGZ.getWidth() / 2));
+            this.mRect.right = (int) ((this.lGZ.getWidth() / 2) + f);
+            this.mRect.top = (int) (f2 - (this.lGZ.getHeight() / 2));
+            this.mRect.bottom = (int) ((this.lGZ.getHeight() / 2) + f2);
+            canvas.drawBitmap(this.lGZ, (Rect) null, this.mRect, (Paint) null);
         }
     }
 

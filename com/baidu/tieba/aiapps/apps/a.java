@@ -29,7 +29,7 @@ import java.lang.reflect.Field;
 public final class a {
     public static PopupWindow a(final g gVar) {
         View.OnClickListener onClickListener;
-        Activity currentActivity = com.baidu.adp.base.a.eH().currentActivity();
+        Activity currentActivity = com.baidu.adp.base.a.jm().currentActivity();
         if (currentActivity == null || gVar == null) {
             return null;
         }
@@ -46,24 +46,24 @@ public final class a {
         tbImageView.setDefaultResource(R.drawable.toastpic);
         tbImageView.setAutoChangeStyle(false);
         final PopupWindow popupWindow = new PopupWindow(currentActivity);
-        switch (gVar.axW()) {
+        switch (gVar.aGh()) {
             case 3:
                 tbImageView.setImageResource(R.drawable.toastpic_scheme);
                 onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
-                            if (com.baidu.adp.base.a.eH().currentActivity() != null && !StringUtils.isNull(g.this.getUrl())) {
+                            if (com.baidu.adp.base.a.jm().currentActivity() != null && !StringUtils.isNull(g.this.getUrl())) {
                                 Uri parse = Uri.parse(g.this.getUrl());
                                 if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
-                                    TiebaStatic.log(new an("c13391").cx("obj_type", parse.getQueryParameter("obj_type")).cx("obj_source", parse.getQueryParameter("obj_source")));
+                                    TiebaStatic.log(new an("c13391").cI("obj_type", parse.getQueryParameter("obj_type")).cI("obj_source", parse.getQueryParameter("obj_source")));
                                 }
-                                if (g.this.getUrl().startsWith(f.cIk)) {
+                                if (g.this.getUrl().startsWith(f.dhl)) {
                                     Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
-                                    buildUpon.appendQueryParameter(f.cIC, f.cIH);
+                                    buildUpon.appendQueryParameter(f.dhD, f.dhJ);
                                     parse = buildUpon.build();
                                 }
-                                UtilHelper.dealOneScheme(com.baidu.adp.base.a.eH().currentActivity(), parse.toString());
+                                UtilHelper.dealOneScheme(com.baidu.adp.base.a.jm().currentActivity(), parse.toString());
                             }
                             try {
                                 popupWindow.dismiss();
@@ -86,7 +86,7 @@ public final class a {
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
-                            TiebaStatic.log(new an("c13274").cx("uid", TbadkCoreApplication.getCurrentAccount()).cx("obj_id", gVar.cIN).cx("obj_source", "tb_password").cx("obj_name", gVar.appName).X("obj_param1", gVar.cIO.intValue()));
+                            TiebaStatic.log(new an("c13274").cI("uid", TbadkCoreApplication.getCurrentAccount()).cI("obj_id", gVar.dhP).cI("obj_source", "tb_password").cI("obj_name", gVar.appName).af("obj_param1", gVar.dhQ.intValue()));
                             try {
                                 popupWindow.dismiss();
                             } catch (Throwable th) {
@@ -113,8 +113,8 @@ public final class a {
         }
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        textView.setText(gVar.axU());
-        textView2.setText(gVar.axV());
+        textView.setText(gVar.aGf());
+        textView2.setText(gVar.aGg());
         textView3.setText(gVar.getTitle());
         textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();

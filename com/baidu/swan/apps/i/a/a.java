@@ -28,7 +28,7 @@ public class a extends ab {
         if (context == null || callbackHandler == null || eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (eVar.JI()) {
+        } else if (eVar.Ru()) {
             if (DEBUG) {
                 Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
             }
@@ -48,8 +48,8 @@ public class a extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            com.baidu.swan.apps.i.a ag = com.baidu.swan.apps.i.a.ag(optParamsAsJo);
-            if (!ag.isValid()) {
+            com.baidu.swan.apps.i.a ar = com.baidu.swan.apps.i.a.ar(optParamsAsJo);
+            if (!ar.isValid()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
@@ -72,11 +72,11 @@ public class a extends ab {
             switch (c) {
                 case 0:
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    a(context, ag, callbackHandler);
+                    a(context, ar, callbackHandler);
                     return true;
                 case 1:
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    b(context, ag, callbackHandler);
+                    b(context, ar, callbackHandler);
                     return true;
                 default:
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -122,20 +122,20 @@ public class a extends ab {
 
     private ArrayList<ContentValues> a(com.baidu.swan.apps.i.a aVar) {
         ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-        arrayList.add(aVar.MA());
-        arrayList.add(aVar.MB());
-        arrayList.add(aVar.MC());
-        arrayList.add(aVar.MD());
-        arrayList.add(aVar.ME());
-        arrayList.add(aVar.MF());
-        arrayList.add(aVar.My());
-        arrayList.add(aVar.MG());
-        arrayList.add(aVar.MI());
-        arrayList.add(aVar.Mz());
-        arrayList.add(aVar.MH());
-        arrayList.add(aVar.MJ());
-        arrayList.add(aVar.MK());
-        arrayList.add(aVar.ML());
+        arrayList.add(aVar.Un());
+        arrayList.add(aVar.Uo());
+        arrayList.add(aVar.Up());
+        arrayList.add(aVar.Uq());
+        arrayList.add(aVar.Ur());
+        arrayList.add(aVar.Us());
+        arrayList.add(aVar.Ul());
+        arrayList.add(aVar.Ut());
+        arrayList.add(aVar.Uv());
+        arrayList.add(aVar.Um());
+        arrayList.add(aVar.Uu());
+        arrayList.add(aVar.Uw());
+        arrayList.add(aVar.Ux());
+        arrayList.add(aVar.Uy());
         return arrayList;
     }
 }

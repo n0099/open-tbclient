@@ -87,11 +87,14 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String SDK_EXTRA_LIVE_URL = "live_url";
     public static final String SDK_EXTRA_PARAMS = "params";
     public static final String SDK_EXTRA_RECOMMEND_TYPE = "recommend_type";
+    public static final String SDK_EXTRA_SCREEN_DIRECTION = "screen_direction";
     public static final String SDK_EXTRA_SOURCE = "source";
     public static final String SDK_EXTRA_TAB = "tab";
     public static final String SDK_EXTRA_TAG = "tag";
     public static final String STOP_IM_WHEN_CLOSE = "stop_im_when_close";
+    public static final String UK = "uk";
     public static final String USER_ID = "user_id";
+    @Deprecated
     public static final String USER_NAME = "user_name";
 
     public AlaLiveRoomActivityConfig(Context context) {
@@ -127,6 +130,10 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         getIntent().putExtra("live_id", j);
         getIntent().putExtra("live_from_type", FROM_TYPE_LIVE_SDK);
         getIntent().putExtra("params", str);
+    }
+
+    public void addExtraByUk(String str) {
+        getIntent().putExtra("uk", str);
     }
 
     public void addExtraByParams(String str) {

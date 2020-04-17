@@ -5,11 +5,11 @@ import com.baidu.adp.lib.cache.l;
 public interface k<T> {
     void clearAndClose(String str);
 
-    e fw();
-
     T get(String str, String str2);
 
-    l.b<T> m(String str, String str2);
+    e ka();
+
+    l.b<T> r(String str, String str2);
 
     void remove(String str, String str2);
 

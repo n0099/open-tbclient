@@ -21,10 +21,15 @@ public class MediaPlayerProxy extends PlayerProxy {
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
                 MediaPlayerProxy.this.mMediaPlayer.stop();
-                if (MediaPlayerProxy.this.mGLTextureView != null) {
-                    MediaPlayerProxy.this.mGLTextureView.setRenderMode(0);
-                }
                 MediaPlayerProxy.super.stop();
+                if (MediaPlayerProxy.this.mGLTextureView != null) {
+                    MediaPlayerProxy.this.mGLTextureView.post(new Runnable() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.1.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            MediaPlayerProxy.this.mGLTextureView.setRenderMode(0);
+                        }
+                    });
+                }
             }
         });
         this.mMediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.2
@@ -169,10 +174,15 @@ public class MediaPlayerProxy extends PlayerProxy {
                     seekTo(0);
                 }
                 this.mMediaPlayer.stop();
-                if (this.mGLTextureView != null) {
-                    this.mGLTextureView.setRenderMode(0);
-                }
                 super.stop();
+                if (this.mGLTextureView != null) {
+                    this.mGLTextureView.post(new Runnable() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.5
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            MediaPlayerProxy.this.mGLTextureView.setRenderMode(0);
+                        }
+                    });
+                }
             }
         }
     }

@@ -43,7 +43,7 @@ public class IMReceiver extends BroadcastReceiver {
         Intent intent = new Intent(context, IMService.class);
         intent.setAction(Constants.ACTION_START);
         try {
-            context.startService(intent);
+            IMService.enqueueWork(context, intent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }
@@ -56,7 +56,7 @@ public class IMReceiver extends BroadcastReceiver {
         }
         intent.setClass(context, IMService.class);
         try {
-            context.startService(intent);
+            IMService.enqueueWork(context, intent);
         } catch (Exception e) {
             LogUtils.e(TAG, "Exception ", e);
         }

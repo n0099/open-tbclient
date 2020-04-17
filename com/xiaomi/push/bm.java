@@ -15,7 +15,7 @@ public class bm extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo155a() {
+    public int mo160a() {
         return 10054;
     }
 
@@ -26,9 +26,9 @@ public class bm extends ai.a {
         Context context2;
         com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
         c = this.a.c();
-        context = this.a.f148a;
+        context = this.a.f149a;
         bp bpVar = new bp(c, new WeakReference(context));
-        context2 = this.a.f148a;
+        context2 = this.a.f149a;
         bw.a(context2).a(bpVar);
         this.a.b("check_time");
     }

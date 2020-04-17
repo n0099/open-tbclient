@@ -25,7 +25,7 @@ public class e extends d {
         return this.b;
     }
 
-    public e Na(int i) {
+    public e Iu(int i) {
         this.b = i;
         return this;
     }
@@ -34,16 +34,16 @@ public class e extends d {
         return this.a;
     }
 
-    public e QY(String str) {
+    public e OI(String str) {
         this.a = str;
         return this;
     }
 
-    public H5Positon dEC() {
-        return this.nez;
+    public H5Positon dyC() {
+        return this.mAZ;
     }
 
-    public H5Positon dED() {
-        return this.neA;
+    public H5Positon dyD() {
+        return this.mBa;
     }
 }

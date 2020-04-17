@@ -5,7 +5,6 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -17,7 +16,7 @@ class Utils {
     public static Map<String, String> a() {
         SapiConfiguration confignation;
         HashMap hashMap = new HashMap();
-        hashMap.put("client", PraiseDataPassUtil.KEY_FROM_OS);
+        hashMap.put("client", "android");
         ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
         if (isAccountManager != null && (confignation = isAccountManager.getConfignation()) != null) {
             hashMap.put("cuid", confignation.clientId);

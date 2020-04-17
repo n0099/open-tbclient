@@ -1,6 +1,7 @@
 package com.baidu.searchbox.dns.d.c;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.webkit.internal.ETAG;
 import java.net.HttpURLConnection;
 import java.util.Map;
@@ -18,7 +19,11 @@ public abstract class b<T> extends a<T> {
         if (!TextUtils.isEmpty(c)) {
             sb.append(c);
         }
-        return q + sb.toString();
+        String str = q + sb.toString();
+        if (DnsUtil.DEBUG && !TextUtils.isEmpty(DnsUtil.httpDnsDebugExtraQueryParams)) {
+            return str + ETAG.ITEM_SEPARATOR + DnsUtil.httpDnsDebugExtraQueryParams;
+        }
+        return str;
     }
 
     @Override // com.baidu.searchbox.dns.d.c.a

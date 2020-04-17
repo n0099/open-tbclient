@@ -22,13 +22,14 @@ import java.util.Map;
 /* loaded from: classes6.dex */
 public class FlutterBoost {
     static FlutterBoost sInstance = null;
-    private long FlutterPostFrameCallTime = 0;
     private Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
     private Activity mCurrentActiveActivity;
     private FlutterEngine mEngine;
     private FlutterViewContainerManager mManager;
     private Platform mPlatform;
     private PluginRegistry mRegistry;
+    public boolean isReady = false;
+    private long FlutterPostFrameCallTime = 0;
 
     /* loaded from: classes6.dex */
     public interface BoostLifecycleListener {
@@ -257,7 +258,7 @@ public class FlutterBoost {
     public FlutterEngine createEngine() {
         if (this.mEngine == null) {
             FlutterMain.startInitialization(this.mPlatform.getApplication());
-            PluginSetting findPluginSetting = c.jV().findPluginSetting("com.baidu.tieba.pluginFlutter");
+            PluginSetting findPluginSetting = c.oz().findPluginSetting("com.baidu.tieba.pluginFlutter");
             if (findPluginSetting != null && findPluginSetting.apkPath != null) {
                 String replace = findPluginSetting.apkPath.replace(".apk", "");
                 try {

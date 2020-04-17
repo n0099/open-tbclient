@@ -48,26 +48,26 @@ public class SwanAppInitHelper {
     }
 
     private static void initStatisticsModule(Application application) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.EW()) {
-            q.avS();
-            m.avI().initConfig();
+        if (com.baidu.pyramid.runtime.multiprocess.a.MG()) {
+            q.aEd();
+            m.aDT().initConfig();
         }
     }
 
     private static void initSwanAppModule(Application application) {
-        if (!c.dlZ()) {
+        if (!c.dnS()) {
             c.initialize(application);
         }
         initWebView(application);
         if (ProcessUtils.isMainProcess()) {
-            a.m27do(application).ajt();
+            a.dc(application).arB();
             asyncUpdateSwanConfig();
-            com.baidu.swan.apps.ar.a.af(0, 1);
+            com.baidu.swan.apps.ar.a.ai(0, 1);
         }
     }
 
     private static void asyncUpdateSwanConfig() {
-        d.aja();
+        d.ari();
     }
 
     private static void onlyInitForLollipopAndAbove(boolean z) {
@@ -87,16 +87,16 @@ public class SwanAppInitHelper {
     }
 
     private static void initWebView(Context context) {
-        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.UL().IG(), false);
-        if (com.baidu.swan.apps.w.a.UL().IH()) {
+        WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), com.baidu.swan.apps.w.a.acA().Qs(), false);
+        if (com.baidu.swan.apps.w.a.acA().Qt()) {
             doWebViewInit(context);
         }
     }
 
     private static void doWebViewInit(Context context) {
-        b.bX(context).cz(ProcessUtils.isMainProcess());
+        b.bL(context).dv(ProcessUtils.isMainProcess());
         if (ProcessUtils.isMainProcess()) {
-            com.baidu.swan.apps.env.e.RG().p(null);
+            com.baidu.swan.apps.env.e.Zv().p(null);
         }
     }
 
@@ -105,6 +105,6 @@ public class SwanAppInitHelper {
     }
 
     public static void onTerminate() {
-        b.bX(AppRuntime.getAppContext()).onTerminate();
+        b.bL(AppRuntime.getAppContext()).onTerminate();
     }
 }

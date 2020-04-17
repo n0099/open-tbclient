@@ -3,6 +3,7 @@ package com.baidu.searchbox.network;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.network.RequestHandler;
 import com.baidu.searchbox.network.cookie.CookieJarImpl;
@@ -33,6 +34,7 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes13.dex */
 public abstract class AbstractHttpManager {
     private static final String TAG = "HttpManager";
+    private static String sClientIP;
     private static List<Class<? extends Interceptor>> sExternalInterceptorClass;
     private static List<Class<? extends Interceptor>> sExternalNetworkInterceptorClass;
     private static ProductUserAgentHandler sProductUserAgent;
@@ -271,5 +273,15 @@ public abstract class AbstractHttpManager {
 
     public static ProductUserAgentHandler getProductUserAgent() {
         return sProductUserAgent;
+    }
+
+    public static String getClientIP() {
+        return sClientIP;
+    }
+
+    public static void updateClientIP(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            sClientIP = str;
+        }
     }
 }

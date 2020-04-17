@@ -140,7 +140,7 @@ public final class PDF417 {
         for (int i3 = this.minCols; i3 <= this.maxCols && (calculateNumberOfRows = calculateNumberOfRows(i, i2, i3)) >= this.minRows; i3++) {
             if (calculateNumberOfRows <= this.maxRows) {
                 float f2 = (((i3 * 17) + 69) * DEFAULT_MODULE_WIDTH) / (calculateNumberOfRows * 2.0f);
-                if (iArr == null || Math.abs(f2 - 3.0f) <= Math.abs(f - 3.0f)) {
+                if (iArr == null || Math.abs(f2 - PREFERRED_RATIO) <= Math.abs(f - PREFERRED_RATIO)) {
                     iArr = new int[]{i3, calculateNumberOfRows};
                     f = f2;
                 }

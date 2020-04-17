@@ -8,35 +8,35 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.menu.MainMenuView;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.swan.menu.a {
-    private FrameLayout bUM = null;
+    private FrameLayout ctC = null;
 
     @Override // com.baidu.swan.menu.a
     public void a(MainMenuView mainMenuView) {
         if (mainMenuView != null && !ProcessUtils.isMainProcess() && SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            if (com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState()) {
-                q(mainMenuView);
-            } else {
+            if (com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState()) {
                 r(mainMenuView);
+            } else {
+                s(mainMenuView);
             }
-            mainMenuView.setCoverView(this.bUM);
-        }
-    }
-
-    private void q(ViewGroup viewGroup) {
-        if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.bUM == null) {
-                this.bUM = new FrameLayout(viewGroup.getContext());
-                this.bUM.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
-            }
-            viewGroup.removeView(this.bUM);
-            viewGroup.addView(this.bUM, new FrameLayout.LayoutParams(-1, -1));
+            mainMenuView.setCoverView(this.ctC);
         }
     }
 
     private void r(ViewGroup viewGroup) {
-        if (viewGroup != null && this.bUM != null) {
-            viewGroup.removeView(this.bUM);
-            this.bUM = null;
+        if (viewGroup != null && (viewGroup instanceof FrameLayout)) {
+            if (this.ctC == null) {
+                this.ctC = new FrameLayout(viewGroup.getContext());
+                this.ctC.setBackgroundResource(a.c.aiapps_night_mode_cover_layer);
+            }
+            viewGroup.removeView(this.ctC);
+            viewGroup.addView(this.ctC, new FrameLayout.LayoutParams(-1, -1));
+        }
+    }
+
+    private void s(ViewGroup viewGroup) {
+        if (viewGroup != null && this.ctC != null) {
+            viewGroup.removeView(this.ctC);
+            this.ctC = null;
         }
     }
 }

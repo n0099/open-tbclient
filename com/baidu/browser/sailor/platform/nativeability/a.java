@@ -15,9 +15,9 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.SparseArray;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.browser.sailor.lightapp.BdLightappKernelJsCallback;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
@@ -28,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
-    private static BroadcastReceiver Jz;
+    private static BroadcastReceiver acE;
     private static final SparseArray<BdLightappKernelJsCallback> b = new SparseArray<>();
 
     public static String a() {
@@ -47,9 +47,9 @@ public final class a {
         final JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("imei", ((TelephonyManager) applicationContext.getSystemService("phone")).getDeviceId());
-            jSONObject.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE);
+            jSONObject.put("os_version", Build.VERSION.RELEASE);
             jSONObject.put(SapiContext.KEY_SDK_VERSION, Build.VERSION.SDK_INT);
-            jSONObject.put("manufacturer", Build.MANUFACTURER);
+            jSONObject.put(HttpConstants.HTTP_MANUFACTURER, Build.MANUFACTURER);
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("serial_number", Settings.Secure.getString(appContext.getContentResolver(), "android_id"));
             jSONObject.put(TableDefine.UserInfoColumns.COLUMN_IP, com.baidu.browser.sailor.util.c.a());
@@ -109,9 +109,9 @@ public final class a {
     }
 
     public static void b() {
-        if (Jz != null) {
-            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(Jz);
-            Jz = null;
+        if (acE != null) {
+            BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acE);
+            acE = null;
         }
     }
 
@@ -150,10 +150,10 @@ public final class a {
         BdLightappKernelJsCallback bdLightappKernelJsCallback = new BdLightappKernelJsCallback(str, str2);
         bdLightappKernelJsCallback.setCallbackListener(aVar);
         b.put(10, bdLightappKernelJsCallback);
-        if (Jz == null) {
-            Jz = new d();
+        if (acE == null) {
+            acE = new d();
         }
-        BdSailorPlatform.getInstance().getAppContext().registerReceiver(Jz, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        BdSailorPlatform.getInstance().getAppContext().registerReceiver(acE, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public static void d(String str, String str2, BdLightappKernelJsCallback.a aVar) {
@@ -164,12 +164,12 @@ public final class a {
             return;
         }
         b.remove(10);
-        if (Jz == null) {
+        if (acE == null) {
             bdLightappKernelJsCallback.sendFailCallBack("not start yet");
             return;
         }
-        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(Jz);
-        Jz = null;
+        BdSailorPlatform.getInstance().getAppContext().unregisterReceiver(acE);
+        acE = null;
         bdLightappKernelJsCallback.sendSuccCallBack();
     }
 

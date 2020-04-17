@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int vO;
-    private int vP;
-    private boolean vQ;
-    private boolean vR;
-    private int vS;
-    private int vT;
-    private boolean vU;
-    private boolean vV;
-    private String vg;
+    private String NY;
+    private int OI;
+    private int OJ;
+    private boolean OL;
+    private boolean OM;
+    private int OO;
+    private int OP;
+    private boolean OQ;
+    private boolean OR;
 
     public l() {
-        this.vg = null;
-        this.vO = 32768;
-        this.vP = 131072;
-        this.vQ = false;
-        this.vR = true;
-        this.vS = 30000;
-        this.vT = 30000;
-        this.vU = true;
-        this.vV = true;
-        this.vg = null;
+        this.NY = null;
+        this.OI = 32768;
+        this.OJ = 131072;
+        this.OL = false;
+        this.OM = true;
+        this.OO = 30000;
+        this.OP = 30000;
+        this.OQ = true;
+        this.OR = true;
+        this.NY = null;
     }
 
     public l(l lVar) {
-        this.vg = null;
-        this.vO = lVar.vO;
-        this.vP = lVar.vP;
-        this.vQ = lVar.vQ;
-        this.vR = lVar.vR;
-        this.vS = lVar.vS;
-        this.vT = lVar.vT;
-        this.vU = lVar.vU;
-        this.vV = lVar.vV;
-        this.vg = lVar.vg;
+        this.NY = null;
+        this.OI = lVar.OI;
+        this.OJ = lVar.OJ;
+        this.OL = lVar.OL;
+        this.OM = lVar.OM;
+        this.OO = lVar.OO;
+        this.OP = lVar.OP;
+        this.OQ = lVar.OQ;
+        this.OR = lVar.OR;
+        this.NY = lVar.NY;
     }
 
-    public boolean ip() {
-        return this.vQ;
+    public boolean mS() {
+        return this.OL;
     }
 
-    public int iq() {
-        return this.vO;
+    public int mT() {
+        return this.OI;
     }
 
-    public int ir() {
-        return this.vP;
+    public int mU() {
+        return this.OJ;
     }
 
     public boolean getTcpNoDelay() {
-        return this.vR;
+        return this.OM;
     }
 
-    public int is() {
-        return this.vS;
+    public int mV() {
+        return this.OO;
     }
 
-    public int it() {
-        return this.vT;
+    public int mW() {
+        return this.OP;
     }
 
-    public boolean iu() {
-        return this.vU;
+    public boolean mX() {
+        return this.OQ;
     }
 
-    public boolean iv() {
-        return this.vV;
+    public boolean mY() {
+        return this.OR;
     }
 
-    public String iw() {
-        return this.vg;
+    public String mZ() {
+        return this.NY;
     }
 
-    public void aN(String str) {
-        this.vg = str;
+    public void cc(String str) {
+        this.NY = str;
     }
 }

@@ -1,6 +1,7 @@
 package okhttp3.internal.connection;
 
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -173,6 +174,23 @@ public final class RouteSelector {
 
         public List<Route> getAll() {
             return new ArrayList(this.routes);
+        }
+
+        public Route markIndexStartWithIPv4() {
+            int i = 0;
+            while (true) {
+                int i2 = i;
+                if (i2 < this.routes.size()) {
+                    if (!(this.routes.get(i2).socketAddress().getAddress() instanceof Inet4Address)) {
+                        i = i2 + 1;
+                    } else {
+                        this.nextRouteIndex = i2;
+                        return this.routes.get(i2);
+                    }
+                } else {
+                    return null;
+                }
+            }
         }
     }
 }

@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes6.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] nCF = new Object[0];
-    private final SubjectSubscriptionManager<T> nVM;
+    private static final Object[] mWg = new Object[0];
+    private final SubjectSubscriptionManager<T> npw;
 
-    public static <T> a<T> dPR() {
+    public static <T> a<T> dIR() {
         return e(null, false);
     }
 
@@ -23,7 +23,7 @@ public final class a<T> extends c<T, T> {
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(SubjectSubscriptionManager.b<T> bVar) {
-                bVar.cp(SubjectSubscriptionManager.this.getLatest());
+                bVar.bY(SubjectSubscriptionManager.this.getLatest());
             }
         };
         subjectSubscriptionManager.onTerminated = subjectSubscriptionManager.onAdded;
@@ -32,27 +32,27 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.nVM = subjectSubscriptionManager;
+        this.npw = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.nVM.getLatest() == null || this.nVM.active) {
-            Object dOK = NotificationLite.dOK();
-            for (SubjectSubscriptionManager.b<T> bVar : this.nVM.terminate(dOK)) {
-                bVar.co(dOK);
+        if (this.npw.getLatest() == null || this.npw.active) {
+            Object dHK = NotificationLite.dHK();
+            for (SubjectSubscriptionManager.b<T> bVar : this.npw.terminate(dHK)) {
+                bVar.bX(dHK);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.nVM.getLatest() == null || this.nVM.active) {
+        if (this.npw.getLatest() == null || this.npw.active) {
             Object error = NotificationLite.error(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.nVM.terminate(error)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.npw.terminate(error)) {
                 try {
-                    bVar.co(error);
+                    bVar.bX(error);
                 } catch (Throwable th2) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -60,16 +60,16 @@ public final class a<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.fA(arrayList);
+            rx.exceptions.a.fo(arrayList);
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.nVM.getLatest() == null || this.nVM.active) {
+        if (this.npw.getLatest() == null || this.npw.active) {
             Object next = NotificationLite.next(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.nVM.next(next)) {
-                bVar.co(next);
+            for (SubjectSubscriptionManager.b<T> bVar : this.npw.next(next)) {
+                bVar.bX(next);
             }
         }
     }

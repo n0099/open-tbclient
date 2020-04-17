@@ -13,34 +13,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class d {
-    private static d aCS;
-    private ContentObserver aCT;
+    private static d aWz;
+    private ContentObserver aWA;
     private BroadcastReceiver mReceiver;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private ArrayList<a> mListeners = new ArrayList<>();
     private Handler handler = new Handler();
-    private Runnable aCU = new Runnable() { // from class: com.baidu.live.tieba.write.album.d.1
+    private Runnable aWB = new Runnable() { // from class: com.baidu.live.tieba.write.album.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.bv(false);
+            d.this.bZ(false);
         }
     };
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bw(boolean z);
+        void ca(boolean z);
     }
 
-    public static d AT() {
-        if (aCS == null) {
+    public static d FR() {
+        if (aWz == null) {
             synchronized (d.class) {
-                if (aCS == null) {
-                    aCS = new d();
-                    aCS.init(TbadkCoreApplication.getInst());
+                if (aWz == null) {
+                    aWz = new d();
+                    aWz.init(TbadkCoreApplication.getInst());
                 }
             }
         }
-        return aCS;
+        return aWz;
     }
 
     private d() {
@@ -50,14 +50,14 @@ public class d {
         this.mReceiver = new BroadcastReceiver() { // from class: com.baidu.live.tieba.write.album.d.2
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context2, Intent intent) {
-                d.this.B(intent);
+                d.this.A(intent);
             }
         };
-        this.aCT = new ContentObserver(this.mHandler) { // from class: com.baidu.live.tieba.write.album.d.3
+        this.aWA = new ContentObserver(this.mHandler) { // from class: com.baidu.live.tieba.write.album.d.3
             @Override // android.database.ContentObserver
             public void onChange(boolean z) {
-                d.this.handler.removeCallbacks(d.this.aCU);
-                d.this.handler.postDelayed(d.this.aCU, 2000L);
+                d.this.handler.removeCallbacks(d.this.aWB);
+                d.this.handler.postDelayed(d.this.aWB, 2000L);
             }
         };
         IntentFilter intentFilter = new IntentFilter();
@@ -68,23 +68,23 @@ public class d {
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
         intentFilter.addDataScheme("file");
         context.registerReceiver(this.mReceiver, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.aCT);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.aWA);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void B(Intent intent) {
+    public void A(Intent intent) {
         if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            bv(true);
+            bZ(true);
             return;
         }
-        this.handler.removeCallbacks(this.aCU);
-        this.handler.postDelayed(this.aCU, 2000L);
+        this.handler.removeCallbacks(this.aWB);
+        this.handler.postDelayed(this.aWB, 2000L);
     }
 
-    public void bv(boolean z) {
+    public void bZ(boolean z) {
         Iterator<a> it = this.mListeners.iterator();
         while (it.hasNext()) {
-            it.next().bw(z);
+            it.next().ca(z);
         }
     }
 
@@ -108,8 +108,8 @@ public class d {
         removeAllListeners();
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.unregisterReceiver(this.mReceiver);
-        inst.getContentResolver().unregisterContentObserver(this.aCT);
-        this.handler.removeCallbacks(this.aCU);
-        aCS = null;
+        inst.getContentResolver().unregisterContentObserver(this.aWA);
+        this.handler.removeCallbacks(this.aWB);
+        aWz = null;
     }
 }

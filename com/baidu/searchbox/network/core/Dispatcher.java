@@ -1,6 +1,7 @@
 package com.baidu.searchbox.network.core;
 
 import android.support.annotation.Nullable;
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.searchbox.network.core.RealCall;
 import com.baidu.searchbox.network.core.internal.Util;
 import java.util.ArrayDeque;
@@ -34,7 +35,7 @@ public final class Dispatcher {
 
     public synchronized ExecutorService executorService() {
         if (this.executorService == null) {
-            this.executorService = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
+            this.executorService = new ThreadPoolExecutor(0, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
         }
         return this.executorService;
     }

@@ -8,7 +8,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.webkit.internal.GlobalConstants;
-import com.google.android.exoplayer2.Format;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -77,12 +76,12 @@ public class k {
         if (l.D(context)) {
             c.putExtra("method", "pushservice_restart_v3");
             if (!TextUtils.isEmpty(str) && str.equals(context.getPackageName())) {
-                c.putExtra("priority3", Format.OFFSET_SAMPLE_RELATIVE);
+                c.putExtra("priority3", Long.MAX_VALUE);
             }
         } else {
             c.putExtra("method", "pushservice_restart_v2");
             if (!TextUtils.isEmpty(str) && str.equals(context.getPackageName())) {
-                c.putExtra("priority2", Format.OFFSET_SAMPLE_RELATIVE);
+                c.putExtra("priority2", Long.MAX_VALUE);
             }
         }
         a(context, c, str);

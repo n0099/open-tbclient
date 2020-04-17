@@ -7,14 +7,14 @@ public class ImageModel extends MediaModel {
     public static final Parcelable.Creator<ImageModel> CREATOR = new Parcelable.Creator<ImageModel>() { // from class: com.baidu.swan.apps.media.chooser.model.ImageModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: y */
+        /* renamed from: r */
         public ImageModel createFromParcel(Parcel parcel) {
             return new ImageModel(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fs */
+        /* renamed from: fz */
         public ImageModel[] newArray(int i) {
             return new ImageModel[i];
         }

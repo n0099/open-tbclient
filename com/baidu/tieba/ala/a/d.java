@@ -1,130 +1,196 @@
 package com.baidu.tieba.ala.a;
 
-import android.content.Context;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.message.AlaSdkGetGiftListHttpResponseMessage;
-import com.baidu.live.view.input.AlaLiveInputEditView;
-import com.baidu.live.view.input.b;
-import com.baidu.tieba.ala.AlaChooseGiftActivity;
+import com.xiaomi.mipush.sdk.Constants;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class d {
-    protected AlaLiveInputEditView eho;
-    protected ArrayList<String> ehs;
-    protected AlaChooseGiftActivity eyF;
-    protected View.OnClickListener eyG;
-    protected String eyH;
-    protected int eyI;
-    protected int eyJ;
-    protected Context mContext;
-    protected View mRootView;
+public class d {
+    public File eZH = null;
+    public String mLoadingFile;
+    public String mMd5;
+    public String mType;
+    public String mUrl;
+    public String mVersion;
 
-    public abstract void aj(int i, String str);
-
-    public abstract void c(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage);
-
-    public abstract void confirm();
-
-    public abstract void d(TextView textView);
-
-    protected abstract int getLayoutResId();
-
-    protected abstract void initView();
-
-    public d(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
-        this.eyF = alaChooseGiftActivity;
-        this.mContext = alaChooseGiftActivity.getPageContext().getPageActivity();
-        this.eyH = str;
-        this.ehs = arrayList;
-        this.eyI = i;
-        this.eyJ = i2;
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(getLayoutResId(), (ViewGroup) null);
-        frameLayout.removeAllViews();
-        frameLayout.addView(this.mRootView);
-        initView();
+    public boolean isLoaded() {
+        return bmW() != null && bmW().exists();
     }
 
-    public void pf(int i) {
+    public String getName() {
+        return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public void a(CharSequence charSequence, int i, int i2, int i3) {
+    public File bmW() {
+        if (this.eZH == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.eZH = new File(bmX(), getName());
+        }
+        return this.eZH;
     }
 
-    public void onKeyboardVisibilityChanged(boolean z) {
+    public String getFilePath() {
+        return bmW().getAbsolutePath();
     }
 
-    public void bt(View view) {
-        if (this.eyG != null) {
-            this.eyG.onClick(view);
+    public String bmX() {
+        return TextUtils.equals(this.mType, "so") ? c.bmU().getAbsolutePath() : c.bmV().getAbsolutePath();
+    }
+
+    public String getLoadingFile() {
+        if (TextUtils.isEmpty(this.mLoadingFile)) {
+            this.mLoadingFile = getFilePath();
+            if (!this.mLoadingFile.endsWith(".zip")) {
+                this.mLoadingFile += ".zip";
+            }
+        }
+        return this.mLoadingFile;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x004c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean onResLoaded(String str) {
+        boolean z;
+        Exception e;
+        try {
+            File file = new File(str);
+            File file2 = new File(getFilePath() + ".tmp");
+            if (file2.exists()) {
+                com.baidu.tieba.ala.a.b.a.deleteDir(file2);
+                try {
+                    file2.delete();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            com.baidu.tieba.ala.a.b.a.unzipFile(file, file2.getAbsolutePath());
+            file2.renameTo(bmW());
+        } catch (Exception e3) {
+            z = false;
+            e = e3;
+        }
+        if (isLoaded()) {
+            if (bmY()) {
+                z = true;
+                if (!z) {
+                    try {
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bmW());
+                    } catch (Exception e4) {
+                        e = e4;
+                        e.printStackTrace();
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bmW());
+                        return z;
+                    }
+                }
+                com.baidu.tieba.ala.a.b.a.deleteFile(str);
+                return z;
+            }
+        }
+        z = false;
+        if (!z) {
+        }
+        com.baidu.tieba.ala.a.b.a.deleteFile(str);
+        return z;
+    }
+
+    public boolean bmY() {
+        JSONArray optJSONArray;
+        try {
+            File file = new File(bmW(), "files.json");
+            if (file == null || !file.exists()) {
+                return false;
+            }
+            FileInputStream fileInputStream = new FileInputStream(file);
+            byte[] bArr = new byte[fileInputStream.available()];
+            fileInputStream.read(bArr);
+            String str = new String(bArr);
+            fileInputStream.close();
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray(com.baidu.fsg.face.base.b.c.g)) == null || optJSONArray.length() <= 0) {
+                return false;
+            }
+            ArrayList<a> arrayList = new ArrayList<>();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                arrayList.add(a.zs(optJSONArray.getString(i)));
+            }
+            return S(arrayList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 
-    public void r(View.OnClickListener onClickListener) {
-        this.eyG = onClickListener;
-    }
-
-    public void e(AlaLiveInputEditView alaLiveInputEditView) {
-        this.eho = alaLiveInputEditView;
-        this.eho.setTextWatcher(new TextWatcher() { // from class: com.baidu.tieba.ala.a.d.1
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (charSequence == null || TextUtils.isEmpty(charSequence.toString().trim())) {
-                    d.this.eho.setSendEnabled(false);
+    private boolean S(ArrayList<a> arrayList) {
+        File file;
+        if (arrayList == null || arrayList.size() <= 0) {
+            return false;
+        }
+        try {
+            Iterator<a> it = arrayList.iterator();
+            while (it.hasNext()) {
+                a next = it.next();
+                String str = next.mPath;
+                if (TextUtils.isEmpty(str)) {
+                    file = new File(getFilePath(), next.mName);
                 } else {
-                    d.this.a(charSequence, i, i2, i3);
+                    file = new File(getFilePath() + str, next.mName);
+                }
+                if (file == null || !file.exists()) {
+                    return false;
+                }
+                if (!TextUtils.equals(com.baidu.tieba.ala.a.b.b.getFileMD5(file.getAbsolutePath()), next.mMd5)) {
+                    return false;
                 }
             }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable editable) {
+    public static d dc(String str, String str2) {
+        d dVar = new d();
+        dVar.mVersion = str;
+        String str3 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
+        if (TextUtils.equals(str2, "source")) {
+            str3 = "https://pic.rmb.bdstatic.com/baidu-ar-source-";
+        }
+        String str4 = str3 + str + ".zip";
+        dVar.mUrl = str4;
+        dVar.mMd5 = com.baidu.tieba.ala.a.b.b.dd(str4, "MD5");
+        dVar.mType = str2;
+        return dVar;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class a {
+        public String mMd5;
+        public String mName;
+        public String mPath;
+
+        public static a zs(String str) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-        });
-        this.eho.setEditViewConfirmCallBack(new b.a() { // from class: com.baidu.tieba.ala.a.d.2
-            @Override // com.baidu.live.view.input.b.a
-            public void dw(String str) {
-                if (str != null && !TextUtils.isEmpty(str.trim())) {
-                    d.this.pf(Integer.parseInt(str));
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject != null) {
+                    a aVar = new a();
+                    aVar.mName = jSONObject.optString("name");
+                    aVar.mPath = jSONObject.optString("path");
+                    aVar.mMd5 = jSONObject.optString("md5");
+                    return aVar;
                 }
+                return null;
+            } catch (Exception e) {
+                return null;
             }
-        });
-    }
-
-    public void bbD() {
-        this.eho.xX();
-        this.eho.getEditView().setFocusable(true);
-        this.eho.getEditView().setFocusableInTouchMode(true);
-        this.eho.getEditView().postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.a.d.3
-            @Override // java.lang.Runnable
-            public void run() {
-                d.this.eho.getEditView().requestFocus();
-                d.this.eho.getEditView().requestFocusFromTouch();
-                BdUtilHelper.showSoftKeyPad(d.this.mContext, d.this.eho.getEditView());
-            }
-        }, 100L);
-    }
-
-    public void bbE() {
-        this.eho.setVisibility(8);
-        this.eho.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.a.d.4
-            @Override // java.lang.Runnable
-            public void run() {
-                BdUtilHelper.hideSoftKeyPad(d.this.mContext, d.this.eho.getEditView());
-            }
-        });
-    }
-
-    public void onDestroy() {
+        }
     }
 }

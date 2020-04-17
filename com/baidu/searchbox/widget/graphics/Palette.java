@@ -336,7 +336,7 @@ public final class Palette {
             int alphaComponent2;
             if (!this.mGeneratedTextColors) {
                 int calculateMinimumAlpha = ColorUtils.calculateMinimumAlpha(-1, this.mRgb, Palette.MIN_CONTRAST_BODY_TEXT);
-                int calculateMinimumAlpha2 = ColorUtils.calculateMinimumAlpha(-1, this.mRgb, 3.0f);
+                int calculateMinimumAlpha2 = ColorUtils.calculateMinimumAlpha(-1, this.mRgb, Palette.MIN_CONTRAST_TITLE_TEXT);
                 if (calculateMinimumAlpha != -1 && calculateMinimumAlpha2 != -1) {
                     this.mBodyTextColor = ColorUtils.setAlphaComponent(-1, calculateMinimumAlpha);
                     this.mTitleTextColor = ColorUtils.setAlphaComponent(-1, calculateMinimumAlpha2);
@@ -344,7 +344,7 @@ public final class Palette {
                     return;
                 }
                 int calculateMinimumAlpha3 = ColorUtils.calculateMinimumAlpha(ViewCompat.MEASURED_STATE_MASK, this.mRgb, Palette.MIN_CONTRAST_BODY_TEXT);
-                int calculateMinimumAlpha4 = ColorUtils.calculateMinimumAlpha(ViewCompat.MEASURED_STATE_MASK, this.mRgb, 3.0f);
+                int calculateMinimumAlpha4 = ColorUtils.calculateMinimumAlpha(ViewCompat.MEASURED_STATE_MASK, this.mRgb, Palette.MIN_CONTRAST_TITLE_TEXT);
                 if (calculateMinimumAlpha3 != -1 && calculateMinimumAlpha4 != -1) {
                     this.mBodyTextColor = ColorUtils.setAlphaComponent(ViewCompat.MEASURED_STATE_MASK, calculateMinimumAlpha3);
                     this.mTitleTextColor = ColorUtils.setAlphaComponent(ViewCompat.MEASURED_STATE_MASK, calculateMinimumAlpha4);

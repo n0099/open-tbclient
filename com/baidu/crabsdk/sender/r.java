@@ -1,6 +1,6 @@
 package com.baidu.crabsdk.sender;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -78,17 +78,17 @@ public final class r {
                         httpURLConnection2.setRequestProperty("EncryptType", "RSA-AES");
                     }
                     httpURLConnection2.setRequestProperty("EncryptData", p);
-                    httpURLConnection2.setRequestProperty("User-Agent", g.a(str2, h.cu(str3)));
+                    httpURLConnection2.setRequestProperty("User-Agent", g.a(str2, h.dp(str3)));
                 }
-                httpURLConnection2.setConnectTimeout(8000);
-                httpURLConnection2.setReadTimeout(8000);
+                httpURLConnection2.setConnectTimeout(CoolPraiseGuideLottieView.ANIM_DURATION);
+                httpURLConnection2.setReadTimeout(CoolPraiseGuideLottieView.ANIM_DURATION);
                 dataOutputStream = new DataOutputStream(httpURLConnection2.getOutputStream());
                 try {
                     dataOutputStream.write(bArr);
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     StringBuffer stringBuffer = new StringBuffer();
-                    com.baidu.crabsdk.c.a.cj("response code is " + httpURLConnection2.getResponseCode());
+                    com.baidu.crabsdk.c.a.de("response code is " + httpURLConnection2.getResponseCode());
                     if (httpURLConnection2.getResponseCode() == 200) {
                         InputStreamReader inputStreamReader3 = new InputStreamReader(httpURLConnection2.getInputStream());
                         try {
@@ -310,15 +310,15 @@ public final class r {
         HttpURLConnection httpURLConnection;
         Exception e;
         try {
-            com.baidu.crabsdk.c.a.cj("发送数据的 url is : " + str2);
+            com.baidu.crabsdk.c.a.de("发送数据的 url is : " + str2);
             httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
             try {
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setUseCaches(false);
-                httpURLConnection.setConnectTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
-                httpURLConnection.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+                httpURLConnection.setConnectTimeout(15000);
+                httpURLConnection.setReadTimeout(15000);
                 httpURLConnection.setRequestProperty("Content-Encoding", "gzip");
                 httpURLConnection.setRequestProperty("Encrypt-Data", str);
                 httpURLConnection.setRequestProperty("Content-Type", "application/octet-stream");

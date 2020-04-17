@@ -8,7 +8,6 @@ import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.core.VehicleInfo;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteResult;
-import com.baidu.minivideo.effect.core.entity.AEffectParams;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -134,7 +133,7 @@ public class m extends k {
                             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                                 ArrayList arrayList2 = new ArrayList();
                                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                    JSONArray optJSONArray3 = optJSONArray2.optJSONObject(i3).optJSONArray(AEffectParams.VALUE_TYPE_STEP);
+                                    JSONArray optJSONArray3 = optJSONArray2.optJSONObject(i3).optJSONArray("step");
                                     if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                                         JSONObject optJSONObject5 = optJSONArray3.optJSONObject(0);
                                         TransitRouteLine.TransitStep transitStep = new TransitRouteLine.TransitStep();

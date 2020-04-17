@@ -1,55 +1,80 @@
 package com.baidu.tieba.ala.charm.view;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.live.tbadk.core.view.HeadImageView;
+import android.widget.BaseAdapter;
+import com.baidu.live.data.AlaLiveUserInfoData;
+import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.u.a;
-import com.baidu.live.utils.k;
-import com.baidu.live.view.ALALevelView;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class g {
-    public ViewGroup exS;
-    public HeadImageView exV;
-    public TextView exW;
-    private ALALevelView eyf;
-    public TextView mName;
-    public View mRootView;
+public class g extends BaseAdapter {
+    private ArrayList<com.baidu.live.data.g> dvq = new ArrayList<>();
+    private TbPageContext mPageContext;
 
-    public g(View view) {
-        this.mRootView = view;
-        this.exS = (ViewGroup) view.findViewById(a.g.item_view);
-        this.exV = (HeadImageView) view.findViewById(a.g.photo);
-        this.exV.setIsRound(true);
-        this.exV.setAutoChangeStyle(false);
-        this.exV.setClickable(false);
-        this.mName = (TextView) view.findViewById(a.g.name);
-        this.exW = (TextView) view.findViewById(a.g.intro);
-        this.eyf = (ALALevelView) view.findViewById(a.g.level_view);
+    public g(TbPageContext tbPageContext) {
+        this.mPageContext = tbPageContext;
     }
 
-    public void a(int i, com.baidu.live.data.g gVar) {
-        if (gVar != null && gVar.Ya != null) {
-            this.exS.setTag(Integer.valueOf(i));
-            this.eyf.setData(gVar.Ya);
-            int dimensionPixelSize = this.mRootView.getResources().getDimensionPixelSize(a.e.sdk_tbds7);
-            int dimensionPixelSize2 = this.mRootView.getResources().getDimensionPixelSize(a.e.sdk_tbds12);
-            this.eyf.setTextLayoutParams(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
-            this.mName.setText(gVar.Ya.userName);
-            if (!TextUtils.isEmpty(gVar.Ya.description)) {
-                this.exW.setText(gVar.Ya.description);
-            } else {
-                this.exW.setText(this.mRootView.getResources().getString(a.i.empty_intro));
-            }
-            k.a(this.exV, gVar.Ya.portrait, true, false);
-            this.exS.setBackgroundResource(a.f.sdk_list_item_selector_black);
+    public void setData(List<com.baidu.live.data.g> list) {
+        if (list != null) {
+            this.dvq.clear();
+            this.dvq.addAll(list);
         }
+        notifyDataSetChanged();
     }
 
-    public void p(View.OnClickListener onClickListener) {
-        if (this.exS != null && onClickListener != null) {
-            this.exS.setOnClickListener(onClickListener);
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.dvq == null) {
+            return 0;
+        }
+        return this.dvq.size();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: pz */
+    public com.baidu.live.data.g getItem(int i) {
+        if (this.dvq == null) {
+            return null;
+        }
+        return this.dvq.get(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        AlaLiveUserInfoData alaLiveUserInfoData;
+        if (view == null) {
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.sdk_charm_list_item, viewGroup, false);
+            a aVar2 = new a();
+            aVar2.fcv = (CharmItemView) view.findViewById(a.g.item);
+            view.setTag(aVar2);
+            aVar = aVar2;
+        } else {
+            aVar = (a) view.getTag();
+        }
+        if (aVar != null && getItem(i) != null && (alaLiveUserInfoData = getItem(i).aqe) != null) {
+            aVar.fcv.setData(2, i + 1, alaLiveUserInfoData.userName, alaLiveUserInfoData.portrait, alaLiveUserInfoData.totalPrice, 0L);
+            aVar.fcv.fcm.setData(alaLiveUserInfoData);
+        }
+        this.mPageContext.getLayoutMode().onModeChanged(view);
+        return view;
+    }
+
+    /* loaded from: classes3.dex */
+    private class a {
+        private CharmItemView fcv;
+
+        private a() {
         }
     }
 }

@@ -9,39 +9,39 @@ import com.baidu.swan.apps.runtime.d;
 /* loaded from: classes11.dex */
 public final class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private b bJm;
+    private b chV;
 
     /* loaded from: classes11.dex */
     public interface b {
         void a(@NonNull c cVar);
 
-        void aaR();
+        void aiW();
 
         void clear(String str);
 
-        void ks(String str);
+        void lF(String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.messaging.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0272a {
-        private static a bJp = new a();
+    public static class C0302a {
+        private static a chY = new a();
     }
 
-    public static a aaO() {
-        return C0272a.bJp;
+    public static a aiT() {
+        return C0302a.chY;
     }
 
     public void a(@NonNull final c cVar) {
-        long aaX = cVar.aaX();
-        if (aaX > 0 || Looper.getMainLooper() != Looper.myLooper()) {
+        long ajc = cVar.ajc();
+        if (ajc > 0 || Looper.getMainLooper() != Looper.myLooper()) {
             d.getMainHandler().postDelayed(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(cVar);
                 }
-            }, aaX >= 0 ? aaX : 0L);
+            }, ajc >= 0 ? ajc : 0L);
         } else {
             b(cVar);
         }
@@ -54,30 +54,30 @@ public final class a {
             log("send: return by process check");
             return;
         }
-        if (this.bJm == null) {
-            this.bJm = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
+        if (this.chV == null) {
+            this.chV = isMainProcess ? new com.baidu.swan.apps.process.messaging.service.d() : new com.baidu.swan.apps.process.messaging.client.b();
         }
-        log("send: sender=" + this.bJm);
-        this.bJm.aaR();
-        this.bJm.a(cVar);
-        this.bJm.aaR();
+        log("send: sender=" + this.chV);
+        this.chV.aiW();
+        this.chV.a(cVar);
+        this.chV.aiW();
     }
 
-    public void kq(String str) {
-        if (this.bJm != null) {
-            this.bJm.clear(str);
-        }
-    }
-
-    public void aaP() {
-        if (this.bJm != null) {
-            this.bJm.aaR();
+    public void lD(String str) {
+        if (this.chV != null) {
+            this.chV.clear(str);
         }
     }
 
-    public void kr(String str) {
-        if (this.bJm != null) {
-            this.bJm.ks(str);
+    public void aiU() {
+        if (this.chV != null) {
+            this.chV.aiW();
+        }
+    }
+
+    public void lE(String str) {
+        if (this.chV != null) {
+            this.chV.lF(str);
         }
     }
 

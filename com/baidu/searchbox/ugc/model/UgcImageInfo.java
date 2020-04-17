@@ -6,7 +6,7 @@ import com.baidu.android.util.media.annotations.MediaQueryParam;
 import com.baidu.android.util.media.model.MediaInfo;
 @MediaQueryParam(select = {"mime_type", "=?", " or ", "mime_type", "=?"}, selectArgs = {MimeType.Image.JPEG, MimeType.Image.PNG}, sortBy = "date_added", sortType = MediaQueryParam.SORT_DESC)
 /* loaded from: classes13.dex */
-public class UgcImageInfo extends MediaInfo {
+public class UgcImageInfo extends MediaInfo implements ILocalMedia {
     @ColumnName("bucket_display_name")
     public String bucketDisplayName;
     @ColumnName("bucket_id")
@@ -17,6 +17,8 @@ public class UgcImageInfo extends MediaInfo {
     public int height;
     @ColumnName("mime_type")
     public String mimeType;
+    @ColumnName("_data")
+    public String path;
     @ColumnName("_size")
     public long size;
     @ColumnName("width")
@@ -24,5 +26,10 @@ public class UgcImageInfo extends MediaInfo {
 
     public String toString() {
         return "UgcImageInfo{bucketId='" + this.bucketId + "', bucketDisplayName='" + this.bucketDisplayName + "', dateModified=" + this.dateModified + ", size=" + this.size + ", mimeType='" + this.mimeType + "', width=" + this.width + ", height=" + this.height + '}';
+    }
+
+    @Override // com.baidu.searchbox.ugc.model.ILocalMedia
+    public String getPath() {
+        return this.path;
     }
 }

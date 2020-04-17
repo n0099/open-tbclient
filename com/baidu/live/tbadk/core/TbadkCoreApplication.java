@@ -19,6 +19,7 @@ import android.os.Process;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.base.BdActivityStack;
 import com.baidu.live.adp.base.BdBaseApplication;
@@ -1197,7 +1198,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         if (StringUtils.isNull(str)) {
             return false;
         }
-        return str.equalsIgnoreCase("xiaomi");
+        return str.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI);
     }
 
     public boolean isHeadsetModeOn() {
@@ -1428,7 +1429,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     public boolean isHaokan() {
-        return APP_ID_HAOKAN.equals(TbConfig.getSubappType());
+        return "haokan".equals(TbConfig.getSubappType());
     }
 
     public boolean isQuanmin() {
@@ -1440,7 +1441,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     }
 
     public boolean isOther() {
-        return ("tieba".equals(TbConfig.getSubappType()) || APP_ID_QUANMIN.equals(TbConfig.getSubappType()) || APP_ID_HAOKAN.equals(TbConfig.getSubappType()) || APP_ID_MOBILE_BAIDU.equals(TbConfig.getSubappType())) ? false : true;
+        return ("tieba".equals(TbConfig.getSubappType()) || APP_ID_QUANMIN.equals(TbConfig.getSubappType()) || "haokan".equals(TbConfig.getSubappType()) || APP_ID_MOBILE_BAIDU.equals(TbConfig.getSubappType())) ? false : true;
     }
 
     public void onLowMemory() {

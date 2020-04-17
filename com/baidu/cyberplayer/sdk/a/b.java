@@ -2,10 +2,10 @@ package com.baidu.cyberplayer.sdk.a;
 
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
-import com.baidu.cyberplayer.sdk.Utils;
+import com.baidu.cyberplayer.sdk.m;
+import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -39,8 +39,8 @@ public class b {
         try {
             httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
             try {
-                httpURLConnection.setConnectTimeout(8000);
-                httpURLConnection.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
+                httpURLConnection.setConnectTimeout(CoolPraiseGuideLottieView.ANIM_DURATION);
+                httpURLConnection.setReadTimeout(15000);
                 httpURLConnection.setRequestMethod("GET");
                 httpURLConnection.connect();
                 int responseCode = httpURLConnection.getResponseCode();
@@ -116,7 +116,7 @@ public class b {
         if (str == null || str2 == null || str3 == null) {
             return;
         }
-        Utils.b(str2);
+        m.b(str2);
         final String str4 = str2 + File.separator + str3;
         String str5 = hashMap.get("is-asyn");
         if (TextUtils.isEmpty(str5) || !str5.equals("0")) {

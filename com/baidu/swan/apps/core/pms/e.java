@@ -14,8 +14,8 @@ public class e extends f {
     @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.f.e eVar) {
         super.a(eVar);
-        if (eVar != null && eVar.aux()) {
-            r("checkForUpdate", true);
+        if (eVar != null && eVar.aCI()) {
+            w("checkForUpdate", true);
         }
     }
 
@@ -25,38 +25,38 @@ public class e extends f {
         if (DEBUG) {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + aVar.toString());
         }
-        r("checkForUpdate", false);
-        eH(aVar.errorNo);
+        w("checkForUpdate", false);
+        eM(aVar.errorNo);
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Pl() {
-        super.Pl();
-        if (this.bqp != null) {
-            PB();
-            r("checkForUpdate", false);
+    public void Xa() {
+        super.Xa();
+        if (this.bOw != null) {
+            Xq();
+            w("checkForUpdate", false);
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void Pr() {
-        this.bqq.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.ap.a PA = PA();
-        this.bqq.add(new UbcFlowEvent("na_end_update_db"));
-        if (PA == null) {
+    protected void Xg() {
+        this.bOx.add(new UbcFlowEvent("na_start_update_db"));
+        com.baidu.swan.apps.ap.a Xp = Xp();
+        this.bOx.add(new UbcFlowEvent("na_end_update_db"));
+        if (Xp == null) {
             if (DEBUG) {
                 Log.d("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储成功");
             }
-            r("updateReady", true);
-            aA("main_async_download", "0");
+            w("updateReady", true);
+            aJ("main_async_download", "0");
         } else if (DEBUG) {
             Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: 异步更新-> DB 存储失败");
         }
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected void m(Throwable th) {
-        r("updateFailed", false);
+    protected void o(Throwable th) {
+        w("updateFailed", false);
         if (th instanceof PkgDownloadError) {
             PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
             if (DEBUG) {
@@ -68,13 +68,13 @@ public class e extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType Ps() {
+    protected PMSDownloadType Xh() {
         return PMSDownloadType.ASYNC;
     }
 
-    private void r(String str, boolean z) {
+    private void w(String str, boolean z) {
         if (!TextUtils.isEmpty(this.mAppId)) {
-            h.i(str, this.mAppId, z);
+            h.h(str, this.mAppId, z);
         }
     }
 }

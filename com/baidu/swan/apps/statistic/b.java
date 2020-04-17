@@ -22,11 +22,11 @@ public final class b {
         eVar.mSource = fVar.mSource;
         eVar.mType = fVar.mType;
         eVar.mValue = fVar.mValue;
-        eVar.aZ(fVar.afe());
+        eVar.bk(fVar.anj());
         m.postOnComputation(new Runnable() { // from class: com.baidu.swan.apps.statistic.b.1
             @Override // java.lang.Runnable
             public void run() {
-                s.k("934", com.baidu.swan.apps.statistic.a.e.this.toJSONObject());
+                s.onEvent("934", com.baidu.swan.apps.statistic.a.e.this.toJSONObject());
             }
         }, "SwanAppFuncClickUBC");
     }

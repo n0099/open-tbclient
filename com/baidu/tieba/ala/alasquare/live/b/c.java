@@ -3,6 +3,6 @@ package com.baidu.tieba.ala.alasquare.live.b;
 import com.baidu.tbadk.core.data.bj;
 /* loaded from: classes3.dex */
 public class c {
-    public bj NR;
-    public int ekM;
+    public bj agz;
+    public int eOm;
 }

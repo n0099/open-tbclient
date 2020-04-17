@@ -49,7 +49,6 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_PB_CARD_GIFT = "tb_pb_card_gift";
     public static final String GOOD = "good";
     public static final String KEY_REFRESH = "refresh_all";
-    public static final String KEY_URI = "key_uri";
     public static final String NAME = "name";
     public static final int READ_CHAT = 1;
     public static final int READ_REPLYORAT = 0;
@@ -125,7 +124,7 @@ public class FrsActivityConfig extends IntentConfig {
     public void setUri(Uri uri) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra("key_uri", uri);
+            intent.putExtra(IntentConfig.KEY_URI, uri);
         }
     }
 

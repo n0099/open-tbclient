@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.observable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.j;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.internal.disposables.SequentialDisposable;
@@ -49,7 +48,7 @@ public final class ObservableRetryPredicate<T> extends a<T, T> {
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             long j = this.remaining;
-            if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+            if (j != Long.MAX_VALUE) {
                 this.remaining = j - 1;
             }
             if (j == 0) {
@@ -63,7 +62,7 @@ public final class ObservableRetryPredicate<T> extends a<T, T> {
                     subscribeNext();
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.H(th2);
+                io.reactivex.exceptions.a.L(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

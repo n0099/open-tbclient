@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> dTw = new SparseArray<>();
-    private Object dTx;
-    private int dTy;
+    private static SparseArray<BdUniqueId> etv = new SparseArray<>();
+    private Object etw;
+    private int etx;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return dTw.get(this.dTy);
+        return etv.get(this.etx);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object aVB() {
-        return this.dTx;
+    public Object bdL() {
+        return this.etw;
     }
 
     public void an(Object obj) {
-        this.dTx = obj;
+        this.etw = obj;
     }
 
-    public int aVC() {
-        return this.dTy;
+    public int bdM() {
+        return this.etx;
     }
 
-    public void nT(int i) {
-        this.dTy = i;
+    public void og(int i) {
+        this.etx = i;
     }
 
-    public static void aP(List<Integer> list) {
-        if (dTw.size() <= 0 && list != null) {
+    public static void aZ(List<Integer> list) {
+        if (etv.size() <= 0 && list != null) {
             for (Integer num : list) {
-                dTw.put(num.intValue(), BdUniqueId.gen());
+                etv.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> aVD() {
+    public static List<BdUniqueId> bdN() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < dTw.size(); i++) {
-            arrayList.add(dTw.valueAt(i));
+        for (int i = 0; i < etv.size(); i++) {
+            arrayList.add(etv.valueAt(i));
         }
         return arrayList;
     }
 
     public static int l(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (dTw.size() == 0 || (indexOfValue = dTw.indexOfValue(bdUniqueId)) == -1 || dTw.size() <= indexOfValue) {
+        if (etv.size() == 0 || (indexOfValue = etv.indexOfValue(bdUniqueId)) == -1 || etv.size() <= indexOfValue) {
             return -1;
         }
-        return dTw.keyAt(indexOfValue);
+        return etv.keyAt(indexOfValue);
     }
 }

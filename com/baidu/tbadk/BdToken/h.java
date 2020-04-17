@@ -1,44 +1,44 @@
 package com.baidu.tbadk.BdToken;
 /* loaded from: classes.dex */
 public abstract class h {
-    private b cIP;
-    private volatile long cIQ = 0;
-    private volatile boolean EM = false;
+    private b dhR;
+    private volatile long dhS = 0;
+    private volatile boolean Yc = false;
     private int mTag = 0;
 
     public h(b bVar) {
-        this.cIP = bVar;
+        this.dhR = bVar;
     }
 
-    public synchronized void jm(int i) {
-        this.cIQ += i;
+    public synchronized void jt(int i) {
+        this.dhS += i;
     }
 
-    public b axX() {
-        return this.cIP;
+    public b aGi() {
+        return this.dhR;
     }
 
-    public long axY() {
-        return this.cIQ;
+    public long aGj() {
+        return this.dhS;
     }
 
-    public void bs(long j) {
-        this.cIQ = j;
+    public void bX(long j) {
+        this.dhS = j;
     }
 
-    public boolean aW() {
-        return this.EM;
+    public boolean gt() {
+        return this.Yc;
     }
 
-    public synchronized void fk(boolean z) {
-        this.EM = z;
+    public synchronized void gh(boolean z) {
+        this.Yc = z;
     }
 
     public int getTag() {
         return this.mTag;
     }
 
-    public void jj(int i) {
+    public void jq(int i) {
         this.mTag = i;
     }
 }

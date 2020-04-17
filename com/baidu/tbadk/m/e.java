@@ -11,23 +11,23 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes.dex */
 public class e {
-    private static e dDz = null;
+    private static e edg = null;
     private int maxCost;
     private boolean isSmallFlowOpen = false;
-    private boolean dDA = false;
+    private boolean edh = false;
 
     private e() {
     }
 
-    public static e aRc() {
-        if (dDz == null) {
+    public static e aZm() {
+        if (edg == null) {
             synchronized (e.class) {
-                if (dDz == null) {
-                    dDz = new e();
+                if (edg == null) {
+                    edg = new e();
                 }
             }
         }
-        return dDz;
+        return edg;
     }
 
     public void a(Context context, d dVar, b bVar) {
@@ -48,11 +48,11 @@ public class e {
                 }
                 if (bVar.a(dVar)) {
                     an anVar = new an(PageStayDurationConstants.ROUTE_URL_KEY);
-                    anVar.cx("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
-                    anVar.cx("obj_locate", dVar.getCurrentPageKey());
-                    anVar.cx("obj_type", "0");
+                    anVar.cI("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
+                    anVar.cI("obj_locate", dVar.getCurrentPageKey());
+                    anVar.cI("obj_type", "0");
                     if (!StringUtils.isNull(dVar.objID)) {
-                        anVar.cx("obj_id", dVar.objID);
+                        anVar.cI("obj_id", dVar.objID);
                     }
                     TiebaStatic.log(anVar);
                     return;
@@ -74,56 +74,59 @@ public class e {
             }
             if (bVar.isSwitchOpen() && bVar.a(dVar)) {
                 an anVar2 = new an(PageStayDurationConstants.URL_KEY);
-                anVar2.cx("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
-                anVar2.cx("obj_type", dVar.getCurrentPageKey());
-                anVar2.cx("obj_duration", String.valueOf(dVar.getStayDurationTime()));
+                anVar2.cI("obj_source", c.toSourceTraceString(dVar.getSorceKeyList()));
+                anVar2.cI("obj_type", dVar.getCurrentPageKey());
+                anVar2.cI("obj_duration", String.valueOf(dVar.getStayDurationTime()));
                 if (dVar.getFid() > 0) {
-                    anVar2.cx("fid", String.valueOf(dVar.getFid()));
+                    anVar2.cI("fid", String.valueOf(dVar.getFid()));
                 }
                 if (dVar.getTid() > 0) {
-                    anVar2.cx("tid", String.valueOf(dVar.getTid()));
+                    anVar2.cI("tid", String.valueOf(dVar.getTid()));
                 }
                 if (dVar.getPid() > 0) {
-                    anVar2.cx("pid", String.valueOf(dVar.getPid()));
+                    anVar2.cI("pid", String.valueOf(dVar.getPid()));
                 }
                 if (!StringUtils.isNull(dVar.objParam1)) {
-                    anVar2.cx("obj_param1", dVar.objParam1);
+                    anVar2.cI("obj_param1", dVar.objParam1);
                 }
                 if (!StringUtils.isNull(dVar.isVertical)) {
-                    anVar2.cx("is_vertical", dVar.isVertical);
+                    anVar2.cI("is_vertical", dVar.isVertical);
                 }
-                if (!StringUtils.isNull(dVar.dDy)) {
-                    anVar2.cx("is_dynamic", dVar.dDy);
+                if (!StringUtils.isNull(dVar.edf)) {
+                    anVar2.cI("is_dynamic", dVar.edf);
+                }
+                if (!StringUtils.isNull(dVar.resourceId)) {
+                    anVar2.cI("resource_id", dVar.resourceId);
                 }
                 if (!aq.isEmpty(dVar.getTaskId())) {
-                    anVar2.cx("task_id", String.valueOf(dVar.getTaskId()));
+                    anVar2.cI("task_id", String.valueOf(dVar.getTaskId()));
                 }
-                if (!aq.isEmpty(dVar.aRa())) {
-                    anVar2.cx(TiebaInitialize.Params.AB_TAG, dVar.aRa());
+                if (!aq.isEmpty(dVar.aZk())) {
+                    anVar2.cI(TiebaInitialize.Params.AB_TAG, dVar.aZk());
                 }
-                if (aRd()) {
+                if (aZn()) {
                     if (!StringUtils.isNull(dVar.objID)) {
-                        anVar2.cx("obj_id", dVar.objID);
+                        anVar2.cI("obj_id", dVar.objID);
                     }
-                    if (!StringUtils.isNull(dVar.dDw)) {
-                        anVar2.cx("obj_name", dVar.dDw);
+                    if (!StringUtils.isNull(dVar.edd)) {
+                        anVar2.cI("obj_name", dVar.edd);
                     }
-                    anVar2.cx("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
+                    anVar2.cI("obj_source", PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE);
                 }
-                if (!StringUtils.isNull(dVar.aRb())) {
-                    anVar2.cx("obj_location", dVar.aRb());
+                if (!StringUtils.isNull(dVar.aZl())) {
+                    anVar2.cI("obj_location", dVar.aZl());
                 }
                 TiebaStatic.log(anVar2);
             }
         }
     }
 
-    public boolean aRd() {
-        return this.dDA;
+    public boolean aZn() {
+        return this.edh;
     }
 
-    public void gT(boolean z) {
-        this.dDA = z;
+    public void hR(boolean z) {
+        this.edh = z;
     }
 
     public boolean isSmallFlowOpen() {
@@ -135,11 +138,11 @@ public class e {
     }
 
     public int getMaxCostFromServer() {
-        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.aFH().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
+        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.aNV().getInt(SharedPrefConfig.PAGE_STY_MAX_COST, 0) : this.maxCost;
     }
 
     public void setMaxCostFromServer(int i) {
         this.maxCost = i;
-        com.baidu.tbadk.core.sharedPref.b.aFH().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
+        com.baidu.tbadk.core.sharedPref.b.aNV().putInt(SharedPrefConfig.PAGE_STY_MAX_COST, this.maxCost);
     }
 }

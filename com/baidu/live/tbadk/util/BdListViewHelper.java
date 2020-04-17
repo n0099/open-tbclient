@@ -11,7 +11,6 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class BdListViewHelper {
-    public static final int NET_RERESHNEW_TOP_MARGIN = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), a.e.sdk_ds320);
 
     /* loaded from: classes3.dex */
     public enum HeadType {

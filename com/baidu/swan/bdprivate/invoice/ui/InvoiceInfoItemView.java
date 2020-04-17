@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.baidu.swan.bdprivate.b;
 /* loaded from: classes11.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private TextView ceA;
-    private EditText ceB;
-    private String ceC;
-    private boolean ceD;
-    private View cey;
+    private String cDA;
+    private boolean cDB;
+    private View cDw;
+    private TextView cDy;
+    private EditText cDz;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -39,113 +39,113 @@ public class InvoiceInfoItemView extends RelativeLayout {
         this.mContext = context;
         inflate(context, b.f.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(b.e.item_root_view);
-        this.mRootView.setBackground(getResources().getDrawable(b.C0318b.invoice_edit_view_bg));
-        this.ceA = (TextView) findViewById(b.e.invoice_info_desc);
-        this.ceB = (EditText) findViewById(b.e.invoice_info_content);
-        this.cey = findViewById(b.e.divider_line);
-        this.ceA.setTextColor(getResources().getColor(b.C0318b.invoice_info_desc));
-        this.ceB.setTextColor(getResources().getColor(b.C0318b.invoice_info_content));
-        this.ceB.setHintTextColor(getResources().getColor(b.C0318b.invoice_info_content_hint));
-        this.cey.setBackground(getResources().getDrawable(b.C0318b.invoice_info_item_divider_line));
+        this.mRootView.setBackground(getResources().getDrawable(b.C0348b.invoice_edit_view_bg));
+        this.cDy = (TextView) findViewById(b.e.invoice_info_desc);
+        this.cDz = (EditText) findViewById(b.e.invoice_info_content);
+        this.cDw = findViewById(b.e.divider_line);
+        this.cDy.setTextColor(getResources().getColor(b.C0348b.invoice_info_desc));
+        this.cDz.setTextColor(getResources().getColor(b.C0348b.invoice_info_content));
+        this.cDz.setHintTextColor(getResources().getColor(b.C0348b.invoice_info_content_hint));
+        this.cDw.setBackground(getResources().getDrawable(b.C0348b.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.ceD = aVar.ceD;
-            this.ceA.setText(aVar.mDesc);
-            this.ceB.setHint(aVar.ceF);
-            if (!aVar.ceG) {
-                this.ceB.setSingleLine();
+            this.cDB = aVar.cDB;
+            this.cDy.setText(aVar.mDesc);
+            this.cDz.setHint(aVar.cDD);
+            if (!aVar.cDE) {
+                this.cDz.setSingleLine();
             } else {
-                aVar.ceE |= 131072;
+                aVar.cDC |= 131072;
             }
-            this.ceB.setInputType(aVar.ceE);
-            if (!TextUtils.isEmpty(aVar.ceH)) {
-                this.ceB.setKeyListener(DigitsKeyListener.getInstance(aVar.ceH));
+            this.cDz.setInputType(aVar.cDC);
+            if (!TextUtils.isEmpty(aVar.cDF)) {
+                this.cDz.setKeyListener(DigitsKeyListener.getInstance(aVar.cDF));
             }
-            this.ceC = aVar.ceC;
+            this.cDA = aVar.cDA;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.ceB != null) {
-            return this.ceB.getText().toString().trim();
+        if (this.cDz != null) {
+            return this.cDz.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.ceB != null) {
-            this.ceB.setText(charSequence);
+        if (this.cDz != null) {
+            this.cDz.setText(charSequence);
         }
     }
 
-    public boolean aiN() {
-        return this.ceD;
+    public boolean aqV() {
+        return this.cDB;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.ceB != null && textWatcher != null) {
-            this.ceB.addTextChangedListener(textWatcher);
+        if (this.cDz != null && textWatcher != null) {
+            this.cDz.addTextChangedListener(textWatcher);
         }
     }
 
     public void a(TextWatcher textWatcher) {
-        if (this.ceB != null) {
-            this.ceB.removeTextChangedListener(textWatcher);
+        if (this.cDz != null) {
+            this.cDz.removeTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String ceC;
-        private boolean ceD = false;
-        private int ceE = 1;
-        private String ceF;
-        private boolean ceG;
-        private String ceH;
+        private String cDA;
+        private boolean cDB = false;
+        private int cDC = 1;
+        private String cDD;
+        private boolean cDE;
+        private String cDF;
         private String mDesc;
         private String mErrorMessage;
 
-        public a er(boolean z) {
-            this.ceD = z;
+        public a fo(boolean z) {
+            this.cDB = z;
             return this;
         }
 
-        public a nn(String str) {
+        public a oC(String str) {
             this.mDesc = str;
             return this;
         }
 
-        public a hv(int i) {
-            this.ceE = i;
+        public a hC(int i) {
+            this.cDC = i;
             return this;
         }
 
-        public a no(String str) {
-            this.ceF = str;
+        public a oD(String str) {
+            this.cDD = str;
             return this;
         }
 
-        public a np(String str) {
-            this.ceC = str;
+        public a oE(String str) {
+            this.cDA = str;
             return this;
         }
 
-        public a nq(String str) {
+        public a oF(String str) {
             this.mErrorMessage = str;
             return this;
         }
 
-        public a es(boolean z) {
-            this.ceG = z;
+        public a fp(boolean z) {
+            this.cDE = z;
             return this;
         }
 
-        public a nr(String str) {
-            this.ceH = str;
+        public a oG(String str) {
+            this.cDF = str;
             return this;
         }
     }

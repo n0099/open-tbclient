@@ -10,19 +10,19 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
-public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.i, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
+public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.personcenter.c.j, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a>> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.i.fvi);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.personcenter.c.j.fZI);
         this.mPageContext = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aw */
+    /* renamed from: ax */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.ala.personcenter.e.a(this.mPageContext));
     }
@@ -30,32 +30,32 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.perso
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.i iVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
-        if (aVar.bvQ() == null) {
+    public View a(int i, View view, ViewGroup viewGroup, final com.baidu.tieba.ala.personcenter.c.j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.ala.personcenter.e.a> aVar) {
+        if (aVar.bFB() == null) {
             return null;
         }
-        a(iVar, aVar.bvQ());
-        aVar.bvQ().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.g.1
+        a(jVar, aVar.bFB());
+        aVar.bFB().getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.a.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                g.this.a(iVar);
+                g.this.a(jVar);
             }
         });
-        return aVar.bvQ().getView();
+        return aVar.bFB().getView();
     }
 
-    private void a(com.baidu.tieba.ala.personcenter.c.i iVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
-        if (iVar.getPersonCenterData() != null) {
-            aVar.qS(8);
+    private void a(com.baidu.tieba.ala.personcenter.c.j jVar, com.baidu.tieba.ala.personcenter.e.a aVar) {
+        if (jVar.getPersonCenterData() != null) {
+            aVar.rl(8);
             aVar.setTitle(this.mContext.getResources().getString(R.string.ala_person_live_my_love_family));
             aVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.ala.personcenter.c.i iVar) {
-        if (iVar != null && iVar.getPersonCenterData() != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLoveFamilyActivityConfig(this.mContext, iVar.getPersonCenterData().bso().user_id)));
+    public void a(com.baidu.tieba.ala.personcenter.c.j jVar) {
+        if (jVar != null && jVar.getPersonCenterData() != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLoveFamilyActivityConfig(this.mContext, jVar.getPersonCenterData().bBW().user_id)));
         }
     }
 }

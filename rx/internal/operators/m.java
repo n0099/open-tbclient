@@ -1,6 +1,5 @@
 package rx.internal.operators;
 
-import com.google.android.exoplayer2.Format;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
@@ -10,14 +9,14 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes6.dex */
 public class m<T> implements d.b<T, T> {
-    private final Long nRP = null;
-    private final rx.functions.a nRQ = null;
-    private final a.d nRR = rx.a.nOO;
+    private final Long nlv = null;
+    private final rx.functions.a nlw = null;
+    private final a.d nlx = rx.a.nit;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class b {
-        static final m<?> nRW = new m<>();
+        static final m<?> nlC = new m<>();
     }
 
     @Override // rx.functions.f
@@ -25,17 +24,17 @@ public class m<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> m<T> dOT() {
-        return (m<T>) b.nRW;
+    public static <T> m<T> dHT() {
+        return (m<T>) b.nlC;
     }
 
     m() {
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.nRP, this.nRQ, this.nRR);
+        a aVar = new a(jVar, this.nlv, this.nlw, this.nlx);
         jVar.add(aVar);
-        jVar.setProducer(aVar.dOV());
+        jVar.setProducer(aVar.dHV());
         return aVar;
     }
 
@@ -43,55 +42,55 @@ public class m<T> implements d.b<T, T> {
     /* loaded from: classes6.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final rx.functions.a nRQ;
-        private final a.d nRR;
-        private final AtomicLong nRT;
-        private final BackpressureDrainManager nRV;
-        private final ConcurrentLinkedQueue<Object> nRS = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean nRU = new AtomicBoolean(false);
+        private final BackpressureDrainManager nlB;
+        private final rx.functions.a nlw;
+        private final a.d nlx;
+        private final AtomicLong nlz;
+        private final ConcurrentLinkedQueue<Object> nly = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean nlA = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.nRT = l != null ? new AtomicLong(l.longValue()) : null;
-            this.nRQ = aVar;
-            this.nRV = new BackpressureDrainManager(this);
-            this.nRR = dVar;
+            this.nlz = l != null ? new AtomicLong(l.longValue()) : null;
+            this.nlw = aVar;
+            this.nlB = new BackpressureDrainManager(this);
+            this.nlx = dVar;
         }
 
         @Override // rx.j
         public void onStart() {
-            request(Format.OFFSET_SAMPLE_RELATIVE);
+            request(Long.MAX_VALUE);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.nRU.get()) {
-                this.nRV.terminateAndDrain();
+            if (!this.nlA.get()) {
+                this.nlB.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.nRU.get()) {
-                this.nRV.terminateAndDrain(th);
+            if (!this.nlA.get()) {
+                this.nlB.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (dOU()) {
-                this.nRS.offer(NotificationLite.next(t));
-                this.nRV.drain();
+            if (dHU()) {
+                this.nly.offer(NotificationLite.next(t));
+                this.nlB.drain();
             }
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
-        public boolean ch(Object obj) {
+        public boolean bQ(Object obj) {
             return NotificationLite.a(this.child, obj);
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
-        public void U(Throwable th) {
+        public void Y(Throwable th) {
             if (th != null) {
                 this.child.onError(th);
             } else {
@@ -101,42 +100,42 @@ public class m<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.nRS.peek();
+            return this.nly.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.nRS.poll();
-            if (this.nRT != null && poll != null) {
-                this.nRT.incrementAndGet();
+            Object poll = this.nly.poll();
+            if (this.nlz != null && poll != null) {
+                this.nlz.incrementAndGet();
             }
             return poll;
         }
 
-        private boolean dOU() {
+        private boolean dHU() {
             long j;
             boolean z;
-            if (this.nRT == null) {
+            if (this.nlz == null) {
                 return true;
             }
             do {
-                j = this.nRT.get();
+                j = this.nlz.get();
                 if (j <= 0) {
                     try {
-                        z = this.nRR.dOm() && poll() != null;
+                        z = this.nlx.dHl() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.nRU.compareAndSet(false, true)) {
+                        if (this.nlA.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.nRQ != null) {
+                    if (this.nlw != null) {
                         try {
-                            this.nRQ.call();
+                            this.nlw.call();
                         } catch (Throwable th) {
-                            rx.exceptions.a.H(th);
-                            this.nRV.terminateAndDrain(th);
+                            rx.exceptions.a.L(th);
+                            this.nlB.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -144,12 +143,12 @@ public class m<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.nRT.compareAndSet(j, j - 1));
+            } while (!this.nlz.compareAndSet(j, j - 1));
             return true;
         }
 
-        protected rx.f dOV() {
-            return this.nRV;
+        protected rx.f dHV() {
+            return this.nlB;
         }
     }
 }

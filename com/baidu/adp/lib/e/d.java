@@ -3,15 +3,15 @@ package com.baidu.adp.lib.e;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 /* loaded from: classes.dex */
 public class d {
-    private static int sl = 0;
-    private static int sm = 0;
-    private static int so = 0;
-    private static int sq = 0;
-    private static int sr = 0;
-    private static int ss = 0;
+    private static int Lg = 0;
+    private static int Lh = 0;
+    private static int Li = 0;
+    private static int Lj = 0;
+    private static int Lk = 0;
+    private static int Ll = 0;
     private static Object syncLock = new Object();
 
-    public static com.baidu.adp.lib.stats.a gs() {
+    public static com.baidu.adp.lib.stats.a kW() {
         return BdStatisticsManager.getInstance().getStatsItem("dbg");
     }
 
@@ -19,15 +19,15 @@ public class d {
         if (aVar != null || aVar2 != null) {
             synchronized (syncLock) {
                 if (aVar != null) {
-                    so = (int) (so + aVar.getTimeCost());
+                    Li = (int) (Li + aVar.getTimeCost());
                 }
                 if (aVar2 != null) {
-                    sm = (int) (sm + aVar2.getTimeCost());
+                    Lh = (int) (Lh + aVar2.getTimeCost());
                 }
-                int i = sl + 1;
-                sl = i;
-                if (i + sq > 100) {
-                    gt();
+                int i = Lg + 1;
+                Lg = i;
+                if (i + Lj > 100) {
+                    kX();
                 }
             }
         }
@@ -37,38 +37,38 @@ public class d {
         if (aVar != null || aVar2 != null) {
             synchronized (syncLock) {
                 if (aVar != null) {
-                    ss = (int) (ss + aVar.getTimeCost());
+                    Ll = (int) (Ll + aVar.getTimeCost());
                 }
                 if (aVar2 != null) {
-                    sr = (int) (sr + aVar2.getTimeCost());
+                    Lk = (int) (Lk + aVar2.getTimeCost());
                 }
-                int i = sq + 1;
-                sq = i;
-                if (i + sl > 100) {
-                    gt();
+                int i = Lj + 1;
+                Lj = i;
+                if (i + Lg > 100) {
+                    kX();
                 }
             }
         }
     }
 
-    public static void gt() {
-        if (sl + sq > 10) {
-            com.baidu.adp.lib.stats.a gs = gs();
-            gs.append("act", "allStat");
-            gs.append("diskTaskCostTime", String.valueOf(so));
-            gs.append("diskCostTime", String.valueOf(sm));
-            gs.append("diskNum", String.valueOf(sl));
-            gs.append("netTaskCostTime", String.valueOf(ss));
-            gs.append("netCostTime", String.valueOf(sr));
-            gs.append("netNum", String.valueOf(sq));
-            gs.append("isWifi", "1");
-            BdStatisticsManager.getInstance().debug("img", gs);
-            sm = 0;
-            sl = 0;
-            sr = 0;
-            sq = 0;
-            so = 0;
-            ss = 0;
+    public static void kX() {
+        if (Lg + Lj > 10) {
+            com.baidu.adp.lib.stats.a kW = kW();
+            kW.append("act", "allStat");
+            kW.append("diskTaskCostTime", String.valueOf(Li));
+            kW.append("diskCostTime", String.valueOf(Lh));
+            kW.append("diskNum", String.valueOf(Lg));
+            kW.append("netTaskCostTime", String.valueOf(Ll));
+            kW.append("netCostTime", String.valueOf(Lk));
+            kW.append("netNum", String.valueOf(Lj));
+            kW.append("isWifi", "1");
+            BdStatisticsManager.getInstance().debug("img", kW);
+            Lh = 0;
+            Lg = 0;
+            Lk = 0;
+            Lj = 0;
+            Li = 0;
+            Ll = 0;
         }
     }
 }

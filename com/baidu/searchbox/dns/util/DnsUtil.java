@@ -1,14 +1,19 @@
 package com.baidu.searchbox.dns.util;
 
 import android.util.Log;
+import com.baidu.searchbox.dns.a.a;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes13.dex */
 public class DnsUtil {
     public static final String TAG = "SMART_HTTP_DNS";
+    public static String httpDnsDebugAddress;
+    public static String httpDnsDebugExtraQueryParams;
     public static boolean DEBUG = false;
     public static int stackType = 0;
+    public static boolean iPv6TestEnable = false;
+    public static boolean iPv6Perfer = false;
 
     public static List<String> parseRawAddressList(List<InetAddress> list) {
         if (list == null || list.size() <= 0) {
@@ -78,5 +83,9 @@ public class DnsUtil {
         } else {
             stackType = 0;
         }
+    }
+
+    public static boolean isIPv6TestArea() {
+        return a.e().isIPv6TestArea();
     }
 }

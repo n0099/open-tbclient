@@ -12,10 +12,10 @@ public class j implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         FrsGroupReadCacheRequestMessage frsGroupReadCacheRequestMessage = (FrsGroupReadCacheRequestMessage) customMessage;
-        byte[] aI = new c().aI(frsGroupReadCacheRequestMessage.getType(), frsGroupReadCacheRequestMessage.getForumName());
+        byte[] aX = new c().aX(frsGroupReadCacheRequestMessage.getType(), frsGroupReadCacheRequestMessage.getForumName());
         FrsGroupReadCacheResponseMessage frsGroupReadCacheResponseMessage = new FrsGroupReadCacheResponseMessage();
         try {
-            frsGroupReadCacheResponseMessage.decodeInBackGround(CmdConfigCustom.CMD_CACHE_GROUPS_BY_FID, aI);
+            frsGroupReadCacheResponseMessage.decodeInBackGround(CmdConfigCustom.CMD_CACHE_GROUPS_BY_FID, aX);
             return frsGroupReadCacheResponseMessage;
         } catch (Exception e) {
             e.printStackTrace();

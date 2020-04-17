@@ -1,173 +1,169 @@
 package io.reactivex.internal.operators.flowable;
 
-import io.reactivex.internal.disposables.DisposableHelper;
-import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
-import io.reactivex.v;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
-public final class FlowableRefCount<T> extends io.reactivex.g<T> {
-    RefConnection connection;
-    final int n;
-    final io.reactivex.b.a<T> nyY;
-    final v scheduler;
-    final long timeout;
-    final TimeUnit unit;
+public final class FlowableRefCount<T> extends io.reactivex.internal.operators.flowable.a<T, T> {
+    final ReentrantLock lock;
+    final io.reactivex.b.a<T> mSs;
+    volatile io.reactivex.disposables.a mSt;
+    final AtomicInteger mSu;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes7.dex */
+    public final class ConnectionSubscriber extends AtomicReference<org.a.d> implements j<T>, org.a.d {
+        private static final long serialVersionUID = 152064694420235350L;
+        final io.reactivex.disposables.a currentBase;
+        final AtomicLong requested = new AtomicLong();
+        final io.reactivex.disposables.b resource;
+        final org.a.c<? super T> subscriber;
+
+        ConnectionSubscriber(org.a.c<? super T> cVar, io.reactivex.disposables.a aVar, io.reactivex.disposables.b bVar) {
+            this.subscriber = cVar;
+            this.currentBase = aVar;
+            this.resource = bVar;
+        }
+
+        @Override // io.reactivex.j, org.a.c
+        public void onSubscribe(org.a.d dVar) {
+            SubscriptionHelper.deferredSetOnce(this, this.requested, dVar);
+        }
+
+        @Override // org.a.c
+        public void onError(Throwable th) {
+            cleanup();
+            this.subscriber.onError(th);
+        }
+
+        @Override // org.a.c
+        public void onNext(T t) {
+            this.subscriber.onNext(t);
+        }
+
+        @Override // org.a.c
+        public void onComplete() {
+            cleanup();
+            this.subscriber.onComplete();
+        }
+
+        @Override // org.a.d
+        public void request(long j) {
+            SubscriptionHelper.deferredRequest(this, this.requested, j);
+        }
+
+        @Override // org.a.d
+        public void cancel() {
+            SubscriptionHelper.cancel(this);
+            this.resource.dispose();
+        }
+
+        void cleanup() {
+            FlowableRefCount.this.lock.lock();
+            try {
+                if (FlowableRefCount.this.mSt == this.currentBase) {
+                    if (FlowableRefCount.this.mSs instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) FlowableRefCount.this.mSs).dispose();
+                    }
+                    FlowableRefCount.this.mSt.dispose();
+                    FlowableRefCount.this.mSt = new io.reactivex.disposables.a();
+                    FlowableRefCount.this.mSu.set(0);
+                }
+            } finally {
+                FlowableRefCount.this.lock.unlock();
+            }
+        }
+    }
 
     @Override // io.reactivex.g
-    protected void a(org.a.c<? super T> cVar) {
-        RefConnection refConnection;
-        boolean z = true;
-        synchronized (this) {
-            refConnection = this.connection;
-            if (refConnection == null) {
-                refConnection = new RefConnection(this);
-                this.connection = refConnection;
-            }
-            long j = refConnection.subscriberCount;
-            if (j == 0 && refConnection.timer != null) {
-                refConnection.timer.dispose();
-            }
-            refConnection.subscriberCount = j + 1;
-            if (refConnection.connected || j + 1 != this.n) {
-                z = false;
-            } else {
-                refConnection.connected = true;
+    public void a(org.a.c<? super T> cVar) {
+        boolean z;
+        this.lock.lock();
+        if (this.mSu.incrementAndGet() == 1) {
+            AtomicBoolean atomicBoolean = new AtomicBoolean(true);
+            try {
+                this.mSs.c(a(cVar, atomicBoolean));
+                if (z) {
+                    return;
+                }
+                return;
+            } finally {
+                if (atomicBoolean.get()) {
+                }
             }
         }
-        this.nyY.a((j) new RefCountSubscriber(cVar, this, refConnection));
-        if (z) {
-            this.nyY.c(refConnection);
+        try {
+            a(cVar, this.mSt);
+        } finally {
+            this.lock.unlock();
         }
     }
 
-    void a(RefConnection refConnection) {
-        synchronized (this) {
-            if (this.connection != null) {
-                long j = refConnection.subscriberCount - 1;
-                refConnection.subscriberCount = j;
-                if (j == 0 && refConnection.connected) {
-                    if (this.timeout == 0) {
-                        c(refConnection);
-                        return;
-                    }
-                    SequentialDisposable sequentialDisposable = new SequentialDisposable();
-                    refConnection.timer = sequentialDisposable;
-                    sequentialDisposable.replace(this.scheduler.b(refConnection, this.timeout, this.unit));
-                }
-            }
-        }
+    private io.reactivex.c.g<io.reactivex.disposables.b> a(org.a.c<? super T> cVar, AtomicBoolean atomicBoolean) {
+        return new a(cVar, atomicBoolean);
     }
 
-    void b(RefConnection refConnection) {
-        synchronized (this) {
-            if (this.connection != null) {
-                this.connection = null;
-                if (refConnection.timer != null) {
-                    refConnection.timer.dispose();
-                }
-                if (this.nyY instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nyY).dispose();
-                }
-            }
-        }
+    void a(org.a.c<? super T> cVar, io.reactivex.disposables.a aVar) {
+        ConnectionSubscriber connectionSubscriber = new ConnectionSubscriber(cVar, aVar, a(aVar));
+        cVar.onSubscribe(connectionSubscriber);
+        this.mSs.a((j) connectionSubscriber);
     }
 
-    void c(RefConnection refConnection) {
-        synchronized (this) {
-            if (refConnection.subscriberCount == 0 && refConnection == this.connection) {
-                this.connection = null;
-                DisposableHelper.dispose(refConnection);
-                if (this.nyY instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nyY).dispose();
-                }
+    private io.reactivex.disposables.b a(io.reactivex.disposables.a aVar) {
+        return io.reactivex.disposables.c.J(new b(aVar));
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes7.dex */
+    public final class a implements io.reactivex.c.g<io.reactivex.disposables.b> {
+        private final AtomicBoolean mSv;
+        private final org.a.c<? super T> subscriber;
+
+        a(org.a.c<? super T> cVar, AtomicBoolean atomicBoolean) {
+            this.subscriber = cVar;
+            this.mSv = atomicBoolean;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // io.reactivex.c.g
+        /* renamed from: f */
+        public void accept(io.reactivex.disposables.b bVar) {
+            try {
+                FlowableRefCount.this.mSt.a(bVar);
+                FlowableRefCount.this.a(this.subscriber, FlowableRefCount.this.mSt);
+            } finally {
+                FlowableRefCount.this.lock.unlock();
+                this.mSv.set(false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class RefConnection extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c.g<io.reactivex.disposables.b>, Runnable {
-        private static final long serialVersionUID = -4552101107598366241L;
-        boolean connected;
-        final FlowableRefCount<?> parent;
-        long subscriberCount;
-        io.reactivex.disposables.b timer;
+    public final class b implements Runnable {
+        private final io.reactivex.disposables.a mSw;
 
-        RefConnection(FlowableRefCount<?> flowableRefCount) {
-            this.parent = flowableRefCount;
+        b(io.reactivex.disposables.a aVar) {
+            this.mSw = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.parent.c(this);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.c.g
-        public void accept(io.reactivex.disposables.b bVar) throws Exception {
-            DisposableHelper.replace(this, bVar);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    static final class RefCountSubscriber<T> extends AtomicBoolean implements j<T>, org.a.d {
-        private static final long serialVersionUID = -7419642935409022375L;
-        final org.a.c<? super T> actual;
-        final RefConnection connection;
-        final FlowableRefCount<T> parent;
-        org.a.d upstream;
-
-        RefCountSubscriber(org.a.c<? super T> cVar, FlowableRefCount<T> flowableRefCount, RefConnection refConnection) {
-            this.actual = cVar;
-            this.parent = flowableRefCount;
-            this.connection = refConnection;
-        }
-
-        @Override // org.a.c
-        public void onNext(T t) {
-            this.actual.onNext(t);
-        }
-
-        @Override // org.a.c
-        public void onError(Throwable th) {
-            if (compareAndSet(false, true)) {
-                this.parent.b(this.connection);
-                this.actual.onError(th);
-                return;
-            }
-            io.reactivex.e.a.onError(th);
-        }
-
-        @Override // org.a.c
-        public void onComplete() {
-            if (compareAndSet(false, true)) {
-                this.parent.b(this.connection);
-                this.actual.onComplete();
-            }
-        }
-
-        @Override // org.a.d
-        public void request(long j) {
-            this.upstream.request(j);
-        }
-
-        @Override // org.a.d
-        public void cancel() {
-            this.upstream.cancel();
-            if (compareAndSet(false, true)) {
-                this.parent.a(this.connection);
-            }
-        }
-
-        @Override // io.reactivex.j, org.a.c
-        public void onSubscribe(org.a.d dVar) {
-            if (SubscriptionHelper.validate(this.upstream, dVar)) {
-                this.upstream = dVar;
-                this.actual.onSubscribe(this);
+            FlowableRefCount.this.lock.lock();
+            try {
+                if (FlowableRefCount.this.mSt == this.mSw && FlowableRefCount.this.mSu.decrementAndGet() == 0) {
+                    if (FlowableRefCount.this.mSs instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) FlowableRefCount.this.mSs).dispose();
+                    }
+                    FlowableRefCount.this.mSt.dispose();
+                    FlowableRefCount.this.mSt = new io.reactivex.disposables.a();
+                }
+            } finally {
+                FlowableRefCount.this.lock.unlock();
             }
         }
     }

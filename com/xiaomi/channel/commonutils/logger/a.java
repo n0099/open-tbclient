@@ -1,9 +1,10 @@
 package com.xiaomi.channel.commonutils.logger;
 
 import android.util.Log;
+import com.baidu.android.util.devices.RomUtils;
 /* loaded from: classes8.dex */
 public class a implements LoggerInterface {
-    private String a = "xiaomi";
+    private String a = RomUtils.MANUFACTURER_XIAOMI;
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
     public void log(String str) {

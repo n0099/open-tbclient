@@ -21,7 +21,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final HashMap<Integer, Integer[]> sBtnStyleMap = new HashMap<>(2);
-    private a cVp;
+    private a duA;
     private final Activity mActivity;
     private final ViewGroup mContentView;
     private com.baidu.adp.base.e<?> mContext;
@@ -57,13 +57,13 @@ public class b {
         this.mLineView = this.mRootView.findViewById(R.id.line_bg);
     }
 
-    public b sT(String str) {
+    public b ug(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public b ka(int i) {
-        return sT(this.mActivity.getResources().getString(i));
+    public b kh(int i) {
+        return ug(this.mActivity.getResources().getString(i));
     }
 
     public b a(CharSequence[] charSequenceArr, a aVar) {
@@ -77,18 +77,18 @@ public class b {
         if (list != null && list.size() > 0) {
             this.mItems = list;
             if (aVar != null) {
-                this.cVp = aVar;
+                this.duA = aVar;
             }
         }
         return this;
     }
 
-    public b kb(int i) {
+    public b ki(int i) {
         this.mAnimationStyleId = i;
         return this;
     }
 
-    public b kc(int i) {
+    public b kj(int i) {
         this.mDialogGravity = i;
         return this;
     }
@@ -116,7 +116,7 @@ public class b {
         return this;
     }
 
-    public b aEH() {
+    public b aMV() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
@@ -189,11 +189,11 @@ public class b {
         } else {
             am.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
         }
-        if (this.cVp != null) {
+        if (this.duA != null) {
             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    b.this.cVp.a(b.this, i, textView);
+                    b.this.duA.a(b.this, i, textView);
                 }
             });
         }

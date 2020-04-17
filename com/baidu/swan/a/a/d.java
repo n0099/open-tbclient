@@ -5,12 +5,12 @@ import com.baidu.swan.a.e;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class d extends com.baidu.swan.a.a<c> {
-    private e<c> cfL;
-    private com.baidu.swan.pms.a.c<c> cfM = new com.baidu.swan.pms.a.b<c>() { // from class: com.baidu.swan.a.a.d.1
+    private e<c> cEJ;
+    private com.baidu.swan.pms.a.c<c> cEK = new com.baidu.swan.pms.a.b<c>() { // from class: com.baidu.swan.a.a.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: c */
-        public String K(c cVar) {
+        public String L(c cVar) {
             return null;
         }
 
@@ -27,17 +27,17 @@ public class d extends com.baidu.swan.a.a<c> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: d */
-        public void I(c cVar) {
-            super.I(cVar);
+        public void J(c cVar) {
+            super.J(cVar);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: e */
-        public void H(c cVar) {
-            super.H(cVar);
-            if (d.this.cfL != null) {
-                d.this.cfL.n(cVar.currentSize, cVar.size);
+        public void I(c cVar) {
+            super.I(cVar);
+            if (d.this.cEJ != null) {
+                d.this.cEJ.o(cVar.currentSize, cVar.size);
             }
         }
 
@@ -45,42 +45,42 @@ public class d extends com.baidu.swan.a.a<c> {
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         public void a(c cVar, com.baidu.swan.pms.model.a aVar) {
             super.a((AnonymousClass1) cVar, aVar);
-            if (d.this.cfL != null) {
-                d.this.cfL.E(aVar.errorNo, aVar.errorMsg);
+            if (d.this.cEJ != null) {
+                d.this.cEJ.V(aVar.errorNo, aVar.errorMsg);
             }
-            com.baidu.swan.d.c.rf(cVar.filePath);
+            com.baidu.swan.d.c.st(cVar.filePath);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.pms.a.b, com.baidu.swan.pms.a.c
         /* renamed from: f */
-        public void G(c cVar) {
-            super.G(cVar);
-            if (d.this.cfL != null) {
-                d.this.cfL.P(cVar);
+        public void H(c cVar) {
+            super.H(cVar);
+            if (d.this.cEJ != null) {
+                d.this.cEJ.Q(cVar);
             }
         }
     };
 
     public d(e<c> eVar) {
-        this.cfL = eVar;
+        this.cEJ = eVar;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void Pp() {
-        super.Pp();
+    public void Xe() {
+        super.Xe();
     }
 
     @Override // com.baidu.swan.pms.a.g
     public void a(com.baidu.swan.pms.model.a aVar) {
         super.a(aVar);
-        if (this.cfL != null) {
-            this.cfL.E(aVar.errorNo, aVar.errorMsg);
+        if (this.cEJ != null) {
+            this.cEJ.V(aVar.errorNo, aVar.errorMsg);
         }
     }
 
     @Override // com.baidu.swan.a.a
-    public com.baidu.swan.pms.a.c<c> ajm() {
-        return this.cfM;
+    public com.baidu.swan.pms.a.c<c> aru() {
+        return this.cEK;
     }
 }

@@ -1,49 +1,49 @@
 package com.baidu.swan.apps.ac.a;
 /* loaded from: classes11.dex */
 public class c {
-    protected boolean bFy;
-    protected int bGh;
-    protected String bGi;
-    protected long bGj;
+    protected int ceR;
+    protected String ceS;
+    protected long ceT;
+    protected boolean ceh;
 
     public c(int i) {
         this(i, null);
     }
 
     public c(int i, String str) {
-        this.bFy = false;
-        this.bGh = i;
-        this.bGi = str;
+        this.ceh = false;
+        this.ceR = i;
+        this.ceS = str;
     }
 
     public c(int i, String str, long j) {
-        this.bFy = false;
-        this.bGh = i;
-        this.bGi = str;
-        this.bGj = j;
+        this.ceh = false;
+        this.ceR = i;
+        this.ceS = str;
+        this.ceT = j;
     }
 
     public c(int i, String str, long j, boolean z) {
-        this.bFy = false;
-        this.bGh = i;
-        this.bGi = str;
-        this.bGj = j;
-        this.bFy = z;
+        this.ceh = false;
+        this.ceR = i;
+        this.ceS = str;
+        this.ceT = j;
+        this.ceh = z;
     }
 
     public int getId() {
-        return this.bGh;
+        return this.ceR;
     }
 
-    public String YU() {
-        return this.bGi;
+    public String aha() {
+        return this.ceS;
     }
 
-    public long YV() {
-        return this.bGj;
+    public long ahb() {
+        return this.ceT;
     }
 
-    public boolean YW() {
-        return this.bFy;
+    public boolean ahc() {
+        return this.ceh;
     }
 }

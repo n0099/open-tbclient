@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.observable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.t;
 import io.reactivex.u;
@@ -11,13 +10,9 @@ public final class ObservableRepeat<T> extends a<T, T> {
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
-        long j = Format.OFFSET_SAMPLE_RELATIVE;
         SequentialDisposable sequentialDisposable = new SequentialDisposable();
         uVar.onSubscribe(sequentialDisposable);
-        if (this.count != Format.OFFSET_SAMPLE_RELATIVE) {
-            j = this.count - 1;
-        }
-        new RepeatObserver(uVar, j, sequentialDisposable, this.source).subscribeNext();
+        new RepeatObserver(uVar, this.count != Long.MAX_VALUE ? this.count - 1 : Long.MAX_VALUE, sequentialDisposable, this.source).subscribeNext();
     }
 
     /* loaded from: classes7.dex */
@@ -53,7 +48,7 @@ public final class ObservableRepeat<T> extends a<T, T> {
         @Override // io.reactivex.u
         public void onComplete() {
             long j = this.remaining;
-            if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+            if (j != Long.MAX_VALUE) {
                 this.remaining = j - 1;
             }
             if (j != 0) {

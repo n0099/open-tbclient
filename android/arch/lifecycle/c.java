@@ -5,20 +5,20 @@ import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class c implements h {
-    private final g[] bL;
+    private final g[] xQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(g[] gVarArr) {
-        this.bL = gVarArr;
+        this.xQ = gVarArr;
     }
 
     @Override // android.arch.lifecycle.h
     public void a(j jVar, Lifecycle.Event event) {
         o oVar = new o();
-        for (g gVar : this.bL) {
+        for (g gVar : this.xQ) {
             gVar.a(jVar, event, false, oVar);
         }
-        for (g gVar2 : this.bL) {
+        for (g gVar2 : this.xQ) {
             gVar2.a(jVar, event, true, oVar);
         }
     }

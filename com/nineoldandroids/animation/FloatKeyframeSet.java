@@ -28,7 +28,7 @@ public class FloatKeyframeSet extends KeyframeSet {
         int size = this.mKeyframes.size();
         Keyframe.FloatKeyframe[] floatKeyframeArr = new Keyframe.FloatKeyframe[size];
         for (int i = 0; i < size; i++) {
-            floatKeyframeArr[i] = (Keyframe.FloatKeyframe) arrayList.get(i).m42clone();
+            floatKeyframeArr[i] = (Keyframe.FloatKeyframe) arrayList.get(i).m45clone();
         }
         return new FloatKeyframeSet(floatKeyframeArr);
     }

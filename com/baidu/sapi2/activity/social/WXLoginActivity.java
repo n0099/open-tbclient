@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-import com.baidu.i.a.a.a.a;
+import com.baidu.f.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.ThirdPartyService;

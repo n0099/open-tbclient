@@ -4,8 +4,9 @@ import android.util.Log;
 /* loaded from: classes10.dex */
 public class AdvertSDKStatic {
     static {
-        new a().tj();
+        new a().xC();
         Log.e("AdvertSDKStatic", "Advert install finished.");
-        new b().tj();
+        new b().xC();
+        new c().xC();
     }
 }

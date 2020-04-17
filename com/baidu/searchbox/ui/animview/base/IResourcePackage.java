@@ -139,7 +139,7 @@ public interface IResourcePackage {
                         Throwable th3;
                         Bitmap bitmap = null;
                         try {
-                            fileInputStream3 = new FileInputStream(new File(file.getParent() + "/" + hVar.bx() + hVar.getFileName()));
+                            fileInputStream3 = new FileInputStream(new File(file.getParent() + "/" + hVar.gU() + hVar.getFileName()));
                             try {
                                 try {
                                     bitmap = BitmapFactory.decodeStream(fileInputStream3);

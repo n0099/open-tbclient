@@ -11,54 +11,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private final List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
-    private e cVR;
-    private BdTypeListView ekE;
-    private a ekF;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.a ekG;
-    private com.baidu.tieba.ala.alasquare.subtablist.a.b ekH;
+    private final List<com.baidu.adp.widget.ListView.a> aMd = new ArrayList();
+    private e dvc;
+    private BdTypeListView eOe;
+    private a eOf;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.a eOg;
+    private com.baidu.tieba.ala.alasquare.subtablist.a.b eOh;
 
     public b(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.cVR = tbPageContext;
-        this.ekE = bdTypeListView;
-        wR();
+        this.dvc = tbPageContext;
+        this.eOe = bdTypeListView;
+        BC();
     }
 
-    private void wR() {
-        this.ekH = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.cVR);
-        this.ekH.setFrom(1);
-        this.ekG = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.cVR);
-        this.ekG.setFrom(1);
-        this.ekF = new a((TbPageContext) this.cVR, com.baidu.tieba.ala.alasquare.live.b.b.ekL);
-        this.asP.add(this.ekH);
-        this.asP.add(this.ekG);
-        this.asP.add(this.ekF);
-        this.ekE.addAdapters(this.asP);
+    private void BC() {
+        this.eOh = new com.baidu.tieba.ala.alasquare.subtablist.a.b((TbPageContext) this.dvc);
+        this.eOh.setFrom(1);
+        this.eOg = new com.baidu.tieba.ala.alasquare.subtablist.a.a((TbPageContext) this.dvc);
+        this.eOg.setFrom(1);
+        this.eOf = new a((TbPageContext) this.dvc, com.baidu.tieba.ala.alasquare.live.b.b.eOl);
+        this.aMd.add(this.eOh);
+        this.aMd.add(this.eOg);
+        this.aMd.add(this.eOf);
+        this.eOe.addAdapters(this.aMd);
     }
 
     public void setDatas(List<m> list) {
-        if (this.ekE != null) {
-            this.ekE.setData(list);
+        if (this.eOe != null) {
+            this.eOe.setData(list);
         }
     }
 
-    public void oD(int i) {
-        this.ekH.oD(i);
-        this.ekG.oD(i);
+    public void oW(int i) {
+        this.eOh.oW(i);
+        this.eOg.oW(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.ekE != null && (this.ekE.getAdapter() instanceof BaseAdapter)) {
-            this.ekE.getAdapter().notifyDataSetChanged();
+        if (this.eOe != null && (this.eOe.getAdapter() instanceof BaseAdapter)) {
+            this.eOe.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void a(IAlaSquareTabController iAlaSquareTabController) {
-        this.ekF.a(iAlaSquareTabController);
+        this.eOf.a(iAlaSquareTabController);
     }
 
     public void a(i iVar) {
-        this.ekH.b(iVar);
-        this.ekG.b(iVar);
+        this.eOh.b(iVar);
+        this.eOg.b(iVar);
     }
 }

@@ -6,6 +6,7 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.widget.ActivityChooserView;
 import android.util.Log;
 import android.view.Surface;
 import com.baidu.searchbox.afx.callback.ErrorInfo;
@@ -40,7 +41,7 @@ public class VideoPlayer {
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private int mFps = 25;
     private volatile long mStartFrameTimeUs = 0;
-    private volatile int mPlayFrames = Integer.MAX_VALUE;
+    private volatile int mPlayFrames = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
     /* loaded from: classes13.dex */
     public interface FrameCallback {
@@ -247,7 +248,7 @@ public class VideoPlayer {
         }
         this.mGLTextureView = null;
         this.mStartFrameTimeUs = 0L;
-        this.mPlayFrames = Integer.MAX_VALUE;
+        this.mPlayFrames = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     }
 
     private static int selectVideoTrackIndex(MediaExtractor mediaExtractor) {

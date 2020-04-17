@@ -7,10 +7,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes9.dex */
 public class FrsADStatic {
     static {
-        bGp();
+        bQR();
     }
 
-    private static void bGp() {
+    private static void bQR() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_BUSSINESS_PROMOT_CLICK, TbConfig.SERVER_ADDRESS + TbConfig.URL_FRS_BUSINESS_PROMOT_CLICK);
         tbHttpMessageTask.setIsNeedLogin(false);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

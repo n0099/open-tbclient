@@ -1,6 +1,5 @@
 package com.baidu.android.imsdk.utils;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.webkit.internal.ETAG;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -24,7 +23,7 @@ public class Base64 {
             int i5 = i3 + 3;
             int i6 = i2 + 1;
             if (i2 >= 14) {
-                stringBuffer.append(HanziToPinyin.Token.SEPARATOR);
+                stringBuffer.append(" ");
                 i6 = 0;
             }
             i2 = i6;

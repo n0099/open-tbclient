@@ -6,30 +6,30 @@ import kotlin.jvm.KotlinReflectionNotSupportedError;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class m implements l, kotlin.reflect.c<Object> {
-    private final Class<?> nEn;
+    private final Class<?> mXM;
 
     public m(Class<?> cls) {
         q.j(cls, "jClass");
-        this.nEn = cls;
+        this.mXM = cls;
     }
 
     @Override // kotlin.jvm.internal.l
-    public Class<?> dKU() {
-        return this.nEn;
+    public Class<?> dDT() {
+        return this.mXM;
     }
 
     @Override // kotlin.reflect.a
     public List<Annotation> getAnnotations() {
-        dKV();
+        dDU();
         throw null;
     }
 
-    private final Void dKV() {
+    private final Void dDU() {
         throw new KotlinReflectionNotSupportedError();
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof m) && q.h(kotlin.jvm.a.a(this), kotlin.jvm.a.a((kotlin.reflect.c) obj));
+        return (obj instanceof m) && q.k(kotlin.jvm.a.a(this), kotlin.jvm.a.a((kotlin.reflect.c) obj));
     }
 
     public int hashCode() {
@@ -37,6 +37,6 @@ public final class m implements l, kotlin.reflect.c<Object> {
     }
 
     public String toString() {
-        return dKU().toString() + " (Kotlin reflection is not available)";
+        return dDT().toString() + " (Kotlin reflection is not available)";
     }
 }

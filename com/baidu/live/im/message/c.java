@@ -1,10 +1,19 @@
 package com.baidu.live.im.message;
 
-import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes3.dex */
 public class c extends HttpMessage {
-    public c() {
-        super(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
+    private long aNy;
+
+    public c(int i) {
+        super(i);
+    }
+
+    public void ah(long j) {
+        this.aNy = j;
+    }
+
+    public boolean ai(long j) {
+        return j - this.aNy >= 2000;
     }
 }

@@ -17,7 +17,6 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.swan.apps.core.container.NgWebView;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
@@ -234,7 +233,7 @@ public class TDialog extends b {
 
         public void onCancelAddShare(String str) {
             f.e("openSDK_LOG.TDialog", "JsListener onCancelAddShare" + str);
-            onCancel(UgcUBCUtils.UGC_TIME_CANCEL);
+            onCancel("cancel");
         }
 
         public void onCancelLogin() {

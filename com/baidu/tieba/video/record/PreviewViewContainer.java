@@ -10,48 +10,48 @@ import android.widget.FrameLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class PreviewViewContainer extends FrameLayout {
-    private View kDB;
-    private b kDu;
+    private b lnR;
+    private View lnY;
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kDB = null;
+        this.lnY = null;
     }
 
     public PreviewViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kDB = null;
+        this.lnY = null;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.kDu != null) {
-            this.kDu.handleTouchEvent(motionEvent);
+        if (this.lnR != null) {
+            this.lnR.handleTouchEvent(motionEvent);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setZoomHelper(b bVar) {
         if (bVar != null) {
-            this.kDu = bVar;
+            this.lnR = bVar;
         }
     }
 
-    public void cRR() {
+    public void dcR() {
         setFaceFailIdentifyLayoutVisiable(true);
     }
 
-    public void cRS() {
+    public void dcS() {
         setFaceFailIdentifyLayoutVisiable(false);
     }
 
     private void setFaceFailIdentifyLayoutVisiable(boolean z) {
-        if (this.kDB == null) {
-            this.kDB = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
+        if (this.lnY == null) {
+            this.lnY = LayoutInflater.from(getContext()).inflate(R.layout.camera_face_fail_identify, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.kDB, layoutParams);
+            addView(this.lnY, layoutParams);
         }
-        this.kDB.setVisibility(z ? 0 : 8);
+        this.lnY.setVisibility(z ? 0 : 8);
     }
 }

@@ -3,32 +3,32 @@ package com.baidu.tieba.personCenter.c;
 import tbclient.SmartApp;
 /* loaded from: classes9.dex */
 public class l implements c {
-    private Long jjA;
-    private String jjB;
-    private Integer jjC;
+    private String LV;
+    private Long jTM;
+    private String jTN;
+    private Integer jTO;
     private String mAppKey;
     private String mAvatar;
     private String mLink;
     private String mName;
     private String mPic;
     private int mType;
-    private String sZ;
 
     public l(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.jjA = smartApp.swan_app_id;
+            this.jTM = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
             this.mAvatar = smartApp.avatar;
             this.mName = smartApp.name;
-            this.sZ = smartApp._abstract;
+            this.LV = smartApp._abstract;
             this.mPic = smartApp.pic;
-            this.jjB = smartApp.h5_url;
+            this.jTN = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.jjC = smartApp.is_game;
+            this.jTO = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class l implements c {
         return this.mType;
     }
 
-    public Long cvG() {
-        return this.jjA;
+    public Long cGq() {
+        return this.jTM;
     }
 
     public String getAppKey() {
@@ -54,14 +54,14 @@ public class l implements c {
     }
 
     public String getH5Url() {
-        return this.jjB;
+        return this.jTN;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer cvH() {
-        return this.jjC;
+    public Integer cGr() {
+        return this.jTO;
     }
 }

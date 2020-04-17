@@ -15,7 +15,7 @@ public interface c {
 
     void a(a aVar);
 
-    void cQ(String str);
+    void dB(String str);
 
     long getDuration();
 
@@ -24,6 +24,8 @@ public interface c {
     boolean isDestroyed();
 
     void release();
+
+    void reset();
 
     void stop();
 }

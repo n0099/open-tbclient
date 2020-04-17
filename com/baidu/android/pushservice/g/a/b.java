@@ -9,7 +9,6 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.i.g;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -281,7 +280,7 @@ public class b {
         try {
             jSONObject.put("os_name", "Android");
             jSONObject.put("manufacture", Build.MANUFACTURER);
-            jSONObject.put(BdStatsConstant.StatsKey.OS_VERSION, Build.VERSION.RELEASE);
+            jSONObject.put("os_version", Build.VERSION.RELEASE);
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("firmware", Build.FINGERPRINT);
             jSONObject.put("mem_size", String.valueOf(b()));

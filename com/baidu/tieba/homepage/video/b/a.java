@@ -17,7 +17,7 @@ public class a {
 
     private static void o(List<ThreadPersonalized> list, List<m> list2) {
         c cVar;
-        bj aAj;
+        bj aIw;
         ThreadPersonalized threadPersonalized;
         if (list != null && list2 != null) {
             HashMap hashMap = new HashMap();
@@ -29,15 +29,15 @@ public class a {
             int count = v.getCount(list2);
             for (int i = 0; i < count; i++) {
                 m mVar = (m) v.getItem(list2, i);
-                if ((mVar instanceof c) && (aAj = (cVar = (c) mVar).aAj()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(aAj.getTid())) != null) {
+                if ((mVar instanceof c) && (aIw = (cVar = (c) mVar).aIw()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(aIw.getTid())) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.zX(threadPersonalized.abtest_tag);
-                    aAj.mRecomAbTag = threadPersonalized.abtest_tag;
-                    aAj.mRecomSource = threadPersonalized.source;
-                    aAj.mRecomWeight = threadPersonalized.weight;
-                    if (aAj.aCI() != null) {
-                        cVar.j(aAj.aCI().is_vertical);
+                    cVar.BD(threadPersonalized.abtest_tag);
+                    aIw.mRecomAbTag = threadPersonalized.abtest_tag;
+                    aIw.mRecomSource = threadPersonalized.source;
+                    aIw.mRecomWeight = threadPersonalized.weight;
+                    if (aIw.aKV() != null) {
+                        cVar.j(aIw.aKV().is_vertical);
                     }
                     List<DislikeReason> list3 = threadPersonalized.dislike_resource;
                     if (list3 != null) {

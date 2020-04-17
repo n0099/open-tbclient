@@ -3,6 +3,7 @@ package com.baidu.down.request.taskmanager;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.common.security.Base64;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.down.common.BasicNameValuePair;
 import com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable;
 import com.baidu.down.statistic.ConfigSpeedStat;
@@ -180,7 +181,7 @@ public final class TaskNetRequestMng {
                     if (str != null) {
                         try {
                             JSONObject jSONObject = new JSONObject(str);
-                            if (jSONObject.has("errno") && jSONObject.optInt("errno") == 0 && jSONObject.has("data")) {
+                            if (jSONObject.has(BaseJsonData.TAG_ERRNO) && jSONObject.optInt(BaseJsonData.TAG_ERRNO) == 0 && jSONObject.has("data")) {
                                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                                 String optString = optJSONObject.optString("logUrlPrefix");
                                 String optString2 = optJSONObject.optString("infoUrlPrefix");

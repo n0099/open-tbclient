@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
@@ -14,8 +13,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
 public class b {
     private static final Object b = new Object();
-    a aMe;
-    private c aMf;
+    a bib;
+    private c bic;
     private ArrayList<com.baidu.media.duplayer.a.a> c;
     private ArrayList<com.baidu.media.duplayer.a.a> d;
 
@@ -32,7 +31,7 @@ public class b {
             this.c = 5;
         }
 
-        public com.baidu.media.duplayer.a.a DT() {
+        public com.baidu.media.duplayer.a.a JM() {
             com.baidu.media.duplayer.a.a aVar = new com.baidu.media.duplayer.a.a(this.b + this.a.getAndIncrement());
             aVar.setPriority(this.c);
             return aVar;
@@ -42,8 +41,8 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.media.duplayer.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0125b {
-        private static b aMg = new b();
+    public static class C0150b {
+        private static b bie = new b();
     }
 
     /* loaded from: classes.dex */
@@ -56,10 +55,10 @@ public class b {
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 100:
-                    b.DQ().c();
+                    b.JJ().c();
                     return;
                 case 101:
-                    b.DQ().f();
+                    b.JJ().f();
                     return;
                 default:
                     return;
@@ -70,18 +69,18 @@ public class b {
     private b() {
         this.c = new ArrayList<>();
         this.d = new ArrayList<>();
-        this.aMe = new a("duplayer-t");
-        this.aMf = new c(Looper.getMainLooper());
+        this.bib = new a("duplayer-t");
+        this.bic = new c(Looper.getMainLooper());
     }
 
-    public static b DQ() {
-        return C0125b.aMg;
+    public static b JJ() {
+        return C0150b.bie;
     }
 
-    private com.baidu.media.duplayer.a.a DR() {
-        com.baidu.media.duplayer.a.a DT = this.aMe.DT();
-        DT.start();
-        return DT;
+    private com.baidu.media.duplayer.a.a JK() {
+        com.baidu.media.duplayer.a.a JM = this.bib.JM();
+        JM.start();
+        return JM;
     }
 
     private void b(com.baidu.media.duplayer.a.a aVar) {
@@ -129,27 +128,27 @@ public class b {
         }
     }
 
-    public com.baidu.media.duplayer.a.a DS() {
+    public com.baidu.media.duplayer.a.a JL() {
         com.baidu.media.duplayer.a.a aVar;
         synchronized (b) {
             if (this.c.size() == 0) {
-                aVar = DR();
+                aVar = JK();
             } else {
                 int size = this.c.size() - 1;
                 aVar = this.c.get(size);
                 this.c.remove(size);
                 if (aVar == null) {
-                    aVar = DR();
+                    aVar = JK();
                 }
             }
             aVar.a(1);
             aVar.a(-1L);
             this.d.add(aVar);
             if (this.c.size() <= 0) {
-                this.aMf.removeMessages(100);
+                this.bic.removeMessages(100);
             }
             if (this.c.size() <= 3) {
-                this.aMf.removeMessages(101);
+                this.bic.removeMessages(101);
             }
             CyberLog.d("DuplayerHandlerThreadPool", " obtain handlerThread:" + aVar);
             d();
@@ -168,10 +167,10 @@ public class b {
             this.d.remove(aVar);
             this.c.add(aVar);
             if (this.c.size() > 0) {
-                this.aMf.sendEmptyMessageDelayed(100, 900000L);
+                this.bic.sendEmptyMessageDelayed(100, 900000L);
             }
             if (this.c.size() > 3) {
-                this.aMf.sendEmptyMessageDelayed(101, 120000L);
+                this.bic.sendEmptyMessageDelayed(101, 120000L);
             }
             d();
         }
@@ -207,12 +206,12 @@ public class b {
             int size = this.c.size();
             CyberLog.d("DuplayerHandlerThreadPool", "-- mIdlePool size:" + size + "--");
             for (int i = 0; i < size; i++) {
-                CyberLog.d("DuplayerHandlerThreadPool", "-- mIdlePool i:" + i + HanziToPinyin.Token.SEPARATOR + this.c.get(i) + " --");
+                CyberLog.d("DuplayerHandlerThreadPool", "-- mIdlePool i:" + i + " " + this.c.get(i) + " --");
             }
             int size2 = this.d.size();
             CyberLog.d("DuplayerHandlerThreadPool", "-- mBusyPool size:" + size2 + " --");
             for (int i2 = 0; i2 < size2; i2++) {
-                CyberLog.d("DuplayerHandlerThreadPool", "-- mBusyPool i:" + i2 + HanziToPinyin.Token.SEPARATOR + this.d.get(i2) + " --");
+                CyberLog.d("DuplayerHandlerThreadPool", "-- mBusyPool i:" + i2 + " " + this.d.get(i2) + " --");
             }
         }
     }

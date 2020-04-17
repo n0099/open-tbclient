@@ -15,100 +15,100 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class i {
-    private String hUm;
-    private int hUn;
-    private int hUo;
-    private int hUp;
-    private long hUl = 0;
-    private HashMap<String, Boolean> hUk = new HashMap<>();
+    private String iEd;
+    private int iEe;
+    private int iEf;
+    private int iEg;
+    private long iEc = 0;
+    private HashMap<String, Boolean> iEb = new HashMap<>();
 
-    public void xp(int i) {
-        this.hUo = i;
+    public void xP(int i) {
+        this.iEf = i;
     }
 
-    public int cbc() {
-        return this.hUo;
+    public int clD() {
+        return this.iEf;
     }
 
-    public void xq(int i) {
-        this.hUp = i;
+    public void xQ(int i) {
+        this.iEg = i;
     }
 
-    public int cbd() {
-        return this.hUp;
+    public int clE() {
+        return this.iEg;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.hUm = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.iEd = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.hUm = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.iEd = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.hUn = intExtra;
-            this.hUo = intExtra;
-            this.hUp = intExtra;
+            this.iEe = intExtra;
+            this.iEf = intExtra;
+            this.iEg = intExtra;
         }
     }
 
     public void ar(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.hUm);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.iEd);
         }
     }
 
-    public void d(List<String> list, int i, int i2) {
-        synchronized (this.hUk) {
-            if (System.nanoTime() - this.hUl > 300000000 && list != null && i < list.size()) {
-                this.hUk.put(list.get(i), true);
+    public void e(List<String> list, int i, int i2) {
+        synchronized (this.iEb) {
+            if (System.nanoTime() - this.iEc > 300000000 && list != null && i < list.size()) {
+                this.iEb.put(list.get(i), true);
             }
-            this.hUl = System.nanoTime();
-            if (list != null && i2 < list.size() && this.hUk.get(list.get(i2)) == null) {
-                this.hUk.put(list.get(i2), false);
+            this.iEc = System.nanoTime();
+            if (list != null && i2 < list.size() && this.iEb.get(list.get(i2)) == null) {
+                this.iEb.put(list.get(i2), false);
             }
         }
-        if (this.hUk.size() >= 100) {
-            cbe();
+        if (this.iEb.size() >= 100) {
+            clF();
         }
     }
 
-    public void cbe() {
-        if (this.hUk != null) {
-            synchronized (this.hUk) {
-                if (this.hUk.size() > 0) {
+    public void clF() {
+        if (this.iEb != null) {
+            synchronized (this.iEb) {
+                if (this.iEb.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.hUk.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.iEb.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.hUk.size(), this.hUm, this.hUn + 1, this.hUo + 1);
-                    this.hUk.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.iEb.size(), this.iEd, this.iEe + 1, this.iEf + 1);
+                    this.iEb.clear();
                 }
             }
         }
     }
 
-    public void aM(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.hUl > 300000000) {
-            this.hUk.put(str, true);
+    public void bb(int i, String str) {
+        if (i == 1 && System.nanoTime() - this.iEc > 300000000) {
+            this.iEb.put(str, true);
         }
     }
 
     public void a(int i, String str, String str2, String str3, String str4, String str5) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.hUp == this.hUo) {
-            sb.append(this.hUp + 1);
-            if (this.hUo == i - 1) {
+        if (this.iEg == this.iEf) {
+            sb.append(this.iEg + 1);
+            if (this.iEf == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.hUp; i2 <= this.hUo; i2++) {
-                if (i2 == this.hUo) {
+            for (int i2 = this.iEg; i2 <= this.iEf; i2++) {
+                if (i2 == this.iEf) {
                     sb.append(i2 + 1);
-                    if (this.hUo == i - 1) {
+                    if (this.iEf == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -122,25 +122,25 @@ public class i {
             }
         }
         an anVar = new an("common_exp");
-        anVar.cx("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
+        anVar.cI("page_type", PageStayDurationConstants.PageName.BIGIMAGE);
         if (!aq.isEmpty(str2)) {
-            anVar.cx("fid", str2);
+            anVar.cI("fid", str2);
         }
         if (!aq.isEmpty(str3)) {
-            anVar.cx("tid", str3);
+            anVar.cI("tid", str3);
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cx(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dmy);
+            anVar.cI(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dMt);
         }
-        anVar.X("pic_count", i);
-        anVar.cx("obj_floors", sb.toString());
-        anVar.cx("obj_isads", sb2.toString());
-        int i3 = (this.hUo - this.hUp) + 1;
+        anVar.af("pic_count", i);
+        anVar.cI("obj_floors", sb.toString());
+        anVar.cI("obj_isads", sb2.toString());
+        int i3 = (this.iEf - this.iEg) + 1;
         if (i3 == 1) {
-            if (this.hUo == i - 1) {
-                anVar.cx("obj_id", str);
+            if (this.iEf == i - 1) {
+                anVar.cI("obj_id", str);
             } else {
-                anVar.cx("obj_id", "");
+                anVar.cI("obj_id", "");
             }
         }
         if (i3 > 1) {
@@ -148,16 +148,16 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.hUo == i - 1) {
+            if (this.iEf == i - 1) {
                 sb3.append(str);
             }
-            anVar.cx("obj_ids", str);
+            anVar.cI("obj_ids", str);
         }
         if (!StringUtils.isNull(str4)) {
-            anVar.cx("first_dir", str4);
+            anVar.cI("first_dir", str4);
         }
         if (!StringUtils.isNull(str5)) {
-            anVar.cx("second_dir", str5);
+            anVar.cI("second_dir", str5);
         }
         TiebaStatic.log(anVar);
     }

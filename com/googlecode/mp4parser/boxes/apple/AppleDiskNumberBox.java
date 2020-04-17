@@ -7,10 +7,10 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class AppleDiskNumberBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_3 = null;
     int a;
     short b;
 
@@ -36,7 +36,7 @@ public class AppleDiskNumberBox extends AppleDataBox {
     }
 
     public void setA(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.NV(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.Jp(i)));
         this.a = i;
     }
 
@@ -46,7 +46,7 @@ public class AppleDiskNumberBox extends AppleDataBox {
     }
 
     public void setB(short s) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.l(s)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.k(s)));
         this.b = s;
     }
 

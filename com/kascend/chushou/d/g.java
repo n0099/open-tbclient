@@ -1,11 +1,12 @@
 package com.kascend.chushou.d;
 
+import com.baidu.android.util.devices.RomUtils;
 import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
 public class g {
     public static boolean a() {
         String str = tv.chushou.zues.utils.f.get("ro.product.manufacturer");
-        return !tv.chushou.zues.utils.h.isEmpty(str) && str.toLowerCase().contains("huawei");
+        return !tv.chushou.zues.utils.h.isEmpty(str) && str.toLowerCase().contains(RomUtils.MANUFACTURER_HUAWEI);
     }
 
     public static boolean b() {
@@ -13,18 +14,18 @@ public class g {
         if (tv.chushou.zues.utils.h.isEmpty(lowerCase)) {
             return false;
         }
-        if (lowerCase.contains("huawei")) {
+        if (lowerCase.contains(RomUtils.MANUFACTURER_HUAWEI)) {
             return c();
         }
-        if (lowerCase.contains("vivo")) {
+        if (lowerCase.contains(RomUtils.MANUFACTURER_VIVO)) {
             return d();
         }
-        if (lowerCase.contains("oppo")) {
-            if (tv.chushou.basis.d.b.dQu() != null) {
-                return tv.chushou.basis.d.b.dQu().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
+        if (lowerCase.contains(RomUtils.MANUFACTURER_OPPO)) {
+            if (tv.chushou.basis.d.b.dJt() != null) {
+                return tv.chushou.basis.d.b.dJt().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
             }
             return false;
-        } else if (lowerCase.contains("xiaomi")) {
+        } else if (lowerCase.contains(RomUtils.MANUFACTURER_XIAOMI)) {
             return "1".equals(tv.chushou.zues.utils.f.get("ro.miui.notch"));
         } else {
             if (lowerCase.contains("oneplus")) {
@@ -71,7 +72,7 @@ public class g {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [101=4] */
-    public static int[] dCr() {
+    public static int[] dwJ() {
         int[] iArr = {0, 0};
         try {
             Class<?> cls = Class.forName("com.huawei.android.util.HwNotchSizeUtil");

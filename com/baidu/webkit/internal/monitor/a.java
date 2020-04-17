@@ -6,12 +6,12 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public final class a {
-    C0649a a;
+    C0695a a;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0649a {
+    public class C0695a {
         boolean a;
         boolean b;
         long c;
@@ -20,7 +20,7 @@ public final class a {
         boolean f;
         Map<String, Long> g;
 
-        private C0649a() {
+        private C0695a() {
             this.a = false;
             this.b = true;
             this.c = -1L;
@@ -31,7 +31,7 @@ public final class a {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ C0649a(a aVar, byte b) {
+        public /* synthetic */ C0695a(a aVar, byte b) {
             this();
         }
 

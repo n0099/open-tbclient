@@ -6,10 +6,10 @@ public final class cs {
     private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f200a;
+    private String f201a;
 
     public cs(String str, int i) {
-        this.f200a = str;
+        this.f201a = str;
         this.a = i;
     }
 
@@ -31,9 +31,9 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m202a(String str, int i) {
+    public static InetSocketAddress m207a(String str, int i) {
         cs a = a(str, i);
-        return new InetSocketAddress(a.m203a(), a.a());
+        return new InetSocketAddress(a.m208a(), a.a());
     }
 
     public int a() {
@@ -41,11 +41,11 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m203a() {
-        return this.f200a;
+    public String m208a() {
+        return this.f201a;
     }
 
     public String toString() {
-        return this.a > 0 ? this.f200a + ":" + this.a : this.f200a;
+        return this.a > 0 ? this.f201a + ":" + this.a : this.f201a;
     }
 }

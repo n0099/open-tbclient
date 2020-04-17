@@ -12,12 +12,12 @@ public class k extends f<com.airbnb.lottie.e.d> {
     /* renamed from: f */
     public com.airbnb.lottie.e.d a(com.airbnb.lottie.e.a<com.airbnb.lottie.e.d> aVar, float f) {
         com.airbnb.lottie.e.d dVar;
-        if (aVar.kp == null || aVar.kq == null) {
+        if (aVar.FL == null || aVar.FM == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        com.airbnb.lottie.e.d dVar2 = aVar.kp;
-        com.airbnb.lottie.e.d dVar3 = aVar.kq;
-        if (this.gH != null && (dVar = (com.airbnb.lottie.e.d) this.gH.b(aVar.ec, aVar.ks.floatValue(), dVar2, dVar3, f, bT(), getProgress())) != null) {
+        com.airbnb.lottie.e.d dVar2 = aVar.FL;
+        com.airbnb.lottie.e.d dVar3 = aVar.FM;
+        if (this.Cj != null && (dVar = (com.airbnb.lottie.e.d) this.Cj.b(aVar.zN, aVar.FO.floatValue(), dVar2, dVar3, f, hq(), getProgress())) != null) {
             return dVar;
         }
         return new com.airbnb.lottie.e.d(com.airbnb.lottie.d.e.lerp(dVar2.getScaleX(), dVar3.getScaleX(), f), com.airbnb.lottie.d.e.lerp(dVar2.getScaleY(), dVar3.getScaleY(), f));

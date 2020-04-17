@@ -7,7 +7,7 @@ public interface r {
 
     void a(com.baidu.swan.apps.commonsync.a.b bVar);
 
-    void l(Map<String, String> map);
+    void j(Map<String, String> map);
 
-    void m(Map<String, String> map);
+    void k(Map<String, String> map);
 }

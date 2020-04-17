@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ap {
-    private static ap daD;
+    private static ap dzQ;
 
-    public static synchronized ap aGE() {
+    public static synchronized ap aOS() {
         ap apVar;
         synchronized (ap.class) {
-            if (daD == null) {
-                daD = new ap();
+            if (dzQ == null) {
+                dzQ = new ap();
             }
-            apVar = daD;
+            apVar = dzQ;
         }
         return apVar;
     }
 
-    public String tw(String str) {
+    public String uJ(String str) {
         if (str == null) {
             return null;
         }
@@ -34,21 +34,21 @@ public class ap {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return m.getImage(tw(str), str);
+        return m.getImage(uJ(str), str);
     }
 
     public boolean isGif(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m.isGif(tw(str), str);
+        return m.isGif(uJ(str), str);
     }
 
-    public int tx(String str) {
+    public int uK(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) m.checkImageFileSize(tw(str), str);
+        return (int) m.checkImageFileSize(uJ(str), str);
     }
 
     public boolean copyFile(String str, String str2) {
@@ -56,7 +56,7 @@ public class ap {
         if (!m.CheckTempDir(str3)) {
             m.makeRootDirectory(str3);
         }
-        String str4 = str3 + tw(str2);
+        String str4 = str3 + uJ(str2);
         if (!m.CheckTempDir(str4)) {
             m.makeRootDirectory(str4);
         }
@@ -64,12 +64,12 @@ public class ap {
         if (str.equals(str5)) {
             return false;
         }
-        return m.u(str, str5, true);
+        return m.t(str, str5, true);
     }
 
     public void j(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            m.c(tw(str), str, bArr);
+            m.c(uJ(str), str, bArr);
         }
     }
 
@@ -86,7 +86,7 @@ public class ap {
         }
     }
 
-    public void aGF() {
+    public void aOT() {
         G(new File(m.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + m.getPrefixByType(3)));
     }
 

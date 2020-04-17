@@ -1,219 +1,184 @@
 package com.baidu.j;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.poly.a;
-import java.util.Iterator;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.live.tbadk.pay.PayHelper;
+import com.baidu.rtc.AudioSession;
+import com.baidu.rtc.RtcConfig;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static final String TAG = a.class.getSimpleName();
-    private static com.baidu.poly.a aPZ = null;
-    private static com.baidu.poly.c.a.a aQa = null;
-    private static int aQb = 1;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private String dfq;
+    private com.baidu.j.c.a dfr;
+    private AudioSession dfs;
 
-    public boolean a(Activity activity, String str, com.baidu.j.a.a aVar) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        b.EA().e(activity, str, aVar);
-        return true;
-    }
-
-    public boolean b(Activity activity, String str, com.baidu.j.a.a aVar) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        b.EA().f(activity, str, aVar);
-        return true;
-    }
-
-    public void a(Activity activity, JSONObject jSONObject, String[] strArr, final com.baidu.j.a.a aVar) {
-        Bundle bundle = new Bundle();
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            bundle.putString(next, jSONObject.optString(next));
-        }
-        if (strArr != null) {
-            String[] strArr2 = new String[strArr.length];
-            for (int i = 0; i < strArr.length; i++) {
-                String str = strArr[i];
-                char c = 65535;
-                switch (str.hashCode()) {
-                    case -1708856474:
-                        if (str.equals("WeChat")) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                    case -1001747525:
-                        if (str.equals("Quickpay")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 1865715419:
-                        if (str.equals("BDWallet")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case 1963873898:
-                        if (str.equals("Alipay")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        strArr2[i] = "BAIDU-ALIPAY-WISE";
-                        break;
-                    case 1:
-                        strArr2[i] = "BAIDU-SUPER-WECHAT-WISE";
-                        break;
-                    case 2:
-                        strArr2[i] = "BAIDU-BAIFUBAO-WISE";
-                        break;
-                    case 3:
-                        strArr2[i] = "BAIDU-QUICKPAY";
-                        break;
-                }
-            }
-            bundle.putStringArray("blockedPayChannels", strArr2);
-        }
-        B(activity).a(activity, bundle, new a.b() { // from class: com.baidu.j.a.1
-            @Override // com.baidu.poly.a.b
-            public void onResult(int i2, String str2) {
-                if (i2 == 3) {
+    public a(Context context, RtcConfig rtcConfig, String str) {
+        this.dfq = "";
+        this.dfq = str;
+        this.dfs = new AudioSession(context, rtcConfig, new RtcConfig.RtcHandler() { // from class: com.baidu.j.a.1
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onStart(int i, int i2, String str2, String str3) {
+                if (a.this.dfr != null) {
+                    if (str2 == null) {
+                        str2 = "";
+                    }
+                    if (str3 == null) {
+                        str3 = "";
+                    }
+                    JSONObject jSONObject = new JSONObject();
                     try {
-                        JSONObject jSONObject2 = new JSONObject(str2);
-                        jSONObject2.put("statusCode", 6);
-                        aVar.onPayResult(6, jSONObject2.toString());
-                        return;
+                        jSONObject.putOpt("state", PayHelper.STATUS_SUCC);
+                        jSONObject.putOpt("stateMsg", "connected");
+                        jSONObject.putOpt("url", str2);
+                        jSONObject.putOpt("remoteIP", str3);
+                        a.this.dfr.e(MissionEvent.MESSAGE_START, jSONObject);
                     } catch (JSONException e) {
-                        e.printStackTrace();
-                        aVar.onPayResult(6, str2);
-                        return;
+                        if (a.DEBUG) {
+                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
+                        }
                     }
                 }
-                aVar.onPayResult(i2, str2);
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onConnectSuccess(int i, int i2, String str2, String str3) {
+                if (a.this.dfr != null) {
+                    if (str2 == null) {
+                        str2 = "";
+                    }
+                    if (str3 == null) {
+                        str3 = "";
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.putOpt("state", PayHelper.STATUS_FAIL);
+                        jSONObject.putOpt("stateMsg", "remote IP resolved");
+                        jSONObject.putOpt("url", str2);
+                        jSONObject.putOpt("remoteIP", str3);
+                        a.this.dfr.e("onStateChange", jSONObject);
+                    } catch (JSONException e) {
+                        if (a.DEBUG) {
+                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
+                        }
+                    }
+                }
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onConnectFailed(int i, int i2, String str2, int i3) {
+                if (a.this.dfr != null) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.putOpt("state", "2001");
+                        jSONObject.putOpt("stateMsg", "connect failed");
+                        jSONObject.putOpt("rtcErr", Integer.valueOf(i3));
+                        a.this.dfr.e("onStateChange", jSONObject);
+                    } catch (JSONException e) {
+                        if (a.DEBUG) {
+                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
+                        }
+                    }
+                }
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onRemoteUserOnLine(int i, int i2) {
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onMuteStatusChanged(boolean z) {
+                if (a.this.dfr != null) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        if (z) {
+                            jSONObject.putOpt("state", "4001");
+                            jSONObject.putOpt("stateMsg", "change to mute");
+                        } else {
+                            jSONObject.putOpt("state", "4002");
+                            jSONObject.putOpt("stateMsg", "change to unmute");
+                        }
+                        a.this.dfr.e("onStateChange", jSONObject);
+                    } catch (JSONException e) {
+                        if (a.DEBUG) {
+                            Log.d("SwanAudiodRTCContext", Log.getStackTraceString(e));
+                        }
+                    }
+                }
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onStop(int i, int i2) {
+                if (a.this.dfr != null) {
+                    a.this.dfr.ko(MissionEvent.MESSAGE_STOP);
+                }
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public void onFailed(int i) {
+            }
+
+            @Override // com.baidu.rtc.RtcConfig.RtcHandler
+            public boolean onLoadLibrary(String str2) {
+                try {
+                    System.loadLibrary(str2);
+                    return true;
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                    return false;
+                }
             }
         });
     }
 
-    private static com.baidu.poly.a B(Activity activity) {
-        if (aPZ != null) {
-            return aPZ;
+    public void a(com.baidu.j.c.a aVar) {
+        if (DEBUG) {
+            Log.d("SwanAudiodRTCContext", "===open audioRTC");
         }
-        aPZ = new a.C0153a().a(new com.baidu.poly.c.a.c() { // from class: com.baidu.j.a.2
-            @Override // com.baidu.poly.c.a.c
-            public void a(Activity activity2, com.baidu.poly.c.a.b bVar, final com.baidu.poly.c.a.a aVar) {
-                if (bVar == null || TextUtils.isEmpty(bVar.channel) || bVar.aSs == null) {
-                    a.a(aVar, 6, "支付信息不能为空");
-                    return;
-                }
-                String str = bVar.channel;
-                char c = 65535;
-                switch (str.hashCode()) {
-                    case -1537577171:
-                        if (str.equals("BAIDU-QUICKPAY")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 299450696:
-                        if (str.equals("BAIDU-BAIFUBAO-WISE")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case 1455583605:
-                        if (str.equals("BAIDU-ALIPAY-WISE")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
-                    case 2009937959:
-                        if (str.equals("BAIDU-SUPER-WECHAT-WISE")) {
-                            c = 1;
-                            break;
-                        }
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        c.EB().d(activity2, bVar.aSs.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.1
-                            @Override // com.baidu.j.a.a
-                            public void onPayResult(int i, String str2) {
-                                a.a(aVar, i, str2);
-                            }
-                        });
-                        break;
-                    case 1:
-                        c.EB().a(activity2, bVar.aSs, new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.2
-                            @Override // com.baidu.j.a.a
-                            public void onPayResult(int i, String str2) {
-                                a.a(aVar, i, str2);
-                            }
-                        });
-                        break;
-                    case 2:
-                        c.EB().c(activity2, bVar.aSs.optString("orderInfo"), new com.baidu.j.a.a() { // from class: com.baidu.j.a.2.3
-                            @Override // com.baidu.j.a.a
-                            public void onPayResult(int i, String str2) {
-                                a.a(aVar, i, str2);
-                            }
-                        });
-                        break;
-                    case 3:
-                        com.baidu.poly.c.a.a unused = a.aQa = aVar;
-                        d.EC();
-                        c.EB().f(activity2, bVar.aSs);
-                        break;
-                    default:
-                        aVar.onResult(3, "未知的支付方式");
-                        break;
-                }
-                activity2.finish();
+        this.dfr = aVar;
+    }
+
+    public void start() {
+        if (this.dfs != null) {
+            this.dfs.start();
+            if (DEBUG) {
+                Log.d("SwanAudiodRTCContext", "===start audioRTC");
             }
-        }).dt(aQb).aU(activity.getApplicationContext()).bO(false).EF();
-        return aPZ;
-    }
-
-    public static void s(int i, String str) {
-        if (aQa != null) {
-            aQa.onResult(i, str);
-            aQa = null;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void a(com.baidu.poly.c.a.a aVar, int i, String str) {
-        int i2;
-        if (aVar != null) {
-            switch (i) {
-                case 0:
-                    i2 = 0;
-                    break;
-                case 1:
-                    i2 = 1;
-                    break;
-                case 2:
-                    i2 = 2;
-                    break;
-                default:
-                    i2 = 3;
-                    break;
+    public void stop() {
+        if (this.dfs != null) {
+            this.dfs.stop();
+            if (DEBUG) {
+                Log.d("SwanAudiodRTCContext", "===stop audioRTC");
             }
-            aVar.onResult(i2, str);
         }
     }
 
-    public static boolean Ez() {
-        return false;
+    public void mute() {
+        if (this.dfs != null) {
+            this.dfs.mute();
+            if (DEBUG) {
+                Log.d("SwanAudiodRTCContext", "===mute audioRTC");
+            }
+        }
+    }
+
+    public void unMute() {
+        if (this.dfs != null) {
+            this.dfs.unMute();
+            if (DEBUG) {
+                Log.d("SwanAudiodRTCContext", "===unMute audioRTC");
+            }
+        }
+    }
+
+    public void e(String str, JSONObject jSONObject) {
+        if (this.dfr != null) {
+            this.dfr.e(str, jSONObject);
+        }
     }
 }

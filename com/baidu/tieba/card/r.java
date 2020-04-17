@@ -7,38 +7,38 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    private static r fMo;
-    private List<an> dYi;
+    private static r gqV;
+    private List<an> eyd;
 
-    public static r bvm() {
-        if (fMo == null) {
+    public static r bEY() {
+        if (gqV == null) {
             synchronized (r.class) {
-                if (fMo == null) {
-                    fMo = new r();
+                if (gqV == null) {
+                    gqV = new r();
                 }
             }
         }
-        return fMo;
+        return gqV;
     }
 
     public void e(an anVar) {
         if (anVar != null) {
-            if (this.dYi == null) {
-                this.dYi = new ArrayList();
+            if (this.eyd == null) {
+                this.eyd = new ArrayList();
             }
-            this.dYi.add(anVar);
+            this.eyd.add(anVar);
         }
     }
 
-    public void id(boolean z) {
+    public void jd(boolean z) {
         int i;
-        if (com.baidu.tbadk.core.util.v.getCount(this.dYi) != 0) {
+        if (com.baidu.tbadk.core.util.v.getCount(this.eyd) != 0) {
             int i2 = -1;
-            for (an anVar : this.dYi) {
+            for (an anVar : this.eyd) {
                 if (anVar != null) {
                     if (i2 != anVar.getPosition()) {
                         int position = anVar.getPosition();
-                        anVar.X(TiebaInitialize.Params.OBJ_PARAM2, z ? 1 : 0);
+                        anVar.af(TiebaInitialize.Params.OBJ_PARAM2, z ? 1 : 0);
                         TiebaStatic.log(anVar);
                         i = position;
                     } else {
@@ -47,30 +47,30 @@ public class r {
                     i2 = i;
                 }
             }
-            this.dYi.clear();
+            this.eyd.clear();
         }
     }
 
-    public void ku(boolean z) {
-        if (com.baidu.tbadk.core.util.v.getCount(this.dYi) != 0) {
-            for (an anVar : this.dYi) {
+    public void lx(boolean z) {
+        if (com.baidu.tbadk.core.util.v.getCount(this.eyd) != 0) {
+            for (an anVar : this.eyd) {
                 if (anVar != null) {
-                    anVar.X("obj_type", z ? 1 : 0);
+                    anVar.af("obj_type", z ? 1 : 0);
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dYi.clear();
+            this.eyd.clear();
         }
     }
 
-    public void bbW() {
-        if (com.baidu.tbadk.core.util.v.getCount(this.dYi) != 0) {
-            for (an anVar : this.dYi) {
+    public void bjZ() {
+        if (com.baidu.tbadk.core.util.v.getCount(this.eyd) != 0) {
+            for (an anVar : this.eyd) {
                 if (anVar != null) {
                     TiebaStatic.log(anVar);
                 }
             }
-            this.dYi.clear();
+            this.eyd.clear();
         }
     }
 }

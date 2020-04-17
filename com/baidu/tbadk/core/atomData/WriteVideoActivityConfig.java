@@ -49,4 +49,8 @@ public class WriteVideoActivityConfig extends IntentConfig {
     public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
         getIntent().putExtra("tab_list", frsTabInfoData);
     }
+
+    public void setFrom(String str) {
+        getIntent().putExtra("from", str);
+    }
 }

@@ -40,7 +40,7 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
         try {
             this.onSuccess.accept(t);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             io.reactivex.e.a.onError(th);
         }
     }
@@ -51,7 +51,7 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
         try {
             this.onError.accept(th);
         } catch (Throwable th2) {
-            io.reactivex.exceptions.a.H(th2);
+            io.reactivex.exceptions.a.L(th2);
             io.reactivex.e.a.onError(new CompositeException(th, th2));
         }
     }
@@ -62,12 +62,12 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
         try {
             this.onComplete.run();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             io.reactivex.e.a.onError(th);
         }
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.nya;
+        return this.onError != Functions.mRs;
     }
 }

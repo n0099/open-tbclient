@@ -25,9 +25,9 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
         ArrayList<com.baidu.adp.lib.stats.base.d> arrayList2 = get(i);
         ArrayList<String> arrayList3 = new ArrayList<>();
         for (int i2 = 0; i2 < arrayList2.size(); i2++) {
-            String aK = aK(arrayList2.get(i2).mFileName);
-            if (!TextUtils.isEmpty(aK)) {
-                for (String str : aK.split("\r\n")) {
+            String bZ = bZ(arrayList2.get(i2).mFileName);
+            if (!TextUtils.isEmpty(bZ)) {
+                for (String str : bZ.split("\r\n")) {
                     if (size > 0) {
                         Iterator<String> it = arrayList.iterator();
                         while (it.hasNext()) {
@@ -51,9 +51,9 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
         ArrayList<com.baidu.adp.lib.stats.base.d> arrayList = get(i);
         ArrayList<String> arrayList2 = new ArrayList<>();
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            String aK = aK(arrayList.get(i2).mFileName);
-            if (!TextUtils.isEmpty(aK)) {
-                String[] split = aK.split("\r\n");
+            String bZ = bZ(arrayList.get(i2).mFileName);
+            if (!TextUtils.isEmpty(bZ)) {
+                String[] split = bZ.split("\r\n");
                 for (String str : split) {
                     arrayList2.add(str);
                 }
@@ -62,14 +62,14 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
         return arrayList2;
     }
 
-    private String aK(String str) {
+    private String bZ(String str) {
         com.baidu.adp.lib.Disk.ops.d dVar = new com.baidu.adp.lib.Disk.ops.d(this.mLogDir, str, DiskFileOperate.Action.READ);
         dVar.setSdCard(this.mUseSdCard);
         if (!this.mMustSuccess) {
             dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             dVar.setTrySuccessWeight(3);
         }
-        com.baidu.adp.lib.Disk.d.fk().b(dVar);
+        com.baidu.adp.lib.Disk.d.jP().b(dVar);
         if (dVar.isSuccess()) {
             return dVar.getContent();
         }

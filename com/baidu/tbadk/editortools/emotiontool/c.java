@@ -4,13 +4,13 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
     private int cols;
-    private com.baidu.adp.widget.ImageView.a dxY;
-    private com.baidu.adp.widget.ImageView.a dxZ;
+    private com.baidu.adp.widget.ImageView.a dXF;
+    private com.baidu.adp.widget.ImageView.a dXG;
     private int rows;
 
-    public abstract boolean aOM();
+    public abstract boolean aXd();
 
-    public abstract EmotionGroupType aON();
+    public abstract EmotionGroupType aXe();
 
     public abstract int getEmotionsCount();
 
@@ -22,51 +22,51 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract String mu(int i);
+    public abstract String mG(int i);
 
-    public abstract boolean vf(String str);
+    public abstract boolean ws(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a vg(String str);
+    public abstract com.baidu.adp.widget.ImageView.a wt(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a vh(String str);
+    public abstract com.baidu.adp.widget.ImageView.a wu(String str);
 
-    public com.baidu.adp.widget.ImageView.a aOO() {
-        return this.dxY;
+    public com.baidu.adp.widget.ImageView.a aXf() {
+        return this.dXF;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.dxY = aVar;
+        this.dXF = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a aOP() {
-        return this.dxZ;
+    public com.baidu.adp.widget.ImageView.a aXg() {
+        return this.dXG;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.getRawBitmap();
         }
-        this.dxZ = aVar;
+        this.dXG = aVar;
     }
 
-    public int aOQ() {
+    public int aXh() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void mv(int i) {
+    public void mH(int i) {
         this.cols = i;
     }
 
-    public int aOR() {
+    public int aXi() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void mw(int i) {
+    public void mI(int i) {
         this.rows = i;
     }
 }

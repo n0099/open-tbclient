@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.parallel;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.a.g;
 import io.reactivex.internal.queue.SpscArrayQueue;
@@ -14,13 +13,13 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelFromPublisher<T> extends a<T> {
-    final int nAv;
+    final int mTW;
     final int prefetch;
     final b<? extends T> source;
 
     @Override // io.reactivex.parallel.a
-    public int dJS() {
-        return this.nAv;
+    public int dCR() {
+        return this.mTW;
     }
 
     @Override // io.reactivex.parallel.a
@@ -113,11 +112,11 @@ public final class ParallelFromPublisher<T> extends a<T> {
                     AtomicLongArray atomicLongArray = ParallelDispatcher.this.requests;
                     do {
                         j2 = atomicLongArray.get(this.j);
-                        if (j2 != Format.OFFSET_SAMPLE_RELATIVE) {
+                        if (j2 != Long.MAX_VALUE) {
                         } else {
                             return;
                         }
-                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.ad(j2, j)));
+                    } while (!atomicLongArray.compareAndSet(this.j, j2, io.reactivex.internal.util.b.L(j2, j)));
                     if (ParallelDispatcher.this.subscriberCount.get() == this.m) {
                         ParallelDispatcher.this.drain();
                     }
@@ -222,7 +221,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                                     i7 = 0;
                                 }
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.H(th2);
+                                io.reactivex.exceptions.a.L(th2);
                                 this.s.cancel();
                                 for (c<? super T> cVar3 : cVarArr) {
                                     cVar3.onError(th2);
@@ -313,7 +312,7 @@ public final class ParallelFromPublisher<T> extends a<T> {
                                 jArr[i4] = 1 + j2;
                                 i3 = 0;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.H(th);
+                                io.reactivex.exceptions.a.L(th);
                                 this.s.cancel();
                                 for (c<? super T> cVar2 : cVarArr) {
                                     cVar2.onError(th);

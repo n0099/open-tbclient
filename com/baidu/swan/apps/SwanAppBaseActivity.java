@@ -10,13 +10,13 @@ import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes11.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.am.b bbg = null;
+    private com.baidu.swan.apps.am.b bzu = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        j(com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState(), false);
+        i(com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState(), false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,7 +27,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         ai.fixedOrientation(this, releaseFixedOrientation);
     }
 
-    public void j(boolean z, boolean z2) {
+    public void i(boolean z, boolean z2) {
         Window window = getWindow();
         if (window == null) {
             if (DEBUG) {
@@ -36,21 +36,21 @@ public class SwanAppBaseActivity extends FragmentActivity {
             }
             return;
         }
-        if (this.bbg == null) {
-            this.bbg = new com.baidu.swan.apps.am.b();
+        if (this.bzu == null) {
+            this.bzu = new com.baidu.swan.apps.am.b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.bbg.q(viewGroup);
+            this.bzu.r(viewGroup);
         } else {
-            this.bbg.r(viewGroup);
+            this.bzu.s(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.aaO().a(new com.baidu.swan.apps.process.messaging.c(5).dt(true));
+            com.baidu.swan.apps.process.messaging.a.aiT().a(new com.baidu.swan.apps.process.messaging.c(5).ep(true));
         }
     }
 
-    public com.baidu.swan.apps.am.b GV() {
-        return this.bbg;
+    public com.baidu.swan.apps.am.b OI() {
+        return this.bzu;
     }
 }

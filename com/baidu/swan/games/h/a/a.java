@@ -5,24 +5,24 @@ import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes11.dex */
 public class a {
-    private int con;
+    private int cNj;
+    private int cNk;
     @V8JavascriptField
     public JsArrayBuffer data;
-    private int mID;
 
     public a() {
-        this.con = 0;
-        int i = this.con;
-        this.con = i + 1;
-        this.mID = i;
+        this.cNj = 0;
+        int i = this.cNj;
+        this.cNj = i + 1;
+        this.cNk = i;
     }
 
     @JavascriptInterface
     public int jsObjectID() {
-        return this.mID;
+        return this.cNk;
     }
 
     public String toString() {
-        return "ArrayBufferCallBack" + this.mID;
+        return "ArrayBufferCallBack" + this.cNk;
     }
 }

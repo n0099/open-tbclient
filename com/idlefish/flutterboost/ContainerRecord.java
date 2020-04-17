@@ -1,6 +1,7 @@
 package com.idlefish.flutterboost;
 
 import android.content.Intent;
+import com.baidu.tbadk.switchs.FlutterAttachSwitch;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.xiaomi.mipush.sdk.Constants;
@@ -59,18 +60,15 @@ public class ContainerRecord implements IContainerRecord {
         }
         this.mState = 2;
         this.mManager.pushRecord(this);
+        if (FlutterAttachSwitch.isOn()) {
+            IContainerRecord popShowRecord = this.mManager.popShowRecord();
+            if (popShowRecord != null && popShowRecord.getContainer().getBoostFlutterView().isAttachedToFlutterEngine()) {
+                popShowRecord.getContainer().getBoostFlutterView().onDetach();
+            }
+            this.mManager.pushShowRecord(this);
+        }
         this.mProxy.appear();
         this.mContainer.getBoostFlutterView().onAttach();
-    }
-
-    @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
-    public void onPrimary(boolean z) {
-        Utils.assertCallOnMainThread();
-        if (z) {
-            this.mProxy.appear();
-        } else {
-            this.mProxy.disappear();
-        }
     }
 
     @Override // com.idlefish.flutterboost.interfaces.IOperateSyncer
@@ -84,7 +82,9 @@ public class ContainerRecord implements IContainerRecord {
         if (getContainer().getContextActivity().isFinishing()) {
             this.mProxy.destroy();
         }
-        this.mContainer.getBoostFlutterView().onDetach();
+        if (!FlutterAttachSwitch.isOn()) {
+            this.mContainer.getBoostFlutterView().onDetach();
+        }
         this.mManager.popRecord(this);
     }
 
@@ -96,6 +96,10 @@ public class ContainerRecord implements IContainerRecord {
         }
         this.mState = 4;
         this.mProxy.destroy();
+        if (FlutterAttachSwitch.isOn()) {
+            this.mManager.removeShowRecord(this);
+            this.mContainer.getBoostFlutterView().onDetach();
+        }
         this.mManager.removeRecord(this);
         this.mManager.setContainerResult(this, -1, -1, null);
         if (!this.mManager.hasContainerAppear()) {

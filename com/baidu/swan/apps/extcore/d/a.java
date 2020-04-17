@@ -1,11 +1,11 @@
 package com.baidu.swan.apps.extcore.d;
 /* loaded from: classes11.dex */
 public class a {
-    public static boolean eR(int i) {
+    public static boolean eW(int i) {
         return i == 1;
     }
 
-    public static int cD(boolean z) {
+    public static int dz(boolean z) {
         return z ? 1 : 0;
     }
 }

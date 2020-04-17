@@ -10,7 +10,7 @@ public interface e {
     void a(a aVar);
 
     /* renamed from: a  reason: collision with other method in class */
-    boolean m113a(h hVar);
+    boolean m118a(h hVar);
 
     PendingIntent b(h hVar);
 }

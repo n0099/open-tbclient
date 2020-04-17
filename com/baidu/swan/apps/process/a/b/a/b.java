@@ -3,13 +3,13 @@ package com.baidu.swan.apps.process.a.b.a;
 import android.os.Bundle;
 /* loaded from: classes11.dex */
 public class b extends a<Bundle> {
-    private String bJg;
+    private String chP;
 
     public b(String str) {
-        this.bJg = str;
+        this.chP = str;
     }
 
-    public String aaL() {
-        return this.bJg;
+    public String aiQ() {
+        return this.chP;
     }
 }

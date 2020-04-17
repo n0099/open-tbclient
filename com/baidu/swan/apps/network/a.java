@@ -21,12 +21,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends ab {
-    public static final Set<String> beU = com.facebook.common.internal.i.L("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> bGp;
+    public static final Set<String> bDh = com.facebook.common.internal.i.N("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> ceZ;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.bGp = new ConcurrentHashMap<>();
+        this.ceZ = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -34,26 +34,26 @@ public class a extends ab {
         return false;
     }
 
-    public final long jE(String str) {
+    public final long kR(String str) {
         long j;
         if (TextUtils.isEmpty(str)) {
             return 0L;
         }
         try {
-            j = this.bGp.get(str).longValue();
+            j = this.ceZ.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
         return j;
     }
 
-    public final void jF(String str) {
-        if (this.bGp != null && !TextUtils.isEmpty(str)) {
-            this.bGp.remove(str);
+    public final void kS(String str) {
+        if (this.ceZ != null && !TextUtils.isEmpty(str)) {
+            this.ceZ.remove(str);
         }
     }
 
-    protected static HashMap<String, String> at(@Nullable JSONObject jSONObject) {
+    protected static HashMap<String, String> aE(@Nullable JSONObject jSONObject) {
         if (jSONObject == null || jSONObject.length() < 1) {
             return null;
         }
@@ -61,7 +61,7 @@ public class a extends ab {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !beU.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !bDh.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
                     hashMap.put(next, optString);
@@ -73,18 +73,18 @@ public class a extends ab {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static HashMap<String, String> c(@Nullable JSONObject jSONObject, boolean z) {
-        HashMap<String, String> at = at(jSONObject);
+        HashMap<String, String> aE = aE(jSONObject);
         if (z) {
-            if (at == null) {
-                at = new HashMap<>();
+            if (aE == null) {
+                aE = new HashMap<>();
             }
-            at.put("Referer", com.baidu.swan.apps.api.module.g.c.JW());
+            aE.put("Referer", com.baidu.swan.apps.api.module.g.c.RJ());
         }
-        return at;
+        return aE;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject fJ(String str) {
+    public JSONObject gX(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {
@@ -143,7 +143,7 @@ public class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void l(@NonNull JSONObject jSONObject, String str) throws JSONException {
+    public void m(@NonNull JSONObject jSONObject, String str) throws JSONException {
         String str2;
         if (!TextUtils.isEmpty(str)) {
             String optString = jSONObject.optString(SM.COOKIE);
@@ -161,12 +161,12 @@ public class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String YY() {
-        return com.baidu.swan.apps.w.a.Ux().Ix().getCookie(".baidu.com");
+    public String ahe() {
+        return com.baidu.swan.apps.w.a.acm().Qj().getCookie(".baidu.com");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject fC(int i) {
+    public JSONObject fJ(int i) {
         switch (i) {
             case 0:
                 return UnitedSchemeUtility.wrapCallbackParams(0);

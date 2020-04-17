@@ -14,16 +14,16 @@ public class d extends g<JSONObject> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aej() {
-        com.baidu.swan.apps.runtime.e acI = com.baidu.swan.apps.runtime.e.acI();
-        if (acI != null) {
+    protected boolean amo() {
+        com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
+        if (akN != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", acI.id);
+                jSONObject.put("ma_id", akN.id);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            bk("data", jSONObject.toString());
+            bu("data", jSONObject.toString());
             return true;
         }
         return true;
@@ -32,13 +32,13 @@ public class d extends g<JSONObject> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: aU */
-    public JSONObject aN(JSONObject jSONObject) throws JSONException {
-        return com.baidu.swan.apps.setting.oauth.c.aP(jSONObject);
+    /* renamed from: bf */
+    public JSONObject aY(JSONObject jSONObject) throws JSONException {
+        return com.baidu.swan.apps.setting.oauth.c.ba(jSONObject);
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.w.a.Ul().h(this.mActivity, gVar.aeE());
+        return com.baidu.swan.apps.w.a.aca().h(this.mActivity, gVar.amJ());
     }
 }

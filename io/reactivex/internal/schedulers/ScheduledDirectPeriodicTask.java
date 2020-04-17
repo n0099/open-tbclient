@@ -17,11 +17,10 @@ public final class ScheduledDirectPeriodicTask extends AbstractDirectTask implem
         this.runner = Thread.currentThread();
         try {
             this.runnable.run();
-            this.runner = null;
-        } catch (Throwable th) {
-            this.runner = null;
-            lazySet(FINISHED);
-            io.reactivex.e.a.onError(th);
+        } finally {
+            try {
+            } finally {
+            }
         }
     }
 }

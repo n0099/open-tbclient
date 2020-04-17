@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes9.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.f, af<com.baidu.tieba.homepage.personalize.data.f>> {
-    private com.baidu.adp.widget.ListView.r OT;
-    public BdUniqueId dBK;
+    private com.baidu.adp.widget.ListView.r ahv;
+    public BdUniqueId ebv;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -24,19 +24,19 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aA */
     public af<com.baidu.tieba.homepage.personalize.data.f> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.personalize.view.b(this.mPageContext, this.dBK));
-        aVar.ni().aV(0);
-        aVar.ni().aX(0);
-        aVar.ni().aW(0);
-        aVar.ni().aR(0);
-        af<com.baidu.tieba.homepage.personalize.data.f> afVar = new af<>(aVar.a(true, viewGroup, this.OT));
-        afVar.setPageId(this.dBK);
+        aVar.c(new com.baidu.tieba.homepage.personalize.view.b(this.mPageContext, this.ebv));
+        aVar.rB().bh(0);
+        aVar.rB().bj(0);
+        aVar.rB().bi(0);
+        aVar.rB().bd(0);
+        af<com.baidu.tieba.homepage.personalize.data.f> afVar = new af<>(aVar.a(true, viewGroup, this.ahv));
+        afVar.setPageId(this.ebv);
         an anVar = new an("c13620");
-        anVar.s("uid", TbadkApplication.getCurrentAccountId());
-        anVar.X("fid", 0);
+        anVar.t("uid", TbadkApplication.getCurrentAccountId());
+        anVar.af("fid", 0);
         TiebaStatic.log(anVar);
         return afVar;
     }
@@ -49,11 +49,11 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         afVar.b((af<com.baidu.tieba.homepage.personalize.data.f>) fVar);
-        afVar.nk().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return afVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.dBK = bdUniqueId;
+        this.ebv = bdUniqueId;
     }
 }

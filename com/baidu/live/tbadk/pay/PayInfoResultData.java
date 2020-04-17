@@ -17,7 +17,7 @@ public class PayInfoResultData extends BaseData implements Serializable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.errmsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
-            this.errno = jSONObject.optInt("errno");
+            this.errno = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
             this.usermsg = jSONObject.optString("");
             this.pay_status = jSONObject.optInt("pay_status");
         }

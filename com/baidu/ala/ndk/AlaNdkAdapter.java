@@ -1,4 +1,6 @@
 package com.baidu.ala.ndk;
+
+import com.baidu.searchbox.v8engine.util.TimeUtils;
 /* loaded from: classes3.dex */
 public class AlaNdkAdapter {
     public static final int CONVERT_TYPE_BGRA_YUV420P = 82448;
@@ -29,4 +31,8 @@ public class AlaNdkAdapter {
     public static native void setDomainConfigEnable(int i);
 
     public static native void setLibraryPrintLogNative(int i);
+
+    public static long getMediaStreamTS(boolean z) {
+        return z ? System.nanoTime() : System.nanoTime() / TimeUtils.NANOS_PER_MS;
+    }
 }

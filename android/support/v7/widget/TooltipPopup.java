@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes6.dex */
 class TooltipPopup {
@@ -89,7 +88,7 @@ class TooltipPopup {
         appRootView.getWindowVisibleDisplayFrame(this.mTmpDisplayFrame);
         if (this.mTmpDisplayFrame.left < 0 && this.mTmpDisplayFrame.top < 0) {
             Resources resources = this.mContext.getResources();
-            int identifier = resources.getIdentifier("status_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS);
+            int identifier = resources.getIdentifier("status_bar_height", "dimen", "android");
             int dimensionPixelSize = identifier != 0 ? resources.getDimensionPixelSize(identifier) : 0;
             DisplayMetrics displayMetrics = resources.getDisplayMetrics();
             this.mTmpDisplayFrame.set(0, dimensionPixelSize, displayMetrics.widthPixels, displayMetrics.heightPixels);

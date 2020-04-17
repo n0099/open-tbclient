@@ -4,7 +4,7 @@ public class PMSConstants {
 
     /* loaded from: classes11.dex */
     public static final class a {
-        public static String iD(int i) {
+        public static String iK(int i) {
             switch (i) {
                 case 1001:
                     return "system error";

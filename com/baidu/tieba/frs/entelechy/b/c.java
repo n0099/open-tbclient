@@ -3,13 +3,9 @@ package com.baidu.tieba.frs.entelechy.b;
 public interface c {
     void M(boolean z, boolean z2);
 
-    boolean bHA();
+    boolean bSb();
 
-    void bHB();
-
-    void bHC();
-
-    void lU(boolean z);
+    void mY(boolean z);
 
     void onChangeSkinType(int i);
 }

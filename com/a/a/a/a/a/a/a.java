@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public final class a {
-    static final AbstractC0007a dF;
+    static final AbstractC0007a zr;
 
     /* renamed from: com.a.a.a.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     static abstract class AbstractC0007a {
-        protected static final Throwable[] dG = new Throwable[0];
+        protected static final Throwable[] zs = new Throwable[0];
 
         AbstractC0007a() {
         }
@@ -26,7 +26,7 @@ public final class a {
     /* loaded from: classes11.dex */
     static final class b {
         private final ConcurrentHashMap<C0008a, List<Throwable>> a = new ConcurrentHashMap<>(16, 0.75f, 10);
-        private final ReferenceQueue<Throwable> dH = new ReferenceQueue<>();
+        private final ReferenceQueue<Throwable> zt = new ReferenceQueue<>();
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.a.a.a.a.a.a.a$b$a  reason: collision with other inner class name */
@@ -62,10 +62,10 @@ public final class a {
         }
 
         public final List<Throwable> f(Throwable th) {
-            Reference<? extends Throwable> poll = this.dH.poll();
+            Reference<? extends Throwable> poll = this.zt.poll();
             while (poll != null) {
                 this.a.remove(poll);
-                poll = this.dH.poll();
+                poll = this.zt.poll();
             }
             return this.a.get(new C0008a(th));
         }
@@ -73,7 +73,7 @@ public final class a {
 
     /* loaded from: classes11.dex */
     static final class c extends AbstractC0007a {
-        private final b dI = new b();
+        private final b zu = new b();
 
         c() {
         }
@@ -81,7 +81,7 @@ public final class a {
         @Override // com.a.a.a.a.a.a.a.AbstractC0007a
         public final void a(Throwable th) {
             th.printStackTrace();
-            List<Throwable> f = this.dI.f(th);
+            List<Throwable> f = this.zu.f(th);
             if (f == null) {
                 return;
             }
@@ -96,7 +96,7 @@ public final class a {
         @Override // com.a.a.a.a.a.a.a.AbstractC0007a
         public final void a(Throwable th, PrintWriter printWriter) {
             th.printStackTrace(printWriter);
-            List<Throwable> f = this.dI.f(th);
+            List<Throwable> f = this.zu.f(th);
             if (f == null) {
                 return;
             }
@@ -155,7 +155,7 @@ public final class a {
             th.printStackTrace(System.err);
             dVar = new d();
         }
-        dF = dVar;
+        zr = dVar;
     }
 
     private static Integer a() {
@@ -169,10 +169,10 @@ public final class a {
     }
 
     public static void a(Throwable th) {
-        dF.a(th);
+        zr.a(th);
     }
 
     public static void a(Throwable th, PrintWriter printWriter) {
-        dF.a(th, printWriter);
+        zr.a(th, printWriter);
     }
 }

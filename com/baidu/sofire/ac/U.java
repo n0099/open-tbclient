@@ -11,7 +11,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
@@ -455,7 +454,7 @@ public class U extends Thread {
                                         }
                                         if (!this.loadedPluginDB.e(apkInfo3.key)) {
                                             if (z5) {
-                                                new StringBuilder().append(apkInfo.versionName).append(HanziToPinyin.Token.SEPARATOR).append(apkInfo.key).append(" nl is t");
+                                                new StringBuilder().append(apkInfo.versionName).append(" ").append(apkInfo.key).append(" nl is t");
                                                 b.a();
                                                 apkInfo.isNextLoad = true;
                                             }
@@ -725,7 +724,7 @@ public class U extends Thread {
             return;
         }
         int g = this.loadedPluginDB.g(apkInfo.key);
-        new StringBuilder("new plugin now loadStatus :").append(apkInfo.key).append(HanziToPinyin.Token.SEPARATOR).append(g);
+        new StringBuilder("new plugin now loadStatus :").append(apkInfo.key).append(" ").append(g);
         b.a();
         if (g < 3 && g != -1) {
             this.loadedPluginDB.b(apkInfo.key, g + 1);
@@ -935,7 +934,7 @@ public class U extends Thread {
                 z4 = handlePluginDownload;
             }
             if (z4) {
-                new StringBuilder().append(apkInfo.versionName).append(HanziToPinyin.Token.SEPARATOR).append(apkInfo.key);
+                new StringBuilder().append(apkInfo.versionName).append(" ").append(apkInfo.key);
                 b.a();
                 pluginUpdate(file3, apkInfo, k);
             } else {

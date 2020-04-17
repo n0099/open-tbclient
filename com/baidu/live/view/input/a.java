@@ -8,19 +8,27 @@ public interface a {
 
     /* renamed from: com.baidu.live.view.input.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0104a {
-        void j(String str, boolean z);
+    public interface InterfaceC0130a {
+        boolean Bh();
 
-        void wA();
+        void Bj();
 
-        boolean wB();
+        void Bk();
 
-        boolean wx();
+        boolean Bl();
 
-        void wz();
+        void n(String str, boolean z);
     }
 
-    void b(List<String> list, Map<String, Integer> map);
+    boolean CM();
+
+    boolean CN();
+
+    void CO();
+
+    void CS();
+
+    void a(List<String> list, Map<String, Integer> map);
 
     int getQuickInputPanelExpandHeight();
 
@@ -35,10 +43,4 @@ public interface a {
     void setQuickInputPanelVisible(boolean z);
 
     void show();
-
-    boolean xU();
-
-    boolean xV();
-
-    void xW();
 }

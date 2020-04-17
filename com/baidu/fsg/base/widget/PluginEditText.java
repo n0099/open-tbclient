@@ -11,7 +11,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.RimGlobalUtils;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
@@ -101,7 +100,7 @@ public class PluginEditText extends EditText implements View.OnTouchListener {
                         }
                     }
                     if (!TextUtils.isEmpty(applyEditTextPasteFilters)) {
-                        applyEditTextPasteFilters = applyEditTextPasteFilters.replace(HanziToPinyin.Token.SEPARATOR, "");
+                        applyEditTextPasteFilters = applyEditTextPasteFilters.replace(" ", "");
                     }
                     setText("");
                     setText(applyEditTextPasteFilters);

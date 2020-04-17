@@ -9,9 +9,9 @@ import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
-    private bj cRt;
+    private bj dqA;
     private int duration;
-    private String jxR;
+    private String khM;
     private int videoHeight;
     private String videoMd5;
     private long videoSize;
@@ -51,7 +51,7 @@ public class u {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.jxR = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+                    this.khM = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -59,7 +59,7 @@ public class u {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.jxR = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+            this.khM = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -68,9 +68,9 @@ public class u {
         a(videoInfo, false);
     }
 
-    public void ak(bj bjVar) {
-        h(bjVar.aCI());
-        this.cRt = bjVar;
+    public void am(bj bjVar) {
+        h(bjVar.aKV());
+        this.dqA = bjVar;
     }
 
     public void b(AlaInfoData alaInfoData) {
@@ -79,8 +79,8 @@ public class u {
         }
     }
 
-    public bj aAj() {
-        return this.cRt;
+    public bj aIw() {
+        return this.dqA;
     }
 
     public int getVideoWidth() {
@@ -91,7 +91,7 @@ public class u {
         return this.videoHeight;
     }
 
-    public long czF() {
+    public long cKk() {
         return this.videoSize;
     }
 
@@ -99,7 +99,7 @@ public class u {
         return this.duration;
     }
 
-    public String czG() {
-        return this.jxR;
+    public String cKl() {
+        return this.khM;
     }
 }

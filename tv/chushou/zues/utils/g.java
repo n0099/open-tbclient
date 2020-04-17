@@ -13,19 +13,19 @@ import tv.chushou.basis.rxjava.RxExecutor;
 import tv.chushou.basis.rxjava.thread.EventThread;
 /* loaded from: classes5.dex */
 public class g {
-    public static void u(CharSequence charSequence) {
-        a.d(h.dQu(), charSequence);
+    public static void t(CharSequence charSequence) {
+        a.d(h.dJt(), charSequence);
     }
 
     public static void c(Context context, CharSequence charSequence) {
         a.d(context, charSequence);
     }
 
-    public static void Os(@StringRes int i) {
-        a.showToast(h.dQu(), i);
+    public static void JO(@StringRes int i) {
+        a.showToast(h.dJt(), i);
     }
 
-    public static void M(Context context, @StringRes int i) {
+    public static void F(Context context, @StringRes int i) {
         a.showToast(context, i);
     }
 
@@ -67,41 +67,41 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        private static CharSequence nYH;
-        private static Toast nYI = null;
-        private static long nYJ = 0;
+        private static Toast nsA = null;
+        private static long nsB = 0;
+        private static CharSequence nsz;
 
         static void d(final Context context, final CharSequence charSequence) {
             if (charSequence != null && charSequence.length() != 0) {
                 if (context == null) {
-                    context = h.dQu();
+                    context = h.dJt();
                 }
                 if (context != null) {
                     Runnable runnable = new Runnable() { // from class: tv.chushou.zues.utils.g.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.nYI == null) {
-                                Toast unused = a.nYI = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
-                                g.c(a.nYI);
-                                a.nYI.setText(charSequence);
-                                a.nYI.show();
-                                CharSequence unused2 = a.nYH = charSequence;
-                                long unused3 = a.nYJ = System.currentTimeMillis();
+                            if (a.nsA == null) {
+                                Toast unused = a.nsA = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
+                                g.c(a.nsA);
+                                a.nsA.setText(charSequence);
+                                a.nsA.show();
+                                CharSequence unused2 = a.nsz = charSequence;
+                                long unused3 = a.nsB = System.currentTimeMillis();
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (charSequence.equals(a.nYH)) {
-                                if (currentTimeMillis - a.nYJ > 2000) {
-                                    a.nYI.show();
-                                    long unused4 = a.nYJ = currentTimeMillis;
+                            if (charSequence.equals(a.nsz)) {
+                                if (currentTimeMillis - a.nsB > 2000) {
+                                    a.nsA.show();
+                                    long unused4 = a.nsB = currentTimeMillis;
                                     return;
                                 }
                                 return;
                             }
-                            CharSequence unused5 = a.nYH = charSequence;
-                            a.nYI.setText(charSequence);
-                            a.nYI.show();
-                            long unused6 = a.nYJ = currentTimeMillis;
+                            CharSequence unused5 = a.nsz = charSequence;
+                            a.nsA.setText(charSequence);
+                            a.nsA.show();
+                            long unused6 = a.nsB = currentTimeMillis;
                         }
                     };
                     if (Looper.myLooper() != Looper.getMainLooper()) {
@@ -115,7 +115,7 @@ public class g {
 
         static void showToast(Context context, @StringRes int i) {
             if (context != null) {
-                d(context, h.dQV().getString(i));
+                d(context, h.dJX().getString(i));
             }
         }
     }

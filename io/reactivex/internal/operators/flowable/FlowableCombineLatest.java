@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.internal.operators.flowable.f;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
@@ -16,19 +15,19 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayErrors;
-    final org.a.b<? extends T>[] nyA;
-    final Iterable<? extends org.a.b<? extends T>> nyB;
+    final org.a.b<? extends T>[] mRT;
+    final Iterable<? extends org.a.b<? extends T>> mRU;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
         int length;
         org.a.b<? extends T>[] bVarArr;
         org.a.b<? extends T>[] bVarArr2;
-        org.a.b<? extends T>[] bVarArr3 = this.nyA;
+        org.a.b<? extends T>[] bVarArr3 = this.mRT;
         if (bVarArr3 == null) {
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
             try {
-                Iterator it = (Iterator) io.reactivex.internal.functions.a.h(this.nyB.iterator(), "The iterator returned is null");
+                Iterator it = (Iterator) io.reactivex.internal.functions.a.h(this.mRU.iterator(), "The iterator returned is null");
                 int i = 0;
                 while (it.hasNext()) {
                     try {
@@ -44,12 +43,12 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                             i++;
                             bVarArr4 = bVarArr2;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.H(th);
+                            io.reactivex.exceptions.a.L(th);
                             EmptySubscription.error(th, cVar);
                             return;
                         }
                     } catch (Throwable th2) {
-                        io.reactivex.exceptions.a.H(th2);
+                        io.reactivex.exceptions.a.L(th2);
                         EmptySubscription.error(th2, cVar);
                         return;
                     }
@@ -57,7 +56,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                 bVarArr = bVarArr4;
                 length = i;
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.H(th3);
+                io.reactivex.exceptions.a.L(th3);
                 EmptySubscription.error(th3, cVar);
                 return;
             }
@@ -237,7 +236,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                             ((CombineLatestInnerSubscriber) poll).requestOne();
                             j2 = 1 + j2;
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.H(th);
+                            io.reactivex.exceptions.a.L(th);
                             cancelAll();
                             ExceptionHelper.addThrowable(this.error, th);
                             cVar.onError(ExceptionHelper.terminate(this.error));
@@ -248,7 +247,7 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
                     }
                 }
                 if (j2 != j || !checkTerminated(this.done, aVar.isEmpty(), cVar, aVar)) {
-                    if (j2 != 0 && j != Format.OFFSET_SAMPLE_RELATIVE) {
+                    if (j2 != 0 && j != Long.MAX_VALUE) {
                         this.requested.addAndGet(-j2);
                     }
                     int addAndGet = addAndGet(-i);
@@ -364,7 +363,9 @@ public final class FlowableCombineLatest<T, R> extends io.reactivex.g<R> {
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, this.prefetch);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(this.prefetch);
+            }
         }
 
         @Override // org.a.c

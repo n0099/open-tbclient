@@ -23,4 +23,10 @@ public class UGCBoxActivityDialog extends BaseActivityDialog {
     public static BaseActivityDialog.Builder newBuilder() {
         return new BaseActivityDialog.Builder(UGCBoxActivityDialog.class);
     }
+
+    @Override // com.baidu.android.ext.widget.dialog.BaseActivityDialog, android.content.DialogInterface
+    public void dismiss() {
+        super.dismiss();
+        overridePendingTransition(0, R.anim.ugc_slide_bottom_out);
+    }
 }

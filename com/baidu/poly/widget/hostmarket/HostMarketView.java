@@ -19,20 +19,20 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.text.DecimalFormat;
 /* loaded from: classes11.dex */
 public class HostMarketView extends FrameLayout {
-    private TextView aTN;
-    private ImageView aUr;
-    private TextView aUs;
-    private TextView aUt;
-    private SwitchButton aUu;
-    private n aUv;
-    private a aUw;
-    private boolean aUx;
+    private TextView bpM;
+    private ImageView bqq;
+    private TextView bqr;
+    private TextView bqs;
+    private SwitchButton bqt;
+    private n bqu;
+    private a bqv;
+    private boolean bqw;
 
     /* loaded from: classes11.dex */
     public interface a {
         void a(boolean z, n nVar, com.baidu.poly.a.j.a aVar);
 
-        void b(a.C0161a c0161a);
+        void b(a.C0185a c0185a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -54,20 +54,20 @@ public class HostMarketView extends FrameLayout {
         }
 
         @Override // com.baidu.poly.a.j.a
-        public void a(a.C0161a c0161a) {
-            HostMarketView.this.aUw.b(c0161a);
-            if (c0161a != null) {
-                if (c0161a.statusCode == 0) {
-                    if (HostMarketView.this.aUu.isChecked()) {
-                        HostMarketView.this.aUt.setVisibility(0);
+        public void a(a.C0185a c0185a) {
+            HostMarketView.this.bqv.b(c0185a);
+            if (c0185a != null) {
+                if (c0185a.statusCode == 0) {
+                    if (HostMarketView.this.bqt.isChecked()) {
+                        HostMarketView.this.bqs.setVisibility(0);
                     } else {
-                        HostMarketView.this.aUt.setVisibility(4);
+                        HostMarketView.this.bqs.setVisibility(4);
                     }
                 } else {
-                    HostMarketView.this.aUu.g();
+                    HostMarketView.this.bqt.g();
                     Toast.makeText(HostMarketView.this.getContext(), HostMarketView.this.getResources().getString(b.g.host_market_calculate_error), 0).show();
                 }
-                HostMarketView.this.aUv.h(HostMarketView.this.aUu.isChecked() ? 1 : 0);
+                HostMarketView.this.bqu.h(HostMarketView.this.bqt.isChecked() ? 1 : 0);
             }
         }
     }
@@ -77,37 +77,37 @@ public class HostMarketView extends FrameLayout {
     }
 
     private void e() {
-        if (this.aUv == null) {
+        if (this.bqu == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.c.b.EJ().b(this.aUr, this.aUv.getIcon());
-        this.aTN.setText(this.aUv.t());
-        this.aUs.setText(this.aUv.z());
-        if (!TextUtils.isEmpty(this.aUv.s())) {
+        com.baidu.poly.a.c.b.KU().b(this.bqq, this.bqu.getIcon());
+        this.bpM.setText(this.bqu.t());
+        this.bqr.setText(this.bqu.z());
+        if (!TextUtils.isEmpty(this.bqu.s())) {
             try {
-                this.aUs.setTextColor(Color.parseColor(this.aUv.s()));
+                this.bqr.setTextColor(Color.parseColor(this.bqu.s()));
             } catch (Exception e) {
             }
         }
-        if (this.aUx) {
-            this.aUu.setVisibility(4);
-            this.aUt.setVisibility(0);
-            this.aUt.setText(Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.aUv.r()) + "元");
+        if (this.bqw) {
+            this.bqt.setVisibility(4);
+            this.bqs.setVisibility(0);
+            this.bqs.setText(Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.bqu.r()) + "元");
             return;
         }
-        this.aUu.setVisibility(0);
-        this.aUt.setVisibility(4);
-        if (this.aUv.w() == 1) {
-            this.aUu.setChecked(true);
+        this.bqt.setVisibility(0);
+        this.bqs.setVisibility(4);
+        if (this.bqu.w() == 1) {
+            this.bqt.setChecked(true);
         } else {
-            this.aUu.setChecked(false);
+            this.bqt.setChecked(false);
         }
     }
 
     public void setListener(a aVar) {
-        this.aUw = aVar;
+        this.bqv = aVar;
     }
 
     public HostMarketView(Context context, AttributeSet attributeSet) {
@@ -116,25 +116,25 @@ public class HostMarketView extends FrameLayout {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.hostmarket_item, (ViewGroup) this, true);
-        this.aUr = (ImageView) findViewById(b.e.icon);
-        this.aTN = (TextView) findViewById(b.e.title);
-        this.aUs = (TextView) findViewById(b.e.subtitle);
-        this.aUt = (TextView) findViewById(b.e.cut_text);
-        this.aUu = (SwitchButton) findViewById(b.e.switch_button);
-        this.aUu.setOnCheckedChangeListener(new b());
+        this.bqq = (ImageView) findViewById(b.e.icon);
+        this.bpM = (TextView) findViewById(b.e.title);
+        this.bqr = (TextView) findViewById(b.e.subtitle);
+        this.bqs = (TextView) findViewById(b.e.cut_text);
+        this.bqt = (SwitchButton) findViewById(b.e.switch_button);
+        this.bqt.setOnCheckedChangeListener(new b());
     }
 
     public HostMarketView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aUx = false;
+        this.bqw = false;
         c(context);
     }
 
     public void a(n nVar) {
-        this.aUv = nVar;
-        n nVar2 = this.aUv;
+        this.bqu = nVar;
+        n nVar2 = this.bqu;
         if (nVar2 != null) {
-            this.aUx = nVar2.w() == 1;
+            this.bqw = nVar2.w() == 1;
         }
         e();
     }
@@ -145,9 +145,9 @@ public class HostMarketView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(boolean z) {
-        if (this.aUw != null) {
-            this.aUv.h(this.aUu.isChecked() ? 1 : 0);
-            this.aUw.a(z, this.aUv, new c());
+        if (this.bqv != null) {
+            this.bqu.h(this.bqt.isChecked() ? 1 : 0);
+            this.bqv.a(z, this.bqu, new c());
         }
     }
 }

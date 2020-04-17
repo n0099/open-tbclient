@@ -13,68 +13,68 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes8.dex */
 public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
-    public bj cRt;
-    private String fNn;
-    private int fNo;
-    private String fNp;
-    private String fNq;
-    public int fNs;
+    public bj dqA;
+    private String grU;
+    private int grV;
+    private String grW;
+    private String grX;
+    public int grZ;
     private String mExtra;
     private String mSource;
     public String tid;
     public int objType = 1;
     public SparseArray<String> feedBackReasonMap = null;
-    private Integer fNr = 0;
-    public int cRu = 0;
-    public int cRv = 0;
+    private Integer grY = 0;
+    public int dqB = 0;
+    public int dqC = 0;
 
     public void setWeight(String str) {
-        this.fNn = str;
+        this.grU = str;
     }
 
     public void setSource(String str) {
         this.mSource = str;
     }
 
-    public void rv(int i) {
-        this.fNo = i;
+    public void rN(int i) {
+        this.grV = i;
     }
 
-    public void zX(String str) {
-        this.fNp = str;
+    public void BD(String str) {
+        this.grW = str;
     }
 
-    public int bvw() {
-        return this.fNo;
+    public int bFh() {
+        return this.grV;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String aAm() {
-        return this.mSource + "#" + this.fNo + "#" + this.fNp;
+    public String aIz() {
+        return this.mSource + "#" + this.grV + "#" + this.grW;
     }
 
     public String getWeight() {
-        return this.fNn;
+        return this.grU;
     }
 
     public String getSource() {
         return this.mSource;
     }
 
-    public String bvx() {
-        return this.fNp;
+    public String bFi() {
+        return this.grW;
     }
 
-    public String bvy() {
-        return this.fNq;
+    public String bFj() {
+        return this.grX;
     }
 
-    public void zY(String str) {
-        this.fNq = str;
+    public void BE(String str) {
+        this.grX = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bj aAj() {
+    public bj aIw() {
         return null;
     }
 
@@ -90,68 +90,68 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return this.mExtra;
     }
 
-    public Integer bvz() {
-        return this.fNr;
+    public Integer bFk() {
+        return this.grY;
     }
 
     public void j(Integer num) {
-        this.fNr = num;
+        this.grY = num;
     }
 
-    public an zZ(String str) {
-        return af(str, false);
+    public an BF(String str) {
+        return al(str, false);
     }
 
-    public an af(String str, boolean z) {
-        bj aAj = aAj();
-        if (aAj == null || str.length() == 0) {
+    public an al(String str, boolean z) {
+        bj aIw = aIw();
+        if (aIw == null || str.length() == 0) {
             return null;
         }
-        an cx = new an(str).cx("fid", String.valueOf(aAj.getFid())).cx("tid", String.valueOf(aAj.getTid())).cx("obj_id", getExtra()).cx("obj_param1", getWeight()).X(TiebaInitialize.Params.OBJ_PARAM2, 1).cx("obj_source", getSource()).X("obj_locate", bvw()).cx("uid", TbadkCoreApplication.getCurrentAccount()).cx(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bvd());
+        an cI = new an(str).cI("fid", String.valueOf(aIw.getFid())).cI("tid", String.valueOf(aIw.getTid())).cI("obj_id", getExtra()).cI("obj_param1", getWeight()).af(TiebaInitialize.Params.OBJ_PARAM2, 1).cI("obj_source", getSource()).af("obj_locate", bFh()).cI("uid", TbadkCoreApplication.getCurrentAccount()).cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEP());
         if (!z) {
-            cx.X("obj_type", bvA());
+            cI.af("obj_type", bFl());
         } else {
-            if (aAj.cUc > 0) {
-                cx.X("midpageflag", 1);
+            if (aIw.dtm > 0) {
+                cI.af("midpageflag", 1);
             } else {
-                cx.X("midpageflag", 0);
+                cI.af("midpageflag", 0);
             }
-            cx.cx(TiebaInitialize.Params.AB_TAG, bvx());
-            cx.X("is_vertical", bvz().intValue());
+            cI.cI(TiebaInitialize.Params.AB_TAG, bFi());
+            cI.af("is_vertical", bFk().intValue());
         }
-        if (aAj.aDQ() != null && aAj.aDQ().cLx() != null && aAj.aDQ().cLx().aTX() != null && aAj.aDQ().cLx().aTX().size() > 0) {
-            cx.X(TiebaInitialize.Params.OBJ_TO, aAj.aDQ().kiQ ? 2 : 1);
+        if (aIw.aMe() != null && aIw.aMe().cWt() != null && aIw.aMe().cWt().bch() != null && aIw.aMe().cWt().bch().size() > 0) {
+            cI.af(TiebaInitialize.Params.OBJ_TO, aIw.aMe().kSW ? 2 : 1);
         }
-        return cx;
+        return cI;
     }
 
-    public an ax(String str, int i) {
-        bj aAj = aAj();
-        if (aAj == null) {
+    public an aH(String str, int i) {
+        bj aIw = aIw();
+        if (aIw == null) {
             return null;
         }
-        an cx = new an(str).cx("fid", String.valueOf(aAj.getFid())).cx("tid", String.valueOf(aAj.getTid())).X(TiebaInitialize.Params.OBJ_PARAM2, 1).cx("obj_param1", getWeight()).cx("obj_source", getSource()).X("obj_locate", bvw()).cx("obj_name", bvx()).cx("uid", TbadkCoreApplication.getCurrentAccount()).cx(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bvd());
+        an cI = new an(str).cI("fid", String.valueOf(aIw.getFid())).cI("tid", String.valueOf(aIw.getTid())).af(TiebaInitialize.Params.OBJ_PARAM2, 1).cI("obj_param1", getWeight()).cI("obj_source", getSource()).af("obj_locate", bFh()).cI("obj_name", bFi()).cI("uid", TbadkCoreApplication.getCurrentAccount()).cI(TiebaInitialize.Params.OBJ_PARAM3, com.baidu.tieba.card.l.bEP());
         if (i == 0) {
-            cx.X("obj_type", bvA());
+            cI.af("obj_type", bFl());
         } else {
-            cx.X("obj_type", i);
+            cI.af("obj_type", i);
         }
-        cx.cx("obj_id", getExtra());
-        return cx;
+        cI.cI("obj_id", getExtra());
+        return cI;
     }
 
-    private int bvA() {
+    private int bFl() {
         int i;
         int i2 = 0;
-        bj aAj = aAj();
-        if (aAj == null) {
+        bj aIw = aIw();
+        if (aIw == null) {
             return 0;
         }
-        ArrayList<MediaData> aCB = aAj.aCB();
-        if (aCB == null) {
+        ArrayList<MediaData> aKO = aIw.aKO();
+        if (aKO == null) {
             i = 0;
         } else {
-            Iterator<MediaData> it = aCB.iterator();
+            Iterator<MediaData> it = aKO.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
@@ -169,34 +169,34 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        bj aAj = aAj();
-        if (aAj != null) {
-            return aAj.getImages();
+        bj aIw = aIw();
+        if (aIw != null) {
+            return aIw.getImages();
         }
         return null;
     }
 
-    public void rw(int i) {
-        this.fNs = i;
+    public void rO(int i) {
+        this.grZ = i;
     }
 
-    public boolean bvB() {
-        return this.fNs == 1;
+    public boolean bFm() {
+        return this.grZ == 1;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public al aAl() {
-        if (aAj() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
+    public al aIy() {
+        if (aIw() == null || this.feedBackReasonMap == null || this.feedBackReasonMap.size() <= 0) {
             return null;
         }
         al alVar = new al();
-        alVar.setTid(aAj().getTid());
-        alVar.setFid(aAj().getFid());
+        alVar.setTid(aIw().getTid());
+        alVar.setFid(aIw().getFid());
         alVar.setFeedBackReasonMap(this.feedBackReasonMap);
-        alVar.weight = this.fNn;
+        alVar.weight = this.grU;
         alVar.source = this.mSource;
         alVar.extra = this.mExtra;
-        alVar.threadType = aAj().threadType;
+        alVar.threadType = aIw().threadType;
         return alVar;
     }
 }

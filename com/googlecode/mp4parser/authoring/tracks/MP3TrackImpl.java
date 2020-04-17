@@ -1,6 +1,7 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
 import com.baidu.ala.player.StreamConfig;
+import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
@@ -37,8 +38,8 @@ public class MP3TrackImpl extends AbstractTrack {
     SampleDescriptionBox sampleDescriptionBox;
     private List<Sample> samples;
     TrackMetaData trackMetaData;
-    private static final int[] SAMPLE_RATE = {StreamConfig.Audio.AUDIO_FREQUENCY, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K};
-    private static final int[] BIT_RATE = {0, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 40000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000, 224000, 256000, 320000};
+    private static final int[] SAMPLE_RATE = {44100, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K};
+    private static final int[] BIT_RATE = {0, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K, 40000, StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K, 56000, AudioEncoderCore.EncodeConfig.BIT_RATE, 80000, 96000, 112000, 128000, 160000, 192000, 224000, 256000, 320000};
 
     public MP3TrackImpl(DataSource dataSource, String str) throws IOException {
         this.trackMetaData = new TrackMetaData();
@@ -146,18 +147,18 @@ public class MP3TrackImpl extends AbstractTrack {
         int bitRate;
         int channelCount;
         int layer;
-        int mPE;
-        int mPF;
-        int mPG;
-        int mPV;
-        int mPW;
+        int mmI;
+        int mmJ;
+        int mmr;
+        int mms;
+        int mmt;
         int padding;
         int sampleRate;
 
         a() {
         }
 
-        int dCg() {
+        int dwz() {
             return ((this.bitRate * 144) / this.sampleRate) + this.padding;
         }
     }
@@ -172,7 +173,7 @@ public class MP3TrackImpl extends AbstractTrack {
                     aVar = readMP3Header;
                 }
                 dataSource.position(position);
-                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.dCg());
+                ByteBuffer allocate = ByteBuffer.allocate(readMP3Header.dwz());
                 dataSource.read(allocate);
                 allocate.rewind();
                 this.samples.add(new SampleImpl(allocate));
@@ -194,29 +195,29 @@ public class MP3TrackImpl extends AbstractTrack {
         if (bitReaderBuffer.readBits(11) != 2047) {
             throw new IOException("Expected Start Word 0x7ff");
         }
-        aVar.mPF = bitReaderBuffer.readBits(2);
-        if (aVar.mPF != 3) {
+        aVar.mms = bitReaderBuffer.readBits(2);
+        if (aVar.mms != 3) {
             throw new IOException("Expected MPEG Version 1 (ISO/IEC 11172-3)");
         }
         aVar.layer = bitReaderBuffer.readBits(2);
         if (aVar.layer != 1) {
             throw new IOException("Expected Layer III");
         }
-        aVar.mPG = bitReaderBuffer.readBits(1);
-        aVar.mPV = bitReaderBuffer.readBits(4);
-        aVar.bitRate = BIT_RATE[aVar.mPV];
+        aVar.mmt = bitReaderBuffer.readBits(1);
+        aVar.mmI = bitReaderBuffer.readBits(4);
+        aVar.bitRate = BIT_RATE[aVar.mmI];
         if (aVar.bitRate == 0) {
             throw new IOException("Unexpected (free/bad) bit rate");
         }
-        aVar.mPE = bitReaderBuffer.readBits(2);
-        aVar.sampleRate = SAMPLE_RATE[aVar.mPE];
+        aVar.mmr = bitReaderBuffer.readBits(2);
+        aVar.sampleRate = SAMPLE_RATE[aVar.mmr];
         if (aVar.sampleRate == 0) {
             throw new IOException("Unexpected (reserved) sample rate frequency");
         }
         aVar.padding = bitReaderBuffer.readBits(1);
         bitReaderBuffer.readBits(1);
-        aVar.mPW = bitReaderBuffer.readBits(2);
-        aVar.channelCount = aVar.mPW == 3 ? 1 : 2;
+        aVar.mmJ = bitReaderBuffer.readBits(2);
+        aVar.channelCount = aVar.mmJ == 3 ? 1 : 2;
         return aVar;
     }
 

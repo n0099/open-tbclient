@@ -1,7 +1,6 @@
 package com.baidubce.util;
 
 import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.Protocol;
 import java.io.UnsupportedEncodingException;
@@ -136,7 +135,7 @@ public class HttpUtils {
     public static void printRequest(Request request) {
         if (HTTP_VERBOSE) {
             BLog.info("\n-------------> ");
-            BLog.info(request.method() + HanziToPinyin.Token.SEPARATOR + request.url() + "");
+            BLog.info(request.method() + " " + request.url() + "");
             Headers headers = request.headers();
             for (int i = 0; i < headers.size(); i++) {
                 BLog.info(headers.name(i) + ":" + headers.value(i));

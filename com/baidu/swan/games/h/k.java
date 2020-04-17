@@ -6,64 +6,64 @@ import java.io.File;
 /* loaded from: classes11.dex */
 public class k implements com.baidu.swan.apps.storage.b.c {
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mf(String str) {
-        return l.mf(str);
+    public String ns(String str) {
+        return l.ns(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mg(String str) {
-        if (com.baidu.swan.apps.storage.b.lZ(str) == PathType.RELATIVE) {
-            return l.mf(str);
+    public String nt(String str) {
+        if (com.baidu.swan.apps.storage.b.nm(str) == PathType.RELATIVE) {
+            return l.ns(str);
         }
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mh(String str) {
-        String oM = l.oM(str);
-        if (TextUtils.isEmpty(oM)) {
+    public String nu(String str) {
+        String pZ = l.pZ(str);
+        if (TextUtils.isEmpty(pZ)) {
             return null;
         }
-        return oM;
+        return pZ;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mi(String str) {
-        return l.pd(str);
+    public String nv(String str) {
+        return l.qq(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mj(String str) {
-        return mi(str);
+    public String nw(String str) {
+        return nv(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String mk(String str) {
-        return l.oX("bdfile://tmp" + File.separator + str);
+    public String nx(String str) {
+        return l.qk("bdfile://tmp" + File.separator + str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String afs() {
-        return l.oX("bdfile://tmp");
+    public String anx() {
+        return l.qk("bdfile://tmp");
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String lY(String str) {
-        return mg(str);
+    public String nl(String str) {
+        return nt(str);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean lT(String str) {
+    public boolean ng(String str) {
         return !TextUtils.isEmpty(str) && (a.USER_DATA_PATH.equals(str) || str.startsWith(new StringBuilder().append(a.USER_DATA_PATH).append(File.separator).toString()));
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public boolean aD(long j) {
-        return l.aZ(j);
+    public boolean bi(long j) {
+        return l.bE(j);
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public void aE(long j) {
-        l.aY(j);
+    public void bj(long j) {
+        l.bD(j);
     }
 }

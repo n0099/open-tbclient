@@ -10,28 +10,28 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes13.dex */
 public class f<T> implements j<b<T>> {
-    private final List<j<b<T>>> lLn;
-    private final boolean lLs;
+    private final List<j<b<T>>> lSI;
+    private final boolean lSN;
 
     private f(List<j<b<T>>> list, boolean z) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.lLn = list;
-        this.lLs = z;
+        this.lSI = list;
+        this.lSN = z;
     }
 
-    public static <T> f<T> z(List<j<b<T>>> list, boolean z) {
+    public static <T> f<T> x(List<j<b<T>>> list, boolean z) {
         return new f<>(list, z);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dlJ */
+    /* renamed from: dnE */
     public b<T> get() {
         return new a();
     }
 
     public int hashCode() {
-        return this.lLn.hashCode();
+        return this.lSI.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -41,11 +41,11 @@ public class f<T> implements j<b<T>> {
         if (!(obj instanceof f)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.lLn, ((f) obj).lLn);
+        return com.facebook.common.internal.f.equal(this.lSI, ((f) obj).lSI);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.aS(this).x("list", this.lLn).toString();
+        return com.facebook.common.internal.f.aI(this).C("list", this.lSI).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,34 +54,34 @@ public class f<T> implements j<b<T>> {
     public class a extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
-        private ArrayList<b<T>> lLt;
+        private ArrayList<b<T>> lSO;
         @GuardedBy("IncreasingQualityDataSource.this")
-        private int lLu;
-        private int lLv;
-        private AtomicInteger lLw;
+        private int lSP;
+        private int lSQ;
+        private AtomicInteger lSR;
         @Nullable
-        private Throwable lLx;
+        private Throwable lSS;
 
         public a() {
-            if (!f.this.lLs) {
-                dlN();
+            if (!f.this.lSN) {
+                dnI();
             }
         }
 
-        private void dlN() {
-            if (this.lLw == null) {
+        private void dnI() {
+            if (this.lSR == null) {
                 synchronized (this) {
-                    if (this.lLw == null) {
-                        this.lLw = new AtomicInteger(0);
-                        int size = f.this.lLn.size();
-                        this.lLv = size;
-                        this.lLu = size;
-                        this.lLt = new ArrayList<>(size);
+                    if (this.lSR == null) {
+                        this.lSR = new AtomicInteger(0);
+                        int size = f.this.lSI.size();
+                        this.lSQ = size;
+                        this.lSP = size;
+                        this.lSO = new ArrayList<>(size);
                         for (int i = 0; i < size; i++) {
-                            b<T> bVar = (b) ((j) f.this.lLn.get(i)).get();
-                            this.lLt.add(bVar);
-                            bVar.a(new C0656a(i), com.facebook.common.b.a.dkY());
-                            if (bVar.dlD()) {
+                            b<T> bVar = (b) ((j) f.this.lSI.get(i)).get();
+                            this.lSO.add(bVar);
+                            bVar.a(new C0699a(i), com.facebook.common.b.a.dmR());
+                            if (bVar.dny()) {
                                 break;
                             }
                         }
@@ -91,67 +91,67 @@ public class f<T> implements j<b<T>> {
         }
 
         @Nullable
-        private synchronized b<T> HC(int i) {
-            return (this.lLt == null || i >= this.lLt.size()) ? null : this.lLt.get(i);
+        private synchronized b<T> Gd(int i) {
+            return (this.lSO == null || i >= this.lSO.size()) ? null : this.lSO.get(i);
         }
 
         @Nullable
-        private synchronized b<T> HD(int i) {
+        private synchronized b<T> Ge(int i) {
             b<T> bVar = null;
             synchronized (this) {
-                if (this.lLt != null && i < this.lLt.size()) {
-                    bVar = this.lLt.set(i, null);
+                if (this.lSO != null && i < this.lSO.size()) {
+                    bVar = this.lSO.set(i, null);
                 }
             }
             return bVar;
         }
 
         @Nullable
-        private synchronized b<T> dlM() {
-            return HC(this.lLu);
+        private synchronized b<T> dnH() {
+            return Gd(this.lSP);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> dlM;
-            if (f.this.lLs) {
-                dlN();
+            b<T> dnH;
+            if (f.this.lSN) {
+                dnI();
             }
-            dlM = dlM();
-            return dlM != null ? dlM.getResult() : null;
+            dnH = dnH();
+            return dnH != null ? dnH.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean dlD() {
+        public synchronized boolean dny() {
             boolean z;
-            if (f.this.lLs) {
-                dlN();
+            if (f.this.lSN) {
+                dnI();
             }
-            b<T> dlM = dlM();
-            if (dlM != null) {
-                z = dlM.dlD();
+            b<T> dnH = dnH();
+            if (dnH != null) {
+                z = dnH.dny();
             }
             return z;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public boolean OG() {
+        public boolean Wv() {
             int i = 0;
-            if (f.this.lLs) {
-                dlN();
+            if (f.this.lSN) {
+                dnI();
             }
             synchronized (this) {
-                if (super.OG()) {
-                    ArrayList<b<T>> arrayList = this.lLt;
-                    this.lLt = null;
+                if (super.Wv()) {
+                    ArrayList<b<T>> arrayList = this.lSO;
+                    this.lSO = null;
                     if (arrayList != null) {
                         while (true) {
                             int i2 = i;
                             if (i2 >= arrayList.size()) {
                                 break;
                             }
-                            f(arrayList.get(i2));
+                            l(arrayList.get(i2));
                             i = i2 + 1;
                         }
                     }
@@ -164,38 +164,38 @@ public class f<T> implements j<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(int i, b<T> bVar) {
             a(i, bVar, bVar.isFinished());
-            if (bVar == dlM()) {
+            if (bVar == dnH()) {
                 b((a) null, i == 0 && bVar.isFinished());
             }
-            dlO();
+            dnJ();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b(int i, b<T> bVar) {
-            f(c(i, bVar));
+            l(c(i, bVar));
             if (i == 0) {
-                this.lLx = bVar.dlF();
+                this.lSS = bVar.dnA();
             }
-            dlO();
+            dnJ();
         }
 
-        private void dlO() {
-            if (this.lLw.incrementAndGet() == this.lLv && this.lLx != null) {
-                u(this.lLx);
+        private void dnJ() {
+            if (this.lSR.incrementAndGet() == this.lSQ && this.lSS != null) {
+                z(this.lSS);
             }
         }
 
         private void a(int i, b<T> bVar, boolean z) {
             synchronized (this) {
-                int i2 = this.lLu;
-                if (bVar == HC(i) && i != this.lLu) {
-                    if (dlM() == null || (z && i < this.lLu)) {
-                        this.lLu = i;
+                int i2 = this.lSP;
+                if (bVar == Gd(i) && i != this.lSP) {
+                    if (dnH() == null || (z && i < this.lSP)) {
+                        this.lSP = i;
                     } else {
                         i = i2;
                     }
-                    for (int i3 = this.lLu; i3 > i; i3--) {
-                        f(HD(i3));
+                    for (int i3 = this.lSP; i3 > i; i3--) {
+                        l(Ge(i3));
                     }
                 }
             }
@@ -203,33 +203,33 @@ public class f<T> implements j<b<T>> {
 
         @Nullable
         private synchronized b<T> c(int i, b<T> bVar) {
-            if (bVar == dlM()) {
+            if (bVar == dnH()) {
                 bVar = null;
-            } else if (bVar == HC(i)) {
-                bVar = HD(i);
+            } else if (bVar == Gd(i)) {
+                bVar = Ge(i);
             }
             return bVar;
         }
 
-        private void f(b<T> bVar) {
+        private void l(b<T> bVar) {
             if (bVar != null) {
-                bVar.OG();
+                bVar.Wv();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.datasource.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public class C0656a implements d<T> {
+        public class C0699a implements d<T> {
             private int mIndex;
 
-            public C0656a(int i) {
+            public C0699a(int i) {
                 this.mIndex = i;
             }
 
             @Override // com.facebook.datasource.d
-            public void onNewResult(b<T> bVar) {
-                if (bVar.dlD()) {
+            public void d(b<T> bVar) {
+                if (bVar.dny()) {
                     a.this.a(this.mIndex, bVar);
                 } else if (bVar.isFinished()) {
                     a.this.b(this.mIndex, bVar);
@@ -237,18 +237,18 @@ public class f<T> implements j<b<T>> {
             }
 
             @Override // com.facebook.datasource.d
-            public void onFailure(b<T> bVar) {
+            public void e(b<T> bVar) {
                 a.this.b(this.mIndex, bVar);
             }
 
             @Override // com.facebook.datasource.d
-            public void onCancellation(b<T> bVar) {
+            public void b(b<T> bVar) {
             }
 
             @Override // com.facebook.datasource.d
-            public void onProgressUpdate(b<T> bVar) {
+            public void f(b<T> bVar) {
                 if (this.mIndex == 0) {
-                    a.this.bj(bVar.getProgress());
+                    a.this.az(bVar.getProgress());
                 }
             }
         }

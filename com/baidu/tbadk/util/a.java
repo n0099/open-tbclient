@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 /* loaded from: classes.dex */
 public class a {
-    private static a dGH;
-    private com.baidu.tbadk.coreExtra.data.a dpL;
-    private ABTestExtraData dpM;
+    private static a ego;
+    private com.baidu.tbadk.coreExtra.data.a dPE;
+    private ABTestExtraData dPF;
 
-    public static a aRQ() {
-        if (dGH == null) {
+    public static a aZZ() {
+        if (ego == null) {
             synchronized (a.class) {
-                if (dGH == null) {
-                    dGH = new a();
+                if (ego == null) {
+                    ego = new a();
                 }
             }
         }
-        return dGH;
+        return ego;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -26,34 +26,34 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.dpL == null || aVar.aJd() != this.dpL.aJd()) ? true : true;
-        this.dpL = aVar;
+        z = (aVar == null || this.dPE == null || aVar.aRA() != this.dPE.aRA()) ? true : true;
+        this.dPE = aVar;
         if (z) {
-            vQ("zan_or_cai_smallflow");
+            xe("zan_or_cai_smallflow");
         }
     }
 
-    public boolean aJd() {
-        if (this.dpL == null) {
-            this.dpL = new com.baidu.tbadk.coreExtra.data.a();
-            this.dpL.aJe();
+    public boolean aRA() {
+        if (this.dPE == null) {
+            this.dPE = new com.baidu.tbadk.coreExtra.data.a();
+            this.dPE.aRB();
         }
-        return this.dpL.aJd();
+        return this.dPE.aRA();
     }
 
-    private void vQ(String str) {
+    private void xe(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 
     public void a(ABTestExtraData aBTestExtraData) {
-        this.dpM = aBTestExtraData;
+        this.dPF = aBTestExtraData;
     }
 
-    public String aRR() {
-        if (this.dpM == null) {
-            this.dpM = new ABTestExtraData();
-            this.dpM.parserABTestExtraFormSharedPref();
+    public String baa() {
+        if (this.dPF == null) {
+            this.dPF = new ABTestExtraData();
+            this.dPF.parserABTestExtraFormSharedPref();
         }
-        return this.dpM.getABTestResult();
+        return this.dPF.getABTestResult();
     }
 }

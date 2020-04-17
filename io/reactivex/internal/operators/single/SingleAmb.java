@@ -1,25 +1,24 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public final class SingleAmb<T> extends w<T> {
-    private final aa<? extends T>[] nAz;
-    private final Iterable<? extends aa<? extends T>> nys;
+    private final Iterable<? extends aa<? extends T>> mRK;
+    private final aa<? extends T>[] mUa;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         int length;
-        aa<? extends T>[] aaVarArr = this.nAz;
+        aa<? extends T>[] aaVarArr = this.mUa;
         if (aaVarArr == null) {
             aa<? extends T>[] aaVarArr2 = new aa[8];
             try {
                 int i = 0;
-                for (aa<? extends T> aaVar : this.nys) {
+                for (aa<? extends T> aaVar : this.mRK) {
                     if (aaVar == null) {
                         EmptyDisposable.error(new NullPointerException("One of the sources is null"), yVar);
                         return;
@@ -36,7 +35,7 @@ public final class SingleAmb<T> extends w<T> {
                 length = i;
                 aaVarArr = aaVarArr2;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 EmptyDisposable.error(th, yVar);
                 return;
             }
@@ -79,7 +78,7 @@ public final class SingleAmb<T> extends w<T> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             this.set.a(bVar);
         }
 

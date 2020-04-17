@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.g;
 import com.baidu.tbadk.util.z;
-import com.baidu.tieba.frs.ag;
+import com.baidu.tieba.frs.aj;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.homepage.topic.topictab.model.TopicModel;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicListView;
@@ -27,120 +27,120 @@ import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes9.dex */
-public class TopicFragment extends BaseFragment implements g.c, ag, a {
-    private boolean gYe = false;
-    private TopicModel hjg;
-    private TopicListView hjh;
+public class TopicFragment extends BaseFragment implements g.c, aj, a {
+    private boolean hHV = false;
+    private TopicModel hSP;
+    private TopicListView hSQ;
 
     public TopicFragment() {
     }
 
     public TopicFragment(Context context) {
         TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-        this.hjg = new TopicModel(pageContext);
-        this.hjh = new TopicListView(pageContext);
-        this.hjh.initListeners();
+        this.hSP = new TopicModel(pageContext);
+        this.hSQ = new TopicListView(pageContext);
+        this.hSQ.bqK();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.hjg.setPresenter(this);
-        this.hjg.setUniqueId(getUniqueId());
-        this.hjh.setPresenter(this);
-        this.hjh.setListPullRefreshListener(this);
-        this.hjh.setPageUniqueId(getUniqueId());
+        this.hSP.setPresenter(this);
+        this.hSP.setUniqueId(getUniqueId());
+        this.hSQ.setPresenter(this);
+        this.hSQ.setListPullRefreshListener(this);
+        this.hSQ.setPageUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.hjh.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.hjh.getParent()).removeView(this.hjh);
+        if (this.hSQ.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.hSQ.getParent()).removeView(this.hSQ);
         }
-        if (this.gYe) {
-            this.hjh.initListeners();
-            this.gYe = false;
+        if (this.hHV) {
+            this.hSQ.bqK();
+            this.hHV = false;
         }
-        return this.hjh;
+        return this.hSQ;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
         if (isPrimary()) {
-            this.hjh.setViewForeground();
+            this.hSQ.setViewForeground();
             TiebaStatic.log(new an("c13349"));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        this.hjh.eN(false);
-        this.hjg.bPV();
+        this.hSQ.fK(false);
+        this.hSP.cav();
     }
 
-    public void bdw() {
-        this.hjh.bdw();
+    public void bmn() {
+        this.hSQ.bmn();
     }
 
-    @Override // com.baidu.tieba.frs.ag
-    public void AJ() {
-        this.hjh.reload();
+    @Override // com.baidu.tieba.frs.aj
+    public void FH() {
+        this.hSQ.reload();
     }
 
-    @Override // com.baidu.tieba.frs.ag
-    public void bcE() {
+    @Override // com.baidu.tieba.frs.aj
+    public void blv() {
     }
 
-    @Override // com.baidu.tieba.frs.ag
-    public void bcF() {
+    @Override // com.baidu.tieba.frs.aj
+    public void blw() {
     }
 
-    @Override // com.baidu.tieba.frs.ag
+    @Override // com.baidu.tieba.frs.aj
     public void setRecommendFrsNavigationAnimDispatcher(z zVar) {
     }
 
-    @Override // com.baidu.tieba.frs.ag
+    @Override // com.baidu.tieba.frs.aj
     public void showFloatingView() {
     }
 
-    @Override // com.baidu.tieba.frs.ag
-    public void aHS() {
+    @Override // com.baidu.tieba.frs.aj
+    public void aQp() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        this.hjh.onChangeSkinType();
+        this.hSQ.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.core.view.g.c
     public void onListPullRefresh(boolean z) {
-        this.hjg.bPV();
+        this.hSP.cav();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.hjh.bcC();
-            this.hjh.eN(false);
-            this.hjg.bPV();
+            this.hSQ.blt();
+            this.hSQ.fK(false);
+            this.hSP.cav();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
-    public void n(int i, List<m> list) {
-        this.hjh.hideLoadingView();
-        this.hjh.bcI();
+    public void o(int i, List<m> list) {
+        this.hSQ.hideLoadingView();
+        this.hSQ.blz();
         if (i != 0 || v.isEmpty(list)) {
-            this.hjh.kS(false);
+            this.hSQ.lV(false);
             return;
         }
-        this.hjh.bcC();
-        this.hjh.bgE();
-        this.hjh.setData(list);
-        this.hjh.bdy();
+        this.hSQ.blt();
+        this.hSQ.bpV();
+        this.hSQ.setData(list);
+        this.hSQ.bmp();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
@@ -165,14 +165,14 @@ public class TopicFragment extends BaseFragment implements g.c, ag, a {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.hjh.destroy();
-        this.hjg.onDestroy();
-        this.gYe = true;
+        this.hSQ.destroy();
+        this.hSP.onDestroy();
+        this.hHV = true;
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.hjh != null) {
-            this.hjh.setScrollFragmentTabHost(scrollFragmentTabHost);
+        if (this.hSQ != null) {
+            this.hSQ.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
     }
 }

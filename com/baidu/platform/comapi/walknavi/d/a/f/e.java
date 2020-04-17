@@ -6,12 +6,10 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.platform.comapi.walknavi.d.a.f.f;
 import com.baidu.platform.comapi.walknavi.d.a.g.h;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
-import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
 import java.util.UUID;
 import org.json.JSONObject;
@@ -49,23 +47,23 @@ public final class e {
         if (a != null) {
             jSONObject.put("user_id", a.toString());
         }
-        jSONObject2.put("ar_value", jSONObject.toString());
+        jSONObject2.put(HttpConstants.HTTP_AR_VALUE, jSONObject.toString());
         String a2 = aVar.a();
         if (!TextUtils.isEmpty(a2)) {
             jSONObject2.put("ar_key", a2);
         }
         String b = aVar.b();
         if (!TextUtils.isEmpty(b)) {
-            jSONObject2.put(FrsArActivityConfig.AR_ID, b);
+            jSONObject2.put("ar_id", b);
         } else {
-            jSONObject2.put(FrsArActivityConfig.AR_ID, "");
+            jSONObject2.put("ar_id", "");
         }
-        jSONObject2.put("gles_version", ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getDeviceConfigurationInfo().reqGlEsVersion >> 16);
-        jSONObject2.put("osType", PraiseDataPassUtil.KEY_FROM_OS);
-        jSONObject2.put("engine_version", com.baidu.platform.comapi.walknavi.d.a.g.b.a());
-        jSONObject2.put(Constants.APP_ID, com.baidu.platform.comapi.walknavi.d.a.g.b.a(context));
-        jSONObject2.put(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, Build.MODEL);
-        jSONObject2.put("system_version", Build.VERSION.SDK_INT);
+        jSONObject2.put(HttpConstants.HTTP_GLES_VERSION, ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getDeviceConfigurationInfo().reqGlEsVersion >> 16);
+        jSONObject2.put(HttpConstants.HTTP_OS_TYPE_OLD, "android");
+        jSONObject2.put(HttpConstants.HTTP_ENGINE_VERSION, com.baidu.platform.comapi.walknavi.d.a.g.b.a());
+        jSONObject2.put("app_id", com.baidu.platform.comapi.walknavi.d.a.g.b.a(context));
+        jSONObject2.put("device_id", Build.MODEL);
+        jSONObject2.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         jSONObject2.put("user_id", a.toString());
         jSONObject2.put("publish_id", "6");
         if (!com.baidu.platform.comapi.walknavi.d.a.b.a) {
@@ -91,31 +89,31 @@ public final class e {
                 long[] b = h.b();
                 Sensor defaultSensor = ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4);
                 if (jSONObject != null) {
-                    jSONObject.put("os_brand", Build.BRAND.toLowerCase());
-                    jSONObject.put("os_model", Build.MODEL.toLowerCase());
-                    jSONObject.put("os_version_sdk", Build.VERSION.SDK_INT);
-                    jSONObject.put("os_version_release", Build.VERSION.RELEASE);
-                    jSONObject.put("os_width_pixels", context.getResources().getDisplayMetrics().widthPixels);
-                    jSONObject.put("os_height_pixels", context.getResources().getDisplayMetrics().heightPixels);
-                    jSONObject.put("os_scale_pdi", context.getResources().getDisplayMetrics().densityDpi);
-                    jSONObject.put("os_ram_avail_memory", h.b(context));
-                    jSONObject.put("os_ram_memory", h.a(context));
-                    jSONObject.put("os_rom_avail_memory", a[1]);
-                    jSONObject.put("os_rom_memory", a[0]);
-                    jSONObject.put("os_sdcard_avail_memory", b[1]);
-                    jSONObject.put("os_sdcard_memory", b[0]);
-                    jSONObject.put("os_cpu_name", h.c());
-                    jSONObject.put("os_cpu_num_cores", h.d());
-                    jSONObject.put("os_cpu_min_freq", h.e());
-                    jSONObject.put("os_cpu_max_freq", h.f());
-                    jSONObject.put("os_cpu_cur_freq", h.g());
-                    jSONObject.put("os_cpu_abi", Build.CPU_ABI);
-                    jSONObject.put("os_native_heapsize", (int) (Runtime.getRuntime().maxMemory() / 1048576));
-                    jSONObject.put("os_native_sensor", defaultSensor != null);
+                    jSONObject.put(HttpConstants.OS_BRAND, Build.BRAND.toLowerCase());
+                    jSONObject.put(HttpConstants.OS_MODEL, Build.MODEL.toLowerCase());
+                    jSONObject.put(HttpConstants.OS_VERSION_SDK, Build.VERSION.SDK_INT);
+                    jSONObject.put(HttpConstants.OS_VERSION_RELESE, Build.VERSION.RELEASE);
+                    jSONObject.put(HttpConstants.OS_WIDTH_PIXELS, context.getResources().getDisplayMetrics().widthPixels);
+                    jSONObject.put(HttpConstants.OS_HEIGHT_PIXELS, context.getResources().getDisplayMetrics().heightPixels);
+                    jSONObject.put(HttpConstants.OS_SCALE_PDI, context.getResources().getDisplayMetrics().densityDpi);
+                    jSONObject.put(HttpConstants.OS_RAM_AVAIL_MEMORY, h.b(context));
+                    jSONObject.put(HttpConstants.OS_RAM_MEMEORY, h.a(context));
+                    jSONObject.put(HttpConstants.OS_ROM_AVAIL_MEMORY, a[1]);
+                    jSONObject.put(HttpConstants.OS_ROM_MEMORY, a[0]);
+                    jSONObject.put(HttpConstants.OS_ROM_SDCARD_AVAIL_MEMORY, b[1]);
+                    jSONObject.put(HttpConstants.OS_SDCARD_MEMORY, b[0]);
+                    jSONObject.put(HttpConstants.OS_CPU_NAME, h.c());
+                    jSONObject.put(HttpConstants.OS_CPU_NUM_CORES, h.d());
+                    jSONObject.put(HttpConstants.OS_CPU_MIN_FREQ, h.e());
+                    jSONObject.put(HttpConstants.OS_CPU_MAX_FREQ, h.f());
+                    jSONObject.put(HttpConstants.OS_CPU_CUR_FREQ, h.g());
+                    jSONObject.put(HttpConstants.OS_CPU_ABI, Build.CPU_ABI);
+                    jSONObject.put(HttpConstants.OS_NATIVE_HEAPSIZE, (int) (Runtime.getRuntime().maxMemory() / 1048576));
+                    jSONObject.put(HttpConstants.OS_NATIVE_SENSOR, defaultSensor != null);
                     if (Build.VERSION.SDK_INT < 21) {
-                        jSONObject.put("os_cpu_supported_abis", Build.CPU_ABI);
+                        jSONObject.put(HttpConstants.OS_CPU_SUPPORTED_ABIS, Build.CPU_ABI);
                     } else {
-                        jSONObject.put("os_cpu_supported_abis", Arrays.asList(Build.SUPPORTED_ABIS));
+                        jSONObject.put(HttpConstants.OS_CPU_SUPPORTED_ABIS, Arrays.asList(Build.SUPPORTED_ABIS));
                     }
                 }
             }

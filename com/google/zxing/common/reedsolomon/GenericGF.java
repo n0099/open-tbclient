@@ -1,4 +1,6 @@
 package com.google.zxing.common.reedsolomon;
+
+import com.baidu.ar.constants.DebugConstants;
 /* loaded from: classes10.dex */
 public final class GenericGF {
     public static final GenericGF AZTEC_DATA_8;
@@ -12,7 +14,7 @@ public final class GenericGF {
     private final int size;
     private final GenericGFPoly zero;
     public static final GenericGF AZTEC_DATA_12 = new GenericGF(4201, 4096, 1);
-    public static final GenericGF AZTEC_DATA_10 = new GenericGF(1033, 1024, 1);
+    public static final GenericGF AZTEC_DATA_10 = new GenericGF(DebugConstants.HTTP_ERRCODE_VERSION_HIGH, 1024, 1);
     public static final GenericGF AZTEC_DATA_6 = new GenericGF(67, 64, 1);
     public static final GenericGF AZTEC_PARAM = new GenericGF(19, 16, 1);
     public static final GenericGF QR_CODE_FIELD_256 = new GenericGF(285, 256, 0);

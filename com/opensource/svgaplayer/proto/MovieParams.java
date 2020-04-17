@@ -12,13 +12,13 @@ import okio.ByteString;
 /* loaded from: classes.dex */
 public final class MovieParams extends Message<MovieParams, Builder> {
     private static final long serialVersionUID = 0;
-    @WireField(dGX = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
+    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
     public final Integer fps;
-    @WireField(dGX = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
+    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
     public final Integer frames;
-    @WireField(dGX = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float viewBoxHeight;
-    @WireField(dGX = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float viewBoxWidth;
     public static final ProtoAdapter<MovieParams> ADAPTER = new ProtoAdapter_MovieParams();
     public static final Float DEFAULT_VIEWBOXWIDTH = Float.valueOf(0.0f);
@@ -161,11 +161,11 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieParams decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dGP = cVar.dGP();
+            long dAR = cVar.dAR();
             while (true) {
-                int dGQ = cVar.dGQ();
-                if (dGQ != -1) {
-                    switch (dGQ) {
+                int dAS = cVar.dAS();
+                if (dAS != -1) {
+                    switch (dAS) {
                         case 1:
                             builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -179,12 +179,12 @@ public final class MovieParams extends Message<MovieParams, Builder> {
                             builder.frames(ProtoAdapter.INT32.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dGR = cVar.dGR();
-                            builder.addUnknownField(dGQ, dGR, dGR.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dAT = cVar.dAT();
+                            builder.addUnknownField(dAS, dAT, dAT.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.ha(dGP);
+                    cVar.gc(dAR);
                     return builder.build();
                 }
             }

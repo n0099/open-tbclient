@@ -1,69 +1,69 @@
 package com.baidu.adp.lib.network.http.a;
 /* loaded from: classes.dex */
 public class c {
+    private int JW;
+    private String KA;
+    private String KE;
+    private int KF;
+    private long KG;
     private String exception;
-    private int qV;
-    private String rD;
-    private String rG;
-    private int rH;
-    private long rI;
-    private boolean rE = false;
-    private boolean rF = false;
-    private int qK = 0;
+    private boolean KC = false;
+    private boolean KD = false;
+    private int JL = 0;
 
-    public void J(boolean z) {
-        this.rE = z;
+    public void ai(boolean z) {
+        this.KC = z;
     }
 
-    public boolean gj() {
-        return this.rF;
+    public boolean kM() {
+        return this.KD;
     }
 
-    public void K(boolean z) {
-        this.rF = z;
+    public void aj(boolean z) {
+        this.KD = z;
     }
 
-    public void aq(String str) {
+    public void bF(String str) {
         this.exception = str;
     }
 
-    public void R(int i) {
-        this.qK = i;
+    public void ad(int i) {
+        this.JL = i;
     }
 
-    public void gk() {
+    public void kN() {
         this.exception = "";
     }
 
-    public void ar(String str) {
-        this.rG = str;
+    public void bG(String str) {
+        this.KE = str;
     }
 
-    public String gl() {
-        return this.rG;
+    public String kO() {
+        return this.KE;
     }
 
-    public void S(int i) {
-        this.rH = i;
+    public void ae(int i) {
+        this.KF = i;
     }
 
-    public void i(long j) {
-        this.rI = j;
+    public void G(long j) {
+        this.KG = j;
     }
 
     public String toString() {
-        return "isFromNet_" + this.rE + "-statType_" + this.rH + "-dnsErr_" + this.exception + "-hasRetry_" + this.qK + "-cost_" + this.rI + "-ipIndex_" + this.qV + "-ipResult_" + this.rD;
+        return "isFromNet_" + this.KC + "-statType_" + this.KF + "-dnsErr_" + this.exception + "-hasRetry_" + this.JL + "-cost_" + this.KG + "-ipIndex_" + this.JW + "-ipResult_" + this.KA;
     }
 
-    public String gm() {
-        return this.rD;
+    public String kP() {
+        return this.KA;
     }
 
-    public void as(String str) {
-        this.rD = str;
+    public void bH(String str) {
+        this.KA = str;
     }
 
-    public void O(int i) {
-        this.qV = i;
+    public void aa(int i) {
+        this.JW = i;
     }
 }

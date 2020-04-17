@@ -23,7 +23,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        aXm();
+        bfr();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -53,7 +53,7 @@ public class g implements Runnable {
         if (r10 == r14) goto L86;
      */
     /* JADX WARN: Code restructure failed: missing block: B:73:0x01a1, code lost:
-        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").cx("errormsg", "准备合并文件时文件片段错误").cx("url", r18.mVideoUrl));
+        com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").cI("errormsg", "准备合并文件时文件片段错误").cI("url", r18.mVideoUrl));
      */
     /* JADX WARN: Code restructure failed: missing block: B:75:0x01cd, code lost:
         if (a(r12.getAbsolutePath(), r13) == false) goto L89;
@@ -66,24 +66,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void aXm() {
+    private synchronized void bfr() {
         File file;
-        long wy;
+        long xK;
         File[] fileArr;
         int i;
         long j;
         long fileSize;
         long j2;
-        j.z(TAG, "merge ...");
-        String wE = m.wE(this.mVideoUrl);
-        if (wE != null && !wE.isEmpty() && ((file = new File(i.dXI + wE + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.dXI + wE + "/completed.temp");
+        j.D(TAG, "merge ...");
+        String xQ = m.xQ(this.mVideoUrl);
+        if (xQ != null && !xQ.isEmpty() && ((file = new File(i.exD + xQ + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.exD + xQ + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.dXI + wE + "/segments");
+            File file3 = new File(i.exD + xQ + "/segments");
             if (file3 != null && file3.exists()) {
-                wy = wy(wE);
+                xK = xK(xQ);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -95,7 +95,7 @@ public class g implements Runnable {
                             } catch (Exception e) {
                                 e.printStackTrace();
                                 file4.delete();
-                                j.z(TAG, "delete file " + file4.getAbsolutePath());
+                                j.D(TAG, "delete file " + file4.getAbsolutePath());
                             }
                         }
                     }
@@ -110,7 +110,7 @@ public class g implements Runnable {
                         if (fileArr[i2] == null) {
                             break;
                         }
-                        j.z(TAG, "file name " + fileArr[i2].getName());
+                        j.D(TAG, "file name " + fileArr[i2].getName());
                         i2++;
                     }
                 }
@@ -130,7 +130,7 @@ public class g implements Runnable {
             }
             if (j + fileSize == j2) {
             }
-        } else if (m.getFileSize(fileArr[i]) + j == wy) {
+        } else if (m.getFileSize(fileArr[i]) + j == xK) {
             i++;
         }
     }
@@ -182,7 +182,7 @@ public class g implements Runnable {
                 e = e3;
                 fileChannel = channel;
                 try {
-                    TiebaStatic.log(new an("c12027").cx("errormsg", "合并文件出现异常").cx(BdStatsConstant.StatsType.ERROR, e.getMessage()).cx("url", this.mVideoUrl));
+                    TiebaStatic.log(new an("c12027").cI("errormsg", "合并文件出现异常").cI(BdStatsConstant.StatsType.ERROR, e.getMessage()).cI("url", this.mVideoUrl));
                     e.printStackTrace();
                     if (fileChannel != null) {
                         try {
@@ -244,12 +244,12 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long wy(String str) {
+    private long xK(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
-        File file = new File(i.dXI + str + "/content_length");
+        File file = new File(i.exD + str + "/content_length");
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);

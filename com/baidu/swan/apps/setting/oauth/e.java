@@ -9,30 +9,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
-    public a bTF;
-    public JSONObject bTG;
-    public String bTH;
-    public String bTI;
-    public boolean bTy;
+    public boolean csn;
+    public a csu;
+    public JSONObject csv;
+    public String csw;
+    public String csx;
     public boolean forbidden;
     public final String id;
     public String grade = "";
     public String name = "";
-    public String bTz = "";
+    public String cso = "";
     public String description = "";
-    public List<String> bTA = new ArrayList();
-    public final List<String> bTB = new ArrayList();
-    public int bTC = -1;
+    public List<String> csp = new ArrayList();
+    public final List<String> csq = new ArrayList();
+    public int csr = -1;
     private String type = "";
-    public String bTD = "";
-    public String bTE = "";
+    public String css = "";
+    public String cst = "";
 
     /* loaded from: classes11.dex */
     public static class a {
-        public String bTJ;
-        public String bTK;
-        public String bTL;
-        public String bTM;
+        public String csA;
+        public String csB;
+        public String csy;
+        public String csz;
         public String detailUrl;
     }
 
@@ -41,19 +41,19 @@ public class e {
         this.id = str;
     }
 
-    public boolean aer() {
-        return this.bTC > 0;
+    public boolean amw() {
+        return this.csr > 0;
     }
 
-    public boolean aes() {
-        return this.bTC != 0;
+    public boolean amx() {
+        return this.csr != 0;
     }
 
-    public boolean aet() {
+    public boolean amy() {
         return "1".equals(this.type);
     }
 
-    public static e aQ(JSONObject jSONObject) {
+    public static e bb(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -61,53 +61,53 @@ public class e {
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
-        return h(optString, jSONObject);
+        return i(optString, jSONObject);
     }
 
-    public static e h(String str, JSONObject jSONObject) {
+    public static e i(String str, JSONObject jSONObject) {
         e eVar = new e(str);
-        eVar.bTy = jSONObject.optBoolean("permit", false);
+        eVar.csn = jSONObject.optBoolean("permit", false);
         eVar.forbidden = jSONObject.optBoolean("forbidden", true);
         eVar.grade = jSONObject.optString("grade");
         eVar.type = jSONObject.optString("type", "");
         eVar.name = jSONObject.optString("name", "");
-        eVar.bTz = jSONObject.optString("short_name", "");
+        eVar.cso = jSONObject.optString("short_name", "");
         eVar.description = jSONObject.optString("description", "");
-        eVar.bTC = jSONObject.optInt("tip_status", -1);
-        eVar.bTD = jSONObject.optString("explain", "");
-        eVar.bTE = jSONObject.optString("sub_explain", "");
+        eVar.csr = jSONObject.optInt("tip_status", -1);
+        eVar.css = jSONObject.optString("explain", "");
+        eVar.cst = jSONObject.optString("sub_explain", "");
         JSONArray optJSONArray = jSONObject.optJSONArray("ext");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                eVar.bTB.add(optJSONArray.optString(i));
+                eVar.csq.add(optJSONArray.optString(i));
             }
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray(Message.RULE);
         if (optJSONArray2 != null) {
             int length2 = optJSONArray2.length();
             for (int i2 = 0; i2 < length2; i2++) {
-                eVar.bTA.add(optJSONArray2.optString(i2));
+                eVar.csp.add(optJSONArray2.optString(i2));
             }
         }
-        eVar.bTG = jSONObject.optJSONObject("other");
-        eVar.bTH = jSONObject.optString("plugin_app_name");
-        eVar.bTI = jSONObject.optString("plugin_icon_url");
+        eVar.csv = jSONObject.optJSONObject("other");
+        eVar.csw = jSONObject.optString("plugin_app_name");
+        eVar.csx = jSONObject.optString("plugin_icon_url");
         return eVar;
     }
 
-    public void aeu() {
-        if (this.bTG != null && this.bTG.keys() != null && this.bTG.keys().hasNext()) {
-            this.bTF = new a();
-            this.bTF.bTJ = this.bTG.optString("detail_text");
-            this.bTF.detailUrl = this.bTG.optString("detail_url");
-            this.bTF.bTK = this.bTG.optString("text_color");
-            this.bTF.bTL = this.bTG.optString("keyword");
-            this.bTF.bTM = this.bTG.optString("key_color");
+    public void amz() {
+        if (this.csv != null && this.csv.keys() != null && this.csv.keys().hasNext()) {
+            this.csu = new a();
+            this.csu.csy = this.csv.optString("detail_text");
+            this.csu.detailUrl = this.csv.optString("detail_url");
+            this.csu.csz = this.csv.optString("text_color");
+            this.csu.csA = this.csv.optString("keyword");
+            this.csu.csB = this.csv.optString("key_color");
         }
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.bTC));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.csr));
     }
 }

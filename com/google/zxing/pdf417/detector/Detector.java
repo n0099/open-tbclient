@@ -30,7 +30,7 @@ public final class Detector {
         BitMatrix blackMatrix = binaryBitmap.getBlackMatrix();
         List<ResultPoint[]> detect = detect(z, blackMatrix);
         if (detect.isEmpty()) {
-            blackMatrix = blackMatrix.m39clone();
+            blackMatrix = blackMatrix.m42clone();
             blackMatrix.rotate180();
             detect = detect(z, blackMatrix);
         }
@@ -190,7 +190,7 @@ public final class Detector {
                 iArr2[i6] = iArr2[i6] + 1;
             } else {
                 if (i6 == length - 1) {
-                    if (patternMatchVariance(iArr2, iArr, MAX_INDIVIDUAL_VARIANCE) < MAX_AVG_VARIANCE) {
+                    if (patternMatchVariance(iArr2, iArr, 0.8f) < MAX_AVG_VARIANCE) {
                         return new int[]{i7, i};
                     }
                     i7 += iArr2[0] + iArr2[1];
@@ -206,7 +206,7 @@ public final class Detector {
             }
             i++;
         }
-        if (i6 != length - 1 || patternMatchVariance(iArr2, iArr, MAX_INDIVIDUAL_VARIANCE) >= MAX_AVG_VARIANCE) {
+        if (i6 != length - 1 || patternMatchVariance(iArr2, iArr, 0.8f) >= MAX_AVG_VARIANCE) {
             return null;
         }
         return new int[]{i7, i - 1};

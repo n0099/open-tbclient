@@ -4,7 +4,7 @@ import GetSticker.GetStickerResIdl;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class ResponseHttpGetStickerMessage extends TbHttpResponsedMessage {
     private List<String> mUrlList;
 

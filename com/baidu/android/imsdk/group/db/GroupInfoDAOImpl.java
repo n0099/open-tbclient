@@ -15,7 +15,6 @@ import com.baidu.android.imsdk.db.IResultParse;
 import com.baidu.android.imsdk.db.ITransaction;
 import com.baidu.android.imsdk.group.GroupInfo;
 import com.baidu.android.imsdk.group.GroupMember;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -115,7 +114,7 @@ public class GroupInfoDAOImpl {
                 LogUtils.d(GroupInfoDAOImpl.TAG, "insertret : " + sQLiteDatabase.insert("groupinfo", null, contentValues));
             }
         }).intValue();
-        LogUtils.d(TAG, "STAR create star group " + intValue + HanziToPinyin.Token.SEPARATOR + str);
+        LogUtils.d(TAG, "STAR create star group " + intValue + " " + str);
         if (intValue == 0 && (dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)) != null) {
             String groupMessageTableName = DBTableDefine.getGroupMessageTableName(str);
             LogUtils.d(TAG, "STAR add group table " + groupMessageTableName);

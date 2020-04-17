@@ -3,7 +3,6 @@ package com.baidu.tieba.homepage.gamevideo.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.adp.widget.ListView.r;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.data.k;
@@ -12,92 +11,92 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private BdTypeRecyclerView BK;
-    private LinkedList<com.baidu.adp.widget.ListView.a> hbO = new LinkedList<>();
-    private f hbP;
-    private c hbQ;
-    private d hbR;
-    private e hbS;
+    private BdTypeRecyclerView Vf;
+    private LinkedList<com.baidu.adp.widget.ListView.a> hLE = new LinkedList<>();
+    private f hLF;
+    private c hLG;
+    private d hLH;
+    private e hLI;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.BK = bdTypeRecyclerView;
-        wR();
+        this.Vf = bdTypeRecyclerView;
+        BC();
     }
 
-    private void wR() {
-        this.hbP = new f(this.mPageContext, k.fNT);
-        this.hbQ = new c(this.mPageContext, l.cRN);
-        this.hbR = new d(this.mPageContext, k.fOb);
-        this.hbS = new e(this.mPageContext, k.fOc);
-        this.hbP.b((r) this.BK);
-        this.hbQ.b((r) this.BK);
-        this.hbR.b((r) this.BK);
-        this.hbS.b((r) this.BK);
-        this.hbO.add(this.hbP);
-        this.hbO.add(this.hbQ);
-        this.hbO.add(this.hbR);
-        this.hbO.add(this.hbS);
-        this.BK.addAdapters(this.hbO);
+    private void BC() {
+        this.hLF = new f(this.mPageContext, k.gsA);
+        this.hLG = new c(this.mPageContext, l.dqV);
+        this.hLH = new d(this.mPageContext, k.gsI);
+        this.hLI = new e(this.mPageContext, k.gsJ);
+        this.hLF.a(this.Vf);
+        this.hLG.a(this.Vf);
+        this.hLH.a(this.Vf);
+        this.hLI.a(this.Vf);
+        this.hLE.add(this.hLF);
+        this.hLE.add(this.hLG);
+        this.hLE.add(this.hLH);
+        this.hLE.add(this.hLI);
+        this.Vf.addAdapters(this.hLE);
     }
 
     public void notifyDataSetChanged() {
-        if (this.BK != null) {
-            this.BK.getListAdapter().notifyDataSetChanged();
+        if (this.Vf != null) {
+            this.Vf.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.hbP != null) {
-            this.hbP.setPageUniqueId(bdUniqueId);
+        if (this.hLF != null) {
+            this.hLF.setPageUniqueId(bdUniqueId);
         }
-        if (this.hbQ != null) {
-            this.hbQ.setPageUniqueId(bdUniqueId);
+        if (this.hLG != null) {
+            this.hLG.setPageUniqueId(bdUniqueId);
         }
-        if (this.hbR != null) {
-            this.hbR.setPageUniqueId(bdUniqueId);
+        if (this.hLH != null) {
+            this.hLH.setPageUniqueId(bdUniqueId);
         }
-        if (this.hbS != null) {
-            this.hbS.setPageUniqueId(bdUniqueId);
+        if (this.hLI != null) {
+            this.hLI.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<m> list) {
-        this.BK.setData(list);
+        this.Vf.setData(list);
     }
 
     public List<m> getDataList() {
-        if (this.BK != null) {
-            return this.BK.getData();
+        if (this.Vf != null) {
+            return this.Vf.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.hbS != null) {
-            this.hbS.setEventCallback(aVar);
+        if (this.hLI != null) {
+            this.hLI.setEventCallback(aVar);
         }
     }
 
-    public void vs(int i) {
-        if (this.hbP != null) {
-            this.hbP.vs(i);
+    public void vQ(int i) {
+        if (this.hLF != null) {
+            this.hLF.vQ(i);
         }
-        if (this.hbQ != null) {
-            this.hbQ.vs(i);
+        if (this.hLG != null) {
+            this.hLG.vQ(i);
         }
-        if (this.hbR != null) {
-            this.hbR.vs(i);
+        if (this.hLH != null) {
+            this.hLH.vQ(i);
         }
-        if (this.hbS != null) {
-            this.hbS.vs(i);
+        if (this.hLI != null) {
+            this.hLI.vQ(i);
         }
     }
 
     public void onPause() {
-        if (this.hbQ != null) {
-            this.hbQ.onPause();
+        if (this.hLG != null) {
+            this.hLG.onPause();
         }
     }
 

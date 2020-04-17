@@ -26,6 +26,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
             return new ChatSession[i];
         }
     };
+    private int mBusinessType;
     private int mCategory;
     private String mCertification;
     private int mChatType;
@@ -89,6 +90,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mShield = 0;
         this.mShieldTime = 0L;
         this.mSessionFrom = 0;
+        this.mBusinessType = -1;
         this.mContacter = j;
         this.mName = str;
         this.mCategory = i;
@@ -126,6 +128,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mShield = 0;
         this.mShieldTime = 0L;
         this.mSessionFrom = 0;
+        this.mBusinessType = -1;
     }
 
     ChatSession(Parcel parcel) {
@@ -159,6 +162,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mShield = 0;
         this.mShieldTime = 0L;
         this.mSessionFrom = 0;
+        this.mBusinessType = -1;
         this.mCategory = parcel.readInt();
         this.mContacter = parcel.readLong();
         this.mContacterId = parcel.readLong();
@@ -190,6 +194,14 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mShield = parcel.readInt();
         this.mShieldTime = parcel.readLong();
         this.mSessionFrom = parcel.readInt();
+    }
+
+    public int getBusinessType() {
+        return this.mBusinessType;
+    }
+
+    public void setBusinessType(int i) {
+        this.mBusinessType = i;
     }
 
     public int getMarkTop() {
@@ -510,7 +522,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: clone */
-    public ChatSession m18clone() throws CloneNotSupportedException {
+    public ChatSession m16clone() throws CloneNotSupportedException {
         return (ChatSession) super.clone();
     }
 

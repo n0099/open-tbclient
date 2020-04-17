@@ -28,7 +28,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
             try {
                 this.onSubscribe.accept(this);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 dVar.cancel();
                 onError(th);
             }
@@ -41,7 +41,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
             try {
                 this.onNext.accept(t);
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 get().cancel();
                 onError(th);
             }
@@ -56,7 +56,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
                 this.onError.accept(th);
                 return;
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.H(th2);
+                io.reactivex.exceptions.a.L(th2);
                 io.reactivex.e.a.onError(new CompositeException(th, th2));
                 return;
             }
@@ -71,7 +71,7 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
             try {
                 this.onComplete.run();
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 io.reactivex.e.a.onError(th);
             }
         }
@@ -98,6 +98,6 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.nya;
+        return this.onError != Functions.mRs;
     }
 }

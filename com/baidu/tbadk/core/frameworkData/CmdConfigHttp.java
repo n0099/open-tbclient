@@ -68,6 +68,7 @@ public class CmdConfigHttp {
     public static final int CMD_ENTER_FORUM_AD_REQUEST = 1003444;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
+    public static final int CMD_FORUM_SQUARE = 1003454;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
     public static final int CMD_FRS_AR_SHARE = 1003391;
     public static final int CMD_FRS_BUSSINESS_PROMOT_CLICK = 1003445;
@@ -143,6 +144,7 @@ public class CmdConfigHttp {
     public static final int CMD_HOT_THREAD_UNLIKE = 1003017;
     public static final int CMD_HOT_TOPIC = 1003041;
     public static final int CMD_HOT_TOPIC_RANKLIST = 1003078;
+    public static final int CMD_HOT_USER_RANK = 1003455;
     public static final int CMD_HTTP_DECRYPT_CODE = 1003421;
     public static final int CMD_HTTP_FRS_TAB_AD = 1003411;
     public static final int CMD_HTTP_GET_BIG_TBEAN_URL = 1003410;
@@ -210,6 +212,7 @@ public class CmdConfigHttp {
     public static final int CMD_SUB_INTEREST_LABEL_LIST = 1003334;
     public static final int CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP = 1003351;
     public static final int CMD_SYNC_UPLOAD_LOCAL_FACE_GROUP = 1003350;
+    public static final int CMD_TAB_FEED_LIST = 1003453;
     public static final int CMD_TAIL_ADD = 1003019;
     public static final int CMD_TAIL_DELETE = 1003020;
     public static final int CMD_TAIL_GET = 1003021;

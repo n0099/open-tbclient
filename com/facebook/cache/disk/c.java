@@ -18,24 +18,24 @@ public interface c {
     public interface b {
         void a(com.facebook.cache.common.h hVar, Object obj) throws IOException;
 
-        com.facebook.a.a aQ(Object obj) throws IOException;
+        com.facebook.a.a aG(Object obj) throws IOException;
 
-        boolean dkA();
+        boolean dmt();
     }
 
-    long OL(String str) throws IOException;
+    com.facebook.a.a A(String str, Object obj) throws IOException;
+
+    boolean B(String str, Object obj) throws IOException;
+
+    long NS(String str) throws IOException;
 
     long a(a aVar) throws IOException;
 
-    void dkw();
+    void dmp();
 
-    Collection<a> dkx() throws IOException;
+    Collection<a> dmq() throws IOException;
 
     boolean isExternal();
 
-    b u(String str, Object obj) throws IOException;
-
-    com.facebook.a.a v(String str, Object obj) throws IOException;
-
-    boolean w(String str, Object obj) throws IOException;
+    b z(String str, Object obj) throws IOException;
 }

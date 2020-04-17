@@ -12,6 +12,6 @@ public class n extends f<com.tb.airbnb.lottie.model.b> {
     @Override // com.tb.airbnb.lottie.a.b.a
     /* renamed from: h */
     public com.tb.airbnb.lottie.model.b a(com.tb.airbnb.lottie.e.a<com.tb.airbnb.lottie.model.b> aVar, float f) {
-        return aVar.kp;
+        return aVar.FL;
     }
 }

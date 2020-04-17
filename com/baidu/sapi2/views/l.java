@@ -1,6 +1,6 @@
 package com.baidu.sapi2.views;
 
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.GetDynamicPwdCallback;

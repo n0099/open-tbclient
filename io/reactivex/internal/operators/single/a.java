@@ -2,7 +2,6 @@ package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
 import io.reactivex.c.h;
-import io.reactivex.disposables.b;
 import io.reactivex.w;
 import io.reactivex.y;
 /* loaded from: classes7.dex */
@@ -12,39 +11,39 @@ public final class a<T, R> extends w<R> {
 
     @Override // io.reactivex.w
     protected void b(y<? super R> yVar) {
-        this.source.a(new C0765a(yVar, this.mapper));
+        this.source.a(new C0788a(yVar, this.mapper));
     }
 
     /* renamed from: io.reactivex.internal.operators.single.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    static final class C0765a<T, R> implements y<T> {
+    static final class C0788a<T, R> implements y<T> {
+        final y<? super R> mUf;
         final h<? super T, ? extends R> mapper;
-        final y<? super R> nAE;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C0765a(y<? super R> yVar, h<? super T, ? extends R> hVar) {
-            this.nAE = yVar;
+        public C0788a(y<? super R> yVar, h<? super T, ? extends R> hVar) {
+            this.mUf = yVar;
             this.mapper = hVar;
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
-            this.nAE.onSubscribe(bVar);
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
+            this.mUf.onSubscribe(bVar);
         }
 
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             try {
-                this.nAE.onSuccess(io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper function returned a null value."));
+                this.mUf.onSuccess(io.reactivex.internal.functions.a.h(this.mapper.apply(t), "The mapper function returned a null value."));
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 onError(th);
             }
         }
 
         @Override // io.reactivex.y
         public void onError(Throwable th) {
-            this.nAE.onError(th);
+            this.mUf.onError(th);
         }
     }
 }

@@ -12,25 +12,25 @@ public class d extends f {
         if (aVar != null) {
             a(listItem, this.j);
             if (aVar.f) {
-                if (this.ndh != null) {
-                    this.ndh.setVisibility(8);
+                if (this.mzI != null) {
+                    this.mzI.setVisibility(8);
                 }
                 if (b()) {
                     this.j.setVisibility(0);
                     this.e.setVisibility(8);
-                    this.mZw.setVisibility(8);
+                    this.mvU.setVisibility(8);
                 } else {
                     this.j.setVisibility(8);
                     this.e.setVisibility(0);
-                    this.mZw.setVisibility(0);
+                    this.mvU.setVisibility(0);
                 }
-                Point hc = tv.chushou.zues.utils.a.hc(this.q);
-                int i = hc.x;
-                ViewGroup.LayoutParams layoutParams = this.ndt.getLayoutParams();
+                Point gh = tv.chushou.zues.utils.a.gh(this.q);
+                int i = gh.x;
+                ViewGroup.LayoutParams layoutParams = this.mzU.getLayoutParams();
                 layoutParams.height = i / 5;
                 layoutParams.width = i;
-                this.ndt.setLayoutParams(layoutParams);
-                com.kascend.chushou.a.a.dCm().b(listItem, this.mSF, hc.x / 5, ((hc.x / 5) * 360) / 144, ((hc.x / 5) * 144) / 144);
+                this.mzU.setLayoutParams(layoutParams);
+                com.kascend.chushou.a.a.dwE().b(listItem, this.mpp, gh.x / 5, ((gh.x / 5) * 360) / 144, ((gh.x / 5) * 144) / 144);
                 if (aVar.a) {
                     if (b()) {
                         c();
@@ -38,7 +38,7 @@ public class d extends f {
                         this.e.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.d.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                d.this.ndt.b(d.this.m, d.this.n, d.this.o, d.this.p);
+                                d.this.mzU.b(d.this.m, d.this.n, d.this.o, d.this.p);
                             }
                         });
                     }
@@ -48,39 +48,39 @@ public class d extends f {
             } else {
                 if (b()) {
                     this.j.setVisibility(0);
-                    this.mZw.setVisibility(8);
-                    if (this.ndh != null) {
-                        this.ndh.setVisibility(8);
+                    this.mvU.setVisibility(8);
+                    if (this.mzI != null) {
+                        this.mzI.setVisibility(8);
                     }
                 } else {
                     this.j.setVisibility(8);
-                    this.mZw.setVisibility(0);
+                    this.mvU.setVisibility(0);
                 }
                 this.e.setVisibility(8);
                 if (aVar.b) {
-                    Point hc2 = tv.chushou.zues.utils.a.hc(this.q);
-                    if (com.kascend.chushou.a.a.dCm().a(listItem, this.ndt, hc2.x, (hc2.x * aVar.c) / 720, (hc2.x * aVar.d) / 720) == 0) {
-                        int i2 = hc2.x;
-                        ViewGroup.LayoutParams layoutParams2 = this.ndt.getLayoutParams();
+                    Point gh2 = tv.chushou.zues.utils.a.gh(this.q);
+                    if (com.kascend.chushou.a.a.dwE().a(listItem, this.mzU, gh2.x, (gh2.x * aVar.c) / 720, (gh2.x * aVar.d) / 720) == 0) {
+                        int i2 = gh2.x;
+                        ViewGroup.LayoutParams layoutParams2 = this.mzU.getLayoutParams();
                         layoutParams2.width = i2;
                         layoutParams2.height = (int) (i2 / 2.5d);
-                        this.ndt.setLayoutParams(layoutParams2);
+                        this.mzU.setLayoutParams(layoutParams2);
                     }
                 }
                 if (aVar.a) {
                     if (b()) {
                         c();
                     } else {
-                        this.mZw.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.d.2
+                        this.mvU.setOnClickListener(new View.OnClickListener() { // from class: com.kascend.chushou.player.ui.food.d.2
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                d.this.ndt.b(d.this.m, d.this.n, d.this.o, d.this.p);
+                                d.this.mzU.b(d.this.m, d.this.n, d.this.o, d.this.p);
                             }
                         });
                     }
                 }
             }
-            this.ndt.setVisibility(0);
+            this.mzU.setVisibility(0);
         }
     }
 }

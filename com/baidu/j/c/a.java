@@ -1,22 +1,31 @@
 package com.baidu.j.c;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONObject;
-/* loaded from: classes11.dex */
-public interface a {
-    boolean aT(Context context);
+/* loaded from: classes6.dex */
+public class a {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private CallbackHandler bYa;
+    public JSONObject bZJ;
 
-    void b(Context context, JSONObject jSONObject, com.baidu.j.a.a aVar);
+    public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
+        this.bYa = callbackHandler;
+        this.bZJ = jSONObject;
+    }
 
-    void e(Activity activity, String str, com.baidu.j.a.a aVar);
+    public void ko(String str) {
+        e(str, null);
+    }
 
-    void eJ(String str);
-
-    void f(Activity activity, String str, com.baidu.j.a.a aVar);
-
-    void g(Context context, JSONObject jSONObject);
-
-    void i(Bundle bundle);
+    public void e(String str, JSONObject jSONObject) {
+        if (this.bZJ != null && this.bYa != null) {
+            JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+            this.bYa.handleSchemeDispatchCallback(this.bZJ.optString(str), wrapCallbackParams.toString());
+            if (DEBUG) {
+                Log.d("AudioRTCEventCallback", "AudioRTC callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
+            }
+        }
+    }
 }

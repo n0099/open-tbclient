@@ -6,13 +6,13 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEvent;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* loaded from: classes10.dex */
 class i implements Runnable {
-    final /* synthetic */ IOAdEvent aOG;
-    final /* synthetic */ h aPt;
+    final /* synthetic */ IOAdEvent bkx;
+    final /* synthetic */ h blk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, IOAdEvent iOAdEvent) {
-        this.aPt = hVar;
-        this.aOG = iOAdEvent;
+        this.blk = hVar;
+        this.bkx = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -29,40 +29,40 @@ class i implements Runnable {
         BaiduNativeAdPlacement baiduNativeAdPlacement4;
         BaiduNativeH5AdView.BaiduNativeH5EventListner baiduNativeH5EventListner7;
         BaiduNativeH5AdView.BaiduNativeH5EventListner baiduNativeH5EventListner8;
-        if (IXAdEvent.AD_STARTED.equals(this.aOG.getType())) {
-            this.aPt.aPs.f = true;
-            baiduNativeAdPlacement4 = this.aPt.aPs.aOY;
-            baiduNativeAdPlacement4.bL(false);
-            this.aPt.aPs.recordImpression();
-            baiduNativeH5EventListner7 = this.aPt.aPs.aPa;
+        if (IXAdEvent.AD_STARTED.equals(this.bkx.getType())) {
+            this.blk.blj.f = true;
+            baiduNativeAdPlacement4 = this.blk.blj.bkP;
+            baiduNativeAdPlacement4.cA(false);
+            this.blk.blj.recordImpression();
+            baiduNativeH5EventListner7 = this.blk.blj.bkR;
             if (baiduNativeH5EventListner7 != null) {
-                baiduNativeH5EventListner8 = this.aPt.aPs.aPa;
+                baiduNativeH5EventListner8 = this.blk.blj.bkR;
                 baiduNativeH5EventListner8.onAdShow();
             }
-        } else if (IXAdEvent.AD_ERROR.equals(this.aOG.getType())) {
-            baiduNativeAdPlacement3 = this.aPt.aPs.aOY;
-            baiduNativeAdPlacement3.bL(false);
-            baiduNativeH5EventListner5 = this.aPt.aPs.aPa;
+        } else if (IXAdEvent.AD_ERROR.equals(this.bkx.getType())) {
+            baiduNativeAdPlacement3 = this.blk.blj.bkP;
+            baiduNativeAdPlacement3.cA(false);
+            baiduNativeH5EventListner5 = this.blk.blj.bkR;
             if (baiduNativeH5EventListner5 != null) {
-                baiduNativeH5EventListner6 = this.aPt.aPs.aPa;
-                baiduNativeH5EventListner6.onAdFail(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.aOG.getData()));
+                baiduNativeH5EventListner6 = this.blk.blj.bkR;
+                baiduNativeH5EventListner6.onAdFail(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.bkx.getData()));
             }
-        } else if ("AdUserClick".equals(this.aOG.getType())) {
-            baiduNativeAdPlacement2 = this.aPt.aPs.aOY;
-            baiduNativeAdPlacement2.bM(true);
-            baiduNativeH5EventListner3 = this.aPt.aPs.aPa;
+        } else if ("AdUserClick".equals(this.bkx.getType())) {
+            baiduNativeAdPlacement2 = this.blk.blj.bkP;
+            baiduNativeAdPlacement2.cB(true);
+            baiduNativeH5EventListner3 = this.blk.blj.bkR;
             if (baiduNativeH5EventListner3 != null) {
-                baiduNativeH5EventListner4 = this.aPt.aPs.aPa;
+                baiduNativeH5EventListner4 = this.blk.blj.bkR;
                 baiduNativeH5EventListner4.onAdClick();
             }
-        } else if (IXAdEvent.AD_IMPRESSION.equals(this.aOG.getType())) {
-            baiduNativeAdPlacement = this.aPt.aPs.aOY;
-            baiduNativeAdPlacement.bN(true);
-        } else if ("AdLoadData".equals(this.aOG.getType())) {
-            this.aPt.aPs.g = true;
-            baiduNativeH5EventListner = this.aPt.aPs.aPa;
+        } else if (IXAdEvent.AD_IMPRESSION.equals(this.bkx.getType())) {
+            baiduNativeAdPlacement = this.blk.blj.bkP;
+            baiduNativeAdPlacement.cC(true);
+        } else if ("AdLoadData".equals(this.bkx.getType())) {
+            this.blk.blj.g = true;
+            baiduNativeH5EventListner = this.blk.blj.bkR;
             if (baiduNativeH5EventListner != null) {
-                baiduNativeH5EventListner2 = this.aPt.aPs.aPa;
+                baiduNativeH5EventListner2 = this.blk.blj.bkR;
                 baiduNativeH5EventListner2.onAdDataLoaded();
             }
         }

@@ -1,6 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.content.Context;
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.util.ArrayList;
@@ -396,7 +397,7 @@ public abstract class WebSettings implements Observer {
         TextSize textSize;
         TextSize textSize2;
         TextSize textSize3 = null;
-        int i = Integer.MAX_VALUE;
+        int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         int textZoom = getTextZoom();
         TextSize[] values = TextSize.values();
         int length = values.length;

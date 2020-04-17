@@ -5,22 +5,22 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetQuickGiftHttpResponseMessage extends JsonHttpResponsedMessage {
-    private o awW;
+    private o aQz;
 
     public GetQuickGiftHttpResponseMessage() {
         super(1021124);
     }
 
-    public o zb() {
-        return this.awW;
+    public o DV() {
+        return this.aQz;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.awW = new o();
-            this.awW.parseJson(jSONObject);
+            this.aQz = new o();
+            this.aQz.parseJson(jSONObject);
         }
     }
 }

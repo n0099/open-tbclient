@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.statistic.a;
@@ -30,11 +29,11 @@ import tv.chushou.basis.http.HttpConsts;
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean HY() {
-        return com.baidu.swan.apps.w.a.Ul().HY();
+    public static boolean PK() {
+        return com.baidu.swan.apps.w.a.aca().PK();
     }
 
-    public static void d(File file, File file2) throws IOException {
+    public static void e(File file, File file2) throws IOException {
         FileChannel fileChannel;
         FileChannel fileChannel2 = null;
         try {
@@ -64,7 +63,7 @@ public class a {
         }
     }
 
-    public static void gK(String str) {
+    public static void hY(String str) {
         b(str, null, null, true);
     }
 
@@ -99,9 +98,9 @@ public class a {
                 bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
                 try {
                     if (file3.exists()) {
-                        d(file3, file);
+                        e(file3, file);
                     } else {
-                        d(file, file3);
+                        e(file, file3);
                     }
                     BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter(file2));
                     boolean z2 = false;
@@ -180,7 +179,7 @@ public class a {
         }
     }
 
-    public static void bS(@NonNull Context context) {
+    public static void bG(@NonNull Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
             Class<?> cls = Class.forName("android.content.res.AssetManager");
@@ -209,7 +208,7 @@ public class a {
                     jSONObject.put("stringBlocksSys " + i2, " == null :" + (objArr2[i2] == null));
                 }
             }
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, R.styleable.View, Resources.getSystem().getIdentifier("webViewStyle", "attr", PraiseDataPassUtil.KEY_FROM_OS), 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(null, R.styleable.View, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"), 0);
             if (obtainStyledAttributes == null) {
                 jSONObject.put("TypedArray", "null");
             } else {
@@ -237,7 +236,7 @@ public class a {
         if (DEBUG) {
             Log.d("SwanAppCoreUtils", "reportFatalInfo: " + jSONObject2);
         }
-        new a.C0297a(10006).lE(jSONObject2).lD(e.acK()).Wp();
+        new a.C0327a(10006).mR(jSONObject2).mQ(e.akP()).aee();
     }
 
     public static void r(String str, String str2, String str3) {
@@ -257,7 +256,7 @@ public class a {
             if (DEBUG) {
                 Log.d("SwanAppCoreUtils", "reportInsertHistoryCrash: " + jSONObject2);
             }
-            new a.C0297a(10008).lE(jSONObject2).lD(e.acK()).Wp();
+            new a.C0327a(10008).mR(jSONObject2).mQ(e.akP()).aee();
         } catch (Exception e) {
             if (DEBUG) {
                 e.printStackTrace();

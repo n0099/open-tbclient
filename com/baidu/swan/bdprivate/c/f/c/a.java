@@ -23,11 +23,11 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean dl(@NonNull Context context) {
+    public static boolean cZ(@NonNull Context context) {
         return (context.getResources().getConfiguration().screenLayout & 15) >= 3;
     }
 
-    public static int dm(Context context) {
+    public static int da(Context context) {
         TelephonyManager telephonyManager;
         String simOperator;
         if (context != null && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null && (simOperator = telephonyManager.getSimOperator()) != null) {
@@ -42,7 +42,7 @@ public class a {
         return 0;
     }
 
-    public static int aiC() {
+    public static int aqK() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if ("wifi".equals(networkClass)) {
             return 1;
@@ -60,7 +60,7 @@ public class a {
     }
 
     @Nullable
-    public static String nj(String str) {
+    public static String oy(String str) {
         try {
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
@@ -75,7 +75,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            nk(jSONObject.toString());
+            oz(jSONObject.toString());
             return null;
         }
     }
@@ -85,7 +85,7 @@ public class a {
         boolean z;
         int i;
         if (aVar != null && bVar != null) {
-            String str = TextUtils.isEmpty(bVar.cdK) ? "unknown" : bVar.cdK;
+            String str = TextUtils.isEmpty(bVar.cCI) ? "unknown" : bVar.cCI;
             switch (str.hashCode()) {
                 case -1395470197:
                     if (str.equals("bd09ll")) {
@@ -136,18 +136,18 @@ public class a {
                     i = -1;
                     break;
             }
-            aVar.cdA.coordType = i;
-            aVar.cdA.latitude = bVar.latitude;
-            aVar.cdA.longitude = bVar.longitude;
+            aVar.cCy.coordType = i;
+            aVar.cCy.latitude = bVar.latitude;
+            aVar.cCy.longitude = bVar.longitude;
         }
     }
 
-    public static void nk(String str) {
+    public static void oz(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new a.C0297a(10003).lE(str).lD(e.acK()).Wp();
+            new a.C0327a(10003).mR(str).mQ(e.akP()).aee();
         }
     }
 }

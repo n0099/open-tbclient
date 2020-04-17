@@ -51,7 +51,7 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        com.baidu.browser.core.permission.a.mB().a(4099, new b(this));
+        com.baidu.browser.core.permission.a.rd().a(4099, new b(this));
         return intent;
     }
 
@@ -78,7 +78,7 @@ public class BdUploadHandler implements INoProGuard {
     private Intent createChooserIntent(Intent... intentArr) {
         Intent intent = new Intent("android.intent.action.CHOOSER");
         intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.J("string", "sailor_choose_upload")));
+        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(g.N("string", "sailor_choose_upload")));
         return intent;
     }
 
@@ -102,7 +102,7 @@ public class BdUploadHandler implements INoProGuard {
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra("request_code", 4099);
         intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-        com.baidu.browser.core.permission.a.mB().a(4099, new a(this));
+        com.baidu.browser.core.permission.a.rd().a(4099, new a(this));
         return intent;
     }
 
@@ -285,7 +285,7 @@ public class BdUploadHandler implements INoProGuard {
         }
         this.mCameraFilePath = null;
         if (str2.equals(IMAGE_MIME_TYPE)) {
-            if (str.equals(MEDIA_SOURCE_VALUE_CAMERA)) {
+            if (str.equals("camera")) {
                 try {
                     return startActivityForResult(createCameraIntent(), 11);
                 } catch (Exception e) {

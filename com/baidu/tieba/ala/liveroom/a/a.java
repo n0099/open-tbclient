@@ -4,91 +4,97 @@ import android.app.Activity;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.view.web.f;
+import com.baidu.live.view.web.g;
 /* loaded from: classes3.dex */
 public class a implements c {
-    private boolean eHT;
-    private b ePF;
-    private long ePG;
-    private String ePH;
-    private CustomMessageListener evC;
+    private long aQg;
+    private CustomMessageListener eYX;
+    private boolean fmk;
+    private b fua;
+    private long fub;
+    private String fuc;
     private Activity mActivity;
 
     public a(Activity activity) {
         this.mActivity = activity;
-        bdM();
+        bmD();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void setHost(boolean z) {
-        this.eHT = z;
+        this.fmk = z;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void e(long j, String str) {
-        this.ePG = j;
-        this.ePH = str;
-        if (this.ePH == null) {
-            this.ePH = "";
+    public void g(long j, String str) {
+        this.fub = j;
+        this.fuc = str;
+        if (this.fuc == null) {
+            this.fuc = "";
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void ap(String str, int i) {
-        this.ePF = new b(this.mActivity);
-        f fVar = new f();
-        fVar.y(this.mActivity).a(this.ePF).a(this.ePF.bdN().getSchemeCallback()).R(this.ePG).eo(this.ePH).bA(this.eHT);
-        com.baidu.live.view.web.a[] BJ = fVar.BJ();
-        for (com.baidu.live.view.web.a aVar : BJ) {
-            this.ePF.bdN().addJavascriptInterface(aVar, aVar.getName());
+    public void setLiveId(long j) {
+        this.aQg = j;
+    }
+
+    @Override // com.baidu.tieba.ala.liveroom.a.c
+    public void az(String str, int i) {
+        this.fua = new b(this.mActivity);
+        g gVar = new g();
+        gVar.u(this.mActivity).a(this.fua).a(this.fua.bmE().getSchemeCallback()).aw(this.fub).fi(this.fuc).cj(this.fmk).ax(this.aQg);
+        com.baidu.live.view.web.a[] HN = gVar.HN();
+        for (com.baidu.live.view.web.a aVar : HN) {
+            this.fua.bmE().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.ePF.aq(str, i);
+        this.fua.aA(str, i);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void resume() {
-        if (this.ePF != null && this.ePF.isShowing() && this.ePF.bdN() != null) {
-            this.ePF.bdN().onResume();
+        if (this.fua != null && this.fua.isShowing() && this.fua.bmE() != null) {
+            this.fua.bmE().onResume();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void pause() {
-        if (this.ePF != null && this.ePF.isShowing() && this.ePF.bdN() != null) {
-            this.ePF.bdN().onPause();
+        if (this.fua != null && this.fua.isShowing() && this.fua.bmE() != null) {
+            this.fua.bmE().onPause();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
-    public void bW(int i) {
-        if (this.ePF != null && this.ePF.isShowing()) {
-            this.ePF.bW(i);
+    public void cl(int i) {
+        if (this.fua != null && this.fua.isShowing()) {
+            this.fua.cl(i);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a.c
     public void release() {
-        this.ePG = 0L;
-        this.ePH = "";
-        MessageManager.getInstance().unRegisterListener(this.evC);
-        if (this.ePF != null) {
-            this.ePF.bdO();
-            if (this.ePF.bdN() != null) {
-                this.ePF.bdN().release();
+        this.fub = 0L;
+        this.fuc = "";
+        MessageManager.getInstance().unRegisterListener(this.eYX);
+        if (this.fua != null) {
+            this.fua.bmF();
+            if (this.fua.bmE() != null) {
+                this.fua.bmE().release();
             }
         }
     }
 
-    private void bdM() {
-        this.evC = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
+    private void bmD() {
+        this.eYX = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (a.this.ePF != null && a.this.ePF.isShowing()) {
-                    a.this.ePF.dismiss();
+                if (a.this.fua != null && a.this.fua.isShowing()) {
+                    a.this.fua.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.evC);
+        MessageManager.getInstance().registerListener(this.eYX);
     }
 }

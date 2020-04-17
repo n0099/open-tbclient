@@ -8,18 +8,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.bb;
 /* loaded from: classes9.dex */
 public class a extends PopupWindow {
-    private TbPageContext cVv;
-    private InterfaceC0518a hcn;
+    private TbPageContext duG;
+    private InterfaceC0555a hMd;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0518a {
-        void bOs();
+    public interface InterfaceC0555a {
+        void bYT();
     }
 
     public a(TbPageContext tbPageContext, View view, int i, int i2) {
         super(view, i, i2);
-        this.cVv = tbPageContext;
+        this.duG = tbPageContext;
     }
 
     @Override // android.widget.PopupWindow
@@ -27,7 +27,7 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bb.getScreenFullSize(this.cVv.getPageActivity())[1] - rect.bottom);
+            setHeight(bb.getScreenFullSize(this.duG.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view);
     }
@@ -37,25 +37,25 @@ public class a extends PopupWindow {
         if (Build.VERSION.SDK_INT >= 24) {
             Rect rect = new Rect();
             view.getGlobalVisibleRect(rect);
-            setHeight(bb.getScreenFullSize(this.cVv.getPageActivity())[1] - rect.bottom);
+            setHeight(bb.getScreenFullSize(this.duG.getPageActivity())[1] - rect.bottom);
         }
         super.showAsDropDown(view, i, i2);
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        if (this.hcn != null) {
-            this.hcn.bOs();
+        if (this.hMd != null) {
+            this.hMd.bYT();
         } else {
             super.dismiss();
         }
     }
 
-    public void bdO() {
+    public void bmF() {
         super.dismiss();
     }
 
-    public void a(InterfaceC0518a interfaceC0518a) {
-        this.hcn = interfaceC0518a;
+    public void a(InterfaceC0555a interfaceC0555a) {
+        this.hMd = interfaceC0555a;
     }
 }

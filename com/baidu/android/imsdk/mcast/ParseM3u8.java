@@ -3,9 +3,7 @@ package com.baidu.android.imsdk.mcast;
 import android.annotation.SuppressLint;
 import android.support.media.ExifInterface;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.util.time.DateTimeUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -155,14 +153,14 @@ public class ParseM3u8 {
         LogUtils.d(TAG, "parseTSline attr:   " + str + "  " + str2 + "  " + str3);
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             TS ts = new TS();
-            String trim = str.substring(str.indexOf(":") + 1).replace(ExifInterface.GPS_DIRECTION_TRUE, HanziToPinyin.Token.SEPARATOR).trim();
+            String trim = str.substring(str.indexOf(":") + 1).replace(ExifInterface.GPS_DIRECTION_TRUE, " ").trim();
             ts.stime = trim;
             if (trim.length() < 20) {
                 LogUtils.e(TAG, "parseTSattr exception 2.");
                 return;
             }
             try {
-                ts.time = stringToLong(trim.substring(0, 19), DateTimeUtil.TIME_FORMAT);
+                ts.time = stringToLong(trim.substring(0, 19), "yyyy-MM-dd HH:mm:ss");
             } catch (ParseException e) {
                 e.printStackTrace();
                 LogUtils.e(TAG, "stringToLong execption");
@@ -185,7 +183,7 @@ public class ParseM3u8 {
             } else {
                 ts.relativetime = (ts.time - this.mTslist.get(0).time) / 1000;
             }
-            LogUtils.d(TAG, "  parseTSline attr:   " + ts.time + HanziToPinyin.Token.SEPARATOR + ts.relativetime + "  " + ts.duration + "  " + str3);
+            LogUtils.d(TAG, "  parseTSline attr:   " + ts.time + " " + ts.relativetime + "  " + ts.duration + "  " + str3);
             this.mTslist.add(ts);
         }
     }

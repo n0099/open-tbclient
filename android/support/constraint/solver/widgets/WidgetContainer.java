@@ -1,6 +1,7 @@
 package android.support.constraint.solver.widgets;
 
 import android.support.constraint.solver.Cache;
+import android.support.v7.widget.ActivityChooserView;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class WidgetContainer extends ConstraintWidget {
@@ -124,7 +125,7 @@ public class WidgetContainer extends ConstraintWidget {
     }
 
     public static Rectangle getBounds(ArrayList<ConstraintWidget> arrayList) {
-        int i = Integer.MAX_VALUE;
+        int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         Rectangle rectangle = new Rectangle();
         if (arrayList.size() == 0) {
             return rectangle;

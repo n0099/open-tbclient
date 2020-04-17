@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 public interface a {
     void A(BdUniqueId bdUniqueId);
 
-    void Z(Intent intent);
+    void Y(Intent intent);
 
     String getID();
 

@@ -2,7 +2,6 @@ package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
 import io.reactivex.c.h;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.q;
@@ -24,7 +23,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
         private static final long serialVersionUID = -8938804753851907758L;
         final u<? super R> actual;
         volatile boolean cancelled;
-        b d;
+        io.reactivex.disposables.b d;
         volatile Iterator<? extends R> it;
         final h<? super T, ? extends Iterable<? extends R>> mapper;
         boolean outputFused;
@@ -35,7 +34,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.validate(this.d, bVar)) {
                 this.d = bVar;
                 this.actual.onSubscribe(this);
@@ -65,7 +64,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
                                         return;
                                     }
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.H(th);
+                                    io.reactivex.exceptions.a.L(th);
                                     uVar.onError(th);
                                     return;
                                 }
@@ -73,14 +72,14 @@ public final class SingleFlatMapIterableObservable<T, R> extends q<R> {
                                 return;
                             }
                         } catch (Throwable th2) {
-                            io.reactivex.exceptions.a.H(th2);
+                            io.reactivex.exceptions.a.L(th2);
                             uVar.onError(th2);
                             return;
                         }
                     }
                 }
             } catch (Throwable th3) {
-                io.reactivex.exceptions.a.H(th3);
+                io.reactivex.exceptions.a.L(th3);
                 this.actual.onError(th3);
             }
         }

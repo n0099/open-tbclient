@@ -8,44 +8,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BdBaseView<BaseFragmentActivity> {
-    private String aCu;
-    private String aCv;
-    private AlbumActivity aCw;
-    private String[] aCx;
-    private ImageListFragment aCy;
-    private AlbumImageBrowseFragment aCz;
+    private String aWb;
+    private String aWc;
+    private AlbumActivity aWd;
+    private String[] aWe;
+    private ImageListFragment aWf;
+    private AlbumImageBrowseFragment aWg;
     private List<Fragment> mFragments;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.aCu = "tag_image";
-        this.aCv = "tag_b_image";
-        this.aCw = albumActivity;
+        this.aWb = "tag_image";
+        this.aWc = "tag_b_image";
+        this.aWd = albumActivity;
     }
 
-    public void Ay() {
+    public void Fw() {
         this.mFragments = new ArrayList(2);
-        this.aCx = new String[2];
-        this.aCy = new ImageListFragment();
-        this.mFragments.add(this.aCy);
-        this.aCx[0] = this.aCu;
-        this.aCz = new AlbumImageBrowseFragment();
-        this.mFragments.add(this.aCz);
-        this.aCx[1] = this.aCv;
+        this.aWe = new String[2];
+        this.aWf = new ImageListFragment();
+        this.mFragments.add(this.aWf);
+        this.aWe[0] = this.aWb;
+        this.aWg = new AlbumImageBrowseFragment();
+        this.mFragments.add(this.aWg);
+        this.aWe[1] = this.aWc;
     }
 
-    public Fragment cN(int i) {
+    public Fragment dc(int i) {
         if (i < 0 || this.mFragments == null || i >= this.mFragments.size()) {
             return null;
         }
         return this.mFragments.get(i);
     }
 
-    public String cO(int i) {
+    public String dd(int i) {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.aCx[i];
+        return this.aWe[i];
     }
 
     public void onChangeSkinType(int i) {
@@ -65,57 +65,57 @@ public class a extends BdBaseView<BaseFragmentActivity> {
         }
     }
 
-    public View Az() {
-        if (this.aCy == null) {
+    public View Fx() {
+        if (this.aWf == null) {
             return null;
         }
-        return this.aCy.AH();
+        return this.aWf.FF();
     }
 
-    public View AA() {
-        if (this.aCy == null) {
+    public View Fy() {
+        if (this.aWf == null) {
             return null;
         }
-        return this.aCy.AW();
+        return this.aWf.FU();
     }
 
-    public View AB() {
-        if (this.aCz == null) {
+    public View Fz() {
+        if (this.aWg == null) {
             return null;
         }
-        return this.aCz.AH();
+        return this.aWg.FF();
     }
 
-    public View AC() {
-        if (this.aCz == null) {
+    public View FA() {
+        if (this.aWg == null) {
             return null;
         }
-        return this.aCz.AI();
+        return this.aWg.FG();
     }
 
-    public View AD() {
-        if (this.aCz == null) {
+    public View FB() {
+        if (this.aWg == null) {
             return null;
         }
-        return this.aCz.AD();
+        return this.aWg.FB();
     }
 
-    public View AE() {
-        if (this.aCy == null) {
+    public View FC() {
+        if (this.aWf == null) {
             return null;
         }
-        return this.aCy.AD();
+        return this.aWf.FB();
     }
 
     public void onDestroy() {
     }
 
-    public void bu(boolean z) {
-        if (this.aCz != null) {
-            this.aCz.bu(z);
+    public void bY(boolean z) {
+        if (this.aWg != null) {
+            this.aWg.bY(z);
         }
-        if (this.aCy != null) {
-            this.aCy.bu(z);
+        if (this.aWf != null) {
+            this.aWf.bY(z);
         }
     }
 }

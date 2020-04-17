@@ -18,6 +18,7 @@ public class ExtraParamsManager {
     public static final String KEY_CMD = "cmd";
     public static final String KEY_DO_LOG = "do_log";
     public static final String KEY_DO_TIEBA_LOG = "do_tieba_log";
+    public static final String KEY_GET_BAIDUSID = "get_baidusid";
     public static final String KEY_GET_BAIDUZID = "get_baiduzid";
     public static final String KEY_GET_BASE64 = "get_base64";
     public static final String KEY_GET_DECRYPT_USERID = "get_decrypt_userid";
@@ -323,6 +324,27 @@ public class ExtraParamsManager {
                 Map<String, Object> process = buildParamsExtra.process(hashMap);
                 if (process.containsKey(KEY_GET_BAIDUZID) && (process.get(KEY_GET_BAIDUZID) instanceof String)) {
                     str = (String) process.get(KEY_GET_BAIDUZID);
+                    return str;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        str = "";
+        return str;
+    }
+
+    public static String getBaiduSid() {
+        String str;
+        IExtraParams buildParamsExtra = getInstance().buildParamsExtra();
+        if (buildParamsExtra != null) {
+            try {
+                HashMap hashMap = new HashMap();
+                hashMap.put(KEY_GET_BAIDUSID, "");
+                Map<String, Object> process = buildParamsExtra.process(hashMap);
+                if (process.containsKey(KEY_GET_BAIDUSID) && (process.get(KEY_GET_BAIDUSID) instanceof String)) {
+                    str = (String) process.get(KEY_GET_BAIDUSID);
                     return str;
                 }
             } catch (Exception e) {

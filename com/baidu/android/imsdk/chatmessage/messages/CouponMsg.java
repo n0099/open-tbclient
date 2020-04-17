@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.searchbox.picture.component.BaseBrowseView;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -186,7 +185,7 @@ public class CouponMsg extends NormalMsg {
             this.mDesc = jSONObject.optString("desc", "");
             this.mDiscountType = jSONObject.optInt("discount_type");
             this.mDiscount = jSONObject.optString("discount", "");
-            this.mBgcolor = jSONObject.optString("bgcolor", BaseBrowseView.ROOT_VIEW_COLOR);
+            this.mBgcolor = jSONObject.optString("bgcolor", "#000000");
             this.mUrl = jSONObject.optString("url", "");
             this.mStatus = jSONObject.optString("status");
             return true;

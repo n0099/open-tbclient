@@ -14,19 +14,19 @@ public class y extends x {
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable nDK;
+        final /* synthetic */ Iterable mXj;
 
         public a(Iterable iterable) {
-            this.nDK = iterable;
+            this.mXj = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.nDK.iterator();
+            return this.mXj.iterator();
         }
     }
 
-    public static final <T> T fx(List<? extends T> list) {
+    public static final <T> T fl(List<? extends T> list) {
         kotlin.jvm.internal.q.j(list, "receiver$0");
         if (list.isEmpty()) {
             throw new NoSuchElementException("List is empty.");
@@ -34,18 +34,18 @@ public class y extends x {
         return list.get(0);
     }
 
-    public static final <T> T fy(List<? extends T> list) {
+    public static final <T> T fm(List<? extends T> list) {
         kotlin.jvm.internal.q.j(list, "receiver$0");
         if (list.isEmpty()) {
             throw new NoSuchElementException("List is empty.");
         }
-        return list.get(o.fu(list));
+        return list.get(o.fi(list));
     }
 
     public static final <T> T c(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.q.j(iterable, "receiver$0");
         if (iterable instanceof List) {
-            return (T) o.fz((List) iterable);
+            return (T) o.fn((List) iterable);
         }
         Iterator<? extends T> it = iterable.iterator();
         if (!it.hasNext()) {
@@ -58,7 +58,7 @@ public class y extends x {
         return next;
     }
 
-    public static final <T> T fz(List<? extends T> list) {
+    public static final <T> T fn(List<? extends T> list) {
         kotlin.jvm.internal.q.j(list, "receiver$0");
         switch (list.size()) {
             case 0:
@@ -74,7 +74,7 @@ public class y extends x {
         kotlin.jvm.internal.q.j(iterable, "receiver$0");
         if (!(iterable instanceof Collection) || ((Collection) iterable).size() > 1) {
             List<T> g = o.g(iterable);
-            o.fw(g);
+            o.fk(g);
             return g;
         }
         return o.f(iterable);
@@ -91,7 +91,7 @@ public class y extends x {
 
     public static final <T> HashSet<T> e(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.q.j(iterable, "receiver$0");
-        return (HashSet) o.a(iterable, new HashSet(af.NK(o.a(iterable, 12))));
+        return (HashSet) o.a(iterable, new HashSet(af.Je(o.a(iterable, 12))));
     }
 
     public static final <T> List<T> f(Iterable<? extends T> iterable) {
@@ -99,14 +99,14 @@ public class y extends x {
         if (iterable instanceof Collection) {
             switch (((Collection) iterable).size()) {
                 case 0:
-                    return o.dKE();
+                    return o.dDD();
                 case 1:
-                    return o.bS(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
+                    return o.bB(iterable instanceof List ? ((List) iterable).get(0) : iterable.iterator().next());
                 default:
                     return o.m((Collection) iterable);
             }
         }
-        return o.fv(o.g(iterable));
+        return o.fj(o.g(iterable));
     }
 
     public static final <T> List<T> g(Iterable<? extends T> iterable) {

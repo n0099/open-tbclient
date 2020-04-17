@@ -125,9 +125,9 @@ public class QuanminLiveRecordLogger implements ILiveRecordLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_STORE_ICON);
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
             jSONObject = LogManager.addOtherParamsToJson(jSONObject, str4, false, false);
@@ -141,9 +141,9 @@ public class QuanminLiveRecordLogger implements ILiveRecordLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", "live_goods_list");
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put("type", i + "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -158,9 +158,9 @@ public class QuanminLiveRecordLogger implements ILiveRecordLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", "live_goods_guide_card");
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
             jSONObject = LogManager.addOtherParamsToJson(jSONObject, str4, false, false);
@@ -176,7 +176,7 @@ public class QuanminLiveRecordLogger implements ILiveRecordLogger {
             jSONObject.put("tab", "liveroom");
             jSONObject.put("k", "click");
             jSONObject.put("v", "live_goods_guide_card");
-            jSONObject.put(LogConfig.LOG_VID, str3);
+            jSONObject.put("vid", str3);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
             jSONObject = LogManager.addOtherParamsToJson(jSONObject, str4, false, false);

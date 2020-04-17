@@ -30,11 +30,11 @@ public class c extends Exception {
         this.an = i2;
     }
 
-    public int P() {
+    public int R() {
         return this.am;
     }
 
-    public int Q() {
+    public int S() {
         return this.an;
     }
 }

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyService;
@@ -547,7 +546,7 @@ public class e {
                         if (cVar2.e.length == 2) {
                             String str4 = (String) cVar2.e[0];
                             num = (Integer) cVar2.e[1];
-                            new StringBuilder("args ").append(str4).append(HanziToPinyin.Token.SEPARATOR).append(num);
+                            new StringBuilder("args ").append(str4).append(" ").append(num);
                             com.baidu.sofire.b.a();
                             str3 = str4;
                             str2 = null;

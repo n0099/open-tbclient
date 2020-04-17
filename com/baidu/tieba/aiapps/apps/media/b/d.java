@@ -12,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class d implements com.baidu.swan.apps.w.b.e {
-    protected String eeD = "";
+    protected String eEu = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes12.dex */
@@ -20,7 +20,7 @@ public class d implements com.baidu.swan.apps.w.b.e {
         boolean a(Context context, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar);
     }
 
-    private JSONObject iY(String str) {
+    private JSONObject kl(String str) {
         JSONObject jSONObject;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -39,32 +39,32 @@ public class d implements com.baidu.swan.apps.w.b.e {
             return null;
         }
         com.baidu.swan.apps.media.a B = com.baidu.swan.apps.media.b.B(str, str2, str3);
-        if (B == null && aq.equals("/swanAPI/live/open", this.eeD)) {
-            this.eeD = "";
+        if (B == null && aq.equals("/swanAPI/live/open", this.eEu)) {
+            this.eEu = "";
             return new f(context, str3);
-        } else if (B == null || !(B.Xf() instanceof f)) {
+        } else if (B == null || !(B.aeV() instanceof f)) {
             return null;
         } else {
-            return (f) B.Xf();
+            return (f) B.aeV();
         }
     }
 
     private boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar, a aVar) {
-        JSONObject iY = iY(unitedSchemeEntity.getParam("params"));
-        if (iY == null) {
+        JSONObject kl = kl(unitedSchemeEntity.getParam("params"));
+        if (kl == null) {
             com.baidu.swan.apps.console.c.e("Live", "object is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        String optString = iY.optString("liveId");
+        String optString = kl.optString("liveId");
         BdLog.d("parseEntity  playerID " + optString);
-        f d = d(context, iY.optString("slaveId"), iY.optString("sanId"), optString);
+        f d = d(context, kl.optString("slaveId"), kl.optString("sanId"), optString);
         if (context == null || d == null) {
             com.baidu.swan.apps.console.c.e("Live", "livePlayer is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(iY, d.bac());
+        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(kl, d.big());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("Live", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -115,7 +115,7 @@ public class d implements com.baidu.swan.apps.w.b.e {
         return a(context, unitedSchemeEntity, callbackHandler, eVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.4
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.f(aVar.bEx, aVar.mDirection);
+                fVar.g(aVar.bsM, aVar.mDirection);
                 return true;
             }
         });
@@ -125,7 +125,7 @@ public class d implements com.baidu.swan.apps.w.b.e {
         return a(context, unitedSchemeEntity, callbackHandler, eVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.5
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.cK(aVar.eew);
+                fVar.dG(aVar.eEn);
                 return true;
             }
         });
@@ -177,7 +177,7 @@ public class d implements com.baidu.swan.apps.w.b.e {
 
     @Override // com.baidu.swan.apps.w.b.e
     public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        this.eeD = "/swanAPI/live/open";
+        this.eEu = "/swanAPI/live/open";
         return w(context, unitedSchemeEntity, callbackHandler, eVar);
     }
 

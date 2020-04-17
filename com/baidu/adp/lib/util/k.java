@@ -2,6 +2,7 @@ package com.baidu.adp.lib.util;
 
 import android.annotation.SuppressLint;
 import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import java.lang.Character;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -15,7 +16,7 @@ public class k {
     protected static SimpleDateFormat FORMATE_DATE_TIME = new SimpleDateFormat("HH:mm");
     protected static SimpleDateFormat FORMATE_DATE_MOUTH = new SimpleDateFormat("M月d日");
     protected static SimpleDateFormat FORMATE_DATE_MOUTH_TIME = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat FORMATE_DATE_DAY = new SimpleDateFormat("yyyy-MM-dd");
+    protected static SimpleDateFormat FORMATE_DATE_DAY = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
     protected static SimpleDateFormat FORMATE_DATE_DAY_WEEK = new SimpleDateFormat("yyyy-MM-dd E");
     protected static SimpleDateFormat FORMATE_DATE_DAY_1 = new SimpleDateFormat("yy-M-d");
     protected static SimpleDateFormat FORMATE_DATE_MS = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -145,7 +146,7 @@ public class k {
         return sb.toString();
     }
 
-    public static boolean t(String str, String str2) {
+    public static boolean z(String str, String str2) {
         if (str == null || str2 == null) {
             return false;
         }

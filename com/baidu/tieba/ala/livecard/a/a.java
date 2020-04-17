@@ -1,12 +1,12 @@
 package com.baidu.tieba.ala.livecard.a;
 
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 /* loaded from: classes3.dex */
-public class a extends v.a {
-    public com.baidu.tieba.ala.livecard.b.b eNS;
+public class a extends y.a {
+    public com.baidu.tieba.ala.livecard.b.b fsm;
 
     public a(com.baidu.tieba.ala.livecard.b.b bVar) {
         super(bVar.getView());
-        this.eNS = bVar;
+        this.fsm = bVar;
     }
 }

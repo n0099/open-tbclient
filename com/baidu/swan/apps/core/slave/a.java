@@ -14,69 +14,69 @@ import java.util.concurrent.Executors;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static ExecutorService brF = Executors.newSingleThreadExecutor();
-    private volatile String brE;
-    private CopyOnWriteArrayList<InterfaceC0254a> mCallbacks;
+    private static ExecutorService bPM = Executors.newSingleThreadExecutor();
+    private volatile String bPL;
+    private CopyOnWriteArrayList<InterfaceC0284a> mCallbacks;
 
     /* renamed from: com.baidu.swan.apps.core.slave.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0254a {
-        void hq(String str);
+    public interface InterfaceC0284a {
+        void iE(String str);
     }
 
     private a() {
         this.mCallbacks = new CopyOnWriteArrayList<>();
     }
 
-    public static a Qh() {
-        return c.brI;
+    public static a XW() {
+        return c.bPP;
     }
 
-    public void a(@NonNull final String str, InterfaceC0254a interfaceC0254a) {
+    public void a(@NonNull final String str, InterfaceC0284a interfaceC0284a) {
         synchronized (a.class) {
             if (DEBUG) {
                 Log.d("SlavePreloadManager", "getHtmlContentAsync");
             }
-            if (!TextUtils.isEmpty(this.brE)) {
-                a(interfaceC0254a);
+            if (!TextUtils.isEmpty(this.bPL)) {
+                a(interfaceC0284a);
                 return;
             }
             if (this.mCallbacks.isEmpty()) {
-                brF.execute(new Runnable() { // from class: com.baidu.swan.apps.core.slave.a.1
+                bPM.execute(new Runnable() { // from class: com.baidu.swan.apps.core.slave.a.1
                     @Override // java.lang.Runnable
                     public void run() {
                         synchronized (a.class) {
                             if (a.DEBUG) {
                                 Log.d("SlavePreloadManager", "getHtmlContentAsync read start.");
                             }
-                            a.this.brE = com.baidu.swan.d.c.readFileData(new File(Uri.parse(str).getPath()));
+                            a.this.bPL = com.baidu.swan.d.c.readFileData(new File(Uri.parse(str).getPath()));
                             if (a.DEBUG) {
                                 Log.d("SlavePreloadManager", "getHtmlContentAsync read end.");
                             }
-                            a.this.Qi();
+                            a.this.XX();
                         }
                     }
                 });
             }
-            this.mCallbacks.add(interfaceC0254a);
+            this.mCallbacks.add(interfaceC0284a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qi() {
+    public void XX() {
         if (DEBUG) {
             Log.d("SlavePreloadManager", "notifyAllCallbacks");
         }
-        Iterator<InterfaceC0254a> it = this.mCallbacks.iterator();
+        Iterator<InterfaceC0284a> it = this.mCallbacks.iterator();
         while (it.hasNext()) {
             a(it.next());
         }
         this.mCallbacks.clear();
     }
 
-    private void a(InterfaceC0254a interfaceC0254a) {
-        if (interfaceC0254a != null) {
-            interfaceC0254a.hq(this.brE);
+    private void a(InterfaceC0284a interfaceC0284a) {
+        if (interfaceC0284a != null) {
+            interfaceC0284a.iE(this.bPL);
         }
     }
 
@@ -85,57 +85,57 @@ public final class a {
             Log.d("SlavePreloadManager", "clear");
         }
         synchronized (a.class) {
-            this.brE = "";
+            this.bPL = "";
             this.mCallbacks.clear();
         }
     }
 
     /* loaded from: classes11.dex */
     public static class c {
-        private static final a brI = new a();
+        private static final a bPP = new a();
     }
 
     /* loaded from: classes11.dex */
     public static class b {
-        private static int brh = -1;
+        private static int bPo = -1;
 
-        public static String Qj() {
+        public static String XY() {
             return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_slave_preload_opt", "ab");
         }
 
-        private static boolean Qk() {
-            boolean aap = com.baidu.swan.apps.ah.a.a.aap();
-            if (aap) {
-                brh = 1;
+        private static boolean XZ() {
+            boolean aiu = com.baidu.swan.apps.ah.a.a.aiu();
+            if (aiu) {
+                bPo = 1;
             }
-            if (brh < 0) {
-                brh = com.baidu.swan.apps.w.a.Uc().getSwitch("swan_slave_preload_opt", 2);
+            if (bPo < 0) {
+                bPo = com.baidu.swan.apps.w.a.abR().getSwitch("swan_slave_preload_opt", 2);
             }
             if (a.DEBUG) {
-                Log.d("OptSwitcher", "getSlavePreloadAbSwitch() switcher: " + brh + (aap ? " forceAb" : ""));
+                Log.d("OptSwitcher", "getSlavePreloadAbSwitch() switcher: " + bPo + (aiu ? " forceAb" : ""));
             }
-            return brh == 1;
+            return bPo == 1;
         }
 
-        public static boolean Ql() {
+        public static boolean Ya() {
             if (a.DEBUG) {
-                String Qj = Qj();
+                String XY = XY();
                 char c = 65535;
-                switch (Qj.hashCode()) {
+                switch (XY.hashCode()) {
                     case -307690011:
-                        if (Qj.equals("enable_slave_preload")) {
+                        if (XY.equals("enable_slave_preload")) {
                             c = 0;
                             break;
                         }
                         break;
                     case 3105:
-                        if (Qj.equals("ab")) {
+                        if (XY.equals("ab")) {
                             c = 2;
                             break;
                         }
                         break;
                     case 2084843146:
-                        if (Qj.equals("disable_slave_preload")) {
+                        if (XY.equals("disable_slave_preload")) {
                             c = 1;
                             break;
                         }
@@ -147,10 +147,10 @@ public final class a {
                     case 1:
                         return false;
                     case 2:
-                        return Qk();
+                        return XZ();
                 }
             }
-            return Qk();
+            return XZ();
         }
     }
 }

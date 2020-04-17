@@ -1,6 +1,5 @@
 package com.baidu.swan.apps.adaptation.implementation;
 
-import android.database.sqlite.SQLiteDatabase;
 import com.baidu.swan.apps.adaptation.a.ah;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
@@ -27,16 +26,11 @@ public class m implements ah {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ah
-    public void u(String str, int i) {
+    public void C(String str, int i) {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.ah
-    public SQLiteDatabase getWritableDatabase() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.a.ah
-    public ExecutorService HR() {
+    public ExecutorService PD() {
         return null;
     }
 }

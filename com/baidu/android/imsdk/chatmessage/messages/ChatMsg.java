@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.android.imsdk.chatmessage.ISendMessageStatusListener;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -58,6 +57,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     private int mStatus;
     private int mSubChatType;
     private long mTime;
+    private String mTips;
+    private int mTipsCode;
     private long mTriggerReasonn;
     private int mType;
     protected String mjsonContent;
@@ -101,6 +102,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mCastids = null;
         this.expiresTime = 0L;
         this.isMediaRoleMsg = false;
+        this.mTipsCode = 0;
+        this.mTips = "";
         this.sendMsgId = generateSendMsgId();
     }
 
@@ -135,6 +138,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mCastids = null;
         this.expiresTime = 0L;
         this.isMediaRoleMsg = false;
+        this.mTipsCode = 0;
+        this.mTips = "";
         this.mMsgId = parcel.readLong();
         this.mTime = parcel.readLong();
         this.mFromUser = parcel.readLong();
@@ -174,6 +179,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         parcel.readList(this.mCastids, Long.class.getClassLoader());
         this.expiresTime = parcel.readLong();
         this.mServiceType = parcel.readString();
+        this.mTipsCode = parcel.readInt();
+        this.mTips = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -224,6 +231,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         parcel.writeList(this.mCastids);
         parcel.writeLong(this.expiresTime);
         parcel.writeString(this.mServiceType);
+        parcel.writeInt(this.mTipsCode);
+        parcel.writeString(this.mTips);
     }
 
     public void setReSend() {
@@ -278,7 +287,8 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return parseJsonString() && parseCommon();
     }
 
-    private boolean parseExt() {
+    protected boolean parseExt() {
+        LogUtils.d(TAG, "parseExt");
         if (TextUtils.isEmpty(this.mjsonContent)) {
             return false;
         }
@@ -313,7 +323,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    private boolean parseCommon() {
+    protected boolean parseCommon() {
         LogUtils.d(TAG, "parseCommon " + this.mContacter + " ---->: " + this.mjsonContent);
         if (TextUtils.isEmpty(this.mjsonContent)) {
             return false;
@@ -785,7 +795,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                     }
                 }
             }
-            this.mMsgKey = Utility.byte2Hex(long2bytes(((System.currentTimeMillis() & 1048575) << 20) + ((Utility.getTriggerId(context) & 1023) << 10) + (mRandom.nextInt(1024) & ResponseCode.PROTOCOL_EXP), 5));
+            this.mMsgKey = Utility.byte2Hex(long2bytes(((System.currentTimeMillis() & 1048575) << 20) + ((Utility.getTriggerId(context) & 1023) << 10) + (mRandom.nextInt(1024) & 1023), 5));
         }
     }
 
@@ -900,5 +910,21 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void setMediaRoleMsg(boolean z) {
         this.isMediaRoleMsg = z;
+    }
+
+    public int getTipsCode() {
+        return this.mTipsCode;
+    }
+
+    public String getTips() {
+        return this.mTips;
+    }
+
+    public void setTipsCode(int i) {
+        this.mTipsCode = i;
+    }
+
+    public void setTips(String str) {
+        this.mTips = str;
     }
 }

@@ -7,7 +7,9 @@ import android.util.Log;
 import com.baidu.android.imsdk.IMManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
+import com.baidu.android.imsdk.account.IGetMsgSettingSwitchListener;
 import com.baidu.android.imsdk.account.ILoginListener;
+import com.baidu.android.imsdk.account.ISetMsgSettingSwitchListener;
 import com.baidu.android.imsdk.account.ISetNotificationPrivacyListener;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
@@ -53,6 +55,7 @@ import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.PaManager;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
+import com.baidu.android.imsdk.shield.IGetDisturbListListener;
 import com.baidu.android.imsdk.shield.IGetServiceNotifyMenuListener;
 import com.baidu.android.imsdk.shield.IGetShieldAndTopListener;
 import com.baidu.android.imsdk.shield.IGetSubscriptionListener;
@@ -672,7 +675,7 @@ public final class IMBoxManager {
                             }
                         });
                     }
-                    ShieldAndTopManager.getInstance(context).requestUserShieldList(0, "");
+                    ShieldAndTopManager.getInstance(context).requestSubbusinessContacterList(0, 1, "");
                     ShieldAndTopManager.getInstance(context).requestMsgMarkTopList();
                     Utility.writeLongData(context, Constants.KEY_SYNC_MSG_TAB_TIME, System.currentTimeMillis() + Constants.SYNC_MSG_DELAY_TIME);
                 }
@@ -731,5 +734,25 @@ public final class IMBoxManager {
 
     public static void getShield(Context context, long j, IGetShieldAndTopListener iGetShieldAndTopListener) {
         ShieldAndTopManager.getInstance(context).getOneShieldAndTopRequest(j, iGetShieldAndTopListener);
+    }
+
+    public static void setGroupAndStrangerDisturb(Context context, long j, int i, int i2, IStatusListener iStatusListener) {
+        ShieldAndTopManager.getInstance(context).requestDisturbAndRemind(j, 3, i, i2, iStatusListener);
+    }
+
+    public static void getGroupAndStrangerDisturbList(Context context, IGetDisturbListListener iGetDisturbListListener) {
+        ShieldAndTopManager.getInstance(context).getGroupAndStrangerDisturbList(iGetDisturbListListener);
+    }
+
+    public static void getSingleContacterSetting(Context context, long j, int i, IGetShieldAndTopListener iGetShieldAndTopListener) {
+        ShieldAndTopManager.getInstance(context).getSingleContacterSetting(j, i, iGetShieldAndTopListener);
+    }
+
+    public static void getMsgSettingSwitchStatus(Context context, IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener) {
+        AccountManager.getMsgSettingSwitchStatus(context, iGetMsgSettingSwitchListener);
+    }
+
+    public static void setMsgSettingSwitchStatus(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
+        AccountManager.setMsgSettingSwitchStatus(context, i, i2, iSetMsgSettingSwitchListener);
     }
 }

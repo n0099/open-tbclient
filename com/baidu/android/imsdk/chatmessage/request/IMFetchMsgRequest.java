@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.webkit.internal.ETAG;
@@ -140,7 +139,7 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
         for (int i = 0; i < split.length; i++) {
             str = str + split[i];
         }
-        LogUtils.d("IMFetchMsgRequest", HanziToPinyin.Token.SEPARATOR + str);
+        LogUtils.d("IMFetchMsgRequest", " " + str);
         sb.append("&sign=").append(getMd5(str));
         return sb.toString().getBytes();
     }

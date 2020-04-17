@@ -19,7 +19,7 @@ public class RewardWebView extends WebView {
         super(context);
         this.mIsDestroy = false;
         this.mHandler = new Handler(Looper.getMainLooper());
-        akk();
+        asv();
         setClickable(true);
         setBackgroundColor(0);
         setFocusable(true);
@@ -110,7 +110,7 @@ public class RewardWebView extends WebView {
         }
     }
 
-    private void akk() {
+    private void asv() {
         try {
             if (Build.VERSION.SDK_INT >= 11 && Build.VERSION.SDK_INT <= 17) {
                 Method declaredMethod = Class.forName("android.webkit.WebView").getDeclaredMethod("removeJavascriptInterface", String.class);

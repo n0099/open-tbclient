@@ -1,15 +1,16 @@
 package com.baidu.live.entereffect.a;
 /* loaded from: classes3.dex */
 public class b {
-    public String acK;
-    public String afs;
-    public String aft;
-    public String afu;
-    public String afv;
-    public String afw;
-    public String afx;
-    public int afy;
-    public int afz;
+    public String avc;
+    public String axJ;
+    public String axK;
+    public String axL;
+    public String axM;
+    public String axN;
+    public String axO;
+    public int axP;
+    public int axQ;
     public String iconUrl;
     public String id;
+    public long msgId;
 }

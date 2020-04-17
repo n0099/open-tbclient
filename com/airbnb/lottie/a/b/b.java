@@ -12,11 +12,11 @@ public class b extends f<Integer> {
     /* renamed from: b */
     public Integer a(com.airbnb.lottie.e.a<Integer> aVar, float f) {
         Integer num;
-        if (aVar.kp == null || aVar.kq == null) {
+        if (aVar.FL == null || aVar.FM == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        int intValue = aVar.kp.intValue();
-        int intValue2 = aVar.kq.intValue();
-        return (this.gH == null || (num = (Integer) this.gH.b(aVar.ec, aVar.ks.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, bT(), getProgress())) == null) ? Integer.valueOf(com.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
+        int intValue = aVar.FL.intValue();
+        int intValue2 = aVar.FM.intValue();
+        return (this.Cj == null || (num = (Integer) this.Cj.b(aVar.zN, aVar.FO.floatValue(), Integer.valueOf(intValue), Integer.valueOf(intValue2), f, hq(), getProgress())) == null) ? Integer.valueOf(com.airbnb.lottie.d.b.b(f, intValue, intValue2)) : num;
     }
 }

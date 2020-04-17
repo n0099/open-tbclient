@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class e extends ao {
-    private TextView iFU;
+    private TextView jqb;
 
     public e(BaseFragmentActivity baseFragmentActivity, View view) {
         super(baseFragmentActivity, view);
-        this.iFU = null;
+        this.jqb = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ao
     protected void a(d dVar) {
-        this.iFU = (TextView) this.mRootView.findViewById(R.id.icon_push);
-        this.iFU.setVisibility(8);
+        this.jqb = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.jqb.setVisibility(8);
     }
 
-    public void pH(boolean z) {
-        if (this.iFU != null) {
+    public void qL(boolean z) {
+        if (this.jqb != null) {
             if (z) {
-                this.iFU.setText(R.string.push);
-                com.baidu.tbadk.core.util.am.setViewTextColor(this.iFU, (int) R.drawable.push_text_selector);
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iFU, R.drawable.push_bg_selector);
-                this.iFU.setClickable(true);
+                this.jqb.setText(R.string.push);
+                com.baidu.tbadk.core.util.am.setViewTextColor(this.jqb, (int) R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.jqb, R.drawable.push_bg_selector);
+                this.jqb.setClickable(true);
             } else {
-                this.iFU.setText(R.string.already_push);
-                com.baidu.tbadk.core.util.am.setBackgroundResource(this.iFU, R.drawable.label_bg_gray80);
-                com.baidu.tbadk.core.util.am.setViewTextColor(this.iFU, (int) R.color.cp_cont_d);
-                this.iFU.setClickable(false);
+                this.jqb.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.am.setBackgroundResource(this.jqb, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.am.setViewTextColor(this.jqb, (int) R.color.cp_cont_d);
+                this.jqb.setClickable(false);
             }
-            this.iFU.setVisibility(0);
+            this.jqb.setVisibility(0);
         }
     }
 
-    public void aG(bj bjVar) {
-        if (bjVar != null && bjVar.aCL() != null) {
-            int status = bjVar.aCL().getStatus();
+    public void aH(bj bjVar) {
+        if (bjVar != null && bjVar.aKY() != null) {
+            int status = bjVar.aKY().getStatus();
             if (status == 1) {
-                pH(true);
+                qL(true);
             } else if (status == 2) {
-                pH(false);
+                qL(false);
             }
         }
     }
 
-    public TextView cmh() {
-        return this.iFU;
+    public TextView cwN() {
+        return this.jqb;
     }
 }

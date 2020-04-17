@@ -5,57 +5,57 @@ import java.util.Map;
 import okhttp3.Request;
 /* loaded from: classes11.dex */
 public interface o {
-    boolean HY();
+    boolean PK();
 
-    String HZ();
+    String PL();
 
-    String Ia();
+    String PM();
 
-    String Ib();
+    String PN();
 
-    String Ic();
+    String PO();
 
-    void Id();
+    void PP();
 
-    void Ie();
+    void PQ();
 
-    String If();
+    String PR();
 
-    String Ig();
+    String PS();
 
-    String Ih();
+    String PT();
 
-    String Ii();
+    String PU();
 
-    String Ij();
+    String PV();
 
-    String Ik();
+    String PW();
 
-    String Il();
+    String PX();
 
-    String Im();
+    String PY();
 
-    String In();
+    String PZ();
 
-    String Io();
+    String Qa();
 
-    String Ip();
+    String Qb();
 
-    String Iq();
+    String Qc();
 
-    String Ir();
+    String Qd();
 
-    String Is();
+    String Qe();
 
-    boolean It();
+    boolean Qf();
 
-    String Iu();
+    String Qg();
 
-    String Iv();
+    String Qh();
 
-    String Iw();
+    String Qi();
 
-    String bs(Context context);
+    String bg(Context context);
 
     Request d(Context context, Map<String, String> map);
 

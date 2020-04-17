@@ -19,9 +19,9 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class a {
-    private ContentProvider aWf;
-    private final int aWg;
-    public final int aWh;
+    private final int buA;
+    public final int buB;
+    private ContentProvider buz;
 
     public abstract int a(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
 
@@ -38,21 +38,21 @@ public abstract class a {
     public abstract boolean onCreate();
 
     public a(int i, int i2) {
-        this.aWg = i;
-        this.aWh = i2;
+        this.buA = i;
+        this.buB = i2;
     }
 
-    public final int Fh() {
-        return this.aWg;
+    public final int MR() {
+        return this.buA;
     }
 
-    public final int Fi() {
-        return this.aWh;
+    public final int MS() {
+        return this.buB;
     }
 
     public void a(ContentProvider contentProvider) {
-        if (this.aWf == null) {
-            this.aWf = contentProvider;
+        if (this.buz == null) {
+            this.buz = contentProvider;
         }
     }
 
@@ -90,7 +90,7 @@ public abstract class a {
         int size = arrayList.size();
         ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
         for (int i = 0; i < size; i++) {
-            contentProviderResultArr[i] = arrayList.get(i).apply(this.aWf, contentProviderResultArr, i);
+            contentProviderResultArr[i] = arrayList.get(i).apply(this.buz, contentProviderResultArr, i);
         }
         return contentProviderResultArr;
     }

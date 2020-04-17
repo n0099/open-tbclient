@@ -5,33 +5,33 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 /* loaded from: classes10.dex */
 public class c {
-    private com.baidu.adp.lib.cache.l<byte[]> gkR;
+    private com.baidu.adp.lib.cache.l<byte[]> gTY;
 
     public c() {
-        ava();
+        aDl();
     }
 
-    public void ava() {
-        if (this.gkR == null) {
-            this.gkR = com.baidu.tbadk.core.c.a.aEF().sP("tb.im_frsgroup");
+    public void aDl() {
+        if (this.gTY == null) {
+            this.gTY = com.baidu.tbadk.core.c.a.aMT().uc("tb.im_frsgroup");
         }
     }
 
-    public byte[] aI(int i, String str) {
+    public byte[] aX(int i, String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        l.b<byte[]> ad = this.gkR != null ? this.gkR.ad("frs_group_" + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str) : null;
-        if (ad == null || ad.value == null) {
+        l.b<byte[]> bs = this.gTY != null ? this.gTY.bs("frs_group_" + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str) : null;
+        if (bs == null || bs.value == null) {
             return null;
         }
-        return ad.value;
+        return bs.value;
     }
 
     public void a(int i, String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            ava();
-            this.gkR.set("frs_group_" + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str, bArr, 604800000L);
+            aDl();
+            this.gTY.set("frs_group_" + i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str, bArr, 604800000L);
         }
     }
 }

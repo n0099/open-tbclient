@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.l;
 /* loaded from: classes9.dex */
 public class a extends l<b, c> {
-    public View.OnClickListener ecF;
+    public View.OnClickListener eCs;
 
     public a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
@@ -20,7 +20,7 @@ public class a extends l<b, c> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bQ */
+    /* renamed from: bS */
     public c b(ViewGroup viewGroup) {
         return new c(LayoutInflater.from(this.mContext).inflate(R.layout.pb_god_reply_look_more_item, viewGroup, false));
     }
@@ -30,14 +30,14 @@ public class a extends l<b, c> {
     @Override // com.baidu.tieba.pb.pb.main.l, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (b) cVar);
-        if (cVar != null && cVar.fKS != null) {
-            if (this.ecF != null) {
-                cVar.fKS.setOnClickListener(this.ecF);
+        if (cVar != null && cVar.gpz != null) {
+            if (this.eCs != null) {
+                cVar.gpz.setOnClickListener(this.eCs);
             }
-            if (cVar.Nj != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.Nj = TbadkCoreApplication.getInst().getSkinType();
-                am.setViewTextColor(cVar.fKS, (int) R.color.cp_cont_f);
-                am.setBackgroundResource(cVar.fKS, R.drawable.more_all);
+            if (cVar.afT != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.afT = TbadkCoreApplication.getInst().getSkinType();
+                am.setViewTextColor(cVar.gpz, (int) R.color.cp_cont_f);
+                am.setBackgroundResource(cVar.gpz, R.drawable.more_all);
                 am.setBackgroundResource(cVar.dividerLine, R.color.cp_bg_line_c);
             }
         }
@@ -45,6 +45,6 @@ public class a extends l<b, c> {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.ecF = onClickListener;
+        this.eCs = onClickListener;
     }
 }

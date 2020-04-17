@@ -1,5 +1,6 @@
 package com.google.zxing.oned.rss;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.oned.OneDReader;
@@ -94,7 +95,7 @@ public abstract class AbstractRSSReader extends OneDReader {
         if (f < MIN_FINDER_PATTERN_RATIO || f > MAX_FINDER_PATTERN_RATIO) {
             return false;
         }
-        int i2 = Integer.MAX_VALUE;
+        int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         int i3 = Integer.MIN_VALUE;
         int length = iArr.length;
         int i4 = 0;

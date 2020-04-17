@@ -17,9 +17,9 @@ public class AdUploadHttpRequest extends HttpMessage {
     private static final String KEY_OS_TYPE = "_os_type";
     private static final String KEY_OS_VERSION = "_os_version";
     private static final String KEY_PRODUCT_ID = "productId";
-    private ArrayList<b> dataArray;
+    private ArrayList<c> dataArray;
 
-    public AdUploadHttpRequest(ArrayList<b> arrayList) {
+    public AdUploadHttpRequest(ArrayList<c> arrayList) {
         super(1003062);
         this.dataArray = new ArrayList<>();
         this.dataArray.addAll(arrayList);
@@ -31,29 +31,29 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam(KEY_OS_TYPE, 2);
     }
 
-    public AdUploadHttpRequest(b bVar) {
+    public AdUploadHttpRequest(c cVar) {
         super(1003062);
         this.dataArray = new ArrayList<>();
-        this.dataArray.add(bVar);
+        this.dataArray.add(cVar);
         addParam(KEY_AD, toJSONString(this.dataArray));
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
     }
 
-    public ArrayList<b> getDataArray() {
+    public ArrayList<c> getDataArray() {
         return this.dataArray;
     }
 
-    private String toJSONString(ArrayList<b> arrayList) {
+    private String toJSONString(ArrayList<c> arrayList) {
         if (v.getCount(arrayList) <= 0) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        Iterator<b> it = arrayList.iterator();
+        Iterator<c> it = arrayList.iterator();
         while (it.hasNext()) {
-            b next = it.next();
+            c next = it.next();
             if (next != null) {
-                jSONArray.put(next.cDJ());
+                jSONArray.put(next.cOk());
             }
         }
         return jSONArray.toString();

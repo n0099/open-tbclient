@@ -10,15 +10,15 @@ import tbclient.Timgs;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class i {
-    private VideoInfo cNL;
-    public long khN;
-    public String khO;
-    public boolean khP;
-    private int khQ;
-    private ArrayList<h> khR;
-    private ArrayList<k> khS;
-    private j khT;
-    private int khU;
+    private VideoInfo dmP;
+    public long kRU;
+    public String kRV;
+    public boolean kRW;
+    private int kRX;
+    private ArrayList<h> kRY;
+    private ArrayList<k> kRZ;
+    private j kSa;
+    private int kSb;
     public String position;
     private String tagName;
 
@@ -26,29 +26,29 @@ public class i {
         if (tPointPost != null) {
             try {
                 this.position = tPointPost.position;
-                this.khN = tPointPost.template_id.longValue();
-                this.khP = tPointPost.is_tuiguang.intValue() != 0;
-                this.khQ = tPointPost.template_type.intValue();
+                this.kRU = tPointPost.template_id.longValue();
+                this.kRW = tPointPost.is_tuiguang.intValue() != 0;
+                this.kRX = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.khR = new ArrayList<>();
+                    this.kRY = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.khR.add(new h(list.get(i)));
+                        this.kRY.add(new h(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.khS = new ArrayList<>();
+                    this.kRZ = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.khS.add(new k(list2.get(i2)));
+                        this.kRZ.add(new k(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.khT = new j(tPointPost.detail_info);
+                    this.kSa = new j(tPointPost.detail_info);
                 }
-                this.khO = tPointPost.monitor_id;
-                this.khU = tPointPost.hidden_day.intValue();
-                this.cNL = tPointPost.t_video;
+                this.kRV = tPointPost.monitor_id;
+                this.kSb = tPointPost.hidden_day.intValue();
+                this.dmP = tPointPost.t_video;
                 this.tagName = tPointPost.tag_name;
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -56,7 +56,7 @@ public class i {
         }
     }
 
-    public k cLd() {
-        return (k) v.getItem(this.khS, 0);
+    public k cVZ() {
+        return (k) v.getItem(this.kRZ, 0);
     }
 }

@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -14,18 +13,18 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
 public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final h<? super Object[], R> combiner;
-    final org.a.b<?>[] nzr;
-    final Iterable<? extends org.a.b<?>> nzs;
+    final org.a.b<?>[] mSQ;
+    final Iterable<? extends org.a.b<?>> mSR;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         int length;
-        org.a.b<?>[] bVarArr = this.nzr;
+        org.a.b<?>[] bVarArr = this.mSQ;
         int i = 0;
         if (bVarArr == null) {
             bVarArr = new org.a.b[8];
             try {
-                for (org.a.b<?> bVar : this.nzs) {
+                for (org.a.b<?> bVar : this.mSR) {
                     if (i == bVarArr.length) {
                         bVarArr = (org.a.b[]) Arrays.copyOf(bVarArr, (i >> 1) + i);
                     }
@@ -35,7 +34,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
                 }
                 length = i;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 EmptySubscription.error(th, cVar);
                 return;
             }
@@ -43,13 +42,13 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
             length = bVarArr.length;
         }
         if (length == 0) {
-            new f(this.nyr, new a()).a(cVar);
+            new f(this.mRJ, new a()).a(cVar);
             return;
         }
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(cVar, this.combiner, length);
         cVar.onSubscribe(withLatestFromSubscriber);
         withLatestFromSubscriber.subscribe(bVarArr, length);
-        this.nyr.a((j) withLatestFromSubscriber);
+        this.mRJ.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -118,7 +117,7 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
                 io.reactivex.internal.util.e.a(this.actual, io.reactivex.internal.functions.a.h(this.combiner.apply(objArr), "The combiner returned a null value"), this, this.error);
                 return true;
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 cancel();
                 onError(th);
                 return false;
@@ -203,7 +202,9 @@ public final class FlowableWithLatestFromMany<T, R> extends io.reactivex.interna
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(Long.MAX_VALUE);
+            }
         }
 
         @Override // org.a.c

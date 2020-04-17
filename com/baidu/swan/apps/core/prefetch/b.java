@@ -13,14 +13,14 @@ public final class b {
         cVar.g(prefetchEvent);
         if (DEBUG) {
             Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
-            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.bJL.index);
+            Log.d("PrefetchMessenger", "onPrefetchReady client id: " + cVar.civ.index);
         }
     }
 
     public void e(@NonNull PrefetchEvent prefetchEvent) {
         com.baidu.swan.apps.process.messaging.service.c c = a.c(prefetchEvent);
         if (c != null) {
-            if ((c.abm() && TextUtils.equals(c.mAppId, prefetchEvent.appId)) || c.abl()) {
+            if ((c.ajr() && TextUtils.equals(c.mAppId, prefetchEvent.appId)) || c.ajq()) {
                 a(c, prefetchEvent);
             }
         }
@@ -30,6 +30,6 @@ public final class b {
         Bundle bundle = new Bundle();
         bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
         bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
-        com.baidu.swan.apps.process.messaging.a.aaO().a(new com.baidu.swan.apps.process.messaging.c(120, bundle).a(cVar.bJL).ds(true));
+        com.baidu.swan.apps.process.messaging.a.aiT().a(new com.baidu.swan.apps.process.messaging.c(120, bundle).a(cVar.civ).eo(true));
     }
 }

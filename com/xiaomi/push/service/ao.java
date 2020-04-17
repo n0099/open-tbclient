@@ -20,8 +20,8 @@ class ao extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (al.a().a(this.a.f867a.g, this.a.f867a.f863b).f854a == null) {
-            al.b.this.f856a.a(this.a.f867a.g, this.a.f867a.f863b, 2, null, null);
+        if (al.a().a(this.a.f868a.g, this.a.f868a.f864b).f855a == null) {
+            al.b.this.f857a.a(this.a.f868a.g, this.a.f868a.f864b, 2, null, null);
         }
     }
 }

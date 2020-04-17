@@ -10,7 +10,7 @@ public final class r {
             long blockCount = statFs.getBlockCount() * statFs.getBlockSize();
             StatFs statFs2 = new StatFs(Environment.getDataDirectory().getPath());
             long availableBlocks = statFs2.getAvailableBlocks() * statFs2.getBlockSize();
-            return "Total: " + com.baidu.crabsdk.c.c.s(blockCount) + " Used: " + com.baidu.crabsdk.c.c.s(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.s(availableBlocks);
+            return "Total: " + com.baidu.crabsdk.c.c.Q(blockCount) + " Used: " + com.baidu.crabsdk.c.c.Q(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.Q(availableBlocks);
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("getInternalStorageInfo error!", e);
             return "N/A";
@@ -23,7 +23,7 @@ public final class r {
             long blockCount = statFs.getBlockCount() * statFs.getBlockSize();
             StatFs statFs2 = new StatFs(Environment.getExternalStorageDirectory().getPath());
             long availableBlocks = statFs2.getAvailableBlocks() * statFs2.getBlockSize();
-            return "Total: " + com.baidu.crabsdk.c.c.s(blockCount) + " Used: " + com.baidu.crabsdk.c.c.s(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.s(availableBlocks);
+            return "Total: " + com.baidu.crabsdk.c.c.Q(blockCount) + " Used: " + com.baidu.crabsdk.c.c.Q(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.Q(availableBlocks);
         } catch (Exception e) {
             return "N/A";
         }

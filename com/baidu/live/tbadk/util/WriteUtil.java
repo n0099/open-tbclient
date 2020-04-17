@@ -144,20 +144,42 @@ public class WriteUtil {
     }
 
     private static Bitmap AlbumImageResult(Context context, String str, int i) {
+        Exception e;
         try {
-            return BitmapHelper.loadResizedBitmap(str, i, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+            int readPictureDegree = readPictureDegree(str);
+            Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, i, i);
+            if (readPictureDegree != 0 && loadResizedBitmap != null) {
+                try {
+                    return BitmapHelper.rotateBitmapBydegree(loadResizedBitmap, readPictureDegree);
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    return null;
+                }
+            }
+            return loadResizedBitmap;
+        } catch (Exception e3) {
+            e = e3;
         }
     }
 
     private static Bitmap AlbumImageResult(Context context, Uri uri, int i) {
+        Exception e;
         try {
-            return BitmapHelper.subSampleBitmap(context, uri, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+            int readPictureDegree = readPictureDegree(uri.getPath());
+            Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(context, uri, i);
+            if (readPictureDegree != 0 && subSampleBitmap != null) {
+                try {
+                    return BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
+                } catch (Exception e2) {
+                    e = e2;
+                    BdLog.e(e.getMessage());
+                    return null;
+                }
+            }
+            return subSampleBitmap;
+        } catch (Exception e3) {
+            e = e3;
         }
     }
 

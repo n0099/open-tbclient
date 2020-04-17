@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class LoadingLayout extends LinearLayout {
-    private ImageView mPromptImg;
-    private TextView mPromptTv;
+    private ImageView cyQ;
+    private TextView cyR;
 
     public LoadingLayout(Context context) {
         super(context);
@@ -33,17 +33,17 @@ public class LoadingLayout extends LinearLayout {
     private void initView() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.swanapp_album_loadding_layout, (ViewGroup) null);
         inflate.setBackgroundResource(a.c.aiapps_white);
-        this.mPromptImg = (ImageView) inflate.findViewById(a.f.album_loadding_img);
-        this.mPromptTv = (TextView) inflate.findViewById(a.f.album_loadding_tv);
+        this.cyQ = (ImageView) inflate.findViewById(a.f.album_loadding_img);
+        this.cyR = (TextView) inflate.findViewById(a.f.album_loadding_tv);
         addView(inflate);
     }
 
-    public void showLoading(boolean z) {
+    public void ff(boolean z) {
         if (z) {
             setVisibility(0);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0197a.swanapp_album_rotate_loading);
-            this.mPromptImg.setImageResource(a.e.swanapp_album_progress_icon);
-            this.mPromptImg.startAnimation(loadAnimation);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), a.C0227a.swanapp_album_rotate_loading);
+            this.cyQ.setImageResource(a.e.swanapp_album_progress_icon);
+            this.cyQ.startAnimation(loadAnimation);
             return;
         }
         setVisibility(8);

@@ -20,7 +20,7 @@ import android.util.DisplayMetrics;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.ETAG;
-import com.xiaomi.mipush.sdk.Constants;
+import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
@@ -373,7 +373,7 @@ public class j {
         bundle.putString("report_type", str2);
         bundle.putString("act_type", str3);
         bundle.putString("via", str4);
-        bundle.putString(Constants.APP_ID, str5);
+        bundle.putString("app_id", str5);
         bundle.putString("result", str6);
         bundle.putString("type", str7);
         bundle.putString("login_status", str8);
@@ -400,7 +400,7 @@ public class j {
         bundle.putString("network", com.tencent.open.b.a.a(e.a()));
         bundle.putString("apn", com.tencent.open.b.a.b(e.a()));
         bundle.putString("model_name", Build.MODEL);
-        bundle.putString("sdk_ver", com.tencent.connect.common.Constants.SDK_VERSION);
+        bundle.putString("sdk_ver", Constants.SDK_VERSION);
         bundle.putString("packagename", e.b());
         bundle.putString(IXAdRequestInfo.APP_VERSION_NAME, d(e.a(), e.b()));
         return bundle;
@@ -488,29 +488,29 @@ public class j {
     }
 
     public static boolean f(Context context, String str) {
-        boolean z = !d(context) || h.a(context, com.tencent.connect.common.Constants.PACKAGE_QQ_PAD) == null;
-        if (z && h.a(context, com.tencent.connect.common.Constants.PACKAGE_TIM) != null) {
+        boolean z = !d(context) || h.a(context, Constants.PACKAGE_QQ_PAD) == null;
+        if (z && h.a(context, Constants.PACKAGE_TIM) != null) {
             z = false;
         }
         return z ? h.c(context, str) < 0 : z;
     }
 
     public static boolean g(Context context, String str) {
-        boolean z = !d(context) || h.a(context, com.tencent.connect.common.Constants.PACKAGE_QQ_PAD) == null;
-        if (z && h.a(context, com.tencent.connect.common.Constants.PACKAGE_TIM) != null) {
+        boolean z = !d(context) || h.a(context, Constants.PACKAGE_QQ_PAD) == null;
+        if (z && h.a(context, Constants.PACKAGE_TIM) != null) {
             z = false;
         }
         return z ? h.c(context, str) < 0 : z;
     }
 
     public static boolean a(Context context, boolean z) {
-        if (!d(context) || h.a(context, com.tencent.connect.common.Constants.PACKAGE_QQ_PAD) == null) {
-            return !z ? h.c(context, "4.1") >= 0 || h.a(context, com.tencent.connect.common.Constants.PACKAGE_TIM) != null : h.c(context, "4.1") >= 0 || h.a(context, com.tencent.connect.common.Constants.PACKAGE_TIM) != null;
+        if (!d(context) || h.a(context, Constants.PACKAGE_QQ_PAD) == null) {
+            return !z ? h.c(context, "4.1") >= 0 || h.a(context, Constants.PACKAGE_TIM) != null : h.c(context, "4.1") >= 0 || h.a(context, Constants.PACKAGE_TIM) != null;
         }
         return true;
     }
 
     public static boolean e(Context context) {
-        return h.c(context, "5.9.5") >= 0 || h.a(context, com.tencent.connect.common.Constants.PACKAGE_TIM) != null;
+        return h.c(context, "5.9.5") >= 0 || h.a(context, Constants.PACKAGE_TIM) != null;
     }
 }

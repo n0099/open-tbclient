@@ -16,13 +16,13 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.j;
 import com.baidu.tieba.card.z;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b, j> {
-    private z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> enH;
+    private z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b> eRf;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.enM);
-        this.enH = new z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b.eRk);
+        this.eRf = new z<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b>() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar) {
@@ -35,10 +35,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: E */
+    /* renamed from: F */
     public j b(ViewGroup viewGroup) {
         i iVar = new i(this.mPageContext, viewGroup);
-        iVar.c(this.enH);
+        iVar.c(this.eRf);
         return new j(iVar);
     }
 
@@ -46,10 +46,10 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.b bVar, j jVar) {
-        if (jVar == null || jVar.eoP == null) {
+        if (jVar == null || jVar.eSm == null) {
             return null;
         }
-        jVar.eoP.a(bVar);
+        jVar.eSm.a(bVar);
         return jVar.getView();
     }
 

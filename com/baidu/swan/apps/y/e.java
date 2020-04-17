@@ -12,27 +12,27 @@ import java.util.TimerTask;
 /* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c bzI = new c(this);
-    private a bzJ = new a();
-    private boolean bzK;
+    private c bXO = new c(this);
+    private a bXP = new a();
+    private boolean bXQ;
 
     /* loaded from: classes11.dex */
     public interface b {
-        void fn(int i);
+        void fs(int i);
     }
 
-    public void ch(Context context) {
-        if (!this.bzK) {
-            this.bzK = true;
-            context.registerReceiver(this.bzI, c.getIntentFilter());
+    public void bV(Context context) {
+        if (!this.bXQ) {
+            this.bXQ = true;
+            context.registerReceiver(this.bXO, c.getIntentFilter());
         }
     }
 
-    public void ci(Context context) {
-        if (this.bzK) {
-            this.bzK = false;
+    public void bW(Context context) {
+        if (this.bXQ) {
+            this.bXQ = false;
             try {
-                context.unregisterReceiver(this.bzI);
+                context.unregisterReceiver(this.bXO);
             } catch (IllegalArgumentException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -42,79 +42,79 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQ(boolean z) {
+    public void dM(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "onScreenStatusChanged isOn: " + z);
         }
         if (z) {
-            WN();
+            aeC();
         } else {
-            WO();
+            aeD();
         }
     }
 
     public void a(b bVar) {
-        this.bzJ.a(bVar);
+        this.bXP.a(bVar);
     }
 
-    public void WM() {
+    public void aeB() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "startCollectionTimeOut");
         }
-        this.bzJ.startTimer();
+        this.bXP.startTimer();
     }
 
-    private void WN() {
-        this.bzJ.WQ();
+    private void aeC() {
+        this.bXP.aeF();
     }
 
-    private void WO() {
-        this.bzJ.WR();
+    private void aeD() {
+        this.bXP.aeG();
     }
 
-    public void WP() {
+    public void aeE() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "stopCollectionTimeOut");
         }
-        this.bzJ.stopTimer();
+        this.bXP.RX();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private b bzL;
-        private long bzM = 300;
+        private b bXR;
+        private long bXS = 300;
         private int mStatus = 0;
         private Timer mTimer;
 
         static /* synthetic */ long b(a aVar) {
-            long j = aVar.bzM - 1;
-            aVar.bzM = j;
+            long j = aVar.bXS - 1;
+            aVar.bXS = j;
             return j;
         }
 
         public void startTimer() {
             this.mStatus = 1;
-            WT();
+            aeI();
             cancelTimer();
-            WS();
+            aeH();
         }
 
-        public void stopTimer() {
+        public void RX() {
             this.mStatus = 2;
             cancelTimer();
-            WT();
+            aeI();
         }
 
-        public void WQ() {
+        public void aeF() {
             if (this.mStatus == 4) {
                 this.mStatus = 3;
                 cancelTimer();
-                WS();
+                aeH();
             }
         }
 
-        public void WR() {
+        public void aeG() {
             if (this.mStatus != 2) {
                 this.mStatus = 4;
                 cancelTimer();
@@ -129,30 +129,30 @@ public class e {
             }
         }
 
-        private void WS() {
+        private void aeH() {
             this.mTimer = new Timer();
-            this.mTimer.schedule(WU(), 0L, 1000L);
+            this.mTimer.schedule(aeJ(), 0L, 1000L);
         }
 
-        private void WT() {
-            this.bzM = 300L;
+        private void aeI() {
+            this.bXS = 300L;
         }
 
         public void a(b bVar) {
-            this.bzL = bVar;
+            this.bXR = bVar;
         }
 
-        private TimerTask WU() {
+        private TimerTask aeJ() {
             return new TimerTask() { // from class: com.baidu.swan.apps.y.e.a.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     if (e.DEBUG) {
-                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.bzM);
+                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.bXS);
                     }
                     a.b(a.this);
-                    if (a.this.bzM <= 0 && a.this.bzL != null) {
-                        a.this.bzL.fn(1);
-                        a.this.stopTimer();
+                    if (a.this.bXS <= 0 && a.this.bXR != null) {
+                        a.this.bXR.fs(1);
+                        a.this.RX();
                     }
                 }
             };
@@ -189,10 +189,10 @@ public class e {
                 }
                 switch (c) {
                     case 0:
-                        eVar.cQ(true);
+                        eVar.dM(true);
                         return;
                     case 1:
-                        eVar.cQ(false);
+                        eVar.dM(false);
                         return;
                     default:
                         return;

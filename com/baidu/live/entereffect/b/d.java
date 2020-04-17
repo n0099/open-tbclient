@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d {
-    private List<com.baidu.live.im.data.a> afL;
-    private com.baidu.live.im.data.a afM;
+    private List<com.baidu.live.im.data.a> ayc;
+    private com.baidu.live.im.data.a ayd;
 
-    public static d rf() {
-        return a.afN;
+    public static d vx() {
+        return a.aye;
     }
 
     public void c(com.baidu.live.im.data.a aVar) {
-        if (this.afL == null) {
-            this.afL = new ArrayList();
+        if (this.ayc == null) {
+            this.ayc = new ArrayList();
         }
-        if (d(aVar) || this.afL.size() < com.baidu.live.v.a.zs().awM.aaX) {
-            this.afL.add(aVar);
+        if (d(aVar) || this.ayc.size() < com.baidu.live.v.a.Eo().aQp.atm) {
+            this.ayc.add(aVar);
         }
     }
 
@@ -27,30 +27,30 @@ public class d {
     }
 
     public boolean hasMsg() {
-        return (this.afL == null || this.afL.isEmpty()) ? false : true;
+        return (this.ayc == null || this.ayc.isEmpty()) ? false : true;
     }
 
-    public boolean rg() {
-        return this.afM != null;
+    public boolean vy() {
+        return this.ayd != null;
     }
 
-    public com.baidu.live.im.data.a rh() {
+    public com.baidu.live.im.data.a vz() {
         if (hasMsg()) {
-            this.afM = this.afL.remove(0);
+            this.ayd = this.ayc.remove(0);
         } else {
-            this.afM = null;
+            this.ayd = null;
         }
-        return this.afM;
+        return this.ayd;
     }
 
-    public com.baidu.live.im.data.a ri() {
-        return this.afM;
+    public com.baidu.live.im.data.a vA() {
+        return this.ayd;
     }
 
     public void release() {
-        this.afM = null;
-        if (this.afL != null) {
-            this.afL.clear();
+        this.ayd = null;
+        if (this.ayc != null) {
+            this.ayc.clear();
         }
     }
 
@@ -59,6 +59,6 @@ public class d {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final d afN = new d();
+        private static final d aye = new d();
     }
 }

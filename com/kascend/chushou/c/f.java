@@ -2,6 +2,7 @@ package com.kascend.chushou.c;
 
 import android.support.v4.util.SparseArrayCompat;
 import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
@@ -28,18 +29,18 @@ import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class f {
-    public static ParserRet s(String str, JSONObject jSONObject) {
-        return a(str, jSONObject, true);
+    public static ParserRet q(String str, JSONObject jSONObject) {
+        return b(str, jSONObject, true);
     }
 
-    public static ParserRet a(String str, JSONObject jSONObject, boolean z) {
+    public static ParserRet b(String str, JSONObject jSONObject, boolean z) {
         FullRoomInfo fullRoomInfo;
         String str2;
         Exception exc;
         int i;
         JSONArray jSONArray;
         boolean z2;
-        tv.chushou.zues.utils.e.k("Parser_Room", "%s%sparseRoomInfo:", jSONObject);
+        tv.chushou.zues.utils.e.m("Parser_Room", "%s%sparseRoomInfo:", jSONObject);
         FullRoomInfo fullRoomInfo2 = null;
         int i2 = -1;
         String str3 = "";
@@ -52,7 +53,7 @@ public class f {
                 try {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("data");
                     JSONArray optJSONArray = jSONObject2.optJSONArray("roomTabs");
-                    if (!h.Z(optJSONArray)) {
+                    if (!h.aa(optJSONArray)) {
                         for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                             if (optJSONObject != null) {
@@ -69,7 +70,7 @@ public class f {
                     }
                     JSONObject optJSONObject2 = jSONObject2.optJSONObject("shareInfo");
                     if (optJSONObject2 != null) {
-                        fullRoomInfo.mRoominfo.mShareInfo = a.dw(optJSONObject2);
+                        fullRoomInfo.mRoominfo.mShareInfo = a.dz(optJSONObject2);
                     }
                     JSONObject optJSONObject3 = jSONObject2.optJSONObject("user");
                     if (optJSONObject3 != null) {
@@ -182,7 +183,7 @@ public class f {
                     }
                     JSONObject optJSONObject7 = jSONObject2.optJSONObject("currentLiveRoom");
                     if (optJSONObject7 != null) {
-                        fullRoomInfo.cycleLiveRoomInfo = e.dD(optJSONObject7);
+                        fullRoomInfo.cycleLiveRoomInfo = e.dG(optJSONObject7);
                     }
                     tv.chushou.zues.utils.e.i("Parser_Room", "parser sucess");
                     fullRoomInfo2 = fullRoomInfo;
@@ -230,9 +231,9 @@ public class f {
                     if (optJSONArray2 != null) {
                         int length2 = optJSONArray2.length();
                         for (int i2 = 0; i2 < length2; i2++) {
-                            GeneralGift dM = dM(optJSONArray2.optJSONObject(i2));
-                            if (dM != null) {
-                                generalTabGift.mGeneralGifts.add(dM);
+                            GeneralGift dP = dP(optJSONArray2.optJSONObject(i2));
+                            if (dP != null) {
+                                generalTabGift.mGeneralGifts.add(dP);
                             }
                         }
                     }
@@ -252,18 +253,18 @@ public class f {
             arrayList = new ArrayList();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                GeneralGift dM = dM(optJSONArray.optJSONObject(i));
-                if (dM != null) {
-                    dM.mGroupName = str;
-                    dM.mGroup = 127;
-                    arrayList.add(dM);
+                GeneralGift dP = dP(optJSONArray.optJSONObject(i));
+                if (dP != null) {
+                    dP.mGroupName = str;
+                    dP.mGroup = 127;
+                    arrayList.add(dP);
                 }
             }
         }
         return arrayList;
     }
 
-    public static ParserRet dz(JSONObject jSONObject) {
+    public static ParserRet dC(JSONObject jSONObject) {
         ArrayList arrayList = null;
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         String str = "";
@@ -274,9 +275,9 @@ public class f {
                 arrayList = new ArrayList();
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {
-                    GeneralGift dM = dM(optJSONArray.optJSONObject(i));
-                    if (dM != null) {
-                        arrayList.add(dM);
+                    GeneralGift dP = dP(optJSONArray.optJSONObject(i));
+                    if (dP != null) {
+                        arrayList.add(dP);
                     }
                 }
             }
@@ -287,7 +288,7 @@ public class f {
         return parserRet;
     }
 
-    public static ParserRet dA(JSONObject jSONObject) {
+    public static ParserRet dD(JSONObject jSONObject) {
         EmojiGiftDetail emojiGiftDetail = null;
         JSONObject optJSONObject = jSONObject.optJSONObject("data");
         if (optJSONObject != null) {
@@ -299,7 +300,7 @@ public class f {
             emojiGiftDetail.liveType = optJSONObject.optString("liveType");
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("generalGift");
             if (optJSONObject2 != null) {
-                emojiGiftDetail.generalGift = dM(optJSONObject2);
+                emojiGiftDetail.generalGift = dP(optJSONObject2);
             }
         }
         ParserRet parserRet = new ParserRet();
@@ -307,7 +308,7 @@ public class f {
         return parserRet;
     }
 
-    public static GeneralGift dM(JSONObject jSONObject) {
+    public static GeneralGift dP(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -337,11 +338,11 @@ public class f {
         if (optJSONObject != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("landscape");
             if (optJSONObject2 != null) {
-                generalGift.mLandscape = dN(optJSONObject2);
+                generalGift.mLandscape = dQ(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("portrait");
             if (optJSONObject3 != null) {
-                generalGift.mPortrait = dN(optJSONObject3);
+                generalGift.mPortrait = dQ(optJSONObject3);
             }
             generalGift.mUrl = optJSONObject.optString("url", "");
             generalGift.mGiftDetailWidth = optJSONObject.optInt("giftDetailWidth", 0);
@@ -351,7 +352,7 @@ public class f {
         return generalGift;
     }
 
-    private static H5Positon dN(JSONObject jSONObject) {
+    private static H5Positon dQ(JSONObject jSONObject) {
         H5Positon h5Positon = new H5Positon();
         h5Positon.mWidth = jSONObject.optInt("width", 0);
         h5Positon.mHeight = jSONObject.optInt("height", 0);
@@ -394,7 +395,7 @@ public class f {
         JSONObject optJSONObject2 = jSONObject.optJSONObject("liveStatus");
         if (optJSONObject2 != null) {
             roomInfo.mOnlineCount = optJSONObject2.optString("onlineCount", "");
-            roomInfo.mCover = optJSONObject2.optString("screenshot", "");
+            roomInfo.mCover = optJSONObject2.optString(StatisticConstants.SCREENSHOT, "");
             roomInfo.mModelName = optJSONObject2.optString("modelName", "");
             roomInfo.mLiveTimeDesc = optJSONObject2.optString("liveTimeDesc", "");
             roomInfo.mStyle = optJSONObject2.optInt("style");

@@ -1,136 +1,242 @@
 package com.baidu.tieba.ala.b;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.listener.CustomMessageListener;
-import com.baidu.live.adp.framework.listener.HttpMessageListener;
-import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.adp.framework.task.HttpMessageTask;
-import com.baidu.live.tbadk.TbConfig;
-import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ala.data.RedPktSendHttpResponseMessage;
-import com.baidu.tieba.ala.data.o;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.live.adp.lib.safe.JavaTypesHelper;
+import com.baidu.live.adp.widget.listview.BdListView;
+import com.baidu.live.message.AlaSdkGetGiftListHttpResponseMessage;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.u.a;
+import com.baidu.live.view.RoundRectRelativeLayout;
+import com.baidu.live.view.input.AlaLiveInputEditView;
+import com.baidu.swan.games.utils.so.SoUtils;
+import com.baidu.tbadk.core.atomData.FrsProfessionIntroActivityConfig;
+import com.baidu.tieba.ala.AlaChooseGiftActivity;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a {
-    private Activity activity;
-    private b eyL;
-    private String liveId;
-    private String roomId;
-    private HttpMessageListener eyM = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.b.a.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                if (a.this.activity.isDestroyed() || a.this.activity.isFinishing()) {
-                    return;
+public class a extends d {
+    private RelativeLayout fcB;
+    private TextView fcC;
+    private TextView fcD;
+    private RoundRectRelativeLayout fcE;
+    private C0460a fcF;
+    private List<Integer> fcG;
+    private BdListView mListView;
+
+    public a(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
+        super(alaChooseGiftActivity, frameLayout, str, arrayList, i, i2);
+    }
+
+    @Override // com.baidu.tieba.ala.b.d
+    protected int bnw() {
+        return a.h.ala_choose_num_and_date;
+    }
+
+    @Override // com.baidu.tieba.ala.b.d
+    protected void initView() {
+        bnx();
+        this.fcB = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
+        this.fcB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.a.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                a.this.bjG();
+            }
+        });
+        this.fcC = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
+        this.fcC.setText(a.i.sdk_choose_custom_date_tip);
+        this.fcD = (TextView) this.mRootView.findViewById(a.g.choose_num_desc);
+        this.fcD.setVisibility(0);
+        this.fcE = (RoundRectRelativeLayout) this.mRootView.findViewById(a.g.choose_gift_list_layout);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fcE.getLayoutParams();
+        layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds178);
+        this.fcE.setLayoutParams(layoutParams);
+        this.mListView = (BdListView) this.mRootView.findViewById(a.g.choose_gift_listview);
+        this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.b.a.2
+            @Override // android.widget.AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+                if (i >= 0 && i < a.this.fcG.size()) {
+                    a.this.fdd = ((Integer) a.this.fcG.get(i)).intValue();
+                    a.this.fcF.pB(a.this.fdd);
                 }
-            } else if (a.this.activity.isFinishing()) {
-                return;
             }
-            if ((httpResponsedMessage instanceof RedPktSendHttpResponseMessage) && httpResponsedMessage.getError() == 0) {
-                com.baidu.live.l.a.a(a.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).eAX, ((RedPktSendHttpResponseMessage) httpResponsedMessage).eAY, "send_redpacket");
-                a.this.activity.finish();
-                return;
-            }
-            if (httpResponsedMessage.getError() == 3501) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(a.this.activity, 0L, "", true, "", true)));
-            } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
-                UtilHelper.showToast(a.this.activity, httpResponsedMessage.getErrorString());
-            }
-            if (a.this.eyL != null) {
-                a.this.eyL.iq(true);
-            }
-        }
-    };
-    private CustomMessageListener notifyDialogDismissListener = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.b.a.2
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                if (a.this.activity.isDestroyed() || a.this.activity.isFinishing()) {
-                    return;
-                }
-            } else if (a.this.activity.isFinishing()) {
-                return;
-            }
-            a.this.activity.finish();
-        }
-    };
-
-    public a(Activity activity) {
-        this.activity = activity;
-        initView();
-        bek();
+        });
+        this.fcF = new C0460a(this.fcZ.getPageContext());
+        this.mListView.setAdapter((ListAdapter) this.fcF);
+        this.fcF.bt(this.fdd);
+        this.fcF.setData(this.fcG);
     }
 
-    private void initView() {
-        if (this.activity != null && this.activity.getIntent() != null) {
-            Intent intent = this.activity.getIntent();
-            this.liveId = intent.getStringExtra("live_id");
-            this.roomId = intent.getStringExtra("room_id");
-        }
-        this.eyL = new b(this.activity, this);
+    @Override // com.baidu.tieba.ala.b.d
+    public void e(TextView textView) {
+        textView.setText(a.i.sdk_choose_date_title);
     }
 
-    private static void bej() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021159, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        tbHttpMessageTask.setResponsedClass(RedPktSendHttpResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    @Override // com.baidu.tieba.ala.b.d
+    public void e(AlaLiveInputEditView alaLiveInputEditView) {
+        super.e(alaLiveInputEditView);
+        alaLiveInputEditView.setHintText(this.mContext.getResources().getString(a.i.sdk_choose_input_date_hint));
     }
 
-    private void bek() {
-        bej();
-        MessageManager.getInstance().registerListener(this.eyM);
-        MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
+    @Override // com.baidu.tieba.ala.b.d
+    public void c(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
     }
 
-    public void destroy() {
-        MessageManager.getInstance().unRegisterTask(1021159);
-        MessageManager.getInstance().unRegisterListener(this.eyM);
-        MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
+    @Override // com.baidu.tieba.ala.b.d
+    public void ay(int i, String str) {
     }
 
-    public View getView() {
-        if (this.eyL != null) {
-            return this.eyL.getView();
-        }
-        return null;
-    }
-
-    public void a(o oVar) {
-        if (oVar != null) {
-            oVar.dN(this.liveId);
-            oVar.dO(this.roomId);
-            oVar.setParams();
-            MessageManager.getInstance().sendMessage(oVar);
-            if (this.eyL != null) {
-                this.eyL.iq(false);
-            }
+    @Override // com.baidu.tieba.ala.b.d
+    public void confirm() {
+        if (this.fdd > 0) {
+            B(this.fdd, false);
+        } else {
+            this.fcZ.finish();
         }
     }
 
-    public void tf() {
-        if (this.eyL != null) {
-            this.eyL.tf();
-        }
+    @Override // com.baidu.tieba.ala.b.d
+    public void pA(int i) {
+        super.pA(i);
+        B(i, true);
     }
 
+    @Override // com.baidu.tieba.ala.b.d
+    public void a(CharSequence charSequence, int i, int i2, int i3) {
+        super.a(charSequence, i, i2, i3);
+        if (JavaTypesHelper.toInt(charSequence.toString(), 0) > 24) {
+            this.eHe.getEditView().setText(SoUtils.SO_EVENT_ID_DEFAULT);
+            this.eHe.getEditView().setSelection(this.eHe.getEditView().getText().length());
+        }
+        this.eHe.setSendEnabled(true);
+    }
+
+    private void B(int i, boolean z) {
+        Intent intent = new Intent();
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("date_custom", z);
+            jSONObject.put("date_value", i);
+            intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, jSONObject.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        this.fcZ.setResult(-1, intent);
+        this.fcZ.finish();
+    }
+
+    @Override // com.baidu.tieba.ala.b.d
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.eyL != null) {
-            this.eyL.onKeyboardVisibilityChanged(z);
+        super.onKeyboardVisibilityChanged(z);
+    }
+
+    private void bnx() {
+        if (this.fcG == null) {
+            this.fcG = new ArrayList();
+        }
+        for (int i = 2; i <= 12; i++) {
+            if (i % 2 == 0) {
+                this.fcG.add(Integer.valueOf(i));
+            }
+        }
+    }
+
+    /* renamed from: com.baidu.tieba.ala.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    private class C0460a extends BaseAdapter {
+        private List<Integer> dataList;
+        private int fcI;
+        private Context mContext;
+
+        public C0460a(TbPageContext tbPageContext) {
+            this.mContext = tbPageContext.getPageActivity();
+        }
+
+        public void bt(int i) {
+            this.fcI = i;
+        }
+
+        public void pB(int i) {
+            if (this.fcI != i) {
+                this.fcI = i;
+                notifyDataSetChanged();
+            }
+        }
+
+        public void setData(List<Integer> list) {
+            this.dataList = new ArrayList(list);
+            notifyDataSetChanged();
+        }
+
+        @Override // android.widget.Adapter
+        public int getCount() {
+            if (this.dataList == null) {
+                return 0;
+            }
+            return this.dataList.size();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.widget.Adapter
+        /* renamed from: pC */
+        public Integer getItem(int i) {
+            if (this.dataList == null) {
+                return null;
+            }
+            return this.dataList.get(i);
+        }
+
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            return i;
+        }
+
+        @Override // android.widget.Adapter
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            b bVar;
+            if (view == null) {
+                b bVar2 = new b();
+                view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_num_and_date_item, viewGroup, false);
+                bVar2.fcJ = (RelativeLayout) view.findViewById(a.g.item_root);
+                bVar2.fcK = (TextView) view.findViewById(a.g.item_num_title);
+                bVar2.fcL = (ImageView) view.findViewById(a.g.item_num_arrow);
+                view.setTag(bVar2);
+                bVar = bVar2;
+            } else {
+                bVar = (b) view.getTag();
+            }
+            Integer item = getItem(i);
+            if (item != null) {
+                bVar.fcK.setText(String.format(this.mContext.getResources().getString(a.i.sdk_choose_hour_suffix), item));
+                if (this.fcI == item.intValue()) {
+                    bVar.fcL.setVisibility(0);
+                } else {
+                    bVar.fcL.setVisibility(8);
+                }
+            }
+            return view;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    private class b {
+        public RelativeLayout fcJ;
+        public TextView fcK;
+        public ImageView fcL;
+
+        private b() {
         }
     }
 }

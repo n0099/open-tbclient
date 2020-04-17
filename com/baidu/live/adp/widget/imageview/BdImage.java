@@ -342,6 +342,10 @@ public class BdImage {
         this.mPadding = rect;
     }
 
+    public Bitmap getImage() {
+        return this.image;
+    }
+
     public byte[] getByteData() {
         return this.mByteData;
     }

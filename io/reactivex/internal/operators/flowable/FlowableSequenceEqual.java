@@ -11,8 +11,8 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     final io.reactivex.c.d<? super T, ? super T> comparer;
-    final org.a.b<? extends T> nzf;
-    final org.a.b<? extends T> nzg;
+    final org.a.b<? extends T> mSF;
+    final org.a.b<? extends T> mSG;
     final int prefetch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,7 +27,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
     public void a(org.a.c<? super Boolean> cVar) {
         EqualCoordinator equalCoordinator = new EqualCoordinator(cVar, this.prefetch, this.comparer);
         cVar.onSubscribe(equalCoordinator);
-        equalCoordinator.subscribe(this.nzf, this.nzg);
+        equalCoordinator.subscribe(this.mSF, this.mSG);
     }
 
     /* loaded from: classes7.dex */
@@ -96,7 +96,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                                 t = gVar.poll();
                                 this.v1 = t;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.H(th);
+                                io.reactivex.exceptions.a.L(th);
                                 cancelAndClear();
                                 this.error.addThrowable(th);
                                 this.actual.onError(this.error.terminate());
@@ -112,7 +112,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                                 t3 = gVar2.poll();
                                 this.v2 = t3;
                             } catch (Throwable th2) {
-                                io.reactivex.exceptions.a.H(th2);
+                                io.reactivex.exceptions.a.L(th2);
                                 cancelAndClear();
                                 this.error.addThrowable(th2);
                                 this.actual.onError(this.error.terminate());
@@ -130,7 +130,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                             return;
                         } else if (!z2 && !z4) {
                             try {
-                                if (!this.comparer.j(t2, t4)) {
+                                if (!this.comparer.i(t2, t4)) {
                                     cancelAndClear();
                                     complete(false);
                                     return;
@@ -140,7 +140,7 @@ public final class FlowableSequenceEqual<T> extends io.reactivex.g<Boolean> {
                                 this.first.request();
                                 this.second.request();
                             } catch (Throwable th3) {
-                                io.reactivex.exceptions.a.H(th3);
+                                io.reactivex.exceptions.a.L(th3);
                                 cancelAndClear();
                                 this.error.addThrowable(th3);
                                 this.actual.onError(this.error.terminate());

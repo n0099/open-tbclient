@@ -16,19 +16,19 @@ public final class d {
     private String i;
     private boolean j;
     private Map<String, g> k;
-    private JSONArray kXz;
+    private JSONArray lOd;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public static class a {
-        public static final d kXA = new d((byte) 0);
+        public static final d lOe = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
         this();
     }
 
-    public final Map<String, g> m() {
+    public final Map<String, g> dkV() {
         return this.k;
     }
 
@@ -40,8 +40,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d cXN() {
-        return a.kXA;
+    public static d dkW() {
+        return a.lOe;
     }
 
     public final void a(Context context) {
@@ -87,20 +87,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult Lm(String str) {
-        if (this.kXz == null) {
+    public final SampleResult NA(String str) {
+        if (this.lOd == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.Lz(this.k.get(str).getGroup());
+                return i.NH(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.kXz.length(); i++) {
-            JSONObject optJSONObject = this.kXz.optJSONObject(i);
+        for (int i = 0; i < this.lOd.length(); i++) {
+            JSONObject optJSONObject = this.lOd.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.Lz(optJSONObject.optString(TbEnum.ParamKey.GROUP));
+                return i.NH(optJSONObject.optString(TbEnum.ParamKey.GROUP));
             }
         }
         return SampleResult.OTHERE;

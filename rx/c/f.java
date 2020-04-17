@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public class f {
-    private static final f nVt = new f();
-    static final b nVy = new b() { // from class: rx.c.f.1
+    private static final f npd = new f();
+    static final b npi = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> nVu = new AtomicReference<>();
-    private final AtomicReference<d> nVv = new AtomicReference<>();
-    private final AtomicReference<h> nVw = new AtomicReference<>();
-    private final AtomicReference<a> nVx = new AtomicReference<>();
-    private final AtomicReference<g> nPu = new AtomicReference<>();
+    private final AtomicReference<b> npe = new AtomicReference<>();
+    private final AtomicReference<d> npf = new AtomicReference<>();
+    private final AtomicReference<h> npg = new AtomicReference<>();
+    private final AtomicReference<a> nph = new AtomicReference<>();
+    private final AtomicReference<g> nja = new AtomicReference<>();
 
     @Deprecated
-    public static f dPz() {
-        return nVt;
+    public static f dIz() {
+        return npd;
     }
 
     f() {
     }
 
-    public b dPA() {
-        if (this.nVu.get() == null) {
+    public b dIA() {
+        if (this.npe.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.nVu.compareAndSet(null, nVy);
+                this.npe.compareAndSet(null, npi);
             } else {
-                this.nVu.compareAndSet(null, (b) a);
+                this.npe.compareAndSet(null, (b) a);
             }
         }
-        return this.nVu.get();
+        return this.npe.get();
     }
 
-    public d dPB() {
-        if (this.nVv.get() == null) {
+    public d dIB() {
+        if (this.npf.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.nVv.compareAndSet(null, e.dPy());
+                this.npf.compareAndSet(null, e.dIy());
             } else {
-                this.nVv.compareAndSet(null, (d) a);
+                this.npf.compareAndSet(null, (d) a);
             }
         }
-        return this.nVv.get();
+        return this.npf.get();
     }
 
-    public h dPC() {
-        if (this.nVw.get() == null) {
+    public h dIC() {
+        if (this.npg.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.nVw.compareAndSet(null, i.dPM());
+                this.npg.compareAndSet(null, i.dIM());
             } else {
-                this.nVw.compareAndSet(null, (h) a);
+                this.npg.compareAndSet(null, (h) a);
             }
         }
-        return this.nVw.get();
+        return this.npg.get();
     }
 
-    public a dPD() {
-        if (this.nVx.get() == null) {
+    public a dID() {
+        if (this.nph.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
-                this.nVx.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.nph.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.nVx.compareAndSet(null, (a) a);
+                this.nph.compareAndSet(null, (a) a);
             }
         }
-        return this.nVx.get();
+        return this.nph.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g dPE() {
-        if (this.nPu.get() == null) {
+    public g dIE() {
+        if (this.nja.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.nPu.compareAndSet(null, g.dPL());
+                this.nja.compareAndSet(null, g.dIL());
             } else {
-                this.nPu.compareAndSet(null, (g) a);
+                this.nja.compareAndSet(null, (g) a);
             }
         }
-        return this.nPu.get();
+        return this.nja.get();
     }
 }

@@ -12,7 +12,7 @@ public class LifecycleService extends Service implements j {
     @Override // android.app.Service
     @CallSuper
     public void onCreate() {
-        this.mDispatcher.aH();
+        this.mDispatcher.ge();
         super.onCreate();
     }
 
@@ -20,14 +20,14 @@ public class LifecycleService extends Service implements j {
     @CallSuper
     @Nullable
     public IBinder onBind(Intent intent) {
-        this.mDispatcher.aI();
+        this.mDispatcher.gf();
         return null;
     }
 
     @Override // android.app.Service
     @CallSuper
     public void onStart(Intent intent, int i) {
-        this.mDispatcher.aJ();
+        this.mDispatcher.gg();
         super.onStart(intent, i);
     }
 
@@ -40,7 +40,7 @@ public class LifecycleService extends Service implements j {
     @Override // android.app.Service
     @CallSuper
     public void onDestroy() {
-        this.mDispatcher.aK();
+        this.mDispatcher.gh();
         super.onDestroy();
     }
 

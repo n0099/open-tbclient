@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String kwd;
-    private a kwe;
+    private String lgl;
+    private a lgm;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cbg();
+        void clH();
 
-        void cbh();
+        void clI();
 
-        void cbi();
+        void clJ();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.kwd = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.kwe = aVar;
+        this.lgl = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.lgm = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,9 +33,9 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.kwd);
-            xVar.aGk().aGL().mIsNeedAddCommenParam = false;
-            xVar.aGk().aGL().mIsUseCurrentBDUSS = false;
+            x xVar = new x(this.lgl);
+            xVar.aOy().aOZ().mIsNeedAddCommenParam = false;
+            xVar.aOy().aOZ().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.getNetData())).optJSONArray("result");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return i;
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.kwe != null && num != null) {
+        if (this.lgm != null && num != null) {
             if (num.intValue() == -1) {
-                this.kwe.onError(null);
+                this.lgm.onError(null);
             } else if (num.intValue() == 1) {
-                this.kwe.cbg();
+                this.lgm.clH();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.kwe.cbh();
+                this.lgm.clI();
             } else {
-                this.kwe.cbi();
+                this.lgm.clJ();
             }
         }
     }

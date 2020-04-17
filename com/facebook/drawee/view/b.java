@@ -12,20 +12,20 @@ import com.facebook.drawee.drawable.t;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class b<DH extends com.facebook.drawee.d.b> implements t {
-    private DH lPQ;
-    private boolean lPO = false;
-    private boolean lPP = false;
-    private boolean mIsVisible = true;
-    private com.facebook.drawee.d.a lPR = null;
-    private final DraweeEventTracker lMJ = DraweeEventTracker.dms();
+    private DH lXn;
+    private boolean lXl = false;
+    private boolean lXm = false;
+    private boolean cYp = true;
+    private com.facebook.drawee.d.a lXo = null;
+    private final DraweeEventTracker lUc = DraweeEventTracker.dol();
 
     public static <DH extends com.facebook.drawee.d.b> b<DH> a(@Nullable DH dh, Context context) {
         b<DH> bVar = new b<>(dh);
-        bVar.gk(context);
+        bVar.fO(context);
         return bVar;
     }
 
-    public void gk(Context context) {
+    public void fO(Context context) {
     }
 
     public b(@Nullable DH dh) {
@@ -35,40 +35,40 @@ public class b<DH extends com.facebook.drawee.d.b> implements t {
     }
 
     public void onAttach() {
-        this.lMJ.a(DraweeEventTracker.Event.ON_HOLDER_ATTACH);
-        this.lPP = true;
-        dnL();
+        this.lUc.a(DraweeEventTracker.Event.ON_HOLDER_ATTACH);
+        this.lXm = true;
+        dpF();
     }
 
     public void onDetach() {
-        this.lMJ.a(DraweeEventTracker.Event.ON_HOLDER_DETACH);
-        this.lPP = false;
-        dnL();
+        this.lUc.a(DraweeEventTracker.Event.ON_HOLDER_DETACH);
+        this.lXm = false;
+        dpF();
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (dnM()) {
-            return this.lPR.onTouchEvent(motionEvent);
+        if (dpG()) {
+            return this.lXo.onTouchEvent(motionEvent);
         }
         return false;
     }
 
     @Override // com.facebook.drawee.drawable.t
-    public void vr(boolean z) {
-        if (this.mIsVisible != z) {
-            this.lMJ.a(z ? DraweeEventTracker.Event.ON_DRAWABLE_SHOW : DraweeEventTracker.Event.ON_DRAWABLE_HIDE);
-            this.mIsVisible = z;
-            dnL();
+    public void vF(boolean z) {
+        if (this.cYp != z) {
+            this.lUc.a(z ? DraweeEventTracker.Event.ON_DRAWABLE_SHOW : DraweeEventTracker.Event.ON_DRAWABLE_HIDE);
+            this.cYp = z;
+            dpF();
         }
     }
 
     @Override // com.facebook.drawee.drawable.t
     public void onDraw() {
-        if (!this.lPO) {
-            com.facebook.common.c.a.c(DraweeEventTracker.class, "%x: Draw requested for a non-attached controller %x. %s", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.lPR)), toString());
-            this.lPP = true;
-            this.mIsVisible = true;
-            dnL();
+        if (!this.lXl) {
+            com.facebook.common.c.a.c(DraweeEventTracker.class, "%x: Draw requested for a non-attached controller %x. %s", Integer.valueOf(System.identityHashCode(this)), Integer.valueOf(System.identityHashCode(this.lXo)), toString());
+            this.lXm = true;
+            this.cYp = true;
+            dpF();
         }
     }
 
@@ -80,92 +80,88 @@ public class b<DH extends com.facebook.drawee.d.b> implements t {
     }
 
     public void setController(@Nullable com.facebook.drawee.d.a aVar) {
-        boolean z = this.lPO;
+        boolean z = this.lXl;
         if (z) {
-            dnK();
+            dpE();
         }
-        if (dnM()) {
-            this.lMJ.a(DraweeEventTracker.Event.ON_CLEAR_OLD_CONTROLLER);
-            this.lPR.setHierarchy(null);
+        if (dpG()) {
+            this.lUc.a(DraweeEventTracker.Event.ON_CLEAR_OLD_CONTROLLER);
+            this.lXo.setHierarchy(null);
         }
-        this.lPR = aVar;
-        if (this.lPR != null) {
-            this.lMJ.a(DraweeEventTracker.Event.ON_SET_CONTROLLER);
-            this.lPR.setHierarchy(this.lPQ);
+        this.lXo = aVar;
+        if (this.lXo != null) {
+            this.lUc.a(DraweeEventTracker.Event.ON_SET_CONTROLLER);
+            this.lXo.setHierarchy(this.lXn);
         } else {
-            this.lMJ.a(DraweeEventTracker.Event.ON_CLEAR_CONTROLLER);
+            this.lUc.a(DraweeEventTracker.Event.ON_CLEAR_CONTROLLER);
         }
         if (z) {
-            dnJ();
+            dpD();
         }
     }
 
     @Nullable
     public com.facebook.drawee.d.a getController() {
-        return this.lPR;
+        return this.lXo;
     }
 
     public void setHierarchy(DH dh) {
-        this.lMJ.a(DraweeEventTracker.Event.ON_SET_HIERARCHY);
-        boolean dnM = dnM();
+        this.lUc.a(DraweeEventTracker.Event.ON_SET_HIERARCHY);
+        boolean dpG = dpG();
         a(null);
-        this.lPQ = (DH) g.checkNotNull(dh);
-        Drawable topLevelDrawable = this.lPQ.getTopLevelDrawable();
-        vr(topLevelDrawable == null || topLevelDrawable.isVisible());
+        this.lXn = (DH) g.checkNotNull(dh);
+        Drawable topLevelDrawable = this.lXn.getTopLevelDrawable();
+        vF(topLevelDrawable == null || topLevelDrawable.isVisible());
         a(this);
-        if (dnM) {
-            this.lPR.setHierarchy(dh);
+        if (dpG) {
+            this.lXo.setHierarchy(dh);
         }
     }
 
     public DH getHierarchy() {
-        return (DH) g.checkNotNull(this.lPQ);
-    }
-
-    public boolean hasHierarchy() {
-        return this.lPQ != null;
+        return (DH) g.checkNotNull(this.lXn);
     }
 
     public Drawable getTopLevelDrawable() {
-        if (this.lPQ == null) {
+        if (this.lXn == null) {
             return null;
         }
-        return this.lPQ.getTopLevelDrawable();
+        return this.lXn.getTopLevelDrawable();
     }
 
-    private void dnJ() {
-        if (!this.lPO) {
-            this.lMJ.a(DraweeEventTracker.Event.ON_ATTACH_CONTROLLER);
-            this.lPO = true;
-            if (this.lPR != null && this.lPR.getHierarchy() != null) {
-                this.lPR.onAttach();
+    private void dpD() {
+        if (!this.lXl) {
+            this.lUc.a(DraweeEventTracker.Event.ON_ATTACH_CONTROLLER);
+            this.lXl = true;
+            if (this.lXo != null && this.lXo.getHierarchy() != null) {
+                this.lXo.onAttach();
             }
         }
     }
 
-    private void dnK() {
-        if (this.lPO) {
-            this.lMJ.a(DraweeEventTracker.Event.ON_DETACH_CONTROLLER);
-            this.lPO = false;
-            if (dnM()) {
-                this.lPR.onDetach();
+    private void dpE() {
+        if (this.lXl) {
+            this.lUc.a(DraweeEventTracker.Event.ON_DETACH_CONTROLLER);
+            this.lXl = false;
+            if (dpG()) {
+                this.lXo.onDetach();
             }
         }
     }
 
-    private void dnL() {
-        if (this.lPP && this.mIsVisible) {
-            dnJ();
+    private void dpF() {
+        if (this.lXm && this.cYp) {
+            dpD();
         } else {
-            dnK();
+            dpE();
         }
     }
 
     public String toString() {
-        return f.aS(this).aK("controllerAttached", this.lPO).aK("holderAttached", this.lPP).aK("drawableVisible", this.mIsVisible).x("events", this.lMJ.toString()).toString();
+        return f.aI(this).aK("controllerAttached", this.lXl).aK("holderAttached", this.lXm).aK("drawableVisible", this.cYp).C("events", this.lUc.toString()).toString();
     }
 
-    private boolean dnM() {
-        return this.lPR != null && this.lPR.getHierarchy() == this.lPQ;
+    private boolean dpG() {
+        return this.lXo != null && this.lXo.getHierarchy() == this.lXn;
     }
 }

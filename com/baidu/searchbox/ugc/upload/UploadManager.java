@@ -3,9 +3,7 @@ package com.baidu.searchbox.ugc.upload;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import com.baidu.pyramid.runtime.service.c;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.publisher.video.interfaces.IPublisherSboxVideoInterface;
 import com.baidu.searchbox.ugc.upload.HttpRequestTokenModule;
 import com.baidu.searchbox.ugc.upload.UploadFileTask;
 import com.baidu.searchbox.ugc.utils.FileUtils;
@@ -215,8 +213,7 @@ public class UploadManager {
                             break;
                         }
                     } else if (!isCanceled()) {
-                        IPublisherSboxVideoInterface iPublisherSboxVideoInterface = (IPublisherSboxVideoInterface) c.a(IPublisherSboxVideoInterface.SERVICE_REFERENCE);
-                        if (iPublisherSboxVideoInterface != null ? iPublisherSboxVideoInterface.isVideoTask(this.mTasks.get(0)) : false) {
+                        if (this.mTasks.get(0) instanceof UploadVideoTask) {
                             uploadVideo(this.mTasks, UploadManager.this.mSourceType, UploadManager.this.mFrom);
                         } else {
                             uploadImage(this.mTasks, UploadManager.this.mSourceType, UploadManager.this.mFrom);

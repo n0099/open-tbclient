@@ -34,6 +34,7 @@ import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.widget.EdgeEffectCompat;
 import android.support.v7.recyclerview.R;
+import android.support.v7.widget.ActivityChooserView;
 import android.support.v7.widget.AdapterHelper;
 import android.support.v7.widget.ChildHelper;
 import android.support.v7.widget.GapWorker;
@@ -56,7 +57,6 @@ import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.OverScroller;
 import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mapapi.UIMsg;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -385,7 +385,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
     }
 
     String exceptionLabel() {
-        return HanziToPinyin.Token.SEPARATOR + super.toString() + ", adapter:" + this.mAdapter + ", layout:" + this.mLayout + ", context:" + getContext();
+        return " " + super.toString() + ", adapter:" + this.mAdapter + ", layout:" + this.mLayout + ", context:" + getContext();
     }
 
     public RecyclerViewAccessibilityDelegate getCompatAccessibilityDelegate() {
@@ -2531,7 +2531,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             iArr[1] = -1;
             return;
         }
-        int i = Integer.MAX_VALUE;
+        int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         int i2 = Integer.MIN_VALUE;
         int i3 = 0;
         while (i3 < childCount) {
@@ -3333,7 +3333,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             RecyclerView.this.setScrollState(2);
             this.mLastFlingY = 0;
             this.mLastFlingX = 0;
-            this.mScroller.fling(0, 0, i, i2, Integer.MIN_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MAX_VALUE);
+            this.mScroller.fling(0, 0, i, i2, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             postOnAnimation();
         }
 
@@ -3717,7 +3717,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             viewHolder.mOwnerRecyclerView = RecyclerView.this;
             int itemViewType = viewHolder.getItemViewType();
             long nanoTime = RecyclerView.this.getNanoTime();
-            if (j != Long.MAX_VALUE && !this.mRecyclerPool.willBindInTime(itemViewType, nanoTime, j)) {
+            if (j != RecyclerView.FOREVER_NS && !this.mRecyclerPool.willBindInTime(itemViewType, nanoTime, j)) {
                 return false;
             }
             RecyclerView.this.mAdapter.bindViewHolder(viewHolder, i);
@@ -3739,7 +3739,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             if (findPositionOffset < 0 || findPositionOffset >= RecyclerView.this.mAdapter.getItemCount()) {
                 throw new IndexOutOfBoundsException("Inconsistency detected. Invalid item position " + i + "(offset:" + findPositionOffset + ").state:" + RecyclerView.this.mState.getItemCount() + RecyclerView.this.exceptionLabel());
             }
-            tryBindViewHolderByDeadline(childViewHolderInt, findPositionOffset, i, Long.MAX_VALUE);
+            tryBindViewHolderByDeadline(childViewHolderInt, findPositionOffset, i, RecyclerView.FOREVER_NS);
             ViewGroup.LayoutParams layoutParams2 = childViewHolderInt.itemView.getLayoutParams();
             if (layoutParams2 == null) {
                 layoutParams = (LayoutParams) RecyclerView.this.generateDefaultLayoutParams();
@@ -3767,7 +3767,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
 
         View getViewForPosition(int i, boolean z) {
-            return tryGetViewHolderForPositionByDeadline(i, z, Long.MAX_VALUE).itemView;
+            return tryGetViewHolderForPositionByDeadline(i, z, RecyclerView.FOREVER_NS).itemView;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -3840,7 +3840,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
                 }
                 if (viewHolder == null) {
                     long nanoTime = RecyclerView.this.getNanoTime();
-                    if (j != Long.MAX_VALUE && !this.mRecyclerPool.willCreateInTime(itemViewType, nanoTime, j)) {
+                    if (j != RecyclerView.FOREVER_NS && !this.mRecyclerPool.willCreateInTime(itemViewType, nanoTime, j)) {
                         return null;
                     }
                     viewHolder = RecyclerView.this.mAdapter.createViewHolder(RecyclerView.this, itemViewType);
@@ -4610,7 +4610,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
 
         void setMeasuredDimensionFromChildren(int i, int i2) {
-            int i3 = Integer.MAX_VALUE;
+            int i3 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             int i4 = Integer.MIN_VALUE;
             int childCount = getChildCount();
             if (childCount == 0) {
@@ -6920,7 +6920,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             public int right;
 
             /* renamed from: top  reason: collision with root package name */
-            public int f968top;
+            public int f970top;
 
             public ItemHolderInfo setFrom(ViewHolder viewHolder) {
                 return setFrom(viewHolder, 0);
@@ -6929,7 +6929,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             public ItemHolderInfo setFrom(ViewHolder viewHolder, int i) {
                 View view = viewHolder.itemView;
                 this.left = view.getLeft();
-                this.f968top = view.getTop();
+                this.f970top = view.getTop();
                 this.right = view.getRight();
                 this.bottom = view.getBottom();
                 return this;

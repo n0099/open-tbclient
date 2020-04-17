@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes3.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
-    private int czA;
-    private int czB;
+    private int cYy;
+    private int cYz;
 
     public AlaBannerRecyclerView(Context context) {
         super(context);
@@ -29,8 +29,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.czB = y;
-                this.czA = x;
+                this.cYz = y;
+                this.cYy = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
                 break;
             case 1:
@@ -38,8 +38,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 getParent().requestDisallowInterceptTouchEvent(false);
                 break;
             case 2:
-                int i = y - this.czB;
-                int i2 = x - this.czA;
+                int i = y - this.cYz;
+                int i2 = x - this.cYy;
                 if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
                     getParent().requestDisallowInterceptTouchEvent(false);
                     break;
@@ -49,17 +49,17 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 }
                 break;
         }
-        this.czB = y;
-        this.czA = x;
+        this.cYz = y;
+        this.cYy = x;
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.support.v7.widget.RecyclerView
     public boolean fling(int i, int i2) {
-        return super.fling(oX(i), oX(i2));
+        return super.fling(pr(i), pr(i2));
     }
 
-    private int oX(int i) {
+    private int pr(int i) {
         return i > 0 ? Math.min(i, 3000) : Math.max(i, -3000);
     }
 }

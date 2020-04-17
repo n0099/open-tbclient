@@ -7,7 +7,6 @@ import android.text.Spanned;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,12 +78,12 @@ public class TbListTextView extends TextView {
         for (Object obj : spans) {
             int spanStart = spannableStringBuilder.getSpanStart(obj);
             if (isNotSpace(spannableStringBuilder, spanStart - 1)) {
-                spannableStringBuilder.insert(spanStart, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanStart, " ");
                 arrayList.add(obj);
             }
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             if (isNotSpace(spannableStringBuilder, spanEnd)) {
-                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanEnd, " ");
                 arrayList2.add(obj);
             }
             try {
@@ -113,7 +112,7 @@ public class TbListTextView extends TextView {
             try {
                 setTextAndMeasure(spannableStringBuilder, i, i2);
             } catch (IndexOutOfBoundsException e) {
-                spannableStringBuilder.insert(spanEnd, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanEnd, " ");
             }
         }
         boolean z = true;
@@ -124,7 +123,7 @@ public class TbListTextView extends TextView {
                 setTextAndMeasure(spannableStringBuilder, i, i2);
                 z = false;
             } catch (IndexOutOfBoundsException e2) {
-                spannableStringBuilder.insert(spanStart - 1, HanziToPinyin.Token.SEPARATOR);
+                spannableStringBuilder.insert(spanStart - 1, " ");
                 z = true;
             }
         }

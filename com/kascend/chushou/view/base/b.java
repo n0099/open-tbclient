@@ -75,15 +75,15 @@ public abstract class b extends Fragment {
 
     public void showApiError(boolean z, int i, String str) {
         if (z) {
-            if (!tv.chushou.zues.utils.a.dQQ()) {
+            if (!tv.chushou.zues.utils.a.dJS()) {
                 showStatus(3);
                 return;
             } else {
-                showStatus(e.Nh(i));
+                showStatus(e.IB(i));
                 return;
             }
         }
-        if (!tv.chushou.zues.utils.a.dQQ()) {
+        if (!tv.chushou.zues.utils.a.dJS()) {
             str = this.mContext.getString(a.i.s_no_available_network);
         } else if (h.isEmpty(str)) {
             str = this.mContext.getString(a.i.str_errpr_pop);

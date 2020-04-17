@@ -2,7 +2,6 @@ package com.qiniu.android.http;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.qiniu.android.utils.StringUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.nio.charset.Charset;
@@ -10,63 +9,63 @@ import java.util.Locale;
 import java.util.Random;
 /* loaded from: classes5.dex */
 public final class UserAgent {
-    private static UserAgent npB = new UserAgent();
-    public final String id = dGx();
-    public final String ua = Rp(this.id);
+    private static UserAgent mMk = new UserAgent();
+    public final String id = dAA();
+    public final String ua = OZ(this.id);
 
     private UserAgent() {
     }
 
-    public static UserAgent dGw() {
-        return npB;
+    public static UserAgent dAz() {
+        return mMk;
     }
 
-    private static String dGx() {
+    private static String dAA() {
         return System.currentTimeMillis() + "" + new Random().nextInt(999);
     }
 
-    static String Rp(String str) {
-        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", dGy(), dGz(), str);
+    static String OZ(String str) {
+        return String.format("QiniuAndroid/%s (%s; %s; %s", "7.3.13", Lj(), dAB(), str);
     }
 
-    private static String dGy() {
+    private static String Lj() {
         try {
             String str = Build.VERSION.RELEASE;
             if (str == null) {
                 return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return StringUtils.Rv(str.trim());
+            return StringUtils.Pf(str.trim());
         } catch (Throwable th) {
             return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
     }
 
-    private static String dGz() {
+    private static String dAB() {
         try {
             String trim = Build.MODEL.trim();
-            String fv = fv(Build.MANUFACTURER.trim(), trim);
-            if (TextUtils.isEmpty(fv)) {
-                fv = fv(Build.BRAND.trim(), trim);
+            String fm = fm(Build.MANUFACTURER.trim(), trim);
+            if (TextUtils.isEmpty(fm)) {
+                fm = fm(Build.BRAND.trim(), trim);
             }
             StringBuilder sb = new StringBuilder();
-            if (fv == null) {
-                fv = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
+            if (fm == null) {
+                fm = Constants.ACCEPT_TIME_SEPARATOR_SERVER;
             }
-            return StringUtils.Rv(sb.append(fv).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
+            return StringUtils.Pf(sb.append(fm).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(trim).toString());
         } catch (Throwable th) {
             return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
         }
     }
 
-    private static String fv(String str, String str2) {
+    private static String fm(String str, String str2) {
         String lowerCase = str.toLowerCase(Locale.getDefault());
-        if (lowerCase.startsWith("unknown") || lowerCase.startsWith("alps") || lowerCase.startsWith(PraiseDataPassUtil.KEY_FROM_OS) || lowerCase.startsWith("sprd") || lowerCase.startsWith("spreadtrum") || lowerCase.startsWith("rockchip") || lowerCase.startsWith("wondermedia") || lowerCase.startsWith("mtk") || lowerCase.startsWith("mt65") || lowerCase.startsWith("nvidia") || lowerCase.startsWith("brcm") || lowerCase.startsWith("marvell") || str2.toLowerCase(Locale.getDefault()).contains(lowerCase)) {
+        if (lowerCase.startsWith("unknown") || lowerCase.startsWith("alps") || lowerCase.startsWith("android") || lowerCase.startsWith("sprd") || lowerCase.startsWith("spreadtrum") || lowerCase.startsWith("rockchip") || lowerCase.startsWith("wondermedia") || lowerCase.startsWith("mtk") || lowerCase.startsWith("mt65") || lowerCase.startsWith("nvidia") || lowerCase.startsWith("brcm") || lowerCase.startsWith("marvell") || str2.toLowerCase(Locale.getDefault()).contains(lowerCase)) {
             return null;
         }
         return str;
     }
 
-    public String Rq(String str) {
+    public String Pa(String str) {
         String trim = ("" + str).trim();
         return new String((this.ua + "; " + trim.substring(0, Math.min(16, trim.length())) + ")").getBytes(Charset.forName("ISO-8859-1")));
     }

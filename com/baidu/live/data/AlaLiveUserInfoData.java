@@ -24,6 +24,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public boolean canUseChallenge;
     public int changeSex;
     public long charmCount;
+    public int clubMemberLevel;
     public int createTime;
     public String description;
     public JSONObject extraUserInfo;
@@ -41,6 +42,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public boolean isNewGiftPriceStrategy = false;
     public boolean isNewUser;
     public int isOfficial;
+    public int isUegBlock;
     public double lat;
     public int levelExp;
     public int levelId;
@@ -56,6 +58,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
     public String passName;
     public int petalNum;
     public String portrait;
+    public int rank;
     public int recordCount;
     public int sex;
     public long streamID;
@@ -118,6 +121,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             this.isAdmin = jSONObject.optInt("is_live_admin");
             this.isAdminOnline = jSONObject.optInt("isAdmin");
             this.isBlock = jSONObject.optInt("is_block");
+            this.isUegBlock = jSONObject.optInt("ueg_block");
             this.greatAnchorIcon = jSONObject.optString("great_anchor_icon");
             this.greatAnchorDescGrade = jSONObject.optString("great_anchor_desc_grade");
             this.greatAnchorDescRole = jSONObject.optString("great_anchor_desc_role");
@@ -129,20 +133,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             this.canUseChallenge = jSONObject.optInt("challenge_switch", 0) == 1;
             this.isNewGiftPriceStrategy = jSONObject.optInt("new_gift_t_dou_strategy", 0) == 1;
             this.isNewUser = jSONObject.optInt("is_new_user") == 1;
-            JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                if (this.live_mark_info_new == null) {
-                    this.live_mark_info_new = new ArrayList();
-                }
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject2 != null) {
-                        AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
-                        alaLiveMarkData.parserJson(optJSONObject2);
-                        this.live_mark_info_new.add(alaLiveMarkData);
-                    }
-                }
-            }
+            praseMarkList(jSONObject);
             if (jSONObject.has("verify_video_status")) {
                 this.verifyVideoStatus = jSONObject.optInt("verify_video_status");
             }
@@ -150,8 +141,45 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
                 this.isBluediamondMember = jSONObject.optInt("is_bluediamond_member");
             }
             this.throneUid = jSONObject.optString("is_guard_seat");
+            this.rank = jSONObject.optInt("rank");
+            this.clubMemberLevel = jSONObject.optInt("member_level");
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
                 this.extraUserInfo = jSONObject.optJSONObject(TbConfig.getSubappType() + "_info");
+            }
+        }
+    }
+
+    private void praseMarkList(JSONObject jSONObject) {
+        int i = 0;
+        if (jSONObject.has("live_mark_info_new")) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                if (this.live_mark_info_new == null) {
+                    this.live_mark_info_new = new ArrayList();
+                }
+                while (i < optJSONArray.length()) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        AlaLiveMarkData alaLiveMarkData = new AlaLiveMarkData();
+                        alaLiveMarkData.parserJson(optJSONObject);
+                        this.live_mark_info_new.add(alaLiveMarkData);
+                    }
+                    i++;
+                }
+            }
+        } else if (jSONObject.has("identity_icon")) {
+            if (this.live_mark_info_new == null) {
+                this.live_mark_info_new = new ArrayList();
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("identity_icon");
+            while (i < optJSONArray2.length()) {
+                JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i);
+                if (optJSONObject2 != null) {
+                    AlaLiveMarkData alaLiveMarkData2 = new AlaLiveMarkData();
+                    alaLiveMarkData2.parserJson(optJSONObject2);
+                    this.live_mark_info_new.add(alaLiveMarkData2);
+                }
+                i++;
             }
         }
     }
@@ -194,6 +222,7 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
             jSONObject.put("next_exp", this.levelNextExp);
             jSONObject.put("is_live_admin", this.isAdmin);
             jSONObject.put("is_block", this.isBlock);
+            jSONObject.put("ueg_block", this.isUegBlock);
             jSONObject.put("great_anchor_icon", this.greatAnchorIcon);
             jSONObject.put("great_anchor_desc_grade", this.greatAnchorDescGrade);
             jSONObject.put("great_anchor_desc_role", this.greatAnchorDescRole);
@@ -214,6 +243,8 @@ public class AlaLiveUserInfoData extends BaseData implements Serializable {
                 jSONObject.put("live_mark_info_new", jSONArray);
             }
             jSONObject.put("is_guard_seat", this.throneUid);
+            jSONObject.put("rank", this.rank);
+            jSONObject.put("member_level", this.clubMemberLevel);
             if (this.extraUserInfo != null) {
                 jSONObject.put(TbConfig.getSubappType() + "_info", this.extraUserInfo);
             }

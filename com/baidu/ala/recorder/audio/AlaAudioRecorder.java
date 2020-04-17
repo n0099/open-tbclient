@@ -8,6 +8,7 @@ import android.media.AudioManager;
 import android.media.AudioRecord;
 import android.os.Build;
 import com.baidu.ala.helper.AlaAudioBuffer;
+import com.baidu.ala.ndk.AlaAudioFrame;
 import com.baidu.ala.ndk.AudioProcessModule;
 import com.baidu.ala.player.StreamConfig;
 import com.baidu.live.adp.lib.util.BdLog;
@@ -30,6 +31,7 @@ public class AlaAudioRecorder {
     private long mLastCaptureTimestamp = 0;
     private AudioProcessModule.CaptureCallback mOpenSLESCallback = null;
     private BroadcastReceiver mReceiver = null;
+    private AlaAudioFrame mAudioFrame = new AlaAudioFrame();
     private int[] mNativePosArr = new int[1];
     private int[] mNativeLenArr = new int[1];
 
@@ -115,6 +117,7 @@ public class AlaAudioRecorder {
                 minBufferSize = i;
             }
             try {
+                this.mAudioFrame.setupConfig(i, i2);
                 if (StreamConfig.initConfig(this.mContext) < 0) {
                     BdLog.e("StreamConfig.initConfig failed");
                 }
@@ -158,7 +161,7 @@ public class AlaAudioRecorder {
         }
     }
 
-    public byte[] readData() {
+    public AlaAudioFrame readData() {
         if (this.mEnableACE) {
             if (this.mRunOpenSLES) {
                 return null;
@@ -167,7 +170,8 @@ public class AlaAudioRecorder {
         } else if (this.mAudioRecord != null) {
             int read = this.mAudioRecord.read(this.mBuffer, 0, 2048);
             if (read == 2048) {
-                return this.mBuffer;
+                this.mAudioFrame.fillAudioData(this.mBuffer, 2048);
+                return this.mAudioFrame;
             }
             BdLog.e("audiorecorder read data error. length is " + read);
             if (this.mCallback != null) {
@@ -210,15 +214,13 @@ public class AlaAudioRecorder {
 
     public void stopAndRelease() {
         unregisterHeadset();
-        if (this.mEnableACE && this.mRunOpenSLES) {
-            if (AudioProcessModule.sharedInstance().audioRecorderStop() != 0) {
-                BdLog.e("OpenSLES audio recorder stop failed");
-                return;
-            }
-            return;
+        if (this.mRunOpenSLES && AudioProcessModule.sharedInstance().audioRecorderStop() != 0) {
+            BdLog.e("OpenSLES audio recorder stop failed");
         }
-        if (this.mEnableACE && !this.mRunOpenSLES) {
-            AudioProcessModule.sharedInstance().destroyAudioProcessModule();
+        if (this.mEnableACE) {
+            if (AudioProcessModule.sharedInstance().destroyAudioProcessModule() != 0) {
+                BdLog.e("destroy apm  failed");
+            }
             AudioProcessModule.sharedInstance().setCaptureCallback(null);
         }
         if (this.mAudioRecord != null) {
@@ -238,16 +240,19 @@ public class AlaAudioRecorder {
     /* JADX WARN: Code restructure failed: missing block: B:20:0x00a9, code lost:
         if (r1 == false) goto L21;
      */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x00ab, code lost:
+        r8.mAudioFrame.fillAudioData(r8.mBuffer, 2048);
+     */
     /* JADX WARN: Code restructure failed: missing block: B:29:?, code lost:
         return null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:31:?, code lost:
-        return r8.mBuffer;
+        return r8.mAudioFrame;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private byte[] readDataAndACE() {
+    private AlaAudioFrame readDataAndACE() {
         boolean z = false;
         if (this.mAudioRecord == null) {
             return null;

@@ -1,242 +1,105 @@
 package com.baidu.tieba.ala.a;
-
-import android.content.Context;
-import android.content.Intent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.live.adp.lib.safe.JavaTypesHelper;
-import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.message.AlaSdkGetGiftListHttpResponseMessage;
-import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.u.a;
-import com.baidu.live.view.RoundRectRelativeLayout;
-import com.baidu.live.view.input.AlaLiveInputEditView;
-import com.baidu.swan.games.utils.so.SoUtils;
-import com.baidu.tbadk.core.atomData.FrsProfessionIntroActivityConfig;
-import com.baidu.tieba.ala.AlaChooseGiftActivity;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a extends d {
-    private RelativeLayout eyg;
-    private TextView eyh;
-    private TextView eyi;
-    private RoundRectRelativeLayout eyj;
-    private C0420a eyk;
-    private List<Integer> eyl;
-    private BdListView mListView;
+public class a extends g implements h {
+    private g[] eZC;
+    private float[] eZD;
+    private float mFactor;
 
-    public a(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
-        super(alaChooseGiftActivity, frameLayout, str, arrayList, i, i2);
+    public a(g... gVarArr) {
+        this(null, gVarArr);
     }
 
-    @Override // com.baidu.tieba.ala.a.d
-    protected int getLayoutResId() {
-        return a.h.ala_choose_num_and_date;
+    public a(String str, g... gVarArr) {
+        this.eZC = gVarArr;
+        this.eZD = new float[this.eZC.length];
+        for (int i = 0; i < this.eZC.length; i++) {
+            this.eZD[i] = this.eZC[i].getProgress();
+        }
+        this.mFactor = 1.0f / this.eZC.length;
     }
 
-    @Override // com.baidu.tieba.ala.a.d
-    protected void initView() {
-        beh();
-        this.eyg = (RelativeLayout) this.mRootView.findViewById(a.g.choose_bottom_layout);
-        this.eyg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.a.a.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                a.this.bbD();
+    @Override // com.baidu.tieba.ala.a.g
+    protected void onAttach() {
+        for (g gVar : this.eZC) {
+            gVar.a(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.ala.a.g
+    protected void onDetach() {
+        for (g gVar : this.eZC) {
+            gVar.detach();
+        }
+    }
+
+    @Override // com.baidu.tieba.ala.a.g
+    public float getProgress() {
+        float f = 0.0f;
+        for (g gVar : this.eZC) {
+            f += gVar.getProgress() * this.mFactor;
+        }
+        return f;
+    }
+
+    @Override // com.baidu.tieba.ala.a.g
+    public boolean gt() {
+        for (g gVar : this.eZC) {
+            if (!gVar.gt()) {
+                return false;
             }
-        });
-        this.eyh = (TextView) this.mRootView.findViewById(a.g.choose_bottom_tip);
-        this.eyh.setText(a.i.sdk_choose_custom_date_tip);
-        this.eyi = (TextView) this.mRootView.findViewById(a.g.choose_num_desc);
-        this.eyi.setVisibility(0);
-        this.eyj = (RoundRectRelativeLayout) this.mRootView.findViewById(a.g.choose_gift_list_layout);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eyj.getLayoutParams();
-        layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.e.sdk_ds178);
-        this.eyj.setLayoutParams(layoutParams);
-        this.mListView = (BdListView) this.mRootView.findViewById(a.g.choose_gift_listview);
-        this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.a.a.2
-            @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (i >= 0 && i < a.this.eyl.size()) {
-                    a.this.eyJ = ((Integer) a.this.eyl.get(i)).intValue();
-                    a.this.eyk.pg(a.this.eyJ);
+        }
+        return true;
+    }
+
+    @Override // com.baidu.tieba.ala.a.h
+    public void a(g gVar, float f) {
+        if (bnd() != null) {
+            for (int i = 0; i < this.eZC.length; i++) {
+                if (gVar == this.eZC[i]) {
+                    this.eZD[i] = f;
                 }
             }
-        });
-        this.eyk = new C0420a(this.eyF.getPageContext());
-        this.mListView.setAdapter((ListAdapter) this.eyk);
-        this.eyk.bg(this.eyJ);
-        this.eyk.setData(this.eyl);
-    }
-
-    @Override // com.baidu.tieba.ala.a.d
-    public void d(TextView textView) {
-        textView.setText(a.i.sdk_choose_date_title);
-    }
-
-    @Override // com.baidu.tieba.ala.a.d
-    public void e(AlaLiveInputEditView alaLiveInputEditView) {
-        super.e(alaLiveInputEditView);
-        alaLiveInputEditView.setHintText(this.mContext.getResources().getString(a.i.sdk_choose_input_date_hint));
-    }
-
-    @Override // com.baidu.tieba.ala.a.d
-    public void c(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
-    }
-
-    @Override // com.baidu.tieba.ala.a.d
-    public void aj(int i, String str) {
-    }
-
-    @Override // com.baidu.tieba.ala.a.d
-    public void confirm() {
-        if (this.eyJ > 0) {
-            y(this.eyJ, false);
-        } else {
-            this.eyF.finish();
+            bnd().a(this, bmM());
         }
     }
 
-    @Override // com.baidu.tieba.ala.a.d
-    public void pf(int i) {
-        super.pf(i);
-        y(i, true);
-    }
-
-    @Override // com.baidu.tieba.ala.a.d
-    public void a(CharSequence charSequence, int i, int i2, int i3) {
-        super.a(charSequence, i, i2, i3);
-        if (JavaTypesHelper.toInt(charSequence.toString(), 0) > 24) {
-            this.eho.getEditView().setText(SoUtils.SO_EVENT_ID_DEFAULT);
-            this.eho.getEditView().setSelection(this.eho.getEditView().getText().length());
-        }
-        this.eho.setSendEnabled(true);
-    }
-
-    private void y(int i, boolean z) {
-        Intent intent = new Intent();
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("date_custom", z);
-            jSONObject.put("date_value", i);
-            intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, jSONObject.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        this.eyF.setResult(-1, intent);
-        this.eyF.finish();
-    }
-
-    @Override // com.baidu.tieba.ala.a.d
-    public void onKeyboardVisibilityChanged(boolean z) {
-        super.onKeyboardVisibilityChanged(z);
-    }
-
-    private void beh() {
-        if (this.eyl == null) {
-            this.eyl = new ArrayList();
-        }
-        for (int i = 2; i <= 12; i++) {
-            if (i % 2 == 0) {
-                this.eyl.add(Integer.valueOf(i));
-            }
-        }
-    }
-
-    /* renamed from: com.baidu.tieba.ala.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private class C0420a extends BaseAdapter {
-        private List<Integer> dataList;
-        private int eyo;
-        private Context mContext;
-
-        public C0420a(TbPageContext tbPageContext) {
-            this.mContext = tbPageContext.getPageActivity();
-        }
-
-        public void bg(int i) {
-            this.eyo = i;
-        }
-
-        public void pg(int i) {
-            if (this.eyo != i) {
-                this.eyo = i;
-                notifyDataSetChanged();
-            }
-        }
-
-        public void setData(List<Integer> list) {
-            this.dataList = new ArrayList(list);
-            notifyDataSetChanged();
-        }
-
-        @Override // android.widget.Adapter
-        public int getCount() {
-            if (this.dataList == null) {
-                return 0;
-            }
-            return this.dataList.size();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        /* renamed from: ph */
-        public Integer getItem(int i) {
-            if (this.dataList == null) {
-                return null;
-            }
-            return this.dataList.get(i);
-        }
-
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            b bVar;
-            if (view == null) {
-                b bVar2 = new b();
-                view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_num_and_date_item, viewGroup, false);
-                bVar2.eyp = (RelativeLayout) view.findViewById(a.g.item_root);
-                bVar2.eyq = (TextView) view.findViewById(a.g.item_num_title);
-                bVar2.eyr = (ImageView) view.findViewById(a.g.item_num_arrow);
-                view.setTag(bVar2);
-                bVar = bVar2;
-            } else {
-                bVar = (b) view.getTag();
-            }
-            Integer item = getItem(i);
-            if (item != null) {
-                bVar.eyq.setText(String.format(this.mContext.getResources().getString(a.i.sdk_choose_hour_suffix), item));
-                if (this.eyo == item.intValue()) {
-                    bVar.eyr.setVisibility(0);
-                } else {
-                    bVar.eyr.setVisibility(8);
+    @Override // com.baidu.tieba.ala.a.h
+    public void a(g gVar) {
+        if (bnd() != null) {
+            for (int i = 0; i < this.eZC.length; i++) {
+                if (gVar == this.eZC[i]) {
+                    this.eZD[i] = 100.0f;
+                    if (ps(i)) {
+                        bnd().a(this);
+                    } else {
+                        bnd().a(this, bmM());
+                    }
                 }
             }
-            return view;
         }
     }
 
-    /* loaded from: classes3.dex */
-    private class b {
-        public RelativeLayout eyp;
-        public TextView eyq;
-        public ImageView eyr;
-
-        private b() {
+    @Override // com.baidu.tieba.ala.a.h
+    public void b(g gVar) {
+        if (bnd() != null) {
+            bnd().b(gVar);
         }
+    }
+
+    private float bmM() {
+        float f = 0.0f;
+        for (float f2 : this.eZD) {
+            f += f2 * this.mFactor;
+        }
+        return f;
+    }
+
+    private boolean ps(int i) {
+        for (int i2 = 0; i2 < this.eZC.length; i2++) {
+            if (i2 != i && !this.eZC[i2].gt()) {
+                return false;
+            }
+        }
+        return true;
     }
 }

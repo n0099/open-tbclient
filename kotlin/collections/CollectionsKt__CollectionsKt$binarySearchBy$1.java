@@ -22,7 +22,7 @@ public final class CollectionsKt__CollectionsKt$binarySearchBy$1 extends Lambda 
 
     /* JADX DEBUG: Return type fixed from 'int' to match base method */
     /* JADX WARN: Can't rename method to resolve collision */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int, java.lang.Integer] */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.lang.Integer, int] */
     @Override // kotlin.jvm.a.b
     public final Integer invoke(T t) {
         return kotlin.a.a.c((Comparable) this.$selector.invoke(t), this.$key);

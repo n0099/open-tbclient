@@ -3,6 +3,7 @@ package com.baidu.tieba.qrcode.lib.core;
 import android.content.Context;
 import android.graphics.Point;
 import android.hardware.Camera;
+import android.support.v7.widget.ActivityChooserView;
 import android.view.WindowManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Collection;
@@ -11,10 +12,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes10.dex */
 final class b {
-    private static final Pattern jED = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
-    private Point jEE;
-    private Point jEF;
-    private Point jEG;
+    private static final Pattern kow = Pattern.compile(Constants.ACCEPT_TIME_SEPARATOR_SP);
+    private Point kox;
+    private Point koy;
+    private Point koz;
     private final Context mContext;
 
     public b(Context context) {
@@ -26,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.jEE = a.fl(this.mContext);
+        this.kox = a.fd(this.mContext);
         Point point = new Point();
-        point.x = this.jEE.x;
-        point.y = this.jEE.y;
-        int fk = a.fk(this.mContext);
-        if (fk == 0) {
-            point.x = this.jEE.y;
-            point.y = this.jEE.x;
+        point.x = this.kox.x;
+        point.y = this.kox.y;
+        int fc = a.fc(this.mContext);
+        if (fc == 0) {
+            point.x = this.kox.y;
+            point.y = this.kox.x;
         }
-        this.jEG = a(parameters, point);
-        if (fk == 0) {
-            this.jEF = new Point(this.jEG.y, this.jEG.x);
+        this.koz = a(parameters, point);
+        if (fc == 0) {
+            this.koy = new Point(this.koz.y, this.koz.x);
         } else {
-            this.jEF = this.jEG;
+            this.koy = this.koz;
         }
     }
 
@@ -47,15 +48,15 @@ final class b {
         return a(camera.getParameters().getSupportedFocusModes(), "auto") != null;
     }
 
-    public Point cBY() {
-        return this.jEF;
+    public Point cMx() {
+        return this.koy;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.jEG.x, this.jEG.y);
+        parameters.setPreviewSize(this.koz.x, this.koz.y);
         d(parameters);
-        camera.setDisplayOrientation(cBZ());
+        camera.setDisplayOrientation(cMy());
         camera.setParameters(parameters);
     }
 
@@ -70,7 +71,7 @@ final class b {
         return null;
     }
 
-    public int cBZ() {
+    public int cMy() {
         int i;
         Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
         Camera.getCameraInfo(0, cameraInfo);
@@ -110,7 +111,7 @@ final class b {
         int i2;
         int i3;
         int i4;
-        int i5 = Integer.MAX_VALUE;
+        int i5 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         Iterator<Camera.Size> it = list.iterator();
         int i6 = 0;
         int i7 = 0;
@@ -145,8 +146,8 @@ final class b {
         return null;
     }
 
-    private static int a(CharSequence charSequence, int i) {
-        String[] split = jED.split(charSequence);
+    private static int b(CharSequence charSequence, int i) {
+        String[] split = kow.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;
@@ -193,7 +194,7 @@ final class b {
             }
             String str4 = parameters.get("mot-zoom-values");
             if (str4 != null) {
-                i = a(str4, i);
+                i = b(str4, i);
             }
             String str5 = parameters.get("mot-zoom-step");
             if (str5 != null) {

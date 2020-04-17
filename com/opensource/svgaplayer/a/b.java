@@ -28,22 +28,22 @@ import kotlin.text.l;
 @h
 /* loaded from: classes.dex */
 public final class b extends com.opensource.svgaplayer.a.a {
-    private final c nmB;
-    private final C0735b nnC;
-    private final HashMap<String, Bitmap> nnD;
-    private final a nnE;
-    private final float[] nnF;
+    private final c mJl;
+    private final C0759b mKm;
+    private final HashMap<String, Bitmap> mKn;
+    private final a mKo;
+    private final float[] mKp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(f fVar, c cVar) {
         super(fVar);
         q.j(fVar, "videoItem");
         q.j(cVar, "dynamicItem");
-        this.nmB = cVar;
-        this.nnC = new C0735b();
-        this.nnD = new HashMap<>();
-        this.nnE = new a();
-        this.nnF = new float[16];
+        this.mJl = cVar;
+        this.mKm = new C0759b();
+        this.mKn = new HashMap<>();
+        this.mKo = new a();
+        this.mKp = new float[16];
     }
 
     @Override // com.opensource.svgaplayer.a.a
@@ -51,119 +51,119 @@ public final class b extends com.opensource.svgaplayer.a.a {
         q.j(canvas, "canvas");
         q.j(scaleType, "scaleType");
         super.a(canvas, i, scaleType);
-        this.nnE.ai(canvas);
-        for (a.C0734a c0734a : No(i)) {
-            a(c0734a, canvas, i);
+        this.mKo.ad(canvas);
+        for (a.C0758a c0758a : II(i)) {
+            a(c0758a, canvas, i);
         }
-        Np(i);
+        IJ(i);
     }
 
-    private final void Np(int i) {
-        SoundPool dFz;
-        Integer dFM;
-        for (com.opensource.svgaplayer.entities.a aVar : dFh().dFy()) {
-            if (aVar.dFK() == i && (dFz = dFh().dFz()) != null && (dFM = aVar.dFM()) != null) {
-                aVar.s(Integer.valueOf(dFz.play(dFM.intValue(), 1.0f, 1.0f, 1, 0, 1.0f)));
+    private final void IJ(int i) {
+        SoundPool dzC;
+        Integer dzP;
+        for (com.opensource.svgaplayer.entities.a aVar : dzj().dzB()) {
+            if (aVar.dzN() == i && (dzC = dzj().dzC()) != null && (dzP = aVar.dzP()) != null) {
+                aVar.r(Integer.valueOf(dzC.play(dzP.intValue(), 1.0f, 1.0f, 1, 0, 1.0f)));
             }
-            if (aVar.dFL() <= i) {
-                Integer dFN = aVar.dFN();
-                if (dFN != null) {
-                    int intValue = dFN.intValue();
-                    SoundPool dFz2 = dFh().dFz();
-                    if (dFz2 != null) {
-                        dFz2.stop(intValue);
+            if (aVar.dzO() <= i) {
+                Integer dzQ = aVar.dzQ();
+                if (dzQ != null) {
+                    int intValue = dzQ.intValue();
+                    SoundPool dzC2 = dzj().dzC();
+                    if (dzC2 != null) {
+                        dzC2.stop(intValue);
                     }
                 }
-                aVar.s(null);
+                aVar.r(null);
             }
         }
     }
 
     private final Matrix c(Matrix matrix) {
-        Matrix dFI = this.nnC.dFI();
-        dFI.postScale(dFC().dGh(), dFC().dGi());
-        dFI.postTranslate(dFC().dGf(), dFC().dGg());
-        dFI.preConcat(matrix);
-        return dFI;
+        Matrix dzL = this.mKm.dzL();
+        dzL.postScale(dzF().dAk(), dzF().dAl());
+        dzL.postTranslate(dzF().dAi(), dzF().dAj());
+        dzL.preConcat(matrix);
+        return dzL;
     }
 
-    private final void a(a.C0734a c0734a, Canvas canvas, int i) {
-        a(c0734a, canvas);
-        b(c0734a, canvas);
-        b(c0734a, canvas, i);
+    private final void a(a.C0758a c0758a, Canvas canvas, int i) {
+        a(c0758a, canvas);
+        b(c0758a, canvas);
+        b(c0758a, canvas, i);
     }
 
-    private final void a(a.C0734a c0734a, Canvas canvas) {
-        String dFD = c0734a.dFD();
-        if (dFD != null && !q.h(this.nmB.dFi().get(dFD), true)) {
-            Bitmap bitmap = this.nmB.dFj().get(dFD);
+    private final void a(a.C0758a c0758a, Canvas canvas) {
+        String dzG = c0758a.dzG();
+        if (dzG != null && !q.k(this.mJl.dzk().get(dzG), true)) {
+            Bitmap bitmap = this.mJl.dzl().get(dzG);
             if (bitmap == null) {
-                bitmap = dFh().dFA().get(dFD);
+                bitmap = dzj().dzD().get(dzG);
             }
             if (bitmap != null) {
-                Matrix c = c(c0734a.dFE().dFQ());
-                Paint dFF = this.nnC.dFF();
-                dFF.setAntiAlias(dFh().dFu());
-                dFF.setFilterBitmap(dFh().dFu());
-                dFF.setAlpha((int) (c0734a.dFE().dGc() * 255));
-                if (c0734a.dFE().dGe() != null) {
-                    com.opensource.svgaplayer.entities.b dGe = c0734a.dFE().dGe();
-                    if (dGe != null) {
+                Matrix c = c(c0758a.dzH().dzT());
+                Paint dzI = this.mKm.dzI();
+                dzI.setAntiAlias(dzj().dzx());
+                dzI.setFilterBitmap(dzj().dzx());
+                dzI.setAlpha((int) (c0758a.dzH().dAf() * 255));
+                if (c0758a.dzH().dAh() != null) {
+                    com.opensource.svgaplayer.entities.b dAh = c0758a.dzH().dAh();
+                    if (dAh != null) {
                         canvas.save();
-                        dFF.reset();
-                        Path dFG = this.nnC.dFG();
-                        dGe.c(dFG);
-                        dFG.transform(c);
-                        canvas.clipPath(dFG);
-                        c.preScale((float) (c0734a.dFE().dGd().getWidth() / bitmap.getWidth()), (float) (c0734a.dFE().dGd().getWidth() / bitmap.getWidth()));
-                        canvas.drawBitmap(bitmap, c, dFF);
+                        dzI.reset();
+                        Path dzJ = this.mKm.dzJ();
+                        dAh.a(dzJ);
+                        dzJ.transform(c);
+                        canvas.clipPath(dzJ);
+                        c.preScale((float) (c0758a.dzH().dAg().getWidth() / bitmap.getWidth()), (float) (c0758a.dzH().dAg().getWidth() / bitmap.getWidth()));
+                        canvas.drawBitmap(bitmap, c, dzI);
                         canvas.restore();
                     } else {
                         return;
                     }
                 } else {
-                    c.preScale((float) (c0734a.dFE().dGd().getWidth() / bitmap.getWidth()), (float) (c0734a.dFE().dGd().getWidth() / bitmap.getWidth()));
-                    canvas.drawBitmap(bitmap, c, dFF);
+                    c.preScale((float) (c0758a.dzH().dAg().getWidth() / bitmap.getWidth()), (float) (c0758a.dzH().dAg().getWidth() / bitmap.getWidth()));
+                    canvas.drawBitmap(bitmap, c, dzI);
                 }
-                a(canvas, bitmap, c0734a, c);
+                a(canvas, bitmap, c0758a, c);
             }
         }
     }
 
-    private final void a(Canvas canvas, Bitmap bitmap, a.C0734a c0734a, Matrix matrix) {
+    private final void a(Canvas canvas, Bitmap bitmap, a.C0758a c0758a, Matrix matrix) {
         Bitmap bitmap2;
         Rect rect;
-        if (this.nmB.dFp()) {
-            this.nnD.clear();
-            this.nmB.wD(false);
+        if (this.mJl.dzr()) {
+            this.mKn.clear();
+            this.mJl.wl(false);
         }
-        String dFD = c0734a.dFD();
-        if (dFD != null) {
+        String dzG = c0758a.dzG();
+        if (dzG != null) {
             Bitmap bitmap3 = null;
-            String str = this.nmB.dFk().get(dFD);
+            String str = this.mJl.dzm().get(dzG);
             if (str != null) {
-                TextPaint textPaint = this.nmB.dFl().get(dFD);
-                if (textPaint != null && (bitmap3 = this.nnD.get(dFD)) == null) {
+                TextPaint textPaint = this.mJl.dzn().get(dzG);
+                if (textPaint != null && (bitmap3 = this.mKn.get(dzG)) == null) {
                     Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
                     Canvas canvas2 = new Canvas(createBitmap);
                     q.i(textPaint, "drawingTextPaint");
                     textPaint.setAntiAlias(true);
                     textPaint.getTextBounds(str, 0, str.length(), new Rect());
                     canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((0 + bitmap.getHeight()) - textPaint.getFontMetrics().bottom) - textPaint.getFontMetrics().top) / 2, textPaint);
-                    HashMap<String, Bitmap> hashMap = this.nnD;
+                    HashMap<String, Bitmap> hashMap = this.mKn;
                     if (createBitmap == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
-                    hashMap.put(dFD, createBitmap);
+                    hashMap.put(dzG, createBitmap);
                     bitmap3 = createBitmap;
                 }
                 bitmap2 = bitmap3;
             } else {
                 bitmap2 = bitmap3;
             }
-            StaticLayout staticLayout = this.nmB.dFm().get(dFD);
+            StaticLayout staticLayout = this.mJl.dzo().get(dzG);
             if (staticLayout != null) {
-                Bitmap bitmap4 = this.nnD.get(dFD);
+                Bitmap bitmap4 = this.mKn.get(dzG);
                 if (bitmap4 == null) {
                     q.i(staticLayout, AdvanceSetting.NETWORK_TYPE);
                     TextPaint paint = staticLayout.getPaint();
@@ -174,139 +174,139 @@ public final class b extends com.opensource.svgaplayer.a.a {
                     Canvas canvas3 = new Canvas(createBitmap2);
                     canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout2.getHeight()) / 2);
                     staticLayout2.draw(canvas3);
-                    HashMap<String, Bitmap> hashMap2 = this.nnD;
+                    HashMap<String, Bitmap> hashMap2 = this.mKn;
                     if (createBitmap2 == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
-                    hashMap2.put(dFD, createBitmap2);
+                    hashMap2.put(dzG, createBitmap2);
                     bitmap4 = createBitmap2;
                 }
                 bitmap2 = bitmap4;
             }
             if (bitmap2 != null) {
-                Paint dFF = this.nnC.dFF();
-                dFF.setAntiAlias(dFh().dFu());
-                if (c0734a.dFE().dGe() != null) {
-                    com.opensource.svgaplayer.entities.b dGe = c0734a.dFE().dGe();
-                    if (dGe != null) {
+                Paint dzI = this.mKm.dzI();
+                dzI.setAntiAlias(dzj().dzx());
+                if (c0758a.dzH().dAh() != null) {
+                    com.opensource.svgaplayer.entities.b dAh = c0758a.dzH().dAh();
+                    if (dAh != null) {
                         canvas.save();
                         canvas.concat(matrix);
                         canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                        dFF.setShader(new BitmapShader(bitmap2, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT));
-                        Path dFG = this.nnC.dFG();
-                        dGe.c(dFG);
-                        canvas.drawPath(dFG, dFF);
+                        dzI.setShader(new BitmapShader(bitmap2, Shader.TileMode.REPEAT, Shader.TileMode.REPEAT));
+                        Path dzJ = this.mKm.dzJ();
+                        dAh.a(dzJ);
+                        canvas.drawPath(dzJ, dzI);
                         canvas.restore();
                         return;
                     }
                     return;
                 }
-                dFF.setFilterBitmap(dFh().dFu());
-                canvas.drawBitmap(bitmap2, matrix, dFF);
+                dzI.setFilterBitmap(dzj().dzx());
+                canvas.drawBitmap(bitmap2, matrix, dzI);
             }
         }
     }
 
-    private final void b(a.C0734a c0734a, Canvas canvas) {
-        float[] dFZ;
-        String dFX;
-        String dFW;
-        int dFU;
-        Matrix c = c(c0734a.dFE().dFQ());
-        for (SVGAVideoShapeEntity sVGAVideoShapeEntity : c0734a.dFE().cj()) {
-            sVGAVideoShapeEntity.dFT();
-            if (sVGAVideoShapeEntity.dFS() != null) {
-                Paint dFF = this.nnC.dFF();
-                dFF.reset();
-                dFF.setAntiAlias(dFh().dFu());
-                dFF.setAlpha((int) (c0734a.dFE().dGc() * 255));
-                Path dFG = this.nnC.dFG();
-                dFG.reset();
-                dFG.addPath(this.nnE.a(sVGAVideoShapeEntity));
-                Matrix dFJ = this.nnC.dFJ();
-                dFJ.reset();
-                Matrix dFQ = sVGAVideoShapeEntity.dFQ();
-                if (dFQ != null) {
-                    dFJ.postConcat(dFQ);
+    private final void b(a.C0758a c0758a, Canvas canvas) {
+        float[] dAc;
+        String dAa;
+        String dzZ;
+        int dzX;
+        Matrix c = c(c0758a.dzH().dzT());
+        for (SVGAVideoShapeEntity sVGAVideoShapeEntity : c0758a.dzH().hG()) {
+            sVGAVideoShapeEntity.dzW();
+            if (sVGAVideoShapeEntity.dzV() != null) {
+                Paint dzI = this.mKm.dzI();
+                dzI.reset();
+                dzI.setAntiAlias(dzj().dzx());
+                dzI.setAlpha((int) (c0758a.dzH().dAf() * 255));
+                Path dzJ = this.mKm.dzJ();
+                dzJ.reset();
+                dzJ.addPath(this.mKo.a(sVGAVideoShapeEntity));
+                Matrix dzM = this.mKm.dzM();
+                dzM.reset();
+                Matrix dzT = sVGAVideoShapeEntity.dzT();
+                if (dzT != null) {
+                    dzM.postConcat(dzT);
                 }
-                dFJ.postConcat(c);
-                dFG.transform(dFJ);
-                SVGAVideoShapeEntity.a dFP = sVGAVideoShapeEntity.dFP();
-                if (dFP != null && (dFU = dFP.dFU()) != 0) {
-                    dFF.setStyle(Paint.Style.FILL);
-                    dFF.setColor(dFU);
-                    dFF.setAlpha(Math.min(255, Math.max(0, (int) (c0734a.dFE().dGc() * 255))));
-                    if (c0734a.dFE().dGe() != null) {
+                dzM.postConcat(c);
+                dzJ.transform(dzM);
+                SVGAVideoShapeEntity.a dzS = sVGAVideoShapeEntity.dzS();
+                if (dzS != null && (dzX = dzS.dzX()) != 0) {
+                    dzI.setStyle(Paint.Style.FILL);
+                    dzI.setColor(dzX);
+                    dzI.setAlpha(Math.min(255, Math.max(0, (int) (c0758a.dzH().dAf() * 255))));
+                    if (c0758a.dzH().dAh() != null) {
                         canvas.save();
                     }
-                    com.opensource.svgaplayer.entities.b dGe = c0734a.dFE().dGe();
-                    if (dGe != null) {
-                        Path dFH = this.nnC.dFH();
-                        dGe.c(dFH);
-                        dFH.transform(c);
-                        canvas.clipPath(dFH);
+                    com.opensource.svgaplayer.entities.b dAh = c0758a.dzH().dAh();
+                    if (dAh != null) {
+                        Path dzK = this.mKm.dzK();
+                        dAh.a(dzK);
+                        dzK.transform(c);
+                        canvas.clipPath(dzK);
                     }
-                    canvas.drawPath(dFG, dFF);
-                    if (c0734a.dFE().dGe() != null) {
+                    canvas.drawPath(dzJ, dzI);
+                    if (c0758a.dzH().dAh() != null) {
                         canvas.restore();
                     }
                 }
-                SVGAVideoShapeEntity.a dFP2 = sVGAVideoShapeEntity.dFP();
-                if (dFP2 != null && dFP2.getStrokeWidth() > 0) {
-                    dFF.setStyle(Paint.Style.STROKE);
-                    SVGAVideoShapeEntity.a dFP3 = sVGAVideoShapeEntity.dFP();
-                    if (dFP3 != null) {
-                        dFF.setColor(dFP3.dFV());
-                        dFF.setAlpha(Math.min(255, Math.max(0, (int) (c0734a.dFE().dGc() * 255))));
+                SVGAVideoShapeEntity.a dzS2 = sVGAVideoShapeEntity.dzS();
+                if (dzS2 != null && dzS2.getStrokeWidth() > 0) {
+                    dzI.setStyle(Paint.Style.STROKE);
+                    SVGAVideoShapeEntity.a dzS3 = sVGAVideoShapeEntity.dzS();
+                    if (dzS3 != null) {
+                        dzI.setColor(dzS3.dzY());
+                        dzI.setAlpha(Math.min(255, Math.max(0, (int) (c0758a.dzH().dAf() * 255))));
                     }
                     float d = d(c);
-                    SVGAVideoShapeEntity.a dFP4 = sVGAVideoShapeEntity.dFP();
-                    if (dFP4 != null) {
-                        dFF.setStrokeWidth(dFP4.getStrokeWidth() * d);
+                    SVGAVideoShapeEntity.a dzS4 = sVGAVideoShapeEntity.dzS();
+                    if (dzS4 != null) {
+                        dzI.setStrokeWidth(dzS4.getStrokeWidth() * d);
                     }
-                    SVGAVideoShapeEntity.a dFP5 = sVGAVideoShapeEntity.dFP();
-                    if (dFP5 != null && (dFW = dFP5.dFW()) != null) {
-                        if (l.F(dFW, "butt", true)) {
-                            dFF.setStrokeCap(Paint.Cap.BUTT);
-                        } else if (l.F(dFW, "round", true)) {
-                            dFF.setStrokeCap(Paint.Cap.ROUND);
-                        } else if (l.F(dFW, "square", true)) {
-                            dFF.setStrokeCap(Paint.Cap.SQUARE);
+                    SVGAVideoShapeEntity.a dzS5 = sVGAVideoShapeEntity.dzS();
+                    if (dzS5 != null && (dzZ = dzS5.dzZ()) != null) {
+                        if (l.F(dzZ, "butt", true)) {
+                            dzI.setStrokeCap(Paint.Cap.BUTT);
+                        } else if (l.F(dzZ, "round", true)) {
+                            dzI.setStrokeCap(Paint.Cap.ROUND);
+                        } else if (l.F(dzZ, "square", true)) {
+                            dzI.setStrokeCap(Paint.Cap.SQUARE);
                         }
                     }
-                    SVGAVideoShapeEntity.a dFP6 = sVGAVideoShapeEntity.dFP();
-                    if (dFP6 != null && (dFX = dFP6.dFX()) != null) {
-                        if (l.F(dFX, "miter", true)) {
-                            dFF.setStrokeJoin(Paint.Join.MITER);
-                        } else if (l.F(dFX, "round", true)) {
-                            dFF.setStrokeJoin(Paint.Join.ROUND);
-                        } else if (l.F(dFX, "bevel", true)) {
-                            dFF.setStrokeJoin(Paint.Join.BEVEL);
+                    SVGAVideoShapeEntity.a dzS6 = sVGAVideoShapeEntity.dzS();
+                    if (dzS6 != null && (dAa = dzS6.dAa()) != null) {
+                        if (l.F(dAa, "miter", true)) {
+                            dzI.setStrokeJoin(Paint.Join.MITER);
+                        } else if (l.F(dAa, "round", true)) {
+                            dzI.setStrokeJoin(Paint.Join.ROUND);
+                        } else if (l.F(dAa, "bevel", true)) {
+                            dzI.setStrokeJoin(Paint.Join.BEVEL);
                         }
                     }
-                    SVGAVideoShapeEntity.a dFP7 = sVGAVideoShapeEntity.dFP();
-                    if (dFP7 != null) {
-                        dFF.setStrokeMiter(dFP7.dFY() * d);
+                    SVGAVideoShapeEntity.a dzS7 = sVGAVideoShapeEntity.dzS();
+                    if (dzS7 != null) {
+                        dzI.setStrokeMiter(dzS7.dAb() * d);
                     }
-                    SVGAVideoShapeEntity.a dFP8 = sVGAVideoShapeEntity.dFP();
-                    if (dFP8 != null && (dFZ = dFP8.dFZ()) != null && dFZ.length == 3 && (dFZ[0] > 0 || dFZ[1] > 0)) {
+                    SVGAVideoShapeEntity.a dzS8 = sVGAVideoShapeEntity.dzS();
+                    if (dzS8 != null && (dAc = dzS8.dAc()) != null && dAc.length == 3 && (dAc[0] > 0 || dAc[1] > 0)) {
                         float[] fArr = new float[2];
-                        fArr[0] = (dFZ[0] < 1.0f ? 1.0f : dFZ[0]) * d;
-                        fArr[1] = (dFZ[1] < 0.1f ? 0.1f : dFZ[1]) * d;
-                        dFF.setPathEffect(new DashPathEffect(fArr, dFZ[2] * d));
+                        fArr[0] = (dAc[0] < 1.0f ? 1.0f : dAc[0]) * d;
+                        fArr[1] = (dAc[1] < 0.1f ? 0.1f : dAc[1]) * d;
+                        dzI.setPathEffect(new DashPathEffect(fArr, dAc[2] * d));
                     }
-                    if (c0734a.dFE().dGe() != null) {
+                    if (c0758a.dzH().dAh() != null) {
                         canvas.save();
                     }
-                    com.opensource.svgaplayer.entities.b dGe2 = c0734a.dFE().dGe();
-                    if (dGe2 != null) {
-                        Path dFH2 = this.nnC.dFH();
-                        dGe2.c(dFH2);
-                        dFH2.transform(c);
-                        canvas.clipPath(dFH2);
+                    com.opensource.svgaplayer.entities.b dAh2 = c0758a.dzH().dAh();
+                    if (dAh2 != null) {
+                        Path dzK2 = this.mKm.dzK();
+                        dAh2.a(dzK2);
+                        dzK2.transform(c);
+                        canvas.clipPath(dzK2);
                     }
-                    canvas.drawPath(dFG, dFF);
-                    if (c0734a.dFE().dGe() != null) {
+                    canvas.drawPath(dzJ, dzI);
+                    if (c0758a.dzH().dAh() != null) {
                         canvas.restore();
                     }
                 }
@@ -315,14 +315,14 @@ public final class b extends com.opensource.svgaplayer.a.a {
     }
 
     private final float d(Matrix matrix) {
-        matrix.getValues(this.nnF);
-        if (this.nnF[0] == 0.0f) {
+        matrix.getValues(this.mKp);
+        if (this.mKp[0] == 0.0f) {
             return 0.0f;
         }
-        double d = this.nnF[0];
-        double d2 = this.nnF[3];
-        double d3 = this.nnF[1];
-        double d4 = this.nnF[4];
+        double d = this.mKp[0];
+        double d2 = this.mKp[3];
+        double d3 = this.mKp[1];
+        double d4 = this.mKp[4];
         if (d * d4 == d2 * d3) {
             return 0.0f;
         }
@@ -337,26 +337,26 @@ public final class b extends com.opensource.svgaplayer.a.a {
         if (d5 * (d9 / sqrt2) < d6 * (d8 / sqrt2)) {
             sqrt = -sqrt;
         }
-        return dFC().dGj() ? Math.abs((float) sqrt) : Math.abs((float) sqrt2);
+        return dzF().dAm() ? Math.abs((float) sqrt) : Math.abs((float) sqrt2);
     }
 
-    private final void b(a.C0734a c0734a, Canvas canvas, int i) {
-        String dFD = c0734a.dFD();
-        if (dFD != null) {
-            m<Canvas, Integer, Boolean> mVar = this.nmB.dFn().get(dFD);
+    private final void b(a.C0758a c0758a, Canvas canvas, int i) {
+        String dzG = c0758a.dzG();
+        if (dzG != null) {
+            m<Canvas, Integer, Boolean> mVar = this.mJl.dzp().get(dzG);
             if (mVar != null) {
-                Matrix c = c(c0734a.dFE().dFQ());
+                Matrix c = c(c0758a.dzH().dzT());
                 canvas.save();
                 canvas.concat(c);
                 mVar.invoke(canvas, Integer.valueOf(i));
                 canvas.restore();
             }
-            r<Canvas, Integer, Integer, Integer, Boolean> rVar = this.nmB.dFo().get(dFD);
+            r<Canvas, Integer, Integer, Integer, Boolean> rVar = this.mJl.dzq().get(dzG);
             if (rVar != null) {
-                Matrix c2 = c(c0734a.dFE().dFQ());
+                Matrix c2 = c(c0758a.dzH().dzT());
                 canvas.save();
                 canvas.concat(c2);
-                rVar.invoke(canvas, Integer.valueOf(i), Integer.valueOf((int) c0734a.dFE().dGd().getWidth()), Integer.valueOf((int) c0734a.dFE().dGd().getHeight()));
+                rVar.invoke(canvas, Integer.valueOf(i), Integer.valueOf((int) c0758a.dzH().dAg().getWidth()), Integer.valueOf((int) c0758a.dzH().dAg().getHeight()));
                 canvas.restore();
             }
         }
@@ -365,65 +365,65 @@ public final class b extends com.opensource.svgaplayer.a.a {
     @h
     /* renamed from: com.opensource.svgaplayer.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0735b {
-        private final Paint nnJ = new Paint();
-        private final Path nnK = new Path();
-        private final Path nnL = new Path();
-        private final Matrix nnM = new Matrix();
-        private final Matrix nnN = new Matrix();
+    public static final class C0759b {
+        private final Paint mKt = new Paint();
+        private final Path mKu = new Path();
+        private final Path mKv = new Path();
+        private final Matrix mKw = new Matrix();
+        private final Matrix mKx = new Matrix();
 
-        public final Paint dFF() {
-            this.nnJ.reset();
-            return this.nnJ;
+        public final Paint dzI() {
+            this.mKt.reset();
+            return this.mKt;
         }
 
-        public final Path dFG() {
-            this.nnK.reset();
-            return this.nnK;
+        public final Path dzJ() {
+            this.mKu.reset();
+            return this.mKu;
         }
 
-        public final Path dFH() {
-            this.nnL.reset();
-            return this.nnL;
+        public final Path dzK() {
+            this.mKv.reset();
+            return this.mKv;
         }
 
-        public final Matrix dFI() {
-            this.nnM.reset();
-            return this.nnM;
+        public final Matrix dzL() {
+            this.mKw.reset();
+            return this.mKw;
         }
 
-        public final Matrix dFJ() {
-            this.nnN.reset();
-            return this.nnN;
+        public final Matrix dzM() {
+            this.mKx.reset();
+            return this.mKx;
         }
     }
 
     @h
     /* loaded from: classes.dex */
     public static final class a {
-        private int nnG;
-        private int nnH;
-        private final HashMap<SVGAVideoShapeEntity, Path> nnI = new HashMap<>();
+        private int mKq;
+        private int mKr;
+        private final HashMap<SVGAVideoShapeEntity, Path> mKs = new HashMap<>();
 
-        public final void ai(Canvas canvas) {
+        public final void ad(Canvas canvas) {
             q.j(canvas, "canvas");
-            if (this.nnG != canvas.getWidth() || this.nnH != canvas.getHeight()) {
-                this.nnI.clear();
+            if (this.mKq != canvas.getWidth() || this.mKr != canvas.getHeight()) {
+                this.mKs.clear();
             }
-            this.nnG = canvas.getWidth();
-            this.nnH = canvas.getHeight();
+            this.mKq = canvas.getWidth();
+            this.mKr = canvas.getHeight();
         }
 
         public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
             q.j(sVGAVideoShapeEntity, "shape");
-            if (!this.nnI.containsKey(sVGAVideoShapeEntity)) {
+            if (!this.mKs.containsKey(sVGAVideoShapeEntity)) {
                 Path path = new Path();
-                path.set(sVGAVideoShapeEntity.dFS());
-                this.nnI.put(sVGAVideoShapeEntity, path);
+                path.set(sVGAVideoShapeEntity.dzV());
+                this.mKs.put(sVGAVideoShapeEntity, path);
             }
-            Path path2 = this.nnI.get(sVGAVideoShapeEntity);
+            Path path2 = this.mKs.get(sVGAVideoShapeEntity);
             if (path2 == null) {
-                q.dKW();
+                q.dDV();
             }
             return path2;
         }

@@ -3,13 +3,13 @@ package com.facebook.imagepipeline.b;
 import android.graphics.Bitmap;
 /* loaded from: classes13.dex */
 public class g implements com.facebook.common.references.c<Bitmap> {
-    private static g lSo;
+    private static g lZX;
 
-    public static g doo() {
-        if (lSo == null) {
-            lSo = new g();
+    public static g dql() {
+        if (lZX == null) {
+            lZX = new g();
         }
-        return lSo;
+        return lZX;
     }
 
     private g() {
@@ -17,6 +17,7 @@ public class g implements com.facebook.common.references.c<Bitmap> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.c
+    /* renamed from: T */
     public void release(Bitmap bitmap) {
         bitmap.recycle();
     }

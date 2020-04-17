@@ -1,8 +1,8 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.disposables.DisposableHelper;
+import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import io.reactivex.v;
@@ -18,7 +18,7 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dJI()));
+        this.mRJ.a((j) new DebounceTimedSubscriber(new io.reactivex.subscribers.b(cVar), this.timeout, this.unit, this.scheduler.dCG()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,7 +30,7 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
         volatile long index;
         org.a.d s;
         final long timeout;
-        io.reactivex.disposables.b timer;
+        final SequentialDisposable timer = new SequentialDisposable();
         final TimeUnit unit;
         final v.c worker;
 
@@ -46,22 +46,23 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(T t) {
             if (!this.done) {
-                long j = this.index + 1;
+                long j = 1 + this.index;
                 this.index = j;
-                io.reactivex.disposables.b bVar = this.timer;
+                io.reactivex.disposables.b bVar = this.timer.get();
                 if (bVar != null) {
                     bVar.dispose();
                 }
                 DebounceEmitter debounceEmitter = new DebounceEmitter(t, j, this);
-                this.timer = debounceEmitter;
-                debounceEmitter.setResource(this.worker.c(debounceEmitter, this.timeout, this.unit));
+                if (this.timer.replace(debounceEmitter)) {
+                    debounceEmitter.setResource(this.worker.c(debounceEmitter, this.timeout, this.unit));
+                }
             }
         }
 
@@ -72,10 +73,6 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
                 return;
             }
             this.done = true;
-            io.reactivex.disposables.b bVar = this.timer;
-            if (bVar != null) {
-                bVar.dispose();
-            }
             this.actual.onError(th);
             this.worker.dispose();
         }
@@ -84,16 +81,16 @@ public final class FlowableDebounceTimed<T> extends a<T, T> {
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                io.reactivex.disposables.b bVar = this.timer;
-                if (bVar != null) {
-                    bVar.dispose();
+                io.reactivex.disposables.b bVar = this.timer.get();
+                if (!DisposableHelper.isDisposed(bVar)) {
+                    DebounceEmitter debounceEmitter = (DebounceEmitter) bVar;
+                    if (debounceEmitter != null) {
+                        debounceEmitter.emit();
+                    }
+                    DisposableHelper.dispose(this.timer);
+                    this.actual.onComplete();
+                    this.worker.dispose();
                 }
-                DebounceEmitter debounceEmitter = (DebounceEmitter) bVar;
-                if (debounceEmitter != null) {
-                    debounceEmitter.emit();
-                }
-                this.actual.onComplete();
-                this.worker.dispose();
             }
         }
 

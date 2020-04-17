@@ -44,7 +44,7 @@ public final class Triple<A, B, C> implements Serializable {
         if (this != obj) {
             if (obj instanceof Triple) {
                 Triple triple = (Triple) obj;
-                if (!q.h(this.first, triple.first) || !q.h(this.second, triple.second) || !q.h(this.third, triple.third)) {
+                if (!q.k(this.first, triple.first) || !q.k(this.second, triple.second) || !q.k(this.third, triple.third)) {
                 }
             }
             return false;

@@ -14,15 +14,15 @@ public interface Framedata {
         CLOSING
     }
 
-    boolean Ms();
+    boolean Uf();
 
-    ByteBuffer dOb();
+    ByteBuffer dHb();
 
-    boolean dOc();
+    boolean dHc();
 
-    boolean dOd();
+    boolean dHd();
 
-    boolean dOe();
+    boolean dHe();
 
-    Opcode dOf();
+    Opcode dHf();
 }

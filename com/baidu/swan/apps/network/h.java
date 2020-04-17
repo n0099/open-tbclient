@@ -10,31 +10,31 @@ import okio.Okio;
 import okio.Source;
 /* loaded from: classes11.dex */
 public class h extends ResponseBody {
-    private final ResponseBody bGv;
-    private final e bGw;
-    private BufferedSource bGx;
+    private final ResponseBody cff;
+    private final e cfg;
+    private BufferedSource cfh;
 
     public h(ResponseBody responseBody, e eVar) {
-        this.bGv = responseBody;
-        this.bGw = eVar;
+        this.cff = responseBody;
+        this.cfg = eVar;
     }
 
     @Override // okhttp3.ResponseBody
     public MediaType contentType() {
-        return this.bGv.contentType();
+        return this.cff.contentType();
     }
 
     @Override // okhttp3.ResponseBody
     public long contentLength() {
-        return this.bGv.contentLength();
+        return this.cff.contentLength();
     }
 
     @Override // okhttp3.ResponseBody
     public BufferedSource source() {
-        if (this.bGx == null) {
-            this.bGx = Okio.buffer(source(this.bGv.source()));
+        if (this.cfh == null) {
+            this.cfh = Okio.buffer(source(this.cff.source()));
         }
-        return this.bGx;
+        return this.cfh;
     }
 
     private Source source(Source source) {
@@ -45,7 +45,7 @@ public class h extends ResponseBody {
             public long read(Buffer buffer, long j) throws IOException {
                 long read = super.read(buffer, j);
                 this.totalBytesRead = (read != -1 ? read : 0L) + this.totalBytesRead;
-                h.this.bGw.a(this.totalBytesRead, h.this.bGv.contentLength(), read == -1);
+                h.this.cfg.a(this.totalBytesRead, h.this.cff.contentLength(), read == -1);
                 return read;
             }
         };

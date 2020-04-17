@@ -7,62 +7,62 @@ import com.baidu.swan.apps.z.a.f;
 public class d implements g {
     @Override // com.baidu.swan.apps.w.b.g
     public boolean a(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.a.b.arG().h(context, cVar, bVar, eVar);
+        return com.baidu.swan.impl.map.a.b.azR().h(context, cVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean b(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.a.d.arI().h(context, cVar, bVar, eVar);
+        return com.baidu.swan.impl.map.a.d.azT().h(context, cVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean c(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.a.c.arH().h(context, cVar, bVar, eVar);
+        return com.baidu.swan.impl.map.a.c.azS().h(context, cVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean a(Context context, f fVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.a.a.g.arP().h(context, fVar, bVar, eVar);
+        return com.baidu.swan.impl.map.a.a.g.aAa().h(context, fVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean a(Context context, com.baidu.swan.apps.z.a.e eVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar2) {
-        return com.baidu.swan.impl.map.a.a.f.arO().h(context, eVar, bVar, eVar2);
+        return com.baidu.swan.impl.map.a.a.f.azZ().h(context, eVar, bVar, eVar2);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean d(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.a.a.e.arN().h(context, cVar, bVar, eVar);
+        return com.baidu.swan.impl.map.a.a.e.azY().h(context, cVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean a(Context context, com.baidu.swan.apps.z.a.b bVar, com.baidu.swan.apps.z.b bVar2, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.a.a.d.arM().h(context, bVar, bVar2, eVar);
+        return com.baidu.swan.impl.map.a.a.d.azX().h(context, bVar, bVar2, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean e(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.a.a.c.arL().h(context, cVar, bVar, eVar);
+        return com.baidu.swan.impl.map.a.a.c.azW().h(context, cVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean f(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.a.a.b.arK().h(context, cVar, bVar, eVar);
+        return com.baidu.swan.impl.map.a.a.b.azV().h(context, cVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean g(Context context, com.baidu.swan.apps.z.a.c cVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.a.a.a.arJ().h(context, cVar, bVar, eVar);
+        return com.baidu.swan.impl.map.a.a.a.azU().h(context, cVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean a(Context context, com.baidu.swan.apps.z.a.a aVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.location.a.a.asp().h(context, aVar, bVar, eVar);
+        return com.baidu.swan.impl.map.location.a.a.aAz().h(context, aVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g
     public boolean a(Context context, com.baidu.swan.apps.z.a.g gVar, com.baidu.swan.apps.z.b bVar, com.baidu.swan.apps.runtime.e eVar) {
-        return com.baidu.swan.impl.map.location.a.b.asr().h(context, gVar, bVar, eVar);
+        return com.baidu.swan.impl.map.location.a.b.aAB().h(context, gVar, bVar, eVar);
     }
 
     @Override // com.baidu.swan.apps.w.b.g

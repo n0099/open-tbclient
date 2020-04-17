@@ -15,57 +15,57 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
-    private ArrayList<m> eiP = new ArrayList<>();
-    private BdTypeListView ekE;
-    public j jCr;
-    private b jCs;
-    public i joh;
+    private List<com.baidu.adp.widget.ListView.a> aMd = new ArrayList();
+    private ArrayList<m> eIA = new ArrayList<>();
+    private BdTypeListView eOe;
+    public i jYv;
+    public j kmw;
+    private b kmx;
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.ekE = bdTypeListView;
-        t(tbPageContext);
+        this.eOe = bdTypeListView;
+        v(tbPageContext);
     }
 
-    private void t(TbPageContext<?> tbPageContext) {
-        this.joh = new i(tbPageContext);
-        this.jCr = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.jqG);
-        this.jCs = new e(tbPageContext, this, tbPageContext.getUniqueId());
-        this.jCr.a(this.jCs);
-        this.asP.add(this.joh);
-        this.asP.add(this.jCr);
-        this.ekE.addAdapters(this.asP);
+    private void v(TbPageContext<?> tbPageContext) {
+        this.jYv = new i(tbPageContext);
+        this.kmw = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.kaV);
+        this.kmx = new e(tbPageContext, this, tbPageContext.getUniqueId());
+        this.kmw.a(this.kmx);
+        this.aMd.add(this.jYv);
+        this.aMd.add(this.kmw);
+        this.eOe.addAdapters(this.aMd);
     }
 
-    public void S(ArrayList<m> arrayList) {
-        if (arrayList != null && this.ekE != null) {
-            this.eiP.clear();
-            this.eiP.addAll(arrayList);
-            this.ekE.setData(this.eiP);
+    public void T(ArrayList<m> arrayList) {
+        if (arrayList != null && this.eOe != null) {
+            this.eIA.clear();
+            this.eIA.addAll(arrayList);
+            this.eOe.setData(this.eIA);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.ekE.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.ekE.getAdapter().notifyDataSetChanged();
+        if (this.eOe.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.eOe.getAdapter().notifyDataSetChanged();
         }
     }
 
     public void startPullRefresh() {
-        if (this.ekE != null) {
-            this.ekE.startPullRefresh();
+        if (this.eOe != null) {
+            this.eOe.startPullRefresh();
         }
     }
 
-    public boolean Hm(String str) {
+    public boolean IT(String str) {
         boolean z;
         if (aq.isEmpty(str)) {
             return false;
         }
-        if (this.ekE == null || this.eiP == null) {
+        if (this.eOe == null || this.eIA == null) {
             return false;
         }
-        Iterator<m> it = this.eiP.iterator();
+        Iterator<m> it = this.eIA.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -79,8 +79,8 @@ public class a {
             }
         }
         if (z) {
-            this.eiP = PersonPostModel.mergeDynamicThreadByTime(this.eiP);
-            this.ekE.setData(this.eiP);
+            this.eIA = PersonPostModel.mergeDynamicThreadByTime(this.eIA);
+            this.eOe.setData(this.eIA);
             notifyDataSetChanged();
             return z;
         }

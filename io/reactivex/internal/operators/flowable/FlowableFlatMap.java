@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.queue.SpscArrayQueue;
@@ -21,8 +20,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super U> cVar) {
-        if (!g.a(this.nyr, cVar, this.mapper)) {
-            this.nyr.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
+        if (!g.a(this.mRJ, cVar, this.mapper)) {
+            this.mRJ.a((j) a(cVar, this.mapper, this.delayErrors, this.maxConcurrency, this.bufferSize));
         }
     }
 
@@ -71,7 +70,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                 this.actual.onSubscribe(this);
                 if (!this.cancelled) {
                     if (this.maxConcurrency == Integer.MAX_VALUE) {
-                        dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                        dVar.request(Long.MAX_VALUE);
                     } else {
                         dVar.request(this.maxConcurrency);
                     }
@@ -105,7 +104,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.H(th);
+                            io.reactivex.exceptions.a.L(th);
                             this.errs.addThrowable(th);
                             drain();
                             return;
@@ -118,7 +117,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                         bVar.subscribe(innerSubscriber);
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.H(th2);
+                    io.reactivex.exceptions.a.L(th2);
                     this.upstream.cancel();
                     onError(th2);
                 }
@@ -149,8 +148,8 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             InnerSubscriber<?, ?>[] innerSubscriberArr2;
             do {
                 innerSubscriberArr = this.subscribers.get();
-                int length = innerSubscriberArr.length;
-                if (length != 0) {
+                if (innerSubscriberArr != CANCELLED && innerSubscriberArr != EMPTY) {
+                    int length = innerSubscriberArr.length;
                     int i = -1;
                     int i2 = 0;
                     while (true) {
@@ -199,7 +198,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                 io.reactivex.internal.a.g<U> gVar = this.queue;
                 if (j != 0 && (gVar == null || gVar.isEmpty())) {
                     this.actual.onNext(u);
-                    if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+                    if (j != Long.MAX_VALUE) {
                         this.requested.decrementAndGet();
                     }
                     if (this.maxConcurrency != Integer.MAX_VALUE && !this.cancelled) {
@@ -247,7 +246,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                 io.reactivex.internal.a.g<U> gVar = innerSubscriber.queue;
                 if (j != 0 && (gVar == null || gVar.isEmpty())) {
                     this.actual.onNext(u);
-                    if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+                    if (j != Long.MAX_VALUE) {
                         this.requested.decrementAndGet();
                     }
                     innerSubscriber.requestMore(1L);
@@ -348,7 +347,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
             while (!checkTerminate()) {
                 io.reactivex.internal.a.f<U> fVar = this.queue;
                 long j5 = this.requested.get();
-                boolean z3 = j5 == Format.OFFSET_SAMPLE_RELATIVE;
+                boolean z3 = j5 == Long.MAX_VALUE;
                 long j6 = 0;
                 if (fVar != null) {
                     do {
@@ -370,7 +369,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                         }
                         if (j7 != 0) {
                             if (z3) {
-                                j5 = Format.OFFSET_SAMPLE_RELATIVE;
+                                j5 = Long.MAX_VALUE;
                             } else {
                                 j5 = this.requested.addAndGet(-j7);
                             }
@@ -449,7 +448,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                                 return;
                                             }
                                         } catch (Throwable th) {
-                                            io.reactivex.exceptions.a.H(th);
+                                            io.reactivex.exceptions.a.L(th);
                                             innerSubscriber.dispose();
                                             this.errs.addThrowable(th);
                                             if (!this.delayErrors) {
@@ -471,7 +470,7 @@ public final class FlowableFlatMap<T, U> extends a<T, U> {
                                         if (!z3) {
                                             j2 = this.requested.addAndGet(-j9);
                                         } else {
-                                            j2 = Format.OFFSET_SAMPLE_RELATIVE;
+                                            j2 = Long.MAX_VALUE;
                                         }
                                         innerSubscriber.requestMore(j9);
                                     } else {

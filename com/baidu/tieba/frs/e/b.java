@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public abstract class b {
-    protected g gLP;
-    protected a gLQ;
-    protected boolean gLR;
-    protected boolean gxc;
+    protected boolean hgm;
+    protected g hvh;
+    protected a hvi;
+    protected boolean hvj;
     protected Intent mIntent;
     protected int mState = 0;
 
@@ -20,33 +20,26 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bKd();
+    public abstract void bUA();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bKe();
+    public abstract void bUB();
 
     public b(g gVar, Intent intent) {
-        this.gLR = true;
-        this.gxc = false;
-        this.gLP = gVar;
+        this.hvj = true;
+        this.hgm = false;
+        this.hvh = gVar;
         this.mIntent = intent;
-        e BM = d.bKj().BM(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.gLR = BM.bKl();
-        this.gxc = BM.bKk();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gLP.gMg.getLayoutParams();
-        if (layoutParams != null) {
-            layoutParams.topMargin = this.gxc ? l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds152) : l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds121);
-            this.gLP.gMg.setLayoutParams(layoutParams);
-        }
-        this.gLP.gMf.setVisibility(this.gLR ? 0 : 4);
-        if (BM.bKm()) {
-            this.gLP.gMf.setVisibility(8);
-            ((RelativeLayout.LayoutParams) this.gLP.gMg.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
+        e Du = d.bUG().Du(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.hvj = Du.bUI();
+        this.hgm = Du.bUH();
+        if (Du.bUJ()) {
+            ((RelativeLayout.LayoutParams) this.hvh.hvx.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }
 
     public void a(a aVar) {
-        this.gLQ = aVar;
+        this.hvi = aVar;
     }
 
     public int getState() {

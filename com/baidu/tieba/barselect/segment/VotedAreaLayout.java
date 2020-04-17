@@ -14,7 +14,7 @@ import com.baidu.tieba.barselect.data.d;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes8.dex */
 public class VotedAreaLayout extends CardBasicLayout {
-    private TextView fGV;
+    private TextView glA;
     private Context mContext;
 
     public VotedAreaLayout(Context context) {
@@ -37,33 +37,33 @@ public class VotedAreaLayout extends CardBasicLayout {
         setMinimumWidth(l.getDimens(getContext(), R.dimen.tbds172));
         setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.voted_area_layout, (ViewGroup) this, true);
-        ns();
+        rL();
     }
 
-    private void ns() {
-        this.fGV = (TextView) findViewById(R.id.vote_num);
+    private void rL() {
+        this.glA = (TextView) findViewById(R.id.vote_num);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.fDc == null || this.fGM == null || this.status < 0) {
+        if (this.ghD == null || this.glr == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.fGV.setText(aq.numFormatOverWan(this.fGM.buc()) + "票");
-        pm(TbadkCoreApplication.getInst().getSkinType());
+        this.glA.setText(aq.numFormatOverWan(this.glr.bDN()) + "票");
+        pH(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setMyRecordData(d dVar) {
         if (dVar != null) {
-            this.fGM = dVar;
-            this.fGV.setText(aq.numFormatOverWan(this.fGM.buc()) + "票");
+            this.glr = dVar;
+            this.glA.setText(aq.numFormatOverWan(this.glr.bDN()) + "票");
         }
     }
 
-    public void pm(int i) {
-        am.setViewTextColor(this.fGV, R.color.cp_cont_b, 1, i);
+    public void pH(int i) {
+        am.setViewTextColor(this.glA, R.color.cp_cont_b, 1, i);
         am.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
     }
 }

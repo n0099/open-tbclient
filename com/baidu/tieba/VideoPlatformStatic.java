@@ -10,7 +10,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.tbadk.core.data.ConstantData;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
@@ -26,22 +26,22 @@ import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener dYb = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener exW = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.u.e.cPj().cPe();
-            com.baidu.tieba.u.b.cPd().cPe();
+            com.baidu.tieba.u.e.daf().dab();
+            com.baidu.tieba.u.b.daa().dab();
         }
     };
 
     static {
-        aXE();
-        MessageManager.getInstance().registerListener(dYb);
-        aXF();
+        bfJ();
+        MessageManager.getInstance().registerListener(exW);
+        bfK();
     }
 
-    private static void aXE() {
+    private static void bfJ() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<l>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -53,7 +53,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aXF() {
+    private static void bfK() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003388, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -61,7 +61,7 @@ public class VideoPlatformStatic {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static int ob(int i) {
+    public static int oo(int i) {
         switch (i) {
             case -400:
                 return 4;
@@ -74,7 +74,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int wM(String str) {
+    public static int xY(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -84,7 +84,7 @@ public class VideoPlatformStatic {
         return 0;
     }
 
-    public static String oc(int i) {
+    public static String op(int i) {
         switch (i) {
             case Integer.MIN_VALUE:
                 return TbadkCoreApplication.getInst().getString(R.string.error_extra_system_system);
@@ -150,13 +150,13 @@ public class VideoPlatformStatic {
                 return TbadkCoreApplication.getInst().getString(R.string.error_extra_ijk_stream_open);
             case DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER /* -10000 */:
                 return TbadkCoreApplication.getInst().getString(R.string.error_what_ijk);
-            case CyberPlayerManager.MEDIA_ERROR_UNSUPPORTED /* -1010 */:
+            case -1010:
                 return TbadkCoreApplication.getInst().getString(R.string.error_extra_system_unsupported);
             case -1007:
                 return TbadkCoreApplication.getInst().getString(R.string.error_extra_system_malformed);
             case -1004:
                 return TbadkCoreApplication.getInst().getString(R.string.error_extra_system_io);
-            case CyberPlayerManager.MEDIA_ERROR_TIMED_OUT /* -110 */:
+            case -110:
                 return TbadkCoreApplication.getInst().getString(R.string.error_extra_system_timed_out);
             case 1:
                 return TbadkCoreApplication.getInst().getString(R.string.error_what_system_unknown);
@@ -169,7 +169,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String wN(String str) {
+    public static String xZ(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -197,15 +197,15 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject aXG() {
+    public static JSONObject bfL() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());
             jSONObject.put("clientIp", com.baidu.tbadk.core.util.d.getIp());
             jSONObject.put("clientTimestamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("deviceId", UtilHelper.getDeviceId());
-            jSONObject.put("network", gO());
-            jSONObject.put("osType", AlaLiveBaseInfo.mOSType);
+            jSONObject.put("network", ls());
+            jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, AlaLiveBaseInfo.mOSType);
             jSONObject.put("osVer", Build.VERSION.RELEASE);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
                 jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
@@ -224,7 +224,7 @@ public class VideoPlatformStatic {
         return jSONObject;
     }
 
-    public static String gO() {
+    public static String ls() {
         if (j.isWifiNet()) {
             return "WIFI";
         }
@@ -240,7 +240,7 @@ public class VideoPlatformStatic {
         return "4G";
     }
 
-    public static String od(int i) {
+    public static String oq(int i) {
         switch (i) {
             case 101:
                 return TbadkCoreApplication.getInst().getString(R.string.post_error_compress_success);

@@ -9,38 +9,38 @@ import com.baidu.swan.apps.extcore.model.ExtensionCore;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static com.baidu.swan.apps.extcore.b.b eN(int i) {
-        return i == 1 ? c.RP() : a.RM();
+    public static com.baidu.swan.apps.extcore.b.b eS(int i) {
+        return i == 1 ? c.ZE() : a.ZB();
     }
 
     public static void a(int i, @Nullable com.baidu.swan.apps.extcore.c.a aVar) {
-        eN(i).a(aVar);
+        eS(i).a(aVar);
     }
 
     public static <T extends com.baidu.swan.apps.extcore.model.a> boolean a(int i, T t) {
-        return eN(i).a((com.baidu.swan.apps.extcore.b.b) t);
+        return eS(i).a((com.baidu.swan.apps.extcore.b.b) t);
     }
 
-    public static ExtensionCore eO(int i) {
-        return eN(i).QU();
+    public static ExtensionCore eT(int i) {
+        return eS(i).YJ();
     }
 
-    public static String eP(int i) {
-        ExtensionCore QU = eN(i).QU();
-        if (QU != null) {
-            String str = QU.extensionCoreVersionName;
+    public static String eU(int i) {
+        ExtensionCore YJ = eS(i).YJ();
+        if (YJ != null) {
+            String str = YJ.extensionCoreVersionName;
             return TextUtils.isEmpty(str) ? "" : str;
         }
         return "";
     }
 
-    public static void Z(int i, int i2) {
+    public static void ac(int i, int i2) {
         if (DEBUG) {
             Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
         }
         if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {
-            com.baidu.swan.apps.extcore.g.a.q(0, true);
-            com.baidu.swan.apps.extcore.g.a.q(1, true);
+            com.baidu.swan.apps.extcore.g.a.u(0, true);
+            com.baidu.swan.apps.extcore.g.a.u(1, true);
         }
     }
 }

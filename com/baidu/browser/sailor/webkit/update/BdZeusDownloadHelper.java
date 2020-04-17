@@ -14,14 +14,14 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
 /* loaded from: classes11.dex */
 public final class BdZeusDownloadHelper {
-    protected long b;
-    protected long c;
-    private Context h;
     public static final String a = BdZeusDownloadHelper.class.getSimpleName();
-    private static BdZeusDownloadHelper JL = null;
+    private static BdZeusDownloadHelper acQ = null;
     protected static final String d = Environment.getExternalStorageDirectory().getAbsolutePath() + "/baidu/zeus/";
     protected static String e = d + "updateZeus.zes";
     protected static String f = "com.baidu.android.appswitchsdk:web";
+    protected long b;
+    protected long c;
+    private Context h;
     private String i = "";
     private String k = "";
     private int j = a.c;
@@ -135,15 +135,15 @@ public final class BdZeusDownloadHelper {
         }
     }
 
-    public static BdZeusDownloadHelper ak(Context context) {
-        if (JL == null) {
+    public static BdZeusDownloadHelper ab(Context context) {
+        if (acQ == null) {
             synchronized (BdZeusDownloadHelper.class) {
-                if (JL == null) {
-                    JL = new BdZeusDownloadHelper(context);
+                if (acQ == null) {
+                    acQ = new BdZeusDownloadHelper(context);
                 }
             }
         }
-        return JL;
+        return acQ;
     }
 
     public final void a(String str) {

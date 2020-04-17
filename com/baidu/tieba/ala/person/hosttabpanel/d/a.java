@@ -12,22 +12,22 @@ import com.baidu.live.u.a;
 import com.baidu.tieba.ala.person.hosttabpanel.c.a;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.live.liveroom.d.d {
-    private BdTypeListView asR;
-    private LoadingView exn;
-    private TbListCommonPullView frF;
-    private com.baidu.tieba.ala.person.hosttabpanel.a.a frG;
-    private com.baidu.tieba.ala.person.hosttabpanel.c.a frH;
-    private boolean frI = false;
-    private TbListCommonPullView.ListPullRefreshListener frJ = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
+    private BdTypeListView aMf;
+    private TbListCommonPullView fWa;
+    private com.baidu.tieba.ala.person.hosttabpanel.a.a fWb;
+    private com.baidu.tieba.ala.person.hosttabpanel.c.a fWc;
+    private boolean fWd = false;
+    private TbListCommonPullView.ListPullRefreshListener fWe = new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.1
         @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
         public void onListPullRefresh(boolean z) {
-            if (a.this.frH != null) {
-                a.this.frH.refreshData();
+            if (a.this.fWc != null) {
+                a.this.fWc.refreshData();
             }
         }
     };
-    private a.InterfaceC0476a frK = new a.InterfaceC0476a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
+    private a.InterfaceC0512a fWf = new a.InterfaceC0512a() { // from class: com.baidu.tieba.ala.person.hosttabpanel.d.a.2
     };
+    private LoadingView fbq;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -38,17 +38,17 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_new_host_tab_view, (ViewGroup) null);
-        this.asR = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
-        this.frF = new TbListCommonPullView(this.mPageContext.getPageActivity());
-        this.frF.changeSkin(0);
-        this.frF.setSkinType(0);
-        this.frF.setListPullRefreshListener(this.frJ);
-        this.asR.setPullRefresh(this.frF);
-        this.frG = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.asR);
+        this.aMf = (BdTypeListView) this.mRootView.findViewById(a.g.list_view);
+        this.fWa = new TbListCommonPullView(this.mPageContext.getPageActivity());
+        this.fWa.changeSkin(0);
+        this.fWa.setSkinType(0);
+        this.fWa.setListPullRefreshListener(this.fWe);
+        this.aMf.setPullRefresh(this.fWa);
+        this.fWb = new com.baidu.tieba.ala.person.hosttabpanel.a.a(this.mPageContext, this.aMf);
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public View wj() {
+    public View getPanelView() {
         return this.mRootView;
     }
 
@@ -58,12 +58,12 @@ public class a implements com.baidu.live.liveroom.d.d {
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public String wk() {
+    public String AT() {
         return null;
     }
 
     @Override // com.baidu.live.liveroom.d.d
-    public short wl() {
+    public short AU() {
         return (short) 2;
     }
 
@@ -78,19 +78,19 @@ public class a implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.frH != null) {
-            this.frH.onDestroy();
+        if (this.fWc != null) {
+            this.fWc.onDestroy();
         }
-        if (this.frG != null) {
-            this.frG.onDestroy();
-            this.frG = null;
+        if (this.fWb != null) {
+            this.fWb.onDestroy();
+            this.fWb = null;
         }
-        if (this.exn != null) {
-            this.exn.release();
-            this.exn = null;
+        if (this.fbq != null) {
+            this.fbq.release();
+            this.fbq = null;
         }
-        if (this.frF != null) {
-            this.frF = null;
+        if (this.fWa != null) {
+            this.fWa = null;
         }
     }
 

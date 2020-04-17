@@ -59,7 +59,7 @@ public class IMSyncPushMsg extends Message {
             jSONObject.put("method", 190);
             jSONObject.put("appid", this.mAppid);
             jSONObject.put("uk", this.mUk);
-            jSONObject.put(Constants.KEY_DEVICE_ID, this.mDeviceId);
+            jSONObject.put("device_id", this.mDeviceId);
             jSONObject.put("push_channelid", this.mChannelId);
             jSONObject.put("push_uid", this.mUserId);
             jSONObject.put("push_appid", this.mPushAppId);

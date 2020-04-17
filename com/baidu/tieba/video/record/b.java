@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes10.dex */
 class b {
-    private float kCD;
-    private int kCE;
-    private i kCF;
+    private float lmY;
+    private int lmZ;
+    private i lna;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.kCF = iVar;
+        this.lna = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.kCF == null || !this.kCF.isRecording()) {
+        if (this.lna == null || !this.lna.aRo()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.kCD) / 10.0f);
+                        int i = (int) ((spacing - this.lmY) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.kCE;
+                            int i2 = i + this.lmZ;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.kCD = spacing;
+                            this.lmY = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.kCD = spacing(motionEvent);
+                    this.lmY = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.kCE = i;
+                this.lmZ = i;
             }
         }
     }

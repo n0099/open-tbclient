@@ -12,7 +12,7 @@ public class HaokanGiftLogger implements IGiftLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("tag", str3);
             jSONObject.put("loc", LogConfig.VALUE_LOC_GIFT_ZONE);

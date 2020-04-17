@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.View;
 /* loaded from: classes11.dex */
 public class f {
-    static final k cEb;
+    static final k ddc;
 
     /* loaded from: classes11.dex */
     interface k {
@@ -84,7 +84,7 @@ public class f {
 
     /* loaded from: classes11.dex */
     static class e extends d {
-        static boolean cEc = false;
+        static boolean ddd = false;
 
         e() {
         }
@@ -97,8 +97,8 @@ public class f {
 
     /* renamed from: com.baidu.swan.support.v4.c.f$f  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    static class C0368f extends e {
-        C0368f() {
+    static class C0398f extends e {
+        C0398f() {
         }
 
         @Override // com.baidu.swan.support.v4.c.f.a, com.baidu.swan.support.v4.c.f.k
@@ -108,7 +108,7 @@ public class f {
     }
 
     /* loaded from: classes11.dex */
-    static class g extends C0368f {
+    static class g extends C0398f {
         g() {
         }
     }
@@ -133,29 +133,29 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            cEb = new j();
+            ddc = new j();
         } else {
-            cEb = new i();
+            ddc = new i();
         }
     }
 
     public static boolean canScrollVertically(View view, int i2) {
-        return cEb.canScrollVertically(view, i2);
+        return ddc.canScrollVertically(view, i2);
     }
 
     public static void setLayerType(View view, int i2, Paint paint) {
-        cEb.setLayerType(view, i2, paint);
+        ddc.setLayerType(view, i2, paint);
     }
 
     public static int getLayerType(View view) {
-        return cEb.getLayerType(view);
+        return ddc.getLayerType(view);
     }
 
     public static void setSaveFromParentEnabled(View view, boolean z) {
-        cEb.setSaveFromParentEnabled(view, z);
+        ddc.setSaveFromParentEnabled(view, z);
     }
 
     public static boolean hasOverlappingRendering(View view) {
-        return cEb.hasOverlappingRendering(view);
+        return ddc.hasOverlappingRendering(view);
     }
 }

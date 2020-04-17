@@ -19,17 +19,17 @@ public abstract class ab extends d<com.baidu.swan.apps.scheme.j> {
         super(jVar, str);
     }
 
-    public com.baidu.swan.apps.runtime.e OD() {
-        return com.baidu.swan.apps.runtime.e.acI();
+    public com.baidu.swan.apps.runtime.e Wr() {
+        return com.baidu.swan.apps.runtime.e.akN();
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         boolean e;
         try {
             if (TextUtils.equals(this.name, str)) {
-                e = a(context, unitedSchemeEntity, callbackHandler, OD());
+                e = a(context, unitedSchemeEntity, callbackHandler, Wr());
             } else {
-                e = e(context, unitedSchemeEntity, callbackHandler, str, OD());
+                e = e(context, unitedSchemeEntity, callbackHandler, str, Wr());
             }
             return e;
         } catch (Throwable th) {

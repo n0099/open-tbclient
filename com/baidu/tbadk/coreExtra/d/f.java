@@ -3,21 +3,22 @@ package com.baidu.tbadk.coreExtra.d;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
+import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class f {
-    private boolean dve = false;
-    private int dvf = 0;
+    private boolean dUY = false;
+    private int dUZ = 0;
 
-    public void uN(String str) {
+    public void wb(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.dve = false;
-        this.dvf = 0;
+        this.dUY = false;
+        this.dUZ = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -44,11 +45,11 @@ public class f {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.f.b.toInt(String.valueOf(str3), 8000)), getTimeout());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.f.b.toInt(String.valueOf(str3), CoolPraiseGuideLottieView.ANIM_DURATION)), getTimeout());
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.dve = true;
+                                this.dUY = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -79,19 +80,19 @@ public class f {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.dve && i4 > 0) {
-                    this.dvf = i3 / i4;
+                if (this.dUY && i4 > 0) {
+                    this.dUZ = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.dve;
+        return this.dUY;
     }
 
-    public int aNA() {
-        return this.dvf;
+    public int aVX() {
+        return this.dUZ;
     }
 
     private int getTimeout() {

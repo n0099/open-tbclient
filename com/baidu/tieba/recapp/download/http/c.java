@@ -11,26 +11,26 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes13.dex */
 public class c {
-    private static String rJ;
-    private static String rK;
-    private static boolean rL;
-    private static String rM;
+    private static String KH;
+    private static String KI;
+    private static boolean KJ;
+    private static String KK;
     private static String sUid;
-    private g jIR;
-    private d jIS;
-    private long rR;
+    private long KP;
+    private g ksD;
+    private d ksE;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.rR = BdStatisticsManager.getInstance().getClientLogId();
+        this.KP = BdStatisticsManager.getInstance().getClientLogId();
     }
 
-    public static void au(String str) {
-        rJ = str;
+    public static void bJ(String str) {
+        KH = str;
     }
 
     public static void setUserAgent(String str) {
-        rK = str;
+        KI = str;
     }
 
     public static void setUid(String str) {
@@ -38,33 +38,33 @@ public class c {
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.jIR = new g();
-        a(this.jIR, z);
-        this.jIR.cDf().setUrl(str);
-        this.jIS = new d(this.jIR);
-        this.jIS.c(i, i3, i4);
-        return this.jIR.cDg();
+        this.ksD = new g();
+        a(this.ksD, z);
+        this.ksD.cND().setUrl(str);
+        this.ksE = new d(this.ksD);
+        this.ksE.d(i, i3, i4);
+        return this.ksD.cNE();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.jIR = new g();
-        a(this.jIR, z);
-        this.jIR.cDf().setUrl(str);
+        this.ksD = new g();
+        a(this.ksD, z);
+        this.ksD.cND().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.jIR.cDf().addPostData(basicNameValuePair);
+                this.ksD.cND().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.jIR.cDf().n(next.getName(), next.getValue());
+                this.ksD.cND().s(next.getName(), next.getValue());
             }
         }
-        this.jIS = new d(this.jIR);
-        this.jIS.e(i, i2, -1);
-        return this.jIR.cDg();
+        this.ksE = new d(this.ksD);
+        this.ksE.f(i, i2, -1);
+        return this.ksD.cNE();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -72,11 +72,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.jIR = new g();
-        b(this.jIR);
-        this.jIR.cDf().setUrl(str);
-        this.jIS = new d(this.jIR);
-        return this.jIS.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.ksD = new g();
+        b(this.ksD);
+        this.ksD.cND().setUrl(str);
+        this.ksE = new d(this.ksD);
+        return this.ksE.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -84,54 +84,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.jIS != null) {
-            this.jIS.cancel();
+        if (this.ksE != null) {
+            this.ksE.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.jIS != null) {
-            return this.jIS.isCancel();
+        if (this.ksE != null) {
+            return this.ksE.isCancel();
         }
         return false;
     }
 
     public void setCancel() {
-        if (this.jIS != null) {
-            this.jIS.setCancel();
+        if (this.ksE != null) {
+            this.ksE.setCancel();
         }
     }
 
-    public g cDe() {
-        return this.jIR;
+    public g cNC() {
+        return this.ksD;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
-            if (!TextUtils.isEmpty(rJ)) {
-                gVar.cDf().n(SM.COOKIE, rJ);
+            if (!TextUtils.isEmpty(KH)) {
+                gVar.cND().s(SM.COOKIE, KH);
             } else {
-                gVar.cDf().n(SM.COOKIE, "");
+                gVar.cND().s(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(sUid)) {
-                gVar.cDf().n("client_user_token", sUid);
+                gVar.cND().s("client_user_token", sUid);
             }
-            if (!TextUtils.isEmpty(rK)) {
-                gVar.cDf().n("User-Agent", rK);
+            if (!TextUtils.isEmpty(KI)) {
+                gVar.cND().s("User-Agent", KI);
             }
             if (z) {
-                gVar.cDf().n(Headers.ACCEPT_ENCODING, "gzip");
+                gVar.cND().s(Headers.ACCEPT_ENCODING, "gzip");
             } else {
-                gVar.cDf().n(Headers.ACCEPT_ENCODING, "");
+                gVar.cND().s(Headers.ACCEPT_ENCODING, "");
             }
-            if (rL) {
-                gVar.cDf().n(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            if (KJ) {
+                gVar.cND().s(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.cDf().n(HTTP.CONN_DIRECTIVE, "close");
+                gVar.cND().s(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.cDf().n("client_logid", String.valueOf(this.rR));
-            if (!TextUtils.isEmpty(rM)) {
-                gVar.cDf().n("cuid", rM);
+            gVar.cND().s("client_logid", String.valueOf(this.KP));
+            if (!TextUtils.isEmpty(KK)) {
+                gVar.cND().s("cuid", KK);
             }
         }
     }

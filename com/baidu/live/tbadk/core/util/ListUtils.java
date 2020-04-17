@@ -1,6 +1,7 @@
 package com.baidu.live.tbadk.core.util;
 
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class ListUtils {
     public static <T> void clear(List<T> list) {
@@ -32,6 +33,10 @@ public class ListUtils {
 
     public static <T> boolean isEmpty(List<T> list) {
         return getCount(list) <= 0;
+    }
+
+    public static <T> boolean isEmpty(Map map) {
+        return map == null || map.isEmpty();
     }
 
     public static <T> T remove(List<T> list, int i) {

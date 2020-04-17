@@ -21,18 +21,18 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
             if (dVar instanceof d) {
                 this.qs = (d) dVar;
             }
-            if (dJN()) {
+            if (dCM()) {
                 this.actual.onSubscribe(this);
-                dJO();
+                dCN();
             }
         }
     }
 
-    protected boolean dJN() {
+    protected boolean dCM() {
         return true;
     }
 
-    protected void dJO() {
+    protected void dCN() {
     }
 
     @Override // org.a.c
@@ -46,8 +46,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void I(Throwable th) {
-        io.reactivex.exceptions.a.H(th);
+    public final void M(Throwable th) {
+        io.reactivex.exceptions.a.L(th);
         this.s.cancel();
         onError(th);
     }
@@ -61,7 +61,7 @@ public abstract class a<T, R> implements io.reactivex.internal.a.a<T>, d<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int NB(int i) {
+    public final int IV(int i) {
         d<T> dVar = this.qs;
         if (dVar == null || (i & 4) != 0) {
             return 0;

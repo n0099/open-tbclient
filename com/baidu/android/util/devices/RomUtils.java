@@ -15,11 +15,20 @@ public class RomUtils {
     private static final String KEY_VERSION_OPPO = "ro.build.version.opporom";
     private static final String KEY_VERSION_SMARTISAN = "ro.smartisan.version";
     private static final String KEY_VERSION_VIVO = "ro.vivo.os.version";
+    public static final String MANUFACTURER_GIONEE = "gionee";
+    public static final String MANUFACTURER_HUAWEI = "huawei";
+    public static final String MANUFACTURER_MEIZU = "meizu";
+    public static final String MANUFACTURER_NUBIA = "nubia";
+    public static final String MANUFACTURER_OPPO = "oppo";
+    public static final String MANUFACTURER_SMARTISAN = "smartisan";
+    public static final String MANUFACTURER_VIVO = "vivo";
+    public static final String MANUFACTURER_XIAOMI = "xiaomi";
     public static final String PROP_RO_BUILD_DISPLAY_ID = "ro.build.display.id";
     public static final String PROP_RO_BUILD_FINGERPRINT = "ro.build.fingerprint";
     public static final String PROP_RO_BUILD_VERSION_INCREMENTAL = "ro.build.version.incremental";
     public static final String ROM_EMUI = "EMUI";
     public static final String ROM_FLYME = "FLYME";
+    public static final String ROM_GIONEE = "GIONEE";
     public static final String ROM_MIUI = "MIUI";
     public static final String ROM_NUBIA = "NUBIA";
     public static final String ROM_OPPO = "OPPO";
@@ -65,21 +74,139 @@ public class RomUtils {
     }
 
     public static String getName() {
-        if (sRomName == null) {
-            check("");
-        }
-        return sRomName;
+        return sRomName == null ? check() : sRomName;
     }
 
     public static String getVersion() {
         if (sRomVersion == null) {
-            check("");
+            check();
         }
         return sRomVersion;
     }
 
     public static String getIncrementalVersion() {
         return getProp(PROP_RO_BUILD_VERSION_INCREMENTAL);
+    }
+
+    public static String check() {
+        String lowerCase = Build.MANUFACTURER.toLowerCase();
+        char c = 65535;
+        switch (lowerCase.hashCode()) {
+            case -1443430368:
+                if (lowerCase.equals(MANUFACTURER_SMARTISAN)) {
+                    c = 4;
+                    break;
+                }
+                break;
+            case -1245779295:
+                if (lowerCase.equals(MANUFACTURER_GIONEE)) {
+                    c = 5;
+                    break;
+                }
+                break;
+            case -1206476313:
+                if (lowerCase.equals(MANUFACTURER_HUAWEI)) {
+                    c = 0;
+                    break;
+                }
+                break;
+            case -759499589:
+                if (lowerCase.equals(MANUFACTURER_XIAOMI)) {
+                    c = 1;
+                    break;
+                }
+                break;
+            case 3418016:
+                if (lowerCase.equals(MANUFACTURER_OPPO)) {
+                    c = 2;
+                    break;
+                }
+                break;
+            case 3620012:
+                if (lowerCase.equals(MANUFACTURER_VIVO)) {
+                    c = 3;
+                    break;
+                }
+                break;
+            case 103777484:
+                if (lowerCase.equals(MANUFACTURER_MEIZU)) {
+                    c = 7;
+                    break;
+                }
+                break;
+            case 105170387:
+                if (lowerCase.equals(MANUFACTURER_NUBIA)) {
+                    c = 6;
+                    break;
+                }
+                break;
+        }
+        switch (c) {
+            case 0:
+                String prop = getProp(KEY_VERSION_EMUI);
+                sRomVersion = prop;
+                if (!TextUtils.isEmpty(prop)) {
+                    sRomName = ROM_EMUI;
+                    return ROM_EMUI;
+                }
+                return getOtherRomName();
+            case 1:
+                String prop2 = getProp(KEY_VERSION_MIUI);
+                sRomVersion = prop2;
+                if (!TextUtils.isEmpty(prop2)) {
+                    sRomName = ROM_MIUI;
+                    return ROM_MIUI;
+                }
+                return getOtherRomName();
+            case 2:
+                String prop3 = getProp(KEY_VERSION_OPPO);
+                sRomVersion = prop3;
+                if (!TextUtils.isEmpty(prop3)) {
+                    sRomName = ROM_OPPO;
+                    return ROM_OPPO;
+                }
+                return getOtherRomName();
+            case 3:
+                String prop4 = getProp(KEY_VERSION_VIVO);
+                sRomVersion = prop4;
+                if (!TextUtils.isEmpty(prop4)) {
+                    sRomName = ROM_VIVO;
+                    return ROM_VIVO;
+                }
+                return getOtherRomName();
+            case 4:
+                String prop5 = getProp(KEY_VERSION_SMARTISAN);
+                sRomVersion = prop5;
+                if (!TextUtils.isEmpty(prop5)) {
+                    sRomName = ROM_SMARTISAN;
+                    return ROM_SMARTISAN;
+                }
+                return getOtherRomName();
+            case 5:
+                String prop6 = getProp(KEY_VERSION_GIONEE);
+                sRomVersion = prop6;
+                if (!TextUtils.isEmpty(prop6)) {
+                    sRomName = ROM_GIONEE;
+                    return ROM_GIONEE;
+                }
+                return getOtherRomName();
+            case 6:
+                String prop7 = getProp(KEY_VERSION_NUBIA);
+                sRomVersion = prop7;
+                if (!TextUtils.isEmpty(prop7)) {
+                    sRomName = ROM_NUBIA;
+                    return ROM_NUBIA;
+                }
+                return getOtherRomName();
+            case 7:
+                if (Build.DISPLAY.toUpperCase().contains(ROM_FLYME)) {
+                    sRomName = ROM_FLYME;
+                    return ROM_FLYME;
+                }
+                return getOtherRomName();
+            default:
+                return getOtherRomName();
+        }
     }
 
     public static boolean check(String str) {
@@ -114,7 +241,7 @@ public class RomUtils {
                             String prop6 = getProp(KEY_VERSION_GIONEE);
                             sRomVersion = prop6;
                             if (!TextUtils.isEmpty(prop6)) {
-                                sRomName = ROM_SMARTISAN;
+                                sRomName = ROM_GIONEE;
                             } else {
                                 String prop7 = getProp(KEY_VERSION_NUBIA);
                                 sRomVersion = prop7;
@@ -138,7 +265,18 @@ public class RomUtils {
         return sRomName.equals(str);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [144=4] */
+    public static String getOtherRomName() {
+        sRomVersion = Build.DISPLAY;
+        if (sRomVersion.toUpperCase().contains(ROM_FLYME)) {
+            sRomName = ROM_FLYME;
+        } else {
+            sRomVersion = "unknown";
+            sRomName = Build.MANUFACTURER.toUpperCase();
+        }
+        return sRomName;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [233=4] */
     /* JADX WARN: Removed duplicated region for block: B:33:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.

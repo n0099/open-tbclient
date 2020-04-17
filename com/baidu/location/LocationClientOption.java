@@ -1,5 +1,6 @@
 package com.baidu.location;
 
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 /* loaded from: classes8.dex */
@@ -71,7 +72,7 @@ public final class LocationClientOption {
         this.autoNotifyLocSensitivity = 0.5f;
         this.autoNotifyMinTimeInterval = 0;
         this.autoNotifyMinDistance = 0;
-        this.wifiCacheTimeOut = Integer.MAX_VALUE;
+        this.wifiCacheTimeOut = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     }
 
     public LocationClientOption(LocationClientOption locationClientOption) {
@@ -99,7 +100,7 @@ public final class LocationClientOption {
         this.autoNotifyLocSensitivity = 0.5f;
         this.autoNotifyMinTimeInterval = 0;
         this.autoNotifyMinDistance = 0;
-        this.wifiCacheTimeOut = Integer.MAX_VALUE;
+        this.wifiCacheTimeOut = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         this.coorType = locationClientOption.coorType;
         this.addrType = locationClientOption.addrType;
         this.openGps = locationClientOption.openGps;

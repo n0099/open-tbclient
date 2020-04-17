@@ -10,7 +10,7 @@ import kotlin.TypeCastException;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a nDI = new a(null);
+    public static final a mXh = new a(null);
 
     public abstract Set getEntries();
 
@@ -35,7 +35,7 @@ public abstract class e<K, V> implements Map<K, V> {
                 throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<K, V>");
             }
             V v = get(key);
-            if (!kotlin.jvm.internal.q.h(value, v)) {
+            if (!kotlin.jvm.internal.q.k(value, v)) {
                 return false;
             }
             if (v == null) {

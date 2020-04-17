@@ -42,22 +42,22 @@ public class d extends ab {
                 return false;
             }
             int optInt = optParamsAsJo.optInt("orientationType", DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER);
-            com.baidu.swan.apps.adaptation.b.e hu = f.WV().hu(optParamsAsJo.optString("slaveId"));
-            if (!(hu instanceof SwanAppWebViewManager)) {
+            com.baidu.swan.apps.adaptation.b.e iI = f.aeK().iI(optParamsAsJo.optString("slaveId"));
+            if (!(iI instanceof SwanAppWebViewManager)) {
                 com.baidu.swan.apps.console.c.e("setFullscreenOrientationSync", "no WebView with this slaveId");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            int fa = fa(optInt);
-            ((SwanAppWebViewManager) hu).ep(fa);
+            int ff = ff(optInt);
+            ((SwanAppWebViewManager) iI).eu(ff);
             if (DEBUG) {
-                Log.d("setFullscreenOrientationSync", "orientation set to : " + fa);
+                Log.d("setFullscreenOrientationSync", "orientation set to : " + ff);
             }
             return true;
         }
     }
 
-    private int fa(int i) {
+    private int ff(int i) {
         switch (i) {
             case -90:
                 return 8;

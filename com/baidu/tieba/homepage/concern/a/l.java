@@ -20,15 +20,15 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aN */
+    /* renamed from: aA */
     public af<com.baidu.tieba.homepage.concern.b.a> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
         aVar.c(new com.baidu.tieba.homepage.concern.view.c(this.mPageContext));
-        aVar.ni().aV(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44));
-        aVar.ni().aX(0);
-        aVar.ni().aW(0);
-        aVar.ni().aR(0);
-        return new af<>(aVar.nj());
+        aVar.rB().bh(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44));
+        aVar.rB().bj(0);
+        aVar.rB().bi(0);
+        aVar.rB().bd(0);
+        return new af<>(aVar.rC());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

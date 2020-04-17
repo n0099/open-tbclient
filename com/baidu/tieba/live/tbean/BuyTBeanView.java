@@ -227,7 +227,7 @@ public class BuyTBeanView extends BdBaseView {
                     } else if (!TbadkCoreApplication.getInst().isHaokan()) {
                         str = "";
                     } else {
-                        str = TbadkCoreApplication.APP_ID_HAOKAN;
+                        str = "haokan";
                     }
                     final String str2 = optString3 + (optString3.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "_client_type=2&subapp_type=" + str + "&from=" + (this.isFromLive ? "live" : "other");
                     this.layoutExchange.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.live.tbean.BuyTBeanView.5

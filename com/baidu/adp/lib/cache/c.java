@@ -7,12 +7,12 @@ import com.baidu.adp.lib.cache.e;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public abstract class c<T> {
+    protected final com.baidu.adp.base.a.b IK;
+    protected e.b IL;
+    protected e.a IP;
     protected int dirtyCount;
     protected LinkedList<String> idsToDelete = new LinkedList<>();
     private Object lockForIdsToDelete = new Object();
-    protected final com.baidu.adp.base.a.b pK;
-    protected e.b pL;
-    protected e.a pM;
     protected String tableName;
 
     protected abstract ContentValues a(g<T> gVar);
@@ -30,24 +30,24 @@ public abstract class c<T> {
     public abstract Cursor queryAllForNameSpace(SQLiteDatabase sQLiteDatabase, String str);
 
     public c(com.baidu.adp.base.a.b bVar) {
-        this.pK = bVar;
+        this.IK = bVar;
     }
 
     public void a(e eVar, String str) {
         this.tableName = str;
         if (eVar instanceof e.b) {
-            this.pL = (e.b) eVar;
+            this.IL = (e.b) eVar;
         }
         if (eVar instanceof e.a) {
-            this.pM = (e.a) eVar;
+            this.IP = (e.a) eVar;
         }
     }
 
-    public g<T> aa(String str) {
+    public g<T> bp(String str) {
         try {
-            return b(this.pK.getOpenedDatabase(), str);
+            return b(this.IK.getOpenedDatabase(), str);
         } catch (Throwable th) {
-            this.pK.notifySQLException(th, "get");
+            this.IK.notifySQLException(th, "get");
             return null;
         }
     }
@@ -59,27 +59,27 @@ public abstract class c<T> {
                 this.idsToDelete.remove(gVar.uniqueKey);
             }
             ContentValues a = a(gVar);
-            SQLiteDatabase openedDatabase = this.pK.getOpenedDatabase();
+            SQLiteDatabase openedDatabase = this.IK.getOpenedDatabase();
             if (openedDatabase.update(this.tableName, a, "m_key = ?", new String[]{gVar.uniqueKey}) == 0) {
                 openedDatabase.insert(this.tableName, null, a);
-                if (this.pM != null) {
+                if (this.IP != null) {
                     notifyDirtyCountAdded();
                 }
             }
-            if (this.pL != null && (e = this.pL.e(gVar)) != null) {
+            if (this.IL != null && (e = this.IL.e(gVar)) != null) {
                 deleteCacheItem(e);
             }
         } catch (Throwable th) {
-            this.pK.notifySQLException(th, "addOrUpdateTextCacheItem");
+            this.IK.notifySQLException(th, "addOrUpdateTextCacheItem");
         }
     }
 
     protected void notifyDirtyCountAdded() {
-        if (this.pM != null) {
+        if (this.IP != null) {
             this.dirtyCount++;
-            if (this.dirtyCount >= ((int) Math.min(this.pM.getMaxSize() * 0.2d, 5.0d))) {
+            if (this.dirtyCount >= ((int) Math.min(this.IP.getMaxSize() * 0.2d, 5.0d))) {
                 this.dirtyCount = 0;
-                com.baidu.adp.lib.f.h.gy().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.c.1
+                com.baidu.adp.lib.f.h.lc().submitTask(new Runnable() { // from class: com.baidu.adp.lib.cache.c.1
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.performCleanup();
@@ -91,9 +91,9 @@ public abstract class c<T> {
 
     public int deleteCacheItem(String str) {
         try {
-            return this.pK.getOpenedDatabase().delete(this.tableName, "m_key = ?", new String[]{str});
+            return this.IK.getOpenedDatabase().delete(this.tableName, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
-            this.pK.notifySQLException(th, "deleteCacheItem");
+            this.IK.notifySQLException(th, "deleteCacheItem");
             return 0;
         }
     }
@@ -104,7 +104,7 @@ public abstract class c<T> {
             this.idsToDelete.clear();
         }
         if (clearData(str)) {
-            BdCacheService.fz().fA().delete(str);
+            BdCacheService.kd().ke().delete(str);
         }
     }
 
@@ -120,18 +120,18 @@ public abstract class c<T> {
     }
 
     public void performEvict(String str) {
-        if (this.pM != null) {
+        if (this.IP != null) {
             Cursor cursor = null;
             try {
-                this.pM.startEvict();
-                cursor = queryAllForNameSpace(this.pK.getOpenedDatabase(), str);
+                this.IP.startEvict();
+                cursor = queryAllForNameSpace(this.IK.getOpenedDatabase(), str);
                 while (cursor.moveToNext()) {
                     g<?> gVar = new g<>();
                     gVar.uniqueKey = cursor.getString(cursor.getColumnIndex("m_key"));
                     gVar.saveTime = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     gVar.lastHitTime = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
                     gVar.timeToExpire = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String d = this.pM.d(gVar);
+                    String d = this.IP.d(gVar);
                     if (d != null) {
                         addItemIdToDeleteList(d, false);
                     }
@@ -139,28 +139,28 @@ public abstract class c<T> {
                 performCleanup();
             } catch (Throwable th) {
                 try {
-                    this.pK.notifySQLException(th, "performEvict");
+                    this.IK.notifySQLException(th, "performEvict");
                 } finally {
                     com.baidu.adp.lib.f.a.close(cursor);
-                    this.pM.finishEvict();
+                    this.IP.finishEvict();
                 }
             }
         }
     }
 
     public void performPump(String str) {
-        if (this.pL != null) {
+        if (this.IL != null) {
             Cursor cursor = null;
             try {
-                this.pL.startInit();
-                cursor = queryAllForNameSpace(this.pK.getOpenedDatabase(), str);
+                this.IL.startInit();
+                cursor = queryAllForNameSpace(this.IK.getOpenedDatabase(), str);
                 while (cursor.moveToNext()) {
                     g<?> gVar = new g<>();
                     gVar.uniqueKey = cursor.getString(cursor.getColumnIndex("m_key"));
                     gVar.saveTime = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     gVar.lastHitTime = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
                     gVar.timeToExpire = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    String f = this.pL.f(gVar);
+                    String f = this.IL.f(gVar);
                     if (f != null) {
                         addItemIdToDeleteList(f, false);
                     }
@@ -168,10 +168,10 @@ public abstract class c<T> {
                 performCleanup();
             } catch (Throwable th) {
                 try {
-                    this.pK.notifySQLException(th, "performPump");
+                    this.IK.notifySQLException(th, "performPump");
                 } finally {
                     com.baidu.adp.lib.f.a.close(cursor);
-                    this.pL.finishInit();
+                    this.IL.finishInit();
                 }
             }
         }
@@ -180,7 +180,7 @@ public abstract class c<T> {
     protected void performCleanup() {
         String removeFirst;
         if (!this.idsToDelete.isEmpty()) {
-            SQLiteDatabase openedDatabase = this.pK.getOpenedDatabase();
+            SQLiteDatabase openedDatabase = this.IK.getOpenedDatabase();
             openedDatabase.beginTransaction();
             while (true) {
                 try {
@@ -196,7 +196,7 @@ public abstract class c<T> {
                     openedDatabase.delete(this.tableName, "m_key = ?", new String[]{String.valueOf(removeFirst)});
                 } catch (Throwable th) {
                     try {
-                        this.pK.notifySQLException(th, "performCleanup");
+                        this.IK.notifySQLException(th, "performCleanup");
                         return;
                     } finally {
                         openedDatabase.endTransaction();
@@ -206,7 +206,7 @@ public abstract class c<T> {
         }
     }
 
-    public com.baidu.adp.base.a.b fv() {
-        return this.pK;
+    public com.baidu.adp.base.a.b jZ() {
+        return this.IK;
     }
 }

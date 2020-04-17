@@ -1,18 +1,18 @@
 package com.baidu.afd.a;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.lego.card.view.e;
 /* loaded from: classes.dex */
-public class a<T extends e> extends v.a {
-    protected T Dx;
+public class a<T extends e> extends y.a {
+    protected T WS;
 
     public a(T t) {
         super((View) t);
-        this.Dx = t;
+        this.WS = t;
     }
 
-    public T kO() {
-        return this.Dx;
+    public T ps() {
+        return this.WS;
     }
 }

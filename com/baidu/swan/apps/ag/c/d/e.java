@@ -12,40 +12,40 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends a {
     @Override // com.baidu.swan.apps.ag.c.d.b
-    com.baidu.swan.apps.api.b.b ax(JSONObject jSONObject) {
+    com.baidu.swan.apps.api.b.b aI(JSONObject jSONObject) {
         return null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.swan.apps.ag.c.d.b
-    public String aam() {
+    public String air() {
         return "snsapi_userinfo";
     }
 
     @Override // com.baidu.swan.apps.ag.c.d.a
     void a(SwanAppActivity swanAppActivity, String str, com.baidu.swan.apps.ag.c.b.b bVar, final com.baidu.swan.apps.setting.b.a aVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ag.c.c.a> bVar2) {
-        final com.baidu.swan.apps.ag.c.c.a aVar2 = new com.baidu.swan.apps.ag.c.c.a(bVar.biA);
-        aVar2.biB = bVar.biB;
-        if (aVar == null || aVar.bUE.agn() != 0) {
+        final com.baidu.swan.apps.ag.c.c.a aVar2 = new com.baidu.swan.apps.ag.c.c.a(bVar.bGI);
+        aVar2.bGJ = bVar.bGJ;
+        if (aVar == null || aVar.ctt.aos() != 0) {
             com.baidu.swan.apps.ag.d.a.print("open data result failure");
-            bVar2.F(aVar2);
+            bVar2.G(aVar2);
             return;
         }
         com.baidu.swan.apps.ag.d.a.print("obtain user info detail, get login code");
         b.a aVar3 = new b.a(bVar.pageParams);
         Bundle bundle = new Bundle();
-        bundle.putString("__plugin__", bVar.bIC);
-        com.baidu.swan.apps.runtime.d.acF().acC().acS().a(swanAppActivity, aVar3, bundle, new com.baidu.swan.apps.as.d.b<h<e.c>>() { // from class: com.baidu.swan.apps.ag.c.d.e.1
+        bundle.putString("__plugin__", bVar.chl);
+        com.baidu.swan.apps.runtime.d.akK().akH().akX().a(swanAppActivity, aVar3, bundle, new com.baidu.swan.apps.as.d.b<h<e.c>>() { // from class: com.baidu.swan.apps.ag.c.d.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void D(h<e.c> hVar) {
+            public void E(h<e.c> hVar) {
                 if (hVar == null || !hVar.isOk() || TextUtils.isEmpty(hVar.mData.code)) {
                     com.baidu.swan.apps.ag.d.a.print("login failure, can't get login code");
-                    bVar2.F(aVar2);
+                    bVar2.G(aVar2);
                     return;
                 }
-                JSONObject jSONObject = aVar.bTO;
+                JSONObject jSONObject = aVar.csD;
                 if (jSONObject != null) {
                     try {
                         jSONObject.put("code", hVar.mData.code);
@@ -55,9 +55,9 @@ public class e extends a {
                             com.baidu.swan.apps.ag.d.a.print(Log.getStackTraceString(e));
                         }
                     }
-                    aVar2.bII = jSONObject.toString();
+                    aVar2.chr = jSONObject.toString();
                 }
-                bVar2.F(aVar2);
+                bVar2.G(aVar2);
             }
         });
     }

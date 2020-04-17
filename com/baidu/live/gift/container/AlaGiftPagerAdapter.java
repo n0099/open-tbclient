@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaGiftPagerAdapter extends PagerAdapter {
-    private List<View> ajC;
+    private List<View> aBV;
 
     public AlaGiftPagerAdapter(List<View> list) {
-        this.ajC = new ArrayList();
-        this.ajC = list;
+        this.aBV = new ArrayList();
+        this.aBV = list;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.ajC == null) {
+        if (this.aBV == null) {
             return 0;
         }
-        return this.ajC.size();
+        return this.aBV.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -32,8 +32,8 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            View view = this.ajC.get(i);
-            M(view);
+            View view = this.aBV.get(i);
+            O(view);
             viewGroup.removeView(view);
         }
     }
@@ -43,12 +43,12 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.ajC.get(i);
+        View view = this.aBV.get(i);
         viewGroup.addView(view);
         return view;
     }
 
-    private void M(View view) {
+    private void O(View view) {
         int i = 0;
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
@@ -61,8 +61,8 @@ public class AlaGiftPagerAdapter extends PagerAdapter {
                             View childAt = gridView.getChildAt(i3);
                             if (childAt != null) {
                                 Object tag = childAt.getTag();
-                                if (tag instanceof a.C0085a) {
-                                    ((a.C0085a) tag).recycle();
+                                if (tag instanceof a.C0111a) {
+                                    ((a.C0111a) tag).recycle();
                                 }
                             }
                             i = i3 + 1;

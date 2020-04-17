@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.WebpageObject;
@@ -172,7 +171,7 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     private void getBaseUrl() {
         StringBuilder sb = new StringBuilder();
         if (this.multiMessage.textObject instanceof TextObject) {
-            sb.append(this.multiMessage.textObject.text + HanziToPinyin.Token.SEPARATOR);
+            sb.append(this.multiMessage.textObject.text + " ");
         }
         if (this.multiMessage.mediaObject != null && (this.multiMessage.mediaObject instanceof WebpageObject) && !TextUtils.isEmpty(this.multiMessage.mediaObject.actionUrl)) {
             sb.append(this.multiMessage.mediaObject.actionUrl);

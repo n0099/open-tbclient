@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.v;
 import io.reactivex.w;
@@ -26,15 +25,15 @@ public final class SingleTimeout<T> extends w<T> {
     }
 
     /* loaded from: classes7.dex */
-    static final class TimeoutMainObserver<T> extends AtomicReference<b> implements b, y<T>, Runnable {
+    static final class TimeoutMainObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T>, Runnable {
         private static final long serialVersionUID = 37497744973048446L;
         final y<? super T> actual;
         final TimeoutFallbackObserver<T> fallback;
         aa<? extends T> other;
-        final AtomicReference<b> task = new AtomicReference<>();
+        final AtomicReference<io.reactivex.disposables.b> task = new AtomicReference<>();
 
         /* loaded from: classes7.dex */
-        static final class TimeoutFallbackObserver<T> extends AtomicReference<b> implements y<T> {
+        static final class TimeoutFallbackObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements y<T> {
             private static final long serialVersionUID = 2071387740092105509L;
             final y<? super T> actual;
 
@@ -43,7 +42,7 @@ public final class SingleTimeout<T> extends w<T> {
             }
 
             @Override // io.reactivex.y
-            public void onSubscribe(b bVar) {
+            public void onSubscribe(io.reactivex.disposables.b bVar) {
                 DisposableHelper.setOnce(this, bVar);
             }
 
@@ -70,7 +69,7 @@ public final class SingleTimeout<T> extends w<T> {
 
         @Override // java.lang.Runnable
         public void run() {
-            b bVar = get();
+            io.reactivex.disposables.b bVar = get();
             if (bVar != DisposableHelper.DISPOSED && compareAndSet(bVar, DisposableHelper.DISPOSED)) {
                 if (bVar != null) {
                     bVar.dispose();
@@ -86,13 +85,13 @@ public final class SingleTimeout<T> extends w<T> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             DisposableHelper.setOnce(this, bVar);
         }
 
         @Override // io.reactivex.y
         public void onSuccess(T t) {
-            b bVar = get();
+            io.reactivex.disposables.b bVar = get();
             if (bVar != DisposableHelper.DISPOSED && compareAndSet(bVar, DisposableHelper.DISPOSED)) {
                 DisposableHelper.dispose(this.task);
                 this.actual.onSuccess(t);
@@ -101,7 +100,7 @@ public final class SingleTimeout<T> extends w<T> {
 
         @Override // io.reactivex.y
         public void onError(Throwable th) {
-            b bVar = get();
+            io.reactivex.disposables.b bVar = get();
             if (bVar != DisposableHelper.DISPOSED && compareAndSet(bVar, DisposableHelper.DISPOSED)) {
                 DisposableHelper.dispose(this.task);
                 this.actual.onError(th);

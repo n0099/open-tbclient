@@ -73,11 +73,17 @@ public class AlaActiveRootView extends FrameLayout implements com.baidu.live.g.b
         setMinimumWidth(getResources().getDimensionPixelOffset(a.e.sdk_ds104));
     }
 
+    @Override // com.baidu.live.g.b
     public void setViewTouchable(boolean z) {
     }
 
     @Override // com.baidu.live.g.b
     public View getOverlayView() {
         return this;
+    }
+
+    @Override // com.baidu.live.g.b
+    public boolean vn() {
+        return getVisibility() == 0;
     }
 }

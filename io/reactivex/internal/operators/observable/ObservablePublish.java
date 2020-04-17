@@ -10,12 +10,12 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
     final AtomicReference<a<T>> current;
-    final t<T> nzV;
+    final t<T> mTv;
     final t<T> source;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.nzV.subscribe(uVar);
+        this.mTv.subscribe(uVar);
     }
 
     @Override // io.reactivex.d.a
@@ -39,18 +39,18 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
                 this.source.subscribe(aVar);
             }
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
-            throw ExceptionHelper.J(th);
+            io.reactivex.exceptions.a.L(th);
+            throw ExceptionHelper.N(th);
         }
     }
 
     /* loaded from: classes7.dex */
     static final class a<T> implements io.reactivex.disposables.b, u<T> {
-        static final InnerDisposable[] nzW = new InnerDisposable[0];
-        static final InnerDisposable[] nzX = new InnerDisposable[0];
+        static final InnerDisposable[] mTw = new InnerDisposable[0];
+        static final InnerDisposable[] mTx = new InnerDisposable[0];
         final AtomicReference<a<T>> current;
         final AtomicReference<io.reactivex.disposables.b> s = new AtomicReference<>();
-        final AtomicReference<InnerDisposable<T>[]> observers = new AtomicReference<>(nzW);
+        final AtomicReference<InnerDisposable<T>[]> observers = new AtomicReference<>(mTw);
         final AtomicBoolean shouldConnect = new AtomicBoolean();
 
         a(AtomicReference<a<T>> atomicReference) {
@@ -59,7 +59,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
 
         @Override // io.reactivex.disposables.b
         public void dispose() {
-            if (this.observers.getAndSet(nzX) != nzX) {
+            if (this.observers.get() != mTx && this.observers.getAndSet(mTx) != mTx) {
                 this.current.compareAndSet(this, null);
                 DisposableHelper.dispose(this.s);
             }
@@ -67,7 +67,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
 
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
-            return this.observers.get() == nzX;
+            return this.observers.get() == mTx;
         }
 
         @Override // io.reactivex.u
@@ -85,7 +85,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
         @Override // io.reactivex.u
         public void onError(Throwable th) {
             this.current.compareAndSet(this, null);
-            InnerDisposable<T>[] andSet = this.observers.getAndSet(nzX);
+            InnerDisposable<T>[] andSet = this.observers.getAndSet(mTx);
             if (andSet.length != 0) {
                 for (InnerDisposable<T> innerDisposable : andSet) {
                     innerDisposable.child.onError(th);
@@ -98,7 +98,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
         @Override // io.reactivex.u
         public void onComplete() {
             this.current.compareAndSet(this, null);
-            for (InnerDisposable<T> innerDisposable : this.observers.getAndSet(nzX)) {
+            for (InnerDisposable<T> innerDisposable : this.observers.getAndSet(mTx)) {
                 innerDisposable.child.onComplete();
             }
         }
@@ -124,7 +124,7 @@ public final class ObservablePublish<T> extends io.reactivex.d.a<T> {
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            innerDisposableArr2 = nzW;
+                            innerDisposableArr2 = mTw;
                         } else {
                             innerDisposableArr2 = new InnerDisposable[length - 1];
                             System.arraycopy(innerDisposableArr, 0, innerDisposableArr2, 0, i);

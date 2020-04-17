@@ -20,12 +20,12 @@ public class SwanAppLauncherActivity extends Activity {
         int releaseFixedOrientation = ai.releaseFixedOrientation(this);
         super.onCreate(bundle);
         ai.fixedOrientation(this, releaseFixedOrientation);
-        af.X(this);
+        af.T(this);
         if (DEBUG) {
             Log.d("SwanAppLauncherActivity", MissionEvent.MESSAGE_CREATE);
         }
         if (!r.checkActivityRefuseServiceAndFinish(this)) {
-            SwanLauncher.RJ().s(getIntent().getExtras());
+            SwanLauncher.Zy().s(getIntent().getExtras());
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.SwanAppLauncherActivity.1
                 @Override // java.lang.Runnable
                 public void run() {

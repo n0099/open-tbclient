@@ -3,6 +3,8 @@ package com.facebook.imagepipeline.animated.base;
 import android.graphics.Bitmap;
 /* loaded from: classes13.dex */
 public interface c {
+    void b(int i, int i2, Bitmap bitmap);
+
     void dispose();
 
     int getHeight();
@@ -12,6 +14,4 @@ public interface c {
     int getXOffset();
 
     int getYOffset();
-
-    void renderFrame(int i, int i2, Bitmap bitmap);
 }

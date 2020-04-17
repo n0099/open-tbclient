@@ -11,6 +11,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class h extends com.baidu.live.view.web.a {
     private Activity activity;
+    private long liveId;
     private long userId;
     private String userName = "";
 
@@ -20,7 +21,7 @@ public class h extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void ej(String str) {
+    public void fc(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl ShareBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -37,6 +38,7 @@ public class h extends com.baidu.live.view.web.a {
             shareEntity.shareType = optInt;
             shareEntity.userId = this.userId;
             shareEntity.userName = this.userName;
+            shareEntity.liveId = this.liveId;
             ShareEntityWrapperData shareEntityWrapperData = new ShareEntityWrapperData();
             shareEntityWrapperData.activity = this.activity;
             shareEntityWrapperData.shareEntity = shareEntity;
@@ -54,7 +56,11 @@ public class h extends com.baidu.live.view.web.a {
         this.userName = str;
     }
 
-    public void z(Activity activity) {
+    public void v(Activity activity) {
         this.activity = activity;
+    }
+
+    public void setLiveId(long j) {
+        this.liveId = j;
     }
 }

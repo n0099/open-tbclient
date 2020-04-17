@@ -26,7 +26,7 @@ public class j extends ab {
             Log.d("SwitchTabAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         final String uuid = UUID.randomUUID().toString();
-        com.baidu.swan.apps.performance.g.ka(uuid);
+        com.baidu.swan.apps.performance.g.ln(uuid);
         String a = a.a(unitedSchemeEntity, "params");
         if (TextUtils.isEmpty(a)) {
             com.baidu.swan.apps.console.c.e("switchTab", "url is null");
@@ -34,54 +34,54 @@ public class j extends ab {
             return false;
         }
         final String optString = s.parseString(unitedSchemeEntity.getParam("params")).optString("cb");
-        final com.baidu.swan.apps.y.f WV = com.baidu.swan.apps.y.f.WV();
-        final com.baidu.swan.apps.core.d.e GH = WV.GH();
-        if (GH == null) {
+        final com.baidu.swan.apps.y.f aeK = com.baidu.swan.apps.y.f.aeK();
+        final com.baidu.swan.apps.core.d.e Ou = aeK.Ou();
+        if (Ou == null) {
             com.baidu.swan.apps.console.c.e("switchTab", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final com.baidu.swan.apps.model.b aW = com.baidu.swan.apps.model.b.aW(a, WV.WD());
-        if (!ai.a(WV.WB(), aW)) {
+        final com.baidu.swan.apps.model.b bg = com.baidu.swan.apps.model.b.bg(a, aeK.aes());
+        if (!ai.a(aeK.aeq(), bg)) {
             com.baidu.swan.apps.console.c.e("switchTab", "tab params error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         String a2 = a.a(unitedSchemeEntity, "params", "startTime");
         if (!TextUtils.isEmpty(a2)) {
-            com.baidu.swan.apps.performance.f.aX("route", uuid).f(new UbcFlowEvent("fe_route_start").au(Long.valueOf(a2).longValue()));
+            com.baidu.swan.apps.performance.f.bh("route", uuid).f(new UbcFlowEvent("fe_route_start").aZ(Long.valueOf(a2).longValue()));
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        WV.showLoadingView();
-        g.a(eVar, aW.mPage, "", new g.a() { // from class: com.baidu.swan.apps.scheme.actions.k.j.1
+        aeK.showLoadingView();
+        g.a(eVar, bg.mPage, "", new g.a() { // from class: com.baidu.swan.apps.scheme.actions.k.j.1
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-            public void success(String str) {
-                com.baidu.swan.apps.performance.g.jZ(uuid);
-                WV.GK();
-                com.baidu.swan.apps.core.d.d Os = GH.Os();
-                if (Os == null || TextUtils.isEmpty(Os.gW(aW.mPage))) {
-                    final b.a K = com.baidu.swan.apps.core.slave.b.K(WV.WG());
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.ls(K.brX.IU()), 0));
-                    com.baidu.swan.apps.performance.f.aX("route", uuid).f(new UbcFlowEvent("na_pre_load_slave_check")).ba("preload", K.brY ? "1" : "0");
-                    com.baidu.swan.apps.core.slave.b.a(K, new b.InterfaceC0255b() { // from class: com.baidu.swan.apps.scheme.actions.k.j.1.1
-                        @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0255b
+            public void gt(String str) {
+                com.baidu.swan.apps.performance.g.lm(uuid);
+                aeK.Ox();
+                com.baidu.swan.apps.core.d.d Wg = Ou.Wg();
+                if (Wg == null || TextUtils.isEmpty(Wg.ik(bg.mPage))) {
+                    final b.a G = com.baidu.swan.apps.core.slave.b.G(aeK.aev());
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.mF(G.bQe.QG()), 0));
+                    com.baidu.swan.apps.performance.f.bh("route", uuid).f(new UbcFlowEvent("na_pre_load_slave_check")).bk("preload", G.isReady ? "1" : "0");
+                    com.baidu.swan.apps.core.slave.b.a(G, new b.InterfaceC0285b() { // from class: com.baidu.swan.apps.scheme.actions.k.j.1.1
+                        @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0285b
                         public void onReady() {
-                            com.baidu.swan.apps.performance.g.a(K, uuid);
-                            a.a(K.brX, aW, uuid);
-                            com.baidu.swan.apps.performance.g.A(5, uuid);
-                            j.this.d(GH, aW, uuid);
+                            com.baidu.swan.apps.performance.g.a(G, uuid);
+                            a.a(G.bQe, bg, uuid);
+                            com.baidu.swan.apps.performance.g.R(5, uuid);
+                            j.this.d(Ou, bg, uuid);
                         }
                     });
                     return;
                 }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.ls(Os.gW(aW.mPage)), 0));
-                com.baidu.swan.apps.performance.g.A(4, uuid);
-                j.this.d(GH, aW, uuid);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.mF(Wg.ik(bg.mPage)), 0));
+                com.baidu.swan.apps.performance.g.R(4, uuid);
+                j.this.d(Ou, bg, uuid);
             }
 
             @Override // com.baidu.swan.apps.scheme.actions.k.g.a
-            public void dY(int i) {
-                WV.GK();
+            public void ed(int i) {
+                aeK.Ox();
                 if (j.DEBUG) {
                     com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).showToast();
                 }
@@ -96,8 +96,8 @@ public class j extends ab {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.swan.apps.core.d.e eVar, com.baidu.swan.apps.model.b bVar, String str) {
-        eVar.ha("switchTab").Y(0, 0).Oz().b(bVar).OC();
-        com.baidu.swan.apps.performance.f.aX("route", str).f(new UbcFlowEvent("na_push_page_end"));
-        com.baidu.swan.apps.performance.g.kb(str);
+        eVar.io("switchTab").ab(0, 0).Wn().b(bVar).Wq();
+        com.baidu.swan.apps.performance.f.bh("route", str).f(new UbcFlowEvent("na_push_page_end"));
+        com.baidu.swan.apps.performance.g.lo(str);
     }
 }

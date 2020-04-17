@@ -1168,7 +1168,7 @@ public class DTSTrackImpl extends AbstractTrack {
         return false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:68:0x0132, code lost:
-        r22.samplerate = 8000;
+        r22.samplerate = com.baidu.searchbox.ui.CoolPraiseGuideLottieView.ANIM_DURATION;
      */
     /* JADX WARN: Code restructure failed: missing block: B:70:0x013d, code lost:
         switch(r15.readBits(5)) {
@@ -1217,7 +1217,7 @@ public class DTSTrackImpl extends AbstractTrack {
         r22.samplerate = 22050;
      */
     /* JADX WARN: Code restructure failed: missing block: B:76:0x015f, code lost:
-        r22.samplerate = com.baidu.ala.player.StreamConfig.Audio.AUDIO_FREQUENCY;
+        r22.samplerate = 44100;
      */
     /* JADX WARN: Code restructure failed: missing block: B:77:0x0167, code lost:
         r22.samplerate = 12000;

@@ -30,12 +30,12 @@ public final class a {
 
     public static <T> void a(Handler handler, final b<T> bVar, final T t) {
         if (handler == null) {
-            bVar.D(t);
+            bVar.E(t);
         } else {
             handler.post(new Runnable() { // from class: com.baidu.swan.apps.as.d.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.D(t);
+                    b.this.E(t);
                 }
             });
         }

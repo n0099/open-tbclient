@@ -13,10 +13,10 @@ import java.io.FileOutputStream;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class f extends a {
-    private int bhI;
-    private int bhJ;
-    private String bhK;
-    private float bhL;
+    private int bFT;
+    private int bFU;
+    private String bFV;
+    private float bFW;
     public int mHeight;
     private int mWidth;
     private int mX;
@@ -24,18 +24,18 @@ public class f extends a {
 
     public f(String str) {
         super(str);
-        this.bhK = "png";
-        this.bhL = 1.0f;
+        this.bFV = "png";
+        this.bFW = 1.0f;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.mX = af.S((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
-            this.mY = af.S((float) jSONObject.optDouble("y"));
-            this.mWidth = af.S((float) jSONObject.optDouble("width"));
-            this.mHeight = af.S((float) jSONObject.optDouble("height"));
-            this.bhI = af.S((float) jSONObject.optDouble("destWidth"));
-            this.bhJ = af.S((float) jSONObject.optDouble("destHeight"));
-            this.bhK = jSONObject.optString("fileType");
-            this.bhL = (float) jSONObject.optDouble("quality");
+            this.mX = af.C((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.mY = af.C((float) jSONObject.optDouble("y"));
+            this.mWidth = af.C((float) jSONObject.optDouble("width"));
+            this.mHeight = af.C((float) jSONObject.optDouble("height"));
+            this.bFT = af.C((float) jSONObject.optDouble("destWidth"));
+            this.bFU = af.C((float) jSONObject.optDouble("destHeight"));
+            this.bFV = jSONObject.optString("fileType");
+            this.bFW = (float) jSONObject.optDouble("quality");
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
@@ -59,11 +59,11 @@ public class f extends a {
             this.mY = (this.mY < 0 || this.mY >= height) ? 0 : this.mY;
             this.mWidth = (this.mWidth <= 0 || this.mX + this.mWidth > width) ? width - this.mX : this.mWidth;
             this.mHeight = (this.mHeight <= 0 || this.mY + this.mHeight > height) ? height - this.mY : this.mHeight;
-            this.bhI = this.bhI <= 0 ? this.mWidth : this.bhI;
-            this.bhJ = this.bhJ <= 0 ? this.mHeight : this.bhJ;
-            Bitmap createBitmap2 = Bitmap.createBitmap(this.bhI, this.bhJ, createBitmap.getConfig());
-            new Canvas(createBitmap2).drawBitmap(createBitmap, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bhI, this.bhJ), new Paint());
-            Bitmap.CompressFormat compressFormat = Kz() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
+            this.bFT = this.bFT <= 0 ? this.mWidth : this.bFT;
+            this.bFU = this.bFU <= 0 ? this.mHeight : this.bFU;
+            Bitmap createBitmap2 = Bitmap.createBitmap(this.bFT, this.bFU, createBitmap.getConfig());
+            new Canvas(createBitmap2).drawBitmap(createBitmap, new Rect(this.mX, this.mY, this.mX + this.mWidth, this.mY + this.mHeight), new Rect(0, 0, this.bFT, this.bFU), new Paint());
+            Bitmap.CompressFormat compressFormat = Sn() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
@@ -73,7 +73,7 @@ public class f extends a {
             }
             file.createNewFile();
             FileOutputStream fileOutputStream = new FileOutputStream(file);
-            createBitmap2.compress(compressFormat, (int) (this.bhL * 100.0f), fileOutputStream);
+            createBitmap2.compress(compressFormat, (int) (this.bFW * 100.0f), fileOutputStream);
             fileOutputStream.flush();
             com.baidu.swan.d.c.closeSafely(fileOutputStream);
             return true;
@@ -90,12 +90,12 @@ public class f extends a {
         }
     }
 
-    public boolean Kz() {
-        return TextUtils.equals(this.bhK, "jpg");
+    public boolean Sn() {
+        return TextUtils.equals(this.bFV, "jpg");
     }
 
-    public String KA() {
-        return Kz() ? "jpg" : "png";
+    public String So() {
+        return Sn() ? "jpg" : "png";
     }
 
     @Override // com.baidu.swan.apps.canvas.b.a, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a

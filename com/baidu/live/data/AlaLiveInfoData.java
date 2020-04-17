@@ -3,9 +3,10 @@ package com.baidu.live.data;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.live.data.k;
+import com.baidu.live.data.l;
 import com.baidu.live.tbadk.TbConfig;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.coreextra.data.AlaLiveSwitchData;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
@@ -27,6 +28,7 @@ public class AlaLiveInfoData implements Serializable {
     public static final int LIVE_TYPE_CAMERA = 1;
     public static final int LIVE_TYPE_SCREEN_RECORD = 2;
     private static final long serialVersionUID = 5768965545624138312L;
+    public int ai_robot_num;
     public String anchorTitle;
     public String appId;
     public int audience_count;
@@ -93,7 +95,7 @@ public class AlaLiveInfoData implements Serializable {
     public String user_name;
     public String user_nickname;
     public int zan_count;
-    public k.a mCastIds = null;
+    public l.a mCastIds = null;
     public int session_default = 0;
     public long broadGiftMsgId = 0;
     public AlaLiveCloseData mLiveCloseData = new AlaLiveCloseData();
@@ -169,6 +171,7 @@ public class AlaLiveInfoData implements Serializable {
             this.join_count = jSONObject.optInt("join_count");
             this.play_count = jSONObject.optInt("play_count");
             this.audience_count = jSONObject.optInt("audience_count");
+            this.ai_robot_num = jSONObject.optInt("ai_robot_num");
             this.zan_count = jSONObject.optInt("zan_count");
             this.live_duration = jSONObject.optLong("live_duration");
             this.charm_count = jSONObject.optInt("charm_count");
@@ -217,7 +220,7 @@ public class AlaLiveInfoData implements Serializable {
             }
             this.thread_id = jSONObject.optLong("thread_id");
             this.comment_count = jSONObject.optInt("comment_count");
-            this.screen_direction = jSONObject.optInt("screen_direction");
+            this.screen_direction = jSONObject.optInt(AlaLiveRoomActivityConfig.SDK_EXTRA_SCREEN_DIRECTION);
             if (DEBUG) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("debug_force_landscape", false);
@@ -263,7 +266,7 @@ public class AlaLiveInfoData implements Serializable {
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject(Constants.EXTRA_CAST_IDS);
             if (optJSONObject4 != null) {
-                this.mCastIds = new k.a();
+                this.mCastIds = new l.a();
                 this.mCastIds.parseJson(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("switch");

@@ -3,13 +3,13 @@ package com.baidu.poly.util;
 import android.content.Context;
 /* loaded from: classes11.dex */
 public class f {
-    private static Context aSr;
+    private static Context bot;
 
-    public static Context EP() {
-        return aSr;
+    public static Context Lb() {
+        return bot;
     }
 
     public static void b(Context context) {
-        aSr = context;
+        bot = context;
     }
 }

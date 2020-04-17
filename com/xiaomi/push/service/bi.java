@@ -19,9 +19,9 @@ class bi extends XMPushService.i {
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
-        if (this.a.f813a != null) {
-            this.a.f813a.b(15, (Exception) null);
-            this.a.f813a = null;
+        if (this.a.f814a != null) {
+            this.a.f814a.b(15, (Exception) null);
+            this.a.f814a = null;
         }
     }
 }

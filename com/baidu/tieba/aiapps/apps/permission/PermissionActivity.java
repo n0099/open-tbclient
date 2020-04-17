@@ -18,7 +18,7 @@ public class PermissionActivity extends Activity {
 
     private void init() {
         setContentView(R.layout.activity_permission);
-        a.eA(this);
+        a.em(this);
     }
 
     @Override // android.app.Activity

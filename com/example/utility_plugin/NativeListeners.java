@@ -1,21 +1,24 @@
 package com.example.utility_plugin;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.p.a;
+import com.baidu.tieba.tbadkCore.u;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +37,8 @@ public class NativeListeners {
     private final String LikeForumsSign = "LikeForumsSign";
     private final String kTBCLikeForumsInfoUpdateNotification = "kTBCLikeForumsInfoUpdateNotification";
     private final String kTBCLikeForumsInfoDeletedNotification = "kTBCLikeForumsInfoDeletedNotification";
+    private final String kTBCShareSdkResultNotification = "kTBCShareSdkResultNotification";
+    private final String kTBCCancleLikeFrsNotification = "kTBCCancleLikeFrsNotification";
     private HttpMessageListener mRemoveForbiddenListener = new HttpMessageListener(CmdConfigHttp.CMD_REMOVE_ALL_FORBIDDEN_FANS) { // from class: com.example.utility_plugin.NativeListeners.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -72,11 +77,11 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (a.cEk().cEg()) {
+                if (a.cOL().cOH()) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("uniqueKey", "FansCountUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap);
-                } else if (a.cEk().cEh()) {
+                } else if (a.cOL().cOI()) {
                     HashMap hashMap2 = new HashMap();
                     hashMap2.put("uniqueKey", "BookMarkUpdate");
                     NativeListeners.this.mMethodChannel.invokeMethod("onNotification", hashMap2);
@@ -180,6 +185,23 @@ public class NativeListeners {
     }
 
     private Message getMessageFromName(String str, Object obj) {
+        char c = 65535;
+        switch (str.hashCode()) {
+            case 406924293:
+                if (str.equals("kTBCCancleLikeFrsNotification")) {
+                    c = 0;
+                    break;
+                }
+                break;
+        }
+        switch (c) {
+            case 0:
+                Object argument = argument(obj, "payload");
+                if (argument instanceof String) {
+                    return new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, (String) argument);
+                }
+                break;
+        }
         return null;
     }
 
@@ -192,6 +214,12 @@ public class NativeListeners {
                     break;
                 }
                 break;
+            case 332172237:
+                if (str.equals("kTBCShareSdkResultNotification")) {
+                    c = 2;
+                    break;
+                }
+                break;
             case 1973571011:
                 if (str.equals("kTBCLikeForumsInfoDeletedNotification")) {
                     c = 1;
@@ -201,15 +229,23 @@ public class NativeListeners {
         }
         switch (c) {
             case 0:
-                Object argument = argument(obj, "userInfo");
-                if (argument instanceof String) {
-                    return new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(b.toLong((String) argument, 0L)));
-                }
+                u uVar = new u();
+                uVar.setFid((String) argument(obj, "payload"));
+                uVar.setLike(1);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, uVar));
                 break;
             case 1:
-                Object argument2 = argument(obj, "userInfo");
-                if (argument2 instanceof String) {
-                    return new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(b.toLong((String) argument2, 0L)));
+                String str2 = (String) argument(obj, "payload");
+                u uVar2 = new u();
+                uVar2.setFid(str2);
+                uVar2.setLike(0);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, uVar2));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, str2));
+                break;
+            case 2:
+                Object argument = argument(obj, "payload");
+                if (argument instanceof Boolean) {
+                    return new ShareSDKResultMessage(Boolean.valueOf(((Boolean) argument).booleanValue()));
                 }
                 break;
         }
@@ -270,28 +306,28 @@ public class NativeListeners {
         }
         switch (c) {
             case 0:
-                this.mRemoveForbiddenListener.setPriority(Integer.MAX_VALUE);
+                this.mRemoveForbiddenListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 return this.mRemoveForbiddenListener;
             case 1:
-                this.mBackgroundListener.setPriority(Integer.MAX_VALUE);
+                this.mBackgroundListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 return this.mBackgroundListener;
             case 2:
-                this.bookMarksGiftAndFansListener.setPriority(Integer.MAX_VALUE);
+                this.bookMarksGiftAndFansListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 return this.bookMarksGiftAndFansListener;
             case 3:
-                this.bookMarksGiftAndFansListener.setPriority(Integer.MAX_VALUE);
+                this.bookMarksGiftAndFansListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 return this.bookMarksGiftAndFansListener;
             case 4:
-                this.feedBackRedTipListener.setPriority(Integer.MAX_VALUE);
+                this.feedBackRedTipListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 return this.feedBackRedTipListener;
             case 5:
-                this.syncFinishListener.setPriority(Integer.MAX_VALUE);
+                this.syncFinishListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 return this.syncFinishListener;
             case 6:
-                this.checkFeedBackListener.setPriority(Integer.MAX_VALUE);
+                this.checkFeedBackListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 return this.checkFeedBackListener;
             case 7:
-                this.mSignChangedListener.setPriority(Integer.MAX_VALUE);
+                this.mSignChangedListener.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 return this.mSignChangedListener;
             default:
                 return null;

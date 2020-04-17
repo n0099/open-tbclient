@@ -246,6 +246,7 @@ public class MessageParser {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized void handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z) {
+        boolean z2;
         String str;
         String str2;
         JSONObject jSONObject;
@@ -256,10 +257,12 @@ public class MessageParser {
                     ArrayList arrayList2 = new ArrayList();
                     ArrayList arrayList3 = new ArrayList();
                     LinkedList linkedList = new LinkedList();
+                    boolean z3 = false;
                     long triggerId = Utility.getTriggerId(context);
                     String str3 = AccountManagerImpl.getInstance(context).getLoginType() == 6 ? "cuid" : "uid";
                     long uk = AccountManager.getUK(context);
-                    for (int i = 0; i < arrayList.size(); i++) {
+                    int i = 0;
+                    while (i < arrayList.size()) {
                         ChatMsg chatMsg = arrayList.get(i);
                         if (chatMsg != null) {
                             int category = chatMsg.getCategory();
@@ -340,12 +343,19 @@ public class MessageParser {
                             }
                             if (category == 4 && McastManagerImpl.getInstance(context).isReliable(((TextMsg) chatMsg).getCastId()).booleanValue()) {
                                 tripule.setStudioIsReliable(true);
+                                z2 = true;
+                            } else {
+                                z2 = z3;
                             }
                             linkedList.add(tripule);
+                        } else {
+                            z2 = z3;
                         }
+                        i++;
+                        z3 = z2;
                     }
                     getAckNeedPainfos(context, z, arrayList2, arrayList3);
-                    sendNewAckToServer(context, triggerId, linkedList);
+                    sendNewAckToServer(context, triggerId, linkedList, z3);
                 }
             }
         }
@@ -395,12 +405,12 @@ public class MessageParser {
         return Constants.PAGE_HUDONG_NAME;
     }
 
-    private static void sendNewAckToServer(Context context, long j, List<NewAckMessage.Tripule> list) {
+    private static void sendNewAckToServer(Context context, long j, List<NewAckMessage.Tripule> list, boolean z) {
         if (list != null && list.size() != 0) {
             List<List<NewAckMessage.Tripule>> splitList = Utils.splitList(list, 20);
             if (splitList != null && splitList.size() > 0) {
                 for (List<NewAckMessage.Tripule> list2 : splitList) {
-                    NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j);
+                    NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                     newAckMessage.addTriples(list2);
                     if (!IMService.isSmallFlow) {
                         IMConnection.getInstance(context).sendMessage(newAckMessage, false);

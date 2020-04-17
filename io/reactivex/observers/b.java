@@ -86,7 +86,7 @@ public final class b<T> implements io.reactivex.disposables.b, u<T> {
                     if (this.delayError) {
                         aVar.add(error);
                     } else {
-                        aVar.bM(error);
+                        aVar.bv(error);
                     }
                     return;
                 }
@@ -136,6 +136,6 @@ public final class b<T> implements io.reactivex.disposables.b, u<T> {
                 }
                 this.queue = null;
             }
-        } while (!aVar.d((u<? super T>) this.actual));
+        } while (!aVar.b((u<? super T>) this.actual));
     }
 }

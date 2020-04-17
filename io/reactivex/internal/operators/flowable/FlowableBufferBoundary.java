@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
@@ -22,7 +21,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
     protected void a(org.a.c<? super U> cVar) {
         BufferBoundarySubscriber bufferBoundarySubscriber = new BufferBoundarySubscriber(cVar, this.bufferOpen, this.bufferClose, this.bufferSupplier);
         cVar.onSubscribe(bufferBoundarySubscriber);
-        this.nyr.a((j) bufferBoundarySubscriber);
+        this.mRJ.a((j) bufferBoundarySubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -36,7 +35,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
         volatile boolean done;
         long emitted;
         long index;
-        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dJD());
+        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dCB());
         final io.reactivex.disposables.a subscribers = new io.reactivex.disposables.a();
         final AtomicLong requested = new AtomicLong();
         final AtomicReference<org.a.d> upstream = new AtomicReference<>();
@@ -56,7 +55,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
                 BufferOpenSubscriber bufferOpenSubscriber = new BufferOpenSubscriber(this);
                 this.subscribers.a(bufferOpenSubscriber);
                 this.bufferOpen.subscribe(bufferOpenSubscriber);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -140,7 +139,7 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
                     }
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 SubscriptionHelper.cancel(this.upstream);
                 onError(th);
             }
@@ -248,7 +247,9 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
 
             @Override // io.reactivex.j, org.a.c
             public void onSubscribe(org.a.d dVar) {
-                SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+                if (SubscriptionHelper.setOnce(this, dVar)) {
+                    dVar.request(Long.MAX_VALUE);
+                }
             }
 
             @Override // org.a.c
@@ -294,7 +295,9 @@ public final class FlowableBufferBoundary<T, U extends Collection<? super T>, Op
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(Long.MAX_VALUE);
+            }
         }
 
         @Override // org.a.c

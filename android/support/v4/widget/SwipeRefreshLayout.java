@@ -667,7 +667,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         } else if (this.mProgress.getAlpha() < 255 && !isAnimationRunning(this.mAlphaMaxAnimation)) {
             startProgressAlphaMaxAnimation();
         }
-        this.mProgress.setStartEndTrim(0.0f, Math.min((float) MAX_PROGRESS_ANGLE, max * MAX_PROGRESS_ANGLE));
+        this.mProgress.setStartEndTrim(0.0f, Math.min(0.8f, max * 0.8f));
         this.mProgress.setArrowScale(Math.min(1.0f, max));
         this.mProgress.setProgressRotation(((-0.25f) + (max * 0.4f) + (pow * 2.0f)) * 0.5f);
         setTargetOffsetTopAndBottom(i - this.mCurrentTargetOffsetTop);

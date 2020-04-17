@@ -6,34 +6,34 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes10.dex */
 public class d {
-    private com.baidu.adp.lib.cache.l<byte[]> gkR;
+    private com.baidu.adp.lib.cache.l<byte[]> gTY;
 
     public d() {
-        ava();
+        aDl();
     }
 
-    public void ava() {
-        if (this.gkR == null) {
-            this.gkR = com.baidu.tbadk.core.c.a.aEF().sP("tb.forum_member_info");
+    public void aDl() {
+        if (this.gTY == null) {
+            this.gTY = com.baidu.tbadk.core.c.a.aMT().uc("tb.forum_member_info");
         }
     }
 
-    public byte[] AW(String str) {
+    public byte[] CG(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        l.b<byte[]> ad = this.gkR != null ? this.gkR.ad(str + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
-        if (ad == null || ad.value == null) {
+        l.b<byte[]> bs = this.gTY != null ? this.gTY.bs(str + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
+        if (bs == null || bs.value == null) {
             return null;
         }
-        return ad.value;
+        return bs.value;
     }
 
     public void l(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            ava();
-            this.gkR.set(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+            aDl();
+            this.gTY.set(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

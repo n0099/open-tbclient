@@ -1,445 +1,289 @@
 package com.baidu.tieba.ala.b;
 
-import android.app.Activity;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.live.data.bc;
+import com.baidu.live.adp.lib.safe.JavaTypesHelper;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
+import com.baidu.live.gift.g;
+import com.baidu.live.gift.i;
+import com.baidu.live.message.AlaSdkGetGiftListHttpResponseMessage;
+import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.util.UtilHelper;
-import com.baidu.live.tbadk.util.ScreenHelper;
+import com.baidu.live.tbadk.core.util.ListUtils;
+import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.live.tbadk.core.view.BdGridView;
+import com.baidu.live.tbadk.log.LogConfig;
+import com.baidu.live.tbadk.widget.CommonEmptyView;
+import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.u.a;
-import com.baidu.live.utils.h;
-import com.baidu.tieba.ala.data.o;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.tbadk.core.atomData.FrsProfessionIntroActivityConfig;
+import com.baidu.tieba.ala.AlaChooseGiftActivity;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b implements View.OnClickListener {
-    private Activity activity;
-    private int aeA;
-    private int aeC;
-    private int aez;
-    private int cdH;
-    private View eyO;
-    private View eyP;
-    private TextView eyQ;
-    private EditText eyR;
-    private EditText eyS;
-    private TextView eyT;
-    private TextView eyU;
-    private LinearLayout eyV;
-    private LinearLayout eyW;
-    private LinearLayout eyX;
-    private TextView eyY;
-    private TextView eyZ;
-    private int ezA;
-    private a ezB;
-    private int ezC;
-    private int ezD;
-    private float ezE;
-    private boolean ezF;
-    private ImageView eza;
-    private ImageView ezb;
-    private TextView ezc;
-    private TextView ezd;
-    private TextView eze;
-    private TextView ezf;
-    private RelativeLayout ezg;
-    private RelativeLayout ezh;
-    private LinearLayout ezi;
-    private LinearLayout ezj;
-    private ScrollView ezk;
-    private View ezl;
-    private long ezn;
-    private int ezo;
-    private int ezp;
-    private List<bc.a> ezq;
-    private String ezt;
-    private String ezu;
-    private boolean ezx;
-    private boolean ezy;
-    private int ezz;
-    private int screenWidth;
-    private int ezm = 2000;
-    private long ezr = 2000;
-    private long ezs = 10;
-    private boolean ezv = true;
-    private boolean ezw = true;
+public class b extends d {
+    private static int fcM;
+    private CommonEmptyView faB;
+    private BdGridView fcN;
+    private a fcO;
+    private List<g> fcP;
+    private g fcQ;
 
-    public b(final Activity activity, a aVar) {
-        this.activity = activity;
-        this.ezB = aVar;
+    public b(AlaChooseGiftActivity alaChooseGiftActivity, FrameLayout frameLayout, String str, ArrayList<String> arrayList, int i, int i2) {
+        super(alaChooseGiftActivity, frameLayout, str, arrayList, i, i2);
         initView();
-        bel();
-        bem();
-        this.ezg.setVisibility(4);
-        this.ezg.post(new Runnable() { // from class: com.baidu.tieba.ala.b.b.1
-            @Override // java.lang.Runnable
-            public void run() {
-                b.this.screenWidth = ScreenHelper.getScreenWidth(activity);
-                b.this.cdH = ScreenHelper.getScreenHeight(activity);
-                if (b.this.screenWidth > b.this.cdH) {
-                    int i = b.this.screenWidth;
-                    b.this.screenWidth = b.this.cdH;
-                    b.this.cdH = i;
-                }
-                b.this.ezC = b.this.screenWidth;
-                b.this.ezA = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds40);
-                b.this.ezD = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds204);
-                int i2 = b.this.screenWidth - (b.this.ezA * 2);
-                b.this.ezE = (i2 * 1.0f) / b.this.ezg.getHeight();
-                if (b.this.cdH > b.this.ezg.getHeight()) {
-                    b.this.ezz = (b.this.cdH - b.this.ezg.getHeight()) / 2;
-                }
-                b.this.tf();
-                b.this.ezg.setVisibility(0);
+        fcM = (int) (BdUtilHelper.getScreenDimensions(this.mContext)[0] / 4.0d);
+    }
+
+    @Override // com.baidu.tieba.ala.b.d
+    protected int bnw() {
+        return a.h.ala_choose_gift;
+    }
+
+    @Override // com.baidu.tieba.ala.b.d
+    protected void initView() {
+        this.fcN = (BdGridView) this.mRootView.findViewById(a.g.choose_gift_gridview);
+        this.fcN.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.ala.b.b.1
+            @Override // android.widget.AdapterView.OnItemClickListener
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+                b.this.fcQ = (g) b.this.fcP.get(i);
+                b.this.fdb = b.this.fcQ.vV();
+                b.this.fcO.zP(b.this.fdb);
             }
         });
+        this.faB = (CommonEmptyView) this.mRootView.findViewById(a.g.choose_gift_empty_view);
     }
 
-    private void bel() {
-        bc.a aVar;
-        bc.a aVar2;
-        if (com.baidu.live.v.a.zs() != null && com.baidu.live.v.a.zs().axR != null && com.baidu.live.v.a.zs().axR.adc != null && com.baidu.live.v.a.zs().axR.adc.aeb != null) {
-            bc bcVar = com.baidu.live.v.a.zs().axR.adc.aeb;
-            this.ezn = bcVar.aex;
-            this.aez = bcVar.aez;
-            this.aeA = bcVar.aeA;
-            this.ezo = bcVar.aeB;
-            this.ezp = bcVar.aey;
-            this.aeC = bcVar.aeC;
-            this.ezq = bcVar.aeD;
-        }
-        this.eyQ.setText(String.format(this.activity.getString(a.i.red_pkt_broad_condition), Integer.valueOf(this.ezo)));
-        this.ezd.setText(String.format(this.activity.getString(a.i.red_send_between), Integer.valueOf(this.aeC)));
-        this.eze.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule1), Integer.valueOf(this.aeC)));
-        this.ezf.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule3), Integer.valueOf(this.ezp)));
-        if (this.ezq != null && !this.ezq.isEmpty()) {
-            if (this.ezq.size() == 1) {
-                aVar = this.ezq.get(0);
-                aVar2 = null;
-            } else {
-                aVar = this.ezq.get(0);
-                aVar2 = this.ezq.get(1);
-            }
-            if (aVar == null) {
-                this.eyW.setVisibility(8);
-            } else {
-                this.eyY.setText(aVar.aeE);
-                this.eyW.setVisibility(0);
-                this.ezt = aVar.aeF;
-            }
-            if (aVar2 == null) {
-                this.eyX.setVisibility(8);
-            } else {
-                this.eyZ.setText(aVar2.aeE);
-                this.eyX.setVisibility(0);
-                this.ezu = aVar2.aeF;
-            }
-            if (this.eyW.getVisibility() == 0 || this.eyX.getVisibility() == 0) {
-                this.eyV.setVisibility(0);
-                return;
-            } else {
-                this.eyV.setVisibility(8);
-                return;
-            }
-        }
-        this.eyV.setVisibility(8);
+    @Override // com.baidu.tieba.ala.b.d
+    public void e(TextView textView) {
+        textView.setText(a.i.sdk_choose_gift_title);
     }
 
-    private void initView() {
-        this.eyO = LayoutInflater.from(this.activity).inflate(a.h.ala_red_pkt_send_layout, (ViewGroup) null);
-        this.eyP = this.eyO.findViewById(a.g.iv_send_red_q);
-        this.eyQ = (TextView) this.eyO.findViewById(a.g.tv_red_broad_hint);
-        this.eyR = (EditText) this.eyO.findViewById(a.g.edt_t_num);
-        this.eyS = (EditText) this.eyO.findViewById(a.g.edt_pkt_num);
-        this.eyT = (TextView) this.eyO.findViewById(a.g.tv_send_t_num_hint);
-        this.eyU = (TextView) this.eyO.findViewById(a.g.tv_send_pkt_num_hint);
-        this.eyV = (LinearLayout) this.eyO.findViewById(a.g.layout_red_pkt_condition);
-        this.eyW = (LinearLayout) this.eyO.findViewById(a.g.layout_condition_first);
-        this.eyX = (LinearLayout) this.eyO.findViewById(a.g.layout_condition_second);
-        this.ezg = (RelativeLayout) this.eyO.findViewById(a.g.layout_send_red_content);
-        this.ezh = (RelativeLayout) this.eyO.findViewById(a.g.layout_send_red);
-        this.eyY = (TextView) this.eyO.findViewById(a.g.tv_condition_first);
-        this.eyZ = (TextView) this.eyO.findViewById(a.g.tv_condition_second);
-        this.eza = (ImageView) this.eyO.findViewById(a.g.iv_condition_first);
-        this.ezb = (ImageView) this.eyO.findViewById(a.g.iv_condition_second);
-        this.ezc = (TextView) this.eyO.findViewById(a.g.tv_send_pkt_submit);
-        this.eze = (TextView) this.eyO.findViewById(a.g.tv_red_send_rule1);
-        this.ezf = (TextView) this.eyO.findViewById(a.g.tv_red_send_rule3);
-        this.ezd = (TextView) this.eyO.findViewById(a.g.tv_send_pkt_time);
-        this.ezi = (LinearLayout) this.eyO.findViewById(a.g.layout_red_send_rule);
-        this.ezj = (LinearLayout) this.eyO.findViewById(a.g.layout_red_send_rule_content);
-        this.ezk = (ScrollView) this.eyO.findViewById(a.g.layout_input_scroll);
-        this.ezl = this.eyO.findViewById(a.g.layout_send_red_close);
-        this.eyO.setOnClickListener(this);
-        this.eyW.setOnClickListener(this);
-        this.eyX.setOnClickListener(this);
-        this.ezc.setOnClickListener(this);
-        this.eyP.setOnClickListener(this);
-        this.ezi.setOnClickListener(this);
-        this.ezj.setOnClickListener(this);
-        this.ezh.setOnClickListener(this);
-        this.ezl.setOnClickListener(this);
-        ((ImageView) this.eyO.findViewById(a.g.img_red_send_top)).setOnClickListener(this);
-        this.eyR.setText(String.valueOf(this.ezr));
-        this.eyS.setText(String.valueOf(this.ezs));
-        this.eyR.setSelection(this.eyR.getText().toString().length());
-        this.eyS.setSelection(this.eyS.getText().toString().length());
+    @Override // com.baidu.tieba.ala.b.d
+    public void c(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
+        d(alaSdkGetGiftListHttpResponseMessage);
     }
 
-    private void bem() {
-        this.eyR.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.b.b.2
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable editable) {
-                if (!b.this.ben()) {
-                    b.this.ip(true);
-                }
-            }
-        });
-        this.eyS.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.b.b.3
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable editable) {
-                boolean z = true;
-                String obj = b.this.eyS.getText().toString();
-                if (TextUtils.isEmpty(obj)) {
-                    b.this.eyS.setText("0");
-                    return;
-                }
-                if ("0".equals(obj)) {
-                    b.this.eyU.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.aez), Integer.valueOf(b.this.aeA)));
-                    b.this.eyU.setVisibility(0);
-                    b.this.ezs = 0L;
-                    b.this.ezw = false;
-                } else {
-                    long parseLong = Long.parseLong(obj);
-                    if (obj.startsWith("0")) {
-                        b.this.eyS.setText(String.valueOf(parseLong));
-                        return;
-                    }
-                    b.this.ezs = parseLong;
-                    if (parseLong >= b.this.aez && parseLong <= b.this.aeA) {
-                        b.this.eyU.setVisibility(8);
-                        b.this.ezw = true;
-                    } else {
-                        b.this.eyU.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.aez), Integer.valueOf(b.this.aeA)));
-                        b.this.eyU.setVisibility(0);
-                        b.this.ezw = false;
-                    }
-                }
-                b.this.eyS.setSelection(b.this.eyS.getText().toString().length());
-                TextView textView = b.this.ezc;
-                if (!b.this.ezv || !b.this.ezw) {
-                    z = false;
-                }
-                textView.setEnabled(z);
-                b.this.ben();
-                b.this.ip(false);
-            }
-        });
+    @Override // com.baidu.tieba.ala.b.d
+    public void ay(int i, String str) {
+        Ym();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean ben() {
-        boolean z = true;
-        String obj = this.eyR.getText().toString();
-        if (TextUtils.isEmpty(obj)) {
-            this.eyR.setText("0");
-            return true;
-        }
-        if ("0".equals(obj)) {
-            this.eyT.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.ezm), Long.valueOf(this.ezn)));
-            this.eyT.setVisibility(0);
-            this.ezr = 0L;
-            this.ezv = false;
-        } else {
-            long parseLong = Long.parseLong(obj);
-            if (obj.startsWith("0")) {
-                this.eyR.setText(String.valueOf(parseLong));
-                return true;
+    @Override // com.baidu.tieba.ala.b.d
+    public void confirm() {
+        if (this.fcQ != null) {
+            Intent intent = new Intent();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("gift_title", this.fcQ.vW());
+                jSONObject.put("gift_url", this.fcQ.vY());
+                jSONObject.put(LogConfig.LOG_GIFT_ID, this.fcQ.vV());
+                intent.putExtra(FrsProfessionIntroActivityConfig.KEY_RESULT, jSONObject.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            this.ezr = parseLong;
-            if (parseLong < this.ezm || parseLong > this.ezn) {
-                if (parseLong == 0) {
-                    this.eyR.setText("0");
-                }
-                this.eyT.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.ezm), Long.valueOf(this.ezn)));
-                this.eyT.setVisibility(0);
-                this.ezv = false;
-            } else {
-                this.eyT.setVisibility(8);
-                this.ezv = true;
-            }
+            this.fcZ.setResult(-1, intent);
         }
-        this.eyR.setSelection(this.eyR.getText().toString().length());
-        TextView textView = this.ezc;
-        if (!this.ezv || !this.ezw) {
-            z = false;
-        }
-        textView.setEnabled(z);
-        return false;
+        this.fcZ.finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ip(boolean z) {
-        if (this.ezw && this.ezv && this.ezs != 0 && this.ezr / this.ezs < this.ezp) {
-            this.eyT.setVisibility(0);
-            if (z) {
-                this.eyT.setText(String.format(this.activity.getString(a.i.red_t_num_limit_by_pkt_num), Long.valueOf(this.ezs * 100)));
-            } else {
-                this.eyT.setText(String.format(this.activity.getString(a.i.red_pkt_num_limit_by_t_num), Long.valueOf(this.ezr / 100)));
-            }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        InputMethodManager inputMethodManager;
-        if (this.ezi.getVisibility() == 0) {
-            this.ezi.setVisibility(8);
+    private void d(AlaSdkGetGiftListHttpResponseMessage alaSdkGetGiftListHttpResponseMessage) {
+        int i;
+        if (alaSdkGetGiftListHttpResponseMessage == null || ListUtils.isEmpty(alaSdkGetGiftListHttpResponseMessage.zg())) {
+            showNoDataView();
             return;
         }
-        if (view == this.ezl && !this.ezF) {
-            this.activity.finish();
-        } else if (view == this.eyO && !this.ezF) {
-            if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.activity.finish();
+        this.fcN.setVisibility(0);
+        this.faB.setVisibility(8);
+        if (TbadkCoreApplication.getInst().isHaokan()) {
+            i = com.baidu.live.v.a.Eo().aRw.avF.axo;
+        } else if (TbadkCoreApplication.getInst().isTieba()) {
+            i = com.baidu.live.v.a.Eo().aRw.avF.axn;
+        } else {
+            i = TbadkCoreApplication.getInst().isQuanmin() ? com.baidu.live.v.a.Eo().aRw.avF.axp : 0;
+        }
+        Iterator<i> it = alaSdkGetGiftListHttpResponseMessage.zg().iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
             }
-        } else if (view == this.eyP) {
-            this.ezi.setVisibility(0);
-        } else if (view == this.eyW) {
-            this.ezx = this.ezx ? false : true;
-            if (this.ezx) {
-                this.eza.setImageResource(a.f.live_red_condition_choose);
-            } else {
-                this.eza.setImageResource(a.f.live_red_condition_choose_false);
-            }
-        } else if (view == this.eyX) {
-            this.ezy = this.ezy ? false : true;
-            if (this.ezy) {
-                this.ezb.setImageResource(a.f.live_red_condition_choose);
-            } else {
-                this.ezb.setImageResource(a.f.live_red_condition_choose_false);
-            }
-        } else if (view == this.ezc) {
-            if (this.ezx && this.ezy) {
-                str = this.ezt + Constants.ACCEPT_TIME_SEPARATOR_SP + this.ezu;
-            } else if (this.ezx) {
-                str = this.ezt;
-            } else if (this.ezy) {
-                str = this.ezu;
-            } else {
-                str = "";
-            }
-            o oVar = new o();
-            oVar.cK(this.ezr);
-            oVar.cL(this.ezs);
-            oVar.yi(str);
-            if (this.ezB != null) {
-                this.ezB.a(oVar);
+            i next = it.next();
+            if (next != null && i == next.getCategoryId()) {
+                this.fcP = next.ww();
+                break;
             }
         }
-        if (this.ezF && (inputMethodManager = (InputMethodManager) this.activity.getSystemService("input_method")) != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.activity.getCurrentFocus().getWindowToken(), 2);
+        if (ListUtils.isEmpty(this.fcP)) {
+            showNoDataView();
+        } else {
+            bny();
         }
     }
 
-    public void iq(boolean z) {
-        if (this.ezc != null) {
-            this.ezc.setEnabled(z);
-        }
+    private void Ym() {
+        aqF();
     }
 
-    public View getView() {
-        return this.eyO;
+    private void showNoDataView() {
+        aqF();
     }
 
-    public void onKeyboardVisibilityChanged(boolean z) {
-        this.ezF = z;
-        if (!z) {
-            if (this.eyS != null) {
-                this.eyS.clearFocus();
+    private void aqF() {
+        this.fcN.setVisibility(8);
+        this.faB.setVisibility(0);
+        this.faB.reset();
+        this.faB.setTitle(a.i.sdk_net_fail_tip_rank);
+        this.faB.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.b.b.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                b.this.faB.setVisibility(8);
+                b.this.bw(b.this.faB);
             }
-            if (this.eyR != null) {
-                this.eyR.clearFocus();
-            }
-        }
-        if (this.ezg != null && this.ezg.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ezg.getLayoutParams();
-            if (UtilHelper.getRealScreenOrientation(this.activity) == 1) {
-                if (z) {
-                    layoutParams.topMargin = 0;
-                } else {
-                    layoutParams.topMargin = this.ezz;
+        });
+        this.faB.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
+        this.faB.setVisibility(0);
+    }
+
+    private void bny() {
+        ArrayList arrayList = new ArrayList();
+        for (g gVar : this.fcP) {
+            if (gVar != null && gVar.vV() != null) {
+                if (gVar.vV().equals(this.fdb)) {
+                    this.fcQ = gVar;
                 }
-            } else {
-                layoutParams.topMargin = this.ezA;
+                if (!ListUtils.isEmpty(this.eHi) && this.eHi.contains(gVar.vV())) {
+                    arrayList.add(gVar);
+                }
             }
-            this.ezg.setLayoutParams(layoutParams);
         }
-        if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.ezl.setVisibility(0);
-        } else {
-            this.ezl.setVisibility(8);
+        if (!ListUtils.isEmpty(arrayList)) {
+            this.fcP.removeAll(arrayList);
+        }
+        this.fcO = new a(this.fcZ.getPageContext());
+        this.fcN.setAdapter((ListAdapter) this.fcO);
+        this.fcO.zO(this.fdb);
+        this.fcO.setData(this.fcP);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes3.dex */
+    public class a extends BaseAdapter {
+        private List<g> dataList;
+        private String eHh;
+        private Context mContext;
+
+        public a(TbPageContext tbPageContext) {
+            this.mContext = tbPageContext.getPageActivity();
+        }
+
+        public void zO(String str) {
+            this.eHh = str;
+        }
+
+        public void zP(String str) {
+            if (this.eHh == null || !this.eHh.equals(str)) {
+                this.eHh = str;
+                notifyDataSetChanged();
+            }
+        }
+
+        public void setData(List<g> list) {
+            this.dataList = new ArrayList(list);
+            notifyDataSetChanged();
+        }
+
+        @Override // android.widget.Adapter
+        public int getCount() {
+            if (this.dataList == null) {
+                return 0;
+            }
+            return this.dataList.size();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.widget.Adapter
+        /* renamed from: bL */
+        public g getItem(int i) {
+            if (this.dataList == null) {
+                return null;
+            }
+            return this.dataList.get(i);
+        }
+
+        @Override // android.widget.Adapter
+        public long getItemId(int i) {
+            return i;
+        }
+
+        @Override // android.widget.Adapter
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            C0461b c0461b;
+            if (view == null) {
+                C0461b c0461b2 = new C0461b();
+                view = LayoutInflater.from(this.mContext).inflate(a.h.ala_choose_gift_item, viewGroup, false);
+                ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+                layoutParams.width = b.fcM;
+                layoutParams.height = b.fcM;
+                view.setLayoutParams(layoutParams);
+                c0461b2.fcS = (FrameLayout) view.findViewById(a.g.item_root);
+                c0461b2.fcT = (TbImageView) view.findViewById(a.g.item_gift_img);
+                c0461b2.fcT.setDefaultBgResource(a.f.icon_live_gift_default);
+                c0461b2.fcT.setDefaultErrorResource(a.f.icon_live_gift_default);
+                c0461b2.fcT.setAutoChangeStyle(false);
+                c0461b2.fcU = (TextView) view.findViewById(a.g.item_gift_title);
+                c0461b2.aBC = (TextView) view.findViewById(a.g.item_gift_price);
+                view.setTag(c0461b2);
+                c0461b = c0461b2;
+            } else {
+                c0461b = (C0461b) view.getTag();
+            }
+            g item = getItem(i);
+            if (item != null) {
+                c0461b.fcT.startLoad(item.vY(), 10, false);
+                c0461b.fcU.setText(item.vW());
+                a(c0461b.aBC, item.getPrice());
+                if (item.vV().equals(this.eHh)) {
+                    c0461b.fcS.setBackgroundResource(a.f.choose_gift_chosen_bg);
+                } else {
+                    c0461b.fcS.setBackgroundColor(this.mContext.getResources().getColor(a.d.sdk_transparent));
+                }
+            }
+            return view;
+        }
+
+        private void a(TextView textView, String str) {
+            String formatGiftNumForTDouDisPlay;
+            double d = JavaTypesHelper.toDouble(String.valueOf(str), 0.0d);
+            if (d >= 100.0d && com.baidu.live.v.a.Eo().aQp.asP) {
+                formatGiftNumForTDouDisPlay = new DecimalFormat("0.###K").format(d / 1000.0d);
+            } else {
+                formatGiftNumForTDouDisPlay = StringHelper.formatGiftNumForTDouDisPlay(Long.parseLong(str));
+            }
+            textView.setText(String.format(this.mContext.getResources().getString(a.i.sdk_choose_tdou_suffix), formatGiftNumForTDouDisPlay));
         }
     }
 
-    public void tf() {
-        if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-            h.S(this.eyO);
-        } else {
-            h.T(this.eyO);
-        }
-        if (this.ezk != null && this.ezk.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ezk.getLayoutParams();
-            if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                layoutParams.height = this.ezD;
-            } else {
-                layoutParams.height = -2;
-            }
-            this.ezk.setLayoutParams(layoutParams);
-        }
-        if (this.ezg != null && this.ezg.getLayoutParams() != null && this.ezC > 0) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.ezg.getLayoutParams();
-            layoutParams2.width = this.screenWidth;
-            this.ezg.setPivotX(this.ezC / 2);
-            this.ezg.setPivotY(0.0f);
-            if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                this.ezg.setScaleX(this.ezE);
-                this.ezg.setScaleY(this.ezE);
-            } else {
-                layoutParams2.width = -1;
-                this.ezg.setScaleX(1.0f);
-                this.ezg.setScaleY(1.0f);
-            }
-            onKeyboardVisibilityChanged(this.ezF);
+    /* renamed from: com.baidu.tieba.ala.b.b$b  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    private class C0461b {
+        public TextView aBC;
+        public FrameLayout fcS;
+        public TbImageView fcT;
+        public TextView fcU;
+
+        private C0461b() {
         }
     }
 }

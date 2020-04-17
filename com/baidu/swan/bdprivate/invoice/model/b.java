@@ -24,7 +24,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.swan.bdprivate.invoice.model.c
-    public void bg(JSONObject jSONObject) {
+    public void br(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.mId = jSONObject.optLong("id");
         }

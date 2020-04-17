@@ -6,38 +6,38 @@ import com.baidu.poly.util.f;
 import com.baidu.poly.widget.PolyActivity;
 /* loaded from: classes11.dex */
 public class a {
-    private com.baidu.poly.c.a.c aQj;
-    private long aQk;
+    private com.baidu.poly.c.a.c bml;
+    private long bmm;
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0153a {
-        private com.baidu.poly.c.a.c aQj;
+    public static class C0177a {
+        private com.baidu.poly.c.a.c bml;
         private Context context;
-        private int aQl = 1;
+        private int bmn = 1;
         private boolean debug = false;
 
-        public a EF() {
+        public a KQ() {
             return new a(this);
         }
 
-        public C0153a a(com.baidu.poly.c.a.c cVar) {
-            this.aQj = cVar;
+        public C0177a a(com.baidu.poly.c.a.c cVar) {
+            this.bml = cVar;
             return this;
         }
 
-        public C0153a aU(Context context) {
+        public C0177a aH(Context context) {
             this.context = context;
             return this;
         }
 
-        public C0153a bO(boolean z) {
+        public C0177a cF(boolean z) {
             this.debug = z;
             return this;
         }
 
-        public C0153a dt(int i) {
-            this.aQl = i;
+        public C0177a dy(int i) {
+            this.bmn = i;
             return this;
         }
     }
@@ -53,27 +53,27 @@ public class a {
         }
         if (bundle != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.aQk < 1000) {
+            if (currentTimeMillis - this.bmm < 1000) {
                 com.baidu.poly.util.c.info("cashier pay time interval less than 1s");
                 return;
             }
-            this.aQk = currentTimeMillis;
+            this.bmm = currentTimeMillis;
             com.baidu.poly.util.c.info("cashier pay");
-            PolyActivity.a(context, this.aQj, bVar, bundle);
+            PolyActivity.a(context, this.bml, bVar, bundle);
             return;
         }
         throw new IllegalArgumentException("arguments can not be null");
     }
 
-    private a(C0153a c0153a) {
-        this.aQk = 0L;
-        if (c0153a != null && c0153a.aQj != null) {
-            if (c0153a.context != null) {
-                this.aQj = c0153a.aQj;
-                com.baidu.poly.a.b.a.init(c0153a.aQl);
-                com.baidu.poly.a.c.b.a(com.baidu.poly.a.c.a.aV(c0153a.context.getApplicationContext()));
-                f.b(c0153a.context.getApplicationContext());
-                com.baidu.poly.util.c.aSq = c0153a.debug;
+    private a(C0177a c0177a) {
+        this.bmm = 0L;
+        if (c0177a != null && c0177a.bml != null) {
+            if (c0177a.context != null) {
+                this.bml = c0177a.bml;
+                com.baidu.poly.a.b.a.dz(c0177a.bmn);
+                com.baidu.poly.a.c.b.a(com.baidu.poly.a.c.a.aI(c0177a.context.getApplicationContext()));
+                f.b(c0177a.context.getApplicationContext());
+                com.baidu.poly.util.c.bos = c0177a.debug;
                 return;
             }
             throw new IllegalArgumentException("context can not be null");

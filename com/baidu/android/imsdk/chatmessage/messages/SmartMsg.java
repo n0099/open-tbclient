@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.picture.component.BaseBrowseView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -246,7 +245,7 @@ public class SmartMsg extends NormalMsg {
                     Commodity commodity = new Commodity();
                     commodity.setName(jSONObject2.getString("name"));
                     commodity.setValue(jSONObject2.optString("value", ""));
-                    commodity.setColor(jSONObject2.optString("color", BaseBrowseView.ROOT_VIEW_COLOR));
+                    commodity.setColor(jSONObject2.optString("color", "#000000"));
                     this.mCommodity[i] = commodity;
                 }
             }

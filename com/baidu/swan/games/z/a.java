@@ -5,31 +5,31 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes11.dex */
 public class a {
-    private static final ReentrantLock csS = new ReentrantLock();
-    private static volatile a csT;
-    private d clU;
-    private List<c> cmM = new ArrayList(3);
+    private static final ReentrantLock cRN = new ReentrantLock();
+    private static volatile a cRO;
+    private d cKR;
+    private List<c> cLI = new ArrayList(3);
 
     private a() {
     }
 
-    public static a apV() {
-        if (csT == null) {
+    public static a ayh() {
+        if (cRO == null) {
             synchronized (a.class) {
-                if (csT == null) {
-                    csT = new a();
+                if (cRO == null) {
+                    cRO = new a();
                 }
             }
         }
-        return csT;
+        return cRO;
     }
 
     public void a(d dVar) {
-        this.clU = dVar;
-        apW();
+        this.cKR = dVar;
+        ayi();
     }
 
-    public void O(String str, boolean z) {
+    public void T(String str, boolean z) {
         com.baidu.swan.apps.console.c.d("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
         c cVar = new c(str);
         cVar.hasUpdate = z;
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.clU = null;
-        this.cmM.clear();
+        this.cKR = null;
+        this.cLI.clear();
     }
 
     private void a(c cVar) {
-        csS.lock();
+        cRN.lock();
         try {
-            if (this.clU != null) {
-                this.clU.c(cVar);
+            if (this.cKR != null) {
+                this.cKR.c(cVar);
             } else {
-                this.cmM.add(cVar);
+                this.cLI.add(cVar);
             }
         } finally {
-            csS.unlock();
+            cRN.unlock();
         }
     }
 
-    private void apW() {
-        if (!this.cmM.isEmpty() && this.clU != null) {
-            csS.lock();
+    private void ayi() {
+        if (!this.cLI.isEmpty() && this.cKR != null) {
+            cRN.lock();
             try {
-                for (c cVar : this.cmM) {
-                    this.clU.c(cVar);
+                for (c cVar : this.cLI) {
+                    this.cKR.c(cVar);
                 }
-                this.cmM.clear();
+                this.cLI.clear();
             } finally {
-                csS.unlock();
+                cRN.unlock();
             }
         }
     }

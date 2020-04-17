@@ -24,7 +24,7 @@ public class a {
         if (bdUniqueId != null && eVar != null) {
             an anVar = new an("common_exp");
             a(anVar, eVar, postData, i, i2, false, str);
-            c.cKv().a(bdUniqueId, str2, anVar);
+            c.cVr().a(bdUniqueId, str2, anVar);
         }
     }
 
@@ -52,7 +52,7 @@ public class a {
                 str = postData.getId();
             }
             a(anVar, eVar, postData, i, i2, false, str);
-            anVar.X("obj_locate", i3);
+            anVar.af("obj_locate", i3);
             TiebaStatic.log(anVar);
         }
     }
@@ -63,26 +63,26 @@ public class a {
         }
         an anVar = new an("common_click");
         a(anVar, eVar, postData, i, i2, false, postData != null ? postData.getId() : null);
-        anVar.X("obj_locate", i3);
+        anVar.af("obj_locate", i3);
         return anVar;
     }
 
     private static an a(an anVar, e eVar, PostData postData, int i, int i2, boolean z, String str) {
-        anVar.cx("page_type", PageStayDurationConstants.PageName.PB).X("obj_floor", i).X("obj_isad", z ? 1 : 0).cx("fid", eVar.getForumId() + "").cx("tid", eVar.getThreadId() + "").cx("obj_id", str + "").X("post_type", i2);
+        anVar.cI("page_type", PageStayDurationConstants.PageName.PB).af("obj_floor", i).af("obj_isad", z ? 1 : 0).cI("fid", eVar.getForumId() + "").cI("tid", eVar.getThreadId() + "").cI("obj_id", str + "").af("post_type", i2);
         if (postData != null) {
-            anVar.cx("pid", postData.getId() + "");
+            anVar.cI("pid", postData.getId() + "");
         }
-        if (eVar.ckP() != null) {
-            anVar.X("thread_type", eVar.ckP().threadType);
-            BaijiahaoData baijiahaoData = eVar.ckP().getBaijiahaoData();
+        if (eVar.cvu() != null) {
+            anVar.af("thread_type", eVar.cvu().threadType);
+            BaijiahaoData baijiahaoData = eVar.cvu().getBaijiahaoData();
             if (baijiahaoData != null) {
-                anVar.cx("ugc_nid", baijiahaoData.oriUgcNid);
-                anVar.cx("ugc_vid", baijiahaoData.oriUgcVid);
-                anVar.X("ori_ugc_type", baijiahaoData.oriUgcType);
+                anVar.cI("ugc_nid", baijiahaoData.oriUgcNid);
+                anVar.cI("ugc_vid", baijiahaoData.oriUgcVid);
+                anVar.af("ori_ugc_type", baijiahaoData.oriUgcType);
             }
         }
         if (TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            anVar.cx(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dmy);
+            anVar.cI(TiebaInitialize.Params.AB_TAG, TbadkCoreApplication.getInst().getAdAdSense().dMt);
         }
         return anVar;
     }

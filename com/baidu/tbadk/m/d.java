@@ -4,17 +4,18 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private String cPS;
     private String currentPageKey;
-    public String dDw;
-    private String dDx;
-    public String dDy;
+    private String doY;
+    public String edd;
+    private String ede;
+    public String edf;
     private long fid;
     public boolean isRouteStat = false;
     public String isVertical;
     public String objID;
     public String objParam1;
     private long pid;
+    public String resourceId;
     private List<String> sorceKeyList;
     private long stayDurationTime;
     public String task_id;
@@ -72,20 +73,20 @@ public class d {
         return this.task_id;
     }
 
-    public String aRa() {
-        return this.cPS;
+    public String aZk() {
+        return this.doY;
     }
 
-    public void vG(String str) {
-        this.cPS = str;
+    public void wV(String str) {
+        this.doY = str;
     }
 
-    public String aRb() {
-        return this.dDx;
+    public String aZl() {
+        return this.ede;
     }
 
-    public void vH(String str) {
-        this.dDx = str;
+    public void wW(String str) {
+        this.ede = str;
     }
 
     public boolean isDirtyData() {

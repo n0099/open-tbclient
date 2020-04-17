@@ -38,7 +38,7 @@ public class a<K, V> extends b<K, V> {
 
     public Map.Entry<K, V> h(K k) {
         if (contains(k)) {
-            return this.mHashMap.get(k).bB;
+            return this.mHashMap.get(k).xF;
         }
         return null;
     }

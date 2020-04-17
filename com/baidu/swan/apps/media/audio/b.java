@@ -6,39 +6,39 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String bAQ;
-    public String bAL = "";
-    public String bcw = "";
+    public String bYX;
+    public String bYS = "";
+    public String bAK = "";
     public String mUrl = "";
-    public int bAO = 0;
-    public boolean bAT = false;
+    public int bYV = 0;
+    public boolean bZa = false;
     public boolean mLoop = false;
-    public boolean bAU = true;
+    public boolean bZb = true;
     public int mPos = 0;
     public float mVolume = 1.0f;
 
     public static b a(JSONObject jSONObject, b bVar) {
         b bVar2 = new b();
         if (jSONObject != null) {
-            bVar2.bAL = jSONObject.optString("audioId", bVar.bAL);
-            bVar2.bcw = jSONObject.optString("slaveId", bVar.bcw);
-            bVar2.bAT = jSONObject.optBoolean("autoplay", bVar.bAT);
+            bVar2.bYS = jSONObject.optString("audioId", bVar.bYS);
+            bVar2.bAK = jSONObject.optString("slaveId", bVar.bAK);
+            bVar2.bZa = jSONObject.optBoolean("autoplay", bVar.bZa);
             bVar2.mLoop = jSONObject.optBoolean("loop", bVar.mLoop);
             bVar2.mUrl = jSONObject.optString(UserAccountActionItem.KEY_SRC, bVar.mUrl);
-            bVar2.bAO = jSONObject.optInt("startTime", bVar.bAO);
-            bVar2.bAU = jSONObject.optBoolean("obeyMuteSwitch", bVar.bAU);
+            bVar2.bYV = jSONObject.optInt("startTime", bVar.bYV);
+            bVar2.bZb = jSONObject.optBoolean("obeyMuteSwitch", bVar.bZb);
             bVar2.mPos = jSONObject.optInt("position", bVar.mPos);
             bVar2.mVolume = (float) jSONObject.optDouble("volume", bVar.mVolume);
-            bVar2.bAQ = jSONObject.optString("cb", bVar.bAQ);
+            bVar2.bYX = jSONObject.optString("cb", bVar.bYX);
         }
         return bVar2;
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.bAL);
+        return !TextUtils.isEmpty(this.bYS);
     }
 
     public String toString() {
-        return "playerId : " + this.bAL + "; slaveId : " + this.bcw + "; url : " + this.mUrl + "; AutoPlay : " + this.bAT + "; Loop : " + this.mLoop + "; startTime : " + this.bAO + "; ObeyMute : " + this.bAU + "; pos : " + this.mPos;
+        return "playerId : " + this.bYS + "; slaveId : " + this.bAK + "; url : " + this.mUrl + "; AutoPlay : " + this.bZa + "; Loop : " + this.mLoop + "; startTime : " + this.bYV + "; ObeyMute : " + this.bZb + "; pos : " + this.mPos;
     }
 }

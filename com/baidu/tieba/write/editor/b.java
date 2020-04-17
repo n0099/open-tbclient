@@ -2,49 +2,49 @@ package com.baidu.tieba.write.editor;
 
 import android.content.Context;
 import com.baidu.tbadk.editortools.l;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class b extends l {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.dxS = false;
-        this.dxR = 3;
-        this.dxa = new EditorInfoContainer(context, str);
-        this.dxT = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.dXz = false;
+        this.dXy = 3;
+        this.dWH = new EditorInfoContainer(context, str);
+        this.dXA = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
     public void setFrom(String str) {
-        if (this.dxa instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dxa).setFrom(str);
+        if (this.dWH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWH).setFrom(str);
         }
     }
 
-    public void bz(String str, int i) {
-        if (this.dxa instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dxa).bz(str, i);
+    public void bJ(String str, int i) {
+        if (this.dWH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWH).bJ(str, i);
         }
     }
 
-    public void tV(boolean z) {
-        if (this.dxa instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dxa).tV(z);
+    public void uV(boolean z) {
+        if (this.dWH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWH).uV(z);
         }
     }
 
-    public void byQ() {
-        if (this.dxa instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dxa).byQ();
+    public void bIN() {
+        if (this.dWH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWH).bIN();
         }
     }
 
-    public void cVi() {
-        if (this.dxa instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dxa).cVi();
+    public void dfE() {
+        if (this.dWH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWH).dfE();
         }
     }
 
-    public void cVm() {
-        if (this.dxa instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dxa).hide();
+    public void dfI() {
+        if (this.dWH instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWH).hide();
         }
     }
 }

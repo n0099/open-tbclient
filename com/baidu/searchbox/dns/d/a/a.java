@@ -19,40 +19,40 @@ public class a {
     public int B;
     public String C;
     public long D;
-    public String R;
-    private List<String> S;
-    private String T;
-    private List<String> m;
+    public String Q;
+    private List<String> R;
+    private String S;
+    private List<String> l;
 
     public a(String str, int i, String str2, long j, List<String> list, List<String> list2) {
         this.C = str;
         this.B = i;
-        this.R = str2;
+        this.Q = str2;
         this.D = j;
-        this.m = list;
-        this.S = list2;
-        this.T = z();
+        this.l = list;
+        this.R = list2;
+        this.S = A();
     }
 
     public a(String str) {
-        this.T = str;
-        if (!TextUtils.isEmpty(this.T)) {
+        this.S = str;
+        if (!TextUtils.isEmpty(this.S)) {
             try {
-                JSONObject jSONObject = new JSONObject(this.T);
+                JSONObject jSONObject = new JSONObject(this.S);
                 this.C = jSONObject.optString("msg", BdStatsConstant.StatsType.ERROR);
-                this.R = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+                this.Q = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
                 this.B = jSONObject.optInt("ttl", -1);
                 this.D = jSONObject.optLong("cachetime", -1L);
                 JSONArray optJSONArray = jSONObject.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP);
-                this.m = new ArrayList(optJSONArray.length());
+                this.l = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.m.add(optJSONArray.getString(i));
+                    this.l.add(optJSONArray.getString(i));
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
                 if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    this.S = new ArrayList(optJSONArray2.length());
+                    this.R = new ArrayList(optJSONArray2.length());
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        this.S.add(optJSONArray2.getString(i2));
+                        this.R.add(optJSONArray2.getString(i2));
                     }
                 }
             } catch (JSONException e) {
@@ -62,22 +62,32 @@ public class a {
     }
 
     public List<String> getIpList() {
-        if (this.m != null) {
+        if (this.l != null) {
             if (DnsUtil.DEBUG) {
-                Log.i(DnsUtil.TAG, " getIp v4 List: " + b(this.m));
+                Log.i(DnsUtil.TAG, " getIp v4 List: " + b(this.l));
             }
-            return Collections.unmodifiableList(this.m);
+            return Collections.unmodifiableList(this.l);
         }
         return null;
     }
 
-    private String z() {
+    public List<String> z() {
+        if (this.R != null) {
+            if (DnsUtil.DEBUG) {
+                Log.i(DnsUtil.TAG, " getIp v6 List: " + b(this.R));
+            }
+            return Collections.unmodifiableList(this.R);
+        }
+        return null;
+    }
+
+    private String A() {
         try {
             JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray((Collection) this.m);
-            JSONArray jSONArray2 = new JSONArray((Collection) this.S);
+            JSONArray jSONArray = new JSONArray((Collection) this.l);
+            JSONArray jSONArray2 = new JSONArray((Collection) this.R);
             jSONObject.put("msg", this.C);
-            jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.R);
+            jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, this.Q);
             jSONObject.put("ttl", this.B);
             jSONObject.put("cachetime", this.D);
             jSONObject.put(TableDefine.UserInfoColumns.COLUMN_IP, jSONArray);
@@ -90,7 +100,7 @@ public class a {
     }
 
     public String toString() {
-        return this.T;
+        return this.S;
     }
 
     public static String b(List<String> list) {

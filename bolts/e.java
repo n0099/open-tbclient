@@ -6,17 +6,17 @@ import java.util.Locale;
 import java.util.concurrent.ScheduledFuture;
 /* loaded from: classes7.dex */
 public class e implements Closeable {
-    private final List<d> cZ;
     private boolean closed;
-    private ScheduledFuture<?> dc;
-    private boolean dd;
     private final Object lock;
+    private final List<d> yU;
+    private ScheduledFuture<?> yV;
+    private boolean yW;
 
-    public boolean aS() {
+    public boolean gp() {
         boolean z;
         synchronized (this.lock) {
-            aT();
-            z = this.dd;
+            gq();
+            z = this.yW;
         }
         return z;
     }
@@ -25,11 +25,11 @@ public class e implements Closeable {
     public void close() {
         synchronized (this.lock) {
             if (!this.closed) {
-                aU();
-                for (d dVar : this.cZ) {
+                gr();
+                for (d dVar : this.yU) {
                     dVar.close();
                 }
-                this.cZ.clear();
+                this.yU.clear();
                 this.closed = true;
             }
         }
@@ -38,25 +38,25 @@ public class e implements Closeable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d dVar) {
         synchronized (this.lock) {
-            aT();
-            this.cZ.remove(dVar);
+            gq();
+            this.yU.remove(dVar);
         }
     }
 
     public String toString() {
-        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(aS()));
+        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(gp()));
     }
 
-    private void aT() {
+    private void gq() {
         if (this.closed) {
             throw new IllegalStateException("Object already closed");
         }
     }
 
-    private void aU() {
-        if (this.dc != null) {
-            this.dc.cancel(true);
-            this.dc = null;
+    private void gr() {
+        if (this.yV != null) {
+            this.yV.cancel(true);
+            this.yV = null;
         }
     }
 }

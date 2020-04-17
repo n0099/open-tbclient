@@ -56,9 +56,11 @@ public class DragImageView extends ImageView {
     private static final int MSG_INVALIDATE = 2;
     private static final int MSG_REFRESH = 0;
     static final int NORMAL = 0;
+    private static final String TAG = DragImageView.class.getSimpleName();
     static final int UP = 3;
     static final int ZOOM = 2;
     private static final float ZOOM_IN_MULTIPLE = 1.25f;
+    private final int EXIT_DISTANCE;
     private volatile int decodeIndex;
     private int frameNum;
     private int height;
@@ -119,8 +121,6 @@ public class DragImageView extends ImageView {
     private int mViewHeight;
     private int mViewWidth;
     private int width;
-    private static final String TAG = DragImageView.class.getSimpleName();
-    private static final int EXIT_DISTANCE = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) / 5;
 
     /* loaded from: classes3.dex */
     public static class Frame {
@@ -166,7 +166,7 @@ public class DragImageView extends ImageView {
         this.mIsTouched = false;
         this.mImageData = null;
         this.mGifMaxUseableMem = 0;
-        this.mMaxZoomInSize = MAX_IMAGE_SIZE;
+        this.mMaxZoomInSize = 1300;
         this.mImageMode = 0;
         this.mListener = null;
         this.mClick = null;
@@ -192,6 +192,7 @@ public class DragImageView extends ImageView {
         this.mRatio = 1.0f;
         this.mMoveDistance = 0.0f;
         this.mDstRect = new RectF();
+        this.EXIT_DISTANCE = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) / 5;
         this.width = 0;
         this.height = 0;
         this.frameNum = 0;
@@ -234,7 +235,7 @@ public class DragImageView extends ImageView {
         this.mIsTouched = false;
         this.mImageData = null;
         this.mGifMaxUseableMem = 0;
-        this.mMaxZoomInSize = MAX_IMAGE_SIZE;
+        this.mMaxZoomInSize = 1300;
         this.mImageMode = 0;
         this.mListener = null;
         this.mClick = null;
@@ -260,6 +261,7 @@ public class DragImageView extends ImageView {
         this.mRatio = 1.0f;
         this.mMoveDistance = 0.0f;
         this.mDstRect = new RectF();
+        this.EXIT_DISTANCE = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) / 5;
         this.width = 0;
         this.height = 0;
         this.frameNum = 0;
@@ -302,7 +304,7 @@ public class DragImageView extends ImageView {
         this.mIsTouched = false;
         this.mImageData = null;
         this.mGifMaxUseableMem = 0;
-        this.mMaxZoomInSize = MAX_IMAGE_SIZE;
+        this.mMaxZoomInSize = 1300;
         this.mImageMode = 0;
         this.mListener = null;
         this.mClick = null;
@@ -328,6 +330,7 @@ public class DragImageView extends ImageView {
         this.mRatio = 1.0f;
         this.mMoveDistance = 0.0f;
         this.mDstRect = new RectF();
+        this.EXIT_DISTANCE = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()) / 5;
         this.width = 0;
         this.height = 0;
         this.frameNum = 0;
@@ -660,7 +663,7 @@ public class DragImageView extends ImageView {
             if (this.mMode == 3 && this.isInDragScaleMode) {
                 this.isInDragScaleMode = false;
                 this.mDragMatrix.reset();
-                if (this.mMoveDistance < EXIT_DISTANCE) {
+                if (this.mMoveDistance < this.EXIT_DISTANCE) {
                     this.mMode = 0;
                 } else {
                     this.mMode = 4;

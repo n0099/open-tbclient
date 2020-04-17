@@ -410,7 +410,7 @@ public class HeatMap {
         if (!a(str)) {
             if (this.a != null && r == 0) {
                 MapStatus mapStatus = this.a.getMapStatus();
-                r = (((mapStatus.a.j.bottom - mapStatus.a.j.f992top) / 256) + 2) * (((mapStatus.a.j.right - mapStatus.a.j.left) / 256) + 2) * 4;
+                r = (((mapStatus.a.j.bottom - mapStatus.a.j.f999top) / 256) + 2) * (((mapStatus.a.j.right - mapStatus.a.j.left) / 256) + 2) * 4;
             }
             if (this.o.size() > r) {
                 a();

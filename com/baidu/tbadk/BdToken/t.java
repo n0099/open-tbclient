@@ -16,18 +16,18 @@ import android.support.annotation.Nullable;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class t implements SensorEventListener {
-    private SensorManager aBy;
-    private Sensor bWD;
-    private final double cJg = 9.8d;
-    private final int cJh = 400;
-    private final int cJi = 255;
-    private final int cJj = 1;
-    private final int cJk = 2000;
-    private a cJl;
-    private int cJm;
-    private int cJn;
-    private long cJo;
+    private SensorManager aVf;
     private Context context;
+    private Sensor cvu;
+    private final double dij = 9.8d;
+    private final int dik = 400;
+    private final int dil = 255;
+    private final int dim = 1;
+    private final int din = 2000;
+    private a dio;
+    private int dip;
+    private int diq;
+    private long dit;
     private boolean isOpen;
     private MediaPlayer mMediaPlayer;
     private SoundPool mSoundPool;
@@ -35,35 +35,35 @@ public class t implements SensorEventListener {
 
     /* loaded from: classes.dex */
     public interface a {
-        void ayn();
+        void aGy();
     }
 
     public t(@NonNull Context context, @Nullable a aVar) {
         if (context != null) {
             this.context = context;
-            this.cJl = aVar;
-            this.aBy = (SensorManager) context.getSystemService("sensor");
-            if (this.aBy != null) {
-                this.bWD = this.aBy.getDefaultSensor(1);
+            this.dio = aVar;
+            this.aVf = (SensorManager) context.getSystemService("sensor");
+            if (this.aVf != null) {
+                this.cvu = this.aVf.getDefaultSensor(1);
             }
             this.mVibrator = (Vibrator) context.getSystemService("vibrator");
             this.mSoundPool = new SoundPool(1, 3, 0);
             if (this.mSoundPool != null) {
-                this.cJm = this.mSoundPool.load(context, R.raw.shake_tone, 1);
+                this.dip = this.mSoundPool.load(context, R.raw.shake_tone, 1);
             }
         }
     }
 
     public void open() {
-        if (this.bWD != null) {
-            this.aBy.registerListener(this, this.bWD, 2);
+        if (this.cvu != null) {
+            this.aVf.registerListener(this, this.cvu, 2);
             this.isOpen = true;
         }
     }
 
     public void close() {
-        if (this.aBy != null) {
-            this.aBy.unregisterListener(this);
+        if (this.aVf != null) {
+            this.aVf.unregisterListener(this);
             this.isOpen = false;
         }
     }
@@ -74,8 +74,8 @@ public class t implements SensorEventListener {
 
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
-        if (sensorEvent.sensor.getType() == 1 && j(sensorEvent.values) && this.cJl != null) {
-            this.cJl.ayn();
+        if (sensorEvent.sensor.getType() == 1 && x(sensorEvent.values) && this.dio != null) {
+            this.dio.aGy();
         }
     }
 
@@ -83,31 +83,31 @@ public class t implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int i) {
     }
 
-    private boolean j(float[] fArr) {
+    private boolean x(float[] fArr) {
         float abs = Math.abs(fArr[0]);
         float abs2 = Math.abs(fArr[1]);
         float abs3 = Math.abs(fArr[2]);
         double sqrt = Math.sqrt(Math.pow(abs2 / 9.8d, 2.0d) + Math.pow(abs / 9.8d, 2.0d) + Math.pow(abs3 / 9.8d, 2.0d));
         if (Build.VERSION.SDK_INT <= 23) {
-            if (sqrt >= 2.5d && ayl()) {
+            if (sqrt >= 2.5d && aGw()) {
                 return true;
             }
-        } else if (sqrt >= 4.2d && ayl()) {
+        } else if (sqrt >= 4.2d && aGw()) {
             return true;
         }
         return false;
     }
 
-    private boolean ayl() {
+    private boolean aGw() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.cJo > 2000) {
-            this.cJo = currentTimeMillis;
+        if (currentTimeMillis - this.dit > 2000) {
+            this.dit = currentTimeMillis;
             return true;
         }
         return false;
     }
 
-    public boolean aym() {
+    public boolean aGx() {
         int i;
         if (this.context == null) {
             return false;
@@ -129,7 +129,7 @@ public class t implements SensorEventListener {
         return true;
     }
 
-    public void rC(String str) {
+    public void sQ(String str) {
         if (this.mMediaPlayer == null) {
             this.mMediaPlayer = new MediaPlayer();
         }
@@ -149,13 +149,13 @@ public class t implements SensorEventListener {
         }
     }
 
-    public void fm(boolean z) {
-        if (z || this.cJn == 0) {
+    public void gj(boolean z) {
+        if (z || this.diq == 0) {
             if (this.mSoundPool != null) {
-                this.mSoundPool.play(this.cJm, 1.0f, 1.0f, 0, 0, 1.0f);
+                this.mSoundPool.play(this.dip, 1.0f, 1.0f, 0, 0, 1.0f);
             }
         } else if (this.mSoundPool != null) {
-            this.mSoundPool.play(this.cJn, 1.0f, 1.0f, 0, 0, 1.0f);
+            this.mSoundPool.play(this.diq, 1.0f, 1.0f, 0, 0, 1.0f);
         }
     }
 }

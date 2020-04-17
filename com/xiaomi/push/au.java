@@ -10,17 +10,17 @@ public class au {
         private static final au a = new au();
 
         /* renamed from: a  reason: collision with other field name */
-        public int f130a;
+        public int f131a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f131a;
+        public Object f132a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f132a;
+        public String f133a;
 
         a(int i, Object obj) {
-            this.f130a = i;
-            this.f131a = obj;
+            this.f131a = i;
+            this.f132a = obj;
         }
     }
 
@@ -29,19 +29,19 @@ public class au {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m135a() {
+    private void m140a() {
         if (this.a.size() > 100) {
             this.a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m136a() {
+    public synchronized int m141a() {
         return this.a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m137a() {
+    public synchronized LinkedList<a> m142a() {
         LinkedList<a> linkedList;
         linkedList = this.a;
         this.a = new LinkedList<>();
@@ -50,6 +50,6 @@ public class au {
 
     public synchronized void a(Object obj) {
         this.a.add(new a(0, obj));
-        m135a();
+        m140a();
     }
 }

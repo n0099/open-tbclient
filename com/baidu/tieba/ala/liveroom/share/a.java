@@ -9,41 +9,40 @@ import android.view.WindowManager;
 import android.view.animation.TranslateAnimation;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.data.m;
-import com.baidu.live.gift.n;
+import com.baidu.live.data.n;
 import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.data.ShareEntity;
 import com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView;
 /* loaded from: classes3.dex */
 public class a extends Dialog {
-    private m alp;
-    private b fkL;
-    private View fkM;
+    private n aDE;
+    private b fPe;
+    private View fPf;
     private Context mContext;
     private TbPageContext mPageContext;
 
-    public a(@NonNull Context context, TbPageContext tbPageContext, m mVar, b bVar) {
+    public a(@NonNull Context context, TbPageContext tbPageContext, n nVar, b bVar) {
         super(context);
         this.mContext = context;
-        this.fkL = bVar;
+        this.fPe = bVar;
         this.mPageContext = tbPageContext;
-        this.alp = mVar;
+        this.aDE = nVar;
         initView();
     }
 
     private void initView() {
-        ShareEntity w = w(this.alp);
-        if (w != null) {
-            this.fkM = new AlaLandscapeShareView(this.mPageContext, w, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
+        ShareEntity v = v(this.aDE);
+        if (v != null) {
+            this.fPf = new AlaLandscapeShareView(this.mPageContext, v, new AlaLandscapeShareView.a() { // from class: com.baidu.tieba.ala.liveroom.share.a.1
                 @Override // com.baidu.tieba.ala.liveroom.share.AlaLandscapeShareView.a
                 public void onClick(View view) {
-                    if (a.this.fkL != null) {
-                        a.this.fkL.dismiss();
+                    if (a.this.fPe != null) {
+                        a.this.fPe.dismiss();
                     }
                 }
             });
-            setContentView(this.fkM);
-            int screenWidth = n.getScreenWidth(this.mContext);
+            setContentView(this.fPf);
+            int screenWidth = com.baidu.live.gift.n.getScreenWidth(this.mContext);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
             Window window = getWindow();
@@ -55,31 +54,32 @@ public class a extends Dialog {
                 attributes.width = screenWidth;
                 window.setAttributes(attributes);
             }
-            tS();
+            ym();
         }
     }
 
-    private void tS() {
+    private void ym() {
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, 0.0f, BdUtilHelper.dip2px(this.mContext, 200.0f), 0.0f);
         translateAnimation.setDuration(250L);
-        this.fkM.startAnimation(translateAnimation);
+        this.fPf.startAnimation(translateAnimation);
     }
 
-    private ShareEntity w(m mVar) {
-        if (mVar == null) {
+    private ShareEntity v(n nVar) {
+        if (nVar == null) {
             return null;
         }
         ShareEntity shareEntity = new ShareEntity();
-        shareEntity.userId = mVar.Ya.userId;
-        shareEntity.userName = mVar.Ya.userName;
+        shareEntity.userId = nVar.aqe.userId;
+        shareEntity.userName = nVar.aqe.userName;
         shareEntity.title = StringUtils.isNull(shareEntity.userName) ? "" : shareEntity.userName + "的直播";
         shareEntity.content = "精彩直播正在进行，邀请你速来围观。";
-        String str = mVar.mLiveInfo.cover;
+        String str = nVar.mLiveInfo.cover;
         if (str != null && !str.contains(".jpg")) {
             str = str + ".jpg";
         }
         shareEntity.imageUrl = str;
-        shareEntity.linkUrl = mVar.mLiveInfo.share_url;
+        shareEntity.linkUrl = nVar.mLiveInfo.share_url;
+        shareEntity.liveId = nVar.mLiveInfo != null ? nVar.mLiveInfo.live_id : 0L;
         return shareEntity;
     }
 }

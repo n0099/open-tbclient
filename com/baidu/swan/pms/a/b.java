@@ -8,6 +8,10 @@ import okio.BufferedSource;
 /* loaded from: classes11.dex */
 public abstract class b<T> implements c<T> {
     @Override // com.baidu.swan.pms.a.c
+    public void K(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
     public void J(T t) {
     }
 
@@ -20,15 +24,11 @@ public abstract class b<T> implements c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public void G(T t) {
-    }
-
-    @Override // com.baidu.swan.pms.a.c
     public void a(T t, com.baidu.swan.pms.model.a aVar) {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public void Y(T t) {
+    public void Z(T t) {
     }
 
     @Override // com.baidu.swan.pms.a.c
@@ -37,7 +37,7 @@ public abstract class b<T> implements c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public Map<String, Object> atu() {
+    public Map<String, Object> aBE() {
         HashMap hashMap = new HashMap();
         hashMap.put("queue_priority", Integer.valueOf(getPriority()));
         return hashMap;

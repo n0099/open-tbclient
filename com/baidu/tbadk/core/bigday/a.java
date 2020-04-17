@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.util.aq;
 import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes.dex */
 public class a {
-    public String cMd;
-    public int cMe;
-    public long cMf;
-    public int cMg;
+    public String aqV;
+    public int dlk;
+    public long dll;
+    public int dlm;
     public long endTime;
     public String imgUrl;
     public long startTime;
@@ -17,25 +17,25 @@ public class a {
         if (bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
             if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
                 this.imgUrl = bigdayInfo.img_url;
-                this.cMd = bigdayInfo.jump_url;
-                this.cMe = bigdayInfo.img_colour.intValue();
-                this.cMf = bigdayInfo.id.longValue();
-                this.cMg = bigdayInfo.position.intValue();
+                this.aqV = bigdayInfo.jump_url;
+                this.dlk = bigdayInfo.img_colour.intValue();
+                this.dll = bigdayInfo.id.longValue();
+                this.dlm = bigdayInfo.position.intValue();
                 this.startTime = bigdayInfo.start_time.longValue();
                 this.endTime = bigdayInfo.end_time.longValue();
             }
         }
     }
 
-    public boolean azY() {
-        return !StringUtils.isNULL(this.imgUrl) && this.cMf > 0 && (this.cMg == 1 || this.cMg == 3) && this.startTime > 0 && this.endTime > 0 && this.endTime > this.startTime;
+    public boolean aIl() {
+        return !StringUtils.isNULL(this.imgUrl) && this.dll > 0 && (this.dlm == 1 || this.dlm == 3) && this.startTime > 0 && this.endTime > 0 && this.endTime > this.startTime;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            if (aVar.azY() && azY() && this.cMf == aVar.cMf && aq.equals(this.imgUrl, aVar.imgUrl)) {
-                return ((this.cMd == null && aVar.cMd == null) || aq.equals(this.cMd, aVar.cMd)) && this.cMe == aVar.cMe && this.cMg == aVar.cMg && this.startTime == aVar.startTime && this.endTime == aVar.endTime;
+            if (aVar.aIl() && aIl() && this.dll == aVar.dll && aq.equals(this.imgUrl, aVar.imgUrl)) {
+                return ((this.aqV == null && aVar.aqV == null) || aq.equals(this.aqV, aVar.aqV)) && this.dlk == aVar.dlk && this.dlm == aVar.dlm && this.startTime == aVar.startTime && this.endTime == aVar.endTime;
             }
             return false;
         }

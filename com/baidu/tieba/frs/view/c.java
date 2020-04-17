@@ -1,88 +1,93 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
-import com.baidu.tbadk.core.dialog.g;
-import com.baidu.tbadk.core.dialog.i;
-import com.baidu.tbadk.core.dialog.k;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-import java.util.ArrayList;
+import com.baidu.tieba.frs.at;
+import com.baidu.tieba.frs.w;
+import com.baidu.tieba.frs.x;
+import com.baidu.tieba.horizonalList.widget.HListView;
 import java.util.List;
 /* loaded from: classes9.dex */
-public class c extends i {
-    private final k fMJ;
-    private final List<g> fMM;
-    private final k.c fMR;
-    private FrsViewData gOa;
-    private Context mContext;
-    private TbPageContext mPageContext;
+public class c extends com.baidu.tieba.card.b<w> {
+    private View.OnClickListener afS;
+    private com.baidu.tieba.horizonalList.widget.b gow;
+    private HListView hCa;
+    public x hCb;
+    private List<com.baidu.tieba.horizonalList.widget.c> hCc;
 
-    public c(TbPageContext tbPageContext) {
+    public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.fMR = new k.c() { // from class: com.baidu.tieba.frs.view.c.1
-            @Override // com.baidu.tbadk.core.dialog.k.c
-            public void a(k kVar, int i, View view) {
-                c.this.dismiss();
-                if (!j.isNetWorkAvailable()) {
-                    l.showToast(c.this.mContext, (int) R.string.network_not_available);
-                } else if (i == 1) {
-                    if (c.this.gOa != null && c.this.gOa.getForum() != null && !StringUtils.isNull(c.this.gOa.getForum().getId()) && !StringUtils.isNull(c.this.gOa.getForum().getName())) {
-                        TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_SHARE_CLICK).cx("fid", c.this.gOa.getForum().getId()).X("obj_locate", 11));
-                        com.baidu.tieba.frs.f.e.a(c.this.mPageContext, c.this.gOa, c.this.gOa.getForum().getId());
-                    }
-                } else if (i == 2) {
-                    TiebaStatic.log(new an("c12402").cx("fid", c.this.gOa.getForum().getId()).cx("uid", TbadkCoreApplication.getCurrentAccount()).cx("fname", c.this.gOa.getForum().getName()));
-                    if (!StringUtils.isNull(c.this.gOa.getForum().getName())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PostSearchActivityConfig(c.this.mContext, c.this.gOa.getForum().getName(), c.this.gOa.getForum().getId())));
-                    }
+        this.afS = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.c.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (c.this.bEy() != null) {
+                    c.this.bEy().a(view, null);
                 }
             }
         };
-        this.mPageContext = tbPageContext;
-        this.mContext = this.mPageContext.getPageActivity();
-        this.fMM = new ArrayList();
-        this.fMJ = new k(this.mContext);
-        this.fMJ.a(this.fMR);
-        a(this.fMJ);
+        this.hCa = new HListView(getContext());
+        this.hCa.setHeaderDividersEnabled(false);
+        this.hCa.setFooterDividersEnabled(false);
+        this.hCa.setSelector(R.drawable.list_selector_transparent);
+        this.hCb = new x(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
+        this.gow = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.frs_school_recommend_user, this.hCb);
+        this.gow.setOnClickListener(this.afS);
+        this.hCa.setAdapter((ListAdapter) this.gow);
+        this.gmR.addView(this.hCa);
+        this.gmQ.setVisibility(8);
+        this.gmK.setTextSize(0, l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds28));
     }
 
-    public void onChangeSkinType() {
-        if (this.fMJ != null) {
-            this.fMJ.onChangeSkinType();
+    @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
+    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        super.onChangeSkinType(tbPageContext, i);
+        if (this.hCa != null && this.gow != null) {
+            am.setViewTextColor(this.gmK, (int) R.color.cp_cont_d);
+            this.gow.onSkinTypeChanged(i);
         }
     }
 
-    private void createView() {
-        if (this.fMM != null && this.fMJ != null) {
-            this.fMM.clear();
-            this.fMM.add(new g(1, getString(R.string.share, new Object[0]), this.fMJ));
-            this.fMM.add(new g(2, getString(R.string.search, new Object[0]), this.fMJ));
-            this.fMJ.az(this.fMM);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
+    public void a(w wVar) {
+        super.a((c) wVar);
+        if (wVar != null && !v.isEmpty(wVar.getDataList())) {
+            if (StringUtils.isNull(wVar.mGroupTitle)) {
+                this.gmK.setText(getContext().getResources().getString(R.string.school_recommend));
+            } else {
+                this.gmK.setText(wVar.mGroupTitle);
+            }
+            if (cF(wVar.getDataList())) {
+                this.hCc = wVar.getDataList();
+                this.gow.setData(this.hCc);
+                this.gow.notifyDataSetChanged();
+            }
         }
     }
 
-    private String getString(int i, Object... objArr) {
-        if (this.mContext == null) {
-            return null;
+    private boolean cF(List<com.baidu.tieba.horizonalList.widget.c> list) {
+        if (v.isEmpty(list)) {
+            return false;
         }
-        return this.mContext.getString(i, objArr);
-    }
-
-    public void m(FrsViewData frsViewData) {
-        this.gOa = frsViewData;
-        createView();
+        if (!v.isEmpty(this.hCc) && v.getCount(this.hCc) == v.getCount(list)) {
+            for (int i = 0; i < v.getCount(this.hCc); i++) {
+                com.baidu.tieba.horizonalList.widget.c cVar = (com.baidu.tieba.horizonalList.widget.c) v.getItem(this.hCc, i);
+                com.baidu.tieba.horizonalList.widget.c cVar2 = (com.baidu.tieba.horizonalList.widget.c) v.getItem(list, i);
+                if ((cVar instanceof at) && (cVar2 instanceof at) && !((at) cVar).metaData.getUserId().equals(((at) cVar2).metaData.getUserId())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return true;
     }
 }

@@ -171,7 +171,7 @@ public final class c {
         return j;
     }
 
-    public static void i(File file, File file2) {
+    public static void j(File file, File file2) {
         String[] list;
         if (file != null && file2 != null && (list = file.list()) != null && list.length != 0) {
             ensureDirectoryExist(file2);
@@ -180,7 +180,7 @@ public final class c {
                     File file3 = new File(file, str);
                     File file4 = new File(file2, str);
                     if (file3.isDirectory()) {
-                        i(file3, file4);
+                        j(file3, file4);
                     }
                     if (file3.isFile()) {
                         createNewFileSafely(file4);
@@ -286,7 +286,7 @@ public final class c {
         }
     }
 
-    public static boolean rf(String str) {
+    public static boolean st(String str) {
         return !TextUtils.isEmpty(str) && safeDeleteFile(new File(str));
     }
 
@@ -330,11 +330,11 @@ public final class c {
     }
 
     public static boolean unzipFile(String str, String str2) {
-        return ci(str, str2) == null;
+        return ct(str, str2) == null;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1046=4] */
-    public static Exception ci(String str, String str2) {
+    public static Exception ct(String str, String str2) {
         ZipFile zipFile;
         BufferedOutputStream bufferedOutputStream;
         BufferedInputStream bufferedInputStream;
@@ -358,7 +358,7 @@ public final class c {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !rh(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !sv(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -463,7 +463,7 @@ public final class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1116=4] */
-    public static boolean cj(String str, String str2) {
+    public static boolean cu(String str, String str2) {
         ZipInputStream zipInputStream;
         InputStream inputStream;
         InputStream inputStream2;
@@ -502,7 +502,7 @@ public final class c {
                     closeSafely(inputStream);
                     closeSafely(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !rh(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !sv(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -562,7 +562,7 @@ public final class c {
         return str;
     }
 
-    public static String rg(String str) {
+    public static String su(String str) {
         int lastIndexOf;
         String fileNameFromPath = getFileNameFromPath(str);
         if (TextUtils.isEmpty(fileNameFromPath) || (lastIndexOf = fileNameFromPath.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == fileNameFromPath.length() - 1) {
@@ -647,15 +647,15 @@ public final class c {
         }
     }
 
-    public static boolean rh(String str) {
+    public static boolean sv(String str) {
         return str.contains("../");
     }
 
-    public static boolean z(File file) {
+    public static boolean A(File file) {
         return file != null && file.exists() && file.isFile();
     }
 
-    public static List<String> A(File file) {
+    public static List<String> B(File file) {
         try {
             return a(new FileInputStream(file));
         } catch (FileNotFoundException e) {
@@ -696,7 +696,7 @@ public final class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1533=4] */
-    public static void a(@NonNull List<String> list, @NonNull File file) {
+    public static void b(@NonNull List<String> list, @NonNull File file) {
         FileWriter fileWriter;
         Throwable th;
         if (!file.exists()) {
@@ -747,7 +747,7 @@ public final class c {
         }
     }
 
-    public static long ri(String str) {
+    public static long sw(String str) {
         long j = -1;
         if (!TextUtils.isEmpty(str)) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();

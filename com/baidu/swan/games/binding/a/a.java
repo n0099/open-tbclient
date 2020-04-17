@@ -8,21 +8,21 @@ import com.baidu.swan.games.e.b;
 import com.baidu.swan.games.q.c;
 /* loaded from: classes11.dex */
 public final class a extends EventTargetImpl {
-    private b ckm;
-    private c cmk;
+    private b cJh;
+    private c cLg;
     @V8JavascriptField
     public final String domain;
 
     public a(b bVar) {
         super(bVar);
         this.domain = "openData";
-        this.ckm = bVar;
+        this.cJh = bVar;
     }
 
     @JavascriptInterface
     public void initSharedCanvas(JsObject jsObject) {
-        if (this.ckm.anz() instanceof com.baidu.swan.games.binding.c) {
-            ((com.baidu.swan.games.binding.c) this.ckm.anz()).b(jsObject);
+        if (this.cJh.avM() instanceof com.baidu.swan.games.binding.c) {
+            ((com.baidu.swan.games.binding.c) this.cJh.avM()).b(jsObject);
         }
     }
 
@@ -33,41 +33,41 @@ public final class a extends EventTargetImpl {
 
     @JavascriptInterface
     public void getFriendCloudStorage(JsObject jsObject) {
-        if (this.cmk == null) {
-            this.cmk = new c(this.ckm);
+        if (this.cLg == null) {
+            this.cLg = new c(this.cJh);
         }
-        this.cmk.getFriendCloudStorage(jsObject);
+        this.cLg.getFriendCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void getUserCloudStorage(JsObject jsObject) {
-        if (this.cmk == null) {
-            this.cmk = new c(this.ckm);
+        if (this.cLg == null) {
+            this.cLg = new c(this.cJh);
         }
-        this.cmk.getUserCloudStorage(jsObject);
+        this.cLg.getUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void getUserInfo(JsObject jsObject) {
-        if (this.cmk == null) {
-            this.cmk = new c(this.ckm);
+        if (this.cLg == null) {
+            this.cLg = new c(this.cJh);
         }
-        this.cmk.getUserInfo(jsObject);
+        this.cLg.getUserInfo(jsObject);
     }
 
     @JavascriptInterface
     public void removeUserCloudStorage(JsObject jsObject) {
-        if (this.cmk == null) {
-            this.cmk = new c(this.ckm);
+        if (this.cLg == null) {
+            this.cLg = new c(this.cJh);
         }
-        this.cmk.removeUserCloudStorage(jsObject);
+        this.cLg.removeUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void setUserCloudStorage(JsObject jsObject) {
-        if (this.cmk == null) {
-            this.cmk = new c(this.ckm);
+        if (this.cLg == null) {
+            this.cLg = new c(this.cJh);
         }
-        this.cmk.setUserCloudStorage(jsObject);
+        this.cLg.setUserCloudStorage(jsObject);
     }
 }

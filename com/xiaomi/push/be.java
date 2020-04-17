@@ -23,7 +23,7 @@ public class be {
         String a = bh.a(context).a("sp_client_report_status", "sp_client_report_key", "");
         if (TextUtils.isEmpty(a)) {
             String a2 = ay.a(20);
-            bh.a(context).m160a("sp_client_report_status", "sp_client_report_key", a2);
+            bh.a(context).m165a("sp_client_report_status", "sp_client_report_key", a2);
             return a2;
         }
         return a;
@@ -85,7 +85,7 @@ public class be {
                         if (!TextUtils.isEmpty(file3.getAbsolutePath())) {
                             file = new File(file3.getAbsolutePath() + ".lock");
                             try {
-                                y.m566a(file);
+                                y.m571a(file);
                                 randomAccessFile = new RandomAccessFile(file, "rw");
                                 try {
                                     fileLock = randomAccessFile.getChannel().lock();
@@ -214,7 +214,7 @@ public class be {
     }
 
     public static void a(Context context, List<String> list) {
-        if (list == null || list.size() <= 0 || !m156a(context)) {
+        if (list == null || list.size() <= 0 || !m161a(context)) {
             return;
         }
         for (String str : list) {
@@ -225,7 +225,7 @@ public class be {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m156a(Context context) {
+    public static boolean m161a(Context context) {
         try {
             return context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= 108;
         } catch (PackageManager.NameNotFoundException e) {
@@ -235,7 +235,7 @@ public class be {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m157a(Context context, String str) {
+    public static boolean m162a(Context context, String str) {
         File file = new File(str);
         long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).a().getMaxFileLength();
         if (file.exists()) {
@@ -248,7 +248,7 @@ public class be {
                 return false;
             }
         } else {
-            y.m566a(file);
+            y.m571a(file);
         }
         return true;
     }
@@ -262,7 +262,7 @@ public class be {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static File[] m158a(Context context, String str) {
+    public static File[] m163a(Context context, String str) {
         File externalFilesDir = context.getExternalFilesDir(str);
         if (externalFilesDir != null) {
             return externalFilesDir.listFiles(new bg());

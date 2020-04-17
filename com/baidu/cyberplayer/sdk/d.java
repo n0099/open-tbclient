@@ -1,405 +1,155 @@
 package com.baidu.cyberplayer.sdk;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.opengl.GLSurfaceView;
-import android.opengl.Matrix;
-import android.os.Build;
-import android.os.SystemClock;
-import android.view.Surface;
-import com.baidu.cyberplayer.sdk.h;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.opengles.GL10;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.extractor.ExtractorProvider;
+import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes.dex */
-public class d implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer {
-    protected a a;
-    private int h;
-    private int i;
-    private int j;
-    private int k;
-    private int l;
-    private int m;
-    private SurfaceTexture n;
-    private Surface o;
-    private boolean t;
-    private e u;
-    private h.a z;
-    private final float[] b = {-1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
-    private final String d = "uniform mat4 uMVPMatrix;\nuniform mat4 uSTMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n  gl_Position = uMVPMatrix * aPosition;\n  vTextureCoord = (uSTMatrix * aTextureCoord).xy;\n}\n";
-    private final String e = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n  gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n";
-    private float[] f = new float[16];
-    private float[] g = new float[16];
-    private boolean p = false;
-    private final Object q = new Object();
-    private final Object r = new Object();
-    private boolean s = true;
-    private boolean v = false;
-    private float w = 1.0f;
-    private int x = 0;
-    private int y = 0;
-    private FloatBuffer c = ByteBuffer.allocateDirect(this.b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+public class d {
+    private static CyberPlayerCoreProvider a = null;
+    private static String b = "com.baidu.media.duplayer";
+    private static final String c = b + ".CyberVRRenderProviderImpl";
+    private static final String d = b + ".CyberPlayerCoreImpl";
+    private static Class<?> e;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a();
-    }
-
-    public d() {
-        this.c.put(this.b).position(0);
-        Matrix.setIdentityM(this.g, 0);
-        this.t = false;
-        this.u = new e();
-    }
-
-    private int a(int i, String str) {
-        int glCreateShader = GLES20.glCreateShader(i);
-        if (glCreateShader != 0) {
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            int[] iArr = new int[1];
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 0) {
-                CyberLog.e("CyberRender", "Could not compile shader " + i + ":");
-                CyberLog.e("CyberRender", GLES20.glGetShaderInfoLog(glCreateShader));
-                GLES20.glDeleteShader(glCreateShader);
-                return 0;
-            }
+    public static CyberVRRenderProvider a(Context context) {
+        if (a == null || e == null) {
+            return null;
         }
-        return glCreateShader;
+        try {
+            return (CyberVRRenderProvider) e.getConstructor(Context.class).newInstance(context);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            CyberLog.e("CyberPlayerCoreInvoker", "create CyberVRRender failed");
+            return null;
+        }
     }
 
-    private int a(String str, String str2) {
-        int a2;
-        int a3 = a(35633, str);
-        if (a3 == 0 || (a2 = a(35632, str2)) == 0) {
-            return 0;
+    public static PlayerProvider a(int i, CyberPlayerManager.HttpDNS httpDNS) {
+        if (a(1)) {
+            return a.createCyberPlayer(i, httpDNS);
         }
-        int glCreateProgram = GLES20.glCreateProgram();
-        if (glCreateProgram != 0) {
-            GLES20.glAttachShader(glCreateProgram, a3);
-            a("glAttachShader");
-            GLES20.glAttachShader(glCreateProgram, a2);
-            a("glAttachShader");
-            GLES20.glLinkProgram(glCreateProgram);
-            int[] iArr = new int[1];
-            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-            if (iArr[0] != 1) {
-                CyberLog.e("CyberRender", "Could not link program: ");
-                CyberLog.e("CyberRender", GLES20.glGetProgramInfoLog(glCreateProgram));
-                GLES20.glDeleteProgram(glCreateProgram);
-                return 0;
-            }
-        }
-        return glCreateProgram;
+        return null;
     }
 
-    private static void a(SurfaceTexture surfaceTexture) {
-        if (surfaceTexture != null) {
-            try {
-                surfaceTexture.setOnFrameAvailableListener(null);
-                surfaceTexture.release();
-            } catch (Exception e) {
-                e.printStackTrace();
+    public static String a() {
+        return a != null ? a.getCoreVersion() : "";
+    }
+
+    public static synchronized void a(Context context, ClassLoader classLoader, String str) throws Exception {
+        synchronized (d.class) {
+            if (a == null) {
+                try {
+                    a = (CyberPlayerCoreProvider) Class.forName(d, true, classLoader).newInstance();
+                    a.init(context, str);
+                    if (a != null) {
+                        com.baidu.cyberplayer.sdk.b.a.a(classLoader, a.getLibsSearchPath());
+                        try {
+                            e = Class.forName(c, false, context.getClassLoader());
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            e = null;
+                        }
+                    }
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    a = null;
+                    throw e3;
+                }
             }
         }
     }
 
-    private boolean a(String str) {
-        int glGetError = GLES20.glGetError();
-        if (glGetError != 0) {
-            CyberLog.e("CyberRender", str + ": glError " + glGetError);
+    public static void a(String str) {
+        if (a(1)) {
+            a.stopPrefetch(str);
+        }
+    }
+
+    public static void a(String str, String str2, String str3, int i, int i2, int i3, CyberPlayerManager.HttpDNS httpDNS, String str4) {
+        if (!com.baidu.cyberplayer.sdk.remote.g.a().a(str, str2, str3, i, i2, i3) && a(1)) {
+            a.prefetch(str, TextUtils.isEmpty(str2) ? "dumedia/7.7.2.14" : str2.indexOf("dumedia") == -1 ? str2 + " dumedia/" + SDKVersion.VERSION : str2, str3, i, i2, i3, httpDNS, str4);
+        }
+    }
+
+    public static boolean a(int i) {
+        if (a != null) {
+            return a.isLoaded(i);
+        }
+        return false;
+    }
+
+    public static boolean a(int i, Map<String, String> map) throws FileNotFoundException {
+        if (a != null) {
+            a.loadlibs(i, map);
+        }
+        return a(i);
+    }
+
+    public static boolean a(byte[] bArr, int i, byte[] bArr2) {
+        if (a(1)) {
+            a.duplayerEncrypt(bArr, i, bArr2);
             return true;
         }
         return false;
     }
 
-    private void b(int i, int i2, int i3, int i4) {
-        CyberLog.i("CyberRender", "drawSmallScreen called width:" + i3 + " height:" + i4);
-        GLES20.glViewport(i, i2, i3, i4);
-        e();
-        CyberLog.i("CyberRender", "drawSmallScreen called end");
+    public static ExtractorProvider b() {
+        if (a(1)) {
+            return a.createCyberExtractor();
+        }
+        return null;
     }
 
-    private void c(int i, int i2, int i3, int i4) {
-        if (this.z != null) {
-            this.z.a(i3, i4, d(i, i2, i3, i4));
+    public static boolean b(String str) {
+        int a2 = com.baidu.cyberplayer.sdk.remote.g.a().a(str);
+        if (a2 >= 0) {
+            return a2 == 1;
+        } else if (a(1)) {
+            return a.hasCacheFile(str);
+        } else {
+            return false;
         }
     }
 
-    private Buffer d(int i, int i2, int i3, int i4) {
-        CyberLog.i("CyberRender", "=> getFrame width:" + i3 + " height:" + i4);
-        IntBuffer wrap = IntBuffer.wrap(new int[i3 * i4]);
-        wrap.position(0);
-        GLES20.glPixelStorei(3333, 4);
-        GLES20.glReadPixels(i, i2, i3, i4, 6408, 5121, wrap);
-        return wrap;
-    }
-
-    private void e() {
-        if (this.h == 0) {
-            return;
+    public static CyberAudioRecorder c() {
+        if (a(5)) {
+            return a.createCyberAudioRecorder();
         }
-        GLES20.glUseProgram(this.h);
-        a("glUseProgram");
-        GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(36197, this.i);
-        this.c.position(0);
-        GLES20.glVertexAttribPointer(this.l, 3, 5126, false, 20, (Buffer) this.c);
-        a("glVertexAttribPointer maPosition");
-        GLES20.glEnableVertexAttribArray(this.l);
-        a("glEnableVertexAttribArray maPositionHandle");
-        this.c.position(3);
-        GLES20.glVertexAttribPointer(this.m, 3, 5126, false, 20, (Buffer) this.c);
-        a("glVertexAttribPointer maTextureHandle");
-        GLES20.glEnableVertexAttribArray(this.m);
-        a("glEnableVertexAttribArray maTextureHandle");
-        Matrix.setIdentityM(this.f, 0);
-        float[] c = this.u.c();
-        Matrix.scaleM(this.f, 0, c[0], c[1], 0.0f);
-        Matrix.rotateM(this.f, 0, this.u.d(), 0.0f, 0.0f, 1.0f);
-        GLES20.glUniformMatrix4fv(this.j, 1, false, this.f, 0);
-        GLES20.glUniformMatrix4fv(this.k, 1, false, this.g, 0);
-        GLES20.glDrawArrays(5, 0, 4);
-        a("glDrawArrays");
-        GLES20.glFinish();
+        return null;
     }
 
-    private void f() {
-        a(this.n);
-        int[] iArr = new int[1];
-        GLES20.glGenTextures(1, iArr, 0);
-        this.i = iArr[0];
-        this.n = new SurfaceTexture(this.i);
-        this.n.setOnFrameAvailableListener(this);
-        i();
-        a("detachGL");
-    }
-
-    private void g() {
-        synchronized (this.q) {
-            try {
-                if (this.p) {
-                    if (this.n != null) {
-                        this.n.updateTexImage();
-                        this.n.getTransformMatrix(this.g);
-                    }
-                    this.p = false;
-                    if (!this.t) {
-                        this.t = true;
-                        if (this.z != null) {
-                            this.z.a(SystemClock.elapsedRealtime());
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    public static void d() {
+        if (a(1)) {
+            a.forceCleanFilecache();
         }
     }
 
-    private void h() {
-        if (Build.VERSION.SDK_INT >= 16 && this.s) {
-            try {
-                if (this.n != null) {
-                    this.n.attachToGLContext(this.i);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    public static boolean e() {
+        return a != null;
+    }
+
+    public static void f() {
+        if (a(1)) {
+            a.updateCfg();
         }
     }
 
-    private void i() {
-        if (Build.VERSION.SDK_INT >= 16 && this.s) {
-            try {
-                if (this.n != null) {
-                    this.n.detachFromGLContext();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    public static long g() {
+        if (a(1)) {
+            return a.caculateFolderSize();
         }
+        return 0L;
     }
 
-    private void j() {
-        if (this.v && this.t) {
-            synchronized (this.r) {
-                if (this.v) {
-                    if (this.w > 1.0f) {
-                        this.w = 1.0f;
-                    }
-                    int i = this.x;
-                    int i2 = this.y;
-                    this.v = false;
-                    CyberLog.i("CyberRender", "drawScreenSnapshot called");
-                    int g = this.u.g();
-                    int h = this.u.h();
-                    int round = Math.round(g * this.w);
-                    int round2 = Math.round(h * this.w);
-                    if (round <= 0 || round2 <= 0) {
-                        return;
-                    }
-                    CyberLog.i("CyberRender", "drawScreenSnapshot called mSurfaceWidth:" + g + " mSurfaceHeight:" + h + " snapWidth:" + round + " snapHeight:" + round2);
-                    GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                    GLES20.glClear(16640);
-                    b(i, i2, round, round2);
-                    c(i, i2, round, round2);
-                    if (round != g || round2 != h) {
-                        GLES20.glClearColor(255.0f, 255.0f, 255.0f, 1.0f);
-                        GLES20.glClear(16640);
-                    }
-                    GLES20.glViewport(0, 0, this.u.g(), this.u.h());
-                    if (this.a != null) {
-                        this.a.a();
-                    }
-                    CyberLog.i("CyberRender", "drawScreenSnapshot called end x:" + i + " y:" + i2);
-                }
-            }
+    public static HashMap<Integer, Long> h() {
+        if (a(1)) {
+            return a.getSystemInfraInfo();
         }
-    }
-
-    public synchronized void a() {
-        a(this.n);
-        this.n = null;
-        if (this.o != null) {
-            this.o.release();
-        }
-        this.o = null;
-    }
-
-    public void a(float f, int i, int i2) {
-        synchronized (this.r) {
-            this.v = true;
-            this.w = f;
-            this.x = i;
-            this.y = i2;
-        }
-        if (this.a != null) {
-            this.a.a();
-        }
-    }
-
-    public void a(int i) {
-        if (this.u.c(i)) {
-            this.u.b();
-        }
-    }
-
-    public void a(int i, int i2, int i3, int i4) {
-        if (this.u.a(i, i2, i3, i4)) {
-            this.u.b();
-        }
-    }
-
-    public void a(a aVar) {
-        this.a = aVar;
-    }
-
-    public void a(h.a aVar) {
-        this.z = aVar;
-    }
-
-    public void b() {
-        this.u.a();
-    }
-
-    public void b(int i) {
-        if (this.u.b(i)) {
-            this.u.b();
-        }
-    }
-
-    public synchronized Surface c() {
-        a();
-        f();
-        if (this.n != null) {
-            this.o = new Surface(this.n);
-        }
-        this.p = false;
-        this.t = false;
-        return this.o;
-    }
-
-    public void c(int i) {
-        if (this.u.a(i)) {
-            this.u.b();
-        }
-    }
-
-    public synchronized SurfaceTexture d() {
-        return this.n;
-    }
-
-    @Override // android.opengl.GLSurfaceView.Renderer
-    public void onDrawFrame(GL10 gl10) {
-        h();
-        g();
-        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        GLES20.glClear(16640);
-        e();
-        i();
-        j();
-    }
-
-    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        synchronized (this.q) {
-            if (surfaceTexture != this.n) {
-                return;
-            }
-            this.p = true;
-            if (this.a != null) {
-                this.a.a();
-            }
-        }
-    }
-
-    @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-        GLES20.glViewport(0, 0, i, i2);
-        this.u.a(i, i2);
-        this.u.b();
-    }
-
-    @Override // android.opengl.GLSurfaceView.Renderer
-    public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-        this.h = a("uniform mat4 uMVPMatrix;\nuniform mat4 uSTMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n  gl_Position = uMVPMatrix * aPosition;\n  vTextureCoord = (uSTMatrix * aTextureCoord).xy;\n}\n", "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n  gl_FragColor = texture2D(sTexture, vTextureCoord);\n}\n");
-        if (this.h == 0) {
-            return;
-        }
-        this.l = GLES20.glGetAttribLocation(this.h, "aPosition");
-        a("glGetAttribLocation aPosition");
-        if (this.l == -1) {
-            throw new RuntimeException("Could not get attrib location for aPosition");
-        }
-        this.m = GLES20.glGetAttribLocation(this.h, "aTextureCoord");
-        a("glGetAttribLocation aTextureCoord");
-        if (this.m == -1) {
-            throw new RuntimeException("Could not get attrib location for aTextureCoord");
-        }
-        this.j = GLES20.glGetUniformLocation(this.h, "uMVPMatrix");
-        a("glGetUniformLocation uMVPMatrix");
-        if (this.j == -1) {
-            throw new RuntimeException("Could not get attrib location for uMVPMatrix");
-        }
-        this.k = GLES20.glGetUniformLocation(this.h, "uSTMatrix");
-        a("glGetUniformLocation uSTMatrix");
-        if (this.j == -1) {
-            throw new RuntimeException("Could not get attrib location for uSTMatrix");
-        }
-        GLES20.glTexParameterf(36197, 10241, 9728.0f);
-        GLES20.glTexParameterf(36197, 10240, 9729.0f);
-        if (this.z == null || !this.z.a(0)) {
-            return;
-        }
-        this.s = false;
-        synchronized (this.q) {
-            this.p = false;
-        }
+        return null;
     }
 }

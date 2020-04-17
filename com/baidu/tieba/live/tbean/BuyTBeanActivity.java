@@ -3,9 +3,7 @@ package com.baidu.tieba.live.tbean;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import com.baidu.live.adp.base.BdBaseApplication;
 import com.baidu.live.tbadk.BaseActivity;
-import com.baidu.live.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements IBuyTBeanActivity {
     private BuyTBeanController buyTBeanController;
@@ -19,14 +17,9 @@ public class BuyTBeanActivity extends BaseActivity<BuyTBeanActivity> implements 
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
         super.onCreate(bundle);
-        if (BdBaseApplication.getInst() == null) {
-            if (TbConfig.sdkInitCallback == null) {
-                super.finish();
-                return;
-            }
-            TbConfig.sdkInitCallback.initSdk();
+        if (!isFinishing()) {
+            this.buyTBeanController = new BuyTBeanController(getPageContext(), this, getIntent());
         }
-        this.buyTBeanController = new BuyTBeanController(getPageContext(), this, getIntent());
     }
 
     @Override // com.baidu.live.tbadk.BaseActivity

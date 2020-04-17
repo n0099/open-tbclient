@@ -33,11 +33,11 @@ public class fi {
                 return gl.a(this.a, fmVar);
             }
             if (name.equals("presence")) {
-                return gl.m310a(this.a);
+                return gl.m315a(this.a);
             }
             if (!this.a.getName().equals("stream")) {
                 if (this.a.getName().equals(BdStatsConstant.StatsType.ERROR)) {
-                    throw new fx(gl.m311a(this.a));
+                    throw new fx(gl.m316a(this.a));
                 }
                 if (this.a.getName().equals("warning")) {
                     this.a.next();

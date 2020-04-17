@@ -1,6 +1,7 @@
 package com.kascend.chushou.c;
 
 import android.support.annotation.Nullable;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.mobstat.Config;
@@ -22,144 +23,144 @@ import tv.chushou.zues.utils.h;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class c {
-    private static volatile c mQJ = null;
+    private static volatile c mnu = null;
     private long b = 0;
 
     public static String a(int i) {
         switch (i) {
             case 1:
-                return tv.chushou.common.a.dQz() + "m/quest/index.htm";
+                return tv.chushou.common.a.dJy() + "m/quest/index.htm";
             case 2:
-                return tv.chushou.common.a.dQz() + "m/billboard.htm";
+                return tv.chushou.common.a.dJy() + "m/billboard.htm";
             case 3:
-                return tv.chushou.common.a.dQz() + "m/information/flow.htm?category=1&type=-1";
+                return tv.chushou.common.a.dJy() + "m/information/flow.htm?category=1&type=-1";
             case 4:
             case 46:
             default:
                 return "";
             case 5:
-                return tv.chushou.common.a.dQz() + "m/copyright.htm";
+                return tv.chushou.common.a.dJy() + "m/copyright.htm";
             case 6:
-                return tv.chushou.common.a.dQz() + "m/anchor/verify/process.htm?step=1&isVerify=false";
+                return tv.chushou.common.a.dJy() + "m/anchor/verify/process.htm?step=1&isVerify=false";
             case 7:
-                return tv.chushou.common.a.dQz() + "m/anchor/verify/process.htm?step=2&isVerify=false";
+                return tv.chushou.common.a.dJy() + "m/anchor/verify/process.htm?step=2&isVerify=false";
             case 8:
-                return tv.chushou.common.a.dQz() + "m/anchor/bank-card.htm?bizCode=ALIYUN";
+                return tv.chushou.common.a.dJy() + "m/anchor/bank-card.htm?bizCode=ALIYUN";
             case 9:
-                return tv.chushou.common.a.dQz() + "m/pocket/list.htm";
+                return tv.chushou.common.a.dJy() + "m/pocket/list.htm";
             case 10:
-                return tv.chushou.common.a.dQz() + "m/pocket-store/list.htm";
+                return tv.chushou.common.a.dJy() + "m/pocket-store/list.htm";
             case 11:
-                return tv.chushou.common.a.dQz() + "m/anchor/income.htm";
+                return tv.chushou.common.a.dJy() + "m/anchor/income.htm";
             case 12:
-                return tv.chushou.common.a.dQz() + "m/register.htm";
+                return tv.chushou.common.a.dJy() + "m/register.htm";
             case 13:
-                return tv.chushou.common.a.dQz() + "m/find-password.htm";
+                return tv.chushou.common.a.dJy() + "m/find-password.htm";
             case 14:
-                return tv.chushou.common.a.dQz() + "m/agreement/user.htm";
+                return tv.chushou.common.a.dJy() + "m/agreement/user.htm";
             case 15:
-                return tv.chushou.common.a.dQz() + "m/about.htm";
+                return tv.chushou.common.a.dJy() + "m/about.htm";
             case 16:
-                return tv.chushou.common.a.dQz() + "m/beautiful-system.htm";
+                return tv.chushou.common.a.dJy() + "m/beautiful-system.htm";
             case 17:
-                return tv.chushou.common.a.dQz() + "m/help.htm";
+                return tv.chushou.common.a.dJy() + "m/help.htm";
             case 18:
-                return tv.chushou.common.a.dQz() + "m/agreement/group.htm";
+                return tv.chushou.common.a.dJy() + "m/agreement/group.htm";
             case 19:
-                return tv.chushou.common.a.dQz() + "m/password.htm?isVerify=false";
+                return tv.chushou.common.a.dJy() + "m/password.htm?isVerify=false";
             case 20:
-                return tv.chushou.common.a.dQz() + "m/information/flow.htm?category=2&type=1";
+                return tv.chushou.common.a.dJy() + "m/information/flow.htm?category=2&type=1";
             case 21:
-                return tv.chushou.common.a.dQz() + "m/game/home-data.htm";
+                return tv.chushou.common.a.dJy() + "m/game/home-data.htm";
             case 22:
-                return tv.chushou.common.a.dQz() + "m/game/my-gift-bag.htm";
+                return tv.chushou.common.a.dJy() + "m/game/my-gift-bag.htm";
             case 23:
-                return tv.chushou.common.a.dQz() + "m/anchor/verify/entrance.htm?bizCode=ALIYUN";
+                return tv.chushou.common.a.dJy() + "m/anchor/verify/entrance.htm?bizCode=ALIYUN";
             case 24:
-                return tv.chushou.common.a.dQz() + "m/anchor/center.htm";
+                return tv.chushou.common.a.dJy() + "m/anchor/center.htm";
             case 25:
-                return tv.chushou.common.a.dQz() + "m/bigfans/list.htm";
+                return tv.chushou.common.a.dJy() + "m/bigfans/list.htm";
             case 26:
-                return tv.chushou.common.a.dQz() + "m/bigfans/pay.htm";
+                return tv.chushou.common.a.dJy() + "m/bigfans/pay.htm";
             case 27:
-                return tv.chushou.common.a.dQz() + "m/bigfans/introduce.htm";
+                return tv.chushou.common.a.dJy() + "m/bigfans/introduce.htm";
             case 28:
-                return tv.chushou.common.a.dQz() + "m/bigfans/detail.htm";
+                return tv.chushou.common.a.dJy() + "m/bigfans/detail.htm";
             case 29:
-                return tv.chushou.common.a.dQz() + "m/user/real/name/certification/info.htm?bizCode=ALIYUN";
+                return tv.chushou.common.a.dJy() + "m/user/real/name/certification/info.htm?bizCode=ALIYUN";
             case 30:
-                return tv.chushou.common.a.dQz() + "m/agreement/qqgroup.htm";
+                return tv.chushou.common.a.dJy() + "m/agreement/qqgroup.htm";
             case 31:
-                return tv.chushou.common.a.dQz() + "m/qq/group/guide.htm";
+                return tv.chushou.common.a.dJy() + "m/qq/group/guide.htm";
             case 32:
-                return tv.chushou.common.a.dQz() + "m/email.htm";
+                return tv.chushou.common.a.dJy() + "m/email.htm";
             case 33:
-                return tv.chushou.common.a.dQz() + "m/quest/room.htm?";
+                return tv.chushou.common.a.dJy() + "m/quest/room.htm?";
             case 34:
-                return tv.chushou.common.a.dQz() + "m/information/flow.htm?category=3&type=2";
+                return tv.chushou.common.a.dJy() + "m/information/flow.htm?category=3&type=2";
             case 35:
-                return tv.chushou.common.a.dQz() + "m/gamezone/video/reward-billboard/";
+                return tv.chushou.common.a.dJy() + "m/gamezone/video/reward-billboard/";
             case 36:
-                return tv.chushou.common.a.dQz() + "m/user/rank.htm";
+                return tv.chushou.common.a.dJy() + "m/user/rank.htm";
             case 37:
-                return tv.chushou.common.a.dQz() + "m/user/privacy/get-opts.htm";
+                return tv.chushou.common.a.dJy() + "m/user/privacy/get-opts.htm";
             case 38:
-                return tv.chushou.common.a.dQz() + "m/quest/exchange.htm?";
+                return tv.chushou.common.a.dJy() + "m/quest/exchange.htm?";
             case 39:
-                return tv.chushou.common.a.dQz() + "m/achievement/uid.htm?";
+                return tv.chushou.common.a.dJy() + "m/achievement/uid.htm?";
             case 40:
-                return tv.chushou.common.a.dQz() + "m/achievement/detail.htm?";
+                return tv.chushou.common.a.dJy() + "m/achievement/detail.htm?";
             case 41:
-                return tv.chushou.common.a.dQD() + "luck/room/guess/join/introduce.htm?";
+                return tv.chushou.common.a.dJC() + "luck/room/guess/join/introduce.htm?";
             case 42:
-                return tv.chushou.common.a.dQD() + "luck/room/guess/user/record.htm?";
+                return tv.chushou.common.a.dJC() + "luck/room/guess/user/record.htm?";
             case 43:
-                return tv.chushou.common.a.dQD() + "luck/room/guess/top/board.htm?";
+                return tv.chushou.common.a.dJC() + "luck/room/guess/top/board.htm?";
             case 44:
-                return tv.chushou.common.a.dQz() + "m/quest/exchange.htm?";
+                return tv.chushou.common.a.dJy() + "m/quest/exchange.htm?";
             case 45:
-                return tv.chushou.common.a.dQD() + "luck/room/guess/quest-notify.htm?";
+                return tv.chushou.common.a.dJC() + "luck/room/guess/quest-notify.htm?";
             case 47:
-                return tv.chushou.common.a.dQz() + "m/noble/point/about.htm";
+                return tv.chushou.common.a.dJy() + "m/noble/point/about.htm";
             case 48:
-                return tv.chushou.common.a.dQz() + "m/pk-live/audience-rule.htm";
+                return tv.chushou.common.a.dJy() + "m/pk-live/audience-rule.htm";
             case 49:
-                return tv.chushou.common.a.dQz() + "m/account-security/login-record/unusual-list.htm";
+                return tv.chushou.common.a.dJy() + "m/account-security/login-record/unusual-list.htm";
             case 50:
-                return tv.chushou.common.a.dQB() + "api/mic/room/inning/rule.htm";
+                return tv.chushou.common.a.dJA() + "api/mic/room/inning/rule.htm";
             case 51:
-                return tv.chushou.common.a.dQB() + "api/mic/room/inning/contribute/rank.htm?";
+                return tv.chushou.common.a.dJA() + "api/mic/room/inning/contribute/rank.htm?";
             case 52:
-                return tv.chushou.common.a.dQz() + "m/pk-destiny/scene-view.htm";
+                return tv.chushou.common.a.dJy() + "m/pk-destiny/scene-view.htm";
             case 53:
-                return tv.chushou.common.a.dQz() + "guide/m/privacy.htm";
+                return tv.chushou.common.a.dJy() + "guide/m/privacy.htm";
             case 54:
-                return tv.chushou.common.a.dQz() + "m/account-security/delete/intro.htm";
+                return tv.chushou.common.a.dJy() + "m/account-security/delete/intro.htm";
             case 55:
-                return tv.chushou.common.a.dQz() + "m/captcha/init.htm";
+                return tv.chushou.common.a.dJy() + "m/captcha/init.htm";
             case 56:
-                return tv.chushou.common.a.dQz() + "m/timeline/billboard/top.htm";
+                return tv.chushou.common.a.dJy() + "m/timeline/billboard/top.htm";
             case 57:
-                return tv.chushou.common.a.dQz() + "m/timeline/first-reward-tips.htm";
+                return tv.chushou.common.a.dJy() + "m/timeline/first-reward-tips.htm";
         }
     }
 
-    public static c dCo() {
-        if (mQJ == null) {
+    public static c dwG() {
+        if (mnu == null) {
             synchronized (c.class) {
-                if (mQJ == null) {
-                    mQJ = new c();
+                if (mnu == null) {
+                    mnu = new c();
                 }
             }
         }
-        return mQJ;
+        return mnu;
     }
 
     private c() {
     }
 
     public void a(String str, File file, DownloadListener downloadListener) {
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
             http.downloadAsync(str, file, downloadListener);
         }
@@ -173,10 +174,10 @@ public class c {
         hashMap.put("_reg", z ? "1" : null);
         String d = com.kascend.chushou.d.b.d();
         if (h.isEmpty(d)) {
-            d = com.kascend.chushou.d.h.dCs().s();
+            d = com.kascend.chushou.d.h.dwK().s();
         }
         hashMap.put("token", d);
-        a(tv.chushou.common.a.dQx(), "api/remix-index.htm?", hashMap, bVar);
+        a(tv.chushou.common.a.dJw(), "api/remix-index.htm?", hashMap, bVar);
         tv.chushou.zues.utils.e.i("MyHttpMgr", "getHomeMainList() ----->");
     }
 
@@ -186,10 +187,10 @@ public class c {
         hashMap.put("_reg", z ? "1" : null);
         String d = com.kascend.chushou.d.b.d();
         if (h.isEmpty(d)) {
-            d = com.kascend.chushou.d.h.dCs().s();
+            d = com.kascend.chushou.d.h.dwK().s();
         }
         hashMap.put("token", d);
-        a(tv.chushou.common.a.dQx(), "api/entertainment-index.htm?", hashMap, bVar);
+        a(tv.chushou.common.a.dJw(), "api/entertainment-index.htm?", hashMap, bVar);
     }
 
     public void a(b bVar, String str, String str2) {
@@ -197,8 +198,8 @@ public class c {
         hashMap.put("roomId", str);
         hashMap.put("_fr", 0);
         hashMap.put("_v", 3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str2));
-        a(tv.chushou.common.a.dQx(), "api/room/get.htm?", hashMap, bVar);
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str2));
+        a(tv.chushou.common.a.dJw(), "api/room/get.htm?", hashMap, bVar);
     }
 
     public void a(String str, b bVar, String str2, String str3) {
@@ -206,22 +207,22 @@ public class c {
         hashMap.put("roomId", str);
         hashMap.put("needRelatedRoomList", 1);
         hashMap.put("styleType", str3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str2));
-        a(tv.chushou.common.a.dQx(), "api/room-expand/get.htm?", hashMap, bVar);
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str2));
+        a(tv.chushou.common.a.dJw(), "api/room-expand/get.htm?", hashMap, bVar);
     }
 
     public void a(String str, b bVar) {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
-        a(tv.chushou.common.a.dQx(), "api/pk-live/info.htm?", hashMap, bVar);
+        a(tv.chushou.common.a.dJw(), "api/pk-live/info.htm?", hashMap, bVar);
     }
 
     public void b(String str, b bVar, String str2, String str3) {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
         hashMap.put("uid", str3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str2));
-        a(tv.chushou.common.a.dQx(), "api/room-space/get.htm?", hashMap, bVar);
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str2));
+        a(tv.chushou.common.a.dJw(), "api/room-space/get.htm?", hashMap, bVar);
     }
 
     public void a(b bVar, String str, String str2, String str3, long j) {
@@ -234,16 +235,16 @@ public class c {
         hashMap.put("videoId", str);
         hashMap.put("content", replaceAll);
         hashMap.put("timePoint", Long.valueOf(j));
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
-        b(tv.chushou.common.a.dQx(), "api/gamezone/video/barrage/send.htm", hashMap, bVar);
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str3));
+        b(tv.chushou.common.a.dJw(), "api/gamezone/video/barrage/send.htm", hashMap, bVar);
     }
 
     public void a(final b bVar, final String str, final String str2, String str3) {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
         hashMap.put("uid", str2);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
-        b(tv.chushou.common.a.dQx(), "api/subscriber/subscribe.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.1
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str3));
+        b(tv.chushou.common.a.dJw(), "api/subscriber/subscribe.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.1
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (bVar != null) {
@@ -253,11 +254,11 @@ public class c {
 
             @Override // com.kascend.chushou.c.b
             public void a(String str4, JSONObject jSONObject) {
-                ParserRet dv = a.dv(jSONObject);
+                ParserRet dy = a.dy(jSONObject);
                 if (bVar != null) {
                     bVar.a(str4, jSONObject);
                 }
-                if (dv.mRc == 0) {
+                if (dy.mRc == 0) {
                     tv.chushou.zues.a.a.post(new m(str2, str, true));
                 }
             }
@@ -275,8 +276,8 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
         hashMap.put("uid", str2);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
-        b(tv.chushou.common.a.dQx(), "api/subscriber/unsubscribe.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.2
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str3));
+        b(tv.chushou.common.a.dJw(), "api/subscriber/unsubscribe.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.2
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (bVar != null) {
@@ -286,7 +287,7 @@ public class c {
 
             @Override // com.kascend.chushou.c.b
             public void a(String str4, JSONObject jSONObject) {
-                if (a.dv(jSONObject).mRc == 0) {
+                if (a.dy(jSONObject).mRc == 0) {
                     tv.chushou.zues.a.a.post(new m(str2, str, false));
                 }
                 if (bVar != null) {
@@ -307,7 +308,7 @@ public class c {
         tv.chushou.zues.utils.e.i("MyHttpMgr", "getRecommend() <-----");
         HashMap hashMap = new HashMap(1);
         hashMap.put("roomId", str);
-        a(tv.chushou.common.a.dQx(), "api/room/get-recommend.htm?", hashMap, bVar);
+        a(tv.chushou.common.a.dJw(), "api/room/get-recommend.htm?", hashMap, bVar);
         tv.chushou.zues.utils.e.i("MyHttpMgr", "getRecommend() ----->");
     }
 
@@ -315,7 +316,7 @@ public class c {
         tv.chushou.zues.utils.e.i("MyHttpMgr", "getRecommend() <-----");
         HashMap hashMap = new HashMap(1);
         hashMap.put("roomId", str);
-        a(tv.chushou.common.a.dQx(), "api/room/get-recommends.htm?", hashMap, bVar);
+        a(tv.chushou.common.a.dJw(), "api/room/get-recommends.htm?", hashMap, bVar);
         tv.chushou.zues.utils.e.i("MyHttpMgr", "getRecommend() ----->");
     }
 
@@ -323,14 +324,14 @@ public class c {
         HashMap hashMap = new HashMap(6);
         hashMap.put("roomId", str);
         hashMap.put("_timestamp", Long.valueOf(j));
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str2));
-        a(tv.chushou.common.a.dQx(), "api/room/heartbeat.htm?", hashMap, (b) null);
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str2));
+        a(tv.chushou.common.a.dJw(), "api/room/heartbeat.htm?", hashMap, (b) null);
     }
 
     public void c(final b bVar, String str) {
         HashMap hashMap = new HashMap(1);
         hashMap.put("roomId", str);
-        a(tv.chushou.common.a.dQx(), "api/user/rank/get.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.3
+        a(tv.chushou.common.a.dJw(), "api/user/rank/get.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.3
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -346,13 +347,13 @@ public class c {
                         if (optJSONObject2 != null) {
                             String optString = optJSONObject2.optString(Config.EVENT_HEAT_POINT, null);
                             if (optString != null) {
-                                com.kascend.chushou.d.h.dCs().b(optString, null);
+                                com.kascend.chushou.d.h.dwK().b(optString, null);
                             }
                             String optString2 = optJSONObject2.optString("noblePoint", null);
                             if (optString2 != null) {
-                                com.kascend.chushou.d.h.dCs().a(optString2);
+                                com.kascend.chushou.d.h.dwK().a(optString2);
                             }
-                            com.kascend.chushou.d.h.dCs().a(optJSONObject2.optInt("nobleState", -1));
+                            com.kascend.chushou.d.h.dwK().a(optJSONObject2.optInt("nobleState", -1));
                         }
                         if (bVar != null) {
                             bVar.a(str2, jSONObject);
@@ -370,7 +371,7 @@ public class c {
     public void d(b bVar, String str) {
         HashMap hashMap = new HashMap(1);
         hashMap.put("ids", str);
-        b(tv.chushou.common.a.dQx(), "api/gift/get-batch.htm?", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/gift/get-batch.htm?", hashMap, bVar);
     }
 
     public void a(b bVar, String str, int i, String str2) {
@@ -379,7 +380,7 @@ public class c {
         hashMap.put("roomId", str);
         hashMap.put(TbEnum.ParamKey.GROUP, Integer.valueOf(i));
         hashMap.put("count", 20);
-        a(tv.chushou.common.a.dQx(), "api/emoji-gift/down.htm?", hashMap, bVar);
+        a(tv.chushou.common.a.dJw(), "api/emoji-gift/down.htm?", hashMap, bVar);
     }
 
     public void b(b bVar, String str, String str2) {
@@ -387,7 +388,7 @@ public class c {
         hashMap.put("breakpoint", str2);
         hashMap.put("keyword", str);
         hashMap.put("count", 20);
-        b(tv.chushou.common.a.dQx(), "api/emoji-gift/search.htm?", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/emoji-gift/search.htm?", hashMap, bVar);
     }
 
     public void a(final b bVar, String str, String str2, String str3, String str4, final int i, final int i2, final GeneralGift generalGift, long j) {
@@ -395,9 +396,9 @@ public class c {
         hashMap.put("type", str);
         hashMap.put("primaryKey", str2);
         hashMap.put("targetKey", str3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str4));
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str4));
         hashMap.put("count", Long.valueOf(j));
-        b(tv.chushou.common.a.dQx(), "api/pocket/consume.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.4
+        b(tv.chushou.common.a.dJw(), "api/pocket/consume.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.4
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -439,9 +440,9 @@ public class c {
         hashMap.put("targetKey", str3);
         hashMap.put("uid", str4);
         hashMap.put("roomId", str5);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str6));
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str6));
         hashMap.put("count", Long.valueOf(j));
-        b(tv.chushou.common.a.dQx(), "api/mic/room/pocket/send.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.5
+        b(tv.chushou.common.a.dJw(), "api/mic/room/pocket/send.htm?", hashMap, new b() { // from class: com.kascend.chushou.c.c.5
             @Override // com.kascend.chushou.c.b
             public void a() {
             }
@@ -454,7 +455,7 @@ public class c {
                     if (h.isEmpty(optString)) {
                         optString = tv.chushou.widget.a.c.getString(a.i.str_login_timeout);
                     }
-                    tv.chushou.zues.utils.g.u(optString);
+                    tv.chushou.zues.utils.g.t(optString);
                     com.kascend.chushou.d.e.d();
                 } else if (optInt == 0) {
                     try {
@@ -485,11 +486,11 @@ public class c {
         HashMap hashMap = new HashMap(7);
         hashMap.put("roomId", str);
         hashMap.put("giftId", str2);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str3));
         hashMap.put("giftCount", Long.valueOf(j));
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
-            http.postAsync(tv.chushou.common.a.dQx(), "api/point-consume/reward.htm?", hashMap, RequestTag.normal(), new JsonCallbackWrapper() { // from class: com.kascend.chushou.c.c.6
+            http.postAsync(tv.chushou.common.a.dJw(), "api/point-consume/reward.htm?", hashMap, RequestTag.normal(), new JsonCallbackWrapper() { // from class: com.kascend.chushou.c.c.6
                 @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
                 public void callStart() {
                     if (jsonCallbackWrapper != null) {
@@ -508,13 +509,13 @@ public class c {
                             c.this.b = valueOf.longValue();
                             String optString = optJSONObject.optString(Config.EVENT_HEAT_POINT, null);
                             if (optString != null) {
-                                com.kascend.chushou.d.h.dCs().b(optString, null);
+                                com.kascend.chushou.d.h.dwK().b(optString, null);
                             }
                             String optString2 = optJSONObject.optString("noblePoint", null);
                             if (optString2 != null) {
-                                com.kascend.chushou.d.h.dCs().a(optString2);
+                                com.kascend.chushou.d.h.dwK().a(optString2);
                             }
-                            com.kascend.chushou.d.h.dCs().a(optJSONObject.optInt("nobleState", -1));
+                            com.kascend.chushou.d.h.dwK().a(optJSONObject.optInt("nobleState", -1));
                             jsonCallbackWrapper.callSuccess(str4, jSONObject);
                         }
                     }
@@ -535,12 +536,12 @@ public class c {
         hashMap.put("uid", str);
         hashMap.put("giftId", str2);
         hashMap.put("roomId", str3);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str4));
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str4));
         hashMap.put("count", Long.valueOf(j));
         hashMap.put("_v", 1);
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
-            http.postAsync(tv.chushou.common.a.dQx(), "api/mic/room/gift/send.htm?", hashMap, RequestTag.normal(), new JsonCallbackWrapper() { // from class: com.kascend.chushou.c.c.7
+            http.postAsync(tv.chushou.common.a.dJw(), "api/mic/room/gift/send.htm?", hashMap, RequestTag.normal(), new JsonCallbackWrapper() { // from class: com.kascend.chushou.c.c.7
                 @Override // tv.chushou.basis.http.listener.JsonCallbackWrapper
                 public void callStart() {
                     if (jsonCallbackWrapper != null) {
@@ -559,13 +560,13 @@ public class c {
                             c.this.b = valueOf.longValue();
                             String optString = optJSONObject.optString(Config.EVENT_HEAT_POINT, null);
                             if (optString != null) {
-                                com.kascend.chushou.d.h.dCs().b(optString, null);
+                                com.kascend.chushou.d.h.dwK().b(optString, null);
                             }
                             String optString2 = optJSONObject.optString("noblePoint", null);
                             if (optString2 != null) {
-                                com.kascend.chushou.d.h.dCs().a(optString2);
+                                com.kascend.chushou.d.h.dwK().a(optString2);
                             }
-                            com.kascend.chushou.d.h.dCs().a(optJSONObject.optInt("nobleState", -1));
+                            com.kascend.chushou.d.h.dwK().a(optJSONObject.optInt("nobleState", -1));
                             jsonCallbackWrapper.callSuccess(str5, jSONObject);
                         }
                     }
@@ -587,7 +588,7 @@ public class c {
         hashMap.put("targetKey", str2);
         hashMap.put(DownloadDataConstants.Columns.COLUMN_URI, str4);
         hashMap.put("index", str3);
-        b(tv.chushou.common.a.dQx(), "api/upload/notify.htm?", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/upload/notify.htm?", hashMap, bVar);
     }
 
     public void a(String str, String str2, int i, b bVar) {
@@ -595,14 +596,14 @@ public class c {
         hashMap.put("roomId", str);
         hashMap.put("uid", str2);
         hashMap.put("type", Integer.valueOf(i));
-        b(tv.chushou.common.a.dQx(), "api/chat/privilege/ban.htm", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/chat/privilege/ban.htm", hashMap, bVar);
     }
 
     public void a(String str, String str2, b bVar) {
         HashMap hashMap = new HashMap(2);
         hashMap.put("roomId", str);
         hashMap.put("keyword", str2);
-        b(tv.chushou.common.a.dQx(), "api/rec/room/manager/add.htm", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/rec/room/manager/add.htm", hashMap, bVar);
     }
 
     public void c(b bVar, String str, String str2, String str3) {
@@ -610,7 +611,7 @@ public class c {
         hashMap.put("reportedUid", str);
         hashMap.put("reportedRoomId", str2);
         hashMap.put("type", str3);
-        b(tv.chushou.common.a.dQx(), "api/report/add.htm?", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/report/add.htm?", hashMap, bVar);
     }
 
     public void a(String str, String str2, String str3, String str4) {
@@ -618,15 +619,15 @@ public class c {
         hashMap.put("sourceId", str);
         hashMap.put("targetKey", str2);
         hashMap.put("type", str4);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str3));
-        a(tv.chushou.common.a.dQx(), "api/share/feedback.htm?", hashMap, (b) null);
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str3));
+        a(tv.chushou.common.a.dJw(), "api/share/feedback.htm?", hashMap, (b) null);
     }
 
     public void b(String str, String str2, b bVar) {
         HashMap hashMap = new HashMap(2);
         hashMap.put("uid", str2);
         hashMap.put("roomId", str);
-        b(tv.chushou.common.a.dQx(), "api/room/blacklist-user/add.htm?", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/room/blacklist-user/add.htm?", hashMap, bVar);
     }
 
     public void a(String str, String str2, String str3, b bVar) {
@@ -634,20 +635,20 @@ public class c {
         hashMap.put("roomId", str2);
         hashMap.put("uid", str);
         hashMap.put("showName", str3);
-        a(tv.chushou.common.a.dQx(), "api/user-card/get.htm?", hashMap, bVar);
+        a(tv.chushou.common.a.dJw(), "api/user-card/get.htm?", hashMap, bVar);
     }
 
     public void e(b bVar, String str) {
         HashMap hashMap = new HashMap(1);
         hashMap.put("opts", str);
-        b(tv.chushou.common.a.dQx(), "api/user/privacy/set-opts.htm", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/user/privacy/set-opts.htm", hashMap, bVar);
     }
 
     public void c(b bVar, String str, String str2) {
         HashMap hashMap = new HashMap(2);
         hashMap.put("type", str);
         hashMap.put("targetKey", str2);
-        a(tv.chushou.common.a.dQx(), "api/share/info.htm", hashMap, bVar);
+        a(tv.chushou.common.a.dJw(), "api/share/info.htm", hashMap, bVar);
     }
 
     public void a(int i, b bVar) {
@@ -655,26 +656,26 @@ public class c {
         hashMap.put("type", 26);
         hashMap.put("primaryKey", 1);
         hashMap.put("count", Integer.valueOf(i));
-        b(tv.chushou.common.a.dQx(), "api/pocket/purchase.htm", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/pocket/purchase.htm", hashMap, bVar);
     }
 
     public void c(String str, String str2, b bVar) {
         HashMap hashMap = new HashMap(3);
         hashMap.put("targetKey", str);
         hashMap.put("extraInfo", str2);
-        b(tv.chushou.common.a.dQx(), "api/pocket/trumpet-consume.htm", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/pocket/trumpet-consume.htm", hashMap, bVar);
     }
 
     public void b(String str, b bVar) {
         HashMap hashMap = new HashMap();
         hashMap.put("giftId", str);
-        b(tv.chushou.common.a.dQx(), "api/emoji-gift/detail.htm?", hashMap, bVar);
+        b(tv.chushou.common.a.dJw(), "api/emoji-gift/detail.htm?", hashMap, bVar);
     }
 
     public void a(String str, String str2, String str3, String str4, b bVar) {
         String d = com.kascend.chushou.d.b.d();
         if (h.isEmpty(d)) {
-            d = com.kascend.chushou.d.h.dCs().s();
+            d = com.kascend.chushou.d.h.dwK().s();
         }
         Map<String, Object> hashMap = new HashMap<>(5);
         hashMap.put("codes", str);
@@ -682,7 +683,7 @@ public class c {
         hashMap.put("screenHeight", str3);
         hashMap.put("roomId", str4);
         hashMap.put("token", d);
-        a(tv.chushou.common.a.dQC(), "api/advert/getList.htm", hashMap, bVar);
+        a(tv.chushou.common.a.dJB(), "api/advert/getList.htm", hashMap, bVar);
     }
 
     public void a(JsonCallbackWrapper jsonCallbackWrapper, String str, String str2, String str3, String str4) {
@@ -694,10 +695,10 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
         hashMap.put("content", replaceAll);
-        hashMap.putAll(tv.chushou.zues.utils.d.SV(str4));
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        hashMap.putAll(tv.chushou.zues.utils.d.Qk(str4));
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
-            http.postAsync(tv.chushou.common.a.dQx(), "open/chat/send.htm", hashMap, RequestTag.normal(), jsonCallbackWrapper);
+            http.postAsync(tv.chushou.common.a.dJw(), "open/chat/send.htm", hashMap, RequestTag.normal(), jsonCallbackWrapper);
         }
     }
 
@@ -707,18 +708,18 @@ public class c {
         hashMap.put("breakpoint", str2);
         hashMap.put("_ltn", Long.valueOf(System.currentTimeMillis()));
         hashMap.put("style", 2);
-        a(tv.chushou.common.a.dQA(), "chat/get.htm?", hashMap, bVar);
+        a(tv.chushou.common.a.dJz(), "chat/get.htm?", hashMap, bVar);
     }
 
     public void a(final tv.chushou.basis.d.a.c.a<String> aVar) {
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
             HashMap hashMap = new HashMap();
             hashMap.put("method", "common.getUpdateVersionInfo");
-            hashMap.put("osType", "1");
+            hashMap.put(HttpConstants.HTTP_OS_TYPE_OLD, "1");
             hashMap.put("app_parent", "com.kascend.chushouplugin");
             hashMap.put("targetVersion", 109);
-            tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dQw().S(tv.chushou.basis.d.a.b.b.class);
+            tv.chushou.basis.d.a.b.b bVar = (tv.chushou.basis.d.a.b.b) tv.chushou.basis.d.b.dJv().S(tv.chushou.basis.d.a.b.b.class);
             if (bVar != null) {
                 hashMap.put("appkey", bVar.getAppKey());
             }
@@ -732,7 +733,7 @@ public class c {
             requestTag.thread = EventThread.IO;
             requestTag.executorService = null;
             requestTag.callbackThread = EventThread.IO;
-            http.getAsync(tv.chushou.common.a.dQy(), "osmcommon?", hashMap, requestTag, new tv.chushou.basis.d.a.c.a<Http.Resp>() { // from class: com.kascend.chushou.c.c.8
+            http.getAsync(tv.chushou.common.a.dJx(), "osmcommon?", hashMap, requestTag, new tv.chushou.basis.d.a.c.a<Http.Resp>() { // from class: com.kascend.chushou.c.c.8
                 @Override // tv.chushou.basis.d.a.c.a
                 public void onStart() {
                     if (aVar != null) {
@@ -767,7 +768,7 @@ public class c {
     public void c(String str, b bVar) {
         HashMap hashMap = new HashMap();
         hashMap.put("roomId", str);
-        a(tv.chushou.common.a.dQx(), "api/live-switch/get.htm?", hashMap, bVar);
+        a(tv.chushou.common.a.dJw(), "api/live-switch/get.htm?", hashMap, bVar);
     }
 
     public void d(String str, String str2, b bVar) {
@@ -793,51 +794,51 @@ public class c {
         hashMap.put("openUid", str);
         hashMap.put("accessToken", str2);
         hashMap.put("extraInfo", str3);
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
-            http.postAsync(tv.chushou.common.a.dQE(), "xapi/open-login.htm", hashMap, RequestTag.normal(), jsonCallbackWrapper);
+            http.postAsync(tv.chushou.common.a.dJD(), "xapi/open-login.htm", hashMap, RequestTag.normal(), jsonCallbackWrapper);
         }
     }
 
     public void e(String str, b bVar) {
         HashMap hashMap = new HashMap(1);
         hashMap.put("code", str);
-        b(tv.chushou.common.a.dQE(), "open/baidu/login.htm", hashMap, bVar);
+        b(tv.chushou.common.a.dJD(), "open/baidu/login.htm", hashMap, bVar);
     }
 
     public void a(b bVar) {
-        a(tv.chushou.common.a.dQx(), "open/baidu/share-room-list.htm", (Map<String, Object>) null, bVar);
+        a(tv.chushou.common.a.dJw(), "open/baidu/share-room-list.htm", (Map<String, Object>) null, bVar);
     }
 
     public void a(JsonCallbackWrapper jsonCallbackWrapper) {
         String d = com.kascend.chushou.d.b.d();
         if (h.isEmpty(d)) {
-            d = com.kascend.chushou.d.h.dCs().s();
+            d = com.kascend.chushou.d.h.dwK().s();
         }
         HashMap hashMap = new HashMap(7);
         hashMap.put("token", d);
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
-            http.getAsync(tv.chushou.common.a.dQx(), "api/token/get-complex-info.htm?", hashMap, RequestTag.normal(), jsonCallbackWrapper);
+            http.getAsync(tv.chushou.common.a.dJw(), "api/token/get-complex-info.htm?", hashMap, RequestTag.normal(), jsonCallbackWrapper);
         }
     }
 
     public void b(JsonCallbackWrapper jsonCallbackWrapper) {
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
-            http.postAsync(tv.chushou.common.a.dQx(), "api/logout.htm?", null, RequestTag.normal(), jsonCallbackWrapper);
+            http.postAsync(tv.chushou.common.a.dJw(), "api/logout.htm?", null, RequestTag.normal(), jsonCallbackWrapper);
         }
     }
 
     public void a(String str, String str2, Map<String, Object> map, b bVar) {
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
             http.getAsync(str, str2, map, RequestTag.normal(), new com.kascend.chushou.c.a.a(bVar));
         }
     }
 
     public void b(String str, String str2, Map<String, Object> map, b bVar) {
-        Http http = (Http) tv.chushou.basis.d.b.dQw().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
         if (http != null) {
             http.postAsync(str, str2, map, RequestTag.normal(), new com.kascend.chushou.c.a.a(bVar));
         }

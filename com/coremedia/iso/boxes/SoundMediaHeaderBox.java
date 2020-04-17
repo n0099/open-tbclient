@@ -1,7 +1,6 @@
 package com.coremedia.iso.boxes;
 
 import com.baidu.live.adp.lib.util.FieldUtil;
-import com.baidu.minivideo.effect.core.entity.AEffectParams;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
@@ -11,8 +10,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class SoundMediaHeaderBox extends AbstractMediaHeaderBox {
     public static final String TYPE = "smhd";
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_1 = null;
     private float balance;
 
     static {
@@ -21,7 +20,7 @@ public class SoundMediaHeaderBox extends AbstractMediaHeaderBox {
 
     private static /* synthetic */ void ajc$preClinit() {
         b bVar = new b("SoundMediaHeaderBox.java", SoundMediaHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getBalance", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", AEffectParams.VALUE_TYPE_FLOAT), 36);
+        ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getBalance", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", "float"), 36);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "toString", "com.coremedia.iso.boxes.SoundMediaHeaderBox", "", "", "", FieldUtil.TYPE_STRING), 58);
     }
 

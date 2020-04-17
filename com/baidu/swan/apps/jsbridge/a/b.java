@@ -3,7 +3,6 @@ package com.baidu.swan.apps.jsbridge.a;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.swan.apps.core.k.d;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
@@ -19,21 +18,21 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(SuspensionBallEntity.KEY_SCHEME, SchemeConfig.getSchemeHead());
-            jSONObject.put("sdkExtension", b(d.Qz().QU()));
-            jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.i.a.aob().QU()));
+            jSONObject.put("sdkExtension", b(d.Yo().YJ()));
+            jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.i.a.awo().YJ()));
             jSONObject.put("isDebugSdk", DEBUG);
-            String string = h.afu().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ah.a.a.aaE()) {
+            String string = h.anz().getString("ctsUrl", "");
+            if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ah.a.a.aiJ()) {
                 jSONObject.put("ctsJsAddress", new JSONObject(string));
             }
-            if (com.baidu.swan.apps.w.a.Ul() != null) {
-                String Iu = com.baidu.swan.apps.w.a.Ul().Iu();
-                if (!TextUtils.isEmpty(Iu)) {
-                    jSONObject.put("hostName", Iu);
+            if (com.baidu.swan.apps.w.a.aca() != null) {
+                String Qg = com.baidu.swan.apps.w.a.aca().Qg();
+                if (!TextUtils.isEmpty(Qg)) {
+                    jSONObject.put("hostName", Qg);
                 }
             }
-            jSONObject.put("platform", PraiseDataPassUtil.KEY_FROM_OS);
-            jSONObject.put("abTestSwitch", com.baidu.swan.apps.swancore.b.a.afz());
+            jSONObject.put("platform", "android");
+            jSONObject.put("abTestSwitch", com.baidu.swan.apps.swancore.b.a.anE());
         } catch (JSONException e) {
             if (DEBUG) {
                 throw new RuntimeException(e);

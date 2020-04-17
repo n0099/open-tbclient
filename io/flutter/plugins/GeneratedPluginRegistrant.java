@@ -2,7 +2,8 @@ package io.flutter.plugins;
 
 import android.support.annotation.Keep;
 import android.support.annotation.NonNull;
-import com.baidu.network_service_plugin.a;
+import com.baidu.e.a;
+import com.baidu.network_service_plugin.b;
 import com.baidu.performance_monitor.PerformanceMonitorPlugin;
 import com.example.crash_report_plugin.CrashReportPlugin;
 import com.example.flutter_lottie.FlutterLottiePlugin;
@@ -27,6 +28,7 @@ public final class GeneratedPluginRegistrant {
         flutterEngine.getPlugins().add(new GlobalStateSyncPlugin());
         flutterEngine.getPlugins().add(new ImageLoaderPlugin());
         flutterEngine.getPlugins().add(new a());
+        flutterEngine.getPlugins().add(new b());
         ProgresshudPlugin.registerWith(shimPluginRegistry.registrarFor("com.oversketch.progresshud.ProgresshudPlugin"));
         flutterEngine.getPlugins().add(new PathProviderPlugin());
         flutterEngine.getPlugins().add(new PerformanceMonitorPlugin());

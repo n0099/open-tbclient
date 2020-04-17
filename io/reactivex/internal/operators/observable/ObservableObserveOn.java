@@ -26,7 +26,7 @@ public final class ObservableObserveOn<T> extends a<T, T> {
             this.source.subscribe(uVar);
             return;
         }
-        this.source.subscribe(new ObserveOnObserver(uVar, this.scheduler.dJI(), this.delayError, this.bufferSize));
+        this.source.subscribe(new ObserveOnObserver(uVar, this.scheduler.dCG(), this.delayError, this.bufferSize));
     }
 
     /* loaded from: classes7.dex */
@@ -125,7 +125,7 @@ public final class ObservableObserveOn<T> extends a<T, T> {
 
         void schedule() {
             if (getAndIncrement() == 0) {
-                this.worker.D(this);
+                this.worker.I(this);
             }
         }
 
@@ -152,7 +152,7 @@ public final class ObservableObserveOn<T> extends a<T, T> {
                             return;
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         this.s.dispose();
                         gVar.clear();
                         uVar.onError(th);

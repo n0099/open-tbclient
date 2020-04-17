@@ -3,6 +3,7 @@ package com.baidu.live.tbadk.coreextra.data;
 import android.text.TextUtils;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.util.StringUtils;
+import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.Serializable;
 import org.json.JSONException;
@@ -117,7 +118,7 @@ public class PhotoUrlData implements Serializable {
             jSONObject.put("bigurl", photoUrlData.bigurl);
             jSONObject.put("picId", photoUrlData.picId);
             jSONObject.put("toServerPhotoInfo", photoUrlData.toServerPhotoInfo);
-            jSONObject.put("pic", photoUrlData.pic);
+            jSONObject.put(UgcUBCUtils.UGC_TYPE_PIC_BTN, photoUrlData.pic);
             jSONObject.put("width", photoUrlData.width);
             jSONObject.put("height", photoUrlData.height);
             return jSONObject.toString();
@@ -138,7 +139,7 @@ public class PhotoUrlData implements Serializable {
             photoUrlData.bigurl = jSONObject.optString("bigurl");
             photoUrlData.picId = jSONObject.optString("picId");
             photoUrlData.toServerPhotoInfo = jSONObject.optString("toServerPhotoInfo");
-            photoUrlData.pic = jSONObject.optString("pic");
+            photoUrlData.pic = jSONObject.optString(UgcUBCUtils.UGC_TYPE_PIC_BTN);
             photoUrlData.width = jSONObject.optString("width");
             photoUrlData.height = jSONObject.optString("height");
             return photoUrlData;

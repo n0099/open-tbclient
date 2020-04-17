@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -11,13 +10,13 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex.a {
     final boolean delayErrors;
+    final io.reactivex.g<T> mRJ;
     final h<? super T, ? extends io.reactivex.e> mapper;
     final int maxConcurrency;
-    final io.reactivex.g<T> nyr;
 
     @Override // io.reactivex.a
     protected void b(io.reactivex.c cVar) {
-        this.nyr.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
+        this.mRJ.a((j) new FlatMapCompletableMainSubscriber(cVar, this.mapper, this.delayErrors, this.maxConcurrency));
     }
 
     /* loaded from: classes7.dex */
@@ -47,7 +46,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
                 this.actual.onSubscribe(this);
                 int i = this.maxConcurrency;
                 if (i == Integer.MAX_VALUE) {
-                    dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                    dVar.request(Long.MAX_VALUE);
                 } else {
                     dVar.request(i);
                 }
@@ -64,7 +63,7 @@ public final class FlowableFlatMapCompletableCompletable<T> extends io.reactivex
                     eVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 this.s.cancel();
                 onError(th);
             }

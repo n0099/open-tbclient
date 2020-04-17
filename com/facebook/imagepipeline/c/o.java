@@ -1,38 +1,33 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes12.dex */
 public class o<K, V> implements p<K, V> {
-    private final p<K, V> lTc;
-    private final r lTd;
+    private final p<K, V> maO;
+    private final r maP;
 
     public o(p<K, V> pVar, r rVar) {
-        this.lTc = pVar;
-        this.lTd = rVar;
+        this.maO = pVar;
+        this.maP = rVar;
     }
 
     @Override // com.facebook.imagepipeline.c.p
-    public com.facebook.common.references.a<V> bn(K k) {
-        com.facebook.common.references.a<V> bn = this.lTc.bn(k);
-        if (bn == null) {
-            this.lTd.dop();
+    public com.facebook.common.references.a<V> bd(K k) {
+        com.facebook.common.references.a<V> bd = this.maO.bd(k);
+        if (bd == null) {
+            this.maP.dqm();
         } else {
-            this.lTd.bk(k);
+            this.maP.ba(k);
         }
-        return bn;
+        return bd;
     }
 
     @Override // com.facebook.imagepipeline.c.p
     public com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar) {
-        this.lTd.doq();
-        return this.lTc.a(k, aVar);
+        this.maP.dqn();
+        return this.maO.a(k, aVar);
     }
 
     @Override // com.facebook.imagepipeline.c.p
-    public int c(com.facebook.common.internal.h<K> hVar) {
-        return this.lTc.c(hVar);
-    }
-
-    @Override // com.facebook.imagepipeline.c.p
-    public boolean d(com.facebook.common.internal.h<K> hVar) {
-        return this.lTc.d(hVar);
+    public boolean b(com.facebook.common.internal.h<K> hVar) {
+        return this.maO.b(hVar);
     }
 }

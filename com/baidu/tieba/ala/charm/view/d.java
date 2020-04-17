@@ -14,145 +14,145 @@ import com.baidu.live.utils.k;
 import com.baidu.tieba.ala.charm.data.ALaCharmData;
 /* loaded from: classes3.dex */
 public class d {
-    public ViewGroup exS;
-    public TextView exT;
-    public ImageView exU;
-    public HeadImageView exV;
-    public TextView exW;
-    public RelativeLayout exX;
-    public LinearGradientTextView exY;
-    public TextView exZ;
-    public ImageView eya;
-    private int mFromType;
+    private int fbJ;
+    public ViewGroup fbZ;
+    public TextView fca;
+    public ImageView fcb;
+    public HeadImageView fcc;
+    public TextView fcd;
+    public RelativeLayout fce;
+    public LinearGradientTextView fcf;
+    public TextView fcg;
+    public ImageView fch;
     public TextView mName;
     public View mRootView;
 
     public d(View view, int i) {
         this.mRootView = view;
-        this.mFromType = i;
-        this.exT = (TextView) view.findViewById(a.g.tvGradeNum);
-        this.exU = (ImageView) view.findViewById(a.g.gradeNum_imageView);
-        this.exS = (ViewGroup) view.findViewById(a.g.item_view);
-        this.exV = (HeadImageView) view.findViewById(a.g.photo);
-        this.exV.setIsRound(true);
-        this.exV.setAutoChangeStyle(false);
-        this.exV.setClickable(false);
-        this.exX = (RelativeLayout) view.findViewById(a.g.info);
+        this.fbJ = i;
+        this.fca = (TextView) view.findViewById(a.g.tvGradeNum);
+        this.fcb = (ImageView) view.findViewById(a.g.gradeNum_imageView);
+        this.fbZ = (ViewGroup) view.findViewById(a.g.item_view);
+        this.fcc = (HeadImageView) view.findViewById(a.g.photo);
+        this.fcc.setIsRound(true);
+        this.fcc.setAutoChangeStyle(false);
+        this.fcc.setClickable(false);
+        this.fce = (RelativeLayout) view.findViewById(a.g.info);
         this.mName = (TextView) view.findViewById(a.g.ala_name);
-        this.exW = (TextView) view.findViewById(a.g.ala_intro);
-        this.exY = (LinearGradientTextView) view.findViewById(a.g.attention_btn);
-        this.exZ = (TextView) view.findViewById(a.g.improve_rink_btn);
-        this.eya = (ImageView) view.findViewById(a.g.photo_pendant);
+        this.fcd = (TextView) view.findViewById(a.g.ala_intro);
+        this.fcf = (LinearGradientTextView) view.findViewById(a.g.attention_btn);
+        this.fcg = (TextView) view.findViewById(a.g.improve_rink_btn);
+        this.fch = (ImageView) view.findViewById(a.g.photo_pendant);
     }
 
     public void a(int i, ALaCharmData aLaCharmData, int i2) {
         if (aLaCharmData != null) {
-            this.exY.setTag(Integer.valueOf(i));
+            this.fcf.setTag(Integer.valueOf(i));
             if (aLaCharmData.user_id.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.exY.setVisibility(8);
-                this.exS.setBackgroundResource(a.f.sdk_online_item_bg);
+                this.fcf.setVisibility(8);
+                this.fbZ.setBackgroundResource(a.f.sdk_online_item_bg);
                 if (i > 0) {
-                    this.exZ.setVisibility(0);
+                    this.fcg.setVisibility(0);
                 } else {
-                    this.exZ.setVisibility(8);
+                    this.fcg.setVisibility(8);
                 }
             } else {
-                this.exZ.setVisibility(8);
+                this.fcg.setVisibility(8);
                 if (TbadkCoreApplication.getInst().isHaokan()) {
-                    this.exY.setVisibility(8);
+                    this.fcf.setVisibility(8);
                 } else {
-                    this.exY.setVisibility(0);
+                    this.fcf.setVisibility(0);
                 }
-                this.exS.setBackgroundResource(a.f.sdk_list_item_selector_black);
-                in(aLaCharmData.follow_status != 0);
+                this.fbZ.setBackgroundResource(a.f.sdk_list_item_selector_black);
+                jo(aLaCharmData.follow_status != 0);
             }
-            this.exS.setTag(Integer.valueOf(i));
-            pc(i);
+            this.fbZ.setTag(Integer.valueOf(i));
+            px(i);
             o(aLaCharmData.portrait, i, aLaCharmData.appId);
             this.mName.setText(aLaCharmData.user_name);
-            this.exW.setText(this.mRootView.getContext().getResources().getString(a.i.ala_pay_gift_name, aLaCharmData.total_price));
+            this.fcd.setText(this.mRootView.getContext().getResources().getString(a.i.ala_pay_gift_name, aLaCharmData.total_price));
             onSkinTypeChanged(i2);
         }
     }
 
     private void o(String str, int i, String str2) {
-        if (this.eya != null) {
-            this.eya.setVisibility(8);
+        if (this.fch != null) {
+            this.fch.setVisibility(8);
             if (i == 0) {
-                this.eya.setVisibility(0);
-                this.eya.setImageResource(a.f.pic_live_list_top1);
+                this.fch.setVisibility(0);
+                this.fch.setImageResource(a.f.pic_live_list_top1);
             } else if (i == 1) {
-                this.eya.setVisibility(0);
-                this.eya.setImageResource(a.f.pic_live_list_top2);
+                this.fch.setVisibility(0);
+                this.fch.setImageResource(a.f.pic_live_list_top2);
             } else if (i == 2) {
-                this.eya.setVisibility(0);
-                this.eya.setImageResource(a.f.pic_live_list_top3);
+                this.fch.setVisibility(0);
+                this.fch.setImageResource(a.f.pic_live_list_top3);
             } else {
-                this.eya.setVisibility(8);
+                this.fch.setVisibility(8);
             }
         }
-        k.a(this.exV, str, true, StringUtils.isNull(str2) ? false : true);
+        k.a(this.fcc, str, true, StringUtils.isNull(str2) ? false : true);
     }
 
-    private void in(boolean z) {
+    private void jo(boolean z) {
         if (z) {
-            this.exY.setText(this.mRootView.getContext().getString(a.i.ala_had_attention));
+            this.fcf.setText(this.mRootView.getContext().getString(a.i.ala_had_attention));
             if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-                this.exY.setBackgroundResource(a.f.charm_attention_s_bg_bd);
-                this.exY.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha20));
+                this.fcf.setBackgroundResource(a.f.charm_attention_s_bg_bd);
+                this.fcf.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha20));
                 return;
             }
-            this.exY.setBackgroundResource(a.f.charm_attention_s_bg);
-            this.exY.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha20));
+            this.fcf.setBackgroundResource(a.f.charm_attention_s_bg);
+            this.fcf.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha20));
             return;
         }
-        this.exY.setText(this.mRootView.getContext().getString(a.i.ala_attention));
+        this.fcf.setText(this.mRootView.getContext().getString(a.i.ala_attention));
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.exY.setBackgroundResource(a.f.sdk_person_follow_btn_bg_seletor);
-            this.exY.setGradientColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff1e66), this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff6619));
+            this.fcf.setBackgroundResource(a.f.sdk_person_follow_btn_bg_seletor);
+            this.fcf.setGradientColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff1e66), this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff6619));
         } else if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.exY.setBackgroundResource(a.f.charm_attention_bg_bd_selector);
-            this.exY.setGradientColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha70), this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha70));
+            this.fcf.setBackgroundResource(a.f.charm_attention_bg_bd_selector);
+            this.fcf.setGradientColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha70), this.mRootView.getContext().getResources().getColor(a.d.sdk_white_alpha70));
         } else {
-            this.exY.setBackgroundResource(a.f.charm_attention_n_bg);
-            this.exY.setGradientColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff1e66), this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff6619));
+            this.fcf.setBackgroundResource(a.f.charm_attention_n_bg);
+            this.fcf.setGradientColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff1e66), this.mRootView.getContext().getResources().getColor(a.d.sdk_color_ff6619));
         }
     }
 
-    public void pc(int i) {
+    public void px(int i) {
         int i2 = i + 1;
-        if (this.mFromType == 1) {
+        if (this.fbJ == 1) {
             if (i2 == 1) {
-                this.exT.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10261));
-                this.exT.setVisibility(4);
-                this.exU.setImageResource(a.f.sdk_icon_live_list_first);
-                this.exU.setVisibility(0);
+                this.fca.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10261));
+                this.fca.setVisibility(4);
+                this.fcb.setImageResource(a.f.sdk_icon_live_list_first);
+                this.fcb.setVisibility(0);
             } else if (i2 == 2) {
-                this.exT.setVisibility(4);
-                this.exU.setImageResource(a.f.sdk_icon_live_list_second);
-                this.exU.setVisibility(0);
+                this.fca.setVisibility(4);
+                this.fcb.setImageResource(a.f.sdk_icon_live_list_second);
+                this.fcb.setVisibility(0);
             } else if (i2 == 3) {
-                this.exT.setVisibility(4);
-                this.exU.setImageResource(a.f.sdk_icon_live_list_third);
-                this.exU.setVisibility(0);
+                this.fca.setVisibility(4);
+                this.fcb.setImageResource(a.f.sdk_icon_live_list_third);
+                this.fcb.setVisibility(0);
             } else {
-                this.exT.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_cont_d));
-                this.exT.setVisibility(0);
-                this.exU.setVisibility(8);
+                this.fca.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_cont_d));
+                this.fca.setVisibility(0);
+                this.fcb.setVisibility(8);
             }
         } else if (i2 == 1) {
-            this.exT.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10261));
+            this.fca.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10261));
         } else if (i2 == 2) {
-            this.exT.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10264));
+            this.fca.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10264));
         } else if (i2 == 3) {
-            this.exT.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10265));
+            this.fca.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_common_color_10265));
         } else {
-            this.exT.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_cont_d));
+            this.fca.setTextColor(this.mRootView.getContext().getResources().getColor(a.d.sdk_cp_cont_d));
         }
         if (i2 < 10) {
-            this.exT.setText("0" + i2);
+            this.fca.setText("0" + i2);
         } else {
-            this.exT.setText(String.valueOf(i2));
+            this.fca.setText(String.valueOf(i2));
         }
     }
 
@@ -160,20 +160,20 @@ public class d {
     }
 
     public void p(View.OnClickListener onClickListener) {
-        if (this.exS != null && onClickListener != null) {
-            this.exS.setOnClickListener(onClickListener);
+        if (this.fbZ != null && onClickListener != null) {
+            this.fbZ.setOnClickListener(onClickListener);
         }
     }
 
     public void m(View.OnClickListener onClickListener) {
-        if (this.exY != null && onClickListener != null) {
-            this.exY.setOnClickListener(onClickListener);
+        if (this.fcf != null && onClickListener != null) {
+            this.fcf.setOnClickListener(onClickListener);
         }
     }
 
     public void q(View.OnClickListener onClickListener) {
-        if (this.exZ != null && onClickListener != null) {
-            this.exZ.setOnClickListener(onClickListener);
+        if (this.fcg != null && onClickListener != null) {
+            this.fcg.setOnClickListener(onClickListener);
         }
     }
 }

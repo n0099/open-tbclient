@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import com.baidu.android.common.logging.Log;
 import com.xiaomi.push.iy;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
@@ -8,7 +9,7 @@ public class ji extends iy {
     private static int b = 10000;
     private static int c = 10000;
     private static int d = 10000;
-    private static int e = 10485760;
+    private static int e = Log.FILE_LIMETE;
     private static int f = 104857600;
 
     /* loaded from: classes8.dex */
@@ -23,7 +24,7 @@ public class ji extends iy {
 
         @Override // com.xiaomi.push.iy.a, com.xiaomi.push.je
         public jc a(jm jmVar) {
-            ji jiVar = new ji(jmVar, this.f786a, this.b);
+            ji jiVar = new ji(jmVar, this.f787a, this.b);
             if (this.a != 0) {
                 jiVar.b(this.a);
             }
@@ -74,7 +75,7 @@ public class ji extends iy {
         }
         if (this.a.b() >= a2) {
             try {
-                String str = new String(this.a.m477a(), this.a.a(), a2, "UTF-8");
+                String str = new String(this.a.m482a(), this.a.a(), a2, "UTF-8");
                 this.a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e2) {
@@ -92,7 +93,7 @@ public class ji extends iy {
         }
         c(a2);
         if (this.a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.a.m477a(), this.a.a(), a2);
+            ByteBuffer wrap = ByteBuffer.wrap(this.a.m482a(), this.a.a(), a2);
             this.a.a(a2);
             return wrap;
         }

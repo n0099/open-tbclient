@@ -4,6 +4,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.util.TbEnum;
 /* loaded from: classes3.dex */
 public class a extends HttpMessage {
+    private boolean aNv;
     private String appId;
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
@@ -19,6 +20,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
+        this.aNv = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -33,19 +35,19 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short xB() {
+    public short Cq() {
         return this.msgType;
     }
 
-    public void dN(String str) {
+    public void eG(String str) {
         this.liveId = str;
     }
 
-    public void dO(String str) {
+    public void eH(String str) {
         this.roomId = str;
     }
 
-    public String xC() {
+    public String Cr() {
         return this.otherParams;
     }
 
@@ -53,31 +55,31 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long xD() {
+    public long Cs() {
         return this.price;
     }
 
-    public void G(long j) {
+    public void ag(long j) {
         this.price = j;
     }
 
-    public int xx() {
+    public int Cj() {
         return this.barrageType;
     }
 
-    public void bX(int i) {
+    public void cm(int i) {
         this.barrageType = i;
     }
 
-    public String xy() {
+    public String Ck() {
         return this.barrageId;
     }
 
-    public void dM(String str) {
+    public void eF(String str) {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b xz() {
+    public com.baidu.live.im.data.b Cl() {
         return this.barrageCardInfo;
     }
 
@@ -85,11 +87,19 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] xA() {
+    public String[] Cm() {
         return this.imEffect;
     }
 
     public void l(String[] strArr) {
         this.imEffect = strArr;
+    }
+
+    public void bA(boolean z) {
+        this.aNv = z;
+    }
+
+    public boolean Ct() {
+        return this.aNv;
     }
 }

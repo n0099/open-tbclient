@@ -7,6 +7,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.StatFs;
+import android.support.v7.widget.ActivityChooserView;
 import com.a.a.a.a.a.a.a;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.ReflectUtils;
@@ -425,7 +426,7 @@ public class SevenZipUtils {
                         this.mOffset_7z = str3.indexOf(FILE_SEP, this.mOffset_elf) + 2;
                         this.mJson_meta = new JSONObject(str3.substring(this.mOffset_meta, this.mOffset_elf - 2));
                         this.mJson_elf = new JSONObject(str3.substring(this.mOffset_elf, this.mOffset_7z - 2));
-                        int i = Integer.MAX_VALUE;
+                        int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                         JSONArray jSONArray = this.mJson_elf.getJSONArray(LZMA_META_KEY_LOADABLE);
                         int i2 = 0;
                         for (int i3 = 0; i3 < jSONArray.length(); i3++) {

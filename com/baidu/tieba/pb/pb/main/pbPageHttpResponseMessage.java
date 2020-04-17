@@ -4,6 +4,8 @@ import android.content.Context;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import java.util.ArrayList;
+import org.json.JSONObject;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes9.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
@@ -53,7 +55,7 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.d();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.iDi = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.jno = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -64,8 +66,20 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         this.pbData = new com.baidu.tieba.pb.data.e();
-        this.pbData.yI(2);
+        this.pbData.zj(2);
         this.pbData.a(pbPageResIdl.data, this.context);
+        if (pbPageResIdl.data != null) {
+            String str = "";
+            if (pbPageResIdl.data.forum != null) {
+                str = pbPageResIdl.data.forum.name;
+            }
+            JSONObject a = com.baidu.tieba.recapp.report.b.a(pbPageResIdl.data.thread, str);
+            ArrayList arrayList = new ArrayList();
+            if (a != null) {
+                arrayList.add(a);
+            }
+            com.baidu.tieba.recapp.report.b.cOf().en(arrayList);
+        }
         BdLog.detailException(null);
     }
 
@@ -74,10 +88,10 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                i.cmD().a(this.cacheKey, this.isFromMark, bArr);
+                i.cxj().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                i.cmD().n(this.cacheKey, bArr);
+                i.cxj().n(this.cacheKey, bArr);
                 return;
             default:
                 return;

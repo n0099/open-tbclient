@@ -21,13 +21,17 @@ public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListen
     private OnSurfacePrepareListener mOnSurfacePrepareListener;
     private int mProgram;
     private SurfaceTexture mSurfaceTexture;
+    private int uDismissFlagHandle;
     private int uFilterFactorHandle;
     private int uMVPMatrixHandle;
     private int uSTMatrixHandle;
     private float[] mMVPMatrix = new float[16];
     private float[] mSTMatrix = new float[16];
     private float mFilterFactor = 0.0f;
-    private boolean mUpdateSurface = false;
+    private float mDismissFlag = 0.0f;
+    private volatile boolean clearLastFrame = false;
+    private volatile boolean onPlay = false;
+    private volatile boolean mUpdateSurface = false;
     private FloatBuffer mTriangleVertices = ByteBuffer.allocateDirect(AlphaVideoCoords.VERTICES.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
 
     /* loaded from: classes13.dex */
@@ -54,16 +58,28 @@ public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListen
         }
     }
 
+    public synchronized void clearLastFrame() {
+        this.clearLastFrame = true;
+    }
+
+    public synchronized void onPlay() {
+        this.onPlay = true;
+    }
+
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
         synchronized (this) {
             this.mUpdateSurface = true;
+            if (this.onPlay) {
+                this.clearLastFrame = false;
+                this.onPlay = false;
+            }
         }
     }
 
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
     public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-        this.mProgram = createProgram("uniform mat4 uMVPMatrix; \n uniform mat4 uSTMatrix; \n uniform float uFilterFactor; \n attribute vec4 aPosition; \n attribute vec4 aTextureAlphaCoord; \n attribute vec4 aTextureColorCoord; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n varying float vFilterFactor; \n void main() { \n gl_Position = uMVPMatrix * aPosition; \n vTextureAlphaCoord = (uSTMatrix * aTextureAlphaCoord).xy; \n vTextureColorCoord = (uSTMatrix * aTextureColorCoord).xy; \n vFilterFactor = (1.0 - uFilterFactor); \n } \n ", "#extension GL_OES_EGL_image_external : require \n precision highp float; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n uniform samplerExternalOES sTexture; \n varying float vFilterFactor; \n void main() { \n vec4 alphaColor = texture2D(sTexture, vTextureAlphaCoord); \n vec4 color = texture2D(sTexture, vTextureColorCoord); \n float blendFactor = alphaColor.r; \n if (blendFactor == 0.0) { \n blendFactor = 1.0; \n } \n gl_FragColor = vec4(color.r/blendFactor*vFilterFactor,color.g/blendFactor*vFilterFactor,color.b/blendFactor*vFilterFactor,alphaColor.r); \n } \n ");
+        this.mProgram = createProgram("uniform mat4 uMVPMatrix; \n uniform mat4 uSTMatrix; \n uniform float uFilterFactor; \n uniform float uDismissFlag; \n attribute vec4 aPosition; \n attribute vec4 aTextureAlphaCoord; \n attribute vec4 aTextureColorCoord; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n varying float vFilterFactor; \n varying float vDismissFlag; \n void main() { \n gl_Position = uMVPMatrix * aPosition; \n vTextureAlphaCoord = (uSTMatrix * aTextureAlphaCoord).xy; \n vTextureColorCoord = (uSTMatrix * aTextureColorCoord).xy; \n vFilterFactor = (1.0 - uFilterFactor); \n vDismissFlag = uDismissFlag; \n } \n ", "#extension GL_OES_EGL_image_external : require \n precision highp float; \n varying vec2 vTextureAlphaCoord; \n varying vec2 vTextureColorCoord; \n uniform samplerExternalOES sTexture; \n varying float vFilterFactor; \n varying float vDismissFlag; \n void main() { \n vec4 alphaColor = texture2D(sTexture, vTextureAlphaCoord); \n vec4 color = texture2D(sTexture, vTextureColorCoord); \n float blendFactor = alphaColor.r; \n if (blendFactor == 0.0) { \n blendFactor = 1.0; \n } \n float alpha = alphaColor.r; \n if (vDismissFlag < 0.0) { \n alpha = 0.0; \n } \n gl_FragColor = vec4(color.r/blendFactor*vFilterFactor,color.g/blendFactor*vFilterFactor,color.b/blendFactor*vFilterFactor,alpha); \n } \n ");
         if (this.mProgram != 0) {
             this.aPositionHandle = GLES20.glGetAttribLocation(this.mProgram, "aPosition");
             checkGlError("glGetAttribLocation aPosition");
@@ -94,6 +110,11 @@ public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListen
             checkGlError("glGetUniformLocation uFilterFactor");
             if (this.uFilterFactorHandle == -1) {
                 throw new RuntimeException("Could not get attrib location for uFilterFactor");
+            }
+            this.uDismissFlagHandle = GLES20.glGetUniformLocation(this.mProgram, "uDismissFlag");
+            checkGlError("glGetUniformLocation uDismissFlag");
+            if (this.uDismissFlagHandle == -1) {
+                throw new RuntimeException("Could not get attrib location for uDismissFlag");
             }
             prepareSurface();
         }
@@ -202,6 +223,10 @@ public class AlphaVideoRenderer implements SurfaceTexture.OnFrameAvailableListen
         GLES20.glUniform1f(this.uFilterFactorHandle, this.mFilterFactor);
         GLES20.glDrawArrays(5, 0, 4);
         checkGlError("glDrawArrays");
+        synchronized (this) {
+            this.mDismissFlag = this.clearLastFrame ? -1.0f : 0.0f;
+        }
+        GLES20.glUniform1f(this.uDismissFlagHandle, this.mDismissFlag);
         GLES20.glFinish();
     }
 

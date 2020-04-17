@@ -112,7 +112,7 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                aVar.bK(sb.toString());
+                aVar.bt(sb.toString());
                 return;
             }
         }
@@ -132,7 +132,7 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static abstract class a {
-        abstract void bK(Object obj);
+        abstract void bt(Object obj);
 
         a() {
         }
@@ -141,29 +141,29 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static final class b extends a {
-        private final PrintStream nxS;
+        private final PrintStream mRk;
 
         b(PrintStream printStream) {
-            this.nxS = printStream;
+            this.mRk = printStream;
         }
 
         @Override // io.reactivex.exceptions.CompositeException.a
-        void bK(Object obj) {
-            this.nxS.println(obj);
+        void bt(Object obj) {
+            this.mRk.println(obj);
         }
     }
 
     /* loaded from: classes7.dex */
     static final class c extends a {
-        private final PrintWriter nxT;
+        private final PrintWriter mRl;
 
         c(PrintWriter printWriter) {
-            this.nxT = printWriter;
+            this.mRl = printWriter;
         }
 
         @Override // io.reactivex.exceptions.CompositeException.a
-        void bK(Object obj) {
-            this.nxT.println(obj);
+        void bt(Object obj) {
+            this.mRl.println(obj);
         }
     }
 
@@ -202,7 +202,7 @@ public final class CompositeException extends RuntimeException {
         return this.exceptions.size();
     }
 
-    Throwable getRootCause(Throwable th) {
+    private Throwable getRootCause(Throwable th) {
         Throwable cause = th.getCause();
         if (cause == null || this.cause == cause) {
             return th;

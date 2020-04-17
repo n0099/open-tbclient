@@ -31,17 +31,17 @@ public class g extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty key");
             return false;
         }
-        String string = eVar.acQ().afl().getString(optString, "");
+        String string = eVar.akV().anq().getString(optString, "");
         try {
-            JSONObject fX = fX(string);
-            if (fX == null) {
-                fX = new JSONObject();
+            JSONObject hl = hl(string);
+            if (hl == null) {
+                hl = new JSONObject();
                 if (TextUtils.isEmpty(string)) {
                     string = "";
                 }
-                fX.put("data", string);
+                hl.put("data", string);
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(fX, 0);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(hl, 0);
             return true;
         } catch (JSONException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
@@ -52,7 +52,7 @@ public class g extends ab {
         }
     }
 
-    private JSONObject fX(String str) {
+    private JSONObject hl(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

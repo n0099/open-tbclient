@@ -8,20 +8,20 @@ class Cdo implements Runnable {
     final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f241a;
+    final /* synthetic */ Intent f242a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ dn f242a;
+    final /* synthetic */ dn f243a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Cdo(dn dnVar, Context context, Intent intent) {
-        this.f242a = dnVar;
+        this.f243a = dnVar;
         this.a = context;
-        this.f241a = intent;
+        this.f242a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f242a.b(this.a, this.f241a);
+        this.f243a.b(this.a, this.f242a);
     }
 }

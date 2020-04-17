@@ -39,11 +39,19 @@ public class b {
         this.imageId = i;
     }
 
-    public int bke() {
+    public int bty() {
         return this.titleId;
     }
 
-    public void pW(int i) {
+    public void qq(int i) {
         this.titleId = i;
+    }
+
+    public void reset() {
+        this.scheme = null;
+        this.title = null;
+        this.imageUrl = null;
+        this.imageId = 0;
+        this.titleId = 0;
     }
 }

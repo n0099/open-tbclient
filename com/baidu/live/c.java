@@ -6,21 +6,21 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 /* loaded from: classes3.dex */
 public class c extends SharedPrefHelper {
-    private static volatile c VJ;
+    private static volatile c anv;
 
     @Override // com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper
     public synchronized SharedPreferences getSharedPreferences() {
         return TbadkCoreApplication.getInst().getSharedPreferences(AlaSharedPrefConfig.ALA_SHARED_PRE_FILE_NAME, 0);
     }
 
-    public static c pw() {
-        if (VJ == null) {
+    public static c tH() {
+        if (anv == null) {
             synchronized (c.class) {
-                if (VJ == null) {
-                    VJ = new c();
+                if (anv == null) {
+                    anv = new c();
                 }
             }
         }
-        return VJ;
+        return anv;
     }
 }

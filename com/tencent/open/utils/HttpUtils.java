@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
@@ -560,7 +559,7 @@ public class HttpUtils {
             i = 0;
         }
         if (i == 0) {
-            i = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+            i = 15000;
         }
         if (i2 == 0) {
             i2 = 30000;

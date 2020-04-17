@@ -192,6 +192,11 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (BdBaseApplication.getInst() == null && TbConfig.sdkInitCallback != null) {
             TbConfig.sdkInitCallback.initSdk();
         }
+        if (BdBaseApplication.getInst() == null) {
+            super.onCreate(bundle);
+            super.finish();
+            return;
+        }
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());
             this.mSwipeBackLayout.attachToActivity(getPageContext().getPageActivity());

@@ -14,6 +14,7 @@ public final class Constants {
     public static final String ACTION_STOP = "com.baidu.android.imsdk.action.SERVICE_STOP";
     public static final String API_KEY = "api_key";
     public static final long APPID_HAOKAN = 10660069;
+    public static final long APPID_HAOKAN_JISU = 18406321;
     public static final long APPID_QUANMIN = 11564577;
     public static final long APPID_TIEBA = 10773430;
     public static final long APPID_YIMEI = 16595346;
@@ -156,7 +157,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "5";
+    public static final String LITTLE_VERSION = "1";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;
@@ -213,7 +214,7 @@ public final class Constants {
     public static final int METHOD_MEDIA_NOTIFY = 226;
     public static final int METHOD_SEND_USER_MSG = 1048578;
     public static final int METHOD_SYNC_DIALOG = 94;
-    public static final String MIDDLE_VERSION = "6";
+    public static final String MIDDLE_VERSION = "8";
     public static final int MSG_NOTIFY = 1;
     public static final int MSG_NOT_NOTIFY = 0;
     public static final int NOT_CLEAR_AFTER_LOGOUT = 0;
@@ -324,7 +325,7 @@ public final class Constants {
     }
 
     private static boolean dispatchToPimc2(long j) {
-        if (j != APPID_HAOKAN && j != APPID_QUANMIN && j != APPID_YIMEI && j != APPID_TIEBA) {
+        if (j != APPID_HAOKAN && j != APPID_HAOKAN_JISU && j != APPID_QUANMIN && j != APPID_YIMEI && j != APPID_TIEBA) {
             return false;
         }
         return true;

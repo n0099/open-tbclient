@@ -4,9 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.data.ah;
+import com.baidu.live.data.ak;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 import com.baidu.live.tbadk.timer.LiveTimerManager;
 import com.baidu.live.tbadk.timer.OnLiveTimerListener;
@@ -19,18 +18,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.guardclub.i {
-    private static volatile b eEH = null;
+    private static volatile b fjc = null;
     private long currLiveId;
 
-    public static b bfi() {
-        if (eEH == null) {
+    public static b boy() {
+        if (fjc == null) {
             synchronized (b.class) {
-                if (eEH == null) {
-                    eEH = new b();
+                if (fjc == null) {
+                    fjc = new b();
                 }
             }
         }
-        return eEH;
+        return fjc;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0058  */
@@ -43,16 +42,16 @@ public class b implements com.baidu.live.guardclub.i {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void b(Context context, final long j, long j2, String str, String str2) {
-        ah vO;
+        ak Au;
         JSONArray jSONArray;
         int i;
         Map<String, Object> process;
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && (vO = com.baidu.live.guardclub.g.vM().vO()) != null) {
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled()) && (Au = com.baidu.live.guardclub.g.As().Au()) != null) {
             this.currLiveId = j;
-            int i2 = vO.acz;
-            int i3 = vO.acA;
+            int i2 = Au.auS;
+            int i3 = Au.auT;
             String b = com.baidu.live.utils.j.b(new Date());
-            String string = com.baidu.live.c.pw().getString("guardclub_im_entry_show_trace", "");
+            String string = com.baidu.live.c.tH().getString("guardclub_im_entry_show_trace", "");
             if (!TextUtils.isEmpty(string)) {
                 try {
                     jSONArray = new JSONArray(string);
@@ -87,7 +86,7 @@ public class b implements com.baidu.live.guardclub.i {
                         }
                     }
                     this.currLiveId = j;
-                    int i5 = vO.acB;
+                    int i5 = Au.auU;
                     boolean z = false;
                     HashMap hashMap = new HashMap();
                     hashMap.put("test_guardClub_im_entry", false);
@@ -95,11 +94,11 @@ public class b implements com.baidu.live.guardclub.i {
                     if (process.containsKey("test_guardClub_im_entry")) {
                         z = ((Boolean) process.get("test_guardClub_im_entry")).booleanValue();
                     }
-                    LiveTimerManager.getInstance().addLiveTimerTask(E(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.b.1
+                    LiveTimerManager.getInstance().addLiveTimerTask(ac(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.b.1
                         @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                         public void onComplete(boolean z2) {
                             if (j == b.this.currLiveId) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOST_GET_WALLET_UA));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913113));
                             }
                         }
 
@@ -122,18 +121,18 @@ public class b implements com.baidu.live.guardclub.i {
             if (i3 >= 0) {
             }
             this.currLiveId = j;
-            int i52 = vO.acB;
+            int i52 = Au.auU;
             boolean z2 = false;
             HashMap hashMap2 = new HashMap();
             hashMap2.put("test_guardClub_im_entry", false);
             process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap2);
             if (process.containsKey("test_guardClub_im_entry")) {
             }
-            LiveTimerManager.getInstance().addLiveTimerTask(E(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.b.1
+            LiveTimerManager.getInstance().addLiveTimerTask(ac(j), j, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.guardclub.b.1
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                 public void onComplete(boolean z22) {
                     if (j == b.this.currLiveId) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_HOST_GET_WALLET_UA));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913113));
                     }
                 }
 
@@ -145,21 +144,21 @@ public class b implements com.baidu.live.guardclub.i {
     }
 
     @Override // com.baidu.live.guardclub.i
-    public void vR() {
+    public void Ax() {
         int i;
         JSONArray jSONArray;
         int i2 = 0;
         try {
-            ah vO = com.baidu.live.guardclub.g.vM().vO();
-            if (vO != null) {
-                i = vO.acz;
-                i2 = vO.acA;
+            ak Au = com.baidu.live.guardclub.g.As().Au();
+            if (Au != null) {
+                i = Au.auS;
+                i2 = Au.auT;
             } else {
                 i = 0;
             }
             if (i >= 0 || i2 >= 0) {
                 String b = com.baidu.live.utils.j.b(new Date());
-                String string = com.baidu.live.c.pw().getString("guardclub_im_entry_show_trace", "");
+                String string = com.baidu.live.c.tH().getString("guardclub_im_entry_show_trace", "");
                 if (!TextUtils.isEmpty(string)) {
                     jSONArray = new JSONArray(string);
                 } else {
@@ -168,7 +167,7 @@ public class b implements com.baidu.live.guardclub.i {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("date", b);
                 jSONArray.put(jSONObject);
-                com.baidu.live.c.pw().putString("guardclub_im_entry_show_trace", jSONArray.toString());
+                com.baidu.live.c.tH().putString("guardclub_im_entry_show_trace", jSONArray.toString());
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -176,7 +175,7 @@ public class b implements com.baidu.live.guardclub.i {
     }
 
     @Override // com.baidu.live.guardclub.i
-    public String E(long j) {
+    public String ac(long j) {
         return "guardClub_im_" + j;
     }
 }

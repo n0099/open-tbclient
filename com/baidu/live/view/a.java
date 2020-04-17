@@ -24,28 +24,30 @@ import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tbadk.coreextra.message.UpdateAttentionMessage;
+import com.baidu.live.tbadk.ubc.UbcStatisticItem;
+import com.baidu.live.tbadk.ubc.UbcStatisticManager;
 import com.baidu.live.u.a;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private static volatile a aEt;
+    private static volatile a aZZ;
     private HashMap<String, LinkedList<com.baidu.live.data.b>> mUserAttentionRequestMap = new HashMap<>();
-    private HashMap<String, C0103a> mAttentionTaskMap = new HashMap<>();
+    private HashMap<String, C0129a> mAttentionTaskMap = new HashMap<>();
 
     private a() {
     }
 
-    public static a Bq() {
-        if (aEt == null) {
+    public static a Ht() {
+        if (aZZ == null) {
             synchronized (a.class) {
-                if (aEt == null) {
-                    aEt = new a();
+                if (aZZ == null) {
+                    aZZ = new a();
                 }
             }
         }
-        return aEt;
+        return aZZ;
     }
 
     public void a(String str, com.baidu.live.data.b bVar) {
@@ -91,19 +93,19 @@ public class a {
     public void executeAttentionTask(String str) {
         LinkedList<com.baidu.live.data.b> linkedList;
         if (!StringUtils.isNull(str) && this.mAttentionTaskMap.get(str) == null && (linkedList = this.mUserAttentionRequestMap.get(str)) != null && linkedList.size() > 0) {
-            C0103a c0103a = new C0103a();
-            this.mAttentionTaskMap.put(str, c0103a);
-            c0103a.setPriority(2);
-            c0103a.a(linkedList.getFirst());
-            c0103a.execute(new Integer[0]);
+            C0129a c0129a = new C0129a();
+            this.mAttentionTaskMap.put(str, c0129a);
+            c0129a.setPriority(2);
+            c0129a.a(linkedList.getFirst());
+            c0129a.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.live.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0103a extends BdAsyncTask<Integer, Integer, String> {
-        private BdUniqueId aEy;
+    public class C0129a extends BdAsyncTask<Integer, Integer, String> {
+        private BdUniqueId bae;
         private String forumId;
         private String from;
         private String inLive;
@@ -114,11 +116,11 @@ public class a {
         private boolean showToastAfterAttentionSuc;
         private String toUid;
 
-        private C0103a() {
+        private C0129a() {
             this.mNetwork = null;
             this.metaKey = "";
             this.isGod = false;
-            this.from = "0";
+            this.from = "";
             this.inLive = "0";
             this.forumId = null;
             this.showToastAfterAttentionSuc = false;
@@ -128,11 +130,9 @@ public class a {
             this.isAttention = bVar.isAttention();
             this.toUid = bVar.getUserId();
             this.inLive = bVar.getInLive();
-            this.aEy = bVar.qt();
+            this.bae = bVar.uK();
             this.from = bVar.getFrom();
-            this.forumId = bVar.getForumId();
-            this.isGod = bVar.isGod();
-            this.metaKey = bVar.qu();
+            this.metaKey = bVar.uL();
             if (this.forumId != null) {
                 this.showToastAfterAttentionSuc = true;
             }
@@ -153,9 +153,6 @@ public class a {
                     this.mNetwork.addPostData("follow_user_id", this.toUid);
                 }
                 this.mNetwork.addPostData("meta_key", this.metaKey);
-                if (!StringUtils.isNull(this.from)) {
-                    this.mNetwork.addPostData("from_type", this.from);
-                }
                 if (!StringUtils.isNull(this.forumId)) {
                     this.mNetwork.addPostData("forum_id", this.forumId);
                 }
@@ -172,7 +169,7 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0103a) str);
+            super.onPostExecute((C0129a) str);
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = this.mNetwork.isRequestSuccess();
@@ -183,8 +180,9 @@ public class a {
                 updateAttentionData.parserJson(str, this.showToastAfterAttentionSuc);
                 updateAttentionData.response = this.mNetwork.getHttpResponse();
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.aEy));
+                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.bae));
                 MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
+                a.this.a(updateAttentionData, this.from);
             }
             a.this.mAttentionTaskMap.remove(this.toUid);
             if (a.this.mUserAttentionRequestMap.containsKey(this.toUid)) {
@@ -200,6 +198,23 @@ public class a {
                 this.mNetwork.cancelNetConnect();
                 this.mNetwork = null;
             }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(UpdateAttentionMessage.UpdateAttentionData updateAttentionData, String str) {
+        if (updateAttentionData != null && updateAttentionData.isSucc && updateAttentionData.isAttention) {
+            String str2 = "other";
+            if ("source_host_header".equals(str)) {
+                str2 = "lefthead";
+            } else if ("source_person_card".equals(str)) {
+                str2 = "authorfloat";
+            } else if ("source_guide_pop".equals(str)) {
+                str2 = "barguide";
+            } else if ("source_guide_pop_2".equals(str)) {
+                str2 = "leaveguide";
+            }
+            UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1395", "click", "liveroom", "follow").setContentExt(str2, null, null));
         }
     }
 

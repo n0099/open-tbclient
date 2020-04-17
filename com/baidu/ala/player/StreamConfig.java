@@ -14,8 +14,8 @@ public class StreamConfig {
     public static final int STREAM_RTC_MODE = 2;
     private static int AUDIO_IO_MODE = -1;
     public static int OUTPUT_FRAMES_PER_BUFFER = 256;
-    public static int OUTPUT_SAMPLE_RATE = Audio.AUDIO_FREQUENCY;
-    private static final String[] BLACKLISTED_OPEN_SL_ES_MODELS = {"vivo X9"};
+    public static int OUTPUT_SAMPLE_RATE = 44100;
+    private static final String[] BLACKLISTED_OPEN_SL_ES_MODELS = {"vivo X9", "Redmi Note 8 Pro", "vivo X21"};
     private static final String[] WHITELISTED_OPEN_SL_ES_MODELS = {"MI 5s Plus", "MI 8", "MIX 2", "MI 6", "DUB-AL20", "V1821A", "VKY-AL00", "PACM00", "PBEM00", "OPPO R11", "OPPO R11s", "OPPO R11 Plus", "OPPO R9sk", "OPPO R9tm", "OPPO R9m", "vivo X21i A", "vivo X20A", "V1809A"};
 
     /* loaded from: classes3.dex */
@@ -40,37 +40,40 @@ public class StreamConfig {
     public static synchronized int initConfig(Context context) {
         int i;
         synchronized (StreamConfig.class) {
-            if (AUDIO_IO_MODE > 0 && OUTPUT_SAMPLE_RATE > 0 && OUTPUT_FRAMES_PER_BUFFER > 0) {
-                i = 0;
-            } else if (context == null) {
-                i = -1;
-            } else {
-                try {
-                    AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                    if (Build.VERSION.SDK_INT >= 17 && audioManager != null) {
-                        String property = audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE");
-                        if (property != null) {
-                            OUTPUT_SAMPLE_RATE = Integer.parseInt(property);
-                        }
-                        String property2 = audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER");
-                        if (property2 != null) {
-                            OUTPUT_FRAMES_PER_BUFFER = Integer.parseInt(property2);
-                        }
-                    }
-                    boolean isOpenSLESSupported = isOpenSLESSupported(context);
-                    if (!deviceIsBlackListForOpenSLES() && isOpenSLESSupported && OUTPUT_SAMPLE_RATE == 48000) {
-                        AUDIO_IO_MODE = 2;
-                    } else {
-                        AUDIO_IO_MODE = 1;
-                        if (deviceIsWhiteListForOpenSLES()) {
-                            AUDIO_IO_MODE = 2;
-                        }
-                    }
-                    i = 0;
-                } catch (Exception e) {
-                    e.printStackTrace();
+            if (AUDIO_IO_MODE <= 0 || OUTPUT_SAMPLE_RATE <= 0 || OUTPUT_FRAMES_PER_BUFFER <= 0) {
+                logDeviceInfo();
+                if (context == null) {
                     i = -1;
+                } else {
+                    try {
+                        AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+                        if (Build.VERSION.SDK_INT >= 17 && audioManager != null) {
+                            String property = audioManager.getProperty("android.media.property.OUTPUT_SAMPLE_RATE");
+                            if (property != null) {
+                                OUTPUT_SAMPLE_RATE = Integer.parseInt(property);
+                            }
+                            String property2 = audioManager.getProperty("android.media.property.OUTPUT_FRAMES_PER_BUFFER");
+                            if (property2 != null) {
+                                OUTPUT_FRAMES_PER_BUFFER = Integer.parseInt(property2);
+                            }
+                        }
+                        boolean isOpenSLESSupported = isOpenSLESSupported(context);
+                        if (!deviceIsBlackListForOpenSLES() && isOpenSLESSupported && OUTPUT_SAMPLE_RATE == 48000) {
+                            AUDIO_IO_MODE = 2;
+                        } else {
+                            AUDIO_IO_MODE = 1;
+                            if (deviceIsWhiteListForOpenSLES()) {
+                                AUDIO_IO_MODE = 2;
+                            }
+                        }
+                        i = 0;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        i = -1;
+                    }
                 }
+            } else {
+                i = 0;
             }
         }
         return i;
@@ -89,7 +92,7 @@ public class StreamConfig {
     }
 
     private static void logDeviceInfo() {
-        BdLog.d("Android SDK: " + Build.VERSION.SDK_INT + ", Release: " + Build.VERSION.RELEASE + ", Brand: " + Build.BRAND + ", Device: " + Build.DEVICE + ", Id: " + Build.ID + ", Hardware: " + Build.HARDWARE + ", Manufacturer: " + Build.MANUFACTURER + ", Model: " + Build.MODEL + ", Product: " + Build.PRODUCT);
+        BdLog.e("Android SDK: " + Build.VERSION.SDK_INT + ", Release: " + Build.VERSION.RELEASE + ", Brand: " + Build.BRAND + ", Device: " + Build.DEVICE + ", Id: " + Build.ID + ", Hardware: " + Build.HARDWARE + ", Manufacturer: " + Build.MANUFACTURER + ", Model: " + Build.MODEL + ", Product: " + Build.PRODUCT);
     }
 
     private static boolean isOpenSLESSupported(Context context) {

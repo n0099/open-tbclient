@@ -2,14 +2,14 @@ package com.facebook.imagepipeline.producers;
 /* loaded from: classes12.dex */
 public final class ax {
     public static boolean a(int i, int i2, com.facebook.imagepipeline.common.d dVar) {
-        return dVar == null ? ((float) IV(i)) >= 2048.0f && IV(i2) >= 2048 : IV(i) >= dVar.width && IV(i2) >= dVar.height;
+        return dVar == null ? ((float) Hy(i)) >= 2048.0f && Hy(i2) >= 2048 : Hy(i) >= dVar.width && Hy(i2) >= dVar.height;
     }
 
     public static boolean a(com.facebook.imagepipeline.g.e eVar, com.facebook.imagepipeline.common.d dVar) {
         if (eVar == null) {
             return false;
         }
-        switch (eVar.dqT()) {
+        switch (eVar.dsR()) {
             case 90:
             case 270:
                 return a(eVar.getHeight(), eVar.getWidth(), dVar);
@@ -18,7 +18,7 @@ public final class ax {
         }
     }
 
-    public static int IV(int i) {
+    public static int Hy(int i) {
         return (int) (i * 1.3333334f);
     }
 }

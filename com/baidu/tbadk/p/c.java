@@ -117,9 +117,9 @@ public class c extends com.baidu.adp.framework.a.d {
             httpMessage.addParam("from", from);
         }
         httpMessage.addParam("net_type", String.valueOf(j.netType()));
-        String aSq = w.aSq();
-        if (!TextUtils.isEmpty(aSq)) {
-            httpMessage.addParam("oaid", aSq);
+        String baz = w.baz();
+        if (!TextUtils.isEmpty(baz)) {
+            httpMessage.addParam("oaid", baz);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
@@ -132,8 +132,8 @@ public class c extends com.baidu.adp.framework.a.d {
     }
 
     private void c(HttpMessage httpMessage) {
-        if (com.baidu.tbadk.coreExtra.b.a.aIZ().aJa()) {
-            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.aIZ().aJb()));
+        if (com.baidu.tbadk.coreExtra.b.a.aRw().aRx()) {
+            httpMessage.addCookie("pub_env", String.valueOf(com.baidu.tbadk.coreExtra.b.a.aRw().aRy()));
         }
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
             httpMessage.addCookie("pub_env", TbSingleton.getInstance().getPubEnvValue());
@@ -182,23 +182,23 @@ public class c extends com.baidu.adp.framework.a.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.toMd5(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && EncSigNewSwitch.isOn()) {
-            httpMessage.addParam("sig", StringU.wp(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.xB(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }
 
     private void f(HttpMessage httpMessage) {
-        aa.a aGp = aa.aGp();
-        if (aGp != null) {
-            httpMessage.addParam("stTime", String.valueOf(aGp.mTime));
-            httpMessage.addParam("stSize", String.valueOf(aGp.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(aGp.mTimesNum));
-            httpMessage.addParam("stMode", String.valueOf(aGp.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(aGp.mMethod));
+        aa.a aOD = aa.aOD();
+        if (aOD != null) {
+            httpMessage.addParam("stTime", String.valueOf(aOD.mTime));
+            httpMessage.addParam("stSize", String.valueOf(aOD.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(aOD.mTimesNum));
+            httpMessage.addParam("stMode", String.valueOf(aOD.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(aOD.mMethod));
         }
         int errorNumsAndSet = aa.getErrorNumsAndSet(0);
-        if (errorNumsAndSet == 0 && aGp != null) {
-            errorNumsAndSet = aGp.mTimesNum;
+        if (errorNumsAndSet == 0 && aOD != null) {
+            errorNumsAndSet = aOD.mTimesNum;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(errorNumsAndSet));
     }

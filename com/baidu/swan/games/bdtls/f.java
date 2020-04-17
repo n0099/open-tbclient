@@ -18,10 +18,10 @@ public class f {
         }
         try {
             String str = alert.getLevel() == 1 ? "warning" : "fatal_error";
-            int intValue = jVar.amQ() != null ? jVar.amQ().intValue() : -1;
-            int intValue2 = jVar.amR() != null ? jVar.amR().intValue() : -1;
-            int intValue3 = jVar.amS() != null ? jVar.amS().intValue() : -1;
-            int intValue4 = jVar.amT() != null ? jVar.amT().intValue() : -1;
+            int intValue = jVar.avd() != null ? jVar.avd().intValue() : -1;
+            int intValue2 = jVar.ave() != null ? jVar.ave().intValue() : -1;
+            int intValue3 = jVar.avf() != null ? jVar.avf().intValue() : -1;
+            int intValue4 = jVar.avg() != null ? jVar.avg().intValue() : -1;
             String str2 = alert.getDescription() != null ? new String(alert.getDescription().toByteArray()) : "";
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
@@ -29,11 +29,11 @@ public class f {
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
             fVar.mType = "alert";
             fVar.mValue = str;
-            fVar.n("dh_group_id", Integer.valueOf(intValue));
-            fVar.n("dh_secret", Integer.valueOf(intValue2));
-            fVar.n("dh_pub_c", Integer.valueOf(intValue3));
-            fVar.n("dh_pub_s", Integer.valueOf(intValue4));
-            fVar.n("alert_msg", str2);
+            fVar.s("dh_group_id", Integer.valueOf(intValue));
+            fVar.s("dh_secret", Integer.valueOf(intValue2));
+            fVar.s("dh_pub_c", Integer.valueOf(intValue3));
+            fVar.s("dh_pub_s", Integer.valueOf(intValue4));
+            fVar.s("alert_msg", str2);
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc create event");
             }
@@ -46,12 +46,12 @@ public class f {
         }
     }
 
-    public static void ou(String str) {
+    public static void pH(String str) {
         if (a.DEBUG) {
             Log.d("BDTLS", "bdtls success");
         }
-        j alN = e.alM().alN();
-        if (alN == null) {
+        j aub = e.aua().aub();
+        if (aub == null) {
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc data is null");
                 return;
@@ -59,19 +59,19 @@ public class f {
             return;
         }
         try {
-            int intValue = alN.amQ() != null ? alN.amQ().intValue() : -1;
-            int intValue2 = alN.amR() != null ? alN.amR().intValue() : -1;
-            int intValue3 = alN.amS() != null ? alN.amS().intValue() : -1;
-            int intValue4 = alN.amT() != null ? alN.amT().intValue() : -1;
+            int intValue = aub.avd() != null ? aub.avd().intValue() : -1;
+            int intValue2 = aub.ave() != null ? aub.ave().intValue() : -1;
+            int intValue3 = aub.avf() != null ? aub.avf().intValue() : -1;
+            int intValue4 = aub.avg() != null ? aub.avg().intValue() : -1;
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc get data");
             }
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
             fVar.mType = str;
-            fVar.n("dh_group_id", Integer.valueOf(intValue));
-            fVar.n("dh_secret", Integer.valueOf(intValue2));
-            fVar.n("dh_pub_c", Integer.valueOf(intValue3));
-            fVar.n("dh_pub_s", Integer.valueOf(intValue4));
+            fVar.s("dh_group_id", Integer.valueOf(intValue));
+            fVar.s("dh_secret", Integer.valueOf(intValue2));
+            fVar.s("dh_pub_c", Integer.valueOf(intValue3));
+            fVar.s("dh_pub_s", Integer.valueOf(intValue4));
             if (a.DEBUG) {
                 Log.d("BDTLS", "bdtls ubc create event");
             }

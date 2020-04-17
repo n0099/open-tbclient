@@ -10,27 +10,27 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.pb.pb.main.PbModel;
 /* loaded from: classes9.dex */
 public class e extends w {
-    private PbModel iFV;
-    private d jbb = new d();
-    private int jbc = 0;
+    private d jLj = new d();
+    private int jLk = 0;
+    private PbModel jqc;
 
     public void init(Intent intent) {
-        this.jbb.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.jbb.ra(intent.getBooleanExtra("key_jump_to_comment_area", false));
+        this.jLj.i((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.jLj.se(intent.getBooleanExtra("key_jump_to_comment_area", false));
     }
 
     public void g(PbModel pbModel) {
-        this.iFV = pbModel;
+        this.jqc = pbModel;
     }
 
     public void b(com.baidu.tieba.pb.data.e eVar, int i) {
         boolean z = true;
-        if (i >= this.jbc) {
-            this.jbc = i;
-            this.jbb.I(eVar);
+        if (i >= this.jLk) {
+            this.jLk = i;
+            this.jLj.I(eVar);
             if (eVar != null) {
-                d dVar = this.jbb;
-                if (eVar.getIsNewUrl() != 1 && !eVar.cln()) {
+                d dVar = this.jLj;
+                if (eVar.getIsNewUrl() != 1 && !eVar.cvS()) {
                     z = false;
                 }
                 dVar.setFromCDN(z);
@@ -38,115 +38,115 @@ public class e extends w {
         }
     }
 
-    public com.baidu.tieba.pb.data.e ctA() {
-        return this.jbb.ctA();
+    public com.baidu.tieba.pb.data.e cEg() {
+        return this.jLj.cEg();
     }
 
     public boolean isFromCDN() {
-        return this.jbb.isFromCDN();
+        return this.jLj.isFromCDN();
     }
 
-    public com.baidu.tieba.pb.data.e ctB() {
-        return this.jbb.ctB();
+    public com.baidu.tieba.pb.data.e cEh() {
+        return this.jLj.cEh();
     }
 
     public void c(com.baidu.tieba.pb.data.e eVar, int i) {
         if (i == 3) {
-            this.jbb.setData(eVar);
+            this.jLj.setData(eVar);
         }
     }
 
-    public p<bj> ctC() {
-        return this.jbb.ctC();
+    public p<bj> cEi() {
+        return this.jLj.cEi();
     }
 
-    public Rect ctD() {
-        if (this.jbb.ctD() == null || this.jbb.ctD().isEmpty()) {
+    public Rect cEj() {
+        if (this.jLj.cEj() == null || this.jLj.cEj().isEmpty()) {
             return null;
         }
-        return this.jbb.ctD();
+        return this.jLj.cEj();
     }
 
-    public void rd(boolean z) {
-        if (this.jbb.ctH().getValue() != null) {
-            com.baidu.tieba.pb.data.e aH = this.iFV.aH(this.jbb.ctH().getValue());
-            if (aH != null) {
-                this.jbb.ctF().addLast(this.jbb.ctB());
-                this.jbb.setData(aH);
-                this.jbb.aP(!v.isEmpty(aH.clm()) ? aH.clm().get(0) : null);
-                this.jbb.aO(this.jbb.ctF().getLast() != null ? this.jbb.ctF().getLast().ckP() : null);
-                this.iFV.zg(z ? 21 : 22);
-                this.iFV.h(aH);
-                this.jbb.setIsLoading(true);
+    public void sh(boolean z) {
+        if (this.jLj.cEn().getValue() != null) {
+            com.baidu.tieba.pb.data.e aI = this.jqc.aI(this.jLj.cEn().getValue());
+            if (aI != null) {
+                this.jLj.cEl().addLast(this.jLj.cEh());
+                this.jLj.setData(aI);
+                this.jLj.aQ(!v.isEmpty(aI.cvR()) ? aI.cvR().get(0) : null);
+                this.jLj.aP(this.jLj.cEl().getLast() != null ? this.jLj.cEl().getLast().cvu() : null);
+                this.jqc.zH(z ? 21 : 22);
+                this.jqc.h(aI);
+                this.jLj.setIsLoading(true);
             }
         }
     }
 
-    public void aQ(bj bjVar) {
-        com.baidu.tieba.pb.data.e aH;
-        if (bjVar != null && (aH = this.iFV.aH(bjVar)) != null) {
-            this.jbb.ctF().addLast(this.jbb.ctB());
-            this.jbb.setData(aH);
-            this.jbb.aP(!v.isEmpty(aH.clm()) ? aH.clm().get(0) : null);
-            this.jbb.aO(this.jbb.ctF().getLast() != null ? this.jbb.ctF().getLast().ckP() : null);
-            this.iFV.zg(20);
-            this.iFV.h(aH);
-            this.jbb.setIsLoading(true);
+    public void aR(bj bjVar) {
+        com.baidu.tieba.pb.data.e aI;
+        if (bjVar != null && (aI = this.jqc.aI(bjVar)) != null) {
+            this.jLj.cEl().addLast(this.jLj.cEh());
+            this.jLj.setData(aI);
+            this.jLj.aQ(!v.isEmpty(aI.cvR()) ? aI.cvR().get(0) : null);
+            this.jLj.aP(this.jLj.cEl().getLast() != null ? this.jLj.cEl().getLast().cvu() : null);
+            this.jqc.zH(20);
+            this.jqc.h(aI);
+            this.jLj.setIsLoading(true);
         }
     }
 
-    public void ctM() {
-        com.baidu.tieba.pb.data.e pollLast = this.jbb.ctF().pollLast();
+    public void cEs() {
+        com.baidu.tieba.pb.data.e pollLast = this.jLj.cEl().pollLast();
         if (pollLast != null) {
-            this.jbb.setData(pollLast);
-            this.jbb.aP(!v.isEmpty(pollLast.clm()) ? pollLast.clm().get(0) : null);
-            this.jbb.aO(this.jbb.ctF().peekLast() != null ? this.jbb.ctF().peekLast().ckP() : null);
-            this.iFV.h(pollLast);
-            this.jbb.setIsLoading(true);
+            this.jLj.setData(pollLast);
+            this.jLj.aQ(!v.isEmpty(pollLast.cvR()) ? pollLast.cvR().get(0) : null);
+            this.jLj.aP(this.jLj.cEl().peekLast() != null ? this.jLj.cEl().peekLast().cvu() : null);
+            this.jqc.h(pollLast);
+            this.jLj.setIsLoading(true);
         }
     }
 
-    public p<bj> ctG() {
-        return this.jbb.ctG();
+    public p<bj> cEm() {
+        return this.jLj.cEm();
     }
 
-    public p<bj> ctH() {
-        return this.jbb.ctH();
+    public p<bj> cEn() {
+        return this.jLj.cEn();
     }
 
-    public p<Boolean> ctI() {
-        return this.jbb.ctI();
+    public p<Boolean> cEo() {
+        return this.jLj.cEo();
     }
 
-    public void rb(boolean z) {
-        this.jbb.rb(z);
+    public void sf(boolean z) {
+        this.jLj.sf(z);
     }
 
-    public p<Boolean> ctJ() {
-        return this.jbb.ctJ();
+    public p<Boolean> cEp() {
+        return this.jLj.cEp();
     }
 
-    public void rc(boolean z) {
-        this.jbb.rc(z);
+    public void sg(boolean z) {
+        this.jLj.sg(z);
     }
 
     public void setIsLoading(boolean z) {
-        this.jbb.setIsLoading(z);
+        this.jLj.setIsLoading(z);
     }
 
-    public p<Boolean> ctK() {
-        return this.jbb.ctK();
+    public p<Boolean> cEq() {
+        return this.jLj.cEq();
     }
 
-    public boolean ctE() {
-        return this.jbb.ctE();
+    public boolean cEk() {
+        return this.jLj.cEk();
     }
 
     public void setCurrentTab(int i) {
-        this.jbb.setCurrentTab(i);
+        this.jLj.setCurrentTab(i);
     }
 
-    public p<Integer> ctL() {
-        return this.jbb.ctL();
+    public p<Integer> cEr() {
+        return this.jLj.cEr();
     }
 }

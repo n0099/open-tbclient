@@ -1,7 +1,5 @@
 package com.baidu.mobads.interfaces;
 
-import com.baidu.searchbox.picture.component.BaseBrowseView;
-import com.baidu.searchbox.ugc.model.QuestionResponseModel;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
@@ -302,9 +300,9 @@ public interface IXAdInstanceInfo {
         NONE("none"),
         TEXT("text"),
         STATIC_IMAGE("static_image"),
-        GIF(BaseBrowseView.IMG_TYPE_GIF),
+        GIF("gif"),
         RM("rich_media"),
-        HTML(QuestionResponseModel.TEXT),
+        HTML("html"),
         HYBRID("hybrid"),
         VIDEO("video");
         

@@ -1,76 +1,160 @@
 package com.baidu.d.a;
 
-import com.baidu.tieba.R;
-/* loaded from: classes5.dex */
-public final class a {
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeStatisticUtil;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.console.c;
+import com.baidu.swan.apps.runtime.e;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
+import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class a extends UnitedSchemeBaseDispatcher {
+    private static final boolean DEBUG = b.DEBUG;
+    private static final String TAG = a.class.getSimpleName();
 
-    /* renamed from: com.baidu.d.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0065a {
-        public static final int GenericDraweeHierarchy_actualImageScaleType = 11;
-        public static final int GenericDraweeHierarchy_backgroundImage = 12;
-        public static final int GenericDraweeHierarchy_fadeDuration = 0;
-        public static final int GenericDraweeHierarchy_failureImage = 6;
-        public static final int GenericDraweeHierarchy_failureImageScaleType = 7;
-        public static final int GenericDraweeHierarchy_overlayImage = 13;
-        public static final int GenericDraweeHierarchy_placeholderImage = 2;
-        public static final int GenericDraweeHierarchy_placeholderImageScaleType = 3;
-        public static final int GenericDraweeHierarchy_pressedStateOverlayImage = 14;
-        public static final int GenericDraweeHierarchy_progressBarAutoRotateInterval = 10;
-        public static final int GenericDraweeHierarchy_progressBarImage = 8;
-        public static final int GenericDraweeHierarchy_progressBarImageScaleType = 9;
-        public static final int GenericDraweeHierarchy_retryImage = 4;
-        public static final int GenericDraweeHierarchy_retryImageScaleType = 5;
-        public static final int GenericDraweeHierarchy_roundAsCircle = 15;
-        public static final int GenericDraweeHierarchy_roundBottomEnd = 24;
-        public static final int GenericDraweeHierarchy_roundBottomLeft = 20;
-        public static final int GenericDraweeHierarchy_roundBottomRight = 19;
-        public static final int GenericDraweeHierarchy_roundBottomStart = 23;
-        public static final int GenericDraweeHierarchy_roundTopEnd = 22;
-        public static final int GenericDraweeHierarchy_roundTopLeft = 17;
-        public static final int GenericDraweeHierarchy_roundTopRight = 18;
-        public static final int GenericDraweeHierarchy_roundTopStart = 21;
-        public static final int GenericDraweeHierarchy_roundWithOverlayColor = 25;
-        public static final int GenericDraweeHierarchy_roundedCornerRadius = 16;
-        public static final int GenericDraweeHierarchy_roundingBorderColor = 27;
-        public static final int GenericDraweeHierarchy_roundingBorderPadding = 28;
-        public static final int GenericDraweeHierarchy_roundingBorderWidth = 26;
-        public static final int GenericDraweeHierarchy_viewAspectRatio = 1;
-        public static final int SVGImageView_svg = 0;
-        public static final int SimpleDraweeView_actualImageResource = 30;
-        public static final int SimpleDraweeView_actualImageScaleType = 11;
-        public static final int SimpleDraweeView_actualImageUri = 29;
-        public static final int SimpleDraweeView_backgroundImage = 12;
-        public static final int SimpleDraweeView_fadeDuration = 0;
-        public static final int SimpleDraweeView_failureImage = 6;
-        public static final int SimpleDraweeView_failureImageScaleType = 7;
-        public static final int SimpleDraweeView_overlayImage = 13;
-        public static final int SimpleDraweeView_placeholderImage = 2;
-        public static final int SimpleDraweeView_placeholderImageScaleType = 3;
-        public static final int SimpleDraweeView_pressedStateOverlayImage = 14;
-        public static final int SimpleDraweeView_progressBarAutoRotateInterval = 10;
-        public static final int SimpleDraweeView_progressBarImage = 8;
-        public static final int SimpleDraweeView_progressBarImageScaleType = 9;
-        public static final int SimpleDraweeView_retryImage = 4;
-        public static final int SimpleDraweeView_retryImageScaleType = 5;
-        public static final int SimpleDraweeView_roundAsCircle = 15;
-        public static final int SimpleDraweeView_roundBottomEnd = 24;
-        public static final int SimpleDraweeView_roundBottomLeft = 20;
-        public static final int SimpleDraweeView_roundBottomRight = 19;
-        public static final int SimpleDraweeView_roundBottomStart = 23;
-        public static final int SimpleDraweeView_roundTopEnd = 22;
-        public static final int SimpleDraweeView_roundTopLeft = 17;
-        public static final int SimpleDraweeView_roundTopRight = 18;
-        public static final int SimpleDraweeView_roundTopStart = 21;
-        public static final int SimpleDraweeView_roundWithOverlayColor = 25;
-        public static final int SimpleDraweeView_roundedCornerRadius = 16;
-        public static final int SimpleDraweeView_roundingBorderColor = 27;
-        public static final int SimpleDraweeView_roundingBorderPadding = 28;
-        public static final int SimpleDraweeView_roundingBorderWidth = 26;
-        public static final int SimpleDraweeView_svgImage = 31;
-        public static final int SimpleDraweeView_viewAspectRatio = 1;
-        public static final int[] GenericDraweeHierarchy = {R.attr.fadeDuration, R.attr.viewAspectRatio, R.attr.placeholderImage, R.attr.placeholderImageScaleType, R.attr.retryImage, R.attr.retryImageScaleType, R.attr.failureImage, R.attr.failureImageScaleType, R.attr.progressBarImage, R.attr.progressBarImageScaleType, R.attr.progressBarAutoRotateInterval, R.attr.actualImageScaleType, R.attr.backgroundImage, R.attr.overlayImage, R.attr.pressedStateOverlayImage, R.attr.roundAsCircle, R.attr.roundedCornerRadius, R.attr.roundTopLeft, R.attr.roundTopRight, R.attr.roundBottomRight, R.attr.roundBottomLeft, R.attr.roundTopStart, R.attr.roundTopEnd, R.attr.roundBottomStart, R.attr.roundBottomEnd, R.attr.roundWithOverlayColor, R.attr.roundingBorderWidth, R.attr.roundingBorderColor, R.attr.roundingBorderPadding};
-        public static final int[] SVGImageView = {R.attr.svg};
-        public static final int[] SimpleDraweeView = {R.attr.fadeDuration, R.attr.viewAspectRatio, R.attr.placeholderImage, R.attr.placeholderImageScaleType, R.attr.retryImage, R.attr.retryImageScaleType, R.attr.failureImage, R.attr.failureImageScaleType, R.attr.progressBarImage, R.attr.progressBarImageScaleType, R.attr.progressBarAutoRotateInterval, R.attr.actualImageScaleType, R.attr.backgroundImage, R.attr.overlayImage, R.attr.pressedStateOverlayImage, R.attr.roundAsCircle, R.attr.roundedCornerRadius, R.attr.roundTopLeft, R.attr.roundTopRight, R.attr.roundBottomRight, R.attr.roundBottomLeft, R.attr.roundTopStart, R.attr.roundTopEnd, R.attr.roundBottomStart, R.attr.roundBottomEnd, R.attr.roundWithOverlayColor, R.attr.roundingBorderWidth, R.attr.roundingBorderColor, R.attr.roundingBorderPadding, R.attr.actualImageUri, R.attr.actualImageResource, R.attr.svgImage};
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public String getDispatcherName() {
+        return "nativeView";
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        if (DEBUG) {
+            Log.i(TAG, String.format(Locale.getDefault(), "entity(%s)", unitedSchemeEntity.getUri()));
+        }
+        c.d(TAG, "start UnitedSchemeNativeViewDispatcher");
+        String path = unitedSchemeEntity.getPath(false);
+        if (TextUtils.isEmpty(path)) {
+            if (!unitedSchemeEntity.isOnlyVerify()) {
+                UnitedSchemeStatisticUtil.doUBCForInvalidScheme(unitedSchemeEntity.getUri(), "no action");
+            }
+            if (DEBUG) {
+                Log.w(TAG, "Uri action is null");
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
+            return false;
+        } else if (unitedSchemeEntity.isOnlyVerify()) {
+            return true;
+        } else {
+            char c = 65535;
+            switch (path.hashCode()) {
+                case 3417674:
+                    if (path.equals("open")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    a(context, unitedSchemeEntity, callbackHandler);
+                    return true;
+                default:
+                    if (DEBUG) {
+                        Log.w(TAG, "action " + path + " not support");
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
+                    return false;
+            }
+        }
+    }
+
+    private boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        JSONObject jSONObject;
+        String str = null;
+        e akN = e.akN();
+        if (akN == null) {
+            c.e(TAG, "swan app is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        } else if (TextUtils.isEmpty(akN.id)) {
+            c.e(TAG, "aiapp id is invalid");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+            return false;
+        } else {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                c.e(TAG, "object is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            String optString = optParamsAsJo.optString(BdStatsConstant.StatsKey.TYPE);
+            if (optString == null) {
+                c.e(TAG, "module is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (!optString.equals("ba")) {
+                c.e(TAG, "module val is not ba");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else {
+                try {
+                    jSONObject = new JSONObject(unitedSchemeEntity.getParam("params"));
+                    if (jSONObject != null) {
+                        try {
+                            str = jSONObject.optString("cb");
+                        } catch (JSONException e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (str != null) {
+                            }
+                            c.e(TAG, "KYE_CALL_BACK_NAME is null");
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                            return false;
+                        }
+                    }
+                } catch (JSONException e2) {
+                    e = e2;
+                    jSONObject = null;
+                }
+                if (str != null || jSONObject == null) {
+                    c.e(TAG, "KYE_CALL_BACK_NAME is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                boolean e3 = e(context, jSONObject);
+                JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(new JSONObject(), 0);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                callbackHandler.handleSchemeDispatchCallback(str, wrapCallbackParams.toString());
+                c.e(TAG, e3 ? "navigateToForum succ" : " navigateToForum fail");
+                return true;
+            }
+        }
+    }
+
+    private boolean e(Context context, JSONObject jSONObject) {
+        String str = null;
+        try {
+            str = jSONObject.optJSONObject("params").optString(TbTitleActivityConfig.FORUM_NAME);
+        } catch (Exception e) {
+            e.printStackTrace();
+            c.e(TAG, "params parse exception:", e);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        FrsActivityConfig createNormalCfg = new FrsActivityConfig(context).createNormalCfg(str, "smart_app");
+        createNormalCfg.setCallFrom(12);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
+        return true;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
+    public Class<? extends UnitedSchemeAbsDispatcher> getSubDispatcher(String str) {
+        return null;
     }
 }

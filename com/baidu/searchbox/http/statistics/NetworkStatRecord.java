@@ -4,11 +4,18 @@ import android.text.TextUtils;
 import com.baidu.searchbox.websocket.WebSocketRequest;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class NetworkStatRecord {
     public static final String HEAD_X_BFE_SVBBRERS = "X-Bfe-Svbbrers";
+    public List<InetAddress> addressList;
+    public String bdTraceId;
     public String clientIP;
     public String errheaders;
     public Exception exception;
@@ -20,6 +27,7 @@ public class NetworkStatRecord {
     public String protocol;
     public String remoteIP;
     public String url;
+    public boolean useFallbackConn;
     public long startTs = -1;
     public long connTs = -1;
     public long responseTs = -1;
@@ -65,6 +73,10 @@ public class NetworkStatRecord {
                 jSONObject.put("dnsEndTime", this.dnsEndTs);
             }
             if (!TextUtils.isEmpty(this.dnsDetail.toString())) {
+                jSONObject.put("dnsDetail", this.dnsDetail);
+            }
+            if (this.isConnReused && this.addressList != null && !this.addressList.isEmpty() && this.dnsDetail.optJSONArray("ipList") == null) {
+                this.dnsDetail.put("ipList", parseAddressList());
                 jSONObject.put("dnsDetail", this.dnsDetail);
             }
             if (this.sendHeaderTs != -1) {
@@ -117,6 +129,10 @@ public class NetworkStatRecord {
             jSONObject.put("from", this.from);
             jSONObject.put("socketReuse", this.isConnReused ? "1" : "0");
             jSONObject.put("ipStack", this.ipStack);
+            jSONObject.put("useFallback", this.useFallbackConn ? "1" : "0");
+            if (!TextUtils.isEmpty(this.bdTraceId)) {
+                jSONObject.put("bdTraceId", this.bdTraceId);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -160,5 +176,15 @@ public class NetworkStatRecord {
 
     public boolean isNeedFinishRightNow() {
         return (this.exception == null && this.statusCode == 200) ? false : true;
+    }
+
+    private JSONArray parseAddressList() {
+        ArrayList arrayList = new ArrayList();
+        for (InetAddress inetAddress : this.addressList) {
+            if (!TextUtils.isEmpty(inetAddress.getHostAddress())) {
+                arrayList.add(inetAddress.getHostAddress());
+            }
+        }
+        return new JSONArray((Collection) arrayList);
     }
 }

@@ -10,77 +10,78 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 import com.baidu.live.tbadk.TbConfig;
-import com.baidu.live.view.web.f;
+import com.baidu.live.view.web.g;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.b.b {
-    private c evB;
-    private CustomMessageListener evC;
-    private PopupWindow.OnDismissListener evD;
-    private Activity mContext;
+    private Activity caH;
+    private c eYW;
+    private CustomMessageListener eYX;
+    private PopupWindow.OnDismissListener eYY;
 
     public b(Activity activity) {
-        this.mContext = activity;
-        bdM();
+        this.caH = activity;
+        bmD();
     }
 
     @Override // com.baidu.live.b.b
     public void c(String str, long j, long j2) {
-        this.evB = new c(this.mContext);
-        this.evB.setOnDismissListener(this.evD);
-        this.evB.bdN().setBackgroundColor(xM(str));
-        f fVar = new f();
-        fVar.y(this.mContext).a(this.evB).a(this.evB.bdN().getSchemeCallback());
-        com.baidu.live.view.web.a[] BJ = fVar.BJ();
-        for (com.baidu.live.view.web.a aVar : BJ) {
-            this.evB.bdN().addJavascriptInterface(aVar, aVar.getName());
+        this.eYW = new c(this.caH);
+        this.eYW.setOnDismissListener(this.eYY);
+        this.eYW.bmE().setBackgroundColor(zq(str));
+        g gVar = new g();
+        gVar.u(this.caH).a(this.eYW).a(this.eYW.bmE().getSchemeCallback());
+        com.baidu.live.view.web.a[] HN = gVar.HN();
+        for (com.baidu.live.view.web.a aVar : HN) {
+            this.eYW.bmE().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.evB.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.eYW.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
     public void resume() {
-        if (this.evB != null && this.evB.isShowing() && this.evB.bdN() != null) {
-            this.evB.bdN().onResume();
+        if (this.eYW != null && this.eYW.isShowing() && this.eYW.bmE() != null) {
+            this.eYW.bmE().onResume();
         }
     }
 
     @Override // com.baidu.live.b.b
     public void pause() {
-        if (this.evB != null && this.evB.isShowing() && this.evB.bdN() != null) {
-            this.evB.bdN().onPause();
+        if (this.eYW != null && this.eYW.isShowing() && this.eYW.bmE() != null) {
+            this.eYW.bmE().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.evB != null) {
-            this.evB.bdO();
+        if (this.eYW != null) {
+            this.eYW.bmF();
         }
     }
 
-    public void sQ() {
+    public void xj() {
         dismiss();
     }
 
     @Override // com.baidu.live.b.b
     public void release() {
-        sQ();
-        MessageManager.getInstance().unRegisterListener(this.evC);
+        xj();
+        MessageManager.getInstance().unRegisterListener(this.eYX);
     }
 
-    private void bdM() {
-        this.evC = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
+    private void bmD() {
+        this.eYX = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.evB != null && b.this.evB.isShowing()) {
-                    b.this.evB.dismiss();
+                if (b.this.eYW != null && b.this.eYW.isShowing()) {
+                    b.this.eYW.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.evC);
+        MessageManager.getInstance().registerListener(this.eYX);
     }
 
-    private int xM(String str) {
+    private int zq(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -91,7 +92,7 @@ public class b implements com.baidu.live.b.b {
         }
         try {
             int parseInt = Integer.parseInt(queryParameter.substring(6, 8), 16);
-            return (parseInt < 0 || parseInt > 255) ? 0 : ColorUtils.setAlphaComponent(Color.parseColor('#' + queryParameter.substring(0, 6)), parseInt);
+            return (parseInt < 0 || parseInt > 255) ? 0 : ColorUtils.setAlphaComponent(Color.parseColor(UgcConstant.TOPIC_PATTERN_TAG + queryParameter.substring(0, 6)), parseInt);
         } catch (Exception e) {
             return 0;
         }

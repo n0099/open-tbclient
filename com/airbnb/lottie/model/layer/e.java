@@ -9,28 +9,28 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e extends a {
-    private final com.airbnb.lottie.a.a.c gz;
+    private final com.airbnb.lottie.a.a.c Cb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(com.airbnb.lottie.g gVar, Layer layer) {
         super(gVar, layer);
-        this.gz = new com.airbnb.lottie.a.a.c(gVar, this, new j("__container", layer.cj()));
-        this.gz.b(Collections.emptyList(), Collections.emptyList());
+        this.Cb = new com.airbnb.lottie.a.a.c(gVar, this, new j("__container", layer.hG()));
+        this.Cb.b(Collections.emptyList(), Collections.emptyList());
     }
 
     @Override // com.airbnb.lottie.model.layer.a
     void b(@NonNull Canvas canvas, Matrix matrix, int i) {
-        this.gz.a(canvas, matrix, i);
+        this.Cb.a(canvas, matrix, i);
     }
 
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.gz.a(rectF, this.iY);
+        this.Cb.a(rectF, this.Eu);
     }
 
     @Override // com.airbnb.lottie.model.layer.a
     protected void b(com.airbnb.lottie.model.e eVar, int i, List<com.airbnb.lottie.model.e> list, com.airbnb.lottie.model.e eVar2) {
-        this.gz.a(eVar, i, list, eVar2);
+        this.Cb.a(eVar, i, list, eVar2);
     }
 }

@@ -12,10 +12,8 @@ import android.view.KeyCharacterMap;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import com.baidu.android.util.devices.IDevices;
-import com.baidu.android.util.sp.PreferenceUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -172,16 +170,16 @@ public class DeviceUtil implements IDevices {
         }
 
         public static int getRealScreenHeight(@Nullable Context context) {
-            WindowManager windowManager;
-            int i = PreferenceUtils.getInt("KEY_REAL_SCREENSIZE_HEIGHT", -1);
-            if (i >= 0 || (windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService("window")) == null) {
-                return i;
+            WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService("window");
+            if (windowManager == null) {
+                return -1;
             }
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
-            int i2 = displayMetrics.heightPixels;
-            PreferenceUtils.setInt("KEY_REAL_SCREENSIZE_HEIGHT", i2);
-            return i2;
+            if (OSInfo.hasJellyBeanMR1()) {
+                windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
+                return displayMetrics.heightPixels;
+            }
+            return getDisplayHeight(context);
         }
 
         public static int getScreenOriginDensityDip() {
@@ -234,7 +232,7 @@ public class DeviceUtil implements IDevices {
 
         public static int getStatusBarHeight() {
             int i = 0;
-            int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS);
+            int identifier = AppRuntime.getAppContext().getResources().getIdentifier("status_bar_height", "dimen", "android");
             if (identifier > 0) {
                 try {
                     i = AppRuntime.getAppContext().getResources().getDimensionPixelSize(identifier);
@@ -254,7 +252,7 @@ public class DeviceUtil implements IDevices {
                 return 0;
             }
             Resources resources = AppRuntime.getAppContext().getResources();
-            return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS));
+            return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
         }
 
         public static boolean isScreenPortrait() {
@@ -285,18 +283,12 @@ public class DeviceUtil implements IDevices {
         }
 
         public static String getRealScreenSize(@Nullable Context context) {
-            String string = PreferenceUtils.getString("KEY_REAL_SCREENSIZE", "");
-            if (TextUtils.isEmpty(string)) {
-                int displayWidth = getDisplayWidth(context);
-                int realScreenHeight = getRealScreenHeight(context);
-                if (displayWidth > 0 && realScreenHeight > 0) {
-                    String str = displayWidth + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + realScreenHeight;
-                    PreferenceUtils.setString("KEY_REAL_SCREENSIZE", str);
-                    return str;
-                }
-                return string;
+            int displayWidth = getDisplayWidth(context);
+            int realScreenHeight = getRealScreenHeight(context);
+            if (displayWidth <= 0 || realScreenHeight <= 0) {
+                return "";
             }
-            return string;
+            return displayWidth + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + realScreenHeight;
         }
     }
 
@@ -332,7 +324,22 @@ public class DeviceUtil implements IDevices {
     }
 
     public static boolean isSupportFoldable() {
-        return Build.MODEL.equals("SM-F9000") || Build.MODEL.equals("RLI-AN00");
+        if (isMateX()) {
+            return true;
+        }
+        return Build.MODEL.equals("SM-F9000");
+    }
+
+    public static boolean isMateX() {
+        String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m"};
+        if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
+            for (String str : strArr) {
+                if (str.equalsIgnoreCase(Build.MODEL)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /* loaded from: classes12.dex */
@@ -399,7 +406,7 @@ public class DeviceUtil implements IDevices {
             return lowerCase;
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [879=5, 881=4, 882=4, 883=4] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [901=5, 903=4, 904=4, 905=4] */
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x006c */
         /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.io.RandomAccessFile */
         /* JADX WARN: Multi-variable type inference failed */

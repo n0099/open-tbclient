@@ -13,19 +13,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableRetryWhen<T> extends a<T, T> {
-    final h<? super q<Throwable>, ? extends t<?>> nza;
+    final h<? super q<Throwable>, ? extends t<?>> mSy;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        io.reactivex.subjects.b<T> dKt = PublishSubject.dKs().dKt();
+        io.reactivex.subjects.b<T> dDs = PublishSubject.dDr().dDs();
         try {
-            t tVar = (t) io.reactivex.internal.functions.a.h(this.nza.apply(dKt), "The handler returned a null ObservableSource");
-            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, dKt, this.source);
+            t tVar = (t) io.reactivex.internal.functions.a.h(this.mSy.apply(dDs), "The handler returned a null ObservableSource");
+            RepeatWhenObserver repeatWhenObserver = new RepeatWhenObserver(uVar, dDs, this.source);
             uVar.onSubscribe(repeatWhenObserver);
             tVar.subscribe(repeatWhenObserver.inner);
             repeatWhenObserver.subscribeNext();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             EmptyDisposable.error(th, uVar);
         }
     }

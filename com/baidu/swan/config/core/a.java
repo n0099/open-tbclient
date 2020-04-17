@@ -2,6 +2,7 @@ package com.baidu.swan.config.core;
 
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import java.io.IOException;
 import java.util.Iterator;
@@ -10,7 +11,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class a extends ResponseCallback<JSONObject> {
-    protected abstract void aR(long j);
+    protected abstract void bw(long j);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -42,7 +43,7 @@ public abstract class a extends ResponseCallback<JSONObject> {
             }
             return;
         }
-        int optInt = jSONObject.optInt("errno");
+        int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
         if (optInt != 0) {
             if (com.baidu.swan.config.e.DEBUG) {
                 Log.e("AbsGetConfigResponse", "pares response date errCode = " + optInt);
@@ -63,8 +64,8 @@ public abstract class a extends ResponseCallback<JSONObject> {
         }
         int optInt2 = optJSONObject.optInt("max_age", 0);
         optJSONObject.remove("max_age");
-        bh(optJSONObject);
-        aR(optInt2);
+        bs(optJSONObject);
+        bw(optInt2);
     }
 
     @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -74,7 +75,7 @@ public abstract class a extends ResponseCallback<JSONObject> {
         }
     }
 
-    private void bh(JSONObject jSONObject) {
+    private void bs(JSONObject jSONObject) {
         com.baidu.swan.config.core.b.c b;
         if (jSONObject != null) {
             Iterator<String> keys = jSONObject.keys();
@@ -82,7 +83,7 @@ public abstract class a extends ResponseCallback<JSONObject> {
                 String next = keys.next();
                 ConfigNode nodeByConfigName = ConfigNode.getNodeByConfigName(next);
                 if (nodeByConfigName != null && (b = com.baidu.swan.config.core.b.b.b(nodeByConfigName)) != null) {
-                    b.bj(jSONObject.optJSONObject(next));
+                    b.bu(jSONObject.optJSONObject(next));
                 }
             }
         }

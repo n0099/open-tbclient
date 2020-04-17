@@ -1,6 +1,4 @@
 package com.vivo.push.b;
-
-import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
 public final class j extends s {
     private String a;
@@ -23,7 +21,7 @@ public final class j extends s {
     @Override // com.vivo.push.b.s, com.vivo.push.y
     public final void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a(Constants.APP_ID, this.a);
+        aVar.a("app_id", this.a);
         aVar.a("client_id", this.b);
         aVar.a("client_token", this.c);
     }
@@ -32,7 +30,7 @@ public final class j extends s {
     @Override // com.vivo.push.b.s, com.vivo.push.y
     public final void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.a = aVar.a(Constants.APP_ID);
+        this.a = aVar.a("app_id");
         this.b = aVar.a("client_id");
         this.c = aVar.a("client_token");
     }

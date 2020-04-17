@@ -1,18 +1,19 @@
 package com.baidu.live.guardclub;
 
 import android.text.TextUtils;
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    public String adM;
-    public int aqA;
-    public int aqb;
-    public long aqc;
-    public boolean aqx;
-    public String aqy;
-    public String aqz;
+    public int aIK;
+    public long aIL;
+    public boolean aJg;
+    public String aJh;
+    public String aJi;
+    public int aJj;
+    public String awd;
     public String portrait;
     public String rank;
     public String score;
@@ -46,10 +47,10 @@ public class f {
                         str = str5;
                         this.userId = str;
                         this.userName = jSONObject.optString("user_name");
-                        this.score = jSONObject.optString("score");
+                        this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
                         this.rank = jSONObject.optString("rank");
-                        this.aqx = jSONObject.optInt("follow_status") != 1;
-                        this.aqy = jSONObject.optString("guard_club_id");
+                        this.aJg = jSONObject.optInt("follow_status") != 1;
+                        this.aJh = jSONObject.optString("guard_club_id");
                         String str6 = "0";
                         str2 = jSONObject.optString("anchor_id");
                         try {
@@ -60,19 +61,19 @@ public class f {
                             e = e2;
                             e.printStackTrace();
                             str2 = str6;
-                            this.adM = str2;
-                            this.aqb = jSONObject.optInt("member_level");
-                            this.aqc = jSONObject.optLong("next_level_need_score");
+                            this.awd = str2;
+                            this.aIK = jSONObject.optInt("member_level");
+                            this.aIL = jSONObject.optLong("next_level_need_score");
                             this.portrait = jSONObject.optString("portrait");
-                            this.aqz = jSONObject.optString("bd_portrait");
-                            this.aqA = jSONObject.optInt("attenuat_date");
+                            this.aJi = jSONObject.optString("bd_portrait");
+                            this.aJj = jSONObject.optInt("attenuat_date");
                         }
-                        this.adM = str2;
-                        this.aqb = jSONObject.optInt("member_level");
-                        this.aqc = jSONObject.optLong("next_level_need_score");
+                        this.awd = str2;
+                        this.aIK = jSONObject.optInt("member_level");
+                        this.aIL = jSONObject.optLong("next_level_need_score");
                         this.portrait = jSONObject.optString("portrait");
-                        this.aqz = jSONObject.optString("bd_portrait");
-                        this.aqA = jSONObject.optInt("attenuat_date");
+                        this.aJi = jSONObject.optString("bd_portrait");
+                        this.aJj = jSONObject.optInt("attenuat_date");
                     }
                 } catch (Exception e3) {
                     BdLog.e(e3.getMessage());
@@ -83,10 +84,10 @@ public class f {
             }
             this.userId = str;
             this.userName = jSONObject.optString("user_name");
-            this.score = jSONObject.optString("score");
+            this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.rank = jSONObject.optString("rank");
-            this.aqx = jSONObject.optInt("follow_status") != 1;
-            this.aqy = jSONObject.optString("guard_club_id");
+            this.aJg = jSONObject.optInt("follow_status") != 1;
+            this.aJh = jSONObject.optString("guard_club_id");
             String str62 = "0";
             try {
                 str2 = jSONObject.optString("anchor_id");
@@ -96,12 +97,12 @@ public class f {
             } catch (NumberFormatException e5) {
                 e = e5;
             }
-            this.adM = str2;
-            this.aqb = jSONObject.optInt("member_level");
-            this.aqc = jSONObject.optLong("next_level_need_score");
+            this.awd = str2;
+            this.aIK = jSONObject.optInt("member_level");
+            this.aIL = jSONObject.optLong("next_level_need_score");
             this.portrait = jSONObject.optString("portrait");
-            this.aqz = jSONObject.optString("bd_portrait");
-            this.aqA = jSONObject.optInt("attenuat_date");
+            this.aJi = jSONObject.optString("bd_portrait");
+            this.aJj = jSONObject.optInt("attenuat_date");
         }
     }
 }

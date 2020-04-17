@@ -1,22 +1,23 @@
 package com.baidu.swan.config.d;
 
+import com.baidu.android.imsdk.db.TableDefine;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.config.core.b.a {
     @Override // com.baidu.swan.config.core.b.c
-    public void bj(JSONObject jSONObject) {
+    public void bu(JSONObject jSONObject) {
         int optInt;
         JSONArray optJSONArray;
-        JSONObject bi = bi(jSONObject);
-        if (bi != null && (optInt = bi.optInt("version")) > 0 && (optJSONArray = bi.optJSONArray("tips")) != null) {
+        JSONObject bt = bt(jSONObject);
+        if (bt != null && (optInt = bt.optInt("version")) > 0 && (optJSONArray = bt.optJSONArray(TableDefine.MessageColumns.COLUME_TIPS)) != null) {
             HashMap<String, String> hashMap = new HashMap<>(optJSONArray.length());
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
             }
-            c.ajl().c(hashMap, optInt);
+            c.art().c(hashMap, optInt);
         }
     }
 }

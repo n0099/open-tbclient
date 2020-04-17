@@ -6,7 +6,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class e extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.a.c> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String Tv() {
+    public String abk() {
         return "showsoftkeyboard";
     }
 
@@ -15,6 +15,6 @@ public class e extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.a.c> {
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.r.a.c cVar) {
         int i = command.arg1;
         a(cVar, command.what, "Type:" + i, true);
-        cVar.eX(i);
+        cVar.fc(i);
     }
 }

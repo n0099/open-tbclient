@@ -3,12 +3,9 @@ package tv.danmaku.ijk.media.player;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Rect;
-import android.media.MediaCodecInfo;
-import android.media.MediaCodecList;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -22,9 +19,12 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.os.PowerManager;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.SDKVersion;
@@ -33,11 +33,13 @@ import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
 import com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.live.adp.widget.HorizontalTranslateLayout;
+import com.baidu.live.tbadk.core.data.RequestResponseCode;
 import com.baidu.media.duplayer.DuplayerCore;
 import com.baidu.media.duplayer.Keep;
 import com.baidu.media.duplayer.Utils;
 import com.baidu.mobstat.Config;
 import com.tencent.connect.common.Constants;
+import com.tencent.open.SocialConstants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -48,7 +50,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -98,46 +99,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         @Override // tv.danmaku.ijk.media.player.IjkMediaPlayer.d
         @TargetApi(16)
         public String a(tv.danmaku.ijk.media.player.b bVar, String str, int i, int i2) {
-            tv.danmaku.ijk.media.player.c cVar;
-            String[] supportedTypes;
-            tv.danmaku.ijk.media.player.c a2;
-            if (Build.VERSION.SDK_INT >= 16 && !TextUtils.isEmpty(str)) {
-                CyberLog.d("IjkMediaPlayer", String.format(Locale.US, "onSelectCodec: mime=%s, profile=%d, level=%d", str, Integer.valueOf(i), Integer.valueOf(i2)));
-                ArrayList arrayList = new ArrayList();
-                int codecCount = MediaCodecList.getCodecCount();
-                for (int i3 = 0; i3 < codecCount; i3++) {
-                    MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i3);
-                    if (!codecInfoAt.isEncoder() && (supportedTypes = codecInfoAt.getSupportedTypes()) != null) {
-                        for (String str2 : supportedTypes) {
-                            if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(str) && (a2 = tv.danmaku.ijk.media.player.c.a(codecInfoAt, str)) != null) {
-                                arrayList.add(a2);
-                            }
-                        }
-                    }
-                }
-                if (arrayList.isEmpty()) {
-                    return null;
-                }
-                tv.danmaku.ijk.media.player.c cVar2 = (tv.danmaku.ijk.media.player.c) arrayList.get(0);
-                Iterator it = arrayList.iterator();
-                while (true) {
-                    cVar = cVar2;
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    cVar2 = (tv.danmaku.ijk.media.player.c) it.next();
-                    if (cVar2.b <= cVar.b) {
-                        cVar2 = cVar;
-                    }
-                }
-                if (cVar.b < 600) {
-                    CyberLog.i("IjkMediaPlayer", String.format(Locale.US, "unaccetable codec: %s", cVar.a.getName()));
-                    return null;
-                }
-                CyberLog.d("IjkMediaPlayer", String.format(Locale.US, "selected codec: %s rank=%d", cVar.a.getName(), Integer.valueOf(cVar.b)));
-                return cVar.a.getName();
-            }
-            return null;
+            return com.baidu.media.duplayer.c.a(str);
         }
     }
 
@@ -179,6 +141,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                         jSONObject.put(String.format("P3%s_%s", str2, next), jSONObject2.getString(next));
                     }
                 }
+                jSONObject.put("first_disp_notify_time", "" + SystemClock.elapsedRealtime());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -227,10 +190,10 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                     return;
                 case 99:
                     if (message.obj == null) {
-                        ijkMediaPlayer.a((tv.danmaku.ijk.media.player.d) null);
+                        ijkMediaPlayer.a((tv.danmaku.ijk.media.player.c) null);
                         return;
                     } else {
-                        ijkMediaPlayer.a(new tv.danmaku.ijk.media.player.d(new Rect(0, 0, 1, 1), (String) message.obj));
+                        ijkMediaPlayer.a(new tv.danmaku.ijk.media.player.c(new Rect(0, 0, 1, 1), (String) message.obj));
                         return;
                     }
                 case 100:
@@ -262,6 +225,10 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                         case CyberPlayerManager.MEDIA_INFO_SERVER_CHANGE /* 931 */:
                             CyberLog.d("IjkMediaPlayer", "Info: MEDIA_INFO_SERVER_CHANGE server : " + ((String) message.obj));
                             ijkMediaPlayer.b(5000, message.arg2, message.obj);
+                            return;
+                        case RequestResponseCode.REQUEST_ALBUM_IMAGE /* 12002 */:
+                            CyberLog.d("IjkMediaPlayer", "DP_MEDIA_INFO_SR_REMAINING_NB:" + message.arg2);
+                            CyberCfgManager.getInstance().setPrefStr(CyberCfgManager.SR_REMAINING_INFO, System.currentTimeMillis() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + message.arg2);
                             return;
                         default:
                             ijkMediaPlayer.b(message.arg1, message.arg2, message.obj);
@@ -423,10 +390,12 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                     return;
                 case 21:
                     if (message.obj == null || !(message.obj instanceof String)) {
+                        IjkMediaPlayer._changeHttpProxy(null, "false");
+                        return;
+                    } else {
+                        IjkMediaPlayer._changeHttpProxy((String) message.obj, message.arg1 == 1 ? "true" : "false");
                         return;
                     }
-                    IjkMediaPlayer._changeHttpProxy((String) message.obj, message.arg1 == 1 ? "true" : "false");
-                    return;
                 case 22:
                     Bundle data = message.getData();
                     if (data != null) {
@@ -565,15 +534,6 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         return false;
     }
 
-    private static String b(String str, String str2) {
-        try {
-            return new JSONObject(new JSONObject(str).getString("items")).getString(str2);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-            return null;
-        }
-    }
-
     private boolean b(Context context, Uri uri) {
         boolean z = false;
         AssetFileDescriptor assetFileDescriptor = null;
@@ -620,11 +580,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                     return;
                 }
                 try {
-                    if (openAssetFileDescriptor.getDeclaredLength() < 0) {
-                        a(openAssetFileDescriptor.getFileDescriptor());
-                    } else {
-                        a(openAssetFileDescriptor.getFileDescriptor());
-                    }
+                    a(openAssetFileDescriptor.getFileDescriptor());
                     if (openAssetFileDescriptor != null) {
                         openAssetFileDescriptor.close();
                     }
@@ -649,25 +605,6 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                 assetFileDescriptor2.close();
             }
         }
-    }
-
-    private static void c(String str) {
-        int i = 0;
-        String b2 = b(str, "prefetch_flow_bytes");
-        if (TextUtils.isEmpty(b2)) {
-            return;
-        }
-        SharedPreferences sharedPreferences = CyberPlayerManager.getApplicationContext().getSharedPreferences("prefetch_preferences", 0);
-        int parseInt = Integer.parseInt(b2) + sharedPreferences.getInt("prefetch_flow_bytes", -1);
-        if (parseInt >= CyberPlayerManager.getPrefetchUploadThres()) {
-            CyberLog.i("IjkMediaPlayer", "pretch flow upload:" + parseInt);
-            DpSessionDatasUploader.getInstance().upload(String.valueOf(parseInt), DpSessionDatasUploader.SAILOR_MONITOR);
-        } else {
-            i = parseInt;
-        }
-        SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putInt("prefetch_flow_bytes", i);
-        edit.commit();
     }
 
     private boolean c(int i) {
@@ -722,7 +659,10 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
                     }
                 }
                 DuplayerCore.nativeStatisticInit(packageName, str, sDKVersion, SDKVersion.VERSION, b2, CyberPlayerManager.getClientID(), networkStatisticsData, CyberPlayerManager.getInstallOpts().get("abtest_sid"));
-                DuplayerCore.nativeSetCpuInfo(Build.HARDWARE, Build.FINGERPRINT);
+                DuplayerCore.nativeSetInfo(HttpConstants.HTTP_HARDWARE, Build.HARDWARE);
+                DuplayerCore.nativeSetInfo("model", Build.MODEL);
+                DuplayerCore.nativeSetInfo("os_version", Build.VERSION.RELEASE);
+                DuplayerCore.nativeSetInfo(HttpConstants.HTTP_OS_TYPE, "Android");
                 t = true;
             }
         }
@@ -737,7 +677,11 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         if (b2 == null || b2.size() <= 0) {
             return null;
         }
-        return b2.get(0);
+        StringBuilder sb = new StringBuilder();
+        for (String str2 : b2) {
+            sb.append(str2).append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+        }
+        return sb.toString();
     }
 
     @Keep
@@ -791,7 +735,6 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(IjkMediaPlayer ijkMediaPlayer) {
-        ijkMediaPlayer._setOption(4, "duplayer-low-bitrate-choose-decoder", CyberCfgManager.getInstance().getCfgIntValue(CyberCfgManager.KEY_INT_ENABLE_LOW_BITRATE_CHOOSE_DECODER, 1));
         if (CyberCfgManager.getInstance().getCfgIntValue(CyberCfgManager.KEY_ACCURATE_SEEK_ENABLE, 1) == 0) {
             ijkMediaPlayer._setOption(4, "enable-accurate-seek", 0L);
         }
@@ -883,17 +826,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     @Keep
     private static void onUploadStatisticData(Object obj, String str, int i) {
-        switch (i) {
-            case CyberPlayerManager.DP_MSG_PREFETCH_BYTES /* 950 */:
-                if (CyberPlayerManager.getPrefetchUploadThres() > 0) {
-                    c(str);
-                    return;
-                }
-                return;
-            default:
-                DpSessionDatasUploader.getInstance().upload(str, DpSessionDatasUploader.SAILOR_MONITOR);
-                return;
-        }
+        DpSessionDatasUploader.getInstance().upload(str, DpSessionDatasUploader.SAILOR_MONITOR, i);
     }
 
     @Keep
@@ -940,8 +873,8 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
             }
         }
         this.p = false;
-        if (Thread.currentThread() == Looper.getMainLooper().getThread() || !Utils.d(CyberPlayerManager.getApplicationContext()) || CyberCfgManager.getInstance().getCfgBoolValue(CyberCfgManager.KEY_INT_ENABLE_PLAYER_THREAD, true)) {
-            this.n = com.baidu.media.duplayer.a.b.DQ().DS();
+        if (!Utils.d(CyberPlayerManager.getApplicationContext()) || Thread.currentThread() == Looper.getMainLooper().getThread()) {
+            this.n = com.baidu.media.duplayer.a.b.JJ().JL();
             this.o = new f(this, this.n.getLooper());
             CyberLog.i("IjkMediaPlayer", "create player in main thread, use request handler. thread:" + Thread.currentThread().getName() + " request thread:" + this.n.getName() + " mRequestHandler:" + this.o);
             this.p = true;
@@ -979,7 +912,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     private synchronized void y() {
         if (this.p) {
-            com.baidu.media.duplayer.a.b.DQ().a(this.n);
+            com.baidu.media.duplayer.a.b.JJ().a(this.n);
             this.n = null;
         }
     }
@@ -1148,6 +1081,7 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
 
     public void a(String str) {
         this.l = str;
+        com.baidu.media.duplayer.a.a(SocialConstants.PARAM_PLAY_URL, str);
         if (a(8, 0, 0, str)) {
             return;
         }
@@ -1210,9 +1144,10 @@ public final class IjkMediaPlayer extends tv.danmaku.ijk.media.player.a {
         this.q = i;
         if (this.q == 1) {
             a(4, "mediacodec-all-videos", 0L);
-        } else if (this.q == 2) {
+        } else if (this.q == 2 || this.q == 0) {
             a(4, "mediacodec-all-videos", 1L);
         }
+        a(4, "decode-mode", i);
     }
 
     public void b(int i, String str, String str2) {

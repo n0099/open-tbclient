@@ -8,24 +8,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    public boolean XD;
-    public int XE;
-    public long XF;
-    public int XG;
-    public int XH;
-    public int XI;
-    public int XJ;
-    public long XK;
-    public int XL;
-    public int XM;
-    public long XN;
-    public int XO;
-    public int XP;
-    public String[] XQ;
-    public int XR;
-    public a XS;
-    public b XT;
     public int activityId;
+    public boolean apH;
+    public int apI;
+    public long apJ;
+    public int apK;
+    public int apL;
+    public int apM;
+    public int apN;
+    public long apO;
+    public int apP;
+    public int apQ;
+    public long apR;
+    public int apS;
+    public int apT;
+    public String[] apU;
+    public int apV;
+    public a apW;
+    public b apX;
     public long begin_time;
     public long end_time;
     public String jump_url;
@@ -39,58 +39,58 @@ public class f {
     public String webUrl;
 
     public void a(a aVar) {
-        this.XS = aVar;
+        this.apW = aVar;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.XD = jSONObject.optInt("is_new") == 1;
+            this.apH = jSONObject.optInt("is_new") == 1;
             this.pic_url = jSONObject.optString("pic_url");
             this.picType = jSONObject.optInt("pic_type");
             this.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-            this.XE = jSONObject.optInt("version_and");
-            this.XG = jSONObject.optInt("yule_show");
-            this.XH = jSONObject.optInt("yule_game");
-            this.XI = jSONObject.optInt("home_status");
-            this.XJ = jSONObject.optInt("guest_status");
-            this.XF = jSONObject.optLong("anchor_user_id");
-            this.XM = jSONObject.optInt("sequence_id");
-            this.XN = jSONObject.optLong("add_time");
+            this.apI = jSONObject.optInt("version_and");
+            this.apK = jSONObject.optInt("yule_show");
+            this.apL = jSONObject.optInt("yule_game");
+            this.apM = jSONObject.optInt("home_status");
+            this.apN = jSONObject.optInt("guest_status");
+            this.apJ = jSONObject.optLong("anchor_user_id");
+            this.apQ = jSONObject.optInt("sequence_id");
+            this.apR = jSONObject.optLong("add_time");
             this.begin_time = jSONObject.optLong("begin_time");
             this.end_time = jSONObject.optLong("end_time");
             this.pos = jSONObject.optInt("pos");
             this.position = jSONObject.optInt("position");
             this.type = jSONObject.optInt("type");
-            this.XK = jSONObject.optInt("challenge_live");
-            this.XL = jSONObject.optInt("normal_live");
-            this.XP = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+            this.apO = jSONObject.optInt("challenge_live");
+            this.apP = jSONObject.optInt("normal_live");
+            this.apT = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
             this.activityId = jSONObject.optInt("activity_id");
             this.showTime = jSONObject.optLong("show_time");
-            this.XO = jSONObject.optInt("need_show");
+            this.apS = jSONObject.optInt("need_show");
             this.webUrl = jSONObject.optString("h5_url");
-            this.XR = jSONObject.optInt("jump_type");
+            this.apV = jSONObject.optInt("jump_type");
             JSONArray optJSONArray = jSONObject.optJSONArray("info_fields");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                this.XQ = new String[length];
+                this.apU = new String[length];
                 for (int i = 0; i < length; i++) {
-                    this.XQ[i] = optJSONArray.optString(i);
+                    this.apU[i] = optJSONArray.optString(i);
                 }
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("pic_loc_info");
             if (optJSONObject != null) {
-                this.XT = new b(optJSONObject);
+                this.apX = new b(optJSONObject);
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public static class a {
-        public int XU;
-        public double XV;
-        public double XW;
-        public List<String> XX;
-        public List<String> XY;
+        public int apY;
+        public double apZ;
+        public double aqa;
+        public List<String> aqb;
+        public List<String> aqc;
         public long currentTime;
         public long endTime;
 
@@ -100,23 +100,23 @@ public class f {
         }
 
         void parseJson(JSONObject jSONObject) {
-            this.XU = jSONObject.optInt("switch");
-            this.XV = jSONObject.optDouble("guard_club_rate");
-            this.XW = jSONObject.optDouble("current_rate");
+            this.apY = jSONObject.optInt("switch");
+            this.apZ = jSONObject.optDouble("guard_club_rate");
+            this.aqa = jSONObject.optDouble("current_rate");
             this.currentTime = jSONObject.optLong("current_time");
             this.endTime = jSONObject.optLong("rate_end_time");
             JSONArray optJSONArray = jSONObject.optJSONArray("rate_gift_ids");
             if (optJSONArray != null) {
-                this.XX = new ArrayList();
+                this.aqb = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.XX.add(String.valueOf(optJSONArray.optLong(i)));
+                    this.aqb.add(String.valueOf(optJSONArray.optLong(i)));
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("speed_white_list");
             if (optJSONArray2 != null) {
-                this.XY = new ArrayList();
+                this.aqc = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    this.XY.add(String.valueOf(optJSONArray2.optLong(i2)));
+                    this.aqc.add(String.valueOf(optJSONArray2.optLong(i2)));
                 }
             }
         }

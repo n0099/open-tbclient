@@ -2,7 +2,7 @@ package com.baidu.sapi2.views;
 
 import android.app.Dialog;
 import android.content.Context;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 /* loaded from: classes6.dex */
 public class m extends Dialog {
     public m(Context context) {

@@ -5,6 +5,8 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import java.util.ArrayList;
+import org.json.JSONObject;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes9.dex */
 public class pbPageSocketResponseMessage extends SocketResponsedMessage {
@@ -54,7 +56,7 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 this.mAppealInfo = new com.baidu.tieba.pb.data.d();
                 if (pbPageResIdl.data.appeal_info != null) {
                     this.mAppealInfo.source = pbPageResIdl.data.appeal_info.source;
-                    this.mAppealInfo.iDi = pbPageResIdl.data.appeal_info.appeal_url;
+                    this.mAppealInfo.jno = pbPageResIdl.data.appeal_info.appeal_url;
                 }
                 if (pbPageResIdl.data.forum != null) {
                     this.mAppealInfo.forumName = pbPageResIdl.data.forum.name;
@@ -65,8 +67,16 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             return;
         }
         this.pbData = new com.baidu.tieba.pb.data.e();
-        this.pbData.yI(2);
+        this.pbData.zj(2);
         this.pbData.a(pbPageResIdl.data, this.context);
+        if (pbPageResIdl.data != null) {
+            JSONObject e = com.baidu.tieba.recapp.report.b.e(pbPageResIdl.data.thread);
+            ArrayList arrayList = new ArrayList();
+            if (e != null) {
+                arrayList.add(e);
+            }
+            com.baidu.tieba.recapp.report.b.cOf().en(arrayList);
+        }
         BdLog.detailException(null);
     }
 
@@ -75,10 +85,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         switch (this.updateType) {
             case 3:
-                i.cmD().a(this.cacheKey, this.isFromMark, bArr);
+                i.cxj().a(this.cacheKey, this.isFromMark, bArr);
                 return;
             case 4:
-                i.cmD().n(this.cacheKey, bArr);
+                i.cxj().n(this.cacheKey, bArr);
                 return;
             default:
                 return;

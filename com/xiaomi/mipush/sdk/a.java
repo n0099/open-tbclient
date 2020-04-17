@@ -49,9 +49,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         this.a.add(stringExtra);
         if (intExtra == 3000) {
-            ev.a(activity.getApplicationContext()).a(activity.getPackageName(), eu.m258a(intExtra), stringExtra, 3008, "App calls by business message is visiable");
+            ev.a(activity.getApplicationContext()).a(activity.getPackageName(), eu.m263a(intExtra), stringExtra, 3008, "App calls by business message is visiable");
         } else if (intExtra == 1000) {
-            ev.a(activity.getApplicationContext()).a(activity.getPackageName(), eu.m258a(intExtra), stringExtra, 1008, "app calls by notification message is visiable");
+            ev.a(activity.getApplicationContext()).a(activity.getPackageName(), eu.m263a(intExtra), stringExtra, 1008, "app calls by notification message is visiable");
         }
     }
 

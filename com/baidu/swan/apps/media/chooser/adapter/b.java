@@ -17,32 +17,32 @@ import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private String bCC;
-    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> bCD;
-    private int bCE;
-    private Activity mContext;
+    private Activity caH;
+    private String caX;
+    private ArrayList<com.baidu.swan.apps.media.chooser.model.a> caY;
+    private int caZ;
 
     public b(Activity activity, String str, ArrayList<com.baidu.swan.apps.media.chooser.model.a> arrayList) {
-        this.mContext = activity;
-        this.bCC = str;
-        this.bCD = arrayList;
-        this.bCE = (int) (af.dip2px(this.mContext, 50.0f) / 2.0f);
+        this.caH = activity;
+        this.caX = str;
+        this.caY = arrayList;
+        this.caZ = (int) (af.dip2px(this.caH, 50.0f) / 2.0f);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bCD == null) {
+        if (this.caY == null) {
             return 0;
         }
-        return this.bCD.size();
+        return this.caY.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i < 0 || i > this.bCD.size()) {
+        if (i < 0 || i > this.caY.size()) {
             return null;
         }
-        return this.bCD.get(i);
+        return this.caY.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -54,44 +54,44 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(a.g.swanapp_album_name_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.caH).inflate(a.g.swanapp_album_name_item, (ViewGroup) null);
             a aVar2 = new a(view);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        view.setBackground(this.mContext.getResources().getDrawable(a.e.swanapp_album_name_item_selector));
-        com.baidu.swan.apps.media.chooser.model.a aVar3 = this.bCD.get(i);
+        view.setBackground(this.caH.getResources().getDrawable(a.e.swanapp_album_name_item_selector));
+        com.baidu.swan.apps.media.chooser.model.a aVar3 = this.caY.get(i);
         if (aVar3 != null) {
-            aVar.titleTv.setText(aVar3.bx());
-            if (aVar3.bDr != null) {
-                aVar.bCG.setText(fq(aVar3.bDr.size()));
-                if (aVar3.bDr.get(0) != null && !TextUtils.isEmpty(aVar3.bDr.get(0).getPath())) {
-                    ImageRequestBuilder Y = ImageRequestBuilder.Y(Uri.fromFile(new File(aVar3.bDr.get(0).getPath())));
-                    Y.c(new d(this.bCE, this.bCE));
-                    Y.vD(true);
-                    aVar.bCF.setController(com.facebook.drawee.a.a.c.dlW().vo(false).bg(Y.dta()).c(aVar.bCF.getController()).dmN());
+            aVar.titleTv.setText(aVar3.gU());
+            if (aVar3.cbP != null) {
+                aVar.cbb.setText(fx(aVar3.cbP.size()));
+                if (aVar3.cbP.get(0) != null && !TextUtils.isEmpty(aVar3.cbP.get(0).getPath())) {
+                    ImageRequestBuilder Z = ImageRequestBuilder.Z(Uri.fromFile(new File(aVar3.cbP.get(0).getPath())));
+                    Z.c(new d(this.caZ, this.caZ));
+                    Z.vQ(true);
+                    aVar.cba.setController(com.facebook.drawee.a.a.c.dnP().vC(false).aW(Z.duW()).c(aVar.cba.getController()).doG());
                 }
             }
         }
         return view;
     }
 
-    private String fq(int i) {
-        return TextUtils.equals(this.bCC, "Image") ? this.mContext.getString(a.h.swanapp_image_pages, new Object[]{Integer.valueOf(i)}) : this.mContext.getString(a.h.swanapp_album_pages, new Object[]{Integer.valueOf(i)});
+    private String fx(int i) {
+        return TextUtils.equals(this.caX, "Image") ? this.caH.getString(a.h.swanapp_image_pages, new Object[]{Integer.valueOf(i)}) : this.caH.getString(a.h.swanapp_album_pages, new Object[]{Integer.valueOf(i)});
     }
 
     /* loaded from: classes11.dex */
     public class a {
-        SimpleDraweeView bCF;
-        TextView bCG;
+        SimpleDraweeView cba;
+        TextView cbb;
         TextView titleTv;
 
         public a(View view) {
-            this.bCF = (SimpleDraweeView) view.findViewById(a.f.album_name_item_img);
+            this.cba = (SimpleDraweeView) view.findViewById(a.f.album_name_item_img);
             this.titleTv = (TextView) view.findViewById(a.f.album_name_item_title);
-            this.bCG = (TextView) view.findViewById(a.f.album_name_item_number);
+            this.cbb = (TextView) view.findViewById(a.f.album_name_item_number);
         }
     }
 }

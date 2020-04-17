@@ -7,7 +7,7 @@ public interface e {
 
     void a(ICardInfo iCardInfo);
 
-    e bd(String str, int i);
+    e bn(String str, int i);
 
-    e dL(String str, String str2);
+    e ea(String str, String str2);
 }

@@ -15,10 +15,10 @@ import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 /* loaded from: classes8.dex */
 public class ApkDownloadBannerView extends LinearLayout implements b {
-    private BannerDownloadProgressBar dZK;
-    private BannerDownloadStateBar dZL;
-    private BannerDownloadStateBar dZM;
-    private int dZN;
+    private BannerDownloadProgressBar ezH;
+    private BannerDownloadStateBar ezI;
+    private BannerDownloadStateBar ezJ;
+    private int ezK;
     private int mMax;
     private View mRootView;
 
@@ -33,7 +33,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public ApkDownloadBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mMax = 100;
-        this.dZN = 1;
+        this.ezK = 1;
         initView(context);
         setDownloadStateBarPosition(1);
     }
@@ -44,26 +44,26 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
         setGravity(16);
         int dip2px = l.dip2px(getContext(), 22.0f);
         setPadding(dip2px, 0, dip2px, 0);
-        this.dZK = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
-        this.dZL = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
-        this.dZM = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
-        this.dZK.setTextColor(Color.parseColor("#999999"));
+        this.ezH = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
+        this.ezI = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
+        this.ezJ = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
+        this.ezH.setTextColor(Color.parseColor("#999999"));
     }
 
     public void setDownloadStateBarPosition(int i) {
-        this.dZN = i;
-        switch (this.dZN) {
+        this.ezK = i;
+        switch (this.ezK) {
             case 0:
-                this.dZL.setVisibility(0);
-                this.dZM.setVisibility(8);
+                this.ezI.setVisibility(0);
+                this.ezJ.setVisibility(8);
                 return;
             case 1:
-                this.dZL.setVisibility(8);
-                this.dZM.setVisibility(0);
+                this.ezI.setVisibility(8);
+                this.ezJ.setVisibility(0);
                 return;
             default:
-                this.dZL.setVisibility(0);
-                this.dZM.setVisibility(8);
+                this.ezI.setVisibility(0);
+                this.ezJ.setVisibility(8);
                 return;
         }
     }
@@ -71,11 +71,11 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ad.download.mvp.b
     public BannerDownloadStateBar getActionBar() {
-        return this.dZL.getVisibility() == 0 ? this.dZL : this.dZM;
+        return this.ezI.getVisibility() == 0 ? this.ezI : this.ezJ;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
-    public void bp(View view) {
+    public void bq(View view) {
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
@@ -84,29 +84,29 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
-    public void cX(int i) {
-        this.dZK.setProgress(i);
+    public void dm(int i) {
+        this.ezH.setProgress(i);
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
     public void a(DownloadStatus downloadStatus, int i) {
         switch (downloadStatus) {
             case STATUS_NONE:
-                cX(0);
-                this.dZK.setText("");
+                dm(0);
+                this.ezH.setText("");
                 break;
             case STATUS_SUCCESS:
             case STATUS_INSTALL_SUCCESS:
-                cX(this.mMax);
-                this.dZK.setText("");
+                dm(this.mMax);
+                this.ezH.setText("");
                 break;
             case STATUS_DOWNLOADING:
             case STATUS_PAUSED:
-                cX(i);
+                dm(i);
                 break;
             default:
-                cX(0);
-                this.dZK.setText("");
+                dm(0);
+                this.ezH.setText("");
                 break;
         }
         a(downloadStatus);

@@ -258,7 +258,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
                     final byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_body");
                     final String stringExtra = intent.getStringExtra("message_id");
                     final int intExtra = intent.getIntExtra("baidu_message_type", -1);
-                    final String stringExtra2 = intent.getStringExtra(Constants.APP_ID);
+                    final String stringExtra2 = intent.getStringExtra("app_id");
                     if (byteArrayExtra == null || byteArrayExtra2 == null || TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2) || intExtra == -1) {
                         sendCallback(context, intent, 2);
                     } else if (l.t(context, stringExtra) || !com.baidu.android.pushservice.c.a.a(context, stringExtra)) {

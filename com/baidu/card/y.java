@@ -19,18 +19,18 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class y extends d implements m<bj>, n {
-    private static final int La = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds62);
-    private bj KJ;
-    private ImageView Lb;
-    private FrameLayout Lc;
-    private int Le;
-    private final TextView Lf;
-    private View.OnClickListener Lg = new View.OnClickListener() { // from class: com.baidu.card.y.1
+    private static final int adX = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds62);
+    private bj adG;
+    private ImageView adY;
+    private FrameLayout adZ;
+    private int aea;
+    private final TextView aeb;
+    private View.OnClickListener aec = new View.OnClickListener() { // from class: com.baidu.card.y.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (y.this.KJ != null) {
+            if (y.this.adG != null) {
                 CustomMessage customMessage = new CustomMessage(2921428, y.this.mPageId);
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, y.this.KJ);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921428, y.this.adG);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
@@ -40,27 +40,27 @@ public class y extends d implements m<bj>, n {
     private LinearLayout mRootView;
 
     public y(Context context, int i) {
-        this.Le = 0;
-        this.Le = i;
+        this.aea = 0;
+        this.aea = i;
         this.mRootView = new LinearLayout(context);
         this.mRootView.setOrientation(1);
         this.mRootView.setGravity(5);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds61);
         layoutParams.rightMargin = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds40);
-        this.Lf = new TextView(context);
-        this.Lf.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds32));
-        this.Lf.setSingleLine();
-        this.Lf.setText(R.string.private_desc);
-        this.mRootView.addView(this.Lf, layoutParams);
-        this.Lb = new ImageView(context);
-        this.Lc = new FrameLayout(context);
-        this.Lc.addView(this.Lb, new FrameLayout.LayoutParams(La, La));
-        this.Lc.setOnClickListener(this.Lg);
+        this.aeb = new TextView(context);
+        this.aeb.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds32));
+        this.aeb.setSingleLine();
+        this.aeb.setText(R.string.private_desc);
+        this.mRootView.addView(this.aeb, layoutParams);
+        this.adY = new ImageView(context);
+        this.adZ = new FrameLayout(context);
+        this.adZ.addView(this.adY, new FrameLayout.LayoutParams(adX, adX));
+        this.adZ.setOnClickListener(this.aec);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams2.rightMargin = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds42);
         layoutParams2.bottomMargin = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds51);
-        this.mRootView.addView(this.Lc, layoutParams2);
+        this.mRootView.addView(this.adZ, layoutParams2);
         F(this.mRootView);
         setInsertIndex(-1);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
@@ -73,34 +73,34 @@ public class y extends d implements m<bj>, n {
     @Override // com.baidu.card.m
     /* renamed from: a */
     public void A(bj bjVar) {
-        this.KJ = bjVar;
+        this.adG = bjVar;
         if (bjVar == null) {
-            this.Lf.setVisibility(8);
-            this.Lc.setVisibility(8);
+            this.aeb.setVisibility(8);
+            this.adZ.setVisibility(8);
             return;
         }
         if (!isShow(2) || !bjVar.isPrivacy) {
-            this.Lf.setVisibility(8);
+            this.aeb.setVisibility(8);
         } else if (bjVar.isPrivacy) {
-            this.Lf.setVisibility(0);
-            am.setViewTextColor(this.Lf, (int) R.color.cp_cont_d);
+            this.aeb.setVisibility(0);
+            am.setViewTextColor(this.aeb, (int) R.color.cp_cont_d);
         }
         if (!isShow(4)) {
-            this.Lc.setVisibility(8);
+            this.adZ.setVisibility(8);
             return;
         }
-        this.Lc.setVisibility(0);
-        SvgManager.aGG().a(this.Lb, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.adZ.setVisibility(0);
+        SvgManager.aOU().a(this.adY, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private boolean isShow(int i) {
-        return (this.Le & i) > 0;
+        return (this.aea & i) > 0;
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        am.setViewTextColor(this.Lf, (int) R.color.cp_cont_d);
-        SvgManager.aGG().a(this.Lb, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        am.setViewTextColor(this.aeb, (int) R.color.cp_cont_d);
+        SvgManager.aOU().a(this.adY, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {

@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.support.v7.widget.ActivityChooserView;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -53,7 +54,7 @@ public class ThreadPoolService {
                 }
             }
         };
-        this.poolService = new ThreadPoolExecutor(Math.max(2, Math.min(CPU_COUNT - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), THREAD_FACTORY);
+        this.poolService = new ThreadPoolExecutor(Math.max(2, Math.min(CPU_COUNT - 1, 4)), (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), THREAD_FACTORY);
         if (Build.VERSION.SDK_INT >= 9) {
             this.poolService.allowCoreThreadTimeOut(true);
         }

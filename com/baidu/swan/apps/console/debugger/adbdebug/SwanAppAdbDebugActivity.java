@@ -22,13 +22,13 @@ public class SwanAppAdbDebugActivity extends Activity {
         }
         final Intent intent = getIntent();
         if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-            d.q(this, a.h.aiapps_adb_debug_lack_path).showToast();
+            d.k(this, a.h.aiapps_adb_debug_lack_path).showToast();
             if (DEBUG) {
                 Log.d("SwanAppAdbDebugActivity", "ADB Debug lack of app path");
             }
             finish();
         }
-        new g.a(this).e(getString(a.h.aiapps_adb_debug)).kI(getString(a.h.aiapps_adb_debug_alert)).a(new com.baidu.swan.apps.view.c.a()).dE(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.debugger.adbdebug.SwanAppAdbDebugActivity.2
+        new g.a(this).e(getString(a.h.aiapps_adb_debug)).lV(getString(a.h.aiapps_adb_debug_alert)).a(new com.baidu.swan.apps.view.c.a()).eA(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.debugger.adbdebug.SwanAppAdbDebugActivity.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 intent.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
@@ -40,6 +40,6 @@ public class SwanAppAdbDebugActivity extends Activity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 SwanAppAdbDebugActivity.this.finish();
             }
-        }).acs();
+        }).akx();
     }
 }

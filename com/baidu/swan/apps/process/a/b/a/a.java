@@ -4,14 +4,14 @@ import android.support.annotation.Nullable;
 /* loaded from: classes11.dex */
 public class a<T> {
     @Nullable
-    private T bDt;
+    private T cbR;
 
     @Nullable
     public T getResult() {
-        return this.bDt;
+        return this.cbR;
     }
 
     public void l(T t) {
-        this.bDt = t;
+        this.cbR = t;
     }
 }

@@ -15,6 +15,8 @@ import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.IdentityManager;
 import com.baidu.down.utils.NamingThreadFactory;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -91,9 +93,9 @@ public final class StatisticPoster {
                 String str4 = str3;
                 if (it.hasNext()) {
                     HttpDNSInfo next = it.next();
-                    String str5 = next.mCDNSequence + "@";
+                    String str5 = next.mCDNSequence + UgcConstant.AT_RULE_TAG;
                     try {
-                        str5 = str5 + new URI(next.mUrl).getHost() + "@";
+                        str5 = str5 + new URI(next.mUrl).getHost() + UgcConstant.AT_RULE_TAG;
                     } catch (URISyntaxException e) {
                         e.printStackTrace();
                     }
@@ -103,7 +105,7 @@ public final class StatisticPoster {
                             if (next.mDownloadTimes == 0) {
                                 str2 = str6 + "0@";
                             } else {
-                                str2 = str6 + next.getTestAverageSpeed() + "@";
+                                str2 = str6 + next.getTestAverageSpeed() + UgcConstant.AT_RULE_TAG;
                             }
                             if (next.mHttpConnectTime != null && next.mHttpConnectTime.size() > 0) {
                                 long j2 = 0;
@@ -155,9 +157,9 @@ public final class StatisticPoster {
             jSONObject.put("dbtype", multiSrcBinaryTaskHandler.mMultiSrcStatData.dbtype + "");
             jSONObject.put("dlib", "1");
             if (TextUtils.isEmpty(multiSrcBinaryTaskHandler.mMultiSrcStatData.sid)) {
-                jSONObject.put("sid", "0");
+                jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SID, "0");
             } else {
-                jSONObject.put("sid", multiSrcBinaryTaskHandler.mMultiSrcStatData.sid);
+                jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SID, multiSrcBinaryTaskHandler.mMultiSrcStatData.sid);
             }
         } catch (JSONException e2) {
             e2.printStackTrace();

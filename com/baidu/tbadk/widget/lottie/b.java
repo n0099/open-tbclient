@@ -3,7 +3,6 @@ package com.baidu.tbadk.widget.lottie;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.k;
 import com.baidu.adp.lib.util.s;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.tbadk.core.hybrid.r;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.aq;
@@ -12,8 +11,8 @@ import com.baidu.tbadk.core.util.x;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private x cLQ;
-    private a dNr;
+    private x blF;
+    private a enj;
     private String mPath;
     private String mUrl;
 
@@ -30,7 +29,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         try {
             return file.mkdirs();
         } catch (Exception e) {
-            TiebaStatic.file(e, k.join("FileHelper", ".", "CheckTempDir", HanziToPinyin.Token.SEPARATOR, str));
+            TiebaStatic.file(e, k.join("FileHelper", ".", "CheckTempDir", " ", str));
             return false;
         }
     }
@@ -38,7 +37,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.dNr = aVar;
+        this.enj = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,10 +52,10 @@ public class b extends BdAsyncTask<Void, Void, String> {
         if (isExists(str)) {
             return md5;
         }
-        this.cLQ = new x();
-        this.cLQ.setUrl(this.mUrl);
+        this.blF = new x();
+        this.blF.setUrl(this.mUrl);
         String str2 = this.mPath + md5 + ".zip";
-        if (this.cLQ.downloadFile(str2, null, 0, 3, 0, true) && unZip(str2, str)) {
+        if (this.blF.downloadFile(str2, null, 0, 3, 0, true) && unZip(str2, str)) {
             clearTemp(str2);
             return md5;
         }
@@ -68,11 +67,11 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.dNr != null) {
+        if (this.enj != null) {
             if (!aq.isEmpty(str)) {
-                this.dNr.onLoaded(true, str);
+                this.enj.onLoaded(true, str);
             } else {
-                this.dNr.onLoaded(false, null);
+                this.enj.onLoaded(false, null);
             }
         }
     }

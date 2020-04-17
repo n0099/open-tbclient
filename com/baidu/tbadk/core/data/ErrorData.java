@@ -54,7 +54,7 @@ public class ErrorData implements Serializable {
                     this.error_msg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                     this.error_data = jSONObject.optString("error_data");
                 } else {
-                    this.error_code = optJSONObject.optInt("errno", 0);
+                    this.error_code = optJSONObject.optInt(BaseJsonData.TAG_ERRNO, 0);
                     this.error_msg = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
                     this.error_data = optJSONObject.optString("usermsg");
                 }

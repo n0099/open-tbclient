@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
@@ -14,7 +13,7 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements io.r
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
+        this.mRJ.a((j) new BackpressureDropSubscriber(cVar, this.onDrop));
     }
 
     /* loaded from: classes7.dex */
@@ -35,7 +34,7 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements io.r
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -50,7 +49,7 @@ public final class FlowableOnBackpressureDrop<T> extends a<T, T> implements io.r
                 try {
                     this.onDrop.accept(t);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     cancel();
                     onError(th);
                 }

@@ -18,9 +18,9 @@ public class AlaSchemeEmptyActivity extends BaseActivity {
             String host = data.getHost();
             String path = data.getPath();
             if ("video".equals(host) && path != null && path.startsWith("/live") && (uri = data.toString()) != null) {
-                String replace = uri.replace(f.cIk + "://", "bdtiebalive://");
+                String replace = uri.replace(f.dhl + "://", "bdtiebalive://");
                 if (!StringUtils.isNull(replace)) {
-                    ba.aGK().b(getPageContext(), new String[]{replace});
+                    ba.aOY().b(getPageContext(), new String[]{replace});
                 }
             }
         }

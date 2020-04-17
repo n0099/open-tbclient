@@ -37,7 +37,7 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0) {
-            this.mErrCode = jSONObject.optInt("errno");
+            this.mErrCode = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
             this.mErrMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("recommend_list")) != null) {
@@ -54,7 +54,7 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                     } else {
                         aVar.setStatus(1);
                     }
-                    aVar.wq(1);
+                    aVar.wO(1);
                     this.mDatas.add(aVar);
                 }
             }

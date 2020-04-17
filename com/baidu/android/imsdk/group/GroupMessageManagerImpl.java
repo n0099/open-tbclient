@@ -22,7 +22,6 @@ import com.baidu.android.imsdk.conversation.ConversationManagerImpl;
 import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import java.util.ArrayList;
@@ -440,7 +439,7 @@ public class GroupMessageManagerImpl {
         String memberChangedid = groupMemberNameChangeMsg.memberChangedid();
         int updateMemberNickName = GroupInfoDAOImpl.updateMemberNickName(mContext, valueOf, memberChangedid, groupMemberNameChangeMsg.getNickname());
         if (updateMemberNickName == 0) {
-            LogUtils.d(TAG, "HHHandleMemberNameChange to --- update member nickname " + valueOf + HanziToPinyin.Token.SEPARATOR + memberChangedid);
+            LogUtils.d(TAG, "HHHandleMemberNameChange to --- update member nickname " + valueOf + " " + memberChangedid);
             GroupInfoSyncManagerImpl.syncAllMembers(mContext, valueOf);
         }
         LogUtils.d(TAG, "HHHandleMemberNameChange update member nickname " + updateMemberNickName);

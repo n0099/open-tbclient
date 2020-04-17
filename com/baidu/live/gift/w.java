@@ -1,17 +1,9 @@
 package com.baidu.live.gift;
-
-import android.view.View;
 /* loaded from: classes3.dex */
 public interface w {
-    void aA(boolean z);
+    void release();
 
-    void aB(boolean z);
+    void xi();
 
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
-
-    View sR();
+    void xj();
 }

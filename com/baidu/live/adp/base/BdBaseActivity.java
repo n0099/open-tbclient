@@ -224,6 +224,6 @@ public abstract class BdBaseActivity<T> extends MAActivity implements DialogInte
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
         Resources resources = BdResources.getInstance().getResources();
-        return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
+        return (resources == null || BdBaseApplication.getInst() == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

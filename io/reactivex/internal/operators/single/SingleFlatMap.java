@@ -2,7 +2,6 @@ package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
 import io.reactivex.c.h;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
 import io.reactivex.y;
@@ -18,7 +17,7 @@ public final class SingleFlatMap<T, R> extends w<R> {
     }
 
     /* loaded from: classes7.dex */
-    static final class SingleFlatMapCallback<T, R> extends AtomicReference<b> implements b, y<T> {
+    static final class SingleFlatMapCallback<T, R> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = 3258103020495908596L;
         final y<? super R> actual;
         final h<? super T, ? extends aa<? extends R>> mapper;
@@ -39,7 +38,7 @@ public final class SingleFlatMap<T, R> extends w<R> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.setOnce(this, bVar)) {
                 this.actual.onSubscribe(this);
             }
@@ -53,7 +52,7 @@ public final class SingleFlatMap<T, R> extends w<R> {
                     aaVar.a(new a(this, this.actual));
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 this.actual.onError(th);
             }
         }
@@ -66,16 +65,16 @@ public final class SingleFlatMap<T, R> extends w<R> {
         /* loaded from: classes7.dex */
         static final class a<R> implements y<R> {
             final y<? super R> actual;
-            final AtomicReference<b> parent;
+            final AtomicReference<io.reactivex.disposables.b> mRB;
 
-            a(AtomicReference<b> atomicReference, y<? super R> yVar) {
-                this.parent = atomicReference;
+            a(AtomicReference<io.reactivex.disposables.b> atomicReference, y<? super R> yVar) {
+                this.mRB = atomicReference;
                 this.actual = yVar;
             }
 
             @Override // io.reactivex.y
-            public void onSubscribe(b bVar) {
-                DisposableHelper.replace(this.parent, bVar);
+            public void onSubscribe(io.reactivex.disposables.b bVar) {
+                DisposableHelper.replace(this.mRB, bVar);
             }
 
             @Override // io.reactivex.y

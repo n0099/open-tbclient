@@ -96,9 +96,9 @@ public class AppData extends OrmObject {
         this.app_time = 0;
         this.goods_info = null;
         this.goods = null;
-        ICardInfo DZ = com.baidu.tieba.lego.card.b.DZ(str);
-        if (DZ != null) {
-            ICardInfo viewItem = DZ.getViewItem(0, 4);
+        ICardInfo FH = com.baidu.tieba.lego.card.b.FH(str);
+        if (FH != null) {
+            ICardInfo viewItem = FH.getViewItem(0, 4);
             if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                 this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                 if (this.legoCard != null) {
@@ -117,7 +117,7 @@ public class AppData extends OrmObject {
     }
 
     public AppData(App app) {
-        ICardInfo DZ;
+        ICardInfo FH;
         this.legoCard = null;
         this.mDiscardReason = -1;
         if (app == null) {
@@ -169,8 +169,8 @@ public class AppData extends OrmObject {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
                     this.goods = new AppGoods(goodsInfo);
-                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (DZ = com.baidu.tieba.lego.card.b.DZ(this.goods.lego_card)) != null) {
-                        ICardInfo viewItem = DZ.getViewItem(0, 1);
+                    if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 1 && !TextUtils.isEmpty(this.goods.lego_card) && (FH = com.baidu.tieba.lego.card.b.FH(this.goods.lego_card)) != null) {
+                        ICardInfo viewItem = FH.getViewItem(0, 1);
                         if (viewItem instanceof AdvertAppInfo.ILegoAdvert) {
                             this.legoCard = (AdvertAppInfo.ILegoAdvert) viewItem;
                             return;
@@ -185,48 +185,53 @@ public class AppData extends OrmObject {
         }
     }
 
-    public int aAs() {
+    public int aIF() {
         if (this.goods == null) {
             return 25;
         }
-        if (this.goods.goods_style != 1001) {
-            if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 0) {
-                return 28;
-            }
-            if (TextUtils.isEmpty(this.id) || TextUtils.isEmpty(this.id.trim())) {
-                return 24;
-            }
-            if (TextUtils.isEmpty(this.goods.lego_card)) {
-                return 11;
-            }
-            if (this.legoCard == null || !this.goods.c(this.legoCard)) {
-                return 32;
-            }
-            if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.azR().isShowImages() && !this.legoCard.isNoPicAd()) {
-                return 34;
-            }
-            if (this.legoCard.getCardType() == 12) {
-                return 12;
-            }
-            if (!bj.cSd.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
-                return 31;
-            }
-            if (this.url_type == 3) {
-                return !aAt() ? 26 : 0;
-            } else if (this.url_type == 1) {
-                return !aAu() ? 27 : 0;
-            } else {
-                return 21;
-            }
+        if (this.goods.goods_style == 1001) {
+            return 0;
         }
-        return 0;
+        if (SwitchManager.getInstance().findType(AppLegoSwitch.APP_LEGO_KEY) == 0) {
+            return 28;
+        }
+        if (TextUtils.isEmpty(this.id) || TextUtils.isEmpty(this.id.trim())) {
+            return 24;
+        }
+        if (TextUtils.isEmpty(this.goods.lego_card)) {
+            return 11;
+        }
+        if (this.legoCard == null || !this.goods.c(this.legoCard)) {
+            return 32;
+        }
+        if ((this.legoCard instanceof AdvertAppInfo.ILegoAdvert) && !com.baidu.tbadk.core.i.aIe().isShowImages() && !this.legoCard.isNoPicAd()) {
+            return 34;
+        }
+        if (this.legoCard.getCardType() == 12) {
+            return 12;
+        }
+        if (!bj.drl.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            return 31;
+        }
+        if (this.url_type == 3) {
+            if (!aIG()) {
+                return 26;
+            }
+        } else if (this.url_type == 1) {
+            if (!aIH()) {
+                return 27;
+            }
+        } else {
+            return 21;
+        }
+        return (this.legoCard.getCardType() == 25 || this.legoCard.getCardType() == 10 || this.legoCard.getCardType() == 9) ? 37 : 0;
     }
 
-    public boolean aAt() {
+    public boolean aIG() {
         return (this.goods == null || this.goods.goods_style != 1001) && this.url_type == 3 && !StringUtils.isNull(this.apk_name) && !StringUtils.isNull(this.apk_url);
     }
 
-    public boolean aAu() {
+    public boolean aIH() {
         if (this.goods == null || this.goods.goods_style != 1001) {
             if (this.goods == null || this.goods.goods_style != -1001) {
                 if (this.url_type == 1) {

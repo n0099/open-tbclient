@@ -1,6 +1,5 @@
 package io.reactivex.internal.disposables;
 
-import io.reactivex.c;
 import io.reactivex.m;
 import io.reactivex.u;
 import io.reactivex.y;
@@ -33,12 +32,12 @@ public enum EmptyDisposable implements io.reactivex.internal.a.b<Object> {
         uVar.onError(th);
     }
 
-    public static void complete(c cVar) {
+    public static void complete(io.reactivex.c cVar) {
         cVar.onSubscribe(INSTANCE);
         cVar.onComplete();
     }
 
-    public static void error(Throwable th, c cVar) {
+    public static void error(Throwable th, io.reactivex.c cVar) {
         cVar.onSubscribe(INSTANCE);
         cVar.onError(th);
     }

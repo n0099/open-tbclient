@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
 public class g implements Runnable {
-    private AtomicBoolean cnY = new AtomicBoolean(false);
-    private List<g> cnZ = Collections.synchronizedList(new ArrayList());
-    private final h cnj;
+    private AtomicBoolean cMU = new AtomicBoolean(false);
+    private List<g> cMV = Collections.synchronizedList(new ArrayList());
+    private final h cMf;
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public g(h hVar, Runnable runnable, String str, String[] strArr) {
-        this.cnj = hVar;
+        this.cMf = hVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -24,17 +24,17 @@ public class g implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            anN();
+            awa();
         } finally {
-            this.cnj.c(this);
+            this.cMf.c(this);
         }
     }
 
-    public void anN() {
+    public void awa() {
         this.mRunnable.run();
     }
 
-    public void anO() {
+    public void awb() {
         m.postOnIO(this, this.mTag);
     }
 
@@ -42,29 +42,29 @@ public class g implements Runnable {
         return this.mTag;
     }
 
-    public String[] anP() {
+    public String[] awc() {
         return this.mPaths;
     }
 
-    public boolean anQ() {
-        return this.cnY.get();
+    public boolean awd() {
+        return this.cMU.get();
     }
 
-    public void anR() {
-        this.cnY.set(true);
+    public void awe() {
+        this.cMU.set(true);
     }
 
     public void a(g gVar) {
-        if (!this.cnZ.contains(gVar)) {
-            this.cnZ.add(gVar);
+        if (!this.cMV.contains(gVar)) {
+            this.cMV.add(gVar);
         }
     }
 
     public void b(g gVar) {
-        this.cnZ.remove(gVar);
+        this.cMV.remove(gVar);
     }
 
-    public boolean anS() {
-        return this.cnZ.isEmpty();
+    public boolean awf() {
+        return this.cMV.isEmpty();
     }
 }

@@ -15,14 +15,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a extends BaseAdapter {
-    private BaseActivity dYz;
-    private View.OnClickListener dgy;
+    private View.OnClickListener dFV;
+    private BaseActivity eyw;
     private List<AccountData> mData = null;
-    private boolean dYA = false;
+    private boolean eyx = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.dYz = baseActivity;
-        this.dgy = onClickListener;
+        this.eyw = baseActivity;
+        this.dFV = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -65,87 +65,87 @@ public class a extends BaseAdapter {
         View view2;
         Exception exc;
         View view3;
-        C0404a c0404a;
+        C0436a c0436a;
         try {
             try {
                 if (view != null) {
-                    c0404a = (C0404a) view.getTag();
+                    c0436a = (C0436a) view.getTag();
                     view3 = view;
                 } else if (getItemViewType(i) == 0) {
-                    view3 = LayoutInflater.from(this.dYz.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
-                    c0404a = new C0404a();
-                    c0404a.dYB = (TextView) view3.findViewById(R.id.account);
-                    c0404a.dYD = (ImageView) view3.findViewById(R.id.active);
-                    c0404a.dYE = (TextView) view3.findViewById(R.id.delete);
-                    c0404a.dYE.setOnClickListener(this.dgy);
-                    view3.setTag(c0404a);
+                    view3 = LayoutInflater.from(this.eyw.getPageContext().getContext()).inflate(R.layout.account_item, viewGroup, false);
+                    c0436a = new C0436a();
+                    c0436a.eyy = (TextView) view3.findViewById(R.id.account);
+                    c0436a.eyA = (ImageView) view3.findViewById(R.id.active);
+                    c0436a.eyB = (TextView) view3.findViewById(R.id.delete);
+                    c0436a.eyB.setOnClickListener(this.dFV);
+                    view3.setTag(c0436a);
                 } else {
-                    view3 = LayoutInflater.from(this.dYz.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
-                    c0404a = new C0404a();
-                    c0404a.dYC = (TextView) view3.findViewById(R.id.add_text);
-                    view3.setTag(c0404a);
+                    view3 = LayoutInflater.from(this.eyw.getPageContext().getContext()).inflate(R.layout.account_add_item, viewGroup, false);
+                    c0436a = new C0436a();
+                    c0436a.eyz = (TextView) view3.findViewById(R.id.add_text);
+                    view3.setTag(c0436a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0404a.dYD.setVisibility(8);
-                    c0404a.dYE.setVisibility(8);
-                    c0404a.dYE.setTag(accountData);
+                    c0436a.eyA.setVisibility(8);
+                    c0436a.eyB.setVisibility(8);
+                    c0436a.eyB.setTag(accountData);
                     if (accountData != null) {
-                        c0404a.dYB.setText(accountData.getAccountNameShow());
+                        c0436a.eyy.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0404a.dYD.setVisibility(0);
+                            c0436a.eyA.setVisibility(0);
                         }
-                        if (this.dYA) {
-                            c0404a.dYE.setVisibility(0);
+                        if (this.eyx) {
+                            c0436a.eyB.setVisibility(0);
                         }
                     }
                 }
-                this.dYz.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.dYz.getLayoutMode().onModeChanged(view3);
+                this.eyw.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.eyw.getLayoutMode().onModeChanged(view3);
                 return view3;
             } catch (Exception e) {
                 exc = e;
                 view2 = view;
                 try {
                     BdLog.detailException(exc);
-                    this.dYz.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.dYz.getLayoutMode().onModeChanged(view2);
+                    this.eyw.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.eyw.getLayoutMode().onModeChanged(view2);
                     return view2;
                 } catch (Throwable th) {
                     view3 = view2;
                     th = th;
-                    this.dYz.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    this.dYz.getLayoutMode().onModeChanged(view3);
+                    this.eyw.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                    this.eyw.getLayoutMode().onModeChanged(view3);
                     throw th;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 view3 = view;
-                this.dYz.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-                this.dYz.getLayoutMode().onModeChanged(view3);
+                this.eyw.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+                this.eyw.getLayoutMode().onModeChanged(view3);
                 throw th;
             }
         } catch (Exception e2) {
             view2 = view3;
             exc = e2;
             BdLog.detailException(exc);
-            this.dYz.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.dYz.getLayoutMode().onModeChanged(view2);
+            this.eyw.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.eyw.getLayoutMode().onModeChanged(view2);
             return view2;
         } catch (Throwable th3) {
             th = th3;
-            this.dYz.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-            this.dYz.getLayoutMode().onModeChanged(view3);
+            this.eyw.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.eyw.getLayoutMode().onModeChanged(view3);
             throw th;
         }
     }
 
-    public void hD(boolean z) {
-        this.dYA = z;
+    public void iB(boolean z) {
+        this.eyx = z;
     }
 
-    public boolean aXS() {
-        return this.dYA;
+    public boolean bfX() {
+        return this.eyx;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -163,13 +163,13 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    private class C0404a {
-        TextView dYB;
-        TextView dYC;
-        ImageView dYD;
-        TextView dYE;
+    private class C0436a {
+        ImageView eyA;
+        TextView eyB;
+        TextView eyy;
+        TextView eyz;
 
-        private C0404a() {
+        private C0436a() {
         }
     }
 }

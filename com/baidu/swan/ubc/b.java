@@ -3,7 +3,6 @@ package com.baidu.swan.ubc;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.google.android.exoplayer2.Format;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,19 +42,19 @@ public class b {
             jSONObject.put("eventType", "0");
             if (!TextUtils.isEmpty(hVar.getContent())) {
                 jSONObject.put("content", hVar.getContent());
-            } else if (hVar.avA() != null) {
-                jSONObject.put("content", hVar.avA().toString());
+            } else if (hVar.aDL() != null) {
+                jSONObject.put("content", hVar.aDL().toString());
             }
-            if (!TextUtils.isEmpty(hVar.avz())) {
-                jSONObject.put("abtest", hVar.avz());
+            if (!TextUtils.isEmpty(hVar.aDK())) {
+                jSONObject.put("abtest", hVar.aDK());
             }
             if (!TextUtils.isEmpty(hVar.getCategory())) {
                 jSONObject.put("c", hVar.getCategory());
             }
-            if (hVar.avw()) {
+            if (hVar.aDH()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.avl().qU(hVar.getId()));
+            jSONObject.put("idtype", d.aDw().sh(hVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -113,7 +112,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has("abtest")) {
-                            vVar.rd("1");
+                            vVar.sq("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -124,7 +123,7 @@ public class b {
                                 j2 = j3;
                             }
                         }
-                        vVar.cg(jSONObject);
+                        vVar.cr(jSONObject);
                         z2 = true;
                     } catch (Exception e) {
                         com.baidu.swan.d.c.closeSafely(bufferedReader);
@@ -135,7 +134,7 @@ public class b {
                         throw th;
                     }
                 }
-                vVar.q(j, j2);
+                vVar.r(j, j2);
                 com.baidu.swan.d.c.closeSafely(bufferedReader);
             } catch (Exception e2) {
                 bufferedReader = null;
@@ -158,7 +157,7 @@ public class b {
             try {
                 bufferedReader = new BufferedReader(new FileReader(file2));
                 int i = 0;
-                long j = Format.OFFSET_SAMPLE_RELATIVE;
+                long j = Long.MAX_VALUE;
                 long j2 = 0;
                 do {
                     try {
@@ -169,7 +168,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has("abtest")) {
-                                vVar.rd("1");
+                                vVar.sq("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -180,7 +179,7 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            vVar.cg(jSONObject);
+                            vVar.cr(jSONObject);
                             i++;
                         } catch (Exception e) {
                             e = e;
@@ -193,7 +192,7 @@ public class b {
                         throw th;
                     }
                 } while (i < 10);
-                vVar.q(j, j2);
+                vVar.r(j, j2);
                 com.baidu.swan.d.c.closeSafely(bufferedReader);
             } catch (Exception e2) {
                 e = e2;
@@ -207,7 +206,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void fd(boolean z) {
+    public void ga(boolean z) {
         File[] listFiles;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (file.exists()) {

@@ -20,6 +20,7 @@ import android.support.v4.view.ScrollingView;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.view.accessibility.AccessibilityRecordCompat;
+import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -1167,7 +1168,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     public void fling(int i) {
         if (getChildCount() > 0) {
             startNestedScroll(2, 1);
-            this.mScroller.fling(getScrollX(), getScrollY(), 0, i, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, 0);
+            this.mScroller.fling(getScrollX(), getScrollY(), 0, i, 0, 0, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, 0);
             this.mLastScrollerY = getScrollY();
             ViewCompat.postInvalidateOnAnimation(this);
         }

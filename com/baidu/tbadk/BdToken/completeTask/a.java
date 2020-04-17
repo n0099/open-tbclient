@@ -3,19 +3,25 @@ package com.baidu.tbadk.BdToken.completeTask;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
+    public static int diB = 1;
+    public static int diC = 2;
+    public static int diD = 3;
+    public static int diE = 4;
+    public static int diF = 1;
+    public static int diG = 2;
     public int activityId;
     public String btnText;
     public String btn_color;
     public String btn_text_color;
-    public String cIL;
-    public String cIM;
-    public int cJC;
-    public int cJD;
-    public long cJE;
-    public long cJF;
-    public ArrayList<String> cJG = new ArrayList<>();
-    public ArrayList<String> cJH = new ArrayList<>();
-    public int cJI = 0;
+    public String dhN;
+    public String dhO;
+    public int diH;
+    public int diI;
+    public long diJ;
+    public long diK;
+    public ArrayList<String> diL = new ArrayList<>();
+    public ArrayList<String> diM = new ArrayList<>();
+    public int diN = 0;
     public int duration;
     public String imgUrl;
     public String message;
@@ -27,10 +33,4 @@ public class a {
     public int showType;
     public String token;
     public String url;
-    public static int cJw = 1;
-    public static int cJx = 2;
-    public static int cJy = 3;
-    public static int cJz = 4;
-    public static int cJA = 1;
-    public static int cJB = 2;
 }

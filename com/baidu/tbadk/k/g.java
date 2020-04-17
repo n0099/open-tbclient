@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 public class g extends a {
     private final int arrayLength;
     private int currentIndex;
-    private ContinuousAnimationView dBD;
+    private ContinuousAnimationView ebo;
     private TextView loadingTextView;
     private int mSkinType;
     private Runnable runnable;
@@ -50,17 +50,17 @@ public class g extends a {
                 TbadkCoreApplication.getInst().handler.postDelayed(g.this.runnable, 200L);
             }
         };
-        this.dBD = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
+        this.ebo = (ContinuousAnimationView) this.attachedView.findViewById(R.id.common_loading_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.dBD.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.ebo.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.dBD.setLayoutParams(marginLayoutParams);
+                this.ebo.setLayoutParams(marginLayoutParams);
             }
         }
-        am.a(this.dBD, R.raw.lottie_full_screen_refresh);
-        this.dBD.setSpeed(1.2f);
+        am.a(this.ebo, R.raw.lottie_full_screen_refresh);
+        this.ebo.setSpeed(1.2f);
         this.textView = (TextView) this.attachedView.findViewById(R.id.loading_anim_ellipsis);
         this.loadingTextView = (TextView) this.attachedView.findViewById(R.id.loading_text);
         this.textArray = context.getResources().getStringArray(R.array.loading_anim_text_array);
@@ -68,14 +68,14 @@ public class g extends a {
     }
 
     private void startLoadingAnimation() {
-        if (this.dBD != null) {
-            this.dBD.playAnimation();
+        if (this.ebo != null) {
+            this.ebo.playAnimation();
         }
     }
 
     private void stopLoadingAnimation() {
-        if (this.dBD != null) {
-            this.dBD.pauseAnimation();
+        if (this.ebo != null) {
+            this.ebo.pauseAnimation();
         }
     }
 
@@ -89,7 +89,7 @@ public class g extends a {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        am.a(this.dBD, R.raw.lottie_full_screen_refresh);
+        am.a(this.ebo, R.raw.lottie_full_screen_refresh);
         startLoadingAnimation();
         am.setViewTextColor(this.textView, R.color.cp_cont_c, 1, this.mSkinType);
         am.setViewTextColor(this.loadingTextView, R.color.cp_cont_c, 1, this.mSkinType);
@@ -130,38 +130,38 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.k.a
     public void dettachView(View view) {
-        if (this.dBD != null) {
-            this.dBD.cancelAnimation();
+        if (this.ebo != null) {
+            this.ebo.cancelAnimation();
         }
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
         super.dettachView(view);
     }
 
     public void setTopMargin(int i) {
-        if (this.dBD != null) {
-            ViewGroup.LayoutParams layoutParams = this.dBD.getLayoutParams();
+        if (this.ebo != null) {
+            ViewGroup.LayoutParams layoutParams = this.ebo.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.dBD.setLayoutParams(marginLayoutParams);
+                this.ebo.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
-    public void aN(int i) {
-        if (this.dBD != null) {
-            ViewGroup.LayoutParams layoutParams = this.dBD.getLayoutParams();
+    public void aZ(int i) {
+        if (this.ebo != null) {
+            ViewGroup.LayoutParams layoutParams = this.ebo.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.bottomMargin = i;
-                this.dBD.setLayoutParams(marginLayoutParams);
+                this.ebo.setLayoutParams(marginLayoutParams);
             }
         }
     }
 
-    public void aPY() {
-        if (this.dBD != null) {
-            ((RelativeLayout.LayoutParams) this.dBD.getLayoutParams()).addRule(15, 0);
+    public void aYp() {
+        if (this.ebo != null) {
+            ((RelativeLayout.LayoutParams) this.ebo.getLayoutParams()).addRule(15, 0);
         }
     }
 

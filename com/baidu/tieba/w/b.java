@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
     public static final String FILE_SEP = File.separator;
-    private a kJe;
+    private a ltl;
     private String mPath;
     private String mUrl;
 
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.kJe = aVar;
+        this.ltl = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,9 +38,9 @@ public class b extends BdAsyncTask<Void, Void, String> {
             file.delete();
         }
         e eVar = new e();
-        eVar.fX().setUrl(this.mUrl);
+        eVar.kB().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return cTJ();
+            return dew();
         }
         return "";
     }
@@ -49,29 +49,29 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.kJe != null) {
+        if (this.ltl != null) {
             if (!aq.isEmpty(str)) {
-                this.kJe.c(true, str, this.mUrl);
+                this.ltl.c(true, str, this.mUrl);
             } else {
-                this.kJe.c(false, null, null);
+                this.ltl.c(false, null, null);
             }
         }
     }
 
-    private String cTJ() {
+    private String dew() {
         File file = new File(this.mPath + FILE_SEP + "videosplash.temp");
         File file2 = new File(this.mPath + FILE_SEP + (s.toMd5(this.mUrl) + ".mp4"));
         if (file2.exists()) {
             file2.delete();
         }
         if (file.renameTo(file2)) {
-            R(file2);
+            T(file2);
             return file2.getAbsolutePath();
         }
         return "";
     }
 
-    private void R(File file) {
+    private void T(File file) {
         File[] listFiles;
         if (!aq.isEmpty(this.mPath)) {
             File file2 = new File(this.mPath);

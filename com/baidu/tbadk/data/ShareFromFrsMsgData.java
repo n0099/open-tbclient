@@ -1,7 +1,6 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import org.json.JSONArray;
@@ -22,10 +21,10 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
             jSONObject.put(TbTitleActivityConfig.FORUM_NAME, this.name);
             jSONObject.put("memberNum", this.memberNum);
             jSONObject.put("postNum", this.postNum);
-            jSONObject.put("themeContent", this.name + "\n关注：" + this.memberNum + HanziToPinyin.Token.SEPARATOR + "帖子：" + this.postNum);
+            jSONObject.put("themeContent", this.name + "\n关注：" + this.memberNum + " 帖子：" + this.postNum);
             jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put("【" + this.name + "吧】" + HanziToPinyin.Token.SEPARATOR + this.content + HanziToPinyin.Token.SEPARATOR + TbConfig.HTTPS_FRS_PREFIX + this.name);
+            jSONArray.put("【" + this.name + "吧】 " + this.content + " " + TbConfig.HTTPS_FRS_PREFIX + this.name);
             jSONArray.put("4");
             jSONArray.put(jSONObject);
             return jSONArray.toString();

@@ -7,13 +7,13 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class f implements j<e> {
-    private final g lLC;
-    private final com.facebook.imagepipeline.d.g lLR;
-    private final Set<com.facebook.drawee.controller.c> lLU;
+    private final g lSX;
+    private final com.facebook.imagepipeline.d.g lTl;
+    private final Set<com.facebook.drawee.controller.c> lTo;
     private final Context mContext;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, com.facebook.imagepipeline.d.j.dpU(), bVar);
+        this(context, com.facebook.imagepipeline.d.j.drS(), bVar);
     }
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, @Nullable b bVar) {
@@ -22,20 +22,20 @@ public class f implements j<e> {
 
     public f(Context context, com.facebook.imagepipeline.d.j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.lLR = jVar.dlY();
-        if (bVar != null && bVar.dlS() != null) {
-            this.lLC = bVar.dlS();
+        this.lTl = jVar.dnR();
+        if (bVar != null && bVar.dnN() != null) {
+            this.lSX = bVar.dnN();
         } else {
-            this.lLC = new g();
+            this.lSX = new g();
         }
-        this.lLC.a(context.getResources(), com.facebook.drawee.components.a.dmq(), jVar.gl(context), i.dld(), this.lLR.dpi(), bVar != null ? bVar.dlR() : null, bVar != null ? bVar.dlU() : null);
-        this.lLU = set;
+        this.lSX.a(context.getResources(), com.facebook.drawee.components.a.doj(), jVar.fP(context), i.dmW(), this.lTl.drg(), bVar != null ? bVar.dnM() : null, bVar != null ? bVar.dnO() : null);
+        this.lTo = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dmj */
+    /* renamed from: doc */
     public e get() {
-        return new e(this.mContext, this.lLC, this.lLR, this.lLU);
+        return new e(this.mContext, this.lSX, this.lTl, this.lTo);
     }
 }

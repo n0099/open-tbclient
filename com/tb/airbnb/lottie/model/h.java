@@ -3,7 +3,6 @@ package com.tb.airbnb.lottie.model;
 import android.support.annotation.Nullable;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.Pair;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes6.dex */
 public class h<T> {
@@ -34,6 +33,6 @@ public class h<T> {
     }
 
     public String toString() {
-        return "Pair{" + String.valueOf(this.first) + HanziToPinyin.Token.SEPARATOR + String.valueOf(this.second) + "}";
+        return "Pair{" + String.valueOf(this.first) + " " + String.valueOf(this.second) + "}";
     }
 }

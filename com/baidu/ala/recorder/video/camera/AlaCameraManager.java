@@ -14,6 +14,7 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefHelper;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class AlaCameraManager implements ICameraStatusHandler {
     private static final int CAMERA_FLUSHLIGHT_OFF = 2;
@@ -433,9 +434,15 @@ public class AlaCameraManager implements ICameraStatusHandler {
         }
     }
 
-    public void setDefBeautyParams(HashMap<String, Object> hashMap) {
+    public void setDefBeautyParams(ConcurrentHashMap<String, Object> concurrentHashMap) {
         if (this.mCameraOperator instanceof DuArCameraOperator) {
-            ((DuArCameraOperator) this.mCameraOperator).setDefBeautyParams(hashMap);
+            ((DuArCameraOperator) this.mCameraOperator).setDefBeautyParams(concurrentHashMap);
+        }
+    }
+
+    public void setBeautyJsonPath(String str) {
+        if (this.mCameraOperator instanceof DuArCameraOperator) {
+            ((DuArCameraOperator) this.mCameraOperator).setBeautyJsonPath(str);
         }
     }
 

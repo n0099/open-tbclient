@@ -16,7 +16,7 @@ public class a extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        com.baidu.swan.apps.core.d.d Or;
+        com.baidu.swan.apps.core.d.d Wf;
         if (DEBUG) {
             Log.d("InsertWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
         }
@@ -25,7 +25,7 @@ public class a extends ab {
             com.baidu.swan.apps.console.c.e("insertWebView", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
         } else {
-            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) f.WV().hu(q.biB);
+            com.baidu.swan.apps.adaptation.b.c cVar = (com.baidu.swan.apps.adaptation.b.c) f.aeK().iI(q.bGJ);
             if (cVar == null) {
                 com.baidu.swan.apps.console.c.e("insertWebView", "viewManager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -33,10 +33,10 @@ public class a extends ab {
                 com.baidu.swan.apps.console.c.e("insertWebView", "insert webview widget fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             } else {
-                com.baidu.swan.apps.core.d.e GH = f.WV().GH();
-                if (GH != null && (Or = GH.Or()) != null) {
+                com.baidu.swan.apps.core.d.e Ou = f.aeK().Ou();
+                if (Ou != null && (Wf = Ou.Wf()) != null) {
                     com.baidu.swan.apps.console.c.i("insertWebView", "disable navigationStyle custom");
-                    Or.Oo();
+                    Wf.Wc();
                 }
                 com.baidu.swan.apps.console.c.i("insertWebView", "insert webview widget success");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

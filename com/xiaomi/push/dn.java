@@ -39,7 +39,7 @@ final class dn implements dr {
             if (TextUtils.equals("android.intent.action.PACKAGE_RESTARTED", intent.getAction())) {
                 if (ag.a(context, String.valueOf(12), 1L) && a) {
                     if (TextUtils.isEmpty(dw.a)) {
-                        dw.a += dq.f243a + ":";
+                        dw.a += dq.f244a + ":";
                     }
                     dw.a += str + "(" + currentTimeMillis + ")" + Constants.ACCEPT_TIME_SEPARATOR_SP;
                 }

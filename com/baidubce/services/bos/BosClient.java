@@ -2,7 +2,6 @@ package com.baidubce.services.bos;
 
 import android.annotation.SuppressLint;
 import android.util.Base64;
-import com.baidu.searchbox.ugc.lightbrowser.LightBrowserActivity;
 import com.baidu.webkit.internal.ETAG;
 import com.baidubce.AbstractBceClient;
 import com.baidubce.BceClientException;
@@ -461,7 +460,7 @@ public class BosClient extends AbstractBceClient {
         CheckUtils.isNotNull(appendObjectRequest, "request should not be null.");
         assertStringNotNullOrEmpty(appendObjectRequest.getKey(), "object key should not be null or empty");
         InternalRequest createRequest = createRequest(appendObjectRequest, HttpMethodName.POST);
-        createRequest.addParameter(LightBrowserActivity.SCHEME_APPEND_PARAM_KEY, null);
+        createRequest.addParameter("append", null);
         if (appendObjectRequest.getOffset() != null) {
             createRequest.addParameter("offset", appendObjectRequest.getOffset().toString());
         }

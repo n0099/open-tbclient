@@ -89,7 +89,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
     private int user_level = 0;
     private int album_open_photo_frs = 0;
     private SignData mSignData = new SignData();
-    private ArrayList<String> managers = new ArrayList<>();
+    private List<Manager> managers = new ArrayList();
     private ArrayList<ad> good_classify = new ArrayList<>();
     private String tag_name = null;
 
@@ -279,11 +279,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
         this.top_notice_data = bmVar;
     }
 
-    public void setManagers(ArrayList<String> arrayList) {
-        this.managers = arrayList;
-    }
-
-    public ArrayList<String> getManagers() {
+    public List<Manager> getManagers() {
         return this.managers;
     }
 
@@ -377,17 +373,12 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                 this.level_name = forumInfo.level_name;
                 this.album_open_photo_frs = forumInfo.album_open_photo_frs.intValue();
                 setFavo_type(forumInfo.favo_type.intValue());
-                List<Manager> list = forumInfo.managers;
+                this.managers = forumInfo.managers;
+                List<Classify> list = forumInfo.good_classify;
                 if (list != null) {
                     for (int i = 0; i < list.size(); i++) {
-                        this.managers.add(list.get(i).name);
-                    }
-                }
-                List<Classify> list2 = forumInfo.good_classify;
-                if (list2 != null) {
-                    for (int i2 = 0; i2 < list2.size(); i2++) {
                         ad adVar = new ad();
-                        adVar.a(list2.get(i2));
+                        adVar.a(list.get(i));
                         this.good_classify.add(adVar);
                     }
                 }
@@ -413,19 +404,19 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                         }
                     }
                 }
-                List<Badges> list3 = forumInfo.badges;
-                if (list3 != null && list3.size() > 0) {
-                    for (int i3 = 0; i3 < list3.size(); i3++) {
+                List<Badges> list2 = forumInfo.badges;
+                if (list2 != null && list2.size() > 0) {
+                    for (int i2 = 0; i2 < list2.size(); i2++) {
                         j jVar = new j();
-                        jVar.a(list3.get(i3));
+                        jVar.a(list2.get(i2));
                         this.mBadgeData.add(jVar);
                     }
                 }
-                List<RecommendForum> list4 = forumInfo.recommend_forum;
-                if (list4 != null && list4.size() > 0) {
-                    for (int i4 = 0; i4 < list4.size(); i4++) {
+                List<RecommendForum> list3 = forumInfo.recommend_forum;
+                if (list3 != null && list3.size() > 0) {
+                    for (int i3 = 0; i3 < list3.size(); i3++) {
                         RecommendForumData recommendForumData = new RecommendForumData();
-                        recommendForumData.parserProtobuf(list4.get(i4));
+                        recommendForumData.parserProtobuf(list3.get(i3));
                         this.mRecommendForumData.add(recommendForumData);
                     }
                 }
@@ -536,9 +527,15 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                 this.warning_msg = jSONObject.optString("warning_msg", null);
                 setFavo_type(jSONObject.optInt("favo_type", 0));
                 JSONArray optJSONArray = jSONObject.optJSONArray("managers");
-                if (optJSONArray != null) {
+                if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
-                        this.managers.add(((JSONObject) optJSONArray.opt(i)).optString("name"));
+                        Manager.Builder builder = new Manager.Builder();
+                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+                        builder.id = Long.valueOf(jSONObject2.getLong("id"));
+                        builder.name = jSONObject2.getString("name");
+                        builder.show_name = jSONObject2.getString("show_name");
+                        builder.portrait = jSONObject2.getString("portrait");
+                        this.managers.add(builder.build(false));
                     }
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");

@@ -33,11 +33,9 @@ public interface l {
     public interface f {
     }
 
-    void HS();
+    void PE();
 
-    void HU();
-
-    void Vo();
+    void PG();
 
     l a(Context context, @NonNull com.baidu.swan.apps.media.c.c cVar);
 
@@ -57,25 +55,27 @@ public interface l {
 
     void a(f fVar);
 
+    void add();
+
     void b(FrameLayout frameLayout);
 
     void b(com.baidu.swan.apps.media.c.c cVar);
 
-    void cK(boolean z);
+    void dG(boolean z);
 
-    void cL(boolean z);
+    void dH(boolean z);
 
-    void f(boolean z, int i);
+    void g(boolean z, int i);
 
     int getCurrentPosition();
 
     int getDuration();
 
-    void ii(String str);
-
     boolean isEnd();
 
     boolean isPlaying();
+
+    void jv(String str);
 
     boolean onBackPressed();
 

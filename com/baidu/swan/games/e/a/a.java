@@ -10,14 +10,14 @@ public class a {
     }
 
     public void log(String str) {
-        I(1, str);
+        Z(1, str);
     }
 
     public void error(String str) {
-        I(4, str);
+        Z(4, str);
     }
 
-    private void I(int i, String str) {
+    private void Z(int i, String str) {
         this.mEngine.onConsoleCallBack(i, str);
     }
 }

@@ -36,21 +36,21 @@ public class SwitchManager {
     public b removeSwitchData(String str) {
         c remove = this.mSwitchs.remove(str);
         if (remove != null) {
-            return remove.fF();
+            return remove.kj();
         }
         return null;
     }
 
     public void crash(String str) {
         Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().aj(str)) {
+        while (it.hasNext() && !it.next().by(str)) {
         }
     }
 
     public boolean turn(String str, int i) {
         c cVar;
         if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.H(i);
+            return cVar.T(i);
         }
         return false;
     }
@@ -68,9 +68,9 @@ public class SwitchManager {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
-                    cVar.K(0);
-                    edit.putInt(cVar.getName() + c.qh, 0);
-                    edit.putInt(cVar.getName() + c.qi, cVar.getDefaultType());
+                    cVar.W(0);
+                    edit.putInt(cVar.getName() + c.Jk, 0);
+                    edit.putInt(cVar.getName() + c.Jl, cVar.getDefaultType());
                 }
             }
             edit.commit();

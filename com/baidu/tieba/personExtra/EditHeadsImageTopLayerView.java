@@ -9,70 +9,70 @@ import android.view.View;
 import com.alibaba.fastjson.asm.Opcodes;
 /* loaded from: classes11.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private Paint aBq;
-    private Paint aBr;
-    private int aBs;
-    private int aBt;
-    private float aBu;
-    private float aBv;
-    private int aBw;
+    private Paint aUX;
+    private Paint aUY;
+    private int aUZ;
+    private int aVa;
+    private float aVb;
+    private float aVc;
+    private int aVd;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.aBq = null;
-        this.aBr = null;
-        this.aBs = 0;
-        this.aBt = 0;
-        this.aBu = 0.42857143f;
-        this.aBv = 1.0f;
-        this.aBw = 1;
+        this.aUX = null;
+        this.aUY = null;
+        this.aUZ = 0;
+        this.aVa = 0;
+        this.aVb = 0.42857143f;
+        this.aVc = 1.0f;
+        this.aVd = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aBq = null;
-        this.aBr = null;
-        this.aBs = 0;
-        this.aBt = 0;
-        this.aBu = 0.42857143f;
-        this.aBv = 1.0f;
-        this.aBw = 1;
+        this.aUX = null;
+        this.aUY = null;
+        this.aUZ = 0;
+        this.aVa = 0;
+        this.aVb = 0.42857143f;
+        this.aVc = 1.0f;
+        this.aVd = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aBq = null;
-        this.aBr = null;
-        this.aBs = 0;
-        this.aBt = 0;
-        this.aBu = 0.42857143f;
-        this.aBv = 1.0f;
-        this.aBw = 1;
+        this.aUX = null;
+        this.aUY = null;
+        this.aUZ = 0;
+        this.aVa = 0;
+        this.aVb = 0.42857143f;
+        this.aVc = 1.0f;
+        this.aVd = 1;
         init();
     }
 
     private void init() {
-        this.aBq = new Paint();
-        this.aBq.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.aBq.setAlpha(Opcodes.IFEQ);
-        this.aBr = new Paint();
-        this.aBr.setStyle(Paint.Style.STROKE);
-        this.aBr.setColor(-1);
+        this.aUX = new Paint();
+        this.aUX.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.aUX.setAlpha(Opcodes.IFEQ);
+        this.aUY = new Paint();
+        this.aUY.setStyle(Paint.Style.STROKE);
+        this.aUY.setColor(-1);
     }
 
     public void setLinePaintColor(int i) {
-        if (this.aBr != null) {
-            this.aBr.setColor(i);
+        if (this.aUY != null) {
+            this.aUY.setColor(i);
         }
         invalidate();
     }
 
     public void setLineWidth(int i) {
-        this.aBw = i;
-        if (this.aBr != null) {
-            this.aBr.setStrokeWidth(i);
+        this.aVd = i;
+        if (this.aUY != null) {
+            this.aUY.setStrokeWidth(i);
         }
         invalidate();
     }
@@ -82,19 +82,19 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.aBs, this.aBq);
-        canvas.drawRect(0.0f, getHeight() - this.aBt, getWidth(), getHeight(), this.aBq);
-        canvas.drawRect(1.0f, this.aBs, getWidth() - 1, getHeight() - this.aBt, this.aBr);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.aUZ, this.aUX);
+        canvas.drawRect(0.0f, getHeight() - this.aVa, getWidth(), getHeight(), this.aUX);
+        canvas.drawRect(1.0f, this.aUZ, getWidth() - 1, getHeight() - this.aVa, this.aUY);
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.aBv * getWidth();
+        float width = this.aVc * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.aBs = (int) (((i4 - i2) - width) * this.aBu);
-        this.aBt = (int) (((i4 - i2) - width) * (1.0f - this.aBu));
+        this.aUZ = (int) (((i4 - i2) - width) * this.aVb);
+        this.aVa = (int) (((i4 - i2) - width) * (1.0f - this.aVb));
     }
 }

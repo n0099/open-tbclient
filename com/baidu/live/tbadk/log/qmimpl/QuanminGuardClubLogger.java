@@ -29,7 +29,7 @@ public class QuanminGuardClubLogger implements IGuardClubLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_GUARD);
             jSONObject.put("tag", "");
             jSONObject.put("type", str4);
@@ -46,7 +46,7 @@ public class QuanminGuardClubLogger implements IGuardClubLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_RULE);
             jSONObject.put("tag", "");
             jSONObject.put("type", str4);
@@ -63,7 +63,7 @@ public class QuanminGuardClubLogger implements IGuardClubLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_GUARD_BUTTON);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -129,7 +129,7 @@ public class QuanminGuardClubLogger implements IGuardClubLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_GIFT_POPUP);
             jSONObject.put("tab", "liveroom");
             jSONObject.put("tag", "");
@@ -145,7 +145,7 @@ public class QuanminGuardClubLogger implements IGuardClubLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LEAVE_GUARD);
             jSONObject.put("tab", LogConfig.TAB_LIVE_JOIN_GUARD);
             jSONObject.put("tag", "");

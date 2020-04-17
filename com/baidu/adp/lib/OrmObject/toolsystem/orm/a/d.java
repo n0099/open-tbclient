@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.OrmObject.toolsystem.orm.a;
 /* loaded from: classes.dex */
 public class d implements h {
-    private byte oY;
+    private byte Ie;
 
     public d(byte b) {
-        this.oY = b;
+        this.Ie = b;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object a(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Integer.valueOf(this.oY);
+        return Integer.valueOf(this.Ie);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object b(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Byte.valueOf(this.oY);
+        return Byte.valueOf(this.Ie);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
@@ -24,16 +24,16 @@ public class d implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object d(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Byte.valueOf(this.oY);
+        return Byte.valueOf(this.Ie);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object e(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Byte.valueOf(this.oY);
+        return Byte.valueOf(this.Ie);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.a.h
     public Object f(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        return Byte.valueOf(this.oY);
+        return Byte.valueOf(this.Ie);
     }
 }

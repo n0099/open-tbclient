@@ -47,35 +47,35 @@ public class a implements b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(final c cVar) {
-        com.baidu.swan.e.c.awE().a(new com.baidu.swan.e.a() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
+        com.baidu.swan.e.c.aEP().a(new com.baidu.swan.e.a() { // from class: com.baidu.swan.facade.requred.webview.a.a.2
             @Override // com.baidu.swan.e.a
             public void onSuccess() {
-                a.this.hideLoading();
+                a.this.asi();
                 cVar.onSuccess();
             }
 
             @Override // com.baidu.swan.e.a
             public void onFail() {
-                a.this.hideLoading();
+                a.this.asi();
                 cVar.onFail();
             }
 
             @Override // com.baidu.swan.e.a
             public void onProgress(long j, long j2) {
                 cVar.onProgress(j, j2);
-                a.this.o(j, j2);
+                a.this.p(j, j2);
             }
-        }).awF();
+        }).aEQ();
     }
 
     private void a(DialogInterface.OnClickListener onClickListener) {
-        SwanAppErrorDialog.ahB().fP(a.e.aiapps_t7_download_tip_title).fQ(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
+        SwanAppErrorDialog.apJ().fW(a.e.aiapps_t7_download_tip_title).fX(a.e.aiapps_t7_download_tip_msg).b(a.e.aiapps_t7_download_tip_btn_cancel, onClickListener).a(a.e.aiapps_t7_download_tip_btn_ok, onClickListener).show();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoading() {
         int i = 0;
-        if (com.baidu.swan.apps.w.a.UL().IH()) {
+        if (com.baidu.swan.apps.w.a.acA().Qt()) {
             i = 100;
         }
         Context appContext = AppRuntime.getAppContext();
@@ -87,16 +87,16 @@ public class a implements b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o(long j, long j2) {
+    public void p(long j, long j2) {
         Bundle bundle = new Bundle();
         bundle.putLong("current", j);
         bundle.putLong("sum", j2);
-        d.acF().d("t7_loading", bundle);
+        d.akK().d("t7_loading", bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hideLoading() {
-        d.acF().kK("loading_hide");
+    public void asi() {
+        d.akK().lX("loading_hide");
         this.mIsLoading = false;
     }
 }

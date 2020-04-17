@@ -8,29 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
-    private List<com.baidu.adp.widget.ListView.a> asP = new ArrayList();
-    private BdTypeListView ekE;
-    private d gWm;
-    private c gWn;
-    private b gWo;
+    private List<com.baidu.adp.widget.ListView.a> aMd = new ArrayList();
+    private BdTypeListView eOe;
+    private d hGd;
+    private c hGe;
+    private b hGf;
 
-    public List<com.baidu.adp.widget.ListView.a> bcJ() {
-        return this.asP;
+    public List<com.baidu.adp.widget.ListView.a> blA() {
+        return this.aMd;
     }
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        this.ekE = bdTypeListView;
-        this.gWm = new d(tbPageContext);
-        this.gWn = new c(tbPageContext);
-        this.gWo = new b(tbPageContext);
-        this.asP.add(this.gWm);
-        this.asP.add(this.gWn);
-        this.asP.add(this.gWo);
+        this.eOe = bdTypeListView;
+        this.hGd = new d(tbPageContext);
+        this.hGe = new c(tbPageContext);
+        this.hGf = new b(tbPageContext);
+        this.aMd.add(this.hGd);
+        this.aMd.add(this.hGe);
+        this.aMd.add(this.hGf);
     }
 
     public void notifyDataSetChanged() {
-        if (this.ekE != null && (this.ekE.getAdapter() instanceof e)) {
-            this.ekE.getAdapter().notifyDataSetChanged();
+        if (this.eOe != null && (this.eOe.getAdapter() instanceof e)) {
+            this.eOe.getAdapter().notifyDataSetChanged();
         }
     }
 }

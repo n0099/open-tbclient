@@ -17,7 +17,6 @@ import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.db.IResultParse;
 import com.baidu.android.imsdk.db.ITransaction;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.google.android.exoplayer2.Format;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -303,32 +302,32 @@ public class GroupMessageDAOImpl {
         if (chatMsg != null) {
             return fetchChatMsgInteranl(context, str, 1, chatMsg.getMsgId(), j, chatMsg.getRowId(), z, getGroupSystemMessageType(), MSGTYPEEXPLAN.UNEQUAL);
         }
-        return fetchChatMsgInteranl(context, str, 1, Format.OFFSET_SAMPLE_RELATIVE, -Math.abs(j), -1L, z, getGroupSystemMessageType(), MSGTYPEEXPLAN.UNEQUAL);
+        return fetchChatMsgInteranl(context, str, 1, Long.MAX_VALUE, -Math.abs(j), -1L, z, getGroupSystemMessageType(), MSGTYPEEXPLAN.UNEQUAL);
     }
 
     public static ArrayList<ChatMsg> fetchGroupSystemMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
         if (chatMsg != null) {
             return fetchChatMsgInteranl(context, str, 1, chatMsg.getMsgId(), j, chatMsg.getRowId(), z, getGroupSystemMessageType(), MSGTYPEEXPLAN.EQUAL);
         }
-        return fetchChatMsgInteranl(context, str, 1, Format.OFFSET_SAMPLE_RELATIVE, -Math.abs(j), -1L, z, getGroupSystemMessageType(), MSGTYPEEXPLAN.EQUAL);
+        return fetchChatMsgInteranl(context, str, 1, Long.MAX_VALUE, -Math.abs(j), -1L, z, getGroupSystemMessageType(), MSGTYPEEXPLAN.EQUAL);
     }
 
     public static ArrayList<ChatMsg> fetchAllChatMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
         if (chatMsg != null) {
             return fetchChatMsgInteranl(context, str, 1, chatMsg.getMsgId(), j, chatMsg.getRowId(), z, null, MSGTYPEEXPLAN.EQUAL);
         }
-        return fetchChatMsgInteranl(context, str, 1, Format.OFFSET_SAMPLE_RELATIVE, -Math.abs(j), -1L, z, null, MSGTYPEEXPLAN.UNEQUAL);
+        return fetchChatMsgInteranl(context, str, 1, Long.MAX_VALUE, -Math.abs(j), -1L, z, null, MSGTYPEEXPLAN.UNEQUAL);
     }
 
     public static ArrayList<ChatMsg> fetchAllChatMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z, long[] jArr) {
         if (chatMsg != null) {
             return fetchChatMsgInteranl(context, str, 1, chatMsg.getMsgId(), j, chatMsg.getRowId(), z, jArr, MSGTYPEEXPLAN.UNEQUAL);
         }
-        return fetchChatMsgInteranl(context, str, 1, Format.OFFSET_SAMPLE_RELATIVE, -Math.abs(j), -1L, z, jArr, MSGTYPEEXPLAN.UNEQUAL);
+        return fetchChatMsgInteranl(context, str, 1, Long.MAX_VALUE, -Math.abs(j), -1L, z, jArr, MSGTYPEEXPLAN.UNEQUAL);
     }
 
     public static ArrayList<ChatMsg> fetchLastChatMsg(Context context, String str, ChatMsg chatMsg, long j, boolean z) {
-        return fetchChatMsgInteranl(context, str, 1, Format.OFFSET_SAMPLE_RELATIVE, -Math.abs(j), -1L, z, getStarGroupSystemMessageType(), MSGTYPEEXPLAN.UNEQUAL);
+        return fetchChatMsgInteranl(context, str, 1, Long.MAX_VALUE, -Math.abs(j), -1L, z, getStarGroupSystemMessageType(), MSGTYPEEXPLAN.UNEQUAL);
     }
 
     private static ArrayList<ChatMsg> fetchChatMsgInteranl(Context context, String str, int i, long j, long j2, long j3, boolean z, long[] jArr, MSGTYPEEXPLAN msgtypeexplan) {

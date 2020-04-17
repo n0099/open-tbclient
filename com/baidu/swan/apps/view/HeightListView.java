@@ -6,31 +6,31 @@ import android.view.View;
 import android.widget.ListView;
 /* loaded from: classes11.dex */
 public class HeightListView extends ListView {
-    private int mListViewHeight;
+    private int cyG;
 
     public void setListViewHeight(int i) {
-        this.mListViewHeight = i;
+        this.cyG = i;
     }
 
     public HeightListView(Context context) {
         super(context);
-        this.mListViewHeight = -1;
+        this.cyG = -1;
     }
 
     public HeightListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mListViewHeight = -1;
+        this.cyG = -1;
     }
 
     public HeightListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mListViewHeight = -1;
+        this.cyG = -1;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.mListViewHeight > -1) {
-            i2 = View.MeasureSpec.makeMeasureSpec(this.mListViewHeight, Integer.MIN_VALUE);
+        if (this.cyG > -1) {
+            i2 = View.MeasureSpec.makeMeasureSpec(this.cyG, Integer.MIN_VALUE);
         }
         super.onMeasure(i, i2);
     }

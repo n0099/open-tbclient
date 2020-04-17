@@ -2,23 +2,22 @@ package com.baidu.adp.framework;
 
 import android.util.SparseArray;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a nx;
+    private static volatile a GF;
     private SparseArray<String> mCmdMap;
 
-    public static a eP() {
-        if (nx == null) {
+    public static a ju() {
+        if (GF == null) {
             synchronized (a.class) {
-                if (nx == null) {
-                    nx = new a();
+                if (GF == null) {
+                    GF = new a();
                 }
             }
         }
-        return nx;
+        return GF;
     }
 
     private a() {
@@ -44,7 +43,7 @@ public class a {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
                     if (this.mCmdMap.get(i) != null) {
-                        throw new Error("cmd " + str + HanziToPinyin.Token.SEPARATOR + name + " 和 " + this.mCmdMap.get(i) + " 重复");
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.mCmdMap.get(i) + " 重复");
                     }
                     this.mCmdMap.put(i, name);
                 }

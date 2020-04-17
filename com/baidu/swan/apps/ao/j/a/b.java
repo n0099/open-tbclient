@@ -19,14 +19,14 @@ public class b extends ab {
         if (DEBUG) {
             Log.d("ShortVibrateAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (eVar != null && eVar.JI()) {
+        if (eVar != null && eVar.Ru()) {
             if (DEBUG) {
                 Log.d("ShortVibrateAction", "ShortVibrateAction does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         }
-        com.baidu.swan.apps.ao.j.b.a.agb().agc();
+        com.baidu.swan.apps.ao.j.b.a.aog().aoh();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

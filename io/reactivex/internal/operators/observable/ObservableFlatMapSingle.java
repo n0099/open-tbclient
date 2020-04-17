@@ -56,7 +56,7 @@ public final class ObservableFlatMapSingle<T, R> extends a<T, R> {
                     aaVar.a(innerObserver);
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 this.d.dispose();
                 onError(th);
             }
@@ -131,7 +131,7 @@ public final class ObservableFlatMapSingle<T, R> extends a<T, R> {
                 if (aVar != null) {
                     break;
                 }
-                aVar = new io.reactivex.internal.queue.a<>(q.dJD());
+                aVar = new io.reactivex.internal.queue.a<>(q.dCB());
             } while (!this.queue.compareAndSet(null, aVar));
             return aVar;
         }

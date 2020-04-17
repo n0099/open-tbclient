@@ -1,6 +1,5 @@
 package com.facebook.drawee.view;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.net.Uri;
@@ -16,22 +15,12 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class SimpleDraweeView extends GenericDraweeView {
-    private static j<? extends AbstractDraweeControllerBuilder> sDraweecontrollerbuildersupplier;
-    private static j<j<? extends AbstractDraweeControllerBuilder>> sSupplierFactory;
-    private AbstractDraweeControllerBuilder mControllerBuilder;
+    private static j<? extends AbstractDraweeControllerBuilder> lXu;
+    private static j<j<? extends AbstractDraweeControllerBuilder>> lXv;
+    private AbstractDraweeControllerBuilder lXw;
 
-    public static void initialize(j<j<? extends AbstractDraweeControllerBuilder>> jVar) {
-        sSupplierFactory = jVar;
-    }
-
-    public static void shutDown() {
-        sSupplierFactory = null;
-        sDraweecontrollerbuildersupplier = null;
-    }
-
-    public SimpleDraweeView(Context context, com.facebook.drawee.generic.a aVar) {
-        super(context, aVar);
-        init(context, null);
+    public static void b(j<j<? extends AbstractDraweeControllerBuilder>> jVar) {
+        lXv = jVar;
     }
 
     public SimpleDraweeView(Context context) {
@@ -49,32 +38,26 @@ public class SimpleDraweeView extends GenericDraweeView {
         init(context, attributeSet);
     }
 
-    @TargetApi(21)
-    public SimpleDraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i, i2);
-        init(context, attributeSet);
-    }
-
     private void init(Context context, @Nullable AttributeSet attributeSet) {
         int resourceId;
         if (!isInEditMode()) {
-            if (sDraweecontrollerbuildersupplier == null) {
-                sDraweecontrollerbuildersupplier = sSupplierFactory.get();
+            if (lXu == null) {
+                lXu = lXv.get();
             }
-            g.checkNotNull(sDraweecontrollerbuildersupplier, "SimpleDraweeView was not initialized!");
-            this.mControllerBuilder = sDraweecontrollerbuildersupplier.get();
+            g.checkNotNull(lXu, "SimpleDraweeView was not initialized!");
+            this.lXw = lXu.get();
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0657a.SimpleDraweeView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0700a.SimpleDraweeView);
                 try {
-                    if (obtainStyledAttributes.hasValue(a.C0657a.SimpleDraweeView_actualImageUri)) {
-                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C0657a.SimpleDraweeView_actualImageUri)), (Object) null);
-                    } else if (obtainStyledAttributes.hasValue(a.C0657a.SimpleDraweeView_actualImageResource)) {
-                        int resourceId2 = obtainStyledAttributes.getResourceId(a.C0657a.SimpleDraweeView_actualImageResource, -1);
+                    if (obtainStyledAttributes.hasValue(a.C0700a.SimpleDraweeView_actualImageUri)) {
+                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C0700a.SimpleDraweeView_actualImageUri)), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(a.C0700a.SimpleDraweeView_actualImageResource)) {
+                        int resourceId2 = obtainStyledAttributes.getResourceId(a.C0700a.SimpleDraweeView_actualImageResource, -1);
                         if (resourceId2 != -1) {
                             setActualImageResource(resourceId2);
                         }
-                    } else if (obtainStyledAttributes.hasValue(a.C0657a.SimpleDraweeView_svgImage) && (resourceId = obtainStyledAttributes.getResourceId(a.C0657a.SimpleDraweeView_svgImage, -1)) != -1) {
-                        setImageURI(d.HB(resourceId), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(a.C0700a.SimpleDraweeView_svgImage) && (resourceId = obtainStyledAttributes.getResourceId(a.C0700a.SimpleDraweeView_svgImage, -1)) != -1) {
+                        setImageURI(d.Gc(resourceId), (Object) null);
                     }
                 } finally {
                     obtainStyledAttributes.recycle();
@@ -84,11 +67,11 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     protected AbstractDraweeControllerBuilder getControllerBuilder() {
-        return this.mControllerBuilder;
+        return this.lXw;
     }
 
     public void setImageRequest(ImageRequest imageRequest) {
-        setController(this.mControllerBuilder.bg(imageRequest).c(getController()).dmN());
+        setController(this.lXw.aW(imageRequest).c(getController()).doG());
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -101,7 +84,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURI(Uri uri, @Nullable Object obj) {
-        setController(this.mControllerBuilder.bi(obj).K(uri).c(getController()).dmN());
+        setController(this.lXw.aY(obj).O(uri).c(getController()).doG());
     }
 
     public void setImageURI(@Nullable String str, @Nullable Object obj) {
@@ -113,7 +96,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setActualImageResource(@DrawableRes int i, @Nullable Object obj) {
-        setImageURI(d.HB(i), obj);
+        setImageURI(d.Gc(i), obj);
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -122,7 +105,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURIWithHeader(Uri uri, Map<String, String> map, @Nullable Object obj) {
-        setController(getControllerBuilder().c(uri, map).bi(obj).c(getController()).dmN());
+        setController(getControllerBuilder().c(uri, map).aY(obj).c(getController()).doG());
     }
 
     public void setImageURIWithHeader(Uri uri, Map<String, String> map) {

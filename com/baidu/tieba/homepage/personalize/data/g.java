@@ -8,17 +8,17 @@ import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes9.dex */
 public class g extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public int Ok;
-    public String cMd;
-    public int hgE;
+    public int agQ;
+    public String aqV;
+    public int hQo;
     public String imgUrl;
 
     public void a(LiveAnswer liveAnswer) {
         if (liveAnswer != null) {
             this.imgUrl = liveAnswer.banner_url;
-            this.hgE = liveAnswer.banner_high.intValue();
-            this.Ok = liveAnswer.banner_width.intValue();
-            this.cMd = liveAnswer.jump_url;
+            this.hQo = liveAnswer.banner_high.intValue();
+            this.agQ = liveAnswer.banner_width.intValue();
+            this.aqV = liveAnswer.jump_url;
         }
     }
 
@@ -30,10 +30,10 @@ public class g extends com.baidu.tieba.card.data.b {
     public String toString() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("img_width", this.Ok);
+            jSONObject.put("img_width", this.agQ);
             jSONObject.put(BigdayActivityConfig.IMG_URL, this.imgUrl);
-            jSONObject.put("img_height", this.hgE);
-            jSONObject.put(BigdayActivityConfig.JUMP_URL, this.cMd);
+            jSONObject.put("img_height", this.hQo);
+            jSONObject.put(BigdayActivityConfig.JUMP_URL, this.aqV);
             return jSONObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

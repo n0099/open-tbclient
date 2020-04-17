@@ -4,13 +4,17 @@ import android.content.Context;
 import android.util.Pair;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
+import com.baidu.android.imsdk.chatuser.IStatusListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -29,7 +33,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.mContacter = j;
         this.mSubBusiness = i;
         this.mKey = str;
-        this.mContacterType = i2 == 0 ? 0 : 1;
+        this.mContacterType = getContacterType(i2);
         this.mState = i3;
         this.user = new ChatSession();
     }
@@ -46,12 +50,12 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
             jSONObject.put(SapiContext.KEY_SDK_VERSION, "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-            jSONObject.put("device_type", 2);
+            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
             jSONObject.put("sub_business", this.mSubBusiness);
             jSONObject.put("contacter", this.mContacter);
             jSONObject.put("contacter_type", this.mContacterType);
             jSONObject.put("timestamp", this.timeStamp);
-            jSONObject.put("ability", this.mState);
+            jSONObject.put(FuFaceItem.JK_ABILITY, this.mState);
             jSONObject.put("sign", getMd5("" + this.timeStamp + uk + appid));
             jSONObject.put("account_type", AccountManager.isCuidLogin(this.mContext) ? 1 : 0);
             LogUtils.d(TAG, "IMSetShieldAndTopRequest msg :" + jSONObject.toString());
@@ -65,6 +69,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public void onSuccess(int i, byte[] bArr) {
         int i2;
         String str;
+        IStatusListener iStatusListener;
         String str2 = new String(bArr);
         LogUtils.e(TAG, "IMSetShieldAndTopRequest onSuccess :" + str2);
         try {
@@ -99,11 +104,14 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
             } else {
                 ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(i2, str, this.user, this.mKey);
             }
+        } else if (this.mSubBusiness == 3 && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
+            iStatusListener.onResult(i2, str, this.mState, this.mContacter);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
+        IStatusListener iStatusListener;
         Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
         if (this.mSubBusiness == 1) {
             if (this.mContacterType == 0) {
@@ -117,11 +125,26 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
             } else {
                 ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.user, this.mKey);
             }
+        } else if (this.mSubBusiness == 3 && (iStatusListener = (IStatusListener) ListenerManager.getInstance().removeListener(this.mKey)) != null) {
+            iStatusListener.onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mState, this.mContacter);
         }
     }
 
     @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
     public String getHostUrlParam() {
         return "set_user_contacter_setting";
+    }
+
+    private int getContacterType(int i) {
+        switch (i) {
+            case 0:
+                return 0;
+            case 1:
+            case 2:
+            default:
+                return 1;
+            case 3:
+                return 2;
+        }
     }
 }

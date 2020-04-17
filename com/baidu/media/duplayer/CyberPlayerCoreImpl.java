@@ -5,6 +5,7 @@ import com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.PlayerProvider;
 import com.baidu.cyberplayer.sdk.SDKVersion;
+import com.baidu.cyberplayer.sdk.extractor.ExtractorProvider;
 import com.baidu.cyberplayer.sdk.recorder.CyberAudioRecorder;
 import com.baidu.media.recorder.DuAudioRecorder;
 import java.util.HashMap;
@@ -23,6 +24,11 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public CyberAudioRecorder createCyberAudioRecorder() {
         return new DuAudioRecorder();
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
+    public ExtractorProvider createCyberExtractor() {
+        return com.baidu.media.extractor.a.a();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -46,8 +52,8 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public String getInitError() {
-        return a.b();
+    public String[] getLibsSearchPath() {
+        return b.a();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -71,18 +77,23 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public void init(Context context, int i, Map<String, String> map) {
-        a.a(context, i, map);
+    public void init(Context context, String str) {
+        b.a(context, str);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public boolean isLoaded(int i) {
-        return a.a(i);
+        return b.a(i);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
-    public void prefetch(String str, String str2, String str3, int i, int i2, CyberPlayerManager.HttpDNS httpDNS, String str4) {
-        Prefetch.add(str, str2, str3, i, i2, httpDNS, str4);
+    public void loadlibs(int i, Map<String, String> map) {
+        b.d(i, map);
+    }
+
+    @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
+    public void prefetch(String str, String str2, String str3, int i, int i2, int i3, CyberPlayerManager.HttpDNS httpDNS, String str4) {
+        Prefetch.add(str, str2, str3, i, i2, i3, httpDNS, str4);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
@@ -92,6 +103,6 @@ public class CyberPlayerCoreImpl extends CyberPlayerCoreProvider {
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerCoreProvider
     public void updateCfg() {
-        Utils.f();
+        Utils.e();
     }
 }

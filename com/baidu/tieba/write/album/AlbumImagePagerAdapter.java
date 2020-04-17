@@ -12,16 +12,16 @@ import com.baidu.tieba.R;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private Map<Integer, Boolean> aCG = new HashMap();
-    private AlbumActivity kOJ;
+    private Map<Integer, Boolean> aWn = new HashMap();
+    private AlbumActivity lya;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.kOJ = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.kOJ.getPageContext().getPageActivity());
+        this.lya = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.lya.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -44,15 +44,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo yy(int i) {
+    public ImageFileInfo yZ(int i) {
         return (ImageFileInfo) v.getItem(this.mList, i);
     }
 
-    public boolean cQ(int i) {
-        if (this.aCG.get(Integer.valueOf(i)) == null) {
+    public boolean df(int i) {
+        if (this.aWn.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.aCG.get(Integer.valueOf(i)).booleanValue();
+        return this.aWn.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -72,11 +72,11 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView2.setDefaultErrorResource(0);
         tbImageView2.setGifIconSupport(false);
         tbImageView2.setLongIconSupport(false);
-        ImageFileInfo yy = yy(i);
-        if (yy != null) {
-            tbImageView2.startLoad(yy.getFilePath(), 35, false, true);
-            tbImageView.startLoad(yy.getFilePath(), 36, false);
-            this.aCG.put(Integer.valueOf(i), true);
+        ImageFileInfo yZ = yZ(i);
+        if (yZ != null) {
+            tbImageView2.startLoad(yZ.getFilePath(), 35, false, true);
+            tbImageView.startLoad(yZ.getFilePath(), 36, false);
+            this.aWn.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
         am.setBackgroundColor(inflate, R.color.cp_bg_line_d);

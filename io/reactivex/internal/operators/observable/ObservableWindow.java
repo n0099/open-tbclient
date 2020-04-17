@@ -52,7 +52,7 @@ public final class ObservableWindow<T> extends a<T, q<T>> {
         public void onNext(T t) {
             UnicastSubject<T> unicastSubject = this.window;
             if (unicastSubject == null && !this.cancelled) {
-                unicastSubject = UnicastSubject.b(this.capacityHint, this);
+                unicastSubject = UnicastSubject.c(this.capacityHint, this);
                 this.window = unicastSubject;
                 this.actual.onNext(unicastSubject);
             }
@@ -145,9 +145,9 @@ public final class ObservableWindow<T> extends a<T, q<T>> {
             long j2 = this.skip;
             if (j % j2 == 0 && !this.cancelled) {
                 this.wip.getAndIncrement();
-                UnicastSubject<T> b = UnicastSubject.b(this.capacityHint, this);
-                arrayDeque.offer(b);
-                this.actual.onNext(b);
+                UnicastSubject<T> c = UnicastSubject.c(this.capacityHint, this);
+                arrayDeque.offer(c);
+                this.actual.onNext(c);
             }
             long j3 = this.firstEmission + 1;
             Iterator<UnicastSubject<T>> it = arrayDeque.iterator();

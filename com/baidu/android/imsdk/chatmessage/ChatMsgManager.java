@@ -438,6 +438,10 @@ public class ChatMsgManager extends BaseManager {
         ChatMsgManagerImpl.getInstance(context).fetchMsgRequst(j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
     }
 
+    public static void fetchMsgByHostRequst(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        ChatMsgManagerImpl.getInstance(context).fetchMsgByHostRequst(j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
+    }
+
     public static void setInterActiveMsgStatus(Context context, long j, long j2, int i, int i2) {
         ChatMsgManagerImpl.getInstance(context).setInterActiveMsgStatus(j, j2, i, i2);
     }
@@ -479,12 +483,24 @@ public class ChatMsgManager extends BaseManager {
         ChatMsgManagerImpl.getInstance(context).mediaFetchChatMsgs(context, j, j2, j3, i, iMediaFetchChatMsgsListener);
     }
 
+    public static void mediaFetchChatMsgs(Context context, long j, int i, long j2, String str, long j3, long j4, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaFetchChatMsgs(context, j, i, j2, str, j3, j4, i2, iMediaFetchChatMsgsListener);
+    }
+
     public static void mediaSendChatMsg(Context context, long j, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
         ChatMsgManagerImpl.getInstance(context).mediaSendChatMsg(context, j, chatMsg, iMediaSendChatMsgListener);
     }
 
+    public static void mediaSendChatMsg(Context context, long j, int i, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaSendChatMsg(context, j, i, j2, str, chatMsg, iMediaSendChatMsgListener);
+    }
+
     public static void mediaDeleteChatMsg(Context context, long j, long j2, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         ChatMsgManagerImpl.getInstance(context).mediaDeleteChatMsg(context, j, j2, list, iMediaDeleteChatMsgListener);
+    }
+
+    public static void mediaDeleteChatMsg(Context context, long j, int i, long j2, String str, long j3, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+        ChatMsgManagerImpl.getInstance(context).mediaDeleteChatMsg(context, j, i, j2, str, j3, list, iMediaDeleteChatMsgListener);
     }
 
     public static void mediaRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
@@ -493,6 +509,12 @@ public class ChatMsgManager extends BaseManager {
 
     public static void mediaUnRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
         ChatMsgManagerImpl.getInstance(context).mediaUnRegisterChatMsgChangedListener(iMediaChatMsgChangedListener);
+    }
+
+    public static void mediaGetChatSessions(Context context, long j, int i, long j2, String str, long j3, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+        if (!isNullContext(context)) {
+            ChatSessionManagerImpl.getInstance(context).mediaGetChatSessions(j, i, j2, str, j3, i2, iMediaGetChatSessionListener);
+        }
     }
 
     public static void mediaGetChatSessions(Context context, long j, long j2, int i, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
@@ -507,9 +529,45 @@ public class ChatMsgManager extends BaseManager {
         }
     }
 
+    public static void mediaSetSessionRead(Context context, long j, int i, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+        if (!isNullContext(context)) {
+            ChatSessionManagerImpl.getInstance(context).mediaSetSessionRead(j, i, j2, str, j3, iMediaSetSessionReadListener);
+        }
+    }
+
     public static void mediaDeleteChatSession(Context context, long j, long j2, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         if (!isNullContext(context)) {
             ChatSessionManagerImpl.getInstance(context).mediaDeleteChatSession(j, j2, iMediaDeleteChatSessionListener);
         }
+    }
+
+    public static void mediaDeleteChatSession(Context context, long j, int i, long j2, String str, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
+        if (!isNullContext(context)) {
+            ChatSessionManagerImpl.getInstance(context).mediaDeleteChatSession(j, i, j2, str, j3, iMediaDeleteChatSessionListener);
+        }
+    }
+
+    public static void mediaContactorSetting(Context context, long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaContactorSetting(j, i, iMediaContactorSettingListener);
+    }
+
+    public static void mediaContactorSetting(Context context, long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaContactorSetting(j, i, j2, str, i2, iMediaContactorSettingListener);
+    }
+
+    public static void mediaGetContactorPauid(Context context, long j, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaGetContactorPauid(j, iMediaGetContactorPauidListener);
+    }
+
+    public static void mediaGetContactorPauid(Context context, long j, int i, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaGetContactorPauid(j, i, j2, str, iMediaGetContactorPauidListener);
+    }
+
+    public static void mediaGetContactorSetting(Context context, long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaGetContactorSetting(j, i, iMediaContactorSettingListener);
+    }
+
+    public static void mediaGetContactorSetting(Context context, long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatSessionManagerImpl.getInstance(context).mediaGetContactorSetting(j, i, j2, str, i2, iMediaContactorSettingListener);
     }
 }

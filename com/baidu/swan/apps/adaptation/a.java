@@ -5,17 +5,17 @@ import com.baidu.swan.apps.adaptation.a.g;
 import com.baidu.swan.bdprivate.a.t;
 /* loaded from: classes7.dex */
 public class a {
-    private g bbu;
+    private g bzI;
 
     @NonNull
-    public g Ha() {
-        if (this.bbu == null) {
-            this.bbu = Hb();
+    public g ON() {
+        if (this.bzI == null) {
+            this.bzI = OO();
         }
-        return this.bbu;
+        return this.bzI;
     }
 
-    public g Hb() {
+    public g OO() {
         return new t();
     }
 }

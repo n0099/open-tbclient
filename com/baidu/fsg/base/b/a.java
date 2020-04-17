@@ -28,10 +28,10 @@ public final class a {
     private static a i = null;
     private final HashMap<Future<?>, Runnable> k = new HashMap<>();
     private final ThreadFactory l = new com.baidu.fsg.base.b.b(this);
-    private long m = Long.MAX_VALUE;
+    private long m = e;
     private Timer n = new Timer();
     private BlockingQueue<Runnable> o = new LinkedBlockingQueue(10);
-    private C0067a p = new C0067a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
+    private C0093a p = new C0093a(5, 128, 1, TimeUnit.SECONDS, this.o, this.l);
     private b q = new b(this, null);
     private final HashMap<String, ArrayList<c>> j = new HashMap<>();
 
@@ -162,7 +162,7 @@ public final class a {
         }
         synchronized (this.j) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.m = Long.MAX_VALUE;
+            this.m = e;
             for (String str : this.j.keySet()) {
                 ArrayList arrayList = new ArrayList();
                 Iterator<c> it = c(str).iterator();
@@ -182,7 +182,7 @@ public final class a {
                         this.m = next.f;
                     }
                 }
-                if (this.m < Long.MAX_VALUE) {
+                if (this.m < e) {
                     a(this.m - currentTimeMillis);
                 }
             }
@@ -241,8 +241,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.fsg.base.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0067a extends ThreadPoolExecutor {
-        public C0067a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
+    public class C0093a extends ThreadPoolExecutor {
+        public C0093a(int i, int i2, long j, TimeUnit timeUnit, BlockingQueue<Runnable> blockingQueue, ThreadFactory threadFactory) {
             super(i, i2, j, timeUnit, blockingQueue, threadFactory);
         }
 

@@ -1,6 +1,7 @@
 package com.baidu.tieba.ala.alasquare.special_forum.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
@@ -20,7 +21,7 @@ public class b extends com.baidu.tieba.card.data.b {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.url = jSONObject.optString("url");
-            this.pic = jSONObject.optString("pic");
+            this.pic = jSONObject.optString(UgcUBCUtils.UGC_TYPE_PIC_BTN);
             this.start_time = jSONObject.optLong("start_time", 0L);
             this.end_time = jSONObject.optLong("end_time", 0L);
             this.name = jSONObject.optString("name");

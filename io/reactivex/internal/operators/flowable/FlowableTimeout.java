@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.operators.flowable.FlowableTimeoutTimed;
@@ -13,8 +12,8 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operators.flowable.a<T, T> {
     final h<? super T, ? extends org.a.b<V>> itemTimeoutIndicator;
-    final org.a.b<U> nzh;
-    final org.a.b<? extends T> other;
+    final org.a.b<U> mSH;
+    final org.a.b<? extends T> mSk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
@@ -24,17 +23,17 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        if (this.other == null) {
+        if (this.mSk == null) {
             TimeoutSubscriber timeoutSubscriber = new TimeoutSubscriber(cVar, this.itemTimeoutIndicator);
             cVar.onSubscribe(timeoutSubscriber);
-            timeoutSubscriber.startFirstTimeout(this.nzh);
-            this.nyr.a((j) timeoutSubscriber);
+            timeoutSubscriber.startFirstTimeout(this.mSH);
+            this.mRJ.a((j) timeoutSubscriber);
             return;
         }
-        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.other);
+        TimeoutFallbackSubscriber timeoutFallbackSubscriber = new TimeoutFallbackSubscriber(cVar, this.itemTimeoutIndicator, this.mSk);
         cVar.onSubscribe(timeoutFallbackSubscriber);
-        timeoutFallbackSubscriber.startFirstTimeout(this.nzh);
-        this.nyr.a((j) timeoutFallbackSubscriber);
+        timeoutFallbackSubscriber.startFirstTimeout(this.mSH);
+        this.mRJ.a((j) timeoutFallbackSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -59,7 +58,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
         @Override // org.a.c
         public void onNext(T t) {
             long j = get();
-            if (j != Format.OFFSET_SAMPLE_RELATIVE && compareAndSet(j, j + 1)) {
+            if (j != Long.MAX_VALUE && compareAndSet(j, j + 1)) {
                 io.reactivex.disposables.b bVar = this.task.get();
                 if (bVar != null) {
                     bVar.dispose();
@@ -72,9 +71,9 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                         bVar2.subscribe(timeoutConsumer);
                     }
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     this.upstream.get().cancel();
-                    getAndSet(Format.OFFSET_SAMPLE_RELATIVE);
+                    getAndSet(Long.MAX_VALUE);
                     this.actual.onError(th);
                 }
             }
@@ -91,7 +90,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            if (getAndSet(Format.OFFSET_SAMPLE_RELATIVE) != Format.OFFSET_SAMPLE_RELATIVE) {
+            if (getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
                 this.task.dispose();
                 this.actual.onError(th);
                 return;
@@ -101,7 +100,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
         @Override // org.a.c
         public void onComplete() {
-            if (getAndSet(Format.OFFSET_SAMPLE_RELATIVE) != Format.OFFSET_SAMPLE_RELATIVE) {
+            if (getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
                 this.task.dispose();
                 this.actual.onComplete();
             }
@@ -109,7 +108,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeoutTimed.b
         public void onTimeout(long j) {
-            if (compareAndSet(j, Format.OFFSET_SAMPLE_RELATIVE)) {
+            if (compareAndSet(j, Long.MAX_VALUE)) {
                 SubscriptionHelper.cancel(this.upstream);
                 this.actual.onError(new TimeoutException());
             }
@@ -117,7 +116,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeout.a
         public void onTimeoutError(long j, Throwable th) {
-            if (compareAndSet(j, Format.OFFSET_SAMPLE_RELATIVE)) {
+            if (compareAndSet(j, Long.MAX_VALUE)) {
                 SubscriptionHelper.cancel(this.upstream);
                 this.actual.onError(th);
                 return;
@@ -164,7 +163,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
         @Override // org.a.c
         public void onNext(T t) {
             long j = this.index.get();
-            if (j != Format.OFFSET_SAMPLE_RELATIVE && this.index.compareAndSet(j, j + 1)) {
+            if (j != Long.MAX_VALUE && this.index.compareAndSet(j, j + 1)) {
                 io.reactivex.disposables.b bVar = this.task.get();
                 if (bVar != null) {
                     bVar.dispose();
@@ -178,9 +177,9 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
                         bVar2.subscribe(timeoutConsumer);
                     }
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     this.upstream.get().cancel();
-                    this.index.getAndSet(Format.OFFSET_SAMPLE_RELATIVE);
+                    this.index.getAndSet(Long.MAX_VALUE);
                     this.actual.onError(th);
                 }
             }
@@ -197,7 +196,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            if (this.index.getAndSet(Format.OFFSET_SAMPLE_RELATIVE) != Format.OFFSET_SAMPLE_RELATIVE) {
+            if (this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
                 this.task.dispose();
                 this.actual.onError(th);
                 this.task.dispose();
@@ -208,7 +207,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
         @Override // org.a.c
         public void onComplete() {
-            if (this.index.getAndSet(Format.OFFSET_SAMPLE_RELATIVE) != Format.OFFSET_SAMPLE_RELATIVE) {
+            if (this.index.getAndSet(Long.MAX_VALUE) != Long.MAX_VALUE) {
                 this.task.dispose();
                 this.actual.onComplete();
                 this.task.dispose();
@@ -217,7 +216,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeoutTimed.b
         public void onTimeout(long j) {
-            if (this.index.compareAndSet(j, Format.OFFSET_SAMPLE_RELATIVE)) {
+            if (this.index.compareAndSet(j, Long.MAX_VALUE)) {
                 SubscriptionHelper.cancel(this.upstream);
                 org.a.b<? extends T> bVar = this.fallback;
                 this.fallback = null;
@@ -231,7 +230,7 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
         @Override // io.reactivex.internal.operators.flowable.FlowableTimeout.a
         public void onTimeoutError(long j, Throwable th) {
-            if (this.index.compareAndSet(j, Format.OFFSET_SAMPLE_RELATIVE)) {
+            if (this.index.compareAndSet(j, Long.MAX_VALUE)) {
                 SubscriptionHelper.cancel(this.upstream);
                 this.actual.onError(th);
                 return;
@@ -260,7 +259,9 @@ public final class FlowableTimeout<T, U, V> extends io.reactivex.internal.operat
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(Long.MAX_VALUE);
+            }
         }
 
         @Override // org.a.c

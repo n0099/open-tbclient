@@ -53,11 +53,11 @@ public class g extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "the callback is null");
             return false;
         }
-        eVar.acS().b(activity, "mapp_i_read_contacts", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.g.1
+        eVar.akX().b(activity, "mapp_i_read_contacts", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.bdprivate.c.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void D(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+            public void E(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                 if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                     com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString);
                     return;
@@ -78,7 +78,7 @@ public class g extends ab {
             }
             com.baidu.swan.apps.console.c.i("ReadContacts", "don't need to request permission");
             b(activity, callbackHandler, str);
-        } else if (aiB()) {
+        } else if (aqJ()) {
             if (DEBUG) {
                 Log.i("ReadContactsAction", "permission has granted");
             }
@@ -89,8 +89,8 @@ public class g extends ab {
             a(callbackHandler, str, 200402, "has requested permission but denied");
         } else {
             String[] strArr = {"android.permission.READ_CONTACTS"};
-            com.baidu.swan.apps.y.f WV = com.baidu.swan.apps.y.f.WV();
-            if (WV == null) {
+            com.baidu.swan.apps.y.f aeK = com.baidu.swan.apps.y.f.aeK();
+            if (aeK == null) {
                 if (DEBUG) {
                     Log.e("ReadContactsAction", "SwanAppController is null");
                 }
@@ -98,7 +98,7 @@ public class g extends ab {
                 a(callbackHandler, str, 200402, "request permission denied");
                 return;
             }
-            WV.a(666, strArr, new c.a() { // from class: com.baidu.swan.bdprivate.c.a.g.2
+            aeK.a(666, strArr, new c.a() { // from class: com.baidu.swan.bdprivate.c.a.g.2
                 @Override // com.baidu.swan.apps.af.c.a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr2, @NonNull int[] iArr) {
                     if (i != 666 || !TextUtils.equals(strArr2[0], "android.permission.READ_CONTACTS") || iArr.length <= 0 || iArr[0] != 0) {
@@ -122,12 +122,12 @@ public class g extends ab {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Activity activity, CallbackHandler callbackHandler, String str) {
         try {
-            JSONObject dh = dh(activity);
+            JSONObject cV = cV(activity);
             if (DEBUG) {
-                Log.i("ReadContactsAction", "read contacts:" + dh.toString());
+                Log.i("ReadContactsAction", "read contacts:" + cV.toString());
             }
-            com.baidu.swan.apps.console.c.e("ReadContacts", "read contacts:" + dh.toString());
-            a(callbackHandler, str, 0, dh);
+            com.baidu.swan.apps.console.c.e("ReadContacts", "read contacts:" + cV.toString());
+            a(callbackHandler, str, 0, cV);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("ReadContactsAction", "read contacts error caused by JsonException");
@@ -148,7 +148,7 @@ public class g extends ab {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private JSONObject dh(Context context) throws JSONException {
+    private JSONObject cV(Context context) throws JSONException {
         char c;
         JSONArray jSONArray = null;
         JSONArray jSONArray2 = new JSONArray();
@@ -247,7 +247,7 @@ public class g extends ab {
         return jSONObject2;
     }
 
-    public boolean aiB() {
+    public boolean aqJ() {
         if (com.baidu.swan.apps.as.a.hasMarshMallow()) {
             return Build.VERSION.SDK_INT >= 23 && AppRuntime.getAppContext().checkSelfPermission("android.permission.READ_CONTACTS") == 0;
         }

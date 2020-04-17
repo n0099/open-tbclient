@@ -5,11 +5,9 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.spswitch.a.a;
-import com.baidu.spswitch.b;
-import com.baidu.spswitch.b.g;
 /* loaded from: classes13.dex */
-public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
-    private a baK;
+public class SPSwitchFSPanelLinearLayout extends LinearLayout {
+    private a byY;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
@@ -25,16 +23,6 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     }
 
     private void init() {
-        this.baK = new a(this);
-    }
-
-    @Override // com.baidu.spswitch.b
-    public void dL(int i) {
-        g.f(this, i);
-    }
-
-    @Override // com.baidu.spswitch.b
-    public void onSoftInputShowing(boolean z) {
-        this.baK.onSoftInputShowing(z);
+        this.byY = new a(this);
     }
 }

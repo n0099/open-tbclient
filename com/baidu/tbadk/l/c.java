@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static boolean aQX() {
+    private static boolean aZh() {
         return TbadkCoreApplication.getInst().isDebugMode();
     }
 
     private static final void d(Object obj, String str) {
-        if (aQX()) {
+        if (aZh()) {
             if (obj != null) {
                 str = str + " : " + obj.getClass().getSimpleName();
             }
@@ -31,7 +31,7 @@ public class c {
     }
 
     private static final void a(Fragment fragment, List<Fragment> list) {
-        if (aQX()) {
+        if (aZh()) {
             d((Object) null, "--------------------------------------------------");
             d((Object) null, "ParentFragment:" + fragment);
             d((Object) null, "Print All ChildFragments=" + v.getCount(list));
@@ -45,23 +45,23 @@ public class c {
     }
 
     private static final void a(b bVar) {
-        if (aQX() && bVar != null) {
+        if (aZh() && bVar != null) {
             String currentPageKey = bVar.getCurrentPageKey();
-            ArrayList<String> aQV = bVar.aQV();
-            ArrayList<String> aQW = bVar.aQW();
+            ArrayList<String> aZf = bVar.aZf();
+            ArrayList<String> aZg = bVar.aZg();
             StringBuilder sb = new StringBuilder("Current TbPageExtra:");
             sb.append("currentKey=").append(currentPageKey).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("preList=").append(aQV.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            sb.append("nextList=").append(aQW.toString());
+            sb.append("preList=").append(aZf.toString()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            sb.append("nextList=").append(aZg.toString());
             d(bVar, sb.toString());
         }
     }
 
-    public static b dZ(Context context) {
+    public static b dN(Context context) {
         b bVar = null;
-        Activity ea = ea(context);
-        if (ea instanceof BaseFragmentActivity) {
-            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) ea;
+        Activity dO = dO(context);
+        if (dO instanceof BaseFragmentActivity) {
+            BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) dO;
             d(baseFragmentActivity, "BaseFragmentActivity");
             BaseFragment d = d(baseFragmentActivity);
             if (d != null) {
@@ -75,8 +75,8 @@ public class c {
             b bVar2 = bVar;
             a(bVar2);
             return bVar2;
-        } else if (ea instanceof BaseActivity) {
-            BaseActivity baseActivity = (BaseActivity) ea;
+        } else if (dO instanceof BaseActivity) {
+            BaseActivity baseActivity = (BaseActivity) dO;
             d(baseActivity, "BaseActivity");
             b tbPageExtra = baseActivity.getTbPageExtra();
             d(baseActivity, "ActivityExtra=" + tbPageExtra);
@@ -88,7 +88,7 @@ public class c {
         }
     }
 
-    public static Activity ea(Context context) {
+    public static Activity dO(Context context) {
         d(context, "currentContext");
         Context context2 = context;
         while (context2 instanceof ContextWrapper) {

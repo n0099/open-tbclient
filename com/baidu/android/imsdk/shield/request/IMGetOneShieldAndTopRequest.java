@@ -10,7 +10,9 @@ import com.baidu.android.imsdk.shield.model.GetShieldAndTopResult;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,17 +20,32 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     private static final String TAG = "IMGetOneShieldAndTopRequest";
+    private int mChatType;
     private long mContacter;
+    private int mContacterType;
     private String mKey;
     private int mMarkTop = 0;
     private long mMarkTopTime = 0;
     private int mShield = 0;
     private long mShieldTime = 0;
+    private int mDisturb = 0;
+    private long mDisturbTime = 0;
 
+    @Deprecated
     public IMGetOneShieldAndTopRequest(Context context, long j, String str) {
         this.mContext = context;
         this.mContacter = j;
         this.mKey = str;
+        this.mChatType = (this.mContacter & Constants.PAFLAG) != 0 ? 1 : 0;
+        this.mContacterType = getContacterType(this.mChatType);
+    }
+
+    public IMGetOneShieldAndTopRequest(Context context, long j, int i, String str) {
+        this.mContext = context;
+        this.mContacter = j;
+        this.mKey = str;
+        this.mChatType = i;
+        this.mContacterType = getContacterType(this.mChatType);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -42,10 +59,11 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
             jSONObject.put(SapiContext.KEY_SDK_VERSION, "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-            jSONObject.put("device_type", 2);
+            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
             jSONObject.put("uk", uk);
             jSONObject.put("contacter", this.mContacter);
             jSONObject.put("timestamp", currentTimeMillis);
+            jSONObject.put("contacter_type", this.mContacterType);
             jSONObject.put("sign", getMd5("" + currentTimeMillis + uk + appid));
             LogUtils.d(TAG, "IMGetOneShieldAndTopRequest msg :" + jSONObject.toString());
             return jSONObject.toString().getBytes();
@@ -70,11 +88,14 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
                     JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
                     int optInt2 = jSONObject2.optInt("sub_business");
                     if (optInt2 == 2) {
-                        this.mMarkTop = jSONObject2.optInt("ability");
+                        this.mMarkTop = jSONObject2.optInt(FuFaceItem.JK_ABILITY);
                         this.mMarkTopTime = jSONObject2.optLong("timestamp");
                     } else if (optInt2 == 1) {
-                        this.mShield = jSONObject2.optInt("ability");
+                        this.mShield = jSONObject2.optInt(FuFaceItem.JK_ABILITY);
                         this.mShieldTime = jSONObject2.optLong("timestamp");
+                    } else if (optInt2 == 3) {
+                        this.mDisturb = jSONObject2.optInt(FuFaceItem.JK_ABILITY);
+                        this.mDisturbTime = jSONObject2.optLong("timestamp");
                     }
                 }
             }
@@ -93,6 +114,9 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         getShieldAndTopResult.setMarkTopTime(this.mMarkTopTime);
         getShieldAndTopResult.setShield(this.mShield);
         getShieldAndTopResult.setShieldTime(this.mShieldTime);
+        getShieldAndTopResult.setDisturbStatus(this.mDisturb);
+        getShieldAndTopResult.setDisturbTime(this.mDisturbTime);
+        getShieldAndTopResult.setChatType(this.mChatType);
         ShieldAndTopManager.getInstance(this.mContext).onUserShieldAndTopResult(getShieldAndTopResult, this.mKey);
     }
 
@@ -108,5 +132,18 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     @Override // com.baidu.android.imsdk.shield.request.IMSettingBaseHttpRequest
     public String getHostUrlParam() {
         return "read_single_contacter_setting";
+    }
+
+    private int getContacterType(int i) {
+        switch (i) {
+            case 0:
+                return 0;
+            case 1:
+            case 2:
+            default:
+                return 1;
+            case 3:
+                return 2;
+        }
     }
 }

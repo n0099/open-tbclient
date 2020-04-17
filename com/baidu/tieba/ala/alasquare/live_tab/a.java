@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private BdTypeRecyclerView BK;
-    private List<com.baidu.adp.widget.ListView.a> asP;
-    private d elQ;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.b elR;
-    private com.baidu.tieba.ala.alasquare.live_tab.a.a elS;
+    private BdTypeRecyclerView Vf;
+    private List<com.baidu.adp.widget.ListView.a> aMd;
+    private d ePq;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.b ePr;
+    private com.baidu.tieba.ala.alasquare.live_tab.a.a ePs;
     private Context mContext;
     private TbPageContext mPageContext;
     private int tabType;
@@ -21,29 +21,29 @@ public class a {
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.BK = bdTypeRecyclerView;
+        this.Vf = bdTypeRecyclerView;
         this.tabType = i;
-        wR();
+        BC();
     }
 
-    private void wR() {
-        this.asP = new ArrayList();
-        this.elQ = new d(this.mPageContext, this.tabType);
-        this.elR = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
-        this.elS = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
-        this.asP.add(this.elQ);
-        this.asP.add(this.elR);
-        this.asP.add(this.elS);
-        this.BK.addAdapters(this.asP);
+    private void BC() {
+        this.aMd = new ArrayList();
+        this.ePq = new d(this.mPageContext, this.tabType);
+        this.ePr = new com.baidu.tieba.ala.alasquare.live_tab.a.b(this.mPageContext);
+        this.ePs = new com.baidu.tieba.ala.alasquare.live_tab.a.a(this.mPageContext);
+        this.aMd.add(this.ePq);
+        this.aMd.add(this.ePr);
+        this.aMd.add(this.ePs);
+        this.Vf.addAdapters(this.aMd);
     }
 
     public void setData(List<m> list) {
-        this.BK.setData(list);
+        this.Vf.setData(list);
     }
 
     public void notifyDataSetChanged() {
-        if (this.BK != null) {
-            this.BK.getListAdapter().notifyDataSetChanged();
+        if (this.Vf != null) {
+            this.Vf.getListAdapter().notifyDataSetChanged();
         }
     }
 }

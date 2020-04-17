@@ -12,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.mobstat.bt;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -65,7 +66,7 @@ public class an {
             c = a2;
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("screenshot", bj.a(b2));
+                jSONObject.put(StatisticConstants.SCREENSHOT, bj.a(b2));
                 jSONObject.put("hash", bj.b(b2));
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("w", b2.getWidth());

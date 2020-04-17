@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.util;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.webkit.internal.ETAG;
 import java.io.IOException;
@@ -228,7 +229,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Ser
 
     void resize(int i) {
         if (this.table.length == 1073741824) {
-            this.threshold = Integer.MAX_VALUE;
+            this.threshold = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             return;
         }
         Entry<K, V>[] entryArr = new Entry[i];

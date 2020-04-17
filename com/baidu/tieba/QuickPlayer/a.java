@@ -9,8 +9,6 @@ public interface a {
 
     List<String> getMediaIDs();
 
-    IMediaPlayer getPlayer(Uri uri);
-
     boolean isExistInRemote(IMediaPlayer iMediaPlayer);
 
     void removePlayer(Uri uri);

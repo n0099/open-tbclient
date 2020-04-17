@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.callback.QrLoginStatusCheckCallback;
 import com.baidu.sapi2.callback.SapiCallback;
@@ -86,7 +85,7 @@ public class QrCodeService extends AbstractService {
             public void onSuccess(int i, String str) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                    int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
                     String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                     getQrCodeImageResult.setResultCode(parseInt);
                     getQrCodeImageResult.setResultMsg(optString);
@@ -111,7 +110,7 @@ public class QrCodeService extends AbstractService {
 
     protected void getQrLoginResult(final QrLoginStatusCheckCallback qrLoginStatusCheckCallback, final QrLoginStatusCheckResult qrLoginStatusCheckResult, String str, String str2, final boolean z) {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put(LogConfig.KEY_DISPLAY, "pcsdk");
+        httpHashMapWrap.put("display", "pcsdk");
         httpHashMapWrap.put("qrcode", "1");
         httpHashMapWrap.put("bduss", str);
         httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
@@ -143,7 +142,7 @@ public class QrCodeService extends AbstractService {
                 JSONObject optJSONObject;
                 try {
                     JSONObject jSONObject = new JSONObject(str4);
-                    int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                    int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
                     String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                     qrLoginStatusCheckResult.setResultCode(parseInt);
                     qrLoginStatusCheckResult.setResultMsg(optString);
@@ -209,7 +208,7 @@ public class QrCodeService extends AbstractService {
             public void onSuccess(int i, String str3) {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
-                    int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                    int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
                     qrAppLoginResult.setResultCode(parseInt);
                     if (parseInt != 0) {
                         sapiCallback.onFailure(qrAppLoginResult);
@@ -267,7 +266,7 @@ public class QrCodeService extends AbstractService {
             public void onSuccess(int i, String str) {
                 try {
                     JSONObject jSONObject = new JSONObject(str.substring(3, str.length() - 2));
-                    int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+                    int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
                     String optString = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
                     qrLoginStatusCheckResult.setResultCode(parseInt);
                     qrLoginStatusCheckResult.setResultMsg(optString);

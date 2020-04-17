@@ -15,23 +15,23 @@ public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
-    public static Set<String> R(List<String> list) {
+    public static Set<String> Z(List<String> list) {
         if (list == null || list.isEmpty()) {
             return null;
         }
-        return e(106, list);
+        return f(106, list);
     }
 
     @Nullable
-    public static Set<String> e(int i, List<String> list) {
+    public static Set<String> f(int i, List<String> list) {
         if (list == null || list.isEmpty()) {
             return null;
         }
         HashSet hashSet = new HashSet();
-        for (com.baidu.swan.apps.process.messaging.service.c cVar : com.baidu.swan.apps.process.messaging.service.e.abx().abz()) {
+        for (com.baidu.swan.apps.process.messaging.service.c cVar : com.baidu.swan.apps.process.messaging.service.e.ajC().ajE()) {
             String appId = cVar.getAppId();
-            if (cVar.abo() && cVar.abm() && list.contains(appId)) {
-                com.baidu.swan.apps.process.messaging.a.aaO().a(new com.baidu.swan.apps.process.messaging.c(i).a(cVar.bJL));
+            if (cVar.ajt() && cVar.ajr() && list.contains(appId)) {
+                com.baidu.swan.apps.process.messaging.a.aiT().a(new com.baidu.swan.apps.process.messaging.c(i).a(cVar.civ));
                 hashSet.add(appId);
                 if (DEBUG) {
                     Log.i("PurgerUtils", "sent msg(" + i + ") to active swan(" + appId + ")");

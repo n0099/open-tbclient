@@ -75,9 +75,12 @@ public class UgcConstant {
     public static final char TOPIC_PATTERN_TAG = '#';
     public static final String TOPIC_RULE_TAG = "#";
     public static final String UGC_CALLBACK = "ugcCallback";
+    public static final String UGC_IS_SCHEME = "is_scheme";
     public static final String UGC_MIXED_AUDIOS = "mixed_audios";
+    public static final String UGC_MUSIC_DATA = "music_data";
     public static final String UGC_PK = "ugcpk";
     public static final String UGC_PUBLISH_LIMIT = "publish_limit";
+    public static final String UGC_QUANZI = "quanzi";
     public static final String UGC_REPLY_PUBLISH_INPUT_ACTION = "com.baidu.channel.ugc.reply";
     public static final String UGC_SCHEME_PUBLISH_FINISH_ACTION = "com.baidu.channel.ugc.publish_finish";
     public static final String UGC_TAG = "tag";

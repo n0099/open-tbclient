@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.j;
@@ -9,14 +8,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableTakeUntil<T, U> extends a<T, T> {
-    final org.a.b<? extends U> other;
+    final org.a.b<? extends U> mSk;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         TakeUntilMainSubscriber takeUntilMainSubscriber = new TakeUntilMainSubscriber(cVar);
         cVar.onSubscribe(takeUntilMainSubscriber);
-        this.other.subscribe(takeUntilMainSubscriber.other);
-        this.nyr.a((j) takeUntilMainSubscriber);
+        this.mSk.subscribe(takeUntilMainSubscriber.other);
+        this.mRJ.a((j) takeUntilMainSubscriber);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -75,7 +74,9 @@ public final class FlowableTakeUntil<T, U> extends a<T, T> {
 
             @Override // io.reactivex.j, org.a.c
             public void onSubscribe(org.a.d dVar) {
-                SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+                if (SubscriptionHelper.setOnce(this, dVar)) {
+                    dVar.request(Long.MAX_VALUE);
+                }
             }
 
             @Override // org.a.c

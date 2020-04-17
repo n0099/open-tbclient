@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.schedulers.k;
@@ -33,9 +32,9 @@ public final class FlowableIntervalRange extends io.reactivex.g<Long> {
         cVar.onSubscribe(intervalRangeSubscriber);
         v vVar = this.scheduler;
         if (vVar instanceof k) {
-            v.c dJI = vVar.dJI();
-            intervalRangeSubscriber.setResource(dJI);
-            dJI.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
+            v.c dCG = vVar.dCG();
+            intervalRangeSubscriber.setResource(dCG);
+            dCG.b(intervalRangeSubscriber, this.initialDelay, this.period, this.unit);
             return;
         }
         intervalRangeSubscriber.setResource(vVar.a(intervalRangeSubscriber, this.initialDelay, this.period, this.unit));
@@ -82,7 +81,7 @@ public final class FlowableIntervalRange extends io.reactivex.g<Long> {
                         return;
                     }
                     this.count = j2 + 1;
-                    if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+                    if (j != Long.MAX_VALUE) {
                         decrementAndGet();
                         return;
                     }

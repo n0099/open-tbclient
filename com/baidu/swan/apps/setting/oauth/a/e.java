@@ -20,73 +20,73 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends g<c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected String bUc;
-    public b.a bUo;
-    public b bUp = new b(Looper.getMainLooper(), this);
-    public Bundle bUq;
-    protected JSONObject bUr;
+    protected String csR;
+    public b.a ctd;
+    public b cte = new b(Looper.getMainLooper(), this);
+    public Bundle ctf;
+    protected JSONObject ctg;
     protected final Activity mActivity;
 
     public e(Activity activity, b.a aVar, Bundle bundle) {
         this.mActivity = activity;
-        this.bUo = aVar;
+        this.ctd = aVar;
         if (bundle != null && bundle.containsKey("__plugin__")) {
-            this.bUc = bundle.getString("__plugin__");
+            this.csR = bundle.getString("__plugin__");
             bundle.remove("__plugin__");
         }
-        this.bUq = bundle;
+        this.ctf = bundle;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aej() {
+    protected boolean amo() {
         JSONObject jSONObject = new JSONObject();
         try {
-            boolean isEmpty = TextUtils.isEmpty(this.bUc);
-            jSONObject.put("ma_id", isEmpty ? ade().id : this.bUc);
+            boolean isEmpty = TextUtils.isEmpty(this.csR);
+            jSONObject.put("ma_id", isEmpty ? alj().id : this.csR);
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("app_key", isEmpty ? ade().getAppKey() : this.bUc);
+            jSONObject2.put("app_key", isEmpty ? alj().getAppKey() : this.csR);
             jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject2.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String If = com.baidu.swan.apps.w.a.Ul().If();
-            if (!TextUtils.isEmpty(If)) {
-                jSONObject2.put("host_api_key", If);
+            String PR = com.baidu.swan.apps.w.a.aca().PR();
+            if (!TextUtils.isEmpty(PR)) {
+                jSONObject2.put("host_api_key", PR);
             }
             jSONObject.put("open", jSONObject2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        bk("data", jSONObject.toString());
+        bu("data", jSONObject.toString());
         return true;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.w.a.Ul().d(this.mActivity, gVar.aeE());
+        return com.baidu.swan.apps.w.a.aca().d(this.mActivity, gVar.amJ());
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aei() {
-        a(aeC());
-        return super.aei();
+    protected boolean amn() {
+        a(amH());
+        return super.amn();
     }
 
     @NonNull
-    protected com.baidu.swan.apps.setting.oauth.d aeC() {
+    protected com.baidu.swan.apps.setting.oauth.d amH() {
         return new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
-    /* renamed from: aV */
-    public c aN(JSONObject jSONObject) throws JSONException {
-        JSONObject aP = com.baidu.swan.apps.setting.oauth.c.aP(jSONObject);
-        int optInt = aP.optInt("errno", 10001);
+    /* renamed from: bg */
+    public c aY(JSONObject jSONObject) throws JSONException {
+        JSONObject ba = com.baidu.swan.apps.setting.oauth.c.ba(jSONObject);
+        int optInt = ba.optInt(BaseJsonData.TAG_ERRNO, 10001);
         if (optInt != 0) {
-            throw new OAuthException(aP.optString(BaseJsonData.TAG_ERRMSG), optInt);
+            throw new OAuthException(ba.optString(BaseJsonData.TAG_ERRMSG), optInt);
         }
         String str = "";
-        JSONObject jSONObject2 = aP.getJSONObject("data");
+        JSONObject jSONObject2 = ba.getJSONObject("data");
         if (jSONObject2 != null) {
             str = jSONObject2.optString("code", "");
         }
@@ -100,7 +100,7 @@ public class e extends g<c> {
         if (DEBUG) {
             Log.d("LoginRequest", "finish: remove timeout msg");
         }
-        this.bUp.removeMessages(1);
+        this.cte.removeMessages(1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -110,14 +110,14 @@ public class e extends g<c> {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
-        protected boolean aeo() throws Exception {
-            com.baidu.swan.apps.a.b acT = e.this.ade().acT();
-            boolean isLogin = acT.isLogin(e.this.mActivity);
+        protected boolean amt() throws Exception {
+            com.baidu.swan.apps.a.b akY = e.this.alj().akY();
+            boolean isLogin = akY.isLogin(e.this.mActivity);
             if (e.DEBUG) {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + isLogin + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!isLogin) {
-                acT.a(e.this.mActivity, e.this.bUq, this);
+                akY.a(e.this.mActivity, e.this.ctf, this);
             }
             return isLogin;
         }
@@ -137,7 +137,7 @@ public class e extends g<c> {
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.c("Login Preparation ok, is already login", false);
-                    aeq();
+                    amv();
                     return;
             }
         }
@@ -158,16 +158,16 @@ public class e extends g<c> {
 
     /* loaded from: classes11.dex */
     public static class b extends Handler {
-        private WeakReference<e> bUt;
+        private WeakReference<e> cti;
 
         private b(Looper looper, e eVar) {
             super(looper);
-            this.bUt = new WeakReference<>(eVar);
+            this.cti = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            e eVar = this.bUt.get();
+            e eVar = this.cti.get();
             if (eVar != null) {
                 switch (message.what) {
                     case 1:

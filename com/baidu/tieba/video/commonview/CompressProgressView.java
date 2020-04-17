@@ -9,11 +9,11 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class CompressProgressView extends View {
-    private int aBw;
-    private Paint cVA;
-    private Paint cVB;
-    private RectF cVC;
-    private int cVz;
+    private int aVd;
+    private int duK;
+    private Paint duL;
+    private Paint duM;
+    private RectF duN;
     private int mValue;
     private int mWidth;
 
@@ -44,24 +44,24 @@ public class CompressProgressView extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.ds100);
-        this.aBw = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.cVz = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.cVA = new Paint();
-        this.cVA.setStrokeWidth(this.aBw);
-        this.cVA.setColor(getResources().getColor(R.color.cp_bg_line_d));
-        this.cVA.setStyle(Paint.Style.STROKE);
-        this.cVA.setAntiAlias(true);
-        this.cVB = new Paint();
-        this.cVB.setStrokeWidth(this.cVz);
-        this.cVB.setColor(getResources().getColor(R.color.cp_cont_a));
-        this.cVB.setStyle(Paint.Style.STROKE);
-        this.cVB.setAntiAlias(true);
-        this.cVC = new RectF(this.aBw, this.aBw, this.mWidth + this.aBw, this.mWidth + this.aBw);
+        this.aVd = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.duK = getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.duL = new Paint();
+        this.duL.setStrokeWidth(this.aVd);
+        this.duL.setColor(getResources().getColor(R.color.cp_bg_line_d));
+        this.duL.setStyle(Paint.Style.STROKE);
+        this.duL.setAntiAlias(true);
+        this.duM = new Paint();
+        this.duM.setStrokeWidth(this.duK);
+        this.duM.setColor(getResources().getColor(R.color.cp_cont_a));
+        this.duM.setStyle(Paint.Style.STROKE);
+        this.duM.setAntiAlias(true);
+        this.duN = new RectF(this.aVd, this.aVd, this.mWidth + this.aVd, this.mWidth + this.aVd);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.cVC, 270.0f, 360.0f, false, this.cVB);
-        canvas.drawArc(this.cVC, 270.0f, (this.mValue * 360) / 100, false, this.cVA);
+        canvas.drawArc(this.duN, 270.0f, 360.0f, false, this.duM);
+        canvas.drawArc(this.duN, 270.0f, (this.mValue * 360) / 100, false, this.duL);
     }
 }

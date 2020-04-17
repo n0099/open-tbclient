@@ -10,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.v7.appcompat.R;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextDirectionHeuristic;
@@ -400,7 +401,7 @@ public class AppCompatTextViewAutoSizeHelper {
         TextDirectionHeuristic textDirectionHeuristic = (TextDirectionHeuristic) invokeAndReturnWithDefault(this.mTextView, "getTextDirectionHeuristic", TextDirectionHeuristics.FIRSTSTRONG_LTR);
         StaticLayout.Builder hyphenationFrequency = StaticLayout.Builder.obtain(charSequence, 0, charSequence.length(), this.mTempTextPaint, i).setAlignment(alignment).setLineSpacing(this.mTextView.getLineSpacingExtra(), this.mTextView.getLineSpacingMultiplier()).setIncludePad(this.mTextView.getIncludeFontPadding()).setBreakStrategy(this.mTextView.getBreakStrategy()).setHyphenationFrequency(this.mTextView.getHyphenationFrequency());
         if (i2 == -1) {
-            i2 = Integer.MAX_VALUE;
+            i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }
         return hyphenationFrequency.setMaxLines(i2).setTextDirection(textDirectionHeuristic).build();
     }

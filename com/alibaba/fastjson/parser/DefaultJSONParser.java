@@ -21,6 +21,7 @@ import com.alibaba.fastjson.serializer.LongCodec;
 import com.alibaba.fastjson.serializer.StringCodec;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.io.Closeable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -362,7 +363,7 @@ public class DefaultJSONParser implements Closeable {
                                                 String stringVal = jSONLexer.stringVal();
                                                 jSONLexer.nextToken(13);
                                                 Object obj6 = null;
-                                                if ("@".equals(stringVal)) {
+                                                if (UgcConstant.AT_RULE_TAG.equals(stringVal)) {
                                                     if (this.context != null) {
                                                         ParseContext parseContext3 = this.context;
                                                         Object obj7 = parseContext3.object;

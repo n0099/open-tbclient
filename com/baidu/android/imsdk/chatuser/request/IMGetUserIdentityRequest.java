@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
             jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
             jSONObject.put(SapiContext.KEY_SDK_VERSION, IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
-            jSONObject.put("device_type", 2);
+            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
             jSONObject.put("appid", AccountManager.getAppid(this.mContext));
             jSONObject.put("timestamp", currentTimeMillis);
             jSONObject.put("sign", md5);

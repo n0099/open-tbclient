@@ -5,14 +5,14 @@ import java.util.NoSuchElementException;
 /* loaded from: classes7.dex */
 public final class b extends kotlin.collections.n {
     private boolean hasNext;
-    private final int nEA;
+    private final int mXZ;
     private int next;
     private final int step;
 
     public b(char c, char c2, int i) {
         boolean z = true;
         this.step = i;
-        this.nEA = c2;
+        this.mXZ = c2;
         if (this.step > 0) {
             if (c > c2) {
                 z = false;
@@ -21,7 +21,7 @@ public final class b extends kotlin.collections.n {
             z = false;
         }
         this.hasNext = z;
-        this.next = this.hasNext ? c : this.nEA;
+        this.next = this.hasNext ? c : this.mXZ;
     }
 
     @Override // java.util.Iterator
@@ -30,9 +30,9 @@ public final class b extends kotlin.collections.n {
     }
 
     @Override // kotlin.collections.n
-    public char dKD() {
+    public char dDC() {
         int i = this.next;
-        if (i == this.nEA) {
+        if (i == this.mXZ) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }

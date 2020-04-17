@@ -13,15 +13,15 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes11.dex */
 public class a extends RelativeLayout implements View.OnClickListener {
-    private ImageView aTG;
-    private TextView aTH;
-    private TextView aTI;
-    private ImageView aTJ;
-    private InterfaceC0166a aTK;
+    private ImageView bpF;
+    private TextView bpG;
+    private TextView bpH;
+    private ImageView bpI;
+    private InterfaceC0190a bpJ;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0166a {
+    public interface InterfaceC0190a {
         void a();
     }
 
@@ -31,57 +31,57 @@ public class a extends RelativeLayout implements View.OnClickListener {
 
     private void c(Context context) {
         LayoutInflater.from(context).inflate(b.f.view_channel_list_item, (ViewGroup) this, true);
-        this.aTG = (ImageView) findViewById(b.e.channel_icon_view);
-        this.aTH = (TextView) findViewById(b.e.channel_name_view);
-        this.aTI = (TextView) findViewById(b.e.channel_desc_view);
-        this.aTJ = (ImageView) findViewById(b.e.channel_select_view);
+        this.bpF = (ImageView) findViewById(b.e.channel_icon_view);
+        this.bpG = (TextView) findViewById(b.e.channel_name_view);
+        this.bpH = (TextView) findViewById(b.e.channel_desc_view);
+        this.bpI = (ImageView) findViewById(b.e.channel_select_view);
         setOnClickListener(this);
     }
 
-    public void a(n nVar, InterfaceC0166a interfaceC0166a) {
+    public void a(n nVar, InterfaceC0190a interfaceC0190a) {
         String t = nVar.t();
         String z = nVar.z();
         String icon = nVar.getIcon();
         int w = nVar.w();
         int u = nVar.u();
-        com.baidu.poly.a.c.b.EJ().b(this.aTG, icon);
-        this.aTH.setText(t);
+        com.baidu.poly.a.c.b.KU().b(this.bpF, icon);
+        this.bpG.setText(t);
         if (w == 1) {
-            this.aTJ.setImageResource(b.d.channel_checked);
+            this.bpI.setImageResource(b.d.channel_checked);
         } else {
-            this.aTJ.setImageResource(b.d.unchecked);
+            this.bpI.setImageResource(b.d.unchecked);
         }
         if (1 == u) {
-            this.aTK = interfaceC0166a;
+            this.bpJ = interfaceC0190a;
         } else {
-            this.aTG.setAlpha(0.4f);
-            this.aTH.setAlpha(0.4f);
-            this.aTI.setAlpha(0.4f);
-            this.aTJ.setVisibility(8);
+            this.bpF.setAlpha(0.4f);
+            this.bpG.setAlpha(0.4f);
+            this.bpH.setAlpha(0.4f);
+            this.bpI.setVisibility(8);
         }
         if (!TextUtils.isEmpty(z)) {
             String s = nVar.s();
             if (!TextUtils.isEmpty(s)) {
                 try {
-                    this.aTI.setTextColor(Color.parseColor(s));
+                    this.bpH.setTextColor(Color.parseColor(s));
                 } catch (Exception e) {
                 }
             }
-            this.aTI.setText(z);
+            this.bpH.setText(z);
             return;
         }
-        this.aTI.setVisibility(8);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aTH.getLayoutParams();
+        this.bpH.setVisibility(8);
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bpG.getLayoutParams();
         layoutParams.addRule(15);
         layoutParams.topMargin = 0;
-        this.aTH.setLayoutParams(layoutParams);
+        this.bpG.setLayoutParams(layoutParams);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        InterfaceC0166a interfaceC0166a = this.aTK;
-        if (interfaceC0166a != null) {
-            interfaceC0166a.a();
+        InterfaceC0190a interfaceC0190a = this.bpJ;
+        if (interfaceC0190a != null) {
+            interfaceC0190a.a();
         }
     }
 

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.network.core;
 
 import android.support.annotation.Nullable;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.searchbox.network.core.Headers;
 import com.baidu.searchbox.network.core.http.HttpHeaders;
 import java.io.Closeable;
@@ -130,7 +131,7 @@ public final class Response implements Closeable {
                 return true;
             case 304:
             case 305:
-            case 306:
+            case ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA /* 306 */:
             default:
                 return false;
         }

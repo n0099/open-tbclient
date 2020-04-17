@@ -3,7 +3,8 @@ package com.baidu.sapi2.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.i.a.a;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -166,7 +167,7 @@ public class ShareActivity extends BaseActivity {
         JSONObject jSONObject = new JSONObject();
         SapiAccount currentAccount = SapiContext.getInstance(this).getCurrentAccount();
         try {
-            jSONObject.put("errno", "0");
+            jSONObject.put(BaseJsonData.TAG_ERRNO, "0");
             String[] pkgIconAndName = SapiUtils.getPkgIconAndName(this, getPackageName());
             jSONObject.put("currentAPPLogo", pkgIconAndName[0]);
             jSONObject.put("currentAPPName", pkgIconAndName[1]);

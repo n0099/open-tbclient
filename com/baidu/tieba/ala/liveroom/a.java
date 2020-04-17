@@ -14,10 +14,10 @@ public abstract class a {
         return this.mTbPageContext;
     }
 
-    public void ag(ViewGroup viewGroup) {
+    public void ah(ViewGroup viewGroup) {
     }
 
-    public void pP() {
+    public void ug() {
     }
 
     public void onDestroy() {

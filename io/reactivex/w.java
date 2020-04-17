@@ -13,7 +13,7 @@ public abstract class w<T> implements aa<T> {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             NullPointerException nullPointerException = new NullPointerException("subscribeActual failed");
             nullPointerException.initCause(th);
             throw nullPointerException;

@@ -1,17 +1,16 @@
 package rx.internal.operators;
 
-import com.google.android.exoplayer2.Format;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 /* loaded from: classes6.dex */
 public final class OnSubscribeRange implements d.a<Integer> {
-    private final int aDS;
-    private final int aDT;
+    private final int aXB;
+    private final int aXC;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     public void call(rx.j<? super Integer> jVar) {
-        jVar.setProducer(new RangeProducer(jVar, this.aDS, this.aDT));
+        jVar.setProducer(new RangeProducer(jVar, this.aXB, this.aXC));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,8 +29,8 @@ public final class OnSubscribeRange implements d.a<Integer> {
 
         @Override // rx.f
         public void request(long j) {
-            if (get() != Format.OFFSET_SAMPLE_RELATIVE) {
-                if (j == Format.OFFSET_SAMPLE_RELATIVE && compareAndSet(0L, Format.OFFSET_SAMPLE_RELATIVE)) {
+            if (get() != Long.MAX_VALUE) {
+                if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                     fastPath();
                 } else if (j > 0 && a.e(this, j) == 0) {
                     slowPath(j);

@@ -12,7 +12,6 @@ import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.data.Config;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -41,7 +40,7 @@ public final class k {
             HashMap hashMap = new HashMap();
             hashMap.put("stats", str2);
             hashMap.put("pbVer", str3);
-            hashMap.put("os", PraiseDataPassUtil.KEY_FROM_OS);
+            hashMap.put("os", "android");
             InputStream inputStream2 = null;
             long j = 1000;
             int i = 0;

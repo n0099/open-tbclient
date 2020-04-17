@@ -1,16 +1,12 @@
 package com.baidu.tieba.ala.personcenter.c;
 
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes3.dex */
-public class n extends com.baidu.tbadk.core.data.k {
-    private int fvu;
-    private int fvv;
+public class n extends b {
+    public static final BdUniqueId fZM = BdUniqueId.gen();
 
-    @Override // com.baidu.tbadk.core.data.k
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.fvu = jSONObject.optInt("open_level", 1);
-            this.fvv = jSONObject.optInt("open_status", 2);
-        }
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return fZM;
     }
 }

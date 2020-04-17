@@ -1,13 +1,13 @@
 package com.baidu.live.guardclub;
 /* loaded from: classes3.dex */
 public class e {
-    private static i aqw;
+    private static i aJf;
 
     public static void a(i iVar) {
-        aqw = iVar;
+        aJf = iVar;
     }
 
-    public static i vL() {
-        return aqw;
+    public static i Ar() {
+        return aJf;
     }
 }

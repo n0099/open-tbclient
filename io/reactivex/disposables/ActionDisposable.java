@@ -16,7 +16,7 @@ final class ActionDisposable extends ReferenceDisposable<io.reactivex.c.a> {
         try {
             aVar.run();
         } catch (Throwable th) {
-            throw ExceptionHelper.J(th);
+            throw ExceptionHelper.N(th);
         }
     }
 }

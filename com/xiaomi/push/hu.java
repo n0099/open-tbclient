@@ -7,10 +7,10 @@ public enum hu {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f535a;
+    private final int f536a;
 
     hu(int i) {
-        this.f535a = i;
+        this.f536a = i;
     }
 
     public static hu a(int i) {
@@ -27,6 +27,6 @@ public enum hu {
     }
 
     public int a() {
-        return this.f535a;
+        return this.f536a;
     }
 }

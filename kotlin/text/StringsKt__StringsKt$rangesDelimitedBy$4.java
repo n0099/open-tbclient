@@ -31,7 +31,7 @@ public final class StringsKt__StringsKt$rangesDelimitedBy$4 extends Lambda imple
         kotlin.jvm.internal.q.j(charSequence, "receiver$0");
         a = u.a(charSequence, (Collection<String>) this.$delimitersList, i, this.$ignoreCase, false);
         if (a != null) {
-            return kotlin.j.k(a.getFirst(), Integer.valueOf(((String) a.getSecond()).length()));
+            return kotlin.j.j(a.getFirst(), Integer.valueOf(((String) a.getSecond()).length()));
         }
         return null;
     }

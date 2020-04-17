@@ -6,9 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -27,7 +26,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.ArrayList;
@@ -293,7 +291,7 @@ public class OauthActivity extends BaseActivity {
             public void onSuccess(SsoHashResult ssoHashResult) {
                 String str;
                 HashMap hashMap = new HashMap();
-                hashMap.put("client", PraiseDataPassUtil.KEY_FROM_OS);
+                hashMap.put("client", "android");
                 hashMap.put("clientfrom", "native");
                 hashMap.put("suppcheck", "1");
                 if (OauthActivity.this.O == 0) {
@@ -303,7 +301,7 @@ public class OauthActivity extends BaseActivity {
                     } else {
                         hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_token");
                     }
-                    hashMap.put(LogConfig.KEY_DISPLAY, "mobile");
+                    hashMap.put("display", "mobile");
                     hashMap.put("scope", OauthActivity.this.J);
                     hashMap.put("sso_hash", ssoHashResult.ssoHash);
                     hashMap.put("client_id", OauthActivity.this.H);

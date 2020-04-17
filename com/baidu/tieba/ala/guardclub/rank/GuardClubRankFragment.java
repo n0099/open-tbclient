@@ -17,17 +17,17 @@ import com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView;
 import com.baidu.tieba.ala.guardclub.view.GuardClubRankListView;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class GuardClubRankFragment extends GuardClubRankBaseFragment implements b.InterfaceC0436b {
-    private GuardClubRankListView eHY;
-    private GuardClubRankHeaderView eHZ;
-    private GuardClubRankInfoView eIa;
-    private int eIb;
-    private int eIc;
-    private b eId;
-    private b.a eIe;
-    private int eIf;
+public class GuardClubRankFragment extends GuardClubRankBaseFragment implements b.InterfaceC0471b {
+    private GuardClubRankListView fmp;
+    private GuardClubRankHeaderView fmq;
+    private GuardClubRankInfoView fmr;
+    private int fms;
+    private int fmt;
+    private b fmu;
+    private b.a fmv;
+    private int fmw;
 
-    public static GuardClubRankFragment h(int i, String str, boolean z) {
+    public static GuardClubRankFragment i(int i, String str, boolean z) {
         GuardClubRankFragment guardClubRankFragment = new GuardClubRankFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("type", i);
@@ -38,89 +38,89 @@ public class GuardClubRankFragment extends GuardClubRankBaseFragment implements 
     }
 
     public void a(b.a aVar) {
-        this.eIe = aVar;
-        if (this.eId != null) {
-            this.eId.a(this.eIe);
+        this.fmv = aVar;
+        if (this.fmu != null) {
+            this.fmu.a(this.fmv);
         }
     }
 
-    public void pv(int i) {
-        this.eIf = i;
-        if (this.eHZ != null) {
-            this.eHZ.setAvatarTopMargin(this.eIf);
+    public void pP(int i) {
+        this.fmw = i;
+        if (this.fmq != null) {
+            this.fmq.setAvatarTopMargin(this.fmw);
         }
     }
 
-    public void w(String str, long j) {
-        if (this.eId != null) {
-            this.eId.w(str, j);
+    public void x(String str, long j) {
+        if (this.fmu != null) {
+            this.fmu.x(str, j);
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.GuardClubRankBaseFragment
-    protected c bfH() {
-        this.eId = new b(getContext());
-        this.eId.a(this);
-        this.eId.a(this.eIe);
+    protected c boY() {
+        this.fmu = new b(getContext());
+        this.fmu.a(this);
+        this.fmu.a(this.fmv);
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.eId.i(arguments.getInt("type"), arguments.getString("anchor_id"), arguments.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST));
+            this.fmu.j(arguments.getInt("type"), arguments.getString("anchor_id"), arguments.getBoolean(AlaPersonCenterExpActivityConfig.IS_HOST));
         }
-        return this.eId;
+        return this.fmu;
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.GuardClubRankBaseFragment
-    protected int bfI() {
+    protected int boZ() {
         return a.h.live_guard_club_fragment_rank;
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.GuardClubRankBaseFragment
     protected void onInflate(View view, Bundle bundle) {
-        this.eHY = (GuardClubRankListView) view.findViewById(a.g.lv);
-        this.eHY.setCallback(new GuardClubRankListView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.GuardClubRankFragment.1
+        this.fmp = (GuardClubRankListView) view.findViewById(a.g.lv);
+        this.fmp.setCallback(new GuardClubRankListView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.GuardClubRankFragment.1
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.a
-            public void bfO() {
-                if (GuardClubRankFragment.this.getUserVisibleHint() && GuardClubRankFragment.this.eHZ != null) {
-                    GuardClubRankFragment.this.pw(GuardClubRankFragment.this.eHZ.getTop());
+            public void bpf() {
+                if (GuardClubRankFragment.this.getUserVisibleHint() && GuardClubRankFragment.this.fmq != null) {
+                    GuardClubRankFragment.this.pQ(GuardClubRankFragment.this.fmq.getTop());
                 }
             }
 
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.a
-            public void bfP() {
-                if (GuardClubRankFragment.this.eId != null) {
-                    GuardClubRankFragment.this.eId.bfR();
+            public void bpg() {
+                if (GuardClubRankFragment.this.fmu != null) {
+                    GuardClubRankFragment.this.fmu.bpi();
                 }
             }
         });
-        this.eHZ = new GuardClubRankHeaderView(getContext());
-        this.eHZ.setCallback(new GuardClubRankHeaderView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.GuardClubRankFragment.2
+        this.fmq = new GuardClubRankHeaderView(getContext());
+        this.fmq.setCallback(new GuardClubRankHeaderView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.GuardClubRankFragment.2
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankHeaderView.a
             public void a(k kVar) {
-                if (GuardClubRankFragment.this.eId != null) {
-                    GuardClubRankFragment.this.eId.f(kVar);
+                if (GuardClubRankFragment.this.fmu != null) {
+                    GuardClubRankFragment.this.fmu.f(kVar);
                 }
             }
         });
-        this.eHY.addHeaderView(this.eHZ);
-        this.eIb = getResources().getDimensionPixelOffset(a.e.sdk_ds160);
-        this.eIc = getResources().getColor(a.d.live_gcb_primary);
-        switch (this.eId.getType()) {
+        this.fmp.addHeaderView(this.fmq);
+        this.fms = getResources().getDimensionPixelOffset(a.e.sdk_ds160);
+        this.fmt = getResources().getColor(a.d.live_gcb_primary);
+        switch (this.fmu.getType()) {
             case 1:
-                this.eHZ.setStyle(1);
+                this.fmq.setStyle(1);
                 break;
             case 2:
-                this.eHZ.setStyle(0);
+                this.fmq.setStyle(0);
                 break;
         }
-        if (this.eHZ != null) {
-            this.eHZ.setAvatarTopMargin(this.eIf);
+        if (this.fmq != null) {
+            this.fmq.setAvatarTopMargin(this.fmw);
         }
-        this.eIa = (GuardClubRankInfoView) view.findViewById(a.g.guard_club_rank_info);
-        this.eIa.setCallback(new GuardClubRankInfoView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.GuardClubRankFragment.3
+        this.fmr = (GuardClubRankInfoView) view.findViewById(a.g.guard_club_rank_info);
+        this.fmr.setCallback(new GuardClubRankInfoView.a() { // from class: com.baidu.tieba.ala.guardclub.rank.GuardClubRankFragment.3
             @Override // com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.a
-            public void bfQ() {
-                if (GuardClubRankFragment.this.eId != null) {
-                    GuardClubRankFragment.this.eId.bfK();
+            public void bph() {
+                if (GuardClubRankFragment.this.fmu != null) {
+                    GuardClubRankFragment.this.fmu.bpb();
                 }
             }
         });
@@ -131,79 +131,79 @@ public class GuardClubRankFragment extends GuardClubRankBaseFragment implements 
     public void onVisibilityChanged(boolean z) {
         super.onVisibilityChanged(z);
         if (z) {
-            if (this.eId != null) {
-                this.eId.bfS();
+            if (this.fmu != null) {
+                this.fmu.bpj();
             }
-            if (this.eHZ != null) {
-                this.eHZ.bfZ();
-                pw(this.eHZ.getTop());
+            if (this.fmq != null) {
+                this.fmq.bpq();
+                pQ(this.fmq.getTop());
                 return;
             }
             return;
         }
-        if (this.eHY != null) {
-            this.eHY.bga();
+        if (this.fmp != null) {
+            this.fmp.bpr();
         }
-        if (this.eHZ != null) {
-            this.eHZ.bfv();
+        if (this.fmq != null) {
+            this.fmq.boM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pw(int i) {
-        if (this.eId != null) {
-            this.eId.pw(ColorUtils.setAlphaComponent(this.eIc, (int) ((Math.abs(i) < this.eIb ? (1.0f * Math.abs(i)) / this.eIb : 1.0f) * 216.75f)));
+    public void pQ(int i) {
+        if (this.fmu != null) {
+            this.fmu.pQ(ColorUtils.setAlphaComponent(this.fmt, (int) ((Math.abs(i) < this.fms ? (1.0f * Math.abs(i)) / this.fms : 1.0f) * 216.75f)));
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.GuardClubRankBaseFragment, com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        if (this.eHZ != null) {
-            this.eHZ.release();
+        if (this.fmq != null) {
+            this.fmq.release();
         }
-        if (this.eHY != null) {
-            this.eHY.release();
+        if (this.fmp != null) {
+            this.fmp.release();
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0436b
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0471b
     public void a(BaseAdapter baseAdapter) {
-        if (this.eHY != null) {
-            this.eHY.setAdapter((ListAdapter) baseAdapter);
+        if (this.fmp != null) {
+            this.fmp.setAdapter((ListAdapter) baseAdapter);
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0436b
-    public void bx(List<k> list) {
-        if (this.eHZ != null) {
-            this.eHZ.setData(list);
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0471b
+    public void bG(List<k> list) {
+        if (this.fmq != null) {
+            this.fmq.setData(list);
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0436b
-    public void C(boolean z, boolean z2) {
-        if (this.eHY != null) {
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0471b
+    public void B(boolean z, boolean z2) {
+        if (this.fmp != null) {
             if (z2) {
-                this.eHY.completePullRefresh();
+                this.fmp.completePullRefresh();
             }
-            this.eHY.setLoadMoreEnabled(z, z2);
+            this.fmp.setLoadMoreEnabled(z, z2);
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0436b
-    public void bfN() {
-        if (this.eIa != null) {
-            this.eIa.setVisibility(8);
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0471b
+    public void bpe() {
+        if (this.fmr != null) {
+            this.fmr.setVisibility(8);
         }
-        if (this.eHY != null && this.eHY.getEmptyView() == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) this.eHY.getParent();
+        if (this.fmp != null && this.fmp.getEmptyView() == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) this.fmp.getParent();
             CommonEmptyView commonEmptyView = new CommonEmptyView(relativeLayout.getContext());
             commonEmptyView.setTitle(a.i.sdk_net_fail_tip_rank);
             commonEmptyView.setRefreshButton(a.i.sdk_click_refresh_net_text, new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.rank.GuardClubRankFragment.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    GuardClubRankFragment.this.eId.bfR();
+                    GuardClubRankFragment.this.fmu.bpi();
                 }
             });
             if (BdNetTypeUtil.isNetWorkAvailable()) {
@@ -212,13 +212,13 @@ public class GuardClubRankFragment extends GuardClubRankBaseFragment implements 
                 commonEmptyView.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
             }
             commonEmptyView.addToParent(relativeLayout);
-            this.eHY.setEmptyView(commonEmptyView);
+            this.fmp.setEmptyView(commonEmptyView);
         }
     }
 
-    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0436b
+    @Override // com.baidu.tieba.ala.guardclub.rank.b.InterfaceC0471b
     public void c(String str, String str2, String str3, String str4, boolean z) {
-        this.eIa.setData(str, str2, str3, str4, z);
-        this.eIa.setVisibility(0);
+        this.fmr.setData(str, str2, str3, str4, z);
+        this.fmr.setVisibility(0);
     }
 }

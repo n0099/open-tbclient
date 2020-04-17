@@ -39,7 +39,7 @@ public class AlaAttentionData implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public AlaAttentionData m17clone() {
+    public AlaAttentionData m15clone() {
         try {
             return (AlaAttentionData) super.clone();
         } catch (CloneNotSupportedException e) {

@@ -1,89 +1,99 @@
 package com.baidu.live.im;
 
-import android.text.TextUtils;
-import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.live.adp.framework.MessageManager;
-import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.adp.framework.task.CustomMessageTask;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.gift.r;
-import com.baidu.live.im.data.ImSendMsgData;
+import com.baidu.live.data.AlaLiveMarkData;
+import com.baidu.live.data.as;
+import com.baidu.live.data.be;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.live.u.a;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class m {
-    private com.baidu.live.data.m alp;
+    private List<AlaLiveMarkData> aKZ;
+    private boolean aLR;
+    private String aLS;
 
-    public void g(com.baidu.live.data.m mVar) {
-        wN();
-        a(mVar);
+    public static m Bp() {
+        return a.aLT;
     }
 
-    public void a(com.baidu.live.data.m mVar) {
-        this.alp = mVar;
+    public be[] Bq() {
+        return bw(false);
     }
 
-    public void sQ() {
-        this.alp = null;
-        wO();
+    private List<be> a(boolean z, List<be> list, be[] beVarArr) {
+        if (beVarArr != null && beVarArr.length > 0) {
+            if (list == null) {
+                return new ArrayList(Arrays.asList(beVarArr));
+            }
+            list.addAll(z ? 0 : list.size(), Arrays.asList(beVarArr));
+            return list;
+        }
+        return list;
+    }
+
+    public be[] bw(boolean z) {
+        List<be> list;
+        as asVar = com.baidu.live.v.a.Eo().aRw;
+        if (asVar == null || asVar.avx == null || !asVar.avx.awX || asVar.avu == null) {
+            list = null;
+        } else {
+            be[] beVarArr = asVar.avu.awn;
+            list = (beVarArr == null || beVarArr.length <= 0) ? null : new ArrayList<>(Arrays.asList(beVarArr));
+            if (com.baidu.live.v.a.Eo().aQp != null && com.baidu.live.v.a.Eo().aQp.atr && (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isGuardThroneSwitchUnabled())) {
+                list = a(z, list, asVar.avu.awt);
+            }
+        }
+        if (list == null || list.isEmpty()) {
+            return null;
+        }
+        return (be[]) list.toArray(new be[list.size()]);
+    }
+
+    public boolean Br() {
+        return this.aLR;
+    }
+
+    public void setSwitchStatus(boolean z) {
+        this.aLR = z;
+    }
+
+    public String Bs() {
+        return this.aLS;
+    }
+
+    public void setSelectId(String str) {
+        this.aLS = str;
+    }
+
+    public List<AlaLiveMarkData> Bt() {
+        return this.aKZ;
+    }
+
+    public void H(List<AlaLiveMarkData> list) {
+        if (this.aKZ == null) {
+            this.aKZ = new ArrayList();
+        }
+        this.aKZ.clear();
+        if (list != null && !list.isEmpty()) {
+            this.aKZ.addAll(list);
+        }
     }
 
     public void release() {
-        sQ();
-    }
-
-    private void wN() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2913100, new CustomMessageTask.CustomRunnable<ImSendMsgData>() { // from class: com.baidu.live.im.m.1
-            @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<ImSendMsgData> customMessage) {
-                if (customMessage != null && customMessage.getData() != null) {
-                    m.this.a(customMessage.getData());
-                    return null;
-                }
-                return null;
-            }
-        });
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
-    }
-
-    private void wO() {
-        MessageManager.getInstance().unRegisterTask(2913100);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(ImSendMsgData imSendMsgData) {
-        if (vc()) {
-            switch (imSendMsgData.msgType) {
-                case Opcodes.IAND /* 126 */:
-                    b(imSendMsgData);
-                    return;
-                default:
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2913043, imSendMsgData));
-                    return;
-            }
+        this.aLR = false;
+        this.aLS = null;
+        if (this.aKZ != null) {
+            this.aKZ.clear();
         }
     }
 
-    private void b(ImSendMsgData imSendMsgData) {
-        Map<String, Integer> sE = r.sC().sE();
-        if (sE != null && sE.containsKey(imSendMsgData.barrageId) && sE.get(imSendMsgData.barrageId).intValue() > 0) {
-            imSendMsgData.barrageCardInfo = new com.baidu.live.im.data.b(true, String.valueOf(this.alp.Ya.userId), String.valueOf(this.alp.mLiveInfo.live_id));
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2913101, imSendMsgData));
+    private m() {
+        this.aLR = false;
     }
 
-    private boolean vc() {
-        if (!TbadkCoreApplication.isLogin()) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), a.i.sdk_not_login);
-            return false;
-        } else if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccountInfo().getAccountNameShow())) {
-            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), a.i.sdk_username_empty);
-            return false;
-        } else {
-            return true;
-        }
+    /* loaded from: classes3.dex */
+    private static class a {
+        private static final m aLT = new m();
     }
 }

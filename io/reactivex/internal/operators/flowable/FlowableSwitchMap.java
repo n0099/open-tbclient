@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.queue.SpscArrayQueue;
@@ -18,8 +17,8 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
-        if (!g.a(this.nyr, cVar, this.mapper)) {
-            this.nyr.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
+        if (!g.a(this.mRJ, cVar, this.mapper)) {
+            this.mRJ.a((j) new SwitchMapSubscriber(cVar, this.mapper, this.bufferSize, this.delayErrors));
         }
     }
 
@@ -80,7 +79,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                     } while (!this.active.compareAndSet(switchMapInnerSubscriber, switchMapInnerSubscriber3));
                     bVar.subscribe(switchMapInnerSubscriber3);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     this.s.cancel();
                     onError(th);
                 }
@@ -113,7 +112,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
             if (SubscriptionHelper.validate(j)) {
                 io.reactivex.internal.util.b.a(this.requested, j);
                 if (this.unique == 0) {
-                    this.s.request(Format.OFFSET_SAMPLE_RELATIVE);
+                    this.s.request(Long.MAX_VALUE);
                 } else {
                     drain();
                 }
@@ -148,7 +147,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
             if (r14.cancelled != false) goto L76;
          */
         /* JADX WARN: Code restructure failed: missing block: B:61:0x00e7, code lost:
-            if (r12 == com.google.android.exoplayer2.Format.OFFSET_SAMPLE_RELATIVE) goto L75;
+            if (r12 == Long.MAX_VALUE) goto L75;
          */
         /* JADX WARN: Code restructure failed: missing block: B:62:0x00e9, code lost:
             r14.requested.addAndGet(-r8);
@@ -219,7 +218,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
                                     obj = gVar.poll();
                                     z2 = z3;
                                 } catch (Throwable th) {
-                                    io.reactivex.exceptions.a.H(th);
+                                    io.reactivex.exceptions.a.L(th);
                                     switchMapInnerSubscriber.cancel();
                                     this.error.addThrowable(th);
                                     obj = null;
@@ -291,7 +290,7 @@ public final class FlowableSwitchMap<T, R> extends a<T, R> {
             if (SubscriptionHelper.setOnce(this, dVar)) {
                 if (dVar instanceof io.reactivex.internal.a.d) {
                     io.reactivex.internal.a.d dVar2 = (io.reactivex.internal.a.d) dVar;
-                    int requestFusion = dVar2.requestFusion(7);
+                    int requestFusion = dVar2.requestFusion(3);
                     if (requestFusion == 1) {
                         this.fusionMode = requestFusion;
                         this.queue = dVar2;

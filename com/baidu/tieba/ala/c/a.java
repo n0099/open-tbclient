@@ -1,84 +1,136 @@
 package com.baidu.tieba.ala.c;
 
 import android.app.Activity;
-import android.view.LayoutInflater;
+import android.content.Intent;
+import android.os.Build;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.adp.lib.util.StringUtils;
-import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.tbadk.TbPageContext;
-import com.baidu.live.tbadk.core.BaseFragmentActivity;
-import com.baidu.live.tbadk.core.util.ListUtils;
-import com.baidu.live.u.a;
-import com.baidu.tieba.ala.data.k;
-import com.baidu.tieba.ala.view.AlaChallengeHistoryHeaderView;
-import java.util.ArrayList;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.CustomMessageListener;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.CustomMessage;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.adp.framework.task.HttpMessageTask;
+import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.core.atomdata.BuyTBeanActivityConfig;
+import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.live.tbadk.core.util.UtilHelper;
+import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.ala.data.RedPktSendHttpResponseMessage;
+import com.baidu.tieba.ala.data.o;
 /* loaded from: classes3.dex */
 public class a {
-    private BdListView eKC;
-    private LinearLayout eKD;
-    private LinearLayout eKE;
-    private com.baidu.tieba.ala.adapter.a eKF;
-    private AlaChallengeHistoryHeaderView eKG;
-    private TextView eKH;
-    private Activity mContext;
-    private TbPageContext<BaseFragmentActivity> mTbPageContext;
-    private View view;
+    private Activity activity;
+    private b fdf;
+    private String liveId;
+    private String roomId;
+    private HttpMessageListener fdg = new HttpMessageListener(1021159) { // from class: com.baidu.tieba.ala.c.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                if (a.this.activity.isDestroyed() || a.this.activity.isFinishing()) {
+                    return;
+                }
+            } else if (a.this.activity.isFinishing()) {
+                return;
+            }
+            if ((httpResponsedMessage instanceof RedPktSendHttpResponseMessage) && httpResponsedMessage.getError() == 0) {
+                com.baidu.live.l.a.a(a.this.liveId, ((RedPktSendHttpResponseMessage) httpResponsedMessage).ffq, ((RedPktSendHttpResponseMessage) httpResponsedMessage).ffr, "send_redpacket");
+                a.this.activity.finish();
+                return;
+            }
+            if (httpResponsedMessage.getError() == 3501) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(a.this.activity, 0L, "", true, "", true)));
+            } else if (!TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
+                UtilHelper.showToast(a.this.activity, httpResponsedMessage.getErrorString());
+            }
+            if (a.this.fdf != null) {
+                a.this.fdf.jr(true);
+            }
+        }
+    };
+    private CustomMessageListener notifyDialogDismissListener = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.c.a.2
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.live.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (Build.VERSION.SDK_INT >= 17) {
+                if (a.this.activity.isDestroyed() || a.this.activity.isFinishing()) {
+                    return;
+                }
+            } else if (a.this.activity.isFinishing()) {
+                return;
+            }
+            a.this.activity.finish();
+        }
+    };
 
-    public a(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        this.mTbPageContext = tbPageContext;
-        this.mContext = this.mTbPageContext.getPageActivity();
+    public a(Activity activity) {
+        this.activity = activity;
         initView();
+        bnA();
     }
 
     private void initView() {
-        this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_fragment_layout, (ViewGroup) null);
-        this.eKC = (BdListView) this.view.findViewById(a.g.ala_challenge_list_view);
-        this.eKC.setVisibility(4);
-        this.eKD = (LinearLayout) this.view.findViewById(a.g.layout_ala_challenge_list_empty);
-        this.eKE = (LinearLayout) this.view.findViewById(a.g.ala_challenge_list_no_network);
-        this.eKH = (TextView) this.view.findViewById(a.g.ala_challenge_list_no_net_tip);
-        this.eKF = new com.baidu.tieba.ala.adapter.a(this.mContext);
-        this.eKC.setAdapter((ListAdapter) this.eKF);
-        this.eKG = new AlaChallengeHistoryHeaderView(this.mTbPageContext.getPageActivity());
-        this.eKC.setEmptyView(this.eKD);
+        if (this.activity != null && this.activity.getIntent() != null) {
+            Intent intent = this.activity.getIntent();
+            this.liveId = intent.getStringExtra("live_id");
+            this.roomId = intent.getStringExtra("room_id");
+        }
+        this.fdf = new b(this.activity, this);
     }
 
-    public void a(ArrayList<com.baidu.tieba.ala.data.a> arrayList, k kVar) {
-        this.eKC.setVisibility(0);
-        if (!ListUtils.isEmpty(arrayList) && kVar != null) {
-            if (this.eKG.getParent() == null) {
-                if (this.eKG.getParent() != null) {
-                    ((ViewGroup) this.eKG.getParent()).removeView(this.eKG);
-                }
-                this.eKC.addHeaderView(this.eKG);
-                this.eKG.setData(kVar);
-            }
-        } else if (this.eKG.getParent() != null) {
-            ((ViewGroup) this.eKG.getParent()).removeView(this.eKG);
-        }
-        if (this.eKF != null && arrayList != null) {
-            this.eKF.setData(arrayList);
-        }
+    private static void bnz() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021159, TbConfig.SERVER_HOST + "liveserver/redpacket/send");
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        tbHttpMessageTask.setResponsedClass(RedPktSendHttpResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void yF(String str) {
-        if (!StringUtils.isNull(str)) {
-            if (this.eKF != null && this.eKF.getCount() <= 0) {
-                this.eKD.setVisibility(8);
-                this.eKE.setVisibility(0);
-                this.eKH.setText(str);
-                return;
-            }
-            BdUtilHelper.showToast(this.mContext, str, 1);
-        }
+    private void bnA() {
+        bnz();
+        MessageManager.getInstance().registerListener(this.fdg);
+        MessageManager.getInstance().registerListener(this.notifyDialogDismissListener);
+    }
+
+    public void destroy() {
+        MessageManager.getInstance().unRegisterTask(1021159);
+        MessageManager.getInstance().unRegisterListener(this.fdg);
+        MessageManager.getInstance().unRegisterListener(this.notifyDialogDismissListener);
     }
 
     public View getView() {
-        return this.view;
+        if (this.fdf != null) {
+            return this.fdf.getView();
+        }
+        return null;
+    }
+
+    public void a(o oVar) {
+        if (oVar != null) {
+            oVar.eG(this.liveId);
+            oVar.eH(this.roomId);
+            oVar.setParams();
+            MessageManager.getInstance().sendMessage(oVar);
+            if (this.fdf != null) {
+                this.fdf.jr(false);
+            }
+        }
+    }
+
+    public void xy() {
+        if (this.fdf != null) {
+            this.fdf.xy();
+        }
+    }
+
+    public void onKeyboardVisibilityChanged(boolean z) {
+        if (this.fdf != null) {
+            this.fdf.onKeyboardVisibilityChanged(z);
+        }
     }
 }

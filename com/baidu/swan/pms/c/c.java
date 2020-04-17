@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.d.DEBUG;
-    private long cBx;
+    private long daw;
     private JSONObject mData;
     private int mErrorCode = -1;
     private String mErrorMessage;
@@ -32,16 +32,16 @@ public class c {
         this.mErrorMessage = str;
     }
 
-    public void bi(long j) {
-        this.cBx = j;
+    public void bN(long j) {
+        this.daw = j;
     }
 
-    public static c qr(String str) {
+    public static c rE(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            return bN(new JSONObject(str));
+            return bY(new JSONObject(str));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -51,11 +51,11 @@ public class c {
         }
     }
 
-    public static c bN(JSONObject jSONObject) {
+    public static c bY(JSONObject jSONObject) {
         c cVar = new c();
-        cVar.setErrorCode(jSONObject.optInt("errno", -1));
+        cVar.setErrorCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1));
         cVar.setErrorMessage(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-        cVar.bi(jSONObject.optLong("request_id"));
+        cVar.bN(jSONObject.optLong("request_id"));
         cVar.setData(jSONObject.optJSONObject("data"));
         return cVar;
     }

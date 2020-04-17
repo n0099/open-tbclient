@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdPost;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
-import com.baidu.tieba.recapp.s;
+import com.baidu.tieba.recapp.r;
 import java.util.HashMap;
 /* loaded from: classes13.dex */
 public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
     private static final String TAG = AdOperateViewJumpHolder.class.getSimpleName();
-    private TextView aui;
-    private TextView jOt;
-    private ImageView jOu;
-    private Button jOy;
+    private TextView aNH;
+    private TextView kxN;
+    private ImageView kxO;
+    private Button kxS;
     private View mRootView;
     private TextView mTitleTextView;
 
@@ -31,11 +31,11 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
 
     private void init() {
         this.mTitleTextView = (TextView) this.mRootView.findViewById(R.id.ad_operate_title);
-        this.aui = (TextView) this.mRootView.findViewById(R.id.ad_operate_content);
-        this.jOt = (TextView) this.mRootView.findViewById(R.id.ad_operate_tag_name);
-        this.jOu = (ImageView) this.mRootView.findViewById(R.id.ad_operate_divider);
-        this.jOy = (Button) this.mRootView.findViewById(R.id.ad_operate_action);
-        if (this.jOs == 2) {
+        this.aNH = (TextView) this.mRootView.findViewById(R.id.ad_operate_content);
+        this.kxN = (TextView) this.mRootView.findViewById(R.id.ad_operate_tag_name);
+        this.kxO = (ImageView) this.mRootView.findViewById(R.id.ad_operate_divider);
+        this.kxS = (Button) this.mRootView.findViewById(R.id.ad_operate_action);
+        if (this.kxM == 2) {
             this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -43,18 +43,18 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
                     if (adPost != null && adPost.adData != null) {
                         String str = null;
                         if (adPost.getAdvertAppInfo() != null) {
-                            str = adPost.getAdvertAppInfo().cNk;
+                            str = adPost.getAdvertAppInfo().dmo;
                         }
-                        int b = s.b(AdOperateViewJumpHolder.this.mPageContext, adPost.adData.scheme, str);
-                        if (AdOperateViewJumpHolder.this.iaq != null) {
+                        int b = r.b(AdOperateViewJumpHolder.this.mPageContext, adPost.adData.scheme, str);
+                        if (AdOperateViewJumpHolder.this.iKk != null) {
                             HashMap<String, Object> hashMap = new HashMap<>();
                             hashMap.put("da_area", "adarea");
-                            AdOperateViewJumpHolder.this.iaq.b(b, hashMap);
+                            AdOperateViewJumpHolder.this.iKk.d(b, hashMap);
                         }
                     }
                 }
             });
-            this.jOy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.2
+            this.kxS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.view.AdOperateViewJumpHolder.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     AdPost adPost = (AdPost) AdOperateViewJumpHolder.this.getTag();
@@ -72,11 +72,11 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
         super.onChangeSkinType();
         am.setBackgroundColor(this.mRootView, R.color.cp_bg_line_e);
         am.setViewTextColor(this.mTitleTextView, R.color.cp_cont_j, 1);
-        am.setViewTextColor(this.aui, R.color.cp_cont_j, 1);
-        am.setViewTextColor(this.jOt, R.color.cp_cont_f, 1);
-        am.setViewTextColor(this.jOy, R.color.cp_link_tip_a, 3);
-        am.setImageResource(this.jOu, R.drawable.ad_divider);
-        am.setBackgroundResource(this.jOy, R.drawable.feed_ad_progress_button_bg);
+        am.setViewTextColor(this.aNH, R.color.cp_cont_j, 1);
+        am.setViewTextColor(this.kxN, R.color.cp_cont_f, 1);
+        am.setViewTextColor(this.kxS, R.color.cp_link_tip_a, 3);
+        am.setImageResource(this.kxO, R.drawable.ad_divider);
+        am.setBackgroundResource(this.kxS, R.drawable.feed_ad_progress_button_bg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,25 +85,25 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
         super.update((AdOperateViewJumpHolder) adPost);
         if (adPost != null && isOperateValid(adPost.adData)) {
             PostAdBaseData.a aVar = adPost.adData;
-            this.mTitleTextView.setText(aVar.DY);
-            if (StringUtils.isNull(aVar.jJm)) {
-                this.aui.setVisibility(8);
+            this.mTitleTextView.setText(aVar.Xp);
+            if (StringUtils.isNull(aVar.ksY)) {
+                this.aNH.setVisibility(8);
             } else {
-                this.aui.setVisibility(0);
-                this.aui.setText(aVar.jJm);
+                this.aNH.setVisibility(0);
+                this.aNH.setText(aVar.ksY);
             }
-            this.jOt.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(R.string.advert_label) : aVar.tagName);
+            this.kxN.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(R.string.advert_label) : aVar.tagName);
             if (StringUtils.isNull(aVar.buttonText)) {
-                if (this.jOs == 2) {
-                    this.jOy.setText(getResources().getString(R.string.check_immediately));
-                } else if (this.jOs == 1) {
-                    this.jOy.setText(getResources().getString(R.string.download));
+                if (this.kxM == 2) {
+                    this.kxS.setText(getResources().getString(R.string.check_immediately));
+                } else if (this.kxM == 1) {
+                    this.kxS.setText(getResources().getString(R.string.download));
                 } else {
-                    this.jOy.setText(getResources().getString(R.string.check_immediately));
-                    Log.e(TAG, "invalid operate type: " + this.jOs);
+                    this.kxS.setText(getResources().getString(R.string.check_immediately));
+                    Log.e(TAG, "invalid operate type: " + this.kxM);
                 }
             } else {
-                this.jOy.setText(aVar.buttonText);
+                this.kxS.setText(aVar.buttonText);
             }
             onChangeSkinType();
         }
@@ -117,19 +117,19 @@ public class AdOperateViewJumpHolder extends AdOperateBarHolder<AdPost> {
             if (adPost == null || adPost.getAdvertAppInfo() == null) {
                 str = null;
             } else {
-                str = adPost.getAdvertAppInfo().cNk;
+                str = adPost.getAdvertAppInfo().dmo;
             }
-            int b = s.b(this.mPageContext, bVar.scheme, str);
+            int b = r.b(this.mPageContext, bVar.scheme, str);
             if (b == 1 || b == 2) {
-                if (this.iaq != null) {
+                if (this.iKk != null) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("da_area", "adarea");
-                    this.iaq.b(b, hashMap);
+                    this.iKk.d(b, hashMap);
                 }
-            } else if (this.iaq != null) {
+            } else if (this.iKk != null) {
                 HashMap<String, Object> hashMap2 = new HashMap<>();
                 hashMap2.put("da_area", "adarea");
-                this.iaq.b(bVar.Tw, bVar.Tx, hashMap2);
+                this.iKk.b(bVar.alJ, bVar.alK, hashMap2);
             }
         }
     }

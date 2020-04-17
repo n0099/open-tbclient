@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.DisplayCutout;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -19,7 +18,7 @@ public class z {
     private static String sRomName;
     private static String sRomVersion;
 
-    public static boolean cE(Context context) {
+    public static boolean cs(Context context) {
         if (context == null) {
             return false;
         }
@@ -33,7 +32,7 @@ public class z {
             return hasNotchAtOPPO(context);
         }
         if (isMiui()) {
-            return cF(context);
+            return ct(context);
         }
         return false;
     }
@@ -66,7 +65,7 @@ public class z {
         return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
     }
 
-    private static boolean cF(@NonNull Context context) {
+    private static boolean ct(@NonNull Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
             return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
@@ -79,18 +78,18 @@ public class z {
         }
     }
 
-    public static int cG(Context context) {
+    public static int cu(Context context) {
         if (Build.VERSION.SDK_INT < 26) {
             return 0;
         }
         if (Build.VERSION.SDK_INT >= 28) {
-            return agY();
+            return apf();
         }
-        if (cE(context)) {
+        if (cs(context)) {
             if (isMiui()) {
                 Resources resources = context.getResources();
                 try {
-                    int identifier = resources.getIdentifier("notch_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS);
+                    int identifier = resources.getIdentifier("notch_height", "dimen", "android");
                     if (identifier > 0) {
                         return resources.getDimensionPixelSize(identifier);
                     }
@@ -109,7 +108,7 @@ public class z {
                 return 80;
             } else {
                 if (isVivo()) {
-                    return af.S(32.0f);
+                    return af.C(32.0f);
                 }
                 return 0;
             }
@@ -118,11 +117,11 @@ public class z {
     }
 
     @RequiresApi(28)
-    private static int agY() {
+    private static int apf() {
         int i = 0;
-        if (com.baidu.swan.apps.runtime.e.acI() != null && com.baidu.swan.apps.runtime.e.acI().getActivity() != null) {
+        if (com.baidu.swan.apps.runtime.e.akN() != null && com.baidu.swan.apps.runtime.e.akN().getActivity() != null) {
             try {
-                DisplayCutout displayCutout = com.baidu.swan.apps.runtime.e.acI().getActivity().getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
+                DisplayCutout displayCutout = com.baidu.swan.apps.runtime.e.akN().getActivity().getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
                 if (displayCutout != null) {
                     i = displayCutout.getSafeInsetTop();
                     if (DEBUG) {

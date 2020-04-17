@@ -21,7 +21,7 @@ public class c implements m {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     Bundle bundle2 = delegateResult.mResult;
                     if (dVar != null) {
-                        dVar.onResult(true, null, bundle2.getParcelableArrayList("mediaModels"));
+                        dVar.a(true, null, bundle2.getParcelableArrayList("mediaModels"));
                     }
                 }
             });

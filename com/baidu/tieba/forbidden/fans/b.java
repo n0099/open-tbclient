@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener gkl = null;
-    private View.OnClickListener eNp = null;
+    private View.OnClickListener gTs = null;
+    private View.OnClickListener frJ = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -26,7 +26,7 @@ public class b extends RecyclerView.Adapter<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
-    /* renamed from: s */
+    /* renamed from: t */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.forbidden_fans_item, (ViewGroup) null));
     }
@@ -35,14 +35,14 @@ public class b extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        com.baidu.tieba.forbidden.fans.a sp;
-        if (aVar != null && (sp = sp(i)) != null) {
-            aVar.gkn.startLoad(sp.portrait, 12, false);
-            aVar.gko.setText(sp.nameShow);
-            aVar.gkp.setOnClickListener(this.gkl);
-            aVar.gkp.setTag(sp);
-            aVar.gkm.setOnClickListener(this.eNp);
-            aVar.gkm.setTag(sp);
+        com.baidu.tieba.forbidden.fans.a sM;
+        if (aVar != null && (sM = sM(i)) != null) {
+            aVar.gTu.startLoad(sM.portrait, 12, false);
+            aVar.gTv.setText(sM.nameShow);
+            aVar.gTw.setOnClickListener(this.gTs);
+            aVar.gTw.setTag(sM);
+            aVar.gTt.setOnClickListener(this.frJ);
+            aVar.gTt.setTag(sM);
             a(aVar);
         }
     }
@@ -52,11 +52,11 @@ public class b extends RecyclerView.Adapter<a> {
         return v.getCount(this.fansList);
     }
 
-    private com.baidu.tieba.forbidden.fans.a sp(int i) {
+    private com.baidu.tieba.forbidden.fans.a sM(int i) {
         return (com.baidu.tieba.forbidden.fans.a) v.getItem(this.fansList, i);
     }
 
-    public void ai(ArrayList<com.baidu.tieba.forbidden.fans.a> arrayList) {
+    public void ak(ArrayList<com.baidu.tieba.forbidden.fans.a> arrayList) {
         this.fansList = arrayList;
     }
 
@@ -64,7 +64,7 @@ public class b extends RecyclerView.Adapter<a> {
         return this.fansList;
     }
 
-    public boolean dr(long j) {
+    public boolean ea(long j) {
         if (j == 0 || v.isEmpty(this.fansList)) {
             return false;
         }
@@ -79,43 +79,43 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean bCq() {
+    public boolean bMQ() {
         return v.isEmpty(this.fansList);
     }
 
     /* loaded from: classes10.dex */
     public static class a extends RecyclerView.ViewHolder {
         public View dividerLine;
-        public View gkm;
-        public ClickableHeaderImageView gkn;
-        public TextView gko;
-        public TextView gkp;
+        public View gTt;
+        public ClickableHeaderImageView gTu;
+        public TextView gTv;
+        public TextView gTw;
 
         public a(View view) {
             super(view);
-            this.gkm = view.findViewById(R.id.container_forbidden_item);
-            this.gkn = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
-            this.gkn.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
-            this.gkn.setAutoChangeStyle(true);
-            this.gkn.setClickable(false);
-            this.gko = (TextView) view.findViewById(R.id.view_fans_name);
-            this.gkp = (TextView) view.findViewById(R.id.view_fans_remove);
+            this.gTt = view.findViewById(R.id.container_forbidden_item);
+            this.gTu = (ClickableHeaderImageView) view.findViewById(R.id.view_fans_photo);
+            this.gTu.setRadius(l.getDimens(view.getContext(), R.dimen.ds90));
+            this.gTu.setAutoChangeStyle(true);
+            this.gTu.setClickable(false);
+            this.gTv = (TextView) view.findViewById(R.id.view_fans_name);
+            this.gTw = (TextView) view.findViewById(R.id.view_fans_remove);
             this.dividerLine = view.findViewById(R.id.line_divider);
         }
     }
 
     private void a(a aVar) {
-        am.setViewTextColor(aVar.gko, (int) R.color.cp_cont_b);
+        am.setViewTextColor(aVar.gTv, (int) R.color.cp_cont_b);
         am.setBackgroundColor(aVar.dividerLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(aVar.gkp, (int) R.color.btn_color_remove);
-        am.setBackgroundResource(aVar.gkp, R.drawable.btn_transparent_focus_border_bg);
+        am.setViewTextColor(aVar.gTw, (int) R.color.btn_color_remove);
+        am.setBackgroundResource(aVar.gTw, R.drawable.btn_transparent_focus_border_bg);
     }
 
-    public void w(View.OnClickListener onClickListener) {
-        this.gkl = onClickListener;
+    public void x(View.OnClickListener onClickListener) {
+        this.gTs = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.eNp = onClickListener;
+        this.frJ = onClickListener;
     }
 }

@@ -1,9 +1,8 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
-import io.reactivex.internal.observers.c;
+import io.reactivex.internal.observers.d;
 import io.reactivex.t;
 import io.reactivex.u;
 import io.reactivex.w;
@@ -20,7 +19,7 @@ public final class SingleDelayWithObservable<T, U> extends w<T> {
     }
 
     /* loaded from: classes7.dex */
-    static final class OtherSubscriber<T, U> extends AtomicReference<b> implements b, u<U> {
+    static final class OtherSubscriber<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<U> {
         private static final long serialVersionUID = -8565274649390031272L;
         final y<? super T> actual;
         boolean done;
@@ -32,7 +31,7 @@ public final class SingleDelayWithObservable<T, U> extends w<T> {
         }
 
         @Override // io.reactivex.u
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.set(this, bVar)) {
                 this.actual.onSubscribe(this);
             }
@@ -58,7 +57,7 @@ public final class SingleDelayWithObservable<T, U> extends w<T> {
         public void onComplete() {
             if (!this.done) {
                 this.done = true;
-                this.source.a(new c(this, this.actual));
+                this.source.a(new d(this, this.actual));
             }
         }
 

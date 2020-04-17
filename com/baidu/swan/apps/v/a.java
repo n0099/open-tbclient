@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.d.c;
-import com.google.android.exoplayer2.Format;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,7 +25,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized boolean k(String str, String str2, boolean z) {
+    public static synchronized boolean j(String str, String str2, boolean z) {
         boolean z2;
         FileChannel fileChannel;
         boolean z3;
@@ -150,7 +149,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized String ih(String str) {
+    public static synchronized String ju(String str) {
         FileLock fileLock;
         BufferedReader bufferedReader;
         Throwable th;
@@ -166,7 +165,7 @@ public class a {
                 StringBuffer stringBuffer = new StringBuffer();
                 try {
                     FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
-                    fileLock = channel.lock(0L, Format.OFFSET_SAMPLE_RELATIVE, true);
+                    fileLock = channel.lock(0L, Long.MAX_VALUE, true);
                     try {
                         bufferedReader = new BufferedReader(Channels.newReader(channel, Charset.defaultCharset().name()));
                         while (true) {

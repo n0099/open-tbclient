@@ -8,6 +8,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ala.alaar.sticker.model.FuFaceItem;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
@@ -26,7 +27,7 @@ public class Static {
                             JSONObject jSONObject = new JSONObject(content);
                             BdUploadStatMsgData bdUploadStatMsgData = new BdUploadStatMsgData();
                             bdUploadStatMsgData.parentType = jSONObject.optString("type");
-                            bdUploadStatMsgData.childType = jSONObject.optString("sub_type");
+                            bdUploadStatMsgData.childType = jSONObject.optString(FuFaceItem.JK_SUB_TYPE);
                             bdUploadStatMsgData.isWifi = jSONObject.optInt("is_wifi") == 1;
                             if (jSONObject.optLong("continue_time") > 0) {
                                 bdUploadStatMsgData.deadLineTime = (jSONObject.optLong("continue_time") * 1000) + System.currentTimeMillis();

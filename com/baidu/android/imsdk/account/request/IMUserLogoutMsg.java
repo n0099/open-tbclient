@@ -31,7 +31,7 @@ public class IMUserLogoutMsg extends Message {
             jSONObject.put("method", 52);
             jSONObject.put("appid", this.mAppid);
             jSONObject.put("uk", this.mUk);
-            jSONObject.put(Constants.KEY_DEVICE_ID, this.mDeviceId);
+            jSONObject.put("device_id", this.mDeviceId);
             this.mBody = jSONObject.toString();
         } catch (JSONException e) {
             LogUtils.e(getClass().getSimpleName(), "Exception ", e);

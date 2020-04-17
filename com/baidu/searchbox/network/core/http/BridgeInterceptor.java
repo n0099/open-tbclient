@@ -1,6 +1,5 @@
 package com.baidu.searchbox.network.core.http;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.searchbox.network.core.Cookie;
 import com.baidu.searchbox.network.core.CookieJar;
 import com.baidu.searchbox.network.core.Interceptor;
@@ -62,7 +61,7 @@ public final class BridgeInterceptor implements Interceptor {
             if (header == null) {
                 newBuilder.header("User-Agent", Version.userAgent());
             } else {
-                newBuilder.header("User-Agent", Version.userAgent() + HanziToPinyin.Token.SEPARATOR + header);
+                newBuilder.header("User-Agent", Version.userAgent() + " " + header);
             }
         }
         Response proceed = chain.proceed(newBuilder.build());

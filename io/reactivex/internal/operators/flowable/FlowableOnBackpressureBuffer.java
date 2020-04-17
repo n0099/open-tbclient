@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
@@ -16,7 +15,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyr.a((j) new BackpressureBufferSubscriber(cVar, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));
+        this.mRJ.a((j) new BackpressureBufferSubscriber(cVar, this.bufferSize, this.unbounded, this.delayError, this.onOverflow));
     }
 
     /* loaded from: classes7.dex */
@@ -51,7 +50,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -63,7 +62,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
                 try {
                     this.onOverflow.run();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     missingBackpressureException.initCause(th);
                 }
                 onError(missingBackpressureException);
@@ -137,7 +136,7 @@ public final class FlowableOnBackpressureBuffer<T> extends a<T, T> {
                         }
                     }
                     if (j2 != j || !checkTerminated(this.done, fVar.isEmpty(), cVar)) {
-                        if (j2 != 0 && j != Format.OFFSET_SAMPLE_RELATIVE) {
+                        if (j2 != 0 && j != Long.MAX_VALUE) {
                             this.requested.addAndGet(-j2);
                         }
                         i = addAndGet(-i);

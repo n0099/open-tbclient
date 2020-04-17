@@ -19,12 +19,12 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 /* loaded from: classes9.dex */
 public class i {
-    private NEGFeedBackView eOi;
-    private ViewGroup eOj;
-    private NEGFeedBackView.a eOk = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.vc.i.1
+    private NEGFeedBackView fsC;
+    private ViewGroup fsD;
+    private NEGFeedBackView.a fsE = new NEGFeedBackView.a() { // from class: com.baidu.tieba.frs.vc.i.1
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
         public void b(al alVar) {
-            TiebaStatic.log(new an("c11973").cx("fid", alVar.getFid()).cx("tid", alVar.getTid()).cx("uid", TbadkCoreApplication.getCurrentAccount()));
+            TiebaStatic.log(new an("c11973").cI("fid", alVar.getFid()).cI("tid", alVar.getTid()).cI("uid", TbadkCoreApplication.getCurrentAccount()));
         }
 
         @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
@@ -41,7 +41,7 @@ public class i {
                 if (sb.length() > 0) {
                     sb.deleteCharAt(sb.length() - 1);
                 }
-                TiebaStatic.log(new an("c11974").cx("obj_locate", sb.toString()).cx("fid", alVar.getFid()).cx("tid", alVar.getTid()).cx("uid", TbadkCoreApplication.getCurrentAccount()).cx("source", alVar.source).cx(TableDefine.SessionColumns.COLUMN_WEIGHT, alVar.weight).cx(TiebaInitialize.Params.AB_TAG, alVar.cPS).cx("extra", alVar.extra).X("card_type", alVar.cardType).X("obj_floor", alVar.cPT));
+                TiebaStatic.log(new an("c11974").cI("obj_locate", sb.toString()).cI("fid", alVar.getFid()).cI("tid", alVar.getTid()).cI("uid", TbadkCoreApplication.getCurrentAccount()).cI("source", alVar.source).cI(TableDefine.SessionColumns.COLUMN_WEIGHT, alVar.weight).cI(TiebaInitialize.Params.AB_TAG, alVar.doY).cI("extra", alVar.extra).af("card_type", alVar.cardType).af("obj_floor", alVar.doZ));
             }
         }
     };
@@ -50,64 +50,64 @@ public class i {
 
     public i(TbPageContext tbPageContext, ViewGroup viewGroup) {
         this.mPageContext = tbPageContext;
-        this.eOj = viewGroup;
+        this.fsD = viewGroup;
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean bLd() {
-        return this.eOi != null && this.eOi.getVisibility() == 0;
+    public boolean bVD() {
+        return this.fsC != null && this.fsC.getVisibility() == 0;
     }
 
-    public void ay(bj bjVar) {
+    public void az(bj bjVar) {
         int i = 0;
-        if (bjVar != null && this.mPageContext != null && this.eOj != null) {
-            boolean z = (bjVar.aCr() == null || bjVar.aCr().getUserId() == null || !bjVar.aCr().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (bjVar.aDD() && bjVar.getFeedBackReasonMap() != null && !z) {
-                if (this.eOi == null) {
-                    this.eOi = new NEGFeedBackView(this.mPageContext);
-                    this.eOi.setUniqueId(this.mBdUniqueId);
-                    this.eOi.setId(R.id.negative_feedback_view);
-                    this.eOi.setDefaultReasonArray(new String[]{this.mPageContext.getString(R.string.bad_quality), "", ""});
-                    this.eOi.setEventCallback(this.eOk);
-                    this.eOi.a(this.eOj, com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds120), 0);
-                    this.eOi.onChangeSkinType();
+        if (bjVar != null && this.mPageContext != null && this.fsD != null) {
+            boolean z = (bjVar.aKE() == null || bjVar.aKE().getUserId() == null || !bjVar.aKE().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+            if (bjVar.aLQ() && bjVar.getFeedBackReasonMap() != null && !z) {
+                if (this.fsC == null) {
+                    this.fsC = new NEGFeedBackView(this.mPageContext);
+                    this.fsC.setUniqueId(this.mBdUniqueId);
+                    this.fsC.setId(R.id.negative_feedback_view);
+                    this.fsC.setDefaultReasonArray(new String[]{this.mPageContext.getString(R.string.bad_quality), "", ""});
+                    this.fsC.setEventCallback(this.fsE);
+                    this.fsC.a(this.fsD, com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds120), 0);
+                    this.fsC.onChangeSkinType();
                 }
-                if (this.eOi.getVisibility() != 0) {
-                    this.eOi.setVisibility(0);
+                if (this.fsC.getVisibility() != 0) {
+                    this.fsC.setVisibility(0);
                 }
                 al alVar = new al();
                 alVar.setTid(bjVar.getTid());
                 alVar.setFid(bjVar.getFid());
                 alVar.setFeedBackReasonMap(bjVar.getFeedBackReasonMap());
-                this.eOi.setData(alVar);
+                this.fsC.setData(alVar);
             } else {
-                if (this.eOi != null && this.eOi.getVisibility() != 8) {
-                    this.eOi.setVisibility(8);
+                if (this.fsC != null && this.fsC.getVisibility() != 8) {
+                    this.fsC.setVisibility(8);
                 }
                 i = com.baidu.adp.lib.util.l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds32);
             }
-            if (this.eOj.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eOj.getLayoutParams();
+            if (this.fsD.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fsD.getLayoutParams();
                 layoutParams.rightMargin = i;
-                this.eOj.setLayoutParams(layoutParams);
+                this.fsD.setLayoutParams(layoutParams);
             }
-            if (this.eOj.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.eOj.getLayoutParams();
+            if (this.fsD.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fsD.getLayoutParams();
                 layoutParams2.rightMargin = i;
-                this.eOj.setLayoutParams(layoutParams2);
+                this.fsD.setLayoutParams(layoutParams2);
             }
-            if (this.eOi != null) {
-                this.eOi.aWs();
+            if (this.fsC != null) {
+                this.fsC.beD();
             }
         }
     }
 
     public void onChangeSkinType() {
-        if (this.eOi != null) {
-            this.eOi.onChangeSkinType();
+        if (this.fsC != null) {
+            this.fsC.onChangeSkinType();
         }
     }
 }

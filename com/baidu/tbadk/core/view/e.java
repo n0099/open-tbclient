@@ -25,7 +25,7 @@ public class e {
     private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = null;
     private int mExcludeHeight = 0;
 
-    public static e ag(Activity activity) {
+    public static e ac(Activity activity) {
         return new e(activity);
     }
 
@@ -60,7 +60,7 @@ public class e {
 
     public void onDestory() {
         if (this.mDealyResizeRunnable != null) {
-            com.baidu.adp.lib.f.e.gx().removeCallbacks(this.mDealyResizeRunnable);
+            com.baidu.adp.lib.f.e.lb().removeCallbacks(this.mDealyResizeRunnable);
             this.mDealyResizeRunnable = null;
         }
         if (this.mResizeViewGroup != null) {
@@ -139,7 +139,7 @@ public class e {
 
     private void dealyResize(int i) {
         if (this.mDealyResizeRunnable != null) {
-            com.baidu.adp.lib.f.e.gx().removeCallbacks(this.mDealyResizeRunnable);
+            com.baidu.adp.lib.f.e.lb().removeCallbacks(this.mDealyResizeRunnable);
             this.mDealyResizeRunnable = null;
         }
         this.mDealyResizeRunnable = new Runnable() { // from class: com.baidu.tbadk.core.view.e.2
@@ -148,6 +148,6 @@ public class e {
                 e.this.resizeForSoftInput();
             }
         };
-        com.baidu.adp.lib.f.e.gx().postDelayed(this.mDealyResizeRunnable, i);
+        com.baidu.adp.lib.f.e.lb().postDelayed(this.mDealyResizeRunnable, i);
     }
 }

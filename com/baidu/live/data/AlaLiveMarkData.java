@@ -16,6 +16,7 @@ public class AlaLiveMarkData implements Serializable {
     public static final int TYPE_USER_TB_ACTIVITY = 4;
     public String anchor_user_id;
     public int height;
+    public boolean isWidthAutoFit = false;
     public long mark_id;
     public String mark_name;
     public String mark_pic;

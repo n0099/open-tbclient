@@ -30,7 +30,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.c.c;
@@ -43,7 +42,6 @@ import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.coloros.mcssdk.PushManager;
 import com.coloros.mcssdk.callback.PushCallback;
-import com.google.android.exoplayer2.Format;
 import com.vivo.push.IPushActionListener;
 import com.vivo.push.PushClient;
 import com.xiaomi.mipush.sdk.MiPushClient;
@@ -885,7 +883,7 @@ public final class l {
     }
 
     public static boolean a(String str, Context context) {
-        if (TextUtils.isEmpty(str) || str.contains(HanziToPinyin.Token.SEPARATOR)) {
+        if (TextUtils.isEmpty(str) || str.contains(" ")) {
             Log.e("BDPushSDK-Utility", "api_key is  incorrect, please check ! ");
             return false;
         }
@@ -1552,14 +1550,14 @@ public final class l {
                 if (TextUtils.isEmpty(str) || !str.equals(u(context))) {
                     c2.putExtra("priority3", h(context));
                 } else {
-                    c2.putExtra("priority3", Format.OFFSET_SAMPLE_RELATIVE);
+                    c2.putExtra("priority3", Long.MAX_VALUE);
                 }
             } else {
                 c2.putExtra("method", "pushservice_restart_v2");
                 if (TextUtils.isEmpty(str) || !str.equals(u(context))) {
                     c2.putExtra("priority2", h(context));
                 } else {
-                    c2.putExtra("priority2", Format.OFFSET_SAMPLE_RELATIVE);
+                    c2.putExtra("priority2", Long.MAX_VALUE);
                 }
             }
             if (!TextUtils.isEmpty(str)) {
@@ -1651,7 +1649,7 @@ public final class l {
     }
 
     public static boolean h() {
-        return Build.MANUFACTURER.toUpperCase().contains("GIONEE");
+        return Build.MANUFACTURER.toUpperCase().contains(RomUtils.ROM_GIONEE);
     }
 
     public static boolean h(Context context, String str) {
@@ -2471,7 +2469,7 @@ public final class l {
             }
             String a2 = com.baidu.android.pushservice.a.b.a(e);
             if (!TextUtils.isEmpty(a2) && a2.contains(str)) {
-                String replace = a2.replace(HanziToPinyin.Token.SEPARATOR, "");
+                String replace = a2.replace(" ", "");
                 if (replace.charAt(replace.indexOf(str) + str.length()) == ',') {
                     return true;
                 }

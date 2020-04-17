@@ -1,13 +1,18 @@
 package com.baidu.tieba.ala.personcenter.c;
-/* loaded from: classes3.dex */
-public abstract class a extends com.baidu.tieba.card.data.b {
-    private b fuX;
 
-    public void a(b bVar) {
-        this.fuX = bVar;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class a extends com.baidu.tbadk.core.data.k {
+    private String fZv;
+
+    @Override // com.baidu.tbadk.core.data.k
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.fZv = jSONObject.optString("qq", "");
+        }
     }
 
-    public b getPersonCenterData() {
-        return this.fuX;
+    public String bBU() {
+        return this.fZv;
     }
 }

@@ -51,7 +51,7 @@ public final class Code128Reader extends OneDReader {
                     int i6 = -1;
                     int i7 = 103;
                     while (i7 <= 105) {
-                        float patternMatchVariance = patternMatchVariance(iArr, CODE_PATTERNS[i7], 0.7f);
+                        float patternMatchVariance = patternMatchVariance(iArr, CODE_PATTERNS[i7], MAX_INDIVIDUAL_VARIANCE);
                         if (patternMatchVariance < f) {
                             i6 = i7;
                         } else {
@@ -88,7 +88,7 @@ public final class Code128Reader extends OneDReader {
         float f = 0.25f;
         int i2 = -1;
         for (int i3 = 0; i3 < CODE_PATTERNS.length; i3++) {
-            float patternMatchVariance = patternMatchVariance(iArr, CODE_PATTERNS[i3], 0.7f);
+            float patternMatchVariance = patternMatchVariance(iArr, CODE_PATTERNS[i3], MAX_INDIVIDUAL_VARIANCE);
             if (patternMatchVariance < f) {
                 i2 = i3;
                 f = patternMatchVariance;

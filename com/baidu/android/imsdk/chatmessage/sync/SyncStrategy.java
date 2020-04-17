@@ -105,7 +105,7 @@ public abstract class SyncStrategy {
         LogUtils.d(TAG, "sync state: " + this.mState);
         this.mState = 1;
         long startMsgid = getStartMsgid();
-        long j3 = Long.MAX_VALUE;
+        long j3 = UNLIMITEDMSGID;
         LogUtils.i(TAG, "sync startId : " + startMsgid);
         if (startMsgid < 0) {
             LogUtils.d(TAG, "sync startId state: " + this.mState);

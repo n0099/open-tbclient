@@ -7,14 +7,14 @@ public class TbPageTag implements Parcelable {
     public static final Parcelable.Creator<TbPageTag> CREATOR = new Parcelable.Creator<TbPageTag>() { // from class: com.baidu.tbadk.pageInfo.TbPageTag.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: W */
+        /* renamed from: P */
         public TbPageTag createFromParcel(Parcel parcel) {
             return new TbPageTag(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: mM */
+        /* renamed from: mX */
         public TbPageTag[] newArray(int i) {
             return new TbPageTag[i];
         }

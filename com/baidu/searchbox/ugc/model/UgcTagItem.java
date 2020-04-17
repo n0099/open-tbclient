@@ -13,7 +13,7 @@ public class UgcTagItem implements NoProGuard, Serializable {
     public String tagID;
     @c("name")
     public String tagName;
-    @c("opt")
+    @c(UgcConstant.UGC_TAG_OPTION)
     public String tagOption;
     @c("type")
     public String tagType;

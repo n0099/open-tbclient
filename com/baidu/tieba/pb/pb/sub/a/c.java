@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
@@ -19,7 +19,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bO */
+    /* renamed from: bQ */
     public a b(ViewGroup viewGroup) {
         return new a(LayoutInflater.from(this.mContext).inflate(R.layout.sub_pb_no_reply_layout, viewGroup, false));
     }
@@ -34,19 +34,19 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes9.dex */
-    public static class a extends v.a {
-        private TextView iYq;
+    public static class a extends y.a {
+        private TextView jIy;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.iYq = (TextView) view.findViewById(R.id.no_reply_list_view);
+            this.jIy = (TextView) view.findViewById(R.id.no_reply_list_view);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                am.setViewTextColor(this.iYq, (int) R.color.cp_cont_d);
+                am.setViewTextColor(this.jIy, (int) R.color.cp_cont_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

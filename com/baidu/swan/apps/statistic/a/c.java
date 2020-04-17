@@ -7,78 +7,78 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String awG;
-    private int bVr;
-    private String bVs;
-    private String bVt;
-    private long bVu;
-    private long bVv;
+    private String aQj;
+    private int cuh;
+    private String cui;
+    private String cuj;
+    private long cuk;
+    private long cul;
     private int mErrCode;
     private String mMsg;
     private String mRequestUrl;
 
     public c(String str, int i) {
         this.mRequestUrl = str;
-        this.bVr = i;
-        this.awG = "0";
+        this.cuh = i;
+        this.aQj = "0";
     }
 
     public c(int i, String str, String str2, int i2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.bVr = i2;
-        this.awG = "1";
+        this.cuh = i2;
+        this.aQj = "1";
     }
 
     public c(int i, String str, String str2, int i2, long j, long j2) {
         this.mErrCode = i;
         this.mRequestUrl = str;
         this.mMsg = str2;
-        this.bVr = i2;
-        this.bVu = j;
-        this.bVv = j2;
+        this.cuh = i2;
+        this.cuk = j;
+        this.cul = j2;
         if (i == 200 && j2 - j >= 5000) {
-            this.awG = "2";
+            this.aQj = "2";
         } else {
-            this.awG = "1";
+            this.aQj = "1";
         }
     }
 
-    public void lK(String str) {
-        this.bVs = str;
+    public void mX(String str) {
+        this.cui = str;
     }
 
-    public void lL(String str) {
-        this.bVt = str;
+    public void mY(String str) {
+        this.cuj = str;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.bVx == null) {
-            this.bVx = new JSONObject();
+        if (this.cun == null) {
+            this.cun = new JSONObject();
         }
         try {
-            if (TextUtils.equals(this.awG, "1") || TextUtils.equals(this.awG, "2")) {
-                this.bVx.put("errorno", this.mErrCode);
+            if (TextUtils.equals(this.aQj, "1") || TextUtils.equals(this.aQj, "2")) {
+                this.cun.put("errorno", this.mErrCode);
             }
-            this.bVx.put("url", this.mRequestUrl);
-            this.bVx.put("netStatus", this.bVr);
+            this.cun.put("url", this.mRequestUrl);
+            this.cun.put("netStatus", this.cuh);
             if (!TextUtils.isEmpty(this.mMsg)) {
-                this.bVx.put("msg", this.mMsg);
+                this.cun.put("msg", this.mMsg);
             }
-            if (!TextUtils.isEmpty(this.bVs)) {
-                this.bVx.put("pagetype", this.bVs);
+            if (!TextUtils.isEmpty(this.cui)) {
+                this.cun.put("pagetype", this.cui);
             }
-            if (!TextUtils.isEmpty(this.bVt)) {
-                this.bVx.put("curpage", this.bVt);
+            if (!TextUtils.isEmpty(this.cuj)) {
+                this.cun.put("curpage", this.cuj);
             }
-            if (!TextUtils.isEmpty(this.awG)) {
-                this.bVx.put("requesttype", this.awG);
+            if (!TextUtils.isEmpty(this.aQj)) {
+                this.cun.put("requesttype", this.aQj);
             }
-            if (this.bVv - this.bVu > 0) {
-                this.bVx.put("startTime", this.bVu);
-                this.bVx.put("endTime", this.bVv);
+            if (this.cul - this.cuk > 0) {
+                this.cun.put("startTime", this.cuk);
+                this.cun.put("endTime", this.cul);
             }
         } catch (JSONException e) {
             if (DEBUG) {

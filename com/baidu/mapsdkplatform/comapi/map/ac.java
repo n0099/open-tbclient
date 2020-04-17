@@ -353,11 +353,11 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
             if (E.f == 0 || E.f == -1 || E.f == (E.j.left - E.j.right) / 2) {
                 E.f = -1;
             }
-            if (E.g == 0 || E.g == -1 || E.g == (E.j.bottom - E.j.f992top) / 2) {
+            if (E.g == 0 || E.g == -1 || E.g == (E.j.bottom - E.j.f999top) / 2) {
                 E.g = -1;
             }
             E.j.left = 0;
-            E.j.f992top = 0;
+            E.j.f999top = 0;
             E.j.bottom = i2;
             E.j.right = i;
             this.i.a(E);
@@ -382,11 +382,11 @@ public class ac extends TextureView implements GestureDetector.OnDoubleTapListen
         if (E.f == 0 || E.f == -1 || E.f == (E.j.left - E.j.right) / 2) {
             E.f = -1;
         }
-        if (E.g == 0 || E.g == -1 || E.g == (E.j.bottom - E.j.f992top) / 2) {
+        if (E.g == 0 || E.g == -1 || E.g == (E.j.bottom - E.j.f999top) / 2) {
             E.g = -1;
         }
         E.j.left = 0;
-        E.j.f992top = 0;
+        E.j.f999top = 0;
         E.j.bottom = i2;
         E.j.right = i;
         this.i.a(E);

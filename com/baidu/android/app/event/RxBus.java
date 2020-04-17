@@ -16,7 +16,7 @@ public class RxBus {
     private static volatile RxBus mInstance;
     private ConcurrentHashMap<Object, ConcurrentHashMap<Class, d>> mObservables = new ConcurrentHashMap<>();
     private ConcurrentHashMap<Object, ConcurrentHashMap<Class, List<j>>> mSubscribers = new ConcurrentHashMap<>();
-    private final b<Object, Object> mRxBusSubject = new b<>(PublishSubject.dPS());
+    private final b<Object, Object> mRxBusSubject = new b<>(PublishSubject.dIS());
 
     private RxBus() {
     }
@@ -74,11 +74,11 @@ public class RxBus {
     }
 
     private <T> d<T> createObservable(final Object obj, Class<T> cls) {
-        return this.mRxBusSubject.P(cls).a((d.b<? extends R, ? super Object>) new TagKeeperOperator(obj, cls)).dOv().b(new rx.functions.b<T>() { // from class: com.baidu.android.app.event.RxBus.1
+        return this.mRxBusSubject.P(cls).a((d.b<? extends R, ? super Object>) new TagKeeperOperator(obj, cls)).dHv().b(new rx.functions.b<T>() { // from class: com.baidu.android.app.event.RxBus.1
             @Override // rx.functions.b
             public void call(T t) {
             }
-        }).dOx();
+        }).dHx();
     }
 
     private <T> void clearObservables(Object obj, Class<T> cls) {

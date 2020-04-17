@@ -3,11 +3,11 @@ package com.tb.airbnb.lottie.model.content;
 import com.tb.airbnb.lottie.a.a.r;
 /* loaded from: classes6.dex */
 public class ShapeTrimPath implements b {
+    private final Type mOM;
+    private final com.tb.airbnb.lottie.model.a.b mPU;
+    private final com.tb.airbnb.lottie.model.a.b mPX;
+    private final com.tb.airbnb.lottie.model.a.b mPY;
     private final String name;
-    private final Type nsd;
-    private final com.tb.airbnb.lottie.model.a.b ntj;
-    private final com.tb.airbnb.lottie.model.a.b ntm;
-    private final com.tb.airbnb.lottie.model.a.b ntn;
 
     /* loaded from: classes6.dex */
     public enum Type {
@@ -28,30 +28,30 @@ public class ShapeTrimPath implements b {
 
     public ShapeTrimPath(String str, Type type, com.tb.airbnb.lottie.model.a.b bVar, com.tb.airbnb.lottie.model.a.b bVar2, com.tb.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.nsd = type;
-        this.ntm = bVar;
-        this.ntn = bVar2;
-        this.ntj = bVar3;
+        this.mOM = type;
+        this.mPX = bVar;
+        this.mPY = bVar2;
+        this.mPU = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dHg() {
-        return this.nsd;
+    public Type dBi() {
+        return this.mOM;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dHY() {
-        return this.ntn;
+    public com.tb.airbnb.lottie.model.a.b dCa() {
+        return this.mPY;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dHZ() {
-        return this.ntm;
+    public com.tb.airbnb.lottie.model.a.b dCb() {
+        return this.mPX;
     }
 
-    public com.tb.airbnb.lottie.model.a.b dHU() {
-        return this.ntj;
+    public com.tb.airbnb.lottie.model.a.b dBW() {
+        return this.mPU;
     }
 
     @Override // com.tb.airbnb.lottie.model.content.b
@@ -60,6 +60,6 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.ntm + ", end: " + this.ntn + ", offset: " + this.ntj + "}";
+        return "Trim Path: {start: " + this.mPX + ", end: " + this.mPY + ", offset: " + this.mPU + "}";
     }
 }

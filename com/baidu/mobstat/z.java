@@ -3,6 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +25,7 @@ public class z {
             String str = android.os.Build.MANUFACTURER;
             int i = Build.VERSION.SDK_INT;
             boolean z = false;
-            if (!TextUtils.isEmpty(str) && "huawei".equals(str.trim().toLowerCase()) && i >= 28) {
+            if (!TextUtils.isEmpty(str) && RomUtils.MANUFACTURER_HUAWEI.equals(str.trim().toLowerCase()) && i >= 28) {
                 z = true;
             }
             if (!k.APP_LIST.b(10000) && !z) {

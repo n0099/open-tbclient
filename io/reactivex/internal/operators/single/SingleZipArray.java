@@ -2,7 +2,6 @@ package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
 import io.reactivex.c.h;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.operators.single.a;
 import io.reactivex.w;
@@ -11,15 +10,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class SingleZipArray<T, R> extends w<R> {
-    final aa<? extends T>[] nAz;
+    final aa<? extends T>[] mUa;
     final h<? super Object[], ? extends R> zipper;
 
     @Override // io.reactivex.w
     protected void b(y<? super R> yVar) {
-        aa<? extends T>[] aaVarArr = this.nAz;
+        aa<? extends T>[] aaVarArr = this.mUa;
         int length = aaVarArr.length;
         if (length == 1) {
-            aaVarArr[0].a(new a.C0765a(yVar, new a()));
+            aaVarArr[0].a(new a.C0788a(yVar, new a()));
             return;
         }
         ZipCoordinator zipCoordinator = new ZipCoordinator(yVar, length, this.zipper);
@@ -35,7 +34,7 @@ public final class SingleZipArray<T, R> extends w<R> {
     }
 
     /* loaded from: classes7.dex */
-    static final class ZipCoordinator<T, R> extends AtomicInteger implements b {
+    static final class ZipCoordinator<T, R> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = -5556924161382950569L;
         final y<? super R> actual;
         final ZipSingleObserver<T>[] observers;
@@ -75,7 +74,7 @@ public final class SingleZipArray<T, R> extends w<R> {
                 try {
                     this.actual.onSuccess(io.reactivex.internal.functions.a.h(this.zipper.apply(this.values), "The zipper returned a null value"));
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     this.actual.onError(th);
                 }
             }
@@ -104,7 +103,7 @@ public final class SingleZipArray<T, R> extends w<R> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class ZipSingleObserver<T> extends AtomicReference<b> implements y<T> {
+    public static final class ZipSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements y<T> {
         private static final long serialVersionUID = 3323743579927613702L;
         final int index;
         final ZipCoordinator<T, ?> parent;
@@ -119,7 +118,7 @@ public final class SingleZipArray<T, R> extends w<R> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             DisposableHelper.setOnce(this, bVar);
         }
 

@@ -13,34 +13,33 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class i {
-    public static final int nBA;
-    static final AtomicReference<ScheduledExecutorService> nBB = new AtomicReference<>();
-    static final Map<ScheduledThreadPoolExecutor, Object> nBC = new ConcurrentHashMap();
-    public static final boolean nBz;
+    public static final boolean mVb;
+    public static final int mVc;
+    static final AtomicReference<ScheduledExecutorService> mVd = new AtomicReference<>();
+    static final Map<ScheduledThreadPoolExecutor, Object> mVe = new ConcurrentHashMap();
 
     static {
+        int i = 1;
         Properties properties = System.getProperties();
-        a aVar = new a();
-        aVar.a(properties);
-        nBz = aVar.nBD;
-        nBA = aVar.nBE;
+        boolean z = properties.containsKey("rx2.purge-enabled") ? Boolean.getBoolean("rx2.purge-enabled") : true;
+        if (z && properties.containsKey("rx2.purge-period-seconds")) {
+            i = Integer.getInteger("rx2.purge-period-seconds", 1).intValue();
+        }
+        mVb = z;
+        mVc = i;
         start();
     }
 
     public static void start() {
-        wN(nBz);
-    }
-
-    static void wN(boolean z) {
-        if (!z) {
+        if (!mVb) {
             return;
         }
         while (true) {
-            ScheduledExecutorService scheduledExecutorService = nBB.get();
-            if (scheduledExecutorService == null) {
+            ScheduledExecutorService scheduledExecutorService = mVd.get();
+            if (scheduledExecutorService == null || scheduledExecutorService.isShutdown()) {
                 ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge"));
-                if (nBB.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
-                    newScheduledThreadPool.scheduleAtFixedRate(new b(), nBA, nBA, TimeUnit.SECONDS);
+                if (mVd.compareAndSet(scheduledExecutorService, newScheduledThreadPool)) {
+                    newScheduledThreadPool.scheduleAtFixedRate(new a(), mVc, mVc, TimeUnit.SECONDS);
                     return;
                 }
                 newScheduledThreadPool.shutdownNow();
@@ -50,61 +49,34 @@ public final class i {
         }
     }
 
-    /* loaded from: classes7.dex */
-    static final class a {
-        boolean nBD;
-        int nBE;
-
-        a() {
-        }
-
-        void a(Properties properties) {
-            if (properties.containsKey("rx2.purge-enabled")) {
-                this.nBD = Boolean.parseBoolean(properties.getProperty("rx2.purge-enabled"));
-            } else {
-                this.nBD = true;
-            }
-            if (this.nBD && properties.containsKey("rx2.purge-period-seconds")) {
-                try {
-                    this.nBE = Integer.parseInt(properties.getProperty("rx2.purge-period-seconds"));
-                    return;
-                } catch (NumberFormatException e) {
-                    this.nBE = 1;
-                    return;
-                }
-            }
-            this.nBE = 1;
-        }
-    }
-
     public static ScheduledExecutorService a(ThreadFactory threadFactory) {
         ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        a(nBz, newScheduledThreadPool);
-        return newScheduledThreadPool;
-    }
-
-    static void a(boolean z, ScheduledExecutorService scheduledExecutorService) {
-        if (z && (scheduledExecutorService instanceof ScheduledThreadPoolExecutor)) {
-            nBC.put((ScheduledThreadPoolExecutor) scheduledExecutorService, scheduledExecutorService);
+        if (mVb && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
+            mVe.put((ScheduledThreadPoolExecutor) newScheduledThreadPool, newScheduledThreadPool);
         }
+        return newScheduledThreadPool;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class b implements Runnable {
-        b() {
+    public static final class a implements Runnable {
+        a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Iterator it = new ArrayList(i.nBC.keySet()).iterator();
-            while (it.hasNext()) {
-                ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = (ScheduledThreadPoolExecutor) it.next();
-                if (scheduledThreadPoolExecutor.isShutdown()) {
-                    i.nBC.remove(scheduledThreadPoolExecutor);
-                } else {
-                    scheduledThreadPoolExecutor.purge();
+            try {
+                Iterator it = new ArrayList(i.mVe.keySet()).iterator();
+                while (it.hasNext()) {
+                    ScheduledThreadPoolExecutor scheduledThreadPoolExecutor = (ScheduledThreadPoolExecutor) it.next();
+                    if (scheduledThreadPoolExecutor.isShutdown()) {
+                        i.mVe.remove(scheduledThreadPoolExecutor);
+                    } else {
+                        scheduledThreadPoolExecutor.purge();
+                    }
                 }
+            } catch (Throwable th) {
+                io.reactivex.e.a.onError(th);
             }
         }
     }

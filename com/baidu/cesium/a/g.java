@@ -4,7 +4,7 @@ import com.baidu.cesium.a.i;
 import java.lang.reflect.Method;
 /* loaded from: classes13.dex */
 final class g extends f {
-    private a Pr;
+    private a ahS;
 
     /* loaded from: classes13.dex */
     private static class a {
@@ -56,16 +56,16 @@ final class g extends f {
         this.e = 32;
         this.f = i;
         this.g = i2;
-        this.Pr = new a();
+        this.ahS = new a();
     }
 
     @Override // com.baidu.cesium.a.f
-    public b g(byte[] bArr, int i, int i2) {
+    public b i(byte[] bArr, int i, int i2) {
         long j = 4294967295L;
         try {
-            Object b = this.Pr.b();
-            this.Pr.a(b, bArr, i, i2);
-            j = this.Pr.B(b);
+            Object b = this.ahS.b();
+            this.ahS.a(b, bArr, i, i2);
+            j = this.ahS.B(b);
         } catch (Exception e) {
         }
         return b.a(new long[]{j});

@@ -1,174 +1,169 @@
 package io.reactivex.internal.operators.observable;
 
 import io.reactivex.c.g;
+import io.reactivex.disposables.c;
 import io.reactivex.internal.disposables.DisposableHelper;
-import io.reactivex.internal.disposables.SequentialDisposable;
-import io.reactivex.q;
 import io.reactivex.u;
-import io.reactivex.v;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
-public final class ObservableRefCount<T> extends q<T> {
-    RefConnection connection;
-    final int n;
-    final io.reactivex.d.a<T> nAa;
-    final v scheduler;
-    final long timeout;
-    final TimeUnit unit;
+public final class ObservableRefCount<T> extends io.reactivex.internal.operators.observable.a<T, T> {
+    final ReentrantLock lock;
+    volatile io.reactivex.disposables.a mSt;
+    final AtomicInteger mSu;
+    final io.reactivex.d.a<? extends T> mTA;
 
     @Override // io.reactivex.q
-    protected void a(u<? super T> uVar) {
-        RefConnection refConnection;
-        boolean z = true;
-        synchronized (this) {
-            refConnection = this.connection;
-            if (refConnection == null) {
-                refConnection = new RefConnection(this);
-                this.connection = refConnection;
-            }
-            long j = refConnection.subscriberCount;
-            if (j == 0 && refConnection.timer != null) {
-                refConnection.timer.dispose();
-            }
-            refConnection.subscriberCount = j + 1;
-            if (refConnection.connected || j + 1 != this.n) {
-                z = false;
-            } else {
-                refConnection.connected = true;
+    public void a(u<? super T> uVar) {
+        boolean z;
+        this.lock.lock();
+        if (this.mSu.incrementAndGet() == 1) {
+            AtomicBoolean atomicBoolean = new AtomicBoolean(true);
+            try {
+                this.mTA.c(a(uVar, atomicBoolean));
+                if (z) {
+                    return;
+                }
+                return;
+            } finally {
+                if (atomicBoolean.get()) {
+                }
             }
         }
-        this.nAa.subscribe(new RefCountObserver(uVar, this, refConnection));
-        if (z) {
-            this.nAa.c(refConnection);
+        try {
+            a(uVar, this.mSt);
+        } finally {
+            this.lock.unlock();
         }
     }
 
-    void a(RefConnection refConnection) {
-        synchronized (this) {
-            if (this.connection != null) {
-                long j = refConnection.subscriberCount - 1;
-                refConnection.subscriberCount = j;
-                if (j == 0 && refConnection.connected) {
-                    if (this.timeout == 0) {
-                        c(refConnection);
-                        return;
+    private g<io.reactivex.disposables.b> a(u<? super T> uVar, AtomicBoolean atomicBoolean) {
+        return new a(uVar, atomicBoolean);
+    }
+
+    void a(u<? super T> uVar, io.reactivex.disposables.a aVar) {
+        ConnectionObserver connectionObserver = new ConnectionObserver(uVar, aVar, a(aVar));
+        uVar.onSubscribe(connectionObserver);
+        this.mTA.subscribe(connectionObserver);
+    }
+
+    private io.reactivex.disposables.b a(io.reactivex.disposables.a aVar) {
+        return c.J(new b(aVar));
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes7.dex */
+    public final class ConnectionObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
+        private static final long serialVersionUID = 3813126992133394324L;
+        final io.reactivex.disposables.a currentBase;
+        final io.reactivex.disposables.b resource;
+        final u<? super T> subscriber;
+
+        ConnectionObserver(u<? super T> uVar, io.reactivex.disposables.a aVar, io.reactivex.disposables.b bVar) {
+            this.subscriber = uVar;
+            this.currentBase = aVar;
+            this.resource = bVar;
+        }
+
+        @Override // io.reactivex.u
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
+            DisposableHelper.setOnce(this, bVar);
+        }
+
+        @Override // io.reactivex.u
+        public void onError(Throwable th) {
+            cleanup();
+            this.subscriber.onError(th);
+        }
+
+        @Override // io.reactivex.u
+        public void onNext(T t) {
+            this.subscriber.onNext(t);
+        }
+
+        @Override // io.reactivex.u
+        public void onComplete() {
+            cleanup();
+            this.subscriber.onComplete();
+        }
+
+        @Override // io.reactivex.disposables.b
+        public void dispose() {
+            DisposableHelper.dispose(this);
+            this.resource.dispose();
+        }
+
+        @Override // io.reactivex.disposables.b
+        public boolean isDisposed() {
+            return DisposableHelper.isDisposed(get());
+        }
+
+        void cleanup() {
+            ObservableRefCount.this.lock.lock();
+            try {
+                if (ObservableRefCount.this.mSt == this.currentBase) {
+                    if (ObservableRefCount.this.mTA instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) ObservableRefCount.this.mTA).dispose();
                     }
-                    SequentialDisposable sequentialDisposable = new SequentialDisposable();
-                    refConnection.timer = sequentialDisposable;
-                    sequentialDisposable.replace(this.scheduler.b(refConnection, this.timeout, this.unit));
+                    ObservableRefCount.this.mSt.dispose();
+                    ObservableRefCount.this.mSt = new io.reactivex.disposables.a();
+                    ObservableRefCount.this.mSu.set(0);
                 }
-            }
-        }
-    }
-
-    void b(RefConnection refConnection) {
-        synchronized (this) {
-            if (this.connection != null) {
-                this.connection = null;
-                if (refConnection.timer != null) {
-                    refConnection.timer.dispose();
-                }
-                if (this.nAa instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nAa).dispose();
-                }
-            }
-        }
-    }
-
-    void c(RefConnection refConnection) {
-        synchronized (this) {
-            if (refConnection.subscriberCount == 0 && refConnection == this.connection) {
-                this.connection = null;
-                DisposableHelper.dispose(refConnection);
-                if (this.nAa instanceof io.reactivex.disposables.b) {
-                    ((io.reactivex.disposables.b) this.nAa).dispose();
-                }
+            } finally {
+                ObservableRefCount.this.lock.unlock();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class RefConnection extends AtomicReference<io.reactivex.disposables.b> implements g<io.reactivex.disposables.b>, Runnable {
-        private static final long serialVersionUID = -4552101107598366241L;
-        boolean connected;
-        final ObservableRefCount<?> parent;
-        long subscriberCount;
-        io.reactivex.disposables.b timer;
+    public final class a implements g<io.reactivex.disposables.b> {
+        private final AtomicBoolean mSv;
+        private final u<? super T> observer;
 
-        RefConnection(ObservableRefCount<?> observableRefCount) {
-            this.parent = observableRefCount;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            this.parent.c(this);
+        a(u<? super T> uVar, AtomicBoolean atomicBoolean) {
+            this.observer = uVar;
+            this.mSv = atomicBoolean;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.g
-        public void accept(io.reactivex.disposables.b bVar) throws Exception {
-            DisposableHelper.replace(this, bVar);
+        /* renamed from: f */
+        public void accept(io.reactivex.disposables.b bVar) {
+            try {
+                ObservableRefCount.this.mSt.a(bVar);
+                ObservableRefCount.this.a(this.observer, ObservableRefCount.this.mSt);
+            } finally {
+                ObservableRefCount.this.lock.unlock();
+                this.mSv.set(false);
+            }
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    static final class RefCountObserver<T> extends AtomicBoolean implements io.reactivex.disposables.b, u<T> {
-        private static final long serialVersionUID = -7419642935409022375L;
-        final u<? super T> actual;
-        final RefConnection connection;
-        final ObservableRefCount<T> parent;
-        io.reactivex.disposables.b upstream;
+    public final class b implements Runnable {
+        private final io.reactivex.disposables.a mSw;
 
-        RefCountObserver(u<? super T> uVar, ObservableRefCount<T> observableRefCount, RefConnection refConnection) {
-            this.actual = uVar;
-            this.parent = observableRefCount;
-            this.connection = refConnection;
+        b(io.reactivex.disposables.a aVar) {
+            this.mSw = aVar;
         }
 
-        @Override // io.reactivex.u
-        public void onNext(T t) {
-            this.actual.onNext(t);
-        }
-
-        @Override // io.reactivex.u
-        public void onError(Throwable th) {
-            if (compareAndSet(false, true)) {
-                this.parent.b(this.connection);
-                this.actual.onError(th);
-                return;
-            }
-            io.reactivex.e.a.onError(th);
-        }
-
-        @Override // io.reactivex.u
-        public void onComplete() {
-            if (compareAndSet(false, true)) {
-                this.parent.b(this.connection);
-                this.actual.onComplete();
-            }
-        }
-
-        @Override // io.reactivex.disposables.b
-        public void dispose() {
-            this.upstream.dispose();
-            if (compareAndSet(false, true)) {
-                this.parent.a(this.connection);
-            }
-        }
-
-        @Override // io.reactivex.disposables.b
-        public boolean isDisposed() {
-            return this.upstream.isDisposed();
-        }
-
-        @Override // io.reactivex.u
-        public void onSubscribe(io.reactivex.disposables.b bVar) {
-            if (DisposableHelper.validate(this.upstream, bVar)) {
-                this.upstream = bVar;
-                this.actual.onSubscribe(this);
+        @Override // java.lang.Runnable
+        public void run() {
+            ObservableRefCount.this.lock.lock();
+            try {
+                if (ObservableRefCount.this.mSt == this.mSw && ObservableRefCount.this.mSu.decrementAndGet() == 0) {
+                    if (ObservableRefCount.this.mTA instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) ObservableRefCount.this.mTA).dispose();
+                    }
+                    ObservableRefCount.this.mSt.dispose();
+                    ObservableRefCount.this.mSt = new io.reactivex.disposables.a();
+                }
+            } finally {
+                ObservableRefCount.this.lock.unlock();
             }
         }
     }

@@ -9,6 +9,7 @@ import java.util.List;
 import tbclient.ForumCreateInfo;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
 import tbclient.ForumRecommend.LikeForum;
+import tbclient.FrsTabInfo;
 import tbclient.PrivatePopInfo;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes9.dex */
@@ -20,6 +21,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     private List<RecommendForumInfo> recommend_concern_forums;
     private List<RecommendForumInfo> recommend_forum_info;
     private Integer sortType;
+    private List<FrsTabInfo> tabFeedList;
     private Integer time;
 
     public forumRecommendHttpResponseMessage(int i) {
@@ -70,6 +72,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
                 this.sortType = Integer.valueOf(forumRecommendResIdl.data.sort_type.intValue() == 0 ? 1 : forumRecommendResIdl.data.sort_type.intValue());
                 this.forum_create_info = forumRecommendResIdl.data.forum_create_info;
                 this.private_pop_info = forumRecommendResIdl.data.private_forum_popinfo;
+                this.tabFeedList = forumRecommendResIdl.data.nav_tab_info;
             }
         }
     }
@@ -78,7 +81,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.c.a.aEF().cp("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            com.baidu.tbadk.core.c.a.aMT().cA("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
     }
 
@@ -96,5 +99,9 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
 
     public PrivatePopInfo getPrivatePopInfo() {
         return this.private_pop_info;
+    }
+
+    public List<FrsTabInfo> getTabFeedList() {
+        return this.tabFeedList;
     }
 }

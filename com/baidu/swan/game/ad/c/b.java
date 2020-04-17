@@ -3,74 +3,74 @@ package com.baidu.swan.game.ad.c;
 import com.baidu.swan.apps.as.af;
 /* loaded from: classes11.dex */
 public class b {
-    private String chQ;
-    private String chR;
-    private String chS;
-    private int chT;
-    private int chU;
+    private String cGM;
+    private String cGN;
+    private String cGO;
+    private int cGP;
+    private int cGQ;
 
     private b(a aVar) {
-        this.chR = aVar.chR;
-        this.chQ = aVar.chQ;
-        this.chT = aVar.chT;
-        this.chU = aVar.chU;
-        this.chS = aVar.chS;
+        this.cGN = aVar.cGN;
+        this.cGM = aVar.cGM;
+        this.cGP = aVar.cGP;
+        this.cGQ = aVar.cGQ;
+        this.cGO = aVar.cGO;
     }
 
-    public int aky() {
-        return this.chT;
+    public int asK() {
+        return this.cGP;
     }
 
-    public int akz() {
-        return this.chU;
+    public int asL() {
+        return this.cGQ;
     }
 
     public String getAppSid() {
-        return this.chR;
+        return this.cGN;
     }
 
-    public String akA() {
-        return this.chQ;
+    public String asM() {
+        return this.cGM;
     }
 
-    public String akB() {
-        return this.chS;
+    public String asN() {
+        return this.cGO;
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String chQ;
-        private String chR;
-        private String chS;
-        private int chT;
-        private int chU;
+        private String cGM;
+        private String cGN;
+        private String cGO;
+        private int cGP;
+        private int cGQ;
 
-        public a nN(String str) {
-            this.chR = str;
+        public a pc(String str) {
+            this.cGN = str;
             return this;
         }
 
-        public a nO(String str) {
-            this.chQ = str;
+        public a pd(String str) {
+            this.cGM = str;
             return this;
         }
 
-        public a nP(String str) {
-            this.chS = str;
+        public a pe(String str) {
+            this.cGO = str;
             return this;
         }
 
-        public a hE(int i) {
-            this.chT = af.S(i);
+        public a hL(int i) {
+            this.cGP = af.C(i);
             return this;
         }
 
-        public a hF(int i) {
-            this.chU = af.S(i);
+        public a hM(int i) {
+            this.cGQ = af.C(i);
             return this;
         }
 
-        public b akC() {
+        public b asO() {
             return new b(this);
         }
     }

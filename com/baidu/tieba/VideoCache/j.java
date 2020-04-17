@@ -3,7 +3,7 @@ package com.baidu.tieba.VideoCache;
 public class j {
     private static long mStartTime = 0;
 
-    public static void z(String str, String str2) {
+    public static void D(String str, String str2) {
         if (System.currentTimeMillis() - mStartTime > 5000) {
             mStartTime = System.currentTimeMillis();
         }

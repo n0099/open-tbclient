@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class a extends BaseAdapter {
-    protected int eqK;
+    protected int eUh;
     protected Context mContext;
     protected List<com.baidu.tieba.ala.alasquare.recent_history.b.b> mData = new ArrayList();
     protected TbPageContext mPageContext;
@@ -41,7 +41,7 @@ public abstract class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oL */
+    /* renamed from: pe */
     public com.baidu.tieba.ala.alasquare.recent_history.b.b getItem(int i) {
         return this.mData.get(i);
     }
@@ -53,17 +53,17 @@ public abstract class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TbPageContext<?> tbPageContext, bj bjVar, String str) {
-        if (tbPageContext != null && bjVar != null && bjVar.aCr() != null && bjVar.aCK() != null) {
+        if (tbPageContext != null && bjVar != null && bjVar.aKE() != null && bjVar.aKX() != null) {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bjVar.aCr().getUserId();
+                String userId = bjVar.aKE().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bjVar.aCK());
-            alaLiveInfoCoreData.userName = bjVar.aCr().getUserName();
+            alaLiveInfoCoreData.fillWithInfoData(bjVar.aKX());
+            alaLiveInfoCoreData.userName = bjVar.aKE().getUserName();
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
         }
     }

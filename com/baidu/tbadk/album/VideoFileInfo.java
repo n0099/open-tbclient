@@ -7,6 +7,7 @@ public class VideoFileInfo extends MediaFileInfo {
     public int albumId;
     public String albumName;
     public long beginTime;
+    public String contentUriStr;
     public String displayName;
     public String durationText;
     public long fileSize;

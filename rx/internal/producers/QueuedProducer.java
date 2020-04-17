@@ -1,6 +1,5 @@
 package rx.internal.producers;
 
-import com.google.android.exoplayer2.Format;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -21,7 +20,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e<T>, f {
     final AtomicInteger wip;
 
     public QueuedProducer(j<? super T> jVar) {
-        this(jVar, ae.dPq() ? new x() : new rx.internal.util.atomic.e());
+        this(jVar, ae.dIq() ? new x() : new rx.internal.util.atomic.e());
     }
 
     public QueuedProducer(j<? super T> jVar, Queue<Object> queue) {
@@ -122,7 +121,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e<T>, f {
                         return;
                     }
                 }
-                if (j2 != 0 && get() != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j2 != 0 && get() != Long.MAX_VALUE) {
                     addAndGet(-j2);
                 }
                 if (this.wip.decrementAndGet() == 0) {

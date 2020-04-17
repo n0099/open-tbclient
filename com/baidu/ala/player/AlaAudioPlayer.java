@@ -3,7 +3,6 @@ package com.baidu.ala.player;
 import android.media.AudioTrack;
 import com.baidu.ala.helper.AlaAudioBuffer;
 import com.baidu.ala.ndk.AudioProcessModule;
-import com.baidu.ala.player.StreamConfig;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
@@ -22,7 +21,7 @@ public class AlaAudioPlayer {
     private int mSampleRate;
 
     public AlaAudioPlayer() {
-        this(StreamConfig.Audio.AUDIO_FREQUENCY, 4, false);
+        this(44100, 4, false);
     }
 
     public AlaAudioPlayer(int i, int i2, boolean z) {

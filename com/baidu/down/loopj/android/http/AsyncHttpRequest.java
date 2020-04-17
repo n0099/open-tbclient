@@ -26,9 +26,7 @@ import com.baidu.down.statistic.ThreadSpeedStat;
 import com.baidu.down.utils.TrafficStatsUtils;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.datachannel.Contract;
 import com.baidubce.http.Headers;
-import com.google.android.exoplayer2.Format;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -136,12 +134,12 @@ public class AsyncHttpRequest implements Runnable {
             j2 = this.curPos > j ? this.curPos : j;
         }
         long segEndByPos = abstractTask.mProgressInfo.getSegEndByPos(j);
-        if (segEndByPos == Format.OFFSET_SAMPLE_RELATIVE) {
+        if (segEndByPos == Long.MAX_VALUE) {
             j2 = abstractTask.mProgressInfo.getSegCurrentByPos(j);
             str2 = "";
         }
         if (j2 < segEndByPos) {
-            if (segEndByPos != Format.OFFSET_SAMPLE_RELATIVE && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
+            if (segEndByPos != Long.MAX_VALUE && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
                 if ((BdStatsConstant.MAX_WRITTING_FILE_SIZE_AFTER_RENAME_FAILED + j2) - 1 < segEndByPos) {
                     j3 = (BdStatsConstant.MAX_WRITTING_FILE_SIZE_AFTER_RENAME_FAILED + j2) - 2;
                 } else {
@@ -278,7 +276,7 @@ public class AsyncHttpRequest implements Runnable {
                         if (this.mRequestStage == 2) {
                             this.mRequestStage = 4;
                             this.mHttpRetryStrategyHandler.setRetryType(3);
-                            this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "s", this.mICommonRequestHandler.onGetRequestHeader(Contract.SCHEME_KEY_HOST)));
+                            this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "s", this.mICommonRequestHandler.onGetRequestHeader("host")));
                         }
                         this.redirectUrls.clear();
                     }
@@ -355,7 +353,7 @@ public class AsyncHttpRequest implements Runnable {
                     if (this.mNeedAcquiredRetryStrategy) {
                         this.mHttpRetryStrategyHandler.setRetryException(e3);
                     } else {
-                        this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "f", this.mICommonRequestHandler.onGetRequestHeader(Contract.SCHEME_KEY_HOST)));
+                        this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "f", this.mICommonRequestHandler.onGetRequestHeader("host")));
                     }
                     this.mNeedAcquiredRetryStrategy = false;
                     this.mRequestStage = 2;
@@ -382,7 +380,7 @@ public class AsyncHttpRequest implements Runnable {
                 } else {
                     if (this.mRequestStage == 2) {
                         this.mHttpRetryStrategyHandler.setRetryType(4);
-                        this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "f", this.mICommonRequestHandler.onGetRequestHeader(Contract.SCHEME_KEY_HOST)));
+                        this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "f", this.mICommonRequestHandler.onGetRequestHeader("host")));
                     }
                     this.mICommonRequestHandler.restoreRequest();
                     this.mIsWaitingForRetry = true;
@@ -435,7 +433,7 @@ public class AsyncHttpRequest implements Runnable {
                 this.mFailType = 0;
                 if (this.mRequestStage == 2) {
                     this.mHttpRetryStrategyHandler.setRetryType(4);
-                    this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "f", this.mICommonRequestHandler.onGetRequestHeader(Contract.SCHEME_KEY_HOST)));
+                    this.mHttpRetryStrategyHandler.appendDownDetail(hashCode(), HttpRetryStatistic.buildRetryStatistic(this.mICommonRequestHandler.getUrl(), "f", this.mICommonRequestHandler.onGetRequestHeader("host")));
                 }
                 this.mICommonRequestHandler.restoreRequest();
                 processRange(true);

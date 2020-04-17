@@ -1,121 +1,74 @@
 package com.baidu.media.duplayer;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.cyberplayer.sdk.CyberLog;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
-import com.baidu.cyberplayer.sdk.SDKVersion;
-import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.xiaomi.mipush.sdk.Constants;
-import dalvik.system.BaseDexClassLoader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
+import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class a {
-    private static Set<String> a = new HashSet();
-    private static String b;
-    private static String c;
+    private static Object a;
+    private static Method b;
+    private static Method c;
+    private static Method d;
+    private static Method e;
+    private static boolean f;
 
-    public static String a() {
-        return c;
-    }
-
-    public static void a(Context context, int i, Map<String, String> map) {
-        Set<String> di = b.di(i);
-        if (a.containsAll(di)) {
-            return;
-        }
-        c();
-        if (SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
-            b.a();
-        }
+    static {
+        f = false;
         try {
-            for (String str : di) {
-                a(str, context, map);
+            a = Class.forName("com.baidu.crashpad.ZwCrashpad").getConstructor(new Class[0]).newInstance(new Object[0]);
+            Class<?> cls = Class.forName("com.baidu.crashpad.ZwCrashpad");
+            b = com.baidu.media.duplayer.a.c.a(cls, "doInit", Context.class, String[].class);
+            d = com.baidu.media.duplayer.a.c.a(cls, "setStatisticParam", String.class);
+            c = com.baidu.media.duplayer.a.c.a(cls, "setEnabled", Boolean.TYPE);
+            e = com.baidu.media.duplayer.a.c.a(cls, "setCrashKeyValue", String.class, String.class);
+            f = true;
+        } catch (Error e2) {
+            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
+        }
+    }
+
+    public static void a(Context context, String[] strArr) {
+        try {
+            if (f) {
+                b.invoke(a, context, strArr);
             }
-        } catch (SecurityException e) {
-            CyberLog.w("CyberLibsLoader", e.toString());
-            b = e.toString();
-        } catch (UnsatisfiedLinkError e2) {
-            CyberLog.w("CyberLibsLoader", e2.toString());
-            b = e2.toString();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
-    private static void a(Context context, Map<String, String> map) {
-        CyberLog.d("CyberLibsLoader", "initCyberPlayer");
-        IjkMediaPlayer.e();
-        IjkMediaPlayer.f();
-        String str = map != null ? map.get(CyberPlayerManager.OPT_CHCHE_PATH) : null;
-        String str2 = str == null ? Utils.a(context) + File.separator + "baidu" + File.separator + "flyflow" + File.separator + Utils.c + File.separator + context.getPackageName() + File.separator : str + File.separator + Utils.c + File.separator;
-        if (!Utils.d(context)) {
-            str2 = str2 + "remote" + File.separator;
-        }
-        Utils.a(str2);
-        Utils.f();
-    }
-
-    private static void a(String str, Context context, Map<String, String> map) {
-        CyberLog.d("CyberLibsLoader", "curLoaded Libs:" + a + " reqLoad Lib:" + str);
-        if (a.contains(str)) {
-            return;
-        }
-        String b2 = b.b(str);
-        if (TextUtils.isEmpty(b2)) {
-            b = "not find " + str + " version info. coreVer:" + SDKVersion.VERSION;
-            return;
-        }
-        String findLibrary = b2.equals(b.a(str)) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(str) : null;
-        if (TextUtils.isEmpty(findLibrary)) {
-            findLibrary = Utils.e() + File.separator + "cybermedia" + File.separator + "libs" + File.separator + str + File.separator + b2 + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
-        }
-        if (!new File(findLibrary).exists()) {
-            if ("cyber-sdl".equals(str)) {
-                str = "cyber-player";
+    public static void a(String str) {
+        try {
+            if (f) {
+                d.invoke(a, str);
             }
-            throw new FileNotFoundException(str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + b2);
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        if (str.equals("cyber-pcdn")) {
-            c = findLibrary;
-        } else if (str.equals("cyber-ffmpeg-extend")) {
-            IjkMediaPlayer.nativeSetEnableFFmpegExtend(findLibrary);
-        } else {
-            System.load(findLibrary);
-        }
-        if ("cyber-player".equals(str)) {
-            a(CyberPlayerManager.getApplicationContext(), map);
-        }
-        a.add(str);
-        CyberLog.d("CyberLibsLoader", "lib:" + str + " ver:" + b2 + " load success");
     }
 
-    public static boolean a(int i) {
-        return a.containsAll(b.di(i));
-    }
-
-    public static String b() {
-        return b;
-    }
-
-    private static void c() {
-        if (CyberCfgManager.getInstance().getPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, 0L) - System.currentTimeMillis() > 86400000) {
-            CyberTaskExcutor.getInstance().execute(new Runnable() { // from class: com.baidu.media.duplayer.a.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    String str = Utils.e() + File.separator + "cybermedia" + File.separator + "libs";
-                    com.baidu.cyberplayer.sdk.Utils.deleteMismatchChildFile(str, "cyber-media-dex", SDKVersion.VERSION);
-                    for (String str2 : b.di(Integer.MAX_VALUE)) {
-                        com.baidu.cyberplayer.sdk.Utils.deleteMismatchChildFile(str, str2, b.b(str2));
-                    }
-                    CyberCfgManager.getInstance().setPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, System.currentTimeMillis());
-                }
-            });
+    public static void a(String str, String str2) {
+        try {
+            if (f) {
+                e.invoke(a, str, str2);
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
+    }
+
+    public static void a(boolean z) {
+        try {
+            if (f) {
+                c.invoke(a, Boolean.valueOf(z));
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static boolean a() {
+        return f;
     }
 }

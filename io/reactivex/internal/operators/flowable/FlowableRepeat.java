@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionArbiter;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -10,13 +9,9 @@ public final class FlowableRepeat<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        long j = Format.OFFSET_SAMPLE_RELATIVE;
         SubscriptionArbiter subscriptionArbiter = new SubscriptionArbiter();
         cVar.onSubscribe(subscriptionArbiter);
-        if (this.count != Format.OFFSET_SAMPLE_RELATIVE) {
-            j = this.count - 1;
-        }
-        new RepeatSubscriber(cVar, j, subscriptionArbiter, this.nyr).subscribeNext();
+        new RepeatSubscriber(cVar, this.count != Long.MAX_VALUE ? this.count - 1 : Long.MAX_VALUE, subscriptionArbiter, this.mRJ).subscribeNext();
     }
 
     /* loaded from: classes7.dex */
@@ -54,7 +49,7 @@ public final class FlowableRepeat<T> extends a<T, T> {
         @Override // org.a.c
         public void onComplete() {
             long j = this.remaining;
-            if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+            if (j != Long.MAX_VALUE) {
                 this.remaining = j - 1;
             }
             if (j != 0) {

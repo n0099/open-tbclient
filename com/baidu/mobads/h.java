@@ -6,11 +6,11 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class h implements IOAdEventListener {
-    final /* synthetic */ BaiduNativeH5AdView aPs;
+    final /* synthetic */ BaiduNativeH5AdView blj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(BaiduNativeH5AdView baiduNativeH5AdView) {
-        this.aPs = baiduNativeH5AdView;
+        this.blj = baiduNativeH5AdView;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

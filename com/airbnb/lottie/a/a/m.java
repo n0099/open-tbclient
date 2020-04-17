@@ -9,19 +9,19 @@ import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class m implements j, l, a.InterfaceC0010a {
+    private boolean BB;
+    private final PolystarShape.Type BP;
+    private final com.airbnb.lottie.a.b.a<?, Float> BQ;
+    private final com.airbnb.lottie.a.b.a<?, Float> BR;
     @Nullable
-    private r fS;
-    private final com.airbnb.lottie.a.b.a<?, PointF> fW;
-    private boolean fY;
-    private final PolystarShape.Type gn;
-    private final com.airbnb.lottie.a.b.a<?, Float> go;
-    private final com.airbnb.lottie.a.b.a<?, Float> gp;
+    private final com.airbnb.lottie.a.b.a<?, Float> BS;
+    private final com.airbnb.lottie.a.b.a<?, Float> BT;
     @Nullable
-    private final com.airbnb.lottie.a.b.a<?, Float> gq;
-    private final com.airbnb.lottie.a.b.a<?, Float> gr;
+    private final com.airbnb.lottie.a.b.a<?, Float> BU;
+    private final com.airbnb.lottie.a.b.a<?, Float> BV;
     @Nullable
-    private final com.airbnb.lottie.a.b.a<?, Float> gs;
-    private final com.airbnb.lottie.a.b.a<?, Float> gt;
+    private r Bv;
+    private final com.airbnb.lottie.a.b.a<?, PointF> Bz;
     private final com.airbnb.lottie.g lottieDrawable;
     private final String name;
     private final Path path = new Path();
@@ -29,46 +29,46 @@ public class m implements j, l, a.InterfaceC0010a {
     public m(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, PolystarShape polystarShape) {
         this.lottieDrawable = gVar;
         this.name = polystarShape.getName();
-        this.gn = polystarShape.cN();
-        this.go = polystarShape.cO().cn();
-        this.fW = polystarShape.cq().cn();
-        this.gp = polystarShape.cs().cn();
-        this.gr = polystarShape.cQ().cn();
-        this.gt = polystarShape.cS().cn();
-        if (this.gn == PolystarShape.Type.Star) {
-            this.gq = polystarShape.cP().cn();
-            this.gs = polystarShape.cR().cn();
+        this.BP = polystarShape.il();
+        this.BQ = polystarShape.im().hK();
+        this.Bz = polystarShape.hN().hK();
+        this.BR = polystarShape.hP().hK();
+        this.BT = polystarShape.ip().hK();
+        this.BV = polystarShape.ir().hK();
+        if (this.BP == PolystarShape.Type.Star) {
+            this.BS = polystarShape.in().hK();
+            this.BU = polystarShape.iq().hK();
         } else {
-            this.gq = null;
-            this.gs = null;
+            this.BS = null;
+            this.BU = null;
         }
-        aVar.a(this.go);
-        aVar.a(this.fW);
-        aVar.a(this.gp);
-        aVar.a(this.gr);
-        aVar.a(this.gt);
-        if (this.gn == PolystarShape.Type.Star) {
-            aVar.a(this.gq);
-            aVar.a(this.gs);
+        aVar.a(this.BQ);
+        aVar.a(this.Bz);
+        aVar.a(this.BR);
+        aVar.a(this.BT);
+        aVar.a(this.BV);
+        if (this.BP == PolystarShape.Type.Star) {
+            aVar.a(this.BS);
+            aVar.a(this.BU);
         }
-        this.go.b(this);
-        this.fW.b(this);
-        this.gp.b(this);
-        this.gr.b(this);
-        this.gt.b(this);
-        if (this.gn == PolystarShape.Type.Star) {
-            this.gq.b(this);
-            this.gs.b(this);
+        this.BQ.b(this);
+        this.Bz.b(this);
+        this.BR.b(this);
+        this.BT.b(this);
+        this.BV.b(this);
+        if (this.BP == PolystarShape.Type.Star) {
+            this.BS.b(this);
+            this.BU.b(this);
         }
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
-    public void bD() {
+    public void ha() {
         invalidate();
     }
 
     private void invalidate() {
-        this.fY = false;
+        this.BB = false;
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -79,9 +79,9 @@ public class m implements j, l, a.InterfaceC0010a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof r) && ((r) bVar).bN() == ShapeTrimPath.Type.Simultaneously) {
-                    this.fS = (r) bVar;
-                    this.fS.a(this);
+                if ((bVar instanceof r) && ((r) bVar).hk() == ShapeTrimPath.Type.Simultaneously) {
+                    this.Bv = (r) bVar;
+                    this.Bv.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -91,22 +91,22 @@ public class m implements j, l, a.InterfaceC0010a {
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path bG() {
-        if (this.fY) {
+    public Path hd() {
+        if (this.BB) {
             return this.path;
         }
         this.path.reset();
-        switch (this.gn) {
+        switch (this.BP) {
             case Star:
-                bL();
+                hi();
                 break;
             case Polygon:
-                bM();
+                hj();
                 break;
         }
         this.path.close();
-        com.airbnb.lottie.d.f.a(this.path, this.fS);
-        this.fY = true;
+        com.airbnb.lottie.d.f.a(this.path, this.Bv);
+        this.BB = true;
         return this.path;
     }
 
@@ -115,7 +115,7 @@ public class m implements j, l, a.InterfaceC0010a {
         return this.name;
     }
 
-    private void bL() {
+    private void hi() {
         float f;
         double d;
         float f2;
@@ -124,22 +124,22 @@ public class m implements j, l, a.InterfaceC0010a {
         float f5;
         float f6;
         float f7;
-        float floatValue = this.go.getValue().floatValue();
-        double radians = Math.toRadians((this.gp == null ? 0.0d : this.gp.getValue().floatValue()) - 90.0d);
+        float floatValue = this.BQ.getValue().floatValue();
+        double radians = Math.toRadians((this.BR == null ? 0.0d : this.BR.getValue().floatValue()) - 90.0d);
         float f8 = (float) (6.283185307179586d / floatValue);
         float f9 = f8 / 2.0f;
         float f10 = floatValue - ((int) floatValue);
         double d2 = f10 != 0.0f ? radians + ((1.0f - f10) * f9) : radians;
-        float floatValue2 = this.gr.getValue().floatValue();
-        float floatValue3 = this.gq.getValue().floatValue();
-        if (this.gs == null) {
+        float floatValue2 = this.BT.getValue().floatValue();
+        float floatValue3 = this.BS.getValue().floatValue();
+        if (this.BU == null) {
             f = 0.0f;
         } else {
-            f = this.gs.getValue().floatValue() / 100.0f;
+            f = this.BU.getValue().floatValue() / 100.0f;
         }
         float f11 = 0.0f;
-        if (this.gt != null) {
-            f11 = this.gt.getValue().floatValue() / 100.0f;
+        if (this.BV != null) {
+            f11 = this.BV.getValue().floatValue() / 100.0f;
         }
         if (f10 != 0.0f) {
             float f12 = ((floatValue2 - floatValue3) * f10) + floatValue3;
@@ -216,7 +216,7 @@ public class m implements j, l, a.InterfaceC0010a {
                 f13 = sin3;
                 f14 = cos3;
             } else {
-                PointF value = this.fW.getValue();
+                PointF value = this.Bz.getValue();
                 this.path.offset(value.x, value.y);
                 this.path.close();
                 return;
@@ -224,12 +224,12 @@ public class m implements j, l, a.InterfaceC0010a {
         }
     }
 
-    private void bM() {
-        int floor = (int) Math.floor(this.go.getValue().floatValue());
-        double radians = Math.toRadians((this.gp == null ? 0.0d : this.gp.getValue().floatValue()) - 90.0d);
+    private void hj() {
+        int floor = (int) Math.floor(this.BQ.getValue().floatValue());
+        double radians = Math.toRadians((this.BR == null ? 0.0d : this.BR.getValue().floatValue()) - 90.0d);
         float f = (float) (6.283185307179586d / floor);
-        float floatValue = this.gt.getValue().floatValue() / 100.0f;
-        float floatValue2 = this.gr.getValue().floatValue();
+        float floatValue = this.BV.getValue().floatValue() / 100.0f;
+        float floatValue2 = this.BT.getValue().floatValue();
         float cos = (float) (floatValue2 * Math.cos(radians));
         float sin = (float) (floatValue2 * Math.sin(radians));
         this.path.moveTo(cos, sin);
@@ -256,7 +256,7 @@ public class m implements j, l, a.InterfaceC0010a {
                 d = d2 + f;
                 i = i2 + 1;
             } else {
-                PointF value = this.fW.getValue();
+                PointF value = this.Bz.getValue();
                 this.path.offset(value.x, value.y);
                 this.path.close();
                 return;
@@ -271,20 +271,20 @@ public class m implements j, l, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (t == com.airbnb.lottie.k.fb) {
-            this.go.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fd) {
-            this.gp.a(cVar);
-        } else if (t == com.airbnb.lottie.k.eT) {
-            this.fW.a(cVar);
-        } else if (t == com.airbnb.lottie.k.ff && this.gq != null) {
-            this.gq.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fg) {
-            this.gr.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fh && this.gs != null) {
-            this.gs.a(cVar);
-        } else if (t == com.airbnb.lottie.k.fi) {
-            this.gt.a(cVar);
+        if (t == com.airbnb.lottie.k.AJ) {
+            this.BQ.a(cVar);
+        } else if (t == com.airbnb.lottie.k.AK) {
+            this.BR.a(cVar);
+        } else if (t == com.airbnb.lottie.k.AC) {
+            this.Bz.a(cVar);
+        } else if (t == com.airbnb.lottie.k.AM && this.BS != null) {
+            this.BS.a(cVar);
+        } else if (t == com.airbnb.lottie.k.AN) {
+            this.BT.a(cVar);
+        } else if (t == com.airbnb.lottie.k.AO && this.BU != null) {
+            this.BU.a(cVar);
+        } else if (t == com.airbnb.lottie.k.AP) {
+            this.BV.a(cVar);
         }
     }
 }

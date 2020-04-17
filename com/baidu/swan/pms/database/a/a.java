@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
@@ -34,10 +33,10 @@ public class a extends b<PMSAppInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: n */
-    public ContentValues Z(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
+    public ContentValues aa(PMSAppInfo pMSAppInfo) throws IllegalArgumentException {
         ContentValues contentValues = new ContentValues();
         if (pMSAppInfo != null) {
-            contentValues.put(Constants.APP_ID, pMSAppInfo.appId);
+            contentValues.put("app_id", pMSAppInfo.appId);
             contentValues.put("app_key", pMSAppInfo.appKey);
             contentValues.put("app_sign", Long.valueOf(pMSAppInfo.appSign));
             contentValues.put("version_code", Integer.valueOf(pMSAppInfo.versionCode));
@@ -74,7 +73,7 @@ public class a extends b<PMSAppInfo> {
 
     private PMSAppInfo h(Cursor cursor) {
         if (cursor != null) {
-            int columnIndex = cursor.getColumnIndex(Constants.APP_ID);
+            int columnIndex = cursor.getColumnIndex("app_id");
             int columnIndex2 = cursor.getColumnIndex("app_key");
             int columnIndex3 = cursor.getColumnIndex("app_sign");
             int columnIndex4 = cursor.getColumnIndex("version_code");

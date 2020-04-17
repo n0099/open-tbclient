@@ -1,31 +1,30 @@
 package io.reactivex.processors;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class AsyncProcessor<T> extends a<T> {
-    static final AsyncSubscription[] nCD = new AsyncSubscription[0];
-    static final AsyncSubscription[] nCE = new AsyncSubscription[0];
+    static final AsyncSubscription[] mWe = new AsyncSubscription[0];
+    static final AsyncSubscription[] mWf = new AsyncSubscription[0];
     Throwable error;
     final AtomicReference<AsyncSubscription<T>[]> subscribers;
     T value;
 
     @Override // io.reactivex.j, org.a.c
     public void onSubscribe(d dVar) {
-        if (this.subscribers.get() == nCE) {
+        if (this.subscribers.get() == mWf) {
             dVar.cancel();
         } else {
-            dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+            dVar.request(Long.MAX_VALUE);
         }
     }
 
     @Override // org.a.c
     public void onNext(T t) {
         io.reactivex.internal.functions.a.h(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != nCE) {
+        if (this.subscribers.get() != mWf) {
             this.value = t;
         }
     }
@@ -33,13 +32,13 @@ public final class AsyncProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onError(Throwable th) {
         io.reactivex.internal.functions.a.h(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == nCE) {
+        if (this.subscribers.get() == mWf) {
             io.reactivex.e.a.onError(th);
             return;
         }
         this.value = null;
         this.error = th;
-        for (AsyncSubscription<T> asyncSubscription : this.subscribers.getAndSet(nCE)) {
+        for (AsyncSubscription<T> asyncSubscription : this.subscribers.getAndSet(mWf)) {
             asyncSubscription.onError(th);
         }
     }
@@ -47,9 +46,9 @@ public final class AsyncProcessor<T> extends a<T> {
     @Override // org.a.c
     public void onComplete() {
         int i = 0;
-        if (this.subscribers.get() != nCE) {
+        if (this.subscribers.get() != mWf) {
             T t = this.value;
-            AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(nCE);
+            AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(mWf);
             if (t == null) {
                 int length = andSet.length;
                 while (i < length) {
@@ -95,7 +94,7 @@ public final class AsyncProcessor<T> extends a<T> {
         AsyncSubscription<T>[] asyncSubscriptionArr2;
         do {
             asyncSubscriptionArr = this.subscribers.get();
-            if (asyncSubscriptionArr == nCE) {
+            if (asyncSubscriptionArr == mWf) {
                 return false;
             }
             int length = asyncSubscriptionArr.length;
@@ -127,7 +126,7 @@ public final class AsyncProcessor<T> extends a<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        asyncSubscriptionArr2 = nCD;
+                        asyncSubscriptionArr2 = mWe;
                     } else {
                         asyncSubscriptionArr2 = new AsyncSubscription[length - 1];
                         System.arraycopy(asyncSubscriptionArr, 0, asyncSubscriptionArr2, 0, i);

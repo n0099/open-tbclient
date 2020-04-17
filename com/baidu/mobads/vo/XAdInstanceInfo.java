@@ -10,7 +10,6 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
-import com.baidu.searchbox.ugc.model.QuestionResponseModel;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -675,7 +674,7 @@ public class XAdInstanceInfo implements Parcelable, IXAdInstanceInfo, Cloneable 
         try {
             this.Z = System.currentTimeMillis();
             this.N = jSONObject.optInt("act");
-            this.z = jSONObject.optString(QuestionResponseModel.TEXT, null);
+            this.z = jSONObject.optString("html", null);
             this.b = jSONObject.optString("id", "-1");
             this.c = jSONObject.optString(UserAccountActionItem.KEY_SRC, "");
             this.d = jSONObject.optString("tit", "");

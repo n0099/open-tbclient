@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.net.URL;
@@ -12,17 +13,17 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public final class fs {
     private static int a;
     private static int b;
-    private static int c = 600000;
+    private static int c = UnitedSchemeMainDispatcher.SCHEME_TIME_LIMIT;
     private static int d = 330000;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Vector<String> f390a = new Vector<>();
+    private static Vector<String> f391a = new Vector<>();
 
     static {
         a = 5000;
         b = 330000;
         try {
-            for (ClassLoader classLoader : m292a()) {
+            for (ClassLoader classLoader : m297a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack-config.xml");
                 while (resources.hasMoreElements()) {
                     InputStream inputStream = null;
@@ -41,7 +42,7 @@ public final class fs {
                                 } else if (newPullParser.getName().equals("keepAliveInterval")) {
                                     b = a(newPullParser, b);
                                 } else if (newPullParser.getName().equals("mechName")) {
-                                    f390a.add(newPullParser.nextText());
+                                    f391a.add(newPullParser.nextText());
                                 }
                             }
                             eventType = newPullParser.next();
@@ -81,7 +82,7 @@ public final class fs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m291a() {
+    public static String m296a() {
         return "3.1.0";
     }
 
@@ -95,7 +96,7 @@ public final class fs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static ClassLoader[] m292a() {
+    private static ClassLoader[] m297a() {
         ClassLoader[] classLoaderArr = {fs.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {

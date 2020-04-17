@@ -39,11 +39,9 @@ public interface IQuickMediaPlayer extends IInterface {
 
     boolean isNewPlayer() throws RemoteException;
 
-    boolean isPlayerReuse() throws RemoteException;
-
     boolean isPlaying() throws RemoteException;
 
-    void openVideo(Uri uri, Surface surface, String str, boolean z) throws RemoteException;
+    void openVideo(Uri uri, Surface surface, String str) throws RemoteException;
 
     void pause() throws RemoteException;
 
@@ -79,8 +77,7 @@ public interface IQuickMediaPlayer extends IInterface {
         static final int TRANSACTION_isExistInRemote = 17;
         static final int TRANSACTION_isIjkPlayer = 20;
         static final int TRANSACTION_isLooping = 15;
-        static final int TRANSACTION_isNewPlayer = 26;
-        static final int TRANSACTION_isPlayerReuse = 25;
+        static final int TRANSACTION_isNewPlayer = 25;
         static final int TRANSACTION_isPlaying = 10;
         static final int TRANSACTION_openVideo = 2;
         static final int TRANSACTION_pause = 6;
@@ -125,7 +122,7 @@ public interface IQuickMediaPlayer extends IInterface {
                     parcel.enforceInterface(DESCRIPTOR);
                     Uri uri = parcel.readInt() != 0 ? (Uri) Uri.CREATOR.createFromParcel(parcel) : null;
                     Surface surface = parcel.readInt() != 0 ? (Surface) Surface.CREATOR.createFromParcel(parcel) : null;
-                    openVideo(uri, surface, parcel.readString(), parcel.readInt() != 0);
+                    openVideo(uri, surface, parcel.readString());
                     parcel2.writeNoException();
                     if (surface != null) {
                         parcel2.writeInt(1);
@@ -266,12 +263,6 @@ public interface IQuickMediaPlayer extends IInterface {
                     return true;
                 case 25:
                     parcel.enforceInterface(DESCRIPTOR);
-                    boolean isPlayerReuse = isPlayerReuse();
-                    parcel2.writeNoException();
-                    parcel2.writeInt(isPlayerReuse ? 1 : 0);
-                    return true;
-                case 26:
-                    parcel.enforceInterface(DESCRIPTOR);
                     boolean isNewPlayer = isNewPlayer();
                     parcel2.writeNoException();
                     parcel2.writeInt(isNewPlayer ? 1 : 0);
@@ -317,7 +308,7 @@ public interface IQuickMediaPlayer extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
-            public void openVideo(Uri uri, Surface surface, String str, boolean z) throws RemoteException {
+            public void openVideo(Uri uri, Surface surface, String str) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -335,7 +326,6 @@ public interface IQuickMediaPlayer extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeString(str);
-                    obtain.writeInt(z ? 1 : 0);
                     this.mRemote.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     if (obtain2.readInt() != 0) {
@@ -685,27 +675,12 @@ public interface IQuickMediaPlayer extends IInterface {
             }
 
             @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
-            public boolean isPlayerReuse() throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(25, obtain, obtain2, 0);
-                    obtain2.readException();
-                    return obtain2.readInt() != 0;
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
-            }
-
-            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
             public boolean isNewPlayer() throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    this.mRemote.transact(26, obtain, obtain2, 0);
+                    this.mRemote.transact(25, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

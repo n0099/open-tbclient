@@ -17,7 +17,7 @@ public class b extends com.kascend.chushou.view.base.a implements View.OnClickLi
     private TextView d;
     private String e;
 
-    public static b Rc(String str) {
+    public static b OM(String str) {
         b bVar = new b();
         Bundle bundle = new Bundle();
         bundle.putString("dataInfo", str);
@@ -42,7 +42,7 @@ public class b extends com.kascend.chushou.view.base.a implements View.OnClickLi
     }
 
     @Override // com.kascend.chushou.view.base.a
-    public View b(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(a.h.dialog_recharge, viewGroup, false);
         this.a = (TextView) inflate.findViewById(a.f.tv_recharge);
         this.d = (TextView) inflate.findViewById(a.f.tv_cancel);
@@ -62,7 +62,7 @@ public class b extends com.kascend.chushou.view.base.a implements View.OnClickLi
             dismissAllowingStateLoss();
             HashMap hashMap = new HashMap();
             if (!h.isEmpty(this.e)) {
-                hashMap.putAll(tv.chushou.zues.utils.d.SV(this.e));
+                hashMap.putAll(tv.chushou.zues.utils.d.Qk(this.e));
             }
             hashMap.put("_fromView", "58");
             com.kascend.chushou.d.a.c(this.b, tv.chushou.zues.utils.d.toJson(hashMap));

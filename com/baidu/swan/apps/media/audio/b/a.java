@@ -10,15 +10,15 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public JSONObject bBC;
-    private CallbackHandler bzU;
+    private CallbackHandler bYa;
+    public JSONObject bZJ;
 
     public a(CallbackHandler callbackHandler, JSONObject jSONObject) {
-        this.bzU = callbackHandler;
-        this.bBC = jSONObject;
+        this.bYa = callbackHandler;
+        this.bZJ = jSONObject;
     }
 
-    public void ja(String str) {
+    public void kn(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is Null");
@@ -27,7 +27,7 @@ public class a {
             return;
         }
         try {
-            this.bBC = new JSONObject(str);
+            this.bZJ = new JSONObject(str);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is not jsonObject");
@@ -35,21 +35,21 @@ public class a {
         }
     }
 
-    public void jb(String str) {
-        d(str, null);
+    public void ko(String str) {
+        e(str, null);
     }
 
-    public void d(String str, JSONObject jSONObject) {
-        if (this.bBC != null) {
+    public void e(String str, JSONObject jSONObject) {
+        if (this.bZJ != null) {
             JSONObject wrapCallbackParamsWithEncode = UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0);
-            this.bzU.handleSchemeDispatchCallback(this.bBC.optString(str), wrapCallbackParamsWithEncode.toString());
+            this.bYa.handleSchemeDispatchCallback(this.bZJ.optString(str), wrapCallbackParamsWithEncode.toString());
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParamsWithEncode.toString());
             }
         }
     }
 
-    public boolean Xt() {
-        return UnitedSchemeUtility.isInvokedFromSwanGame(this.bzU);
+    public boolean afk() {
+        return UnitedSchemeUtility.isInvokedFromSwanGame(this.bYa);
     }
 }

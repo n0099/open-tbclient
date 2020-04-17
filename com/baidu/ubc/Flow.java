@@ -2,7 +2,6 @@ package com.baidu.ubc;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.pyramid.runtime.service.c;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,14 +20,14 @@ public class Flow implements Parcelable {
     public static final Parcelable.Creator<Flow> CREATOR = new Parcelable.Creator<Flow>() { // from class: com.baidu.ubc.Flow.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: EF */
+        /* renamed from: FK */
         public Flow[] newArray(int i) {
             return new Flow[i];
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: aj */
+        /* renamed from: ad */
         public Flow createFromParcel(Parcel parcel) {
             return new Flow(parcel);
         }
@@ -69,77 +68,78 @@ public class Flow implements Parcelable {
 
     @Deprecated
     public final void addEvent(String str, String str2) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
-        if (aVar != null) {
-            aVar.a(this, str, str2);
+        aa aaVar = (aa) com.baidu.pyramid.runtime.service.c.a(aa.SERVICE_REFERENCE);
+        if (aaVar != null) {
+            aaVar.flowAddEvent(this, str, str2);
         }
     }
 
     @Deprecated
     public final void addEvent(String str, String str2, long j) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
-        if (aVar != null) {
-            aVar.a(this, str, str2, j);
+        aa aaVar = (aa) com.baidu.pyramid.runtime.service.c.a(aa.SERVICE_REFERENCE);
+        if (aaVar != null) {
+            aaVar.a(this, str, str2, j);
         }
     }
 
     @Deprecated
     public final void setValue(String str) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
-        if (aVar != null) {
-            aVar.a(this, str);
+        aa aaVar = (aa) com.baidu.pyramid.runtime.service.c.a(aa.SERVICE_REFERENCE);
+        if (aaVar != null) {
+            aaVar.flowSetValue(this, str);
         }
     }
 
     @Deprecated
     public void setValue(Map<String, String> map) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
-        if (aVar != null) {
-            aVar.a(this, map);
+        aa aaVar = (aa) com.baidu.pyramid.runtime.service.c.a(aa.SERVICE_REFERENCE);
+        if (aaVar != null) {
+            aaVar.a(this, map);
         }
     }
 
     @Deprecated
     public void setValueWithDuration(String str) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
-        if (aVar != null) {
-            aVar.b(this, str);
+        aa aaVar = (aa) com.baidu.pyramid.runtime.service.c.a(aa.SERVICE_REFERENCE);
+        if (aaVar != null) {
+            aaVar.flowSetValueWithDuration(this, str);
         }
     }
 
     @Deprecated
     public final void end() {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
-        if (aVar != null) {
-            aVar.a(this);
+        aa aaVar = (aa) com.baidu.pyramid.runtime.service.c.a(aa.SERVICE_REFERENCE);
+        if (aaVar != null) {
+            aaVar.flowEnd(this);
         }
     }
 
     @Deprecated
     public final void cancel() {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
-        if (aVar != null) {
-            aVar.b(this);
+        aa aaVar = (aa) com.baidu.pyramid.runtime.service.c.a(aa.SERVICE_REFERENCE);
+        if (aaVar != null) {
+            aaVar.flowCancel(this);
         }
     }
 
     @Deprecated
     public final void startSlot(String str, JSONObject jSONObject) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
-        if (aVar != null) {
-            aVar.a(this, str, jSONObject);
+        aa aaVar = (aa) com.baidu.pyramid.runtime.service.c.a(aa.SERVICE_REFERENCE);
+        if (aaVar != null) {
+            aaVar.a(this, str, jSONObject);
         }
     }
 
     @Deprecated
     public final void endSlot(String str) {
-        a aVar = (a) c.a(a.SERVICE_REFERENCE);
-        if (aVar != null) {
-            aVar.c(this, str);
+        aa aaVar = (aa) com.baidu.pyramid.runtime.service.c.a(aa.SERVICE_REFERENCE);
+        if (aaVar != null) {
+            aaVar.flowEndSlot(this, str);
         }
     }
 
-    String getId() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public String getId() {
         return this.mId;
     }
 
@@ -147,7 +147,8 @@ public class Flow implements Parcelable {
         return this.mHandle;
     }
 
-    int getOption() {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int getOption() {
         return this.mOption;
     }
 
@@ -159,7 +160,8 @@ public class Flow implements Parcelable {
         return this.mStartTime;
     }
 
-    void setValid(boolean z) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setValid(boolean z) {
         this.mValid = z;
     }
 

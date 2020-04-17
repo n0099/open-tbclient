@@ -14,7 +14,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class w extends z {
-    private static final String[] PROJECTION = {IMConstants.MSG_ROW_ID, "_data"};
+    private static final String[] cru = {IMConstants.MSG_ROW_ID, "_data"};
     private final ContentResolver mContentResolver;
 
     public w(Executor executor, com.facebook.common.memory.g gVar, ContentResolver contentResolver) {
@@ -23,41 +23,41 @@ public class w extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected com.facebook.imagepipeline.g.e h(ImageRequest imageRequest) throws IOException {
-        com.facebook.imagepipeline.g.e U;
+    protected com.facebook.imagepipeline.g.e g(ImageRequest imageRequest) throws IOException {
+        com.facebook.imagepipeline.g.e V;
         InputStream createInputStream;
-        Uri dsO = imageRequest.dsO();
-        if (!com.facebook.common.util.d.D(dsO)) {
-            return (!com.facebook.common.util.d.E(dsO) || (U = U(dsO)) == null) ? f(this.mContentResolver.openInputStream(dsO), -1) : U;
+        Uri duL = imageRequest.duL();
+        if (!com.facebook.common.util.d.H(duL)) {
+            return (!com.facebook.common.util.d.I(duL) || (V = V(duL)) == null) ? f(this.mContentResolver.openInputStream(duL), -1) : V;
         }
-        if (dsO.toString().endsWith("/photo")) {
-            createInputStream = this.mContentResolver.openInputStream(dsO);
-        } else if (dsO.toString().endsWith("/display_photo")) {
+        if (duL.toString().endsWith("/photo")) {
+            createInputStream = this.mContentResolver.openInputStream(duL);
+        } else if (duL.toString().endsWith("/display_photo")) {
             try {
-                createInputStream = this.mContentResolver.openAssetFileDescriptor(dsO, "r").createInputStream();
+                createInputStream = this.mContentResolver.openAssetFileDescriptor(duL, "r").createInputStream();
             } catch (IOException e) {
-                throw new IOException("Contact photo does not exist: " + dsO);
+                throw new IOException("Contact photo does not exist: " + duL);
             }
         } else {
-            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, dsO);
+            createInputStream = ContactsContract.Contacts.openContactPhotoInputStream(this.mContentResolver, duL);
             if (createInputStream == null) {
-                throw new IOException("Contact photo does not exist: " + dsO);
+                throw new IOException("Contact photo does not exist: " + duL);
             }
         }
         return f(createInputStream, -1);
     }
 
     @Nullable
-    private com.facebook.imagepipeline.g.e U(Uri uri) throws IOException {
+    private com.facebook.imagepipeline.g.e V(Uri uri) throws IOException {
         com.facebook.imagepipeline.g.e eVar = null;
-        Cursor query = this.mContentResolver.query(uri, PROJECTION, null, null, null);
+        Cursor query = this.mContentResolver.query(uri, cru, null, null, null);
         if (query != null) {
             try {
                 if (query.getCount() != 0) {
                     query.moveToFirst();
                     String string = query.getString(query.getColumnIndex("_data"));
                     if (string != null) {
-                        eVar = f(new FileInputStream(string), getLength(string));
+                        eVar = f(new FileInputStream(string), On(string));
                     }
                 }
             } finally {
@@ -67,7 +67,7 @@ public class w extends z {
         return eVar;
     }
 
-    private static int getLength(String str) {
+    private static int On(String str) {
         if (str == null) {
             return -1;
         }
@@ -75,7 +75,7 @@ public class w extends z {
     }
 
     @Override // com.facebook.imagepipeline.producers.z
-    protected String dsf() {
+    protected String dud() {
         return "LocalContentUriFetchProducer";
     }
 }

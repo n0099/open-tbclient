@@ -6,54 +6,54 @@ import java.util.concurrent.Executor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes6.dex */
 public class a extends c {
-    private static volatile a br;
+    private static volatile a xv;
     @NonNull
     private static final Executor sMainThreadExecutor = new Executor() { // from class: android.arch.a.a.a.1
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
-            a.ap().d(runnable);
+            a.fL().f(runnable);
         }
     };
     @NonNull
-    private static final Executor bu = new Executor() { // from class: android.arch.a.a.a.2
+    private static final Executor xy = new Executor() { // from class: android.arch.a.a.a.2
         @Override // java.util.concurrent.Executor
         public void execute(Runnable runnable) {
-            a.ap().c(runnable);
+            a.fL().e(runnable);
         }
     };
     @NonNull
-    private c bt = new b();
+    private c xx = new b();
     @NonNull
-    private c bs = this.bt;
+    private c xw = this.xx;
 
     private a() {
     }
 
     @NonNull
-    public static a ap() {
-        if (br != null) {
-            return br;
+    public static a fL() {
+        if (xv != null) {
+            return xv;
         }
         synchronized (a.class) {
-            if (br == null) {
-                br = new a();
+            if (xv == null) {
+                xv = new a();
             }
         }
-        return br;
+        return xv;
     }
 
     @Override // android.arch.a.a.c
-    public void c(Runnable runnable) {
-        this.bs.c(runnable);
+    public void e(Runnable runnable) {
+        this.xw.e(runnable);
     }
 
     @Override // android.arch.a.a.c
-    public void d(Runnable runnable) {
-        this.bs.d(runnable);
+    public void f(Runnable runnable) {
+        this.xw.f(runnable);
     }
 
     @Override // android.arch.a.a.c
     public boolean isMainThread() {
-        return this.bs.isMainThread();
+        return this.xw.isMainThread();
     }
 }

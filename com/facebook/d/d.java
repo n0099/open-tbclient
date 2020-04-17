@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes13.dex */
 class d {
-    private static final Class<?> lIR = d.class;
+    private static final Class<?> lQm = d.class;
 
     d() {
     }
 
-    public static int IX(int i) {
+    public static int HA(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -31,20 +31,20 @@ class d {
     public static int i(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.lZl - 8;
+        int i2 = aVar.mgW - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.lZj, 274), aVar.lZj);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.mgU, 274), aVar.mgU);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes13.dex */
     public static class a {
-        boolean lZj;
-        int lZk;
-        int lZl;
+        boolean mgU;
+        int mgV;
+        int mgW;
 
         private a() {
         }
@@ -54,17 +54,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.lZk = c.a(inputStream, 4, false);
+        aVar.mgV = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.lZk != 1229531648 && aVar.lZk != 1296891946) {
-            com.facebook.common.c.a.h(lIR, "Invalid TIFF header");
+        if (aVar.mgV != 1229531648 && aVar.mgV != 1296891946) {
+            com.facebook.common.c.a.h(lQm, "Invalid TIFF header");
             return 0;
         }
-        aVar.lZj = aVar.lZk == 1229531648;
-        aVar.lZl = c.a(inputStream, 4, aVar.lZj);
+        aVar.mgU = aVar.mgV == 1229531648;
+        aVar.mgW = c.a(inputStream, 4, aVar.mgU);
         int i3 = i2 - 4;
-        if (aVar.lZl < 8 || aVar.lZl - 8 > i3) {
-            com.facebook.common.c.a.h(lIR, "Invalid offset");
+        if (aVar.mgW < 8 || aVar.mgW - 8 > i3) {
+            com.facebook.common.c.a.h(lQm, "Invalid offset");
             return 0;
         }
         return i3;

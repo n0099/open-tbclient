@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.webkit.internal.ETAG;
 import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import com.xiaomi.mipush.sdk.Constants;
@@ -109,7 +108,7 @@ public class Utility {
         } catch (Exception e) {
             sb.append("unknown");
         }
-        sb.append("__").append(PraiseDataPassUtil.KEY_FROM_OS).append("__android").append(Build.VERSION.RELEASE);
+        sb.append("__").append("android").append("__android").append(Build.VERSION.RELEASE);
         return sb.toString();
     }
 

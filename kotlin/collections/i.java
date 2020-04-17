@@ -17,16 +17,16 @@ public class i extends h {
     @kotlin.h
     /* loaded from: classes7.dex */
     public static final class a extends d<Byte> implements RandomAccess {
-        final /* synthetic */ byte[] nDJ;
+        final /* synthetic */ byte[] mXi;
 
         a(byte[] bArr) {
-            this.nDJ = bArr;
+            this.mXi = bArr;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public final boolean contains(Object obj) {
             if (obj instanceof Byte) {
-                return l(((Number) obj).byteValue());
+                return d(((Number) obj).byteValue());
             }
             return false;
         }
@@ -34,7 +34,7 @@ public class i extends h {
         @Override // kotlin.collections.d, java.util.List
         public final int indexOf(Object obj) {
             if (obj instanceof Byte) {
-                return m(((Number) obj).byteValue());
+                return e(((Number) obj).byteValue());
             }
             return -1;
         }
@@ -42,49 +42,49 @@ public class i extends h {
         @Override // kotlin.collections.d, java.util.List
         public final int lastIndexOf(Object obj) {
             if (obj instanceof Byte) {
-                return n(((Number) obj).byteValue());
+                return f(((Number) obj).byteValue());
             }
             return -1;
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.nDJ.length;
+            return this.mXi.length;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
         public boolean isEmpty() {
-            return this.nDJ.length == 0;
+            return this.mXi.length == 0;
         }
 
-        public boolean l(byte b) {
-            return f.a(this.nDJ, b);
+        public boolean d(byte b) {
+            return f.a(this.mXi, b);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.collections.d, java.util.List
-        /* renamed from: NJ */
+        /* renamed from: Jd */
         public Byte get(int i) {
-            return Byte.valueOf(this.nDJ[i]);
+            return Byte.valueOf(this.mXi[i]);
         }
 
-        public int m(byte b) {
-            return f.b(this.nDJ, b);
+        public int e(byte b) {
+            return f.b(this.mXi, b);
         }
 
-        public int n(byte b) {
-            return f.c(this.nDJ, b);
+        public int f(byte b) {
+            return f.c(this.mXi, b);
         }
     }
 
-    public static final List<Byte> aG(byte[] bArr) {
+    public static final List<Byte> al(byte[] bArr) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
         return new a(bArr);
     }
 
-    public static final byte[] l(byte[] bArr, int i, int i2) {
+    public static final byte[] n(byte[] bArr, int i, int i2) {
         kotlin.jvm.internal.q.j(bArr, "receiver$0");
-        f.eq(i2, bArr.length);
+        f.dB(i2, bArr.length);
         byte[] copyOfRange = Arrays.copyOfRange(bArr, i, i2);
         kotlin.jvm.internal.q.i(copyOfRange, "java.util.Arrays.copyOfR…this, fromIndex, toIndex)");
         return copyOfRange;

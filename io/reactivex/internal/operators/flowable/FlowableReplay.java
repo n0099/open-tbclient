@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.internal.util.NotificationLite;
@@ -16,11 +15,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.reactivex.disposables.b {
-    static final Callable nzc = new a();
+    static final Callable mSA = new a();
     final AtomicReference<ReplaySubscriber<T>> current;
-    final org.a.b<T> nyT;
-    final io.reactivex.g<T> nyr;
-    final Callable<? extends b<T>> nzb;
+    final io.reactivex.g<T> mRJ;
+    final org.a.b<T> mSm;
+    final Callable<? extends b<T>> mSz;
 
     /* loaded from: classes7.dex */
     interface b<T> {
@@ -35,7 +34,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.nyT.subscribe(cVar);
+        this.mSm.subscribe(cVar);
     }
 
     @Override // io.reactivex.disposables.b
@@ -58,27 +57,27 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                 break;
             }
             try {
-                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.nzb.call());
+                ReplaySubscriber<T> replaySubscriber2 = new ReplaySubscriber<>(this.mSz.call());
                 if (this.current.compareAndSet(replaySubscriber, replaySubscriber2)) {
                     replaySubscriber = replaySubscriber2;
                     break;
                 }
             } finally {
-                io.reactivex.exceptions.a.H(th);
-                RuntimeException J = ExceptionHelper.J(th);
+                io.reactivex.exceptions.a.L(th);
+                RuntimeException N = ExceptionHelper.N(th);
             }
         }
         boolean z = !replaySubscriber.shouldConnect.get() && replaySubscriber.shouldConnect.compareAndSet(false, true);
         try {
             gVar.accept(replaySubscriber);
             if (z) {
-                this.nyr.a((j) replaySubscriber);
+                this.mRJ.a((j) replaySubscriber);
             }
         } catch (Throwable th) {
             if (z) {
                 replaySubscriber.shouldConnect.compareAndSet(true, false);
             }
-            throw ExceptionHelper.J(th);
+            throw ExceptionHelper.N(th);
         }
     }
 
@@ -237,7 +236,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                             } else {
                                 long j5 = j3 + j4;
                                 if (j5 < 0) {
-                                    j5 = Format.OFFSET_SAMPLE_RELATIVE;
+                                    j5 = Long.MAX_VALUE;
                                 }
                                 this.maxUpstreamRequested = j5;
                             }
@@ -276,7 +275,18 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
         @Override // org.a.d
         public void request(long j) {
-            if (SubscriptionHelper.validate(j) && io.reactivex.internal.util.b.b(this, j) != Long.MIN_VALUE) {
+            long j2;
+            if (SubscriptionHelper.validate(j)) {
+                do {
+                    j2 = get();
+                    if (j2 != Long.MIN_VALUE) {
+                        if (j2 >= 0 && j == 0) {
+                            return;
+                        }
+                    } else {
+                        return;
+                    }
+                } while (!compareAndSet(j2, io.reactivex.internal.util.b.L(j2, j)));
                 io.reactivex.internal.util.b.a(this.totalRequested, j);
                 this.parent.manageRequests();
                 this.parent.buffer.replay(this);
@@ -365,7 +375,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.H(th);
+                            io.reactivex.exceptions.a.L(th);
                             innerSubscription.dispose();
                             if (!NotificationLite.isError(obj) && !NotificationLite.isComplete(obj)) {
                                 cVar.onError(th);
@@ -376,7 +386,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                     }
                     if (j2 != 0) {
                         innerSubscription.index = Integer.valueOf(i2);
-                        if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+                        if (j != Long.MAX_VALUE) {
                             innerSubscription.produced(j2);
                         }
                     }
@@ -474,15 +484,6 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             truncateFinal();
         }
 
-        final void trimHead() {
-            Node node = get();
-            if (node.value != null) {
-                Node node2 = new Node(null, 0L);
-                node2.lazySet(node.get());
-                set(node2);
-            }
-        }
-
         /* JADX WARN: Code restructure failed: missing block: B:42:0x0094, code lost:
             if (r4 == 0) goto L52;
          */
@@ -529,7 +530,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                 innerSubscription.emitting = true;
                 while (!innerSubscription.isDisposed()) {
                     long j = innerSubscription.get();
-                    boolean z = j == Format.OFFSET_SAMPLE_RELATIVE;
+                    boolean z = j == Long.MAX_VALUE;
                     long j2 = 0;
                     Node node = (Node) innerSubscription.index();
                     if (node == null) {
@@ -556,7 +557,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                                 return;
                             }
                         } catch (Throwable th) {
-                            io.reactivex.exceptions.a.H(th);
+                            io.reactivex.exceptions.a.L(th);
                             innerSubscription.index = null;
                             innerSubscription.dispose();
                             if (!NotificationLite.isError(leaveTransform) && !NotificationLite.isComplete(leaveTransform)) {
@@ -582,7 +583,6 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
         }
 
         void truncateFinal() {
-            trimHead();
         }
 
         final void collect(Collection<? super T> collection) {
@@ -654,7 +654,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
         Object leaveTransform(Object obj) {
-            return ((io.reactivex.f.b) obj).dKr();
+            return ((io.reactivex.f.b) obj).dDq();
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
@@ -670,7 +670,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
                     this.size--;
                     node2 = node3;
                     node3 = node3.get();
-                } else if (((io.reactivex.f.b) node3.value).ZZ() > a) {
+                } else if (((io.reactivex.f.b) node3.value).aie() > a) {
                     break;
                 } else {
                     i++;
@@ -699,7 +699,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             Node node = (Node) get();
             Node node2 = node;
             int i = 0;
-            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((io.reactivex.f.b) node3.value).ZZ() <= a; node3 = node3.get()) {
+            for (Node node3 = node.get(); node3 != null && this.size > 1 && ((io.reactivex.f.b) node3.value).aie() <= a; node3 = node3.get()) {
                 i++;
                 this.size--;
                 node2 = node3;
@@ -713,7 +713,7 @@ public final class FlowableReplay<T> extends io.reactivex.b.a<T> implements io.r
             Node node2 = node;
             for (Node node3 = node.get(); node3 != null; node3 = node3.get()) {
                 io.reactivex.f.b bVar = (io.reactivex.f.b) node3.value;
-                if (NotificationLite.isComplete(bVar.dKr()) || NotificationLite.isError(bVar.dKr()) || bVar.ZZ() > a) {
+                if (NotificationLite.isComplete(bVar.dDq()) || NotificationLite.isError(bVar.dDq()) || bVar.aie() > a) {
                     break;
                 }
                 node2 = node3;

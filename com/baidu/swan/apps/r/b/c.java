@@ -13,11 +13,11 @@ public class c extends b {
 
     @Override // com.baidu.swan.apps.r.b.b
     protected boolean a(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull final com.baidu.swan.apps.r.d.a aVar, @NonNull final List<String> list) {
-        ai.l(new Runnable() { // from class: com.baidu.swan.apps.r.b.c.1
+        ai.o(new Runnable() { // from class: com.baidu.swan.apps.r.b.c.1
             @Override // java.lang.Runnable
             public void run() {
                 for (String str : list) {
-                    aVar.ic(str);
+                    aVar.jq(str);
                 }
             }
         });

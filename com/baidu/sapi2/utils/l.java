@@ -7,7 +7,6 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
-import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
@@ -29,7 +28,7 @@ public class l {
             jSONObject.put("bduss_sign", MD5Util.toMd5((currentAccount == null ? "" : currentAccount.bduss).getBytes(), false));
             jSONObject.put("pkgname", str);
             jSONObject.put("key_hash", packageSign2);
-            jSONObject.put(Constants.APP_ID, str2);
+            jSONObject.put("app_id", str2);
         } catch (JSONException e) {
             Log.e(e);
         }

@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.utils;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -199,7 +198,7 @@ public abstract class StringUtils {
     }
 
     public static String trimAll(String str) {
-        return !TextUtils.isEmpty(str) ? str.replace(HanziToPinyin.Token.SEPARATOR, "") : "";
+        return !TextUtils.isEmpty(str) ? str.replace(" ", "") : "";
     }
 
     public static boolean isPhoneNumber(String str) {

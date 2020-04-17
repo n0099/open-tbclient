@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Surface;
 import com.baidu.ala.helper.AlaFrameTrack;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
+import com.baidu.ala.ndk.AlaNdkAdapter;
 import com.baidu.ala.recorder.video.AlaLiveVideoConfig;
 import com.baidu.ala.recorder.video.IVideoRecorder;
 import com.baidu.ala.recorder.video.RecorderHandler;
@@ -87,6 +88,7 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
     private TextureEncoder mEncoder = null;
     private volatile boolean mRequestEncoderReset = false;
     private int mEncoderRestCount = 0;
+    private volatile boolean mRequestKeyFrame = true;
 
     public GPUCameraOperator(Activity activity, Camera camera, AlaCameraRecorder.SurfaceHolder surfaceHolder, ICameraStatusHandler iCameraStatusHandler, IVideoRecorder.IVideoDataCallBack iVideoDataCallBack, RecorderHandler recorderHandler) {
         this.mActivityReference = null;
@@ -149,9 +151,9 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
                         }
                     }
                     if (this.mIsMirror) {
-                        doDrawEncodeSurface(this.mCodecWindowSurface, this.mMirrorIdentityMatrix, this.mCameraTexture.getTimestamp());
+                        doDrawEncodeSurface(this.mCodecWindowSurface, this.mMirrorIdentityMatrix, AlaNdkAdapter.getMediaStreamTS(true));
                     } else {
-                        doDrawEncodeSurface(this.mCodecWindowSurface, this.mIdentityMatrix, this.mCameraTexture.getTimestamp());
+                        doDrawEncodeSurface(this.mCodecWindowSurface, this.mIdentityMatrix, AlaNdkAdapter.getMediaStreamTS(true));
                     }
                     this.mWindowSurface.makeCurrent();
                     GlUtil.checkGlError("draw done");
@@ -216,6 +218,8 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
             } else {
                 resetImageReader(true);
             }
+        } else {
+            this.mRequestKeyFrame = true;
         }
         try {
             if (this.mCameraTexture != null) {
@@ -577,46 +581,53 @@ public class GPUCameraOperator implements SurfaceTexture.OnFrameAvailableListene
     }
 
     private void resetTextureEncoder() {
-        this.mRequestEncoderReset = false;
-        if (this.mEncoder != null) {
-            this.mEncoder.release();
-            this.mEncoder = new TextureEncoder();
-        }
-        if (this.mEncoder == null) {
-            this.mEncoder = new TextureEncoder();
-        }
-        TextureEncoder.EncodeConfig encodeConfig = new TextureEncoder.EncodeConfig();
-        encodeConfig.encodeWidth = this.mConfig.getVideoWidth();
-        encodeConfig.encodeHeight = this.mConfig.getVideoHeight();
-        encodeConfig.encodeBitrate = this.mConfig.getBitStream();
-        encodeConfig.isLandscape = this.mConfig.isLandscape();
-        encodeConfig.H264GOP = this.mConfig.getVideoGOP();
-        encodeConfig.H264FPS = this.mConfig.getVideoFPS();
-        this.mEncoder.prepare(this.mEglCore.getEGLContext(), encodeConfig, new VideoEncoderCore.OutputCallback() { // from class: com.baidu.ala.recorder.video.camera.GPUCameraOperator.2
-            @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
-            public void onFormatChanged(MediaFormat mediaFormat) {
+        if (this.mEglCore != null) {
+            this.mRequestEncoderReset = false;
+            if (this.mEncoder != null) {
+                this.mEncoder.release();
+                this.mEncoder = new TextureEncoder();
             }
-
-            @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
-            public void onCodecConfig(byte[] bArr, int i, int i2) {
+            if (this.mEncoder == null) {
+                this.mEncoder = new TextureEncoder();
             }
-
-            @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
-            public void onCodecData(byte[] bArr, int i, int i2, int i3, long j) {
-                if (GPUCameraOperator.this.mDataCallback != null) {
-                    GPUCameraOperator.this.mDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3 == 2 ? 1 : 0, j);
+            TextureEncoder.EncodeConfig encodeConfig = new TextureEncoder.EncodeConfig();
+            encodeConfig.encodeWidth = this.mConfig.getVideoWidth();
+            encodeConfig.encodeHeight = this.mConfig.getVideoHeight();
+            encodeConfig.encodeBitrate = this.mConfig.getBitStream();
+            encodeConfig.isLandscape = this.mConfig.isLandscape();
+            encodeConfig.H264GOP = this.mConfig.getVideoGOP();
+            encodeConfig.H264FPS = this.mConfig.getVideoFPS();
+            this.mEncoder.prepare(this.mEglCore.getEGLContext(), encodeConfig, new VideoEncoderCore.OutputCallback() { // from class: com.baidu.ala.recorder.video.camera.GPUCameraOperator.2
+                @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
+                public void onFormatChanged(MediaFormat mediaFormat) {
                 }
-            }
 
-            @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
-            public void onCodecError(int i) {
-                BdLog.e("resetTextureEncoder onCodecError -- " + i);
-                GPUCameraOperator.this.mRequestEncoderReset = true;
-                if (GPUCameraOperator.this.mDataCallback != null) {
-                    GPUCameraOperator.this.mDataCallback.onError(i);
+                @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
+                public void onCodecConfig(byte[] bArr, int i, int i2) {
                 }
-            }
-        });
+
+                @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
+                public void onCodecData(byte[] bArr, int i, int i2, int i3, long j, long j2) {
+                    if (!GPUCameraOperator.this.mRequestKeyFrame || i3 == 2) {
+                        if (GPUCameraOperator.this.mRequestKeyFrame && i3 == 2) {
+                            GPUCameraOperator.this.mRequestKeyFrame = false;
+                        }
+                        if (GPUCameraOperator.this.mDataCallback != null) {
+                            GPUCameraOperator.this.mDataCallback.onEncodeVideoFrameRecived(bArr, i, i2, i3 == 2 ? 1 : 0, j, j2);
+                        }
+                    }
+                }
+
+                @Override // com.baidu.ala.recorder.video.hardware.VideoEncoderCore.OutputCallback
+                public void onCodecError(int i) {
+                    BdLog.e("resetTextureEncoder onCodecError -- " + i);
+                    GPUCameraOperator.this.mRequestEncoderReset = true;
+                    if (GPUCameraOperator.this.mDataCallback != null) {
+                        GPUCameraOperator.this.mDataCallback.onError(i);
+                    }
+                }
+            });
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */

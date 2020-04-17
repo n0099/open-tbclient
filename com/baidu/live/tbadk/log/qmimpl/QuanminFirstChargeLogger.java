@@ -13,7 +13,7 @@ public class QuanminFirstChargeLogger implements IFirstChargeLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_FIRSTCHARGE_POPUP);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -61,7 +61,7 @@ public class QuanminFirstChargeLogger implements IFirstChargeLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_FIRSTCHARGE_QUICK_BTN);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -93,7 +93,7 @@ public class QuanminFirstChargeLogger implements IFirstChargeLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", "liveroom");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_FIRSTCHARGE_PANEL_ENTRY);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");

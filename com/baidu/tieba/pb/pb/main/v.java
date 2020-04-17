@@ -10,6 +10,7 @@ import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ba;
 import java.util.HashMap;
@@ -18,33 +19,33 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class v {
-    public int YF;
+    public int aqP;
 
     public v(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
     }
 
-    private void BO(String str) {
+    private void Dw(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
         Map<String, String> paramPair = ba.getParamPair(str);
         if (paramPair != null) {
-            this.YF = 5;
+            this.aqP = 5;
             com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c10320");
-            anVar.cx("obj_locate", paramPair.get("obj_locate"));
-            anVar.X("obj_type", 1);
-            anVar.cx("tid", paramPair.get("tid"));
-            anVar.cx("obj_source", paramPair.get("obj_source"));
-            anVar.cx(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
-            anVar.X(TiebaInitialize.Params.OBJ_TO, 3);
-            anVar.cx("obj_id", paramPair.get("bdid"));
+            anVar.cI("obj_locate", paramPair.get("obj_locate"));
+            anVar.af("obj_type", 1);
+            anVar.cI("tid", paramPair.get("tid"));
+            anVar.cI("obj_source", paramPair.get("obj_source"));
+            anVar.cI(TiebaInitialize.Params.OBJ_PARAM2, paramPair.get(TiebaInitialize.Params.OBJ_PARAM2));
+            anVar.af(TiebaInitialize.Params.OBJ_TO, 3);
+            anVar.cI("obj_id", paramPair.get("bdid"));
             if (!com.baidu.tbadk.core.util.aq.isEmpty(paramPair.get(LogConfig.LOG_EXT_LOG))) {
                 try {
                     JSONObject jSONObject = new JSONObject(paramPair.get(LogConfig.LOG_EXT_LOG));
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        anVar.cx(next, jSONObject.getString(next));
+                        anVar.cI(next, jSONObject.getString(next));
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -55,28 +56,28 @@ public class v {
     }
 
     public void a(Intent intent, f.a aVar) {
-        if (intent != null && intent.getParcelableExtra("key_uri") != null) {
-            Uri uri = (Uri) intent.getParcelableExtra("key_uri");
+        if (intent != null && intent.getParcelableExtra(IntentConfig.KEY_URI) != null) {
+            Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
             String uri2 = uri.toString();
             if (!StringUtils.isNull(uri2) && uri2.startsWith("tbpb://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
-                    BO(decode);
-                    HashMap<String, Object> Ga = Ga(decode);
-                    String str = (String) Ga.get("tid");
-                    if ("mpush".equals((String) Ga.get("fr")) && !StringUtils.isNull(str)) {
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11895").cx("tid", str));
+                    Dw(decode);
+                    HashMap<String, Object> HH = HH(decode);
+                    String str = (String) HH.get("tid");
+                    if ("mpush".equals((String) HH.get("fr")) && !StringUtils.isNull(str)) {
+                        TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11895").cI("tid", str));
                     }
                     HttpMessage httpMessage = new HttpMessage(1003393);
                     httpMessage.addParam("call_url", uri2);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    aVar.n(Ga);
+                    aVar.B(HH);
                 }
             }
         }
     }
 
-    public HashMap<String, Object> Ga(String str) {
+    public HashMap<String, Object> HH(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

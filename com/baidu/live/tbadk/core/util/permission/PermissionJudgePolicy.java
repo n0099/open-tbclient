@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.k.a;
+import com.baidu.h.a;
 import com.baidu.live.adp.base.IScrollableHelper;
 import com.baidu.live.adp.lib.util.BdLog;
 import com.baidu.live.tbadk.TbConfig;
@@ -56,7 +56,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.EE()) {
+        if (!a.KP()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {
@@ -80,7 +80,7 @@ public class PermissionJudgePolicy {
         if (activity == null) {
             return false;
         }
-        return com.baidu.k.a.a.checkPermissionGranted(activity, str);
+        return com.baidu.h.a.a.checkPermissionGranted(activity, str);
     }
 
     public boolean checkPermissionListGranted(Activity activity) {
@@ -110,7 +110,7 @@ public class PermissionJudgePolicy {
         String currentAppType = currentAppType(activity);
         boolean z2 = SharedPrefHelper.getInstance().getBoolean(str, false);
         SharedPrefHelper.getInstance().putBoolean(str, true);
-        if (!z2 || com.baidu.k.a.a.shouldShowRequestPermissionRationale(activity, str)) {
+        if (!z2 || com.baidu.h.a.a.shouldShowRequestPermissionRationale(activity, str)) {
             return true;
         }
         if (!z) {
@@ -157,7 +157,7 @@ public class PermissionJudgePolicy {
     private void startRequestPermissionInternal(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.k.a.a.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), RequestResponseCode.REQUEST_PERMISSION_JUDGEMENT);
+                com.baidu.h.a.a.requestPermissions(activity, (String[]) this.requestPermissionList.toArray(new String[this.requestPermissionList.size()]), RequestResponseCode.REQUEST_PERMISSION_JUDGEMENT);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

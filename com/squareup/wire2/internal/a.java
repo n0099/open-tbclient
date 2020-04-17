@@ -8,15 +8,15 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public final class a {
-    public static <T> List<T> dHa() {
+    public static <T> List<T> dBc() {
         return new MutableOnWriteList(Collections.emptyList());
     }
 
-    public static <K, V> Map<K, V> dHb() {
+    public static <K, V> Map<K, V> dBd() {
         return new LinkedHashMap();
     }
 
-    public static <T> List<T> t(String str, List<T> list) {
+    public static <T> List<T> u(String str, List<T> list) {
         if (list == null) {
             throw new NullPointerException(str + " == null");
         }
@@ -30,7 +30,7 @@ public final class a {
         return new LinkedHashMap(map);
     }
 
-    public static <T> List<T> u(String str, List<T> list) {
+    public static <T> List<T> v(String str, List<T> list) {
         if (list == null) {
             throw new NullPointerException(str + " == null");
         }
@@ -75,7 +75,7 @@ public final class a {
         return obj == obj2 || (obj != null && obj.equals(obj2));
     }
 
-    public static void fq(List<?> list) {
+    public static void fe(List<?> list) {
         if (list == null) {
             throw new NullPointerException("list == null");
         }
@@ -87,7 +87,7 @@ public final class a {
         }
     }
 
-    public static void E(Map<?, ?> map) {
+    public static void C(Map<?, ?> map) {
         if (map == null) {
             throw new NullPointerException("map == null");
         }

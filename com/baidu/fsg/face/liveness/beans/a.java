@@ -12,7 +12,6 @@ import com.baidu.fsg.base.utils.RimGlobalUtils;
 import com.baidu.fsg.face.liveness.datamodel.AudioVideoUploadModel;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -84,7 +83,7 @@ public class a extends UploadBean {
                 arrayList.add(new RestNameValuePair("exuid", this.f.exUid));
             }
         }
-        arrayList.add(new RestNameValuePair("client", PraiseDataPassUtil.KEY_FROM_OS));
+        arrayList.add(new RestNameValuePair("client", "android"));
         if (!TextUtils.isEmpty(this.d)) {
             arrayList.add(new RestNameValuePair("zid2", this.d));
         } else if (!TextUtils.isEmpty(this.c)) {

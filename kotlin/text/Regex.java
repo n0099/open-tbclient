@@ -40,7 +40,7 @@ public final class Regex implements Serializable {
         this(r0);
         kotlin.jvm.internal.q.j(str, "pattern");
         kotlin.jvm.internal.q.j(regexOption, "option");
-        Pattern compile = Pattern.compile(str, Companion.NP(regexOption.getValue()));
+        Pattern compile = Pattern.compile(str, Companion.Jj(regexOption.getValue()));
         kotlin.jvm.internal.q.i(compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
     }
 
@@ -55,7 +55,7 @@ public final class Regex implements Serializable {
         kotlin.jvm.internal.q.j(set, "options");
         a aVar = Companion;
         i = k.i(set);
-        Pattern compile = Pattern.compile(str, aVar.NP(i));
+        Pattern compile = Pattern.compile(str, aVar.Jj(i));
         kotlin.jvm.internal.q.i(compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
     }
 
@@ -147,12 +147,12 @@ public final class Regex implements Serializable {
         StringBuilder sb = new StringBuilder(length);
         do {
             if (find$default == null) {
-                kotlin.jvm.internal.q.dKW();
+                kotlin.jvm.internal.q.dDV();
             }
-            sb.append(charSequence, i, find$default.dLr().dLi().intValue());
+            sb.append(charSequence, i, find$default.dEq().dEh().intValue());
             sb.append(bVar.invoke(find$default));
-            i = find$default.dLr().dLj().intValue() + 1;
-            find$default = find$default.dLs();
+            i = find$default.dEq().dEi().intValue() + 1;
+            find$default = find$default.dEr();
             if (i >= length) {
                 break;
             }
@@ -185,9 +185,9 @@ public final class Regex implements Serializable {
         if (i >= 0) {
             Matcher matcher = this.nativePattern.matcher(charSequence);
             if (!matcher.find() || i == 1) {
-                return kotlin.collections.o.bS(charSequence.toString());
+                return kotlin.collections.o.bB(charSequence.toString());
             }
-            ArrayList arrayList = new ArrayList(i > 0 ? kotlin.b.l.eA(i, 10) : 10);
+            ArrayList arrayList = new ArrayList(i > 0 ? kotlin.b.l.dL(i, 10) : 10);
             int i2 = i - 1;
             int i3 = 0;
             do {
@@ -270,7 +270,7 @@ public final class Regex implements Serializable {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final int NP(int i) {
+        public final int Jj(int i) {
             return (i & 2) != 0 ? i | 64 : i;
         }
     }

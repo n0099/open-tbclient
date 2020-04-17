@@ -8,16 +8,16 @@ import com.baidu.swan.apps.component.d.b;
 public final class a extends com.baidu.swan.apps.component.b.a<CameraPreview, com.baidu.swan.apps.camera.d.a> {
     public a(@NonNull Context context, @NonNull com.baidu.swan.apps.camera.d.a aVar) {
         super(context, aVar);
-        ee(2);
+        ej(2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: bL */
-    public CameraPreview bm(@NonNull Context context) {
-        return new CameraPreview(context, KL());
+    /* renamed from: bz */
+    public CameraPreview ba(@NonNull Context context) {
+        return new CameraPreview(context, Sz());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public final class a extends com.baidu.swan.apps.component.b.a<CameraPreview, co
     @Override // com.baidu.swan.apps.component.b.a
     public void a(@NonNull CameraPreview cameraPreview, @NonNull com.baidu.swan.apps.camera.d.a aVar, @NonNull b bVar) {
         super.a((a) cameraPreview, (CameraPreview) aVar, bVar);
-        if (KP()) {
+        if (SD()) {
             cameraPreview.b(aVar);
         }
     }

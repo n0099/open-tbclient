@@ -4,8 +4,8 @@ import com.baidu.android.util.devices.RomUtils;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class c {
-    public static final c lRr = new c(RomUtils.UNKNOWN, null);
-    private final String lRs;
+    public static final c lYW = new c(RomUtils.UNKNOWN, null);
+    private final String lYX;
     private final String mName;
 
     /* loaded from: classes13.dex */
@@ -13,12 +13,12 @@ public class c {
         int getHeaderSize();
 
         @Nullable
-        c r(byte[] bArr, int i);
+        c n(byte[] bArr, int i);
     }
 
     public c(String str, @Nullable String str2) {
         this.mName = str;
-        this.lRs = str2;
+        this.lYX = str2;
     }
 
     public String toString() {

@@ -1,24 +1,23 @@
 package io.reactivex.internal.util;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.queue.SpscArrayQueue;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public final class i {
-    public static <T> io.reactivex.internal.a.g<T> NH(int i) {
+    public static <T> io.reactivex.internal.a.g<T> Jb(int i) {
         return i < 0 ? new io.reactivex.internal.queue.a(-i) : new SpscArrayQueue(i);
     }
 
     public static void a(org.a.d dVar, int i) {
-        dVar.request(i < 0 ? Format.OFFSET_SAMPLE_RELATIVE : i);
+        dVar.request(i < 0 ? Long.MAX_VALUE : i);
     }
 
     public static <T> boolean a(long j, org.a.c<? super T> cVar, Queue<T> queue, AtomicLong atomicLong, io.reactivex.c.e eVar) {
         long j2;
         do {
             j2 = atomicLong.get();
-        } while (!atomicLong.compareAndSet(j2, b.ad(Format.OFFSET_SAMPLE_RELATIVE & j2, j) | (j2 & Long.MIN_VALUE)));
+        } while (!atomicLong.compareAndSet(j2, b.L(Long.MAX_VALUE & j2, j) | (j2 & Long.MIN_VALUE)));
         if (j2 == Long.MIN_VALUE) {
             b(j | Long.MIN_VALUE, cVar, queue, atomicLong, eVar);
             return true;
@@ -30,7 +29,7 @@ public final class i {
         try {
             return eVar.getAsBoolean();
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             return true;
         }
     }
@@ -58,8 +57,8 @@ public final class i {
                 }
                 j = atomicLong.get();
                 if (j == j2) {
-                    j = atomicLong.addAndGet(-(j2 & Format.OFFSET_SAMPLE_RELATIVE));
-                    if ((j & Format.OFFSET_SAMPLE_RELATIVE) == 0) {
+                    j = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
+                    if ((j & Long.MAX_VALUE) == 0) {
                         return false;
                     }
                     j2 = j & Long.MIN_VALUE;

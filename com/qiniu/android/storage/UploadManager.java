@@ -15,29 +15,29 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class UploadManager {
     private static OkHttpClient sClient;
-    private final Client noK;
-    private final Configuration npZ;
+    private final Client mLt;
+    private final Configuration mMI;
 
     public static void a(OkHttpClient okHttpClient) {
         sClient = okHttpClient;
     }
 
-    public static OkHttpClient dGF() {
+    public static OkHttpClient dAH() {
         return sClient;
     }
 
     public UploadManager() {
-        this(new Configuration.Builder().dGA());
+        this(new Configuration.Builder().dAC());
     }
 
     public UploadManager(Configuration configuration) {
-        this.npZ = configuration;
-        this.noK = new Client(configuration.npE, configuration.connectTimeout, configuration.responseTimeout, configuration.npH, configuration.npI);
+        this.mMI = configuration;
+        this.mLt = new Client(configuration.mMn, configuration.connectTimeout, configuration.responseTimeout, configuration.mMq, configuration.mMr);
     }
 
     private static boolean a(String str, byte[] bArr, File file, String str2, UpToken upToken, UpCompletionHandler upCompletionHandler) {
         String str3;
-        ResponseInfo Ro;
+        ResponseInfo OY;
         if (upCompletionHandler == null) {
             throw new IllegalArgumentException("no UpCompletionHandler");
         }
@@ -47,14 +47,14 @@ public final class UploadManager {
             str3 = (str2 == null || str2.equals("")) ? "no token" : null;
         }
         if (str3 != null) {
-            Ro = ResponseInfo.a(str3, upToken);
-        } else if (upToken == UpToken.nql || upToken == null) {
-            Ro = ResponseInfo.Ro("invalid token");
+            OY = ResponseInfo.a(str3, upToken);
+        } else if (upToken == UpToken.mMU || upToken == null) {
+            OY = ResponseInfo.OY("invalid token");
         } else {
-            Ro = ((file == null || file.length() != 0) && (bArr == null || bArr.length != 0)) ? null : ResponseInfo.a(upToken);
+            OY = ((file == null || file.length() != 0) && (bArr == null || bArr.length != 0)) ? null : ResponseInfo.a(upToken);
         }
-        if (Ro != null) {
-            upCompletionHandler.a(str, Ro, null);
+        if (OY != null) {
+            upCompletionHandler.a(str, OY, null);
             return true;
         }
         return false;
@@ -68,52 +68,52 @@ public final class UploadManager {
     /* renamed from: com.qiniu.android.storage.UploadManager$1  reason: invalid class name */
     /* loaded from: classes5.dex */
     class AnonymousClass1 implements Zone.QueryHandler {
-        final /* synthetic */ UploadOptions npL;
-        final /* synthetic */ UpToken nqm;
-        final /* synthetic */ UpCompletionHandler nqn;
-        final /* synthetic */ UploadManager nqo;
-        final /* synthetic */ byte[] val$data;
+        final /* synthetic */ byte[] bEH;
+        final /* synthetic */ UpToken mMV;
+        final /* synthetic */ UpCompletionHandler mMW;
+        final /* synthetic */ UploadManager mMX;
+        final /* synthetic */ UploadOptions mMu;
         final /* synthetic */ String val$key;
 
         @Override // com.qiniu.android.common.Zone.QueryHandler
         public void onSuccess() {
-            FormUploader.a(this.nqo.noK, this.nqo.npZ, this.val$data, this.val$key, this.nqm, this.nqn, this.npL);
+            FormUploader.a(this.mMX.mLt, this.mMX.mMI, this.bEH, this.val$key, this.mMV, this.mMW, this.mMu);
         }
 
         @Override // com.qiniu.android.common.Zone.QueryHandler
-        public void Nt(int i) {
-            ResponseInfo Ro;
-            if (ResponseInfo.Nu(i)) {
-                Ro = ResponseInfo.a(i, this.nqm);
+        public void IN(int i) {
+            ResponseInfo OY;
+            if (ResponseInfo.IO(i)) {
+                OY = ResponseInfo.a(i, this.mMV);
             } else {
-                Ro = ResponseInfo.Ro("invalid token");
+                OY = ResponseInfo.OY("invalid token");
             }
-            this.nqn.a(this.val$key, Ro, null);
+            this.mMW.a(this.val$key, OY, null);
         }
     }
 
     public void a(final File file, final String str, String str2, final UpCompletionHandler upCompletionHandler, final UploadOptions uploadOptions) {
-        final UpToken Rs = UpToken.Rs(str2);
-        if (!a(str, null, file, str2, Rs, upCompletionHandler)) {
-            this.npZ.npJ.a(str2, new Zone.QueryHandler() { // from class: com.qiniu.android.storage.UploadManager.2
+        final UpToken Pc = UpToken.Pc(str2);
+        if (!a(str, null, file, str2, Pc, upCompletionHandler)) {
+            this.mMI.mMs.a(str2, new Zone.QueryHandler() { // from class: com.qiniu.android.storage.UploadManager.2
                 @Override // com.qiniu.android.common.Zone.QueryHandler
                 public void onSuccess() {
-                    if (file.length() <= UploadManager.this.npZ.npF) {
-                        FormUploader.a(UploadManager.this.noK, UploadManager.this.npZ, file, str, Rs, upCompletionHandler, uploadOptions);
+                    if (file.length() <= UploadManager.this.mMI.mMo) {
+                        FormUploader.a(UploadManager.this.mLt, UploadManager.this.mMI, file, str, Pc, upCompletionHandler, uploadOptions);
                         return;
                     }
-                    AsyncRun.B(new ResumeUploader(UploadManager.this.noK, UploadManager.this.npZ, file, str, Rs, UploadManager.a(upCompletionHandler, file != null ? file.length() : 0L), uploadOptions, UploadManager.this.npZ.npD.q(str, file)));
+                    AsyncRun.G(new ResumeUploader(UploadManager.this.mLt, UploadManager.this.mMI, file, str, Pc, UploadManager.a(upCompletionHandler, file != null ? file.length() : 0L), uploadOptions, UploadManager.this.mMI.mMm.p(str, file)));
                 }
 
                 @Override // com.qiniu.android.common.Zone.QueryHandler
-                public void Nt(int i) {
-                    ResponseInfo Ro;
-                    if (ResponseInfo.Nu(i)) {
-                        Ro = ResponseInfo.a(i, Rs);
+                public void IN(int i) {
+                    ResponseInfo OY;
+                    if (ResponseInfo.IO(i)) {
+                        OY = ResponseInfo.a(i, Pc);
                     } else {
-                        Ro = ResponseInfo.Ro("invalid token");
+                        OY = ResponseInfo.OY("invalid token");
                     }
-                    upCompletionHandler.a(str, Ro, null);
+                    upCompletionHandler.a(str, OY, null);
                 }
             });
         }
@@ -122,31 +122,31 @@ public final class UploadManager {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class WarpHandler implements UpCompletionHandler {
-        final UpCompletionHandler nqp;
-        final long nqq = System.currentTimeMillis();
+        final UpCompletionHandler mMY;
+        final long mMZ = System.currentTimeMillis();
         final long size;
 
         WarpHandler(UpCompletionHandler upCompletionHandler, long j) {
-            this.nqp = upCompletionHandler;
+            this.mMY = upCompletionHandler;
             this.size = j;
         }
 
         @Override // com.qiniu.android.storage.UpCompletionHandler
         public void a(final String str, final ResponseInfo responseInfo, final JSONObject jSONObject) {
-            if (Config.nos) {
+            if (Config.mLd) {
                 final long currentTimeMillis = System.currentTimeMillis();
-                UploadInfoCollector.b(responseInfo.npv, new UploadInfoCollector.RecordMsg() { // from class: com.qiniu.android.storage.UploadManager.WarpHandler.1
+                UploadInfoCollector.b(responseInfo.mMe, new UploadInfoCollector.RecordMsg() { // from class: com.qiniu.android.storage.UploadManager.WarpHandler.1
                     @Override // com.qiniu.android.collect.UploadInfoCollector.RecordMsg
-                    public String dGo() {
-                        return StringUtils.b(new String[]{responseInfo.statusCode + "", responseInfo.reqId, responseInfo.host, responseInfo.ip, responseInfo.port + "", (currentTimeMillis - WarpHandler.this.nqq) + "", responseInfo.timeStamp + "", WarpHandler.this.size + "", "block", WarpHandler.this.size + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    public String dAr() {
+                        return StringUtils.b(new String[]{responseInfo.statusCode + "", responseInfo.reqId, responseInfo.host, responseInfo.ip, responseInfo.port + "", (currentTimeMillis - WarpHandler.this.mMZ) + "", responseInfo.timeStamp + "", WarpHandler.this.size + "", "block", WarpHandler.this.size + ""}, Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
                 });
             }
-            AsyncRun.B(new Runnable() { // from class: com.qiniu.android.storage.UploadManager.WarpHandler.2
+            AsyncRun.G(new Runnable() { // from class: com.qiniu.android.storage.UploadManager.WarpHandler.2
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
-                        WarpHandler.this.nqp.a(str, responseInfo, jSONObject);
+                        WarpHandler.this.mMY.a(str, responseInfo, jSONObject);
                     } catch (Throwable th) {
                         th.printStackTrace();
                     }

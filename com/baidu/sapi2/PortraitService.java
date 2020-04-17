@@ -69,7 +69,7 @@ public class PortraitService extends AbstractService {
                 public void onSuccess(int i2, String str) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
-                        int i3 = jSONObject.getInt("errno");
+                        int i3 = jSONObject.getInt(BaseJsonData.TAG_ERRNO);
                         getHistoryPortraitsResult.setResultCode(i3);
                         getHistoryPortraitsResult.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                         if (i3 == 0) {
@@ -123,7 +123,7 @@ public class PortraitService extends AbstractService {
             public void onSuccess(int i, String str2) {
                 try {
                     JSONObject jSONObject = new JSONObject(str2);
-                    int optInt = jSONObject.optInt("errno");
+                    int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
                     getPopularPortraitsInfoResult.setResultCode(optInt);
                     getPopularPortraitsInfoResult.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                     if (optInt == 0) {
@@ -186,7 +186,7 @@ public class PortraitService extends AbstractService {
             public void onSuccess(int i, String str) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    int i2 = jSONObject.getInt("errno");
+                    int i2 = jSONObject.getInt(BaseJsonData.TAG_ERRNO);
                     setPopularPortraitResult.setResultCode(i2);
                     setPopularPortraitResult.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
                     if (i2 == 0) {

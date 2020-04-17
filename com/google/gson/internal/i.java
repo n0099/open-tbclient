@@ -15,9 +15,9 @@ public final class i {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.dBr();
+            aVar.dvJ();
             z = false;
-            return n.mOG.read(aVar);
+            return n.mlt.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,7 +33,7 @@ public final class i {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        n.mOG.write(bVar, jsonElement);
+        n.mlt.write(bVar, jsonElement);
     }
 
     public static Writer a(Appendable appendable) {
@@ -42,22 +42,22 @@ public final class i {
 
     /* loaded from: classes7.dex */
     private static final class a extends Writer {
-        private final Appendable appendable;
-        private final C0690a mMS = new C0690a();
+        private final Appendable mjD;
+        private final C0714a mjE = new C0714a();
 
         a(Appendable appendable) {
-            this.appendable = appendable;
+            this.mjD = appendable;
         }
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.mMS.chars = cArr;
-            this.appendable.append(this.mMS, i, i + i2);
+            this.mjE.chars = cArr;
+            this.mjD.append(this.mjE, i, i + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i) throws IOException {
-            this.appendable.append((char) i);
+            this.mjD.append((char) i);
         }
 
         @Override // java.io.Writer, java.io.Flushable
@@ -70,10 +70,10 @@ public final class i {
 
         /* renamed from: com.google.gson.internal.i$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        static class C0690a implements CharSequence {
+        static class C0714a implements CharSequence {
             char[] chars;
 
-            C0690a() {
+            C0714a() {
             }
 
             @Override // java.lang.CharSequence

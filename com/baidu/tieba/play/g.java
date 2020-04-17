@@ -41,7 +41,7 @@ public interface g {
 
     /* renamed from: com.baidu.tieba.play.g$g  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0591g {
+    public interface InterfaceC0630g {
         void b(@Nullable g gVar);
     }
 
@@ -57,7 +57,7 @@ public interface g {
 
     void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, int i2);
 
-    void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, String str, boolean z);
+    void a(Context context, Uri uri, Map<String, String> map, SurfaceTexture surfaceTexture, String str);
 
     void a(c cVar);
 
@@ -69,11 +69,11 @@ public interface g {
 
     void a(i iVar);
 
-    int aWL();
+    int beR();
 
-    boolean aWM();
+    boolean beS();
 
-    void aWN();
+    void beT();
 
     void forceUseSystemMediaPlayer(boolean z);
 
@@ -97,8 +97,6 @@ public interface g {
 
     boolean isExistInRemote();
 
-    boolean isPlayerReuse();
-
     boolean isPlaying();
 
     void pause();
@@ -115,7 +113,7 @@ public interface g {
 
     void setOnPreparedListener(f fVar);
 
-    void setOnSeekCompleteListener(InterfaceC0591g interfaceC0591g);
+    void setOnSeekCompleteListener(InterfaceC0630g interfaceC0630g);
 
     void setSurface(SurfaceTexture surfaceTexture);
 

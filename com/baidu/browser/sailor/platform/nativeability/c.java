@@ -6,16 +6,16 @@ import com.baidu.browser.sailor.util.c;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 final class c implements c.a {
-    final /* synthetic */ BdLightappKernelJsCallback JB;
+    final /* synthetic */ BdLightappKernelJsCallback acG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BdLightappKernelJsCallback bdLightappKernelJsCallback) {
-        this.JB = bdLightappKernelJsCallback;
+        this.acG = bdLightappKernelJsCallback;
     }
 
     @Override // com.baidu.browser.sailor.util.c.a
     public final void a(JSONObject jSONObject) {
         String jSONObject2 = jSONObject.toString();
-        this.JB.sendCallBack((String) null, jSONObject2, !TextUtils.isEmpty(jSONObject2));
+        this.acG.sendCallBack((String) null, jSONObject2, !TextUtils.isEmpty(jSONObject2));
     }
 }

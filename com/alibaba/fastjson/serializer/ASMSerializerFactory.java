@@ -19,7 +19,6 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.minivideo.effect.core.entity.AEffectParams;
 import com.baidu.minivideo.plugin.capture.db.AuthoritySharedPreferences;
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -878,12 +877,12 @@ public class ASMSerializerFactory implements Opcodes {
         Label label = new Label();
         _nameApply(methodVisitor, fieldInfo, context, label);
         _get(methodVisitor, context, fieldInfo);
-        methodVisitor.visitVarInsn(56, context.var(AEffectParams.VALUE_TYPE_FLOAT));
+        methodVisitor.visitVarInsn(56, context.var("float"));
         _filters(methodVisitor, fieldInfo, context, label);
         methodVisitor.visitVarInsn(25, context.var("out"));
         methodVisitor.visitVarInsn(21, context.var("seperator"));
         methodVisitor.visitVarInsn(25, Context.fieldName);
-        methodVisitor.visitVarInsn(23, context.var(AEffectParams.VALUE_TYPE_FLOAT));
+        methodVisitor.visitVarInsn(23, context.var("float"));
         methodVisitor.visitMethodInsn(Opcodes.INVOKEVIRTUAL, SerializeWriter, "writeFieldValue", "(CLjava/lang/String;F)V");
         _seperator(methodVisitor, context);
         methodVisitor.visitLabel(label);
@@ -1327,7 +1326,7 @@ public class ASMSerializerFactory implements Opcodes {
                 methodVisitor.visitInsn(Opcodes.LCMP);
                 methodVisitor.visitJumpInsn(Opcodes.IFEQ, label);
             } else if (cls == Float.TYPE) {
-                methodVisitor.visitVarInsn(23, context.var(AEffectParams.VALUE_TYPE_FLOAT));
+                methodVisitor.visitVarInsn(23, context.var("float"));
                 methodVisitor.visitInsn(11);
                 methodVisitor.visitInsn(Opcodes.FCMPL);
                 methodVisitor.visitJumpInsn(Opcodes.IFEQ, label);
@@ -1363,7 +1362,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(22, context.var("long", 2));
             methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Long", "valueOf", "(J)Ljava/lang/Long;");
         } else if (cls == Float.TYPE) {
-            methodVisitor.visitVarInsn(23, context.var(AEffectParams.VALUE_TYPE_FLOAT));
+            methodVisitor.visitVarInsn(23, context.var("float"));
             methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
         } else if (cls == Double.TYPE) {
             methodVisitor.visitVarInsn(24, context.var("double", 2));
@@ -1432,7 +1431,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitInsn(89);
             methodVisitor.visitVarInsn(58, Context.original);
         } else if (cls == Float.TYPE) {
-            methodVisitor.visitVarInsn(23, context.var(AEffectParams.VALUE_TYPE_FLOAT));
+            methodVisitor.visitVarInsn(23, context.var("float"));
             methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
             methodVisitor.visitInsn(89);
             methodVisitor.visitVarInsn(58, Context.original);
@@ -1502,7 +1501,7 @@ public class ASMSerializerFactory implements Opcodes {
             methodVisitor.visitVarInsn(22, context.var("long", 2));
             methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Long", "valueOf", "(J)Ljava/lang/Long;");
         } else if (cls == Float.TYPE) {
-            methodVisitor.visitVarInsn(23, context.var(AEffectParams.VALUE_TYPE_FLOAT));
+            methodVisitor.visitVarInsn(23, context.var("float"));
             methodVisitor.visitMethodInsn(Opcodes.INVOKESTATIC, "java/lang/Float", "valueOf", "(F)Ljava/lang/Float;");
         } else if (cls == Double.TYPE) {
             methodVisitor.visitVarInsn(24, context.var("double", 2));

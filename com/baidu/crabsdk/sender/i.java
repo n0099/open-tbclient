@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,7 +22,7 @@ import org.json.JSONObject;
 import org.json.JSONStringer;
 /* loaded from: classes8.dex */
 public final class i {
-    public static synchronized List<String> M(Context context, String str) {
+    public static synchronized List<String> K(Context context, String str) {
         ArrayList arrayList;
         File[] listFiles;
         synchronized (i.class) {
@@ -60,17 +62,17 @@ public final class i {
         deflater2 = null;
         DeflaterOutputStream deflaterOutputStream2 = null;
         synchronized (i.class) {
-            com.baidu.crabsdk.c.a.cj("writeFile: " + str);
+            com.baidu.crabsdk.c.a.de("writeFile: " + str);
             h.m(str);
             if (com.baidu.crabsdk.a.G) {
                 String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, str);
                 try {
-                    str2 = com.baidu.crabsdk.c.d.O(str2, c);
+                    str2 = com.baidu.crabsdk.c.d.S(str2, c);
                 } catch (Exception e) {
                     com.baidu.crabsdk.c.a.f("crash content AES failed!", e);
                 }
                 try {
-                    h.b("key_" + str, com.baidu.crabsdk.c.e.cq(c));
+                    h.b("key_" + str, com.baidu.crabsdk.c.e.dl(c));
                 } catch (Exception e2) {
                     h.b("key_" + str, "NoEncrypt_" + c);
                     e2.printStackTrace();
@@ -236,7 +238,7 @@ public final class i {
         }
     }
 
-    public static synchronized List<String> av(Context context) {
+    public static synchronized List<String> aj(Context context) {
         ArrayList arrayList;
         synchronized (i.class) {
             arrayList = new ArrayList();
@@ -290,7 +292,65 @@ public final class i {
         }
     }
 
-    public static byte[] cv(String str) {
+    public static String d(Map<String, Object> map) {
+        if (map == null) {
+            return "";
+        }
+        if (map.containsKey(StatisticConstants.SCREENSHOT) && map.get(StatisticConstants.SCREENSHOT) != null && Build.VERSION.SDK_INT > 7) {
+            map.put(StatisticConstants.SCREENSHOT, Base64.encodeToString((byte[]) map.get(StatisticConstants.SCREENSHOT), 0));
+        }
+        JSONObject jSONObject = new JSONObject();
+        for (String str : map.keySet()) {
+            try {
+                Object obj = map.get(str);
+                if (obj instanceof String) {
+                    jSONObject.put(str, (String) obj);
+                } else if (obj instanceof Integer) {
+                    jSONObject.put(str, (Integer) obj);
+                } else if (obj instanceof Long) {
+                    jSONObject.put(str, (Long) obj);
+                } else if (obj instanceof Float) {
+                    jSONObject.put(str, (Float) obj);
+                } else {
+                    com.baidu.crabsdk.c.a.df("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
+                }
+            } catch (JSONException e) {
+                com.baidu.crabsdk.c.a.f("Could not create JSON object for key " + str, e);
+            }
+        }
+        return jSONObject.toString();
+    }
+
+    public static synchronized List<String> d(Context context, String str, boolean z) {
+        ArrayList arrayList;
+        synchronized (i.class) {
+            arrayList = new ArrayList();
+            File filesDir = context.getFilesDir();
+            if (filesDir != null) {
+                File[] listFiles = filesDir.listFiles();
+                for (File file : listFiles) {
+                    if (file.getName().startsWith("native_") && file.getName().endsWith(str)) {
+                        if (z) {
+                            arrayList.add(file.getAbsolutePath() + UgcConstant.AT_RULE_TAG + file.lastModified());
+                        } else {
+                            arrayList.add(file.getAbsolutePath());
+                        }
+                    }
+                }
+            }
+        }
+        return arrayList;
+    }
+
+    public static boolean deleteFile(String str) {
+        File file = new File(str);
+        if (file.exists()) {
+            return file.delete();
+        }
+        return false;
+    }
+
+    public static byte[] dq(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Throwable th;
@@ -379,13 +439,13 @@ public final class i {
         return bArr;
     }
 
-    public static String cw(String str) {
+    public static String dr(String str) {
         if (str == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         try {
-            com.baidu.crabsdk.c.a.cj("So libs path is: " + str);
+            com.baidu.crabsdk.c.a.de("So libs path is: " + str);
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
@@ -404,65 +464,7 @@ public final class i {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        com.baidu.crabsdk.c.a.cj("All so libs: " + sb.toString());
+        com.baidu.crabsdk.c.a.de("All so libs: " + sb.toString());
         return sb.toString();
-    }
-
-    public static synchronized List<String> d(Context context, String str, boolean z) {
-        ArrayList arrayList;
-        synchronized (i.class) {
-            arrayList = new ArrayList();
-            File filesDir = context.getFilesDir();
-            if (filesDir != null) {
-                File[] listFiles = filesDir.listFiles();
-                for (File file : listFiles) {
-                    if (file.getName().startsWith("native_") && file.getName().endsWith(str)) {
-                        if (z) {
-                            arrayList.add(file.getAbsolutePath() + "@" + file.lastModified());
-                        } else {
-                            arrayList.add(file.getAbsolutePath());
-                        }
-                    }
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static boolean deleteFile(String str) {
-        File file = new File(str);
-        if (file.exists()) {
-            return file.delete();
-        }
-        return false;
-    }
-
-    public static String g(Map<String, Object> map) {
-        if (map == null) {
-            return "";
-        }
-        if (map.containsKey("screenshot") && map.get("screenshot") != null && Build.VERSION.SDK_INT > 7) {
-            map.put("screenshot", Base64.encodeToString((byte[]) map.get("screenshot"), 0));
-        }
-        JSONObject jSONObject = new JSONObject();
-        for (String str : map.keySet()) {
-            try {
-                Object obj = map.get(str);
-                if (obj instanceof String) {
-                    jSONObject.put(str, (String) obj);
-                } else if (obj instanceof Integer) {
-                    jSONObject.put(str, (Integer) obj);
-                } else if (obj instanceof Long) {
-                    jSONObject.put(str, (Long) obj);
-                } else if (obj instanceof Float) {
-                    jSONObject.put(str, (Float) obj);
-                } else {
-                    com.baidu.crabsdk.c.a.ck("mapRecord2JSON: unexpected key[" + str + "]'s value " + obj);
-                }
-            } catch (JSONException e) {
-                com.baidu.crabsdk.c.a.f("Could not create JSON object for key " + str, e);
-            }
-        }
-        return jSONObject.toString();
     }
 }

@@ -1,16 +1,12 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.h;
 import io.reactivex.internal.subscriptions.BasicIntQueueSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-import io.reactivex.internal.util.EmptyComponent;
 import io.reactivex.j;
 import java.util.Map;
-import java.util.Queue;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -20,27 +16,11 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
     final int bufferSize;
     final boolean delayError;
     final h<? super T, ? extends K> keySelector;
-    final h<? super io.reactivex.c.g<Object>, ? extends Map<K, Object>> nyQ;
     final h<? super T, ? extends V> valueSelector;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super io.reactivex.b.b<K, V>> cVar) {
-        ConcurrentLinkedQueue concurrentLinkedQueue;
-        Map<K, Object> apply;
-        try {
-            if (this.nyQ == null) {
-                concurrentLinkedQueue = null;
-                apply = new ConcurrentHashMap<>();
-            } else {
-                concurrentLinkedQueue = new ConcurrentLinkedQueue();
-                apply = this.nyQ.apply(new a(concurrentLinkedQueue));
-            }
-            this.nyr.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError, apply, concurrentLinkedQueue));
-        } catch (Exception e) {
-            io.reactivex.exceptions.a.H(e);
-            cVar.onSubscribe(EmptyComponent.INSTANCE);
-            cVar.onError(e);
-        }
+        this.mRJ.a((j) new GroupBySubscriber(cVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
     /* loaded from: classes7.dex */
@@ -50,11 +30,8 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         final org.a.c<? super io.reactivex.b.b<K, V>> actual;
         final int bufferSize;
         final boolean delayError;
-        boolean done;
+        volatile boolean done;
         Throwable error;
-        final Queue<b<K, V>> evictedGroups;
-        volatile boolean finished;
-        final Map<Object, b<K, V>> groups;
         final h<? super T, ? extends K> keySelector;
         boolean outputFused;
         final io.reactivex.internal.queue.a<io.reactivex.b.b<K, V>> queue;
@@ -63,15 +40,14 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         final AtomicBoolean cancelled = new AtomicBoolean();
         final AtomicLong requested = new AtomicLong();
         final AtomicInteger groupCount = new AtomicInteger(1);
+        final Map<Object, a<K, V>> groups = new ConcurrentHashMap();
 
-        public GroupBySubscriber(org.a.c<? super io.reactivex.b.b<K, V>> cVar, h<? super T, ? extends K> hVar, h<? super T, ? extends V> hVar2, int i, boolean z, Map<Object, b<K, V>> map, Queue<b<K, V>> queue) {
+        public GroupBySubscriber(org.a.c<? super io.reactivex.b.b<K, V>> cVar, h<? super T, ? extends K> hVar, h<? super T, ? extends V> hVar2, int i, boolean z) {
             this.actual = cVar;
             this.keySelector = hVar;
             this.valueSelector = hVar2;
             this.bufferSize = i;
             this.delayError = z;
-            this.groups = map;
-            this.evictedGroups = queue;
             this.queue = new io.reactivex.internal.queue.a<>(i);
         }
 
@@ -84,7 +60,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: io.reactivex.internal.operators.flowable.FlowableGroupBy$b */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: io.reactivex.internal.operators.flowable.FlowableGroupBy$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // org.a.c
         public void onNext(T t) {
@@ -94,31 +70,30 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                 try {
                     Object apply = this.keySelector.apply(t);
                     Object obj = apply != null ? apply : NULL_KEY;
-                    b<K, V> bVar = this.groups.get(obj);
-                    if (bVar != null) {
+                    a<K, V> aVar2 = this.groups.get(obj);
+                    if (aVar2 != null) {
                         z = false;
                     } else if (!this.cancelled.get()) {
-                        bVar = b.a(apply, this.bufferSize, (GroupBySubscriber<?, Object, T>) this, this.delayError);
-                        this.groups.put(obj, bVar);
+                        aVar2 = a.a(apply, this.bufferSize, (GroupBySubscriber<?, Object, T>) this, this.delayError);
+                        this.groups.put(obj, aVar2);
                         this.groupCount.getAndIncrement();
                         z = true;
                     } else {
                         return;
                     }
                     try {
-                        bVar.onNext(io.reactivex.internal.functions.a.h(this.valueSelector.apply(t), "The valueSelector returned null"));
-                        completeEvictions();
+                        aVar2.onNext(io.reactivex.internal.functions.a.h(this.valueSelector.apply(t), "The valueSelector returned null"));
                         if (z) {
-                            aVar.offer(bVar);
+                            aVar.offer(aVar2);
                             drain();
                         }
                     } catch (Throwable th) {
-                        io.reactivex.exceptions.a.H(th);
+                        io.reactivex.exceptions.a.L(th);
                         this.s.cancel();
                         onError(th);
                     }
                 } catch (Throwable th2) {
-                    io.reactivex.exceptions.a.H(th2);
+                    io.reactivex.exceptions.a.L(th2);
                     this.s.cancel();
                     onError(th2);
                 }
@@ -131,31 +106,23 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                 io.reactivex.e.a.onError(th);
                 return;
             }
-            this.done = true;
-            for (b<K, V> bVar : this.groups.values()) {
-                bVar.onError(th);
+            for (a<K, V> aVar : this.groups.values()) {
+                aVar.onError(th);
             }
             this.groups.clear();
-            if (this.evictedGroups != null) {
-                this.evictedGroups.clear();
-            }
             this.error = th;
-            this.finished = true;
+            this.done = true;
             drain();
         }
 
         @Override // org.a.c
         public void onComplete() {
             if (!this.done) {
-                for (b<K, V> bVar : this.groups.values()) {
-                    bVar.onComplete();
+                for (a<K, V> aVar : this.groups.values()) {
+                    aVar.onComplete();
                 }
                 this.groups.clear();
-                if (this.evictedGroups != null) {
-                    this.evictedGroups.clear();
-                }
                 this.done = true;
-                this.finished = true;
                 drain();
             }
         }
@@ -170,30 +137,8 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
 
         @Override // org.a.d
         public void cancel() {
-            if (this.cancelled.compareAndSet(false, true)) {
-                completeEvictions();
-                if (this.groupCount.decrementAndGet() == 0) {
-                    this.s.cancel();
-                }
-            }
-        }
-
-        private void completeEvictions() {
-            int i;
-            if (this.evictedGroups != null) {
-                int i2 = 0;
-                while (true) {
-                    i = i2;
-                    b<K, V> poll = this.evictedGroups.poll();
-                    if (poll == null) {
-                        break;
-                    }
-                    poll.onComplete();
-                    i2 = i + 1;
-                }
-                if (i != 0) {
-                    this.groupCount.addAndGet(-i);
-                }
+            if (this.cancelled.compareAndSet(false, true) && this.groupCount.decrementAndGet() == 0) {
+                this.s.cancel();
             }
         }
 
@@ -226,7 +171,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
             io.reactivex.internal.queue.a<io.reactivex.b.b<K, V>> aVar = this.queue;
             org.a.c<? super io.reactivex.b.b<K, V>> cVar = this.actual;
             while (!this.cancelled.get()) {
-                boolean z = this.finished;
+                boolean z = this.done;
                 if (z && !this.delayError && (th = this.error) != null) {
                     aVar.clear();
                     cVar.onError(th);
@@ -259,7 +204,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                 long j = this.requested.get();
                 long j2 = 0;
                 while (j2 != j) {
-                    boolean z = this.finished;
+                    boolean z = this.done;
                     io.reactivex.b.b<K, V> poll = aVar.poll();
                     boolean z2 = poll == null;
                     if (!checkTerminated(z, z2, cVar, aVar)) {
@@ -272,9 +217,9 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                         return;
                     }
                 }
-                if (j2 != j || !checkTerminated(this.finished, aVar.isEmpty(), cVar, aVar)) {
+                if (j2 != j || !checkTerminated(this.done, aVar.isEmpty(), cVar, aVar)) {
                     if (j2 != 0) {
-                        if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+                        if (j != Long.MAX_VALUE) {
                             this.requested.addAndGet(-j2);
                         }
                         this.s.request(j2);
@@ -345,51 +290,35 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
         }
     }
 
-    /* loaded from: classes7.dex */
-    static final class a<K, V> implements io.reactivex.c.g<b<K, V>> {
-        final Queue<b<K, V>> evictedGroups;
-
-        a(Queue<b<K, V>> queue) {
-            this.evictedGroups = queue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // io.reactivex.c.g
-        /* renamed from: a */
-        public void accept(b<K, V> bVar) {
-            this.evictedGroups.offer(bVar);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class b<K, T> extends io.reactivex.b.b<K, T> {
-        final State<T, K> nyR;
+    public static final class a<K, T> extends io.reactivex.b.b<K, T> {
+        final State<T, K> mSj;
 
-        public static <T, K> b<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
-            return new b<>(k, new State(i, groupBySubscriber, k, z));
+        public static <T, K> a<K, T> a(K k, int i, GroupBySubscriber<?, K, T> groupBySubscriber, boolean z) {
+            return new a<>(k, new State(i, groupBySubscriber, k, z));
         }
 
-        protected b(K k, State<T, K> state) {
+        protected a(K k, State<T, K> state) {
             super(k);
-            this.nyR = state;
+            this.mSj = state;
         }
 
         @Override // io.reactivex.g
         protected void a(org.a.c<? super T> cVar) {
-            this.nyR.subscribe(cVar);
+            this.mSj.subscribe(cVar);
         }
 
         public void onNext(T t) {
-            this.nyR.onNext(t);
+            this.mSj.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.nyR.onError(th);
+            this.mSj.onError(th);
         }
 
         public void onComplete() {
-            this.nyR.onComplete();
+            this.mSj.onComplete();
         }
     }
 
@@ -533,7 +462,7 @@ public final class FlowableGroupBy<T, K, V> extends io.reactivex.internal.operat
                     }
                     if (j2 != j || !checkTerminated(this.done, aVar.isEmpty(), cVar, z)) {
                         if (j2 != 0) {
-                            if (j != Format.OFFSET_SAMPLE_RELATIVE) {
+                            if (j != Long.MAX_VALUE) {
                                 this.requested.addAndGet(-j2);
                             }
                             this.parent.s.request(j2);

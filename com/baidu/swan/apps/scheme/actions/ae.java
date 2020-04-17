@@ -23,11 +23,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.apps.network.f {
-    private int bRb;
+    private int cpO;
 
     public ae(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/uploadFile");
-        this.bRb = 0;
+        this.cpO = 0;
     }
 
     @Override // com.baidu.swan.apps.network.a, com.baidu.swan.apps.scheme.actions.ab
@@ -47,17 +47,17 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal resultCallback");
             return false;
         }
-        String acK = com.baidu.swan.apps.runtime.e.acK();
-        if (TextUtils.isEmpty(acK)) {
+        String akP = com.baidu.swan.apps.runtime.e.akP();
+        if (TextUtils.isEmpty(akP)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
             return false;
         }
-        String fH = com.baidu.swan.apps.api.module.g.c.fH(acK);
+        String gV = com.baidu.swan.apps.api.module.g.c.gV(akP);
         final String valueOf = String.valueOf(System.currentTimeMillis());
-        Request a = a(b, optString, fH, valueOf, eVar, callbackHandler);
+        Request a = a(b, optString, gV, valueOf, eVar, callbackHandler);
         if (a == null) {
-            unitedSchemeEntity.result = fC(this.bRb);
-            jF(valueOf);
+            unitedSchemeEntity.result = fJ(this.cpO);
+            kS(valueOf);
             return false;
         }
         JSONObject optJSONObject = b.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
@@ -65,18 +65,18 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
         HashMap<String, String> c = c(optJSONObject, true);
         String optString3 = b.optString("__plugin__");
         if (!TextUtils.isEmpty(optString3)) {
-            com.baidu.swan.pms.model.h kl = com.baidu.swan.apps.ag.g.b.kl(optString3);
+            com.baidu.swan.pms.model.h ly = com.baidu.swan.apps.ag.g.b.ly(optString3);
             if (c == null) {
                 c = new HashMap<>();
             }
-            c.put("X-SWAN-HOSTSIGN", com.baidu.swan.apps.ag.g.a.e(kl));
+            c.put("X-SWAN-HOSTSIGN", com.baidu.swan.apps.ag.g.a.e(ly));
         }
-        bVar.m(c);
-        eVar.acU().a(a, bVar, new Callback() { // from class: com.baidu.swan.apps.scheme.actions.ae.1
+        bVar.A(c);
+        eVar.akZ().a(a, bVar, new Callback() { // from class: com.baidu.swan.apps.scheme.actions.ae.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-                ae.this.jF(valueOf);
+                ae.this.kS(valueOf);
             }
 
             @Override // okhttp3.Callback
@@ -96,11 +96,11 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
                 } finally {
-                    ae.this.jF(valueOf);
+                    ae.this.kS(valueOf);
                 }
             }
         });
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(fJ(fH), 0));
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(gX(gV), 0));
         return true;
     }
 
@@ -128,28 +128,28 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
 
     @Nullable
     private Request a(@Nullable JSONObject jSONObject, @Nullable final String str, @Nullable String str2, @Nullable final String str3, @Nullable com.baidu.swan.apps.runtime.e eVar, @Nullable final CallbackHandler callbackHandler) {
-        HttpUrl fI;
+        HttpUrl gW;
         String str4;
-        if (jSONObject == null || (fI = com.baidu.swan.apps.api.module.g.c.fI(jSONObject.optString("url"))) == null) {
+        if (jSONObject == null || (gW = com.baidu.swan.apps.api.module.g.c.gW(jSONObject.optString("url"))) == null) {
             return null;
         }
-        String httpUrl = fI.toString();
+        String httpUrl = gW.toString();
         if (TextUtils.isEmpty(httpUrl)) {
             return null;
         }
-        this.bRb = com.baidu.swan.apps.aj.a.b.D("uploadFile", httpUrl, jSONObject.optString("__plugin__"));
-        if (this.bRb != 0) {
+        this.cpO = com.baidu.swan.apps.aj.a.b.D("uploadFile", httpUrl, jSONObject.optString("__plugin__"));
+        if (this.cpO != 0) {
             return null;
         }
         String optString = jSONObject.optString("filePath", "");
-        if (TextUtils.isEmpty(optString) || com.baidu.swan.d.c.rh(optString)) {
+        if (TextUtils.isEmpty(optString) || com.baidu.swan.d.c.sv(optString)) {
             return null;
         }
-        String mf = com.baidu.swan.apps.y.f.WV().WC().mf(optString);
-        if (TextUtils.isEmpty(mf)) {
+        String ns = com.baidu.swan.apps.y.f.aeK().aer().ns(optString);
+        if (TextUtils.isEmpty(ns)) {
             return null;
         }
-        File file = new File(mf);
+        File file = new File(ns);
         if (!file.exists() || !file.isFile()) {
             return null;
         }
@@ -165,15 +165,15 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
             return null;
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("formData");
-        this.bGp.put(str3, 0L);
+        this.ceZ.put(str3, 0L);
         String name = file.getName();
         if (!TextUtils.isEmpty(name)) {
-            String mI = com.baidu.swan.apps.as.o.mI(com.baidu.swan.apps.as.o.mH(name));
-            if (!TextUtils.isEmpty(mI)) {
-                str4 = mI;
+            String nV = com.baidu.swan.apps.as.o.nV(com.baidu.swan.apps.as.o.nU(name));
+            if (!TextUtils.isEmpty(nV)) {
+                str4 = nV;
                 com.baidu.swan.apps.network.c cVar = new com.baidu.swan.apps.network.c(file, str4, new com.baidu.swan.apps.network.b.a() { // from class: com.baidu.swan.apps.scheme.actions.ae.2
                     @Override // com.baidu.swan.apps.network.b.a
-                    public void at(long j) {
+                    public void aY(long j) {
                         ae.this.a(length, j, str, str3, callbackHandler);
                     }
                 });
@@ -186,7 +186,7 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
         str4 = "multipart/form-data";
         com.baidu.swan.apps.network.c cVar2 = new com.baidu.swan.apps.network.c(file, str4, new com.baidu.swan.apps.network.b.a() { // from class: com.baidu.swan.apps.scheme.actions.ae.2
             @Override // com.baidu.swan.apps.network.b.a
-            public void at(long j) {
+            public void aY(long j) {
                 ae.this.a(length, j, str, str3, callbackHandler);
             }
         });
@@ -200,7 +200,7 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
     public void a(long j, long j2, String str, String str2, CallbackHandler callbackHandler) {
         if (j > 0 && j2 <= j && j2 != 0 && !TextUtils.isEmpty(str) && callbackHandler != null) {
             int floor = (int) Math.floor((100 * j2) / j);
-            if (System.currentTimeMillis() - jE(str2) > 500 || floor == 100) {
+            if (System.currentTimeMillis() - kR(str2) > 500 || floor == 100) {
                 if (floor <= 100) {
                     try {
                         JSONObject jSONObject = new JSONObject();
@@ -214,7 +214,7 @@ public class ae extends com.baidu.swan.apps.network.a implements com.baidu.swan.
                         }
                     }
                 }
-                this.bGp.put(str2, Long.valueOf(System.currentTimeMillis()));
+                this.ceZ.put(str2, Long.valueOf(System.currentTimeMillis()));
             }
         }
     }

@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
 import io.reactivex.y;
@@ -17,10 +16,10 @@ public final class SingleDoFinally<T> extends w<T> {
     }
 
     /* loaded from: classes7.dex */
-    static final class DoFinallyObserver<T> extends AtomicInteger implements b, y<T> {
+    static final class DoFinallyObserver<T> extends AtomicInteger implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = 4109457741734051389L;
         final y<? super T> actual;
-        b d;
+        io.reactivex.disposables.b d;
         final io.reactivex.c.a onFinally;
 
         DoFinallyObserver(y<? super T> yVar, io.reactivex.c.a aVar) {
@@ -29,7 +28,7 @@ public final class SingleDoFinally<T> extends w<T> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.validate(this.d, bVar)) {
                 this.d = bVar;
                 this.actual.onSubscribe(this);
@@ -64,7 +63,7 @@ public final class SingleDoFinally<T> extends w<T> {
                 try {
                     this.onFinally.run();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     io.reactivex.e.a.onError(th);
                 }
             }

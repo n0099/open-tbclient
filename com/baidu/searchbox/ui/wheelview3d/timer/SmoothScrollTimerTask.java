@@ -1,12 +1,13 @@
 package com.baidu.searchbox.ui.wheelview3d.timer;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.searchbox.ui.wheelview3d.WheelView3d;
 import java.util.TimerTask;
 /* loaded from: classes13.dex */
 public final class SmoothScrollTimerTask extends TimerTask {
     private int offset;
     private final WheelView3d wheelView;
-    private int realTotalOffset = Integer.MAX_VALUE;
+    private int realTotalOffset = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     private int realOffset = 0;
 
     public SmoothScrollTimerTask(WheelView3d wheelView3d, int i) {

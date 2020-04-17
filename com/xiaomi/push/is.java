@@ -1,6 +1,5 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import java.nio.ByteBuffer;
 import java.util.Comparator;
@@ -159,7 +158,7 @@ public final class is {
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
-        return m460a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m461a(byteBuffer));
+        return m465a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m466a(byteBuffer));
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -169,7 +168,7 @@ public final class is {
         int i = limit - arrayOffset > 128 ? arrayOffset + 128 : limit;
         for (int i2 = arrayOffset; i2 < i; i2++) {
             if (i2 > arrayOffset) {
-                sb.append(HanziToPinyin.Token.SEPARATOR);
+                sb.append(" ");
             }
             sb.append(a(array[i2]));
         }
@@ -179,13 +178,13 @@ public final class is {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m460a(ByteBuffer byteBuffer) {
+    public static boolean m465a(ByteBuffer byteBuffer) {
         return byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m461a(ByteBuffer byteBuffer) {
-        if (m460a(byteBuffer)) {
+    public static byte[] m466a(ByteBuffer byteBuffer) {
+        if (m465a(byteBuffer)) {
             return byteBuffer.array();
         }
         byte[] bArr = new byte[byteBuffer.remaining()];

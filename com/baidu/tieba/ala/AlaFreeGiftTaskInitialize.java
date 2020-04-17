@@ -12,10 +12,10 @@ import com.baidu.tieba.ala.tasklist.AlaTaskListActivity;
 public class AlaFreeGiftTaskInitialize {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(f.class, AlaTaskListActivity.class);
-        bbA();
+        bjD();
     }
 
-    private static void bbA() {
+    private static void bjD() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2913034, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.ala.AlaFreeGiftTaskInitialize.1
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.x.b> run(CustomMessage<Context> customMessage) {
@@ -35,7 +35,7 @@ public class AlaFreeGiftTaskInitialize {
         CustomMessageTask customMessageTask3 = new CustomMessageTask(2913136, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.ala.AlaFreeGiftTaskInitialize.3
             @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.live.x.c> run(CustomMessage<Object> customMessage) {
-                return new CustomResponsedMessage<>(2913136, com.baidu.tieba.ala.liveroom.task.b.bqD());
+                return new CustomResponsedMessage<>(2913136, com.baidu.tieba.ala.liveroom.task.b.bAc());
             }
         });
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

@@ -4,7 +4,7 @@ import android.os.Process;
 /* loaded from: classes13.dex */
 public abstract class a implements Runnable {
     protected final String mName = "searchbox task: " + n();
-    protected final b Y = d.L();
+    protected final b Y = d.N();
 
     protected abstract void m();
 

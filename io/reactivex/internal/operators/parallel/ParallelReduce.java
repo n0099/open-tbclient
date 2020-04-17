@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.parallel;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.c.c;
 import io.reactivex.internal.subscribers.DeferredScalarSubscriber;
 import io.reactivex.internal.subscriptions.EmptySubscription;
@@ -10,8 +9,8 @@ import java.util.concurrent.Callable;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelReduce<T, R> extends a<R> {
-    final a<? extends T> nAt;
-    final Callable<R> nyz;
+    final Callable<R> mRS;
+    final a<? extends T> mTU;
     final c<R, ? super T, R> reducer;
 
     @Override // io.reactivex.parallel.a
@@ -21,14 +20,14 @@ public final class ParallelReduce<T, R> extends a<R> {
             org.a.c<? super Object>[] cVarArr2 = new org.a.c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.nyz.call(), "The initialSupplier returned a null value"), this.reducer);
+                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.mRS.call(), "The initialSupplier returned a null value"), this.reducer);
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.nAt.a(cVarArr2);
+            this.mTU.a(cVarArr2);
         }
     }
 
@@ -39,8 +38,8 @@ public final class ParallelReduce<T, R> extends a<R> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dJS() {
-        return this.nAt.dJS();
+    public int dCR() {
+        return this.mTU.dCR();
     }
 
     /* loaded from: classes7.dex */
@@ -61,7 +60,7 @@ public final class ParallelReduce<T, R> extends a<R> {
             if (SubscriptionHelper.validate(this.s, dVar)) {
                 this.s = dVar;
                 this.actual.onSubscribe(this);
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
@@ -71,7 +70,7 @@ public final class ParallelReduce<T, R> extends a<R> {
                 try {
                     this.accumulator = (R) io.reactivex.internal.functions.a.h(this.reducer.apply(this.accumulator, t), "The reducer returned a null value");
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     cancel();
                     onError(th);
                 }

@@ -32,10 +32,13 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
     private String imBjhAvatar;
     private boolean isBigV;
     private boolean isGod;
+    public boolean isMask;
     private int is_manager;
     private int is_myfans;
     private int is_myfriend;
-    private m pendantData;
+    private k pendantData;
+    public int rankInfluence;
+    public String rankNum;
     private String virtualUserUrl;
     private boolean isLikeStatusFromNet = false;
     private int is_like = 0;
@@ -436,7 +439,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.giftNum = user.gift_num.intValue();
             this.themeCard.parser(user.theme_card);
             if (user.pendant != null) {
-                this.pendantData = new m();
+                this.pendantData = new k();
                 this.pendantData.a(user.pendant);
             }
             this.isLikeStatusFromNet = true;
@@ -453,6 +456,9 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             this.baijiahaoInfo = user.baijiahao_info;
             this.canModifyAvatar = user.can_modify_avatar.intValue() == 0;
             this.cantModifyAvatarDesc = user.modify_avatar_desc;
+            this.rankNum = user.level_influence;
+            this.rankInfluence = user.influence == null ? 0 : user.influence.intValue();
+            this.isMask = user.is_mask.intValue() == 1;
         }
     }
 
@@ -573,12 +579,12 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.themeCard;
     }
 
-    public m getPendantData() {
+    public k getPendantData() {
         return this.pendantData;
     }
 
-    public void setPendantData(m mVar) {
-        this.pendantData = mVar;
+    public void setPendantData(k kVar) {
+        this.pendantData = kVar;
     }
 
     public String getVirtualUserUrl() {
@@ -629,5 +635,9 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
             return this.imBjhAvatar;
         }
         return this.portrait;
+    }
+
+    public String getAvatarH() {
+        return (this.baijiahaoInfo == null || TextUtils.isEmpty(this.baijiahaoInfo.avatar_h)) ? this.portraith : this.baijiahaoInfo.avatar_h;
     }
 }

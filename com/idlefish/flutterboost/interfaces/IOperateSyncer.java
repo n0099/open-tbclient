@@ -22,8 +22,6 @@ public interface IOperateSyncer {
 
     void onNewIntent(Intent intent);
 
-    void onPrimary(boolean z);
-
     void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
 
     void onTrimMemory(int i);

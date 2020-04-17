@@ -26,12 +26,14 @@ public class VideoInfo extends OrmObject implements Serializable {
     private List<String> mStickListInfo;
     private String thumbId;
     private String thumbPath;
+    private String thumbUriStr;
     private int videoDuration;
     private int videoHeight;
     private long videoLength;
     private String videoMd5;
     private String videoPath;
     private int videoType;
+    private String videoUriStr;
     private String videoUrl;
     private int videoWidth;
 
@@ -213,5 +215,21 @@ public class VideoInfo extends OrmObject implements Serializable {
 
     public void setMusicListInfo(List<String> list) {
         this.mMusicListInfo = list;
+    }
+
+    public String getThumbUriStr() {
+        return this.thumbUriStr;
+    }
+
+    public void setThumbUriStr(String str) {
+        this.thumbUriStr = str;
+    }
+
+    public String getVideoUriStr() {
+        return this.videoUriStr;
+    }
+
+    public void setVideoUriStr(String str) {
+        this.videoUriStr = str;
     }
 }

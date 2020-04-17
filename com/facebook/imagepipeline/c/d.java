@@ -18,7 +18,7 @@ public class d implements h.a {
             case OnSystemLowMemoryWhileAppInBackground:
                 return 1.0d;
             default:
-                com.facebook.common.c.a.j("BitmapMemoryCacheTrimStrategy", "unknown trim type: %s", memoryTrimType);
+                com.facebook.common.c.a.l("BitmapMemoryCacheTrimStrategy", "unknown trim type: %s", memoryTrimType);
                 return 0.0d;
         }
     }

@@ -20,29 +20,29 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.af;
 /* loaded from: classes11.dex */
 public class RefreshingAnimView extends View {
-    private static final double bNg = Math.sqrt(2.0d);
-    private boolean bLS;
-    private float bNA;
-    private ValueAnimator bNB;
-    float bNh;
-    float bNi;
-    float bNj;
-    float bNk;
-    float bNl;
-    float bNm;
-    float bNn;
-    private PointF bNo;
-    private Paint bNp;
-    private a bNq;
-    private RectF bNr;
-    private PointF bNs;
-    private PointF bNt;
-    private PointF bNu;
-    private float bNv;
-    private int bNw;
-    private int bNx;
-    private ValueAnimator bNy;
-    private float bNz;
+    private static final double clQ = Math.sqrt(2.0d);
+    private boolean ckC;
+    float clR;
+    float clS;
+    float clT;
+    float clU;
+    float clV;
+    float clW;
+    float clX;
+    private PointF clY;
+    private Paint clZ;
+    private a cma;
+    private RectF cmb;
+    private PointF cmc;
+    private PointF cme;
+    private PointF cmf;
+    private float cmg;
+    private int cmh;
+    private int cmi;
+    private ValueAnimator cmj;
+    private float cmk;
+    private float cml;
+    private ValueAnimator cmm;
     private Bitmap mBitmap;
     private Camera mCamera;
     private Canvas mCanvas;
@@ -53,126 +53,126 @@ public class RefreshingAnimView extends View {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void dy(boolean z);
+        void eu(boolean z);
     }
 
     static /* synthetic */ int a(RefreshingAnimView refreshingAnimView) {
-        int i = refreshingAnimView.bNx;
-        refreshingAnimView.bNx = i + 1;
+        int i = refreshingAnimView.cmi;
+        refreshingAnimView.cmi = i + 1;
         return i;
     }
 
     public RefreshingAnimView(Context context) {
         super(context);
-        this.bNh = 0.0f;
-        this.bNi = 0.0f;
-        this.bNj = 0.0f;
-        this.bNk = 0.0f;
-        this.bNl = 0.0f;
-        this.bNm = 0.0f;
-        this.bNn = 0.0f;
+        this.clR = 0.0f;
+        this.clS = 0.0f;
+        this.clT = 0.0f;
+        this.clU = 0.0f;
+        this.clV = 0.0f;
+        this.clW = 0.0f;
+        this.clX = 0.0f;
         this.mWidth = 0.0f;
-        this.bNo = new PointF();
-        this.bNr = new RectF();
-        this.bNs = new PointF();
-        this.bNt = new PointF();
-        this.bNu = new PointF();
-        this.bNv = 0.0f;
-        this.bNw = 0;
-        this.bNx = 1;
-        this.bNy = null;
-        this.bNz = 0.0f;
-        this.bNA = 0.0f;
-        this.bNB = null;
-        this.bLS = false;
+        this.clY = new PointF();
+        this.cmb = new RectF();
+        this.cmc = new PointF();
+        this.cme = new PointF();
+        this.cmf = new PointF();
+        this.cmg = 0.0f;
+        this.cmh = 0;
+        this.cmi = 1;
+        this.cmj = null;
+        this.cmk = 0.0f;
+        this.cml = 0.0f;
+        this.cmm = null;
+        this.ckC = false;
         this.mState = 0;
-        lQ();
+        qs();
     }
 
     public RefreshingAnimView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bNh = 0.0f;
-        this.bNi = 0.0f;
-        this.bNj = 0.0f;
-        this.bNk = 0.0f;
-        this.bNl = 0.0f;
-        this.bNm = 0.0f;
-        this.bNn = 0.0f;
+        this.clR = 0.0f;
+        this.clS = 0.0f;
+        this.clT = 0.0f;
+        this.clU = 0.0f;
+        this.clV = 0.0f;
+        this.clW = 0.0f;
+        this.clX = 0.0f;
         this.mWidth = 0.0f;
-        this.bNo = new PointF();
-        this.bNr = new RectF();
-        this.bNs = new PointF();
-        this.bNt = new PointF();
-        this.bNu = new PointF();
-        this.bNv = 0.0f;
-        this.bNw = 0;
-        this.bNx = 1;
-        this.bNy = null;
-        this.bNz = 0.0f;
-        this.bNA = 0.0f;
-        this.bNB = null;
-        this.bLS = false;
+        this.clY = new PointF();
+        this.cmb = new RectF();
+        this.cmc = new PointF();
+        this.cme = new PointF();
+        this.cmf = new PointF();
+        this.cmg = 0.0f;
+        this.cmh = 0;
+        this.cmi = 1;
+        this.cmj = null;
+        this.cmk = 0.0f;
+        this.cml = 0.0f;
+        this.cmm = null;
+        this.ckC = false;
         this.mState = 0;
-        lQ();
+        qs();
     }
 
     public RefreshingAnimView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bNh = 0.0f;
-        this.bNi = 0.0f;
-        this.bNj = 0.0f;
-        this.bNk = 0.0f;
-        this.bNl = 0.0f;
-        this.bNm = 0.0f;
-        this.bNn = 0.0f;
+        this.clR = 0.0f;
+        this.clS = 0.0f;
+        this.clT = 0.0f;
+        this.clU = 0.0f;
+        this.clV = 0.0f;
+        this.clW = 0.0f;
+        this.clX = 0.0f;
         this.mWidth = 0.0f;
-        this.bNo = new PointF();
-        this.bNr = new RectF();
-        this.bNs = new PointF();
-        this.bNt = new PointF();
-        this.bNu = new PointF();
-        this.bNv = 0.0f;
-        this.bNw = 0;
-        this.bNx = 1;
-        this.bNy = null;
-        this.bNz = 0.0f;
-        this.bNA = 0.0f;
-        this.bNB = null;
-        this.bLS = false;
+        this.clY = new PointF();
+        this.cmb = new RectF();
+        this.cmc = new PointF();
+        this.cme = new PointF();
+        this.cmf = new PointF();
+        this.cmg = 0.0f;
+        this.cmh = 0;
+        this.cmi = 1;
+        this.cmj = null;
+        this.cmk = 0.0f;
+        this.cml = 0.0f;
+        this.cmm = null;
+        this.ckC = false;
         this.mState = 0;
-        lQ();
+        qs();
     }
 
     public void setAnimPercent(float f) {
         float f2 = f >= 0.0f ? f : 0.0f;
-        this.bNh = f2 <= 1.0f ? f2 : 1.0f;
-        ach();
+        this.clR = f2 <= 1.0f ? f2 : 1.0f;
+        akm();
         postInvalidate();
     }
 
-    public void acg() {
-        ay(300L);
+    public void akl() {
+        bd(300L);
     }
 
-    private void ay(long j) {
+    private void bd(long j) {
         changeState(2);
-        if (this.bNB != null) {
-            abS();
+        if (this.cmm != null) {
+            ajX();
         }
-        this.bNB = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.bNB.setDuration(j);
-        this.bNB.setInterpolator(new LinearInterpolator());
-        this.bNB.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.RefreshingAnimView.1
+        this.cmm = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.cmm.setDuration(j);
+        this.cmm.setInterpolator(new LinearInterpolator());
+        this.cmm.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.RefreshingAnimView.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                RefreshingAnimView.this.P(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                RefreshingAnimView.this.v(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         });
-        this.bNB.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.RefreshingAnimView.2
+        this.cmm.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.RefreshingAnimView.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                RefreshingAnimView.this.az(750L);
+                RefreshingAnimView.this.be(750L);
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -185,30 +185,30 @@ public class RefreshingAnimView extends View {
                 super.onAnimationRepeat(animator);
             }
         });
-        if (!this.bNB.isRunning()) {
-            this.bNB.start();
+        if (!this.cmm.isRunning()) {
+            this.cmm.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void az(long j) {
+    public void be(long j) {
         changeState(3);
-        if (this.bNy != null) {
-            abS();
+        if (this.cmj != null) {
+            ajX();
         }
-        this.bNy = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.bNy.setDuration(j);
-        this.bNy.setInterpolator(new LinearInterpolator());
-        this.bNy.setRepeatCount(-1);
-        this.bNy.setRepeatMode(1);
-        this.bNy.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.RefreshingAnimView.3
+        this.cmj = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.cmj.setDuration(j);
+        this.cmj.setInterpolator(new LinearInterpolator());
+        this.cmj.setRepeatCount(-1);
+        this.cmj.setRepeatMode(1);
+        this.cmj.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.RefreshingAnimView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                RefreshingAnimView.this.Q(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                RefreshingAnimView.this.A(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         });
-        if (this.bNw > 0) {
-            this.bNy.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.RefreshingAnimView.4
+        if (this.cmh > 0) {
+            this.cmj.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.apps.res.ui.pullrefresh.RefreshingAnimView.4
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     super.onAnimationEnd(animator);
@@ -223,32 +223,32 @@ public class RefreshingAnimView extends View {
                 public void onAnimationRepeat(Animator animator) {
                     super.onAnimationRepeat(animator);
                     RefreshingAnimView.a(RefreshingAnimView.this);
-                    if (RefreshingAnimView.this.bNx > RefreshingAnimView.this.bNw && RefreshingAnimView.this.bNq != null) {
-                        RefreshingAnimView.this.bNq.dy(true);
+                    if (RefreshingAnimView.this.cmi > RefreshingAnimView.this.cmh && RefreshingAnimView.this.cma != null) {
+                        RefreshingAnimView.this.cma.eu(true);
                     }
                 }
             });
-        } else if (this.bNq != null) {
-            this.bNq.dy(true);
+        } else if (this.cma != null) {
+            this.cma.eu(true);
         }
-        if (!this.bNy.isRunning()) {
-            this.bNy.start();
+        if (!this.cmj.isRunning()) {
+            this.cmj.start();
         }
     }
 
     public void setAtLeastRotateRounds(int i) {
-        this.bNw = i;
+        this.cmh = i;
     }
 
     public void setOnLoadingAnimationListener(a aVar) {
-        this.bNq = aVar;
+        this.cma = aVar;
     }
 
     public void stopAnim() {
-        abS();
+        ajX();
         clearAnimation();
-        this.bNh = 0.0f;
-        this.bNx = 1;
+        this.clR = 0.0f;
+        this.cmi = 1;
         changeState(1);
         postInvalidate();
     }
@@ -261,14 +261,14 @@ public class RefreshingAnimView extends View {
         } else {
             this.mWidth = getMeasuredWidth();
         }
-        this.bNk = af.dip2px(getContext(), 8.0f);
-        this.bNm = af.dip2px(getContext(), 6.5f);
-        this.bNv = af.dip2px(getContext(), 5.0f);
-        this.bNn = af.dip2px(getContext(), 7.5f);
+        this.clU = af.dip2px(getContext(), 8.0f);
+        this.clW = af.dip2px(getContext(), 6.5f);
+        this.cmg = af.dip2px(getContext(), 5.0f);
+        this.clX = af.dip2px(getContext(), 7.5f);
         float f = this.mWidth / 2.0f;
-        this.bNo.set(f, f);
-        float f2 = f + ((float) (this.bNk / bNg));
-        this.bNt.set(f2, f2);
+        this.clY.set(f, f);
+        float f2 = f + ((float) (this.clU / clQ));
+        this.cme.set(f2, f2);
     }
 
     @Override // android.view.View
@@ -293,67 +293,67 @@ public class RefreshingAnimView extends View {
         if (this.mBitmap != null && this.mCanvas != null) {
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
-            if (this.bLS != com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState()) {
+            if (this.ckC != com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState()) {
                 this.mPaint.setColor(getResources().getColor(a.c.aiapps_pull_loading_refresh_anim_color));
-                this.bLS = com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState();
+                this.ckC = com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState();
             }
             this.mPaint.setAlpha(76);
-            this.bNr.set(this.bNo.x - this.bNk, this.bNo.y - this.bNk, this.bNo.x + this.bNk, this.bNo.y + this.bNk);
-            this.mCanvas.drawArc(this.bNr, -90.0f, (-360.0f) * this.bNi, true, this.mPaint);
-            this.mCanvas.drawCircle(this.bNo.x, this.bNo.y, this.bNl, this.bNp);
-            if (this.bNj > 0.0f) {
-                this.mCanvas.drawCircle(this.bNu.x, this.bNu.y, 0.75f, this.mPaint);
+            this.cmb.set(this.clY.x - this.clU, this.clY.y - this.clU, this.clY.x + this.clU, this.clY.y + this.clU);
+            this.mCanvas.drawArc(this.cmb, -90.0f, (-360.0f) * this.clS, true, this.mPaint);
+            this.mCanvas.drawCircle(this.clY.x, this.clY.y, this.clV, this.clZ);
+            if (this.clT > 0.0f) {
+                this.mCanvas.drawCircle(this.cmf.x, this.cmf.y, 0.75f, this.mPaint);
                 this.mPaint.setStyle(Paint.Style.STROKE);
                 this.mPaint.setStrokeWidth(af.dip2px(getContext(), 1.5f));
-                this.mCanvas.drawLine(this.bNt.x, this.bNt.y, this.bNu.x, this.bNu.y, this.mPaint);
+                this.mCanvas.drawLine(this.cme.x, this.cme.y, this.cmf.x, this.cmf.y, this.mPaint);
             }
             canvas.drawBitmap(this.mBitmap, 0.0f, 0.0f, (Paint) null);
         }
     }
 
-    private void ach() {
-        this.bNi = this.bNh;
-        if (this.bNh < 0.5f) {
-            this.bNj = 0.0f;
-            this.bNl = 0.0f;
+    private void akm() {
+        this.clS = this.clR;
+        if (this.clR < 0.5f) {
+            this.clT = 0.0f;
+            this.clV = 0.0f;
             return;
         }
-        this.bNl = ((this.bNh - 0.5f) / 0.5f) * this.bNm;
-        if (this.bNh < 0.625f) {
-            this.bNj = 0.0f;
+        this.clV = ((this.clR - 0.5f) / 0.5f) * this.clW;
+        if (this.clR < 0.625f) {
+            this.clT = 0.0f;
             return;
         }
-        this.bNj = (this.bNh - 0.625f) / 0.375f;
-        this.bNu.set(this.bNt.x + ((float) ((this.bNv * this.bNj) / bNg)), this.bNt.y + ((float) ((this.bNv * this.bNj) / bNg)));
+        this.clT = (this.clR - 0.625f) / 0.375f;
+        this.cmf.set(this.cme.x + ((float) ((this.cmg * this.clT) / clQ)), this.cme.y + ((float) ((this.cmg * this.clT) / clQ)));
     }
 
     private void r(Canvas canvas) {
         if (this.mBitmap != null && this.mCanvas != null) {
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
-            this.mPaint.setAlpha((int) (255.0d * ((this.bNA * 0.3d) + 0.3d)));
-            float f = this.bNt.x + ((float) (this.bNv / bNg));
-            this.mCanvas.drawCircle(this.bNo.x, this.bNo.y, this.bNk, this.mPaint);
-            this.mCanvas.drawCircle(this.bNo.x, this.bNo.y, this.bNm, this.bNp);
+            this.mPaint.setAlpha((int) (255.0d * ((this.cml * 0.3d) + 0.3d)));
+            float f = this.cme.x + ((float) (this.cmg / clQ));
+            this.mCanvas.drawCircle(this.clY.x, this.clY.y, this.clU, this.mPaint);
+            this.mCanvas.drawCircle(this.clY.x, this.clY.y, this.clW, this.clZ);
             this.mCanvas.drawCircle(f, f, 0.75f, this.mPaint);
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setStrokeWidth(af.dip2px(getContext(), 1.5f));
-            this.mCanvas.drawLine(this.bNt.x, this.bNt.y, f, f, this.mPaint);
+            this.mCanvas.drawLine(this.cme.x, this.cme.y, f, f, this.mPaint);
             this.mMatrix.reset();
             this.mCamera.save();
             this.mCamera.setLocation(0.0f, 0.0f, -100.0f);
-            this.mCamera.rotateY(this.bNA * 90.0f);
+            this.mCamera.rotateY(this.cml * 90.0f);
             this.mCamera.getMatrix(this.mMatrix);
             this.mCamera.restore();
-            this.mMatrix.preTranslate(-this.bNo.x, -this.bNo.y);
-            this.mMatrix.postTranslate(this.bNo.x, this.bNo.y);
+            this.mMatrix.preTranslate(-this.clY.x, -this.clY.y);
+            this.mMatrix.postTranslate(this.clY.x, this.clY.y);
             canvas.drawBitmap(this.mBitmap, this.mMatrix, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void P(float f) {
-        this.bNA = f;
+    public void v(float f) {
+        this.cml = f;
         postInvalidate();
     }
 
@@ -361,42 +361,42 @@ public class RefreshingAnimView extends View {
         if (this.mBitmap != null && this.mCanvas != null) {
             this.mBitmap.eraseColor(0);
             this.mPaint.setStyle(Paint.Style.FILL);
-            int abs = (int) ((((1.0d - (Math.abs(this.bNz - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d);
-            if (this.bLS) {
-                abs = (int) ((((1.0d - (Math.abs(this.bNz - 0.5d) * 2.0d)) * 0.2d) + 0.1d) * 255.0d);
+            int abs = (int) ((((1.0d - (Math.abs(this.cmk - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d);
+            if (this.ckC) {
+                abs = (int) ((((1.0d - (Math.abs(this.cmk - 0.5d) * 2.0d)) * 0.2d) + 0.1d) * 255.0d);
             }
             this.mPaint.setAlpha(abs);
-            this.mCanvas.drawCircle(this.bNo.x, this.bNo.y, this.bNn, this.mPaint);
+            this.mCanvas.drawCircle(this.clY.x, this.clY.y, this.clX, this.mPaint);
             this.mMatrix.reset();
             this.mCamera.save();
             this.mCamera.setLocation(0.0f, 0.0f, -100.0f);
-            this.mCamera.rotateY((this.bNz * 360.0f) + 90.0f);
+            this.mCamera.rotateY((this.cmk * 360.0f) + 90.0f);
             this.mCamera.getMatrix(this.mMatrix);
             this.mCamera.restore();
-            this.mMatrix.preTranslate(-this.bNo.x, -this.bNo.y);
-            this.mMatrix.postTranslate(this.bNo.x, this.bNo.y);
+            this.mMatrix.preTranslate(-this.clY.x, -this.clY.y);
+            this.mMatrix.postTranslate(this.clY.x, this.clY.y);
             canvas.drawBitmap(this.mBitmap, this.mMatrix, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Q(float f) {
+    public void A(float f) {
         if (f < 0.2f) {
-            this.bNz = (f / 0.2f) * 0.5f;
+            this.cmk = (f / 0.2f) * 0.5f;
         } else {
-            this.bNz = (((f - 0.2f) / 0.8f) * 0.5f) + 0.5f;
+            this.cmk = (((f - 0.2f) / 0.8f) * 0.5f) + 0.5f;
         }
         postInvalidate();
     }
 
-    private void lQ() {
-        this.bLS = com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState();
+    private void qs() {
+        this.ckC = com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(getResources().getColor(a.c.aiapps_pull_loading_refresh_anim_color));
-        this.bNp = new Paint();
-        this.bNp.setAntiAlias(true);
-        this.bNp.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.clZ = new Paint();
+        this.clZ.setAntiAlias(true);
+        this.clZ.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         this.mCamera = new Camera();
         this.mMatrix = new Matrix();
         changeState(1);
@@ -415,26 +415,26 @@ public class RefreshingAnimView extends View {
         }
     }
 
-    private void abS() {
-        if (this.bNB != null) {
-            this.bNB.setRepeatCount(0);
-            this.bNB.removeAllUpdateListeners();
-            this.bNB.removeAllListeners();
-            this.bNB.end();
-            this.bNB.cancel();
+    private void ajX() {
+        if (this.cmm != null) {
+            this.cmm.setRepeatCount(0);
+            this.cmm.removeAllUpdateListeners();
+            this.cmm.removeAllListeners();
+            this.cmm.end();
+            this.cmm.cancel();
         }
-        if (this.bNy != null) {
-            this.bNy.setRepeatCount(0);
-            this.bNy.removeAllUpdateListeners();
-            this.bNy.removeAllListeners();
-            this.bNy.end();
-            this.bNy.cancel();
+        if (this.cmj != null) {
+            this.cmj.setRepeatCount(0);
+            this.cmj.removeAllUpdateListeners();
+            this.cmj.removeAllListeners();
+            this.cmj.end();
+            this.cmj.cancel();
         }
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        abS();
+        ajX();
     }
 }

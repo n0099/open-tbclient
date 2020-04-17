@@ -2,7 +2,6 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
 import com.baidu.sapi2.callback.FillUsernameCallback;
@@ -46,7 +45,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.webkit.internal.ETAG;
 import com.tencent.open.SocialOperation;
 import java.util.ArrayList;
@@ -62,7 +60,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     /* JADX INFO: Access modifiers changed from: package-private */
     public String b() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair("client", PraiseDataPassUtil.KEY_FROM_OS));
+        arrayList.add(new PassNameValuePair("client", "android"));
         arrayList.add(new PassNameValuePair("clientfrom", a));
         arrayList.add(new PassNameValuePair("adapter", "3"));
         arrayList.add(new PassNameValuePair("banner", "1"));
@@ -400,7 +398,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     /* JADX INFO: Access modifiers changed from: package-private */
     public String b(SocialType socialType) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair(LogConfig.KEY_DISPLAY, a));
+        arrayList.add(new PassNameValuePair("display", a));
         arrayList.add(new PassNameValuePair("type", socialType.getType() + ""));
         arrayList.add(new PassNameValuePair("guidebind", "1"));
         arrayList.add(new PassNameValuePair("expSid", this.b.sidValue));
@@ -444,7 +442,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
         arrayList.add(new PassNameValuePair("clientfrom", a));
         arrayList.add(new PassNameValuePair("tpl", this.b.tpl));
         arrayList.add(new PassNameValuePair("login_share_strategy", this.b.loginShareStrategy().getStrValue()));
-        arrayList.add(new PassNameValuePair("client", PraiseDataPassUtil.KEY_FROM_OS));
+        arrayList.add(new PassNameValuePair("client", "android"));
         if (z) {
             arrayList.add(new PassNameValuePair("adapter", this.b.customActionBarEnabled ? "3" : ""));
         }
@@ -479,7 +477,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(SocialType socialType, String str, String str2, String str3) {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair(LogConfig.KEY_DISPLAY, a));
+        arrayList.add(new PassNameValuePair("display", a));
         arrayList.add(new PassNameValuePair("type", socialType.getType() + ""));
         arrayList.add(new PassNameValuePair("act", this.b.socialBindType.getName()));
         if (!TextUtils.isEmpty(str3)) {
@@ -517,7 +515,7 @@ public final class SapiAccountService implements com.baidu.sapi2.service.interfa
             arrayList.add(new PassNameValuePair("adapter", "3"));
         }
         arrayList.add(new PassNameValuePair("appid", this.b.wxAppID));
-        arrayList.add(new PassNameValuePair(LogConfig.KEY_DISPLAY, a));
+        arrayList.add(new PassNameValuePair("display", a));
         arrayList.add(new PassNameValuePair("expSid", this.b.sidValue));
         return this.c.i() + "?" + g() + ETAG.ITEM_SEPARATOR + SapiUtils.createRequestParams(arrayList);
     }

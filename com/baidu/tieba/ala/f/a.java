@@ -1,45 +1,71 @@
 package com.baidu.tieba.ala.f;
+
+import com.baidu.live.adp.base.BdBaseModel;
+import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.HttpMessageListener;
+import com.baidu.live.adp.framework.message.HttpMessage;
+import com.baidu.live.adp.framework.message.HttpResponsedMessage;
+import com.baidu.live.tbadk.TbConfig;
+import com.baidu.live.tbadk.TbPageContext;
+import com.baidu.live.tbadk.task.TbHttpMessageTask;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes3.dex */
-public class a {
-    public static String df(long j) {
-        int i;
-        int i2;
-        int i3;
-        int i4 = (int) (j / 1000);
-        if (3600 <= i4) {
-            int i5 = i4 / 3600;
-            i4 -= i5 * 3600;
-            i = i5;
-        } else {
-            i = 0;
-        }
-        if (60 <= i4) {
-            int i6 = i4 / 60;
-            i2 = i4 - (i6 * 60);
-            i3 = i6;
-        } else {
-            i2 = i4;
-            i3 = 0;
-        }
-        if (i2 < 0) {
-            i2 = 0;
-        }
-        StringBuilder sb = new StringBuilder();
-        if (i < 10) {
-            sb.append("0").append(i).append(":");
-        } else {
-            sb.append(i).append(":");
-        }
-        if (i3 < 10) {
-            sb.append("0").append(i3).append(":");
-        } else {
-            sb.append(i3).append(":");
-        }
-        if (i2 < 10) {
-            sb.append("0").append(i2);
-        } else {
-            sb.append(i2);
-        }
-        return sb.toString();
+public class a extends BdBaseModel {
+    private HttpMessageListener fUr;
+    private InterfaceC0465a fgg;
+
+    /* renamed from: com.baidu.tieba.ala.f.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0465a {
+        void a(int i, String str, Object obj);
+    }
+
+    public a(TbPageContext tbPageContext, InterfaceC0465a interfaceC0465a) {
+        super(tbPageContext);
+        this.fUr = new HttpMessageListener(1021118) { // from class: com.baidu.tieba.ala.f.a.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetChallengeHistoryListResponseMessage) && httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.unique_id) {
+                    a.this.fgg.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), httpResponsedMessage);
+                }
+            }
+        };
+        this.fgg = interfaceC0465a;
+        xC();
+        registerListener(this.fUr);
+    }
+
+    private void xC() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021118, TbConfig.SERVER_ADDRESS + "ala/web/pk/getPkHistory");
+        tbHttpMessageTask.setIsNeedLogin(false);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(AlaGetChallengeHistoryListResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void Be(String str) {
+        HttpMessage httpMessage = new HttpMessage(1021118);
+        httpMessage.addParam("portrait", str);
+        httpMessage.addParam(Config.PACKAGE_NAME, 1);
+        httpMessage.addParam("ps", 100);
+        httpMessage.setTag(this.unique_id);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    protected boolean loadData() {
+        return false;
+    }
+
+    @Override // com.baidu.live.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void destroy() {
+        MessageManager.getInstance().unRegisterTask(1021118);
     }
 }

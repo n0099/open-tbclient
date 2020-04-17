@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.observable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
 import io.reactivex.v;
@@ -58,7 +57,7 @@ public final class ObservableTakeLastTimed<T> extends a<T, T> {
             long a = this.scheduler.a(this.unit);
             long j = this.time;
             long j2 = this.count;
-            boolean z = j2 == Format.OFFSET_SAMPLE_RELATIVE;
+            boolean z = j2 == Long.MAX_VALUE;
             aVar.offer(Long.valueOf(a), t);
             while (!aVar.isEmpty()) {
                 if (((Long) aVar.peek()).longValue() <= a - j || (!z && (aVar.size() >> 1) > j2)) {

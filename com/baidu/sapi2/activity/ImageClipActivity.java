@@ -19,7 +19,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.ZoomImageView;
@@ -168,7 +168,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.aa = ClipBoxView.a;
             clipBoxView.ba = false;
         }
-        setPendingTransition(a.C0075a.sapi_sdk_slide_right_in, a.C0075a.sapi_sdk_slide_left_out, a.C0075a.sapi_sdk_slide_left_in, a.C0075a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0090a.sapi_sdk_slide_right_in, a.C0090a.sapi_sdk_slide_left_out, a.C0090a.sapi_sdk_slide_left_in, a.C0090a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {

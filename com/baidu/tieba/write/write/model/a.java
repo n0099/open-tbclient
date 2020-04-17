@@ -1,7 +1,7 @@
 package com.baidu.tieba.write.write.model;
 
 import java.util.List;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public interface a {
-    void eB(List<String> list);
+    void eQ(List<String> list);
 }

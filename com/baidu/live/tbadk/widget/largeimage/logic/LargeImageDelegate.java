@@ -36,7 +36,6 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
     private static final int LOAD_TYPE_DEFALUE = 0;
     private static final int LOAD_TYPE_ORIGIN = 1;
     private static final String TAG = LargeImageDelegate.class.getSimpleName();
-    private static final int TOUCH_SLOP = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
     private BitmapDecoderCreator mBitmapDecoderCreator;
     private BitmapRegionDecoder mBitmapRegionDecoder;
     private View.OnClickListener mClickListener;
@@ -57,6 +56,7 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
     private float mMaxScale = 2.0f;
     private float mInitScale = 1.0f;
     private final Matrix mDisplayMatrix = new Matrix();
+    private final int TOUCH_SLOP = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
     Bitmap mThumbnailBitmap = null;
     private boolean mIsTop = true;
     private boolean mIsYScrollInLastAction = false;
@@ -123,8 +123,10 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
                 case 0:
                     if (!this.mScroller.isFinished()) {
                         this.mIsYScrollInLastAction = true;
+                        break;
                     } else {
                         this.mIsYScrollInLastAction = false;
+                        break;
                     }
                 case 1:
                 case 3:
@@ -419,7 +421,7 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             LargeImageDelegate.this.moveTo((int) f, (int) f2);
-            if (Math.abs(f2) > LargeImageDelegate.TOUCH_SLOP) {
+            if (Math.abs(f2) > LargeImageDelegate.this.TOUCH_SLOP) {
                 LargeImageDelegate.this.mIsYScrollInLastAction = true;
             }
             return true;
@@ -442,7 +444,7 @@ public class LargeImageDelegate implements ILoadBlockBitmapCallback {
             LargeImageDelegate.this.mScroller.forceFinished(true);
             LargeImageDelegate.this.mScroller.fling((int) 0.0f, (int) 0.0f, (int) f, (int) f2, (int) f3, (int) f4, (int) f5, (int) f6);
             LargeImageDelegate.this.mImageView.invalidate();
-            if (Math.abs(f2) > LargeImageDelegate.TOUCH_SLOP) {
+            if (Math.abs(f2) > LargeImageDelegate.this.TOUCH_SLOP) {
                 LargeImageDelegate.this.mIsYScrollInLastAction = true;
             }
             return true;

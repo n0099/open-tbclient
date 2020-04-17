@@ -1,16 +1,16 @@
 package com.baidu.tieba.person.b;
 
 import android.view.View;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
-public class a extends v.a {
-    public int Nj;
-    public View jhX;
+public class a extends y.a {
+    public int afT;
+    public View jSf;
 
     public a(View view) {
         super(view);
-        this.Nj = -1;
-        this.jhX = view.findViewById(R.id.person_center_interval_item);
+        this.afT = -1;
+        this.jSf = view.findViewById(R.id.person_center_interval_item);
     }
 }

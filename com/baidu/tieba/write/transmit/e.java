@@ -2,7 +2,7 @@ package com.baidu.tieba.write.transmit;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class e implements m {
     public static final BdUniqueId ID_TRANSMIT_SELECT_DATA = BdUniqueId.gen();
 

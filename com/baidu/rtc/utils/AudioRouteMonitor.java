@@ -16,9 +16,9 @@ public class AudioRouteMonitor extends BroadcastReceiver {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void dH(int i);
+        void dQ(int i);
 
-        void dI(int i);
+        void dR(int i);
     }
 
     public AudioRouteMonitor(a aVar) {
@@ -39,17 +39,17 @@ public class AudioRouteMonitor extends BroadcastReceiver {
         this.mContext.registerReceiver(this, intentFilter);
         try {
             if (BluetoothAdapter.getDefaultAdapter().getProfileConnectionState(1) == 2) {
-                this.mCallback.dI(1);
+                this.mCallback.dR(1);
             } else {
-                this.mCallback.dI(0);
+                this.mCallback.dR(0);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         if (((AudioManager) this.mContext.getSystemService("audio")).isWiredHeadsetOn()) {
-            this.mCallback.dH(1);
+            this.mCallback.dQ(1);
         } else {
-            this.mCallback.dH(0);
+            this.mCallback.dQ(0);
         }
         return 0;
     }
@@ -68,12 +68,12 @@ public class AudioRouteMonitor extends BroadcastReceiver {
         String action = intent.getAction();
         if ("android.intent.action.HEADSET_PLUG".equals(action)) {
             if (intent.hasExtra("state")) {
-                this.mCallback.dH(intent.getIntExtra("state", 0));
+                this.mCallback.dQ(intent.getIntExtra("state", 0));
             }
         } else if ("android.bluetooth.adapter.action.STATE_CHANGED".equals(action)) {
             if (intent.getIntExtra("android.bluetooth.adapter.extra.STATE", Integer.MIN_VALUE) == 10) {
                 this.mBluetoothOpSeq++;
-                this.mCallback.dI(0);
+                this.mCallback.dR(0);
             }
         } else if ("android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED".equals(action)) {
             int intExtra = intent.getIntExtra("android.bluetooth.profile.extra.STATE", Integer.MIN_VALUE);
@@ -89,13 +89,13 @@ public class AudioRouteMonitor extends BroadcastReceiver {
                             e.printStackTrace();
                         }
                         if (AudioRouteMonitor.this.mBluetoothOpSeq == i) {
-                            AudioRouteMonitor.this.mCallback.dI(1);
+                            AudioRouteMonitor.this.mCallback.dR(1);
                         }
                     }
                 }, 1000L);
             } else if (intExtra == 0) {
                 this.mBluetoothOpSeq++;
-                this.mCallback.dI(0);
+                this.mCallback.dR(0);
             }
         }
     }

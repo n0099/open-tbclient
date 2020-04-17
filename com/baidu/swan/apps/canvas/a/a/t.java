@@ -10,7 +10,7 @@ public class t extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        bVar.Ks();
+        bVar.Sg();
         try {
             canvas.restore();
         } catch (IllegalStateException e) {

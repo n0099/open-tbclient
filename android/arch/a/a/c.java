@@ -5,9 +5,9 @@ import android.support.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes6.dex */
 public abstract class c {
-    public abstract void c(@NonNull Runnable runnable);
+    public abstract void e(@NonNull Runnable runnable);
 
-    public abstract void d(@NonNull Runnable runnable);
+    public abstract void f(@NonNull Runnable runnable);
 
     public abstract boolean isMainThread();
 }

@@ -9,15 +9,15 @@ public class p {
 
     /* loaded from: classes13.dex */
     public interface b {
-        public static final b lOE = j.lON;
-        public static final b lOF = i.lON;
-        public static final b lOG = g.lON;
-        public static final b lOH = h.lON;
-        public static final b lOI = c.lON;
-        public static final b lOJ = e.lON;
-        public static final b lOK = d.lON;
-        public static final b lOL = k.lON;
-        public static final b lOM = f.lON;
+        public static final b lWa = j.lWj;
+        public static final b lWb = i.lWj;
+        public static final b lWc = g.lWj;
+        public static final b lWd = h.lWj;
+        public static final b lWe = c.lWj;
+        public static final b lWf = e.lWj;
+        public static final b lWg = d.lWj;
+        public static final b lWh = k.lWj;
+        public static final b lWi = f.lWj;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -28,7 +28,7 @@ public class p {
     }
 
     @Nullable
-    public static o p(Drawable drawable) {
+    public static o l(Drawable drawable) {
         if (drawable == null) {
             return null;
         }
@@ -36,15 +36,15 @@ public class p {
             return (o) drawable;
         }
         if (drawable instanceof com.facebook.drawee.drawable.c) {
-            return p(((com.facebook.drawee.drawable.c) drawable).getDrawable());
+            return l(((com.facebook.drawee.drawable.c) drawable).getDrawable());
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
-            int dmP = aVar.dmP();
-            for (int i2 = 0; i2 < dmP; i2++) {
-                o p = p(aVar.getDrawable(i2));
-                if (p != null) {
-                    return p;
+            int doJ = aVar.doJ();
+            for (int i2 = 0; i2 < doJ; i2++) {
+                o l2 = l(aVar.getDrawable(i2));
+                if (l2 != null) {
+                    return l2;
                 }
             }
         }
@@ -64,7 +64,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class j extends a {
-        public static final b lON = new j();
+        public static final b lWj = new j();
 
         private j() {
         }
@@ -82,7 +82,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class i extends a {
-        public static final b lON = new i();
+        public static final b lWj = new i();
 
         private i() {
         }
@@ -101,7 +101,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class f extends a {
-        public static final b lON = new f();
+        public static final b lWj = new f();
 
         private f() {
         }
@@ -120,7 +120,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class g extends a {
-        public static final b lON = new g();
+        public static final b lWj = new g();
 
         private g() {
         }
@@ -140,7 +140,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class h extends a {
-        public static final b lON = new h();
+        public static final b lWj = new h();
 
         private h() {
         }
@@ -160,7 +160,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class c extends a {
-        public static final b lON = new c();
+        public static final b lWj = new c();
 
         private c() {
         }
@@ -177,7 +177,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class e extends a {
-        public static final b lON = new e();
+        public static final b lWj = new e();
 
         private e() {
         }
@@ -197,7 +197,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class d extends a {
-        public static final b lON = new d();
+        public static final b lWj = new d();
 
         private d() {
         }
@@ -225,7 +225,7 @@ public class p {
 
     /* loaded from: classes13.dex */
     private static class k extends a {
-        public static final b lON = new k();
+        public static final b lWj = new k();
 
         private k() {
         }

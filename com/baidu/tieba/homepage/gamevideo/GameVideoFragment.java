@@ -12,76 +12,76 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.util.z;
-import com.baidu.tieba.frs.ag;
+import com.baidu.tieba.frs.aj;
 import com.baidu.tieba.homepage.gamevideo.b.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
-public class GameVideoFragment extends BaseFragment implements ag {
-    private c hbN;
+public class GameVideoFragment extends BaseFragment implements aj {
+    private c hLD;
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.hbN == null) {
-            this.hbN = new c(getPageContext(), getUniqueId());
+        if (this.hLD == null) {
+            this.hLD = new c(getPageContext(), getUniqueId());
         }
-        this.hbN.init();
+        this.hLD.init();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.hbN == null || this.hbN.getView() == null) {
+        if (this.hLD == null || this.hLD.getView() == null) {
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
-        if (this.hbN.getView().getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.hbN.getView().getParent()).removeView(this.hbN.getView());
+        if (this.hLD.getView().getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.hLD.getView().getParent()).removeView(this.hLD.getView());
         }
-        return this.hbN.getView();
+        return this.hLD.getView();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (this.hbN != null) {
-            this.hbN.loadData();
+        if (this.hLD != null) {
+            this.hLD.loadData();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ag
-    public void AJ() {
-        if (this.hbN != null) {
-            this.hbN.AJ();
+    @Override // com.baidu.tieba.frs.aj
+    public void FH() {
+        if (this.hLD != null) {
+            this.hLD.FH();
         }
     }
 
-    @Override // com.baidu.tieba.frs.ag
-    public void bcE() {
+    @Override // com.baidu.tieba.frs.aj
+    public void blv() {
     }
 
-    @Override // com.baidu.tieba.frs.ag
-    public void bcF() {
+    @Override // com.baidu.tieba.frs.aj
+    public void blw() {
     }
 
-    @Override // com.baidu.tieba.frs.ag
+    @Override // com.baidu.tieba.frs.aj
     public void setRecommendFrsNavigationAnimDispatcher(z zVar) {
     }
 
-    @Override // com.baidu.tieba.frs.ag
+    @Override // com.baidu.tieba.frs.aj
     public void showFloatingView() {
     }
 
-    @Override // com.baidu.tieba.frs.ag
-    public void aHS() {
+    @Override // com.baidu.tieba.frs.aj
+    public void aQp() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.hbN != null) {
-            this.hbN.aHS();
+        if (this.hLD != null) {
+            this.hLD.aQp();
         }
     }
 
@@ -91,24 +91,24 @@ public class GameVideoFragment extends BaseFragment implements ag {
         if (isPrimary()) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, false));
         }
-        if (this.hbN != null) {
-            this.hbN.setPrimary(isPrimary());
+        if (this.hLD != null) {
+            this.hLD.setPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.hbN != null) {
-            this.hbN.onPause();
+        if (this.hLD != null) {
+            this.hLD.onPause();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.hbN != null) {
-            this.hbN.onDestroy();
+        if (this.hLD != null) {
+            this.hLD.onDestroy();
         }
     }
 

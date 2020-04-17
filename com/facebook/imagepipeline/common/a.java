@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.common;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.facebook.common.internal.g;
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -9,7 +10,7 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes13.dex */
 public class a {
     @Nullable
-    private static Pattern lTk;
+    private static Pattern maW;
     public final int from;
     public final int to;
 
@@ -18,8 +19,8 @@ public class a {
         this.to = i2;
     }
 
-    public String doJ() {
-        return String.format(null, "bytes=%s-%s", Ik(this.from), Ik(this.to));
+    public String dqI() {
+        return String.format(null, "bytes=%s-%s", GM(this.from), GM(this.to));
     }
 
     public boolean a(@Nullable a aVar) {
@@ -27,10 +28,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", Ik(this.from), Ik(this.to));
+        return String.format(null, "%s-%s", GM(this.from), GM(this.to));
     }
 
-    private static String Ik(int i) {
+    private static String GM(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -49,25 +50,25 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a Il(int i) {
+    public static a GN(int i) {
         g.checkArgument(i >= 0);
-        return new a(i, Integer.MAX_VALUE);
+        return new a(i, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    public static a Im(int i) {
+    public static a GO(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }
 
     @Nullable
-    public static a Pd(@Nullable String str) throws IllegalArgumentException {
+    public static a Ok(@Nullable String str) throws IllegalArgumentException {
         a aVar = null;
         if (str != null) {
-            if (lTk == null) {
-                lTk = Pattern.compile("[-/ ]");
+            if (maW == null) {
+                maW = Pattern.compile("[-/ ]");
             }
             try {
-                String[] split = lTk.split(str);
+                String[] split = maW.split(str);
                 g.checkArgument(split.length == 4);
                 g.checkArgument(split[0].equals("bytes"));
                 int parseInt = Integer.parseInt(split[1]);
@@ -78,7 +79,7 @@ public class a {
                 if (parseInt2 < parseInt3 - 1) {
                     aVar = new a(parseInt, parseInt2);
                 } else {
-                    aVar = new a(parseInt, Integer.MAX_VALUE);
+                    aVar = new a(parseInt, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 }
             } catch (IllegalArgumentException e) {
                 throw new IllegalArgumentException(String.format((Locale) aVar, "Invalid Content-Range header value: \"%s\"", str), e);

@@ -17,7 +17,6 @@ import com.baidu.ala.helper.AlaLiveDebugInfo;
 import com.baidu.ala.helper.AlaLiveStatConfig;
 import com.baidu.ala.helper.AlaLiveStreamCmdInfo;
 import com.baidu.ala.helper.AlaLiveUtilHelper;
-import com.baidu.ala.helper.AlaVideoFrame;
 import com.baidu.ala.ndk.AlaNDKPlayerAdapter;
 import com.baidu.ala.player.AlaVideoPlayer;
 import com.baidu.live.adp.base.BdPageContext;
@@ -1089,12 +1088,5 @@ public class AlaLivePlayer extends LinearLayout {
             return 0;
         }
         return this.mNDKAdapter.getVideoFillModel(i);
-    }
-
-    public void setAutoSaveVideoFrame(int i, boolean z) {
-    }
-
-    public AlaVideoFrame getSavedVideoFrameNative(int i) {
-        return null;
     }
 }

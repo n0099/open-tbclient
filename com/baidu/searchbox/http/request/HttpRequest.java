@@ -11,7 +11,10 @@ import com.baidu.searchbox.http.interceptor.LogInterceptor;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.searchbox.http.statistics.NetworkStat;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
+import java.net.Proxy;
+import java.util.UUID;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -21,16 +24,20 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
+    public static final String EXT_HEADER_TRACE_ID = "X-Bd-Traceid";
     public static final int REQUESTFROM_FEED = 1;
     public static final int REQUESTFROM_FRESCO = 2;
     public static final int REQUESTFROM_NONE = 0;
     public static final int REQUESTFROM_UBC = 3;
+    protected String bdTraceId;
     protected OkHttpClient client;
     protected int connectionTimeout;
     protected CookieManager cookieManager;
     protected Handler deliver;
     protected boolean enableRetry;
     protected JSONObject extraUserLog;
+    protected boolean followRedirects;
+    protected boolean followSslRedirects;
     protected Headers headers;
     protected AbstractHttpManager httpManager;
     protected HttpUrl httpUrl;
@@ -44,6 +51,7 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
     protected Request.Builder okRequestBuilder;
     protected Object originTag;
     protected IAsyncRequestParamsHandler paramsHandler;
+    protected Proxy proxy;
     protected int readTimeout;
     protected int requestFrom;
     protected RequestHandler requestHandler;
@@ -76,7 +84,6 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         this.deliver = this.httpManager.getDeliver();
         this.httpUrl = t.httpUrl;
         this.tag = t.tag;
-        this.headers = t.headersBuilder.build();
         this.connectionTimeout = t.connectionTimeout;
         this.readTimeout = t.readTimeout;
         this.writeTimeout = t.writeTimeout;
@@ -89,14 +96,24 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         this.isReqNetStatEnable = t.isReqNetStatEnable;
         this.requestFrom = t.requestFrom;
         this.extraUserLog = t.extraUserLog;
+        this.proxy = t.proxy;
+        this.followRedirects = t.followRedirects;
+        this.followSslRedirects = t.followSslRedirects;
         if (this.httpUrl == null) {
             throw new IllegalArgumentException(" url not set, please check");
         }
+        this.bdTraceId = generateBdTraceId();
+        t.headersBuilder.add(EXT_HEADER_TRACE_ID, this.bdTraceId);
+        this.headers = t.headersBuilder.build();
         if (this.isReqNetStatEnable) {
             this.requestNetStat = new NetworkStatRecord();
             this.requestNetStat.url = this.httpUrl.toString();
         }
         initOkRequest(t);
+    }
+
+    private String generateBdTraceId() {
+        return UUID.randomUUID().toString().toLowerCase().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "");
     }
 
     public long getContentLength() {
@@ -105,6 +122,10 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         } catch (IOException e) {
             return 0L;
         }
+    }
+
+    public String getBdTraceId() {
+        return this.bdTraceId;
     }
 
     public Request getOkRequest() {

@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 import android.view.OrientationEventListener;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -165,16 +166,16 @@ public class ArBridge {
     public void sendLuaScriptToEngine(String str) {
         if (!TextUtils.isEmpty(str)) {
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("script", str);
+            hashMap.put(ARPMessageType.ARPMessageParamKeys.MAP_NPC_KEY_NAME, str);
             sendMessage(2001, hashMap);
         }
     }
 
     public void setModelVirtualColor(int i, boolean z) {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("model_color", Integer.valueOf(i));
+        hashMap.put(ARPMessageType.ARPMessageParamKeys.MODEL_COLOR_KEY, Integer.valueOf(i));
         if (!z) {
-            hashMap.put("model_type", 1);
+            hashMap.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, 1);
         }
         sendMessage(2002, hashMap);
     }

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,127 +21,127 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.tieba.pb.view.PbBusinessPromotionContainer;
 /* loaded from: classes9.dex */
-public class q extends v.a {
-    public AppletsCellView OP;
-    public View cVI;
-    public TextView iHJ;
-    public View iHr;
-    public com.baidu.tieba.pb.pb.main.view.a iIA;
-    private ImageView iIn;
-    private View iIo;
-    public TbRichTextView iIp;
-    public TbImageView iIq;
-    public TbImageView iIr;
-    public ThreadSkinView iIs;
-    public LinearLayout iIt;
-    public TextView iIu;
-    public r iIv;
-    public FrameLayout iIw;
-    public com.baidu.tieba.pb.pb.main.c.a iIx;
-    public ThreadForumEnterButtonContainer iIy;
-    public PbBusinessPromotionContainer iIz;
+public class q extends y.a {
+    public AppletsCellView ahs;
+    public View duT;
+    public TextView jrQ;
+    public View jry;
+    public LinearLayout jsA;
+    public TextView jsB;
+    public r jsC;
+    public FrameLayout jsD;
+    public com.baidu.tieba.pb.pb.main.c.a jsE;
+    public ThreadForumEnterButtonContainer jsF;
+    public PbBusinessPromotionContainer jsG;
+    public com.baidu.tieba.pb.pb.main.view.a jsH;
+    private ImageView jsu;
+    private View jsv;
+    public TbRichTextView jsw;
+    public TbImageView jsx;
+    public TbImageView jsy;
+    public ThreadSkinView jsz;
     public int mSkinType;
 
     public q(TbPageContext tbPageContext, View view, boolean z, int i) {
         super(view);
         this.mSkinType = 3;
-        this.iIv = new r(view);
-        this.iIn = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
-        this.iIn.setScaleType(ImageView.ScaleType.MATRIX);
+        this.jsC = new r(view);
+        this.jsu = (ImageView) view.findViewById(R.id.pb_thread_type_stamp_first_floor_bottom_part);
+        this.jsu.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -am.cpy());
-        this.iIn.setImageMatrix(matrix);
-        this.iIo = view.findViewById(R.id.blank_view_above_rich_text);
-        this.iIp = (TbRichTextView) view.findViewById(R.id.richText);
-        this.iHr = view;
-        int equipmentWidth = (((com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.iIp.getPaddingLeft()) - this.iIp.getPaddingRight();
+        matrix.postTranslate(0.0f, -am.cAe());
+        this.jsu.setImageMatrix(matrix);
+        this.jsv = view.findViewById(R.id.blank_view_above_rich_text);
+        this.jsw = (TbRichTextView) view.findViewById(R.id.richText);
+        this.jry = view;
+        int equipmentWidth = (((com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.jsw.getPaddingLeft()) - this.jsw.getPaddingRight();
         int dimension = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60);
-        c cVar = new c(this.iIp.getLayoutStrategy());
-        cVar.dOD = equipmentWidth;
-        this.iIp.setLayoutStrategy(cVar);
-        this.iIr = (TbImageView) view.findViewById(R.id.game_activity_banner);
+        c cVar = new c(this.jsw.getLayoutStrategy());
+        cVar.eox = equipmentWidth;
+        this.jsw.setLayoutStrategy(cVar);
+        this.jsy = (TbImageView) view.findViewById(R.id.game_activity_banner);
         int min = Math.min(equipmentWidth - dimension, i);
-        this.iIp.getLayoutStrategy().nk(min);
-        this.iIp.getLayoutStrategy().nl((int) (min * 1.618f));
-        this.iIp.setTextSize(TbConfig.getContentSize());
-        this.iIp.setDisplayImage(z, false);
-        this.iIp.setVoiceViewRes(R.layout.voice_play_btn_new);
-        this.cVI = view.findViewById(R.id.divider_bottom_first_floor);
-        this.iIq = (TbImageView) view.findViewById(R.id.user_head_mask);
-        this.iIs = (ThreadSkinView) view.findViewById(R.id.pb_item_thread_skin);
-        this.iIt = (LinearLayout) view.findViewById(R.id.pb_list_content);
-        this.iHJ = (TextView) view.findViewById(R.id.pb_item_tail_content);
-        this.OP = (AppletsCellView) view.findViewById(R.id.card_pb_page_first_floor_thread_share);
-        this.iIu = (TextView) view.findViewById(R.id.pb_tail_text);
-        this.iIy = (ThreadForumEnterButtonContainer) view.findViewById(R.id.pb_fourm_name_container);
-        this.iIy.setFrom(1);
-        this.iIA = new com.baidu.tieba.pb.pb.main.view.a(tbPageContext);
-        this.iIz = (PbBusinessPromotionContainer) view.findViewById(R.id.pb_business_promotion_container);
-        this.iIw = (FrameLayout) view.findViewById(R.id.original_thread_root_view);
+        this.jsw.getLayoutStrategy().nw(min);
+        this.jsw.getLayoutStrategy().nx((int) (min * 1.618f));
+        this.jsw.setTextSize(TbConfig.getContentSize());
+        this.jsw.setDisplayImage(z, false);
+        this.jsw.setVoiceViewRes(R.layout.voice_play_btn_new);
+        this.duT = view.findViewById(R.id.divider_bottom_first_floor);
+        this.jsx = (TbImageView) view.findViewById(R.id.user_head_mask);
+        this.jsz = (ThreadSkinView) view.findViewById(R.id.pb_item_thread_skin);
+        this.jsA = (LinearLayout) view.findViewById(R.id.pb_list_content);
+        this.jrQ = (TextView) view.findViewById(R.id.pb_item_tail_content);
+        this.ahs = (AppletsCellView) view.findViewById(R.id.card_pb_page_first_floor_thread_share);
+        this.jsB = (TextView) view.findViewById(R.id.pb_tail_text);
+        this.jsF = (ThreadForumEnterButtonContainer) view.findViewById(R.id.pb_fourm_name_container);
+        this.jsF.setFrom(1);
+        this.jsH = new com.baidu.tieba.pb.pb.main.view.a(tbPageContext);
+        this.jsG = (PbBusinessPromotionContainer) view.findViewById(R.id.pb_business_promotion_container);
+        this.jsD = (FrameLayout) view.findViewById(R.id.original_thread_root_view);
     }
 
     public void a(@NonNull com.baidu.tieba.pb.data.e eVar, boolean z, boolean z2) {
-        if (this.iIy != null && eVar != null && eVar.getForum() != null) {
-            if (eVar.cln() && eVar.aHP()) {
-                this.iIy.setVisibility(8);
+        if (this.jsF != null && eVar != null && eVar.getForum() != null) {
+            if (eVar.cvS() && eVar.aQh()) {
+                this.jsF.setVisibility(8);
                 return;
             }
-            this.iIy.setBottomPlaceHolderVisibility(z2);
+            this.jsF.setBottomPlaceHolderVisibility(z2);
             boolean z3 = false;
-            if (!z && !com.baidu.tbadk.core.util.v.isEmpty(eVar.cli())) {
+            if (!z && !com.baidu.tbadk.core.util.v.isEmpty(eVar.cvN())) {
                 z3 = true;
             }
             bj bjVar = new bj();
             bjVar.setId(eVar.getThreadId());
             bjVar.setFid(com.baidu.adp.lib.f.b.toLong(eVar.getForum().getId(), 0L));
-            bjVar.sG(eVar.getForum().getName());
-            bjVar.sL(eVar.getForum().getFirst_class());
-            bjVar.sM(eVar.getForum().getSecond_class());
-            if (eVar.ckP() != null) {
-                bjVar.setThreadType(eVar.ckP().threadType);
+            bjVar.tT(eVar.getForum().getName());
+            bjVar.tY(eVar.getForum().getFirst_class());
+            bjVar.tZ(eVar.getForum().getSecond_class());
+            if (eVar.cvu() != null) {
+                bjVar.setThreadType(eVar.cvu().threadType);
             }
             if (z3) {
-                this.iIy.a(bjVar, eVar.cli());
+                this.jsF.a(bjVar, eVar.cvN());
             } else {
-                this.iIy.F(bjVar);
+                this.jsF.F(bjVar);
             }
-            if (eVar.iDs) {
-                this.iIy.setVisibility(8);
-                this.iIz.a(bjVar, eVar.ckO(), eVar.aHP());
+            if (eVar.jny) {
+                this.jsF.setVisibility(8);
+                this.jsG.a(bjVar, eVar.cvt(), eVar.aQh());
                 return;
             }
-            this.iIz.setVisibility(8);
+            this.jsG.setVisibility(8);
         }
     }
 
     public void b(com.baidu.tieba.pb.data.e eVar, boolean z, boolean z2) {
-        if (eVar != null && eVar.iDt) {
-            this.iIn.setImageResource(R.drawable.pic_frs_headlines_n);
-            this.iIn.setVisibility(0);
+        if (eVar != null && eVar.jnz) {
+            this.jsu.setImageResource(R.drawable.pic_frs_headlines_n);
+            this.jsu.setVisibility(0);
         } else if (z && z2) {
-            this.iIn.setImageResource(R.drawable.pic_pb_stick_refined_n);
-            this.iIn.setVisibility(0);
+            this.jsu.setImageResource(R.drawable.pic_pb_stick_refined_n);
+            this.jsu.setVisibility(0);
         } else if (z) {
-            this.iIn.setImageResource(R.drawable.pic_pb_refined_n);
-            this.iIn.setVisibility(0);
+            this.jsu.setImageResource(R.drawable.pic_pb_refined_n);
+            this.jsu.setVisibility(0);
         } else if (z2) {
-            this.iIn.setImageResource(R.drawable.pic_pb_stick_n);
-            this.iIn.setVisibility(0);
+            this.jsu.setImageResource(R.drawable.pic_pb_stick_n);
+            this.jsu.setVisibility(0);
         } else {
-            this.iIn.setVisibility(8);
+            this.jsu.setVisibility(8);
         }
     }
 
-    public void w(boolean z, int i) {
-        if (this.iIo != null) {
+    public void x(boolean z, int i) {
+        if (this.jsv != null) {
             if (z) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.iIo.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jsv.getLayoutParams();
                 layoutParams.height = i;
-                this.iIo.setLayoutParams(layoutParams);
-                this.iIo.setVisibility(0);
+                this.jsv.setLayoutParams(layoutParams);
+                this.jsv.setVisibility(0);
                 return;
             }
-            this.iIo.setVisibility(8);
+            this.jsv.setVisibility(8);
         }
     }
 }

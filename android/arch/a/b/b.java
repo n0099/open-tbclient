@@ -9,9 +9,9 @@ import java.util.WeakHashMap;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes7.dex */
 public class b<K, V> implements Iterable<Map.Entry<K, V>> {
-    private c<K, V> bw;
-    private c<K, V> bx;
-    private WeakHashMap<f<K, V>, Boolean> by = new WeakHashMap<>();
+    private c<K, V> xA;
+    private c<K, V> xB;
+    private WeakHashMap<f<K, V>, Boolean> xC = new WeakHashMap<>();
     private int mSize = 0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -21,9 +21,9 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     }
 
     protected c<K, V> g(K k) {
-        c<K, V> cVar = this.bw;
-        while (cVar != null && !cVar.bz.equals(k)) {
-            cVar = cVar.bA;
+        c<K, V> cVar = this.xA;
+        while (cVar != null && !cVar.xD.equals(k)) {
+            cVar = cVar.xE;
         }
         return cVar;
     }
@@ -41,13 +41,13 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     public c<K, V> d(@NonNull K k, @NonNull V v) {
         c<K, V> cVar = new c<>(k, v);
         this.mSize++;
-        if (this.bx == null) {
-            this.bw = cVar;
-            this.bx = this.bw;
+        if (this.xB == null) {
+            this.xA = cVar;
+            this.xB = this.xA;
         } else {
-            this.bx.bA = cVar;
-            cVar.bB = this.bx;
-            this.bx = cVar;
+            this.xB.xE = cVar;
+            cVar.xF = this.xB;
+            this.xB = cVar;
         }
         return cVar;
     }
@@ -58,23 +58,23 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
             return null;
         }
         this.mSize--;
-        if (!this.by.isEmpty()) {
-            for (f<K, V> fVar : this.by.keySet()) {
+        if (!this.xC.isEmpty()) {
+            for (f<K, V> fVar : this.xC.keySet()) {
                 fVar.c(g);
             }
         }
-        if (g.bB != null) {
-            g.bB.bA = g.bA;
+        if (g.xF != null) {
+            g.xF.xE = g.xE;
         } else {
-            this.bw = g.bA;
+            this.xA = g.xE;
         }
-        if (g.bA != null) {
-            g.bA.bB = g.bB;
+        if (g.xE != null) {
+            g.xE.xF = g.xF;
         } else {
-            this.bx = g.bB;
+            this.xB = g.xF;
         }
-        g.bA = null;
-        g.bB = null;
+        g.xE = null;
+        g.xF = null;
         return g.mValue;
     }
 
@@ -85,29 +85,29 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
     @Override // java.lang.Iterable
     @NonNull
     public Iterator<Map.Entry<K, V>> iterator() {
-        a aVar = new a(this.bw, this.bx);
-        this.by.put(aVar, false);
+        a aVar = new a(this.xA, this.xB);
+        this.xC.put(aVar, false);
         return aVar;
     }
 
     public Iterator<Map.Entry<K, V>> descendingIterator() {
-        C0000b c0000b = new C0000b(this.bx, this.bw);
-        this.by.put(c0000b, false);
+        C0000b c0000b = new C0000b(this.xB, this.xA);
+        this.xC.put(c0000b, false);
         return c0000b;
     }
 
-    public b<K, V>.d aq() {
+    public b<K, V>.d fM() {
         b<K, V>.d dVar = new d();
-        this.by.put(dVar, false);
+        this.xC.put(dVar, false);
         return dVar;
     }
 
-    public Map.Entry<K, V> ar() {
-        return this.bw;
+    public Map.Entry<K, V> fN() {
+        return this.xA;
     }
 
-    public Map.Entry<K, V> as() {
-        return this.bx;
+    public Map.Entry<K, V> fO() {
+        return this.xB;
     }
 
     public boolean equals(Object obj) {
@@ -152,49 +152,49 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
 
     /* loaded from: classes7.dex */
     private static abstract class e<K, V> implements f<K, V>, Iterator<Map.Entry<K, V>> {
-        c<K, V> bA;
-        c<K, V> bF;
+        c<K, V> xE;
+        c<K, V> xJ;
 
         abstract c<K, V> a(c<K, V> cVar);
 
         abstract c<K, V> b(c<K, V> cVar);
 
         e(c<K, V> cVar, c<K, V> cVar2) {
-            this.bF = cVar2;
-            this.bA = cVar;
+            this.xJ = cVar2;
+            this.xE = cVar;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.bA != null;
+            return this.xE != null;
         }
 
         @Override // android.arch.a.b.b.f
         public void c(@NonNull c<K, V> cVar) {
-            if (this.bF == cVar && cVar == this.bA) {
-                this.bA = null;
-                this.bF = null;
+            if (this.xJ == cVar && cVar == this.xE) {
+                this.xE = null;
+                this.xJ = null;
             }
-            if (this.bF == cVar) {
-                this.bF = b(this.bF);
+            if (this.xJ == cVar) {
+                this.xJ = b(this.xJ);
             }
-            if (this.bA == cVar) {
-                this.bA = at();
+            if (this.xE == cVar) {
+                this.xE = fP();
             }
         }
 
-        private c<K, V> at() {
-            if (this.bA == this.bF || this.bF == null) {
+        private c<K, V> fP() {
+            if (this.xE == this.xJ || this.xJ == null) {
                 return null;
             }
-            return a(this.bA);
+            return a(this.xE);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         public Map.Entry<K, V> next() {
-            c<K, V> cVar = this.bA;
-            this.bA = at();
+            c<K, V> cVar = this.xE;
+            this.xE = fP();
             return cVar;
         }
     }
@@ -208,12 +208,12 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
 
         @Override // android.arch.a.b.b.e
         c<K, V> a(c<K, V> cVar) {
-            return cVar.bA;
+            return cVar.xE;
         }
 
         @Override // android.arch.a.b.b.e
         c<K, V> b(c<K, V> cVar) {
-            return cVar.bB;
+            return cVar.xF;
         }
     }
 
@@ -226,70 +226,70 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
 
         @Override // android.arch.a.b.b.e
         c<K, V> a(c<K, V> cVar) {
-            return cVar.bB;
+            return cVar.xF;
         }
 
         @Override // android.arch.a.b.b.e
         c<K, V> b(c<K, V> cVar) {
-            return cVar.bA;
+            return cVar.xE;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes7.dex */
     public class d implements f<K, V>, Iterator<Map.Entry<K, V>> {
-        private c<K, V> bC;
-        private boolean bD;
+        private c<K, V> xG;
+        private boolean xH;
 
         private d() {
-            this.bD = true;
+            this.xH = true;
         }
 
         @Override // android.arch.a.b.b.f
         public void c(@NonNull c<K, V> cVar) {
-            if (cVar == this.bC) {
-                this.bC = this.bC.bB;
-                this.bD = this.bC == null;
+            if (cVar == this.xG) {
+                this.xG = this.xG.xF;
+                this.xH = this.xG == null;
             }
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.bD ? b.this.bw != null : (this.bC == null || this.bC.bA == null) ? false : true;
+            return this.xH ? b.this.xA != null : (this.xG == null || this.xG.xE == null) ? false : true;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Iterator
         public Map.Entry<K, V> next() {
-            if (this.bD) {
-                this.bD = false;
-                this.bC = b.this.bw;
+            if (this.xH) {
+                this.xH = false;
+                this.xG = b.this.xA;
             } else {
-                this.bC = this.bC != null ? this.bC.bA : null;
+                this.xG = this.xG != null ? this.xG.xE : null;
             }
-            return this.bC;
+            return this.xG;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
     public static class c<K, V> implements Map.Entry<K, V> {
-        c<K, V> bA;
-        c<K, V> bB;
-        @NonNull
-        final K bz;
         @NonNull
         final V mValue;
+        @NonNull
+        final K xD;
+        c<K, V> xE;
+        c<K, V> xF;
 
         c(@NonNull K k, @NonNull V v) {
-            this.bz = k;
+            this.xD = k;
             this.mValue = v;
         }
 
         @Override // java.util.Map.Entry
         @NonNull
         public K getKey() {
-            return this.bz;
+            return this.xD;
         }
 
         @Override // java.util.Map.Entry
@@ -304,7 +304,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
         }
 
         public String toString() {
-            return this.bz + ETAG.EQUAL + this.mValue;
+            return this.xD + ETAG.EQUAL + this.mValue;
         }
 
         @Override // java.util.Map.Entry
@@ -314,7 +314,7 @@ public class b<K, V> implements Iterable<Map.Entry<K, V>> {
             }
             if (obj instanceof c) {
                 c cVar = (c) obj;
-                return this.bz.equals(cVar.bz) && this.mValue.equals(cVar.mValue);
+                return this.xD.equals(cVar.xD) && this.mValue.equals(cVar.mValue);
             }
             return false;
         }

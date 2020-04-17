@@ -3,14 +3,14 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class bk extends com.baidu.tieba.card.data.b {
-    public bj cRt;
-    public int cUO;
-    public int cUP;
-    public int cUQ;
+    public bj dqA;
+    public int dtZ;
+    public int dua;
+    public int dub;
     public String stType;
 
     public bk(bj bjVar) {
-        this.cRt = bjVar;
+        this.dqA = bjVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.m

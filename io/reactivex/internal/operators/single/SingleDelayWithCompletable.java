@@ -2,24 +2,24 @@ package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
 import io.reactivex.c;
-import io.reactivex.disposables.b;
 import io.reactivex.e;
 import io.reactivex.internal.disposables.DisposableHelper;
+import io.reactivex.internal.observers.d;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class SingleDelayWithCompletable<T> extends w<T> {
-    final e other;
+    final e mTa;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.other.a(new OtherObserver(yVar, this.source));
+        this.mTa.a(new OtherObserver(yVar, this.source));
     }
 
     /* loaded from: classes7.dex */
-    static final class OtherObserver<T> extends AtomicReference<b> implements c, b {
+    static final class OtherObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b {
         private static final long serialVersionUID = -8565274649390031272L;
         final y<? super T> actual;
         final aa<T> source;
@@ -30,7 +30,7 @@ public final class SingleDelayWithCompletable<T> extends w<T> {
         }
 
         @Override // io.reactivex.c
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.setOnce(this, bVar)) {
                 this.actual.onSubscribe(this);
             }
@@ -43,7 +43,7 @@ public final class SingleDelayWithCompletable<T> extends w<T> {
 
         @Override // io.reactivex.c
         public void onComplete() {
-            this.source.a(new io.reactivex.internal.observers.c(this, this.actual));
+            this.source.a(new d(this, this.actual));
         }
 
         @Override // io.reactivex.disposables.b

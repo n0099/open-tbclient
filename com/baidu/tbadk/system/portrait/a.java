@@ -13,41 +13,41 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<?> cVv;
-    private int dGA;
-    private int dGB;
-    private ArrayList<b> dGy;
+    private TbPageContext<?> duG;
+    private ArrayList<b> egf;
+    private int egh;
+    private int egi;
     private int padding;
-    private int dGr = -1;
+    private int efY = -1;
     private int rowSize = 0;
-    private int deS = am.getColor(R.color.common_color_10043);
-    private int dGz = am.getColor(R.color.cp_link_tip_a);
+    private int dCa = am.getColor(R.color.common_color_10043);
+    private int egg = am.getColor(R.color.cp_link_tip_a);
 
     public a(TbPageContext<?> tbPageContext) {
-        this.dGy = null;
-        this.cVv = null;
+        this.egf = null;
+        this.duG = null;
         this.padding = 0;
-        this.cVv = tbPageContext;
-        this.dGy = new ArrayList<>();
-        this.dGA = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
-        this.dGB = l.getDimens(this.cVv.getPageActivity(), R.dimen.ds4);
-        this.padding = l.getDimens(this.cVv.getPageActivity(), R.dimen.ds36);
+        this.duG = tbPageContext;
+        this.egf = new ArrayList<>();
+        this.egh = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
+        this.egi = l.getDimens(this.duG.getPageActivity(), R.dimen.ds4);
+        this.padding = l.getDimens(this.duG.getPageActivity(), R.dimen.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dGy != null) {
-            return this.dGy.size();
+        if (this.egf != null) {
+            return this.egf.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.dGy == null || i >= this.dGy.size()) {
+        if (this.egf == null || i >= this.egf.size()) {
             return null;
         }
-        return this.dGy.get(i);
+        return this.egf.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,41 +57,41 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0395a c0395a;
+        C0426a c0426a;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = LayoutInflater.from(this.cVv.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
-            c0395a = new C0395a();
-            c0395a.dtK = (LinearLayout) view.findViewById(R.id.photo_container);
-            c0395a.dGC = (TbImageView) view.findViewById(R.id.photo);
+            view = LayoutInflater.from(this.duG.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
+            c0426a = new C0426a();
+            c0426a.dTF = (LinearLayout) view.findViewById(R.id.photo_container);
+            c0426a.egj = (TbImageView) view.findViewById(R.id.photo);
         } else {
-            c0395a = (C0395a) view.getTag();
+            c0426a = (C0426a) view.getTag();
         }
-        if (mR(i) == 1) {
-            c0395a.dtK.setPadding(0, this.padding, 0, 0);
-        } else if (mR(i) == 2) {
-            c0395a.dtK.setPadding(0, 0, 0, this.padding);
+        if (nc(i) == 1) {
+            c0426a.dTF.setPadding(0, this.padding, 0, 0);
+        } else if (nc(i) == 2) {
+            c0426a.dTF.setPadding(0, 0, 0, this.padding);
         } else {
-            c0395a.dtK.setPadding(0, 0, 0, 0);
+            c0426a.dTF.setPadding(0, 0, 0, 0);
         }
-        c0395a.dGC.setDrawerType(0);
-        c0395a.dGC.setBorderSurroundContent(true);
-        c0395a.dGC.setDrawBorder(true);
+        c0426a.egj.setDrawerType(0);
+        c0426a.egj.setBorderSurroundContent(true);
+        c0426a.egj.setDrawBorder(true);
         if (itemViewType == 0) {
-            c0395a.dGC.setBorderColor(this.deS);
-            c0395a.dGC.setBorderWidth(this.dGA);
+            c0426a.egj.setBorderColor(this.dCa);
+            c0426a.egj.setBorderWidth(this.egh);
         } else {
-            c0395a.dGC.setBorderColor(this.dGz);
-            c0395a.dGC.setBorderWidth(this.dGB);
+            c0426a.egj.setBorderColor(this.egg);
+            c0426a.egj.setBorderWidth(this.egi);
         }
-        c0395a.dGC.setDefaultResource(R.drawable.transparent_bg);
-        c0395a.dGC.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        c0395a.dGC.startLoad(this.dGy.get(i).getUrl(), 10, false);
-        view.setTag(c0395a);
+        c0426a.egj.setDefaultResource(R.drawable.transparent_bg);
+        c0426a.egj.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        c0426a.egj.startLoad(this.egf.get(i).getUrl(), 10, false);
+        view.setTag(c0426a);
         return view;
     }
 
-    public int mR(int i) {
+    public int nc(int i) {
         if (i / 4 == 0) {
             return 1;
         }
@@ -103,7 +103,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.dGr ? 1 : 0;
+        return i == this.efY ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -112,7 +112,7 @@ public class a extends BaseAdapter {
     }
 
     public void H(ArrayList<b> arrayList) {
-        this.dGy = arrayList;
+        this.egf = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.rowSize = arrayList.size() / 4;
@@ -122,17 +122,17 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void mS(int i) {
-        this.dGr = i;
+    public void nd(int i) {
+        this.efY = i;
     }
 
     /* renamed from: com.baidu.tbadk.system.portrait.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private class C0395a {
-        TbImageView dGC;
-        LinearLayout dtK;
+    private class C0426a {
+        LinearLayout dTF;
+        TbImageView egj;
 
-        private C0395a() {
+        private C0426a() {
         }
     }
 }

@@ -17,7 +17,7 @@ public class e extends RecyclerView.ViewHolder {
     private View d;
     private String e;
     private String f;
-    private ConvenientBanner<ListItem> ngX;
+    private ConvenientBanner<ListItem> mDE;
 
     public e(View view, String str, String str2) {
         super(view);
@@ -26,47 +26,47 @@ public class e extends RecyclerView.ViewHolder {
         this.d = view;
         this.e = str;
         this.f = str2;
-        this.ngX = (ConvenientBanner) view.findViewById(a.f.recycler_view);
-        this.ngX.a(new com.kascend.chushou.widget.convenientbanner.c.a<ListItem>() { // from class: com.kascend.chushou.view.a.a.e.1
+        this.mDE = (ConvenientBanner) view.findViewById(a.f.recycler_view);
+        this.mDE.a(new com.kascend.chushou.widget.convenientbanner.c.a<ListItem>() { // from class: com.kascend.chushou.view.a.a.e.1
             @Override // com.kascend.chushou.widget.convenientbanner.c.a
             public int getLayoutId() {
                 return a.h.recycleitem_sliding_small_poster;
             }
 
             @Override // com.kascend.chushou.widget.convenientbanner.c.a
-            public com.kascend.chushou.widget.convenientbanner.c.b<ListItem> dC(View view2) {
+            public com.kascend.chushou.widget.convenientbanner.c.b<ListItem> dt(View view2) {
                 return new a(view2, null);
             }
         }, this.a);
-        this.ngX.p(new int[]{a.e.cs_point_normal, a.e.cs_point_selected});
-        this.ngX.j(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 14.0f));
+        this.mDE.r(new int[]{a.e.cs_point_normal, a.e.cs_point_selected});
+        this.mDE.h(8388693, 0, 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f), tv.chushou.zues.utils.a.dip2px(this.b, 14.0f));
     }
 
     public void a(PannelItem pannelItem, int[] iArr) {
         this.a.clear();
         this.a.addAll(pannelItem.mNavItemList);
-        this.ngX.notifyDataSetChanged();
+        this.mDE.notifyDataSetChanged();
         this.d.setPadding(0, tv.chushou.zues.utils.a.dip2px(this.b, iArr[0]), 0, tv.chushou.zues.utils.a.dip2px(this.b, 10.0f));
     }
 
     /* loaded from: classes5.dex */
     private class a extends com.kascend.chushou.widget.convenientbanner.c.b<ListItem> {
-        private FoodView ncR;
+        private FoodView mzs;
 
         a(View view, com.kascend.chushou.widget.convenientbanner.d.b<ListItem> bVar) {
             super(view, bVar);
-            this.ncR = (FoodView) view.findViewById(a.f.iv_ad);
+            this.mzs = (FoodView) view.findViewById(a.f.iv_ad);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kascend.chushou.widget.convenientbanner.c.b
         /* renamed from: a */
-        public void bH(ListItem listItem) {
-            super.bH(listItem);
+        public void bq(ListItem listItem) {
+            super.bq(listItem);
             if ("32".equals(e.this.f)) {
-                this.ncR.b(listItem, (FoodView.a) null, true, e.this.e);
+                this.mzs.b(listItem, (FoodView.a) null, true, e.this.e);
             } else {
-                this.ncR.a(listItem, (FoodView.a) null, true, e.this.e);
+                this.mzs.a(listItem, (FoodView.a) null, true, e.this.e);
             }
         }
     }

@@ -49,13 +49,13 @@ public final class ObservableRetryBiPredicate<T> extends a<T, T> {
                 d<? super Integer, ? super Throwable> dVar = this.predicate;
                 int i = this.retries + 1;
                 this.retries = i;
-                if (!dVar.j(Integer.valueOf(i), th)) {
+                if (!dVar.i(Integer.valueOf(i), th)) {
                     this.actual.onError(th);
                 } else {
                     subscribeNext();
                 }
             } catch (Throwable th2) {
-                io.reactivex.exceptions.a.H(th2);
+                io.reactivex.exceptions.a.L(th2);
                 this.actual.onError(new CompositeException(th, th2));
             }
         }

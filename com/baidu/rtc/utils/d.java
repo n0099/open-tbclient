@@ -11,14 +11,14 @@ public class d {
     private static int AUDIO_IO_MODE = -1;
     public static int OUTPUT_FRAMES_PER_BUFFER = 256;
     public static int OUTPUT_SAMPLE_RATE = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
-    public static int aYu = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
+    public static int bwU = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
     private static final String[] BLACKLISTED_OPEN_SL_ES_MODELS = {"vivo X9"};
     private static final String[] WHITELISTED_OPEN_SL_ES_MODELS = {"MI 5s Plus", "MI 8", "MIX 2", "MI 6", "DUB-AL20", "V1821A", "VKY-AL00", "PACM00", "PBEM00", "OPPO R11", "OPPO R11s", "OPPO R11 Plus", "OPPO R9sk", "OPPO R9tm", "OPPO R9m", "vivo X21i A", "vivo X20A", "V1809A"};
 
     public static synchronized int initConfig(Context context) {
         int i;
         synchronized (d.class) {
-            if (AUDIO_IO_MODE > 0 && OUTPUT_SAMPLE_RATE > 0 && OUTPUT_FRAMES_PER_BUFFER > 0 && aYu > 0) {
+            if (AUDIO_IO_MODE > 0 && OUTPUT_SAMPLE_RATE > 0 && OUTPUT_FRAMES_PER_BUFFER > 0 && bwU > 0) {
                 i = 0;
             } else if (context == null) {
                 i = -1;

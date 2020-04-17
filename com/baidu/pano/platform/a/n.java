@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.pano.platform.a.b;
 import com.baidu.pano.platform.a.q;
 import com.baidu.pano.platform.a.w;
@@ -283,7 +282,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     public String toString() {
-        return (this.k ? "[X] " : "[ ] ") + c() + HanziToPinyin.Token.SEPARATOR + ("0x" + Integer.toHexString(b())) + HanziToPinyin.Token.SEPARATOR + s() + HanziToPinyin.Token.SEPARATOR + this.h;
+        return (this.k ? "[X] " : "[ ] ") + c() + " " + ("0x" + Integer.toHexString(b())) + " " + s() + " " + this.h;
     }
 
     private static String a(int i, String str) {

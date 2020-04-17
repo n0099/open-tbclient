@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class GalleryViewPager extends BaseViewPager {
-    private PointF dsg;
-    private DragImageView dsh;
+    private PointF dSc;
+    private DragImageView dSd;
 
     public GalleryViewPager(Context context) {
         super(context);
@@ -21,21 +21,21 @@ public class GalleryViewPager extends BaseViewPager {
     }
 
     public void setCurrentView(DragImageView dragImageView) {
-        this.dsh = dragImageView;
+        this.dSd = dragImageView;
     }
 
     public DragImageView getCurrentView() {
-        return this.dsh;
+        return this.dSd;
     }
 
-    private float[] r(MotionEvent motionEvent) {
+    private float[] q(MotionEvent motionEvent) {
         switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.dsg.x, pointF.y - this.dsg.y};
+                return new float[]{pointF.x - this.dSc.x, pointF.y - this.dSc.y};
             case 0:
-                this.dsg = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.dSc = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -45,25 +45,25 @@ public class GalleryViewPager extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.dsh != null) {
-                this.dsh.actionUp();
+            if (this.dSd != null) {
+                this.dSd.actionUp();
             }
         }
-        if (this.dsh == null) {
+        if (this.dSd == null) {
             return super.onTouchEvent(motionEvent);
         }
-        float[] r = r(motionEvent);
-        if (this.dsh.pagerCantScroll()) {
+        float[] q = q(motionEvent);
+        if (this.dSd.pagerCantScroll()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (r != null && this.dsh.onRightSide() && r[0] < 0.0f) {
+        if (q != null && this.dSd.onRightSide() && q[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (r != null && this.dsh.onLeftSide() && r[0] > 0.0f) {
+        if (q != null && this.dSd.onLeftSide() && q[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (r == null) {
-            if (this.dsh.onLeftSide() || this.dsh.onRightSide()) {
+        if (q == null) {
+            if (this.dSd.onLeftSide() || this.dSd.onRightSide()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -76,21 +76,21 @@ public class GalleryViewPager extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
-        float[] r = r(motionEvent);
-        if (this.dsh == null) {
+        float[] q = q(motionEvent);
+        if (this.dSd == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.dsh.pagerCantScroll()) {
+        if (this.dSd.pagerCantScroll()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (r != null && this.dsh.onRightSide() && r[0] < 0.0f) {
+        if (q != null && this.dSd.onRightSide() && q[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (r != null && this.dsh.onLeftSide() && r[0] > 0.0f) {
+        if (q != null && this.dSd.onLeftSide() && q[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (r == null) {
-            if (this.dsh.onLeftSide() || this.dsh.onRightSide()) {
+        if (q == null) {
+            if (this.dSd.onLeftSide() || this.dSd.onRightSide()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

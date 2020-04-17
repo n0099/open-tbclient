@@ -80,7 +80,7 @@ import com.baidu.idl.facesdk.FaceSDK;
 import com.baidu.idl.facesdk.FaceTracker;
 import com.baidu.idl.facesdk.FaceVerifyData;
 import com.baidu.sapi2.biometrics.liveness.R;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
+import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -635,7 +635,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             a(i3);
             a(i3, str);
         } else if (i2 == 12) {
-            LogUtil.d("hello", "failure");
+            LogUtil.d("hello", SmsLoginView.f.l);
         } else {
             super.handleFailure(i2, i3, str);
         }
@@ -2981,7 +2981,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     private int X() {
         try {
-            int identifier = getResources().getIdentifier("status_bar_height", "dimen", PraiseDataPassUtil.KEY_FROM_OS);
+            int identifier = getResources().getIdentifier("status_bar_height", "dimen", "android");
             if (identifier <= 0) {
                 return 75;
             }

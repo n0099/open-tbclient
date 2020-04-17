@@ -4,10 +4,10 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
-    private String asO;
-    private String dYS;
-    private String kjt;
-    private List<String> kju;
+    private String aMc;
+    private String eyP;
+    private List<String> kTA;
+    private String kTz;
     private long mEndTime;
     private long mStartTime;
     private int mType;
@@ -16,10 +16,10 @@ public class o {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.mEndTime = redpacketRain.end_time.longValue() * 1000;
-            this.dYS = redpacketRain.jump_url;
-            this.kjt = redpacketRain.float_url;
-            this.kju = redpacketRain.dynamic_img;
-            this.asO = redpacketRain.activity_id;
+            this.eyP = redpacketRain.jump_url;
+            this.kTz = redpacketRain.float_url;
+            this.kTA = redpacketRain.dynamic_img;
+            this.aMc = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -32,20 +32,20 @@ public class o {
         return this.mEndTime;
     }
 
-    public String aXY() {
-        return this.dYS;
+    public String bgd() {
+        return this.eyP;
     }
 
-    public String cLJ() {
-        return this.kjt;
+    public String cWF() {
+        return this.kTz;
     }
 
-    public List<String> cLK() {
-        return this.kju;
+    public List<String> cWG() {
+        return this.kTA;
     }
 
-    public String gL() {
-        return this.asO;
+    public String lp() {
+        return this.aMc;
     }
 
     public void setStartTime(long j) {
@@ -56,20 +56,20 @@ public class o {
         this.mEndTime = j;
     }
 
-    public void Jd(String str) {
-        this.dYS = str;
+    public void KM(String str) {
+        this.eyP = str;
     }
 
-    public void Je(String str) {
-        this.kjt = str;
+    public void KN(String str) {
+        this.kTz = str;
     }
 
-    public void ee(List<String> list) {
-        this.kju = list;
+    public void et(List<String> list) {
+        this.kTA = list;
     }
 
-    public void aC(String str) {
-        this.asO = str;
+    public void bR(String str) {
+        this.aMc = str;
     }
 
     public int getType() {

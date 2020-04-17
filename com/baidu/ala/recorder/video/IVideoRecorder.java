@@ -7,7 +7,7 @@ public interface IVideoRecorder {
 
     /* loaded from: classes3.dex */
     public interface IVideoDataCallBack {
-        void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j);
+        void onEncodeVideoFrameRecived(byte[] bArr, int i, int i2, int i3, long j, long j2);
 
         void onError(int i);
 

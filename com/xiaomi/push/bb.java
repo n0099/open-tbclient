@@ -16,7 +16,7 @@ public class bb extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo155a() {
+    public int mo160a() {
         return 100887;
     }
 

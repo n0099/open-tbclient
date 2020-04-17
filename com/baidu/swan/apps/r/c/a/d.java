@@ -7,7 +7,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class d extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.c.c> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String Tv() {
+    public String abk() {
         return "pageScrollUp";
     }
 
@@ -15,10 +15,10 @@ public class d extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.c.c> {
     @Override // com.baidu.swan.apps.r.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.r.c.c cVar) {
         int i = command.arg1;
-        int S = af.S(command.arg2);
+        int C = af.C(command.arg2);
         int i2 = command.arg3;
         int i3 = command.arg4;
-        a(cVar, command.what, "(top, inputHeight, keyboardHeight, cursorSpacing) " + i + ", " + S + ", " + i2 + ", " + i3, true);
-        cVar.k(i, S, i2, i3);
+        a(cVar, command.what, "(top, inputHeight, keyboardHeight, cursorSpacing) " + i + ", " + C + ", " + i2 + ", " + i3, true);
+        cVar.j(i, C, i2, i3);
     }
 }

@@ -11,38 +11,38 @@ import java.util.Comparator;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class j {
-    public static void anU() {
-        if (com.baidu.swan.apps.storage.c.h.afu().getBoolean("swan_game_data_migration", true)) {
-            com.baidu.swan.apps.storage.c.h.afu().putBoolean("swan_game_data_migration", false);
+    public static void awh() {
+        if (com.baidu.swan.apps.storage.c.h.anz().getBoolean("swan_game_data_migration", true)) {
+            com.baidu.swan.apps.storage.c.h.anz().putBoolean("swan_game_data_migration", false);
             if (com.baidu.swan.apps.v.a.DEBUG) {
                 Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
             }
-            anV();
+            awi();
             if (com.baidu.swan.apps.v.a.DEBUG) {
                 Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
             }
-            anW();
+            awj();
             if (com.baidu.swan.apps.v.a.DEBUG) {
                 Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
             }
         }
     }
 
-    private static void anV() {
+    private static void awi() {
         File[] listFiles;
-        String du = l.du(AppRuntime.getAppContext());
-        if (!TextUtils.isEmpty(du)) {
-            File file = new File(du);
+        String di = l.di(AppRuntime.getAppContext());
+        if (!TextUtils.isEmpty(di)) {
+            File file = new File(di);
             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                 for (File file2 : listFiles) {
                     if (file2.isDirectory()) {
                         String str = file2.getAbsolutePath() + File.separator + "aigames/sandbox";
                         File file3 = new File(str);
                         if (file3.exists() && file3.isDirectory()) {
-                            String str2 = du + File.separator + "swangame/anonymous/sandbox";
+                            String str2 = di + File.separator + "swangame/anonymous/sandbox";
                             if (!file3.renameTo(new File(str2))) {
-                                l.bJ(str, str2);
-                                l.oY(str);
+                                l.bU(str, str2);
+                                l.ql(str);
                             }
                         }
                     }
@@ -51,9 +51,9 @@ public class j {
         }
     }
 
-    private static void anW() {
+    private static void awj() {
         String absolutePath;
-        File[] listFiles = com.baidu.swan.games.v.b.apO().listFiles();
+        File[] listFiles = com.baidu.swan.games.v.b.aya().listFiles();
         if (listFiles != null) {
             ArrayList arrayList = new ArrayList();
             for (File file : listFiles) {

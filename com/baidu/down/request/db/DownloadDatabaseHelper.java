@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.taskmanager.DatabaseMng;
 /* loaded from: classes6.dex */
@@ -41,7 +40,7 @@ public class DownloadDatabaseHelper extends SQLiteOpenHelper {
     }
 
     private void addColumn(SQLiteDatabase sQLiteDatabase, String str, String str2, String str3) {
-        sQLiteDatabase.execSQL("ALTER TABLE " + str + " ADD COLUMN " + str2 + HanziToPinyin.Token.SEPARATOR + str3);
+        sQLiteDatabase.execSQL("ALTER TABLE " + str + " ADD COLUMN " + str2 + " " + str3);
     }
 
     private void createDownloadsTable(SQLiteDatabase sQLiteDatabase) {

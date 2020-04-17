@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.adp.base.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -24,39 +25,39 @@ import java.util.List;
 import tbclient.FrsPage.RecmForumInfo;
 /* loaded from: classes9.dex */
 public class a extends com.baidu.tbadk.k.a {
-    private com.baidu.adp.base.e cVR;
-    protected TbImageView dBx;
-    private BdListView gQo;
-    private C0515a gQp;
-    private TextView gQq;
+    private e dvc;
+    protected TbImageView ebj;
+    private BdListView hAm;
+    private C0552a hAn;
+    private TextView hAo;
     private View mDivider;
     private TextView mTitleView;
     protected TextView subTextView;
 
     /* loaded from: classes9.dex */
     public static class b {
-        public View cWh;
-        public TextView gQA;
-        public ImageView gQB;
-        public TextView gQu;
-        public TextView gQv;
-        public TextView gQw;
-        public ImageView gQx;
-        public TbImageView gQy;
-        public TextView gQz;
+        public View dvs;
+        public TextView hAs;
+        public TextView hAt;
+        public TextView hAu;
+        public ImageView hAv;
+        public TbImageView hAw;
+        public TextView hAx;
+        public TextView hAy;
+        public ImageView hAz;
         public View rootView;
     }
 
-    public a(com.baidu.adp.base.e eVar, View.OnClickListener onClickListener) {
+    public a(e eVar, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(eVar.getContext()).inflate(R.layout.forbid_detail_view_layout, (ViewGroup) null));
-        this.cVR = eVar;
-        this.dBx = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.dvc = eVar;
+        this.ebj = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.subTextView = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
         this.mDivider = this.attachedView.findViewById(R.id.divider);
-        this.gQo = (BdListView) this.attachedView.findViewById(R.id.recommend_bar_listview);
+        this.hAm = (BdListView) this.attachedView.findViewById(R.id.recommend_bar_listview);
         this.attachedView.setOnClickListener(null);
         this.mTitleView = (TextView) this.attachedView.findViewById(R.id.content_title);
-        this.gQq = (TextView) this.attachedView.findViewById(R.id.local_tip_tv);
+        this.hAo = (TextView) this.attachedView.findViewById(R.id.local_tip_tv);
     }
 
     public void setSubText(String str) {
@@ -68,10 +69,10 @@ public class a extends com.baidu.tbadk.k.a {
         this.subTextView.setText(str);
     }
 
-    public void ct(List<RecmForumInfo> list) {
+    public void cE(List<RecmForumInfo> list) {
         if (list != null) {
-            this.gQp = new C0515a(list);
-            this.gQo.setAdapter((ListAdapter) this.gQp);
+            this.hAn = new C0552a(list);
+            this.hAm.setAdapter((ListAdapter) this.hAn);
         }
     }
 
@@ -86,43 +87,43 @@ public class a extends com.baidu.tbadk.k.a {
     @Override // com.baidu.tbadk.k.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.dBx.setImageResource(0);
+        this.ebj.setImageResource(0);
     }
 
     public void onChangeSkinType() {
         if (isViewAttached()) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            am.setImageResource(this.dBx, R.drawable.new_pic_emotion_01);
+            am.setImageResource(this.ebj, R.drawable.new_pic_emotion_01);
             am.setViewTextColor(this.subTextView, R.color.cp_cont_d, 1, skinType);
             am.setBackgroundColor(this.attachedView, R.color.cp_bg_line_d);
             am.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
             am.setViewTextColor(this.mTitleView, R.color.cp_cont_d, 1, skinType);
-            am.setViewTextColor(this.gQq, R.color.cp_cont_f, 1, skinType);
-            if (this.gQp != null) {
-                this.gQp.notifyDataSetChanged();
+            am.setViewTextColor(this.hAo, R.color.cp_cont_f, 1, skinType);
+            if (this.hAn != null) {
+                this.hAn.notifyDataSetChanged();
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.frs.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public class C0515a extends BaseAdapter {
-        private List<RecmForumInfo> gQr;
+    public class C0552a extends BaseAdapter {
+        private List<RecmForumInfo> hAp;
 
-        public C0515a(List<RecmForumInfo> list) {
-            this.gQr = list;
+        public C0552a(List<RecmForumInfo> list) {
+            this.hAp = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.gQr.size();
+            return this.hAp.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: uL */
+        /* renamed from: vj */
         public RecmForumInfo getItem(int i) {
-            return this.gQr.get(i);
+            return this.hAp.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -134,45 +135,45 @@ public class a extends com.baidu.tbadk.k.a {
         public View getView(final int i, View view, ViewGroup viewGroup) {
             b bVar;
             if (view == null) {
-                view = LayoutInflater.from(a.this.cVR.getPageActivity()).inflate(R.layout.recommend_view, (ViewGroup) null);
+                view = LayoutInflater.from(a.this.dvc.getPageActivity()).inflate(R.layout.recommend_view, (ViewGroup) null);
                 b bVar2 = new b();
                 bVar2.rootView = view.findViewById(R.id.root_view);
-                bVar2.gQu = (TextView) view.findViewById(R.id.forum_name);
-                bVar2.gQw = (TextView) view.findViewById(R.id.follow_tv);
-                bVar2.gQv = (TextView) view.findViewById(R.id.thread_tv);
-                bVar2.gQx = (ImageView) view.findViewById(R.id.arrow_item_img);
-                bVar2.gQy = (TbImageView) view.findViewById(R.id.headview);
-                bVar2.gQz = (TextView) view.findViewById(R.id.follow_title);
-                bVar2.gQA = (TextView) view.findViewById(R.id.thread_title);
-                bVar2.cWh = view.findViewById(R.id.divider_line);
-                bVar2.gQB = (ImageView) view.findViewById(R.id.content_img);
+                bVar2.hAs = (TextView) view.findViewById(R.id.forum_name);
+                bVar2.hAu = (TextView) view.findViewById(R.id.follow_tv);
+                bVar2.hAt = (TextView) view.findViewById(R.id.thread_tv);
+                bVar2.hAv = (ImageView) view.findViewById(R.id.arrow_item_img);
+                bVar2.hAw = (TbImageView) view.findViewById(R.id.headview);
+                bVar2.hAx = (TextView) view.findViewById(R.id.follow_title);
+                bVar2.hAy = (TextView) view.findViewById(R.id.thread_title);
+                bVar2.dvs = view.findViewById(R.id.divider_line);
+                bVar2.hAz = (ImageView) view.findViewById(R.id.content_img);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             if (getItem(i) != null) {
-                bVar.gQu.setText(aq.cutChineseAndEnglishWithSuffix(getItem(i).forum_name, 14, StringHelper.STRING_MORE));
-                bVar.gQy.startLoad(getItem(i).avatar, 10, false);
-                bVar.gQw.setText(aq.numberUniformFormat(getItem(i).member_count.intValue()));
-                bVar.gQv.setText(aq.numberUniformFormat(getItem(i).post_num.intValue()));
+                bVar.hAs.setText(aq.cutChineseAndEnglishWithSuffix(getItem(i).forum_name, 14, StringHelper.STRING_MORE));
+                bVar.hAw.startLoad(getItem(i).avatar, 10, false);
+                bVar.hAu.setText(aq.numberUniformFormat(getItem(i).member_count.intValue()));
+                bVar.hAt.setText(aq.numberUniformFormat(getItem(i).post_num.intValue()));
                 bVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (!StringUtils.isNull(C0515a.this.getItem(i).forum_name)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.cVR.getContext()).createNormalCfg(C0515a.this.getItem(i).forum_name, null)));
+                        if (!StringUtils.isNull(C0552a.this.getItem(i).forum_name)) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(a.this.dvc.getContext()).createNormalCfg(C0552a.this.getItem(i).forum_name, null)));
                         }
                     }
                 });
-                am.setViewTextColor(bVar.gQu, (int) R.color.cp_cont_b);
-                am.setViewTextColor(bVar.gQw, (int) R.color.cp_cont_d);
-                am.setViewTextColor(bVar.gQv, (int) R.color.cp_cont_d);
-                am.setViewTextColor(bVar.gQA, (int) R.color.cp_cont_d);
-                am.setViewTextColor(bVar.gQz, (int) R.color.cp_cont_d);
-                am.setBackgroundResource(bVar.cWh, R.color.cp_bg_line_c);
-                SvgManager.aGG().a(bVar.gQx, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+                am.setViewTextColor(bVar.hAs, (int) R.color.cp_cont_b);
+                am.setViewTextColor(bVar.hAu, (int) R.color.cp_cont_d);
+                am.setViewTextColor(bVar.hAt, (int) R.color.cp_cont_d);
+                am.setViewTextColor(bVar.hAy, (int) R.color.cp_cont_d);
+                am.setViewTextColor(bVar.hAx, (int) R.color.cp_cont_d);
+                am.setBackgroundResource(bVar.dvs, R.color.cp_bg_line_c);
+                SvgManager.aOU().a(bVar.hAv, R.drawable.icon_pure_list_arrow16_right_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
                 am.setBackgroundResource(view, R.drawable.addresslist_item_bg);
-                am.setBackgroundResource(bVar.gQB, R.drawable.picture_content_frame);
+                am.setBackgroundResource(bVar.hAz, R.drawable.picture_content_frame);
             }
             return view;
         }

@@ -5,7 +5,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 /* loaded from: classes6.dex */
 public class b {
-    private a aYm;
+    private a bwM;
     private boolean mIsRegisted = false;
     private TelephonyManager mTelephonyManager = null;
     private boolean mIsCalling = false;
@@ -15,23 +15,23 @@ public class b {
             super.onCallStateChanged(i, str);
             switch (i) {
                 case 0:
-                    if (b.this.aYm != null && b.this.mIsCalling) {
-                        b.this.aYm.onInterruptionEnd();
+                    if (b.this.bwM != null && b.this.mIsCalling) {
+                        b.this.bwM.onInterruptionEnd();
                         b.this.mIsCalling = false;
                         return;
                     }
                     return;
                 case 1:
                     b.this.mIsCalling = true;
-                    if (b.this.aYm != null) {
-                        b.this.aYm.onInterruptionBegin();
+                    if (b.this.bwM != null) {
+                        b.this.bwM.onInterruptionBegin();
                         return;
                     }
                     return;
                 case 2:
                     b.this.mIsCalling = true;
-                    if (b.this.aYm != null) {
-                        b.this.aYm.onInterruptionBegin();
+                    if (b.this.bwM != null) {
+                        b.this.bwM.onInterruptionBegin();
                         return;
                     }
                     return;
@@ -49,8 +49,8 @@ public class b {
     }
 
     public b(a aVar) {
-        this.aYm = null;
-        this.aYm = aVar;
+        this.bwM = null;
+        this.bwM = aVar;
     }
 
     public void register(Context context) {

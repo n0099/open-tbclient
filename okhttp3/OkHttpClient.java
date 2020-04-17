@@ -47,6 +47,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
     final Dispatcher dispatcher;
     final Dns dns;
     final EventListener.Factory eventListenerFactory;
+    final int fallbackConnectDelayMs;
     final boolean followRedirects;
     final boolean followSslRedirects;
     final HostnameVerifier hostnameVerifier;
@@ -188,6 +189,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         this.readTimeout = builder.readTimeout;
         this.writeTimeout = builder.writeTimeout;
         this.pingInterval = builder.pingInterval;
+        this.fallbackConnectDelayMs = builder.fallbackConnectDelayMs;
         if (this.interceptors.contains(null)) {
             throw new IllegalStateException("Null interceptor: " + this.interceptors);
         }
@@ -220,6 +222,10 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
 
     public int pingIntervalMillis() {
         return this.pingInterval;
+    }
+
+    public int getFallbackConnectDelayMs() {
+        return this.fallbackConnectDelayMs;
     }
 
     public Proxy proxy() {
@@ -343,6 +349,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         Dispatcher dispatcher;
         Dns dns;
         EventListener.Factory eventListenerFactory;
+        int fallbackConnectDelayMs;
         boolean followRedirects;
         boolean followSslRedirects;
         HostnameVerifier hostnameVerifier;
@@ -386,6 +393,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             this.readTimeout = 10000;
             this.writeTimeout = 10000;
             this.pingInterval = 0;
+            this.fallbackConnectDelayMs = 0;
         }
 
         Builder(OkHttpClient okHttpClient) {
@@ -418,6 +426,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             this.readTimeout = okHttpClient.readTimeout;
             this.writeTimeout = okHttpClient.writeTimeout;
             this.pingInterval = okHttpClient.pingInterval;
+            this.fallbackConnectDelayMs = okHttpClient.fallbackConnectDelayMs;
         }
 
         public Builder connectTimeout(long j, TimeUnit timeUnit) {
@@ -437,6 +446,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
 
         public Builder pingInterval(long j, TimeUnit timeUnit) {
             this.pingInterval = Util.checkDuration("interval", j, timeUnit);
+            return this;
+        }
+
+        public Builder fallbackConnectDelayMs(int i) {
+            this.fallbackConnectDelayMs = i;
             return this;
         }
 

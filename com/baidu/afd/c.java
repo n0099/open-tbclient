@@ -4,21 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements g {
-    private final int Df;
-    private final int Dg;
-    private final int Dh;
-    private final String Di;
-    private int Dj;
-    private HashMap Dk;
+    private final int WA;
+    private final int WB;
+    private final int WC;
+    private final String WD;
+    private int WE;
+    private HashMap WF;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.Df = i;
-        this.Dg = i2;
-        this.Dh = i3;
-        this.Di = str;
+        this.WA = i;
+        this.WB = i2;
+        this.WC = i3;
+        this.WD = str;
         this.tabName = str2;
-        this.Dj = i4;
+        this.WE = i4;
     }
 
     public static g a(int i, int i2, int i3, String str, String str2, int i4) {
@@ -26,27 +26,27 @@ public class c implements g {
     }
 
     @Override // com.baidu.afd.g
-    public int kF() {
-        return this.Df;
+    public int pj() {
+        return this.WA;
     }
 
     @Override // com.baidu.afd.g
-    public int kG() {
-        return this.Dg;
+    public int pk() {
+        return this.WB;
     }
 
     @Override // com.baidu.afd.g
-    public int kH() {
-        return this.Dj;
+    public int pl() {
+        return this.WE;
     }
 
     @Override // com.baidu.afd.g
-    public Map<String, String> kI() {
-        return this.Dk;
+    public Map<String, String> pm() {
+        return this.WF;
     }
 
     @Override // com.baidu.afd.g
-    public void j(HashMap hashMap) {
-        this.Dk = hashMap;
+    public void w(HashMap hashMap) {
+        this.WF = hashMap;
     }
 }

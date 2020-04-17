@@ -44,33 +44,33 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        f WV = f.WV();
-        if (WV == null) {
+        f aeK = f.aeK();
+        if (aeK == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.e GH = WV.GH();
-        if (GH == null) {
+        com.baidu.swan.apps.core.d.e Ou = aeK.Ou();
+        if (Ou == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b Oq = GH.Oq();
-        if (Oq == null) {
+        com.baidu.swan.apps.core.d.b We = Ou.We();
+        if (We == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final SwanAppActionBar NG = Oq.NG();
-        if (NG == null) {
+        final SwanAppActionBar Vt = We.Vt();
+        if (Vt == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        eVar.acS().b(context, "mapp_change_menu_appearance", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.aa.b.1
+        eVar.akX().b(context, "mapp_change_menu_appearance", new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.swan.apps.aa.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: a */
-            public void D(h<b.d> hVar) {
+            public void E(h<b.d> hVar) {
                 if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                    if (b.this.a(NG, optParamsAsJo, str)) {
+                    if (b.this.a(Vt, optParamsAsJo, str)) {
                         callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                         return;
                     } else {

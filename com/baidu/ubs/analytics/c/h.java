@@ -8,44 +8,44 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a kXZ;
+    private a lOD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.kXZ = aVar;
+        this.lOD = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.kXZ.cXS()) {
-            for (a.InterfaceC0643a interfaceC0643a : this.kXZ.cXS()) {
-                interfaceC0643a.T();
+        synchronized (this.lOD.dlb()) {
+            for (a.InterfaceC0691a interfaceC0691a : this.lOD.dlb()) {
+                interfaceC0691a.T();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.kXZ.cXS()) {
-            for (a.InterfaceC0643a interfaceC0643a : this.kXZ.cXS()) {
-                interfaceC0643a.U();
+        synchronized (this.lOD.dlb()) {
+            for (a.InterfaceC0691a interfaceC0691a : this.lOD.dlb()) {
+                interfaceC0691a.U();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.kXZ.cXS()) {
-            for (a.InterfaceC0643a interfaceC0643a : this.kXZ.cXS()) {
-                interfaceC0643a.a(activity);
+        synchronized (this.lOD.dlb()) {
+            for (a.InterfaceC0691a interfaceC0691a : this.lOD.dlb()) {
+                interfaceC0691a.a(activity);
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.kXZ.cXS()) {
-            Iterator<a.InterfaceC0643a> it = this.kXZ.cXS().iterator();
+        synchronized (this.lOD.dlb()) {
+            Iterator<a.InterfaceC0691a> it = this.lOD.dlb().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.kXZ.cXS()) {
-            Iterator<a.InterfaceC0643a> it = this.kXZ.cXS().iterator();
+        synchronized (this.lOD.dlb()) {
+            Iterator<a.InterfaceC0691a> it = this.lOD.dlb().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.kXZ.cXS()) {
-            Iterator<a.InterfaceC0643a> it = this.kXZ.cXS().iterator();
+        synchronized (this.lOD.dlb()) {
+            Iterator<a.InterfaceC0691a> it = this.lOD.dlb().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,9 +74,9 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.kXZ.cXS()) {
-            for (a.InterfaceC0643a interfaceC0643a : this.kXZ.cXS()) {
-                interfaceC0643a.onActivityDestroyed(activity);
+        synchronized (this.lOD.dlb()) {
+            for (a.InterfaceC0691a interfaceC0691a : this.lOD.dlb()) {
+                interfaceC0691a.onActivityDestroyed(activity);
             }
         }
     }

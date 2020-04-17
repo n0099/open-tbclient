@@ -6,24 +6,24 @@ import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes10.dex */
 public class c extends AsyncTask<Void, Void, String> {
-    private a jEM;
+    private a koF;
     private Camera mCamera;
     private byte[] mData;
     private int orientation;
 
     /* loaded from: classes10.dex */
     public interface a {
-        String c(byte[] bArr, int i, int i2, boolean z);
+        String b(byte[] bArr, int i, int i2, boolean z);
     }
 
     public c(Camera camera, byte[] bArr, a aVar, int i) {
         this.mCamera = camera;
         this.mData = bArr;
-        this.jEM = aVar;
+        this.koF = aVar;
         this.orientation = i;
     }
 
-    public c cCb() {
+    public c cMA() {
         if (Build.VERSION.SDK_INT >= 11) {
             executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         } else {
@@ -41,7 +41,7 @@ public class c extends AsyncTask<Void, Void, String> {
     @Override // android.os.AsyncTask
     protected void onCancelled() {
         super.onCancelled();
-        this.jEM = null;
+        this.koF = null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,13 +75,13 @@ public class c extends AsyncTask<Void, Void, String> {
                 i = i2;
             }
             try {
-                if (this.jEM != null) {
-                    return this.jEM.c(bArr, i2, i, false);
+                if (this.koF != null) {
+                    return this.koF.b(bArr, i2, i, false);
                 }
                 return null;
             } catch (Exception e2) {
                 try {
-                    return this.jEM.c(bArr, i2, i, true);
+                    return this.koF.b(bArr, i2, i, true);
                 } catch (Exception e3) {
                     return null;
                 }

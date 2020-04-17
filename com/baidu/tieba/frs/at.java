@@ -1,7 +1,14 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes.dex */
-public class at {
-    public int gsO;
-    public boolean isSelected;
-    public String name;
+
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
+/* loaded from: classes9.dex */
+public class at implements com.baidu.tieba.horizonalList.widget.c {
+    public MetaData metaData = new MetaData();
+
+    public at() {
+        if (this.metaData.getGodUserData() == null) {
+            this.metaData.setGodUserData(new GodUserData());
+        }
+    }
 }

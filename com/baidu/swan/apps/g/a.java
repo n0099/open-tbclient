@@ -43,8 +43,8 @@ public class a extends ab {
         com.baidu.swan.apps.network.c.b.a.d(new b<Map<String, com.baidu.swan.apps.setting.oauth.e>>() { // from class: com.baidu.swan.apps.g.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
-            /* renamed from: n */
-            public void D(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
+            /* renamed from: l */
+            public void E(Map<String, com.baidu.swan.apps.setting.oauth.e> map) {
                 if (map != null) {
                     a.this.a(str, callbackHandler, map);
                 } else {
@@ -62,21 +62,21 @@ public class a extends ab {
             return;
         }
         boolean z = eVar.forbidden;
-        int ahb = ah.ahb();
-        long ahc = ah.ahc();
-        List<String> list = eVar.bTB;
+        int apj = ah.apj();
+        long apk = ah.apk();
+        List<String> list = eVar.csq;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", ahb);
-            jSONObject.put("visitDuration", ahc);
+            jSONObject.put("launchCount", apj);
+            jSONObject.put("visitDuration", apk);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + ahb + " visitDuration:" + ahc + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + apj + " visitDuration:" + apk + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

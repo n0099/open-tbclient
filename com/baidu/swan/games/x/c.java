@@ -11,35 +11,35 @@ import com.baidu.swan.games.x.b;
 /* loaded from: classes11.dex */
 public class c extends EventTargetImpl {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.b ckm;
-    private com.baidu.swan.games.binding.model.a csK;
-    private String csL;
+    private com.baidu.swan.games.e.b cJh;
+    private com.baidu.swan.games.binding.model.a cRF;
+    private String cRG;
 
     public c(com.baidu.swan.games.e.b bVar) {
         super(bVar);
-        this.ckm = bVar;
+        this.cJh = bVar;
     }
 
     public void l(JsObject jsObject) {
         reset();
         m(jsObject);
-        if (TextUtils.isEmpty(this.csL)) {
+        if (TextUtils.isEmpty(this.cRG)) {
             if (DEBUG) {
                 Log.i("LoadSubpackageTask", "params error");
             }
-            com.baidu.swan.games.u.c.k(this.csL, 2111, "");
+            com.baidu.swan.games.u.c.k(this.cRG, 2111, "");
             return;
         }
-        b.a(this.csL, new b.a() { // from class: com.baidu.swan.games.x.c.1
+        b.a(this.cRG, new b.a() { // from class: com.baidu.swan.games.x.c.1
             @Override // com.baidu.swan.games.x.b.a
-            public void apU() {
-                c.this.eJ(c.this.pK(c.this.csL));
+            public void ayg() {
+                c.this.fG(c.this.qX(c.this.cRG));
             }
 
             @Override // com.baidu.swan.games.x.b.a
-            public void dY(int i) {
-                c.this.eJ(false);
-                com.baidu.swan.games.u.c.k(c.this.csL, i, "");
+            public void ed(int i) {
+                c.this.fG(false);
+                com.baidu.swan.games.u.c.k(c.this.cRG, i, "");
             }
 
             @Override // com.baidu.swan.games.x.b.a
@@ -61,20 +61,20 @@ public class c extends EventTargetImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eJ(final boolean z) {
-        if (this.ckm != null) {
-            this.ckm.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.x.c.2
+    public void fG(final boolean z) {
+        if (this.cJh != null) {
+            this.cJh.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.x.c.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z) {
-                        if (c.this.csK != null) {
-                            c.this.csK.onSuccess();
+                        if (c.this.cRF != null) {
+                            c.this.cRF.onSuccess();
                             if (c.DEBUG) {
                                 Log.i("LoadSubpackageTask", "success call");
                             }
                         }
-                    } else if (c.this.csK != null) {
-                        c.this.csK.onFail();
+                    } else if (c.this.cRF != null) {
+                        c.this.cRF.onFail();
                         if (c.DEBUG) {
                             Log.i("LoadSubpackageTask", "fail call");
                         }
@@ -85,37 +85,37 @@ public class c extends EventTargetImpl {
     }
 
     private void reset() {
-        this.csK = null;
-        this.csL = null;
+        this.cRF = null;
+        this.cRG = null;
     }
 
     private void m(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c c;
         if (jsObject != null && (c = com.baidu.swan.games.binding.model.c.c(jsObject)) != null) {
-            this.csK = com.baidu.swan.games.binding.model.a.f(c);
+            this.cRF = com.baidu.swan.games.binding.model.a.f(c);
             try {
-                this.csL = c.getString("name");
+                this.cRG = c.getString("name");
             } catch (JSTypeMismatchException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
-                com.baidu.swan.games.utils.b.a(this.ckm, e);
+                com.baidu.swan.games.utils.b.a(this.cJh, e);
                 reset();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean pK(String str) {
-        if (this.ckm == null) {
+    public boolean qX(String str) {
+        if (this.cJh == null) {
             return false;
         }
-        String str2 = f.WV().WD() + a.apT().O(str, 2);
-        String O = a.apT().O(str, 3);
-        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(O)) {
+        String str2 = f.aeK().aes() + a.ayf().W(str, 2);
+        String W = a.ayf().W(str, 3);
+        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(W)) {
             return false;
         }
-        this.ckm.bE(str2, O);
+        this.cJh.bP(str2, W);
         return true;
     }
 }

@@ -12,16 +12,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class ObservableCreate<T> extends q<T> {
-    final s<T> nzS;
+    final s<T> mTs;
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
         CreateEmitter createEmitter = new CreateEmitter(uVar);
         uVar.onSubscribe(createEmitter);
         try {
-            this.nzS.a(createEmitter);
+            this.mTs.a(createEmitter);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             createEmitter.onError(th);
         }
     }
@@ -101,11 +101,6 @@ public final class ObservableCreate<T> extends q<T> {
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
             return DisposableHelper.isDisposed(get());
-        }
-
-        @Override // java.util.concurrent.atomic.AtomicReference
-        public String toString() {
-            return String.format("%s{%s}", getClass().getSimpleName(), super.toString());
         }
     }
 
@@ -228,11 +223,6 @@ public final class ObservableCreate<T> extends q<T> {
 
         public r<T> serialize() {
             return this;
-        }
-
-        @Override // java.util.concurrent.atomic.AtomicInteger
-        public String toString() {
-            return this.emitter.toString();
         }
     }
 }

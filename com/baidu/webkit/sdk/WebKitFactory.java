@@ -6,7 +6,6 @@ import android.os.Process;
 import android.support.annotation.Keep;
 import android.text.TextUtils;
 import com.a.a.a.a.a.a.a;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.baidu.webkit.internal.CpuInfo;
@@ -463,7 +462,7 @@ public final class WebKitFactory {
     public static boolean isZeusSupported() {
         boolean z;
         if (!sZeusSupportedLoaded) {
-            if (X64_BL.indexOf(Build.MODEL.replace(HanziToPinyin.Token.SEPARATOR, "").toLowerCase()) != -1) {
+            if (X64_BL.indexOf(Build.MODEL.replace(" ", "").toLowerCase()) != -1) {
                 Log.w(TAG, "not support intel x86");
                 sZeusSupported = false;
                 sZeusSupportedLoaded = true;

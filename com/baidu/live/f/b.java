@@ -50,8 +50,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onPreDownload(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.afg = 1;
-                cVar.afh = downloadData2;
+                cVar.axw = 1;
+                cVar.axx = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -59,8 +59,8 @@ public class b {
             @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
             public boolean onFileDownloaded(DownloadData downloadData2) {
                 c cVar = new c();
-                cVar.afg = 4;
-                cVar.afh = downloadData2;
+                cVar.axw = 4;
+                cVar.axx = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                 return true;
             }
@@ -74,8 +74,8 @@ public class b {
             public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str8) {
                 BdLog.e("failed to donwload dynamic gift zip" + str8);
                 c cVar = new c();
-                cVar.afg = 2;
-                cVar.afh = downloadData2;
+                cVar.axw = 2;
+                cVar.axx = downloadData2;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
             }
         });
@@ -107,7 +107,7 @@ public class b {
                 if (DownloadData.this.getPath() != null && new File(DownloadData.this.getPath()).exists()) {
                     boolean unZipFile = b.unZipFile(DownloadData.this.getPath(), str);
                     if (unZipFile) {
-                        b.Q(str2, str);
+                        b.T(str2, str);
                     }
                     return Boolean.valueOf(unZipFile);
                 }
@@ -121,14 +121,14 @@ public class b {
                 if (bool.booleanValue()) {
                     if (a.existFile(str)) {
                         c cVar = new c();
-                        cVar.afg = 5;
-                        cVar.afh = DownloadData.this;
+                        cVar.axw = 5;
+                        cVar.axx = DownloadData.this;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar));
                         return;
                     }
                     c cVar2 = new c();
-                    cVar2.afg = 6;
-                    cVar2.afh = DownloadData.this;
+                    cVar2.axw = 6;
+                    cVar2.axx = DownloadData.this;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913078, cVar2));
                     BdLog.e("zip empty");
                     return;
@@ -138,9 +138,9 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    public static ArrayList<String> cY(String str) {
+    public static ArrayList<String> dQ(String str) {
         ArrayList<String> arrayList = null;
-        String string = com.baidu.live.c.pw().getSharedPreferences().getString(str, null);
+        String string = com.baidu.live.c.tH().getSharedPreferences().getString(str, null);
         if (string == null) {
             return null;
         }
@@ -187,7 +187,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void Q(String str, String str2) {
+    public static void T(String str, String str2) {
         File[] listFiles;
         String fileMd5;
         if (!StringUtils.isNull(str2) && (listFiles = new File(str2).listFiles()) != null) {
@@ -197,7 +197,7 @@ public class b {
                     jSONArray.put(fileMd5);
                 }
             }
-            com.baidu.live.c.pw().putString(str, jSONArray.toString());
+            com.baidu.live.c.tH().putString(str, jSONArray.toString());
         }
     }
 
@@ -323,7 +323,7 @@ public class b {
         }
     }
 
-    public static void bq(int i) {
+    public static void bD(int i) {
         FileSerialDownLoader.getInstance().cancelDownloadByType(i);
     }
 }

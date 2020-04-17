@@ -47,7 +47,7 @@ public final class c {
         return startActivitySafely(context, intent, false);
     }
 
-    public static void T(Activity activity) {
+    public static void P(Activity activity) {
         if (DEBUG) {
             Log.i("ActivityUtils", "tryFinishAndRemoveTask: " + activity);
         }
@@ -66,19 +66,19 @@ public final class c {
         }
     }
 
-    public static void U(Activity activity) {
+    public static void Q(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | agD());
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | aoI());
         }
     }
 
-    public static void V(Activity activity) {
+    public static void R(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (agD() ^ (-1));
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (aoI() ^ (-1));
             if (com.baidu.swan.apps.res.widget.a.SUPPORT_IMMERSION) {
                 systemUiVisibility |= 5120;
             }
@@ -86,7 +86,7 @@ public final class c {
         }
     }
 
-    public static int agD() {
+    public static int aoI() {
         return 5894;
     }
 }

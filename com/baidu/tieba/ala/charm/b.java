@@ -1,132 +1,122 @@
 package com.baidu.tieba.ala.charm;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
+import com.baidu.ala.AlaCmdConfigCustom;
 import com.baidu.live.adp.framework.MessageManager;
+import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomMessage;
-import com.baidu.live.adp.widget.listview.BdListView;
-import com.baidu.live.data.g;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import com.baidu.live.adp.framework.message.CustomResponsedMessage;
+import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.tbadk.core.atomdata.AlaPersonCardActivityConfig;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.ViewHelper;
-import com.baidu.live.tbadk.core.view.PbListView;
-import com.baidu.live.tbadk.widget.CommonEmptyView;
-import com.baidu.live.u.a;
-import com.baidu.live.utils.i;
-import com.baidu.tieba.ala.charm.view.f;
-import java.util.List;
+import com.baidu.tieba.ala.charm.c;
+import com.baidu.tieba.ala.charm.data.ALaCharmData;
+import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
+import com.baidu.tieba.ala.charm.model.a;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class b {
-    private boolean atc;
-    private String atd;
-    private TextView dVm;
-    private CommonEmptyView ewA;
-    private f ewB;
-    private View ewC;
-    private PbListView ewD;
-    private View.OnClickListener ewE = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.b.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (view != null && (view.getTag() instanceof Integer)) {
-                int intValue = ((Integer) view.getTag()).intValue();
-                if (b.this.ewB != null) {
-                    b.this.a(b.this.ewB.getItem(intValue));
-                }
-            }
-        }
-    };
-    private View.OnClickListener ewF = new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.b.2
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            ViewHelper.checkUpIsLogin(view.getContext());
-        }
-    };
-    private ALaCharmCardActivity ewz;
+public class b implements c {
+    private boolean aMq;
+    private String aMr;
+    private com.baidu.tieba.ala.charm.model.a fai;
+    private c.a fax;
+    private CustomMessageListener fay;
     private String mGroupId;
-    private BdListView mListView;
     private String mLiveId;
     private String mOtherParams;
-    private View mRootView;
+    private TbPageContext mPageContext;
+    private String mUserId;
 
-    public b(ALaCharmCardActivity aLaCharmCardActivity, String str, String str2, boolean z, String str3) {
-        this.ewz = aLaCharmCardActivity;
-        this.mGroupId = str;
-        this.mLiveId = str2;
-        this.atc = z;
-        this.atd = str3;
-        this.mRootView = this.ewz.getLayoutInflater().inflate(a.h.online_list_detail_layout, (ViewGroup) null);
-        this.mListView = (BdListView) this.mRootView.findViewById(a.g.detail_list);
-        this.ewA = (CommonEmptyView) this.mRootView.findViewById(a.g.emptyView);
-        this.ewC = this.mRootView.findViewById(a.g.toLogin_layout);
-        this.ewC.setOnClickListener(this.ewF);
-        if (TbadkCoreApplication.isLogin()) {
-            this.ewC.setVisibility(8);
-        } else {
-            this.ewC.setVisibility(0);
+    public b(TbPageContext tbPageContext) {
+        this.mPageContext = tbPageContext;
+    }
+
+    @Override // com.baidu.tieba.ala.charm.c
+    public void a(String str, String str2, String str3, boolean z, String str4, String str5) {
+        this.mUserId = str;
+        this.mGroupId = str2;
+        this.mLiveId = str3;
+        this.aMq = z;
+        this.aMr = str4;
+        this.mOtherParams = str5;
+        registerListener();
+    }
+
+    @Override // com.baidu.tieba.ala.charm.c
+    public void a(c.a aVar) {
+        this.fax = aVar;
+    }
+
+    @Override // com.baidu.tieba.ala.charm.c
+    public void bnj() {
+        if (this.fai == null) {
+            this.fai = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUserId, new a.InterfaceC0463a() { // from class: com.baidu.tieba.ala.charm.b.1
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0463a
+                public void a(ALaCharmDataList aLaCharmDataList) {
+                    b.this.b(aLaCharmDataList);
+                }
+
+                @Override // com.baidu.tieba.ala.charm.model.a.InterfaceC0463a
+                public void as(int i, String str) {
+                    if (b.this.fax != null) {
+                        b.this.fax.om(str);
+                    }
+                }
+            });
         }
-        this.ewB = new f(aLaCharmCardActivity.getPageContext(), 1);
-        this.mListView.setAdapter((ListAdapter) this.ewB);
-        this.mListView.setEmptyView(this.ewA);
-        this.ewB.n(this.ewE);
-        this.dVm = (TextView) this.mRootView.findViewById(a.g.top_text);
-        if (this.ewD == null) {
-            this.ewD = new PbListView(this.ewz);
-            this.ewD.setTextColor(this.ewz.getResources().getColor(a.d.sdk_cp_cont_j));
-            this.ewD.setSkinType(0);
-            this.ewD.setContainerBackgroundColorResId(a.d.sdk_transparent);
-            this.ewD.createView();
+        this.fai.K(1, 20, 1);
+    }
+
+    @Override // com.baidu.tieba.ala.charm.c
+    public void a(ALaCharmData aLaCharmData) {
+        if (aLaCharmData != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913186));
+            if (this.fax != null) {
+                this.fax.onClose();
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.mPageContext.getPageActivity(), aLaCharmData.pay_userid, aLaCharmData.user_name, aLaCharmData.portrait, aLaCharmData.sex, aLaCharmData.level_id, null, null, 0L, aLaCharmData.fans_count, aLaCharmData.follow_count, aLaCharmData.user_status, this.mGroupId, this.mLiveId, this.aMq, this.aMr, null, aLaCharmData.user_name, this.mOtherParams)));
         }
     }
 
-    public void bp(List<g> list) {
-        this.ewB.setData(list);
+    @Override // com.baidu.tieba.ala.charm.c
+    public void release() {
+        this.fax = null;
+        if (this.fay != null) {
+            MessageManager.getInstance().unRegisterListener(this.fay);
+        }
+        if (this.fai != null) {
+            this.fai.onDestroy();
+        }
     }
 
-    public void il(boolean z) {
-        if (z) {
-            this.ewA.reset();
-            this.ewA.setTitle(a.i.online_empty_text);
-            this.ewA.setup(CommonEmptyView.ImgType.NO_RANK_LIST, CommonEmptyView.StyleType.DARK);
-            this.ewA.setVisibility(0);
-            return;
-        }
-        this.ewA.setVisibility(8);
+    private void registerListener() {
+        this.fay = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER) { // from class: com.baidu.tieba.ala.charm.b.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.live.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (b.this.fax != null) {
+                    b.this.fax.onClose();
+                }
+            }
+        };
+        MessageManager.getInstance().registerListener(this.fay);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(g gVar) {
-        if (gVar != null && gVar.Ya != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCardActivityConfig(this.ewz.getPageContext().getPageActivity(), gVar.Ya.userId + "", gVar.Ya.userName, gVar.Ya.portrait, gVar.Ya.sex, gVar.Ya.levelId, null, null, 0L, gVar.Ya.fansCount, gVar.Ya.fansCount, gVar.Ya.userStatus, this.mGroupId, this.mLiveId, this.atc, this.atd, null, gVar.Ya.userName, this.mOtherParams)));
+    public void b(ALaCharmDataList aLaCharmDataList) {
+        ArrayList<ALaCharmData> arrayList;
+        String str;
+        if (this.fax != null && aLaCharmDataList != null && (arrayList = aLaCharmDataList.data) != null) {
+            int size = arrayList.size();
+            if (size > 3) {
+                if (size >= 20) {
+                    str = String.format("最多只展示前%d位用户", Integer.valueOf(size));
+                } else {
+                    str = "没有更多了哦";
+                }
+                this.fax.b(arrayList.subList(0, 3), arrayList.subList(3, size), str);
+                return;
+            }
+            this.fax.b(arrayList.subList(0, size), null, null);
         }
-    }
-
-    public void cD(long j) {
-        if (this.dVm != null) {
-            this.dVm.setText(String.format(this.ewz.getString(a.i.online_count), i.numFormatOverWanNaForAudienceNum(j)));
-        }
-    }
-
-    public View getRootView() {
-        return this.mRootView;
-    }
-
-    public void l(View.OnClickListener onClickListener) {
-        this.ewA.reset();
-        this.ewA.setTitle(a.i.sdk_net_fail_tip);
-        this.ewA.setRefreshButton(a.i.sdk_net_refresh_btn_text, onClickListener);
-        this.ewA.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.ewA.setVisibility(0);
-    }
-
-    public void bcC() {
-        this.ewA.setVisibility(8);
-    }
-
-    public void xX(String str) {
-        this.mListView.setNextPage(this.ewD);
-        this.ewD.endLoadDataWithNoMore(str);
     }
 }

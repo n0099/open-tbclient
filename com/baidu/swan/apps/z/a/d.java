@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.as.af;
 /* loaded from: classes11.dex */
 public class d {
-    public static int B(String str, int i) {
+    public static int J(String str, int i) {
         int i2;
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.w("map", "color string is empty, use default " + Integer.toHexString(i));
@@ -33,7 +33,7 @@ public class d {
         return i2;
     }
 
-    public static float f(double d) {
+    public static float k(double d) {
         return (float) (af.getDensity(AppRuntime.getAppContext()) * d);
     }
 }

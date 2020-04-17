@@ -14,6 +14,7 @@ public class PlayStatisticsResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         if (i == 1001804 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("info")) != null) {
             TbSingleton.getInstance().setVideoTestType(optJSONObject.optString("exp_tag", ""));
+            TbSingleton.getInstance().setPcdnConfigData(optJSONObject.optJSONObject("pcdn_config"));
         }
     }
 }

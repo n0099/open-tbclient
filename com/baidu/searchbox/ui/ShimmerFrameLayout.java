@@ -17,6 +17,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
+import com.baidu.ar.auth.FeatureCodes;
 /* loaded from: classes12.dex */
 public class ShimmerFrameLayout extends FrameLayout {
     private static final PorterDuffXfermode DST_IN_PORTER_DUFF_XFERMODE = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
@@ -214,7 +215,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     public void useDefaults() {
-        setDuration(1200);
+        setDuration(FeatureCodes.FACE);
         setRepeatCount(-1);
         setRepeatDelay(0);
         setRepeatMode(1);

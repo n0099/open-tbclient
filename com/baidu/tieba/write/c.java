@@ -14,31 +14,31 @@ import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
     private int bgColor;
-    private String cBs;
-    private int gQm;
-    private ArrayList<String> kNt;
-    private int kNu;
-    private int kNv;
-    private int kNw = -1;
-    private boolean kNx = false;
-    private boolean kNy = false;
+    private String daq;
+    private int hAl;
+    private ArrayList<String> lwK;
+    private int lwL;
+    private int lwM;
+    private int lwN = -1;
+    private boolean lwO = false;
+    private boolean lwP = false;
 
     public SpannableStringBuilder a(Editable editable) {
-        if (editable == null || StringUtils.isNull(editable.toString()) || v.isEmpty(this.kNt)) {
+        if (editable == null || StringUtils.isNull(editable.toString()) || v.isEmpty(this.lwK)) {
             return null;
         }
         String obj = editable.toString();
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
-        boolean z = this.kNw >= 0;
-        this.kNw = -1;
-        Iterator<String> it = this.kNt.iterator();
+        boolean z = this.lwN >= 0;
+        this.lwN = -1;
+        Iterator<String> it = this.lwK.iterator();
         while (it.hasNext()) {
             String next = it.next();
             if (!StringUtils.isNull(next)) {
                 a(spannableStringBuilder, obj, next);
             }
         }
-        if (this.kNw >= 0 || z) {
+        if (this.lwN >= 0 || z) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
             if (imageSpanArr != null) {
                 for (ImageSpan imageSpan : imageSpanArr) {
@@ -56,19 +56,19 @@ public class c {
         if (spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        if (this.gQm != 0 || this.bgColor != 0) {
+        if (this.hAl != 0 || this.bgColor != 0) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             if (indexOf >= 0) {
-                if (this.kNw == -1) {
-                    this.kNw = indexOf + length;
-                } else if (indexOf + length < this.kNw) {
-                    this.kNw = indexOf + length;
+                if (this.lwN == -1) {
+                    this.lwN = indexOf + length;
+                } else if (indexOf + length < this.lwN) {
+                    this.lwN = indexOf + length;
                 }
             }
             while (indexOf >= 0) {
-                if (this.gQm != 0) {
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.gQm), indexOf, indexOf + length, 33);
+                if (this.hAl != 0) {
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.hAl), indexOf, indexOf + length, 33);
                 }
                 if (this.bgColor != 0) {
                     spannableStringBuilder.setSpan(new BackgroundColorSpan(this.bgColor), indexOf, indexOf + length, 33);
@@ -79,57 +79,57 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        if (this.kNu != 0) {
-            this.gQm = am.getColor(this.kNu);
+        if (this.lwL != 0) {
+            this.hAl = am.getColor(this.lwL);
         }
-        if (this.kNv != 0) {
-            this.bgColor = am.getColor(this.kNv);
+        if (this.lwM != 0) {
+            this.bgColor = am.getColor(this.lwM);
         }
     }
 
-    public void aU(ArrayList<String> arrayList) {
-        this.kNt = arrayList;
+    public void aW(ArrayList<String> arrayList) {
+        this.lwK = arrayList;
     }
 
-    public ArrayList<String> cUx() {
-        return this.kNt;
+    public ArrayList<String> deS() {
+        return this.lwK;
     }
 
-    public void Eh(int i) {
-        this.kNu = i;
-        this.gQm = am.getColor(this.kNu);
+    public void EI(int i) {
+        this.lwL = i;
+        this.hAl = am.getColor(this.lwL);
     }
 
-    public void Ei(int i) {
-        this.kNv = i;
-        this.bgColor = am.getColor(this.kNv);
+    public void EJ(int i) {
+        this.lwM = i;
+        this.bgColor = am.getColor(this.lwM);
     }
 
-    public int cUy() {
-        return this.kNw;
+    public int deT() {
+        return this.lwN;
     }
 
-    public void tN(boolean z) {
-        this.kNx = z;
+    public void uN(boolean z) {
+        this.lwO = z;
     }
 
-    public boolean cUz() {
-        return this.kNx;
+    public boolean deU() {
+        return this.lwO;
     }
 
-    public void tO(boolean z) {
-        this.kNy = z;
+    public void uO(boolean z) {
+        this.lwP = z;
     }
 
-    public boolean cUA() {
-        return this.kNy;
+    public boolean deV() {
+        return this.lwP;
     }
 
-    public void KL(String str) {
-        this.cBs = str;
+    public void Mp(String str) {
+        this.daq = str;
     }
 
-    public String cUB() {
-        return this.cBs;
+    public String deW() {
+        return this.daq;
     }
 }

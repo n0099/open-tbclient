@@ -25,12 +25,12 @@ public class a extends ItemizedOverlay {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.wnplatform.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0150a {
+    public static class C0174a {
         static final a a = new a();
     }
 
     public static a b() {
-        return C0150a.a;
+        return C0174a.a;
     }
 
     private a() {
@@ -72,9 +72,9 @@ public class a extends ItemizedOverlay {
     private BitmapDescriptor a(Context context, int i, int i2) {
         try {
             this.b = ((Activity) context).getLayoutInflater().inflate(R.layout.abc_dialog_title_material, (ViewGroup) null);
-            this.c = (ImageView) this.b.findViewById(R.raw.simpe_fragment_shader);
+            this.c = (ImageView) this.b.findViewById(2131165305);
             this.c.setImageResource(i);
-            this.d = (ImageView) this.b.findViewById(R.raw.simple_vertex_shader);
+            this.d = (ImageView) this.b.findViewById(2131165306);
             this.d.setImageResource(i2);
             this.b.setDrawingCacheEnabled(true);
             this.b.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));

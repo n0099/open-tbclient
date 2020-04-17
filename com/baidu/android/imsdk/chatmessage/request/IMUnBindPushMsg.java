@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.util.Log;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -37,7 +36,7 @@ public class IMUnBindPushMsg extends Message {
             jSONObject.put("method", 92);
             jSONObject.put("appid", this.mAppid);
             jSONObject.put("uk", this.mUk);
-            jSONObject.put(Constants.KEY_DEVICE_ID, this.mDeviceId);
+            jSONObject.put("device_id", this.mDeviceId);
             this.mBody = jSONObject.toString();
         } catch (JSONException e) {
             LogUtils.e(LogUtils.TAG, "buildBody", e);

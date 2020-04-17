@@ -1,183 +1,189 @@
 package com.baidu.network_service_plugin;
 
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.c;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.j;
+import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.l;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.network_service_plugin.FlutterNetModel;
-import com.baidu.sapi2.activity.SlideActiviy;
-import com.baidu.searchbox.datachannel.Contract;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.network_service_plugin.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
-import com.baidu.tieba.im.settingcache.d;
-import io.flutter.embedding.engine.plugins.FlutterPlugin;
-import io.flutter.plugin.common.MethodCall;
-import io.flutter.plugin.common.MethodChannel;
+import com.baidu.tbadk.core.util.x;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import org.apache.http.HttpHost;
 /* loaded from: classes6.dex */
-public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private static c aPT = new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.network_service_plugin.a.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
-                ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
-                Message<?> orginalMessage = responseUpdateMaskInfoMessage.getOrginalMessage();
-                if (orginalMessage instanceof RequestUpdateMaskInfoMessage) {
-                    RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
-                    if (requestUpdateMaskInfoMessage.getMaskType() == 12) {
-                        final boolean z = requestUpdateMaskInfoMessage.getIsMask() == 0;
-                        if (responseUpdateMaskInfoMessage.getError() != 0) {
-                            l.showToast(TbadkCoreApplication.getInst(), "网络不稳定，请稍后再试");
-                            return;
-                        }
-                        final String list = requestUpdateMaskInfoMessage.getList();
-                        new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.network_service_plugin.a.1.1
-                            /* JADX DEBUG: Method merged with bridge method */
-                            /* JADX INFO: Access modifiers changed from: protected */
-                            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                            public Void doInBackground(Void... voidArr) {
-                                if (!TextUtils.isEmpty(list)) {
-                                    d.bYu().y(TbadkApplication.getCurrentAccount(), list, z);
-                                }
-                                return null;
-                            }
-                        }.execute(new Void[0]);
-                    }
-                }
-            }
+public class a implements b.a {
+    private b blv;
+    private String blw;
+    private HashMap<String, Object> blx;
+    private Runnable blz;
+    private String identifier;
+    private boolean bly = true;
+    private int timeout = -1;
+    private boolean isLoading = false;
+    private C0159a blA = null;
+    private boolean blB = false;
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i, String str, Object obj, String str2);
+    }
+
+    public a(String str) {
+        this.identifier = str;
+    }
+
+    public boolean loadData() {
+        if (this.blv == null && TbadkCoreApplication.getInst().isDebugMode()) {
+            throw new RuntimeException("NetModel must have callback");
         }
-    };
-    protected BdUniqueId unique_id = BdUniqueId.gen();
-    private HashMap<String, FlutterNetModel> aPS = new HashMap<>();
-
-    public void onAttachedToEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-        MessageManager.getInstance().registerListener(aPT);
-        new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "network_service_plugin").setMethodCallHandler(new a());
-    }
-
-    public void onDetachedFromEngine(@NonNull FlutterPlugin.FlutterPluginBinding flutterPluginBinding) {
-    }
-
-    public void onMethodCall(MethodCall methodCall, final MethodChannel.Result result) {
-        if (methodCall.method.equals("getPlatformVersion")) {
-            result.success("Android " + Build.VERSION.RELEASE);
-        } else if (methodCall.method.equals("isNetworkReachable")) {
-            result.success(Boolean.valueOf(j.isNetWorkAvailable()));
-        } else if (methodCall.method.equals("loadData")) {
-            String str = (String) methodCall.argument(Contract.SCHEME_KEY_HOST);
-            String str2 = (String) methodCall.argument(SlideActiviy.ADDRESS_PAGE_NAME);
-            ((Integer) methodCall.argument("cmd")).intValue();
-            HashMap hashMap = (HashMap) methodCall.argument("headers");
-            HashMap<String, Object> hashMap2 = (HashMap) methodCall.argument("params");
-            String str3 = (String) methodCall.argument("identifier");
-            if (str2.startsWith("/")) {
-                str2 = str2.substring(1);
-            }
-            if (!str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                str2 = str + "/" + str2;
-            }
-            hashMap2.put("tbs", TbadkCoreApplication.getInst().getTbs());
-            FlutterNetModel flutterNetModel = new FlutterNetModel(FlutterNetModel.NetModelType.TYPE_NETWORK, str3);
-            flutterNetModel.eI(str2);
-            flutterNetModel.a(new FlutterNetModel.c() { // from class: com.baidu.network_service_plugin.a.2
-                @Override // com.baidu.network_service_plugin.FlutterNetModel.c
-                public void a(HashMap<String, String> hashMap3, int i, String str4, Object obj, String str5) {
-                    a.this.aPS.remove(str5);
-                    result.success(a.this.a(hashMap3, obj, i, str4, str5));
+        this.bly = l.isNetOk();
+        if (this.timeout >= 10) {
+            e.lb().postDelayed(Ky(), this.timeout * 1000);
+        }
+        if (!this.bly) {
+            e.lb().post(new Runnable() { // from class: com.baidu.network_service_plugin.a.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    a.this.G(-1, "网络不可用");
                 }
             });
-            if (flutterNetModel == null) {
-                result.error("init netModel fail!", "", "");
-                return;
-            }
-            flutterNetModel.setUniqueId(this.unique_id);
-            flutterNetModel.setParams(hashMap2);
-            this.aPS.put(str3, flutterNetModel);
-            try {
-                flutterNetModel.loadData();
-            } catch (Exception e) {
-                BdLog.e("netModel loadData exception" + e.toString());
-            }
-        } else if (methodCall.method.equals(UgcUBCUtils.UGC_TIME_CANCEL)) {
-            List list = (List) methodCall.arguments;
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < list.size()) {
-                    Map map = (Map) list.get(i2);
-                    String str4 = (String) map.get("api");
-                    ((Integer) map.get("cmd")).intValue();
-                    FlutterNetModel flutterNetModel2 = this.aPS.get((String) map.get("identifier"));
-                    if (flutterNetModel2 != null) {
-                        flutterNetModel2.cancelLoadData();
-                    }
-                    i = i2 + 1;
-                } else {
-                    return;
-                }
-            }
-        } else if (methodCall.method.equals("sendImMessage")) {
-            String str5 = (String) methodCall.argument("identifier");
-            int intValue = ((Integer) methodCall.argument("msgId")).intValue();
-            HashMap hashMap3 = (HashMap) methodCall.argument("params");
-            if (intValue == 104102) {
-                a(str5, result);
-                RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
-                requestUpdateMaskInfoMessage.setIsMask(Integer.valueOf((String) hashMap3.get("isMask")).intValue());
-                requestUpdateMaskInfoMessage.setMaskType(Integer.valueOf((String) hashMap3.get("type")).intValue());
-                requestUpdateMaskInfoMessage.setList((String) hashMap3.get("list"));
-                MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
-            }
+            return false;
+        } else if (this.blA == null) {
+            this.blA = new C0159a(this);
+            this.blA.execute(new Object[0]);
+            return true;
         } else {
-            result.notImplemented();
+            return false;
         }
     }
 
-    private void a(final String str, final MethodChannel.Result result) {
-        MessageManager.getInstance().registerListener(new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.network_service_plugin.a.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                if (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) {
-                    ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage;
-                    Message<?> orginalMessage = responseUpdateMaskInfoMessage.getOrginalMessage();
-                    if ((orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 12) {
-                        result.success(a.this.a(null, null, responseUpdateMaskInfoMessage.getError(), responseUpdateMaskInfoMessage.getErrorString(), str));
-                    }
-                }
-            }
-        });
+    @Override // com.baidu.network_service_plugin.b.a
+    public boolean cancelLoadData() {
+        if (this.isLoading && this.blA != null) {
+            this.blA.cancel();
+        }
+        this.isLoading = false;
+        return true;
+    }
+
+    public String Ku() {
+        return this.blw;
+    }
+
+    public void fC(String str) {
+        this.blw = str;
+    }
+
+    public HashMap<String, Object> Kv() {
+        return this.blx;
+    }
+
+    public void setParams(HashMap<String, Object> hashMap) {
+        this.blx = hashMap;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap a(HashMap<String, String> hashMap, Object obj, int i, String str, String str2) {
-        HashMap hashMap2 = new HashMap();
-        HashMap hashMap3 = new HashMap();
-        hashMap3.put("errno", Integer.valueOf(i));
-        hashMap3.put(BaseJsonData.TAG_ERRMSG, str);
-        hashMap2.put("requestInfo", hashMap);
-        hashMap2.put("identifier", str2);
-        hashMap2.put("errorInfo", hashMap3);
-        if (i == 0) {
-            hashMap2.put("data", obj);
+    public void Kw() {
+        this.blA = null;
+    }
+
+    public void cD(boolean z) {
+        this.blB = z;
+    }
+
+    public boolean Kx() {
+        return this.blB;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.baidu.network_service_plugin.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static class C0159a extends BdAsyncTask<Object, String, String> {
+        private a blD;
+        private com.baidu.tbadk.core.util.a.a blE;
+        private x blF = null;
+        private boolean blG = false;
+
+        public C0159a(a aVar) {
+            this.blD = aVar;
         }
-        return hashMap2;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: j */
+        public String doInBackground(Object... objArr) {
+            String postNetData;
+            this.blD.isLoading = true;
+            this.blF = new x(this.blD.Ku());
+            HashMap<String, Object> Kv = this.blD.Kv();
+            if (Kv != null && !Kv.isEmpty()) {
+                for (Map.Entry<String, Object> entry : Kv.entrySet()) {
+                    this.blF.addPostData(entry.getKey(), String.valueOf(entry.getValue()));
+                }
+            }
+            if (this.blD.Kx()) {
+                postNetData = this.blF.postMultiNetData();
+            } else {
+                postNetData = this.blF.postNetData();
+            }
+            this.blE = this.blF.aOy();
+            publishProgress(postNetData);
+            return postNetData;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            this.blG = true;
+            super.cancel(true);
+            if (this.blF != null) {
+                this.blF.cancelNetConnect();
+            }
+            if (this.blD.blv != null) {
+                this.blD.blv.a(null, null, -1, "cancle", "", this.blD.identifier);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onProgressUpdate(String... strArr) {
+            super.onProgressUpdate((Object[]) strArr);
+            if (strArr != null && strArr.length > 0) {
+                this.blD.isLoading = false;
+                if (this.blD.blz != null) {
+                    e.lb().removeCallbacks(this.blD.blz);
+                }
+                if (this.blE != null && this.blE.aPa() != null && !this.blG && this.blD.blv != null) {
+                    HashMap<String, String> hashMap = new HashMap<>();
+                    hashMap.put("server", this.blD.Ku());
+                    hashMap.put("api", this.blD.Ku());
+                    hashMap.put("state", this.blE.aPb().dAq.exception);
+                    this.blD.blv.a(hashMap, this.blE.aPc(), this.blE.aPa().mServerErrorCode, this.blE.aPa().mErrorString, strArr[0], this.blD.identifier);
+                }
+                this.blD.Kw();
+            }
+        }
+    }
+
+    public Runnable Ky() {
+        if (this.blz == null) {
+            this.blz = new Runnable() { // from class: com.baidu.network_service_plugin.a.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    a.this.G(-1, "请求超时");
+                }
+            };
+        }
+        return this.blz;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void G(int i, String str) {
+        if (this.blv != null) {
+            this.blv.a(null, null, i, str, null, this.identifier);
+        }
+    }
+
+    public void a(b bVar) {
+        this.blv = bVar;
     }
 }

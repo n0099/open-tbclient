@@ -13,7 +13,7 @@ public class ApkData {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ApkData m20clone() {
+    public ApkData m21clone() {
         ApkData apkData = new ApkData();
         apkData.apkUrl = this.apkUrl;
         apkData.apkPackageName = this.apkPackageName;

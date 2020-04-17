@@ -4,11 +4,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.config.core.b.a {
     @Override // com.baidu.swan.config.core.b.c
-    public void bj(JSONObject jSONObject) {
-        JSONObject bi;
+    public void bu(JSONObject jSONObject) {
+        JSONObject bt;
         int optInt;
-        if (jSONObject != null && (bi = bi(jSONObject.optJSONObject("base_info"))) != null && (optInt = bi.optInt("version")) > 0) {
-            c.ajh().d(bi.optString("host_name"), bi.optString("scheme_head"), bi.optString("share_callback_url"), optInt);
+        if (jSONObject != null && (bt = bt(jSONObject.optJSONObject("base_info"))) != null && (optInt = bt.optInt("version")) > 0) {
+            c.arp().d(bt.optString("host_name"), bt.optString("scheme_head"), bt.optString("share_callback_url"), optInt);
         }
     }
 }

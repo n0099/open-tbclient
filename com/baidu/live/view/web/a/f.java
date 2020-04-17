@@ -14,10 +14,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.live.view.web.a {
-    private SchemeCallback aGM;
+    private SchemeCallback bcA;
 
     public f(SchemeCallback schemeCallback) {
-        this.aGM = schemeCallback;
+        this.bcA = schemeCallback;
     }
 
     @Override // com.baidu.live.view.web.a
@@ -26,13 +26,13 @@ public class f extends com.baidu.live.view.web.a {
     }
 
     @Override // com.baidu.live.view.web.a
-    public void ej(String str) {
+    public void fc(String str) {
         Log.d("JsInterface", "@@ JsInterface-impl PersonalCenterBridgeJsInterface params = " + str);
         try {
             JSONObject jSONObject = new JSONObject(str);
             final String optString = jSONObject.optString(BuyTBeanActivityConfig.CALLBACK);
             boolean z = jSONObject.optInt("is_translucent") == 1;
-            if (this.aGM != null) {
+            if (this.bcA != null) {
                 ExtraParamsManager.addEnterBuyTBeanCallback(new ResultCallback() { // from class: com.baidu.live.view.web.a.f.1
                     @Override // com.baidu.live.tbadk.extraparams.ResultCallback
                     public void onCallback(JSONObject jSONObject2) {
@@ -52,7 +52,7 @@ public class f extends com.baidu.live.view.web.a {
                             if (!TextUtils.isEmpty(optString5)) {
                                 jSONObject3.put("transitionId", optString5);
                             }
-                            f.this.aGM.doJsCallback(optInt, optString2, jSONObject3, optString);
+                            f.this.bcA.doJsCallback(optInt, optString2, jSONObject3, optString);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

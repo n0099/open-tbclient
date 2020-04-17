@@ -30,7 +30,7 @@ public class o {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m107a(Context context) {
+    public static boolean m112a(Context context) {
         Object a2 = com.xiaomi.push.at.a(com.xiaomi.push.at.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
         Object a3 = com.xiaomi.push.at.a("com.google.android.gms.common.ConnectionResult", "SUCCESS");
         if (a3 == null || !(a3 instanceof Integer)) {

@@ -1,5 +1,6 @@
 package org.conscrypt;
 
+import android.support.v7.widget.ActivityChooserView;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.math.BigInteger;
@@ -289,10 +290,7 @@ public final class OpenSSLX509Certificate extends X509Certificate {
             return -1;
         }
         int i = NativeCrypto.get_X509_ex_pathlen(this.mContext, this);
-        if (i == -1) {
-            return Integer.MAX_VALUE;
-        }
-        return i;
+        return i == -1 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : i;
     }
 
     @Override // java.security.cert.Certificate

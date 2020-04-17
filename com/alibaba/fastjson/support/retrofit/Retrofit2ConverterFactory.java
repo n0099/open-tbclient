@@ -99,14 +99,14 @@ public class Retrofit2ConverterFactory extends Converter.Factory {
         /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
         /* JADX WARN: Multi-variable type inference failed */
         public /* bridge */ /* synthetic */ Object convert(Object obj) throws IOException {
-            return m8convert((RequestBodyConverter<T>) obj);
+            return m9convert((RequestBodyConverter<T>) obj);
         }
 
         RequestBodyConverter() {
         }
 
         /* renamed from: convert  reason: collision with other method in class */
-        public RequestBody m8convert(T t) throws IOException {
+        public RequestBody m9convert(T t) throws IOException {
             return RequestBody.create(Retrofit2ConverterFactory.MEDIA_TYPE, JSON.toJSONBytes(t, Retrofit2ConverterFactory.this.serializeConfig == null ? SerializeConfig.globalInstance : Retrofit2ConverterFactory.this.serializeConfig, Retrofit2ConverterFactory.this.serializerFeatures == null ? SerializerFeature.EMPTY : Retrofit2ConverterFactory.this.serializerFeatures));
         }
     }

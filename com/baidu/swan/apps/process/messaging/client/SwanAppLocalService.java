@@ -30,13 +30,13 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     @Override // android.app.Service
     public void onCreate() {
         SwanAppProcessInfo.init(getProcessInfo());
-        com.baidu.swan.apps.w.a.UR().Iz();
+        com.baidu.swan.apps.w.a.acG().Ql();
         super.onCreate();
-        this.mMessenger = new Messenger(a.aaY().abb());
+        this.mMessenger = new Messenger(a.ajd().ajg());
         if (DEBUG) {
             Log.i(TAG, "onCreate " + getProcessInfo());
         }
-        a.aaY().aba();
+        a.ajd().ajf();
     }
 
     @Override // android.app.Service
@@ -86,42 +86,42 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             if (TextUtils.isEmpty(stringExtra)) {
                 stringExtra = "0";
             }
-            HybridUbcFlow ba = f.jO("preload").f(new UbcFlowEvent("na_pre_load_launch").au(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").au(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").au(currentTimeMillis)).ba("with_preload", "1");
+            HybridUbcFlow bk = f.lb("preload").f(new UbcFlowEvent("na_pre_load_launch").aZ(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").aZ(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").aZ(currentTimeMillis)).bk("with_preload", "1");
             if (!TextUtils.isEmpty(stringExtra)) {
-                ba.ba("preload_scene", stringExtra);
+                bk.bk("preload_scene", stringExtra);
             }
-            if (com.baidu.swan.apps.w.a.Uc() != null && com.baidu.swan.apps.w.a.Uc().Hm()) {
+            if (com.baidu.swan.apps.w.a.abR() != null && com.baidu.swan.apps.w.a.abR().OZ()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("time", currentTimeMillis);
                     jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                     jSONObject.put(BdStatsConstant.StatsKey.COST, currentTimeMillis - longExtra2);
-                    jSONObject.put("is_preload_started", d.bsV);
-                    jSONObject.put("is_preload_ready", d.Qz().QE());
+                    jSONObject.put("is_preload_started", d.bRc);
+                    jSONObject.put("is_preload_ready", d.Yo().Yt());
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
                     }
                 }
-                f.a jY = new f.a("812").jW("swan").jX("receive").jY(intent.getStringExtra("bundle_key_preload_src"));
-                jY.aZ(jSONObject);
-                f.onEvent(jY);
+                f.a ll = new f.a("812").lj("swan").lk("receive").ll(intent.getStringExtra("bundle_key_preload_src"));
+                ll.bk(jSONObject);
+                f.onEvent(ll);
             }
-            d.b.F(intent);
-            com.baidu.swan.games.utils.so.d.P(intent);
-            com.baidu.swan.apps.y.f.WV().J(intent);
-            com.baidu.swan.games.i.a.aob().E(intent);
-            ai.l(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.1
+            d.b.E(intent);
+            com.baidu.swan.games.utils.so.d.O(intent);
+            com.baidu.swan.apps.y.f.aeK().I(intent);
+            com.baidu.swan.games.i.a.awo().D(intent);
+            ai.o(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.apps.y.f.WV().HI();
-                    com.baidu.swan.apps.w.a.Us().Vl();
+                    com.baidu.swan.apps.y.f.aeK().Pv();
+                    com.baidu.swan.apps.w.a.ach().ada();
                 }
             });
             m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.bcE.Jw();
+                    g.bAS.Ri();
                 }
             }, "updateMaBduss");
         }

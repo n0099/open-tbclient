@@ -17,7 +17,7 @@ public interface IFaceUnityOperator {
 
     void onFaceShapeSelected(int i);
 
-    void onFilterSelected(String str);
+    void onFilterSelected(String str, float f);
 
     void onGiftEffectItemSelected(String str);
 

@@ -13,9 +13,9 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiContext;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.security.PublicKey;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -108,7 +108,7 @@ public final class z {
         if (b2 != null) {
             return b2.toString();
         }
-        Object b3 = b(context, str, Constants.APP_ID);
+        Object b3 = b(context, str, "app_id");
         if (b3 != null) {
             return b3.toString();
         }
@@ -186,7 +186,7 @@ public final class z {
         if (b4 != null) {
             str = b4.toString();
         } else {
-            Object b5 = b(context, packageName, com.baidu.android.imsdk.internal.Constants.API_KEY);
+            Object b5 = b(context, packageName, Constants.API_KEY);
             if (b5 != null) {
                 str = b5.toString();
             } else {

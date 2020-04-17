@@ -20,7 +20,7 @@ import java.io.File;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class c {
-    private static volatile C0042c a;
+    private static volatile C0044c a;
     private static final Object b = new Object();
 
     /* loaded from: classes8.dex */
@@ -108,18 +108,18 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.android.pushservice.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0042c extends SQLiteOpenHelper {
+    public static class C0044c extends SQLiteOpenHelper {
         private static final String a = "CREATE TABLE PushShareInfo (" + e.PushInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + e.PushPriority.name() + " LONG NOT NULL DEFAULT ((0)), " + e.PushVersion.name() + " INTEGER DEFAULT ((0)), " + e.PushChannelID.name() + " TEXT, " + e.PushNewChannelID.name() + " TEXT, " + e.PushCurPkgName.name() + " TEXT, " + e.PushWebAppBindInfo.name() + " TEXT, " + e.PushLightAppBindInfo.name() + " TEXT, " + e.PushSDKClientBindInfo.name() + " TEXT, " + e.PushClientsBindInfo.name() + " TEXT, " + e.PushSelfBindInfo.name() + " TEXT);";
         private static final String b = "CREATE TABLE PushVerifInfo (" + f.verifId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + f.msgId.name() + " TEXT NOT NULL, " + f.md5Infos.name() + " TEXT NOT NULL, " + f.appId.name() + " TEXT, " + f.time.name() + " TEXT);";
         private static final String c = "CREATE TABLE PushMsgInfos (" + d.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + d.appId.name() + "  TEXT, " + d.msgType.name() + "  INTEGER NOT NULL, " + d.msgId.name() + " LONG NOT NULL, " + d.secureInfo.name() + " TEXT, " + d.msgBody.name() + "  TEXT, " + d.expireTime.name() + "  LONG, " + d.ackRet.name() + "  INTEGER, " + d.arriveTime.name() + " LONG NOT NULL);";
         private static final String d = "CREATE TABLE PushAppStatus (" + a.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + a.actionName.name() + " TEXT NOT NULL, " + a.timeStamp.name() + " LONG NOT NULL, " + a.pkgName.name() + " TEXT, " + a.versionCode.name() + " INTEGER, " + a.versionName.name() + " TEXT, " + a.status.name() + " INTEGER);";
         private static final String e = "ALTER TABLE PushShareInfo ADD COLUMN " + e.PushNewChannelID.name() + " TEXT";
 
-        public C0042c(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
+        public C0044c(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
             super(context, str, null, i, databaseErrorHandler);
         }
 
-        public C0042c(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
+        public C0044c(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
             super(context, str, cursorFactory, i);
         }
 
@@ -271,7 +271,7 @@ public class c {
     }
 
     public static SQLiteDatabase a(Context context) {
-        C0042c g = g(context);
+        C0044c g = g(context);
         if (g == null) {
             return null;
         }
@@ -1283,7 +1283,7 @@ public class c {
         }
     }
 
-    private static C0042c g(Context context) {
+    private static C0044c g(Context context) {
         SQLiteDatabase sQLiteDatabase;
         Throwable th;
         SQLiteDatabase sQLiteDatabase2 = null;
@@ -1296,9 +1296,9 @@ public class c {
                     }
                     String str = file.getAbsolutePath() + File.separator + "pushinfo.db";
                     if (Build.VERSION.SDK_INT >= 11) {
-                        a = new C0042c(context, str, 5, new b());
+                        a = new C0044c(context, str, 5, new b());
                     } else {
-                        a = new C0042c(context, str, (SQLiteDatabase.CursorFactory) null, 5);
+                        a = new C0044c(context, str, (SQLiteDatabase.CursorFactory) null, 5);
                     }
                     try {
                         try {

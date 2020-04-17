@@ -1,6 +1,5 @@
 package com.baidu.down.common.intercepter;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -25,7 +24,7 @@ public final class ResponseInfo {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder(this.method + HanziToPinyin.Token.SEPARATOR + this.stateCode + HanziToPinyin.Token.SEPARATOR + this.url + "\n");
+        StringBuilder sb = new StringBuilder(this.method + " " + this.stateCode + " " + this.url + "\n");
         for (String str : this.requestHeaders.keySet()) {
             sb.append(str);
             sb.append(":");

@@ -42,9 +42,9 @@ public final class i {
         return this.b;
     }
 
-    public void a(Context context, boolean z, a.C0043a c0043a) {
+    public void a(Context context, boolean z, a.C0045a c0045a) {
         if (this.f == null || !this.f.isAlive()) {
-            y yVar = new y(context, c0043a);
+            y yVar = new y(context, c0045a);
             if (!z) {
                 yVar.a(0);
             }

@@ -2,20 +2,18 @@ package com.baidu.android.ext.widget;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ui.BdShimmerView;
 import java.util.WeakHashMap;
 /* loaded from: classes12.dex */
 public final class LoadingViewHelper {
-    private static final String TAG = "LoadingViewHelper";
-    private static final boolean DEBUG = AppConfig.isDebug() & true;
     private static final WeakHashMap<ViewGroup, LoadingViewHolder> CACHE_VIEWS = new WeakHashMap<>();
+    private static final boolean DEBUG = false;
+    private static final String TAG = "LoadingViewHelper";
 
     private LoadingViewHelper() {
     }
@@ -60,10 +58,6 @@ public final class LoadingViewHelper {
         }
         CACHE_VIEWS.put(viewGroup, loadingView);
         loadingView2.setVisibility(0);
-        if (DEBUG) {
-            Log.d(TAG, "The count of cached loading views is : " + CACHE_VIEWS.size());
-            Log.d(TAG, "The content of cached views is : " + CACHE_VIEWS.toString());
-        }
         return true;
     }
 
@@ -106,10 +100,6 @@ public final class LoadingViewHelper {
         CACHE_VIEWS.put(viewGroup, bdShimmerView);
         loadingView.setVisibility(0);
         loadingView.startShimmerAnimation();
-        if (DEBUG) {
-            Log.d(TAG, "The count of cached loading views is : " + CACHE_VIEWS.size());
-            Log.d(TAG, "The content of cached views is : " + CACHE_VIEWS.toString());
-        }
         return true;
     }
 
@@ -147,10 +137,6 @@ public final class LoadingViewHelper {
         }
         CACHE_VIEWS.put(viewGroup, loadingView);
         loadingView2.setVisibility(0);
-        if (DEBUG) {
-            Log.d(TAG, "The count of cached loading views is : " + CACHE_VIEWS.size());
-            Log.d(TAG, "The content of cached views is : " + CACHE_VIEWS.toString());
-        }
         return true;
     }
 
@@ -169,10 +155,6 @@ public final class LoadingViewHelper {
             if ((viewGroup.getChildAt(i) instanceof LoadingViewHolder) && (loadingView = (loadingViewHolder = (LoadingViewHolder) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(0);
                 CACHE_VIEWS.put(viewGroup, loadingViewHolder);
-                if (DEBUG) {
-                    Log.d(TAG, "The count of cached loading views is : " + CACHE_VIEWS.size());
-                    Log.d(TAG, "The content of cached views is : " + CACHE_VIEWS.toString());
-                }
                 return true;
             }
         }
@@ -194,10 +176,6 @@ public final class LoadingViewHelper {
             if ((viewGroup.getChildAt(i) instanceof LoadingViewHolder) && (loadingView = (loadingViewHolder = (LoadingViewHolder) viewGroup.getChildAt(i)).getLoadingView()) != null) {
                 loadingView.setVisibility(8);
                 CACHE_VIEWS.put(viewGroup, loadingViewHolder);
-                if (DEBUG) {
-                    Log.d(TAG, "The count of cached loading views is : " + CACHE_VIEWS.size());
-                    Log.d(TAG, "The content of cached views is : " + CACHE_VIEWS.toString());
-                }
                 return true;
             }
         }
@@ -220,10 +198,6 @@ public final class LoadingViewHelper {
                 loadingView2.setVisibility(8);
                 viewGroup.removeView(loadingView2);
                 CACHE_VIEWS.remove(viewGroup);
-                if (DEBUG) {
-                    Log.d(TAG, "The count of cached loading views is : " + CACHE_VIEWS.size());
-                    Log.d(TAG, "The content of cached views is : " + CACHE_VIEWS.toString());
-                }
             }
             return true;
         }
@@ -232,10 +206,6 @@ public final class LoadingViewHelper {
                 loadingView.setVisibility(8);
                 viewGroup.removeView((View) loadingViewHolder);
                 CACHE_VIEWS.remove(viewGroup);
-                if (DEBUG) {
-                    Log.d(TAG, "The count of cached loading views is : " + CACHE_VIEWS.size());
-                    Log.d(TAG, "The content of cached views is : " + CACHE_VIEWS.toString());
-                }
                 return true;
             }
         }

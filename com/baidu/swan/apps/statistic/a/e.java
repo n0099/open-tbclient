@@ -8,8 +8,8 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject bVx;
-    protected JSONObject bVy;
+    protected JSONObject cun;
+    protected JSONObject cuo;
     public String mAppId;
     public String mFrom = "swan";
     public String mPage;
@@ -36,13 +36,13 @@ public class e {
             if (!TextUtils.isEmpty(this.mPage)) {
                 jSONObject.put("page", this.mPage);
             }
-            if (this.bVx == null) {
-                this.bVx = new JSONObject();
+            if (this.cun == null) {
+                this.cun = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.bVx.put("appid", this.mAppId);
+                this.cun.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.bVx);
+            jSONObject.put("ext", this.cun);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -52,16 +52,16 @@ public class e {
         }
     }
 
-    public void aZ(JSONObject jSONObject) {
+    public void bk(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.bVx == null) {
-                this.bVx = new JSONObject();
+            if (this.cun == null) {
+                this.cun = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.bVx.put(next, jSONObject.opt(next));
+                    this.cun.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -71,30 +71,30 @@ public class e {
         }
     }
 
-    public void lQ(String str) {
+    public void nd(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                aZ(new JSONObject(str));
+                bk(new JSONObject(str));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void ba(JSONObject jSONObject) {
+    public void bl(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.bVx == null) {
-                this.bVx = new JSONObject();
+            if (this.cun == null) {
+                this.cun = new JSONObject();
             }
-            this.bVy = this.bVx.optJSONObject("extlog");
-            if (this.bVy == null) {
-                this.bVy = new JSONObject();
+            this.cuo = this.cun.optJSONObject("extlog");
+            if (this.cuo == null) {
+                this.cuo = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.bVy.put(next, jSONObject.opt(next));
+                    this.cuo.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -102,7 +102,7 @@ public class e {
                 }
             }
             try {
-                this.bVx.put("extlog", this.bVy);
+                this.cun.put("extlog", this.cuo);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -111,12 +111,12 @@ public class e {
         }
     }
 
-    public void n(@NonNull String str, Object obj) {
-        if (this.bVx == null) {
-            this.bVx = new JSONObject();
+    public void s(@NonNull String str, Object obj) {
+        if (this.cun == null) {
+            this.cun = new JSONObject();
         }
         try {
-            this.bVx.put(str, obj);
+            this.cun.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -124,12 +124,12 @@ public class e {
         }
     }
 
-    public JSONObject afe() {
-        if (this.bVx == null) {
+    public JSONObject anj() {
+        if (this.cun == null) {
             return null;
         }
         try {
-            return new JSONObject(this.bVx.toString());
+            return new JSONObject(this.cun.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

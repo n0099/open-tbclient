@@ -25,14 +25,14 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new Parcelable.Creator<SwanAppBearInfo>() { // from class: com.baidu.swan.apps.model.SwanAppBearInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: A */
+        /* renamed from: t */
         public SwanAppBearInfo createFromParcel(Parcel parcel) {
             return new SwanAppBearInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fx */
+        /* renamed from: fE */
         public SwanAppBearInfo[] newArray(int i) {
             return new SwanAppBearInfo[i];
         }

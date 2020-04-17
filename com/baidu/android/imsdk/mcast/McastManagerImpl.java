@@ -23,7 +23,6 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.imsdk.IMService;
-import com.google.android.exoplayer2.Format;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -45,6 +44,7 @@ public class McastManagerImpl {
     private static McastHeartbeat mcastHeartbeat;
     private long mCastId;
     private boolean mIsPull;
+    private long mJoinCastId;
     private static final String TAG = McastManagerImpl.class.getSimpleName();
     public static int mCastHeartBeatTime = 3000;
     private boolean isRegisterNetReceiver = false;
@@ -140,6 +140,24 @@ public class McastManagerImpl {
         }
     }
 
+    public long getJoinedCastId() {
+        return this.mJoinCastId;
+    }
+
+    public long getMaxReliableMsgId(long j) {
+        if (isReliable(j).booleanValue()) {
+            return ChatMsgManagerImpl.getInstance(mContext).getMaxReliableMsgId(j);
+        }
+        return 0L;
+    }
+
+    public long getReliableMsgCount(long j) {
+        if (isReliable(j).booleanValue()) {
+            return ChatMsgManagerImpl.getInstance(mContext).getReliableMsgCount(j);
+        }
+        return 0L;
+    }
+
     public void beginWithCompletion(long j, IMcastSetListener iMcastSetListener) {
         this.mCastId = j;
         String addListener = ListenerManager.getInstance().addListener(iMcastSetListener);
@@ -148,7 +166,7 @@ public class McastManagerImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             try {
-                mContext.startService(createMcastMethodIntent);
+                IMService.enqueueWork(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -165,6 +183,7 @@ public class McastManagerImpl {
         if (iMcastSetListener != null) {
             iMcastSetListener.onResult(i, j, -1L);
             if (i == 0) {
+                this.mJoinCastId = j;
                 if (isReliable(this.mCastId).booleanValue()) {
                     this.mIsPull = true;
                     fetchCastMsgByMsgId();
@@ -179,6 +198,7 @@ public class McastManagerImpl {
     }
 
     public void onQuitCastResult(String str, int i, String str2, long j) {
+        this.mJoinCastId = 0L;
         LogUtils.d(TAG, "onQuitCastResult----errorCode: " + i + " msg: " + str2);
         IMcastSetListener iMcastSetListener = (IMcastSetListener) ListenerManager.getInstance().removeListener(str);
         if (iMcastSetListener != null) {
@@ -197,7 +217,7 @@ public class McastManagerImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             createMcastMethodIntent.putExtra("mcast_id", j);
             try {
-                mContext.startService(createMcastMethodIntent);
+                IMService.enqueueWork(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -281,7 +301,7 @@ public class McastManagerImpl {
         if (McastConfig.mLiveShowing) {
             long maxReliableMsgId = ChatMsgManagerImpl.getInstance(mContext).getMaxReliableMsgId(this.mCastId);
             if (this.mIsPull) {
-                fetchCastMsg(maxReliableMsgId > 0 ? maxReliableMsgId : 0L, Format.OFFSET_SAMPLE_RELATIVE);
+                fetchCastMsg(maxReliableMsgId > 0 ? maxReliableMsgId : 0L, Long.MAX_VALUE);
             } else if (maxReliableMsgId <= 0) {
                 fetchCastMsg(0L, this.mMaxMsgId);
             } else if (maxReliableMsgId < this.mMaxMsgId) {
@@ -300,7 +320,7 @@ public class McastManagerImpl {
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
             createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
             try {
-                mContext.startService(createMcastMethodIntent);
+                IMService.enqueueWork(mContext, createMcastMethodIntent);
                 return;
             } catch (Exception e) {
                 ListenerManager.getInstance().removeListener(addListener);
@@ -365,13 +385,12 @@ public class McastManagerImpl {
 
     public void setMcastQuickHeartBeat() {
         if (!IMService.isSmallFlow && McastConfig.mLiveShowing) {
-            if (mcastHeartbeat == null) {
-                mcastHeartbeat = new McastHeartbeat();
-            }
             mCastHeartBeatTime = mRandom.nextInt(3000) + 3000;
             LogUtils.d(TAG, "mcast now quick heart beat = " + mCastHeartBeatTime);
-            mcastHeartbeat.cancelHearbeat();
-            mcastHeartbeat.startHeartbeat();
+            if (mcastHeartbeat == null) {
+                mcastHeartbeat = new McastHeartbeat();
+                mcastHeartbeat.startHeartbeat();
+            }
         }
     }
 
@@ -397,8 +416,7 @@ public class McastManagerImpl {
                         Intent intent = new Intent(McastManagerImpl.mContext, IMService.class);
                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                         intent.setPackage(McastManagerImpl.mContext.getPackageName());
-                        McastManagerImpl.mContext.startService(intent);
-                        IMService.mHandler.postDelayed(McastHeartbeat.this.startHeartBeatTask, McastManagerImpl.mCastHeartBeatTime);
+                        IMService.enqueueWork(McastManagerImpl.mContext, intent);
                     }
                 } catch (Exception e) {
                     if (e instanceof SecurityException) {

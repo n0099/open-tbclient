@@ -2,7 +2,6 @@ package com.baidu.swan.pms.database.a;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
@@ -32,11 +31,11 @@ public class g extends b<com.baidu.swan.pms.model.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: k */
-    public ContentValues Z(com.baidu.swan.pms.model.g gVar) {
+    public ContentValues aa(com.baidu.swan.pms.model.g gVar) {
         ContentValues e = super.e(gVar);
         e.put("independent", Integer.valueOf(gVar.independent ? 1 : 0));
         e.put("sub_pkg_name", gVar.pkgName);
-        e.put(Constants.APP_ID, gVar.appId);
+        e.put("app_id", gVar.appId);
         return e;
     }
 
@@ -44,7 +43,7 @@ public class g extends b<com.baidu.swan.pms.model.g> {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex("independent");
             int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
-            int columnIndex3 = cursor.getColumnIndex(Constants.APP_ID);
+            int columnIndex3 = cursor.getColumnIndex("app_id");
             com.baidu.swan.pms.model.g gVar = new com.baidu.swan.pms.model.g();
             if (a(cursor, gVar)) {
                 gVar.independent = cursor.getInt(columnIndex) == 1;

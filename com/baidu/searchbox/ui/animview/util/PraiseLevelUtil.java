@@ -1,5 +1,6 @@
 package com.baidu.searchbox.ui.animview.util;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import java.util.Set;
 import java.util.TreeSet;
@@ -29,7 +30,7 @@ public class PraiseLevelUtil {
         if (sLevelConfigSet.isEmpty()) {
             genDefaultLevelConfig();
         } else {
-            sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(2147483647L, Integer.MAX_VALUE, Integer.MAX_VALUE));
+            sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(2147483647L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED));
         }
     }
 
@@ -44,7 +45,7 @@ public class PraiseLevelUtil {
         sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(499L, 3, 3));
         sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(999L, 3, 4));
         sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(1499L, 4, 5));
-        sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(2147483647L, Integer.MAX_VALUE, Integer.MAX_VALUE));
+        sLevelConfigSet.add(new IResourceProvider.PraiseLevelConfig(2147483647L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED));
     }
 
     public static IResourceProvider.PraiseLevelConfig matchPraiseLevel(long j) {
@@ -56,6 +57,6 @@ public class PraiseLevelUtil {
                 return praiseLevelConfig;
             }
         }
-        return new IResourceProvider.PraiseLevelConfig(2147483647L, Integer.MAX_VALUE, Integer.MAX_VALUE);
+        return new IResourceProvider.PraiseLevelConfig(2147483647L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 }

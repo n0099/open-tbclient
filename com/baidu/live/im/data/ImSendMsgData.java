@@ -6,6 +6,7 @@ public class ImSendMsgData implements Serializable {
     public b barrageCardInfo;
     public String barrageId;
     public int barrageType;
+    public boolean isQuick;
     public short msgType;
     public long price;
     public String text;
@@ -15,6 +16,7 @@ public class ImSendMsgData implements Serializable {
     }
 
     public ImSendMsgData(String str, short s) {
+        this.isQuick = false;
         this.text = str;
         this.msgType = s;
     }

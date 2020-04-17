@@ -7,10 +7,10 @@ import java.util.List;
 public class ie implements ir<ie, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hp> f622a;
+    public List<hp> f623a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f621a = new jh("XmPushActionNormalConfig");
+    private static final jh f622a = new jh("XmPushActionNormalConfig");
     private static final iz a = new iz("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,9 +19,9 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
     public int compareTo(ie ieVar) {
         int a2;
         if (getClass().equals(ieVar.getClass())) {
-            int compareTo = Boolean.valueOf(m412a()).compareTo(Boolean.valueOf(ieVar.m412a()));
+            int compareTo = Boolean.valueOf(m417a()).compareTo(Boolean.valueOf(ieVar.m417a()));
             if (compareTo == 0) {
-                if (!m412a() || (a2 = is.a(this.f622a, ieVar.f622a)) == 0) {
+                if (!m417a() || (a2 = is.a(this.f623a, ieVar.f623a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -32,44 +32,44 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
     }
 
     public List<hp> a() {
-        return this.f622a;
+        return this.f623a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m411a() {
-        if (this.f622a == null) {
+    public void m416a() {
+        if (this.f623a == null) {
             throw new jd("Required field 'normalConfigs' was not present! Struct: " + toString());
         }
     }
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m470a();
+        jcVar.m475a();
         while (true) {
-            iz m466a = jcVar.m466a();
-            if (m466a.a == 0) {
+            iz m471a = jcVar.m471a();
+            if (m471a.a == 0) {
                 jcVar.f();
-                m411a();
+                m416a();
                 return;
             }
-            switch (m466a.f788a) {
+            switch (m471a.f789a) {
                 case 1:
-                    if (m466a.a == 15) {
-                        ja m467a = jcVar.m467a();
-                        this.f622a = new ArrayList(m467a.f791a);
-                        for (int i = 0; i < m467a.f791a; i++) {
+                    if (m471a.a == 15) {
+                        ja m472a = jcVar.m472a();
+                        this.f623a = new ArrayList(m472a.f792a);
+                        for (int i = 0; i < m472a.f792a; i++) {
                             hp hpVar = new hp();
                             hpVar.a(jcVar);
-                            this.f622a.add(hpVar);
+                            this.f623a.add(hpVar);
                         }
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m466a.a);
+                        jf.a(jcVar, m471a.a);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m466a.a);
+                    jf.a(jcVar, m471a.a);
                     break;
             }
             jcVar.g();
@@ -77,40 +77,40 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m412a() {
-        return this.f622a != null;
+    public boolean m417a() {
+        return this.f623a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m413a(ie ieVar) {
+    public boolean m418a(ie ieVar) {
         if (ieVar == null) {
             return false;
         }
-        boolean m412a = m412a();
-        boolean m412a2 = ieVar.m412a();
-        return !(m412a || m412a2) || (m412a && m412a2 && this.f622a.equals(ieVar.f622a));
+        boolean m417a = m417a();
+        boolean m417a2 = ieVar.m417a();
+        return !(m417a || m417a2) || (m417a && m417a2 && this.f623a.equals(ieVar.f623a));
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m411a();
-        jcVar.a(f621a);
-        if (this.f622a != null) {
+        m416a();
+        jcVar.a(f622a);
+        if (this.f623a != null) {
             jcVar.a(a);
-            jcVar.a(new ja((byte) 12, this.f622a.size()));
-            for (hp hpVar : this.f622a) {
+            jcVar.a(new ja((byte) 12, this.f623a.size()));
+            for (hp hpVar : this.f623a) {
                 hpVar.b(jcVar);
             }
             jcVar.e();
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m474a();
+        jcVar.m479a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ie)) {
-            return m413a((ie) obj);
+            return m418a((ie) obj);
         }
         return false;
     }
@@ -122,10 +122,10 @@ public class ie implements ir<ie, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionNormalConfig(");
         sb.append("normalConfigs:");
-        if (this.f622a == null) {
+        if (this.f623a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f622a);
+            sb.append(this.f623a);
         }
         sb.append(")");
         return sb.toString();

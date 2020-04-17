@@ -1,20 +1,19 @@
 package com.google.gson.internal;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 /* loaded from: classes7.dex */
 public class g {
-    public static DateFormat MF(int i) {
-        return new SimpleDateFormat(MG(i), Locale.US);
+    public static DateFormat HZ(int i) {
+        return new SimpleDateFormat(Ia(i), Locale.US);
     }
 
-    public static DateFormat eh(int i, int i2) {
-        return new SimpleDateFormat(MH(i) + HanziToPinyin.Token.SEPARATOR + MI(i2), Locale.US);
+    public static DateFormat dt(int i, int i2) {
+        return new SimpleDateFormat(Ib(i) + " " + Ic(i2), Locale.US);
     }
 
-    private static String MG(int i) {
+    private static String Ia(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, y";
@@ -29,7 +28,7 @@ public class g {
         }
     }
 
-    private static String MH(int i) {
+    private static String Ib(int i) {
         switch (i) {
             case 0:
                 return "EEEE, MMMM d, yyyy";
@@ -44,7 +43,7 @@ public class g {
         }
     }
 
-    private static String MI(int i) {
+    private static String Ic(int i) {
         switch (i) {
             case 0:
             case 1:

@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 /* loaded from: classes7.dex */
@@ -62,7 +61,7 @@ public final class FlowableRangeLong extends io.reactivex.g<Long> {
         @Override // org.a.d
         public final void request(long j) {
             if (SubscriptionHelper.validate(j) && io.reactivex.internal.util.b.a(this, j) == 0) {
-                if (j == Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j == Long.MAX_VALUE) {
                     fastPath();
                 } else {
                     slowPath(j);

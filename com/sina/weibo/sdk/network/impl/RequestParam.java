@@ -2,7 +2,6 @@ package com.sina.weibo.sdk.network.impl;
 
 import android.content.Context;
 import android.os.Bundle;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import com.sina.weibo.sdk.network.IRequestParam;
 import java.io.File;
@@ -32,8 +31,8 @@ public class RequestParam implements IRequestParam {
     public RequestParam(Builder builder) {
         this.interceptList = new ArrayList<>();
         this.gZip = false;
-        this.requestTimeout = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
-        this.responseTimeout = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        this.requestTimeout = 15000;
+        this.responseTimeout = 15000;
         this.needIntercept = true;
         this.shortUrl = builder.shortUrl;
         this.getBundle.putAll(builder.getBundle);
@@ -158,8 +157,8 @@ public class RequestParam implements IRequestParam {
         private Map<String, byte[]> byteArrays = new HashMap();
         boolean needIntercept = true;
         boolean gZip = false;
-        private int requestTimeout = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
-        private int responseTimeout = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        private int requestTimeout = 15000;
+        private int responseTimeout = 15000;
 
         public Builder(Context context) {
             this.appContext = context;

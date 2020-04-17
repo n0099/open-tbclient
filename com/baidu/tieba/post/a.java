@@ -19,52 +19,52 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a jrD;
-    private static String jrE;
-    public TextView Nm;
-    public TextView dhF;
-    public TextView diF;
-    public HeadImageView gJL;
-    private final LinearLayout iuu;
-    private InterfaceC0592a jBw;
-    protected final LinearLayout jrA;
-    protected final ColumnLayout jrB;
-    protected final ColumnLayout jrC;
-    private int jrF;
-    public LinearLayout jrG;
-    public TextView jrH;
+    private static com.baidu.adp.widget.ImageView.a kbS;
+    private static String kbT;
+    public TextView afW;
+    public TextView dHA;
+    public TextView dIy;
+    private final LinearLayout jez;
+    protected final LinearLayout kbP;
+    protected final ColumnLayout kbQ;
+    protected final ColumnLayout kbR;
+    private int kbU;
+    public LinearLayout kbV;
+    public HeadImageView kbW;
+    public TextView kbX;
+    private InterfaceC0631a klB;
     private final LinearLayout mLayout;
     private TbPageContext<?> mPageContext;
 
     /* renamed from: com.baidu.tieba.post.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0592a {
-        void cM(View view);
+    public interface InterfaceC0631a {
+        void cU(View view);
     }
 
     public a(View view, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.jrG = (LinearLayout) view.findViewById(R.id.top_line);
-        this.gJL = (HeadImageView) view.findViewById(R.id.portrait);
-        this.Nm = (TextView) view.findViewById(R.id.username);
-        this.dhF = (TextView) view.findViewById(R.id.reply_time);
-        this.diF = (TextView) view.findViewById(R.id.forum_name);
-        this.jrH = (TextView) view.findViewById(R.id.reply_count);
-        this.iuu = (LinearLayout) view.findViewById(R.id.item_content);
-        this.jrB = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.jrC = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.kbV = (LinearLayout) view.findViewById(R.id.top_line);
+        this.kbW = (HeadImageView) view.findViewById(R.id.portrait);
+        this.afW = (TextView) view.findViewById(R.id.username);
+        this.dHA = (TextView) view.findViewById(R.id.reply_time);
+        this.dIy = (TextView) view.findViewById(R.id.forum_name);
+        this.kbX = (TextView) view.findViewById(R.id.reply_count);
+        this.jez = (LinearLayout) view.findViewById(R.id.item_content);
+        this.kbQ = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.kbR = (ColumnLayout) view.findViewById(R.id.item_footer);
         this.mLayout = (LinearLayout) view.findViewById(R.id.person_thread);
-        this.jrA = (LinearLayout) view.findViewById(R.id.person_child);
-        this.jrF = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
-        if (this.iuu != null) {
-            this.iuu.setOnClickListener(this);
+        this.kbP = (LinearLayout) view.findViewById(R.id.person_child);
+        this.kbU = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
+        if (this.jez != null) {
+            this.jez.setOnClickListener(this);
         }
-        this.gJL.setOnClickListener(this);
-        this.Nm.setOnClickListener(this);
-        this.diF.setOnClickListener(this);
-        this.jrH.setOnClickListener(this);
-        this.jrB.setOnClickListener(this);
-        this.jrC.setOnClickListener(this);
+        this.kbW.setOnClickListener(this);
+        this.afW.setOnClickListener(this);
+        this.dIy.setOnClickListener(this);
+        this.kbX.setOnClickListener(this);
+        this.kbQ.setOnClickListener(this);
+        this.kbR.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
@@ -73,13 +73,13 @@ public class a implements View.OnClickListener {
             if (this.mPageContext != null) {
                 this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (this.jBw != null) {
-            this.jBw.cM(view);
+        } else if (this.klB != null) {
+            this.klB.cU(view);
         }
     }
 
-    public void a(InterfaceC0592a interfaceC0592a) {
-        this.jBw = interfaceC0592a;
+    public void a(InterfaceC0631a interfaceC0631a) {
+        this.klB = interfaceC0631a;
     }
 
     public void a(PersonPostModel.PostInfoList postInfoList, boolean z, String str) {
@@ -114,47 +114,47 @@ public class a implements View.OnClickListener {
             z2 = false;
         }
         if (z2) {
-            this.Nm.setText(str2);
-            this.dhF.setText(str3);
-            this.diF.setText(str4);
-            this.diF.setTag(str4);
-            this.jrH.setText(str5);
-            this.jrH.setTag(strArr);
-            this.diF.setOnClickListener(this);
+            this.afW.setText(str2);
+            this.dHA.setText(str3);
+            this.dIy.setText(str4);
+            this.dIy.setTag(str4);
+            this.kbX.setText(str5);
+            this.kbX.setTag(strArr);
+            this.dIy.setOnClickListener(this);
             if (postInfoList.mBaijiahaoInfo != null && !StringUtils.isNull(postInfoList.mBaijiahaoInfo.avatar)) {
-                GW(postInfoList.mBaijiahaoInfo.avatar);
+                ID(postInfoList.mBaijiahaoInfo.avatar);
             } else {
-                GW(str);
+                ID(str);
             }
-            if (this.iuu != null) {
-                this.iuu.setTag(strArr);
+            if (this.jez != null) {
+                this.jez.setTag(strArr);
             }
-            this.jrB.setTag(strArr);
-            this.jrC.setTag(strArr);
+            this.kbQ.setTag(strArr);
+            this.kbR.setTag(strArr);
         }
     }
 
-    private void GW(String str) {
-        if (jrE != null && !jrE.equals(str)) {
-            jrD = null;
+    private void ID(String str) {
+        if (kbT != null && !kbT.equals(str)) {
+            kbS = null;
         }
-        if (jrD != null) {
-            this.gJL.setImageBitmap(jrD.getRawBitmap());
-            jrE = str;
+        if (kbS != null) {
+            this.kbW.setImageBitmap(kbS.getRawBitmap());
+            kbT = str;
             return;
         }
-        this.gJL.a(str, 12, this.jrF, this.jrF, false);
+        this.kbW.a(str, 12, this.kbU, this.kbU, false);
     }
 
     public void changeSkin(int i) {
-        am.setViewTextColor(this.diF, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.dhF, R.color.cp_cont_d, 1);
-        am.setViewTextColor(this.Nm, R.color.cp_cont_f, 1);
+        am.setViewTextColor(this.dIy, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.dHA, R.color.cp_cont_d, 1);
+        am.setViewTextColor(this.afW, R.color.cp_cont_f, 1);
         am.setBackgroundResource(this.mLayout, R.color.cp_bg_line_c);
-        am.setBackgroundResource(this.jrA, R.color.cp_bg_line_d);
+        am.setBackgroundResource(this.kbP, R.color.cp_bg_line_d);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
         }
-        this.jrH.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        am.setViewTextColor(this.jrH, R.color.cp_link_tip_c, 1);
+        this.kbX.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.setViewTextColor(this.kbX, R.color.cp_link_tip_c, 1);
     }
 }

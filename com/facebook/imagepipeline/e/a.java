@@ -10,69 +10,69 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.h.c lTL;
-    private final ap lVo;
+    private final com.facebook.imagepipeline.h.c mby;
+    private final ap mcZ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(aj<T> ajVar, ap apVar, com.facebook.imagepipeline.h.c cVar) {
-        this.lVo = apVar;
-        this.lTL = cVar;
-        this.lTL.a(apVar.drV(), this.lVo.dmD(), this.lVo.getId(), this.lVo.drY());
-        ajVar.c(dqE(), apVar);
+        this.mcZ = apVar;
+        this.mby = cVar;
+        this.mby.a(apVar.dtT(), this.mcZ.dow(), this.mcZ.getId(), this.mcZ.dtW());
+        ajVar.c(dsC(), apVar);
     }
 
-    private k<T> dqE() {
+    private k<T> dsC() {
         return new com.facebook.imagepipeline.producers.b<T>() { // from class: com.facebook.imagepipeline.e.a.1
             @Override // com.facebook.imagepipeline.producers.b
-            protected void f(@Nullable T t, int i) {
-                a.this.f(t, i);
+            protected void g(@Nullable T t, int i) {
+                a.this.g(t, i);
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void B(Throwable th) {
-                a.this.B(th);
+            protected void F(Throwable th) {
+                a.this.F(th);
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void dqF() {
-                a.this.dqF();
+            protected void dsD() {
+                a.this.dsD();
             }
 
             @Override // com.facebook.imagepipeline.producers.b
-            protected void bs(float f) {
-                a.this.bj(f);
+            protected void aI(float f) {
+                a.this.az(f);
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void f(@Nullable T t, int i) {
-        boolean IP = com.facebook.imagepipeline.producers.b.IP(i);
-        if (super.b(t, IP) && IP) {
-            this.lTL.a(this.lVo.drV(), this.lVo.getId(), this.lVo.drY());
+    public void g(@Nullable T t, int i) {
+        boolean Hr = com.facebook.imagepipeline.producers.b.Hr(i);
+        if (super.b(t, Hr) && Hr) {
+            this.mby.a(this.mcZ.dtT(), this.mcZ.getId(), this.mcZ.dtW());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void B(Throwable th) {
-        if (super.u(th)) {
-            this.lTL.a(this.lVo.drV(), this.lVo.getId(), th, this.lVo.drY());
+    public void F(Throwable th) {
+        if (super.z(th)) {
+            this.mby.a(this.mcZ.dtT(), this.mcZ.getId(), th, this.mcZ.dtW());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void dqF() {
+    public synchronized void dsD() {
         g.checkState(isClosed());
     }
 
     @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-    public boolean OG() {
-        if (!super.OG()) {
+    public boolean Wv() {
+        if (!super.Wv()) {
             return false;
         }
         if (!super.isFinished()) {
-            this.lTL.OZ(this.lVo.getId());
-            this.lVo.cancel();
+            this.mby.Og(this.mcZ.getId());
+            this.mcZ.cancel();
         }
         return true;
     }

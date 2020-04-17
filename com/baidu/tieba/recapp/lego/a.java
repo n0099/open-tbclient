@@ -1,9 +1,7 @@
 package com.baidu.tieba.recapp.lego;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.lego.card.e;
 import com.baidu.tieba.lego.card.exception.CardParseException;
@@ -13,7 +11,6 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.lego.model.AdPost;
 import com.baidu.tieba.recapp.lego.model.AdPostPbData;
 import com.baidu.tieba.recapp.lego.model.CriusAdCard;
-import com.baidu.tieba.recapp.lego.model.DistributeVrVideoCard;
 import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.model.VideoMiddlePageAdCard;
 import com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData;
@@ -23,10 +20,7 @@ import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
 import com.baidu.tieba.recapp.lego.view.AdCardSmallPicVideoView;
 import com.baidu.tieba.recapp.lego.view.AdCardSmallPicView;
 import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
-import com.baidu.tieba.recapp.lego.view.AdCardVrPicView;
-import com.baidu.tieba.recapp.lego.view.AdCardVrVideoView;
 import com.baidu.tieba.recapp.lego.view.CriusAdCardView;
-import com.baidu.tieba.recapp.lego.view.DistributeVrVideoCardView;
 import com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView;
 import com.baidu.tieba.recapp.lego.view.form.FormCardView;
 import com.baidu.tieba.recapp.lego.view.postad.AdPostBaseView;
@@ -36,25 +30,23 @@ import org.json.JSONObject;
 /* loaded from: classes13.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void cce() {
-        hZs.put(17, hZs.size() + 1);
-        hZs.put(26, hZs.size() + 1);
-        hZs.put(25, hZs.size() + 1);
-        hZs.put(27, hZs.size() + 1);
-        hZs.put(31, hZs.size() + 1);
-        hZs.put(32, hZs.size() + 1);
-        hZs.put(33, hZs.size() + 1);
-        hZs.put(34, hZs.size() + 1);
-        hZs.put(99, hZs.size() + 1);
-        hZt.put(17, BdUniqueId.gen());
-        hZt.put(26, BdUniqueId.gen());
-        hZt.put(25, BdUniqueId.gen());
-        hZt.put(27, BdUniqueId.gen());
-        hZt.put(31, BdUniqueId.gen());
-        hZt.put(32, BdUniqueId.gen());
-        hZt.put(33, BdUniqueId.gen());
-        hZt.put(34, BdUniqueId.gen());
-        hZt.put(99, BdUniqueId.gen());
+    protected void cmF() {
+        iJl.put(17, iJl.size() + 1);
+        iJl.put(26, iJl.size() + 1);
+        iJl.put(27, iJl.size() + 1);
+        iJl.put(31, iJl.size() + 1);
+        iJl.put(32, iJl.size() + 1);
+        iJl.put(33, iJl.size() + 1);
+        iJl.put(34, iJl.size() + 1);
+        iJl.put(99, iJl.size() + 1);
+        iJm.put(17, BdUniqueId.gen());
+        iJm.put(26, BdUniqueId.gen());
+        iJm.put(27, BdUniqueId.gen());
+        iJm.put(31, BdUniqueId.gen());
+        iJm.put(32, BdUniqueId.gen());
+        iJm.put(33, BdUniqueId.gen());
+        iJm.put(34, BdUniqueId.gen());
+        iJm.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -69,11 +61,6 @@ class a extends e {
             case 26:
             case 34:
                 return new AdCard(jSONObject);
-            case 25:
-                if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_VR_LOGO_CAN_OPEN) != null) {
-                    return new DistributeVrVideoCard(jSONObject);
-                }
-                return null;
             case 27:
                 return new FormCard(jSONObject);
             case 31:
@@ -96,11 +83,6 @@ class a extends e {
             case 26:
             case 34:
                 return e(tbPageContext, iCardInfo, i);
-            case 25:
-                if (MessageManager.getInstance().findTask(CmdConfigCustom.CMD_VR_LOGO_CAN_OPEN) != null) {
-                    return new DistributeVrVideoCardView(tbPageContext);
-                }
-                return null;
             case 27:
                 return new FormCardView(tbPageContext);
             case 31:
@@ -142,6 +124,8 @@ class a extends e {
                     case 3:
                     case 4:
                     case 5:
+                    case 9:
+                    case 10:
                     case 11:
                     default:
                         return null;
@@ -149,10 +133,6 @@ class a extends e {
                         return new AdCardMultiPicView(tbPageContext);
                     case 7:
                         return new AdCardVideoView(tbPageContext);
-                    case 9:
-                        return new AdCardVrVideoView(tbPageContext);
-                    case 10:
-                        return new AdCardVrPicView(tbPageContext);
                     case 12:
                         return new AdCardSmallPicVideoView(tbPageContext);
                     case 13:

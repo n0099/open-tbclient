@@ -4,10 +4,10 @@ public final class f {
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int permission_name_camera = 2131230751;
-        public static final int permission_name_location = 2131230752;
-        public static final int permission_name_microphone = 2131230753;
-        public static final int permission_name_phone = 2131230754;
-        public static final int permission_name_storage = 2131230755;
+        public static final int permission_name_camera = 2131230740;
+        public static final int permission_name_location = 2131230741;
+        public static final int permission_name_microphone = 2131230742;
+        public static final int permission_name_phone = 2131230743;
+        public static final int permission_name_storage = 2131230744;
     }
 }

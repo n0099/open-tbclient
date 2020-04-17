@@ -11,7 +11,7 @@ public final class b {
         boolean isNeedDownload();
     }
 
-    public static a ajZ() {
+    public static a ash() {
         return new com.baidu.swan.facade.requred.webview.a.a();
     }
 }

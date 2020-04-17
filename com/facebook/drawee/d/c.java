@@ -5,15 +5,15 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes13.dex */
 public interface c extends b {
-    void A(Throwable th);
+    void D(Throwable th);
+
+    void E(Throwable th);
 
     void a(Drawable drawable, float f, boolean z);
 
     void c(float f, boolean z);
 
-    void n(Drawable drawable);
+    void j(Drawable drawable);
 
     void reset();
-
-    void z(Throwable th);
 }

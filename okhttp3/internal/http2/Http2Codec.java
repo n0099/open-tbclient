@@ -1,7 +1,6 @@
 package okhttp3.internal.http2;
 
 import android.net.http.Headers;
-import com.baidu.searchbox.datachannel.Contract;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -38,7 +37,7 @@ public final class Http2Codec implements HttpCodec {
     private Http2Stream stream;
     final StreamAllocation streamAllocation;
     private static final ByteString CONNECTION = ByteString.encodeUtf8(Headers.CONN_DIRECTIVE);
-    private static final ByteString HOST = ByteString.encodeUtf8(Contract.SCHEME_KEY_HOST);
+    private static final ByteString HOST = ByteString.encodeUtf8("host");
     private static final ByteString KEEP_ALIVE = ByteString.encodeUtf8("keep-alive");
     private static final ByteString PROXY_CONNECTION = ByteString.encodeUtf8(Headers.PROXY_CONNECTION);
     private static final ByteString TRANSFER_ENCODING = ByteString.encodeUtf8(Headers.TRANSFER_ENCODING);

@@ -24,6 +24,7 @@ public class UploadFileTask implements Runnable {
     public static final int ERROR_NO = 0;
     public static final int ERROR_SYSTEM_TIME = 4;
     public static final int ERROR_UNKNOWN = 1;
+    public static final int FILE_ERROR = 5;
     public static final int STATUS_FAILED = 5;
     public static final int STATUS_READY = 1;
     public static final int STATUS_STOP = 3;
@@ -37,6 +38,7 @@ public class UploadFileTask implements Runnable {
     protected String mCompressFileName;
     protected String mFileName;
     protected volatile boolean mIsCompressSuccess;
+    protected volatile boolean mIsJumpCompress;
     protected boolean mIsProgressStart;
     protected ObjectMetadata mObjectMetadata;
     protected ValueAnimator mProgressAnimator;
@@ -48,7 +50,8 @@ public class UploadFileTask implements Runnable {
     private static final String TAG = UploadFileTask.class.getSimpleName();
     public static final boolean DEBUG = AppConfig.isDebug();
     protected volatile int mStatus = 1;
-    protected volatile int mErrorCode = 0;
+    public volatile int mErrorCode = 0;
+    protected int mUploadProgressMax = 95;
     protected int mProgressMax = 100;
     protected int mProgressAnimatorMax = 90;
     protected Handler mHandler = new Handler(Looper.getMainLooper());
@@ -104,6 +107,14 @@ public class UploadFileTask implements Runnable {
 
     public void setCompressSuccess(boolean z) {
         this.mIsCompressSuccess = z;
+    }
+
+    public boolean isJumpCompress() {
+        return this.mIsJumpCompress;
+    }
+
+    public void setmIsJumpCompress(boolean z) {
+        this.mIsJumpCompress = z;
     }
 
     public void setBosClient(BosClient bosClient) {
@@ -164,13 +175,17 @@ public class UploadFileTask implements Runnable {
         return true;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean uploadFile(String str) {
         if (TextUtils.isEmpty(str)) {
             this.mErrorCode = 1;
             return false;
         }
+        return innerUpload(str);
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    protected boolean innerUpload(String str) {
         InputStream inputStream = FileHelper.getInputStream(str);
         if (inputStream != null) {
             try {
@@ -190,6 +205,7 @@ public class UploadFileTask implements Runnable {
                     this.mErrorCode = 0;
                     if (inputStream != null) {
                         Closeables.closeSafely(inputStream);
+                        return true;
                     }
                     return true;
                 } catch (Exception e) {
@@ -212,8 +228,9 @@ public class UploadFileTask implements Runnable {
                 }
                 throw th;
             }
+        } else {
+            this.mErrorCode = 1;
         }
-        this.mErrorCode = 1;
         return false;
     }
 
@@ -277,6 +294,13 @@ public class UploadFileTask implements Runnable {
         });
     }
 
+    public void playProgressByPercent(int i) {
+        if (i != this.mProgressValue && i > this.mProgressValue && i < this.mUploadProgressMax) {
+            this.mProgressValue = i;
+            this.mCallback.onProgress(this, this.mProgressValue, this.mProgressMax);
+        }
+    }
+
     public void stopPlayProgress() {
         this.mHandler.post(new Runnable() { // from class: com.baidu.searchbox.ugc.upload.UploadFileTask.3
             @Override // java.lang.Runnable
@@ -292,7 +316,8 @@ public class UploadFileTask implements Runnable {
         });
     }
 
-    protected void finishPlayProgress() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void finishPlayProgress() {
         this.mHandler.post(new Runnable() { // from class: com.baidu.searchbox.ugc.upload.UploadFileTask.4
             @Override // java.lang.Runnable
             public void run() {

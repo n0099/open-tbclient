@@ -7,17 +7,17 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 /* loaded from: classes13.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
-    public static String jWp = "has_shown_funtion_intro";
+    public static String kFy = "has_shown_funtion_intro";
 
     public SettingTextFunctionIntroView(Context context) {
         super(context);
         hideArrow();
-        t(0, 0, l.getDimens(context, R.dimen.ds30), 0);
+        s(0, 0, l.getDimens(context, R.dimen.ds30), 0);
     }
 
     public SettingTextFunctionIntroView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        t(0, 0, l.getDimens(context, R.dimen.ds30), 0);
+        s(0, 0, l.getDimens(context, R.dimen.ds30), 0);
     }
 }

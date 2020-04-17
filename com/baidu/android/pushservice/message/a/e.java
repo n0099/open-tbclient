@@ -20,7 +20,6 @@ import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.CrossPushMessage;
 import com.baidu.android.pushservice.message.PublicMsg;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
 /* loaded from: classes8.dex */
 public class e {
@@ -98,7 +97,7 @@ public class e {
         intent.putExtra("service_name", "com.baidu.android.pushservice.PushService");
         intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
         intent.putExtra("message_id", str);
-        intent.putExtra(Constants.APP_ID, str2);
+        intent.putExtra("app_id", str2);
         intent.putExtra("baidu_message_type", i);
         if (l.m(context, publicMsg.mPkgName) > 45) {
             intent.putExtra("baidu_message_body", bArr2);
@@ -111,7 +110,7 @@ public class e {
         try {
             Intent intent = new Intent(com.baidu.android.pushservice.PushConstants.ACTION_METHOD);
             intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
-            intent.putExtra(Constants.APP_ID, str);
+            intent.putExtra("app_id", str);
             com.baidu.android.pushservice.i.k.a(context, intent);
         } catch (Exception e) {
         }

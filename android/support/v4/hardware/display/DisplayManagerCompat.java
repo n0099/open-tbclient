@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.view.Display;
 import android.view.WindowManager;
-import com.baidu.live.tbadk.log.LogConfig;
 import java.util.WeakHashMap;
 /* loaded from: classes6.dex */
 public abstract class DisplayManagerCompat {
@@ -78,7 +77,7 @@ public abstract class DisplayManagerCompat {
         private final DisplayManager mDisplayManager;
 
         DisplayManagerCompatApi17Impl(Context context) {
-            this.mDisplayManager = (DisplayManager) context.getSystemService(LogConfig.KEY_DISPLAY);
+            this.mDisplayManager = (DisplayManager) context.getSystemService("display");
         }
 
         @Override // android.support.v4.hardware.display.DisplayManagerCompat

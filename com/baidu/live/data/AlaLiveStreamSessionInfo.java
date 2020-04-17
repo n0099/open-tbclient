@@ -16,7 +16,7 @@ public class AlaLiveStreamSessionInfo implements Serializable {
     public static final String STREAM_LEVEL_LOW = "L1";
     public static final String STREAM_LEVEL_MEDIUM = "L2";
     public static final String STREAM_LEVEL_SUPER_HIGH = "L4";
-    private static ai iReplaceUrl;
+    private static al iReplaceUrl;
     public String defaultLine;
     public String flvUrl;
     public String hlsUrl;
@@ -216,11 +216,11 @@ public class AlaLiveStreamSessionInfo implements Serializable {
         return iReplaceUrl != null ? iReplaceUrl.replacePushUrl(this.pushUrl) : this.pushUrl;
     }
 
-    public static ai getIReplaceUrl() {
+    public static al getIReplaceUrl() {
         return iReplaceUrl;
     }
 
-    public static void setIReplaceUrl(ai aiVar) {
-        iReplaceUrl = aiVar;
+    public static void setIReplaceUrl(al alVar) {
+        iReplaceUrl = alVar;
     }
 }

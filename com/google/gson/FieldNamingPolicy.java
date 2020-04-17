@@ -1,6 +1,5 @@
 package com.google.gson;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Field;
@@ -22,7 +21,7 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
     UPPER_CAMEL_CASE_WITH_SPACES { // from class: com.google.gson.FieldNamingPolicy.3
         @Override // com.google.gson.FieldNamingStrategy
         public String translateName(Field field) {
-            return upperCaseFirstLetter(separateCamelCase(field.getName(), HanziToPinyin.Token.SEPARATOR));
+            return upperCaseFirstLetter(separateCamelCase(field.getName(), " "));
         }
     },
     LOWER_CASE_WITH_UNDERSCORES { // from class: com.google.gson.FieldNamingPolicy.4

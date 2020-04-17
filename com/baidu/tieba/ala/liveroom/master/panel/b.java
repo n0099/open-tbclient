@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
+import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.tieba.view.NoScrollGridView;
@@ -17,73 +18,79 @@ import com.baidu.tieba.ala.liveroom.master.panel.a;
 import com.baidu.tieba.compatible.StatusBarUtil;
 /* loaded from: classes3.dex */
 public class b extends Dialog {
-    private static final int fgU = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds12);
-    private static final int fgV = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds16);
-    private static final int fgW = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60);
-    private static final int fgX = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds17);
-    private a.InterfaceC0463a fgR;
-    private boolean fgY;
-    private int fgZ;
-    private int fha;
-    private FrameLayout fhb;
-    private NoScrollGridView fhc;
-    private com.baidu.tieba.ala.liveroom.master.panel.a fhd;
-    private a fhe;
+    public final int fKZ;
+    private a.InterfaceC0498a fLd;
+    private final int fLg;
+    private final int fLh;
+    private final int fLi;
+    private final int fLj;
+    private boolean fLk;
+    private int fLl;
+    private int fLm;
+    private FrameLayout fLn;
+    private NoScrollGridView fLo;
+    private com.baidu.tieba.ala.liveroom.master.panel.a fLp;
+    private a fLq;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void boP();
+        void byh();
 
-        void boQ();
+        void byi();
 
-        void boR();
+        void byj();
 
-        void boS();
+        void byk();
 
-        void jF(boolean z);
+        void kG(boolean z);
 
-        void jG(boolean z);
+        void kH(boolean z);
 
-        void jH(boolean z);
+        void kI(boolean z);
 
-        void switchCamera(boolean z);
+        void kJ(boolean z);
     }
 
     public b(Context context, boolean z) {
         super(context);
-        this.fha = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds24);
-        this.fgR = new a.InterfaceC0463a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
-            @Override // com.baidu.tieba.ala.liveroom.master.panel.a.InterfaceC0463a
-            public void z(int i, boolean z2) {
-                if (b.this.fhe != null) {
+        this.fKZ = (BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst())[1] - (TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60) * 2)) / 4;
+        this.fLg = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds12);
+        this.fLh = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds16);
+        this.fLi = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds60);
+        this.fLj = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds17);
+        this.fLm = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(a.e.sdk_ds24);
+        this.fLd = new a.InterfaceC0498a() { // from class: com.baidu.tieba.ala.liveroom.master.panel.b.1
+            @Override // com.baidu.tieba.ala.liveroom.master.panel.a.InterfaceC0498a
+            public void C(int i, boolean z2) {
+                if (b.this.fLq != null) {
                     if (i == 1) {
-                        b.this.fhe.switchCamera(z2);
+                        b.this.fLq.kG(z2);
                     } else if (i == 2) {
-                        b.this.fhe.jF(z2);
+                        b.this.fLq.kH(z2);
                     } else if (i == 3) {
-                        b.this.fhe.jG(z2);
+                        b.this.fLq.kI(z2);
                     } else if (i == 4) {
-                        b.this.fhe.jH(z2);
+                        b.this.fLq.kJ(z2);
                     } else if (i == 5) {
-                        b.this.fhe.boP();
+                        b.this.fLq.byh();
                     } else if (i == 6) {
-                        b.this.fhe.boQ();
+                        b.this.fLq.byi();
                     } else if (i == 7) {
-                        b.this.fhe.boR();
+                        b.this.fLq.byj();
                     } else if (i == 8) {
-                        b.this.fhe.boS();
+                        b.this.fLq.byk();
                     }
                 }
             }
         };
-        this.fgY = z;
+        this.fLk = z;
         if (UtilHelper.getRealScreenOrientation(context) == 2) {
             getContext().setTheme(a.j.theme_operation_landscape_dialog);
         } else {
             getContext().setTheme(a.j.theme_operation_portrait_dialog);
         }
-        this.fhd = new com.baidu.tieba.ala.liveroom.master.panel.a(getContext(), z);
-        this.fhd.a(this.fgR);
+        this.fLp = new com.baidu.tieba.ala.liveroom.master.panel.a(getContext(), z);
+        this.fLp.a(this.fLd);
     }
 
     @Override // android.app.Dialog
@@ -91,39 +98,39 @@ public class b extends Dialog {
         super.onCreate(bundle);
         StatusBarUtil.from(this).setTransparentStatusbar(true).process();
         createView();
-        boW();
-        boV();
+        byq();
+        byp();
     }
 
-    private void boV() {
-        this.fhb.addView(this.fhc);
+    private void byp() {
+        this.fLn.addView(this.fLo);
         View view = new View(getContext());
         view.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_white_alpha10));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(a.e.sdk_ds2));
-        layoutParams.topMargin = this.fgZ;
-        layoutParams.leftMargin = this.fha;
-        layoutParams.rightMargin = this.fha;
-        this.fhb.addView(view, layoutParams);
-        setContentView(this.fhb);
+        layoutParams.topMargin = this.fLl;
+        layoutParams.leftMargin = this.fLm;
+        layoutParams.rightMargin = this.fLm;
+        this.fLn.addView(view, layoutParams);
+        setContentView(this.fLn);
     }
 
     public void a(a aVar) {
-        this.fhe = aVar;
+        this.fLq = aVar;
     }
 
     private void createView() {
-        this.fhb = new FrameLayout(getContext());
-        this.fhc = new NoScrollGridView(getContext());
-        this.fhc.setAdapter((ListAdapter) this.fhd);
+        this.fLn = new FrameLayout(getContext());
+        this.fLo = new NoScrollGridView(getContext());
+        this.fLo.setAdapter((ListAdapter) this.fLp);
         View findViewById = findViewById(16908290);
         if (findViewById == null) {
-            this.fhc.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_black_alpha85));
+            this.fLo.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_black_alpha85));
         } else {
             findViewById.setBackgroundColor(getContext().getResources().getColor(a.d.sdk_black_alpha85));
         }
     }
 
-    private void boW() {
+    private void byq() {
         Display defaultDisplay = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay();
         int navigationBarHeight = k.getNavigationBarHeight(getContext());
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -132,27 +139,27 @@ public class b extends Dialog {
             attributes.height = defaultDisplay.getHeight();
             getWindow().setAttributes(attributes);
             getWindow().setGravity(5);
-            this.fhc.setNumColumns(2);
-            this.fhc.setPadding(fgU, fgW, navigationBarHeight + fgV, fgW);
-            this.fgZ = ((this.fgY ? com.baidu.tieba.ala.liveroom.master.panel.a.fgN : com.baidu.tieba.ala.liveroom.master.panel.a.fgN * 2) + fgW) - getContext().getResources().getDimensionPixelSize(a.e.sdk_ds4);
+            this.fLo.setNumColumns(2);
+            this.fLo.setPadding(this.fLg, this.fLi, navigationBarHeight + this.fLh, this.fLi);
+            this.fLl = ((this.fLk ? this.fKZ : this.fKZ * 2) + this.fLi) - getContext().getResources().getDimensionPixelSize(a.e.sdk_ds4);
         } else {
             attributes.width = defaultDisplay.getWidth();
-            if (this.fgY) {
+            if (this.fLk) {
                 attributes.height = getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds184) + navigationBarHeight;
             } else {
                 attributes.height = getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds334) + navigationBarHeight;
             }
             getWindow().setAttributes(attributes);
             getWindow().setGravity(80);
-            this.fhc.setNumColumns(4);
-            this.fhc.setPadding(fgX, getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds32), fgX, 0);
+            this.fLo.setNumColumns(4);
+            this.fLo.setPadding(this.fLj, getContext().getResources().getDimensionPixelOffset(a.e.sdk_ds32), this.fLj, 0);
         }
         setCanceledOnTouchOutside(true);
         setCancelable(true);
     }
 
-    public void jI(boolean z) {
-        this.fhd.a(1, z ? (short) 1 : (short) 2);
+    public void kK(boolean z) {
+        this.fLp.a(1, z ? (short) 1 : (short) 2);
     }
 
     public void F(boolean z, boolean z2) {
@@ -162,7 +169,7 @@ public class b extends Dialog {
         } else if (!z) {
             s = 2;
         }
-        this.fhd.a(2, s);
+        this.fLp.a(2, s);
     }
 
     public void G(boolean z, boolean z2) {
@@ -172,14 +179,14 @@ public class b extends Dialog {
         } else if (!z) {
             s = 2;
         }
-        this.fhd.a(3, s);
+        this.fLp.a(3, s);
     }
 
-    public void jJ(boolean z) {
-        this.fhd.a(4, z ? (short) 1 : (short) 2);
+    public void kL(boolean z) {
+        this.fLp.a(4, z ? (short) 1 : (short) 2);
     }
 
-    public void boX() {
-        this.fhd.notifyDataSetChanged();
+    public void byr() {
+        this.fLp.notifyDataSetChanged();
     }
 }

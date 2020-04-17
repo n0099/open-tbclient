@@ -97,7 +97,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.w.a.Uy().a(str, SwanAppAudioService.this);
+                com.baidu.swan.apps.w.a.acn().a(str, SwanAppAudioService.this);
             }
         });
     }
@@ -106,7 +106,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.12
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.w.a.Uy().play();
+                com.baidu.swan.apps.w.a.acn().play();
             }
         });
     }
@@ -115,7 +115,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.13
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.w.a.Uy().pause();
+                com.baidu.swan.apps.w.a.acn().pause();
             }
         });
     }
@@ -124,21 +124,21 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.14
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.w.a.Uy().stop();
+                com.baidu.swan.apps.w.a.acn().stop();
             }
         });
     }
 
     public void seek(int i) {
-        com.baidu.swan.apps.w.a.Uy().seek(i);
+        com.baidu.swan.apps.w.a.acn().seek(i);
     }
 
     public int getDuration() {
-        return com.baidu.swan.apps.w.a.Uy().getDuration();
+        return com.baidu.swan.apps.w.a.acn().getDuration();
     }
 
     public boolean isPlaying() {
-        return com.baidu.swan.apps.w.a.Uy().isPlaying();
+        return com.baidu.swan.apps.w.a.acn().isPlaying();
     }
 
     public void release() {
@@ -147,7 +147,7 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
             public void run() {
                 SwanAppAudioService.this.notifyEventOnStop();
                 SwanAppAudioService.this.stopSelf();
-                com.baidu.swan.apps.w.a.Uy().onRelease();
+                com.baidu.swan.apps.w.a.acn().onRelease();
             }
         });
     }

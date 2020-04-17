@@ -1,5 +1,6 @@
 package com.googlecode.mp4parser.boxes.apple;
 
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
@@ -11,19 +12,19 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class BaseMediaInfoAtom extends AbstractFullBox {
     public static final String TYPE = "gmin";
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_10 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_11 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_12 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_5 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_6 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_7 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_8 = null;
-    private static final /* synthetic */ a.InterfaceC0782a ajc$tjp_9 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_10 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_11 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_12 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_6 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_7 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_8 = null;
+    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_9 = null;
     short balance;
     short graphicsMode;
     int opColorB;
@@ -40,7 +41,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
         ajc$tjp_0 = bVar.a("method-execution", bVar.b("1", "getGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 54);
         ajc$tjp_1 = bVar.a("method-execution", bVar.b("1", "setGraphicsMode", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "graphicsMode", "", "void"), 58);
         ajc$tjp_10 = bVar.a("method-execution", bVar.b("1", "getReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "short"), 94);
-        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", "reserved", "", "void"), 98);
+        ajc$tjp_11 = bVar.a("method-execution", bVar.b("1", "setReserved", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "short", GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "", "void"), 98);
         ajc$tjp_12 = bVar.a("method-execution", bVar.b("1", "toString", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", FieldUtil.TYPE_STRING), 103);
         ajc$tjp_2 = bVar.a("method-execution", bVar.b("1", "getOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "", "", "", "int"), 62);
         ajc$tjp_3 = bVar.a("method-execution", bVar.b("1", "setOpColorR", "com.googlecode.mp4parser.boxes.apple.BaseMediaInfoAtom", "int", "opColorR", "", "void"), 66);
@@ -93,7 +94,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setGraphicsMode(short s) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.l(s)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.k(s)));
         this.graphicsMode = s;
     }
 
@@ -103,7 +104,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorR(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.NV(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.Jp(i)));
         this.opColorR = i;
     }
 
@@ -113,7 +114,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorG(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.NV(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.Jp(i)));
         this.opColorG = i;
     }
 
@@ -123,7 +124,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setOpColorB(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.NV(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.Jp(i)));
         this.opColorB = i;
     }
 
@@ -133,7 +134,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setBalance(short s) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.l(s)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_9, this, this, org.aspectj.a.a.a.k(s)));
         this.balance = s;
     }
 
@@ -143,7 +144,7 @@ public class BaseMediaInfoAtom extends AbstractFullBox {
     }
 
     public void setReserved(short s) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.l(s)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, this, this, org.aspectj.a.a.a.k(s)));
         this.reserved = s;
     }
 

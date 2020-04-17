@@ -17,12 +17,12 @@ public class O implements P.a {
     }
 
     @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0172a c0172a) {
+    public void a(S.a.C0203a c0203a) {
         Context context;
         Context context2;
         Context context3;
-        String c = S.a.C0172a.c(c0172a.a);
-        String b = S.a.C0172a.b(c0172a.a);
+        String c = S.a.C0203a.c(c0203a.a);
+        String b = S.a.C0203a.b(c0203a.a);
         context = this.a.d;
         if (new File(context.getFilesDir(), c).exists()) {
             try {
@@ -40,6 +40,6 @@ public class O implements P.a {
     }
 
     @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0172a c0172a, String str) {
+    public void a(S.a.C0203a c0203a, String str) {
     }
 }

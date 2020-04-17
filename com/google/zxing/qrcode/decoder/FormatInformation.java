@@ -1,4 +1,6 @@
 package com.google.zxing.qrcode.decoder;
+
+import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes10.dex */
 final class FormatInformation {
     private final byte dataMask;
@@ -25,7 +27,7 @@ final class FormatInformation {
     private static FormatInformation doDecodeFormatInformation(int i, int i2) {
         int i3;
         int i4;
-        int i5 = Integer.MAX_VALUE;
+        int i5 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         int[][] iArr = FORMAT_INFO_DECODE_LOOKUP;
         int length = iArr.length;
         int i6 = 0;

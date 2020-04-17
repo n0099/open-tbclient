@@ -7,7 +7,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -74,7 +73,7 @@ public class DBOperation {
             arrayList.add(-7001L);
             return arrayList;
         }
-        LogUtils.d(TAG, str + " insertbacth: " + str + HanziToPinyin.Token.SEPARATOR + valueOf);
+        LogUtils.d(TAG, str + " insertbacth: " + str + " " + valueOf);
         try {
             list2 = (List) TaskManager.getInstance(this.mContext).submitForLocalCallable(new InsertBatchTask(valueOf, str, list)).get(10L, TimeUnit.SECONDS);
         } catch (Exception e) {

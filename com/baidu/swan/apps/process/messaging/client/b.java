@@ -13,21 +13,21 @@ import java.util.Deque;
 /* loaded from: classes11.dex */
 public class b implements a.b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Deque<Message> bJG = new ArrayDeque();
+    private final Deque<Message> ciq = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aaR() {
-        a aaY = a.aaY();
-        while (aaY.abc() && !this.bJG.isEmpty()) {
-            Message peek = this.bJG.peek();
+    public void aiW() {
+        a ajd = a.ajd();
+        while (ajd.ajh() && !this.ciq.isEmpty()) {
+            Message peek = this.ciq.peek();
             if (peek == null || z(peek)) {
-                this.bJG.poll();
+                this.ciq.poll();
             }
         }
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void ks(String str) {
+    public void lF(String str) {
     }
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message aaS = cVar.aaS();
-        aaS.arg1 = SwanAppProcessInfo.current().index;
-        if (d.acF().abm() && (aaS.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) aaS.obj;
+        Message aiX = cVar.aiX();
+        aiX.arg1 = SwanAppProcessInfo.current().index;
+        if (d.akK().ajr() && (aiX.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) aiX.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.acF().getAppId());
+                bundle.putString("ai_apps_id", d.akK().getAppId());
             }
         }
-        if (!z(aaS) && cVar.isSticky()) {
-            this.bJG.offer(aaS);
-            a.aaY().aba();
+        if (!z(aiX) && cVar.isSticky()) {
+            this.ciq.offer(aiX);
+            a.ajd().ajf();
         }
     }
 
     private boolean z(Message message) {
-        a aaY = a.aaY();
-        if (message != null && aaY.abc()) {
+        a ajd = a.ajd();
+        if (message != null && ajd.ajh()) {
             try {
-                aaY.aaZ().send(message);
+                ajd.aje().send(message);
                 return true;
             } catch (RemoteException e) {
-                aaY.abd();
+                ajd.aji();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

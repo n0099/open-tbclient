@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class az {
-    public static boolean s(long j, long j2) {
+    public static boolean t(long j, long j2) {
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         return currentTimeMillis > j && currentTimeMillis < j2;
     }

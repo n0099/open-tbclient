@@ -3,22 +3,22 @@ package com.baidu.tbadk.coreExtra.data;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class y {
-    private String dnm;
-    private ArrayList<Object> dnn;
+    private String dNh;
+    private ArrayList<Object> dNi;
 
     public y() {
         C(new ArrayList<>());
     }
 
-    public String aJH() {
-        return this.dnm;
+    public String aSe() {
+        return this.dNh;
     }
 
-    public ArrayList<Object> aJI() {
-        return this.dnn;
+    public ArrayList<Object> aSf() {
+        return this.dNi;
     }
 
     public void C(ArrayList<Object> arrayList) {
-        this.dnn = arrayList;
+        this.dNi = arrayList;
     }
 }

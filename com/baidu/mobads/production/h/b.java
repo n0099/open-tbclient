@@ -12,6 +12,7 @@ import com.baidu.mobads.openad.d.c;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher;
 import com.baidu.mobads.production.v;
 import com.baidu.mobads.vo.d;
+import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,7 +32,7 @@ public class b extends com.baidu.mobads.production.b implements IXLinearAdSlot, 
 
     @Override // com.baidu.mobads.production.b
     protected void h() {
-        this.m = 8000;
+        this.m = CoolPraiseGuideLottieView.ANIM_DURATION;
     }
 
     @Override // com.baidu.mobads.production.b

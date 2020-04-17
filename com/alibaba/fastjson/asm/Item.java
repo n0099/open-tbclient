@@ -1,4 +1,6 @@
 package com.alibaba.fastjson.asm;
+
+import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes7.dex */
 final class Item {
     int hashCode;
@@ -38,13 +40,13 @@ final class Item {
             case 7:
             case 8:
             case 13:
-                this.hashCode = (str.hashCode() + i) & Integer.MAX_VALUE;
+                this.hashCode = (str.hashCode() + i) & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                 return;
             case 12:
-                this.hashCode = ((str.hashCode() * str2.hashCode()) + i) & Integer.MAX_VALUE;
+                this.hashCode = ((str.hashCode() * str2.hashCode()) + i) & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                 return;
             default:
-                this.hashCode = ((str.hashCode() * str2.hashCode() * str3.hashCode()) + i) & Integer.MAX_VALUE;
+                this.hashCode = ((str.hashCode() * str2.hashCode() * str3.hashCode()) + i) & ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                 return;
         }
     }

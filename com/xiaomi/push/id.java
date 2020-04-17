@@ -7,10 +7,10 @@ import java.util.List;
 public class id implements ir<id, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hr> f620a;
+    public List<hr> f621a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f619a = new jh("XmPushActionCustomConfig");
+    private static final jh f620a = new jh("XmPushActionCustomConfig");
     private static final iz a = new iz("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,9 +19,9 @@ public class id implements ir<id, Object>, Serializable, Cloneable {
     public int compareTo(id idVar) {
         int a2;
         if (getClass().equals(idVar.getClass())) {
-            int compareTo = Boolean.valueOf(m409a()).compareTo(Boolean.valueOf(idVar.m409a()));
+            int compareTo = Boolean.valueOf(m414a()).compareTo(Boolean.valueOf(idVar.m414a()));
             if (compareTo == 0) {
-                if (!m409a() || (a2 = is.a(this.f620a, idVar.f620a)) == 0) {
+                if (!m414a() || (a2 = is.a(this.f621a, idVar.f621a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -32,44 +32,44 @@ public class id implements ir<id, Object>, Serializable, Cloneable {
     }
 
     public List<hr> a() {
-        return this.f620a;
+        return this.f621a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m408a() {
-        if (this.f620a == null) {
+    public void m413a() {
+        if (this.f621a == null) {
             throw new jd("Required field 'customConfigs' was not present! Struct: " + toString());
         }
     }
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m470a();
+        jcVar.m475a();
         while (true) {
-            iz m466a = jcVar.m466a();
-            if (m466a.a == 0) {
+            iz m471a = jcVar.m471a();
+            if (m471a.a == 0) {
                 jcVar.f();
-                m408a();
+                m413a();
                 return;
             }
-            switch (m466a.f788a) {
+            switch (m471a.f789a) {
                 case 1:
-                    if (m466a.a == 15) {
-                        ja m467a = jcVar.m467a();
-                        this.f620a = new ArrayList(m467a.f791a);
-                        for (int i = 0; i < m467a.f791a; i++) {
+                    if (m471a.a == 15) {
+                        ja m472a = jcVar.m472a();
+                        this.f621a = new ArrayList(m472a.f792a);
+                        for (int i = 0; i < m472a.f792a; i++) {
                             hr hrVar = new hr();
                             hrVar.a(jcVar);
-                            this.f620a.add(hrVar);
+                            this.f621a.add(hrVar);
                         }
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m466a.a);
+                        jf.a(jcVar, m471a.a);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m466a.a);
+                    jf.a(jcVar, m471a.a);
                     break;
             }
             jcVar.g();
@@ -77,40 +77,40 @@ public class id implements ir<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m409a() {
-        return this.f620a != null;
+    public boolean m414a() {
+        return this.f621a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m410a(id idVar) {
+    public boolean m415a(id idVar) {
         if (idVar == null) {
             return false;
         }
-        boolean m409a = m409a();
-        boolean m409a2 = idVar.m409a();
-        return !(m409a || m409a2) || (m409a && m409a2 && this.f620a.equals(idVar.f620a));
+        boolean m414a = m414a();
+        boolean m414a2 = idVar.m414a();
+        return !(m414a || m414a2) || (m414a && m414a2 && this.f621a.equals(idVar.f621a));
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
-        m408a();
-        jcVar.a(f619a);
-        if (this.f620a != null) {
+        m413a();
+        jcVar.a(f620a);
+        if (this.f621a != null) {
             jcVar.a(a);
-            jcVar.a(new ja((byte) 12, this.f620a.size()));
-            for (hr hrVar : this.f620a) {
+            jcVar.a(new ja((byte) 12, this.f621a.size()));
+            for (hr hrVar : this.f621a) {
                 hrVar.b(jcVar);
             }
             jcVar.e();
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m474a();
+        jcVar.m479a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof id)) {
-            return m410a((id) obj);
+            return m415a((id) obj);
         }
         return false;
     }
@@ -122,10 +122,10 @@ public class id implements ir<id, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionCustomConfig(");
         sb.append("customConfigs:");
-        if (this.f620a == null) {
+        if (this.f621a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f620a);
+            sb.append(this.f621a);
         }
         sb.append(")");
         return sb.toString();

@@ -1,33 +1,33 @@
 package com.facebook.drawee.components;
 /* loaded from: classes13.dex */
 public class b {
-    private boolean lMG;
-    private int lMH;
-    private int lMI;
+    private boolean lTZ;
+    private int lUa;
+    private int lUb;
 
     public b() {
         init();
     }
 
     public void init() {
-        this.lMG = false;
-        this.lMH = 4;
+        this.lTZ = false;
+        this.lUa = 4;
         reset();
     }
 
     public void reset() {
-        this.lMI = 0;
+        this.lUb = 0;
     }
 
-    public void vl(boolean z) {
-        this.lMG = z;
+    public void vz(boolean z) {
+        this.lTZ = z;
     }
 
-    public boolean dmt() {
-        return this.lMG && this.lMI < this.lMH;
+    public boolean dom() {
+        return this.lTZ && this.lUb < this.lUa;
     }
 
-    public void dmu() {
-        this.lMI++;
+    public void don() {
+        this.lUb++;
     }
 }

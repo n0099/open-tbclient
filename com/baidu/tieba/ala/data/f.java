@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.data;
 /* loaded from: classes3.dex */
 public class f {
-    public String eAs;
-    public String eAt;
+    public String feM;
+    public String feN;
 }

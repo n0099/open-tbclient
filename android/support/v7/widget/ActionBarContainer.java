@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.annotation.RestrictTo;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
+import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.view.ActionMode;
 import android.view.MotionEvent;
@@ -252,7 +253,7 @@ public class ActionBarContainer extends FrameLayout {
                 } else {
                     i3 = 0;
                 }
-                setMeasuredDimension(getMeasuredWidth(), Math.min(i3 + getMeasuredHeightWithMargins(this.mTabContainer), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i2) : Integer.MAX_VALUE));
+                setMeasuredDimension(getMeasuredWidth(), Math.min(i3 + getMeasuredHeightWithMargins(this.mTabContainer), mode == Integer.MIN_VALUE ? View.MeasureSpec.getSize(i2) : ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED));
             }
         }
     }

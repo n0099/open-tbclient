@@ -18,8 +18,8 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
             return false;
         }
-        eVar.acQ().afl().edit().clear().apply();
-        com.baidu.swan.apps.ap.e.bYc.update();
+        eVar.akV().anq().edit().clear().apply();
+        com.baidu.swan.apps.ap.e.cwU.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

@@ -5,14 +5,14 @@ import io.reactivex.v;
 import java.util.concurrent.Callable;
 /* loaded from: classes6.dex */
 public final class a {
-    private static volatile h<Callable<v>, v> nxM;
-    private static volatile h<v, v> nxN;
+    private static volatile h<Callable<v>, v> mRe;
+    private static volatile h<v, v> mRf;
 
     public static v d(Callable<v> callable) {
         if (callable == null) {
             throw new NullPointerException("scheduler == null");
         }
-        h<Callable<v>, v> hVar = nxM;
+        h<Callable<v>, v> hVar = mRe;
         return hVar == null ? e(callable) : a(hVar, callable);
     }
 
@@ -20,7 +20,7 @@ public final class a {
         if (vVar == null) {
             throw new NullPointerException("scheduler == null");
         }
-        h<v, v> hVar = nxN;
+        h<v, v> hVar = mRf;
         return hVar == null ? vVar : (v) a(hVar, vVar);
     }
 
@@ -32,7 +32,7 @@ public final class a {
             }
             return call;
         } catch (Throwable th) {
-            throw io.reactivex.exceptions.a.t(th);
+            throw io.reactivex.exceptions.a.y(th);
         }
     }
 
@@ -48,7 +48,7 @@ public final class a {
         try {
             return hVar.apply(t);
         } catch (Throwable th) {
-            throw io.reactivex.exceptions.a.t(th);
+            throw io.reactivex.exceptions.a.y(th);
         }
     }
 }

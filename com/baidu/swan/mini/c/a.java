@@ -12,15 +12,15 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final ConcurrentHashMap<Integer, CopyOnWriteArrayList<c.a>> cAF = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Integer, CopyOnWriteArrayList<c.a>> cZD = new ConcurrentHashMap<>();
 
     public static void a(@NonNull final com.baidu.swan.pms.b.a aVar, @NonNull c.a aVar2) {
         File b;
         final int a = a(aVar);
         if (DEBUG) {
-            Log.d("Mini-Pm", "==========开始获取mini小程序包 " + a + " ========== pkg: " + aVar.Rd());
+            Log.d("Mini-Pm", "==========开始获取mini小程序包 " + a + " ========== pkg: " + aVar.YS());
         }
-        if (cAF.containsKey(Integer.valueOf(a))) {
+        if (cZD.containsKey(Integer.valueOf(a))) {
             if (DEBUG) {
                 Log.d("Mini-Pm", "==========重复获取 hash: " + a + " ========== pkg: " + aVar);
             }
@@ -28,22 +28,22 @@ public class a {
             return;
         }
         a(a, aVar2);
-        if (!aVar.PX()) {
+        if (!aVar.XM()) {
             a(a, new com.baidu.swan.pms.b.b.b(1010, "参数错误 " + aVar), "");
             return;
         }
         final String appId = aVar.getAppId();
         final String bundleId = aVar.getBundleId();
         final int versionCode = aVar.getVersionCode();
-        com.baidu.swan.pms.b.a cd = com.baidu.swan.pms.database.a.aty().cd(appId, bundleId);
-        if (cd != null && cd.getVersionCode() >= versionCode && (b = b.b(cd)) != null && b.exists()) {
+        com.baidu.swan.pms.b.a co = com.baidu.swan.pms.database.a.aBI().co(appId, bundleId);
+        if (co != null && co.getVersionCode() >= versionCode && (b = b.b(co)) != null && b.exists()) {
             if (DEBUG) {
-                Log.d("Mini-Pm", "==========获取mini小程序成功(同步本地有包) " + a + " ========== pkg: " + aVar.Rd() + " local pkg: " + cd.Rd());
+                Log.d("Mini-Pm", "==========获取mini小程序成功(同步本地有包) " + a + " ========== pkg: " + aVar.YS() + " local pkg: " + co.YS());
             }
             a(a, new com.baidu.swan.pms.b.b.b(0, "成功：本地有包"), b.getPath());
             return;
         }
-        d.atH().a(new com.baidu.swan.pms.b.b.a(aVar.getDownloadUrl(), aVar.getSize(), aVar.getMd5(), new com.baidu.swan.pms.b.b() { // from class: com.baidu.swan.mini.c.a.1
+        d.aBR().a(new com.baidu.swan.pms.b.b.a(aVar.getDownloadUrl(), aVar.getSize(), aVar.getMd5(), new com.baidu.swan.pms.b.b() { // from class: com.baidu.swan.mini.c.a.1
             @Override // com.baidu.swan.pms.b.b
             public void a(@NonNull com.baidu.swan.pms.b.b.b bVar) {
                 String str = bVar.filePath;
@@ -63,7 +63,7 @@ public class a {
                 File file = new File(str);
                 if (!file.exists()) {
                     a.a(a, new com.baidu.swan.pms.b.b.b(1013, "文件不存在: " + str), "");
-                } else if (!ab.d(file, aVar.getSign())) {
+                } else if (!ab.e(file, aVar.getSign())) {
                     com.baidu.swan.d.c.deleteFile(str);
                     a.a(a, new com.baidu.swan.pms.b.b.b(1001, "签名校验失败"), "");
                 } else {
@@ -74,12 +74,12 @@ public class a {
                         return;
                     }
                     com.baidu.swan.d.c.deleteFile(str);
-                    if (!com.baidu.swan.pms.database.a.aty().d(aVar)) {
+                    if (!com.baidu.swan.pms.database.a.aBI().d(aVar)) {
                         a.a(a, new com.baidu.swan.pms.b.b.b(1012, "db insert fail"), "");
                         return;
                     }
                     if (a.DEBUG) {
-                        Log.d("Mini-Pm", "==========获取mini小程序成功(异步) " + a + " ========== pkg: " + aVar.Rd());
+                        Log.d("Mini-Pm", "==========获取mini小程序成功(异步) " + a + " ========== pkg: " + aVar.YS());
                     }
                     a.a(a, bVar, b.P(appId, bundleId, String.valueOf(versionCode)).getPath());
                 }
@@ -88,7 +88,7 @@ public class a {
     }
 
     private static void a(int i, @NonNull c.a aVar) {
-        CopyOnWriteArrayList<c.a> copyOnWriteArrayList = cAF.get(Integer.valueOf(i));
+        CopyOnWriteArrayList<c.a> copyOnWriteArrayList = cZD.get(Integer.valueOf(i));
         if (copyOnWriteArrayList == null) {
             copyOnWriteArrayList = new CopyOnWriteArrayList<>();
         }
@@ -96,7 +96,7 @@ public class a {
             Log.d("Mini-Pm", "addCallback: " + i);
         }
         copyOnWriteArrayList.add(aVar);
-        cAF.put(Integer.valueOf(i), copyOnWriteArrayList);
+        cZD.put(Integer.valueOf(i), copyOnWriteArrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,7 +107,7 @@ public class a {
             }
             Log.d("Mini-Pm", bVar.toString());
         }
-        CopyOnWriteArrayList<c.a> remove = cAF.remove(Integer.valueOf(i));
+        CopyOnWriteArrayList<c.a> remove = cZD.remove(Integer.valueOf(i));
         if (remove == null || remove.isEmpty()) {
             if (DEBUG) {
                 Log.d("Mini-Pm", "notifyCallbacks: callbacks is empty");

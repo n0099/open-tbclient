@@ -19,7 +19,7 @@ import org.apache.http.HttpHost;
 /* loaded from: classes11.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> bQI = i.L("https", "wss");
+    private static final Set<String> cpv = i.N("https", "wss");
 
     /* JADX WARN: Can't wrap try/catch for region: R(13:58|59|(3:62|(4:65|(1:105)(8:67|68|(3:99|100|(2:102|103)(1:104))(3:70|71|(2:73|74)(1:97))|80|(1:(1:83)(1:84))|(1:86)|87|(2:89|90)(1:91))|98|63)|106)|108|75|76|(1:78)|79|80|(0)|(0)|87|(0)(0)) */
     /* JADX WARN: Code restructure failed: missing block: B:83:0x01ff, code lost:
@@ -38,48 +38,48 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean lg(String str) {
+    public static boolean mt(String str) {
         boolean z;
         String host;
-        e acI = e.acI();
-        if (acI == null) {
+        e akN = e.akN();
+        if (akN == null) {
             return false;
         }
         String lowerCase = str.toLowerCase();
-        if (!com.baidu.swan.apps.ah.a.a.aaq()) {
+        if (!com.baidu.swan.apps.ah.a.a.aiv()) {
             if (DEBUG) {
                 Log.w("WebSafeCheckers", "checkWebHost: Debug下鉴权未开启");
             }
             return true;
         }
-        boolean Ho = com.baidu.swan.apps.w.a.Uc().Ho();
-        if (!Ho) {
+        boolean Pb = com.baidu.swan.apps.w.a.abR().Pb();
+        if (!Pb) {
             if (DEBUG) {
-                Log.w("WebSafeCheckers", "ABTest : webDomains switch " + Ho);
+                Log.w("WebSafeCheckers", "ABTest : webDomains switch " + Pb);
             }
             return true;
-        } else if (!adJ()) {
+        } else if (!alO()) {
             if (DEBUG) {
                 Log.d("WebSafeCheckers", "checkWebDomains: 线下环境开发者授权跳过域名校验");
             }
             return true;
         } else {
-            String acK = e.acK();
-            if (!c.lm(acK)) {
+            String akP = e.akP();
+            if (!c.mz(akP)) {
                 return true;
             }
-            ArrayList<String> z2 = acI.ada().z(acK, false);
-            if (lowerCase.startsWith("weixin://wap/pay") && z2.contains("wx.tenpay.com")) {
+            ArrayList<String> E = akN.alf().E(akP, false);
+            if (lowerCase.startsWith("weixin://wap/pay") && E.contains("wx.tenpay.com")) {
                 if (DEBUG) {
-                    Log.d("WebSafeCheckers", "url is weixin pay, Domain in white list url: " + str + " name: " + acI.getName());
+                    Log.d("WebSafeCheckers", "url is weixin pay, Domain in white list url: " + str + " name: " + akN.getName());
                 }
-                f.a("wechatH5", str, z2);
+                f.a("wechatH5", str, E);
                 return true;
-            } else if (lowerCase.startsWith("alipays://platformapi/startapp") && z2.contains("*.alipay.com") && z2.contains("*.alipayobjects.com")) {
+            } else if (lowerCase.startsWith("alipays://platformapi/startapp") && E.contains("*.alipay.com") && E.contains("*.alipayobjects.com")) {
                 if (DEBUG) {
-                    Log.d("WebSafeCheckers", "url is ali pay, Domain in white list url: " + str + " name: " + acI.getName());
+                    Log.d("WebSafeCheckers", "url is ali pay, Domain in white list url: " + str + " name: " + akN.getName());
                 }
-                f.a("alipayH5", str, z2);
+                f.a("alipayH5", str, E);
                 return true;
             } else {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -95,8 +95,8 @@ public final class b {
                     z = false;
                     MalformedURLException e2 = e;
                 }
-                if (!TextUtils.isEmpty(host) && z2 != null) {
-                    Iterator<String> it = z2.iterator();
+                if (!TextUtils.isEmpty(host) && E != null) {
+                    Iterator<String> it = E.iterator();
                     while (it.hasNext()) {
                         String next = it.next();
                         if (next != null) {
@@ -130,7 +130,7 @@ public final class b {
                 }
                 z = false;
                 if (DEBUG) {
-                    Log.d("WebSafeCheckers", "domain: " + host + ", domains: " + z2);
+                    Log.d("WebSafeCheckers", "domain: " + host + ", domains: " + E);
                 }
                 com.baidu.swan.apps.console.c.d("WebSafeCheckers", "domain: " + host);
                 if (DEBUG) {
@@ -144,8 +144,8 @@ public final class b {
         }
     }
 
-    public static boolean lh(String str) {
-        if (DEBUG && !com.baidu.swan.apps.ah.a.a.aaq()) {
+    public static boolean mu(String str) {
+        if (DEBUG && !com.baidu.swan.apps.ah.a.a.aiv()) {
             Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
             return true;
         } else if (TextUtils.isEmpty(str)) {
@@ -155,21 +155,21 @@ public final class b {
             com.baidu.swan.apps.console.c.d("WebSafeCheckers", "action is not in white list: action=" + str);
             return false;
         } else {
-            e acI = e.acI();
-            if (acI == null) {
+            e akN = e.akN();
+            if (akN == null) {
                 com.baidu.swan.apps.console.c.w("WebSafeCheckers", "get swanApp Null " + str);
                 return false;
             }
-            ArrayList<String> dQ = acI.ada().dQ(true);
-            if (dQ != null && dQ.contains(str)) {
+            ArrayList<String> eM = akN.alf().eM(true);
+            if (eM != null && eM.contains(str)) {
                 if (DEBUG) {
-                    Log.d("WebSafeCheckers", "Action in white list: " + str + ", " + dQ);
+                    Log.d("WebSafeCheckers", "Action in white list: " + str + ", " + eM);
                     return true;
                 }
                 return true;
             }
             if (DEBUG) {
-                Log.d("WebSafeCheckers", "Action not in white list: action=" + str + ", whitelist=" + dQ);
+                Log.d("WebSafeCheckers", "Action not in white list: action=" + str + ", whitelist=" + eM);
             }
             com.baidu.swan.apps.console.c.d("WebSafeCheckers", "action is not in white list: action=" + str);
             return false;
@@ -197,7 +197,7 @@ public final class b {
             Log.i("WebSafeCheckers", "requestName : " + str);
             Log.i("WebSafeCheckers", "requestUrl : " + str2);
         }
-        boolean z2 = !com.baidu.swan.apps.ah.a.a.aar();
+        boolean z2 = !com.baidu.swan.apps.ah.a.a.aiw();
         if (z2) {
             if (DEBUG) {
                 Log.d("WebSafeCheckers", "debug包serverDomains鉴权关闭： " + z2);
@@ -205,34 +205,34 @@ public final class b {
             }
             return 0;
         }
-        boolean adJ = adJ();
-        if (!adJ) {
+        boolean alO = alO();
+        if (!alO) {
             if (DEBUG) {
-                Log.d("WebSafeCheckers", "开发包serverDomains鉴权关闭： " + adJ);
+                Log.d("WebSafeCheckers", "开发包serverDomains鉴权关闭： " + alO);
                 return 0;
             }
             return 0;
-        } else if (!li(str2)) {
+        } else if (!mv(str2)) {
             return 2;
         } else {
-            boolean Hn = com.baidu.swan.apps.w.a.Uc().Hn();
-            if (!Hn) {
+            boolean Pa = com.baidu.swan.apps.w.a.abR().Pa();
+            if (!Pa) {
                 if (DEBUG) {
-                    Log.d("WebSafeCheckers", "AB实验serverDomains鉴权关闭： " + Hn);
+                    Log.d("WebSafeCheckers", "AB实验serverDomains鉴权关闭： " + Pa);
                     return 0;
                 }
                 return 0;
             }
-            e acI = e.acI();
-            if (acI == null) {
+            e akN = e.akN();
+            if (akN == null) {
                 return 1;
             }
-            String str4 = acI.id;
+            String str4 = akN.id;
             if (TextUtils.isEmpty(str4)) {
                 return 1;
             }
             if (!TextUtils.isEmpty(str3)) {
-                return !com.baidu.swan.apps.ag.g.a.a(str, str2, com.baidu.swan.apps.ag.g.b.kl(str3)) ? 1 : 0;
+                return !com.baidu.swan.apps.ag.g.a.a(str, str2, com.baidu.swan.apps.ag.g.b.ly(str3)) ? 1 : 0;
             } else if (!new File(c.E(str4, "aiapps_folder/cloud_config", "server_domains.json")).exists()) {
                 if (DEBUG) {
                     Log.w("WebSafeCheckers", "服务器域名配置文件未下发放行");
@@ -243,7 +243,7 @@ public final class b {
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
                     host = new URI(str2).getHost();
-                    arrayList = acI.ada().l(e.acK(), str, false).data;
+                    arrayList = akN.alf().k(e.akP(), str, false).data;
                     z = f(host, arrayList);
                 } catch (URISyntaxException e) {
                     e = e;
@@ -303,24 +303,24 @@ public final class b {
         return false;
     }
 
-    private static boolean li(String str) {
-        for (String str2 : bQI) {
+    private static boolean mv(String str) {
+        for (String str2 : cpv) {
             if (str.startsWith(str2)) {
                 return true;
             }
         }
-        if (com.baidu.swan.apps.ah.a.a.aaz()) {
+        if (com.baidu.swan.apps.ah.a.a.aiE()) {
             return true;
         }
-        boolean Ht = com.baidu.swan.apps.w.a.Uc().Ht();
+        boolean Pg = com.baidu.swan.apps.w.a.abR().Pg();
         if (DEBUG) {
-            Log.d("WebSafeCheckers", "abTestHttpsProtocolSwitch=" + Ht);
+            Log.d("WebSafeCheckers", "abTestHttpsProtocolSwitch=" + Pg);
         }
-        return !Ht && str.startsWith(HttpHost.DEFAULT_SCHEME_NAME);
+        return !Pg && str.startsWith(HttpHost.DEFAULT_SCHEME_NAME);
     }
 
-    public static boolean lj(String str) {
-        if (DEBUG && !com.baidu.swan.apps.ah.a.a.aaq()) {
+    public static boolean mw(String str) {
+        if (DEBUG && !com.baidu.swan.apps.ah.a.a.aiv()) {
             Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
             return true;
         } else if (TextUtils.isEmpty(str)) {
@@ -330,15 +330,15 @@ public final class b {
             com.baidu.swan.apps.console.c.d("WebSafeCheckers", "action is not in white list: action=" + str);
             return false;
         } else {
-            e acI = e.acI();
-            if (acI == null) {
+            e akN = e.akN();
+            if (akN == null) {
                 com.baidu.swan.apps.console.c.w("WebSafeCheckers", "get swanApp Null " + str);
                 return false;
             }
-            ArrayList<String> adI = acI.ada().adI();
-            if (adI != null && adI.contains(str)) {
+            ArrayList<String> alN = akN.alf().alN();
+            if (alN != null && alN.contains(str)) {
                 if (DEBUG) {
-                    Log.d("WebSafeCheckers", "Action in white list: " + str + ", " + adI);
+                    Log.d("WebSafeCheckers", "Action in white list: " + str + ", " + alN);
                     return true;
                 }
                 return true;
@@ -348,8 +348,8 @@ public final class b {
         }
     }
 
-    public static boolean adJ() {
-        if (d.acF().Gz() == 0 && SwanAppConfigData.c.adz()) {
+    public static boolean alO() {
+        if (d.akK().Om() == 0 && SwanAppConfigData.c.alE()) {
             if (DEBUG) {
                 Log.d("WebSafeCheckers", "授权跳过url校验");
             }
@@ -358,11 +358,11 @@ public final class b {
         return true;
     }
 
-    public static boolean lk(String str) {
+    public static boolean mx(String str) {
         return !TextUtils.isEmpty(str) && str.toLowerCase().startsWith("weixin://wap/pay");
     }
 
-    public static boolean ll(String str) {
+    public static boolean my(String str) {
         return !TextUtils.isEmpty(str) && str.toLowerCase().startsWith("alipays://platformapi/startapp");
     }
 }

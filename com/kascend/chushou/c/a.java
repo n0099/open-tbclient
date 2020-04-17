@@ -6,7 +6,7 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.live.tbadk.pay.PayHelper;
 import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.net.update.UpdateConstants;
+import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.searchbox.ui.animview.praise.resource.ComboPraiseProvider;
 import com.coremedia.iso.boxes.MetaBox;
 import com.kascend.chushou.constants.AdExtraInfo;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    public static ParserRet dv(JSONObject jSONObject) {
+    public static ParserRet dy(JSONObject jSONObject) {
         int i = -1;
         String str = "";
         if (jSONObject != null) {
@@ -37,13 +37,13 @@ public class a {
         return parserRet;
     }
 
-    public static ShareInfo dw(JSONObject jSONObject) {
+    public static ShareInfo dz(JSONObject jSONObject) {
         ShareInfo shareInfo = new ShareInfo();
         shareInfo.mThumbnail = jSONObject.optString("thumbnail", "");
         shareInfo.mTitle = jSONObject.optString("title", "");
         shareInfo.mUrl = jSONObject.optString("url", "");
         shareInfo.mContent = jSONObject.optString("content", "");
-        shareInfo.mPic = jSONObject.optString("pic", "");
+        shareInfo.mPic = jSONObject.optString(UgcUBCUtils.UGC_TYPE_PIC_BTN, "");
         shareInfo.mMiniProgramUrl = jSONObject.optString("miniprogramUrl", "");
         shareInfo.mMiniProgramThumbnail = jSONObject.optString("miniprogramThumbnail", "");
         JSONArray optJSONArray = jSONObject.optJSONArray("source");
@@ -56,14 +56,14 @@ public class a {
     }
 
     @Nullable
-    public static ListItem dx(JSONObject jSONObject) {
+    public static ListItem dA(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
-        return dy(jSONObject);
+        return dB(jSONObject);
     }
 
-    public static ListItem dy(JSONObject jSONObject) {
+    public static ListItem dB(JSONObject jSONObject) {
         ListItem listItem = new ListItem();
         listItem.mType = jSONObject.optString("type", "");
         listItem.mName = jSONObject.optString("name", "");
@@ -113,7 +113,7 @@ public class a {
             listItem.mCity = optJSONObject.optString("city", "");
             listItem.mNickname = optJSONObject.optString("nickname", "");
             listItem.mImageCount = optJSONObject.optString("imageCount", "");
-            listItem.mTotalCount = optJSONObject.optString(UpdateConstants.TOTAL_COUNT_KEY, "");
+            listItem.mTotalCount = optJSONObject.optString("totalCount", "");
             listItem.mUrl = optJSONObject.optString("url", "");
             listItem.mCustomIcon = optJSONObject.optString("customIcon", "");
             listItem.mLiveState = (optJSONObject.optBoolean("live", false) || optJSONObject.optBoolean("inLive", false)) ? 1 : 0;
@@ -234,9 +234,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ArrayList<PannelItem> Y(JSONArray jSONArray) {
+    public static ArrayList<PannelItem> Z(JSONArray jSONArray) {
         JSONArray optJSONArray;
-        ListItem dx;
+        ListItem dA;
         ArrayList<PannelItem> arrayList = new ArrayList<>();
         if (jSONArray == null || jSONArray.length() == 0) {
             return arrayList;
@@ -251,14 +251,14 @@ public class a {
                 pannelItem.mPannelPos = i + 1;
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
-                    if (optJSONObject2 != null && (dx = dx(optJSONObject2)) != null && (!"12".equals(dx.mDisplayStyle) || (!h.isEmpty(dx.hornContent) && !h.isEmpty(dx.hornFrontContent)))) {
-                        dx.mPannelPos = i + 1;
-                        pannelItem.mNavItemList.add(dx);
+                    if (optJSONObject2 != null && (dA = dA(optJSONObject2)) != null && (!"12".equals(dA.mDisplayStyle) || (!h.isEmpty(dA.hornContent) && !h.isEmpty(dA.hornFrontContent)))) {
+                        dA.mPannelPos = i + 1;
+                        pannelItem.mNavItemList.add(dA);
                     }
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("moreNav");
                 if (optJSONObject3 != null) {
-                    pannelItem.mMoreNav = dx(optJSONObject3);
+                    pannelItem.mMoreNav = dA(optJSONObject3);
                 }
                 arrayList.add(pannelItem);
             }

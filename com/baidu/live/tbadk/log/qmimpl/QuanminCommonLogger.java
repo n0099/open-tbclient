@@ -19,7 +19,7 @@ public class QuanminCommonLogger implements ICommonLogger {
             jSONObject.put("tab", "liveroom");
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_GUESTS_NUM);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("tag", "");
             jSONObject.put("name", str2);
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -37,7 +37,7 @@ public class QuanminCommonLogger implements ICommonLogger {
             jSONObject.put("tab", "liveroom");
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_TOP_RIGHT_AUTHOR);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("tag", "");
             jSONObject.put("pos", i);
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
@@ -52,8 +52,8 @@ public class QuanminCommonLogger implements ICommonLogger {
     public void doDisplaySpeakGuideLog(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(LogConfig.LOG_VID, str);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("vid", str);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_MSG_GUIDE);
             jSONObject.put("tab", "liveroom");
             jSONObject.put("tag", "");
@@ -70,7 +70,7 @@ public class QuanminCommonLogger implements ICommonLogger {
     public void doClickSpeakGuideButtonLog(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_MSG_GUIDE_SEND);
             jSONObject.put("tab", "liveroom");
@@ -88,7 +88,7 @@ public class QuanminCommonLogger implements ICommonLogger {
     public void doClickLiveAuthorRankSupportLog(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
             jSONObject.put("v", LogConfig.VALUE_LIVE_AUTHOR_RANK_SUPPORT);
@@ -128,7 +128,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_RECHARGE_PANEL);
             jSONObject.put("tab", "");
             jSONObject.put("tag", "");
@@ -163,7 +163,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_BANNER);
             jSONObject.put("tab", "");
             jSONObject.put("tag", "");
@@ -215,7 +215,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_INPUT_HI);
             jSONObject.put("tab", "liveroom");
@@ -232,7 +232,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_QUICK_TEXT);
             jSONObject.put("tab", "liveroom");
@@ -250,7 +250,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_PROMPT_MORE);
             jSONObject.put("tab", "liveroom");
@@ -267,7 +267,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_PROMPT_TEXT);
             jSONObject.put("tab", "liveroom");
@@ -289,7 +289,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_PROMPT_MORE_TEXT);
             jSONObject.put("tab", "liveroom");
@@ -307,8 +307,8 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("vid", str);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_WATCH_FOLLOW_GUIDE);
             jSONObject.put("tab", "liveroom");
             jSONObject.put("tag", "");
@@ -324,7 +324,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", "follow");
             jSONObject.put("tab", "liveroom");
@@ -342,8 +342,8 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("vid", str);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LEAVE_FOLLOW_GUIDE);
             jSONObject.put("tab", "liveroom");
             jSONObject.put("tag", "");
@@ -359,7 +359,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", "follow");
             jSONObject.put("tab", "liveroom");
@@ -377,7 +377,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_QUIT_CONFIRM);
             jSONObject.put("tab", "liveroom");
@@ -394,7 +394,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_HOUR_RANK);
             jSONObject.put("tab", "liveroom");
@@ -412,7 +412,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_RANK_RULE);
             jSONObject.put("tab", "liveroom");
@@ -429,7 +429,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_RANK_NOTICE);
             jSONObject.put("tab", "liveroom");
@@ -446,7 +446,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_HOUR_RANK_LAYER);
             jSONObject.put("tab", "liveroom");
@@ -464,7 +464,7 @@ public class QuanminCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEO_TYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_HOUR_RANK_AUTHOR);
             jSONObject.put("tab", "liveroom");

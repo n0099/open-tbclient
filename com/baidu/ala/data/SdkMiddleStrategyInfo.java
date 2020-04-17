@@ -1,5 +1,6 @@
 package com.baidu.ala.data;
 
+import com.baidu.ar.gesture.GestureAR;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -12,7 +13,7 @@ public class SdkMiddleStrategyInfo {
     public void fromJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.ts = jSONObject.optLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
-            this.score = jSONObject.optInt("score");
+            this.score = jSONObject.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.displayStrategy = new DisplayStrategy();
             JSONObject optJSONObject = jSONObject.optJSONObject("display_strategy");
             if (optJSONObject != null) {

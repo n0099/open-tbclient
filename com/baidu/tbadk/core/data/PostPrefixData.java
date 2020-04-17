@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
@@ -26,7 +25,7 @@ public class PostPrefixData extends OrmObject implements Serializable {
                 if (!TextUtils.isEmpty(optString2)) {
                     String optString3 = jSONObject.optString("type");
                     if (!TextUtils.isEmpty(optString3)) {
-                        String[] split = optString3.split(HanziToPinyin.Token.SEPARATOR);
+                        String[] split = optString3.split(" ");
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i].trim())) {
                                 this.prefixs.add(optString2.replace("#type#", split[i]));
@@ -57,7 +56,7 @@ public class PostPrefixData extends OrmObject implements Serializable {
                 if (!TextUtils.isEmpty(str2)) {
                     String str3 = postPrefix.type;
                     if (!TextUtils.isEmpty(str3)) {
-                        String[] split = str3.split(HanziToPinyin.Token.SEPARATOR);
+                        String[] split = str3.split(" ");
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i].trim())) {
                                 this.prefixs.add(str2.replace("#type#", split[i]));

@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.ListIterator;
 /* loaded from: classes6.dex */
 public class o implements d, i, j, l, a.InterfaceC0010a {
-    private final com.airbnb.lottie.model.layer.a fJ;
-    private final com.airbnb.lottie.a.b.a<Float, Float> gw;
-    private final com.airbnb.lottie.a.b.a<Float, Float> gx;
-    private final com.airbnb.lottie.a.b.o gy;
-    private c gz;
+    private final com.airbnb.lottie.a.b.a<Float, Float> BY;
+    private final com.airbnb.lottie.a.b.a<Float, Float> BZ;
+    private final com.airbnb.lottie.model.layer.a Bm;
+    private final com.airbnb.lottie.a.b.o Ca;
+    private c Cb;
     private final com.airbnb.lottie.g lottieDrawable;
     private final String name;
     private final Matrix matrix = new Matrix();
@@ -24,22 +24,22 @@ public class o implements d, i, j, l, a.InterfaceC0010a {
 
     public o(com.airbnb.lottie.g gVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.g gVar2) {
         this.lottieDrawable = gVar;
-        this.fJ = aVar;
+        this.Bm = aVar;
         this.name = gVar2.getName();
-        this.gw = gVar2.cU().cn();
-        aVar.a(this.gw);
-        this.gw.b(this);
-        this.gx = gVar2.cV().cn();
-        aVar.a(this.gx);
-        this.gx.b(this);
-        this.gy = gVar2.cW().cw();
-        this.gy.a(aVar);
-        this.gy.a(this);
+        this.BY = gVar2.it().hK();
+        aVar.a(this.BY);
+        this.BY.b(this);
+        this.BZ = gVar2.iu().hK();
+        aVar.a(this.BZ);
+        this.BZ.b(this);
+        this.Ca = gVar2.iv().hT();
+        this.Ca.a(aVar);
+        this.Ca.a(this);
     }
 
     @Override // com.airbnb.lottie.a.a.i
     public void a(ListIterator<b> listIterator) {
-        if (this.gz == null) {
+        if (this.Cb == null) {
             while (listIterator.hasPrevious() && listIterator.previous() != this) {
             }
             ArrayList arrayList = new ArrayList();
@@ -48,7 +48,7 @@ public class o implements d, i, j, l, a.InterfaceC0010a {
                 listIterator.remove();
             }
             Collections.reverse(arrayList);
-            this.gz = new c(this.lottieDrawable, this.fJ, "Repeater", arrayList, null);
+            this.Cb = new c(this.lottieDrawable, this.Bm, "Repeater", arrayList, null);
         }
     }
 
@@ -59,42 +59,42 @@ public class o implements d, i, j, l, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.a.a.b
     public void b(List<b> list, List<b> list2) {
-        this.gz.b(list, list2);
+        this.Cb.b(list, list2);
     }
 
     @Override // com.airbnb.lottie.a.a.l
-    public Path bG() {
-        Path bG = this.gz.bG();
+    public Path hd() {
+        Path hd = this.Cb.hd();
         this.path.reset();
-        float floatValue = this.gw.getValue().floatValue();
-        float floatValue2 = this.gx.getValue().floatValue();
+        float floatValue = this.BY.getValue().floatValue();
+        float floatValue2 = this.BZ.getValue().floatValue();
         for (int i = ((int) floatValue) - 1; i >= 0; i--) {
-            this.matrix.set(this.gy.j(i + floatValue2));
-            this.path.addPath(bG, this.matrix);
+            this.matrix.set(this.Ca.g(i + floatValue2));
+            this.path.addPath(hd, this.matrix);
         }
         return this.path;
     }
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        float floatValue = this.gw.getValue().floatValue();
-        float floatValue2 = this.gx.getValue().floatValue();
-        float floatValue3 = this.gy.cc().getValue().floatValue() / 100.0f;
-        float floatValue4 = this.gy.cd().getValue().floatValue() / 100.0f;
+        float floatValue = this.BY.getValue().floatValue();
+        float floatValue2 = this.BZ.getValue().floatValue();
+        float floatValue3 = this.Ca.hz().getValue().floatValue() / 100.0f;
+        float floatValue4 = this.Ca.hA().getValue().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
             this.matrix.set(matrix);
-            this.matrix.preConcat(this.gy.j(i2 + floatValue2));
-            this.gz.a(canvas, this.matrix, (int) (i * com.airbnb.lottie.d.e.lerp(floatValue3, floatValue4, i2 / floatValue)));
+            this.matrix.preConcat(this.Ca.g(i2 + floatValue2));
+            this.Cb.a(canvas, this.matrix, (int) (i * com.airbnb.lottie.d.e.lerp(floatValue3, floatValue4, i2 / floatValue)));
         }
     }
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
-        this.gz.a(rectF, matrix);
+        this.Cb.a(rectF, matrix);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0010a
-    public void bD() {
+    public void ha() {
         this.lottieDrawable.invalidateSelf();
     }
 
@@ -105,11 +105,11 @@ public class o implements d, i, j, l, a.InterfaceC0010a {
 
     @Override // com.airbnb.lottie.model.f
     public <T> void a(T t, @Nullable com.airbnb.lottie.e.c<T> cVar) {
-        if (!this.gy.b(t, cVar)) {
-            if (t == com.airbnb.lottie.k.eY) {
-                this.gw.a(cVar);
-            } else if (t == com.airbnb.lottie.k.eZ) {
-                this.gx.a(cVar);
+        if (!this.Ca.b(t, cVar)) {
+            if (t == com.airbnb.lottie.k.AH) {
+                this.BY.a(cVar);
+            } else if (t == com.airbnb.lottie.k.AI) {
+                this.BZ.a(cVar);
             }
         }
     }

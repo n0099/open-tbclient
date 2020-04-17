@@ -5,7 +5,6 @@ import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.app.event.EventBusWrapper;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -290,7 +289,7 @@ public class BdBoxActivityLifecycle implements Application.ActivityLifecycleCall
             for (int size = this.mActivityStack.size() - 1; size >= 0; size--) {
                 Activity activity = this.mActivityStack.get(size).get();
                 if (activity != null) {
-                    sb.append(size + 1).append(": ").append(activity.getClass().getSimpleName()).append(HanziToPinyin.Token.SEPARATOR);
+                    sb.append(size + 1).append(": ").append(activity.getClass().getSimpleName()).append(" ");
                 }
             }
             String sb2 = sb.append("], this = ").append(this).toString();

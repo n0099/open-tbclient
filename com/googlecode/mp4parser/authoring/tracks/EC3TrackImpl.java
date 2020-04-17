@@ -316,7 +316,7 @@ public class EC3TrackImpl extends AbstractTrack {
                 bitStreamInfo.samplerate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
                 break;
             case 1:
-                bitStreamInfo.samplerate = StreamConfig.Audio.AUDIO_FREQUENCY;
+                bitStreamInfo.samplerate = 44100;
                 break;
             case 2:
                 bitStreamInfo.samplerate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_32K;

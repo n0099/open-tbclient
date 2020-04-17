@@ -5,21 +5,21 @@ import io.reactivex.u;
 /* loaded from: classes7.dex */
 public class a<T> {
     final int capacity;
-    final Object[] nBZ;
-    Object[] nCa;
+    final Object[] mVA;
+    Object[] mVB;
     int offset;
 
     /* renamed from: io.reactivex.internal.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0768a<T> extends j<T> {
+    public interface InterfaceC0791a<T> extends j<T> {
         @Override // io.reactivex.c.j
         boolean test(T t);
     }
 
     public a(int i) {
         this.capacity = i;
-        this.nBZ = new Object[i + 1];
-        this.nCa = this.nBZ;
+        this.mVA = new Object[i + 1];
+        this.mVB = this.mVA;
     }
 
     public void add(T t) {
@@ -27,35 +27,26 @@ public class a<T> {
         int i2 = this.offset;
         if (i2 == i) {
             Object[] objArr = new Object[i + 1];
-            this.nCa[i] = objArr;
-            this.nCa = objArr;
+            this.mVB[i] = objArr;
+            this.mVB = objArr;
             i2 = 0;
         }
-        this.nCa[i2] = t;
+        this.mVB[i2] = t;
         this.offset = i2 + 1;
     }
 
-    public void bM(T t) {
-        this.nBZ[0] = t;
+    public void bv(T t) {
+        this.mVA[0] = t;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x000e, code lost:
-        continue;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(InterfaceC0768a<? super T> interfaceC0768a) {
-        Object[] objArr = this.nBZ;
-        int i = this.capacity;
-        for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
-            for (int i2 = 0; i2 < i; i2++) {
-                Object obj = objArr2[i2];
-                if (obj == null) {
-                    break;
-                } else if (interfaceC0768a.test(obj)) {
-                    return;
-                }
+    public void a(InterfaceC0791a<? super T> interfaceC0791a) {
+        int i;
+        Object[] objArr = this.mVA;
+        int i2 = this.capacity;
+        for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i2]) {
+            while (i < i2) {
+                Object obj = objArr2[i];
+                i = (obj == null || interfaceC0791a.test(obj)) ? 0 : i + 1;
             }
         }
     }
@@ -67,7 +58,7 @@ public class a<T> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public <U> boolean b(org.a.c<? super U> cVar) {
-        Object[] objArr = this.nBZ;
+        Object[] objArr = this.mVA;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {
@@ -88,8 +79,8 @@ public class a<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public <U> boolean d(u<? super U> uVar) {
-        Object[] objArr = this.nBZ;
+    public <U> boolean b(u<? super U> uVar) {
+        Object[] objArr = this.mVA;
         int i = this.capacity;
         for (Object[] objArr2 = objArr; objArr2 != null; objArr2 = objArr2[i]) {
             for (int i2 = 0; i2 < i; i2++) {

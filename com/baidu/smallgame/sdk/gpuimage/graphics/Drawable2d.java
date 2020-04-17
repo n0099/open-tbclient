@@ -3,7 +3,7 @@ package com.baidu.smallgame.sdk.gpuimage.graphics;
 import java.nio.FloatBuffer;
 /* loaded from: classes11.dex */
 public class Drawable2d {
-    private Prefab aZu;
+    private Prefab bxU;
     private static final float[] TRIANGLE_COORDS = {0.0f, 0.57735026f, -0.5f, -0.28867513f, 0.5f, -0.28867513f};
     private static final float[] TRIANGLE_TEX_COORDS = {0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
     private static final FloatBuffer TRIANGLE_BUF = a.createFloatBuffer(TRIANGLE_COORDS);
@@ -13,13 +13,13 @@ public class Drawable2d {
     private static final FloatBuffer RECTANGLE_BUF = a.createFloatBuffer(RECTANGLE_COORDS);
     private static final FloatBuffer RECTANGLE_TEX_BUF = a.createFloatBuffer(RECTANGLE_TEX_COORDS);
     private static final float[] FULL_RECTANGLE_COORDS = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-    private static final float[] aZq = {1.0f, -1.0f, -1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f};
+    private static final float[] bxQ = {1.0f, -1.0f, -1.0f, -1.0f, 1.0f, 1.0f, -1.0f, 1.0f};
     private static final float[] FULL_RECTANGLE_TEX_COORDS = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-    private static final float[] aZr = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
+    private static final float[] bxR = {0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
     public static final FloatBuffer FULL_RECTANGLE_BUF = a.createFloatBuffer(FULL_RECTANGLE_COORDS);
-    public static final FloatBuffer aZs = a.createFloatBuffer(aZq);
+    public static final FloatBuffer bxS = a.createFloatBuffer(bxQ);
     public static final FloatBuffer FULL_RECTANGLE_TEX_BUF = a.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
-    public static final FloatBuffer aZt = a.createFloatBuffer(aZr);
+    public static final FloatBuffer bxT = a.createFloatBuffer(bxR);
 
     /* loaded from: classes11.dex */
     public enum Prefab {
@@ -30,6 +30,6 @@ public class Drawable2d {
     }
 
     public String toString() {
-        return this.aZu != null ? "[Drawable2d: " + this.aZu + "]" : "[Drawable2d: ...]";
+        return this.bxU != null ? "[Drawable2d: " + this.bxU + "]" : "[Drawable2d: ...]";
     }
 }

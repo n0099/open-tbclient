@@ -18,6 +18,6 @@ public class t {
         intent.putExtra("action_cr_perf_frequency", config.getPerfUploadFrequency());
         intent.putExtra("action_cr_event_en", config.isEventEncrypted());
         intent.putExtra("action_cr_max_file_size", config.getMaxFileLength());
-        ay.a(context).m73a(intent);
+        ay.a(context).m78a(intent);
     }
 }

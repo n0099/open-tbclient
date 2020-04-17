@@ -5,9 +5,9 @@ import android.view.ViewGroup;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* loaded from: classes10.dex */
 public class AdService {
-    private AdView aOJ;
+    private AdView bkA;
     protected static String channelId = "";
-    protected static int aOK = -1;
+    protected static int bkB = -1;
 
     public static void setChannelId(String str) {
         channelId = str;
@@ -22,19 +22,19 @@ public class AdService {
         if (context == null || viewGroup == null || layoutParams == null || adViewListener == null || adSize == null) {
             throw new IllegalArgumentException("One of arguments is null");
         }
-        this.aOJ = new AdView(context, false, adSize, str);
-        this.aOJ.setListener(adViewListener);
+        this.bkA = new AdView(context, false, adSize, str);
+        this.bkA.setListener(adViewListener);
         c(viewGroup, layoutParams);
-        aOK++;
+        bkB++;
     }
 
     private void c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         try {
-            if (this.aOJ.getParent() != viewGroup) {
-                if (this.aOJ.getParent() != null) {
-                    ((ViewGroup) this.aOJ.getParent()).removeView(this.aOJ);
+            if (this.bkA.getParent() != viewGroup) {
+                if (this.bkA.getParent() != null) {
+                    ((ViewGroup) this.bkA.getParent()).removeView(this.bkA);
                 }
-                viewGroup.addView(this.aOJ, layoutParams);
+                viewGroup.addView(this.bkA, layoutParams);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
@@ -42,9 +42,9 @@ public class AdService {
     }
 
     public void destroy() {
-        if (this.aOJ != null) {
-            this.aOJ.destroy();
-            this.aOJ = null;
+        if (this.bkA != null) {
+            this.bkA.destroy();
+            this.bkA = null;
         }
     }
 }

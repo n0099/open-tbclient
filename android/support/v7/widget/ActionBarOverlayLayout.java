@@ -16,6 +16,7 @@ import android.support.v4.view.NestedScrollingParentHelper;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.menu.MenuPresenter;
+import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.Menu;
@@ -485,7 +486,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
     }
 
     private boolean shouldHideActionBarOnFling(float f, float f2) {
-        this.mFlingEstimator.fling(0, 0, 0, (int) f2, 0, 0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        this.mFlingEstimator.fling(0, 0, 0, (int) f2, 0, 0, Integer.MIN_VALUE, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         return this.mFlingEstimator.getFinalY() > this.mActionBarTop.getHeight();
     }
 

@@ -16,44 +16,44 @@ import java.util.Queue;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public final class e {
+    private k bMu;
+    private a bMx;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> bor = new HashSet();
-    public static final int bos = a.C0197a.aiapps_slide_in_from_right;
-    public static final int bot = a.C0197a.aiapps_slide_out_to_right;
-    public static final int bou = a.C0197a.aiapps_hold;
-    private k bon;
-    private a boq;
-    private Queue<Runnable> bop = new LinkedList();
-    private ArrayList<com.baidu.swan.apps.core.d.b> boo = new ArrayList<>();
+    private static final Set<String> bMy = new HashSet();
+    public static final int bMz = a.C0227a.aiapps_slide_in_from_right;
+    public static final int bMA = a.C0227a.aiapps_slide_out_to_right;
+    public static final int bMB = a.C0227a.aiapps_hold;
+    private Queue<Runnable> bMw = new LinkedList();
+    private ArrayList<com.baidu.swan.apps.core.d.b> bMv = new ArrayList<>();
 
     /* loaded from: classes11.dex */
     public interface a {
-        void Ow();
+        void Wk();
     }
 
     static {
-        bor.add("adLanding");
-        bor.add("wxPay");
-        bor.add("default_webview");
-        bor.add("allianceLogin");
-        bor.add("allianceChooseAddress");
+        bMy.add("adLanding");
+        bMy.add("wxPay");
+        bMy.add("default_webview");
+        bMy.add("allianceLogin");
+        bMy.add("allianceChooseAddress");
     }
 
     public e(FragmentActivity fragmentActivity) {
-        this.bon = fragmentActivity.auF();
+        this.bMu = fragmentActivity.aCQ();
     }
 
     public void a(a aVar) {
-        this.boq = aVar;
+        this.bMx = aVar;
     }
 
-    public com.baidu.swan.apps.core.d.b Oq() {
-        return ew(this.boo.size() - 1);
+    public com.baidu.swan.apps.core.d.b We() {
+        return eB(this.bMv.size() - 1);
     }
 
-    public <T extends com.baidu.swan.apps.core.d.b> T p(Class<T> cls) {
-        for (int size = this.boo.size() - 1; size >= 0; size--) {
-            T t = (T) this.boo.get(size);
+    public <T extends com.baidu.swan.apps.core.d.b> T q(Class<T> cls) {
+        for (int size = this.bMv.size() - 1; size >= 0; size--) {
+            T t = (T) this.bMv.get(size);
             if (t.getClass() == cls) {
                 return t;
             }
@@ -61,9 +61,9 @@ public final class e {
         return null;
     }
 
-    public d Or() {
-        for (int size = this.boo.size() - 1; size >= 0; size--) {
-            com.baidu.swan.apps.core.d.b bVar = this.boo.get(size);
+    public d Wf() {
+        for (int size = this.bMv.size() - 1; size >= 0; size--) {
+            com.baidu.swan.apps.core.d.b bVar = this.bMv.get(size);
             if (bVar instanceof d) {
                 return (d) bVar;
             }
@@ -71,50 +71,50 @@ public final class e {
         return null;
     }
 
-    public com.baidu.swan.apps.core.d.b ew(int i) {
-        if (this.boo.isEmpty() || i < 0 || i >= this.boo.size()) {
+    public com.baidu.swan.apps.core.d.b eB(int i) {
+        if (this.bMv.isEmpty() || i < 0 || i >= this.bMv.size()) {
             return null;
         }
-        return this.boo.get(i);
+        return this.bMv.get(i);
     }
 
-    public d Os() {
-        if (this.boo.isEmpty()) {
+    public d Wg() {
+        if (this.bMv.isEmpty()) {
             return null;
         }
-        int size = this.boo.size();
+        int size = this.bMv.size();
         for (int i = 0; i < size; i++) {
-            if (this.boo.get(i).Nz()) {
-                return (d) this.boo.get(i);
+            if (this.bMv.get(i).Vm()) {
+                return (d) this.bMv.get(i);
             }
         }
         return null;
     }
 
-    public int Ot() {
-        return this.boo.size();
+    public int Wh() {
+        return this.bMv.size();
     }
 
-    public b Ou() {
+    public b Wi() {
         return new b("");
     }
 
-    public b ha(String str) {
+    public b io(String str) {
         return new b(str);
     }
 
     /* loaded from: classes11.dex */
     public class b {
-        private m bov;
-        private String bow;
+        private m bMC;
+        private String bMD;
 
         public b(String str) {
-            this.bov = e.this.bon.auI();
-            this.bow = str;
+            this.bMC = e.this.bMu.aCT();
+            this.bMD = str;
         }
 
-        public b Y(int i, int i2) {
-            this.bov.as(i, i2);
+        public b ab(int i, int i2) {
+            this.bMC.av(i, i2);
             return this;
         }
 
@@ -125,15 +125,15 @@ public final class e {
         public b a(String str, com.baidu.swan.apps.model.b bVar, boolean z) {
             com.baidu.swan.apps.core.d.b a;
             if ("about".equals(str)) {
-                a = com.baidu.swan.apps.core.d.a.NA();
+                a = com.baidu.swan.apps.core.d.a.Vn();
             } else if ("setting".equals(str)) {
-                a = g.OF();
+                a = g.Wu();
             } else if ("pluginFunPage".equals(str)) {
-                a = f.az(bVar.mBaseUrl, bVar.mParams);
-            } else if (hb(str)) {
+                a = f.aI(bVar.mBaseUrl, bVar.mParams);
+            } else if (ip(str)) {
                 a = h.c(bVar, str);
             } else {
-                a = "normal".equals(str) ? d.a(new c.a().jw(bVar.mPage).jx(bVar.mParams).jy(bVar.mBaseUrl).db(z).Yy()) : null;
+                a = "normal".equals(str) ? d.a(new c.a().kJ(bVar.mPage).kK(bVar.mParams).kL(bVar.mBaseUrl).dX(z).agE()) : null;
             }
             if (a == null) {
                 return null;
@@ -141,63 +141,63 @@ public final class e {
             return e(a);
         }
 
-        private boolean hb(String str) {
-            return e.bor.contains(str);
+        private boolean ip(String str) {
+            return e.bMy.contains(str);
         }
 
         public b e(com.baidu.swan.apps.core.d.b bVar) {
             f(bVar);
-            this.bov.a(a.f.ai_apps_container, bVar, "SwanAppFragment");
-            e.this.boo.add(bVar);
-            if (e.this.boq != null) {
-                e.this.boq.Ow();
+            this.bMC.a(a.f.ai_apps_container, bVar, "SwanAppFragment");
+            e.this.bMv.add(bVar);
+            if (e.this.bMx != null) {
+                e.this.bMx.Wk();
             }
             return this;
         }
 
         private void f(final com.baidu.swan.apps.core.d.b bVar) {
-            final com.baidu.swan.apps.core.d.b Oq = e.this.Oq();
-            e.this.bop.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.1
+            final com.baidu.swan.apps.core.d.b We = e.this.We();
+            e.this.bMw.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (Oq != null && Oq.getUserVisibleHint()) {
-                        Oq.setUserVisibleHint(false);
+                    if (We != null && We.getUserVisibleHint()) {
+                        We.setUserVisibleHint(false);
                     }
-                    if (Oq instanceof d) {
-                        ((d) Oq).Op();
+                    if (We instanceof d) {
+                        ((d) We).Wd();
                     }
                     bVar.setUserVisibleHint(true);
                 }
             });
         }
 
-        private void Ox() {
-            final com.baidu.swan.apps.core.d.b Oq = e.this.Oq();
-            e.this.bop.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.2
+        private void Wl() {
+            final com.baidu.swan.apps.core.d.b We = e.this.We();
+            e.this.bMw.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (Oq != null) {
-                        Oq.setUserVisibleHint(true);
+                    if (We != null) {
+                        We.setUserVisibleHint(true);
                     }
                 }
             });
         }
 
-        public b ex(int i) {
-            int size = e.this.boo.size();
-            if (!e.this.boo.isEmpty() && i >= 0 && i < size) {
-                this.bov.a((com.baidu.swan.apps.core.d.b) e.this.boo.remove(i));
+        public b eC(int i) {
+            int size = e.this.bMv.size();
+            if (!e.this.bMv.isEmpty() && i >= 0 && i < size) {
+                this.bMC.a((com.baidu.swan.apps.core.d.b) e.this.bMv.remove(i));
             }
             return this;
         }
 
-        public b Oy() {
-            return ey(1);
+        public b Wm() {
+            return eD(1);
         }
 
-        public b ey(int i) {
-            if (!e.this.boo.isEmpty()) {
-                ArrayList arrayList = (ArrayList) e.this.boo.clone();
+        public b eD(int i) {
+            if (!e.this.bMv.isEmpty()) {
+                ArrayList arrayList = (ArrayList) e.this.bMv.clone();
                 int size = arrayList.size();
                 int i2 = size - i;
                 final com.baidu.swan.apps.core.d.b bVar = (i2 < 0 || i <= 0) ? null : (com.baidu.swan.apps.core.d.b) arrayList.get(i2);
@@ -207,11 +207,11 @@ public final class e {
                     if (i4 <= (size - i) - 1 || i4 < 0) {
                         break;
                     }
-                    this.bov.a((Fragment) arrayList.get(i4));
-                    e.this.boo.remove(i4);
+                    this.bMC.a((Fragment) arrayList.get(i4));
+                    e.this.bMv.remove(i4);
                     i3 = i4 - 1;
                 }
-                e.this.bop.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.3
+                e.this.bMw.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.3
                     @Override // java.lang.Runnable
                     public void run() {
                         if (bVar != null) {
@@ -219,91 +219,91 @@ public final class e {
                         }
                     }
                 });
-                Ox();
+                Wl();
             }
             return this;
         }
 
-        public b Oz() {
-            if (!e.this.boo.isEmpty()) {
-                ArrayList arrayList = (ArrayList) e.this.boo.clone();
+        public b Wn() {
+            if (!e.this.bMv.isEmpty()) {
+                ArrayList arrayList = (ArrayList) e.this.bMv.clone();
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    if (!((com.baidu.swan.apps.core.d.b) arrayList.get(size)).Nz()) {
-                        this.bov.a((Fragment) arrayList.get(size));
-                        e.this.boo.remove(size);
+                    if (!((com.baidu.swan.apps.core.d.b) arrayList.get(size)).Vm()) {
+                        this.bMC.a((Fragment) arrayList.get(size));
+                        e.this.bMv.remove(size);
                     }
                 }
-                Ox();
+                Wl();
             }
             return this;
         }
 
-        public b OA() {
-            List<Fragment> fragments = e.this.bon.getFragments();
-            if (fragments != null && fragments.size() != e.this.boo.size()) {
+        public b Wo() {
+            List<Fragment> fragments = e.this.bMu.getFragments();
+            if (fragments != null && fragments.size() != e.this.bMv.size()) {
                 for (Fragment fragment : fragments) {
-                    if (fragment != null && !e.this.boo.contains(fragment)) {
+                    if (fragment != null && !e.this.bMv.contains(fragment)) {
                         if (e.DEBUG) {
                             Log.d("SwanAppFragmentManager", "popAllFragments remove: " + fragment);
                         }
-                        this.bov.a(fragment);
+                        this.bMC.a(fragment);
                     }
                 }
             }
-            return ey(e.this.boo.size());
+            return eD(e.this.bMv.size());
         }
 
         public b b(com.baidu.swan.apps.model.b bVar) {
-            d Os = e.this.Os();
-            if (Os != null) {
-                Os.a(bVar);
+            d Wg = e.this.Wg();
+            if (Wg != null) {
+                Wg.a(bVar);
                 return this;
             }
             return a("normal", bVar);
         }
 
-        private void OB() {
-            if (!e.this.boo.isEmpty()) {
-                int size = e.this.boo.size();
+        private void Wp() {
+            if (!e.this.bMv.isEmpty()) {
+                int size = e.this.bMv.size();
                 for (int i = size - 1; i >= 0; i--) {
                     if (i >= size - 1) {
                         if (e.DEBUG) {
                             Log.d("SwanAppFragmentManager", "show fragment i " + i + " ,size: " + size);
                         }
-                        this.bov.c((Fragment) e.this.boo.get(i));
+                        this.bMC.c((Fragment) e.this.bMv.get(i));
                     } else {
-                        this.bov.b((Fragment) e.this.boo.get(i));
+                        this.bMC.b((Fragment) e.this.bMv.get(i));
                     }
                 }
             }
         }
 
         public void g(com.baidu.swan.apps.core.d.b bVar) {
-            this.bov.c(bVar).commitAllowingStateLoss();
-            e.this.bon.executePendingTransactions();
+            this.bMC.c(bVar).commitAllowingStateLoss();
+            e.this.bMu.executePendingTransactions();
         }
 
         public void h(com.baidu.swan.apps.core.d.b bVar) {
-            this.bov.b(bVar).commitAllowingStateLoss();
-            e.this.bon.executePendingTransactions();
+            this.bMC.b(bVar).commitAllowingStateLoss();
+            e.this.bMu.executePendingTransactions();
         }
 
         public void commit() {
-            if (!TextUtils.isEmpty(this.bow)) {
-                d.gU(this.bow);
+            if (!TextUtils.isEmpty(this.bMD)) {
+                d.ii(this.bMD);
             }
-            while (!e.this.bop.isEmpty()) {
-                if (e.this.bop.peek() != null) {
-                    ((Runnable) e.this.bop.poll()).run();
+            while (!e.this.bMw.isEmpty()) {
+                if (e.this.bMw.peek() != null) {
+                    ((Runnable) e.this.bMw.poll()).run();
                 }
             }
-            OB();
-            this.bov.commitAllowingStateLoss();
+            Wp();
+            this.bMC.commitAllowingStateLoss();
         }
 
-        public boolean OC() {
+        public boolean Wq() {
             commit();
-            return e.this.bon.executePendingTransactions();
+            return e.this.bMu.executePendingTransactions();
         }
     }
 }

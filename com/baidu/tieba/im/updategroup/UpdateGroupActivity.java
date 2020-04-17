@@ -16,40 +16,40 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.model.UpdateGroupModel;
 /* loaded from: classes10.dex */
 public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
-    private UpdateGroupModel hLD;
-    private a hLC = null;
-    private int hLE = 1;
-    a.b hyZ = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
+    private UpdateGroupModel ivt;
+    private a ivs = null;
+    private int ivu = 1;
+    a.b iiM = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            UpdateGroupActivity.this.bYI();
+            UpdateGroupActivity.this.cjj();
         }
     };
-    a.b hza = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
+    a.b iiN = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             UpdateGroupActivity.this.setResult(0);
             UpdateGroupActivity.this.finish();
         }
     };
-    private com.baidu.adp.framework.listener.c htm = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_UPDATE_GROUP) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
+    private com.baidu.adp.framework.listener.c icV = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_UPDATE_GROUP) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103102) {
-                UpdateGroupActivity.this.hLC.setIsLoading(false);
+                UpdateGroupActivity.this.ivs.setIsLoading(false);
                 if (!(socketResponsedMessage instanceof ResponseUpdateGroupMessage)) {
                     UpdateGroupActivity.this.showToast(R.string.group_update_fail);
                     return;
                 }
                 ResponseUpdateGroupMessage responseUpdateGroupMessage = (ResponseUpdateGroupMessage) socketResponsedMessage;
                 if (responseUpdateGroupMessage.getError() != 0) {
-                    UpdateGroupActivity.this.aI(StringUtils.isNull(responseUpdateGroupMessage.getErrorString()) ? UpdateGroupActivity.this.getResources().getString(R.string.neterror) : responseUpdateGroupMessage.getErrorString(), responseUpdateGroupMessage.getError());
+                    UpdateGroupActivity.this.aS(StringUtils.isNull(responseUpdateGroupMessage.getErrorString()) ? UpdateGroupActivity.this.getResources().getString(R.string.neterror) : responseUpdateGroupMessage.getErrorString(), responseUpdateGroupMessage.getError());
                     return;
                 }
                 UpdateGroupActivity.this.showToast(R.string.group_update_success);
                 Intent intent = UpdateGroupActivity.this.getIntent();
-                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.hLC.getText());
+                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.ivs.getText());
                 UpdateGroupActivity.this.setResult(-1, intent);
                 UpdateGroupActivity.this.finish();
             }
@@ -57,7 +57,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aI(String str, int i) {
+    public void aS(String str, int i) {
         if (i < 0) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {
@@ -75,79 +75,79 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
         long longExtra = intent.getLongExtra("group_id", 0L);
         String stringExtra = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
         x(intExtra, longExtra);
-        this.hLD = new UpdateGroupModel(getPageContext());
-        this.hLD.setUniqueId(getUniqueId());
-        this.hLC.Dy(stringExtra);
-        this.hLC.b(this.hza);
-        this.hLC.c(this.hyZ);
+        this.ivt = new UpdateGroupModel(getPageContext());
+        this.ivt.setUniqueId(getUniqueId());
+        this.ivs.Fg(stringExtra);
+        this.ivs.b(this.iiN);
+        this.ivs.c(this.iiM);
         initListener();
     }
 
     private void initListener() {
-        registerListener(this.htm);
+        registerListener(this.icV);
     }
 
     private void x(int i, long j) {
         if (i == 1) {
-            this.hLC = new c(this);
+            this.ivs = new c(this);
         } else if (i == 2) {
-            this.hLC = new b(this);
+            this.ivs = new b(this);
         }
-        this.hLE = i;
-        this.hLC.setGroupId(j);
+        this.ivu = i;
+        this.ivs.setGroupId(j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.hLC.onChangeSkinType(i);
+        this.ivs.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.hLC.bUk()) {
-            if (((d) this.hLC).bYJ()) {
+        if (view == this.ivs.ceL()) {
+            if (((d) this.ivs).cjk()) {
                 finish();
-            } else if (this.hLC.bYG() && this.hLC.bUa()) {
-                bYI();
+            } else if (this.ivs.cjh() && this.ivs.ceB()) {
+                cjj();
             } else {
-                showToast(this.hLC.bYF());
+                showToast(this.ivs.cjg());
             }
-        } else if (view == this.hLC.bTz()) {
-            this.hLC.xX();
-        } else if (view == this.hLC.bYD() && !bYH()) {
+        } else if (view == this.ivs.cdZ()) {
+            this.ivs.CP();
+        } else if (view == this.ivs.cje() && !cji()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && bYH()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && cji()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean bYH() {
-        if (TextUtils.isEmpty(this.hLC.getText()) || !this.hLC.bUa() || this.hLC.getText().equals(this.hLC.bYC())) {
+    private boolean cji() {
+        if (TextUtils.isEmpty(this.ivs.getText()) || !this.ivs.ceB() || this.ivs.getText().equals(this.ivs.cjd())) {
             return false;
         }
-        this.hLC.showDialog();
+        this.ivs.showDialog();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bYI() {
-        this.hLC.setIsLoading(true);
-        this.hLD.setGroupId(this.hLC.getGroupId());
-        if (this.hLE == 1) {
-            this.hLD.setName(this.hLC.getText());
-            this.hLD.sendMessage(2);
-        } else if (this.hLE == 2) {
-            this.hLD.setIntro(this.hLC.getText());
-            this.hLD.sendMessage(1);
+    public void cjj() {
+        this.ivs.setIsLoading(true);
+        this.ivt.setGroupId(this.ivs.getGroupId());
+        if (this.ivu == 1) {
+            this.ivt.setName(this.ivs.getText());
+            this.ivt.sendMessage(2);
+        } else if (this.ivu == 2) {
+            this.ivt.setIntro(this.ivs.getText());
+            this.ivt.sendMessage(1);
         }
     }
 
@@ -156,7 +156,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        this.hLD.cancelMessage();
-        this.hLC.release();
+        this.ivt.cancelMessage();
+        this.ivs.release();
     }
 }

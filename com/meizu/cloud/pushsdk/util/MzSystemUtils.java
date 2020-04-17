@@ -18,6 +18,7 @@ import android.os.Process;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.util.devices.RomUtils;
 import com.meizu.cloud.pushsdk.base.k;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.Method;
@@ -406,7 +407,7 @@ public class MzSystemUtils {
     }
 
     public static boolean isBrandMeizu(Context context) {
-        boolean z = !TextUtils.isEmpty(k.a("ro.meizu.product.model")) || "meizu".equalsIgnoreCase(Build.BRAND) || "22c4185e".equalsIgnoreCase(Build.BRAND);
+        boolean z = !TextUtils.isEmpty(k.a("ro.meizu.product.model")) || RomUtils.MANUFACTURER_MEIZU.equalsIgnoreCase(Build.BRAND) || "22c4185e".equalsIgnoreCase(Build.BRAND);
         if (!z) {
             com.meizu.cloud.pushsdk.a.a.b(context.getApplicationContext());
         }

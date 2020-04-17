@@ -6,14 +6,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public class j extends BasePool<byte[]> implements com.facebook.common.memory.a {
-    private final int[] lWm;
+    private final int[] mdX;
 
     public j(com.facebook.common.memory.c cVar, r rVar, s sVar) {
         super(cVar, rVar, sVar);
-        SparseIntArray sparseIntArray = rVar.lWD;
-        this.lWm = new int[sparseIntArray.size()];
+        SparseIntArray sparseIntArray = rVar.meo;
+        this.mdX = new int[sparseIntArray.size()];
         for (int i = 0; i < sparseIntArray.size(); i++) {
-            this.lWm[i] = sparseIntArray.keyAt(i);
+            this.mdX[i] = sparseIntArray.keyAt(i);
         }
         initialize();
     }
@@ -21,32 +21,32 @@ public class j extends BasePool<byte[]> implements com.facebook.common.memory.a 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: IF */
-    public byte[] Iv(int i) {
+    /* renamed from: Hh */
+    public byte[] GX(int i) {
         return new byte[i];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: am */
-    public void bp(byte[] bArr) {
+    /* renamed from: ae */
+    public void bf(byte[] bArr) {
         com.facebook.common.internal.g.checkNotNull(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int Ix(int i) {
+    public int GZ(int i) {
         return i;
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int Iw(int i) {
+    protected int GY(int i) {
         int[] iArr;
         if (i <= 0) {
             throw new BasePool.InvalidSizeException(Integer.valueOf(i));
         }
-        for (int i2 : this.lWm) {
+        for (int i2 : this.mdX) {
             if (i2 >= i) {
                 return i2;
             }
@@ -57,8 +57,8 @@ public class j extends BasePool<byte[]> implements com.facebook.common.memory.a 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: an */
-    public int bq(byte[] bArr) {
+    /* renamed from: af */
+    public int bg(byte[] bArr) {
         com.facebook.common.internal.g.checkNotNull(bArr);
         return bArr.length;
     }

@@ -31,25 +31,25 @@ public class DnsParseResult {
     public static final int TYPE_DNS_PROXY = 2000;
     public static final int TYPE_LOCAL = 0;
     public static final int TYPE_LOCAL_ASYNC_HTTP = 1000;
-    private int l;
-    private List<String> m;
+    private int k;
+    private List<String> l;
     private int stackType;
     private int type;
 
     public DnsParseResult(List<String> list, int i, int i2, int i3) {
         this.stackType = 0;
         if (list != null && !list.isEmpty()) {
-            this.m = Collections.unmodifiableList(list);
+            this.l = Collections.unmodifiableList(list);
         } else {
-            this.m = null;
+            this.l = null;
         }
         this.type = i;
-        this.l = i2;
+        this.k = i2;
         this.stackType = i3;
     }
 
     public List<String> getIpList() {
-        return this.m;
+        return this.l;
     }
 
     public int getType() {
@@ -57,15 +57,15 @@ public class DnsParseResult {
     }
 
     public int getSubType() {
-        return this.l;
+        return this.k;
     }
 
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", this.type);
-            jSONObject.put("subType", this.l);
-            jSONObject.put("ipList", new JSONArray((Collection) this.m));
+            jSONObject.put("subType", this.k);
+            jSONObject.put("ipList", new JSONArray((Collection) this.l));
             jSONObject.put("stackType", this.stackType);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -24,17 +24,17 @@ import com.baidu.tieba.R;
 import java.util.Date;
 /* loaded from: classes8.dex */
 public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity> {
-    private boolean aKr;
-    private PluginNetConfigInfos.PluginConfig jAY;
-    private a jBb;
+    private boolean bgk;
+    private PluginNetConfigInfos.PluginConfig kld;
+    private a klg;
     private boolean mFinished;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jAY = (PluginNetConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
-        if (this.jAY == null) {
+        this.kld = (PluginNetConfigInfos.PluginConfig) getIntent().getSerializableExtra(PluginDownloadActivityConfig.PLUGIN_CONFIG);
+        if (this.kld == null) {
             showToast(getPageContext().getString(R.string.plugin_config_not_found), false);
             finish();
             return;
@@ -42,29 +42,29 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
-        this.jBb = new a(getPageContext().getPageActivity(), R.style.common_alert_dialog);
-        this.jBb.setCancelable(false);
-        this.jBb.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.1
+        this.klg = new a(getPageContext().getPageActivity(), R.style.common_alert_dialog);
+        this.klg.setCancelable(false);
+        this.klg.setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.1
             @Override // android.content.DialogInterface.OnKeyListener
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-                if (!PluginDownloadActivity.this.aKr) {
-                    g.b(PluginDownloadActivity.this.jBb, PluginDownloadActivity.this.getPageContext());
+                if (!PluginDownloadActivity.this.bgk) {
+                    g.b(PluginDownloadActivity.this.klg, PluginDownloadActivity.this.getPageContext());
                     return true;
                 } else if (i == 4 && keyEvent.getAction() == 1) {
-                    if (PluginDownloadActivity.this.jBb.dWw.getVisibility() == 0) {
-                        PluginDownloadActivity.this.jBb.dWw.setVisibility(8);
-                        PluginDownloadActivity.this.jBb.jBd.setVisibility(0);
+                    if (PluginDownloadActivity.this.klg.ewv.getVisibility() == 0) {
+                        PluginDownloadActivity.this.klg.ewv.setVisibility(8);
+                        PluginDownloadActivity.this.klg.kli.setVisibility(0);
                         return true;
                     }
-                    PluginDownloadActivity.this.jBb.dWw.setVisibility(0);
-                    PluginDownloadActivity.this.jBb.jBd.setVisibility(8);
+                    PluginDownloadActivity.this.klg.ewv.setVisibility(0);
+                    PluginDownloadActivity.this.klg.kli.setVisibility(8);
                     return true;
                 } else {
                     return false;
                 }
             }
         });
-        this.jBb.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.2
+        this.klg.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 PluginDownloadActivity.this.setResult(0);
@@ -77,7 +77,7 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        g.a(this.jBb, getPageContext());
+        g.a(this.klg, getPageContext());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -85,23 +85,23 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.jBb.findViewById(R.id.dialog_layout));
+        getLayoutMode().onModeChanged(this.klg.findViewById(R.id.dialog_layout));
     }
 
     /* loaded from: classes8.dex */
     private class a extends Dialog {
-        private TextView alt;
-        private LinearLayout dWw;
-        private TextView ebh;
-        private LinearLayout jBd;
-        private TextView jBe;
-        private TextView jBf;
-        private TextView jBg;
-        private TextView jBh;
-        private TextView jBi;
-        private TextView jBj;
-        private TextView jBk;
-        private TextView jBl;
+        private TextView aDI;
+        private TextView eAU;
+        private LinearLayout ewv;
+        private LinearLayout kli;
+        private TextView klj;
+        private TextView klk;
+        private TextView kll;
+        private TextView klm;
+        private TextView kln;
+        private TextView klo;
+        private TextView klp;
+        private TextView klq;
 
         public a(Context context, int i) {
             super(context, i);
@@ -114,76 +114,76 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
             findViewById(R.id.warning).setVisibility(8);
             findViewById(R.id.incremental_button).setVisibility(8);
             findViewById(R.id.incremental_size).setVisibility(8);
-            this.jBd = (LinearLayout) findViewById(R.id.down_dialog);
-            this.jBk = (TextView) findViewById(R.id.update_tip);
-            this.jBe = (TextView) findViewById(R.id.newversion);
-            this.alt = (TextView) findViewById(R.id.desc);
-            this.jBf = (TextView) findViewById(R.id.update_button);
-            this.jBf.setText(PluginDownloadActivity.this.getPageContext().getString(R.string.install_app));
-            this.ebh = (TextView) findViewById(R.id.update_cancel);
-            this.jBg = (TextView) findViewById(R.id.downloading);
-            this.jBl = (TextView) findViewById(R.id.otherApp);
-            this.jBl.setVisibility(8);
-            this.jBh = (TextView) findViewById(R.id.app_size);
-            this.dWw = (LinearLayout) findViewById(R.id.cancel_dialog);
-            this.jBi = (TextView) findViewById(R.id.sure_cancel);
-            this.jBj = (TextView) findViewById(R.id.cancel_button);
-            this.jBi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.1
+            this.kli = (LinearLayout) findViewById(R.id.down_dialog);
+            this.klp = (TextView) findViewById(R.id.update_tip);
+            this.klj = (TextView) findViewById(R.id.newversion);
+            this.aDI = (TextView) findViewById(R.id.desc);
+            this.klk = (TextView) findViewById(R.id.update_button);
+            this.klk.setText(PluginDownloadActivity.this.getPageContext().getString(R.string.install_app));
+            this.eAU = (TextView) findViewById(R.id.update_cancel);
+            this.kll = (TextView) findViewById(R.id.downloading);
+            this.klq = (TextView) findViewById(R.id.otherApp);
+            this.klq.setVisibility(8);
+            this.klm = (TextView) findViewById(R.id.app_size);
+            this.ewv = (LinearLayout) findViewById(R.id.cancel_dialog);
+            this.kln = (TextView) findViewById(R.id.sure_cancel);
+            this.klo = (TextView) findViewById(R.id.cancel_button);
+            this.kln.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     PluginDownloadActivity.this.setResult(0);
                     PluginDownloadActivity.this.finish();
                 }
             });
-            this.jBj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.2
+            this.klo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.dWw.setVisibility(8);
-                    a.this.jBd.setVisibility(0);
+                    a.this.ewv.setVisibility(8);
+                    a.this.kli.setVisibility(0);
                 }
             });
-            if (!TextUtils.isEmpty(PluginDownloadActivity.this.jAY.display_name)) {
-                this.jBk.setText(PluginDownloadActivity.this.jAY.display_name);
+            if (!TextUtils.isEmpty(PluginDownloadActivity.this.kld.display_name)) {
+                this.klp.setText(PluginDownloadActivity.this.kld.display_name);
             } else {
-                this.jBk.setText("");
+                this.klp.setText("");
             }
-            if (PluginDownloadActivity.this.jAY.newest != null) {
-                if (!TextUtils.isEmpty(PluginDownloadActivity.this.jAY.newest.version)) {
-                    this.jBe.setText("版本：" + PluginDownloadActivity.this.jAY.newest.version);
+            if (PluginDownloadActivity.this.kld.newest != null) {
+                if (!TextUtils.isEmpty(PluginDownloadActivity.this.kld.newest.version)) {
+                    this.klj.setText("版本：" + PluginDownloadActivity.this.kld.newest.version);
                 } else {
-                    this.jBe.setText("");
+                    this.klj.setText("");
                 }
-                if (!TextUtils.isEmpty(PluginDownloadActivity.this.jAY.newest.change_log)) {
-                    this.alt.setText(PluginDownloadActivity.this.jAY.newest.change_log);
+                if (!TextUtils.isEmpty(PluginDownloadActivity.this.kld.newest.change_log)) {
+                    this.aDI.setText(PluginDownloadActivity.this.kld.newest.change_log);
                 } else {
-                    this.alt.setText("");
+                    this.aDI.setText("");
                 }
-                String valueOf = String.valueOf(PluginDownloadActivity.this.jAY.newest.size / 1024);
+                String valueOf = String.valueOf(PluginDownloadActivity.this.kld.newest.size / 1024);
                 if (valueOf != null && !"".equals(valueOf)) {
-                    this.jBh.setVisibility(0);
-                    this.jBh.setText(((Object) this.jBh.getText()) + valueOf + "KB");
+                    this.klm.setVisibility(0);
+                    this.klm.setText(((Object) this.klm.getText()) + valueOf + "KB");
                 } else {
-                    this.jBh.setVisibility(8);
+                    this.klm.setVisibility(8);
                 }
             } else {
-                this.jBe.setText("");
-                this.alt.setText("");
-                this.jBh.setText("");
+                this.klj.setText("");
+                this.aDI.setText("");
+                this.klm.setText("");
             }
-            this.jBf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.3
+            this.klk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (j.isNetWorkAvailable()) {
-                        PluginDownloadActivity.this.aKr = true;
-                        a.this.jBf.setVisibility(8);
-                        a.this.ebh.setVisibility(8);
-                        a.this.jBg.setVisibility(0);
-                        PluginPackageManager.js().a(PluginDownloadActivity.this.jAY, new d() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.3.1
+                        PluginDownloadActivity.this.bgk = true;
+                        a.this.klk.setVisibility(8);
+                        a.this.eAU.setVisibility(8);
+                        a.this.kll.setVisibility(0);
+                        PluginPackageManager.nV().a(PluginDownloadActivity.this.kld, new d() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.3.1
                             @Override // com.baidu.adp.plugin.packageManager.d
                             public void a(BdFileDownloadData bdFileDownloadData) {
-                                if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(PluginDownloadActivity.this.jAY.package_name) && !PluginDownloadActivity.this.mFinished) {
-                                    PluginDownloadActivity.this.jBb.jBg.setText(String.format("正在下载插件：%d%%", Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
-                                    PluginDownloadActivity.this.jBb.jBg.setEnabled(false);
+                                if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(PluginDownloadActivity.this.kld.package_name) && !PluginDownloadActivity.this.mFinished) {
+                                    PluginDownloadActivity.this.klg.kll.setText(String.format("正在下载插件：%d%%", Long.valueOf((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize())));
+                                    PluginDownloadActivity.this.klg.kll.setEnabled(false);
                                 }
                             }
 
@@ -204,19 +204,19 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
 
                             @Override // com.baidu.adp.plugin.packageManager.d
                             public void b(BdFileDownloadData bdFileDownloadData) {
-                                if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(PluginDownloadActivity.this.jAY.package_name)) {
-                                    PluginDownloadActivity.this.jBb.jBg.setText(PluginDownloadActivity.this.getPageContext().getString(R.string.plugin_download_finished));
-                                    PluginDownloadActivity.this.jBb.jBg.setEnabled(false);
+                                if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(PluginDownloadActivity.this.kld.package_name)) {
+                                    PluginDownloadActivity.this.klg.kll.setText(PluginDownloadActivity.this.getPageContext().getString(R.string.plugin_download_finished));
+                                    PluginDownloadActivity.this.klg.kll.setEnabled(false);
                                     PluginDownloadActivity.this.mFinished = true;
                                 }
                             }
 
                             @Override // com.baidu.adp.plugin.packageManager.d
                             public void c(BdFileDownloadData bdFileDownloadData) {
-                                if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(PluginDownloadActivity.this.jAY.package_name)) {
+                                if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(PluginDownloadActivity.this.kld.package_name)) {
                                     PluginDownloadActivity.this.showToast(bdFileDownloadData.getStatusMsg());
                                     PluginDownloadActivity.this.mFinished = true;
-                                    g.b(PluginDownloadActivity.this.jBb, PluginDownloadActivity.this.getPageContext());
+                                    g.b(PluginDownloadActivity.this.klg, PluginDownloadActivity.this.getPageContext());
                                 }
                             }
                         });
@@ -225,13 +225,13 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
                     PluginDownloadActivity.this.showToast(R.string.neterror);
                 }
             });
-            this.ebh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.4
+            this.eAU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pluginCenter.PluginDownloadActivity.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     PluginDownloadActivity.this.setResult(0);
                     PluginDownloadActivity.this.finish();
-                    b.aFH().putBoolean(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
-                    b.aFH().putLong(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
+                    b.aNV().putBoolean(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_CLOSED, true);
+                    b.aNV().putLong(BaseWebViewActivity.KEY_INSTALL_PLUGIN_DIALOG_SHOWN_TIME, new Date().getTime());
                 }
             });
         }
@@ -240,8 +240,8 @@ public class PluginDownloadActivity extends BaseActivity<PluginDownloadActivity>
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.jAY != null) {
-            PluginPackageManager.js().bi(this.jAY.package_name);
+        if (this.kld != null) {
+            PluginPackageManager.nV().cx(this.kld.package_name);
         }
         super.onDestroy();
     }

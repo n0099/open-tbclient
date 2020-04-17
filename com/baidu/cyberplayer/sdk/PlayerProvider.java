@@ -32,6 +32,8 @@ public abstract class PlayerProvider {
 
     public abstract boolean isPlaying();
 
+    public abstract boolean isRemotePlayer();
+
     public abstract void muteOrUnmuteAudio(boolean z);
 
     public abstract void pause();
@@ -56,6 +58,9 @@ public abstract class PlayerProvider {
     public abstract void setDataSource(String str);
 
     public abstract void setDisplay(SurfaceHolder surfaceHolder);
+
+    public void setEnableDumediaUA(boolean z) {
+    }
 
     public abstract void setLooping(boolean z);
 

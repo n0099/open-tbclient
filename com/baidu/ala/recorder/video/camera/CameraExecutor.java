@@ -7,7 +7,6 @@ public class CameraExecutor {
     private static volatile CameraExecutor mInstance = null;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
-    private Handler mMainHandle = new Handler();
 
     private CameraExecutor() {
         this.mHandlerThread = null;
@@ -32,12 +31,6 @@ public class CameraExecutor {
     public void posRunnable(Runnable runnable) {
         if (runnable != null) {
             this.mHandler.post(runnable);
-        }
-    }
-
-    public void postMainRunable(Runnable runnable) {
-        if (runnable != null) {
-            this.mMainHandle.post(runnable);
         }
     }
 }

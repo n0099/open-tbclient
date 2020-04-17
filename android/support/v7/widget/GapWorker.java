@@ -3,7 +3,6 @@ package android.support.v7.widget;
 import android.support.annotation.Nullable;
 import android.support.v4.os.TraceCompat;
 import android.support.v7.widget.RecyclerView;
-import com.google.android.exoplayer2.Format;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -257,7 +256,7 @@ public final class GapWorker implements Runnable {
     }
 
     private void flushTaskWithDeadline(Task task, long j) {
-        RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.view, task.position, task.immediate ? Format.OFFSET_SAMPLE_RELATIVE : j);
+        RecyclerView.ViewHolder prefetchPositionWithDeadline = prefetchPositionWithDeadline(task.view, task.position, task.immediate ? Long.MAX_VALUE : j);
         if (prefetchPositionWithDeadline != null && prefetchPositionWithDeadline.mNestedRecyclerView != null && prefetchPositionWithDeadline.isBound() && !prefetchPositionWithDeadline.isInvalid()) {
             prefetchInnerRecyclerViewWithDeadline(prefetchPositionWithDeadline.mNestedRecyclerView.get(), j);
         }

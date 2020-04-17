@@ -14,8 +14,8 @@ public class gz extends ba.a {
 
     @Override // com.xiaomi.push.service.ba.a
     public void a(ee.b bVar) {
-        if (bVar.m240e()) {
-            gy.m321a().m325a(bVar.e());
+        if (bVar.m245e()) {
+            gy.m326a().m330a(bVar.e());
         }
     }
 }

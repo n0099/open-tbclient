@@ -24,7 +24,7 @@ public class bt extends bw.e {
         contentValues.put("messageItemId", hkVar.d());
         contentValues.put("messageItem", a);
         contentValues.put("appId", bk.a(context).b());
-        contentValues.put("packageName", bk.a(context).m164a());
+        contentValues.put("packageName", bk.a(context).m169a());
         contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
         contentValues.put("uploadTimestamp", (Integer) 0);
         return new bt(str, contentValues, "a job build to insert message to db");

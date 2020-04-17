@@ -7,10 +7,10 @@ import java.util.List;
 public class hz implements ir<hz, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<ho> f583a;
+    public List<ho> f584a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jh f582a = new jh("XmPushActionCollectData");
+    private static final jh f583a = new jh("XmPushActionCollectData");
     private static final iz a = new iz("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,9 +19,9 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
     public int compareTo(hz hzVar) {
         int a2;
         if (getClass().equals(hzVar.getClass())) {
-            int compareTo = Boolean.valueOf(m385a()).compareTo(Boolean.valueOf(hzVar.m385a()));
+            int compareTo = Boolean.valueOf(m390a()).compareTo(Boolean.valueOf(hzVar.m390a()));
             if (compareTo == 0) {
-                if (!m385a() || (a2 = is.a(this.f583a, hzVar.f583a)) == 0) {
+                if (!m390a() || (a2 = is.a(this.f584a, hzVar.f584a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -32,44 +32,44 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
     }
 
     public hz a(List<ho> list) {
-        this.f583a = list;
+        this.f584a = list;
         return this;
     }
 
     public void a() {
-        if (this.f583a == null) {
+        if (this.f584a == null) {
             throw new jd("Required field 'dataCollectionItems' was not present! Struct: " + toString());
         }
     }
 
     @Override // com.xiaomi.push.ir
     public void a(jc jcVar) {
-        jcVar.m470a();
+        jcVar.m475a();
         while (true) {
-            iz m466a = jcVar.m466a();
-            if (m466a.a == 0) {
+            iz m471a = jcVar.m471a();
+            if (m471a.a == 0) {
                 jcVar.f();
                 a();
                 return;
             }
-            switch (m466a.f788a) {
+            switch (m471a.f789a) {
                 case 1:
-                    if (m466a.a == 15) {
-                        ja m467a = jcVar.m467a();
-                        this.f583a = new ArrayList(m467a.f791a);
-                        for (int i = 0; i < m467a.f791a; i++) {
+                    if (m471a.a == 15) {
+                        ja m472a = jcVar.m472a();
+                        this.f584a = new ArrayList(m472a.f792a);
+                        for (int i = 0; i < m472a.f792a; i++) {
                             ho hoVar = new ho();
                             hoVar.a(jcVar);
-                            this.f583a.add(hoVar);
+                            this.f584a.add(hoVar);
                         }
                         jcVar.i();
                         break;
                     } else {
-                        jf.a(jcVar, m466a.a);
+                        jf.a(jcVar, m471a.a);
                         break;
                     }
                 default:
-                    jf.a(jcVar, m466a.a);
+                    jf.a(jcVar, m471a.a);
                     break;
             }
             jcVar.g();
@@ -77,40 +77,40 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m385a() {
-        return this.f583a != null;
+    public boolean m390a() {
+        return this.f584a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m386a(hz hzVar) {
+    public boolean m391a(hz hzVar) {
         if (hzVar == null) {
             return false;
         }
-        boolean m385a = m385a();
-        boolean m385a2 = hzVar.m385a();
-        return !(m385a || m385a2) || (m385a && m385a2 && this.f583a.equals(hzVar.f583a));
+        boolean m390a = m390a();
+        boolean m390a2 = hzVar.m390a();
+        return !(m390a || m390a2) || (m390a && m390a2 && this.f584a.equals(hzVar.f584a));
     }
 
     @Override // com.xiaomi.push.ir
     public void b(jc jcVar) {
         a();
-        jcVar.a(f582a);
-        if (this.f583a != null) {
+        jcVar.a(f583a);
+        if (this.f584a != null) {
             jcVar.a(a);
-            jcVar.a(new ja((byte) 12, this.f583a.size()));
-            for (ho hoVar : this.f583a) {
+            jcVar.a(new ja((byte) 12, this.f584a.size()));
+            for (ho hoVar : this.f584a) {
                 hoVar.b(jcVar);
             }
             jcVar.e();
             jcVar.b();
         }
         jcVar.c();
-        jcVar.m474a();
+        jcVar.m479a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hz)) {
-            return m386a((hz) obj);
+            return m391a((hz) obj);
         }
         return false;
     }
@@ -122,10 +122,10 @@ public class hz implements ir<hz, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionCollectData(");
         sb.append("dataCollectionItems:");
-        if (this.f583a == null) {
+        if (this.f584a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f583a);
+            sb.append(this.f584a);
         }
         sb.append(")");
         return sb.toString();

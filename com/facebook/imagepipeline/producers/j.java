@@ -3,52 +3,52 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes12.dex */
 public class j implements aj<com.facebook.imagepipeline.g.e> {
-    private final aj<com.facebook.imagepipeline.g.e> lXd;
-    private final aj<com.facebook.imagepipeline.g.e> lXe;
+    private final aj<com.facebook.imagepipeline.g.e> meO;
+    private final aj<com.facebook.imagepipeline.g.e> meP;
 
     public j(aj<com.facebook.imagepipeline.g.e> ajVar, aj<com.facebook.imagepipeline.g.e> ajVar2) {
-        this.lXd = ajVar;
-        this.lXe = ajVar2;
+        this.meO = ajVar;
+        this.meP = ajVar2;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.lXd.c(new a(kVar, akVar), akVar);
+        this.meO.c(new a(kVar, akVar), akVar);
     }
 
     /* loaded from: classes12.dex */
     private class a extends n<com.facebook.imagepipeline.g.e, com.facebook.imagepipeline.g.e> {
-        private ak lXf;
+        private ak meQ;
 
         private a(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
             super(kVar);
-            this.lXf = akVar;
+            this.meQ = akVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
-        public void f(com.facebook.imagepipeline.g.e eVar, int i) {
-            ImageRequest drV = this.lXf.drV();
-            boolean IP = IP(i);
-            boolean a = ax.a(eVar, drV.dsQ());
-            if (eVar != null && (a || drV.dsU())) {
-                if (IP && a) {
-                    dsh().g(eVar, i);
+        public void g(com.facebook.imagepipeline.g.e eVar, int i) {
+            ImageRequest dtT = this.meQ.dtT();
+            boolean Hr = Hr(i);
+            boolean a = ax.a(eVar, dtT.duN());
+            if (eVar != null && (a || dtT.duR())) {
+                if (Hr && a) {
+                    duf().h(eVar, i);
                 } else {
-                    dsh().g(eVar, dA(i, 1));
+                    duf().h(eVar, dk(i, 1));
                 }
             }
-            if (IP && !a) {
+            if (Hr && !a) {
                 com.facebook.imagepipeline.g.e.e(eVar);
-                j.this.lXe.c(dsh(), this.lXf);
+                j.this.meP.c(duf(), this.meQ);
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        protected void B(Throwable th) {
-            j.this.lXe.c(dsh(), this.lXf);
+        protected void F(Throwable th) {
+            j.this.meP.c(duf(), this.meQ);
         }
     }
 }

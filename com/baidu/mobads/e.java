@@ -5,11 +5,11 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 /* loaded from: classes10.dex */
 class e implements IOAdEventListener {
-    final /* synthetic */ BaiduHybridAdManager aPp;
+    final /* synthetic */ BaiduHybridAdManager blg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BaiduHybridAdManager baiduHybridAdManager) {
-        this.aPp = baiduHybridAdManager;
+        this.blg = baiduHybridAdManager;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventListener

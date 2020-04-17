@@ -5,8 +5,8 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes7.dex */
 public final class k<T, R> implements c<R> {
-    private final c<T> nEU;
-    private final kotlin.jvm.a.b<T, R> nFi;
+    private final kotlin.jvm.a.b<T, R> mYH;
+    private final c<T> mYt;
 
     @kotlin.h
     /* loaded from: classes7.dex */
@@ -20,12 +20,12 @@ public final class k<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iterator = k.this.nEU.iterator();
+            this.iterator = k.this.mYt.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) k.this.nFi.invoke(this.iterator.next());
+            return (R) k.this.mYH.invoke(this.iterator.next());
         }
 
         @Override // java.util.Iterator
@@ -40,8 +40,8 @@ public final class k<T, R> implements c<R> {
     public k(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
         q.j(cVar, "sequence");
         q.j(bVar, "transformer");
-        this.nEU = cVar;
-        this.nFi = bVar;
+        this.mYt = cVar;
+        this.mYH = bVar;
     }
 
     @Override // kotlin.sequences.c

@@ -1,6 +1,5 @@
 package io.reactivex.internal.subscribers;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
@@ -19,7 +18,7 @@ public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubsc
         if (SubscriptionHelper.validate(this.s, dVar)) {
             this.s = dVar;
             this.actual.onSubscribe(this);
-            dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+            dVar.request(Long.MAX_VALUE);
         }
     }
 

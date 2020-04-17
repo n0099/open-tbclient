@@ -14,11 +14,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class b {
-    private String cBs;
-    private ArrayList<String> kNt;
-    private final String kTB = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private String daq;
+    private final String lDB = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private ArrayList<String> lwK;
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -38,10 +38,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.isEmpty(this.kNt)) {
+        if (spannable != null && !v.isEmpty(this.lwK)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.kNt.iterator();
+                Iterator<String> it = this.lwK.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -74,7 +74,7 @@ public class b {
         return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? spanned.length() : spanned.getSpanEnd(backgroundColorSpanArr[0]);
     }
 
-    public boolean i(EditText editText) {
+    public boolean h(EditText editText) {
         Editable text;
         if (editText == null || (text = editText.getText()) == null) {
             return false;
@@ -90,10 +90,10 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.isEmpty(cUx())) {
+        if (v.isEmpty(deS())) {
             return false;
         }
-        return i(editText) || i(editText2);
+        return h(editText) || h(editText2);
     }
 
     public void b(EditText editText, EditText editText2) {
@@ -112,20 +112,20 @@ public class b {
         }
     }
 
-    public void aU(ArrayList<String> arrayList) {
-        this.kNt = arrayList;
+    public void aW(ArrayList<String> arrayList) {
+        this.lwK = arrayList;
     }
 
-    public ArrayList<String> cUx() {
-        return this.kNt;
+    public ArrayList<String> deS() {
+        return this.lwK;
     }
 
-    public void KL(String str) {
-        this.cBs = str;
+    public void Mp(String str) {
+        this.daq = str;
     }
 
-    public String cUB() {
-        return this.cBs;
+    public String deW() {
+        return this.daq;
     }
 
     private void c(Spannable spannable) {

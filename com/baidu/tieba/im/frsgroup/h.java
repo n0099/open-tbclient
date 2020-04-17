@@ -4,64 +4,64 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes10.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId hBM = BdUniqueId.gen();
-    private Object MV;
-    private NoDataViewFactory.ImgType hBN;
-    private String hBO;
-    private String hBP;
-    private String hBQ;
-    private int hBR;
+    public static final BdUniqueId ilA = BdUniqueId.gen();
+    private Object afG;
+    private NoDataViewFactory.ImgType ilB;
+    private String ilC;
+    private String ilD;
+    private String ilE;
+    private int ilF;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hBM;
+        return ilA;
     }
 
-    public String bVn() {
-        return this.hBO;
+    public String cfO() {
+        return this.ilC;
     }
 
-    public void Dd(String str) {
-        this.hBO = str;
+    public void EL(String str) {
+        this.ilC = str;
     }
 
-    public String bVo() {
-        return this.hBP;
+    public String cfP() {
+        return this.ilD;
     }
 
-    public void De(String str) {
-        this.hBP = str;
+    public void EM(String str) {
+        this.ilD = str;
     }
 
-    public String bVp() {
-        return this.hBQ;
+    public String cfQ() {
+        return this.ilE;
     }
 
-    public void Df(String str) {
-        this.hBQ = str;
+    public void EN(String str) {
+        this.ilE = str;
     }
 
-    public int bVq() {
-        return this.hBR;
+    public int cfR() {
+        return this.ilF;
     }
 
-    public void wA(int i) {
-        this.hBR = i;
+    public void wY(int i) {
+        this.ilF = i;
     }
 
-    public Object nq() {
-        return this.MV;
+    public Object rJ() {
+        return this.afG;
     }
 
     public void setExtraData(Object obj) {
-        this.MV = obj;
+        this.afG = obj;
     }
 
-    public NoDataViewFactory.ImgType bVr() {
-        return this.hBN;
+    public NoDataViewFactory.ImgType cfS() {
+        return this.ilB;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.hBN = imgType;
+        this.ilB = imgType;
     }
 }

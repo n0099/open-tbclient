@@ -23,8 +23,8 @@ public class PatchReplaceMethodHelper {
         if (plugin2 == null || context == null) {
             return false;
         }
-        PluginSetting bb = PluginPackageManager.js().bb(plugin2.getPackageName());
-        if (bb == null || TextUtils.isEmpty(bb.replaceMethodClasses)) {
+        PluginSetting cq = PluginPackageManager.nV().cq(plugin2.getPackageName());
+        if (cq == null || TextUtils.isEmpty(cq.replaceMethodClasses)) {
             return false;
         }
         try {
@@ -74,15 +74,15 @@ public class PatchReplaceMethodHelper {
             }
             return true;
         } catch (IOException e) {
-            com.baidu.adp.plugin.b.a.jc().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e.getMessage());
+            com.baidu.adp.plugin.b.a.nF().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e.getMessage());
             e.printStackTrace();
             return false;
         } catch (ClassNotFoundException e2) {
-            com.baidu.adp.plugin.b.a.jc().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
+            com.baidu.adp.plugin.b.a.nF().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
             e2.printStackTrace();
             return false;
         } catch (NoSuchMethodException e3) {
-            com.baidu.adp.plugin.b.a.jc().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
+            com.baidu.adp.plugin.b.a.nF().h("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
             e3.printStackTrace();
             return false;
         }

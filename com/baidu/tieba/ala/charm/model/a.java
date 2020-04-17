@@ -14,46 +14,46 @@ import com.baidu.tieba.ala.charm.ALaCharmCardActivity;
 import com.baidu.tieba.ala.charm.data.ALaCharmDataList;
 /* loaded from: classes3.dex */
 public class a extends BdBaseModel<ALaCharmCardActivity> {
-    private BdUniqueId exr;
-    private InterfaceC0428a exs;
-    private HttpMessageListener exu;
+    private BdUniqueId fbv;
+    private InterfaceC0463a fbw;
+    private HttpMessageListener fbx;
     private String mUid;
 
     /* renamed from: com.baidu.tieba.ala.charm.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0428a {
+    public interface InterfaceC0463a {
         void a(ALaCharmDataList aLaCharmDataList);
 
-        void ad(int i, String str);
+        void as(int i, String str);
     }
 
-    public a(TbPageContext<ALaCharmCardActivity> tbPageContext, String str, InterfaceC0428a interfaceC0428a) {
+    public a(TbPageContext tbPageContext, String str, InterfaceC0463a interfaceC0463a) {
         super(tbPageContext);
-        this.exr = BdUniqueId.gen();
-        this.exu = new HttpMessageListener(1021002) { // from class: com.baidu.tieba.ala.charm.model.a.1
+        this.fbv = BdUniqueId.gen();
+        this.fbx = new HttpMessageListener(1021002) { // from class: com.baidu.tieba.ala.charm.model.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021002 && (httpResponsedMessage instanceof AlaCharmDetailHttpResponsedMessage)) {
-                    if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == a.this.exr) {
+                    if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == a.this.fbv) {
                         int statusCode = httpResponsedMessage.getStatusCode();
                         int error = httpResponsedMessage.getError();
                         AlaCharmDetailHttpResponsedMessage alaCharmDetailHttpResponsedMessage = (AlaCharmDetailHttpResponsedMessage) httpResponsedMessage;
                         if (statusCode != 200 || error != 0) {
-                            if (a.this.exs != null) {
-                                a.this.exs.ad(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                            if (a.this.fbw != null) {
+                                a.this.fbw.as(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                             }
-                        } else if (a.this.exs != null) {
-                            a.this.exs.a(alaCharmDetailHttpResponsedMessage.exw);
+                        } else if (a.this.fbw != null) {
+                            a.this.fbw.a(alaCharmDetailHttpResponsedMessage.fbz);
                         }
                     }
                 }
             }
         };
         this.mUid = str;
-        this.exs = interfaceC0428a;
-        this.exu.setTag(this.exr);
-        MessageManager.getInstance().registerListener(this.exu);
+        this.fbw = interfaceC0463a;
+        this.fbx.setTag(this.fbv);
+        MessageManager.getInstance().registerListener(this.fbx);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021002, TbConfig.SERVER_ADDRESS + "ala/relation/getGuardianShipList");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -62,22 +62,27 @@ public class a extends BdBaseModel<ALaCharmCardActivity> {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bg(int i, int i2) {
+    public void bl(int i, int i2) {
+        K(i, i2, 0);
+    }
+
+    public void K(int i, int i2, int i3) {
         if (this.mUid != null) {
             HttpMessage httpMessage = new HttpMessage(1021002);
-            httpMessage.setTag(this.exr);
+            httpMessage.setTag(this.fbv);
             httpMessage.addParam("benefit_userid", this.mUid);
             httpMessage.addParam("time_type", i);
             httpMessage.addParam(Config.PACKAGE_NAME, 0);
             httpMessage.addParam("ps", i2);
+            httpMessage.addParam("is_card", i3);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void I(int i, int i2, int i3) {
+    public void L(int i, int i2, int i3) {
         if (this.mUid != null) {
             HttpMessage httpMessage = new HttpMessage(1021002);
-            httpMessage.setTag(this.exr);
+            httpMessage.setTag(this.fbv);
             httpMessage.addParam("benefit_userid", this.mUid);
             httpMessage.addParam("time_type", i);
             httpMessage.addParam(Config.PACKAGE_NAME, i2);
@@ -87,7 +92,7 @@ public class a extends BdBaseModel<ALaCharmCardActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.exu);
+        MessageManager.getInstance().unRegisterListener(this.fbx);
         MessageManager.getInstance().unRegisterTask(1021002);
         cancelMessage();
     }

@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.flowable;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
@@ -8,15 +7,15 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final io.reactivex.c.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> other;
+    final org.a.b<? extends U> mSk;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.other.subscribe(new a(withLatestFromSubscriber));
-        this.nyr.a((j) withLatestFromSubscriber);
+        this.mSk.subscribe(new a(withLatestFromSubscriber));
+        this.mRJ.a((j) withLatestFromSubscriber);
     }
 
     /* loaded from: classes7.dex */
@@ -53,7 +52,7 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
                     this.actual.onNext(io.reactivex.internal.functions.a.h(this.combiner.apply(t, u), "The combiner returned a null value"));
                     return true;
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     cancel();
                     this.actual.onError(th);
                     return false;
@@ -97,27 +96,27 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
 
     /* loaded from: classes7.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> nzp;
+        private final WithLatestFromSubscriber<T, U, R> mSN;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.nzp = withLatestFromSubscriber;
+            this.mSN = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.nzp.setOther(dVar)) {
-                dVar.request(Format.OFFSET_SAMPLE_RELATIVE);
+            if (this.mSN.setOther(dVar)) {
+                dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.nzp.lazySet(u);
+            this.mSN.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.nzp.otherError(th);
+            this.mSN.otherError(th);
         }
 
         @Override // org.a.c

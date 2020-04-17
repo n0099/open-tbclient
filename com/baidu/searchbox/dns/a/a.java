@@ -12,8 +12,9 @@ import org.json.JSONObject;
 public class a {
     private static volatile a p;
     private Context mContext;
+    private boolean o = false;
+    private b m = new c();
     private b n = new c();
-    private b o = new c();
 
     private a(Context context) {
         this.mContext = context;
@@ -37,13 +38,13 @@ public class a {
         if (aVar != null) {
             String aVar2 = aVar.toString();
             if (!TextUtils.isEmpty(aVar2)) {
-                this.n.put(str, aVar2);
+                this.m.put(str, aVar2);
             }
         }
     }
 
     public com.baidu.searchbox.dns.d.a.a c(String str) {
-        String str2 = this.n.get(str);
+        String str2 = this.m.get(str);
         if (TextUtils.isEmpty(str2)) {
             return null;
         }
@@ -51,21 +52,23 @@ public class a {
     }
 
     public void clear() {
+        this.m.clear();
         this.n.clear();
+        this.o = false;
     }
 
     public void b(String str, com.baidu.searchbox.dns.d.a.a aVar) {
         if (aVar != null) {
             String aVar2 = aVar.toString();
             if (!TextUtils.isEmpty(aVar2)) {
-                this.o.put(str, aVar2);
+                this.n.put(str, aVar2);
             }
         }
     }
 
     public com.baidu.searchbox.dns.d.a.a d(String str) {
         try {
-            if (this.o.isEmpty()) {
+            if (this.n.isEmpty()) {
                 String f = f();
                 if (TextUtils.isEmpty(f)) {
                     return null;
@@ -87,7 +90,7 @@ public class a {
                     }
                 }
             }
-            String str2 = this.o.get(str);
+            String str2 = this.n.get(str);
             if (TextUtils.isEmpty(str2)) {
                 return null;
             }
@@ -115,5 +118,13 @@ public class a {
 
     public String g() {
         return this.mContext.getSharedPreferences("dns_prefs", 0).getString("SP_BACKUPIP_VERSION_KEY", "0");
+    }
+
+    public boolean isIPv6TestArea() {
+        return this.o;
+    }
+
+    public void a(boolean z) {
+        this.o = z;
     }
 }

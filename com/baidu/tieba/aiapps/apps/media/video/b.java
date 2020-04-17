@@ -35,17 +35,17 @@ public class b {
     }
 
     public static void a(final String str, final String str2, final boolean z, VideoContainerManager videoContainerManager) {
-        final SwanAppComponentContainerView bav = videoContainerManager.bav();
-        bav.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.b.1
+        final SwanAppComponentContainerView biy = videoContainerManager.biy();
+        biy.post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.b.1
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    int U = af.U(SwanAppComponentContainerView.this.getWidth());
-                    int U2 = af.U(SwanAppComponentContainerView.this.getHeight());
+                    int E = af.E(SwanAppComponentContainerView.this.getWidth());
+                    int E2 = af.E(SwanAppComponentContainerView.this.getHeight());
                     jSONObject.putOpt("fullscreen", z ? "1" : "0");
-                    jSONObject.putOpt("width", String.valueOf(U));
-                    jSONObject.putOpt("height", String.valueOf(U2));
+                    jSONObject.putOpt("width", String.valueOf(E));
+                    jSONObject.putOpt("height", String.valueOf(E2));
                 } catch (JSONException e) {
                     if (b.DEBUG) {
                         e.printStackTrace();

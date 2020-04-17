@@ -18,7 +18,7 @@ public class d extends j {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.a.g
-    /* renamed from: d */
+    /* renamed from: e */
     public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage instanceof PushResponseMessage) {
             if (socketResponsedMessage.getError() == 110000) {

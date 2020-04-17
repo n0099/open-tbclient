@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
     @SuppressLint({"ResourceAsColor"})
-    public static m y(Context context, int i) {
+    public static m t(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(R.layout.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();

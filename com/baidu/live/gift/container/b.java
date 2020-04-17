@@ -10,7 +10,7 @@ import com.baidu.live.u.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private List<com.baidu.live.data.e> ajv;
+    private List<com.baidu.live.data.e> aBO;
     private Context mContext;
     private int mType;
 
@@ -19,26 +19,26 @@ public class b extends BaseAdapter {
         this.mType = i;
     }
 
-    public void t(List<com.baidu.live.data.e> list) {
-        this.ajv = list;
+    public void x(List<com.baidu.live.data.e> list) {
+        this.aBO = list;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ajv == null) {
+        if (this.aBO == null) {
             return 1;
         }
-        return this.ajv.size() + 1;
+        return this.aBO.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: bz */
+    /* renamed from: bM */
     public com.baidu.live.data.e getItem(int i) {
-        if (this.ajv == null || i < 0 || i >= getCount() - 1) {
+        if (this.aBO == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.ajv.get(i);
+        return this.aBO.get(i);
     }
 
     @Override // android.widget.Adapter

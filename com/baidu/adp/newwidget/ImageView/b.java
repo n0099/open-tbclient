@@ -11,9 +11,9 @@ public class b extends a {
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(c cVar, ImageView imageView) {
-        if (this.wx.mHasBorder) {
-            float f = this.wx.mBorderWidth / 2.0f;
-            if (!this.wx.mBorderSurroundContent) {
+        if (this.Ps.mHasBorder) {
+            float f = this.Ps.mBorderWidth / 2.0f;
+            if (!this.Ps.mBorderSurroundContent) {
                 this.mBorderRect.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
                 return;
             }
@@ -34,27 +34,27 @@ public class b extends a {
             Bitmap bitmap = cVar.drawable.getBitmap();
             this.mTemp.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
             canvas.drawBitmap(bitmap, this.mTemp, this.mBounds, this.mPaint);
-            return;
+        } else if (cVar.isBdImgAvailable()) {
+            this.mTemp.set(0, 0, cVar.getWidth(), cVar.getHeight());
+            cVar.Pv.drawImageTo(canvas, this.mTemp, this.mBounds, this.mPaint);
         }
-        this.mTemp.set(0, 0, cVar.getWidth(), cVar.getHeight());
-        cVar.wA.drawImageTo(canvas, this.mTemp, this.mBounds, this.mPaint);
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void drawBorder(Canvas canvas, ImageView imageView) {
-        if (this.wx.mHasBorder) {
+        if (this.Ps.mHasBorder) {
             canvas.drawRect(this.mBorderRect, this.mBorderPaint);
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void drawForeground(Canvas canvas, ImageView imageView) {
-        if (this.wx.mForegroundColor != 0) {
+        if (this.Ps.mForegroundColor != 0) {
             int scrollX = imageView.getScrollX();
             int scrollY = imageView.getScrollY();
             canvas.translate(scrollX, scrollY);
             this.mForegroundRect.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            this.mForegroundPaint.setColor(this.wx.mForegroundColor);
+            this.mForegroundPaint.setColor(this.Ps.mForegroundColor);
             canvas.drawRect(this.mForegroundRect, this.mForegroundPaint);
             canvas.translate(-scrollX, -scrollY);
         }

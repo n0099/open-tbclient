@@ -1,23 +1,24 @@
 package com.baidu.live;
 
+import com.baidu.ala.AlaConfig;
 import com.baidu.live.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class a {
-    public static final String Vq = TbConfig.SERVER_ADDRESS + "ala/tipoff/tipOff";
-    public static final String Vr = TbConfig.SERVER_ADDRESS + "ala/live/blockIm";
-    public static final String Vs = TbConfig.SERVER_ADDRESS + "ala/live/setOnPrivate";
-    public static final String Vt = TbConfig.SERVER_ADDRESS + "ala/perm/appointLiveAdmin";
-    public static final String Vu = TbConfig.SERVER_ADDRESS + "ala/perm/fireLiveAdmin";
-    public static final String Vv = TbConfig.SERVER_ADDRESS + "ala/perm/resignLiveAdmin";
-    public static final String Vw = TbConfig.SERVER_ADDRESS + "ala/share/shareAsThread";
-    public static final String Vx = TbConfig.SERVER_ADDRESS + "ala/cert/zm/new";
-    public static final String Vy = TbConfig.SERVER_ADDRESS + "ala/cert/zm/result";
-    public static final String Vz = TbConfig.SERVER_ADDRESS + "ala/user/taskCommit";
-    public static final String VA = TbConfig.SERVER_ADDRESS + "ala/user/taskList";
-    public static final String VB = TbConfig.SERVER_ADDRESS + "ala/user/taskReward";
-    public static final String VC = TbConfig.SERVER_ADDRESS + "ala/web/rank/getUserRankTag";
-    public static final String VD = TbConfig.SERVER_ADDRESS + "ala/web/rank/getRankList";
-    public static final String VE = TbConfig.SERVER_ADDRESS + "ala/web/rank/getUserRankInfo";
-    public static final String VF = TbConfig.SERVER_ADDRESS + "ala/relation/getFollowLive";
-    public static final String VG = TbConfig.SERVER_ADDRESS + "ala/web/rank/pullRankList";
+    public static final String and = TbConfig.SERVER_ADDRESS + "ala/tipoff/tipOff";
+    public static final String ane = TbConfig.SERVER_ADDRESS + "ala/live/blockIm";
+    public static final String anf = TbConfig.SERVER_ADDRESS + "ala/live/setOnPrivate";
+    public static final String ang = TbConfig.SERVER_ADDRESS + "ala/perm/appointLiveAdmin";
+    public static final String anh = TbConfig.SERVER_ADDRESS + "ala/perm/fireLiveAdmin";
+    public static final String ani = TbConfig.SERVER_ADDRESS + "ala/perm/resignLiveAdmin";
+    public static final String ALA_LIVE_SHARE_IN_BAR = TbConfig.SERVER_ADDRESS + AlaConfig.ALA_LIVE_SHARE_IN_BAR;
+    public static final String anj = TbConfig.SERVER_ADDRESS + "ala/cert/zm/new";
+    public static final String ank = TbConfig.SERVER_ADDRESS + "ala/cert/zm/result";
+    public static final String anl = TbConfig.SERVER_ADDRESS + "ala/user/taskCommit";
+    public static final String anm = TbConfig.SERVER_ADDRESS + "ala/user/taskList";
+    public static final String ann = TbConfig.SERVER_ADDRESS + "ala/user/taskReward";
+    public static final String ano = TbConfig.SERVER_ADDRESS + "ala/web/rank/getUserRankTag";
+    public static final String anp = TbConfig.SERVER_ADDRESS + "ala/web/rank/getRankList";
+    public static final String anq = TbConfig.SERVER_ADDRESS + "ala/web/rank/getUserRankInfo";
+    public static final String anr = TbConfig.SERVER_ADDRESS + "ala/relation/getFollowLive";
+    public static final String ans = TbConfig.SERVER_ADDRESS + "ala/web/rank/pullRankList";
 }

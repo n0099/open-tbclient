@@ -7,6 +7,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.coloros.mcssdk.PushManager;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
@@ -46,8 +47,8 @@ public class j {
                 if (jSONObject.has(CommandMessage.TYPE_ALIAS)) {
                     miPushMessage.setAlias(jSONObject.getString(CommandMessage.TYPE_ALIAS));
                 }
-                if (jSONObject.has("topic")) {
-                    miPushMessage.setTopic(jSONObject.getString("topic"));
+                if (jSONObject.has(UgcConstant.TOPIC)) {
+                    miPushMessage.setTopic(jSONObject.getString(UgcConstant.TOPIC));
                 }
                 if (jSONObject.has("user_account")) {
                     miPushMessage.setUserAccount(jSONObject.getString("user_account"));
@@ -150,7 +151,7 @@ public class j {
                     com.xiaomi.channel.commonutils.logger.b.d(e.toString());
                     applicationInfo = null;
                 }
-                str = "brand:" + o.a(context).name() + Constants.WAVE_SEPARATOR + "token:" + a(context, a2) + Constants.WAVE_SEPARATOR + "package_name:" + context.getPackageName() + Constants.WAVE_SEPARATOR + Constants.APP_ID + ":" + (applicationInfo != null ? applicationInfo.metaData.getInt(Constants.HUAWEI_HMS_CLIENT_APPID) : -1);
+                str = "brand:" + o.a(context).name() + Constants.WAVE_SEPARATOR + "token:" + a(context, a2) + Constants.WAVE_SEPARATOR + "package_name:" + context.getPackageName() + Constants.WAVE_SEPARATOR + "app_id:" + (applicationInfo != null ? applicationInfo.metaData.getInt(Constants.HUAWEI_HMS_CLIENT_APPID) : -1);
                 break;
             case 2:
                 str = "brand:" + ap.FCM.name() + Constants.WAVE_SEPARATOR + "token:" + a(context, a2) + Constants.WAVE_SEPARATOR + "package_name:" + context.getPackageName();
@@ -168,7 +169,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: a  reason: collision with other method in class */
-    public static void m101a(Context context) {
+    public static void m106a(Context context) {
         boolean z = false;
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a2 = a(f.ASSEMBLE_PUSH_HUAWEI);
@@ -182,7 +183,7 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m102a(Context context, f fVar) {
+    public static void m107a(Context context, f fVar) {
         String a2 = a(fVar);
         if (TextUtils.isEmpty(a2)) {
             return;
@@ -197,15 +198,15 @@ public class j {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a2 = a(fVar);
         if (TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m45a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+            com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
             return;
         }
         String string = sharedPreferences.getString(a2, "");
         if (!TextUtils.isEmpty(string) && str.equals(string)) {
-            com.xiaomi.channel.commonutils.logger.b.m45a("ASSEMBLE_PUSH : do not need to send token");
+            com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : do not need to send token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m45a("ASSEMBLE_PUSH : send token upload");
+        com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : send token upload");
         a(fVar, str);
         bd a3 = m.a(fVar);
         if (a3 != null) {
@@ -225,9 +226,9 @@ public class j {
         synchronized (j.class) {
             String a2 = a(fVar);
             if (TextUtils.isEmpty(a2)) {
-                com.xiaomi.channel.commonutils.logger.b.m45a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
             } else if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m45a("ASSEMBLE_PUSH : token is null");
+                com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : token is null");
             } else {
                 a.put(a2, str);
             }
@@ -239,7 +240,7 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m103a(Context context) {
+    public static boolean m108a(Context context) {
         if (context == null) {
             return false;
         }
@@ -247,9 +248,9 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m104a(Context context, f fVar) {
-        if (m.m106a(fVar) != null) {
-            return com.xiaomi.push.service.ag.a(context).a(m.m106a(fVar).a(), true);
+    public static boolean m109a(Context context, f fVar) {
+        if (m.m111a(fVar) != null) {
+            return com.xiaomi.push.service.ag.a(context).a(m.m111a(fVar).a(), true);
         }
         return false;
     }
@@ -286,10 +287,10 @@ public class j {
         synchronized (j.class) {
             String a2 = a(fVar);
             if (TextUtils.isEmpty(a2)) {
-                com.xiaomi.channel.commonutils.logger.b.m45a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
             } else {
                 com.xiaomi.push.r.a(context.getSharedPreferences("mipush_extra", 0).edit().putString(a2, str));
-                com.xiaomi.channel.commonutils.logger.b.m45a("ASSEMBLE_PUSH : update sp file success!  " + str);
+                com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : update sp file success!  " + str);
             }
         }
     }

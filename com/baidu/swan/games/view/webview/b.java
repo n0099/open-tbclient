@@ -22,13 +22,13 @@ public class b {
 
     /* renamed from: com.baidu.swan.games.view.webview.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0355b extends a {
+    public static class C0385b extends a {
         @V8JavascriptField
         public String errCode;
         @V8JavascriptField
         public String errMsg;
 
-        public C0355b(String str, String str2, String str3) {
+        public C0385b(String str, String str2, String str3) {
             super(str);
             this.errCode = str2;
             this.errMsg = str3;

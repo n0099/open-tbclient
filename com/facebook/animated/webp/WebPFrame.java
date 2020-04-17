@@ -45,7 +45,7 @@ public class WebPFrame implements c {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.c
-    public void renderFrame(int i, int i2, Bitmap bitmap) {
+    public void b(int i, int i2, Bitmap bitmap) {
         nativeRenderFrame(i, i2, bitmap);
     }
 
@@ -69,11 +69,11 @@ public class WebPFrame implements c {
         return nativeGetYOffset();
     }
 
-    public boolean shouldDisposeToBackgroundColor() {
+    public boolean dmh() {
         return nativeShouldDisposeToBackgroundColor();
     }
 
-    public boolean isBlendWithPreviousFrame() {
+    public boolean dmi() {
         return nativeIsBlendWithPreviousFrame();
     }
 }

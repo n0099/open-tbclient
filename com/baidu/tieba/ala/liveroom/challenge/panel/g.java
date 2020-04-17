@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g extends BaseAdapter {
-    private List<com.baidu.live.challenge.d> eWu = new ArrayList();
-    private h.a eWv;
+    private List<com.baidu.live.challenge.d> fAI = new ArrayList();
+    private h.a fAJ;
     private Context mContext;
 
     public g(Context context) {
@@ -25,38 +25,38 @@ public class g extends BaseAdapter {
 
     public void setDatas(List<com.baidu.live.challenge.d> list) {
         if (list != null && !ListUtils.isEmpty(list)) {
-            this.eWu.clear();
-            this.eWu.addAll(list);
+            this.fAI.clear();
+            this.fAI.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public void bD(List<com.baidu.live.challenge.d> list) {
+    public void bM(List<com.baidu.live.challenge.d> list) {
         if (list != null && !ListUtils.isEmpty(list)) {
-            this.eWu.addAll(list);
+            this.fAI.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    public void bla() {
-        if (!ListUtils.isEmpty(this.eWu)) {
-            this.eWu.clear();
+    public void but() {
+        if (!ListUtils.isEmpty(this.fAI)) {
+            this.fAI.clear();
             notifyDataSetChanged();
         }
     }
 
     public void a(h.a aVar) {
-        this.eWv = aVar;
+        this.fAJ = aVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.eWu.size();
+        return this.fAI.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.eWu.get(i);
+        return this.fAI.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,9 +66,9 @@ public class g extends BaseAdapter {
 
     public void e(com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            for (com.baidu.live.challenge.d dVar2 : this.eWu) {
+            for (com.baidu.live.challenge.d dVar2 : this.fAI) {
                 if (dVar.equals(dVar2)) {
-                    dVar2.Xk = dVar.Xk;
+                    dVar2.apm = dVar.apm;
                 }
             }
             notifyDataSetChanged();
@@ -81,35 +81,35 @@ public class g extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_challenge_user_item_view_layout, (ViewGroup) null);
             aVar = new a();
-            aVar.eWy = (HeadImageView) view.findViewById(a.g.ala_challenge_user_header);
-            aVar.eWy.setIsRound(true);
-            aVar.eWy.setAutoChangeStyle(false);
-            aVar.cbW = (TextView) view.findViewById(a.g.ala_challenge_user_name);
-            aVar.eWz = (TextView) view.findViewById(a.g.ala_challenge_user_status);
-            aVar.exg = (TextView) view.findViewById(a.g.ala_challenge_user_charm);
+            aVar.fAM = (HeadImageView) view.findViewById(a.g.ala_challenge_user_header);
+            aVar.fAM.setIsRound(true);
+            aVar.fAM.setAutoChangeStyle(false);
+            aVar.cAX = (TextView) view.findViewById(a.g.ala_challenge_user_name);
+            aVar.fAN = (TextView) view.findViewById(a.g.ala_challenge_user_status);
+            aVar.fbj = (TextView) view.findViewById(a.g.ala_challenge_user_charm);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        final com.baidu.live.challenge.d dVar = this.eWu.get(i);
-        aVar.eWy.startLoad(dVar.avatar, 12, false);
-        aVar.cbW.setText(Html.fromHtml(dVar.userName));
-        aVar.exg.setText(this.mContext.getString(a.i.sdk_charm_name, String.valueOf(dVar.charmCount)));
-        if (dVar.Xk) {
-            aVar.eWz.setEnabled(true);
-            aVar.eWz.setBackgroundResource(a.f.sdk_red_border_bg);
-            aVar.eWz.setText(this.mContext.getString(a.i.ala_challenge_invite));
-            aVar.eWz.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i));
+        final com.baidu.live.challenge.d dVar = this.fAI.get(i);
+        aVar.fAM.startLoad(dVar.avatar, 12, false);
+        aVar.cAX.setText(Html.fromHtml(dVar.userName));
+        aVar.fbj.setText(this.mContext.getString(a.i.sdk_charm_name, String.valueOf(dVar.charmCount)));
+        if (dVar.apm) {
+            aVar.fAN.setEnabled(true);
+            aVar.fAN.setBackgroundResource(a.f.sdk_red_border_bg);
+            aVar.fAN.setText(this.mContext.getString(a.i.ala_challenge_invite));
+            aVar.fAN.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i));
         } else {
-            aVar.eWz.setBackgroundDrawable(null);
-            aVar.eWz.setText(this.mContext.getString(a.i.ala_live_challenging));
-            aVar.eWz.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i_alpha50));
+            aVar.fAN.setBackgroundDrawable(null);
+            aVar.fAN.setText(this.mContext.getString(a.i.ala_live_challenging));
+            aVar.fAN.setTextColor(this.mContext.getResources().getColor(a.d.sdk_cp_cont_i_alpha50));
         }
-        aVar.eWz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.1
+        aVar.fAN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (dVar.Xk && g.this.eWv != null) {
-                    g.this.eWv.g(dVar);
+                if (dVar.apm && g.this.fAJ != null) {
+                    g.this.fAJ.g(dVar);
                     view2.setEnabled(false);
                 }
             }
@@ -119,10 +119,10 @@ public class g extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private static class a {
-        public TextView cbW;
-        public HeadImageView eWy;
-        public TextView eWz;
-        public TextView exg;
+        public TextView cAX;
+        public HeadImageView fAM;
+        public TextView fAN;
+        public TextView fbj;
 
         private a() {
         }

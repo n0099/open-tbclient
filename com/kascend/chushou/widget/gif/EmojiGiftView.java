@@ -12,7 +12,7 @@ import com.kascend.chushou.a;
 import tv.chushou.zues.widget.fresco.FrescoThumbnailView;
 /* loaded from: classes5.dex */
 public class EmojiGiftView extends FrameLayout {
-    private FrescoThumbnailView ncZ;
+    private FrescoThumbnailView mzA;
 
     public EmojiGiftView(@NonNull Context context) {
         super(context);
@@ -31,18 +31,18 @@ public class EmojiGiftView extends FrameLayout {
 
     private void a(Context context) {
         LayoutInflater.from(context).inflate(a.h.widget_emoji_gift, (ViewGroup) this, true);
-        this.ncZ = (FrescoThumbnailView) findViewById(a.f.iv_emoji_gift_icon);
-        this.ncZ.setAnim(true);
+        this.mzA = (FrescoThumbnailView) findViewById(a.f.iv_emoji_gift_icon);
+        this.mzA.setAnim(true);
         RoundingParams roundingParams = new RoundingParams();
         roundingParams.a(RoundingParams.RoundingMethod.OVERLAY_COLOR);
-        roundingParams.HW(tv.chushou.widget.a.c.getColor(a.c.kas_white));
-        roundingParams.bp(2.0f);
-        this.ncZ.getHierarchy().a(roundingParams);
+        roundingParams.Gx(tv.chushou.widget.a.c.getColor(a.c.kas_white));
+        roundingParams.aF(2.0f);
+        this.mzA.getHierarchy().a(roundingParams);
     }
 
     public void g(String str, int i, int i2, int i3) {
-        if (this.ncZ != null) {
-            this.ncZ.h(str, i, i2, i3);
+        if (this.mzA != null) {
+            this.mzA.h(str, i, i2, i3);
         }
     }
 }

@@ -33,10 +33,10 @@ import tv.chushou.zues.utils.h;
 public class a extends d {
     public String c;
     private boolean j;
-    private EmptyLoadingView nhI;
-    private CustomSwipeRefreshLayout nhJ;
-    private com.kascend.chushou.widget.cswebview.a nhK;
-    private InterfaceC0719a nhL;
+    private EmptyLoadingView mEp;
+    private CustomSwipeRefreshLayout mEq;
+    private com.kascend.chushou.widget.cswebview.a mEr;
+    private InterfaceC0743a mEs;
     private boolean d = false;
     private boolean e = true;
     private boolean f = false;
@@ -49,7 +49,7 @@ public class a extends d {
 
     /* renamed from: com.kascend.chushou.view.h5.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0719a {
+    public interface InterfaceC0743a {
         void a(String str);
     }
 
@@ -91,29 +91,29 @@ public class a extends d {
         if (this.i > 0) {
             inflate.setBackgroundColor(this.i);
         }
-        this.nhI = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
-        this.nht = (CSWebView) inflate.findViewById(a.f.web_view);
-        this.nhJ = (CustomSwipeRefreshLayout) inflate.findViewById(a.f.swipeRefreshLayout);
-        this.nhJ.setEnabled(this.f);
-        this.nht.setWebChromeClient(new com.kascend.chushou.widget.cswebview.b() { // from class: com.kascend.chushou.view.h5.a.1
+        this.mEp = (EmptyLoadingView) inflate.findViewById(a.f.empty_view);
+        this.mEa = (CSWebView) inflate.findViewById(a.f.web_view);
+        this.mEq = (CustomSwipeRefreshLayout) inflate.findViewById(a.f.swipeRefreshLayout);
+        this.mEq.setEnabled(this.f);
+        this.mEa.setWebChromeClient(new com.kascend.chushou.widget.cswebview.b() { // from class: com.kascend.chushou.view.h5.a.1
             @Override // android.webkit.WebChromeClient
             public void onReceivedTitle(WebView webView, String str) {
                 super.onReceivedTitle(webView, str);
                 if (a.this.mContext != null && (a.this.mContext instanceof H5Activity)) {
                     ((H5Activity) a.this.mContext).a(str);
                 }
-                if (a.this.nhL != null) {
-                    a.this.nhL.a(str);
+                if (a.this.mEs != null) {
+                    a.this.mEs.a(str);
                 }
             }
         });
         this.q = true;
-        final com.kascend.chushou.widget.cswebview.d dEY = this.nhK != null ? this.nhK.dEY() : null;
+        final com.kascend.chushou.widget.cswebview.d dza = this.mEr != null ? this.mEr.dza() : null;
         com.kascend.chushou.widget.cswebview.d dVar = new com.kascend.chushou.widget.cswebview.d() { // from class: com.kascend.chushou.view.h5.a.2
             @Override // com.kascend.chushou.widget.cswebview.d
             public void a(Object obj) {
-                if (dEY != null) {
-                    dEY.a((Object) null);
+                if (dza != null) {
+                    dza.a((Object) null);
                     return;
                 }
                 FragmentActivity activity = a.this.getActivity();
@@ -126,17 +126,17 @@ public class a extends d {
             public void a(String str) {
             }
         };
-        if (this.nhK == null) {
-            this.nhK = new com.kascend.chushou.widget.cswebview.a();
+        if (this.mEr == null) {
+            this.mEr = new com.kascend.chushou.widget.cswebview.a();
         }
-        this.nhK.a(dVar);
-        this.nhK.a(this);
-        CSWebView.a(this.nht, this.mContext, new c() { // from class: com.kascend.chushou.view.h5.a.3
+        this.mEr.a(dVar);
+        this.mEr.a(this);
+        CSWebView.a(this.mEa, this.mContext, new c() { // from class: com.kascend.chushou.view.h5.a.3
             @Override // android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
                 if (!a.this.isFinishing() && a.this.q) {
-                    a.this.nhJ.setEnabled(false);
+                    a.this.mEq.setEnabled(false);
                     if (!a.this.n) {
                         a.this.showStatus(1);
                     }
@@ -149,10 +149,10 @@ public class a extends d {
                 e.e(a.this.TAG, "onPageFinished");
                 if (!a.this.isFinishing() && a.this.q) {
                     a.this.n = false;
-                    a.this.nhJ.setEnabled(a.this.f);
+                    a.this.mEq.setEnabled(a.this.f);
                     a.this.m = true;
                     String str2 = (String) webView.getTag();
-                    if (tv.chushou.zues.utils.a.dQQ()) {
+                    if (tv.chushou.zues.utils.a.dJS()) {
                         if (str2 != null && str2.equals(BdStatsConstant.StatsType.ERROR)) {
                             a.this.showStatus(4);
                         } else {
@@ -179,30 +179,30 @@ public class a extends d {
                         webView.clearView();
                     } catch (Exception e2) {
                     }
-                    a.this.nhJ.setEnabled(a.this.f);
+                    a.this.mEq.setEnabled(a.this.f);
                     webView.setTag(BdStatsConstant.StatsType.ERROR);
                 }
             }
-        }, this.nhK);
-        this.nhJ.setColorSchemeResources(a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright, a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright);
-        this.nhJ.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.kascend.chushou.view.h5.a.4
+        }, this.mEr);
+        this.mEq.setColorSchemeResources(a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright, a.c.swap_holo_green_bright, a.c.swap_holo_bule_bright);
+        this.mEq.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() { // from class: com.kascend.chushou.view.h5.a.4
             @Override // android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener
             public void onRefresh() {
-                a.this.nhJ.setRefreshing(false);
-                if (tv.chushou.zues.utils.a.dQQ()) {
+                a.this.mEq.setRefreshing(false);
+                if (tv.chushou.zues.utils.a.dJS()) {
                     a.this.n = true;
                     if (a.this.c == null || a.this.c.length() <= 0) {
-                        a.this.nht.loadUrl("");
+                        a.this.mEa.loadUrl("");
                         return;
                     } else {
-                        a.this.nht.loadUrl(a.this.c);
+                        a.this.mEa.loadUrl(a.this.c);
                         return;
                     }
                 }
                 a.this.showStatus(3);
             }
         });
-        this.nhI.setReloadListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.h5.a.5
+        this.mEp.setReloadListener(new View.OnClickListener() { // from class: com.kascend.chushou.view.h5.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!a.this.isFinishing()) {
@@ -210,8 +210,8 @@ public class a extends d {
                 }
             }
         });
-        if (!this.h && this.j && this.nht != null) {
-            this.nht.resumeTimers();
+        if (!this.h && this.j && this.mEa != null) {
+            this.mEa.resumeTimers();
         }
         return inflate;
     }
@@ -229,29 +229,29 @@ public class a extends d {
     @Override // android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.nht != null) {
-            this.nht.onResume();
-            this.nht.resumeTimers();
+        if (this.mEa != null) {
+            this.mEa.onResume();
+            this.mEa.resumeTimers();
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.nht != null) {
-            this.nht.pauseTimers();
-            this.nht.onPause();
+        if (this.mEa != null) {
+            this.mEa.pauseTimers();
+            this.mEa.onPause();
         }
     }
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onDestroyView() {
         this.q = false;
-        tv.chushou.zues.a.a.cr(this);
-        if (this.nht != null) {
-            this.nht.loadUrl("");
-            this.nht.removeAllViews();
-            this.nht.destroy();
+        tv.chushou.zues.a.a.ca(this);
+        if (this.mEa != null) {
+            this.mEa.loadUrl("");
+            this.mEa.removeAllViews();
+            this.mEa.destroy();
         }
         super.onDestroyView();
     }
@@ -262,8 +262,8 @@ public class a extends d {
             if (this.c.contains("m/register.htm") || this.c.contains("m/password.htm")) {
                 ((Activity) this.mContext).setResult(-1);
                 ((Activity) this.mContext).finish();
-            } else if (this.nht != null) {
-                this.nht.loadUrl(this.c);
+            } else if (this.mEa != null) {
+                this.mEa.loadUrl(this.c);
             }
         }
     }
@@ -273,22 +273,22 @@ public class a extends d {
         switch (i) {
             case 1:
                 if (this.g) {
-                    this.nht.setVisibility(8);
-                    this.nhI.Ng(1);
+                    this.mEa.setVisibility(8);
+                    this.mEp.IA(1);
                     return;
                 }
                 return;
             case 2:
-                this.nht.setVisibility(0);
-                this.nhI.setVisibility(8);
+                this.mEa.setVisibility(0);
+                this.mEp.setVisibility(8);
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.nht.setVisibility(8);
-                this.nhI.setVisibility(0);
-                this.nhI.Ng(i);
+                this.mEa.setVisibility(8);
+                this.mEp.setVisibility(0);
+                this.mEp.IA(i);
                 return;
             default:
                 return;
@@ -296,9 +296,9 @@ public class a extends d {
     }
 
     public void a(com.kascend.chushou.widget.cswebview.a aVar) {
-        this.nhK = aVar;
+        this.mEr = aVar;
         if (aVar != null) {
-            this.nhu = aVar.dEZ();
+            this.mEb = aVar.dzb();
         }
     }
 
@@ -307,10 +307,10 @@ public class a extends d {
     }
 
     public boolean a() {
-        if (!this.d || this.nht == null) {
+        if (!this.d || this.mEa == null) {
             return false;
         }
-        return this.nht.canGoBack();
+        return this.mEa.canGoBack();
     }
 
     public void a(String str) {
@@ -325,13 +325,13 @@ public class a extends d {
     }
 
     public void c() {
-        if (tv.chushou.zues.utils.a.dQQ()) {
+        if (tv.chushou.zues.utils.a.dJS()) {
             this.n = true;
             if (this.c != null && this.c.length() > 0) {
-                this.nht.loadUrl(this.c);
+                this.mEa.loadUrl(this.c);
                 return;
             } else {
-                this.nht.loadUrl("");
+                this.mEa.loadUrl("");
                 return;
             }
         }
@@ -339,8 +339,8 @@ public class a extends d {
     }
 
     public boolean a(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.d && this.nht.canGoBack()) {
-            this.nht.goBack();
+        if (i == 4 && this.d && this.mEa.canGoBack()) {
+            this.mEa.goBack();
             return true;
         }
         return false;
@@ -352,12 +352,12 @@ public class a extends d {
             e.d(this.TAG, "onActivityResult");
             if (this.c != null) {
                 if (this.c.contains("m/bigfans/pay.htm")) {
-                    String str = tv.chushou.common.a.dQz() + "m/bigfans/pay.htm";
+                    String str = tv.chushou.common.a.dJy() + "m/bigfans/pay.htm";
                     if (LoginManager.Instance().islogined()) {
                         str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
                     }
                     e.d(this.TAG, "refresh pay loayal fans success,  url=" + str);
-                    this.nht.loadUrl(str);
+                    this.mEa.loadUrl(str);
                 } else if (this.c.contains("m/noble/info.htm")) {
                     if (intent != null) {
                         String str2 = this.c;
@@ -374,7 +374,7 @@ public class a extends d {
                             str2 = str2 + "payResultCode=1&roomId=" + stringExtra3 + "&payLevel=" + stringExtra + "&payCount=" + stringExtra2;
                         }
                         e.d(this.TAG, "refresh pay noble success,  url=" + str2);
-                        this.nht.loadUrl(str2);
+                        this.mEa.loadUrl(str2);
                     }
                 } else {
                     d();
@@ -391,37 +391,37 @@ public class a extends d {
                     }
                 }
                 if (!h.isEmpty(stringExtra4)) {
-                    this.nht.a(stringExtra4, arrayList);
+                    this.mEa.a(stringExtra4, arrayList);
                 }
             } else if (!h.isEmpty(stringExtra4)) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("data", parcelableArrayListExtra);
-                this.nht.a(stringExtra4, hashMap);
+                this.mEa.a(stringExtra4, hashMap);
             }
         }
     }
 
     private void d() {
-        String str = tv.chushou.common.a.dQz() + "m/pay.htm";
+        String str = tv.chushou.common.a.dJy() + "m/pay.htm";
         if (LoginManager.Instance().islogined()) {
             str = str + "?token=" + LoginManager.Instance().getUserInfo().mToken + "&state=1";
         }
         e.d(this.TAG, "refreshAfterRechargeSuccess url=" + str);
-        this.nht.loadUrl(str);
+        this.mEa.loadUrl(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         e.d(this.TAG, "H5=" + this.c);
-        if (this.nht != null) {
-            this.nht.setTag(null);
-            this.nhJ.setRefreshing(false);
-            if (tv.chushou.zues.utils.a.dQQ()) {
+        if (this.mEa != null) {
+            this.mEa.setTag(null);
+            this.mEq.setRefreshing(false);
+            if (tv.chushou.zues.utils.a.dJS()) {
                 if (this.c != null && this.c.length() > 0) {
-                    this.nht.loadUrl(this.c);
+                    this.mEa.loadUrl(this.c);
                     return;
                 } else {
-                    this.nht.loadUrl("");
+                    this.mEa.loadUrl("");
                     return;
                 }
             }
@@ -432,23 +432,23 @@ public class a extends d {
     @Subscribe
     public void onSwipeEnableMessgae(com.kascend.chushou.b.a.a.e eVar) {
         if (eVar.a) {
-            this.nhJ.setEnabled(this.f);
+            this.mEq.setEnabled(this.f);
         } else {
-            this.nhJ.setEnabled(false);
+            this.mEq.setEnabled(false);
         }
     }
 
     @Subscribe
     public void onHardwareEnableMessgae(com.kascend.chushou.b.a.a.d dVar) {
         if (dVar.a) {
-            this.nht.setLayerType(2, null);
+            this.mEa.setLayerType(2, null);
         } else {
-            this.nht.setLayerType(1, null);
+            this.mEa.setLayerType(1, null);
         }
     }
 
-    public void a(InterfaceC0719a interfaceC0719a) {
-        this.nhL = interfaceC0719a;
+    public void a(InterfaceC0743a interfaceC0743a) {
+        this.mEs = interfaceC0743a;
     }
 
     @Override // android.support.v4.app.Fragment
@@ -457,11 +457,11 @@ public class a extends d {
         this.j = z;
         if (!this.h) {
             if (z) {
-                if (this.nht != null) {
-                    this.nht.resumeTimers();
+                if (this.mEa != null) {
+                    this.mEa.resumeTimers();
                 }
-            } else if (this.nht != null) {
-                this.nht.pauseTimers();
+            } else if (this.mEa != null) {
+                this.mEa.pauseTimers();
             }
         }
     }

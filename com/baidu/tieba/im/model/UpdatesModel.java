@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.model;
 
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.live.tbadk.core.util.TbEnum;
@@ -30,7 +31,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    return d.bUF().m(linkedList);
+                    return d.cfg().m(linkedList);
                 }
             }, lVar);
         }
@@ -43,7 +44,7 @@ public class UpdatesModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.ab
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.bUF().CT(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.cfg().EB(UpdatesItemData.this.getNotice_id()));
                 }
             }, lVar);
         }
@@ -55,7 +56,7 @@ public class UpdatesModel {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.ab
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.bUF().cR(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.cfg().dc(UpdatesModel.this.dataToDelete));
             }
         }, lVar);
     }
@@ -113,7 +114,7 @@ public class UpdatesModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.bUF().a(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.cfg().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, lVar);
     }

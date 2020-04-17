@@ -20,14 +20,14 @@ public final class j {
                     aVar.w(stringBuffer2.toString());
                 }
                 try {
-                    aVar.x(m.cYe().I());
+                    aVar.x(m.dln().I());
                     aVar.u(String.valueOf(System.currentTimeMillis()));
                     aVar.t(str2);
                     aVar.s(str3 == null ? "" : str3);
                     new com.baidu.ubs.analytics.a.b().a(aVar);
                 } catch (Exception e) {
                     if (e.getMessage() != null) {
-                        com.baidu.ubs.analytics.d.b.Lt(e.getMessage());
+                        com.baidu.ubs.analytics.d.b.I(e.getMessage());
                     }
                 }
             }

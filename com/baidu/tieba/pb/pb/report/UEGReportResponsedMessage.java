@@ -18,7 +18,7 @@ public class UEGReportResponsedMessage extends TbHttpResponsedMessage {
         String parseToString = parseToString(bArr);
         if (!TextUtils.isEmpty(parseToString)) {
             JSONObject jSONObject = new JSONObject(parseToString);
-            setError(jSONObject.optInt("errno", -1));
+            setError(jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1));
             setErrorString(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {

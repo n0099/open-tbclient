@@ -1,6 +1,8 @@
 package com.kascend.chushou.toolkit.a;
 
 import android.content.Context;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.searchbox.suspensionball.SuspensionBallEntity;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.tencent.connect.common.Constants;
@@ -19,7 +21,7 @@ public class c {
         HashMap hashMap = new HashMap();
         if (objArr != null && objArr.length > 0) {
             int length = objArr.length;
-            if (length % 2 != 0 && tv.chushou.basis.d.b.dQt()) {
+            if (length % 2 != 0 && tv.chushou.basis.d.b.Lr()) {
                 throw new IllegalArgumentException("Supplied arguments must be even");
             }
             for (int i = 0; i < length; i += 2) {
@@ -30,7 +32,7 @@ public class c {
                 }
             }
         }
-        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.dQw().S(tv.chushou.basis.d.a.b.a.class);
+        tv.chushou.basis.d.a.b.a aVar = (tv.chushou.basis.d.a.b.a) tv.chushou.basis.d.b.dJv().S(tv.chushou.basis.d.a.b.a.class);
         if (aVar != null) {
             aVar.a(context, str, str2, hashMap);
         }
@@ -112,13 +114,13 @@ public class c {
                         break;
                     }
                     break;
-                case 1600:
+                case FeatureCodes.ADVANCE_BEAUTY /* 1600 */:
                     if (optString4.equals(Constants.VIA_REPORT_TYPE_DATALINE)) {
                         c = 18;
                         break;
                     }
                     break;
-                case 1601:
+                case ARPMessageType.MSG_TYPE_SHARE /* 1601 */:
                     if (optString4.equals(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR)) {
                         c = 17;
                         break;
@@ -341,7 +343,7 @@ public class c {
                         break;
                     }
                     break;
-                case 1600:
+                case FeatureCodes.ADVANCE_BEAUTY /* 1600 */:
                     if (optString3.equals(Constants.VIA_REPORT_TYPE_DATALINE)) {
                         c = 11;
                         break;
@@ -450,11 +452,11 @@ public class c {
         a(context, "点击解码设置", str, objArr);
     }
 
-    public static void d(Context context, boolean z, boolean z2) {
+    public static void c(Context context, boolean z, boolean z2) {
         a(context, "点击弹幕开关", z ? "竖屏" : "横屏", "是否关弹幕", Boolean.valueOf(z2));
     }
 
-    public static void e(Context context, boolean z, boolean z2) {
+    public static void d(Context context, boolean z, boolean z2) {
         String str = z ? "视频" : "直播";
         Object[] objArr = new Object[2];
         objArr[0] = "当前屏幕方向";
@@ -462,7 +464,7 @@ public class c {
         a(context, "点击重新加载", str, objArr);
     }
 
-    public static void f(Context context, boolean z, boolean z2) {
+    public static void e(Context context, boolean z, boolean z2) {
         String str = z ? "视频" : "直播";
         Object[] objArr = new Object[2];
         objArr[0] = "当前屏幕方向";

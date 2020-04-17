@@ -6,6 +6,7 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,10 +29,10 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     private final List<View> e;
     private ViewPager f;
     private int g;
-    private b nbo;
-    private com.kascend.chushou.player.ui.h5.d.a nbp;
-    private com.kascend.chushou.player.ui.h5.a.a nbq;
-    private final c nbr;
+    private b mxM;
+    private com.kascend.chushou.player.ui.h5.d.a mxN;
+    private com.kascend.chushou.player.ui.h5.a.a mxO;
+    private final c mxP;
 
     public InteractNotifier(Context context) {
         this(context, null);
@@ -47,7 +48,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.g = 0;
-        this.nbr = new c(this);
+        this.mxP = new c(this);
         this.a = context;
         LayoutInflater.from(context).inflate(a.h.widget_interact_notifier, (ViewGroup) this, true);
         this.f = (ViewPager) findViewById(a.f.interact_notifier_viewpager);
@@ -58,9 +59,9 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     }
 
     public void a(b bVar, com.kascend.chushou.player.ui.h5.d.a aVar, com.kascend.chushou.player.ui.h5.a.a aVar2) {
-        this.nbo = bVar;
-        this.nbp = aVar;
-        this.nbq = aVar2;
+        this.mxM = bVar;
+        this.mxN = aVar;
+        this.mxO = aVar2;
         d();
     }
 
@@ -128,11 +129,11 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
     public void b() {
         this.c.clear();
         this.f.setAdapter(new a());
-        this.nbr.cq(null);
+        this.mxP.bZ(null);
     }
 
     public void c() {
-        this.nbr.cq(null);
+        this.mxP.bZ(null);
     }
 
     @Override // android.os.Handler.Callback
@@ -140,7 +141,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         switch (message.what) {
             case 1:
                 this.f.setCurrentItem(this.g + 1);
-                this.nbr.K(1, 3000L);
+                this.mxP.A(1, 3000L);
                 break;
         }
         return true;
@@ -172,17 +173,17 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
 
     private void d() {
         ArrayList arrayList = new ArrayList();
-        if ((this.nbo != null ? this.nbo.dEB() : null) != null) {
+        if ((this.mxM != null ? this.mxM.dyB() : null) != null) {
             arrayList.add(1);
         }
-        if ((this.nbp != null ? this.nbp.dEB() : null) != null) {
+        if ((this.mxN != null ? this.mxN.dyB() : null) != null) {
             arrayList.add(0);
         }
-        List<com.kascend.chushou.player.ui.h5.c.b> c = this.nbq != null ? this.nbq.c() : null;
+        List<com.kascend.chushou.player.ui.h5.c.b> c = this.mxO != null ? this.mxO.c() : null;
         if (!h.isEmpty(c)) {
             arrayList.addAll(c);
         }
-        this.nbr.removeMessages(1);
+        this.mxP.removeMessages(1);
         this.c.clear();
         this.c.addAll(arrayList);
         this.f.setAdapter(new a());
@@ -209,7 +210,7 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
         }
         if (this.c.size() > 1) {
             this.b.setVisibility(0);
-            this.nbr.K(1, 3000L);
+            this.mxP.A(1, 3000L);
             return;
         }
         this.b.setVisibility(8);
@@ -227,7 +228,10 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return InteractNotifier.this.c.size() == 0 ? 0 : Integer.MAX_VALUE;
+            if (InteractNotifier.this.c.size() == 0) {
+                return 0;
+            }
+            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }
 
         @Override // android.support.v4.view.PagerAdapter
@@ -244,12 +248,12 @@ public class InteractNotifier extends RelativeLayout implements Handler.Callback
                 switch (((Integer) obj).intValue()) {
                     case 0:
                         com.kascend.chushou.player.ui.h5.b.c cVar2 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.a);
-                        cVar2.a(InteractNotifier.this.nbp);
+                        cVar2.a(InteractNotifier.this.mxN);
                         cVar = cVar2;
                         break;
                     case 1:
                         com.kascend.chushou.player.ui.h5.b.c cVar3 = new com.kascend.chushou.player.ui.h5.b.c(InteractNotifier.this.a);
-                        cVar3.a(InteractNotifier.this.nbo);
+                        cVar3.a(InteractNotifier.this.mxM);
                         cVar = cVar3;
                         break;
                     default:

@@ -32,22 +32,22 @@ public class dw extends dx {
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo155a() {
+    public int mo160a() {
         return 12;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hi mo155a() {
+    public hi mo160a() {
         return hi.BroadcastAction;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo155a() {
+    public String mo160a() {
         String str = "";
         if (!TextUtils.isEmpty(a)) {
-            str = "" + a(dq.f243a, a);
+            str = "" + a(dq.f244a, a);
             a = "";
         }
         if (TextUtils.isEmpty(b)) {

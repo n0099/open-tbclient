@@ -10,36 +10,36 @@ import master.flame.danmaku.danmaku.model.android.b;
 import master.flame.danmaku.danmaku.model.j;
 /* loaded from: classes5.dex */
 public class DanmakuContext {
-    public master.flame.danmaku.danmaku.model.a nJn;
-    private List<WeakReference<a>> nJs;
-    private b nJv;
-    private boolean nJw;
-    private boolean nJx;
-    public Typeface nJd = null;
-    public int nIY = master.flame.danmaku.danmaku.model.c.MAX;
-    public float nIZ = 1.0f;
-    public int fFT = 0;
-    public boolean nJe = true;
-    public boolean nJf = true;
-    public boolean nJg = true;
-    public boolean nJh = true;
-    public boolean nJi = true;
-    List<Integer> nGp = new ArrayList();
-    public int nJj = -1;
-    public float nJk = 1.0f;
-    public int nJl = 15;
-    public BorderType nJm = BorderType.SHADOW;
-    public int nJo = 3;
-    List<Integer> nJp = new ArrayList();
-    List<Integer> nJq = new ArrayList();
-    List<String> nJr = new ArrayList();
-    private boolean nJt = false;
-    private boolean nIe = false;
-    private boolean nJu = false;
-    private final master.flame.danmaku.danmaku.model.b nJy = new master.flame.danmaku.danmaku.model.android.a();
-    public final j nJz = new j();
-    public final master.flame.danmaku.a.b nJA = new master.flame.danmaku.a.b();
-    public final c nJB = c.dMX();
+    public master.flame.danmaku.danmaku.model.a ncQ;
+    private List<WeakReference<a>> ncV;
+    private b ncY;
+    private boolean ncZ;
+    private boolean nda;
+    public Typeface ncG = null;
+    public int ncB = master.flame.danmaku.danmaku.model.c.MAX;
+    public float ncC = 1.0f;
+    public int gky = 0;
+    public boolean ncH = true;
+    public boolean ncI = true;
+    public boolean ncJ = true;
+    public boolean ncK = true;
+    public boolean ncL = true;
+    List<Integer> mZP = new ArrayList();
+    public int ncM = -1;
+    public float ncN = 1.0f;
+    public int ncO = 15;
+    public BorderType ncP = BorderType.SHADOW;
+    public int ncR = 3;
+    List<Integer> ncS = new ArrayList();
+    List<Integer> ncT = new ArrayList();
+    List<String> ncU = new ArrayList();
+    private boolean ncW = false;
+    private boolean nbG = false;
+    private boolean ncX = false;
+    private final master.flame.danmaku.danmaku.model.b ndb = new master.flame.danmaku.danmaku.model.android.a();
+    public final j ndc = new j();
+    public final master.flame.danmaku.a.b ndd = new master.flame.danmaku.a.b();
+    public final c nde = c.dFX();
 
     /* loaded from: classes5.dex */
     public enum BorderType {
@@ -53,7 +53,7 @@ public class DanmakuContext {
         boolean a(DanmakuContext danmakuContext, DanmakuConfigTag danmakuConfigTag, Object... objArr);
     }
 
-    public static DanmakuContext dMQ() {
+    public static DanmakuContext dFQ() {
         return new DanmakuContext();
     }
 
@@ -86,88 +86,88 @@ public class DanmakuContext {
         }
     }
 
-    public master.flame.danmaku.danmaku.model.b dMR() {
-        return this.nJy;
+    public master.flame.danmaku.danmaku.model.b dFR() {
+        return this.ndb;
     }
 
     private <T> void a(String str, T t, boolean z) {
-        this.nJA.aR(str, z).setData(t);
+        this.ndd.aN(str, z).setData(t);
     }
 
-    public DanmakuContext j(int i, float... fArr) {
-        this.nJy.i(i, fArr);
+    public DanmakuContext c(int i, float... fArr) {
+        this.ndb.b(i, fArr);
         a(DanmakuConfigTag.DANMAKU_STYLE, Integer.valueOf(i), fArr);
         return this;
     }
 
-    public DanmakuContext wW(boolean z) {
-        if (this.nIe != z) {
-            this.nIe = z;
-            this.nJz.dMx();
+    public DanmakuContext wB(boolean z) {
+        if (this.nbG != z) {
+            this.nbG = z;
+            this.ndc.dFx();
             a(DanmakuConfigTag.DUPLICATE_MERGING_ENABLED, Boolean.valueOf(z));
         }
         return this;
     }
 
-    public boolean dMS() {
-        return this.nIe;
+    public boolean dFS() {
+        return this.nbG;
     }
 
-    public boolean dMT() {
-        return this.nJu;
+    public boolean dFT() {
+        return this.ncX;
     }
 
-    public DanmakuContext F(Map<Integer, Boolean> map) {
-        this.nJx = map != null;
+    public DanmakuContext D(Map<Integer, Boolean> map) {
+        this.nda = map != null;
         if (map == null) {
-            this.nJA.aT("1019_Filter", false);
+            this.ndd.aP("1019_Filter", false);
         } else {
             a("1019_Filter", map, false);
         }
-        this.nJz.dMx();
+        this.ndc.dFx();
         a(DanmakuConfigTag.OVERLAPPING_ENABLE, map);
         return this;
     }
 
-    public boolean dMU() {
-        return this.nJw;
+    public boolean dFU() {
+        return this.ncZ;
     }
 
-    public boolean dMV() {
-        return this.nJx;
+    public boolean dFV() {
+        return this.nda;
     }
 
     public DanmakuContext a(b bVar, b.a aVar) {
-        this.nJv = bVar;
-        if (this.nJv != null) {
-            this.nJv.a(aVar);
-            this.nJy.a(this.nJv);
+        this.ncY = bVar;
+        if (this.ncY != null) {
+            this.ncY.a(aVar);
+            this.ndb.a(this.ncY);
         }
         return this;
     }
 
     public void a(a aVar) {
-        if (aVar == null || this.nJs == null) {
-            this.nJs = Collections.synchronizedList(new ArrayList());
+        if (aVar == null || this.ncV == null) {
+            this.ncV = Collections.synchronizedList(new ArrayList());
         }
-        for (WeakReference<a> weakReference : this.nJs) {
+        for (WeakReference<a> weakReference : this.ncV) {
             if (aVar.equals(weakReference.get())) {
                 return;
             }
         }
-        this.nJs.add(new WeakReference<>(aVar));
+        this.ncV.add(new WeakReference<>(aVar));
     }
 
-    public void dMW() {
-        if (this.nJs != null) {
-            this.nJs.clear();
-            this.nJs = null;
+    public void dFW() {
+        if (this.ncV != null) {
+            this.ncV.clear();
+            this.ncV = null;
         }
     }
 
     private void a(DanmakuConfigTag danmakuConfigTag, Object... objArr) {
-        if (this.nJs != null) {
-            for (WeakReference<a> weakReference : this.nJs) {
+        if (this.ncV != null) {
+            for (WeakReference<a> weakReference : this.ncV) {
                 a aVar = weakReference.get();
                 if (aVar != null) {
                     aVar.a(this, danmakuConfigTag, objArr);

@@ -1,6 +1,5 @@
 package okhttp3.internal;
 
-import com.google.android.exoplayer2.Format;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -155,21 +154,21 @@ public final class Util {
             while (source.read(buffer, 8192L) != -1) {
                 buffer.clear();
             }
-            if (deadlineNanoTime == Format.OFFSET_SAMPLE_RELATIVE) {
+            if (deadlineNanoTime == Long.MAX_VALUE) {
                 source.timeout().clearDeadline();
             } else {
                 source.timeout().deadlineNanoTime(deadlineNanoTime + nanoTime);
             }
             return true;
         } catch (InterruptedIOException e) {
-            if (deadlineNanoTime == Format.OFFSET_SAMPLE_RELATIVE) {
+            if (deadlineNanoTime == Long.MAX_VALUE) {
                 source.timeout().clearDeadline();
             } else {
                 source.timeout().deadlineNanoTime(deadlineNanoTime + nanoTime);
             }
             return false;
         } catch (Throwable th) {
-            if (deadlineNanoTime == Format.OFFSET_SAMPLE_RELATIVE) {
+            if (deadlineNanoTime == Long.MAX_VALUE) {
                 source.timeout().clearDeadline();
             } else {
                 source.timeout().deadlineNanoTime(deadlineNanoTime + nanoTime);

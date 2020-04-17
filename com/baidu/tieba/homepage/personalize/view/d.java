@@ -4,31 +4,31 @@ import android.content.Context;
 import com.baidu.card.x;
 /* loaded from: classes9.dex */
 public class d extends x {
-    private f hho;
+    private f hQY;
 
     public d(Context context) {
         super(context);
     }
 
     @Override // com.baidu.card.x, com.baidu.card.al
-    protected com.baidu.tieba.play.operableVideoView.a mZ() {
-        this.hho = new f(this.mContext, this.MN);
-        return this.hho;
+    protected com.baidu.tieba.play.operableVideoView.a rr() {
+        this.hQY = new f(this.mContext, this.afy);
+        return this.hQY;
     }
 
     @Override // com.baidu.card.al
     public void onPause() {
         super.onPause();
-        if (this.hho != null) {
-            this.hho.onPause();
+        if (this.hQY != null) {
+            this.hQY.onPause();
         }
     }
 
     @Override // com.baidu.card.al
     public void onResume() {
         super.onResume();
-        if (this.hho != null) {
-            this.hho.onResume();
+        if (this.hQY != null) {
+            this.hQY.onResume();
         }
     }
 }

@@ -6,22 +6,22 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 final class m {
-    private static volatile m HX;
+    private static volatile m abf;
     private final Executor b = new ThreadPoolExecutor(5, 25, 20, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
 
     private m() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static m ml() {
-        if (HX == null) {
+    public static m qN() {
+        if (abf == null) {
             synchronized (m.class) {
-                if (HX == null) {
-                    HX = new m();
+                if (abf == null) {
+                    abf = new m();
                 }
             }
         }
-        return HX;
+        return abf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

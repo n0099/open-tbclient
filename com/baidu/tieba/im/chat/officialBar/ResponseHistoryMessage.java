@@ -2,6 +2,7 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import com.baidu.adp.lib.cache.l;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -60,10 +61,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             }
         }
         if (!this.msg.isEmpty()) {
-            l<byte[]> sP = com.baidu.tbadk.core.c.a.aEF().sP("tb.im_official_history");
+            l<byte[]> uc = com.baidu.tbadk.core.c.a.aMT().uc("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
-                sP.setForever(TbadkApplication.getCurrentAccount() + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);
+                uc.setForever(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + String.valueOf(requestHistoryMessage.getFid()), bArr);
             }
         }
     }

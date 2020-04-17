@@ -50,7 +50,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
                 while (it.hasNext()) {
                     Map.Entry<Uri, a> next = it.next();
                     if (next != null && next.getValue() != null && it.hasNext()) {
-                        next.getValue().aWH();
+                        next.getValue().beN();
                         it.remove();
                     }
                 }
@@ -62,7 +62,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
     public void addPlayer(IMediaPlayer iMediaPlayer, Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
             if (this.mPlayerList.containsKey(uri) && this.mPlayerList.get(uri) != null) {
-                this.mPlayerList.get(uri).aWH();
+                this.mPlayerList.get(uri).beN();
             }
             this.mPlayerList.put(uri, new a(iMediaPlayer));
         }
@@ -73,18 +73,16 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         synchronized (QuickMediaPlayerService.class) {
             a aVar = this.mPlayerList.get(uri);
             if (aVar != null) {
-                aVar.aWH();
+                aVar.beN();
                 this.mPlayerList.remove(uri);
             }
         }
     }
 
-    @Override // com.baidu.tieba.QuickPlayer.a
     public IMediaPlayer getPlayer(Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
-            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).dVD != null) {
-                this.mPlayerList.get(uri).count++;
-                return this.mPlayerList.get(uri).dVD;
+            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).evC != null) {
+                return this.mPlayerList.get(uri).evC;
             }
             return null;
         }
@@ -108,8 +106,8 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         ArrayList arrayList = new ArrayList();
         synchronized (QuickMediaPlayerService.class) {
             for (Map.Entry<Uri, a> entry : this.mPlayerList.entrySet()) {
-                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().dVD != null) {
-                    arrayList.add(entry.getValue().dVD.generateMediaID());
+                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().evC != null) {
+                    arrayList.add(entry.getValue().evC.generateMediaID());
                 }
             }
         }
@@ -130,7 +128,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
             boolean z = size() > 3;
             V value = entry.getValue();
             if (z && (value instanceof a)) {
-                ((a) value).aWH();
+                ((a) value).beN();
             }
             return z;
         }
@@ -138,24 +136,23 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
 
     /* loaded from: classes13.dex */
     class a {
-        public int count = 1;
-        public IMediaPlayer dVD;
+        public IMediaPlayer evC;
 
         public a(IMediaPlayer iMediaPlayer) {
-            this.dVD = iMediaPlayer;
+            this.evC = iMediaPlayer;
         }
 
         public boolean equals(Object obj) {
-            return (obj instanceof a) && this.dVD == ((a) obj).dVD;
+            return (obj instanceof a) && this.evC == ((a) obj).evC;
         }
 
-        public void aWH() {
-            if (this.dVD != null) {
+        public void beN() {
+            if (this.evC != null) {
                 try {
-                    this.dVD.reset();
+                    this.evC.reset();
                 } catch (Throwable th) {
                 }
-                this.dVD.release();
+                this.evC.release();
             }
         }
     }

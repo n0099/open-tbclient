@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.sapi2.dto.FaceBaseDTO;
-import com.baidu.searchbox.picture.params.LaunchParams;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -34,11 +33,11 @@ public class o extends ab {
             Log.i("OpenAppAction", "params is " + b.toString());
         }
         final String optString2 = b.optString("open");
-        eVar.acS().d("scope_open_app", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
+        eVar.akX().d("scope_open_app", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.apps.scheme.actions.o.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: c */
-            public void D(com.baidu.swan.apps.setting.oauth.e eVar2) {
+            public void E(com.baidu.swan.apps.setting.oauth.e eVar2) {
                 if (eVar2 == null || eVar2.forbidden) {
                     if (ab.DEBUG) {
                         Log.i("OpenAppAction", "no configuration of authority");
@@ -60,21 +59,21 @@ public class o extends ab {
         if (eVar == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        if (com.baidu.swan.apps.runtime.e.acI() == null && com.baidu.swan.apps.runtime.e.acI().GJ() == null) {
+        if (com.baidu.swan.apps.runtime.e.akN() == null && com.baidu.swan.apps.runtime.e.akN().Ow() == null) {
             return false;
         }
-        String VM = com.baidu.swan.apps.runtime.e.acI().GJ().VM();
-        if (TextUtils.isEmpty(VM)) {
-            VM = "NA";
+        String adB = com.baidu.swan.apps.runtime.e.akN().Ow().adB();
+        if (TextUtils.isEmpty(adB)) {
+            adB = "NA";
         }
-        JSONObject jSONObject = eVar.bTG;
+        JSONObject jSONObject = eVar.csv;
         if (jSONObject == null || jSONObject.keys() == null) {
             return false;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray(FaceBaseDTO.KEY_BUSINESS_SCENE);
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         for (int i = 0; i < length; i++) {
-            if (VM.equals(optJSONArray.optString(i))) {
+            if (adB.equals(optJSONArray.optString(i))) {
                 return true;
             }
         }
@@ -90,7 +89,7 @@ public class o extends ab {
             int optInt = optJSONObject.optInt("launch_count", -1);
             int optInt2 = optJSONObject.optInt("daily_duration", -1);
             if (optInt >= 0 || optInt2 >= 0) {
-                return ah.ahb() >= optInt || ah.ahc() >= ((long) (optInt2 * 60000));
+                return ah.apj() >= optInt || ah.apk() >= ((long) (optInt2 * 60000));
             }
             return false;
         }
@@ -112,7 +111,7 @@ public class o extends ab {
             }
             return;
         }
-        boolean ar = !a ? ai.ar(context, jSONObject.optString(LaunchParams.SRC_TYPE_DOWNLOAD)) : false;
-        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(ar ? 0 : 1001, ar ? "下载APP成功" : "下载APP失败").toString());
+        boolean al = !a ? ai.al(context, jSONObject.optString("download")) : false;
+        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(al ? 0 : 1001, al ? "下载APP成功" : "下载APP失败").toString());
     }
 }

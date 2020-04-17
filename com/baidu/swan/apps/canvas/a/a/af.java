@@ -4,17 +4,17 @@ import android.graphics.Canvas;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class af extends a {
-    private ak bgL;
+    private ak bEW;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
-        this.bgL = new ak(jSONArray);
+        this.bEW = new ak(jSONArray);
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.bgL != null && this.bgL.isValid()) {
-            bVar.bgL = this.bgL;
+        if (this.bEW != null && this.bEW.isValid()) {
+            bVar.bEW = this.bEW;
         }
     }
 }

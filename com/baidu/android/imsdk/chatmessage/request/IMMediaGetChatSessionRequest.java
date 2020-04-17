@@ -1,6 +1,7 @@
 package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
@@ -19,6 +20,9 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     private static final int MAX_FETCH_COUNT = 20;
     private static final String TAG = "IMMediaGetChatSessionRequest";
     private long mContacter;
+    private long mContactorPauid;
+    private String mContactorThirdid;
+    private int mContactorType;
     private int mCount;
     private long mEndTime;
     private String mKey;
@@ -39,6 +43,8 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
     }
 
     public IMMediaGetChatSessionRequest(Context context, long j, int i, long j2, String str) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
         this.mContext = context;
         this.mContacter = j;
         this.mCount = i;
@@ -46,16 +52,38 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         this.mKey = str;
     }
 
+    public IMMediaGetChatSessionRequest(Context context, long j, int i, long j2, String str, int i2, long j3, String str2) {
+        this.mContactorType = -1;
+        this.mContactorPauid = -1L;
+        this.mContext = context;
+        this.mContacter = j;
+        this.mCount = i2;
+        this.mEndTime = j3;
+        this.mKey = str2;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
+        this.mContactorThirdid = str;
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         JSONObject jSONObject = new JSONObject();
         try {
             putCommonParams(jSONObject);
-            if (this.mContacter != 0) {
+            if (this.mContacter > 0) {
                 jSONObject.put("contacter", Utility.transBDUID(String.valueOf(this.mContacter)));
             }
-            if (this.mEndTime != 0) {
+            if (this.mEndTime > 0) {
                 jSONObject.put("end_time", this.mEndTime);
+            }
+            if (this.mContactorType >= 0) {
+                jSONObject.put("contacter_type", this.mContactorType);
+            }
+            if (this.mContactorPauid > 0) {
+                jSONObject.put("contacter_pa_uid", this.mContactorPauid);
+            }
+            if (!TextUtils.isEmpty(this.mContactorThirdid)) {
+                jSONObject.put("contacter_third_id", this.mContactorThirdid);
             }
             jSONObject.put("count", this.mCount <= 20 ? this.mCount : 20);
             jSONObject.put("sign", generateSign(jSONObject));
@@ -65,8 +93,8 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         return jSONObject.toString().getBytes();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x011f  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x013e  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0135  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0154  */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -114,12 +142,17 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                                 }
                                 int optInt5 = jSONObject2.optInt("unread_num");
                                 long optLong2 = jSONObject2.optLong("last_time");
-                                ChatSession chatSession = new ChatSession(0, jSONObject2.optLong("contacter_im_uk"), j, "");
+                                long optLong3 = jSONObject2.optLong("contacter_im_uk");
+                                int optInt6 = jSONObject2.optInt("is_top", 0);
+                                ChatSession chatSession = new ChatSession(0, optLong3, j, "");
                                 chatSession.setNewMsgSum(optInt5);
                                 chatSession.setLastMsgTime(optLong2);
                                 chatSession.setLastOpenTime(optLong2);
                                 chatSession.setLastMsg(str);
+                                chatSession.setMarkTop(optInt6);
+                                chatSession.setMarkTopTime(optLong2);
                                 chatSession.setSessionFrom(1);
+                                chatSession.setIsClicked(1);
                                 if (optLong != 0) {
                                     chatSession.setPaid(optLong);
                                     hashMap.put(Long.valueOf(optLong), chatSession);

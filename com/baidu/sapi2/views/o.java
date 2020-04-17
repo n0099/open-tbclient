@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.utils.SapiUtils;
 /* loaded from: classes6.dex */
 public class o extends Dialog {

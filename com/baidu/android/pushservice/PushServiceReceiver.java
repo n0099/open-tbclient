@@ -12,7 +12,6 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.i.k;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.xiaomi.mipush.sdk.Constants;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
 /* loaded from: classes8.dex */
@@ -96,7 +95,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent.setAction("com.baidu.android.pushservice.action.privatenotification.CLICK");
         intent.setData(Uri.parse("content://" + publicMsg.mMsgId));
         intent.putExtra("public_msg", publicMsg);
-        intent.putExtra(Constants.APP_ID, publicMsg.mAppId);
+        intent.putExtra("app_id", publicMsg.mAppId);
         intent.putExtra("msg_id", publicMsg.mMsgId);
         intent.putExtra("baidu_message_secur_info", bArr);
         intent.putExtra("baidu_message_body", bArr2);
@@ -106,7 +105,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         intent2.setAction("com.baidu.android.pushservice.action.privatenotification.DELETE");
         intent2.setData(Uri.parse("content://" + publicMsg.mMsgId));
         intent2.putExtra("public_msg", publicMsg);
-        intent2.putExtra(Constants.APP_ID, publicMsg.mAppId);
+        intent2.putExtra("app_id", publicMsg.mAppId);
         intent2.putExtra("msg_id", publicMsg.mMsgId);
         PendingIntent service2 = PendingIntent.getService(context, 0, intent2, 0);
         boolean q = l.q(context, publicMsg.mPkgName);
@@ -132,7 +131,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     final String stringExtra = intent.getStringExtra("pushService_package_name");
                     final String stringExtra2 = intent.getStringExtra("service_name");
                     final String stringExtra3 = intent.getStringExtra("notify_type");
-                    final String stringExtra4 = intent.getStringExtra(Constants.APP_ID);
+                    final String stringExtra4 = intent.getStringExtra("app_id");
                     final byte[] byteArrayExtra = intent.getByteArrayExtra("baidu_message_body");
                     final byte[] byteArrayExtra2 = intent.getByteArrayExtra("baidu_message_secur_info");
                     int intExtra = intent.getIntExtra("baidu_message_type", -1);

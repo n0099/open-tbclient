@@ -1,14 +1,15 @@
 package com.baidu.tieba.ala.guardclub.model;
 
 import android.text.TextUtils;
+import com.baidu.ar.gesture.GestureAR;
 import com.baidu.live.tbadk.encryption.EncryptionHelper;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class k {
-    public String adM;
     public String avatar;
-    public String eHP;
-    public boolean eHQ;
+    public String awd;
+    public String fmg;
+    public boolean fmh;
     public String id;
     public int level;
     public String liveId;
@@ -16,23 +17,23 @@ public class k {
     public String name;
     public String score;
 
-    public k cw(JSONObject jSONObject) {
+    public k cH(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
         this.id = jSONObject.optString("id");
         String optString = jSONObject.optString("anchor_id");
         if (!TextUtils.isEmpty(optString)) {
-            this.adM = EncryptionHelper.getDecryptUserId(optString);
+            this.awd = EncryptionHelper.getDecryptUserId(optString);
         }
         this.name = jSONObject.optString("regiment_name");
-        this.score = jSONObject.optString("score");
-        this.eHP = jSONObject.optString("week_score");
+        this.score = jSONObject.optString(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
+        this.fmg = jSONObject.optString("week_score");
         this.avatar = jSONObject.optString("guard_club_portrait");
         this.level = jSONObject.optInt("guard_level");
         this.liveStatus = jSONObject.optInt("live_status");
         this.liveId = jSONObject.optString("live_id");
-        this.eHQ = jSONObject.optInt("is_join") == 1;
+        this.fmh = jSONObject.optInt("is_join") == 1;
         return this;
     }
 }

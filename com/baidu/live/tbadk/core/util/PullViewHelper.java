@@ -317,7 +317,7 @@ public class PullViewHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     public File getZipFile() {
-        File file = new File(TbadkCoreApplication.getInst().getFilesDir(), PULL_FILE_DIR + File.separator + "download");
+        File file = new File(TbadkCoreApplication.getInst().getFilesDir(), PULL_FILE_DIR + File.separator + ZIP_DIR);
         createFileDir(file);
         if (file.exists() && file.isDirectory()) {
             return new File(file, ZIP_FILE_NAME);

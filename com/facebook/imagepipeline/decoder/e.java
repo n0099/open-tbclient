@@ -6,120 +6,120 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes12.dex */
 public class e {
-    private final com.facebook.common.memory.a lKw;
-    private boolean lVD;
-    private int lVz = 0;
-    private int lVy = 0;
-    private int lVA = 0;
-    private int lVC = 0;
-    private int lVB = 0;
-    private int lVx = 0;
+    private final com.facebook.common.memory.a lRQ;
+    private boolean mdo;
+    private int mdk = 0;
+    private int mdj = 0;
+    private int mdl = 0;
+    private int mdn = 0;
+    private int mdm = 0;
+    private int mdi = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.lKw = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.lRQ = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.g.e eVar) {
-        if (this.lVx != 6 && eVar.getSize() > this.lVz) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lKw.get(16384), this.lKw);
+        if (this.mdi != 6 && eVar.getSize() > this.mdk) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(eVar.getInputStream(), this.lRQ.get(16384), this.lRQ);
             try {
-                com.facebook.common.util.c.a(fVar, this.lVz);
-                return w(fVar);
+                com.facebook.common.util.c.a(fVar, this.mdk);
+                return t(fVar);
             } catch (IOException e) {
-                l.t(e);
+                l.y(e);
                 return false;
             } finally {
-                com.facebook.common.internal.b.r(fVar);
+                com.facebook.common.internal.b.o(fVar);
             }
         }
         return false;
     }
 
-    private boolean w(InputStream inputStream) {
+    private boolean t(InputStream inputStream) {
         int read;
         boolean z = true;
-        int i = this.lVB;
-        while (this.lVx != 6 && (read = inputStream.read()) != -1) {
+        int i = this.mdm;
+        while (this.mdi != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.lVz++;
-                if (this.lVD) {
-                    this.lVx = 6;
-                    this.lVD = false;
+                this.mdk++;
+                if (this.mdo) {
+                    this.mdi = 6;
+                    this.mdo = false;
                     return false;
                 }
-                switch (this.lVx) {
+                switch (this.mdi) {
                     case 0:
                         if (read == 255) {
-                            this.lVx = 1;
+                            this.mdi = 1;
                             break;
                         } else {
-                            this.lVx = 6;
+                            this.mdi = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.lVx = 2;
+                            this.mdi = 2;
                             break;
                         } else {
-                            this.lVx = 6;
+                            this.mdi = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.lVx = 3;
+                            this.mdi = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.lVx = 3;
+                            this.mdi = 3;
                             break;
                         } else if (read == 0) {
-                            this.lVx = 2;
+                            this.mdi = 2;
                             break;
                         } else if (read == 217) {
-                            this.lVD = true;
-                            Iq(this.lVz - 2);
-                            this.lVx = 2;
+                            this.mdo = true;
+                            GS(this.mdk - 2);
+                            this.mdi = 2;
                             break;
                         } else {
                             if (read == 218) {
-                                Iq(this.lVz - 2);
+                                GS(this.mdk - 2);
                             }
-                            if (Ip(read)) {
-                                this.lVx = 4;
+                            if (GR(read)) {
+                                this.mdi = 4;
                                 break;
                             } else {
-                                this.lVx = 2;
+                                this.mdi = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.lVx = 5;
+                        this.mdi = 5;
                         break;
                     case 5:
-                        int i2 = ((this.lVy << 8) + read) - 2;
+                        int i2 = ((this.mdj << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.lVz = i2 + this.lVz;
-                        this.lVx = 2;
+                        this.mdk = i2 + this.mdk;
+                        this.mdi = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.lVy = read;
+                this.mdj = read;
             } catch (IOException e) {
-                l.t(e);
+                l.y(e);
             }
         }
-        if (this.lVx == 6 || this.lVB == i) {
+        if (this.mdi == 6 || this.mdm == i) {
             z = false;
         }
         return z;
     }
 
-    private static boolean Ip(int i) {
+    private static boolean GR(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -133,24 +133,24 @@ public class e {
         return false;
     }
 
-    private void Iq(int i) {
-        if (this.lVA > 0) {
-            this.lVC = i;
+    private void GS(int i) {
+        if (this.mdl > 0) {
+            this.mdn = i;
         }
-        int i2 = this.lVA;
-        this.lVA = i2 + 1;
-        this.lVB = i2;
+        int i2 = this.mdl;
+        this.mdl = i2 + 1;
+        this.mdm = i2;
     }
 
-    public int dqJ() {
-        return this.lVC;
+    public int dsH() {
+        return this.mdn;
     }
 
-    public int dqK() {
-        return this.lVB;
+    public int dsI() {
+        return this.mdm;
     }
 
-    public boolean dqL() {
-        return this.lVD;
+    public boolean dsJ() {
+        return this.mdo;
     }
 }

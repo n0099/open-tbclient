@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public abstract class a {
-    protected d bOI;
-    protected b.a bOJ;
-    private InterfaceC0278a bOK;
+    protected d cnu;
+    protected b.a cnv;
+    private InterfaceC0308a cnw;
     protected Context mContext;
     protected View.OnKeyListener mKeyClickListener;
     private View mMenu;
@@ -38,11 +38,11 @@ public abstract class a {
     };
     protected List<com.baidu.swan.apps.res.widget.a.b> mItems = new ArrayList();
     private int mPopupWindowWidth = -2;
-    private boolean mCurrentMode = com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState();
+    private boolean mCurrentMode = com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState();
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0278a {
+    public interface InterfaceC0308a {
         void onMenuItemUpdated(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 
@@ -68,7 +68,7 @@ public abstract class a {
     }
 
     public void a(b.a aVar) {
-        this.bOJ = aVar;
+        this.cnv = aVar;
     }
 
     public void setPopupWindowWidth(int i) {
@@ -84,29 +84,29 @@ public abstract class a {
                     if (bVar2.isAutoDismiss()) {
                         a.this.dismiss(bVar2.getDismissDelayTime());
                     }
-                    if (a.this.bOJ != null) {
-                        a.this.bOJ.c(bVar2);
+                    if (a.this.cnv != null) {
+                        a.this.cnv.c(bVar2);
                     }
                 }
             });
         } else {
-            bVar.b(this.bOJ);
+            bVar.b(this.cnv);
         }
         this.mItems.add(bVar);
         return bVar;
     }
 
-    public com.baidu.swan.apps.res.widget.a.b s(int i, int i2, int i3) {
+    public com.baidu.swan.apps.res.widget.a.b u(int i, int i2, int i3) {
         return a(i, this.mResources.getString(i2), this.mResources.getDrawable(i3));
     }
 
     public void show() {
-        if (com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState() != this.mCurrentMode) {
+        if (com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState() != this.mCurrentMode) {
             prepareMenuView(this.mContext);
             this.mPopupWindow = null;
         }
         showPopUpWindow(true);
-        this.mCurrentMode = com.baidu.swan.apps.w.a.Uv().getNightModeSwitcherState();
+        this.mCurrentMode = com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState();
     }
 
     public void dismiss() {
@@ -178,14 +178,14 @@ public abstract class a {
     }
 
     protected void updateMenuItems(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.bOK != null) {
-            this.bOK.onMenuItemUpdated(list);
+        if (this.cnw != null) {
+            this.cnw.onMenuItemUpdated(list);
         }
     }
 
     private void showPopUpWindow(boolean z) {
-        if (this.bOI != null) {
-            this.bOI.onShowMenu();
+        if (this.cnu != null) {
+            this.cnu.onShowMenu();
         }
         updateMenuItems(this.mItems);
         ensureMenuLoaded(this.mMenu, this.mItems);
@@ -207,15 +207,15 @@ public abstract class a {
                     if (a.this.mIsBackgroundDarken) {
                         a.this.clearBackgroundDarkenStatus();
                     }
-                    if (a.this.bOI != null) {
-                        a.this.bOI.onDismissMenu();
+                    if (a.this.cnu != null) {
+                        a.this.cnu.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.bOI != null) {
-                this.bOI.onDismissMenu();
+            if (this.cnu != null) {
+                this.cnu.onDismissMenu();
                 return;
             }
             return;

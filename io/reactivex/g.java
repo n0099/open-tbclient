@@ -18,7 +18,7 @@ public abstract class g<T> implements org.a.b<T> {
 
     protected abstract void a(org.a.c<? super T> cVar);
 
-    public static int dJD() {
+    public static int dCB() {
         return BUFFER_SIZE;
     }
 
@@ -28,12 +28,12 @@ public abstract class g<T> implements org.a.b<T> {
         return io.reactivex.e.a.a(new FlowableCreate(iVar, backpressureStrategy));
     }
 
-    public static <T> g<T> dJE() {
-        return io.reactivex.e.a.a(io.reactivex.internal.operators.flowable.e.nyN);
+    public static <T> g<T> dCC() {
+        return io.reactivex.e.a.a(io.reactivex.internal.operators.flowable.e.mSg);
     }
 
     public static g<Long> a(long j, long j2, TimeUnit timeUnit) {
-        return a(j, j2, timeUnit, io.reactivex.f.a.dKm());
+        return a(j, j2, timeUnit, io.reactivex.f.a.dDl());
     }
 
     public static g<Long> a(long j, long j2, TimeUnit timeUnit, v vVar) {
@@ -43,7 +43,7 @@ public abstract class g<T> implements org.a.b<T> {
     }
 
     public static g<Long> a(long j, long j2, long j3, long j4, TimeUnit timeUnit) {
-        return a(j, j2, j3, j4, timeUnit, io.reactivex.f.a.dKm());
+        return a(j, j2, j3, j4, timeUnit, io.reactivex.f.a.dDl());
     }
 
     public static g<Long> a(long j, long j2, long j3, long j4, TimeUnit timeUnit, v vVar) {
@@ -51,7 +51,7 @@ public abstract class g<T> implements org.a.b<T> {
             throw new IllegalArgumentException("count >= 0 required but it was " + j2);
         }
         if (j2 == 0) {
-            return dJE().a(j3, timeUnit, vVar);
+            return dCC().a(j3, timeUnit, vVar);
         }
         long j5 = j + (j2 - 1);
         if (j > 0 && j5 < 0) {
@@ -73,11 +73,11 @@ public abstract class g<T> implements org.a.b<T> {
     }
 
     public final g<T> a(io.reactivex.c.a aVar) {
-        return a(Functions.dJM(), Functions.nyb, aVar);
+        return a(Functions.dCL(), Functions.mRt, aVar);
     }
 
     public final g<T> b(io.reactivex.c.a aVar) {
-        return a(Functions.dJM(), Functions.dJM(), aVar, Functions.nxX);
+        return a(Functions.dCL(), Functions.dCL(), aVar, Functions.mRp);
     }
 
     private g<T> a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2, io.reactivex.c.a aVar, io.reactivex.c.a aVar2) {
@@ -96,7 +96,7 @@ public abstract class g<T> implements org.a.b<T> {
     }
 
     public final g<T> a(io.reactivex.c.g<? super org.a.d> gVar) {
-        return a(gVar, Functions.nyb, Functions.nxX);
+        return a(gVar, Functions.mRt, Functions.mRp);
     }
 
     public final <R> g<R> a(io.reactivex.c.h<? super T, ? extends R> hVar) {
@@ -105,12 +105,12 @@ public abstract class g<T> implements org.a.b<T> {
     }
 
     public final g<T> a(v vVar) {
-        return a(vVar, false, dJD());
+        return a(vVar, false, dCB());
     }
 
     public final g<T> a(v vVar, boolean z, int i) {
         io.reactivex.internal.functions.a.h(vVar, "scheduler is null");
-        io.reactivex.internal.functions.a.bj(i, "bufferSize");
+        io.reactivex.internal.functions.a.by(i, "bufferSize");
         return io.reactivex.e.a.a(new FlowableObserveOn(this, vVar, z, i));
     }
 
@@ -123,11 +123,11 @@ public abstract class g<T> implements org.a.b<T> {
     }
 
     public final io.reactivex.disposables.b b(io.reactivex.c.g<? super T> gVar) {
-        return a(gVar, Functions.nya, Functions.nxX, FlowableInternalHelper.RequestMax.INSTANCE);
+        return a(gVar, Functions.mRs, Functions.mRp, FlowableInternalHelper.RequestMax.INSTANCE);
     }
 
     public final io.reactivex.disposables.b a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2) {
-        return a(gVar, gVar2, Functions.nxX, FlowableInternalHelper.RequestMax.INSTANCE);
+        return a(gVar, gVar2, Functions.mRp, FlowableInternalHelper.RequestMax.INSTANCE);
     }
 
     public final io.reactivex.disposables.b a(io.reactivex.c.g<? super T> gVar, io.reactivex.c.g<? super Throwable> gVar2, io.reactivex.c.a aVar) {
@@ -163,7 +163,7 @@ public abstract class g<T> implements org.a.b<T> {
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             io.reactivex.e.a.onError(th);
             NullPointerException nullPointerException = new NullPointerException("Actually not, but can't throw other exceptions due to RS");
             nullPointerException.initCause(th);

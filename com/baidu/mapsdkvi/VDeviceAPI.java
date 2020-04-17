@@ -22,9 +22,7 @@ import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.sapi2.activity.SlideActiviy;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -60,7 +58,7 @@ public class VDeviceAPI {
             return null;
         }
         CellLocation cellLocation = telephonyManager.getCellLocation();
-        return cellLocation instanceof GsmCellLocation ? HanziToPinyin.Token.SEPARATOR + ((GsmCellLocation) cellLocation).getCid() : HanziToPinyin.Token.SEPARATOR;
+        return cellLocation instanceof GsmCellLocation ? " " + ((GsmCellLocation) cellLocation).getCid() : " ";
     }
 
     public static int getCurrentNetworkType() {
@@ -138,7 +136,7 @@ public class VDeviceAPI {
     }
 
     public static String getOsVersion() {
-        return PraiseDataPassUtil.KEY_FROM_OS;
+        return "android";
     }
 
     public static int getScreenBrightness() {

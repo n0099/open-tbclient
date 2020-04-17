@@ -16,23 +16,23 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.network.c.b.b
     @NonNull
-    public String Zn() {
+    public String getNodeName() {
         return "accredit";
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void av(JSONObject jSONObject) {
-        e acI;
+    public void aG(JSONObject jSONObject) {
+        e akN;
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onUpdate: ");
         }
-        if (jSONObject != null && (acI = e.acI()) != null) {
-            acI.acS().putString("node_data_accredit_list", jSONObject.toString());
+        if (jSONObject != null && (akN = e.akN()) != null) {
+            akN.akX().putString("node_data_accredit_list", jSONObject.toString());
         }
     }
 
     @Override // com.baidu.swan.apps.network.c.b.b
-    public void Zo() {
+    public void aht() {
         if (DEBUG) {
             Log.d("SwanAppAccreditNode", "onFiltered: ");
         }
@@ -46,17 +46,17 @@ public class a extends b {
     }
 
     public static void d(@NonNull final com.baidu.swan.apps.as.d.b<Map<String, com.baidu.swan.apps.setting.oauth.e>> bVar) {
-        com.baidu.swan.apps.network.c.a.Ze().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
+        com.baidu.swan.apps.network.c.a.ahk().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void Zi() {
-                Map<String, com.baidu.swan.apps.setting.oauth.e> Zq = a.Zq();
-                if (Zq.size() > 0) {
-                    com.baidu.swan.apps.as.d.b.this.D(Zq);
+            public void aho() {
+                Map<String, com.baidu.swan.apps.setting.oauth.e> ahv = a.ahv();
+                if (ahv.size() > 0) {
+                    com.baidu.swan.apps.as.d.b.this.E(ahv);
                 } else {
-                    com.baidu.swan.apps.network.c.a.Ze().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
+                    com.baidu.swan.apps.network.c.a.ahk().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.1.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void Zi() {
-                            com.baidu.swan.apps.as.d.b.this.D(a.Zq());
+                        public void aho() {
+                            com.baidu.swan.apps.as.d.b.this.E(a.ahv());
                         }
                     });
                 }
@@ -65,17 +65,17 @@ public class a extends b {
     }
 
     public static void a(final String str, @NonNull final com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.e> bVar) {
-        com.baidu.swan.apps.network.c.a.Ze().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
+        com.baidu.swan.apps.network.c.a.ahk().a(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2
             @Override // com.baidu.swan.apps.network.c.a.a
-            public void Zi() {
-                com.baidu.swan.apps.setting.oauth.e eVar = a.Zq().get(str);
+            public void aho() {
+                com.baidu.swan.apps.setting.oauth.e eVar = a.ahv().get(str);
                 if (eVar != null) {
-                    bVar.D(eVar);
+                    bVar.E(eVar);
                 } else {
-                    com.baidu.swan.apps.network.c.a.Ze().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
+                    com.baidu.swan.apps.network.c.a.ahk().b(new com.baidu.swan.apps.network.c.a.a() { // from class: com.baidu.swan.apps.network.c.b.a.2.1
                         @Override // com.baidu.swan.apps.network.c.a.a
-                        public void Zi() {
-                            bVar.D(a.Zq().get(str));
+                        public void aho() {
+                            bVar.E(a.ahv().get(str));
                         }
                     });
                 }
@@ -84,28 +84,28 @@ public class a extends b {
     }
 
     @Nullable
-    public static com.baidu.swan.apps.setting.oauth.e jH(String str) {
-        return Zq().get(str);
+    public static com.baidu.swan.apps.setting.oauth.e kU(String str) {
+        return ahv().get(str);
     }
 
-    public static void Zp() {
-        e acI = e.acI();
-        if (acI != null) {
-            com.baidu.swan.apps.network.c.a.Ze().a(new a());
-            acI.acS().putString("node_data_accredit_list", "");
-            com.baidu.swan.apps.network.c.a.Ze().update();
+    public static void ahu() {
+        e akN = e.akN();
+        if (akN != null) {
+            com.baidu.swan.apps.network.c.a.ahk().a(new a());
+            akN.akX().putString("node_data_accredit_list", "");
+            com.baidu.swan.apps.network.c.a.ahk().update();
         }
     }
 
     @NonNull
-    public static Map<String, com.baidu.swan.apps.setting.oauth.e> Zq() {
+    public static Map<String, com.baidu.swan.apps.setting.oauth.e> ahv() {
         JSONObject optJSONObject;
         ArrayMap arrayMap = new ArrayMap();
-        e acI = e.acI();
-        if (acI == null) {
+        e akN = e.akN();
+        if (akN == null) {
             return arrayMap;
         }
-        String string = acI.acS().getString("node_data_accredit_list", "");
+        String string = akN.akX().getString("node_data_accredit_list", "");
         if (TextUtils.isEmpty(string)) {
             return arrayMap;
         }
@@ -118,7 +118,7 @@ public class a extends b {
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next) && (optJSONObject = optJSONObject2.optJSONObject(next)) != null) {
-                    arrayMap.put(next, com.baidu.swan.apps.setting.oauth.e.h(next, optJSONObject));
+                    arrayMap.put(next, com.baidu.swan.apps.setting.oauth.e.i(next, optJSONObject));
                 }
             }
             return arrayMap;

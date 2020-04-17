@@ -14,12 +14,12 @@ import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes.dex */
 class i extends SSLSocketFactory {
+    private HttpsURLConnection Kr;
     private final String TAG = i.class.getSimpleName();
     HostnameVerifier hostnameVerifier = HttpsURLConnection.getDefaultHostnameVerifier();
-    private HttpsURLConnection rr;
 
     public i(HttpsURLConnection httpsURLConnection) {
-        this.rr = httpsURLConnection;
+        this.Kr = httpsURLConnection;
     }
 
     @Override // javax.net.SocketFactory
@@ -49,7 +49,7 @@ class i extends SSLSocketFactory {
 
     @Override // javax.net.ssl.SSLSocketFactory
     public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-        String requestProperty = this.rr.getRequestProperty("Host");
+        String requestProperty = this.Kr.getRequestProperty("Host");
         if (requestProperty != null) {
             str = requestProperty;
         }

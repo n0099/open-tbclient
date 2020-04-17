@@ -6,39 +6,39 @@ import com.baidu.swan.apps.y.f;
 /* loaded from: classes11.dex */
 public class c {
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d WX = f.WV().WX();
-        return WX != null && WX.a(view, aVar);
+        d aeN = f.aeK().aeN();
+        return aeN != null && aeN.a(view, aVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.a aVar) {
-        d WX = f.WV().WX();
-        return WX != null && WX.b(view, aVar);
+        d aeN = f.aeK().aeN();
+        return aeN != null && aeN.b(view, aVar);
     }
 
-    public static boolean au(View view) {
-        d WX = f.WV().WX();
-        return WX != null && WX.au(view);
+    public static boolean av(View view) {
+        d aeN = f.aeK().aeN();
+        return aeN != null && aeN.av(view);
     }
 
-    public static Context aqu() {
-        d WX = f.WV().WX();
-        if (WX != null) {
-            return WX.getContext();
+    public static Context ayG() {
+        d aeN = f.aeK().aeN();
+        if (aeN != null) {
+            return aeN.getContext();
         }
         return null;
     }
 
     public static void a(a aVar) {
-        d WX = f.WV().WX();
-        if (WX != null) {
-            WX.a(aVar);
+        d aeN = f.aeK().aeN();
+        if (aeN != null) {
+            aeN.a(aVar);
         }
     }
 
     public static void b(a aVar) {
-        d WX = f.WV().WX();
-        if (WX != null) {
-            WX.b(aVar);
+        d aeN = f.aeK().aeN();
+        if (aeN != null) {
+            aeN.b(aVar);
         }
     }
 }

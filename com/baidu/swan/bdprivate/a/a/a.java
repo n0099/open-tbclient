@@ -20,9 +20,9 @@ public interface a {
 
     void b(c cVar);
 
-    String da(Context context);
+    String cO(Context context);
 
-    z dd(Context context);
+    z cR(Context context);
 
     String getBduss(Context context);
 

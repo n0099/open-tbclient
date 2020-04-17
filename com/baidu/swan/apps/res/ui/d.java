@@ -15,12 +15,11 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.lang.reflect.Method;
 /* loaded from: classes11.dex */
 public class d {
     private static String sNavBarOverride;
-    private final a bLy;
+    private final a cki;
     private boolean mNavBarAvailable;
     private View mNavBarTintView;
     private boolean mStatusBarAvailable;
@@ -61,8 +60,8 @@ public class d {
                 throw th;
             }
         }
-        this.bLy = new a(activity, this.mStatusBarAvailable, this.mNavBarAvailable);
-        if (!this.bLy.hasNavigtionBar()) {
+        this.cki = new a(activity, this.mStatusBarAvailable, this.mNavBarAvailable);
+        if (!this.cki.hasNavigtionBar()) {
             this.mNavBarAvailable = false;
         }
         if (this.mStatusBarAvailable) {
@@ -82,10 +81,10 @@ public class d {
 
     private void setupStatusBarView(Context context, ViewGroup viewGroup) {
         this.mStatusBarTintView = new View(context);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.bLy.getStatusBarHeight());
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.cki.getStatusBarHeight());
         layoutParams.gravity = 48;
-        if (this.mNavBarAvailable && !this.bLy.isNavigationAtBottom()) {
-            layoutParams.rightMargin = this.bLy.getNavigationBarWidth();
+        if (this.mNavBarAvailable && !this.cki.isNavigationAtBottom()) {
+            layoutParams.rightMargin = this.cki.getNavigationBarWidth();
         }
         this.mStatusBarTintView.setLayoutParams(layoutParams);
         this.mStatusBarTintView.setBackgroundColor(-1728053248);
@@ -96,11 +95,11 @@ public class d {
     private void setupNavBarView(Context context, ViewGroup viewGroup) {
         FrameLayout.LayoutParams layoutParams;
         this.mNavBarTintView = new View(context);
-        if (this.bLy.isNavigationAtBottom()) {
-            layoutParams = new FrameLayout.LayoutParams(-1, this.bLy.getNavigationBarHeight());
+        if (this.cki.isNavigationAtBottom()) {
+            layoutParams = new FrameLayout.LayoutParams(-1, this.cki.getNavigationBarHeight());
             layoutParams.gravity = 80;
         } else {
-            layoutParams = new FrameLayout.LayoutParams(this.bLy.getNavigationBarWidth(), -1);
+            layoutParams = new FrameLayout.LayoutParams(this.cki.getNavigationBarWidth(), -1);
             layoutParams.gravity = 5;
         }
         this.mNavBarTintView.setLayoutParams(layoutParams);
@@ -179,7 +178,7 @@ public class d {
         @TargetApi(14)
         private boolean hasNavBar(Context context) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier("config_showNavigationBar", "bool", PraiseDataPassUtil.KEY_FROM_OS);
+            int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
                 if ("1".equals(d.sNavBarOverride)) {
@@ -194,7 +193,7 @@ public class d {
         }
 
         private int getInternalDimensionSize(Resources resources, String str) {
-            int identifier = resources.getIdentifier(str, "dimen", PraiseDataPassUtil.KEY_FROM_OS);
+            int identifier = resources.getIdentifier(str, "dimen", "android");
             if (identifier <= 0) {
                 return 0;
             }

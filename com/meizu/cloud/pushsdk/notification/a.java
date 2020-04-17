@@ -15,7 +15,6 @@ import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
@@ -116,7 +115,7 @@ public abstract class a implements c {
             com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image fail");
             return null;
         }
-        com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image " + (b.a() != null ? "success" : LivenessStat.TYPE_FACE_MATCH_FAIL));
+        com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image " + (b.a() != null ? "success" : "fail"));
         return (Bitmap) b.a();
     }
 

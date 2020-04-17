@@ -15,33 +15,33 @@ import java.util.Set;
 /* loaded from: classes11.dex */
 public class b extends g {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final a bVW;
-    private final boolean bVX;
+    private final a cuO;
+    private final boolean cuP;
 
     public b(String str) {
         super(str);
-        this.bVW = new a();
-        this.bVX = ProcessUtils.isMainProcess();
+        this.cuO = new a();
+        this.cuP = ProcessUtils.isMainProcess();
     }
 
-    public boolean aft() {
-        return this.bVX;
+    public boolean any() {
+        return this.cuP;
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public Map<String, ?> getAll() {
-        return aft() ? super.getAll() : new HashMap(super.getAll());
+        return any() ? super.getAll() : new HashMap(super.getAll());
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public SharedPreferences.Editor edit() {
-        return this.bVX ? super.edit() : this.bVW;
+        return this.cuP ? super.edit() : this.cuO;
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public String getString(String str, String str2) {
-        if (this.bVX) {
-            return bs(str, str2);
+        if (this.cuP) {
+            return bC(str, str2);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 4, str, str2));
         if (DEBUG) {
@@ -52,8 +52,8 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public int getInt(String str, int i) {
-        if (this.bVX) {
-            return H(str, i);
+        if (this.cuP) {
+            return P(str, i);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 1, str, String.valueOf(i)));
         if (DEBUG) {
@@ -64,8 +64,8 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public long getLong(String str, long j) {
-        if (this.bVX) {
-            return n(str, j);
+        if (this.cuP) {
+            return o(str, j);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 2, str, String.valueOf(j)));
         if (DEBUG) {
@@ -76,7 +76,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public float getFloat(String str, float f) {
-        if (this.bVX) {
+        if (this.cuP) {
             return e(str, f);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 5, str, String.valueOf(f)));
@@ -88,8 +88,8 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
-        if (this.bVX) {
-            return D(str, z);
+        if (this.cuP) {
+            return I(str, z);
         }
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), e.class, c.b(getName(), 3, str, String.valueOf(z)));
         if (DEBUG) {
@@ -100,7 +100,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g
     public void putString(String str, String str2) {
-        if (this.bVX) {
+        if (this.cuP) {
             super.putString(str, str2);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 4, str, str2));
@@ -109,7 +109,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g
     public void putInt(String str, int i) {
-        if (this.bVX) {
+        if (this.cuP) {
             super.putInt(str, i);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 1, str, String.valueOf(i)));
@@ -118,7 +118,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g
     public void putLong(String str, long j) {
-        if (this.bVX) {
+        if (this.cuP) {
             super.edit().putLong(str, j).commit();
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 2, str, String.valueOf(j)));
@@ -127,7 +127,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g
     public void putFloat(String str, float f) {
-        if (this.bVX) {
+        if (this.cuP) {
             super.putFloat(str, f);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 5, str, String.valueOf(f)));
@@ -136,7 +136,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g
     public void putBoolean(String str, boolean z) {
-        if (this.bVX) {
+        if (this.cuP) {
             super.putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 3, str, String.valueOf(z)));
@@ -145,7 +145,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g
     public void remove(String str) {
-        if (this.bVX) {
+        if (this.cuP) {
             super.remove(str);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 101, str, ""));
@@ -154,7 +154,7 @@ public class b extends g {
 
     @Override // com.baidu.swan.apps.storage.c.g
     public void clear() {
-        if (this.bVX) {
+        if (this.cuP) {
             super.clear();
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), f.class, c.b(getName(), 100, "", ""));
@@ -162,17 +162,17 @@ public class b extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String bs(String str, String str2) {
+    public String bC(String str, String str2) {
         return super.getString(str, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int H(String str, int i) {
+    public int P(String str, int i) {
         return super.getInt(str, i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public long n(String str, long j) {
+    public long o(String str, long j) {
         return super.getLong(str, j);
     }
 
@@ -182,28 +182,28 @@ public class b extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean D(String str, boolean z) {
+    public boolean I(String str, boolean z) {
         return super.getBoolean(str, z);
     }
 
     /* loaded from: classes11.dex */
     private class a implements SharedPreferences.Editor {
-        final Deque<Runnable> bVY;
+        final Deque<Runnable> cuQ;
 
         private a() {
-            this.bVY = new ArrayDeque();
+            this.cuQ = new ArrayDeque();
         }
 
-        private a h(Runnable runnable) {
-            synchronized (this.bVY) {
-                this.bVY.offer(runnable);
+        private a k(Runnable runnable) {
+            synchronized (this.cuQ) {
+                this.cuQ.offer(runnable);
             }
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putString(final String str, @Nullable final String str2) {
-            return h(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.1
+            return k(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putString(str, str2);
@@ -213,7 +213,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putStringSet(final String str, @Nullable final Set<String> set) {
-            return h(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.2
+            return k(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.2
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putStringSet(str, set);
@@ -223,7 +223,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putInt(final String str, final int i) {
-            return h(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.3
+            return k(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putInt(str, i);
@@ -233,7 +233,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putLong(final String str, final long j) {
-            return h(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.4
+            return k(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.4
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putLong(str, j);
@@ -243,7 +243,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putFloat(final String str, final float f) {
-            return h(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.5
+            return k(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putFloat(str, f);
@@ -253,7 +253,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putBoolean(final String str, final boolean z) {
-            return h(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.6
+            return k(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.6
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.putBoolean(str, z);
@@ -263,7 +263,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor remove(final String str) {
-            return h(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.7
+            return k(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.7
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.remove(str);
@@ -273,7 +273,7 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor clear() {
-            return h(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.8
+            return k(new Runnable() { // from class: com.baidu.swan.apps.storage.c.b.a.8
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.clear();
@@ -288,9 +288,9 @@ public class b extends g {
 
         @Override // android.content.SharedPreferences.Editor
         public boolean commit() {
-            synchronized (this.bVY) {
-                while (!this.bVY.isEmpty()) {
-                    Runnable poll = this.bVY.poll();
+            synchronized (this.cuQ) {
+                while (!this.cuQ.isEmpty()) {
+                    Runnable poll = this.cuQ.poll();
                     if (poll != null) {
                         poll.run();
                     }

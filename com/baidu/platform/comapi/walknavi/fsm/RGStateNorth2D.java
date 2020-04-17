@@ -1,6 +1,7 @@
 package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.graphics.Point;
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
@@ -40,12 +41,12 @@ public class RGStateNorth2D extends RGState {
             MapStatus.Builder builder = new MapStatus.Builder(i);
             builder.rotate(0.0f);
             builder.overlook(0.0f);
-            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f992top + i.winRound.bottom) / 2) - ((int) 0)));
+            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.f999top + i.winRound.bottom) / 2) - ((int) 0)));
             if (i.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }
             builder.target(e.a(e));
-            b.a().G().a(builder.build(), 1300);
+            b.a().G().a(builder.build(), FeatureCodes.VO);
         }
     }
 

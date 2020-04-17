@@ -11,7 +11,7 @@ public class f {
     public static Rect a(com.baidu.adp.widget.ListView.r rVar, View view, int i) {
         View findViewByPosition;
         if (view.getTag() instanceof a) {
-            return au.aP(((a) view.getTag()).mR().getVideoContainer());
+            return au.aQ(((a) view.getTag()).rj().getVideoContainer());
         }
         if (rVar instanceof BdTypeRecyclerView) {
             RecyclerView.LayoutManager layoutManager = ((BdTypeRecyclerView) rVar).getLayoutManager();
@@ -30,7 +30,7 @@ public class f {
             for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
                 Object item2 = com.baidu.tbadk.core.util.v.getItem(data, i2 - headerViewsCount);
                 if ((item2 instanceof com.baidu.tieba.card.data.b) && bVar.position == ((com.baidu.tieba.card.data.b) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof a)) {
-                    return au.aP(((a) findViewByPosition.getTag()).mR().getVideoContainer());
+                    return au.aQ(((a) findViewByPosition.getTag()).rj().getVideoContainer());
                 }
             }
         }

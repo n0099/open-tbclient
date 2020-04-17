@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View cey;
-    private int fOY;
-    private int fOZ;
+    private View cDw;
+    private int gtF;
+    private int gtG;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fOY = R.color.cp_bg_line_c;
-        this.fOZ = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        this.gtF = R.color.cp_bg_line_c;
+        this.gtG = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
         getView().setOnClickListener(this);
-        this.cey = getView().findViewById(R.id.card_divider);
+        this.cDw = getView().findViewById(R.id.card_divider);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundColor(this.cey, this.fOY);
+            am.setBackgroundColor(this.cDw, this.gtF);
         }
         this.mSkinType = i;
     }
@@ -38,19 +38,19 @@ public class c extends com.baidu.tieba.card.a<b> {
     @Override // com.baidu.tieba.card.a
     public void a(b bVar) {
         if (bVar != null) {
-            this.cey.setVisibility(0);
-            this.fOY = bVar.fOY;
-            this.fOZ = bVar.fOZ;
-            bvP();
+            this.cDw.setVisibility(0);
+            this.gtF = bVar.gtF;
+            this.gtG = bVar.gtG;
+            bFA();
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bvP() {
-        ViewGroup.LayoutParams layoutParams = this.cey.getLayoutParams();
-        if (layoutParams != null && layoutParams.height != this.fOZ) {
-            layoutParams.height = this.fOZ;
-            this.cey.setLayoutParams(layoutParams);
+    private void bFA() {
+        ViewGroup.LayoutParams layoutParams = this.cDw.getLayoutParams();
+        if (layoutParams != null && layoutParams.height != this.gtG) {
+            layoutParams.height = this.gtG;
+            this.cDw.setLayoutParams(layoutParams);
         }
     }
 

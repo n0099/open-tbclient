@@ -1,14 +1,24 @@
 package com.baidu.live.gift;
 
-import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
+import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public interface y {
-    void a(int i, int i2, Intent intent, com.baidu.live.data.m mVar, String str);
+    void d(com.baidu.live.data.n nVar);
 
-    void a(Context context, long j, String str, long j2, String str2, String str3);
+    void initView();
 
-    void sS();
+    boolean isShowing();
 
-    void sr();
+    void resize();
+
+    void setGiftItem(g gVar);
+
+    void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener);
+
+    void setOtherParams(String str);
+
+    void setPageContext(TbPageContext tbPageContext);
+
+    void show();
 }

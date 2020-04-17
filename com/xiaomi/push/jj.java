@@ -8,17 +8,17 @@ public class jj extends jm {
     protected InputStream a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected OutputStream f794a;
+    protected OutputStream f795a;
 
     protected jj() {
         this.a = null;
-        this.f794a = null;
+        this.f795a = null;
     }
 
     public jj(OutputStream outputStream) {
         this.a = null;
-        this.f794a = null;
-        this.f794a = outputStream;
+        this.f795a = null;
+        this.f795a = outputStream;
     }
 
     @Override // com.xiaomi.push.jm
@@ -39,11 +39,11 @@ public class jj extends jm {
 
     @Override // com.xiaomi.push.jm
     public void a(byte[] bArr, int i, int i2) {
-        if (this.f794a == null) {
+        if (this.f795a == null) {
             throw new jn(1, "Cannot write to null outputStream");
         }
         try {
-            this.f794a.write(bArr, i, i2);
+            this.f795a.write(bArr, i, i2);
         } catch (IOException e) {
             throw new jn(0, e);
         }

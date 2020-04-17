@@ -15,6 +15,6 @@ final class ArraysKt___ArraysKt$withIndex$8 extends Lambda implements kotlin.jvm
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.a
     public final l invoke() {
-        return kotlin.jvm.internal.i.c(this.$this_withIndex);
+        return kotlin.jvm.internal.i.b(this.$this_withIndex);
     }
 }

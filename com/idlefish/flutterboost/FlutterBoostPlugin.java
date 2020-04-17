@@ -118,6 +118,17 @@ public class FlutterBoostPlugin {
         }
     }
 
+    public void addEventListener(String str, EventListener eventListener) {
+        synchronized (this.mEventListeners) {
+            Set<EventListener> set = this.mEventListeners.get(str);
+            if (set == null) {
+                set = new HashSet<>();
+            }
+            set.add(eventListener);
+            this.mEventListeners.put(str, set);
+        }
+    }
+
     public void sendEvent(String str, Map map) {
         HashMap hashMap = new HashMap();
         hashMap.put("name", str);

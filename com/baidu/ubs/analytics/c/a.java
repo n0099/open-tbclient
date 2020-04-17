@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes8.dex */
 final class a {
-    private static final a kXL = new a();
+    private static final a lOp = new a();
     private boolean ac;
-    private final Set<InterfaceC0643a> kXM = new LinkedHashSet();
+    private final Set<InterfaceC0691a> lOq = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0643a {
+    public interface InterfaceC0691a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a cXR() {
-        return kXL;
+    public static a dla() {
+        return lOp;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0643a> cXS() {
-        return this.kXM;
+    public final Set<InterfaceC0691a> dlb() {
+        return this.lOq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0643a interfaceC0643a) {
-        synchronized (this.kXM) {
-            this.kXM.add(interfaceC0643a);
+    public final void a(InterfaceC0691a interfaceC0691a) {
+        synchronized (this.lOq) {
+            this.lOq.add(interfaceC0691a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void cXT() {
-        synchronized (this.kXM) {
-            this.kXM.clear();
+    public final void dlc() {
+        synchronized (this.lOq) {
+            this.lOq.clear();
         }
     }
 
@@ -59,7 +59,7 @@ final class a {
         try {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new h(this));
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.j.Lt("registerActivityLifecycleCallbacks encounter exception");
+            com.baidu.ubs.analytics.d.j.I("registerActivityLifecycleCallbacks encounter exception");
         }
         this.ac = true;
     }

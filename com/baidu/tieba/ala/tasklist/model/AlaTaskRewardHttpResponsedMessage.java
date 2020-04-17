@@ -1,13 +1,13 @@
 package com.baidu.tieba.ala.tasklist.model;
 
 import com.baidu.live.data.AlaLiveUserInfoData;
-import com.baidu.live.data.v;
+import com.baidu.live.data.x;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaTaskRewardHttpResponsedMessage extends JsonHttpResponsedMessage {
-    public AlaLiveUserInfoData fAu;
-    public v fAv;
+    public AlaLiveUserInfoData geV;
+    public x geW;
 
     public AlaTaskRewardHttpResponsedMessage() {
         super(1021066);
@@ -20,13 +20,13 @@ public class AlaTaskRewardHttpResponsedMessage extends JsonHttpResponsedMessage 
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
-                this.fAu = new AlaLiveUserInfoData();
-                this.fAu.parserJson(optJSONObject2);
+                this.geV = new AlaLiveUserInfoData();
+                this.geV.parserJson(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("task");
             if (optJSONObject3 != null) {
-                this.fAv = new v();
-                this.fAv.parserJson(optJSONObject3);
+                this.geW = new x();
+                this.geW.parserJson(optJSONObject3);
             }
         }
     }

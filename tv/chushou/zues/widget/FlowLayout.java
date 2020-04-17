@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import tv.chushou.zues.b;
 /* loaded from: classes5.dex */
 public class FlowLayout extends ViewGroup {
-    private int mHorizontalSpacing;
-    private int mVerticalSpacing;
+    private int nsO;
+    private int nsP;
 
     public FlowLayout(Context context) {
         super(context);
@@ -19,8 +19,8 @@ public class FlowLayout extends ViewGroup {
         super(context, attributeSet);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.i.FlowLayout);
         try {
-            this.mHorizontalSpacing = obtainStyledAttributes.getDimensionPixelSize(b.i.FlowLayout_horizontal_spacing, 5);
-            this.mVerticalSpacing = obtainStyledAttributes.getDimensionPixelSize(b.i.FlowLayout_vertical_spacing, 5);
+            this.nsP = obtainStyledAttributes.getDimensionPixelSize(b.i.FlowLayout_horizontal_spacing, 5);
+            this.nsO = obtainStyledAttributes.getDimensionPixelSize(b.i.FlowLayout_vertical_spacing, 5);
         } finally {
             obtainStyledAttributes.recycle();
         }
@@ -48,12 +48,12 @@ public class FlowLayout extends ViewGroup {
                 i3 = childAt.getMeasuredHeight();
                 int max = Math.max(i3, i7);
                 if (i8 + measuredWidth + paddingRight > resolveSize) {
-                    int i9 = paddingLeft + measuredWidth + this.mHorizontalSpacing;
-                    i4 = max + this.mVerticalSpacing + paddingTop;
+                    int i9 = paddingLeft + measuredWidth + this.nsP;
+                    i4 = max + this.nsO + paddingTop;
                     i5 = i9;
                 } else {
                     i4 = paddingTop;
-                    i5 = this.mHorizontalSpacing + measuredWidth + i8;
+                    i5 = this.nsP + measuredWidth + i8;
                     i3 = max;
                 }
             } else {
@@ -85,12 +85,12 @@ public class FlowLayout extends ViewGroup {
                 int measuredHeight = childAt.getMeasuredHeight();
                 i7 = Math.max(measuredHeight, i7);
                 if (i6 + measuredWidth + paddingRight > i5) {
-                    paddingTop = i7 + this.mVerticalSpacing + paddingTop;
+                    paddingTop = i7 + this.nsO + paddingTop;
                     i6 = paddingLeft;
                     i7 = measuredHeight;
                 }
                 childAt.layout(i6, paddingTop, i6 + measuredWidth, measuredHeight + paddingTop);
-                i6 += this.mHorizontalSpacing + measuredWidth;
+                i6 += this.nsP + measuredWidth;
             }
         }
     }

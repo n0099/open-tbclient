@@ -5,7 +5,6 @@ import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.mcast.ParseM3u8;
 import com.baidu.android.imsdk.mcast.UpMessageManager;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
@@ -109,7 +108,7 @@ public class UnLoginCastService {
                     }
                     this.mTss.poll();
                     getTstask(peek.tsfile);
-                    LogUtils.d(TAG, "FXF request ts " + i + HanziToPinyin.Token.SEPARATOR + peek.tsfile + HanziToPinyin.Token.SEPARATOR + peek.relativetime);
+                    LogUtils.d(TAG, "FXF request ts " + i + " " + peek.tsfile + " " + peek.relativetime);
                 }
             }
         }
@@ -335,7 +334,7 @@ public class UnLoginCastService {
         ArrayList arrayList;
         List<ParseM3u8.TS> list;
         if (!this.isActive || this.isSeek) {
-            LogUtils.d(TAG, "onResultM3u8 return, service is not active " + this.isActive + HanziToPinyin.Token.SEPARATOR + this.isSeek);
+            LogUtils.d(TAG, "onResultM3u8 return, service is not active " + this.isActive + " " + this.isSeek);
             return false;
         }
         ParseM3u8 parseM3u8 = new ParseM3u8();
@@ -431,7 +430,7 @@ public class UnLoginCastService {
                     i = 1;
                     i2 = length2;
                 }
-                LogUtils.d(UnLoginCastService.TAG, "HBBH work ts duration is " + optLong + HanziToPinyin.Token.SEPARATOR + i5 + " num is " + i + " size is " + length2);
+                LogUtils.d(UnLoginCastService.TAG, "HBBH work ts duration is " + optLong + " " + i5 + " num is " + i + " size is " + length2);
                 if (i <= 0) {
                     ChatMsgManagerImpl.getInstance(UnLoginCastService.mContext).deliverMcastMessage(UnLoginCastService.this.mCastId, jSONArray2);
                     return;

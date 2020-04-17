@@ -1,7 +1,6 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.c.f;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.CancellableDisposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
@@ -11,22 +10,22 @@ import io.reactivex.z;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class SingleCreate<T> extends w<T> {
-    final z<T> nAC;
+    final z<T> mUd;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         Emitter emitter = new Emitter(yVar);
         yVar.onSubscribe(emitter);
         try {
-            this.nAC.a(emitter);
+            this.mUd.a(emitter);
         } catch (Throwable th) {
-            io.reactivex.exceptions.a.H(th);
+            io.reactivex.exceptions.a.L(th);
             emitter.onError(th);
         }
     }
 
     /* loaded from: classes7.dex */
-    static final class Emitter<T> extends AtomicReference<b> implements b, x<T> {
+    static final class Emitter<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, x<T> {
         private static final long serialVersionUID = -2467358622224974244L;
         final y<? super T> actual;
 
@@ -35,7 +34,7 @@ public final class SingleCreate<T> extends w<T> {
         }
 
         public void onSuccess(T t) {
-            b andSet;
+            io.reactivex.disposables.b andSet;
             if (get() != DisposableHelper.DISPOSED && (andSet = getAndSet(DisposableHelper.DISPOSED)) != DisposableHelper.DISPOSED) {
                 try {
                     if (t == null) {
@@ -62,7 +61,7 @@ public final class SingleCreate<T> extends w<T> {
         }
 
         public boolean tryOnError(Throwable th) {
-            b andSet;
+            io.reactivex.disposables.b andSet;
             if (th == null) {
                 th = new NullPointerException("onError called with null. Null values are generally not allowed in 2.x operators and sources.");
             }
@@ -79,7 +78,7 @@ public final class SingleCreate<T> extends w<T> {
             return false;
         }
 
-        public void setDisposable(b bVar) {
+        public void setDisposable(io.reactivex.disposables.b bVar) {
             DisposableHelper.set(this, bVar);
         }
 
@@ -95,11 +94,6 @@ public final class SingleCreate<T> extends w<T> {
         @Override // io.reactivex.disposables.b
         public boolean isDisposed() {
             return DisposableHelper.isDisposed(get());
-        }
-
-        @Override // java.util.concurrent.atomic.AtomicReference
-        public String toString() {
-            return String.format("%s{%s}", getClass().getSimpleName(), super.toString());
         }
     }
 }

@@ -27,14 +27,14 @@ public class d extends com.kascend.chushou.view.base.a {
     private TextView k;
     private TextView l;
     private TextView m;
+    private Space mDV;
+    private Space mDW;
     private boolean n;
-    private Space nho;
-    private Space nhp;
     private String o;
     private String p;
     private String q;
 
-    public static d wz(boolean z) {
+    public static d wh(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("mIsOwn", z);
         d dVar = new d();
@@ -64,7 +64,7 @@ public class d extends com.kascend.chushou.view.base.a {
     }
 
     @Override // com.kascend.chushou.view.base.a
-    public View b(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(a.h.dialog_user_info_copy, viewGroup, false);
         this.e = (LinearLayout) inflate.findViewById(a.f.item_nickname);
         this.f = (LinearLayout) inflate.findViewById(a.f.item_roomid);
@@ -75,8 +75,8 @@ public class d extends com.kascend.chushou.view.base.a {
         this.k = (TextView) this.e.findViewById(a.f.tv_copy);
         this.l = (TextView) this.f.findViewById(a.f.tv_copy);
         this.m = (TextView) this.g.findViewById(a.f.tv_copy);
-        this.nho = (Space) inflate.findViewById(a.f.space_01);
-        this.nhp = (Space) inflate.findViewById(a.f.space_02);
+        this.mDV = (Space) inflate.findViewById(a.f.space_01);
+        this.mDW = (Space) inflate.findViewById(a.f.space_02);
         c();
         return inflate;
     }
@@ -96,21 +96,21 @@ public class d extends com.kascend.chushou.view.base.a {
     private void c() {
         this.k.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.view.b.d.1
             @Override // tv.chushou.zues.a
-            public void dz(View view) {
+            public void dq(View view) {
                 g.c(d.this.b, d.this.b.getString(a.i.str_userinfo_copy_result, d.this.b.getString(a.i.str_userinfo_nickname)));
                 d.this.a(d.this.h.getText());
             }
         });
         this.l.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.view.b.d.2
             @Override // tv.chushou.zues.a
-            public void dz(View view) {
+            public void dq(View view) {
                 g.c(d.this.b, d.this.b.getString(a.i.str_userinfo_copy_result, d.this.b.getString(a.i.str_userinfo_roomid)));
                 d.this.a(d.this.i.getText());
             }
         });
         this.m.setOnClickListener(new tv.chushou.zues.a() { // from class: com.kascend.chushou.view.b.d.3
             @Override // tv.chushou.zues.a
-            public void dz(View view) {
+            public void dq(View view) {
                 g.c(d.this.b, d.this.b.getString(a.i.str_userinfo_copy_result, d.this.b.getString(a.i.str_userinfo_uid)));
                 d.this.a(d.this.j.getText());
             }
@@ -129,8 +129,8 @@ public class d extends com.kascend.chushou.view.base.a {
         String str3;
         MyUserInfo userInfo = LoginManager.Instance().getUserInfo();
         if (userInfo == null) {
-            str = h.dCs().c();
-            str2 = h.dCs().b();
+            str = h.dwK().c();
+            str2 = h.dwK().b();
         } else {
             str = userInfo.mNickname;
             str2 = userInfo.mUserID;
@@ -154,19 +154,19 @@ public class d extends com.kascend.chushou.view.base.a {
             this.h.setText(str);
         }
         if (tv.chushou.zues.utils.h.isEmpty(str2)) {
-            this.nho.setVisibility(8);
+            this.mDV.setVisibility(8);
             this.f.setVisibility(8);
         } else {
-            this.nho.setVisibility(0);
+            this.mDV.setVisibility(0);
             this.f.setVisibility(0);
             this.i.setText(str2);
         }
         if (tv.chushou.zues.utils.h.isEmpty(str3)) {
-            this.nhp.setVisibility(8);
+            this.mDW.setVisibility(8);
             this.g.setVisibility(8);
             return;
         }
-        this.nhp.setVisibility(0);
+        this.mDW.setVisibility(0);
         this.g.setVisibility(0);
         this.j.setText(str3);
     }

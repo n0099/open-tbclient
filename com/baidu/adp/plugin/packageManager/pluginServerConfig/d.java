@@ -7,32 +7,32 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d yQ;
-    private PluginNetConfigInfos yR = new PluginNetConfigInfos();
-    private b yS;
+    private static volatile d RY;
+    private PluginNetConfigInfos RZ = new PluginNetConfigInfos();
+    private b Sa;
 
-    public static d jP() {
-        if (yQ == null) {
+    public static d ot() {
+        if (RY == null) {
             synchronized (d.class) {
-                if (yQ == null) {
-                    yQ = new d();
+                if (RY == null) {
+                    RY = new d();
                 }
             }
         }
-        return yQ;
+        return RY;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
         c b = b(pluginSettings);
-        if (this.yS != null) {
-            this.yS.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        if (this.Sa != null) {
+            this.Sa.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos, String str) {
                     if (z2) {
-                        d.this.yR = pluginNetConfigInfos;
+                        d.this.RZ = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.yR, str);
+                        aVar.a(z2, cVar, d.this.RZ, str);
                     }
                 }
             });
@@ -50,15 +50,15 @@ public class d {
                 }
             }
         }
-        cVar.j(arrayList);
+        cVar.m(arrayList);
         return cVar;
     }
 
-    public PluginNetConfigInfos jQ() {
-        return this.yR;
+    public PluginNetConfigInfos ou() {
+        return this.RZ;
     }
 
     public void a(b bVar) {
-        this.yS = bVar;
+        this.Sa = bVar;
     }
 }

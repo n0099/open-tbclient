@@ -1,21 +1,19 @@
 package com.baidu.live.ar;
 
-import com.baidu.live.ar.AlaFilterAndBeautyData;
+import android.text.TextUtils;
+import com.baidu.live.tbadk.core.TbadkCoreApplication;
+import java.io.File;
 /* loaded from: classes3.dex */
-public interface e {
-    void a(float f, AlaFilterAndBeautyData.BeautyAdjustKey beautyAdjustKey);
+public class e {
+    private static File aoe = getPrivateCaptureRootChildDir("duFilter");
+    public static String aof;
 
-    void o(int i, int i2);
+    public static File getPrivateCaptureRootChildDir(String str) {
+        String str2 = TbadkCoreApplication.getInst().getContext().getFilesDir().getAbsoluteFile() + File.separator + "live_ar" + File.separator;
+        return TextUtils.isEmpty(str) ? new File(str2) : new File(str2, str);
+    }
 
-    void onBlurLevelSelected(int i);
-
-    void onFilterSelected(String str);
-
-    void p(int i, int i2);
-
-    void pI();
-
-    void q(int i, int i2);
-
-    void r(int i, int i2);
+    public static void dG(String str) {
+        aof = str;
+    }
 }

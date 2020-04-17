@@ -5,11 +5,11 @@ import android.support.annotation.Nullable;
 import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes11.dex */
 public interface x {
-    void IB();
+    void Qn();
 
-    void IC();
+    void Qo();
 
-    void ID();
+    void Qp();
 
     void a(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable com.baidu.swan.apps.x.b.b bVar);
 }

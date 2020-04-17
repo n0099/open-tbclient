@@ -23,10 +23,10 @@ public class d extends Handler {
             switch (message.what) {
                 case 1:
                     if (message.obj instanceof SurfaceHolder) {
-                        fVar.c(((SurfaceHolder) message.obj).getSurface());
+                        fVar.b(((SurfaceHolder) message.obj).getSurface());
                         return;
                     } else if (message.obj instanceof Surface) {
-                        fVar.c((Surface) message.obj);
+                        fVar.b((Surface) message.obj);
                         return;
                     } else if (message.obj instanceof SurfaceTexture) {
                         fVar.surfaceCreated((SurfaceTexture) message.obj);
@@ -41,7 +41,7 @@ public class d extends Handler {
                     fVar.surfaceDestroyed();
                     return;
                 case 4:
-                    fVar.FH();
+                    fVar.Nt();
                     return;
                 case 5:
                 case 7:
@@ -55,23 +55,23 @@ public class d extends Handler {
                 default:
                     throw new IllegalStateException("Can not handle message what is: " + message.what);
                 case 6:
-                    fVar.Dk();
+                    fVar.startRecording();
                     return;
                 case 8:
                     fVar.stopRecording();
                     return;
                 case 9:
-                    fVar.FK();
+                    fVar.Nw();
                     fVar.startPreview();
                     return;
                 case 16:
                     fVar.switchCamera();
                     return;
                 case 17:
-                    fVar.t((byte[]) message.obj);
+                    fVar.v((byte[]) message.obj);
                     return;
                 case 19:
-                    fVar.FI();
+                    fVar.Nu();
                     return;
             }
         }

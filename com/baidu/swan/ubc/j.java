@@ -7,12 +7,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class j {
-    private long Fp;
-    private int cEY;
-    private JSONObject cEZ;
-    private String cFa;
-    private boolean cFb = false;
-    private JSONArray cFd;
+    private long YB;
+    private int ddY;
+    private JSONObject ddZ;
+    private String dea;
+    private boolean deb = false;
+    private JSONArray ded;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -26,7 +26,7 @@ public class j {
 
     public j(String str, int i, String str2, int i2, boolean z) {
         this.mId = str;
-        this.cEY = i;
+        this.ddY = i;
         this.mContent = str2;
         this.mOption = i2;
         this.mIsSampled = z;
@@ -36,27 +36,27 @@ public class j {
         return this.mId;
     }
 
-    public int avy() {
-        return this.cEY;
+    public int aDJ() {
+        return this.ddY;
     }
 
     public String getContent() {
         return this.mContent;
     }
 
-    public JSONObject avA() {
-        return this.cEZ;
+    public JSONObject aDL() {
+        return this.ddZ;
     }
 
-    public long avF() {
-        return this.Fp;
+    public long aDQ() {
+        return this.YB;
     }
 
     public long getEndTime() {
         return this.mEndTime;
     }
 
-    public String avG() {
+    public String aDR() {
         return this.mState;
     }
 
@@ -64,41 +64,41 @@ public class j {
         return this.mOption;
     }
 
-    public String avz() {
-        return this.cFa;
+    public String aDK() {
+        return this.dea;
     }
 
     public void setId(String str) {
         this.mId = str;
     }
 
-    public void iY(int i) {
-        this.cEY = i;
+    public void jf(int i) {
+        this.ddY = i;
     }
 
     public void setContent(String str) {
         this.mContent = str;
     }
 
-    public void bm(long j) {
-        this.Fp = j;
+    public void bR(long j) {
+        this.YB = j;
     }
 
     public void setEndTime(long j) {
         this.mEndTime = j;
     }
 
-    public void qW(String str) {
+    public void sj(String str) {
         this.mState = str;
     }
 
-    public void qX(String str) {
-        this.cFa = str;
+    public void sk(String str) {
+        this.dea = str;
     }
 
-    public void avC() {
-        if (d.avl().qP(this.mId)) {
-            this.cFa = s.avW().Zt();
+    public void aDN() {
+        if (d.aDw().sc(this.mId)) {
+            this.dea = s.aEh().ahy();
         }
     }
 
@@ -110,29 +110,25 @@ public class j {
         return this.mCategory;
     }
 
-    public void ff(boolean z) {
-        this.cFb = z;
+    public void gc(boolean z) {
+        this.deb = z;
     }
 
-    public boolean avw() {
-        return this.cFb;
+    public boolean aDH() {
+        return this.deb;
     }
 
-    public void qY(String str) {
+    public void sl(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.cFd = new JSONArray(str);
+                this.ded = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray avH() {
-        return this.cFd;
-    }
-
-    public boolean avE() {
-        return this.mIsSampled;
+    public JSONArray aDS() {
+        return this.ded;
     }
 }

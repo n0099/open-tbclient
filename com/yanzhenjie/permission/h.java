@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface h {
     @NonNull
-    h W(String... strArr);
+    h V(String... strArr);
 
     @NonNull
     h a(a aVar);

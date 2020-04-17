@@ -6,17 +6,17 @@ import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes8.dex */
 public class j extends b<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a Kc;
-    private CardForumHeadLayout Kq;
+    private com.baidu.tbadk.core.data.a ada;
+    private CardForumHeadLayout ado;
 
     public j(Context context) {
         super(context);
-        this.Kq = new CardForumHeadLayout(context);
-        this.Kq.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.j.1
+        this.ado = new CardForumHeadLayout(context);
+        this.ado.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (j.this.mT() != null) {
-                    j.this.mT().a(view, j.this.Kc);
+                if (j.this.rl() != null) {
+                    j.this.rl().a(view, j.this.ada);
                 }
             }
         });
@@ -25,23 +25,23 @@ public class j extends b<com.baidu.tbadk.core.data.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.Kq;
+        return this.ado;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
     public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (this.Kq != null && aVar != null) {
-            this.Kc = aVar;
-            this.Kq.setData(aVar.aAj());
+        if (this.ado != null && aVar != null) {
+            this.ada = aVar;
+            this.ado.setData(aVar.aIw());
         }
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.Kq != null) {
-            this.Kq.onChangeSkinType();
+        if (this.ado != null) {
+            this.ado.onChangeSkinType();
         }
     }
 }

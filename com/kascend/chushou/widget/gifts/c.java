@@ -27,7 +27,7 @@ public class c extends com.kascend.chushou.view.base.c<f> {
         if (z) {
             this.c = "";
         }
-        com.kascend.chushou.c.c.dCo().b(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.c.1
+        com.kascend.chushou.c.c.dwG().b(new com.kascend.chushou.c.b() { // from class: com.kascend.chushou.widget.gifts.c.1
             @Override // com.kascend.chushou.c.b
             public void a() {
                 if (c.this.b() && z) {
@@ -41,13 +41,13 @@ public class c extends com.kascend.chushou.view.base.c<f> {
                     if (z) {
                         tv.chushou.zues.a.a.post(new com.kascend.chushou.widget.gifts.a.a(c.this.d, 2));
                     }
-                    ParserRet dz = com.kascend.chushou.c.f.dz(jSONObject);
-                    List<GeneralGift> list = (List) dz.mData;
+                    ParserRet dC = com.kascend.chushou.c.f.dC(jSONObject);
+                    List<GeneralGift> list = (List) dC.mData;
                     if (z && h.isEmpty(list)) {
                         tv.chushou.zues.a.a.post(new com.kascend.chushou.widget.gifts.a.a(c.this.d, 6));
                     }
                     ((f) c.this.b).h(list, true, z);
-                    c.this.c = dz.mBreakpoint;
+                    c.this.c = dC.mBreakpoint;
                 }
             }
 

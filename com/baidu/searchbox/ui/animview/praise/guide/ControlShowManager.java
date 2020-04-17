@@ -1,5 +1,6 @@
 package com.baidu.searchbox.ui.animview.praise.guide;
 
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
 import java.text.ParseException;
@@ -51,7 +52,7 @@ public class ControlShowManager {
             this.mCurrentShowData = new CurrentShowData();
             this.mCurrentShowData.parseData(this.mSpManager.getString(KEY_CURRENT_DATA, ""));
         }
-        this.mCurrentShowData.setCycleCurrentcount(Integer.MAX_VALUE);
+        this.mCurrentShowData.setCycleCurrentcount(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         this.mSpManager.putString(KEY_CURRENT_DATA, this.mCurrentShowData.toJson());
     }
 
@@ -92,12 +93,12 @@ public class ControlShowManager {
     }
 
     private String getCurrentDay() {
-        return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        return new SimpleDateFormat(DAY_TIME_FORMAT).format(new Date());
     }
 
     private int caculateDayGap(String str) {
         try {
-            return (int) ((new SimpleDateFormat("yyyy-MM-dd").parse(new SimpleDateFormat("yyyy-MM-dd").format(new Date())).getTime() - new SimpleDateFormat("yyyy-MM-dd").parse(str).getTime()) / 86400000);
+            return (int) ((new SimpleDateFormat(DAY_TIME_FORMAT).parse(new SimpleDateFormat(DAY_TIME_FORMAT).format(new Date())).getTime() - new SimpleDateFormat(DAY_TIME_FORMAT).parse(str).getTime()) / 86400000);
         } catch (ParseException e) {
             e.printStackTrace();
             return 0;

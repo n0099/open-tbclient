@@ -1,6 +1,5 @@
 package okhttp3.internal.cache;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.File;
@@ -213,7 +212,7 @@ public final class DiskLruCache implements Closeable, Flushable {
             this.lruEntries.put(substring, entry);
         }
         if (indexOf2 != -1 && indexOf == CLEAN.length() && str.startsWith(CLEAN)) {
-            String[] split = str.substring(indexOf2 + 1).split(HanziToPinyin.Token.SEPARATOR);
+            String[] split = str.substring(indexOf2 + 1).split(" ");
             entry.readable = true;
             entry.currentEditor = null;
             entry.setLengths(split);

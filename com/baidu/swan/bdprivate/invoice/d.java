@@ -18,32 +18,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    private static d cdL;
+    private static d cCJ;
 
-    public static d aiG() {
-        if (cdL == null) {
+    public static d aqO() {
+        if (cCJ == null) {
             synchronized (d.class) {
-                if (cdL == null) {
-                    cdL = new d();
+                if (cCJ == null) {
+                    cCJ = new d();
                 }
             }
         }
-        return cdL;
+        return cCJ;
     }
 
     public void a(InvoiceInfo invoiceInfo, final c.a aVar) {
         if (invoiceInfo != null) {
-            String Lf = com.baidu.swan.apps.h.c.Lf();
+            String ST = com.baidu.swan.apps.h.c.ST();
             HashMap hashMap = new HashMap();
             hashMap.put("data", invoiceInfo.toJson().toString());
-            a(Lf, hashMap, new ResponseCallback<com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.swan.bdprivate.invoice.d.1
+            a(ST, hashMap, new ResponseCallback<com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.swan.bdprivate.invoice.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: b */
                 public com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo> parseResponse(Response response, int i) throws Exception {
                     com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo> dVar = new com.baidu.swan.bdprivate.invoice.model.d<>(new InvoiceInfo());
                     if (response != null && response.body() != null) {
-                        dVar.bg(s.parseString(response.body().string()));
+                        dVar.br(s.parseString(response.body().string()));
                     }
                     return dVar;
                 }
@@ -53,10 +53,10 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo> dVar, int i) {
                     if (aVar != null) {
-                        if (!TextUtils.equals(dVar.cdX, "0") || dVar.cdZ == null) {
-                            d.this.a(dVar.cdX, dVar.cdY, aVar);
+                        if (!TextUtils.equals(dVar.cCV, "0") || dVar.cCX == null) {
+                            d.this.a(dVar.cCV, dVar.cCW, aVar);
                         } else {
-                            aVar.a(dVar.cdZ);
+                            aVar.a(dVar.cCX);
                         }
                     }
                 }
@@ -64,17 +64,17 @@ public class d {
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
                     if (aVar != null) {
-                        aVar.bw("-1", exc.getMessage());
+                        aVar.bH("-1", exc.getMessage());
                     }
                 }
             });
         }
     }
 
-    public void a(Context context, final String str, final String str2, final c.InterfaceC0321c interfaceC0321c) {
+    public void a(Context context, final String str, final String str2, final c.InterfaceC0351c interfaceC0351c) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            if (interfaceC0321c != null) {
-                interfaceC0321c.bw("-1", "");
+            if (interfaceC0351c != null) {
+                interfaceC0351c.bH("-1", "");
                 return;
             }
             return;
@@ -83,7 +83,7 @@ public class d {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: z */
-            public void D(Bundle bundle) {
+            public void E(Bundle bundle) {
                 if (bundle != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
@@ -92,26 +92,26 @@ public class d {
                         jSONObject.put("host_pkgname", com.baidu.swan.apps.setting.oauth.c.getAppContext().getPackageName());
                         jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
                         jSONObject.put("stoken", bundle.getString("dev", ""));
-                        jSONObject.put("host_api_key", com.baidu.swan.apps.w.a.Ul().If());
+                        jSONObject.put("host_api_key", com.baidu.swan.apps.w.a.aca().PR());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
-                    d.this.a(com.baidu.swan.apps.h.c.Lh(), hashMap, interfaceC0321c);
-                } else if (interfaceC0321c != null) {
-                    interfaceC0321c.bw("-1", "");
+                    d.this.a(com.baidu.swan.apps.h.c.SV(), hashMap, interfaceC0351c);
+                } else if (interfaceC0351c != null) {
+                    interfaceC0351c.bH("-1", "");
                 }
             }
         }, "dev");
     }
 
-    public void a(c.InterfaceC0321c interfaceC0321c) {
-        a(com.baidu.swan.apps.h.c.Lg(), (Map<String, String>) null, interfaceC0321c);
+    public void a(c.InterfaceC0351c interfaceC0351c) {
+        a(com.baidu.swan.apps.h.c.SU(), (Map<String, String>) null, interfaceC0351c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, Map<String, String> map, final c.InterfaceC0321c interfaceC0321c) {
+    public void a(String str, Map<String, String> map, final c.InterfaceC0351c interfaceC0351c) {
         a(str, map, new ResponseCallback<com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.a>>() { // from class: com.baidu.swan.bdprivate.invoice.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -119,7 +119,7 @@ public class d {
             public com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.a> parseResponse(Response response, int i) throws Exception {
                 com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.a> dVar = new com.baidu.swan.bdprivate.invoice.model.d<>(new com.baidu.swan.bdprivate.invoice.model.a());
                 if (response != null && response.body() != null) {
-                    dVar.bg(s.parseString(response.body().string()));
+                    dVar.br(s.parseString(response.body().string()));
                 }
                 return dVar;
             }
@@ -128,36 +128,36 @@ public class d {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
             public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.a> dVar, int i) {
-                if (interfaceC0321c != null) {
-                    if (!TextUtils.equals(dVar.cdX, "0") || dVar.cdZ == null) {
-                        d.this.a(dVar.cdX, dVar.cdY, interfaceC0321c);
+                if (interfaceC0351c != null) {
+                    if (!TextUtils.equals(dVar.cCV, "0") || dVar.cCX == null) {
+                        d.this.a(dVar.cCV, dVar.cCW, interfaceC0351c);
                     } else {
-                        interfaceC0321c.ai(dVar.cdZ.cdW);
+                        interfaceC0351c.aq(dVar.cCX.cCU);
                     }
                 }
             }
 
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
-                if (interfaceC0321c != null) {
-                    interfaceC0321c.bw("-1", exc.getMessage());
+                if (interfaceC0351c != null) {
+                    interfaceC0351c.bH("-1", exc.getMessage());
                 }
             }
         });
     }
 
     public void a(InvoiceInfo invoiceInfo, final c.e eVar) {
-        String Li = com.baidu.swan.apps.h.c.Li();
+        String SW = com.baidu.swan.apps.h.c.SW();
         HashMap hashMap = new HashMap();
         hashMap.put("data", invoiceInfo.toJson().toString());
-        a(Li, hashMap, new ResponseCallback<com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.swan.bdprivate.invoice.d.4
+        a(SW, hashMap, new ResponseCallback<com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.swan.bdprivate.invoice.d.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
             public com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo> parseResponse(Response response, int i) throws Exception {
                 com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo> dVar = new com.baidu.swan.bdprivate.invoice.model.d<>(new InvoiceInfo());
                 if (response != null && response.body() != null) {
-                    dVar.bg(s.parseString(response.body().string()));
+                    dVar.br(s.parseString(response.body().string()));
                 }
                 return dVar;
             }
@@ -167,10 +167,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d<InvoiceInfo> dVar, int i) {
                 if (eVar != null) {
-                    if (!TextUtils.equals(dVar.cdX, "0") || dVar.cdZ == null) {
-                        d.this.a(dVar.cdX, dVar.cdY, eVar);
+                    if (!TextUtils.equals(dVar.cCV, "0") || dVar.cCX == null) {
+                        d.this.a(dVar.cCV, dVar.cCW, eVar);
                     } else {
-                        eVar.b(dVar.cdZ);
+                        eVar.b(dVar.cCX);
                     }
                 }
             }
@@ -178,25 +178,25 @@ public class d {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (eVar != null) {
-                    eVar.bw("-1", exc.getMessage());
+                    eVar.bH("-1", exc.getMessage());
                 }
             }
         });
     }
 
     public void a(final long j, final c.d dVar) {
-        String Lj = com.baidu.swan.apps.h.c.Lj();
+        String SX = com.baidu.swan.apps.h.c.SX();
         com.baidu.swan.bdprivate.invoice.model.b bVar = new com.baidu.swan.bdprivate.invoice.model.b(j);
         HashMap hashMap = new HashMap();
         hashMap.put("data", bVar.toJson().toString());
-        a(Lj, hashMap, new ResponseCallback<com.baidu.swan.bdprivate.invoice.model.d>() { // from class: com.baidu.swan.bdprivate.invoice.d.5
+        a(SX, hashMap, new ResponseCallback<com.baidu.swan.bdprivate.invoice.model.d>() { // from class: com.baidu.swan.bdprivate.invoice.d.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
             public com.baidu.swan.bdprivate.invoice.model.d parseResponse(Response response, int i) throws Exception {
                 com.baidu.swan.bdprivate.invoice.model.d dVar2 = new com.baidu.swan.bdprivate.invoice.model.d();
                 if (response != null && response.body() != null) {
-                    dVar2.bg(s.parseString(response.body().string()));
+                    dVar2.br(s.parseString(response.body().string()));
                 }
                 return dVar2;
             }
@@ -206,10 +206,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d dVar2, int i) {
                 if (dVar != null) {
-                    if (!TextUtils.equals(dVar2.cdX, "0")) {
-                        d.this.a(dVar2.cdX, dVar2.cdY, dVar);
+                    if (!TextUtils.equals(dVar2.cCV, "0")) {
+                        d.this.a(dVar2.cCV, dVar2.cCW, dVar);
                     } else {
-                        dVar.aN(j);
+                        dVar.bs(j);
                     }
                 }
             }
@@ -217,25 +217,25 @@ public class d {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (dVar != null) {
-                    dVar.bw("-1", exc.getMessage());
+                    dVar.bH("-1", exc.getMessage());
                 }
             }
         });
     }
 
     public void a(long j, final c.b bVar) {
-        String Lk = com.baidu.swan.apps.h.c.Lk();
+        String SY = com.baidu.swan.apps.h.c.SY();
         com.baidu.swan.bdprivate.invoice.model.b bVar2 = new com.baidu.swan.bdprivate.invoice.model.b(j);
         HashMap hashMap = new HashMap();
         hashMap.put("data", bVar2.toJson().toString());
-        a(Lk, hashMap, new ResponseCallback<com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.b>>() { // from class: com.baidu.swan.bdprivate.invoice.d.6
+        a(SY, hashMap, new ResponseCallback<com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.b>>() { // from class: com.baidu.swan.bdprivate.invoice.d.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
             public com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.b> parseResponse(Response response, int i) throws Exception {
                 com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.b> dVar = new com.baidu.swan.bdprivate.invoice.model.d<>(new com.baidu.swan.bdprivate.invoice.model.b());
                 if (response != null && response.body() != null) {
-                    dVar.bg(s.parseString(response.body().string()));
+                    dVar.br(s.parseString(response.body().string()));
                 }
                 return dVar;
             }
@@ -245,10 +245,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.swan.bdprivate.invoice.model.d<com.baidu.swan.bdprivate.invoice.model.b> dVar, int i) {
                 if (bVar != null) {
-                    if (!TextUtils.equals(dVar.cdX, "0") || dVar.cdZ == null) {
-                        d.this.a(dVar.cdX, dVar.cdY, bVar);
+                    if (!TextUtils.equals(dVar.cCV, "0") || dVar.cCX == null) {
+                        d.this.a(dVar.cCV, dVar.cCW, bVar);
                     } else {
-                        bVar.aM(dVar.cdZ.mId);
+                        bVar.br(dVar.cCX.mId);
                     }
                 }
             }
@@ -256,7 +256,7 @@ public class d {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (bVar != null) {
-                    bVar.bw("-1", exc.getMessage());
+                    bVar.bH("-1", exc.getMessage());
                 }
             }
         });
@@ -266,16 +266,16 @@ public class d {
     public void a(String str, String str2, c cVar) {
         if (cVar != null) {
             if (TextUtils.equals(str, TbEnum.SystemMessage.EVENT_ID_APPLY_FRIEND)) {
-                cVar.nl(str2);
+                cVar.oA(str2);
             } else {
-                cVar.bw(str, str2);
+                cVar.bH(str, str2);
             }
         }
     }
 
     private void a(String str, Map<String, String> map, ResponseCallback responseCallback) {
         if (!TextUtils.isEmpty(str)) {
-            PostFormRequest.PostFormRequestBuilder postFormRequestBuilder = (PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.h.c.processCommonParams(str))).cookieManager(com.baidu.swan.apps.w.a.Ux().Ix());
+            PostFormRequest.PostFormRequestBuilder postFormRequestBuilder = (PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.h.c.processCommonParams(str))).cookieManager(com.baidu.swan.apps.w.a.acm().Qj());
             if (map != null) {
                 postFormRequestBuilder.params(map);
             }

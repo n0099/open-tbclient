@@ -32,7 +32,7 @@ public class w extends ab {
         if (DEBUG) {
             Log.d("PreloadSwanCoreAction", "delay: " + optInt);
         }
-        ai.b(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.w.1
+        ai.c(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.w.1
             @Override // java.lang.Runnable
             public void run() {
                 Bundle bundle = new Bundle();

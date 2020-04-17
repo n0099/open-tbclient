@@ -7,22 +7,22 @@ public class c extends com.baidu.swan.games.view.button.base.c {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void bH(JSONObject jSONObject);
+        void bS(JSONObject jSONObject);
     }
 
     public void a(final a aVar) {
-        if (aVar != null && f.WV().WG() != null) {
-            com.baidu.swan.apps.setting.b.a.a(f.WV().WG(), "snsapi_userinfo", null, true, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.games.view.button.userinfo.c.1
+        if (aVar != null && f.aeK().aev() != null) {
+            com.baidu.swan.apps.setting.b.a.a(f.aeK().aev(), "snsapi_userinfo", null, true, new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.games.view.button.userinfo.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void D(com.baidu.swan.apps.setting.b.a aVar2) {
-                    if (aVar2 != null && aVar2.bTO != null) {
-                        com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback success: " + aVar2.bTO);
-                        aVar.bH(aVar2.bTO);
+                public void E(com.baidu.swan.apps.setting.b.a aVar2) {
+                    if (aVar2 != null && aVar2.csD != null) {
+                        com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback success: " + aVar2.csD);
+                        aVar.bS(aVar2.csD);
                         return;
                     }
-                    aVar.bH(null);
+                    aVar.bS(null);
                 }
             });
         }

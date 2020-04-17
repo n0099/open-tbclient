@@ -12,7 +12,7 @@ public class e {
     public int f = 2;
     private int n = 0;
 
-    public static e M(String str, String str2) {
+    public static e Q(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -36,11 +36,11 @@ public class e {
         return TextUtils.isEmpty(str);
     }
 
-    public static e cd(String str) {
-        return ce(e(str));
+    public static e cY(String str) {
+        return cZ(e(str));
     }
 
-    private static e ce(String str) {
+    private static e cZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

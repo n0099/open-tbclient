@@ -7,7 +7,6 @@ import android.provider.Settings;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
@@ -20,7 +19,7 @@ import java.io.OutputStream;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean dFH = false;
+    private static boolean efo = false;
     private static String link = "";
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4, 78=4, 80=4, 81=4, 84=4, 85=4, 87=4, 88=4] */
@@ -174,7 +173,7 @@ public class a {
         return z;
     }
 
-    public static String ee(Context context) {
+    public static String dS(Context context) {
         String host;
         int port;
         String str = null;
@@ -200,7 +199,7 @@ public class a {
         }
     }
 
-    public static boolean aRC() {
+    public static boolean aZM() {
         try {
             return Settings.Secure.getInt(ContentResolverProxy.getContentResolver(), "adb_enabled", 0) > 0;
         } catch (Exception e) {
@@ -212,7 +211,7 @@ public class a {
     public static String H(File file) {
         FileInputStream fileInputStream;
         String str;
-        if (dFH) {
+        if (efo) {
             return "hasSend_" + link;
         }
         String str2 = TbConfig.SERVER_ADDRESS + TbConfig.DEBUG_UPLOAD;
@@ -229,11 +228,11 @@ public class a {
                     x xVar = new x(str2 + "?fn=" + file.getName());
                     xVar.addPostData("debugfile", bArr);
                     xVar.addPostData("tbs", TbadkCoreApplication.getInst().getTbs());
-                    xVar.addPostData("type", PraiseDataPassUtil.KEY_FROM_OS);
+                    xVar.addPostData("type", "android");
                     str = xVar.postMultiNetData();
                     if (str != null && !str.isEmpty()) {
                         link = new JSONObject(str).getString("url");
-                        dFH = true;
+                        efo = true;
                         String str3 = link;
                         if (fileInputStream != null) {
                             try {

@@ -7,52 +7,52 @@ import com.baidu.mobstat.Config;
 public class e extends o {
     @Override // com.baidu.tbadk.n.o
     public void a(i iVar) {
-        if (m.aRq().aRr()) {
-            com.baidu.adp.lib.stats.a gs = gs();
-            gs.append("action", "time_t");
-            a(gs, iVar);
-            gs.append("ishttp", iVar.dEl ? "1" : "0");
-            gs.append("issuccess", iVar.isSuccess ? "1" : "0");
-            gs.append("nettype", m.aRq().getNetType());
-            gs.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.dDZ));
-            gs.append("wt", String.valueOf(iVar.dEi));
-            gs.append("qt", String.valueOf(iVar.dEa));
-            gs.append("connt", String.valueOf(iVar.dEb));
-            gs.append("rwt", String.valueOf(iVar.dEc));
-            gs.append("dect", String.valueOf(iVar.dEd));
-            gs.append("parset", String.valueOf(iVar.dEe));
-            gs.append("rendert", String.valueOf(iVar.dEh));
-            gs.append("ss", String.valueOf(iVar.dEj));
-            gs.append("hs", String.valueOf(iVar.dEk));
-            if (iVar.dEl && iVar.socketErrNo != 0) {
-                gs.append("salno", String.valueOf(iVar.socketErrNo));
+        if (m.aZA().aZB()) {
+            com.baidu.adp.lib.stats.a kW = kW();
+            kW.append("action", "time_t");
+            a(kW, iVar);
+            kW.append("ishttp", iVar.edS ? "1" : "0");
+            kW.append("issuccess", iVar.isSuccess ? "1" : "0");
+            kW.append("nettype", m.aZA().getNetType());
+            kW.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.edG));
+            kW.append("wt", String.valueOf(iVar.edP));
+            kW.append("qt", String.valueOf(iVar.edH));
+            kW.append("connt", String.valueOf(iVar.edI));
+            kW.append("rwt", String.valueOf(iVar.edJ));
+            kW.append("dect", String.valueOf(iVar.edK));
+            kW.append("parset", String.valueOf(iVar.edL));
+            kW.append("rendert", String.valueOf(iVar.edO));
+            kW.append("ss", String.valueOf(iVar.edQ));
+            kW.append("hs", String.valueOf(iVar.edR));
+            if (iVar.edS && iVar.socketErrNo != 0) {
+                kW.append("salno", String.valueOf(iVar.socketErrNo));
                 if (iVar.socketCostTime != 0) {
-                    gs.append("scosttime", String.valueOf(iVar.socketCostTime));
+                    kW.append("scosttime", String.valueOf(iVar.socketCostTime));
                 }
             }
             if (iVar.errCode != 0) {
-                gs.append("errcode", Integer.valueOf(iVar.errCode));
+                kW.append("errcode", Integer.valueOf(iVar.errCode));
             }
-            if (iVar.dEl) {
-                gs.append(BdStatsConstant.StatsKey.LOGID, String.valueOf(iVar.dEp));
+            if (iVar.edS) {
+                kW.append(BdStatsConstant.StatsKey.LOGID, String.valueOf(iVar.edW));
             } else {
-                gs.append(BdStatsConstant.StatsKey.SEQUENCEID, String.valueOf(iVar.sequenceID & 4294967295L));
+                kW.append(BdStatsConstant.StatsKey.SEQUENCEID, String.valueOf(iVar.sequenceID & 4294967295L));
             }
-            BdStatisticsManager.getInstance().performance(this.subType, gs);
+            BdStatisticsManager.getInstance().performance(this.subType, kW);
         }
     }
 
     @Override // com.baidu.tbadk.n.o
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.aRq().aRr()) {
-            com.baidu.adp.lib.stats.a gs = gs();
-            gs.append("action", "resource_t");
-            gs.append("actype", str);
-            gs.append("issuccess", hVar.isSuccess ? "1" : "0");
-            gs.append("isfs", hVar.dDW ? "1" : "0");
-            gs.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.costTime));
-            gs.append("from", String.valueOf(hVar.resourceFromType));
-            BdStatisticsManager.getInstance().performance(this.subType, gs);
+        if (hVar != null && str != null && m.aZA().aZB()) {
+            com.baidu.adp.lib.stats.a kW = kW();
+            kW.append("action", "resource_t");
+            kW.append("actype", str);
+            kW.append("issuccess", hVar.isSuccess ? "1" : "0");
+            kW.append("isfs", hVar.edD ? "1" : "0");
+            kW.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.costTime));
+            kW.append("from", String.valueOf(hVar.resourceFromType));
+            BdStatisticsManager.getInstance().performance(this.subType, kW);
         }
     }
 
@@ -64,38 +64,38 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.n.o
     public void a(i iVar, boolean z) {
-        if (m.aRq().aRr()) {
-            if (!z || iVar.dEq > 0) {
-                if (z || iVar.dEr > 0) {
-                    com.baidu.adp.lib.stats.a gs = gs();
-                    gs.append("action", "time_t");
-                    a(gs, iVar);
+        if (m.aZA().aZB()) {
+            if (!z || iVar.edX > 0) {
+                if (z || iVar.edY > 0) {
+                    com.baidu.adp.lib.stats.a kW = kW();
+                    kW.append("action", "time_t");
+                    a(kW, iVar);
                     if (z) {
-                        gs.append("put", String.valueOf(iVar.dEq));
+                        kW.append("put", String.valueOf(iVar.edX));
                     } else {
-                        gs.append("pdt", String.valueOf(iVar.dEr));
+                        kW.append("pdt", String.valueOf(iVar.edY));
                     }
-                    gs.append("ishttp", iVar.dEl ? "1" : "0");
-                    gs.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    gs.append("nettype", m.aRq().getNetType());
-                    gs.append("qt", String.valueOf(iVar.dEa));
-                    gs.append("connt", String.valueOf(iVar.dEb));
-                    gs.append("rwt", String.valueOf(iVar.dEc));
-                    gs.append("dect", String.valueOf(iVar.dEd));
-                    gs.append("parset", String.valueOf(iVar.dEe));
-                    gs.append("rendert", String.valueOf(iVar.dEh));
-                    gs.append("ss", String.valueOf(iVar.dEj));
-                    gs.append("hs", String.valueOf(iVar.dEk));
-                    if (iVar.dEl && iVar.socketErrNo != 0) {
-                        gs.append("salno", String.valueOf(iVar.socketErrNo));
+                    kW.append("ishttp", iVar.edS ? "1" : "0");
+                    kW.append("issuccess", iVar.isSuccess ? "1" : "0");
+                    kW.append("nettype", m.aZA().getNetType());
+                    kW.append("qt", String.valueOf(iVar.edH));
+                    kW.append("connt", String.valueOf(iVar.edI));
+                    kW.append("rwt", String.valueOf(iVar.edJ));
+                    kW.append("dect", String.valueOf(iVar.edK));
+                    kW.append("parset", String.valueOf(iVar.edL));
+                    kW.append("rendert", String.valueOf(iVar.edO));
+                    kW.append("ss", String.valueOf(iVar.edQ));
+                    kW.append("hs", String.valueOf(iVar.edR));
+                    if (iVar.edS && iVar.socketErrNo != 0) {
+                        kW.append("salno", String.valueOf(iVar.socketErrNo));
                         if (iVar.socketCostTime != 0) {
-                            gs.append("scosttime", String.valueOf(iVar.socketCostTime));
+                            kW.append("scosttime", String.valueOf(iVar.socketCostTime));
                         }
                     }
                     if (iVar.errCode != 0) {
-                        gs.append("errcode", Integer.valueOf(iVar.errCode));
+                        kW.append("errcode", Integer.valueOf(iVar.errCode));
                     }
-                    BdStatisticsManager.getInstance().performance(this.subType, gs);
+                    BdStatisticsManager.getInstance().performance(this.subType, kW);
                 }
             }
         }
@@ -103,22 +103,22 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.n.o
     public void a(i iVar, int i) {
-        if (m.aRq().aRr() && iVar.dEs > 0) {
-            com.baidu.adp.lib.stats.a gs = gs();
-            gs.append("action", "time_t");
-            a(gs, iVar);
-            gs.append("pct", String.valueOf(iVar.dEs));
+        if (m.aZA().aZB() && iVar.edZ > 0) {
+            com.baidu.adp.lib.stats.a kW = kW();
+            kW.append("action", "time_t");
+            a(kW, iVar);
+            kW.append("pct", String.valueOf(iVar.edZ));
             switch (i) {
                 case 0:
-                    gs.append("pct_type", String.valueOf(100));
+                    kW.append("pct_type", String.valueOf(100));
                     break;
                 case 40:
-                    gs.append("pct_type", String.valueOf(101));
+                    kW.append("pct_type", String.valueOf(101));
                     break;
                 default:
                     return;
             }
-            BdStatisticsManager.getInstance().performance(this.subType, gs);
+            BdStatisticsManager.getInstance().performance(this.subType, kW);
         }
     }
 }

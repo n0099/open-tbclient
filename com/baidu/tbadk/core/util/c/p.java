@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class p implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.e.e
-    public boolean gu() {
+    public boolean kY() {
         return true;
     }
 
@@ -17,7 +17,7 @@ public class p implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(tM(str), com.baidu.tbadk.imageManager.c.aPV().vy(tM(str)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(uZ(str), com.baidu.tbadk.imageManager.c.aYm().wM(uZ(str)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -38,9 +38,9 @@ public class p implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a) && ((com.baidu.adp.widget.ImageView.a) obj).isNeedCache()) {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
-            aVar.ai(i);
-            aVar.aj(i2);
-            com.baidu.tbadk.imageManager.c.aPV().c(tM(str), aVar);
+            aVar.au(i);
+            aVar.av(i2);
+            com.baidu.tbadk.imageManager.c.aYm().c(uZ(str), aVar);
         }
     }
 
@@ -52,12 +52,12 @@ public class p implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public BdAsyncTaskParallel gv() {
+    public BdAsyncTaskParallel kZ() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.e.e
-    public int gw() {
+    public int la() {
         return 1;
     }
 
@@ -72,7 +72,7 @@ public class p implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public String tM(String str) {
+    public String uZ(String str) {
         return "videoThumb_" + str;
     }
 }

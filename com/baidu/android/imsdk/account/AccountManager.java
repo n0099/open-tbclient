@@ -194,4 +194,26 @@ public class AccountManager extends BaseManager {
     public static boolean getMediaRole(Context context) {
         return AccountManagerImpl.getInstance(context).getMediaRole();
     }
+
+    public static void getMsgSettingSwitchStatus(Context context, IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener) {
+        if (isNullContext(context)) {
+            if (iGetMsgSettingSwitchListener != null) {
+                iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(1005, Constants.ERROR_MSG_PARAMETER_ERROR, 0, 0);
+                return;
+            }
+            return;
+        }
+        AccountManagerImpl.getInstance(context).getMsgSettingSwitchStatus(iGetMsgSettingSwitchListener);
+    }
+
+    public static void setMsgSettingSwitchStatus(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
+        if (isNullContext(context)) {
+            if (iSetMsgSettingSwitchListener != null) {
+                iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
+                return;
+            }
+            return;
+        }
+        AccountManagerImpl.getInstance(context).setMsgSettingSwitchStatus(i, i2, iSetMsgSettingSwitchListener);
+    }
 }

@@ -8,7 +8,6 @@ import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.e;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import com.xiaomi.mipush.sdk.Constants;
@@ -30,20 +29,20 @@ public abstract class a {
     protected Context l;
     protected e m;
     protected IXAdSystemUtils n;
-    private C0133a o;
+    private C0156a o;
 
     protected abstract HashMap<String, String> b();
 
     /* renamed from: com.baidu.mobads.vo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public static class C0133a {
+    public static class C0156a {
         String a;
         String b;
         String c;
         String d;
         String e;
 
-        public C0133a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
+        public C0156a(IXAdInstanceInfo iXAdInstanceInfo, IXAdProdInfo iXAdProdInfo) {
             this.a = "";
             this.b = "";
             this.c = "";
@@ -61,9 +60,9 @@ public abstract class a {
         }
     }
 
-    public a(C0133a c0133a) {
-        this(c0133a.a, c0133a.b, c0133a.c);
-        this.o = c0133a;
+    public a(C0156a c0156a) {
+        this(c0156a.a, c0156a.b, c0156a.c);
+        this.o = c0156a;
     }
 
     @Deprecated
@@ -90,7 +89,7 @@ public abstract class a {
         }
         this.f = this.m.getAppId(this.l);
         this.h = this.n.getEncodedSN(this.l);
-        this.i = PraiseDataPassUtil.KEY_FROM_OS;
+        this.i = "android";
         this.g = "android_" + com.baidu.mobads.a.a.c + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + "4.1.30";
         this.j = str3;
         this.k = XAdSDKFoundationFacade.getInstance().getSystemUtils().getCUID(this.l);

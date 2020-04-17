@@ -29,15 +29,15 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
         this.f1044plugin = fluttiePlugin;
         this.surfaceTexture = surfaceTextureEntry;
         this.surface = new Surface(surfaceTextureEntry.surfaceTexture());
-        Rect bf = eVar.bf();
-        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize((int) (bf.width() * f), (int) (bf.height() * f));
+        Rect gC = eVar.gC();
+        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize((int) (gC.width() * f), (int) (gC.height() * f));
         this.drawable = new g();
         this.drawable.enableMergePathsForKitKatAndAbove(true);
         this.drawable.setScale(f);
         this.composition = eVar;
         this.drawable.a(eVar);
         if (str != null) {
-            this.drawable.I("flutter_assets/" + str);
+            this.drawable.aY("flutter_assets/" + str);
         }
         this.drawable.addAnimatorUpdateListener(this);
         fluttiePlugin.getRenderingThreads().markDirty(this);
@@ -51,7 +51,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setDuration(int i) {
-        this.drawable.setSpeed(Math.copySign(this.composition.bg() / i, this.drawable.getSpeed()));
+        this.drawable.setSpeed(Math.copySign(this.composition.gD() / i, this.drawable.getSpeed()));
     }
 
     public int getId() {

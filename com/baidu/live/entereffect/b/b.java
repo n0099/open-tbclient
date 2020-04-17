@@ -23,8 +23,8 @@ import java.util.zip.ZipInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class b {
-    private com.baidu.live.entereffect.a.a afA;
-    private String afB;
+    private com.baidu.live.entereffect.a.a axR;
+    private String axS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final com.baidu.live.entereffect.a.a aVar, final String str, final String str2) {
@@ -37,10 +37,10 @@ public class b {
                 if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(aVar.url) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     return null;
                 }
-                b.this.afA = aVar;
-                b.this.afB = str;
+                b.this.axR = aVar;
+                b.this.axS = str;
                 if (com.baidu.live.f.a.existFile(str)) {
-                    b.this.ra();
+                    b.this.vs();
                 } else if (!new File(str).mkdirs()) {
                     return null;
                 }
@@ -49,7 +49,7 @@ public class b {
                 downloadData.setName(str2);
                 downloadData.setUrl(aVar.url);
                 downloadData.setType(20);
-                downloadData.setPath(b.this.T(str, str2));
+                downloadData.setPath(b.this.W(str, str2));
                 downloadData.setCallback(new FileDownloadCallBack() { // from class: com.baidu.live.entereffect.b.b.1.1
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -67,7 +67,7 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
-                        b.this.dc(b.this.T(b.this.afB, str2));
+                        b.this.dT(b.this.W(b.this.axS, str2));
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -91,29 +91,29 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dc(final String str) {
-        if (!TextUtils.isEmpty(this.afB) && !TextUtils.isEmpty(str)) {
+    public void dT(final String str) {
+        if (!TextUtils.isEmpty(this.axS) && !TextUtils.isEmpty(str)) {
             new BdAsyncTask<Void, Void, List<String>>() { // from class: com.baidu.live.entereffect.b.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
                 public List<String> doInBackground(Void... voidArr) {
-                    List<String> U = b.this.U(b.this.afB, str);
-                    if (U == null || U.isEmpty()) {
-                        b.this.ra();
+                    List<String> X = b.this.X(b.this.axS, str);
+                    if (X == null || X.isEmpty()) {
+                        b.this.vs();
                     }
-                    return U;
+                    return X;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
-                /* renamed from: o */
+                /* renamed from: r */
                 public void onPostExecute(List<String> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.rb().a(b.this.afA, b.this.afB, list);
+                        c.vt().a(b.this.axR, b.this.axS, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -121,13 +121,13 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String T(String str, String str2) {
+    public String W(String str, String str2) {
         return str + str2 + ".zip";
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [210=4, 211=4, 213=4, 214=4, 216=4, 217=4] */
     /* JADX INFO: Access modifiers changed from: private */
-    public List<String> U(String str, String str2) {
+    public List<String> X(String str, String str2) {
         ZipInputStream zipInputStream;
         FileInputStream fileInputStream;
         ZipInputStream zipInputStream2;
@@ -352,9 +352,9 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ra() {
-        if (!TextUtils.isEmpty(this.afB)) {
-            com.baidu.live.f.a.cleanDir(new File(this.afB));
+    public void vs() {
+        if (!TextUtils.isEmpty(this.axS)) {
+            com.baidu.live.f.a.cleanDir(new File(this.axS));
         }
     }
 }

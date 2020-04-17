@@ -6,7 +6,7 @@ import cn.com.chinatelecom.account.api.CtAuth;
 import cn.com.chinatelecom.account.api.CtSetting;
 import cn.com.chinatelecom.account.api.ResultListener;
 import cn.com.chinatelecom.account.api.TraceLogger;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.outsdk.c;
@@ -47,7 +47,7 @@ public class ChinaTelecomSdkWrap {
                 public void onError(int i) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("errno", 0);
+                        jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                         jSONObject.put("appid", sapiConfiguration.chinaTelecomAppKey);
                         jSONObject.put("code", i);
                         jSONObject.put("msg", "request pre login error");
@@ -68,7 +68,7 @@ public class ChinaTelecomSdkWrap {
     }
 
     private void a(final Context context, final PreLoginCallback preLoginCallback) {
-        CtSetting ctSetting = new CtSetting((int) BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL, (int) BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL, 30000);
+        CtSetting ctSetting = new CtSetting(15000, 15000, 30000);
         final long currentTimeMillis = System.currentTimeMillis() / 1000;
         CtAuth.getInstance().requestPreLogin(ctSetting, new ResultListener() { // from class: com.baidu.sapi2.outsdk.ChinaTelecomSdkWrap.2
             public void onResult(String str) {
@@ -128,11 +128,11 @@ public class ChinaTelecomSdkWrap {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final SapiConfiguration sapiConfiguration, String str, final c.a aVar) {
-        CtAuth.getInstance().requestLogin(str, new CtSetting((int) BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL, (int) BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL, 30000), new ResultListener() { // from class: com.baidu.sapi2.outsdk.ChinaTelecomSdkWrap.3
+        CtAuth.getInstance().requestLogin(str, new CtSetting(15000, 15000, 30000), new ResultListener() { // from class: com.baidu.sapi2.outsdk.ChinaTelecomSdkWrap.3
             public void onResult(String str2) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("errno", 0);
+                    jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                     jSONObject.put("appid", sapiConfiguration.chinaTelecomAppKey);
                     JSONObject jSONObject2 = new JSONObject(str2);
                     if (jSONObject2.optInt("result") == 0) {

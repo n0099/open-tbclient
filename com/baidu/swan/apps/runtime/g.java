@@ -6,20 +6,20 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public class g extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> bPy;
+    private Map<String, Object> cok;
 
     public g(e eVar) {
         super(eVar);
-        this.bPy = new HashMap();
+        this.cok = new HashMap();
     }
 
     public void putString(String str, String str2) {
-        m(str, str2);
+        r(str, str2);
     }
 
     public String getString(String str, String str2) {
         try {
-            return (String) l(str, str2);
+            return (String) q(str, str2);
         } catch (ClassCastException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -29,12 +29,12 @@ public class g extends f {
     }
 
     public void a(String str, Boolean bool) {
-        m(str, bool);
+        r(str, bool);
     }
 
     public Boolean b(String str, Boolean bool) {
         try {
-            return (Boolean) l(str, bool);
+            return (Boolean) q(str, bool);
         } catch (ClassCastException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -44,12 +44,12 @@ public class g extends f {
     }
 
     public void a(String str, Integer num) {
-        m(str, num);
+        r(str, num);
     }
 
     public Integer b(String str, Integer num) {
         try {
-            return (Integer) l(str, num);
+            return (Integer) q(str, num);
         } catch (ClassCastException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -59,23 +59,23 @@ public class g extends f {
     }
 
     public void clear() {
-        this.bPy.clear();
+        this.cok.clear();
     }
 
     public boolean containsKey(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return this.bPy.containsKey(str);
+        return this.cok.containsKey(str);
     }
 
-    private <V> V l(String str, V v) {
+    private <V> V q(String str, V v) {
         if (containsKey(str)) {
-            if (this.bPy.get(str) == null) {
+            if (this.cok.get(str) == null) {
                 return null;
             }
             try {
-                return (V) this.bPy.get(str);
+                return (V) this.cok.get(str);
             } catch (Exception e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -87,8 +87,8 @@ public class g extends f {
         return v;
     }
 
-    private <V> void m(String str, V v) {
-        this.bPy.put(str, v);
+    private <V> void r(String str, V v) {
+        this.cok.put(str, v);
     }
 
     @Override // com.baidu.swan.apps.runtime.f

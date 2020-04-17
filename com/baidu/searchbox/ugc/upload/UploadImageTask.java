@@ -4,6 +4,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 import com.baidu.android.util.media.MimeType;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.ugc.utils.CompressImageUtil;
 import com.baidu.searchbox.ugc.utils.FileUtils;
 import com.baidu.searchbox.ugc.utils.SelectUtil;
 import com.baidubce.services.bos.model.ObjectMetadata;

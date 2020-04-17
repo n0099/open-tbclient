@@ -1,6 +1,5 @@
 package com.baidu.fsg.base.utils;
 
-import com.baidu.android.util.time.DateTimeUtil;
 import com.baidu.fsg.base.ApollonConstants;
 import dalvik.system.PathClassLoader;
 import java.lang.reflect.Array;
@@ -159,7 +158,7 @@ public final class JsonUtils {
                             field.setAccessible(true);
                             Object obj2 = field.get(obj);
                             if (Date.class.isAssignableFrom(field.getType())) {
-                                obj2 = new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.CHINA).format((Date) obj2);
+                                obj2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA).format((Date) obj2);
                             }
                             jSONStringer.key(field.getName());
                             serialize(jSONStringer, obj2);
@@ -297,7 +296,7 @@ public final class JsonUtils {
                     Class<?> type = field.getType();
                     field.setAccessible(true);
                     if (Date.class.isAssignableFrom(type)) {
-                        field.set(obj, new SimpleDateFormat(DateTimeUtil.TIME_FORMAT, Locale.CHINA).parse(obj2.toString()));
+                        field.set(obj, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA).parse(obj2.toString()));
                     } else {
                         field.set(obj, obj2);
                     }

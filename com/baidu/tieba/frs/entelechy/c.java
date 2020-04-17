@@ -5,6 +5,7 @@ import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.frs.f.g;
+import com.baidu.tieba.frs.n;
 import com.baidu.tieba.frs.vc.h;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes9.dex */
 public class c implements com.baidu.tieba.frs.entelechy.b.b {
-    private float drF = 0.16875f;
+    private float dRB = 0.16875f;
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(h hVar, FrsViewData frsViewData) {
@@ -23,7 +24,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
                 Iterator<m> it = threadList.iterator();
                 while (it.hasNext()) {
                     m next = it.next();
-                    if (next.getType() == bj.cRw) {
+                    if (next.getType() == bj.dqD) {
                         arrayList.add(next);
                     }
                 }
@@ -33,16 +34,16 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public boolean to(int i) {
+    public boolean tM(int i) {
         return false;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void a(h hVar, com.baidu.tieba.frs.m mVar, FrsViewData frsViewData) {
-        if (hVar != null && mVar != null && frsViewData != null) {
-            hVar.uo();
+    public void a(h hVar, n nVar, FrsViewData frsViewData) {
+        if (hVar != null && nVar != null && frsViewData != null) {
+            hVar.yI();
             if (frsViewData != null && frsViewData.getForum() != null) {
-                mVar.a(frsViewData.getForum().getFrsBannerData());
+                nVar.a(frsViewData.getForum().getFrsBannerData());
             }
         }
     }
@@ -53,7 +54,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     }
 
     @Override // com.baidu.tieba.frs.entelechy.b.b
-    public void bP(View view) {
+    public void bX(View view) {
         view.setVisibility(8);
     }
 }

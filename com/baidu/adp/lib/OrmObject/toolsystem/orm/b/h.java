@@ -15,13 +15,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 /* loaded from: classes.dex */
 public class h implements c {
+    private Element Ip;
     private Set<String> keySet = new HashSet();
-    private Element po;
 
     public h(Element element) {
         String nodeName;
         String nodeName2;
-        this.po = element;
+        this.Ip = element;
         if (element != null) {
             NamedNodeMap attributes = element.getAttributes();
             int length = attributes.getLength();
@@ -54,9 +54,9 @@ public class h implements c {
     /* JADX WARN: Type inference failed for: r0v4, types: [java.util.List, java.util.ArrayList] */
     public Object getObject(String str) {
         String nodeName;
-        Object attribute = this.po.getAttribute(str);
+        Object attribute = this.Ip.getAttribute(str);
         if (TextUtils.isEmpty(attribute)) {
-            NodeList childNodes = this.po.getChildNodes();
+            NodeList childNodes = this.Ip.getChildNodes();
             int length = childNodes.getLength();
             attribute = new ArrayList(length);
             for (int i = 0; i < length; i++) {
@@ -84,26 +84,26 @@ public class h implements c {
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public void e(String str, Object obj) {
+    public void f(String str, Object obj) {
         if (obj != null && str != null) {
             if (obj instanceof Boolean) {
-                this.po.setAttribute(str, String.valueOf(obj));
+                this.Ip.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Byte) {
-                this.po.setAttribute(str, String.valueOf(obj));
+                this.Ip.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Character) {
-                this.po.setAttribute(str, String.valueOf(obj));
+                this.Ip.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Short) {
-                this.po.setAttribute(str, String.valueOf(obj));
+                this.Ip.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Integer) {
-                this.po.setAttribute(str, String.valueOf(obj));
+                this.Ip.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Long) {
-                this.po.setAttribute(str, String.valueOf(obj));
+                this.Ip.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Float) {
-                this.po.setAttribute(str, String.valueOf(obj));
+                this.Ip.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof Double) {
-                this.po.setAttribute(str, String.valueOf(obj));
+                this.Ip.setAttribute(str, String.valueOf(obj));
             } else if (obj instanceof String) {
-                this.po.setAttribute(str, String.valueOf(obj));
+                this.Ip.setAttribute(str, String.valueOf(obj));
             } else {
                 if (obj.getClass().isArray() || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), List.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Queue.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Set.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), Map.class) || com.baidu.adp.lib.OrmObject.a.a.isClassIsSubClassForClazz(obj.getClass(), SparseArray.class)) {
                 }

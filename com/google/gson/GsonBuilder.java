@@ -32,7 +32,7 @@ public final class GsonBuilder {
     private int timeStyle;
 
     public GsonBuilder() {
-        this.excluder = c.mMg;
+        this.excluder = c.miR;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -51,7 +51,7 @@ public final class GsonBuilder {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public GsonBuilder(Gson gson) {
-        this.excluder = c.mMg;
+        this.excluder = c.miR;
         this.longSerializationPolicy = LongSerializationPolicy.DEFAULT;
         this.fieldNamingPolicy = FieldNamingPolicy.IDENTITY;
         this.instanceCreators = new HashMap();
@@ -85,12 +85,12 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder setVersion(double d) {
-        this.excluder = this.excluder.y(d);
+        this.excluder = this.excluder.C(d);
         return this;
     }
 
     public GsonBuilder excludeFieldsWithModifiers(int... iArr) {
-        this.excluder = this.excluder.o(iArr);
+        this.excluder = this.excluder.q(iArr);
         return this;
     }
 
@@ -100,7 +100,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
-        this.excluder = this.excluder.dBb();
+        this.excluder = this.excluder.dvt();
         return this;
     }
 
@@ -115,7 +115,7 @@ public final class GsonBuilder {
     }
 
     public GsonBuilder disableInnerClassSerialization() {
-        this.excluder = this.excluder.dBa();
+        this.excluder = this.excluder.dvs();
         return this;
     }
 
@@ -190,10 +190,10 @@ public final class GsonBuilder {
             this.instanceCreators.put(type, (InstanceCreator) obj);
         }
         if ((obj instanceof JsonSerializer) || (obj instanceof JsonDeserializer)) {
-            this.factories.add(l.a(com.google.gson.b.a.get(type), obj));
+            this.factories.add(l.a(com.google.gson.b.a.k(type), obj));
         }
         if (obj instanceof TypeAdapter) {
-            this.factories.add(n.a(com.google.gson.b.a.get(type), (TypeAdapter) obj));
+            this.factories.add(n.a(com.google.gson.b.a.k(type), (TypeAdapter) obj));
         }
         return this;
     }

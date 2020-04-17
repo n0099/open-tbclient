@@ -100,7 +100,7 @@ public class f {
         }
     }
 
-    public static boolean f(InputStream inputStream, String str) {
+    public static boolean e(InputStream inputStream, String str) {
         if (inputStream == null || TextUtils.isEmpty(str)) {
             return false;
         }

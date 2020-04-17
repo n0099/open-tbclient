@@ -21,7 +21,7 @@ public class a extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void my() {
+    public void ra() {
         try {
             Looper looper = getLooper();
             if (Build.VERSION.SDK_INT >= 18) {

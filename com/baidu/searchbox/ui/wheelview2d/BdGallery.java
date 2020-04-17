@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.ActivityChooserView;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.GestureDetector;
@@ -612,7 +613,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         if (this.mSelectedChild != null) {
             int centerOfGallery = getCenterOfGallery();
             if (view.getLeft() > centerOfGallery || view.getRight() < centerOfGallery) {
-                int i = Integer.MAX_VALUE;
+                int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                 int i2 = 0;
                 int childCount = getChildCount() - 1;
                 while (true) {
@@ -651,7 +652,7 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
         if (this.mSelectedChild != null) {
             int centerOfGallery = getCenterOfGallery();
             if (view == null || view.getTop() > centerOfGallery || view.getBottom() < centerOfGallery) {
-                int i = Integer.MAX_VALUE;
+                int i = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                 int i2 = 0;
                 int childCount = getChildCount() - 1;
                 while (true) {
@@ -1288,15 +1289,15 @@ public class BdGallery extends BdAbsSpinner implements GestureDetector.OnDoubleT
             if (i != 0) {
                 startCommon();
                 if (BdGallery.this.isOrientationVertical()) {
-                    int i2 = i < 0 ? Integer.MAX_VALUE : 0;
+                    int i2 = i < 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : 0;
                     this.mLastFlingY = i2;
-                    this.mScroller.fling(0, i2, 0, i, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
+                    this.mScroller.fling(0, i2, 0, i, 0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                     BdGallery.this.post(this);
                     return;
                 }
-                int i3 = i < 0 ? Integer.MAX_VALUE : 0;
+                int i3 = i < 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : 0;
                 this.mLastFlingX = i3;
-                this.mScroller.fling(i3, 0, i, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
+                this.mScroller.fling(i3, 0, i, 0, 0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 BdGallery.this.post(this);
             }
         }

@@ -12,18 +12,18 @@ public interface c {
 
     /* loaded from: classes11.dex */
     public interface b extends c {
-        void aM(long j);
+        void br(long j);
     }
 
     /* renamed from: com.baidu.swan.bdprivate.invoice.c$c  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0321c extends c {
-        void ai(List<InvoiceInfo> list);
+    public interface InterfaceC0351c extends c {
+        void aq(List<InvoiceInfo> list);
     }
 
     /* loaded from: classes11.dex */
     public interface d extends c {
-        void aN(long j);
+        void bs(long j);
     }
 
     /* loaded from: classes11.dex */
@@ -31,7 +31,7 @@ public interface c {
         void b(InvoiceInfo invoiceInfo);
     }
 
-    void bw(String str, String str2);
+    void bH(String str, String str2);
 
-    void nl(String str);
+    void oA(String str);
 }

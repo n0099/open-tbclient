@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes9.dex */
 public class AccountActivityStatic {
     static {
-        aXR();
-        tj();
+        bfW();
+        xC();
     }
 
-    private static void tj() {
+    private static void xC() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_ACCOUNT, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.account.AccountActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
@@ -30,7 +30,7 @@ public class AccountActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aXR() {
+    private static void bfW() {
         TbadkCoreApplication.getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NotLoginGuideActivityConfig.class, NotLoginGuideActivity.class);
     }

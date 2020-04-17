@@ -19,8 +19,8 @@ public class i extends a {
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a
-    public /* bridge */ /* synthetic */ JSONObject eb(int i) {
-        return super.eb(i);
+    public /* bridge */ /* synthetic */ JSONObject eg(int i) {
+        return super.eg(i);
     }
 
     public i(j jVar) {
@@ -31,21 +31,21 @@ public class i extends a {
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.canvas.b.a d = d(unitedSchemeEntity);
         if (d == null) {
-            unitedSchemeEntity.result = eb(201);
+            unitedSchemeEntity.result = eg(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update action parse model is null");
             return false;
         }
-        String str = d.biA;
-        com.baidu.swan.apps.model.a.a.a aVar = d.biE;
+        String str = d.bGI;
+        com.baidu.swan.apps.model.a.a.a aVar = d.bGM;
         if (TextUtils.isEmpty(str) || aVar == null || !aVar.isValid()) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "some params invalid");
-            unitedSchemeEntity.result = eb(202);
+            unitedSchemeEntity.result = eg(202);
             return false;
         }
         com.baidu.swan.apps.component.components.d.a aVar2 = (com.baidu.swan.apps.component.components.d.a) com.baidu.swan.apps.component.container.a.d(d);
         if (aVar2 == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update canvas fail: fina a null component");
-            unitedSchemeEntity.result = eb(1001);
+            unitedSchemeEntity.result = eg(1001);
             return false;
         }
         com.baidu.swan.apps.component.b.c a = aVar2.a((com.baidu.swan.apps.component.components.d.a) d);

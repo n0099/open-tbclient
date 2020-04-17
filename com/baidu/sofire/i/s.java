@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Environment;
 import android.provider.Settings;
+import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Base64;
 import java.io.BufferedReader;
@@ -88,7 +89,7 @@ public class s {
                 allocate.put(new byte[]{1});
                 allocate.put(new byte[]{1});
                 allocate.put(t.a(0));
-                byte[] a4 = t.a(Integer.MAX_VALUE);
+                byte[] a4 = t.a((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
                 allocate.put(a4);
                 allocate.put(array);
                 ByteBuffer allocate3 = ByteBuffer.allocate(44);

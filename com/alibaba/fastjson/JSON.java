@@ -18,7 +18,6 @@ import com.alibaba.fastjson.serializer.SerializeWriter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
-import com.baidu.android.util.time.DateTimeUtil;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -49,7 +48,7 @@ public abstract class JSON implements JSONAware, JSONStreamAware {
     public static Locale defaultLocale = Locale.getDefault();
     public static String DEFAULT_TYPE_KEY = "@type";
     static final SerializeFilter[] emptyFilters = new SerializeFilter[0];
-    public static String DEFFAULT_DATE_FORMAT = DateTimeUtil.TIME_FORMAT;
+    public static String DEFFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static int DEFAULT_PARSER_FEATURE = (((((((Feature.AutoCloseSource.getMask() | 0) | Feature.InternFieldNames.getMask()) | Feature.UseBigDecimal.getMask()) | Feature.AllowUnQuotedFieldNames.getMask()) | Feature.AllowSingleQuotes.getMask()) | Feature.AllowArbitraryCommas.getMask()) | Feature.SortFeidFastMatch.getMask()) | Feature.IgnoreNotMatch.getMask();
 
     static {

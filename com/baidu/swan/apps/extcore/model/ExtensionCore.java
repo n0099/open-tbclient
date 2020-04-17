@@ -10,14 +10,14 @@ public class ExtensionCore extends SwanAppIPCData {
     public static final Parcelable.Creator<ExtensionCore> CREATOR = new Parcelable.Creator<ExtensionCore>() { // from class: com.baidu.swan.apps.extcore.model.ExtensionCore.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: x */
+        /* renamed from: q */
         public ExtensionCore createFromParcel(Parcel parcel) {
             return new ExtensionCore(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eS */
+        /* renamed from: eX */
         public ExtensionCore[] newArray(int i) {
             return new ExtensionCore[i];
         }

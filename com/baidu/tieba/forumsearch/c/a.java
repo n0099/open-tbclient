@@ -13,23 +13,23 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
-    private final TextView ekT;
-    private final ImageView gnO;
+    private final TextView eOt;
+    private final ImageView gWU;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.gnO = (ImageView) getView().findViewById(R.id.history_delete);
-        this.ekT = (TextView) getView().findViewById(R.id.history_title);
-        this.gnO.setOnClickListener(this);
+        this.gWU = (ImageView) getView().findViewById(R.id.history_delete);
+        this.eOt = (TextView) getView().findViewById(R.id.history_title);
+        this.gWU.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            am.setBackgroundResource(this.gnO, R.drawable.icon_search_history_del);
-            am.setViewTextColor(this.ekT, (int) R.color.cp_cont_e);
+            am.setBackgroundResource(this.gWU, R.drawable.icon_search_history_del);
+            am.setViewTextColor(this.eOt, (int) R.color.cp_cont_e);
             this.mSkinType = i;
         }
     }
@@ -46,14 +46,14 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gnO) {
+        if (view == this.gWU) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-            aVar.jV(R.string.confirm_delete_all_history);
-            aVar.fI(true);
+            aVar.kc(R.string.confirm_delete_all_history);
+            aVar.gF(true);
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.forumsearch.c.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    e.bCV();
+                    e.bNv();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RELOAD_SEARCH_FORUM_HISTORY));
                     aVar2.dismiss();
                 }
@@ -65,7 +65,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
                 }
             });
             aVar.b(this.mTbPageContext);
-            aVar.aEG();
+            aVar.aMU();
         }
     }
 }

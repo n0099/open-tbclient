@@ -11,10 +11,8 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -92,7 +90,7 @@ public class PassBiometricUtil {
             String[] split = readLine2.split("\\s+");
             Log.d(TAG, "getCpuType()str2:" + readLine2);
             for (int i = 2; i < split.length; i++) {
-                strArr[0] = strArr[0] + split[i] + HanziToPinyin.Token.SEPARATOR;
+                strArr[0] = strArr[0] + split[i] + " ";
             }
             Log.d(TAG, "getCpuType()str2" + bufferedReader.readLine());
             strArr[1] = strArr[1] + readLine.split("\\s+")[2];
@@ -313,7 +311,7 @@ public class PassBiometricUtil {
     public static String getUA(Context context, String str) {
         StringBuilder sb = new StringBuilder();
         sb.append("pass_bio").append("-p-");
-        sb.append(PraiseDataPassUtil.KEY_FROM_OS).append("-p-");
+        sb.append("android").append("-p-");
         sb.append(str).append("-p-");
         sb.append(getVersionCode(context)).append("-p-");
         sb.append(PassBiometricDefaultFactory.VERSION_NAME).append("-p-");

@@ -34,17 +34,17 @@ public class da {
                 if (irVar != null) {
                     try {
                         if (irVar instanceof hx) {
-                            String str = ((hx) irVar).f574d;
-                            return (TextUtils.isEmpty(str) || eu.a(eu.m257a(str)) == -1) ? a : eu.a(eu.m257a(str));
+                            String str = ((hx) irVar).f575d;
+                            return (TextUtils.isEmpty(str) || eu.a(eu.m262a(str)) == -1) ? a : eu.a(eu.m262a(str));
                         } else if (irVar instanceof Cif) {
-                            String str2 = ((Cif) irVar).f634d;
+                            String str2 = ((Cif) irVar).f635d;
                             if (TextUtils.isEmpty(str2)) {
                                 return a;
                             }
-                            if (eu.a(eu.m257a(str2)) != -1) {
-                                a = eu.a(eu.m257a(str2));
+                            if (eu.a(eu.m262a(str2)) != -1) {
+                                a = eu.a(eu.m262a(str2));
                             }
-                            if (hq.UploadTinyData.equals(eu.m257a(str2))) {
+                            if (hq.UploadTinyData.equals(eu.m262a(str2))) {
                                 return -1;
                             }
                             return a;
@@ -125,7 +125,7 @@ public class da {
             iq.a(icVar, bArr);
             a(str, context, icVar, bArr.length);
         } catch (iw e) {
-            com.xiaomi.channel.commonutils.logger.b.m45a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m50a("fail to convert bytes to container");
         }
     }
 }

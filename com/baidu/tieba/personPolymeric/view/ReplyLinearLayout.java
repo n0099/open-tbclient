@@ -19,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams jvc;
-    private List<TextView> jvb;
+    private static ViewGroup.LayoutParams keW;
+    private List<TextView> keV;
     private boolean mIsHost;
     private View.OnClickListener mOnItemClickListener;
 
@@ -34,7 +34,7 @@ public class ReplyLinearLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new an("c12043").X("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
+                TiebaStatic.log(new an("c12043").af("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
                 if (strArr != null) {
                     Context context2 = ReplyLinearLayout.this.getContext();
                     if ("0".equals(strArr[3])) {
@@ -49,24 +49,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.jvb = new ArrayList();
+        this.keV = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (jvc == null) {
-            jvc = new LinearLayout.LayoutParams(-1, -2);
+        if (keW == null) {
+            keW = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.jvb.size();
+        int size2 = size - this.keV.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.jvb.add(textView);
+            this.keV.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.jvb.size(); i3++) {
-            TextView textView2 = this.jvb.get(i3);
+        for (int i3 = 0; i3 < this.keV.size(); i3++) {
+            TextView textView2 = this.keV.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -87,7 +87,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(jvc);
+                    textView2.setLayoutParams(keW);
                     am.setViewTextColor(textView2, R.color.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
@@ -95,11 +95,11 @@ public class ReplyLinearLayout extends LinearLayout {
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(jvc);
+                    textView2.setLayoutParams(keW);
                     am.setViewTextColor(textView2, R.color.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(jvc);
+                    textView2.setLayoutParams(keW);
                     am.setViewTextColor(textView2, R.color.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);

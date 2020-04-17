@@ -224,6 +224,7 @@ public class TbConfig {
     public static final String HOME_FORUM_FEED_LIST = "c/u/feed/forum";
     public static final String HOME_REALTIME_ADDRESS = "c/f/excellent/realtime";
     public static final String HOT_THREAD_UNLIKE = "c/f/choiceness/unlike";
+    public static final String HOT_USER_RANK_URL = "c/f/forum/getInfluenceRank";
     public static final String HTTPS_FRS_PREFIX = "http://tieba.baidu.com/f?kw=";
     public static final String HTTPS_LIVE_SHARE_PREFIX = "https://tieba.baidu.com/ala/share";
     public static final String HTTPS_PB_PREFIX = "http://tieba.baidu.com/p/";
@@ -469,6 +470,7 @@ public class TbConfig {
     public static final String URL_ENTER_FORUM_AD = "c/f/forum/getAdInfo";
     public static final String URL_ENTER_RECOMMEND_FORUM = "c/f/recommend/recommforum";
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/?m=Client&a=postViewTieba&appid=222251";
+    public static final String URL_FORUM_SQUARE = "c/f/forum/getForumSquare";
     public static final String URL_FRS_BUSINESS_PROMOT_CLICK = "c/e/businessPromot/counter";
     public static final String URL_GAME_VIDEO = "c/f/excellent/recomVertical";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
@@ -512,6 +514,7 @@ public class TbConfig {
     public static final String URL_SMART_APP_DEL_BROWSE_HISTORY = "c/c/smartapp/delView";
     public static final String URL_SMART_APP_SHARE_IMAGE = "c/c/img/getShareImg";
     public static final String URL_SUB_INTEREST_LABEL_LIST = "c/f/recommtag/subTagList";
+    public static final String URL_TAB_FEED_LIST = "c/f/forum/tabfeedlist";
     public static final String URL_THREAD_PUBLISH = "c/c/bawu/threadPublish";
     public static final String URL_TOPIC_USER_PK = "c/f/recommend/userPk";
     public static final String URL_UEG_REPORT = "c/f/ueg/checkjubao";
@@ -547,6 +550,7 @@ public class TbConfig {
     public static final String WEB_URL_MAIN_THREAD_PRAISE_LIST = "https://tieba.baidu.com/n/apage-runtime/page/agree_list?";
     public static final String WEB_URL_TDOU_UEG = "http://tieba.baidu.com/mo/q/nativePayUeg?errorno=";
     public static final String WEB_VIEW_JUMP2NATIVE = "jump_tieba_native=1";
+    public static final String WEB_VIEW_NEED_FRESH = "need_fresh=1";
     public static final String WEIXIN_APP_ID = "wxdd0912f3a78239c8";
     public static final String WEIXIN_PARTNER_ID = "1219850201";
     public static final String WEIXIN_SHARE_APP_ID = "wx289a8c58bca4c71e";
@@ -748,7 +752,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.aPV().setPhotoMaxNum(i);
+            c.aYm().setPhotoMaxNum(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

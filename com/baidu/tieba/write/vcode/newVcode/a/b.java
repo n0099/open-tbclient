@@ -2,15 +2,15 @@ package com.baidu.tieba.write.vcode.newVcode.a;
 
 import android.webkit.WebView;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public interface b {
-    void A(boolean z, String str);
+    void B(boolean z, String str);
 
     boolean c(WebView webView, String str);
 
-    void cUQ();
-
     void d(NewWriteModel.d dVar);
+
+    void dfl();
 
     void onDestroy();
 

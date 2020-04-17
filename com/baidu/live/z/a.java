@@ -1,21 +1,44 @@
 package com.baidu.live.z;
 
-import com.baidu.live.data.AlaLiveUserInfoData;
+import com.baidu.live.tbadk.ubc.IUbcManager;
+import com.baidu.pyramid.runtime.service.c;
+import com.baidu.ubc.Flow;
+import com.baidu.ubc.aa;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public interface a {
-
-    /* renamed from: com.baidu.live.z.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC0108a {
+public class a implements IUbcManager {
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void onEvent(String str, JSONObject jSONObject) {
+        ((aa) c.a(aa.SERVICE_REFERENCE)).onEvent(str, jSONObject);
     }
 
-    a a(int i, String str, String str2, String str3, String str4, int i2, String str5);
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public Object flowBegin(String str, JSONObject jSONObject) {
+        return ((aa) c.a(aa.SERVICE_REFERENCE)).beginFlow(str, jSONObject);
+    }
 
-    void a(AlaLiveUserInfoData alaLiveUserInfoData, String str);
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void flowSetValueWithDuration(Object obj, JSONObject jSONObject) {
+        aa aaVar = (aa) c.a(aa.SERVICE_REFERENCE);
+        if (jSONObject != null) {
+            aaVar.flowSetValueWithDuration((Flow) obj, jSONObject.toString());
+        } else {
+            aaVar.flowSetValueWithDuration((Flow) obj, null);
+        }
+    }
 
-    void a(InterfaceC0108a interfaceC0108a);
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void flowStartSlot(Object obj, String str, JSONObject jSONObject) {
+        ((aa) c.a(aa.SERVICE_REFERENCE)).a((Flow) obj, str, jSONObject);
+    }
 
-    void cV(int i);
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void flowEndSlot(Object obj, String str) {
+        ((aa) c.a(aa.SERVICE_REFERENCE)).flowEndSlot((Flow) obj, str);
+    }
 
-    void onDestroy();
+    @Override // com.baidu.live.tbadk.ubc.IUbcManager
+    public void flowEnd(Object obj) {
+        ((aa) c.a(aa.SERVICE_REFERENCE)).flowEnd((Flow) obj);
+    }
 }

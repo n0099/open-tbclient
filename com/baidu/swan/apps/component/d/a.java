@@ -5,20 +5,20 @@ import com.baidu.swan.apps.console.c;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int bjN = 5;
-    private int[] bjO;
+    private static int bHV = 5;
+    private int[] bHW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i) {
-        n(i, false);
+        q(i, false);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@IntRange(from = 1) int i, boolean z) {
-        n(i, z);
+        q(i, z);
     }
 
-    private void n(@IntRange(from = 1) int i, boolean z) {
+    private void q(@IntRange(from = 1) int i, boolean z) {
         if (i <= 0) {
             String str = "number <= 0: " + i;
             c.e("Component-DiffBitMap", str);
@@ -27,11 +27,11 @@ public class a {
             }
             i = 500;
         }
-        this.bjO = new int[eh(i - 1) + 1];
-        int length = this.bjO.length;
+        this.bHW = new int[em(i - 1) + 1];
+        int length = this.bHW.length;
         if (z) {
             for (int i2 = 0; i2 < length; i2++) {
-                this.bjO[i2] = -1;
+                this.bHW[i2] = -1;
             }
         }
     }
@@ -44,7 +44,7 @@ public class a {
             }
             return;
         }
-        int length = (this.bjO.length << bjN) - 1;
+        int length = (this.bHW.length << bHV) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -53,9 +53,9 @@ public class a {
             }
             return;
         }
-        int[] iArr = this.bjO;
-        int eh = eh(i);
-        iArr[eh] = iArr[eh] | (1 << i);
+        int[] iArr = this.bHW;
+        int em = em(i);
+        iArr[em] = iArr[em] | (1 << i);
     }
 
     public boolean get(@IntRange(from = 0) int i) {
@@ -66,7 +66,7 @@ public class a {
             }
             return false;
         }
-        int length = (this.bjO.length << bjN) - 1;
+        int length = (this.bHW.length << bHV) - 1;
         if (i > length) {
             String str = "diff > " + length + ": " + i;
             c.e("Component-DiffBitMap", str);
@@ -75,10 +75,10 @@ public class a {
             }
             return false;
         }
-        return (this.bjO[eh(i)] & (1 << i)) != 0;
+        return (this.bHW[em(i)] & (1 << i)) != 0;
     }
 
-    private int eh(int i) {
-        return i >> bjN;
+    private int em(int i) {
+        return i >> bHV;
     }
 }

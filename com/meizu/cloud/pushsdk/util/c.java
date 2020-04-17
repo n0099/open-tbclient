@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.statistics.h;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
@@ -42,7 +41,7 @@ public class c {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            return d.a().a(jSONObject.has("task_id") ? jSONObject.getString("task_id") : null).d(jSONObject.has(Constants.KEY_DEVICE_ID) ? jSONObject.getString(Constants.KEY_DEVICE_ID) : null).c(jSONObject.has("push_timestamp") ? jSONObject.getString("push_timestamp") : null).b(jSONObject.has(BdStatsConstant.StatsKey.SEQUENCEID) ? jSONObject.getString(BdStatsConstant.StatsKey.SEQUENCEID) : null).a();
+            return d.a().a(jSONObject.has("task_id") ? jSONObject.getString("task_id") : null).d(jSONObject.has("device_id") ? jSONObject.getString("device_id") : null).c(jSONObject.has("push_timestamp") ? jSONObject.getString("push_timestamp") : null).b(jSONObject.has(BdStatsConstant.StatsKey.SEQUENCEID) ? jSONObject.getString(BdStatsConstant.StatsKey.SEQUENCEID) : null).a();
         } catch (Exception e) {
             com.meizu.cloud.a.a.e("UxIPUtils", "the platformExtra parse error");
             return dVar;

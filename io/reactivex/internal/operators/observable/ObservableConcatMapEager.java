@@ -4,6 +4,7 @@ import io.reactivex.c.h;
 import io.reactivex.internal.a.g;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.observers.InnerQueuedObserver;
+import io.reactivex.internal.observers.c;
 import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.internal.util.ErrorMode;
 import io.reactivex.t;
@@ -23,7 +24,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
     }
 
     /* loaded from: classes7.dex */
-    static final class ConcatMapEagerMainObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, io.reactivex.internal.observers.b<R>, u<T> {
+    static final class ConcatMapEagerMainObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, c<R>, u<T> {
         private static final long serialVersionUID = 8080567949447303262L;
         int activeCount;
         final u<? super R> actual;
@@ -126,13 +127,13 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
             }
         }
 
-        @Override // io.reactivex.internal.observers.b
+        @Override // io.reactivex.internal.observers.c
         public void innerNext(InnerQueuedObserver<R> innerQueuedObserver, R r) {
             innerQueuedObserver.queue().offer(r);
             drain();
         }
 
-        @Override // io.reactivex.internal.observers.b
+        @Override // io.reactivex.internal.observers.c
         public void innerError(InnerQueuedObserver<R> innerQueuedObserver, Throwable th) {
             if (this.error.addThrowable(th)) {
                 if (this.errorMode == ErrorMode.IMMEDIATE) {
@@ -145,7 +146,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
             io.reactivex.e.a.onError(th);
         }
 
-        @Override // io.reactivex.internal.observers.b
+        @Override // io.reactivex.internal.observers.c
         public void innerComplete(InnerQueuedObserver<R> innerQueuedObserver) {
             innerQueuedObserver.setDone();
             drain();
@@ -299,7 +300,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
             r0 = move-exception;
          */
         /* JADX WARN: Code restructure failed: missing block: B:68:0x0158, code lost:
-            io.reactivex.exceptions.a.H(r0);
+            io.reactivex.exceptions.a.L(r0);
             r13.error.addThrowable(r0);
             r13.current = null;
             r13.activeCount--;
@@ -325,7 +326,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
         /* JADX WARN: Code restructure failed: missing block: B:99:?, code lost:
             return;
          */
-        @Override // io.reactivex.internal.observers.b
+        @Override // io.reactivex.internal.observers.c
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -363,7 +364,7 @@ public final class ObservableConcatMapEager<T, R> extends a<T, R> {
                                 tVar.subscribe(innerQueuedObserver);
                                 i2 = i3 + 1;
                             } catch (Throwable th) {
-                                io.reactivex.exceptions.a.H(th);
+                                io.reactivex.exceptions.a.L(th);
                                 this.d.dispose();
                                 gVar.clear();
                                 disposeAll();

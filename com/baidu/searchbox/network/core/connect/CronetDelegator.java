@@ -161,7 +161,7 @@ public class CronetDelegator implements IHttpDelegator {
                         RequestClient.sNetworkQuality = -1;
                     } else if (intValue2 == 1) {
                         RequestClient.sNetworkQuality = 3;
-                    } else if (intValue2 == 2 || intValue2 == 3 || intValue > 1310.0d) {
+                    } else if (intValue2 == 2 || intValue2 == 3 || intValue > 1000.0d) {
                         RequestClient.sNetworkQuality = 2;
                     } else {
                         RequestClient.sNetworkQuality = 1;

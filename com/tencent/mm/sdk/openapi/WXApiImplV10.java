@@ -61,11 +61,11 @@ final class WXApiImplV10 implements IWXAPI {
                 return false;
             }
         }
-        a.C0744a c0744a = new a.C0744a();
-        c0744a.k = bundle;
-        c0744a.h = "com.tencent.mm";
-        c0744a.i = wxappPayEntryClassname;
-        return com.tencent.mm.sdk.a.a.a(context, c0744a);
+        a.C0768a c0768a = new a.C0768a();
+        c0768a.k = bundle;
+        c0768a.h = "com.tencent.mm";
+        c0768a.i = wxappPayEntryClassname;
+        return com.tencent.mm.sdk.a.a.a(context, c0768a);
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPI
@@ -189,11 +189,11 @@ final class WXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         com.tencent.mm.sdk.b.a.c(TAG, "register app " + this.context.getPackageName());
-        a.C0745a c0745a = new a.C0745a();
-        c0745a.l = "com.tencent.mm";
-        c0745a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-        c0745a.j = "weixin://registerapp?appid=" + this.appId;
-        return com.tencent.mm.sdk.a.a.a.a(this.context, c0745a);
+        a.C0769a c0769a = new a.C0769a();
+        c0769a.l = "com.tencent.mm";
+        c0769a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+        c0769a.j = "weixin://registerapp?appid=" + this.appId;
+        return com.tencent.mm.sdk.a.a.a.a(this.context, c0769a);
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPI
@@ -214,12 +214,12 @@ final class WXApiImplV10 implements IWXAPI {
             if (baseReq.getType() == 5) {
                 return sendPayReq(this.context, bundle);
             }
-            a.C0744a c0744a = new a.C0744a();
-            c0744a.k = bundle;
-            c0744a.j = "weixin://sendreq?appid=" + this.appId;
-            c0744a.h = "com.tencent.mm";
-            c0744a.i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
-            return com.tencent.mm.sdk.a.a.a(this.context, c0744a);
+            a.C0768a c0768a = new a.C0768a();
+            c0768a.k = bundle;
+            c0768a.j = "weixin://sendreq?appid=" + this.appId;
+            c0768a.h = "com.tencent.mm";
+            c0768a.i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
+            return com.tencent.mm.sdk.a.a.a(this.context, c0768a);
         }
     }
 
@@ -237,12 +237,12 @@ final class WXApiImplV10 implements IWXAPI {
         } else {
             Bundle bundle = new Bundle();
             baseResp.toBundle(bundle);
-            a.C0744a c0744a = new a.C0744a();
-            c0744a.k = bundle;
-            c0744a.j = "weixin://sendresp?appid=" + this.appId;
-            c0744a.h = "com.tencent.mm";
-            c0744a.i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
-            return com.tencent.mm.sdk.a.a.a(this.context, c0744a);
+            a.C0768a c0768a = new a.C0768a();
+            c0768a.k = bundle;
+            c0768a.j = "weixin://sendresp?appid=" + this.appId;
+            c0768a.h = "com.tencent.mm";
+            c0768a.i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
+            return com.tencent.mm.sdk.a.a.a(this.context, c0768a);
         }
     }
 
@@ -261,10 +261,10 @@ final class WXApiImplV10 implements IWXAPI {
             return;
         }
         com.tencent.mm.sdk.b.a.c(TAG, "unregister app " + this.context.getPackageName());
-        a.C0745a c0745a = new a.C0745a();
-        c0745a.l = "com.tencent.mm";
-        c0745a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-        c0745a.j = "weixin://unregisterapp?appid=" + this.appId;
-        com.tencent.mm.sdk.a.a.a.a(this.context, c0745a);
+        a.C0769a c0769a = new a.C0769a();
+        c0769a.l = "com.tencent.mm";
+        c0769a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+        c0769a.j = "weixin://unregisterapp?appid=" + this.appId;
+        com.tencent.mm.sdk.a.a.a.a(this.context, c0769a);
     }
 }

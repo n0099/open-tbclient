@@ -22,7 +22,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.i.a.a;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
@@ -355,7 +356,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
         linkedHashMap.put("pop_login", str);
         HashMap hashMap = new HashMap(1);
         hashMap.put("extrajson", PassportSDK.getInstance().getSmsLoginStatExtra());
-        hashMap.put("errno", str2);
+        hashMap.put(BaseJsonData.TAG_ERRNO, str2);
         com.baidu.sapi2.utils.r.a(linkedHashMap, hashMap);
     }
 

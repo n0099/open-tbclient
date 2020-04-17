@@ -8,21 +8,21 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes10.dex */
 public class c {
-    private int kyM = 2;
-    private int lZv = 0;
+    private final MediaMuxer bhd;
+    private int ljb = 2;
+    private int mhg = 0;
     private boolean mIsStarted = false;
-    private final MediaMuxer mMediaMuxer;
 
     public c(String str) throws IOException {
-        this.mMediaMuxer = new MediaMuxer(str, 0);
+        this.bhd = new MediaMuxer(str, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         Log.v("MediaMuxerWrapper", "start:");
-        this.lZv++;
-        if (this.kyM > 0 && this.lZv == this.kyM) {
-            this.mMediaMuxer.start();
+        this.mhg++;
+        if (this.ljb > 0 && this.mhg == this.ljb) {
+            this.bhd.start();
             this.mIsStarted = true;
             notifyAll();
             Log.v("MediaMuxerWrapper", "MediaMuxer started:");
@@ -32,31 +32,31 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.lZv);
-        this.lZv--;
-        if (this.kyM > 0 && this.lZv <= 0) {
-            this.mMediaMuxer.stop();
-            this.mMediaMuxer.release();
+        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.mhg);
+        this.mhg--;
+        if (this.ljb > 0 && this.mhg <= 0) {
+            this.bhd.stop();
+            this.bhd.release();
             this.mIsStarted = false;
             Log.v("MediaMuxerWrapper", "MediaMuxer stopped:");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized int i(MediaFormat mediaFormat) {
+    public synchronized int c(MediaFormat mediaFormat) {
         int addTrack;
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        addTrack = this.mMediaMuxer.addTrack(mediaFormat);
-        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.kyM + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+        addTrack = this.bhd.addTrack(mediaFormat);
+        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.ljb + ",trackIx=" + addTrack + ",format=" + mediaFormat);
         return addTrack;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void d(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        if (this.lZv > 0) {
-            this.mMediaMuxer.writeSampleData(i, byteBuffer, bufferInfo);
+    public synchronized void c(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+        if (this.mhg > 0) {
+            this.bhd.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

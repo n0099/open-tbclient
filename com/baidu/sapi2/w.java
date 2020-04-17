@@ -49,7 +49,7 @@ public class w extends HttpHandlerWrap {
     public void onSuccess(int i, String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.b.setResultCode(jSONObject.optInt("errno"));
+            this.b.setResultCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO));
             this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
         } catch (JSONException e) {
             Log.e(e);

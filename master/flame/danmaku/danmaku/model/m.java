@@ -3,21 +3,23 @@ package master.flame.danmaku.danmaku.model;
 public interface m {
     void a(float f, int i, float f2);
 
-    void b(d dVar, boolean z);
+    void aN(float f);
 
-    void bG(float f);
+    void b(int i, float[] fArr);
+
+    void b(d dVar, boolean z);
 
     void c(d dVar, boolean z);
 
-    float dMF();
+    float dFF();
 
-    int dMG();
+    int dFG();
 
-    int dMH();
+    int dFH();
 
-    int dMI();
+    int dFI();
 
-    int dMJ();
+    int dFJ();
 
     float getDensity();
 
@@ -29,8 +31,6 @@ public interface m {
 
     int getWidth();
 
-    void i(int i, float[] fArr);
-
     boolean isHardwareAccelerated();
 
     int n(d dVar);
@@ -39,5 +39,5 @@ public interface m {
 
     void setSize(int i, int i2);
 
-    void wU(boolean z);
+    void wz(boolean z);
 }

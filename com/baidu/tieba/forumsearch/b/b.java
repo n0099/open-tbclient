@@ -6,25 +6,25 @@ import tbclient.FrsTabInfo;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gnK = BdUniqueId.gen();
-    private String gnF;
-    private String gnG;
-    private String gnH;
-    private boolean gnI;
-    private List<FrsTabInfo> gnJ;
-    private String gnk;
+    public static final BdUniqueId gWQ = BdUniqueId.gen();
+    private String gWL;
+    private String gWM;
+    private String gWN;
+    private boolean gWO;
+    private List<FrsTabInfo> gWP;
+    private String gWq;
     private String mAvatar;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.gnk = str;
+        this.gWq = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gnK;
+        return gWQ;
     }
 
     public void a(SearchForum searchForum) {
@@ -32,12 +32,12 @@ public class b extends com.baidu.tieba.card.data.b {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
             this.mAvatar = searchForum.avatar;
-            this.gnF = searchForum.post_num;
-            this.gnG = searchForum.concern_num;
-            this.gnH = searchForum.slogan;
+            this.gWL = searchForum.post_num;
+            this.gWM = searchForum.concern_num;
+            this.gWN = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.gnI = searchForum.has_concerned.intValue() != 0;
-            this.gnJ = searchForum.tab_info;
+            this.gWO = searchForum.has_concerned.intValue() != 0;
+            this.gWP = searchForum.tab_info;
         }
     }
 
@@ -45,12 +45,12 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mAvatar;
     }
 
-    public String bCX() {
-        return this.gnG;
+    public String bNx() {
+        return this.gWM;
     }
 
-    public String bCY() {
-        return this.gnF;
+    public String bNy() {
+        return this.gWL;
     }
 
     public String getForumName() {
@@ -61,11 +61,11 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String bCZ() {
-        return this.gnk;
+    public String bNz() {
+        return this.gWq;
     }
 
-    public List<FrsTabInfo> bDa() {
-        return this.gnJ;
+    public List<FrsTabInfo> bNA() {
+        return this.gWP;
     }
 }

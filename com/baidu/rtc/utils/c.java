@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import com.baidu.ala.helper.AlaLiveBaseInfo;
+import com.baidu.ar.constants.HttpConstants;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
@@ -22,7 +23,7 @@ public class c {
             jSONObject.putOpt("appVer", mAppVer == null ? "" : mAppVer);
             jSONObject.putOpt("deviceId", this.mCuid == null ? "" : this.mCuid);
             jSONObject.putOpt("network", this.mNetWork == null ? "" : this.mNetWork);
-            jSONObject.putOpt("osType", AlaLiveBaseInfo.mOSType == 0 ? "" : AlaLiveBaseInfo.mOSType);
+            jSONObject.putOpt(HttpConstants.HTTP_OS_TYPE_OLD, AlaLiveBaseInfo.mOSType == 0 ? "" : AlaLiveBaseInfo.mOSType);
             jSONObject.putOpt("osVer", mOSVer == null ? "" : mOSVer);
             jSONObject.putOpt("streamType", this.mStreamType == null ? "" : this.mStreamType);
             jSONObject.putOpt("uid", this.mUid == null ? "" : this.mUid);

@@ -6,16 +6,16 @@ import com.baidu.live.tbadk.core.account.AccountLoginCoreHelper;
 import com.baidu.live.tbadk.core.data.AccountData;
 /* loaded from: classes3.dex */
 public class a extends AccountLoginCoreHelper {
-    private static a jRZ = null;
+    private static a kBo = null;
 
     private a() {
     }
 
-    public static a cFa() {
-        if (jRZ == null) {
-            jRZ = new a();
+    public static a cPC() {
+        if (kBo == null) {
+            kBo = new a();
         }
-        return jRZ;
+        return kBo;
     }
 
     @Override // com.baidu.live.tbadk.core.account.AccountLoginCoreHelper

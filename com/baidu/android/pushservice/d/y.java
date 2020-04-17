@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Build;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.d.a;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,11 +19,11 @@ public class y implements Runnable {
     private int b = 3;
     private int c;
     private boolean d;
-    private a.C0043a e;
+    private a.C0045a e;
 
-    public y(Context context, a.C0043a c0043a) {
+    public y(Context context, a.C0045a c0045a) {
         this.a = context.getApplicationContext();
-        this.e = c0043a;
+        this.e = c0045a;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: java.io.Closeable[] */
@@ -109,12 +109,12 @@ public class y implements Runnable {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("method", "token");
         b.a(hashMap);
-        hashMap.put("device_type", "3");
+        hashMap.put(HttpConstants.DEVICE_TYPE, "3");
         String deviceID = DeviceId.getDeviceID(this.a);
         if (com.baidu.android.pushservice.g.f()) {
             hashMap.put("rsa_device_id", com.baidu.android.pushservice.j.b.a(BaiduAppSSOJni.encryptR(deviceID.getBytes(), 1), "utf-8"));
         } else {
-            hashMap.put(Constants.KEY_DEVICE_ID, deviceID);
+            hashMap.put("device_id", deviceID);
         }
         hashMap.put("device_name", Build.MODEL);
         int b = com.baidu.android.pushservice.i.i.b(this.a, "com.baidu.android.pushservice.PushManager.LOGIN_TYPE", -1);
@@ -147,7 +147,7 @@ public class y implements Runnable {
         if (str2.length() > 128) {
             str2 = str2.substring(0, 127);
         }
-        jSONObject.put("manufacturer", str2);
+        jSONObject.put(HttpConstants.HTTP_MANUFACTURER, str2);
         hashMap.put("info", jSONObject.toString());
         return hashMap;
     }

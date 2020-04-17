@@ -30,30 +30,30 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            anVar.X("obj_source", i2);
+            anVar.af("obj_source", i2);
         }
         if (shareEntity == null) {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle aMw = shareEntity.aMw();
-        if (aMw != null) {
-            int i3 = aMw.getInt("obj_param1");
+        Bundle aUT = shareEntity.aUT();
+        if (aUT != null) {
+            int i3 = aUT.getInt("obj_param1");
             if (i3 != 0) {
-                anVar.X("obj_param1", i3);
+                anVar.af("obj_param1", i3);
                 if (i3 == 2) {
-                    anVar.cx("fid", aMw.getString("fid"));
+                    anVar.cI("fid", aUT.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = aMw.getInt("obj_type");
+                    int i4 = aUT.getInt("obj_type");
                     if (i4 != 0) {
-                        anVar.X("obj_type", i4);
+                        anVar.af("obj_type", i4);
                     }
-                    anVar.cx("tid", aMw.getString("tid")).cx("fid", aMw.getString("fid"));
+                    anVar.cI("tid", aUT.getString("tid")).cI("fid", aUT.getString("fid"));
                 }
             }
-            String string = aMw.getString(TiebaInitialize.Params.OBJ_URL);
+            String string = aUT.getString(TiebaInitialize.Params.OBJ_URL);
             if (!aq.isEmpty(string)) {
-                anVar.cx(TiebaInitialize.Params.OBJ_URL, string);
+                anVar.cI(TiebaInitialize.Params.OBJ_URL, string);
             }
         }
         TiebaStatic.log(anVar);
@@ -80,17 +80,17 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            anVar.X("obj_source", i2);
+            anVar.af("obj_source", i2);
         }
         if (shareEntity == null) {
             TiebaStatic.log(anVar);
             return;
         }
-        Bundle aMw = shareEntity.aMw();
-        if (aMw != null) {
-            anVar.cx("tid", aMw.getString("tid"));
-            anVar.cx("uid", aMw.getString("uid"));
-            anVar.cx("fid", aMw.getString("fid"));
+        Bundle aUT = shareEntity.aUT();
+        if (aUT != null) {
+            anVar.cI("tid", aUT.getString("tid"));
+            anVar.cI("uid", aUT.getString("uid"));
+            anVar.cI("fid", aUT.getString("fid"));
         }
         TiebaStatic.log(anVar);
     }

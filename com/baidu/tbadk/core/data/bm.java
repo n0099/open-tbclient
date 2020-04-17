@@ -14,7 +14,7 @@ public class bm {
         return this.title;
     }
 
-    public String aEw() {
+    public String aMK() {
         return this.title_link;
     }
 

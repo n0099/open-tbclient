@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -22,7 +23,7 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         if (jSONObject != null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.errno = jSONObject.optInt("errno");
+            this.errno = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
             this.mResultMessage = jSONObject.toString();
             int statusCode = getStatusCode();
             int error = getError();
@@ -41,9 +42,9 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
 
     private void dealVideoAd() {
         if (m.checkSD()) {
-            b xB = b.xB(com.baidu.tieba.advert.sdk.c.a.aZu());
+            b yN = b.yN(com.baidu.tieba.advert.sdk.c.a.bhy());
             if (!this.adInfo.shouldDownloadVideo()) {
-                this.adInfo.videoLocalPath = xB.videoLocalPath;
+                this.adInfo.videoLocalPath = yN.videoLocalPath;
                 com.baidu.tieba.advert.sdk.c.a.c(this.adInfo);
             } else if (j.isNetWorkAvailable() && j.isWifiNet()) {
                 com.baidu.tieba.advert.sdk.b.a searchTask = searchTask(this.adInfo.adVideoUrl);

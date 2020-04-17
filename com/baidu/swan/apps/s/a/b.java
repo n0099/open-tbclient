@@ -18,48 +18,48 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.as.ai;
 /* loaded from: classes11.dex */
 public class b extends PopupWindow {
-    private SwanAppActivity biY;
-    private int bjb;
-    private String[] bwZ;
-    private a bxA;
+    private SwanAppActivity bHg;
+    private int bHj;
+    private a bVG;
+    private String[] bVf;
     private EditText mEditText;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void KT();
+        void SI();
 
-        void eg(int i);
+        void el(int i);
     }
 
     public b(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i, int i2) {
         super(swanAppActivity);
-        this.bwZ = new String[12];
-        eZ(i);
+        this.bVf = new String[12];
+        fe(i);
         a(swanAppActivity, editText, i2);
     }
 
-    private void eZ(int i) {
+    private void fe(int i) {
         for (int i2 = 0; i2 < 9; i2++) {
-            this.bwZ[i2] = String.valueOf(i2 + 1);
+            this.bVf[i2] = String.valueOf(i2 + 1);
         }
         if (i == 1) {
-            this.bwZ[9] = "X";
+            this.bVf[9] = "X";
         } else if (i == 0) {
-            this.bwZ[9] = "";
+            this.bVf[9] = "";
         } else if (i == 2) {
-            this.bwZ[9] = ".";
+            this.bVf[9] = ".";
         }
-        this.bwZ[10] = "0";
+        this.bVf[10] = "0";
     }
 
     private void a(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, final int i) {
-        this.biY = swanAppActivity;
+        this.bHg = swanAppActivity;
         this.mEditText = editText;
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(a.g.aiapps_keyboard_layout, (ViewGroup) null);
-        this.bjb = swanAppActivity.getResources().getDimensionPixelOffset(a.d.aiapps_keyboard_total_height);
+        this.bHj = swanAppActivity.getResources().getDimensionPixelOffset(a.d.aiapps_keyboard_total_height);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         final GridView gridView = (GridView) linearLayout.findViewById(a.f.keyboard_grid_view);
-        gridView.setAdapter((ListAdapter) new com.baidu.swan.apps.s.a.a(swanAppActivity, this.bwZ));
+        gridView.setAdapter((ListAdapter) new com.baidu.swan.apps.s.a.a(swanAppActivity, this.bVf));
         final AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.s.a.b.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
@@ -72,13 +72,13 @@ public class b extends PopupWindow {
                         b.this.mEditText.setSelection(selectionStart - 1);
                     }
                 } else if (text.length() < i || i < 0) {
-                    text.insert(selectionStart, b.this.bwZ[i2]);
+                    text.insert(selectionStart, b.this.bVf[i2]);
                     b.this.mEditText.setText(text);
-                    b.this.mEditText.setSelection(selectionStart + b.this.bwZ[i2].length());
+                    b.this.mEditText.setSelection(selectionStart + b.this.bVf[i2].length());
                 }
             }
         };
-        ai.l(new Runnable() { // from class: com.baidu.swan.apps.s.a.b.2
+        ai.o(new Runnable() { // from class: com.baidu.swan.apps.s.a.b.2
             @Override // java.lang.Runnable
             public void run() {
                 int childCount = gridView.getChildCount();
@@ -111,28 +111,28 @@ public class b extends PopupWindow {
         imageView.setClickable(true);
         setContentView(linearLayout);
         setWidth(-1);
-        setHeight(this.bjb);
+        setHeight(this.bHj);
         setBackgroundDrawable(new BitmapDrawable());
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
         super.dismiss();
-        if (this.bxA != null) {
-            this.bxA.KT();
+        if (this.bVG != null) {
+            this.bVG.SI();
         }
     }
 
     public void show() {
         if (!isShowing()) {
-            showAtLocation(this.biY.getWindow().getDecorView(), 80, 0, 0);
-            if (this.bxA != null) {
-                this.bxA.eg(this.bjb);
+            showAtLocation(this.bHg.getWindow().getDecorView(), 80, 0, 0);
+            if (this.bVG != null) {
+                this.bVG.el(this.bHj);
             }
         }
     }
 
     public void a(@NonNull a aVar) {
-        this.bxA = aVar;
+        this.bVG = aVar;
     }
 }

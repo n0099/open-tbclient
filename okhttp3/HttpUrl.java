@@ -3,6 +3,7 @@ package okhttp3;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -166,7 +167,7 @@ public final class HttpUrl {
             return null;
         }
         int indexOf = this.url.indexOf(63) + 1;
-        return this.url.substring(indexOf, Util.delimiterOffset(this.url, indexOf, this.url.length(), '#'));
+        return this.url.substring(indexOf, Util.delimiterOffset(this.url, indexOf, this.url.length(), (char) UgcConstant.TOPIC_PATTERN_TAG));
     }
 
     static void namesAndValuesToQueryString(StringBuilder sb, List<String> list) {
@@ -671,7 +672,7 @@ public final class HttpUrl {
                     sb.append(':');
                     sb.append(this.encodedPassword);
                 }
-                sb.append('@');
+                sb.append(UgcConstant.AT_PATTERN_TAG);
             }
             if (this.host.indexOf(58) != -1) {
                 sb.append('[');
@@ -691,7 +692,7 @@ public final class HttpUrl {
                 HttpUrl.namesAndValuesToQueryString(sb, this.encodedQueryNamesAndValues);
             }
             if (this.encodedFragment != null) {
-                sb.append('#');
+                sb.append(UgcConstant.TOPIC_PATTERN_TAG);
                 sb.append(this.encodedFragment);
             }
             return sb.toString();
@@ -792,7 +793,7 @@ public final class HttpUrl {
             if (delimiterOffset3 >= skipTrailingAsciiWhitespace || str.charAt(delimiterOffset3) != '?') {
                 i = delimiterOffset3;
             } else {
-                i = Util.delimiterOffset(str, delimiterOffset3, skipTrailingAsciiWhitespace, '#');
+                i = Util.delimiterOffset(str, delimiterOffset3, skipTrailingAsciiWhitespace, (char) UgcConstant.TOPIC_PATTERN_TAG);
                 this.encodedQueryNamesAndValues = HttpUrl.queryStringToNamesAndValues(HttpUrl.canonicalize(str, delimiterOffset3 + 1, i, HttpUrl.QUERY_ENCODE_SET, true, false, true, true, null));
             }
             if (i < skipTrailingAsciiWhitespace && str.charAt(i) == '#') {

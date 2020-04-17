@@ -5,7 +5,6 @@ import io.reactivex.c.h;
 import io.reactivex.q;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Callable;
-import org.a.b;
 /* loaded from: classes7.dex */
 public final class SingleInternalHelper {
 
@@ -21,12 +20,12 @@ public final class SingleInternalHelper {
     }
 
     /* loaded from: classes7.dex */
-    enum ToFlowable implements h<aa, b> {
+    enum ToFlowable implements h<aa, org.a.b> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.h
-        public b apply(aa aaVar) {
+        public org.a.b apply(aa aaVar) {
             return new SingleToFlowable(aaVar);
         }
     }
@@ -38,7 +37,7 @@ public final class SingleInternalHelper {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.c.h
         public q apply(aa aaVar) {
-            return new SingleToObservable(aaVar);
+            return new b(aaVar);
         }
     }
 }

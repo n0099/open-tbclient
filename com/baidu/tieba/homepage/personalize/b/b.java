@@ -6,8 +6,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.adp.widget.ListView.s;
 import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.y;
 import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -15,26 +15,26 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.card.r;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.adp.widget.ListView.a<c, a> {
-    private s hgZ;
+    private v hQJ;
     private final TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.hgZ = new s() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
-            @Override // com.baidu.adp.widget.ListView.s
+        this.hQJ = new v() { // from class: com.baidu.tieba.homepage.personalize.b.b.1
+            @Override // com.baidu.adp.widget.ListView.v
             public void a(View view, m mVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 TiebaStatic.log(new an("c11273"));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK, 0));
             }
         };
         this.mPageContext = tbPageContext;
-        a(this.hgZ);
+        a(this.hQJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bm */
+    /* renamed from: bo */
     public a b(ViewGroup viewGroup) {
         return new a(new com.baidu.tieba.homepage.personalize.b.a(this.mPageContext, viewGroup));
     }
@@ -43,18 +43,18 @@ public class b extends com.baidu.adp.widget.ListView.a<c, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, a aVar) {
-        r.bvm().e(new an("c11272"));
-        aVar.hhb.a(cVar);
+        r.bEY().e(new an("c11272"));
+        aVar.hQL.a(cVar);
         return aVar.getView();
     }
 
     /* loaded from: classes9.dex */
-    public static class a extends v.a {
-        public com.baidu.tieba.homepage.personalize.b.a hhb;
+    public static class a extends y.a {
+        public com.baidu.tieba.homepage.personalize.b.a hQL;
 
         public a(com.baidu.tieba.homepage.personalize.b.a aVar) {
             super(aVar.getView());
-            this.hhb = aVar;
+            this.hQL = aVar;
         }
     }
 }

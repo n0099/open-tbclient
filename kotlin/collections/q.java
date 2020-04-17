@@ -6,7 +6,7 @@ import java.util.List;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class q extends p {
-    public static final <T> List<T> dKE() {
+    public static final <T> List<T> dDD() {
         return EmptyList.INSTANCE;
     }
 
@@ -15,20 +15,20 @@ public class q extends p {
         return new kotlin.b.h(0, collection.size() - 1);
     }
 
-    public static final <T> int fu(List<? extends T> list) {
+    public static final <T> int fi(List<? extends T> list) {
         kotlin.jvm.internal.q.j(list, "receiver$0");
         return list.size() - 1;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.List<? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static final <T> List<T> fv(List<? extends T> list) {
+    public static final <T> List<T> fj(List<? extends T> list) {
         kotlin.jvm.internal.q.j(list, "receiver$0");
         switch (list.size()) {
             case 0:
-                return o.dKE();
+                return o.dDD();
             case 1:
-                return o.bS(list.get(0));
+                return o.bB(list.get(0));
             default:
                 return list;
         }

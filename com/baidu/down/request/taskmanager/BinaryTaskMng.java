@@ -13,7 +13,6 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.IMConstants;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.down.common.DownConstants;
 import com.baidu.down.common.FileMsg;
 import com.baidu.down.common.StatisticInfo;
@@ -662,7 +661,7 @@ public class BinaryTaskMng {
         } else {
             this.mInfoTypeList.clear();
         }
-        if (!TextUtils.isEmpty(string) && (split = string.intern().replace(HanziToPinyin.Token.SEPARATOR, "").toLowerCase().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length > 0) {
+        if (!TextUtils.isEmpty(string) && (split = string.intern().replace(" ", "").toLowerCase().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length > 0) {
             for (int i = 0; i < split.length; i++) {
                 if (!TextUtils.isEmpty(split[i])) {
                     this.mInfoTypeList.add(split[i]);

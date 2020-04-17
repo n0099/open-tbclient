@@ -6,5 +6,5 @@ import java.util.List;
 public interface c {
     int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
 
-    int ne(int i);
+    int nq(int i);
 }

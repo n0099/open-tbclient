@@ -2,7 +2,6 @@ package android.support.v4.util;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 /* loaded from: classes6.dex */
 public class Pair<F, S> {
     @Nullable
@@ -32,7 +31,7 @@ public class Pair<F, S> {
     }
 
     public String toString() {
-        return "Pair{" + String.valueOf(this.first) + HanziToPinyin.Token.SEPARATOR + String.valueOf(this.second) + "}";
+        return "Pair{" + String.valueOf(this.first) + " " + String.valueOf(this.second) + "}";
     }
 
     @NonNull

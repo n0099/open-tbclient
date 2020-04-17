@@ -9,7 +9,7 @@ public class a {
     }
 
     @Deprecated
-    public static void j(Object... objArr) {
+    public static void l(Object... objArr) {
         HashMap hashMap = new HashMap();
         if (objArr != null) {
             if (objArr.length % 2 != 0) {
@@ -49,6 +49,6 @@ public class a {
                 str5 = "6";
             }
         }
-        com.kascend.chushou.c.c.dCo().a(str5, str2, str3, str4);
+        com.kascend.chushou.c.c.dwG().a(str5, str2, str3, str4);
     }
 }

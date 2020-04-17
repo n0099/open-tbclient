@@ -8,8 +8,8 @@ import com.baidu.tieba.R;
 public class b extends l {
     public b(Context context, int i) {
         super(context, TbadkCoreApplication.getInst().getString(R.string.editor_location), 7, i);
-        this.dxM = R.drawable.icon_pure_more_location40_svg;
-        this.dxO = true;
-        this.dxT = new int[]{18};
+        this.dXt = R.drawable.icon_pure_more_location40_svg;
+        this.dXv = true;
+        this.dXA = new int[]{18};
     }
 }

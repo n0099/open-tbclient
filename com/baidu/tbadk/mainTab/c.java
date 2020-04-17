@@ -13,5 +13,5 @@ public class c {
     public static int SHOWICON = 1;
     public static int SHOWTEXT = 2;
     public static int SHOWBOTH = 3;
-    public static int dBN = 4;
+    public static int eby = 4;
 }

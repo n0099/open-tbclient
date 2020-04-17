@@ -1,6 +1,8 @@
 package com.google.zxing.datamatrix.decoder;
 
 import com.alibaba.fastjson.asm.Opcodes;
+import com.baidu.ar.auth.FeatureCodes;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitSource;
 import com.google.zxing.common.DecoderResult;
@@ -10,7 +12,7 @@ import java.util.Collection;
 /* loaded from: classes10.dex */
 final class DecodedBitStreamParser {
     private static final char[] C40_BASIC_SET_CHARS = {'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    private static final char[] C40_SHIFT2_SET_CHARS = {'!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_'};
+    private static final char[] C40_SHIFT2_SET_CHARS = {'!', '\"', UgcConstant.TOPIC_PATTERN_TAG, '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', UgcConstant.AT_PATTERN_TAG, '[', '\\', ']', '^', '_'};
     private static final char[] TEXT_BASIC_SET_CHARS = {'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
     private static final char[] TEXT_SHIFT2_SET_CHARS = C40_SHIFT2_SET_CHARS;
     private static final char[] TEXT_SHIFT3_SET_CHARS = {'`', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '{', '|', '}', '~', 127};
@@ -318,9 +320,9 @@ final class DecodedBitStreamParser {
 
     private static void parseTwoBytes(int i, int i2, int[] iArr) {
         int i3 = ((i << 8) + i2) - 1;
-        int i4 = i3 / 1600;
+        int i4 = i3 / FeatureCodes.ADVANCE_BEAUTY;
         iArr[0] = i4;
-        int i5 = i3 - (i4 * 1600);
+        int i5 = i3 - (i4 * FeatureCodes.ADVANCE_BEAUTY);
         int i6 = i5 / 40;
         iArr[1] = i6;
         iArr[2] = i5 - (i6 * 40);

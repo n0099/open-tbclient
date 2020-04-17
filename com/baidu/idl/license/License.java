@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.idl.authority.AuthorityState;
 import com.baidu.idl.util.HttpRequest;
 import java.io.BufferedReader;
@@ -183,7 +184,7 @@ public class License {
             jSONObject = null;
         }
         if (jSONObject != null) {
-            int optInt = jSONObject.optInt("errno", -1);
+            int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO, -1);
             jSONObject.optString("msg");
             JSONArray optJSONArray = jSONObject.optJSONArray(LICENSE_DATA_DIR_NAME);
             if (optJSONArray == null || optJSONArray.length() <= 0) {

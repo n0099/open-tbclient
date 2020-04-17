@@ -3,6 +3,7 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.os.Build;
 import android.util.Base64;
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.baidu.webkit.internal.ETAG;
@@ -142,7 +143,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     }
 
     private static String refFormatNowDate() {
-        return new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+        return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date(System.currentTimeMillis()));
     }
 
     public static void restoreLastSentTimeFromCfg() {

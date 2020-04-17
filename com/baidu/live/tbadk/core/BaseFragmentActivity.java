@@ -230,6 +230,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (BdBaseApplication.getInst() == null && TbConfig.sdkInitCallback != null) {
             TbConfig.sdkInitCallback.initSdk();
         }
+        if (BdBaseApplication.getInst() == null) {
+            super.onCreate(bundle);
+            super.finish();
+            return;
+        }
         this.mUseStyleImmersiveSticky = UtilHelper.canUseStyleImmersiveSticky();
         if (this.isAddSwipeBackLayout) {
             this.mSwipeBackLayout = new SwipeBackLayout(getPageContext().getPageActivity());

@@ -1,6 +1,5 @@
 package com.baidu.rtc.utils;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 /* loaded from: classes6.dex */
@@ -44,7 +43,7 @@ public class a {
     }
 
     public static byte[] subarray(byte[] bArr, int i, int i2) {
-        printLog("AudioBuffer subarray buff  " + i + HanziToPinyin.Token.SEPARATOR + i2);
+        printLog("AudioBuffer subarray buff  " + i + " " + i2);
         if (bArr == null) {
             return null;
         }

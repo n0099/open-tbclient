@@ -11,41 +11,41 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(C0297a c0297a) {
-        if (c0297a != null) {
+    public void a(C0327a c0327a) {
+        if (c0327a != null) {
             final JSONObject jSONObject = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(c0297a.from)) {
-                    jSONObject.put("from", c0297a.from);
+                if (!TextUtils.isEmpty(c0327a.from)) {
+                    jSONObject.put("from", c0327a.from);
                 }
-                if (!TextUtils.isEmpty(c0297a.type)) {
-                    jSONObject.put("type", c0297a.type);
+                if (!TextUtils.isEmpty(c0327a.type)) {
+                    jSONObject.put("type", c0327a.type);
                 }
-                if (!TextUtils.isEmpty(c0297a.value)) {
-                    jSONObject.put("value", c0297a.value);
+                if (!TextUtils.isEmpty(c0327a.value)) {
+                    jSONObject.put("value", c0327a.value);
                 }
-                if (!TextUtils.isEmpty(c0297a.source)) {
-                    jSONObject.put("source", c0297a.source);
+                if (!TextUtils.isEmpty(c0327a.source)) {
+                    jSONObject.put("source", c0327a.source);
                 }
-                if (!TextUtils.isEmpty(c0297a.page)) {
-                    jSONObject.put("page", c0297a.page);
+                if (!TextUtils.isEmpty(c0327a.page)) {
+                    jSONObject.put("page", c0327a.page);
                 }
-                boolean isEmpty = TextUtils.isEmpty(c0297a.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(c0297a.bUV);
+                boolean isEmpty = TextUtils.isEmpty(c0327a.appId);
+                boolean isEmpty2 = TextUtils.isEmpty(c0327a.ctL);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
-                        jSONObject2.put("appid", c0297a.appId);
+                        jSONObject2.put("appid", c0327a.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", c0297a.bUV);
+                        jSONObject2.put("info", c0327a.ctL);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
                 m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.statistic.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        s.k("777", jSONObject);
+                        s.onEvent("777", jSONObject);
                     }
                 }, "SwanAppBusinessUbcRunnable");
             } catch (JSONException e) {
@@ -58,37 +58,37 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.statistic.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0297a {
+    public static class C0327a {
         private String appId;
-        private String bUV;
+        private String ctL;
         private String page;
         private String source;
         private String type;
         private String value;
-        private a bUU = new a();
+        private a ctK = new a();
         private String from = "swan";
 
-        public C0297a(int i) {
+        public C0327a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public C0297a lC(String str) {
+        public C0327a mP(String str) {
             this.page = str;
             return this;
         }
 
-        public C0297a lD(String str) {
+        public C0327a mQ(String str) {
             this.appId = str;
             return this;
         }
 
-        public C0297a lE(String str) {
-            this.bUV = str;
+        public C0327a mR(String str) {
+            this.ctL = str;
             return this;
         }
 
-        public void Wp() {
-            this.bUU.a(this);
+        public void aee() {
+            this.ctK.a(this);
         }
     }
 }

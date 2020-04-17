@@ -4,8 +4,8 @@ public final class c {
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int app_name = 2131231745;
-        public static final int swan_launch_failed_default_dialog_msg = 2131236267;
-        public static final int swan_launch_failed_default_toast_msg = 2131236268;
+        public static final int app_name = 2131231757;
+        public static final int swan_launch_failed_default_dialog_msg = 2131236220;
+        public static final int swan_launch_failed_default_toast_msg = 2131236221;
     }
 }

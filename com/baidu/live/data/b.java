@@ -3,9 +3,7 @@ package com.baidu.live.data;
 import com.baidu.live.adp.BdUniqueId;
 /* loaded from: classes3.dex */
 public class b implements Cloneable {
-    private String forumId;
     private String from;
-    private boolean isGod;
     private String mInLive;
     private boolean mIsAttention;
     private BdUniqueId mPageId;
@@ -15,9 +13,7 @@ public class b implements Cloneable {
 
     public b() {
         this.mInLive = "0";
-        this.from = "0";
-        this.forumId = null;
-        this.isGod = false;
+        this.from = "";
     }
 
     public b(String str, String str2, boolean z, BdUniqueId bdUniqueId) {
@@ -26,9 +22,7 @@ public class b implements Cloneable {
 
     public b(String str, String str2, String str3, boolean z, BdUniqueId bdUniqueId) {
         this.mInLive = "0";
-        this.from = "0";
-        this.forumId = null;
-        this.isGod = false;
+        this.from = "";
         this.mPortrait = str;
         this.mUserId = str2;
         this.mIsAttention = z;
@@ -38,9 +32,7 @@ public class b implements Cloneable {
 
     public b(String str, String str2, String str3, String str4, boolean z, BdUniqueId bdUniqueId) {
         this.mInLive = "0";
-        this.from = "0";
-        this.forumId = null;
-        this.isGod = false;
+        this.from = "";
         this.mPortrait = str;
         this.mUserId = str2;
         this.metaKey = str3;
@@ -50,7 +42,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: qs */
+    /* renamed from: uJ */
     public b clone() {
         try {
             return (b) super.clone();
@@ -92,7 +84,7 @@ public class b implements Cloneable {
         this.mInLive = str;
     }
 
-    public BdUniqueId qt() {
+    public BdUniqueId uK() {
         return this.mPageId;
     }
 
@@ -100,19 +92,15 @@ public class b implements Cloneable {
         this.mPageId = bdUniqueId;
     }
 
+    public void setFrom(String str) {
+        this.from = str;
+    }
+
     public String getFrom() {
         return this.from;
     }
 
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public boolean isGod() {
-        return this.isGod;
-    }
-
-    public String qu() {
+    public String uL() {
         return this.metaKey;
     }
 }

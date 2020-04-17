@@ -10,14 +10,14 @@ public class SwanCoreVersion extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanCoreVersion> CREATOR = new Parcelable.Creator<SwanCoreVersion>() { // from class: com.baidu.swan.apps.swancore.model.SwanCoreVersion.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: C */
+        /* renamed from: v */
         public SwanCoreVersion createFromParcel(Parcel parcel) {
             return new SwanCoreVersion(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: gD */
+        /* renamed from: gK */
         public SwanCoreVersion[] newArray(int i) {
             return new SwanCoreVersion[i];
         }

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
 import android.widget.TextView;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.permissions.AlertDialogInterface;
 /* loaded from: classes6.dex */

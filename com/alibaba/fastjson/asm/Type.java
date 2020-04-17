@@ -1,6 +1,4 @@
 package com.alibaba.fastjson.asm;
-
-import com.baidu.minivideo.effect.core.entity.AEffectParams;
 /* loaded from: classes7.dex */
 public class Type {
     private final char[] buf;
@@ -178,7 +176,7 @@ public class Type {
             case 5:
                 return "int";
             case 6:
-                return AEffectParams.VALUE_TYPE_FLOAT;
+                return "float";
             case 7:
                 return "long";
             case 8:

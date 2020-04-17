@@ -7,50 +7,50 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String dEG = "tb_perfor_samllflow_time";
-    private static volatile m dEJ;
-    private long dEI;
+    private static String een = "tb_perfor_samllflow_time";
+    private static volatile m eeq;
+    private long eep;
     private boolean isSmallFlow = false;
-    private long dEH = 86400;
-    private long dEF = com.baidu.tbadk.core.sharedPref.b.aFH().getLong(dEG, 0);
+    private long eeo = 86400;
+    private long eem = com.baidu.tbadk.core.sharedPref.b.aNV().getLong(een, 0);
 
-    public static m aRq() {
-        if (dEJ == null) {
+    public static m aZA() {
+        if (eeq == null) {
             synchronized (m.class) {
-                if (dEJ == null) {
-                    dEJ = new m();
+                if (eeq == null) {
+                    eeq = new m();
                 }
             }
         }
-        return dEJ;
+        return eeq;
     }
 
     private m() {
-        this.dEI = 0L;
-        this.dEI = this.dEH;
+        this.eep = 0L;
+        this.eep = this.eeo;
     }
 
-    public boolean aRr() {
-        if (!this.isSmallFlow || (System.currentTimeMillis() - this.dEF) / 1000 <= this.dEI) {
+    public boolean aZB() {
+        if (!this.isSmallFlow || (System.currentTimeMillis() - this.eem) / 1000 <= this.eep) {
             return this.isSmallFlow;
         }
         return false;
     }
 
-    public void gV(boolean z) {
+    public void hT(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.dEF || currentTimeMillis - this.dEF >= this.dEI) {
-                this.dEF = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.aFH().putLong(dEG, this.dEF);
+            if (0 == this.eem || currentTimeMillis - this.eem >= this.eep) {
+                this.eem = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.aNV().putLong(een, this.eem);
             }
         } else {
-            this.dEF = 0L;
-            com.baidu.tbadk.core.sharedPref.b.aFH().putLong(dEG, this.dEF);
+            this.eem = 0L;
+            com.baidu.tbadk.core.sharedPref.b.aNV().putLong(een, this.eem);
         }
         this.isSmallFlow = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.aRv().aRw();
+            n.aZF().aZG();
         }
     }
 
@@ -73,7 +73,7 @@ public class m {
         return "2G";
     }
 
-    public static String mO(int i) {
+    public static String mZ(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -86,7 +86,7 @@ public class m {
         return "WIFI";
     }
 
-    public long aRs() {
+    public long aZC() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -96,8 +96,8 @@ public class m {
         }
     }
 
-    public l mP(int i) {
-        if (aRr()) {
+    public l na(int i) {
+        if (aZB()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -112,6 +112,8 @@ public class m {
                     jVar.subType = "im";
                     return jVar;
                 case 1003:
+                case 1006:
+                case 1007:
                 default:
                     return null;
                 case 1004:
@@ -122,14 +124,22 @@ public class m {
                     e eVar = new e();
                     eVar.subType = "home_page";
                     return eVar;
+                case 1008:
+                    o oVar4 = new o();
+                    oVar4.subType = "user_center";
+                    return oVar4;
+                case 1009:
+                    o oVar5 = new o();
+                    oVar5.subType = "sign_all";
+                    return oVar5;
             }
         }
         return null;
     }
 
-    public void bK(long j) {
+    public void cr(long j) {
         if (j > 0) {
-            this.dEI = j;
+            this.eep = j;
         }
     }
 

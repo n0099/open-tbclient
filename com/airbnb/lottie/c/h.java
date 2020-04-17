@@ -6,7 +6,7 @@ import com.baidu.mobstat.Config;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public class h implements aj<com.airbnb.lottie.model.b> {
-    public static final h jS = new h();
+    public static final h Fp = new h();
 
     private h() {
     }

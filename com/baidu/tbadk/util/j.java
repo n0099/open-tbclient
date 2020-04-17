@@ -7,9 +7,9 @@ import com.baidu.live.tbadk.util.DaemonServiceManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class j {
-    private static j dGY = new j();
-    private b dGZ;
-    private a dHa;
+    private static j egG = new j();
+    private b egH;
+    private a egI;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,18 +19,18 @@ public class j {
     private j() {
     }
 
-    public static j aSd() {
-        return dGY;
+    public static j bam() {
+        return egG;
     }
 
     public void a(a aVar) {
-        this.dHa = aVar;
-        if (this.dGZ != null) {
-            this.dGZ.cancel();
+        this.egI = aVar;
+        if (this.egH != null) {
+            this.egH.cancel();
         }
-        this.dGZ = new b();
-        this.dGZ.setPriority(4);
-        this.dGZ.execute(new String[0]);
+        this.egH = new b();
+        this.egH.setPriority(4);
+        this.egH.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -77,8 +77,8 @@ public class j {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (j.this.dHa != null && bool != null) {
-                j.this.dHa.onResult(bool.booleanValue());
+            if (j.this.egI != null && bool != null) {
+                j.this.egI.onResult(bool.booleanValue());
             }
         }
     }

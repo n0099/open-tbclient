@@ -1,6 +1,7 @@
 package com.baidu.sapi2.shell.response;
 
 import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import org.json.JSONArray;
@@ -23,10 +24,10 @@ public class SocialResponse extends SapiAccountResponse {
             return null;
         }
         SocialResponse socialResponse = new SocialResponse();
-        socialResponse.errorCode = jSONObject.optInt("errno");
+        socialResponse.errorCode = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
         socialResponse.errorMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
         socialResponse.livingUname = jSONObject.optString("livinguname");
-        socialResponse.socialType = SocialType.getSocialType(jSONObject.optInt("os_type"));
+        socialResponse.socialType = SocialType.getSocialType(jSONObject.optInt(HttpConstants.HTTP_OS_TYPE));
         socialResponse.bduss = jSONObject.optString("bduss");
         socialResponse.socialPortraitUrl = jSONObject.optString("os_headurl");
         String optString = jSONObject.optString("incomplete_user");

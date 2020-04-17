@@ -3,7 +3,6 @@ package com.kascend.chushou.d;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -13,12 +12,12 @@ import kotlin.text.l;
 @kotlin.h
 /* loaded from: classes5.dex */
 public final class d {
-    public static final d mQS = new d();
+    public static final d mnD = new d();
 
     private d() {
     }
 
-    public final File o(String str, File file) {
+    public final File n(String str, File file) {
         String str2;
         q.j(file, "f");
         String str3 = str;
@@ -26,7 +25,7 @@ public final class d {
             return null;
         }
         if (str == null) {
-            q.dKW();
+            q.dDV();
         }
         List b = l.b((CharSequence) str, new String[]{Constants.ACCEPT_TIME_SEPARATOR_SP}, false, 0, 6, (Object) null);
         if (b.size() > 1) {
@@ -55,20 +54,20 @@ public final class d {
         q.j(str2, "avatarUrl");
         q.j(cVar, "sp");
         int length = cVar.length();
-        ImageRequestBuilder vD = ImageRequestBuilder.Y(i.QV(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).vD(true);
-        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).HU(com.kascend.chushou.view.a.a(null)).dnx(), tv.chushou.basis.d.b.dQu());
-        com.facebook.drawee.controller.a dmJ = com.facebook.drawee.a.a.c.dlW().bg(vD.dta()).dmN();
+        ImageRequestBuilder vQ = ImageRequestBuilder.Z(i.OF(str2)).a(new com.kascend.chushou.widget.gif.a(i, i2, str)).vQ(true);
+        com.facebook.drawee.view.b a = com.facebook.drawee.view.b.a(new com.facebook.drawee.generic.b(tv.chushou.widget.a.c.getResources()).Gv(com.kascend.chushou.view.a.a(null)).dpq(), tv.chushou.basis.d.b.dJt());
+        com.facebook.drawee.controller.a doC = com.facebook.drawee.a.a.c.dnP().aW(vQ.duW()).doG();
         q.i(a, "draweeHolder");
-        a.setController(dmJ);
-        cVar.append(HanziToPinyin.Token.SEPARATOR);
+        a.setController(doC);
+        cVar.append(" ");
         String str3 = str;
         int i3 = str3 == null || str3.length() == 0 ? i2 : i;
         cVar.a(a, length, length, i3, i3, false, 2);
-        cVar.append(HanziToPinyin.Token.SEPARATOR);
+        cVar.append(" ");
     }
 
     public final void a() {
-        tv.chushou.zues.utils.h.dQW();
+        tv.chushou.zues.utils.h.dJY();
         System.gc();
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.adp.lib.stats;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.ETAG;
@@ -13,13 +12,13 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
+    private g Lp;
     public long logID;
     private ArrayList<BasicNameValuePair> mKvLists;
     private long mStartTime;
     private StringBuilder mStringBuilder;
     public String mType;
     public long sequenceID;
-    private g sy;
     boolean usedSequenceId;
 
     public a(String str) {
@@ -116,34 +115,34 @@ public class a {
     }
 
     public static String valueEscapeSpace(String str) {
-        return str.replace(HanziToPinyin.Token.SEPARATOR, PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("[", "(").replace("]", ")").replace(ETAG.ITEM_SEPARATOR, "|");
+        return str.replace(" ", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).replace("[", "(").replace("]", ")").replace(ETAG.ITEM_SEPARATOR, "|");
     }
 
     public void a(c cVar) {
-        if (this.sy == null) {
-            this.sy = new g();
+        if (this.Lp == null) {
+            this.Lp = new g();
         }
-        this.sy.b(cVar);
+        this.Lp.b(cVar);
         if (this.mKvLists != null && this.mKvLists.size() > 0) {
             Iterator<BasicNameValuePair> it = this.mKvLists.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (BdStatsConstant.StatsKey.TYPE.equals(next.getName())) {
-                    this.sy.aE(next.getValue());
+                    this.Lp.bT(next.getValue());
                 } else if ("st".equals(next.getName())) {
-                    this.sy.setAction(next.getValue());
+                    this.Lp.setAction(next.getValue());
                 } else if ("errNo".equals(next.getName())) {
-                    this.sy.setErrorCode(next.getValue());
+                    this.Lp.setErrorCode(next.getValue());
                 } else if ("errMsg".equals(next.getName())) {
-                    this.sy.setErrorMessage(next.getValue());
+                    this.Lp.setErrorMessage(next.getValue());
                 } else {
-                    this.sy.r(next.getName(), next.getValue());
+                    this.Lp.x(next.getName(), next.getValue());
                 }
             }
         }
     }
 
-    public g gA() {
-        return this.sy;
+    public g le() {
+        return this.Lp;
     }
 }

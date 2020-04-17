@@ -963,7 +963,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
 
         @Override // com.baidu.live.adp.widget.refresh.BdSwipeRefreshLayout.IProgressView
         public void onPullPercentChange(float f, float f2) {
-            this.mProgress.setStartEndTrim(0.0f, Math.min((float) BdSwipeRefreshLayout.MAX_PROGRESS_ANGLE, f * BdSwipeRefreshLayout.MAX_PROGRESS_ANGLE));
+            this.mProgress.setStartEndTrim(0.0f, Math.min(0.8f, f * 0.8f));
             this.mProgress.setArrowScale(Math.min(1.0f, f));
             this.mProgress.setProgressRotation(((-0.25f) + (0.4f * f) + (2.0f * f2)) * 0.5f);
         }

@@ -23,25 +23,28 @@ public class a extends com.baidu.searchbox.dns.d.b.a {
     }
 
     private void a(com.baidu.searchbox.dns.d.a.b bVar) {
-        Map<String, com.baidu.searchbox.dns.d.a.a> A = bVar.A();
-        if (A != null && !A.isEmpty()) {
-            for (Map.Entry<String, com.baidu.searchbox.dns.d.a.a> entry : A.entrySet()) {
+        Map<String, com.baidu.searchbox.dns.d.a.a> B = bVar.B();
+        if (B != null && !B.isEmpty()) {
+            for (Map.Entry<String, com.baidu.searchbox.dns.d.a.a> entry : B.entrySet()) {
                 com.baidu.searchbox.dns.a.a.e().a(entry.getKey(), entry.getValue());
             }
         }
-        Map<String, com.baidu.searchbox.dns.d.a.a> B = bVar.B();
-        if (B != null && !B.isEmpty()) {
-            for (Map.Entry<String, com.baidu.searchbox.dns.d.a.a> entry2 : B.entrySet()) {
+        Map<String, com.baidu.searchbox.dns.d.a.a> C = bVar.C();
+        if (C != null && !C.isEmpty()) {
+            for (Map.Entry<String, com.baidu.searchbox.dns.d.a.a> entry2 : C.entrySet()) {
                 com.baidu.searchbox.dns.a.a.e().b(entry2.getKey(), entry2.getValue());
             }
         }
-        String C = bVar.C();
-        if (!TextUtils.isEmpty(C)) {
-            com.baidu.searchbox.dns.a.a.e().e(C);
-        }
         String D = bVar.D();
         if (!TextUtils.isEmpty(D)) {
-            com.baidu.searchbox.dns.a.a.e().f(D);
+            com.baidu.searchbox.dns.a.a.e().e(D);
+        }
+        String E = bVar.E();
+        if (!TextUtils.isEmpty(E)) {
+            com.baidu.searchbox.dns.a.a.e().f(E);
+        }
+        if (bVar.F()) {
+            com.baidu.searchbox.dns.a.a.e().a(bVar.isIPv6TestArea());
         }
     }
 

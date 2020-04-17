@@ -11,7 +11,6 @@ import com.baidu.pass.http.HttpResponseHandler;
 import com.baidu.pass.http.PassHttpClient;
 import com.baidu.pass.http.PassHttpParamDTO;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.searchbox.ui.animview.praise.PraiseDataPassUtil;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -23,7 +22,7 @@ public final class StatService {
     static {
         commonParams.put("pid", "111");
         commonParams.put("type", "1023");
-        commonParams.put(Config.DEVICE_PART, PraiseDataPassUtil.KEY_FROM_OS);
+        commonParams.put(Config.DEVICE_PART, "android");
     }
 
     private StatService() {

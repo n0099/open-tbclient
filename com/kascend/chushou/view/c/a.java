@@ -31,9 +31,9 @@ public class a extends b {
     private boolean h = false;
     private boolean i = true;
     private List<FanItem> j = new ArrayList();
-    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> nbD;
-    public SwipRefreshRecyclerView nhv;
-    public EmptyLoadingView nhw;
+    public SwipRefreshRecyclerView mEc;
+    public EmptyLoadingView mEd;
+    private tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem> myb;
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
@@ -55,76 +55,76 @@ public class a extends b {
         if (this.a == 2) {
             inflate.setBackgroundResource(0);
         }
-        this.nhv = (SwipRefreshRecyclerView) inflate.findViewById(a.f.lv_list);
-        this.nhv.setUpDefault();
-        this.nhw = (EmptyLoadingView) inflate.findViewById(a.f.emptyview);
-        this.nbD = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.j, a.h.list_micperson_item, new d() { // from class: com.kascend.chushou.view.c.a.1
+        this.mEc = (SwipRefreshRecyclerView) inflate.findViewById(a.f.lv_list);
+        this.mEc.setUpDefault();
+        this.mEd = (EmptyLoadingView) inflate.findViewById(a.f.emptyview);
+        this.myb = new tv.chushou.zues.widget.adapterview.recyclerview.a.a<FanItem>(this.j, a.h.list_micperson_item, new d() { // from class: com.kascend.chushou.view.c.a.1
             @Override // tv.chushou.zues.widget.adapterview.d
-            public void onItemClick(View view, int i) {
+            public void B(View view, int i) {
                 if (a.this.mContext != null && a.this.j != null && i >= 0 && i < a.this.j.size()) {
-                    com.kascend.chushou.d.a.a(a.this.mContext, e.N("_fromView", "53"), a.this.f, ((FanItem) a.this.j.get(i - a.this.nhv.getHeaderViewCount())).mUserId, a.this.e, false);
+                    com.kascend.chushou.d.a.a(a.this.mContext, e.O("_fromView", "53"), a.this.f, ((FanItem) a.this.j.get(i - a.this.mEc.getHeaderViewCount())).mUserId, a.this.e, false);
                 }
             }
         }) { // from class: com.kascend.chushou.view.c.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // tv.chushou.zues.widget.adapterview.recyclerview.a.a
-            public void a(a.View$OnLongClickListenerC0814a view$OnLongClickListenerC0814a, FanItem fanItem) {
-                FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) view$OnLongClickListenerC0814a.Ou(a.f.iv_avatar);
+            public void a(a.View$OnLongClickListenerC0837a view$OnLongClickListenerC0837a, FanItem fanItem) {
+                FrescoThumbnailView frescoThumbnailView = (FrescoThumbnailView) view$OnLongClickListenerC0837a.JQ(a.f.iv_avatar);
                 frescoThumbnailView.setAnim(false);
-                view$OnLongClickListenerC0814a.r(a.f.iv_avatar);
-                frescoThumbnailView.bU(fanItem.mAvatar, c.dQL());
-                TextView textView = (TextView) view$OnLongClickListenerC0814a.Ou(a.f.tv_nickname);
-                FrescoThumbnailView frescoThumbnailView2 = (FrescoThumbnailView) view$OnLongClickListenerC0814a.Ou(a.f.iv_user_level_icon);
+                view$OnLongClickListenerC0837a.t(a.f.iv_avatar);
+                frescoThumbnailView.bU(fanItem.mAvatar, c.dJK());
+                TextView textView = (TextView) view$OnLongClickListenerC0837a.JQ(a.f.tv_nickname);
+                FrescoThumbnailView frescoThumbnailView2 = (FrescoThumbnailView) view$OnLongClickListenerC0837a.JQ(a.f.iv_user_level_icon);
                 if (h.isEmpty(fanItem.mLevelMedal)) {
                     frescoThumbnailView2.setVisibility(8);
                 } else {
                     frescoThumbnailView2.setVisibility(0);
-                    frescoThumbnailView2.a(fanItem.mLevelMedal, com.kascend.chushou.view.a.a(), b.C0817b.small, b.C0817b.small, 3);
+                    frescoThumbnailView2.a(fanItem.mLevelMedal, com.kascend.chushou.view.a.a(), b.C0840b.small, b.C0840b.small, 3);
                 }
-                FrescoThumbnailView frescoThumbnailView3 = (FrescoThumbnailView) view$OnLongClickListenerC0814a.Ou(a.f.ftv_uid_medal);
+                FrescoThumbnailView frescoThumbnailView3 = (FrescoThumbnailView) view$OnLongClickListenerC0837a.JQ(a.f.ftv_uid_medal);
                 if (h.isEmpty(fanItem.mGloriouslyUidMedal)) {
                     frescoThumbnailView3.setVisibility(8);
                 } else {
                     frescoThumbnailView3.setVisibility(0);
-                    frescoThumbnailView3.a(fanItem.mGloriouslyUidMedal, com.kascend.chushou.view.a.a(), b.C0817b.small, b.C0817b.small, 3);
+                    frescoThumbnailView3.a(fanItem.mGloriouslyUidMedal, com.kascend.chushou.view.a.a(), b.C0840b.small, b.C0840b.small, 3);
                 }
-                FrescoThumbnailView frescoThumbnailView4 = (FrescoThumbnailView) view$OnLongClickListenerC0814a.Ou(a.f.iv_user_noble_icon);
+                FrescoThumbnailView frescoThumbnailView4 = (FrescoThumbnailView) view$OnLongClickListenerC0837a.JQ(a.f.iv_user_noble_icon);
                 if (h.isEmpty(fanItem.mNobleMedal)) {
                     frescoThumbnailView4.setVisibility(8);
                 } else {
                     frescoThumbnailView4.setAnim(true);
                     frescoThumbnailView4.setVisibility(0);
-                    frescoThumbnailView4.a(fanItem.mNobleMedal, com.kascend.chushou.view.a.a(), b.C0817b.small, b.C0817b.small, 3);
+                    frescoThumbnailView4.a(fanItem.mNobleMedal, com.kascend.chushou.view.a.a(), b.C0840b.small, b.C0840b.small, 3);
                 }
-                view$OnLongClickListenerC0814a.eH(a.f.iv_sex, c.SO(fanItem.mGender));
+                view$OnLongClickListenerC0837a.dS(a.f.iv_sex, c.Qd(fanItem.mGender));
                 textView.setText(fanItem.mNickname);
                 String str = fanItem.mSignature;
                 if (h.isEmpty(str)) {
                     str = "ID: " + fanItem.mUserId;
                 }
-                view$OnLongClickListenerC0814a.a(a.f.tv_autograph, str);
+                view$OnLongClickListenerC0837a.a(a.f.tv_autograph, str);
                 if (a.this.a == 2) {
                     if (!h.isEmpty(fanItem.mFansIcon)) {
-                        view$OnLongClickListenerC0814a.a(false, a.f.iv_arrow);
-                        view$OnLongClickListenerC0814a.a(true, a.f.iv_fans_icon);
-                        view$OnLongClickListenerC0814a.a(a.f.iv_fans_icon, fanItem.mFansIcon, a.e.ic_loyal_icon_default, b.a.small, b.a.small, 1, false, true);
+                        view$OnLongClickListenerC0837a.a(false, a.f.iv_arrow);
+                        view$OnLongClickListenerC0837a.a(true, a.f.iv_fans_icon);
+                        view$OnLongClickListenerC0837a.a(a.f.iv_fans_icon, fanItem.mFansIcon, a.e.ic_loyal_icon_default, b.a.small, b.a.small, 1, false, true);
                         return;
                     }
-                    view$OnLongClickListenerC0814a.a(true, a.f.iv_arrow);
-                    view$OnLongClickListenerC0814a.a(false, a.f.iv_fans_icon);
+                    view$OnLongClickListenerC0837a.a(true, a.f.iv_arrow);
+                    view$OnLongClickListenerC0837a.a(false, a.f.iv_fans_icon);
                 }
             }
         };
-        this.nhv.setAdapter(this.nbD);
-        this.g = LayoutInflater.from(this.mContext).inflate(a.h.view_fan_list_header, (ViewGroup) this.nhv, false);
+        this.mEc.setAdapter(this.myb);
+        this.g = LayoutInflater.from(this.mContext).inflate(a.h.view_fan_list_header, (ViewGroup) this.mEc, false);
         this.d = (TextView) this.g.findViewById(a.f.tv_contact_count);
-        this.nhv.setPullToRefreshEnabled(false);
+        this.mEc.setPullToRefreshEnabled(false);
         return inflate;
     }
 
     @Override // com.kascend.chushou.view.base.b
     protected void initData() {
-        this.nbD.notifyDataSetChanged();
+        this.myb.notifyDataSetChanged();
     }
 
     @Override // com.kascend.chushou.view.base.b
@@ -132,35 +132,35 @@ public class a extends b {
         switch (i) {
             case 1:
                 if (!this.h && this.i) {
-                    this.nhv.setVisibility(8);
-                    this.nhw.Ng(1);
+                    this.mEc.setVisibility(8);
+                    this.mEd.IA(1);
                     return;
                 }
                 return;
             case 2:
                 if (this.h) {
-                    this.nhv.completeRefresh();
+                    this.mEc.completeRefresh();
                     this.h = false;
                 }
                 this.i = false;
-                this.nhv.setVisibility(0);
-                this.nhw.setVisibility(8);
-                this.nhv.dRd();
+                this.mEc.setVisibility(0);
+                this.mEd.setVisibility(8);
+                this.mEc.dKf();
                 return;
             case 3:
             case 4:
             case 5:
             case 6:
-                this.nhv.setVisibility(8);
-                this.nhw.setVisibility(0);
-                this.nhw.Ng(i);
+                this.mEc.setVisibility(8);
+                this.mEd.setVisibility(0);
+                this.mEd.IA(i);
                 return;
             case 7:
-                g.M(this.mContext, a.i.str_nomoredata);
-                this.nhv.setHasMoreItems(false);
+                g.F(this.mContext, a.i.str_nomoredata);
+                this.mEc.setHasMoreItems(false);
                 return;
             case 8:
-                this.nhv.setHasMoreItems(true);
+                this.mEc.setHasMoreItems(true);
                 return;
             default:
                 return;
@@ -170,8 +170,8 @@ public class a extends b {
     public void a(ArrayList<FanItem> arrayList) {
         this.j.clear();
         this.j.addAll(arrayList);
-        if (this.nbD != null) {
-            this.nbD.notifyDataSetChanged();
+        if (this.myb != null) {
+            this.myb.notifyDataSetChanged();
         }
     }
 }

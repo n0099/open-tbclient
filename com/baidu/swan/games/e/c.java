@@ -24,9 +24,9 @@ public class c extends com.baidu.swan.games.e.a {
 
     @Override // com.baidu.swan.games.e.a
     @NonNull
-    public EventTarget ans() {
-        b bVar = new b(this, this.cmF.getInitBasePath());
-        bVar.env.config = com.baidu.swan.apps.swancore.b.a.afB();
+    public EventTarget avF() {
+        b bVar = new b(this, this.cLB.getInitBasePath());
+        bVar.env.config = com.baidu.swan.apps.swancore.b.a.anG();
         return bVar;
     }
 
@@ -54,7 +54,7 @@ public class c extends com.baidu.swan.games.e.a {
 
         @JavascriptInterface
         public String getAPIs(int i) {
-            return DEBUG ? com.baidu.swan.apps.ah.a.a.aaI() ? com.baidu.swan.apps.as.g.t(i, true) : "" : (com.baidu.swan.apps.as.g.agE() && com.baidu.swan.apps.w.a.Uc().Hk()) ? com.baidu.swan.apps.as.g.t(i, true) : "";
+            return DEBUG ? com.baidu.swan.apps.ah.a.a.aiN() ? com.baidu.swan.apps.as.g.w(i, true) : "" : (com.baidu.swan.apps.as.g.aoJ() && com.baidu.swan.apps.w.a.abR().OX()) ? com.baidu.swan.apps.as.g.w(i, true) : "";
         }
     }
 }

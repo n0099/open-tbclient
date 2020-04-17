@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.chatuser.request.IMUserBaseHttpRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
@@ -47,7 +46,7 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
         int i2;
         String str;
         String str2 = new String(bArr);
-        LogUtils.d(HanziToPinyin.Token.SEPARATOR, " DEBUG " + str2);
+        LogUtils.d(" ", " DEBUG " + str2);
         try {
             JSONObject jSONObject = new JSONObject(str2);
             if (jSONObject.has("response_params")) {

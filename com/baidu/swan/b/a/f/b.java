@@ -3,8 +3,6 @@ package com.baidu.swan.b.a.f;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.datachannel.Contract;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.statistic.a.f;
 import org.json.JSONException;
@@ -15,14 +13,14 @@ public class b extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        this.bVz = com.baidu.swan.apps.swancore.b.gA(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
-        this.bVB = SwanAppNetworkUtils.Zc().type;
-        if (this.bVx == null) {
-            this.bVx = new JSONObject();
+        this.cup = com.baidu.swan.apps.swancore.b.gH(TextUtils.equals(this.mFrom, "swangame") ? 1 : 0);
+        this.cus = SwanAppNetworkUtils.ahi().type;
+        if (this.cun == null) {
+            this.cun = new JSONObject();
         }
         try {
-            this.bVx.put(Contract.SCHEME_KEY_HOST, com.baidu.swan.apps.w.a.UK().getHostName());
-            this.bVx.put("package", this.packageName);
+            this.cun.put("host", com.baidu.swan.apps.w.a.acz().getHostName());
+            this.cun.put("package", this.packageName);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -40,18 +38,18 @@ public class b extends f {
             this.mFrom = aVar.mFrom;
             this.mAppId = aVar.mAppId;
             this.mSource = aVar.mSource;
-            this.bVC = aVar.bVC;
-            this.bVD = aVar.bVD;
+            this.cuu = aVar.cuu;
+            this.cuv = aVar.cuv;
             this.mScheme = aVar.mScheme;
-            this.bVG = aVar.bVG;
-            this.bPF = aVar.bPF;
+            this.cuy = aVar.cuy;
+            this.cor = aVar.cor;
             this.mAppVersion = aVar.mAppVersion;
-            this.bVA = aVar.bVA;
+            this.cuq = aVar.cuq;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String oh(String str) {
+    public static String pv(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -102,7 +100,7 @@ public class b extends f {
             case 2:
                 return "resume";
             case 3:
-                return UgcUBCUtils.UGC_TIME_CANCEL;
+                return "cancel";
             case 4:
                 return Config.INPUT_INSTALLED_PKG;
             case 5:

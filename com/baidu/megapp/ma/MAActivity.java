@@ -16,11 +16,11 @@ public abstract class MAActivity extends Activity {
     }
 
     public MABottomToolBar onGetBottomBar() {
-        Log.d("MAActivity", "onGetBottomBar");
+        Log.d(TAG, "onGetBottomBar");
         return null;
     }
 
     public void setMABottomToolBarVisibility(int i) {
-        Log.d("MAActivity", "setMABottomToolBarVisibility = " + i);
+        Log.d(TAG, "setMABottomToolBarVisibility = " + i);
     }
 }

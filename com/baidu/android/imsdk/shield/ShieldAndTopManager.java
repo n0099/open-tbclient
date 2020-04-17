@@ -3,7 +3,9 @@ package com.baidu.android.imsdk.shield;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
+import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatuser.IStatusListener;
 import com.baidu.android.imsdk.chatuser.db.ChatUserDBManager;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,6 +13,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.shield.model.GetShieldAndTopResult;
 import com.baidu.android.imsdk.shield.model.GetSubscriptionResult;
+import com.baidu.android.imsdk.shield.request.IMForbidRequest;
 import com.baidu.android.imsdk.shield.request.IMGetOneShieldAndTopRequest;
 import com.baidu.android.imsdk.shield.request.IMGetShieldAndTopListRequest;
 import com.baidu.android.imsdk.shield.request.IMGetSubscriptionRequest;
@@ -93,7 +96,7 @@ public class ShieldAndTopManager {
         if (!Utility.isNeedSync(this.mContext, Constants.KEY_SYNC_MSG_TAB_TIME)) {
             onCallBack(0, "ok", getShieldListFromDB(i), addListener);
         } else {
-            requestUserShieldList(i, addListener);
+            requestSubbusinessContacterList(i, 1, addListener);
         }
     }
 
@@ -115,9 +118,17 @@ public class ShieldAndTopManager {
         return arrayList;
     }
 
-    public void requestUserShieldList(int i, String str) {
-        IMGetShieldAndTopListRequest iMGetShieldAndTopListRequest = new IMGetShieldAndTopListRequest(this.mContext, str, 1, i);
+    public void requestSubbusinessContacterList(int i, int i2, String str) {
+        IMGetShieldAndTopListRequest iMGetShieldAndTopListRequest = new IMGetShieldAndTopListRequest(this.mContext, str, i2, i);
         HttpHelper.executor(this.mContext, iMGetShieldAndTopListRequest, iMGetShieldAndTopListRequest);
+    }
+
+    public void getGroupAndStrangerDisturbList(IGetDisturbListListener iGetDisturbListListener) {
+        String str = "";
+        if (iGetDisturbListListener != null) {
+            str = ListenerManager.getInstance().addListener(iGetDisturbListListener);
+        }
+        requestSubbusinessContacterList(1, 3, str);
     }
 
     public void onNotifyShieldListResult(int i, String str, List<ChatSession> list, final String str2) {
@@ -208,9 +219,14 @@ public class ShieldAndTopManager {
         HttpHelper.executor(this.mContext, iMGetOneShieldAndTopRequest, iMGetOneShieldAndTopRequest);
     }
 
+    public void getSingleContacterSetting(long j, int i, IGetShieldAndTopListener iGetShieldAndTopListener) {
+        IMGetOneShieldAndTopRequest iMGetOneShieldAndTopRequest = new IMGetOneShieldAndTopRequest(this.mContext, j, i, iGetShieldAndTopListener != null ? ListenerManager.getInstance().addListener(iGetShieldAndTopListener) : "");
+        HttpHelper.executor(this.mContext, iMGetOneShieldAndTopRequest, iMGetOneShieldAndTopRequest);
+    }
+
     public void onUserShieldAndTopResult(GetShieldAndTopResult getShieldAndTopResult, String str) {
         IGetShieldAndTopListener iGetShieldAndTopListener;
-        if (getShieldAndTopResult != null && getShieldAndTopResult.getErrorCode() == 0) {
+        if (getShieldAndTopResult != null && getShieldAndTopResult.getChatType() != 3 && getShieldAndTopResult.getErrorCode() == 0) {
             ChatSession chatSession = new ChatSession();
             chatSession.setContacter(getShieldAndTopResult.getContacter());
             chatSession.setShield(getShieldAndTopResult.getShield());
@@ -230,6 +246,11 @@ public class ShieldAndTopManager {
 
     public void setMarkTop(long j, int i, int i2, IStatusListener iStatusListener) {
         IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, 2, i, i2);
+        HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
+    }
+
+    public void requestDisturbAndRemind(long j, int i, int i2, int i3, IStatusListener iStatusListener) {
+        IMSetShieldAndTopRequest iMSetShieldAndTopRequest = new IMSetShieldAndTopRequest(this.mContext, ListenerManager.getInstance().addListener(iStatusListener), j, i, i2, i3);
         HttpHelper.executor(this.mContext, iMSetShieldAndTopRequest, iMSetShieldAndTopRequest);
     }
 
@@ -315,6 +336,36 @@ public class ShieldAndTopManager {
                 getOneShieldAndTopRequest(j, iMServiceNotifyMenuMergeListener);
                 getSubscription(j, list, str, iMServiceNotifyMenuMergeListener);
                 return;
+        }
+    }
+
+    public void setForbid(final long j, final long j2, final int i, final ISetForbidListener iSetForbidListener) {
+        if (this.mContext == null) {
+            iSetForbidListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, true, "");
+        } else {
+            TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.9
+                @Override // java.lang.Runnable
+                public void run() {
+                    String str = "";
+                    if (iSetForbidListener != null) {
+                        str = ListenerManager.getInstance().addListener(iSetForbidListener);
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(0);
+                    arrayList.add(1);
+                    arrayList.add(2);
+                    arrayList.add(8);
+                    IMForbidRequest iMForbidRequest = new IMForbidRequest(ShieldAndTopManager.this.mContext, j, j2, i, ChatMessageDBManager.getInstance(ShieldAndTopManager.this.mContext).fetchMsgsByMsgTypes(new ChatObject(ShieldAndTopManager.this.mContext, i, j), 0L, 5L, arrayList), str);
+                    HttpHelper.executor(ShieldAndTopManager.this.mContext, iMForbidRequest, iMForbidRequest);
+                }
+            });
+        }
+    }
+
+    public void onForbidResult(int i, String str, boolean z, String str2, String str3) {
+        ISetForbidListener iSetForbidListener;
+        if (!TextUtils.isEmpty(str3) && (iSetForbidListener = (ISetForbidListener) ListenerManager.getInstance().removeListener(str3)) != null) {
+            iSetForbidListener.onResult(i, str, z, str2);
         }
     }
 }

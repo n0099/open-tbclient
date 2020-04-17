@@ -23,6 +23,7 @@ import com.baidu.down.utils.Constants;
 import com.baidu.down.utils.CryptUtil;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.Utils;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -401,7 +402,7 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                             if (jSONObject.optInt(MultiSrcBinaryReqTask.DOWNFLOW_ERROR_NO) == 0) {
                                 JSONObject optJSONObject = jSONObject.optJSONObject(MultiSrcBinaryReqTask.DOWNFLOW_FRES);
                                 if (jSONObject.optInt(MultiSrcBinaryReqTask.DOWNFLOW_FSTAT, 1) == 0 && optJSONObject != null && !optJSONObject.optString(MultiSrcBinaryReqTask.DOWNFLOW_DOWNLOAD_INNER).equals("")) {
-                                    MultiSrcBinaryReqTask.this.mSid = optJSONObject.optString(MultiSrcBinaryReqTask.DOWNFLOW_SID, "");
+                                    MultiSrcBinaryReqTask.this.mSid = optJSONObject.optString("sid", "");
                                     StatisticInfo statisticInfo = new StatisticInfo();
                                     statisticInfo.sid = MultiSrcBinaryReqTask.this.mSid;
                                     statisticInfo.sdkVer = Constants.SDK_VER;
@@ -525,7 +526,7 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                 } else if (str2.equals("")) {
                     str = next.mCDNSequence + "";
                 } else {
-                    str = str2 + "@" + next.mCDNSequence;
+                    str = str2 + UgcConstant.AT_RULE_TAG + next.mCDNSequence;
                 }
                 str2 = str;
             }

@@ -77,19 +77,19 @@ public class ad extends ab {
                 com.baidu.swan.apps.api.module.l.e.a(optParamsAsJo, eVar);
                 break;
             case 1:
-                com.baidu.swan.apps.api.module.l.e.r(optParamsAsJo.optJSONArray("data"));
-                break;
-            case 2:
                 com.baidu.swan.apps.api.module.l.e.s(optParamsAsJo.optJSONArray("data"));
                 break;
-            case 3:
+            case 2:
                 com.baidu.swan.apps.api.module.l.e.t(optParamsAsJo.optJSONArray("data"));
                 break;
+            case 3:
+                com.baidu.swan.apps.api.module.l.e.u(optParamsAsJo.optJSONArray("data"));
+                break;
             case 4:
-                com.baidu.swan.apps.api.module.l.e.W(optParamsAsJo);
+                com.baidu.swan.apps.api.module.l.e.ah(optParamsAsJo);
                 break;
             case 5:
-                com.baidu.swan.apps.console.debugger.a.d.v(optParamsAsJo.optJSONArray("data"));
+                com.baidu.swan.apps.console.debugger.a.d.w(optParamsAsJo.optJSONArray("data"));
                 break;
             default:
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");

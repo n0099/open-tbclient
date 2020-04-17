@@ -4,35 +4,35 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 /* loaded from: classes11.dex */
 public abstract class d {
-    private b bTw;
-    private Exception vJ;
+    private Exception OC;
+    private b csl;
 
-    protected abstract boolean aeo() throws Exception;
+    protected abstract boolean amt() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
-        return this.vJ;
+        return this.OC;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.bTw = bVar;
+        this.csl = bVar;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isOk() {
-        return this.vJ == null;
+        return this.OC == null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d aep() {
+    public d amu() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.aeo()) {
-                        d.this.aeq();
+                    if (d.this.amt()) {
+                        d.this.amv();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -43,16 +43,16 @@ public abstract class d {
         return this;
     }
 
-    public void aeq() {
+    public void amv() {
         l(null);
     }
 
     public void l(@Nullable Exception exc) {
-        this.vJ = exc;
-        c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
+        this.OC = exc;
+        c.j(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.bTw.b(d.this);
+                d.this.csl.b(d.this);
             }
         });
     }

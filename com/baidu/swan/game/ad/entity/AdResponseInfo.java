@@ -10,14 +10,14 @@ public class AdResponseInfo implements Parcelable {
     public static final Parcelable.Creator<AdResponseInfo> CREATOR = new Parcelable.Creator<AdResponseInfo>() { // from class: com.baidu.swan.game.ad.entity.AdResponseInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: G */
+        /* renamed from: z */
         public AdResponseInfo createFromParcel(Parcel parcel) {
             return new AdResponseInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hD */
+        /* renamed from: hK */
         public AdResponseInfo[] newArray(int i) {
             return new AdResponseInfo[i];
         }
@@ -73,7 +73,7 @@ public class AdResponseInfo implements Parcelable {
         return 0;
     }
 
-    public AdElementInfo akt() {
+    public AdElementInfo asF() {
         if (this.mAdInstanceList.size() > 0) {
             return this.mAdInstanceList.get(0);
         }

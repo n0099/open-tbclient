@@ -7,6 +7,7 @@ import android.util.SparseArray;
 import com.a.a.a.a.a.a.a;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
+import com.baidu.searchbox.ui.animview.praise.guide.ControlShowManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -255,7 +256,7 @@ public class VideoCloudSetting {
     }
 
     private static String formatNowDate() {
-        return new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+        return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date(System.currentTimeMillis()));
     }
 
     public static String getCyberSdkVersion() {

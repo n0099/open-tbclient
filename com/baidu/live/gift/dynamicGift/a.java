@@ -11,128 +11,128 @@ import com.baidu.live.gift.d;
 import com.baidu.live.gift.dynamicGift.AlaDynamicGiftAnimationView;
 /* loaded from: classes3.dex */
 public class a {
-    private AlaDynamicGiftAnimationView.a ama;
-    private d amd;
-    private int amg;
-    private int amj;
-    private int amk;
+    private int aEB;
+    private int aEC;
+    private AlaDynamicGiftAnimationView.a aEs;
+    private d aEv;
+    private int aEy;
     private int mFrameCount;
     private int mImageHeight;
     private int mImageWidth;
     private int mScreenHeight;
-    private double ame = 100.0d;
+    private double aEw = 100.0d;
     private int mRepeatCount = 1;
-    private int amf = 0;
-    private float amh = 1.0f;
-    private int ami = 0;
-    private boolean amm = false;
-    private b aml = new b();
+    private int aEx = 0;
+    private float aEz = 1.0f;
+    private int aEA = 0;
+    private boolean aEE = false;
+    private b aED = new b();
 
     public void setScreen(int i, int i2) {
-        this.amg = i;
+        this.aEy = i;
         this.mScreenHeight = i2;
-        if (this.aml != null) {
-            this.aml.setScreen(this.amg, this.mScreenHeight);
+        if (this.aED != null) {
+            this.aED.setScreen(this.aEy, this.mScreenHeight);
         }
     }
 
     public void setData(com.baidu.live.gift.c cVar) {
         if (cVar != null) {
-            this.amf = 0;
-            this.amm = false;
-            this.ami = 0;
-            this.amd = cVar.afV.afU;
-            this.mFrameCount = this.amd.frame_count;
-            this.mRepeatCount = this.amd.repeatCount;
-            this.mImageWidth = this.amd.width;
-            this.mImageHeight = this.amd.height;
-            this.ame = (1.0d / this.amd.frame_rate) * 1000.0d;
-            this.amh = uc();
-            this.amk = (int) (this.amd.oppositeX * this.amg);
-            this.amj = (int) (this.amd.oppositeY * this.mScreenHeight);
-            if (this.aml != null) {
-                this.aml.onDestroy();
-                this.aml = null;
+            this.aEx = 0;
+            this.aEE = false;
+            this.aEA = 0;
+            this.aEv = cVar.aym.ayl;
+            this.mFrameCount = this.aEv.frame_count;
+            this.mRepeatCount = this.aEv.repeatCount;
+            this.mImageWidth = this.aEv.width;
+            this.mImageHeight = this.aEv.height;
+            this.aEw = (1.0d / this.aEv.frame_rate) * 1000.0d;
+            this.aEz = yw();
+            this.aEC = (int) (this.aEv.oppositeX * this.aEy);
+            this.aEB = (int) (this.aEv.oppositeY * this.mScreenHeight);
+            if (this.aED != null) {
+                this.aED.onDestroy();
+                this.aED = null;
             }
-            this.aml = new b();
-            this.aml.setScreen(this.amg, this.mScreenHeight);
-            this.aml.a(cVar);
+            this.aED = new b();
+            this.aED.setScreen(this.aEy, this.mScreenHeight);
+            this.aED.a(cVar);
         }
     }
 
     public void g(Canvas canvas) {
         RectF rectF;
-        if (ud()) {
+        if (yx()) {
             if (this.mRepeatCount <= 1) {
-                if (this.ama != null) {
-                    this.ama.ub();
+                if (this.aEs != null) {
+                    this.aEs.yv();
                     return;
                 }
                 return;
             }
-            this.amf = 0;
+            this.aEx = 0;
             this.mRepeatCount--;
         }
-        if (this.ama != null) {
-            if (this.amf == 0 && !this.amm) {
-                this.amm = true;
-                this.ama.ua();
+        if (this.aEs != null) {
+            if (this.aEx == 0 && !this.aEE) {
+                this.aEE = true;
+                this.aEs.yu();
             } else {
-                this.ama.bJ(this.amf);
+                this.aEs.bZ(this.aEx);
             }
         }
-        c bK = this.aml.bK(this.amf);
-        if (bK == null || bK.bitmap == null || bK.bitmap.isRecycled()) {
-            if (this.ami > 5) {
-                if (this.ama != null) {
-                    this.ama.ub();
+        c ca = this.aED.ca(this.aEx);
+        if (ca == null || ca.bitmap == null || ca.bitmap.isRecycled()) {
+            if (this.aEA > 5) {
+                if (this.aEs != null) {
+                    this.aEs.yv();
                 }
-            } else if (this.ami > 1) {
-                this.aml.ui();
+            } else if (this.aEA > 1) {
+                this.aED.yC();
             }
             Message obtain = Message.obtain();
             obtain.what = 1;
-            if (this.aml != null && this.aml.getHandler() != null) {
-                this.aml.getHandler().sendMessage(obtain);
+            if (this.aED != null && this.aED.getHandler() != null) {
+                this.aED.getHandler().sendMessage(obtain);
             }
-            this.ami++;
+            this.aEA++;
             return;
         }
-        this.amf++;
-        float width = bK.amO * bK.bitmap.getWidth() * this.amh;
-        float height = bK.amO * bK.bitmap.getHeight() * this.amh;
+        this.aEx++;
+        float width = ca.aFg * ca.bitmap.getWidth() * this.aEz;
+        float height = ca.aFg * ca.bitmap.getHeight() * this.aEz;
         canvas.save();
-        if (this.amk + width > this.amg) {
-            this.amk = (int) (this.amg - width);
+        if (this.aEC + width > this.aEy) {
+            this.aEC = (int) (this.aEy - width);
         }
-        if (this.amj + height > this.mScreenHeight) {
-            this.amj = (int) (this.mScreenHeight - height);
+        if (this.aEB + height > this.mScreenHeight) {
+            this.aEB = (int) (this.mScreenHeight - height);
         }
-        if (this.amd.isBottomMargin()) {
-            rectF = new RectF(this.amk, (this.mScreenHeight - height) - this.amj, width + this.amk, this.mScreenHeight - this.amj);
+        if (this.aEv.isBottomMargin()) {
+            rectF = new RectF(this.aEC, (this.mScreenHeight - height) - this.aEB, width + this.aEC, this.mScreenHeight - this.aEB);
         } else {
-            rectF = new RectF(this.amk, this.amj, width + this.amk, height + this.amj);
+            rectF = new RectF(this.aEC, this.aEB, width + this.aEC, height + this.aEB);
         }
         Paint paint = new Paint();
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_OVER));
         try {
-            if (!bK.bitmap.isRecycled()) {
-                canvas.drawBitmap(bK.bitmap, (Rect) null, rectF, paint);
+            if (!ca.bitmap.isRecycled()) {
+                canvas.drawBitmap(ca.bitmap, (Rect) null, rectF, paint);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         canvas.restore();
-        bK.amP = true;
-        this.aml.dy(bK.filePath);
+        ca.aFh = true;
+        this.aED.eq(ca.filePath);
         Message obtain2 = Message.obtain();
         obtain2.what = 1;
-        this.aml.getHandler().sendMessage(obtain2);
+        this.aED.getHandler().sendMessage(obtain2);
     }
 
-    private float uc() {
-        float f = this.amg > this.mScreenHeight ? (this.amg * 1.0f) / 1334.0f : (this.amg * 1.0f) / 750.0f;
-        if (this.amg > this.mScreenHeight) {
+    private float yw() {
+        float f = this.aEy > this.mScreenHeight ? (this.aEy * 1.0f) / 1334.0f : (this.aEy * 1.0f) / 750.0f;
+        if (this.aEy > this.mScreenHeight) {
             float f2 = (this.mScreenHeight * 1.0f) / 750.0f;
         } else {
             float f3 = (this.mScreenHeight * 1.0f) / 1334.0f;
@@ -140,25 +140,25 @@ public class a {
         return f;
     }
 
-    private boolean ud() {
-        return this.amf + 1 >= this.mFrameCount;
+    private boolean yx() {
+        return this.aEx + 1 >= this.mFrameCount;
     }
 
     public void release() {
-        if (this.aml != null) {
-            this.aml.clearCache();
+        if (this.aED != null) {
+            this.aED.clearCache();
         }
     }
 
-    public boolean ue() {
-        return this.aml.ue();
+    public boolean yy() {
+        return this.aED.yy();
     }
 
-    public double uf() {
-        return this.ame;
+    public double yz() {
+        return this.aEw;
     }
 
     public void a(AlaDynamicGiftAnimationView.a aVar) {
-        this.ama = aVar;
+        this.aEs = aVar;
     }
 }

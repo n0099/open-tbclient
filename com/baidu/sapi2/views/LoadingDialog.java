@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 /* loaded from: classes6.dex */
 public class LoadingDialog extends Dialog implements com.baidu.sapi2.c {
 

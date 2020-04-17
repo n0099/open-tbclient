@@ -7,16 +7,16 @@ public class c extends b {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.searchbox.dns.d.b.b
-    /* renamed from: J */
-    public Deque<a> E() {
+    /* renamed from: L */
+    public Deque<a> G() {
         return new ArrayDeque();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.searchbox.dns.d.b.b
-    /* renamed from: K */
-    public Deque<a> F() {
+    /* renamed from: M */
+    public Deque<a> H() {
         return new ArrayDeque();
     }
 }

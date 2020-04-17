@@ -17,9 +17,9 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class NEGFeedBackView extends AppCompatImageView {
-    private long aiR;
-    c dUJ;
-    private View.OnClickListener dUK;
+    private long aBk;
+    c euJ;
+    private View.OnClickListener euK;
     private Context mContext;
     private int mPaddingLeft;
     private int mPaddingRight;
@@ -37,31 +37,31 @@ public class NEGFeedBackView extends AppCompatImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.aiR = 0L;
-        this.dUK = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.aBk = 0L;
+        this.euK = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.aWs();
+                NEGFeedBackView.this.beD();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.aiR > 500) {
-                    NEGFeedBackView.this.R(view);
+                if (currentTimeMillis - NEGFeedBackView.this.aBk > 500) {
+                    NEGFeedBackView.this.T(view);
                 }
-                NEGFeedBackView.this.aiR = currentTimeMillis;
+                NEGFeedBackView.this.aBk = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
-        i(tbPageContext);
+        l(tbPageContext);
     }
 
-    private void i(TbPageContext tbPageContext) {
-        this.dUJ = new c(tbPageContext, this);
-        setOnClickListener(this.dUK);
-        SvgManager.aGG().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+    private void l(TbPageContext tbPageContext) {
+        this.euJ = new c(tbPageContext, this);
+        setOnClickListener(this.euK);
+        SvgManager.aOU().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.dUJ.setUniqueId(bdUniqueId);
+        this.euJ.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -84,12 +84,12 @@ public class NEGFeedBackView extends AppCompatImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void R(View view) {
-        this.dUJ.R(view);
+    public void T(View view) {
+        this.euJ.T(view);
     }
 
-    public void aWs() {
-        this.dUJ.aWs();
+    public void beD() {
+        this.euJ.beD();
     }
 
     public void setCWRotateAnimation() {
@@ -101,39 +101,39 @@ public class NEGFeedBackView extends AppCompatImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.dUJ.onDetachedFromWindow();
+        this.euJ.onDetachedFromWindow();
     }
 
     public void setData(al alVar) {
-        this.dUJ.setData(alVar);
+        this.euJ.setData(alVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.dUJ.setFirstRowSingleColumn(z);
+        this.euJ.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
-        SvgManager.aGG().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.aOU().a(this, R.drawable.ic_icon_pure_card_delete_svg, R.color.cp_cont_g, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public void setEventCallback(a aVar) {
-        this.dUJ.setEventCallback(aVar);
+        this.euJ.setEventCallback(aVar);
     }
 
     public void setAutoProcess(boolean z) {
-        this.dUJ.setAutoProcess(z);
+        this.euJ.setAutoProcess(z);
     }
 
     public void setHeadText(String str) {
-        this.dUJ.setHeadText(str);
+        this.euJ.setHeadText(str);
     }
 
-    public void ae(boolean z) {
-        this.dUJ.ae(z);
+    public void aD(boolean z) {
+        this.euJ.aD(z);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.dUJ.setDefaultReasonArray(strArr);
+        this.euJ.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

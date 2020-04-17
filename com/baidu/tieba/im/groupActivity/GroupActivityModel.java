@@ -8,41 +8,41 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes10.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int cHl;
-    private RequestGetGroupActivityMessage hDY;
-    private RequestGetGroupActivityLocalMessage hDZ;
-    private RequestDelGroupActivityMessage hEa;
-    private GroupActivityActivity hEb;
-    private GroupActivityData hEc;
+    private int dgm;
+    private RequestGetGroupActivityMessage inO;
+    private RequestGetGroupActivityLocalMessage inP;
+    private RequestDelGroupActivityMessage inQ;
+    private GroupActivityActivity inR;
+    private GroupActivityData inS;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.hEb = groupActivityActivity;
+        this.inR = groupActivityActivity;
     }
 
-    public int bWb() {
+    public int cgC() {
         return this.mFrom;
     }
 
-    public void wF(int i) {
+    public void xd(int i) {
         this.mFrom = i;
     }
 
-    public int bWc() {
-        return this.cHl;
+    public int cgD() {
+        return this.dgm;
     }
 
-    public void wG(int i) {
-        this.cHl = i;
+    public void xe(int i) {
+        this.dgm = i;
     }
 
-    public long bWd() {
+    public long cgE() {
         return this.mGroupId;
     }
 
-    public void dR(long j) {
+    public void eA(long j) {
         this.mGroupId = j;
     }
 
@@ -56,14 +56,14 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return false;
     }
 
-    private RequestGetGroupActivityMessage wH(int i) {
+    private RequestGetGroupActivityMessage xf(int i) {
         RequestGetGroupActivityMessage requestGetGroupActivityMessage = new RequestGetGroupActivityMessage();
         requestGetGroupActivityMessage.setActivityId(i);
         requestGetGroupActivityMessage.setFrom(this.mFrom);
         return requestGetGroupActivityMessage;
     }
 
-    private RequestGetGroupActivityLocalMessage wI(int i) {
+    private RequestGetGroupActivityLocalMessage xg(int i) {
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = new RequestGetGroupActivityLocalMessage();
         requestGetGroupActivityLocalMessage.setActivityId(i);
         requestGetGroupActivityLocalMessage.setFrom(this.mFrom);
@@ -71,45 +71,45 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.hDY = wH(i);
-        this.hEb.sendMessage(this.hDY);
+        this.inO = xf(i);
+        this.inR.sendMessage(this.inO);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
     }
 
-    public void wJ(int i) {
-        this.hDZ = wI(i);
-        this.hEb.sendMessage(this.hDZ);
+    public void xh(int i) {
+        this.inP = xg(i);
+        this.inR.sendMessage(this.inP);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.hDZ;
+        return this.inP;
     }
 
     public Message<?> getSendMsg() {
-        return this.hDY;
+        return this.inO;
     }
 
-    public Message<?> bWe() {
-        return this.hEa;
+    public Message<?> cgF() {
+        return this.inQ;
     }
 
     public void r(long j, int i) {
-        this.hEa = new RequestDelGroupActivityMessage();
-        this.hEa.setActivityId(i);
-        this.hEa.setGroupId(j);
-        this.hEb.sendMessage(this.hEa);
+        this.inQ = new RequestDelGroupActivityMessage();
+        this.inQ.setActivityId(i);
+        this.inQ.setGroupId(j);
+        this.inR.sendMessage(this.inQ);
     }
 
-    public GroupActivityData bWf() {
-        return this.hEc;
+    public GroupActivityData cgG() {
+        return this.inS;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.hEc = groupActivityData;
+            this.inS = groupActivityData;
         }
     }
 }

@@ -8,21 +8,21 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 /* loaded from: classes11.dex */
 public class b extends HttpManager {
-    private static volatile b cAw;
+    private static volatile b cZu;
 
     private b() {
         super(AppRuntime.getAppContext());
     }
 
-    public static b atl() {
-        if (cAw == null) {
+    public static b aBv() {
+        if (cZu == null) {
             synchronized (b.class) {
-                if (cAw == null) {
-                    cAw = new b();
+                if (cZu == null) {
+                    cZu = new b();
                 }
             }
         }
-        return cAw;
+        return cZu;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

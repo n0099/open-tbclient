@@ -1,22 +1,14 @@
 package com.baidu.ala.helper;
 
-import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.opengl.Matrix;
-import android.os.Build;
-import android.text.TextUtils;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.ala.recorder.AlaLiveRecorderConfig;
 import com.baidu.live.adp.lib.util.BdUtilHelper;
-import com.baidu.live.tbadk.core.TbadkCoreApplication;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileFilter;
-import java.io.FileReader;
-import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class AlaLiveUtilHelper {
     private static final String ALA_PLUGIN_NAME = "com.baidu.tieba.pluginAla";
@@ -24,6 +16,7 @@ public class AlaLiveUtilHelper {
     public static final int HK_SDK_PLATFORM = 2;
     public static final int QM_SDK_PLATFORM = 3;
     public static final int TB_SDK_PLATFORM = 1;
+    private static String apkVersionName = "";
 
     public static boolean loadPluginLibrary(String str) {
         boolean z;
@@ -94,86 +87,6 @@ public class AlaLiveUtilHelper {
         return sb.toString();
     }
 
-    public static int getCpuCoreCount() {
-        try {
-            return new File("/sys/devices/system/cpu/").listFiles(new CpuFilter()).length;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 1;
-        }
-    }
-
-    public static float getCpuMaxFreq(int i) {
-        long j = 0;
-        for (int i2 = 0; i2 < i && i2 < 32; i2++) {
-            try {
-                FileReader fileReader = new FileReader(String.format("/sys/devices/system/cpu/cpu%d/cpufreq/cpuinfo_max_freq", Integer.valueOf(i2)));
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                String readLine = bufferedReader.readLine();
-                if (TextUtils.isEmpty(readLine)) {
-                    bufferedReader.close();
-                    fileReader.close();
-                } else {
-                    long parseLong = Long.parseLong(readLine);
-                    if (parseLong > j) {
-                        j = parseLong;
-                    }
-                    bufferedReader.close();
-                    fileReader.close();
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-        return (float) (j / TimeUtils.NANOS_PER_MS);
-    }
-
-    public static float getRamSize() {
-        long j;
-        Exception e;
-        FileReader fileReader;
-        BufferedReader bufferedReader;
-        if (Build.VERSION.SDK_INT >= 16) {
-            ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            if (activityManager == null) {
-                j = 0;
-            } else {
-                activityManager.getMemoryInfo(memoryInfo);
-                j = memoryInfo.totalMem;
-            }
-        } else {
-            try {
-                fileReader = new FileReader("/proc/meminfo");
-                bufferedReader = new BufferedReader(fileReader);
-                j = Long.parseLong(bufferedReader.readLine());
-            } catch (Exception e2) {
-                j = 0;
-                e = e2;
-            }
-            try {
-                bufferedReader.close();
-                fileReader.close();
-            } catch (Exception e3) {
-                e = e3;
-                e.printStackTrace();
-                return ((float) j) / 1.0737418E9f;
-            }
-        }
-        return ((float) j) / 1.0737418E9f;
-    }
-
-    /* loaded from: classes3.dex */
-    static class CpuFilter implements FileFilter {
-        CpuFilter() {
-        }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            return Pattern.matches("cpu[0-9]", file.getName());
-        }
-    }
-
     public static int getRealScreenOrientation(Context context) {
         int[] screenDimensions = BdUtilHelper.getScreenDimensions(context);
         int i = context.getResources().getConfiguration().orientation;
@@ -210,5 +123,28 @@ public class AlaLiveUtilHelper {
         } catch (ClassNotFoundException e) {
             return false;
         }
+    }
+
+    public static String getApkVersionName(Context context) {
+        if (apkVersionName != null && apkVersionName.length() > 0) {
+            return apkVersionName;
+        }
+        if (context != null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                if (packageInfo != null) {
+                    apkVersionName = packageInfo.versionName;
+                    return packageInfo.versionName;
+                }
+                return null;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return null;
+            }
+        }
+        return null;
     }
 }

@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.ar.arplay.core.engine.pixel.PixelReadParams;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.swan.apps.as.ad;
 import com.baidu.swan.apps.b;
@@ -25,7 +26,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b bfS;
+    private com.baidu.swan.apps.camera.b.b bEd;
     private Timer mTimer;
 
     private a() {
@@ -34,12 +35,12 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0229a {
-        private static final a bfV = new a();
+    public static class C0259a {
+        private static final a bEg = new a();
     }
 
-    public static a Kj() {
-        return C0229a.bfV;
+    public static a RW() {
+        return C0259a.bEg;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2) {
@@ -90,46 +91,46 @@ public class a {
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.bfS = bVar;
+        this.bEd = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.Kl();
+                    bVar.RZ();
                 }
-                a.this.stopTimer();
+                a.this.RX();
             }
         }, i);
     }
 
-    public void stopTimer() {
-        this.bfS = null;
+    public void RX() {
+        this.bEd = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
     public void cancelTimer() {
-        if (this.bfS != null) {
-            this.bfS.cancel();
+        if (this.bEd != null) {
+            this.bEd.cancel();
         }
-        stopTimer();
+        RX();
     }
 
-    public void cc(boolean z) {
+    public void cY(boolean z) {
         if (z) {
             cancelTimer();
         }
     }
 
-    public void h(String str, String str2, boolean z) {
-        if (ad.mP("1.13.0")) {
+    public void g(String str, String str2, boolean z) {
+        if (ad.oc("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? BdStatsConstant.StatsType.ERROR : "stop");
-            f.WV().a(new com.baidu.swan.apps.n.a.b("camera", hashMap));
+            f.aeK().a(new com.baidu.swan.apps.n.a.b(PixelReadParams.DEFAULT_FILTER_ID, hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -142,14 +143,14 @@ public class a {
                 e.printStackTrace();
             }
         }
-        com.baidu.swan.apps.view.b.b.a.a(str, str2, "camera", jSONObject.optString("eType"), jSONObject);
+        com.baidu.swan.apps.view.b.b.a.a(str, str2, PixelReadParams.DEFAULT_FILTER_ID, jSONObject.optString("eType"), jSONObject);
     }
 
-    public boolean bG(Context context) {
+    public boolean bu(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0;
     }
 
-    public boolean bH(Context context) {
+    public boolean bv(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0;
     }
 }

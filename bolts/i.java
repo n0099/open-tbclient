@@ -4,25 +4,25 @@ import bolts.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes7.dex */
 public class i {
-    private g<?> dE;
+    private g<?> zq;
 
     public i(g<?> gVar) {
-        this.dE = gVar;
+        this.zq = gVar;
     }
 
     protected void finalize() throws Throwable {
-        g.a aV;
+        g.a gs;
         try {
-            g<?> gVar = this.dE;
-            if (gVar != null && (aV = g.aV()) != null) {
-                aV.a(gVar, new UnobservedTaskException(gVar.aY()));
+            g<?> gVar = this.zq;
+            if (gVar != null && (gs = g.gs()) != null) {
+                gs.a(gVar, new UnobservedTaskException(gVar.gv()));
             }
         } finally {
             super.finalize();
         }
     }
 
-    public void bd() {
-        this.dE = null;
+    public void gA() {
+        this.zq = null;
     }
 }

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes8.dex */
 public class e extends c<SubTagsStatus> {
@@ -55,7 +54,7 @@ public class e extends c<SubTagsStatus> {
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected Intent c() {
         Intent intent = new Intent();
-        intent.putExtra(Constants.APP_ID, this.f);
+        intent.putExtra("app_id", this.f);
         intent.putExtra("app_key", this.g);
         intent.putExtra("strategy_package_name", this.e.getPackageName());
         intent.putExtra("push_id", this.a);

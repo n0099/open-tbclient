@@ -7,14 +7,14 @@ public class SwanAppPreHandleInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanAppPreHandleInfo> CREATOR = new Parcelable.Creator<SwanAppPreHandleInfo>() { // from class: com.baidu.swan.apps.process.SwanAppPreHandleInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: B */
+        /* renamed from: u */
         public SwanAppPreHandleInfo createFromParcel(Parcel parcel) {
             return new SwanAppPreHandleInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fF */
+        /* renamed from: fM */
         public SwanAppPreHandleInfo[] newArray(int i) {
             return new SwanAppPreHandleInfo[i];
         }

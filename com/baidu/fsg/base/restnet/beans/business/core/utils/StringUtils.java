@@ -1,7 +1,6 @@
 package com.baidu.fsg.base.restnet.beans.business.core.utils;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.regex.Pattern;
@@ -126,7 +125,7 @@ public abstract class StringUtils {
     }
 
     public static String trimAll(String str) {
-        return !TextUtils.isEmpty(str) ? str.replace(HanziToPinyin.Token.SEPARATOR, "") : "";
+        return !TextUtils.isEmpty(str) ? str.replace(" ", "") : "";
     }
 
     public static boolean isPhoneNumber(String str) {

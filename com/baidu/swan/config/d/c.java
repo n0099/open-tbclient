@@ -8,40 +8,40 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class c {
-    private static c cfH;
-    private a cfI = new a();
-    private String cfJ = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
-    private String cfK = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
+    private static c cEF;
+    private a cEG = new a();
+    private String cEH = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
+    private String cEI = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
 
-    public static c ajl() {
-        if (cfH == null) {
+    public static c art() {
+        if (cEF == null) {
             synchronized (c.class) {
-                if (cfH == null) {
-                    cfH = new c();
+                if (cEF == null) {
+                    cEF = new c();
                 }
             }
         }
-        return cfH;
+        return cEF;
     }
 
     private c() {
     }
 
     public int getVersion() {
-        return this.cfI.getInt("tips_config_version", 0);
+        return this.cEG.getInt("tips_config_version", 0);
     }
 
-    public String aT(long j) {
-        return this.cfI.getString(String.format("%04d", Long.valueOf(j)), this.cfJ);
+    public String by(long j) {
+        return this.cEG.getString(String.format("%04d", Long.valueOf(j)), this.cEH);
     }
 
-    public String aU(long j) {
-        return this.cfI.getString(String.format("%04d", Long.valueOf(j)), this.cfK);
+    public String bz(long j) {
+        return this.cEG.getString(String.format("%04d", Long.valueOf(j)), this.cEI);
     }
 
     public void c(HashMap<String, String> hashMap, int i) {
         if (hashMap != null && !hashMap.isEmpty() && i > 0) {
-            SharedPreferences.Editor edit = this.cfI.edit();
+            SharedPreferences.Editor edit = this.cEG.edit();
             edit.clear();
             edit.putInt("tips_config_version", i);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {

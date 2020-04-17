@@ -21,20 +21,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h uq = null;
+    private static h Nf = null;
 
-    public static h hH() {
+    public static h ml() {
         h hVar;
-        if (uq == null) {
+        if (Nf == null) {
             synchronized (h.class) {
-                if (uq == null) {
-                    uq = new h();
+                if (Nf == null) {
+                    Nf = new h();
                 }
-                hVar = uq;
+                hVar = Nf;
             }
             return hVar;
         }
-        return uq;
+        return Nf;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -291,17 +291,17 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
+        i Ng;
         String mLibName;
         boolean mLoadSuccess = false;
         StringBuilder mLogContent;
         String mNewFileName;
-        i ur;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
             this.mLibName = str;
             this.mNewFileName = str2;
             this.mLogContent = sb;
-            this.ur = iVar;
+            this.Ng = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -320,8 +320,8 @@ public class h {
             if (this.mLogContent.length() > 0) {
                 BdStatisticsManager.getInstance().error("so", "load_" + this.mLibName + PluginInstallerService.APK_LIB_SUFFIX, "", BdErrorInfo.ERR_SO_LOAD, this.mLogContent.toString(), new Object[0]);
             }
-            if (this.ur != null) {
-                this.ur.callback(this.mLoadSuccess);
+            if (this.Ng != null) {
+                this.Ng.callback(this.mLoadSuccess);
             }
         }
     }

@@ -1,26 +1,25 @@
 package io.reactivex.internal.operators.single;
 
 import io.reactivex.aa;
-import io.reactivex.disposables.b;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class SingleDoOnDispose<T> extends w<T> {
-    final io.reactivex.c.a nAD;
+    final io.reactivex.c.a mUe;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.source.a(new DoOnDisposeObserver(yVar, this.nAD));
+        this.source.a(new DoOnDisposeObserver(yVar, this.mUe));
     }
 
     /* loaded from: classes7.dex */
-    static final class DoOnDisposeObserver<T> extends AtomicReference<io.reactivex.c.a> implements b, y<T> {
+    static final class DoOnDisposeObserver<T> extends AtomicReference<io.reactivex.c.a> implements io.reactivex.disposables.b, y<T> {
         private static final long serialVersionUID = -8583764624474935784L;
         final y<? super T> actual;
-        b d;
+        io.reactivex.disposables.b d;
 
         DoOnDisposeObserver(y<? super T> yVar, io.reactivex.c.a aVar) {
             this.actual = yVar;
@@ -34,7 +33,7 @@ public final class SingleDoOnDispose<T> extends w<T> {
                 try {
                     andSet.run();
                 } catch (Throwable th) {
-                    io.reactivex.exceptions.a.H(th);
+                    io.reactivex.exceptions.a.L(th);
                     io.reactivex.e.a.onError(th);
                 }
                 this.d.dispose();
@@ -47,7 +46,7 @@ public final class SingleDoOnDispose<T> extends w<T> {
         }
 
         @Override // io.reactivex.y
-        public void onSubscribe(b bVar) {
+        public void onSubscribe(io.reactivex.disposables.b bVar) {
             if (DisposableHelper.validate(this.d, bVar)) {
                 this.d = bVar;
                 this.actual.onSubscribe(this);

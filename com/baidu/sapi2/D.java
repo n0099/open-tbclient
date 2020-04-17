@@ -1,6 +1,7 @@
 package com.baidu.sapi2;
 
 import android.os.Looper;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.callback.SapiCallback;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.result.OAuthResult;
@@ -46,7 +47,7 @@ public class D extends HttpHandlerWrap {
     public void onSuccess(int i, String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int parseInt = Integer.parseInt(jSONObject.optString("errno"));
+            int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
             this.b.setResultCode(parseInt);
             if (parseInt != 0) {
                 this.a.onFailure(this.b);

@@ -1,14 +1,14 @@
 package com.baidu.live.x;
 
-import com.baidu.live.data.v;
+import com.baidu.live.data.x;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface a {
-    void a(v vVar);
+    void B(JSONObject jSONObject);
 
-    void bk(boolean z);
+    void a(x xVar);
+
+    void bO(boolean z);
 
     void onDestroy();
-
-    void v(JSONObject jSONObject);
 }

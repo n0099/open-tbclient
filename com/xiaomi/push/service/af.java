@@ -4,8 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import com.baidu.live.adp.framework.MessageConfig;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.searchbox.ui.CoolPraiseGuideLottieView;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -27,10 +27,10 @@ public class af {
         int a;
 
         /* renamed from: a  reason: collision with other field name */
-        byte[] f844a;
+        byte[] f845a;
 
         public a(byte[] bArr, int i) {
-            this.f844a = bArr;
+            this.f845a = bArr;
             this.a = i;
         }
     }
@@ -40,10 +40,10 @@ public class af {
         public long a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Bitmap f845a;
+        public Bitmap f846a;
 
         public b(Bitmap bitmap, long j) {
-            this.f845a = bitmap;
+            this.f846a = bitmap;
             this.a = j;
         }
     }
@@ -53,7 +53,7 @@ public class af {
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(inputStream, null, options);
         if (options.outWidth == -1 || options.outHeight == -1) {
-            com.xiaomi.channel.commonutils.logger.b.m45a("decode dimension failed for bitmap.");
+            com.xiaomi.channel.commonutils.logger.b.m50a("decode dimension failed for bitmap.");
             return 1;
         }
         int round = Math.round((context.getResources().getDisplayMetrics().densityDpi / 160.0f) * 48.0f);
@@ -128,14 +128,14 @@ public class af {
         try {
             HttpURLConnection httpURLConnection4 = (HttpURLConnection) new URL(str).openConnection();
             try {
-                httpURLConnection4.setConnectTimeout(8000);
-                httpURLConnection4.setReadTimeout(MessageConfig.SOCKET_TIME_OUT_MS_2G);
+                httpURLConnection4.setConnectTimeout(CoolPraiseGuideLottieView.ANIM_DURATION);
+                httpURLConnection4.setReadTimeout(20000);
                 httpURLConnection4.connect();
                 int contentLength = httpURLConnection4.getContentLength();
                 if (!z || contentLength <= 102400) {
                     int responseCode = httpURLConnection4.getResponseCode();
                     if (responseCode != 200) {
-                        com.xiaomi.channel.commonutils.logger.b.m45a("Invalid Http Response Code " + responseCode + " received");
+                        com.xiaomi.channel.commonutils.logger.b.m50a("Invalid Http Response Code " + responseCode + " received");
                         com.xiaomi.push.y.a((Closeable) null);
                         if (httpURLConnection4 != null) {
                             httpURLConnection4.disconnect();
@@ -158,7 +158,7 @@ public class af {
                                 byteArrayOutputStream.write(bArr, 0, read);
                             }
                             if (i <= 0) {
-                                com.xiaomi.channel.commonutils.logger.b.m45a("length 102400 exhausted.");
+                                com.xiaomi.channel.commonutils.logger.b.m50a("length 102400 exhausted.");
                                 a aVar2 = new a(null, BdStatsConstant.MAX_WRITE_LOG_SIZE);
                                 com.xiaomi.push.y.a(inputStream);
                                 if (httpURLConnection4 != null) {
@@ -223,7 +223,7 @@ public class af {
                         }
                     }
                 } else {
-                    com.xiaomi.channel.commonutils.logger.b.m45a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
+                    com.xiaomi.channel.commonutils.logger.b.m50a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
                     com.xiaomi.push.y.a((Closeable) null);
                     if (httpURLConnection4 != null) {
                         httpURLConnection4.disconnect();
@@ -263,7 +263,7 @@ public class af {
         Bitmap b2 = b(context, str);
         try {
             if (b2 != null) {
-                bVar.f845a = b2;
+                bVar.f846a = b2;
             } else {
                 try {
                     a a2 = a(str, z);
@@ -271,7 +271,7 @@ public class af {
                         com.xiaomi.push.y.a((Closeable) null);
                     } else {
                         bVar.a = a2.a;
-                        byte[] bArr = a2.f844a;
+                        byte[] bArr = a2.f845a;
                         if (bArr != null) {
                             if (z) {
                                 byteArrayInputStream = new ByteArrayInputStream(bArr);
@@ -279,8 +279,8 @@ public class af {
                                     int a3 = a(context, byteArrayInputStream);
                                     BitmapFactory.Options options = new BitmapFactory.Options();
                                     options.inSampleSize = a3;
-                                    bVar.f845a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-                                    a(context, a2.f844a, str);
+                                    bVar.f846a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                                    a(context, a2.f845a, str);
                                     com.xiaomi.push.y.a(byteArrayInputStream);
                                 } catch (Exception e) {
                                     e = e;
@@ -289,11 +289,11 @@ public class af {
                                     return bVar;
                                 }
                             } else {
-                                bVar.f845a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                                bVar.f846a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                             }
                         }
                         byteArrayInputStream = null;
-                        a(context, a2.f844a, str);
+                        a(context, a2.f845a, str);
                         com.xiaomi.push.y.a(byteArrayInputStream);
                     }
                 } catch (Exception e2) {
@@ -343,7 +343,7 @@ public class af {
         BufferedOutputStream bufferedOutputStream2;
         FileOutputStream fileOutputStream = null;
         if (bArr == null) {
-            com.xiaomi.channel.commonutils.logger.b.m45a("cannot save small icon cause bitmap is null");
+            com.xiaomi.channel.commonutils.logger.b.m50a("cannot save small icon cause bitmap is null");
             return;
         }
         a(context);

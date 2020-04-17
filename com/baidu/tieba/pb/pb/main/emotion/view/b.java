@@ -5,40 +5,40 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes9.dex */
 public class b {
-    private SearchEmotionModel.a gby;
-    private SearchEmotionModel iUm;
-    private String iUn;
-    private Runnable iUo = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a gKH;
+    private SearchEmotionModel jEv;
+    private String jEw;
+    private Runnable jEx = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.iUn) && b.this.gby != null) {
-                if (b.this.iUm == null) {
-                    b.this.iUm = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.jEw) && b.this.gKH != null) {
+                if (b.this.jEv == null) {
+                    b.this.jEv = new SearchEmotionModel();
                 }
-                b.this.iUm.a(b.this.iUn, 0, 30, b.this.gby);
+                b.this.jEv.a(b.this.jEw, 0, 30, b.this.gKH);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void Gp(String str) {
+    public void HW(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.iUn = "";
+            this.jEw = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.iUo);
-        this.mHandler.postDelayed(this.iUo, 300L);
-        this.iUn = str;
+        this.mHandler.removeCallbacks(this.jEx);
+        this.mHandler.postDelayed(this.jEx, 300L);
+        this.jEw = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.gby = aVar;
+        this.gKH = aVar;
     }
 
-    public void bGI() {
-        if (this.iUm != null) {
-            this.iUm.cancelLoadData();
+    public void bRj() {
+        if (this.jEv != null) {
+            this.jEv.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.iUo);
+        this.mHandler.removeCallbacks(this.jEx);
     }
 }

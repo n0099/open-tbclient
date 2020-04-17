@@ -1,7 +1,15 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes8.dex */
 public interface aj {
-    NavigationBar beR();
+    void FH();
+
+    void aQp();
+
+    void blv();
+
+    void blw();
+
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.z zVar);
+
+    void showFloatingView();
 }

@@ -16,7 +16,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aw */
+    /* renamed from: ax */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.c> b(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new com.baidu.tieba.forumsearch.c.c(this.mPageContext));
     }

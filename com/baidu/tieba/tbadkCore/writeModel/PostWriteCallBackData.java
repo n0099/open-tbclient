@@ -40,6 +40,7 @@ public class PostWriteCallBackData implements Serializable {
     private String postId = null;
     private AccessState accessState = null;
     private ArrayList<String> sensitiveWords = null;
+    private boolean isDyamicCallback = false;
 
     public PostWriteCallBackData() {
     }
@@ -186,6 +187,14 @@ public class PostWriteCallBackData implements Serializable {
 
     public int getProZone() {
         return this.proZone;
+    }
+
+    public boolean isDyamicCallback() {
+        return this.isDyamicCallback;
+    }
+
+    public void setDyamicCallback(boolean z) {
+        this.isDyamicCallback = z;
     }
 
     public void setGeneralTabId(int i) {

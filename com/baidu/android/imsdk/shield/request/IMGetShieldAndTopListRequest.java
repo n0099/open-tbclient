@@ -1,15 +1,19 @@
 package com.baidu.android.imsdk.shield.request;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.internal.ListenerManager;
+import com.baidu.android.imsdk.shield.IGetDisturbListListener;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -42,7 +46,7 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
             jSONObject.put("cuid", Utility.getDeviceId(this.mContext));
             jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
             jSONObject.put(SapiContext.KEY_SDK_VERSION, "" + IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-            jSONObject.put("device_type", 2);
+            jSONObject.put(HttpConstants.DEVICE_TYPE, 2);
             jSONObject.put("uk", uk);
             jSONObject.put("sub_business", this.mSubBusiness);
             jSONObject.put("timestamp", currentTimeMillis);
@@ -82,8 +86,14 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
             }
             JSONArray optJSONArray3 = jSONObject.optJSONArray("group_ids");
             if (optJSONArray3 != null) {
-                for (int i5 = 0; i5 < optJSONArray3.length(); i5++) {
-                    generateUser(arrayList3, (JSONObject) optJSONArray3.opt(i5), 2, i5);
+                int i5 = 0;
+                while (true) {
+                    int i6 = i5;
+                    if (i6 >= optJSONArray3.length()) {
+                        break;
+                    }
+                    generateUser(arrayList3, (JSONObject) optJSONArray3.opt(i6), 2, i6);
+                    i5 = i6 + 1;
                 }
             }
         } catch (JSONException e) {
@@ -98,8 +108,12 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
             } else if (this.mFilterType == 2) {
                 ShieldAndTopManager.getInstance(this.mContext).onNotifyShieldListResult(i2, str, arrayList2, this.mKey);
             }
-        } else if (this.mSubBusiness == 2 && this.mFilterType == 1) {
-            ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(i2, str, arrayList, arrayList2);
+        } else if (this.mSubBusiness == 2) {
+            if (this.mFilterType == 1) {
+                ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(i2, str, arrayList, arrayList2);
+            }
+        } else if (this.mSubBusiness == 3 && this.mFilterType == 1 && !TextUtils.isEmpty(this.mKey)) {
+            ((IGetDisturbListListener) ListenerManager.getInstance().removeListener(this.mKey)).onDisturbList(i, str, str2);
         }
     }
 
@@ -110,9 +124,11 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
         if (this.mSubBusiness == 2) {
             chatSession.setMarkTopTime(optLong);
             chatSession.setMarkTop(1);
-        } else {
+        } else if (this.mSubBusiness == 1) {
             chatSession.setShieldTime(optLong);
             chatSession.setShield(1);
+        } else if (this.mSubBusiness == 3) {
+            LogUtils.d(TAG, "generateUser mSubBusiness = 3");
         }
         chatSession.setChatType(i);
         list.add(chatSession);
@@ -130,8 +146,12 @@ public class IMGetShieldAndTopListRequest extends IMSettingBaseHttpRequest {
             } else if (this.mFilterType == 2) {
                 ShieldAndTopManager.getInstance(this.mContext).onNotifyShieldListResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, arrayList2, this.mKey);
             }
-        } else if (this.mSubBusiness == 2 && this.mFilterType == 1) {
-            ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, arrayList, arrayList2);
+        } else if (this.mSubBusiness == 2) {
+            if (this.mFilterType == 1) {
+                ShieldAndTopManager.getInstance(this.mContext).onMsgMarkTopListResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, arrayList, arrayList2);
+            }
+        } else if (this.mSubBusiness == 3 && this.mFilterType == 1 && !TextUtils.isEmpty(this.mKey)) {
+            ((IGetDisturbListListener) ListenerManager.getInstance().removeListener(this.mKey)).onDisturbList(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, bArr == null ? null : new String(bArr));
         }
     }
 

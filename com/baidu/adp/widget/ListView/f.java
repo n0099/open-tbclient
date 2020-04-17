@@ -7,9 +7,9 @@ import android.widget.Scroller;
 import com.baidu.adp.widget.ListView.c;
 /* loaded from: classes.dex */
 public class f {
-    private com.baidu.adp.widget.b.a AI;
-    private c.a AJ;
-    a AK;
+    private com.baidu.adp.widget.b.a TZ;
+    private c.a Ua;
+    a Ub;
     private boolean isReadyToStart;
     int mDuration;
     private int mToPadding;
@@ -19,10 +19,10 @@ public class f {
     Runnable endAnimationRun = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.AK == null) {
+            if (f.this.Ub == null) {
                 return;
             }
-            f.this.AK.endAnimation();
+            f.this.Ub.endAnimation();
         }
     };
 
@@ -33,16 +33,16 @@ public class f {
         if (abs < this.mStep) {
             this.isReadyToStart = false;
         }
-        this.AK = new a(context);
+        this.Ub = new a(context);
         this.mDuration = i3;
     }
 
     public void a(com.baidu.adp.widget.b.a aVar) {
-        this.AI = aVar;
+        this.TZ = aVar;
     }
 
     public void a(c.a aVar) {
-        this.AJ = aVar;
+        this.Ua = aVar;
     }
 
     /* loaded from: classes.dex */
@@ -110,16 +110,16 @@ public class f {
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
             }
-            if (f.this.AI != null) {
-                f.this.AI.onOver();
+            if (f.this.TZ != null) {
+                f.this.TZ.onOver();
             }
         }
     }
 
     public void startAnimation(View view) {
-        if (this.isReadyToStart && this.AK != null) {
+        if (this.isReadyToStart && this.Ub != null) {
             this.mView = view;
-            this.AK.startUsingDistance(Math.abs(this.mToPadding), this.mDuration);
+            this.Ub.startUsingDistance(Math.abs(this.mToPadding), this.mDuration);
             this.mHandler.postDelayed(this.endAnimationRun, this.mDuration);
         }
     }
@@ -135,8 +135,8 @@ public class f {
             z = false;
         }
         this.mView.setPadding(this.mView.getPaddingLeft(), paddingTop, this.mView.getPaddingRight(), this.mView.getPaddingBottom());
-        if (this.AJ != null) {
-            this.AJ.a(null, this.mView.getPaddingLeft(), this.mView.getPaddingRight(), this.mView.getPaddingTop() - this.mToPadding, this.mView.getPaddingBottom());
+        if (this.Ua != null) {
+            this.Ua.a(null, this.mView.getPaddingLeft(), this.mView.getPaddingRight(), this.mView.getPaddingTop() - this.mToPadding, this.mView.getPaddingBottom());
         }
         return z;
     }

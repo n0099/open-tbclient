@@ -15,13 +15,13 @@ import java.util.concurrent.TimeUnit;
 public class TaskManager {
     private static final int KEEP_ALIVE_SECONDS = 30;
     public static final String TAG = "TaskManager";
-    private static TaskManager mInstance;
+    private static volatile TaskManager mInstance;
     private Context mContext;
     private ThreadPoolExecutor service;
     private ExecutorService singleThreadService;
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
-    private static final int MAXIMUM_POOL_SIZE = (CPU_COUNT * 2) + 1;
+    private static final int CORE_POOL_SIZE = Math.max(4, Math.min(CPU_COUNT - 1, 4));
+    private static final int MAXIMUM_POOL_SIZE = (CPU_COUNT * 3) + 1;
 
     private TaskManager(Context context) {
         this.service = null;

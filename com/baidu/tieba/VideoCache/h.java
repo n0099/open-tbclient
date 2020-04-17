@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes9.dex */
 public class h {
-    private String cKc;
-    private long dXA = -1;
-    private long dXB = -1;
-    private long dXC = 0;
-    private long dXD = 0;
-    private String dXy;
-    private boolean dXz;
+    private String dji;
+    private String exs;
+    private boolean exu;
+    private long exv = -1;
+    private long exw = -1;
+    private long exx = 0;
+    private long exy = 0;
 
-    public String aXn() {
-        return this.dXy;
+    public String bfs() {
+        return this.exs;
     }
 
-    public void wz(String str) {
-        this.dXy = str;
+    public void xL(String str) {
+        this.exs = str;
     }
 
     public String getOriginUrl() {
-        return this.cKc;
+        return this.dji;
     }
 
-    public void wA(String str) {
-        this.cKc = str;
+    public void xM(String str) {
+        this.dji = str;
     }
 
-    public boolean aXo() {
-        return this.dXz;
+    public boolean bft() {
+        return this.exu;
     }
 
-    public void hC(boolean z) {
-        this.dXz = z;
+    public void iA(boolean z) {
+        this.exu = z;
     }
 
-    public long aXp() {
-        return this.dXA;
+    public long bfu() {
+        return this.exv;
     }
 
-    public void cn(long j) {
-        this.dXA = j;
+    public void cU(long j) {
+        this.exv = j;
     }
 
-    public long aXq() {
-        return this.dXB;
+    public long bfv() {
+        return this.exw;
     }
 
-    public void co(long j) {
-        this.dXB = j;
+    public void cV(long j) {
+        this.exw = j;
     }
 
     public long getTotalLength() {
-        return this.dXC;
+        return this.exx;
     }
 
     public void setTotalLength(long j) {
-        this.dXC = j;
+        this.exx = j;
     }
 
-    public void cp(long j) {
-        this.dXD = j;
+    public void cW(long j) {
+        this.exy = j;
     }
 
-    public long aXr() {
-        return this.dXD;
+    public long bfw() {
+        return this.exy;
     }
 }

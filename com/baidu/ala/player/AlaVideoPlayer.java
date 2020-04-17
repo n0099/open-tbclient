@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.TextureView;
+import com.baidu.ala.helper.AlaLiveUtilHelper;
 /* loaded from: classes3.dex */
 public class AlaVideoPlayer extends TextureView implements TextureView.SurfaceTextureListener {
     private VideoPlayerCallback mCallback;
@@ -40,6 +41,7 @@ public class AlaVideoPlayer extends TextureView implements TextureView.SurfaceTe
         };
         setSurfaceTextureListener(this);
         this.mPlayerData = new AlaLivePlayerData(i);
+        this.mPlayerData.mStartBaseInfo.mAppVer = AlaLiveUtilHelper.getApkVersionName(context);
     }
 
     public void setPlayerCallback(VideoPlayerCallback videoPlayerCallback) {

@@ -11,7 +11,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.ugc.upload.CompressImageUtil;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;

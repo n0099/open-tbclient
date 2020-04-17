@@ -13,15 +13,15 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e extends b {
     public e(Context context) {
-        super(context, com.baidu.live.im.a.aqK);
+        super(context, com.baidu.live.im.a.aJt);
     }
 
     @Override // com.baidu.live.im.a.b
-    protected void wU() {
-        if (wV()) {
-            wW();
+    protected void BF() {
+        if (BG()) {
+            BH();
         } else {
-            wX();
+            BI();
         }
     }
 
@@ -34,13 +34,13 @@ public class e extends b {
     protected SpannableStringBuilder a(com.baidu.live.im.data.a aVar, com.baidu.live.im.c cVar) {
         Drawable drawable;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        a i = i(aVar);
-        if (i != null) {
-            String str = i.shareText;
+        a m = m(aVar);
+        if (m != null) {
+            String str = m.shareText;
             SpannableString valueOf = SpannableString.valueOf(str);
-            if (wV()) {
-                if (i.shareType != 3) {
-                    valueOf.setSpan(new ForegroundColorSpan(-1647769), 0, valueOf.length(), 33);
+            if (BG()) {
+                if (m.shareType != 3) {
+                    valueOf.setSpan(new ForegroundColorSpan(-7479041), 0, valueOf.length(), 33);
                 } else {
                     valueOf.setSpan(new ForegroundColorSpan(getColor()), 0, valueOf.length(), 33);
                 }
@@ -49,25 +49,25 @@ public class e extends b {
             }
             spannableStringBuilder.append((CharSequence) valueOf);
             String string = this.mContext.getString(a.i.sdk_share_blue_zhuan);
-            if (i.shareType == 2 && str.contains(string) && (drawable = TbadkCoreApplication.getInst().getResources().getDrawable(a.f.sdk_icon_live_blue_diamond)) != null) {
+            if (m.shareType == 2 && str.contains(string) && (drawable = TbadkCoreApplication.getInst().getResources().getDrawable(a.f.sdk_icon_live_blue_diamond)) != null) {
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 CenterImageSpan centerImageSpan = new CenterImageSpan(drawable, 1);
                 SpannableString spannableString = new SpannableString(" [img]");
                 spannableString.setSpan(centerImageSpan, 1, spannableString.length(), 33);
                 spannableStringBuilder.append((CharSequence) spannableString);
             }
-            if (i.shareType != 3) {
-                a(spannableStringBuilder, aVar.xt(), cVar, false, false);
-                if (wV()) {
-                    wW();
+            if (m.shareType != 3) {
+                a(spannableStringBuilder, aVar.Cf(), cVar, false, false);
+                if (BG()) {
+                    BH();
                 }
             }
-            cVar.aqZ.setText(spannableStringBuilder);
+            cVar.aJE.setText(spannableStringBuilder);
         }
         return spannableStringBuilder;
     }
 
-    private a i(com.baidu.live.im.data.a aVar) {
+    private a m(com.baidu.live.im.data.a aVar) {
         JSONObject jSONObject;
         try {
             if (aVar.getObjContent() instanceof JSONObject) {

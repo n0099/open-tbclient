@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 /* loaded from: classes8.dex */
 public class d {
@@ -61,7 +60,7 @@ public class d {
         cVar.a("task_id", this.a);
         cVar.a(BdStatsConstant.StatsKey.SEQUENCEID, this.b);
         cVar.a("push_timestamp", this.c);
-        cVar.a(Constants.KEY_DEVICE_ID, this.d);
+        cVar.a("device_id", this.d);
         return cVar.toString();
     }
 

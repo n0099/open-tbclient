@@ -1,6 +1,7 @@
 package com.baidu.webkit.net;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.webkit.internal.INoProGuard;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -121,6 +122,6 @@ public class WebAddress implements INoProGuard {
         if ((this.mPort != 443 && this.mScheme.equals("https")) || (this.mPort != 80 && this.mScheme.equals(HttpHost.DEFAULT_SCHEME_NAME))) {
             str = ":" + Integer.toString(this.mPort);
         }
-        return this.mScheme + "://" + (this.mAuthInfo.length() > 0 ? this.mAuthInfo + "@" : "") + this.mHost + str + this.mPath;
+        return this.mScheme + "://" + (this.mAuthInfo.length() > 0 ? this.mAuthInfo + UgcConstant.AT_RULE_TAG : "") + this.mHost + str + this.mPath;
     }
 }

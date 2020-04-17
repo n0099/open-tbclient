@@ -3,9 +3,9 @@ package com.baidu.tieba.tbadkCore.data;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 public class n {
-    public String kjp;
-    public Bitmap kjq;
-    public String kjr;
-    public String kjs;
+    public String kTv;
+    public Bitmap kTw;
+    public String kTx;
+    public String kTy;
     public int type = 0;
 }

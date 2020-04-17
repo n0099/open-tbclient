@@ -161,6 +161,7 @@ public class CmdConfigCustom {
     public static final int CMD_GC_VIEW_DRAW_CACHE = 2016308;
     public static final int CMD_GET_ALA_SQUARE_RECOMMEND_FRAGMENT = 2921303;
     public static final int CMD_GET_DISCOVER_FRAGMENT = 2921010;
+    public static final int CMD_GET_ENSURE_CAST_ID = 2921346;
     public static final int CMD_GET_ENTERFORUM_DATA = 2016562;
     public static final int CMD_GET_FRS_MORE_FEED_FORUMS_CONTROLLER = 2016468;
     public static final int CMD_GET_FRS_NO_LIST_ITEM_ADAPTER = 2921336;
@@ -197,7 +198,6 @@ public class CmdConfigCustom {
     public static final int CMD_HOME_EXTRA_INIT_OK = 2001407;
     public static final int CMD_HOME_HIDE_GUIDE = 2921003;
     public static final int CMD_HOME_NOTIFY_MSG = 2921002;
-    public static final int CMD_HOST_GET_WALLET_UA = 2913113;
     public static final int CMD_HOT_SPLASH_SHOW = 2016522;
     public static final int CMD_HOT_TOPIC_SELECT_CACHE = 2016491;
     public static final int CMD_HTML_LOADED = 2921023;

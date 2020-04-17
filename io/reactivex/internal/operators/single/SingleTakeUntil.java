@@ -1,6 +1,5 @@
 package io.reactivex.internal.operators.single;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.aa;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
@@ -9,18 +8,17 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicReference;
-import org.a.b;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class SingleTakeUntil<T, U> extends w<T> {
-    final b<U> other;
+    final org.a.b<U> mSk;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
         TakeUntilMainObserver takeUntilMainObserver = new TakeUntilMainObserver(yVar);
         yVar.onSubscribe(takeUntilMainObserver);
-        this.other.subscribe(takeUntilMainObserver.other);
+        this.mSk.subscribe(takeUntilMainObserver.other);
         this.source.a(takeUntilMainObserver);
     }
 
@@ -37,7 +35,6 @@ public final class SingleTakeUntil<T, U> extends w<T> {
         @Override // io.reactivex.disposables.b
         public void dispose() {
             DisposableHelper.dispose(this);
-            this.other.dispose();
         }
 
         @Override // io.reactivex.disposables.b
@@ -53,7 +50,7 @@ public final class SingleTakeUntil<T, U> extends w<T> {
         @Override // io.reactivex.y
         public void onSuccess(T t) {
             this.other.dispose();
-            if (getAndSet(DisposableHelper.DISPOSED) != DisposableHelper.DISPOSED) {
+            if (get() != DisposableHelper.DISPOSED && getAndSet(DisposableHelper.DISPOSED) != DisposableHelper.DISPOSED) {
                 this.actual.onSuccess(t);
             }
         }
@@ -92,7 +89,9 @@ public final class SingleTakeUntil<T, U> extends w<T> {
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, Format.OFFSET_SAMPLE_RELATIVE);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(Long.MAX_VALUE);
+            }
         }
 
         @Override // org.a.c

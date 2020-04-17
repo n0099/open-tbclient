@@ -14,15 +14,15 @@ import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes9.dex */
 public class a implements View.OnClickListener {
-    private b dYV;
-    private AccountSafeModel dYW;
+    private b eyS;
+    private AccountSafeModel eyT;
     private final BaseActivity mActivity;
     private com.baidu.adp.framework.listener.a mNetMessagelistener = new com.baidu.adp.framework.listener.a(1002501, CmdConfigSocket.CMD_GET_PRIVATE_INFO) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.dYW != null) {
-                a.this.dYW.setLoading(false);
+            if (a.this.eyT != null) {
+                a.this.eyT.setLoading(false);
             }
             a.this.mActivity.closeLoadingDialog();
             if (responsedMessage != null) {
@@ -42,11 +42,11 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.dYW != null) {
-                    a.this.dYW.a(aVar);
+                if (a.this.eyT != null) {
+                    a.this.eyT.a(aVar);
                 }
-                if (a.this.dYV != null && a.this.dYW != null && a.this.dYW.aXX() != null) {
-                    a.this.dYV.a(a.this.dYW.aXX().aYc());
+                if (a.this.eyS != null && a.this.eyT != null && a.this.eyT.bgc() != null) {
+                    a.this.eyS.a(a.this.eyT.bgc().bgh());
                 }
             }
         }
@@ -55,38 +55,38 @@ public class a implements View.OnClickListener {
     public a(BaseActivity baseActivity) {
         this.mActivity = baseActivity;
         this.mActivity.registerListener(this.mNetMessagelistener);
-        this.dYV = new b(this.mActivity, this);
-        this.dYW = new AccountSafeModel(this.mActivity);
+        this.eyS = new b(this.mActivity, this);
+        this.eyT = new AccountSafeModel(this.mActivity);
         if (j.isNetWorkAvailable()) {
-            aYd();
+            bgi();
         } else {
             this.mActivity.showToast(R.string.neterror);
         }
     }
 
     public View getRootView() {
-        return this.dYV.getView();
+        return this.eyS.getView();
     }
 
-    private void aYd() {
-        if (this.dYW != null && !this.dYW.isLoading()) {
-            this.dYW.aYa();
+    private void bgi() {
+        if (this.eyT != null && !this.eyT.isLoading()) {
+            this.eyT.bgf();
         }
     }
 
     public void onDestroy() {
         this.mActivity.closeLoadingDialog();
-        if (this.dYW != null) {
-            this.dYW.cancelLoadData();
+        if (this.eyT != null) {
+            this.eyT.cancelLoadData();
         }
-        if (this.dYV != null) {
-            this.dYV.release();
+        if (this.eyS != null) {
+            this.eyS.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dYV != null) {
-            this.dYV.mg(i);
+        if (this.eyS != null) {
+            this.eyS.ms(i);
         }
     }
 
@@ -97,10 +97,10 @@ public class a implements View.OnClickListener {
             if (!j.isNetWorkAvailable()) {
                 this.mActivity.showToast(R.string.neterror);
             } else {
-                ba.aGK().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                ba.aOY().b(this.mActivity.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AntiHelper.bo(this.mActivity, this.dYW != null ? this.dYW.aXY() : "");
+            AntiHelper.bj(this.mActivity, this.eyT != null ? this.eyT.bgd() : "");
         }
     }
 }

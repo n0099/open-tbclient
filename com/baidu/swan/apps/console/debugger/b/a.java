@@ -30,9 +30,9 @@ import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends ab {
-    private ExecutorService bkf;
-    private int bkg;
-    private c bkw;
+    private c bIE;
+    private ExecutorService bIn;
+    private int bIo;
 
     public a(j jVar) {
         super(jVar, "/swanAPI/wirelessdebuglaunch");
@@ -46,8 +46,8 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        this.bkw = c.af(optParamsAsJo);
-        if (this.bkw == null || this.bkw.isInvalid()) {
+        this.bIE = c.aq(optParamsAsJo);
+        if (this.bIE == null || this.bIE.isInvalid()) {
             if (DEBUG) {
                 Log.e("WirelessDebugAction", "Wireless Debug params is invalid");
             }
@@ -59,37 +59,37 @@ public class a extends ab {
     }
 
     private void f(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
-        final File LZ = b.LZ();
-        if (LZ.exists()) {
-            LZ.delete();
+        final File TN = b.TN();
+        if (TN.exists()) {
+            TN.delete();
         }
-        this.bkf = Executors.newFixedThreadPool(4);
-        this.bkg = 0;
-        if (this.bkw.bkE == null || this.bkw.bkE.length() <= 0) {
+        this.bIn = Executors.newFixedThreadPool(4);
+        this.bIo = 0;
+        if (this.bIE.bIM == null || this.bIE.bIM.length() <= 0) {
             ExecutorUtilsExt.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.a(context, a.this.bkw.bkA, a.this.bkw.vd, LZ, unitedSchemeEntity, callbackHandler);
+                    a.this.a(context, a.this.bIE.bII, a.this.bIE.NV, TN, unitedSchemeEntity, callbackHandler);
                 }
             }, "WirelessDebugAction");
             return;
         }
-        int length = this.bkw.bkE.length();
+        int length = this.bIE.bIM.length();
         for (int i = 0; i < length; i++) {
-            final String el = this.bkw.el(i);
-            if (TextUtils.isEmpty(el)) {
-                int i2 = this.bkg + 1;
-                this.bkg = i2;
+            final String eq = this.bIE.eq(i);
+            if (TextUtils.isEmpty(eq)) {
+                int i2 = this.bIo + 1;
+                this.bIo = i2;
                 if (i2 >= length) {
                     com.baidu.swan.apps.console.c.e("WirelessDebugAction", "Hosts are invalid");
-                    ai(context, "404");
+                    ac(context, "404");
                 }
             } else {
-                final String em = this.bkw.em(i);
-                this.bkf.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.2
+                final String er = this.bIE.er(i);
+                this.bIn.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.b.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.a(context, el, em, LZ, unitedSchemeEntity, callbackHandler);
+                        a.this.a(context, eq, er, TN, unitedSchemeEntity, callbackHandler);
                     }
                 });
             }
@@ -99,7 +99,7 @@ public class a extends ab {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [208=4] */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x00b9, code lost:
-        if (r0 >= r7.bkw.bkE.length()) goto L39;
+        if (r0 >= r7.bIE.bIM.length()) goto L39;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -109,21 +109,21 @@ public class a extends ab {
             Response executeSync = HttpManager.getDefault(context.getApplicationContext()).getRequest().url(str).connectionTimeout(1500).build().executeSync();
             if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                 f.streamToFile(executeSync.body().byteStream(), file);
-                Intent a = com.baidu.swan.apps.x.b.c.a(context, LX());
-                a.putExtra("masterPreload", this.bkw.bkC);
-                a.putExtra("slavePreload", this.bkw.bkD);
+                Intent a = com.baidu.swan.apps.x.b.c.a(context, TL());
+                a.putExtra("masterPreload", this.bIE.bIK);
+                a.putExtra("slavePreload", this.bIE.bIL);
                 a.putExtra("extraWSUrl", str2);
                 context.startActivity(a);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (this.bkf != null) {
-                    this.bkf.shutdownNow();
-                    this.bkf = null;
+                if (this.bIn != null) {
+                    this.bIn.shutdownNow();
+                    this.bIn = null;
                 }
                 if (!ProcessUtils.isMainProcess()) {
                     if (DEBUG) {
                         Log.d("WirelessDebugAction", "Suicide for reload.");
                     }
-                    d.Mc();
+                    d.TQ();
                 }
             }
             if (executeSync != null) {
@@ -136,31 +136,31 @@ public class a extends ab {
         } catch (IOException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             synchronized (this) {
-                if (this.bkw.bkE != null) {
-                    int i = this.bkg + 1;
-                    this.bkg = i;
+                if (this.bIE.bIM != null) {
+                    int i = this.bIo + 1;
+                    this.bIo = i;
                 }
                 com.baidu.swan.apps.console.c.e("WirelessDebugAction", "Host IPs are invalid");
-                ai(context, "404");
-                LY();
+                ac(context, "404");
+                TM();
             }
         }
     }
 
-    private c.a LX() {
-        return (c.a) ((c.a) ((c.a) new c.a().ix(this.bkw.mAppKey)).cN(false)).iE(this.bkw.bkB);
+    private c.a TL() {
+        return (c.a) ((c.a) ((c.a) new c.a().jK(this.bIE.mAppKey)).dJ(false)).jR(this.bIE.bIJ);
     }
 
-    private void ai(Context context, String str) {
-        String string = h.afu().getString("errorURL", "");
+    private void ac(Context context, String str) {
+        String string = h.anz().getString("errorURL", "");
         if (TextUtils.isEmpty(string)) {
             com.baidu.swan.apps.res.widget.b.d.a(context, "IPs are invalid ：" + str).showToast();
         } else {
-            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + ch(string + "?" + str));
+            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + dc(string + "?" + str));
         }
     }
 
-    private String ch(String str) {
+    private String dc(String str) {
         try {
             return URLEncoder.encode(str, "UTF-8");
         } catch (UnsupportedEncodingException e) {
@@ -172,11 +172,11 @@ public class a extends ab {
         }
     }
 
-    private void LY() {
-        b.a acL = com.baidu.swan.apps.runtime.d.acF().acC().acL();
+    private void TM() {
+        b.a akQ = com.baidu.swan.apps.runtime.d.akK().akH().akQ();
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
-        fVar.b(acL);
-        fVar.mFrom = com.baidu.swan.apps.statistic.f.gs(acL.getAppFrameType());
+        fVar.b(akQ);
+        fVar.mFrom = com.baidu.swan.apps.statistic.f.gz(akQ.getAppFrameType());
         fVar.mType = Config.LAUNCH;
         fVar.mSource = "adb-debug";
         fVar.mValue = "download_fail";

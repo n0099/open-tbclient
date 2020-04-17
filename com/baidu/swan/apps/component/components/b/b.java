@@ -35,12 +35,12 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
             com.baidu.swan.apps.console.c.e("Component-Action-Button", "model is null");
             return false;
         }
-        com.baidu.swan.apps.component.b.c KI = new a(context, j).KI();
-        boolean isSuccess = KI.isSuccess();
+        com.baidu.swan.apps.component.b.c Sw = new a(context, j).Sw();
+        boolean isSuccess = Sw.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         } else {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, KI.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sw.msg);
         }
         return isSuccess;
     }
@@ -58,7 +58,7 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         a aVar = (a) com.baidu.swan.apps.component.container.a.d(j);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + j.biA;
+            String str2 = "can't find button component:#" + j.bGI;
             com.baidu.swan.apps.console.c.e("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
@@ -86,18 +86,18 @@ public class b extends com.baidu.swan.apps.scheme.actions.b {
         }
         a aVar = (a) com.baidu.swan.apps.component.container.a.d(j);
         if (aVar == null) {
-            String str2 = "can't find button component:#" + j.biA;
+            String str2 = "can't find button component:#" + j.bGI;
             com.baidu.swan.apps.console.c.e("Component-Action-Button", str2);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
             return false;
         }
-        com.baidu.swan.apps.component.b.c KK = aVar.KK();
-        boolean isSuccess = KK.isSuccess();
+        com.baidu.swan.apps.component.b.c Sy = aVar.Sy();
+        boolean isSuccess = Sy.isSuccess();
         if (isSuccess) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return isSuccess;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, KK.msg);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sy.msg);
         return isSuccess;
     }
 

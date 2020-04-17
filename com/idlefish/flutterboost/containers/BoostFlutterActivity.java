@@ -17,12 +17,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.Window;
-import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate;
-import io.flutter.embedding.android.DrawableSplashScreen;
 import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
@@ -121,10 +119,6 @@ public class BoostFlutterActivity extends Activity implements j, FlutterActivity
     @Override // com.idlefish.flutterboost.containers.FlutterActivityAndFragmentDelegate.Host
     @Nullable
     public SplashScreen provideSplashScreen() {
-        Drawable splashScreenFromManifest = getSplashScreenFromManifest();
-        if (splashScreenFromManifest != null) {
-            return new DrawableSplashScreen(splashScreenFromManifest, ImageView.ScaleType.CENTER, 500L);
-        }
         return null;
     }
 

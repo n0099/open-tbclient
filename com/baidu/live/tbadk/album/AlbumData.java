@@ -1,11 +1,12 @@
 package com.baidu.live.tbadk.album;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.live.adp.lib.safe.JavaTypesHelper;
 import com.baidu.live.tbadk.img.ImageFileInfo;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlbumData {
-    public static final String ALBUM_ID_ALL = String.valueOf(Integer.MAX_VALUE);
+    public static final String ALBUM_ID_ALL = String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     public static final String ALBUM_ID_VIDEO = String.valueOf(2147483646);
     private String albumId;
     private int count;

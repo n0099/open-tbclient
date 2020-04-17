@@ -8,42 +8,43 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class b {
-    private ArrayList<a> ctj = new ArrayList<>();
+    private ArrayList<a> cSe = new ArrayList<>();
 
     /* loaded from: classes11.dex */
     public interface a {
-        void JM();
+        void Ry();
 
-        void dZ(int i);
+        void ee(int i);
     }
 
     public synchronized void a(a aVar) {
-        if (!this.ctj.contains(aVar)) {
-            this.ctj.add(aVar);
+        if (!this.cSe.contains(aVar)) {
+            this.cSe.add(aVar);
         }
     }
 
-    public synchronized void hY(int i) {
-        Iterator<a> it = this.ctj.iterator();
+    /* renamed from: if  reason: not valid java name */
+    public synchronized void m28if(int i) {
+        Iterator<a> it = this.cSe.iterator();
         while (it.hasNext()) {
-            it.next().dZ(i);
+            it.next().ee(i);
         }
     }
 
-    public synchronized void JM() {
-        Iterator<a> it = this.ctj.iterator();
+    public synchronized void Ry() {
+        Iterator<a> it = this.cSe.iterator();
         while (it.hasNext()) {
-            it.next().JM();
+            it.next().Ry();
         }
-        this.ctj.clear();
+        this.cSe.clear();
     }
 
     @Nullable
-    public static b aqt() {
+    public static b ayF() {
         i iVar;
-        e GH = f.WV().GH();
-        if (GH != null && (iVar = (i) GH.p(i.class)) != null) {
-            return iVar.OQ();
+        e Ou = f.aeK().Ou();
+        if (Ou != null && (iVar = (i) Ou.q(i.class)) != null) {
+            return iVar.WF();
         }
         return null;
     }

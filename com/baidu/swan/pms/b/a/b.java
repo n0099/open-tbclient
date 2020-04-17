@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
@@ -15,9 +14,9 @@ public class b extends com.baidu.swan.pms.database.a.b<com.baidu.swan.pms.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: e */
-    public ContentValues Z(@NonNull com.baidu.swan.pms.b.a aVar) {
+    public ContentValues aa(@NonNull com.baidu.swan.pms.b.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Constants.APP_ID, aVar.getAppId());
+        contentValues.put("app_id", aVar.getAppId());
         contentValues.put("bundle_id", aVar.getBundleId());
         contentValues.put(SharedPrefConfig.VERSION_NAME, aVar.getVersionName());
         contentValues.put("version_code", Integer.valueOf(aVar.getVersionCode()));

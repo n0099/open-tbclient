@@ -51,19 +51,19 @@ public class dy extends dx {
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo155a() {
+    public int mo160a() {
         return 13;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hi mo155a() {
+    public hi mo160a() {
         return hi.DeviceBaseInfo;
     }
 
     @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo155a() {
-        return b() + "|" + d() + "|" + e() + "|" + a(this.f245a);
+    public String mo160a() {
+        return b() + "|" + d() + "|" + e() + "|" + a(this.f246a);
     }
 }

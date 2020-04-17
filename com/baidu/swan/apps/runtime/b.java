@@ -10,8 +10,8 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, com.baidu.swan.apps.as.d.b<i.a>> bOV = new HashMap();
-    private final List<com.baidu.swan.apps.as.d.c<i.a, Boolean>> bOW = new ArrayList();
+    private final Map<String, com.baidu.swan.apps.as.d.b<i.a>> cnH = new HashMap();
+    private final List<com.baidu.swan.apps.as.d.c<i.a, Boolean>> cnI = new ArrayList();
 
     public b a(final com.baidu.swan.apps.as.d.b<i.a> bVar, String... strArr) {
         if (bVar != null && strArr != null && strArr.length > 0) {
@@ -19,9 +19,9 @@ public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: onCallback */
-                public void D(String str) {
+                public void E(String str) {
                     if (!TextUtils.isEmpty(str)) {
-                        b.this.bOV.put(str, bVar);
+                        b.this.cnH.put(str, bVar);
                     }
                 }
             }, strArr);
@@ -31,7 +31,7 @@ public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
 
     public b a(com.baidu.swan.apps.as.d.c<i.a, Boolean> cVar) {
         if (cVar != null) {
-            this.bOW.add(cVar);
+            this.cnI.add(cVar);
         }
         return this;
     }
@@ -39,13 +39,13 @@ public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.as.d.b
     /* renamed from: a */
-    public void D(i.a aVar) {
+    public void E(i.a aVar) {
         com.baidu.swan.apps.as.d.b<i.a> bVar;
         if (DEBUG) {
             Log.i("EventHandler", "handle: " + aVar);
         }
-        if (c(aVar) && (bVar = this.bOV.get(aVar.id)) != null) {
-            bVar.D(aVar);
+        if (c(aVar) && (bVar = this.cnH.get(aVar.id)) != null) {
+            bVar.E(aVar);
         }
     }
 
@@ -53,8 +53,8 @@ public final class b implements com.baidu.swan.apps.as.d.b<i.a> {
         if (aVar == null) {
             return false;
         }
-        for (com.baidu.swan.apps.as.d.c<i.a, Boolean> cVar : this.bOW) {
-            if (cVar != null && !cVar.E(aVar).booleanValue()) {
+        for (com.baidu.swan.apps.as.d.c<i.a, Boolean> cVar : this.cnI) {
+            if (cVar != null && !cVar.F(aVar).booleanValue()) {
                 return false;
             }
         }

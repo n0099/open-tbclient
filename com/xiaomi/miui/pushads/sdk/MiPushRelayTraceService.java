@@ -34,9 +34,9 @@ public class MiPushRelayTraceService extends Service {
             long j = extras.getLong("id");
             int i4 = extras.getInt("showType");
             cg cgVar = new cg();
-            cgVar.f180a = j;
+            cgVar.f181a = j;
             cgVar.a = i4;
-            cgVar.f181a = "";
+            cgVar.f182a = "";
             if (a == null) {
                 Log.e("MiPushRelayTraceService", "log sender is null!");
             } else {

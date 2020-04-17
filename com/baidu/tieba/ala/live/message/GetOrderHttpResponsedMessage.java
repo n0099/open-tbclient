@@ -1,11 +1,11 @@
 package com.baidu.tieba.ala.live.message;
 
-import com.baidu.live.data.as;
+import com.baidu.live.data.av;
 import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private as eKW;
+    private av fpo;
 
     public GetOrderHttpResponsedMessage() {
         super(1003029);
@@ -15,12 +15,12 @@ public class GetOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.eKW = new as();
-            this.eKW.parserJson(jSONObject);
+            this.fpo = new av();
+            this.fpo.parserJson(jSONObject);
         }
     }
 
-    public as bgw() {
-        return this.eKW;
+    public av bpN() {
+        return this.fpo;
     }
 }

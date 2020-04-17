@@ -1,6 +1,5 @@
 package com.baidu.live.tbadk.widget.lottie;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 import com.baidu.live.adp.lib.util.BdStringHelper;
 import com.baidu.live.adp.lib.util.Md5;
@@ -30,7 +29,7 @@ public class TBLottieAnimationLoader extends BdAsyncTask<Void, String, String> {
         try {
             return file.mkdirs();
         } catch (Exception e) {
-            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", ".", "CheckTempDir", HanziToPinyin.Token.SEPARATOR, str));
+            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", ".", "CheckTempDir", " ", str));
             return false;
         }
     }

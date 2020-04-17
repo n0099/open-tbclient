@@ -4,22 +4,22 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements com.baidu.swan.apps.adaptation.a.d {
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public String Hj() {
+    public String OW() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hk() {
+    public boolean OX() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int Hl() {
+    public int OY() {
         return 10;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hm() {
+    public boolean OZ() {
         return false;
     }
 
@@ -44,102 +44,102 @@ public class b implements com.baidu.swan.apps.adaptation.a.d {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hn() {
+    public boolean Pa() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Ho() {
+    public boolean Pb() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hp() {
+    public boolean Pc() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hq() {
+    public boolean Pd() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public String Hr() {
+    public String Pe() {
         return "";
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hs() {
+    public boolean Pf() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean dT(int i) {
+    public boolean dY(int i) {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Ht() {
+    public boolean Pg() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hu() {
+    public boolean Ph() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public String Hv() {
+    public String Pi() {
         return "https://2019.baidu.com/activity/shake2019/index.html?idfrom=aiappfb";
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hw() {
+    public boolean Pj() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hx() {
+    public boolean Pk() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public long Hy() {
+    public long Pl() {
         return 10000L;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean Hz() {
+    public boolean Pm() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean HA() {
+    public boolean Pn() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public long HB() {
+    public long Po() {
         return 3000L;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean HC() {
+    public boolean Pp() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean HD() {
+    public boolean Pq() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public int HE() {
+    public int Pr() {
         return 0;
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.d
-    public boolean HF() {
+    public boolean Ps() {
         return false;
     }
 }

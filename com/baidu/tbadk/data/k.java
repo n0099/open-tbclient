@@ -1,35 +1,31 @@
 package com.baidu.tbadk.data;
+
+import tbclient.Pendant;
 /* loaded from: classes.dex */
 public class k {
-    private boolean dwc;
-    private String method;
-    private boolean open;
+    private long dVL;
+    private String imgUrl;
 
-    public boolean aOb() {
-        return this.dwc;
+    public long aWu() {
+        return this.dVL;
     }
 
-    public void gu(boolean z) {
-        this.dwc = z;
+    public void cp(long j) {
+        this.dVL = j;
     }
 
-    public void aOc() {
-        this.dwc = false;
+    public String aIW() {
+        return this.imgUrl;
     }
 
-    public boolean isOpen() {
-        return this.open;
+    public void tO(String str) {
+        this.imgUrl = str;
     }
 
-    public void setOpen(boolean z) {
-        this.open = z;
-    }
-
-    public String getMethod() {
-        return this.method;
-    }
-
-    public void setMethod(String str) {
-        this.method = str;
+    public void a(Pendant pendant) {
+        if (pendant != null) {
+            this.dVL = pendant.props_id.longValue();
+            this.imgUrl = pendant.img_url;
+        }
     }
 }

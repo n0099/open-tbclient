@@ -3,66 +3,66 @@ package tv.chushou.apollo;
 public class a {
     public int borderColor;
     public boolean isFullScreen;
-    public boolean lHL;
-    public int nWn;
-    public int nWo;
-    public int nWp;
+    public int npY;
+    public int npZ;
+    public boolean nqa;
+    public int nqb;
     public int strokeWidth;
 
-    public a(C0803a c0803a) {
-        this.nWn = 20;
-        this.nWo = 20;
-        this.lHL = true;
+    public a(C0826a c0826a) {
+        this.npY = 20;
+        this.npZ = 20;
+        this.nqa = true;
         this.strokeWidth = 2;
-        this.nWp = 800;
+        this.nqb = 800;
         this.isFullScreen = false;
         this.borderColor = -16711936;
-        this.nWn = c0803a.nWn;
-        this.nWo = c0803a.nWo;
-        this.lHL = c0803a.lHL;
-        this.strokeWidth = c0803a.strokeWidth;
-        this.nWp = c0803a.nWp;
-        this.isFullScreen = c0803a.isFullScreen;
-        this.borderColor = c0803a.borderColor;
+        this.npY = c0826a.npY;
+        this.npZ = c0826a.npZ;
+        this.nqa = c0826a.nqa;
+        this.strokeWidth = c0826a.strokeWidth;
+        this.nqb = c0826a.nqb;
+        this.isFullScreen = c0826a.isFullScreen;
+        this.borderColor = c0826a.borderColor;
     }
 
     /* renamed from: tv.chushou.apollo.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0803a {
+    public static class C0826a {
         public int borderColor;
         public boolean isFullScreen;
-        public boolean lHL;
-        public int nWn;
-        public int nWo;
-        public int nWp;
+        public int npY;
+        public int npZ;
+        public boolean nqa;
+        public int nqb;
         public int strokeWidth;
 
-        public C0803a xh(boolean z) {
-            this.lHL = z;
+        public C0826a wM(boolean z) {
+            this.nqa = z;
             return this;
         }
 
-        public C0803a Oh(int i) {
+        public C0826a JB(int i) {
             this.strokeWidth = i;
             return this;
         }
 
-        public C0803a Oi(int i) {
-            this.nWp = i;
+        public C0826a JC(int i) {
+            this.nqb = i;
             return this;
         }
 
-        public C0803a xi(boolean z) {
+        public C0826a wN(boolean z) {
             this.isFullScreen = z;
             return this;
         }
 
-        public C0803a Oj(int i) {
+        public C0826a JD(int i) {
             this.borderColor = i;
             return this;
         }
 
-        public a dQe() {
+        public a dJe() {
             return new a(this);
         }
     }

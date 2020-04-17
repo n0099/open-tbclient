@@ -16,15 +16,15 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<ActivityType> {
-    private boolean dCA;
-    private boolean dCB;
-    private boolean dCC;
-    private MessageListener<CustomResponsedMessage<?>> dCv;
-    private MessageListener<CustomResponsedMessage<?>> dCw;
-    private a<T> dCx;
-    private boolean dCy;
-    private boolean dCz;
-    private boolean ze;
+    private boolean Sn;
+    private MessageListener<CustomResponsedMessage<?>> ecg;
+    private MessageListener<CustomResponsedMessage<?>> ech;
+    private a<T> eci;
+    private boolean ecj;
+    private boolean eck;
+    private boolean ecl;
+    private boolean ecm;
+    private boolean ecn;
 
     /* loaded from: classes.dex */
     public interface a<T> {
@@ -33,66 +33,66 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
         void a(WriteCacheRespMsg<List<T>> writeCacheRespMsg, WriteCacheMessage<T> writeCacheMessage);
     }
 
-    public abstract Class<T> aQD();
+    public abstract String aYD();
 
-    public abstract int aQE();
+    public abstract Class<T> aYU();
 
-    public abstract int aQF();
+    public abstract int aYV();
 
-    public abstract String aQm();
+    public abstract int aYW();
 
     public CacheModel(TbPageContext<ActivityType> tbPageContext) {
         super(tbPageContext);
-        this.dCy = false;
-        this.dCz = false;
-        this.dCA = false;
-        this.dCB = false;
-        this.ze = false;
-        this.dCC = false;
+        this.ecj = false;
+        this.eck = false;
+        this.ecl = false;
+        this.ecm = false;
+        this.Sn = false;
+        this.ecn = false;
     }
 
-    protected boolean aQw() {
+    protected boolean aYN() {
         return true;
     }
 
     protected void a(ReadCacheMessage<T> readCacheMessage) {
     }
 
-    public final void aQx() {
-        this.ze = true;
-        aQz();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(aQE());
+    public final void aYO() {
+        this.Sn = true;
+        aYQ();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(aYV());
         readCacheMessage.setTag(getUniqueId());
-        readCacheMessage.setNeedUid(aQw());
+        readCacheMessage.setNeedUid(aYN());
         a(readCacheMessage);
-        aQB();
+        aYS();
         sendMessage(readCacheMessage);
-        this.ze = true;
+        this.Sn = true;
     }
 
     public final void a(e eVar) {
-        this.ze = true;
-        aQz();
-        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(aQE());
+        this.Sn = true;
+        aYQ();
+        ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(aYV());
         readCacheMessage.setTag(getUniqueId());
         readCacheMessage.setRequestData(eVar);
-        readCacheMessage.setNeedUid(aQw());
+        readCacheMessage.setNeedUid(aYN());
         a(readCacheMessage);
-        aQB();
+        aYS();
         sendMessage(readCacheMessage);
     }
 
     public final void clearCache() {
-        this.dCC = true;
-        aQA();
-        aQy();
+        this.ecn = true;
+        aYR();
+        aYP();
     }
 
-    private final void aQy() {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(aQF());
+    private final void aYP() {
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(aYW());
         writeCacheMessage.setClear(true);
         writeCacheMessage.setTag(getUniqueId());
-        aQC();
+        aYT();
         sendMessage(writeCacheMessage);
     }
 
@@ -101,80 +101,80 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
     }
 
     private final void b(T t) {
-        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(aQF());
+        WriteCacheMessage writeCacheMessage = new WriteCacheMessage(aYW());
         writeCacheMessage.setTag(getUniqueId());
         writeCacheMessage.setData(t);
-        aQC();
+        aYT();
         sendMessage(writeCacheMessage);
     }
 
-    private void aQz() {
-        if (!this.dCA) {
-            if (this.dCv == null) {
-                this.dCv = new CustomMessageListener(aQE()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.1
+    private void aYQ() {
+        if (!this.ecl) {
+            if (this.ecg == null) {
+                this.ecg = new CustomMessageListener(aYV()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.adp.framework.listener.MessageListener
                     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                        CacheModel.this.ze = false;
+                        CacheModel.this.Sn = false;
                         if (customResponsedMessage != null && (customResponsedMessage instanceof ReadCacheRespMsg)) {
                             ReadCacheRespMsg readCacheRespMsg = (ReadCacheRespMsg) customResponsedMessage;
                             ReadCacheMessage readCacheMessage = null;
                             if (readCacheRespMsg.getOrginalMessage() != null && (readCacheRespMsg.getOrginalMessage() instanceof ReadCacheMessage)) {
                                 readCacheMessage = (ReadCacheMessage) readCacheRespMsg.getOrginalMessage();
                             }
-                            if (CacheModel.this.dCx != null) {
-                                CacheModel.this.dCx.a(readCacheRespMsg, readCacheMessage);
+                            if (CacheModel.this.eci != null) {
+                                CacheModel.this.eci.a(readCacheRespMsg, readCacheMessage);
                             }
                         }
                     }
                 };
-                this.dCv.setSelfListener(true);
-                this.dCv.setTag(this.unique_id);
+                this.ecg.setSelfListener(true);
+                this.ecg.setTag(this.unique_id);
             }
-            registerListener(this.dCv);
-            this.dCA = true;
+            registerListener(this.ecg);
+            this.ecl = true;
         }
     }
 
-    private void aQA() {
-        if (!this.dCB) {
-            if (this.dCw == null) {
-                this.dCw = new CustomMessageListener(aQF()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.2
+    private void aYR() {
+        if (!this.ecm) {
+            if (this.ech == null) {
+                this.ech = new CustomMessageListener(aYW()) { // from class: com.baidu.tbadk.mvc.model.CacheModel.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.adp.framework.listener.MessageListener
                     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                        CacheModel.this.dCC = false;
+                        CacheModel.this.ecn = false;
                         if (customResponsedMessage != null && (customResponsedMessage instanceof WriteCacheRespMsg)) {
                             WriteCacheRespMsg writeCacheRespMsg = (WriteCacheRespMsg) customResponsedMessage;
                             WriteCacheMessage writeCacheMessage = null;
                             if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
                                 writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
                             }
-                            if (CacheModel.this.dCx != null) {
-                                CacheModel.this.dCx.a(writeCacheRespMsg, writeCacheMessage);
+                            if (CacheModel.this.eci != null) {
+                                CacheModel.this.eci.a(writeCacheRespMsg, writeCacheMessage);
                             }
                         }
                     }
                 };
-                this.dCw.setSelfListener(true);
-                this.dCw.setTag(this.unique_id);
+                this.ech.setSelfListener(true);
+                this.ech.setTag(this.unique_id);
             }
-            registerListener(this.dCw);
-            this.dCB = true;
+            registerListener(this.ech);
+            this.ecm = true;
         }
     }
 
-    private void aQB() {
-        if (!this.dCy && MessageManager.getInstance().findTask(aQE()) == null) {
-            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(aQE(), new c(aQE(), aQm(), aQD())));
-            this.dCy = true;
+    private void aYS() {
+        if (!this.ecj && MessageManager.getInstance().findTask(aYV()) == null) {
+            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(aYV(), new c(aYV(), aYD(), aYU())));
+            this.ecj = true;
         }
     }
 
-    private void aQC() {
-        if (!this.dCz && MessageManager.getInstance().findTask(aQF()) == null) {
-            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(aQF(), new com.baidu.tbadk.mvc.e.d(aQF(), aQm(), aQD())));
-            this.dCz = true;
+    private void aYT() {
+        if (!this.eck && MessageManager.getInstance().findTask(aYW()) == null) {
+            MessageManager.getInstance().registerTask(new com.baidu.tbadk.task.a(aYW(), new com.baidu.tbadk.mvc.e.d(aYW(), aYD(), aYU())));
+            this.eck = true;
         }
     }
 
@@ -191,6 +191,6 @@ public abstract class CacheModel<T extends d, ActivityType> extends BdBaseModel<
     }
 
     public void a(a<T> aVar) {
-        this.dCx = aVar;
+        this.eci = aVar;
     }
 }

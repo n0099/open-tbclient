@@ -10,7 +10,7 @@ public abstract class o {
 
         void a(com.baidu.swan.support.v4.a.c<D> cVar, D d);
 
-        com.baidu.swan.support.v4.a.c<D> f(int i, Bundle bundle);
+        com.baidu.swan.support.v4.a.c<D> e(int i, Bundle bundle);
     }
 
     public boolean hasRunningLoaders() {

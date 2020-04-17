@@ -67,8 +67,8 @@ public class c extends ItemizedOverlay {
     private BitmapDescriptor a(Context context, int i) {
         try {
             this.b = ((Activity) context).getLayoutInflater().inflate(R.layout.abc_alert_dialog_title_material, (ViewGroup) null);
-            this.c = (TextView) this.b.findViewById(R.raw.shake_tone);
-            this.d = (ImageView) this.b.findViewById(R.raw.scan_refresh);
+            this.c = (TextView) this.b.findViewById(2131165304);
+            this.d = (ImageView) this.b.findViewById(2131165303);
             if (com.baidu.platform.comapi.wnplatform.a.a().h() == 2) {
                 this.c.setText(i + "");
             } else {

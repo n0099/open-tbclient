@@ -3,8 +3,8 @@ package com.baidu.mobads;
 import java.util.HashMap;
 /* loaded from: classes10.dex */
 public class g {
-    private static g aPr;
     private static HashMap<String, String> b = new HashMap<>();
+    private static g bli;
 
     private g() {
     }
@@ -12,10 +12,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (aPr == null) {
-                aPr = new g();
+            if (bli == null) {
+                bli = new g();
             }
-            gVar = aPr;
+            gVar = bli;
         }
         return gVar;
     }

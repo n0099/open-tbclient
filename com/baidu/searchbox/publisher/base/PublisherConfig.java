@@ -8,7 +8,7 @@ public class PublisherConfig {
     private static volatile boolean mIsCloseVideoDraft = false;
     private static volatile boolean mIsCloseCaptureSelectPic = false;
     private static volatile boolean mIsShowCamera = false;
-    private static volatile boolean mIsShowEmojiTips = true;
+    private static volatile boolean mIsShowVideoTips = true;
 
     public static int getPublisherVersion() {
         return mPublisherVersion;
@@ -54,11 +54,11 @@ public class PublisherConfig {
         mIsShowCamera = z;
     }
 
-    public static boolean getIsShowEmojiTips() {
-        return mIsShowEmojiTips;
+    public static boolean getIsShowVideoTips() {
+        return mIsShowVideoTips;
     }
 
-    public static void setIsShowEmojiTips(boolean z) {
-        mIsShowEmojiTips = z;
+    public static void setIsShowVideoTips(boolean z) {
+        mIsShowVideoTips = z;
     }
 }

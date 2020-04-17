@@ -18,6 +18,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.webkit.internal.ETAG;
@@ -33,7 +34,7 @@ public class c {
     private Resources pluginRes;
     private boolean isNightMode = false;
     Map<String, b> viewModeInfos = new HashMap();
-    public boolean cLN = false;
+    public boolean dkV = false;
 
     public void initModeInfos(String str, Context context, AttributeSet attributeSet) {
         int[] resID;
@@ -202,7 +203,7 @@ public class c {
     }
 
     private void changeForViewGroup(ViewGroup viewGroup) {
-        String str = "@" + viewGroup.getId();
+        String str = UgcConstant.AT_RULE_TAG + viewGroup.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             b bVar = this.viewModeInfos.get(str);
             if (viewGroup instanceof AdapterView) {
@@ -238,7 +239,7 @@ public class c {
         Drawable drawable2;
         Drawable drawable3;
         int styleResID;
-        String str = "@" + view.getId();
+        String str = UgcConstant.AT_RULE_TAG + view.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             b bVar = this.viewModeInfos.get(str);
             if (view instanceof TextView) {
@@ -296,7 +297,7 @@ public class c {
 
     private Drawable getDrawable(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.cLN && skinType == 4)) {
+        if (skinType == 2 || (!this.dkV && skinType == 4)) {
             return am.getDrawable(i);
         }
         if (!z) {
@@ -332,7 +333,7 @@ public class c {
 
     private int getColor(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.cLN && skinType == 4)) {
+        if (skinType == 2 || (!this.dkV && skinType == 4)) {
             return am.getColor(i);
         }
         if (!z) {
@@ -354,7 +355,7 @@ public class c {
 
     private ColorStateList getColorList(boolean z, int i, int i2) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType == 2 || (!this.cLN && skinType == 4)) {
+        if (skinType == 2 || (!this.dkV && skinType == 4)) {
             return am.getColorList(i);
         }
         if (!z) {

@@ -1,42 +1,40 @@
 package com.baidu.swan.pms.c.a.d;
-
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 /* loaded from: classes11.dex */
 public class k extends com.baidu.swan.pms.c.a.b {
-    private f cBZ;
+    private f daZ;
     private boolean mIsAttached;
 
     public k(f fVar, boolean z) {
-        this.cBZ = fVar;
+        this.daZ = fVar;
         this.mIsAttached = z;
     }
 
     @Override // com.baidu.swan.pms.c.a.b
-    public void eY(boolean z) {
+    public void fV(boolean z) {
         if (!this.mIsAttached) {
             if (z) {
-                this.cBZ.cBO.cBN.currentSize = 0L;
-                this.cBZ.iH(0);
+                this.daZ.daO.daN.currentSize = 0L;
+                this.daZ.iO(0);
             }
-            d.atY().j(this.cBZ);
+            d.aCi().j(this.daZ);
         }
     }
 
     @Override // com.baidu.swan.pms.c.a.b
-    public f atT() {
-        return this.cBZ;
+    public f aCd() {
+        return this.daZ;
     }
 
     @Override // com.baidu.swan.pms.c.a.b
     public boolean a(f fVar) {
-        if (this.cBZ == fVar) {
+        if (this.daZ == fVar) {
             return true;
         }
-        return this.cBZ.k(fVar);
+        return this.daZ.k(fVar);
     }
 
     @Override // com.baidu.swan.pms.c.a.b
     public String toString() {
-        return "isAttached=" + this.mIsAttached + HanziToPinyin.Token.SEPARATOR + super.toString();
+        return "isAttached=" + this.mIsAttached + " " + super.toString();
     }
 }

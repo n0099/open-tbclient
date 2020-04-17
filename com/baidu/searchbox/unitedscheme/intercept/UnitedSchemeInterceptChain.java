@@ -1,14 +1,12 @@
 package com.baidu.searchbox.unitedscheme.intercept;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes12.dex */
+/* loaded from: classes11.dex */
 public final class UnitedSchemeInterceptChain {
     private static final String TAG = "UnitedSchemeInterceptChain";
     private Map<String, UnitedSchemeBaseInterceptor> mInterceptors = Collections.synchronizedMap(new LinkedHashMap());
@@ -22,9 +20,6 @@ public final class UnitedSchemeInterceptChain {
                 }
             }
         } catch (Exception e) {
-            if (SchemeConfig.DEBUG) {
-                Log.e(TAG, "error:" + e.getMessage());
-            }
         }
         return false;
     }

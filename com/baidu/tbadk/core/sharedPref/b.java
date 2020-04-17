@@ -22,46 +22,46 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class b {
-    private static b cYd;
-    private static HashMap<String, String> cYf;
+    private static b dxn;
+    private static HashMap<String, String> dxp;
     private static ContentResolver mContentResolver;
-    private String btY;
+    private String bSf;
     private String mFile;
     private SharedPreferences mSP;
-    private String cYg = null;
-    private ConcurrentHashMap<String, Object> cYe = new ConcurrentHashMap<>();
+    private String dxq = null;
+    private ConcurrentHashMap<String, Object> dxo = new ConcurrentHashMap<>();
 
     protected b() {
-        cYf = new HashMap<>();
-        cYf.put(a.cXU, "settings");
-        cYf.put(a.cXV, "remote_settings");
-        cYf.put(a.cXW, "bdservice_settings");
-        cYf.put(a.cXX, a.cYa);
-        cYf.put(a.cXY, a.cYb);
-        cYf.put(a.cXZ, a.cYc);
+        dxp = new HashMap<>();
+        dxp.put(a.dxe, "settings");
+        dxp.put(a.dxf, "remote_settings");
+        dxp.put(a.dxg, "bdservice_settings");
+        dxp.put(a.dxh, a.dxk);
+        dxp.put(a.dxi, a.dxl);
+        dxp.put(a.dxj, a.dxm);
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
-    public static synchronized b aFH() {
+    public static synchronized b aNV() {
         b bVar;
         synchronized (b.class) {
-            if (cYd == null) {
-                cYd = new b();
+            if (dxn == null) {
+                dxn = new b();
             }
-            bVar = cYd;
+            bVar = dxn;
         }
         return bVar;
     }
 
     public boolean isContains(String str) {
-        if (td(str)) {
+        if (uq(str)) {
             return false;
         }
-        return this.cYe.containsKey(str) || getSharedPreferences().contains(str);
+        return this.dxo.containsKey(str) || getSharedPreferences().contains(str);
     }
 
     public boolean getBoolean(String str, boolean z) {
-        if (td(str)) {
+        if (uq(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -73,7 +73,7 @@ public class b {
             }
             return z;
         }
-        Object obj = this.cYe.get(str);
+        Object obj = this.dxo.get(str);
         if (obj instanceof Boolean) {
             return ((Boolean) obj).booleanValue();
         }
@@ -82,7 +82,7 @@ public class b {
     }
 
     public int getInt(String str, int i) {
-        if (td(str)) {
+        if (uq(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -94,7 +94,7 @@ public class b {
             }
             return i;
         }
-        Object obj = this.cYe.get(str);
+        Object obj = this.dxo.get(str);
         if (obj instanceof Integer) {
             return ((Integer) obj).intValue();
         }
@@ -103,7 +103,7 @@ public class b {
     }
 
     public long getLong(String str, long j) {
-        if (td(str)) {
+        if (uq(str)) {
             String value = getValue(str);
             if (value != null) {
                 try {
@@ -115,7 +115,7 @@ public class b {
             }
             return j;
         }
-        Object obj = this.cYe.get(str);
+        Object obj = this.dxo.get(str);
         if (obj instanceof Long) {
             return ((Long) obj).longValue();
         }
@@ -129,11 +129,11 @@ public class b {
     }
 
     public String getString(String str, String str2) {
-        if (td(str)) {
+        if (uq(str)) {
             String value = getValue(str);
             return value != null ? value : str2;
         }
-        Object obj = this.cYe.get(str);
+        Object obj = this.dxo.get(str);
         if (obj instanceof String) {
             return (String) obj;
         }
@@ -143,10 +143,10 @@ public class b {
 
     public void commit() {
         SharedPreferences.Editor edit;
-        if (!this.cYe.isEmpty()) {
+        if (!this.dxo.isEmpty()) {
             this.mSP = getSharedPreferences();
             if (this.mSP != null && (edit = this.mSP.edit()) != null) {
-                for (Map.Entry<String, Object> entry : this.cYe.entrySet()) {
+                for (Map.Entry<String, Object> entry : this.dxo.entrySet()) {
                     if (entry != null) {
                         String valueOf = String.valueOf(entry.getKey());
                         Object value = entry.getValue();
@@ -168,14 +168,14 @@ public class b {
                 } else {
                     edit.commit();
                 }
-                this.cYe.clear();
+                this.dxo.clear();
             }
         }
     }
 
-    private void q(String str, Object obj) {
+    private void v(String str, Object obj) {
         if (str != null && obj != null) {
-            this.cYe.put(str, obj);
+            this.dxo.put(str, obj);
             Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tbadk.core.sharedPref.b.1
                 @Override // android.os.MessageQueue.IdleHandler
                 public boolean queueIdle() {
@@ -187,10 +187,10 @@ public class b {
     }
 
     public void putBoolean(String str, boolean z) {
-        if (td(str)) {
-            S(str, z);
+        if (uq(str)) {
+            X(str, z);
         } else if (l.isMainThread()) {
-            q(str, Boolean.valueOf(z));
+            v(str, Boolean.valueOf(z));
         } else {
             this.mSP = getSharedPreferences();
             SharedPreferences.Editor edit = this.mSP.edit();
@@ -200,12 +200,12 @@ public class b {
     }
 
     public void putString(String str, String str2) {
-        if (td(str)) {
-            cv(str, str2);
+        if (uq(str)) {
+            cG(str, str2);
         } else if ("null".equals(str2)) {
             remove(str);
         } else if (l.isMainThread()) {
-            q(str, str2);
+            v(str, str2);
         } else {
             this.mSP = getSharedPreferences();
             SharedPreferences.Editor edit = this.mSP.edit();
@@ -215,10 +215,10 @@ public class b {
     }
 
     public void putInt(String str, int i) {
-        if (td(str)) {
-            W(str, i);
+        if (uq(str)) {
+            ae(str, i);
         } else if (l.isMainThread()) {
-            q(str, Integer.valueOf(i));
+            v(str, Integer.valueOf(i));
         } else {
             this.mSP = getSharedPreferences();
             SharedPreferences.Editor edit = this.mSP.edit();
@@ -228,10 +228,10 @@ public class b {
     }
 
     public void putLong(String str, long j) {
-        if (td(str)) {
-            r(str, j);
+        if (uq(str)) {
+            s(str, j);
         } else if (l.isMainThread()) {
-            q(str, Long.valueOf(j));
+            v(str, Long.valueOf(j));
         } else {
             this.mSP = getSharedPreferences();
             SharedPreferences.Editor edit = this.mSP.edit();
@@ -241,17 +241,17 @@ public class b {
     }
 
     public void remove(String str) {
-        if (td(str)) {
+        if (uq(str)) {
             removeValue(str);
-        } else if (this.cYe.containsKey(str)) {
-            this.cYe.remove(str);
+        } else if (this.dxo.containsKey(str)) {
+            this.dxo.remove(str);
         } else {
             this.mSP = getSharedPreferences();
             EditorHelper.remove(this.mSP, str);
         }
     }
 
-    private boolean td(String str) {
+    private boolean uq(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
@@ -265,48 +265,48 @@ public class b {
     }
 
     private String getValue(String str) {
-        return o(Uri.parse(aFI() + str));
+        return o(Uri.parse(aNW() + str));
     }
 
-    private void cv(String str, String str2) {
-        Uri parse = Uri.parse(aFI() + str);
+    private void cG(String str, String str2) {
+        Uri parse = Uri.parse(aNW() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, str2);
         a(parse, contentValues);
     }
 
-    private void W(String str, int i) {
-        Uri parse = Uri.parse(aFI() + str);
+    private void ae(String str, int i) {
+        Uri parse = Uri.parse(aNW() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(i));
         a(parse, contentValues);
     }
 
-    private void r(String str, long j) {
-        Uri parse = Uri.parse(aFI() + str);
+    private void s(String str, long j) {
+        Uri parse = Uri.parse(aNW() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(j));
         a(parse, contentValues);
     }
 
-    private void S(String str, boolean z) {
-        Uri parse = Uri.parse(aFI() + str);
+    private void X(String str, boolean z) {
+        Uri parse = Uri.parse(aNW() + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(z));
         a(parse, contentValues);
     }
 
     private void removeValue(String str) {
-        p(Uri.parse(aFI() + str));
+        p(Uri.parse(aNW() + str));
     }
 
     public synchronized SharedPreferences getSharedPreferences() {
         if (this.mFile == null || this.mFile.length() == 0) {
-            if (this.btY == null || this.btY.length() == 0) {
-                this.btY = getProcessName();
+            if (this.bSf == null || this.bSf.length() == 0) {
+                this.bSf = getProcessName();
             }
-            if (cYf.containsKey(this.btY)) {
-                this.mFile = cYf.get(this.btY);
+            if (dxp.containsKey(this.bSf)) {
+                this.mFile = dxp.get(this.bSf);
             } else {
                 this.mFile = "settings";
             }
@@ -315,7 +315,7 @@ public class b {
     }
 
     private String getProcessName() {
-        String str = a.cXU;
+        String str = a.dxe;
         ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         if (activityManager != null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();
@@ -331,16 +331,16 @@ public class b {
         return str;
     }
 
-    protected String aFI() {
-        if (this.cYg == null) {
+    protected String aNW() {
+        if (this.dxq == null) {
             String packageName = TbadkCoreApplication.getInst().getContext().getPackageName();
             if ("com.baidu.tieba".equals(packageName)) {
-                this.cYg = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
+                this.dxq = "content://com.baidu.tbadk.core.sharedPref.MainSharedPrefProvider/";
             } else {
-                this.cYg = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
+                this.dxq = "content://" + packageName + ".sharedPref.MainSharedPrefProvider/";
             }
         }
-        return this.cYg;
+        return this.dxq;
     }
 
     protected void a(final Uri uri, final ContentValues contentValues) {

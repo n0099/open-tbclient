@@ -67,18 +67,18 @@ public class UgcSchemeModel implements Serializable {
     public static UgcSchemeModel parserSchemeModel(JSONObject jSONObject) {
         UgcSchemeModel ugcSchemeModel = new UgcSchemeModel();
         ugcSchemeModel.iconInfoObjs = jSONObject.optJSONObject(UgcConstant.ICONS_INFO);
-        ugcSchemeModel.ugcCallback = jSONObject.optString("ugcCallback");
+        ugcSchemeModel.ugcCallback = jSONObject.optString(UgcConstant.UGC_CALLBACK);
         ugcSchemeModel.url = jSONObject.optString("url");
-        ugcSchemeModel.publishType = jSONObject.optString("publishType");
-        ugcSchemeModel.placeholder = jSONObject.optString("placeholder");
-        ugcSchemeModel.sourceType = jSONObject.optInt("source_type");
+        ugcSchemeModel.publishType = jSONObject.optString(UgcConstant.PUBLISH_TYPE);
+        ugcSchemeModel.placeholder = jSONObject.optString(UgcConstant.PLACEHOLDER);
+        ugcSchemeModel.sourceType = jSONObject.optInt(UgcConstant.SOURCE_TYPE);
         ugcSchemeModel.topicSelectSchema = jSONObject.optString("topic_pageurl");
-        ugcSchemeModel.atSchema = jSONObject.optString("at_pageurl");
+        ugcSchemeModel.atSchema = jSONObject.optString(UgcConstant.AT_PAGEURL);
         ugcSchemeModel.voteSchema = jSONObject.optString(UgcConstant.VOTE_PAGEURL);
         ugcSchemeModel.serverTopicsRule = jSONObject.optInt(UgcConstant.SERVER_TOPICS_RULE);
-        ugcSchemeModel.placeTitle = jSONObject.optString("placetitle");
-        ugcSchemeModel.placeContent = jSONObject.optString("placecontent");
-        JSONObject optJSONObject = jSONObject.optJSONObject("topic");
+        ugcSchemeModel.placeTitle = jSONObject.optString(UgcConstant.PLACE_TITLE);
+        ugcSchemeModel.placeContent = jSONObject.optString(UgcConstant.PLACE_CONTENT);
+        JSONObject optJSONObject = jSONObject.optJSONObject(UgcConstant.TOPIC);
         if (optJSONObject != null) {
             ugcSchemeModel.topic = optJSONObject.toString();
         }
@@ -86,7 +86,7 @@ public class UgcSchemeModel implements Serializable {
         if (optJSONObject2 != null) {
             ugcSchemeModel.location = optJSONObject2.toString();
         }
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("ext_info");
+        JSONObject optJSONObject3 = jSONObject.optJSONObject(UgcConstant.EXT_INFO);
         if (optJSONObject3 != null) {
             ugcSchemeModel.ext = optJSONObject3.toString();
         }
@@ -98,9 +98,11 @@ public class UgcSchemeModel implements Serializable {
         JSONObject optJSONObject5 = jSONObject.optJSONObject("target");
         if (optJSONObject5 != null) {
             ugcSchemeModel.target = optJSONObject5.toString();
+        } else {
+            ugcSchemeModel.target = jSONObject.optString("target");
         }
         ugcSchemeModel.forwardSource = jSONObject.optString("forward_tab");
-        ugcSchemeModel.supportGif = jSONObject.optInt("support_gif", 1);
+        ugcSchemeModel.supportGif = jSONObject.optInt(UgcConstant.SUPPORT_GIF, 1);
         SelectUtil.supportGifLongImg = ugcSchemeModel.supportGif == 1;
         String optString = jSONObject.optString("source_from");
         ugcSchemeModel.sourceFrom = optString;
@@ -110,21 +112,21 @@ public class UgcSchemeModel implements Serializable {
         UgcUBCUtils.setSource(ugcSchemeModel.sourceFrom);
         ugcSchemeModel.path = jSONObject.optString("video_path");
         ugcSchemeModel.channel = jSONObject.optString("channel");
-        ugcSchemeModel.sourceid = jSONObject.optInt("sourceid");
-        ugcSchemeModel.musicPageUrl = jSONObject.optString("music_pageurl");
+        ugcSchemeModel.sourceid = jSONObject.optInt(UgcConstant.SOURCE_ID);
+        ugcSchemeModel.musicPageUrl = jSONObject.optString(UgcConstant.MUSIC_PAGEURL);
         JSONObject optJSONObject6 = jSONObject.optJSONObject("duration");
         if (optJSONObject6 != null) {
             ugcSchemeModel.duration = optJSONObject6.toString();
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("camera_buttons");
+        JSONArray optJSONArray = jSONObject.optJSONArray(UgcConstant.CAMERA_BTNS);
         if (optJSONArray != null) {
             ugcSchemeModel.cameraBtns = optJSONArray.toString();
         }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("timer_count");
+        JSONArray optJSONArray2 = jSONObject.optJSONArray(UgcConstant.TIMER_COUNT);
         if (optJSONArray2 != null) {
             ugcSchemeModel.delayTime = optJSONArray2.toString();
         }
-        JSONObject optJSONObject7 = jSONObject.optJSONObject("question_reply");
+        JSONObject optJSONObject7 = jSONObject.optJSONObject(UgcConstant.QUESTION_REPLY);
         if (optJSONObject7 != null) {
             ugcSchemeModel.questionReply = optJSONObject7.toString();
         }
@@ -132,16 +134,16 @@ public class UgcSchemeModel implements Serializable {
         if (optJSONObject8 != null) {
             ugcSchemeModel.questionAsk = optJSONObject8.toString();
         }
-        JSONObject optJSONObject9 = jSONObject.optJSONObject("follow_video");
+        JSONObject optJSONObject9 = jSONObject.optJSONObject(UgcConstant.FOLLOW_VIDEO);
         if (optJSONObject9 != null) {
             ugcSchemeModel.followVideoDataStr = optJSONObject9.toString();
             ugcSchemeModel.isFollowVideo = true;
         } else {
             ugcSchemeModel.isFollowVideo = false;
         }
-        ugcSchemeModel.showToast = jSONObject.optInt("show_toast", 0);
-        ugcSchemeModel.clipMinDuration = jSONObject.optInt("clip_min_duration", 3);
-        ugcSchemeModel.clipMaxDuration = jSONObject.optInt("clip_max_duration", 20);
+        ugcSchemeModel.showToast = jSONObject.optInt(UgcConstant.SHOW_TOAST, 0);
+        ugcSchemeModel.clipMinDuration = jSONObject.optInt(UgcConstant.CLIP_MIN_DURATION, 3);
+        ugcSchemeModel.clipMaxDuration = jSONObject.optInt(UgcConstant.CLIP_MAX_DURATION, 20);
         ugcSchemeModel.swan = jSONObject.optString("swan");
         JSONObject optJSONObject10 = jSONObject.optJSONObject(UgcConstant.UGC_PUBLISH_LIMIT);
         if (optJSONObject10 != null) {

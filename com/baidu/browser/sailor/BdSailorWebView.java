@@ -671,10 +671,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class a extends WebBackForwardListClient {
-        private WebView Ja;
+        private WebView acd;
 
         protected a(WebView webView) {
-            this.Ja = webView;
+            this.acd = webView;
         }
 
         @Override // com.baidu.webkit.sdk.WebBackForwardListClient
@@ -711,10 +711,10 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public class c implements DownloadListener {
-        private WebView Ja;
+        private WebView acd;
 
         public c(WebView webView) {
-            this.Ja = webView;
+            this.acd = webView;
         }
 
         @Override // android.webkit.DownloadListener
@@ -2779,7 +2779,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
             this.mSearchResultTitleBar = view;
             this.mCurrentTitleBar = view;
             this.mEmbeddedTitlebar = this.mCurrentTitleBar;
-            this.mEmbeddedTitlebarHeightPix = com.baidu.browser.core.util.d.F(i);
+            this.mEmbeddedTitlebarHeightPix = com.baidu.browser.core.util.d.m(i);
         }
     }
 
@@ -2855,7 +2855,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
         this.mCanHideTitlebar = z;
         this.mCanShowTitlebar = z2;
         this.mLockEmbeddedTitlebar = false;
-        this.mEmbeddedTitlebarHeightPix = com.baidu.browser.core.util.d.F(i);
+        this.mEmbeddedTitlebarHeightPix = com.baidu.browser.core.util.d.m(i);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         this.mEmbeddedTitlebar.setLayoutParams(layoutParams);
         if (BdZeusUtil.isWebkitLoaded()) {

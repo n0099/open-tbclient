@@ -5,24 +5,24 @@ import java.lang.reflect.Type;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class d implements c {
-    private a pi;
+    private a Im;
 
     public d(Intent intent) {
-        this.pi = new a(intent.getExtras());
+        this.Im = new a(intent.getExtras());
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        return this.pi.getKeys();
+        return this.Im.getKeys();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public void e(String str, Object obj) {
-        this.pi.e(str, obj);
+    public void f(String str, Object obj) {
+        this.Im.f(str, obj);
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Object b(String str, Type type) {
-        return this.pi.b(str, type);
+        return this.Im.b(str, type);
     }
 }

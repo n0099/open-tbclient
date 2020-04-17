@@ -114,6 +114,9 @@ public class LoginManager {
             this.mLoginState = LoginState.NOT_LOGIN;
         }
         printCurrentState();
+        if (this.mLoginListeners != null && this.mLoginListeners.size() != 0) {
+            this.mLoginListeners.clear();
+        }
     }
 
     public synchronized LoginState getCurrentState() {

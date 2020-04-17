@@ -8,14 +8,14 @@ public class PMSAppInfo implements Parcelable {
     public static final Parcelable.Creator<PMSAppInfo> CREATOR = new Parcelable.Creator<PMSAppInfo>() { // from class: com.baidu.swan.pms.model.PMSAppInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: I */
+        /* renamed from: B */
         public PMSAppInfo createFromParcel(Parcel parcel) {
             return new PMSAppInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: iE */
+        /* renamed from: iL */
         public PMSAppInfo[] newArray(int i) {
             return new PMSAppInfo[i];
         }
@@ -151,20 +151,20 @@ public class PMSAppInfo implements Parcelable {
         return this.orientation;
     }
 
-    public boolean atK() {
+    public boolean aBU() {
         return this.pendingErrCode != 0;
     }
 
-    public boolean ajd() {
+    public boolean arl() {
         return (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge;
     }
 
     public void h(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.cBk;
+            this.appId = fVar.dai;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.cBu;
+            this.type = fVar.das;
             this.pkgSize = fVar.size;
         }
     }
@@ -174,7 +174,7 @@ public class PMSAppInfo implements Parcelable {
             this.appId = gVar.appId;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.cBu;
+            this.type = gVar.das;
             this.pkgSize = gVar.size;
         }
     }
@@ -190,14 +190,14 @@ public class PMSAppInfo implements Parcelable {
         }
     }
 
-    public void atL() {
+    public void aBV() {
         if (this.maxAge <= 0) {
             this.maxAge = DEFAULT_SWAN_APP_PKG_MAX_AGE;
         }
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean PX() {
+    public boolean XM() {
         return !TextUtils.isEmpty(this.appKey) && this.appSign > 0;
     }
 }

@@ -48,7 +48,7 @@ public class LoadingView extends AbsAttachView {
                     return;
                 }
                 LoadingView.this.textView.setText(LoadingView.this.textArray[LoadingView.this.getNextIndex()]);
-                TbadkCoreApplication.getInst().handler.postDelayed(LoadingView.this.runnable, 200L);
+                TbadkCoreApplication.getInst().handler.postDelayed(LoadingView.this.runnable, LoadingView.DELAY_TIME);
             }
         };
         this.imgView = (ImageView) this.attachedView.findViewById(a.g.loading_animate_view);
@@ -95,7 +95,7 @@ public class LoadingView extends AbsAttachView {
         SkinManager.setBackgroundColor(this.attachedView, a.d.sdk_cp_bg_line_d, this.mSkinType);
         this.textView.setText(this.textArray[0]);
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.runnable);
-        TbadkCoreApplication.getInst().handler.postDelayed(this.runnable, 200L);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.runnable, DELAY_TIME);
         this.attachedView.setClickable(true);
     }
 

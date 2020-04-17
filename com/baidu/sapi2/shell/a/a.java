@@ -7,26 +7,27 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.provider.MediaStore;
+import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.sapi2.shell.listener.IScreenShotListener;
 import com.baidu.sapi2.utils.Log;
 /* loaded from: classes6.dex */
 public class a {
     private static final String a = "screen_shot_observer";
-    private static final String[] b = {"screenshot", "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
+    private static final String[] b = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
     private static final String[] c = {"_data", "datetaken"};
     private ContentResolver d;
     private IScreenShotListener e;
     private HandlerThread f;
     private Handler g;
-    private C0177a h;
-    private C0177a i;
+    private C0208a h;
+    private C0208a i;
 
     /* renamed from: com.baidu.sapi2.shell.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0177a extends ContentObserver {
+    private class C0208a extends ContentObserver {
         private final Uri a;
 
-        public C0177a(Uri uri, Handler handler) {
+        public C0208a(Uri uri, Handler handler) {
             super(handler);
             this.a = uri;
         }
@@ -49,8 +50,8 @@ public class a {
         this.f = new HandlerThread(a);
         this.f.start();
         this.g = new Handler(this.f.getLooper());
-        this.h = new C0177a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.g);
-        this.i = new C0177a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.g);
+        this.h = new C0208a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.g);
+        this.i = new C0208a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.g);
     }
 
     public void a() {

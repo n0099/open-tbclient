@@ -4,33 +4,33 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public interface a {
-    String UV();
+    String acK();
 
-    String UW();
+    String acL();
 
-    String UX();
+    String acM();
 
-    String UY();
+    String acN();
 
-    String UZ();
+    String acO();
 
-    String Va();
+    String acP();
 
-    String Vb();
+    String acQ();
 
-    String Vc();
+    String acR();
 
-    CookieManager Vd();
+    CookieManager acS();
 
-    String Vg();
+    String acV();
 
-    void aj(JSONObject jSONObject);
+    void au(JSONObject jSONObject);
 
-    void ak(JSONObject jSONObject);
+    void av(JSONObject jSONObject);
 
-    void al(JSONObject jSONObject);
+    void aw(JSONObject jSONObject);
 
-    void am(JSONObject jSONObject);
+    void ax(JSONObject jSONObject);
 
     String getUUID();
 

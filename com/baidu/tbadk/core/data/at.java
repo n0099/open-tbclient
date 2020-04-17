@@ -7,39 +7,39 @@ import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
 public class at extends PostData {
-    public static final BdUniqueId cQi = BdUniqueId.gen();
-    public String cOB;
-    public String cOC;
-    public String cOD;
-    public int cOp;
-    public String cQj;
-    public String cQk;
-    public String cQl;
-    public List<String> cQm;
-    public String cQn;
-    public String cQo;
+    public static final BdUniqueId dpo = BdUniqueId.gen();
+    public String dnG;
+    public String dnH;
+    public String dnI;
+    public int dnu;
+    public String dpp;
+    public String dpq;
+    public String dpr;
+    public List<String> dps;
+    public String dpt;
+    public String dpu;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.cQj = recommendBook.recommend_text;
-            this.cQk = recommendBook.suggest_text;
-            this.cQl = recommendBook.suggest_url;
-            this.cOB = recommendBook.book_id;
-            this.cOp = recommendBook.book_type.intValue();
-            this.cOD = recommendBook.book_cover;
-            this.cOC = recommendBook.book_title;
-            this.cQm = recommendBook.book_tips;
-            this.cQn = recommendBook.botton_text;
-            this.cQo = recommendBook.subscript_icon;
+            this.dpp = recommendBook.recommend_text;
+            this.dpq = recommendBook.suggest_text;
+            this.dpr = recommendBook.suggest_url;
+            this.dnG = recommendBook.book_id;
+            this.dnu = recommendBook.book_type.intValue();
+            this.dnI = recommendBook.book_cover;
+            this.dnH = recommendBook.book_title;
+            this.dps = recommendBook.book_tips;
+            this.dpt = recommendBook.botton_text;
+            this.dpu = recommendBook.subscript_icon;
         }
     }
 
     public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.cOB)) ? false : true;
+        return (this == null || StringUtils.isNull(this.dnG)) ? false : true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cQi;
+        return dpo;
     }
 }

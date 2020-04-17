@@ -5,32 +5,32 @@ import android.util.Log;
 /* loaded from: classes8.dex */
 public final class j {
     private static int bn = 1000;
-    private static boolean kYE = true;
+    private static boolean lPg = true;
 
     public static void c(boolean z) {
-        kYE = z;
+        lPg = z;
     }
 
-    public static void Lt(String str) {
-        if (kYE) {
+    public static void I(String str) {
+        if (lPg) {
             a(5, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void b(Throwable th) {
-        if (kYE) {
+        if (lPg) {
             a(4, "BaiDuAbSDK", "", th);
         }
     }
 
-    public static void LA(String str) {
-        if (kYE) {
+    public static void G(String str) {
+        if (lPg) {
             a(2, "BaiDuAbSDK", str, null);
         }
     }
 
     public static void a(Throwable th) {
-        if (kYE) {
+        if (lPg) {
             a(2, "BaiDuAbSDK", "", th);
         }
     }
@@ -79,23 +79,23 @@ public final class j {
             }
         }
         if (th != null) {
-            String r = r(th);
-            if (!TextUtils.isEmpty(r)) {
+            String v = v(th);
+            if (!TextUtils.isEmpty(v)) {
                 switch (i) {
                     case 1:
-                        Log.v(str, r);
+                        Log.v(str, v);
                         return;
                     case 2:
-                        Log.d(str, r);
+                        Log.d(str, v);
                         return;
                     case 3:
-                        Log.i(str, r);
+                        Log.i(str, v);
                         return;
                     case 4:
-                        Log.w(str, r);
+                        Log.w(str, v);
                         return;
                     case 5:
-                        Log.e(str, r);
+                        Log.e(str, v);
                         return;
                     default:
                         Log.d(str, str2);
@@ -113,7 +113,7 @@ public final class j {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    private static java.lang.String r(java.lang.Throwable r5) {
+    private static java.lang.String v(java.lang.Throwable r5) {
         /*
             r3 = 0
             java.lang.String r0 = ""
@@ -186,6 +186,6 @@ public final class j {
             r3 = r4
             goto L29
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.r(java.lang.Throwable):java.lang.String");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.ubs.analytics.d.j.v(java.lang.Throwable):java.lang.String");
     }
 }

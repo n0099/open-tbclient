@@ -12,20 +12,15 @@ public final class MaybeToObservable<T> extends q<T> {
 
     @Override // io.reactivex.q
     protected void a(u<? super T> uVar) {
-        this.source.a(b(uVar));
+        this.source.a(new MaybeToFlowableSubscriber(uVar));
     }
 
-    public static <T> m<T> b(u<? super T> uVar) {
-        return new MaybeToObservableObserver(uVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes7.dex */
-    public static final class MaybeToObservableObserver<T> extends DeferredScalarDisposable<T> implements m<T> {
+    static final class MaybeToFlowableSubscriber<T> extends DeferredScalarDisposable<T> implements m<T> {
         private static final long serialVersionUID = 7603343402964826922L;
         io.reactivex.disposables.b d;
 
-        MaybeToObservableObserver(u<? super T> uVar) {
+        MaybeToFlowableSubscriber(u<? super T> uVar) {
             super(uVar);
         }
 

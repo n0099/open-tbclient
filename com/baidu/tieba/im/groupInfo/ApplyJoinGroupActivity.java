@@ -25,24 +25,24 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class ApplyJoinGroupActivity extends BaseActivity<ApplyJoinGroupActivity> {
-    View dFr;
-    View.OnClickListener drJ;
+    View.OnClickListener dRF;
+    View eeY;
     String groupID;
-    EditText hEJ;
-    TextView hEK;
-    TextView hEL;
-    View hEM;
-    TextView hEN;
-    Button hEO;
-    Button hEP;
-    TextWatcher hEQ;
-    int hER;
-    int hES;
-    String hET;
     long inviteUserId;
+    TextView ioA;
+    TextView ioB;
+    View ioC;
+    TextView ioD;
+    Button ioE;
+    Button ioF;
+    TextWatcher ioG;
+    int ioH;
+    int ioI;
+    String ioJ;
+    EditText ioz;
     int joinType;
     private NavigationBar mNavigationBar = null;
-    private com.baidu.adp.framework.listener.c htm = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_JOIN_GROUP) { // from class: com.baidu.tieba.im.groupInfo.ApplyJoinGroupActivity.3
+    private com.baidu.adp.framework.listener.c icV = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_JOIN_GROUP) { // from class: com.baidu.tieba.im.groupInfo.ApplyJoinGroupActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -54,7 +54,7 @@ public class ApplyJoinGroupActivity extends BaseActivity<ApplyJoinGroupActivity>
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = ApplyJoinGroupActivity.this.getPageContext().getString(R.string.group_apply_fail);
                     }
-                    ApplyJoinGroupActivity.this.hEN.setEnabled(true);
+                    ApplyJoinGroupActivity.this.ioD.setEnabled(true);
                     ApplyJoinGroupActivity.this.showToast(errorString);
                     return;
                 }
@@ -63,7 +63,7 @@ public class ApplyJoinGroupActivity extends BaseActivity<ApplyJoinGroupActivity>
                 }
                 ApplyJoinGroupActivity.this.showToast(errorString, false);
                 if (error == 0) {
-                    com.baidu.tieba.im.settingcache.b.bYs().b(TbadkApplication.getCurrentAccount(), ApplyJoinGroupActivity.this.groupID, true, null);
+                    com.baidu.tieba.im.settingcache.b.ciT().b(TbadkApplication.getCurrentAccount(), ApplyJoinGroupActivity.this.groupID, true, null);
                     ApplyJoinGroupActivity.this.finish();
                 }
             }
@@ -77,36 +77,36 @@ public class ApplyJoinGroupActivity extends BaseActivity<ApplyJoinGroupActivity>
         initData();
         initListener();
         initView();
-        bWt();
+        cgU();
     }
 
-    private void bWt() {
-        bWu();
+    private void cgU() {
+        cgV();
     }
 
-    private void bWu() {
-        if (this.hES == 0 && this.hER == 0) {
-            this.hEL.setText("");
+    private void cgV() {
+        if (this.ioI == 0 && this.ioH == 0) {
+            this.ioB.setText("");
             return;
         }
         String string = getPageContext().getString(R.string.group_join_limit_str1);
-        String valueOf = String.valueOf(this.hER);
+        String valueOf = String.valueOf(this.ioH);
         String string2 = getPageContext().getString(R.string.group_join_limit_str3);
-        String valueOf2 = String.valueOf(this.hES);
+        String valueOf2 = String.valueOf(this.ioI);
         String string3 = getPageContext().getString(R.string.group_join_limit_str5);
-        SpannableString aU = aU(valueOf, am.getColor(R.color.common_color_10047));
-        SpannableString aU2 = aU(valueOf2, am.getColor(R.color.common_color_10047));
-        am.setViewTextColor(this.hEL, R.color.common_color_10106, 1);
-        this.hEL.setText("");
-        this.hEL.append(string);
-        this.hEL.append(aU);
-        this.hEL.append(string2);
-        this.hEL.append(aU2);
-        this.hEL.append(string3);
-        this.hEL.setVisibility(0);
+        SpannableString be = be(valueOf, am.getColor(R.color.common_color_10047));
+        SpannableString be2 = be(valueOf2, am.getColor(R.color.common_color_10047));
+        am.setViewTextColor(this.ioB, R.color.common_color_10106, 1);
+        this.ioB.setText("");
+        this.ioB.append(string);
+        this.ioB.append(be);
+        this.ioB.append(string2);
+        this.ioB.append(be2);
+        this.ioB.append(string3);
+        this.ioB.setVisibility(0);
     }
 
-    public static SpannableString aU(String str, int i) {
+    public static SpannableString be(String str, int i) {
         SpannableString spannableString = new SpannableString(str);
         spannableString.setSpan(new ForegroundColorSpan(i), 0, str.length(), 33);
         return spannableString;
@@ -116,18 +116,18 @@ public class ApplyJoinGroupActivity extends BaseActivity<ApplyJoinGroupActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.htm);
+        MessageManager.getInstance().unRegisterListener(this.icV);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        registerListener(this.htm);
-        if (TextUtils.isEmpty(this.hEJ.getText())) {
-            this.hEN.setEnabled(false);
+        registerListener(this.icV);
+        if (TextUtils.isEmpty(this.ioz.getText())) {
+            this.ioD.setEnabled(false);
         } else {
-            this.hEN.setEnabled(true);
+            this.ioD.setEnabled(true);
         }
     }
 
@@ -135,41 +135,41 @@ public class ApplyJoinGroupActivity extends BaseActivity<ApplyJoinGroupActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.hEJ != null) {
-            this.hEJ.removeTextChangedListener(this.hEQ);
+        if (this.ioz != null) {
+            this.ioz.removeTextChangedListener(this.ioG);
         }
     }
 
     private void initView() {
-        this.dFr = View.inflate(getPageContext().getPageActivity(), R.layout.group_apply_activity, null);
-        setContentView(this.dFr);
+        this.eeY = View.inflate(getPageContext().getPageActivity(), R.layout.group_apply_activity, null);
+        setContentView(this.eeY);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(R.string.group_apply_join);
-        this.hEM = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.hEN = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.send_msg));
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hEN.getLayoutParams();
+        this.ioC = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.ioD = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.send_msg));
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ioD.getLayoutParams();
         layoutParams.rightMargin = l.getDimens(getPageContext().getPageActivity(), R.dimen.ds16);
-        this.hEN.setLayoutParams(layoutParams);
-        this.hEM.setOnClickListener(this.drJ);
-        this.hEK = (TextView) this.dFr.findViewById(R.id.tv_word_count);
-        int length = 30 - this.hET.length();
+        this.ioD.setLayoutParams(layoutParams);
+        this.ioC.setOnClickListener(this.dRF);
+        this.ioA = (TextView) this.eeY.findViewById(R.id.tv_word_count);
+        int length = 30 - this.ioJ.length();
         if (length < 0) {
             length = 0;
         }
-        this.hEK.setText(length + "/30");
-        this.hEJ = (EditText) this.dFr.findViewById(R.id.et_content);
-        this.hEJ.addTextChangedListener(this.hEQ);
-        this.hEJ.setText(this.hET);
-        this.hEL = (TextView) this.dFr.findViewById(R.id.tv_add_limit);
-        this.hEL.setVisibility(8);
-        this.hEN.setOnClickListener(this.drJ);
-        this.hEO = (Button) this.dFr.findViewById(R.id.btn_agree);
-        this.hEO.setOnClickListener(this.drJ);
-        this.hEP = (Button) this.dFr.findViewById(R.id.btn_disagree);
-        this.hEP.setOnClickListener(this.drJ);
-        this.hEO.setVisibility(8);
-        this.hEP.setVisibility(8);
-        ShowSoftKeyPadDelay(this.hEJ, 500);
+        this.ioA.setText(length + "/30");
+        this.ioz = (EditText) this.eeY.findViewById(R.id.et_content);
+        this.ioz.addTextChangedListener(this.ioG);
+        this.ioz.setText(this.ioJ);
+        this.ioB = (TextView) this.eeY.findViewById(R.id.tv_add_limit);
+        this.ioB.setVisibility(8);
+        this.ioD.setOnClickListener(this.dRF);
+        this.ioE = (Button) this.eeY.findViewById(R.id.btn_agree);
+        this.ioE.setOnClickListener(this.dRF);
+        this.ioF = (Button) this.eeY.findViewById(R.id.btn_disagree);
+        this.ioF.setOnClickListener(this.dRF);
+        this.ioE.setVisibility(8);
+        this.ioF.setVisibility(8);
+        ShowSoftKeyPadDelay(this.ioz, 500);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -177,29 +177,29 @@ public class ApplyJoinGroupActivity extends BaseActivity<ApplyJoinGroupActivity>
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.dFr);
+        getLayoutMode().onModeChanged(this.eeY);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.setBackgroundResource(this.hEN, R.drawable.s_navbar_button_bg);
-        am.setViewTextColor(this.hEN, R.color.navbar_btn_color, 1);
+        am.setBackgroundResource(this.ioD, R.drawable.s_navbar_button_bg);
+        am.setViewTextColor(this.ioD, R.color.navbar_btn_color, 1);
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null) {
             this.groupID = intent.getStringExtra(ApplyJoinGroupActivityConfig.GROUP_ID);
-            this.hER = intent.getIntExtra(ApplyJoinGroupActivityConfig.ALREADY_JOIN_COUNT, 0);
-            this.hES = intent.getIntExtra(ApplyJoinGroupActivityConfig.CAN_JOIN_COUNT, 0);
+            this.ioH = intent.getIntExtra(ApplyJoinGroupActivityConfig.ALREADY_JOIN_COUNT, 0);
+            this.ioI = intent.getIntExtra(ApplyJoinGroupActivityConfig.CAN_JOIN_COUNT, 0);
             this.inviteUserId = intent.getLongExtra(ApplyJoinGroupActivityConfig.INVITE_USER_ID, 0L);
-            this.hET = intent.getStringExtra(ApplyJoinGroupActivityConfig.DEFAULT_USER_MSG);
+            this.ioJ = intent.getStringExtra(ApplyJoinGroupActivityConfig.DEFAULT_USER_MSG);
             this.joinType = intent.getIntExtra(ApplyJoinGroupActivityConfig.JOIN_TYPE, ApplyJoinGroupActivityConfig.JOINTYPE_DEFAULT);
         }
-        if (this.hET == null) {
-            this.hET = "";
+        if (this.ioJ == null) {
+            this.ioJ = "";
         }
     }
 
     private void initListener() {
-        this.hEQ = new TextWatcher() { // from class: com.baidu.tieba.im.groupInfo.ApplyJoinGroupActivity.1
+        this.ioG = new TextWatcher() { // from class: com.baidu.tieba.im.groupInfo.ApplyJoinGroupActivity.1
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -211,47 +211,47 @@ public class ApplyJoinGroupActivity extends BaseActivity<ApplyJoinGroupActivity>
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
-                    int selectionStart = ApplyJoinGroupActivity.this.hEJ.getSelectionStart();
-                    int selectionEnd = ApplyJoinGroupActivity.this.hEJ.getSelectionEnd();
+                    int selectionStart = ApplyJoinGroupActivity.this.ioz.getSelectionStart();
+                    int selectionEnd = ApplyJoinGroupActivity.this.ioz.getSelectionEnd();
                     int length = editable.length();
                     if (30 < length) {
-                        ApplyJoinGroupActivity.this.hEN.setEnabled(false);
+                        ApplyJoinGroupActivity.this.ioD.setEnabled(false);
                         editable.delete(selectionStart - 1, selectionEnd);
-                        ApplyJoinGroupActivity.this.hEJ.setText(editable);
+                        ApplyJoinGroupActivity.this.ioz.setText(editable);
                         length = 30;
                     } else {
-                        ApplyJoinGroupActivity.this.hEK.setTextColor(ApplyJoinGroupActivity.this.getResources().getColor(R.color.common_color_10106));
+                        ApplyJoinGroupActivity.this.ioA.setTextColor(ApplyJoinGroupActivity.this.getResources().getColor(R.color.common_color_10106));
                         if (editable.length() > 0) {
-                            ApplyJoinGroupActivity.this.hEN.setEnabled(true);
+                            ApplyJoinGroupActivity.this.ioD.setEnabled(true);
                         } else {
-                            ApplyJoinGroupActivity.this.hEN.setEnabled(false);
+                            ApplyJoinGroupActivity.this.ioD.setEnabled(false);
                         }
                     }
                     if (30 == length) {
-                        ApplyJoinGroupActivity.this.hEK.setTextColor(ApplyJoinGroupActivity.this.getResources().getColor(R.color.common_color_10047));
+                        ApplyJoinGroupActivity.this.ioA.setTextColor(ApplyJoinGroupActivity.this.getResources().getColor(R.color.common_color_10047));
                     }
-                    ApplyJoinGroupActivity.this.hEJ.setSelection(editable.length());
-                    ApplyJoinGroupActivity.this.hEK.setText(length + "/30");
+                    ApplyJoinGroupActivity.this.ioz.setSelection(editable.length());
+                    ApplyJoinGroupActivity.this.ioA.setText(length + "/30");
                 }
             }
         };
-        this.drJ = new View.OnClickListener() { // from class: com.baidu.tieba.im.groupInfo.ApplyJoinGroupActivity.2
+        this.dRF = new View.OnClickListener() { // from class: com.baidu.tieba.im.groupInfo.ApplyJoinGroupActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
-                    if (view.equals(ApplyJoinGroupActivity.this.hEN)) {
+                    if (view.equals(ApplyJoinGroupActivity.this.ioD)) {
                         if (!j.isNetWorkAvailable()) {
                             ApplyJoinGroupActivity.this.showToast(R.string.neterror);
                             return;
                         }
                         RequestJoinGroupMessage requestJoinGroupMessage = new RequestJoinGroupMessage();
                         requestJoinGroupMessage.setGroupId(com.baidu.adp.lib.f.b.toLong(ApplyJoinGroupActivity.this.groupID, 0L));
-                        requestJoinGroupMessage.setUserMsg(ApplyJoinGroupActivity.this.hEJ.getText().toString());
+                        requestJoinGroupMessage.setUserMsg(ApplyJoinGroupActivity.this.ioz.getText().toString());
                         requestJoinGroupMessage.setJoinType(ApplyJoinGroupActivity.this.joinType);
                         requestJoinGroupMessage.setInviteUserId(ApplyJoinGroupActivity.this.inviteUserId);
-                        ApplyJoinGroupActivity.this.hEN.setEnabled(false);
+                        ApplyJoinGroupActivity.this.ioD.setEnabled(false);
                         ApplyJoinGroupActivity.this.sendMessage(requestJoinGroupMessage);
-                    } else if (view.equals(ApplyJoinGroupActivity.this.hEM)) {
+                    } else if (view.equals(ApplyJoinGroupActivity.this.ioC)) {
                         ApplyJoinGroupActivity.this.finish();
                     }
                 }

@@ -1,6 +1,5 @@
 package io.reactivex.internal.subscriptions;
 
-import com.google.android.exoplayer2.Format;
 import io.reactivex.internal.functions.a;
 import io.reactivex.internal.util.b;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -52,10 +51,10 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
         if (SubscriptionHelper.validate(j) && !this.unbounded) {
             if (get() == 0 && compareAndSet(0, 1)) {
                 long j2 = this.requested;
-                if (j2 != Format.OFFSET_SAMPLE_RELATIVE) {
-                    long ad = b.ad(j2, j);
-                    this.requested = ad;
-                    if (ad == Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j2 != Long.MAX_VALUE) {
+                    long L = b.L(j2, j);
+                    this.requested = L;
+                    if (L == Long.MAX_VALUE) {
                         this.unbounded = true;
                     }
                 }
@@ -79,7 +78,7 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
         if (!this.unbounded) {
             if (get() == 0 && compareAndSet(0, 1)) {
                 long j3 = this.requested;
-                if (j3 != Format.OFFSET_SAMPLE_RELATIVE) {
+                if (j3 != Long.MAX_VALUE) {
                     long j4 = j3 - j;
                     if (j4 < 0) {
                         SubscriptionHelper.reportMoreProduced(j4);
@@ -115,7 +114,7 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
     final void drainLoop() {
         d dVar;
         long j;
-        long ad;
+        long L;
         long j2 = 0;
         d dVar2 = null;
         int i = 1;
@@ -137,22 +136,22 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
                 if (dVar != null) {
                     dVar.cancel();
                     dVar = dVar2;
-                    ad = j2;
+                    L = j2;
                 }
                 dVar = dVar2;
-                ad = j2;
+                L = j2;
             } else {
                 long j5 = this.requested;
-                if (j5 != Format.OFFSET_SAMPLE_RELATIVE) {
-                    long ad2 = b.ad(j5, andSet);
-                    if (ad2 != Format.OFFSET_SAMPLE_RELATIVE) {
-                        j = ad2 - andSet2;
+                if (j5 != Long.MAX_VALUE) {
+                    long L2 = b.L(j5, andSet);
+                    if (L2 != Long.MAX_VALUE) {
+                        j = L2 - andSet2;
                         if (j < 0) {
                             SubscriptionHelper.reportMoreProduced(j);
                             j = 0;
                         }
                     } else {
-                        j = ad2;
+                        j = L2;
                     }
                     this.requested = j;
                 } else {
@@ -164,29 +163,29 @@ public class SubscriptionArbiter extends AtomicInteger implements d {
                     }
                     this.actual = dVar;
                     if (j != 0) {
-                        ad = b.ad(j2, j);
+                        L = b.L(j2, j);
                     }
                     dVar = dVar2;
-                    ad = j2;
+                    L = j2;
                 } else {
                     if (dVar3 != null && andSet != 0) {
-                        ad = b.ad(j2, andSet);
+                        L = b.L(j2, andSet);
                         dVar = dVar3;
                     }
                     dVar = dVar2;
-                    ad = j2;
+                    L = j2;
                 }
             }
             int addAndGet = addAndGet(-i);
             if (addAndGet == 0) {
                 break;
             }
-            j2 = ad;
+            j2 = L;
             i = addAndGet;
             dVar2 = dVar;
         }
-        if (ad != 0) {
-            dVar.request(ad);
+        if (L != 0) {
+            dVar.request(L);
         }
     }
 

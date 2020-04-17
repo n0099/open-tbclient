@@ -21,49 +21,49 @@ import tv.chushou.zues.b;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class FrescoThumbnailView extends SimpleDraweeView {
-    private boolean nZP;
-    private boolean nZQ;
-    private boolean nZR;
-    private boolean nZS;
-    private boolean nZT;
-    private c<f> nZU;
-    private c<f> nZV;
-    private c<f> nZW;
-    private a nZX;
+    private boolean ntJ;
+    private boolean ntK;
+    private boolean ntL;
+    private boolean ntM;
+    private boolean ntN;
+    private c<f> ntO;
+    private c<f> ntP;
+    private c<f> ntQ;
+    private a ntR;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void ej(int i, int i2);
+        void dv(int i, int i2);
     }
 
     public FrescoThumbnailView(Context context) {
         super(context);
-        this.nZP = false;
-        this.nZQ = false;
-        this.nZR = false;
-        this.nZS = false;
-        this.nZT = false;
+        this.ntJ = false;
+        this.ntK = false;
+        this.ntL = false;
+        this.ntM = false;
+        this.ntN = false;
     }
 
     public FrescoThumbnailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.nZP = false;
-        this.nZQ = false;
-        this.nZR = false;
-        this.nZS = false;
-        this.nZT = false;
+        this.ntJ = false;
+        this.ntK = false;
+        this.ntL = false;
+        this.ntM = false;
+        this.ntN = false;
     }
 
     public FrescoThumbnailView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.nZP = false;
-        this.nZQ = false;
-        this.nZR = false;
-        this.nZS = false;
-        this.nZT = false;
+        this.ntJ = false;
+        this.ntK = false;
+        this.ntL = false;
+        this.ntM = false;
+        this.ntN = false;
     }
 
-    public void xw(int i) {
+    public void xW(int i) {
         a((String) null, (String) null, i, 0, 0, 0);
     }
 
@@ -89,7 +89,7 @@ public class FrescoThumbnailView extends SimpleDraweeView {
         if (tag != null && tag.equals(str)) {
             z = true;
         }
-        this.nZX = aVar;
+        this.ntR = aVar;
         if (!z) {
             a((String) null, str, i, i2, i3, i4);
             setTag(b.e.zues_fresco_url_tag, str);
@@ -97,56 +97,56 @@ public class FrescoThumbnailView extends SimpleDraweeView {
     }
 
     public void setGray(boolean z) {
-        this.nZP = z;
+        this.ntJ = z;
     }
 
     public void setBlur(boolean z) {
-        this.nZQ = z;
+        this.ntK = z;
     }
 
     public void setAutoRotated(boolean z) {
-        this.nZS = z;
+        this.ntM = z;
     }
 
     public void setAnim(boolean z) {
-        this.nZR = z;
+        this.ntL = z;
     }
 
     public void setCornerRadius(float f, float f2, float f3, float f4) {
-        getHierarchy().a(RoundingParams.o(f, f2, f3, f4));
+        getHierarchy().a(RoundingParams.i(f, f2, f3, f4));
     }
 
     public void setCircle(int i) {
-        getHierarchy().a(RoundingParams.dnD().a(RoundingParams.RoundingMethod.OVERLAY_COLOR).HV(i));
+        getHierarchy().a(RoundingParams.dpw().a(RoundingParams.RoundingMethod.OVERLAY_COLOR).Gw(i));
     }
 
     public void setBorderColor(@ColorInt int i, int i2) {
-        getHierarchy().dnf().q(i, i2);
+        getHierarchy().doZ().o(i, i2);
     }
 
     public void setRoundAsCircle(boolean z) {
         RoundingParams roundingParams = new RoundingParams();
-        roundingParams.vt(z);
+        roundingParams.vH(z);
         getHierarchy().a(roundingParams);
     }
 
     public void setProgressBarDrawable(Drawable drawable) {
-        getHierarchy().e(drawable, p.b.lOI);
+        getHierarchy().e(drawable, p.b.lWe);
     }
 
     public void setFailureImage(Drawable drawable) {
-        getHierarchy().c(drawable, p.b.lOI);
+        getHierarchy().c(drawable, p.b.lWe);
     }
 
     public void setRetryImage(Drawable drawable) {
-        this.nZT = true;
-        getHierarchy().d(drawable, p.b.lOI);
+        this.ntN = true;
+        getHierarchy().d(drawable, p.b.lWe);
     }
 
     private void a(String str, String str2, int i, int i2, int i3, int i4) {
         if (i > 0) {
             try {
-                getHierarchy().HR(i);
+                getHierarchy().Gs(i);
             } catch (Throwable th) {
                 return;
             }
@@ -154,7 +154,7 @@ public class FrescoThumbnailView extends SimpleDraweeView {
         Uri parse = !h.isEmpty(str2) ? Uri.parse(str2) : null;
         if (parse == null) {
             if (i > 0) {
-                ax(i, i2, i3);
+                aq(i, i2, i3);
                 return;
             }
             return;
@@ -162,27 +162,27 @@ public class FrescoThumbnailView extends SimpleDraweeView {
         a(str != null ? Uri.parse(str) : null, parse, i2, i3, i4);
     }
 
-    private void ax(int i, int i2, int i3) {
+    private void aq(int i, int i2, int i3) {
         tv.chushou.zues.widget.fresco.a.b bVar;
         boolean z = false;
         if (i > 0) {
-            if (this.nZP) {
-                bVar = tv.chushou.zues.widget.fresco.a.b.dRk();
-            } else if (!this.nZQ) {
+            if (this.ntJ) {
+                bVar = tv.chushou.zues.widget.fresco.a.b.dKm();
+            } else if (!this.ntK) {
                 bVar = null;
             } else {
-                bVar = tv.chushou.zues.widget.fresco.a.a.dRj();
+                bVar = tv.chushou.zues.widget.fresco.a.a.dKl();
             }
-            if (this.nZR) {
-                RoundingParams dnf = getHierarchy().dnf();
-                if (dnf != null) {
-                    if (!dnf.dny()) {
-                        float[] dnz = dnf.dnz();
-                        if (dnz != null && dnz.length > 0) {
-                            int length = dnz.length;
+            if (this.ntL) {
+                RoundingParams doZ = getHierarchy().doZ();
+                if (doZ != null) {
+                    if (!doZ.dpr()) {
+                        float[] dps = doZ.dps();
+                        if (dps != null && dps.length > 0) {
+                            int length = dps.length;
                             boolean z2 = true;
                             for (int i4 = 0; i4 < length; i4++) {
-                                if (dnz[i4] > 0.0f) {
+                                if (dps[i4] > 0.0f) {
                                     z2 = false;
                                 }
                             }
@@ -192,14 +192,14 @@ public class FrescoThumbnailView extends SimpleDraweeView {
                 }
                 z = true;
             }
-            ImageRequestBuilder a2 = ImageRequestBuilder.IW(i).vD(true).a(this.nZS ? e.doU() : e.doV());
+            ImageRequestBuilder a2 = ImageRequestBuilder.Hz(i).vQ(true).a(this.ntM ? e.dqT() : e.dqU());
             if (bVar != null) {
                 a2.a(bVar);
             }
             if (i2 > 0 && i3 > 0) {
                 a2.c(new d(i2, i3));
             }
-            setController(com.facebook.drawee.a.a.c.dlW().bg(a2.dta()).vo(z).c(getController()).dmN());
+            setController(com.facebook.drawee.a.a.c.dnP().aW(a2.duW()).vC(z).c(getController()).doG());
         }
     }
 
@@ -207,28 +207,28 @@ public class FrescoThumbnailView extends SimpleDraweeView {
         boolean z = false;
         if (uri2 != null) {
             com.facebook.imagepipeline.request.b bVar = null;
-            if (this.nZP) {
-                bVar = tv.chushou.zues.widget.fresco.a.b.dRk();
-            } else if (this.nZQ) {
-                bVar = tv.chushou.zues.widget.fresco.a.a.dRj();
+            if (this.ntJ) {
+                bVar = tv.chushou.zues.widget.fresco.a.b.dKm();
+            } else if (this.ntK) {
+                bVar = tv.chushou.zues.widget.fresco.a.a.dKl();
             }
-            ImageRequestBuilder a2 = ImageRequestBuilder.Y(uri2).vD(true).a(this.nZS ? e.doU() : e.doV());
+            ImageRequestBuilder a2 = ImageRequestBuilder.Z(uri2).vQ(true).a(this.ntM ? e.dqT() : e.dqU());
             if (bVar != null) {
                 a2.a(bVar);
             }
             if (i > 0 && i2 > 0) {
                 a2.c(new d(i, i2));
             }
-            if (this.nZR) {
-                RoundingParams dnf = getHierarchy().dnf();
-                if (dnf != null) {
-                    if (!dnf.dny()) {
-                        float[] dnz = dnf.dnz();
-                        if (dnz != null && dnz.length > 0) {
-                            int length = dnz.length;
+            if (this.ntL) {
+                RoundingParams doZ = getHierarchy().doZ();
+                if (doZ != null) {
+                    if (!doZ.dpr()) {
+                        float[] dps = doZ.dps();
+                        if (dps != null && dps.length > 0) {
+                            int length = dps.length;
                             boolean z2 = true;
                             for (int i4 = 0; i4 < length; i4++) {
-                                if (dnz[i4] > 0.0f) {
+                                if (dps[i4] > 0.0f) {
                                     z2 = false;
                                 }
                             }
@@ -238,51 +238,51 @@ public class FrescoThumbnailView extends SimpleDraweeView {
                 }
                 z = true;
             }
-            com.facebook.drawee.a.a.e b = com.facebook.drawee.a.a.c.dlW().bg(a2.dta()).vn(this.nZT).vo(z).c(getController());
+            com.facebook.drawee.a.a.e b = com.facebook.drawee.a.a.c.dnP().aW(a2.duW()).vB(this.ntN).vC(z).c(getController());
             if (i3 != 0) {
-                b.c(OB(i3));
+                b.c(JX(i3));
             }
-            if (ImageRequest.W(uri) != null) {
-                b.bh(ImageRequest.W(uri));
+            if (ImageRequest.X(uri) != null) {
+                b.aX(ImageRequest.X(uri));
             }
-            setController(b.dmN());
+            setController(b.doG());
         }
     }
 
-    private c<f> OB(int i) {
+    private c<f> JX(int i) {
         if (i == 1) {
-            if (this.nZU == null) {
-                this.nZU = new com.facebook.drawee.controller.b<f>() { // from class: tv.chushou.zues.widget.fresco.FrescoThumbnailView.1
+            if (this.ntO == null) {
+                this.ntO = new com.facebook.drawee.controller.b<f>() { // from class: tv.chushou.zues.widget.fresco.FrescoThumbnailView.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
-                    public void onFinalImageSet(String str, f fVar, Animatable animatable) {
-                        super.onFinalImageSet(str, (String) fVar, animatable);
+                    public void a(String str, f fVar, Animatable animatable) {
+                        super.a(str, (String) fVar, animatable);
                         if (fVar != null && fVar.getHeight() > 0) {
                             int height = fVar.getHeight();
                             int width = fVar.getWidth();
                             ViewGroup.LayoutParams layoutParams = FrescoThumbnailView.this.getLayoutParams();
                             layoutParams.width = (layoutParams.height * width) / height;
                             FrescoThumbnailView.this.setLayoutParams(layoutParams);
-                            if (FrescoThumbnailView.this.nZX != null) {
-                                FrescoThumbnailView.this.nZX.ej(width, height);
+                            if (FrescoThumbnailView.this.ntR != null) {
+                                FrescoThumbnailView.this.ntR.dv(width, height);
                             }
                         }
                     }
                 };
             }
-            return this.nZU;
+            return this.ntO;
         } else if (i == 2) {
-            if (this.nZV == null) {
-                this.nZV = new com.facebook.drawee.controller.b<f>() { // from class: tv.chushou.zues.widget.fresco.FrescoThumbnailView.2
+            if (this.ntP == null) {
+                this.ntP = new com.facebook.drawee.controller.b<f>() { // from class: tv.chushou.zues.widget.fresco.FrescoThumbnailView.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
-                    public void onFinalImageSet(String str, f fVar, Animatable animatable) {
-                        super.onFinalImageSet(str, (String) fVar, animatable);
+                    public void a(String str, f fVar, Animatable animatable) {
+                        super.a(str, (String) fVar, animatable);
                         if (fVar != null && fVar.getWidth() > 0) {
                             int height = fVar.getHeight();
                             int width = fVar.getWidth();
-                            if (FrescoThumbnailView.this.nZX != null) {
-                                FrescoThumbnailView.this.nZX.ej(width, height);
+                            if (FrescoThumbnailView.this.ntR != null) {
+                                FrescoThumbnailView.this.ntR.dv(width, height);
                             }
                             ViewGroup.LayoutParams layoutParams = FrescoThumbnailView.this.getLayoutParams();
                             layoutParams.height = (height * layoutParams.width) / width;
@@ -291,14 +291,14 @@ public class FrescoThumbnailView extends SimpleDraweeView {
                     }
                 };
             }
-            return this.nZV;
+            return this.ntP;
         } else if (i == 3) {
-            if (this.nZW == null) {
-                this.nZW = new com.facebook.drawee.controller.b<f>() { // from class: tv.chushou.zues.widget.fresco.FrescoThumbnailView.3
+            if (this.ntQ == null) {
+                this.ntQ = new com.facebook.drawee.controller.b<f>() { // from class: tv.chushou.zues.widget.fresco.FrescoThumbnailView.3
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
-                    public void onFinalImageSet(String str, f fVar, Animatable animatable) {
-                        super.onFinalImageSet(str, (String) fVar, animatable);
+                    public void a(String str, f fVar, Animatable animatable) {
+                        super.a(str, (String) fVar, animatable);
                         if (fVar != null && fVar.getHeight() > 0) {
                             int height = fVar.getHeight();
                             int width = fVar.getWidth();
@@ -308,14 +308,14 @@ public class FrescoThumbnailView extends SimpleDraweeView {
                                 ((FlexboxLayout.LayoutParams) layoutParams).setMinWidth(layoutParams.width);
                             }
                             FrescoThumbnailView.this.setLayoutParams(layoutParams);
-                            if (FrescoThumbnailView.this.nZX != null) {
-                                FrescoThumbnailView.this.nZX.ej(width, height);
+                            if (FrescoThumbnailView.this.ntR != null) {
+                                FrescoThumbnailView.this.ntR.dv(width, height);
                             }
                         }
                     }
                 };
             }
-            return this.nZW;
+            return this.ntQ;
         } else {
             return null;
         }

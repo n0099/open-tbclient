@@ -1,5 +1,6 @@
 package okhttp3;
 
+import com.baidu.ar.arplay.core.message.ARPMessageType;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.Collections;
@@ -124,7 +125,7 @@ public final class Response implements Closeable {
                 return true;
             case 304:
             case 305:
-            case 306:
+            case ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA /* 306 */:
             default:
                 return false;
         }

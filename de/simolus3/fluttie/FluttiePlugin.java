@@ -13,6 +13,7 @@ import com.airbnb.lottie.i;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.g;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.example.flutter_lottie.LottieNameTransform;
 import io.flutter.plugin.common.MethodCall;
@@ -122,7 +123,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 result.success(Boolean.valueOf(Build.VERSION.SDK_INT >= 21));
                 return;
             case 1:
-                loadComposition(this.compositionRequestCounter.getAndIncrement(), (String) methodCall.argument("source_type"), (String) methodCall.argument("source"), result);
+                loadComposition(this.compositionRequestCounter.getAndIncrement(), (String) methodCall.argument(UgcConstant.SOURCE_TYPE), (String) methodCall.argument("source"), result);
                 return;
             case 2:
                 int intValue = ((Integer) methodCall.argument("composition")).intValue();
@@ -138,7 +139,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 double doubleValue2 = ((Double) methodCall.argument("pref_size_h")).doubleValue();
                 float f = 1.0f;
                 if (doubleValue > 0.0d && doubleValue2 > 0.0d) {
-                    f = (float) Math.min(doubleValue / eVar.bf().height(), doubleValue2 / eVar.bf().width());
+                    f = (float) Math.min(doubleValue / eVar.gC().height(), doubleValue2 / eVar.gC().width());
                 }
                 TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.registrar.textures().createSurfaceTexture();
                 FluttieAnimation fluttieAnimation = new FluttieAnimation(this, createSurfaceTexture, eVar, f, (String) methodCall.argument("img_assets_path"));
@@ -188,8 +189,8 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                         result.error("Could not load composition", "CompositionLoadError", (Object) null);
                         return;
                     }
-                    if (!eVar.be().isEmpty()) {
-                        Iterator<String> it = eVar.be().iterator();
+                    if (!eVar.gB().isEmpty()) {
+                        Iterator<String> it = eVar.gB().iterator();
                         while (it.hasNext()) {
                             it.next();
                         }
@@ -234,7 +235,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
         }
         switch (c) {
             case 0:
-                f.g(str2, null).a(iVar).c(iVar2);
+                f.l(str2, null).a(iVar).c(iVar2);
                 return;
             case 1:
                 f.F(this.registrar.context(), this.registrar.lookupKeyForAsset(str2)).a(iVar).c(iVar2);
@@ -243,7 +244,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 if (str2.endsWith(".json")) {
                     str2 = str2.substring(0, str2.length() - 5);
                 }
-                int identifier = g.eJ().getResources().getIdentifier(LottieNameTransform.getAndroidNameFromIos(str2), "raw", BdBaseApplication.getInst().getPackageName());
+                int identifier = g.jo().getResources().getIdentifier(LottieNameTransform.getAndroidNameFromIos(str2), "raw", BdBaseApplication.getInst().getPackageName());
                 if (identifier != 0) {
                     f.d(this.registrar.context(), identifier).a(iVar).c(iVar2);
                     return;

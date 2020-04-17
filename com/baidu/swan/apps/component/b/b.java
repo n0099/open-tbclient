@@ -12,30 +12,30 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public abstract class b implements com.baidu.swan.apps.component.b.a.a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    @Nullable
-    public com.baidu.swan.apps.model.a.a.a biE;
-    private String biF;
     @NonNull
-    public String biz;
-    public String biA = "";
-    public String biB = "";
-    public String biC = "";
+    public String bGH;
+    @Nullable
+    public com.baidu.swan.apps.model.a.a.a bGM;
+    private String bGN;
+    public String bGI = "";
+    public String bGJ = "";
+    public String bGK = "";
     public String callback = "";
     public boolean hidden = false;
-    public boolean biD = false;
+    public boolean bGL = false;
 
     public b(@NonNull String str, @NonNull String str2) {
-        this.biz = "unknown";
-        this.biF = "id";
+        this.bGH = "unknown";
+        this.bGN = "id";
         if (!TextUtils.isEmpty(str)) {
-            this.biz = str;
+            this.bGH = str;
         } else {
-            com.baidu.swan.apps.component.e.a.at("Component-Model-Base", "component type is empty");
+            com.baidu.swan.apps.component.e.a.aC("Component-Model-Base", "component type is empty");
         }
         if (!TextUtils.isEmpty(str2)) {
-            this.biF = str2;
+            this.bGN = str2;
         } else {
-            com.baidu.swan.apps.component.e.a.at("Component-Model-Base", "component id key is empty");
+            com.baidu.swan.apps.component.e.a.aC("Component-Model-Base", "component id key is empty");
         }
     }
 
@@ -43,10 +43,10 @@ public abstract class b implements com.baidu.swan.apps.component.b.a.a {
     @CallSuper
     public Object clone() throws CloneNotSupportedException {
         b bVar = (b) super.clone();
-        if (this.biE != null) {
-            bVar.biE = (com.baidu.swan.apps.model.a.a.a) this.biE.clone();
+        if (this.bGM != null) {
+            bVar.bGM = (com.baidu.swan.apps.model.a.a.a) this.bGM.clone();
         } else {
-            bVar.biE = null;
+            bVar.bGM = null;
         }
         return bVar;
     }
@@ -55,90 +55,90 @@ public abstract class b implements com.baidu.swan.apps.component.b.a.a {
     @CallSuper
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.biA = jSONObject.optString(this.biF);
-            if (TextUtils.isEmpty(this.biA)) {
-                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.biz + " component componentId is empty");
+            this.bGI = jSONObject.optString(this.bGN);
+            if (TextUtils.isEmpty(this.bGI)) {
+                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.bGH + " component componentId is empty");
             }
-            this.biB = jSONObject.optString("slaveId");
-            if (TextUtils.isEmpty(this.biB)) {
-                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.biz + " component slaveId is empty");
+            this.bGJ = jSONObject.optString("slaveId");
+            if (TextUtils.isEmpty(this.bGJ)) {
+                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.bGH + " component slaveId is empty");
             }
-            this.biC = jSONObject.optString("parentId");
+            this.bGK = jSONObject.optString("parentId");
             this.callback = jSONObject.optString("cb");
             this.hidden = jSONObject.optBoolean("hide", false);
-            this.biD = TextUtils.equals(jSONObject.optString("gesture"), "1");
-            aa(jSONObject);
+            this.bGL = TextUtils.equals(jSONObject.optString("gesture"), "1");
+            al(jSONObject);
         }
     }
 
     public final void a(JSONObject jSONObject, @NonNull b bVar) {
         if (jSONObject != null) {
-            this.biA = jSONObject.optString(this.biF, bVar.biA);
-            if (TextUtils.isEmpty(this.biA)) {
-                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.biz + " component componentId is empty");
+            this.bGI = jSONObject.optString(this.bGN, bVar.bGI);
+            if (TextUtils.isEmpty(this.bGI)) {
+                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.bGH + " component componentId is empty");
             }
-            this.biB = jSONObject.optString("slaveId", bVar.biB);
-            if (TextUtils.isEmpty(this.biB)) {
-                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.biz + " component slaveId is empty");
+            this.bGJ = jSONObject.optString("slaveId", bVar.bGJ);
+            if (TextUtils.isEmpty(this.bGJ)) {
+                com.baidu.swan.apps.console.c.e("Component-Model-Base", this.bGH + " component slaveId is empty");
             }
-            this.biC = jSONObject.optString("parentId", bVar.biC);
+            this.bGK = jSONObject.optString("parentId", bVar.bGK);
             this.callback = jSONObject.optString("cb", bVar.callback);
             this.hidden = jSONObject.optBoolean("hide", bVar.hidden);
-            this.biD = TextUtils.equals(jSONObject.optString("gesture", bVar.biD ? "1" : "0"), "1");
-            this.biE = bVar.biE;
-            if (this.biE == null) {
-                this.biE = new com.baidu.swan.apps.model.a.a.a();
+            this.bGL = TextUtils.equals(jSONObject.optString("gesture", bVar.bGL ? "1" : "0"), "1");
+            this.bGM = bVar.bGM;
+            if (this.bGM == null) {
+                this.bGM = new com.baidu.swan.apps.model.a.a.a();
             }
-            aa(jSONObject);
+            al(jSONObject);
         }
     }
 
-    public void Y(JSONObject jSONObject) {
-        this.biA = jSONObject.optString(this.biF, this.biA);
-        if (TextUtils.isEmpty(this.biA)) {
-            com.baidu.swan.apps.console.c.e("Component-Model-Base", this.biz + " component componentId is empty");
+    public void aj(JSONObject jSONObject) {
+        this.bGI = jSONObject.optString(this.bGN, this.bGI);
+        if (TextUtils.isEmpty(this.bGI)) {
+            com.baidu.swan.apps.console.c.e("Component-Model-Base", this.bGH + " component componentId is empty");
         }
-        this.biB = jSONObject.optString("slaveId", this.biB);
-        if (TextUtils.isEmpty(this.biB)) {
-            com.baidu.swan.apps.console.c.e("Component-Model-Base", this.biz + " component slaveId is empty");
+        this.bGJ = jSONObject.optString("slaveId", this.bGJ);
+        if (TextUtils.isEmpty(this.bGJ)) {
+            com.baidu.swan.apps.console.c.e("Component-Model-Base", this.bGH + " component slaveId is empty");
         }
-        this.biC = jSONObject.optString("parentId", this.biC);
+        this.bGK = jSONObject.optString("parentId", this.bGK);
         this.callback = jSONObject.optString("cb", this.callback);
         this.hidden = jSONObject.optBoolean("hide", this.hidden);
-        this.biD = TextUtils.equals(jSONObject.optString("gesture", this.biD ? "1" : "0"), "1");
-        aa(jSONObject);
+        this.bGL = TextUtils.equals(jSONObject.optString("gesture", this.bGL ? "1" : "0"), "1");
+        al(jSONObject);
     }
 
-    private void aa(JSONObject jSONObject) {
+    private void al(JSONObject jSONObject) {
         JSONObject optJSONObject = jSONObject.optJSONObject("position");
         if (optJSONObject != null) {
-            this.biE = new com.baidu.swan.apps.model.a.a.a();
-            this.biE.fy(af.S(getFloat(optJSONObject, "left", 0.0f)));
-            this.biE.fz(af.S(getFloat(optJSONObject, VerticalTranslateLayout.TOP, 0.0f)));
-            this.biE.setWidth(af.S(getFloat(optJSONObject, "width", 0.0f)));
-            this.biE.setHeight(af.S(getFloat(optJSONObject, "height", 0.0f)));
+            this.bGM = new com.baidu.swan.apps.model.a.a.a();
+            this.bGM.fF(af.C(getFloat(optJSONObject, "left", 0.0f)));
+            this.bGM.fG(af.C(getFloat(optJSONObject, VerticalTranslateLayout.TOP, 0.0f)));
+            this.bGM.setWidth(af.C(getFloat(optJSONObject, "width", 0.0f)));
+            this.bGM.setHeight(af.C(getFloat(optJSONObject, "height", 0.0f)));
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.biA) || TextUtils.isEmpty(this.biB) || this.biE == null || !this.biE.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.bGI) || TextUtils.isEmpty(this.bGJ) || this.bGM == null || !this.bGM.isValid()) ? false : true;
     }
 
     public String toString() {
-        return "SwanAppBaseComponentModel{componentType='" + this.biz + "', componentId='" + this.biA + "', slaveId='" + this.biB + "', parentId='" + this.biC + "', callback='" + this.callback + "', hidden=" + this.hidden + ", gesture=" + this.biD + ", position=" + this.biE + ", mComponentIdKey='" + this.biF + "'}";
+        return "SwanAppBaseComponentModel{componentType='" + this.bGH + "', componentId='" + this.bGI + "', slaveId='" + this.bGJ + "', parentId='" + this.bGK + "', callback='" + this.callback + "', hidden=" + this.hidden + ", gesture=" + this.bGL + ", position=" + this.bGM + ", mComponentIdKey='" + this.bGN + "'}";
     }
 
     @NonNull
     public final String getName() {
-        return "【" + this.biz + "#" + (TextUtils.isEmpty(this.biA) ? "" : this.biA) + "】";
+        return "【" + this.bGH + "#" + (TextUtils.isEmpty(this.bGI) ? "" : this.bGI) + "】";
     }
 
-    public final FrameLayout.LayoutParams KR() {
-        int width = this.biE != null ? this.biE.getWidth() : -1;
-        int height = this.biE != null ? this.biE.getHeight() : -1;
-        int left = this.biE != null ? this.biE.getLeft() : 0;
-        int top2 = this.biE != null ? this.biE.getTop() : 0;
+    public final FrameLayout.LayoutParams SF() {
+        int width = this.bGM != null ? this.bGM.getWidth() : -1;
+        int height = this.bGM != null ? this.bGM.getHeight() : -1;
+        int left = this.bGM != null ? this.bGM.getLeft() : 0;
+        int top2 = this.bGM != null ? this.bGM.getTop() : 0;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(width, height);
         layoutParams.setMargins(left, top2, 0, 0);
         return layoutParams;

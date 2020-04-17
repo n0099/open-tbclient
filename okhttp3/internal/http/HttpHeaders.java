@@ -1,5 +1,6 @@
 package okhttp3.internal.http;
 
+import android.support.v7.widget.ActivityChooserView;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -192,7 +193,7 @@ public final class HttpHeaders {
         try {
             long parseLong = Long.parseLong(str);
             if (parseLong > 2147483647L) {
-                return Integer.MAX_VALUE;
+                return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             }
             if (parseLong < 0) {
                 return 0;

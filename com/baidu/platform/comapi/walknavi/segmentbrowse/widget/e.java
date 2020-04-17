@@ -3,6 +3,7 @@ package com.baidu.platform.comapi.walknavi.segmentbrowse.widget;
 import android.os.Bundle;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.platform.comapi.wnplatform.o.f;
+import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class e {
         int[] intArray3 = bundle.getIntArray("unLineNo");
         boolean[] booleanArray = bundle.getBooleanArray("bHighLight");
         a(intArray, intArray2, intArray3, booleanArray);
-        String replace = string.contains("@") ? string.replace("@", StringHelper.STRING_MORE) : string;
+        String replace = string.contains(UgcConstant.AT_RULE_TAG) ? string.replace(UgcConstant.AT_RULE_TAG, StringHelper.STRING_MORE) : string;
         if (intArray.length == 0) {
             return arrayList;
         }
@@ -130,7 +131,7 @@ public class e {
         int[] intArray3 = bundle.getIntArray("unPOILineNo");
         boolean[] booleanArray = bundle.getBooleanArray("bPOIHighLight");
         a(intArray, intArray2, intArray3, booleanArray);
-        String replace = string.contains("@") ? string.replace("@", StringHelper.STRING_MORE) : string;
+        String replace = string.contains(UgcConstant.AT_RULE_TAG) ? string.replace(UgcConstant.AT_RULE_TAG, StringHelper.STRING_MORE) : string;
         if (intArray.length == 0) {
             return arrayList;
         }

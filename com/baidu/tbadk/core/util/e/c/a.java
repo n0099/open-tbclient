@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.tbadkCore.c;
@@ -15,17 +16,17 @@ public class a {
         return am.getColor(i);
     }
 
-    public static int h(@ColorRes int i, float f) {
-        return c.n(am.getColor(i), f);
+    public static int f(@ColorRes int i, float f) {
+        return c.l(am.getColor(i), f);
     }
 
     public static Drawable getDrawable(@DrawableRes int i) {
         return am.getDrawable(i);
     }
 
-    public static int cF(String str) {
+    public static int dA(String str) {
         if (str == null || str.length() == 0) {
-            return Integer.MAX_VALUE;
+            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }
         try {
             if (!str.startsWith("#")) {
@@ -33,7 +34,7 @@ public class a {
             }
             return Color.parseColor(str);
         } catch (Exception e) {
-            return Integer.MAX_VALUE;
+            return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         }
     }
 

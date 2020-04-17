@@ -3,12 +3,12 @@ package com.baidu.tieba.ala.liveroom.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public String aed;
     public String appUrl;
-    public String fba;
-    public String fbb;
-    public String fbc;
-    public String fbd;
+    public String aqW;
+    public String fFj;
+    public String fFk;
+    public String fFl;
+    public String fFm;
     public int needToast;
     public String packageName;
     public String portrait;
@@ -21,12 +21,12 @@ public class c {
             if (optJSONObject != null) {
                 this.packageName = optJSONObject.optString("package_name", "");
                 this.appUrl = optJSONObject.optString("app_url", "");
-                this.fba = optJSONObject.optString("app_deeplink_url", "");
-                this.fbb = optJSONObject.optString("app_backup_deeplink_url", "");
-                this.fbc = optJSONObject.optString("app_clipboard_url", "");
+                this.fFj = optJSONObject.optString("app_deeplink_url", "");
+                this.fFk = optJSONObject.optString("app_backup_deeplink_url", "");
+                this.fFl = optJSONObject.optString("app_clipboard_url", "");
             }
-            this.aed = jSONObject.optString("toast_text", "");
-            this.fbd = jSONObject.optString("subapp_type", "");
+            this.aqW = jSONObject.optString("toast_text", "");
+            this.fFm = jSONObject.optString("subapp_type", "");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("user_info");
             if (optJSONObject2 != null) {
                 this.userName = optJSONObject2.optString("user_name", "");
@@ -36,7 +36,7 @@ public class c {
     }
 
     public String getSubappType() {
-        return this.fbd;
+        return this.fFm;
     }
 
     public String getPortrait() {

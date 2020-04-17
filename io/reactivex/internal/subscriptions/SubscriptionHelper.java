@@ -131,12 +131,4 @@ public enum SubscriptionHelper implements d {
             }
         }
     }
-
-    public static boolean setOnce(AtomicReference<d> atomicReference, d dVar, long j) {
-        if (setOnce(atomicReference, dVar)) {
-            dVar.request(j);
-            return true;
-        }
-        return false;
-    }
 }

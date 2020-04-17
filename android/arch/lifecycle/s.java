@@ -10,86 +10,86 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 /* loaded from: classes6.dex */
 public class s implements j {
-    private static final s cF = new s();
+    private static final s yA = new s();
     private Handler mHandler;
-    private int cv = 0;
-    private int cz = 0;
-    private boolean cA = true;
-    private boolean cB = true;
-    private final k cC = new k(this);
-    private Runnable cD = new Runnable() { // from class: android.arch.lifecycle.s.1
+    private int yt = 0;
+    private int yu = 0;
+    private boolean yv = true;
+    private boolean yw = true;
+    private final k yx = new k(this);
+    private Runnable yy = new Runnable() { // from class: android.arch.lifecycle.s.1
         @Override // java.lang.Runnable
         public void run() {
-            s.this.aF();
-            s.this.aG();
+            s.this.gb();
+            s.this.gd();
         }
     };
-    private ReportFragment.a cE = new ReportFragment.a() { // from class: android.arch.lifecycle.s.2
+    private ReportFragment.a yz = new ReportFragment.a() { // from class: android.arch.lifecycle.s.2
         @Override // android.arch.lifecycle.ReportFragment.a
         public void onCreate() {
         }
 
         @Override // android.arch.lifecycle.ReportFragment.a
         public void onStart() {
-            s.this.aB();
+            s.this.fX();
         }
 
         @Override // android.arch.lifecycle.ReportFragment.a
         public void onResume() {
-            s.this.aC();
+            s.this.fY();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void init(Context context) {
-        cF.P(context);
+        yA.P(context);
     }
 
-    void aB() {
-        this.cv++;
-        if (this.cv == 1 && this.cB) {
-            this.cC.b(Lifecycle.Event.ON_START);
-            this.cB = false;
+    void fX() {
+        this.yt++;
+        if (this.yt == 1 && this.yw) {
+            this.yx.b(Lifecycle.Event.ON_START);
+            this.yw = false;
         }
     }
 
-    void aC() {
-        this.cz++;
-        if (this.cz == 1) {
-            if (this.cA) {
-                this.cC.b(Lifecycle.Event.ON_RESUME);
-                this.cA = false;
+    void fY() {
+        this.yu++;
+        if (this.yu == 1) {
+            if (this.yv) {
+                this.yx.b(Lifecycle.Event.ON_RESUME);
+                this.yv = false;
                 return;
             }
-            this.mHandler.removeCallbacks(this.cD);
+            this.mHandler.removeCallbacks(this.yy);
         }
     }
 
-    void aD() {
-        this.cz--;
-        if (this.cz == 0) {
-            this.mHandler.postDelayed(this.cD, 700L);
+    void fZ() {
+        this.yu--;
+        if (this.yu == 0) {
+            this.mHandler.postDelayed(this.yy, 700L);
         }
     }
 
-    void aE() {
-        this.cv--;
-        aG();
+    void ga() {
+        this.yt--;
+        gd();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aF() {
-        if (this.cz == 0) {
-            this.cA = true;
-            this.cC.b(Lifecycle.Event.ON_PAUSE);
+    public void gb() {
+        if (this.yu == 0) {
+            this.yv = true;
+            this.yx.b(Lifecycle.Event.ON_PAUSE);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aG() {
-        if (this.cv == 0 && this.cA) {
-            this.cC.b(Lifecycle.Event.ON_STOP);
-            this.cB = true;
+    public void gd() {
+        if (this.yt == 0 && this.yv) {
+            this.yx.b(Lifecycle.Event.ON_STOP);
+            this.yw = true;
         }
     }
 
@@ -98,21 +98,21 @@ public class s implements j {
 
     void P(Context context) {
         this.mHandler = new Handler();
-        this.cC.b(Lifecycle.Event.ON_CREATE);
+        this.yx.b(Lifecycle.Event.ON_CREATE);
         ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new d() { // from class: android.arch.lifecycle.s.3
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityCreated(Activity activity, Bundle bundle) {
-                ReportFragment.k(activity).d(s.this.cE);
+                ReportFragment.k(activity).d(s.this.yz);
             }
 
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityPaused(Activity activity) {
-                s.this.aD();
+                s.this.fZ();
             }
 
             @Override // android.arch.lifecycle.d, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityStopped(Activity activity) {
-                s.this.aE();
+                s.this.ga();
             }
         });
     }
@@ -120,6 +120,6 @@ public class s implements j {
     @Override // android.arch.lifecycle.j
     @NonNull
     public Lifecycle getLifecycle() {
-        return this.cC;
+        return this.yx;
     }
 }

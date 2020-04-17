@@ -3,7 +3,6 @@ package android.support.constraint.solver;
 import android.support.constraint.solver.SolverVariable;
 import android.support.constraint.solver.widgets.ConstraintAnchor;
 import android.support.constraint.solver.widgets.ConstraintWidget;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.baidu.mobstat.Config;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -623,7 +622,7 @@ public class LinearSystem {
                 i3 += this.mRows[i4].sizeInBytes();
             }
         }
-        System.out.println("Linear System -> Table size: " + this.TABLE_SIZE + " (" + getDisplaySize(this.TABLE_SIZE * this.TABLE_SIZE) + ") -- row sizes: " + getDisplaySize(i) + ", actual size: " + getDisplaySize(i3) + " rows: " + this.mNumRows + "/" + this.mMaxRows + " cols: " + this.mNumColumns + "/" + this.mMaxColumns + HanziToPinyin.Token.SEPARATOR + "0 occupied cells, " + getDisplaySize(0));
+        System.out.println("Linear System -> Table size: " + this.TABLE_SIZE + " (" + getDisplaySize(this.TABLE_SIZE * this.TABLE_SIZE) + ") -- row sizes: " + getDisplaySize(i) + ", actual size: " + getDisplaySize(i3) + " rows: " + this.mNumRows + "/" + this.mMaxRows + " cols: " + this.mNumColumns + "/" + this.mMaxColumns + " 0 occupied cells, " + getDisplaySize(0));
     }
 
     private void displaySolverVariables() {

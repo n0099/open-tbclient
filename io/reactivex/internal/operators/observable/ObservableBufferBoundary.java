@@ -35,7 +35,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
         volatile boolean cancelled;
         volatile boolean done;
         long index;
-        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(q.dJD());
+        final io.reactivex.internal.queue.a<C> queue = new io.reactivex.internal.queue.a<>(q.dCB());
         final io.reactivex.disposables.a observers = new io.reactivex.disposables.a();
         final AtomicReference<io.reactivex.disposables.b> upstream = new AtomicReference<>();
         Map<Long, C> buffers = new LinkedHashMap();
@@ -136,7 +136,7 @@ public final class ObservableBufferBoundary<T, U extends Collection<? super T>, 
                     }
                 }
             } catch (Throwable th) {
-                io.reactivex.exceptions.a.H(th);
+                io.reactivex.exceptions.a.L(th);
                 DisposableHelper.dispose(this.upstream);
                 onError(th);
             }

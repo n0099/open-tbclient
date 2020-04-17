@@ -10,37 +10,37 @@ import java.io.File;
 public final class Configuration {
     public final int chunkSize;
     public final int connectTimeout;
-    public final Recorder npC;
-    public final KeyGenerator npD;
-    public final ProxyConfiguration npE;
-    public final int npF;
-    public final int npG;
-    public UrlConverter npH;
-    public Dns npI;
-    public Zone npJ;
+    public final Recorder mMl;
+    public final KeyGenerator mMm;
+    public final ProxyConfiguration mMn;
+    public final int mMo;
+    public final int mMp;
+    public UrlConverter mMq;
+    public Dns mMr;
+    public Zone mMs;
     public final int responseTimeout;
     public boolean useHttps;
 
     private Configuration(Builder builder) {
         this.useHttps = builder.useHttps;
         this.chunkSize = builder.chunkSize;
-        this.npF = builder.npF;
+        this.mMo = builder.mMo;
         this.connectTimeout = builder.connectTimeout;
         this.responseTimeout = builder.responseTimeout;
-        this.npC = builder.npC;
-        this.npD = a(builder.npD);
-        this.npG = builder.npG;
-        this.npE = builder.npE;
-        this.npH = builder.npH;
-        this.npJ = builder.npJ == null ? AutoZone.noH : builder.npJ;
-        this.npI = builder.npI;
+        this.mMl = builder.mMl;
+        this.mMm = a(builder.mMm);
+        this.mMp = builder.mMp;
+        this.mMn = builder.mMn;
+        this.mMq = builder.mMq;
+        this.mMs = builder.mMs == null ? AutoZone.mLq : builder.mMs;
+        this.mMr = builder.mMr;
     }
 
     private KeyGenerator a(KeyGenerator keyGenerator) {
         if (keyGenerator == null) {
             return new KeyGenerator() { // from class: com.qiniu.android.storage.Configuration.1
                 @Override // com.qiniu.android.storage.KeyGenerator
-                public String q(String str, File file) {
+                public String p(String str, File file) {
                     return str + "_._" + ((Object) new StringBuffer(file.getAbsolutePath()).reverse());
                 }
             };
@@ -50,20 +50,20 @@ public final class Configuration {
 
     /* loaded from: classes5.dex */
     public static class Builder {
-        private Zone npJ = null;
-        private Recorder npC = null;
-        private KeyGenerator npD = null;
-        private ProxyConfiguration npE = null;
+        private Zone mMs = null;
+        private Recorder mMl = null;
+        private KeyGenerator mMm = null;
+        private ProxyConfiguration mMn = null;
         private boolean useHttps = false;
         private int chunkSize = 2097152;
-        private int npF = 4194304;
+        private int mMo = 4194304;
         private int connectTimeout = 10;
         private int responseTimeout = 60;
-        private int npG = 3;
-        private UrlConverter npH = null;
-        private Dns npI = null;
+        private int mMp = 3;
+        private UrlConverter mMq = null;
+        private Dns mMr = null;
 
-        public Configuration dGA() {
+        public Configuration dAC() {
             return new Configuration(this);
         }
     }

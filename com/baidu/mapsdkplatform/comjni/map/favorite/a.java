@@ -8,7 +8,7 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comjni.map.favorite.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0122a {
+    public static class C0147a {
         public static boolean a = false;
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -44,7 +44,7 @@ public class a {
     }
 
     public boolean a(String str, String str2) {
-        C0122a.b();
+        C0147a.b();
         return this.b.Add(this.a, str, str2);
     }
 
@@ -65,7 +65,7 @@ public class a {
     }
 
     public boolean b(String str, String str2) {
-        C0122a.b();
+        C0147a.b();
         return this.b.Update(this.a, str, str2);
     }
 

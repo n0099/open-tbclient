@@ -39,7 +39,7 @@ public class a {
         return allocate.array();
     }
 
-    public static a e(byte[] bArr) {
+    public static a h(byte[] bArr) {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, getHeaderLengthInBytes());
         a aVar = new a();
         byte b = wrap.get();

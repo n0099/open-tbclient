@@ -15,6 +15,7 @@ import java.io.File;
 public class AlphaVideo extends GLTextureView {
     private static final int GL_CONTEXT_VERSION = 2;
     private AlphaVideoRenderer mAlphaVideoRenderer;
+    private boolean mIsKeepLastFrame;
     private volatile boolean mIsPlayRequested;
     private volatile boolean mIsSurfacePrepared;
     private IPlayer mPlayer;
@@ -23,6 +24,7 @@ public class AlphaVideo extends GLTextureView {
         super(context);
         this.mPlayer = new VideoPlayerProxy();
         this.mPlayer.setGLTextureView(this);
+        this.mIsKeepLastFrame = false;
         init();
     }
 
@@ -30,6 +32,7 @@ public class AlphaVideo extends GLTextureView {
         super(context, attributeSet);
         this.mPlayer = new VideoPlayerProxy();
         this.mPlayer.setGLTextureView(this);
+        this.mIsKeepLastFrame = false;
         init();
     }
 
@@ -55,6 +58,9 @@ public class AlphaVideo extends GLTextureView {
                     AlphaVideo.this.mIsPlayRequested = false;
                     if (AlphaVideo.this.mPlayer != null) {
                         AlphaVideo.this.mPlayer.play();
+                        if (AlphaVideo.this.mAlphaVideoRenderer != null) {
+                            AlphaVideo.this.mAlphaVideoRenderer.onPlay();
+                        }
                     }
                 }
             }
@@ -124,10 +130,18 @@ public class AlphaVideo extends GLTextureView {
         }
     }
 
+    public void setKeepLastFrame(boolean z) {
+        this.mIsKeepLastFrame = z;
+    }
+
     public void play() {
         if (this.mIsSurfacePrepared) {
             if (this.mPlayer != null) {
                 this.mPlayer.play();
+                if (this.mAlphaVideoRenderer != null) {
+                    this.mAlphaVideoRenderer.onPlay();
+                    return;
+                }
                 return;
             }
             return;
@@ -159,9 +173,19 @@ public class AlphaVideo extends GLTextureView {
         }
     }
 
-    public void setOnVideoEndedListener(OnVideoEndedListener onVideoEndedListener) {
+    public void setOnVideoEndedListener(final OnVideoEndedListener onVideoEndedListener) {
         if (this.mPlayer != null) {
-            this.mPlayer.setOnVideoEndedListener(onVideoEndedListener);
+            this.mPlayer.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.searchbox.afx.AlphaVideo.2
+                @Override // com.baidu.searchbox.afx.callback.OnVideoEndedListener
+                public void onVideoEnded() {
+                    if (AlphaVideo.this.mAlphaVideoRenderer != null && !AlphaVideo.this.mIsKeepLastFrame) {
+                        AlphaVideo.this.mAlphaVideoRenderer.clearLastFrame();
+                    }
+                    if (onVideoEndedListener != null) {
+                        onVideoEndedListener.onVideoEnded();
+                    }
+                }
+            });
         }
     }
 

@@ -6,33 +6,33 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public final class b {
-    private static ArrayList<a> bAK = new ArrayList<>();
+    private static ArrayList<a> bYR = new ArrayList<>();
 
-    public static void cT(boolean z) {
-        for (int size = bAK.size() - 1; size >= 0; size--) {
-            a aVar = bAK.get(size);
+    public static void dP(boolean z) {
+        for (int size = bYR.size() - 1; size >= 0; size--) {
+            a aVar = bYR.get(size);
             if (aVar != null) {
-                aVar.cR(z);
+                aVar.dN(z);
             }
         }
     }
 
-    public static void cS(boolean z) {
-        for (int size = bAK.size() - 1; size >= 0; size--) {
-            a aVar = bAK.get(size);
+    public static void dO(boolean z) {
+        for (int size = bYR.size() - 1; size >= 0; size--) {
+            a aVar = bYR.get(size);
             if (aVar != null) {
-                aVar.cS(z);
+                aVar.dO(z);
             }
         }
     }
 
-    public static a iT(String str) {
+    public static a kg(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (int size = bAK.size() - 1; size >= 0; size--) {
-            a aVar = bAK.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.Xd())) {
+        for (int size = bYR.size() - 1; size >= 0; size--) {
+            a aVar = bYR.get(size);
+            if (aVar != null && TextUtils.equals(str, aVar.aeT())) {
                 return aVar;
             }
         }
@@ -43,9 +43,9 @@ public final class b {
         if (TextUtils.isEmpty(str3)) {
             return null;
         }
-        for (int size = bAK.size() - 1; size >= 0; size--) {
-            a aVar = bAK.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.Xe())) || TextUtils.equals(str3, aVar.Xd())))) {
+        for (int size = bYR.size() - 1; size >= 0; size--) {
+            a aVar = bYR.get(size);
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.aeU())) || TextUtils.equals(str3, aVar.aeT())))) {
                 return aVar;
             }
         }
@@ -53,27 +53,27 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        if (aVar != null && !bAK.contains(aVar)) {
-            bAK.add(aVar);
+        if (aVar != null && !bYR.contains(aVar)) {
+            bYR.add(aVar);
         }
     }
 
     public static void b(a aVar) {
         if (aVar != null) {
-            bAK.remove(aVar);
+            bYR.remove(aVar);
         }
     }
 
-    public static void Xg() {
-        bAK.clear();
+    public static void aeW() {
+        bYR.clear();
     }
 
-    public static boolean iU(String str) {
+    public static boolean kh(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int size = bAK.size() - 1; size >= 0; size--) {
-            a aVar = bAK.get(size);
+        for (int size = bYR.size() - 1; size >= 0; size--) {
+            a aVar = bYR.get(size);
             if (aVar != null && TextUtils.equals(str, aVar.getSlaveId()) && aVar.onBackPressed()) {
                 return true;
             }
@@ -83,8 +83,8 @@ public final class b {
 
     public static void destroy(String str) {
         if (!TextUtils.isEmpty(str)) {
-            for (int size = bAK.size() - 1; size >= 0; size--) {
-                a aVar = bAK.get(size);
+            for (int size = bYR.size() - 1; size >= 0; size--) {
+                a aVar = bYR.get(size);
                 if (aVar != null && TextUtils.equals(str, aVar.getSlaveId())) {
                     aVar.onDestroy();
                 }
@@ -93,8 +93,8 @@ public final class b {
     }
 
     public static void destroy() {
-        for (int size = bAK.size() - 1; size >= 0; size--) {
-            a aVar = bAK.get(size);
+        for (int size = bYR.size() - 1; size >= 0; size--) {
+            a aVar = bYR.get(size);
             if (aVar != null) {
                 aVar.onDestroy();
             }

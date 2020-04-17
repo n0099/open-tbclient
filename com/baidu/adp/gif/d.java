@@ -3,20 +3,20 @@ package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public class d implements a {
     @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.ImageView.a X(String str) {
-        NSGif Y = NSGif.Y(str);
-        if (Y == null) {
+    public com.baidu.adp.widget.ImageView.a bm(String str) {
+        NSGif bn = NSGif.bn(str);
+        if (bn == null) {
             return null;
         }
-        return new com.baidu.adp.widget.ImageView.a(Y);
+        return new com.baidu.adp.widget.ImageView.a(bn);
     }
 
     @Override // com.baidu.adp.gif.a
-    public com.baidu.adp.widget.ImageView.a d(byte[] bArr, int i, int i2) {
-        NSGif e = NSGif.e(bArr, i, i2);
-        if (e == null) {
+    public com.baidu.adp.widget.ImageView.a f(byte[] bArr, int i, int i2) {
+        NSGif g = NSGif.g(bArr, i, i2);
+        if (g == null) {
             return null;
         }
-        return new com.baidu.adp.widget.ImageView.a(e);
+        return new com.baidu.adp.widget.ImageView.a(g);
     }
 }

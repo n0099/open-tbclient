@@ -25,10 +25,8 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     private static final int STATE_PLAYING = 3;
     private static final int STATE_PREPARED = 2;
     private static final int STATE_PREPARING = 1;
-    private boolean isReuse;
     private Context mContext;
     private IMediaPlayer mMediaPlayer;
-    private boolean mPlayerReuseEnable;
     private IQuickMediaPlayerListener mQuickMediaPlayerListener;
     private int mSeekWhenPrepared;
     private Uri mUri;
@@ -168,30 +166,21 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
-    public void openVideo(Uri uri, Surface surface, String str, boolean z) throws RemoteException {
-        int i;
+    public void openVideo(Uri uri, Surface surface, String str) throws RemoteException {
+        int i = 0;
         try {
             this.mUri = uri;
-            if (this.mPlayerReuseEnable && !needUseSystemMediaPlayer() && (this.mContext instanceof a)) {
-                this.mMediaPlayer = ((a) this.mContext).getPlayer(this.mUri);
-                this.isReuse = true;
-                if (this.mMediaPlayer != null && this.mMediaPlayer.isPlaying()) {
-                    this.mCurrentState = 0;
-                    this.mTargetState = 0;
-                }
-            }
             if (this.mMediaPlayer == null) {
-                this.isReuse = false;
                 this.mMediaPlayer = createPlayer();
                 this.mCurrentState = 0;
                 this.mTargetState = 0;
                 if (needUseSystemMediaPlayer() && !this.mForceUseSystemMediaPlayer) {
                     if (mCreatePlayerFailed) {
                         i = 1;
-                    } else {
-                        i = MODEL_MX4.equals(Build.MODEL) ? 2 : 0;
+                    } else if (MODEL_MX4.equals(Build.MODEL)) {
+                        i = 2;
                     }
-                    TiebaStatic.log(new an("c12200").X("obj_type", i).cx("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new an("c12200").af("obj_type", i).cI("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
                 if (this.mContext instanceof a) {
                     ((a) this.mContext).addPlayer(this.mMediaPlayer, this.mUri);
@@ -213,20 +202,16 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mMediaPlayer.setOnHandleOppoErrorListener(this.mOnHandleOppoErrorListener);
             this.mMediaPlayer.setOnSpeedWhenInvokingErrorListener(this.mOnSpeedWhenInvokingErrorListener);
             this.mMediaPlayer.setSurface(surface);
-            if (!this.isReuse) {
-                this.mMediaPlayer.setAudioStreamType(3);
-                this.mMediaPlayer.prepareAsync();
-                this.mMediaPlayer.setVolume(0.0f, 0.0f);
-                this.mCurrentState = 1;
-                return;
-            }
-            this.mOnPreparedListener.onPrepared(this.mMediaPlayer);
+            this.mMediaPlayer.setAudioStreamType(3);
+            this.mMediaPlayer.prepareAsync();
+            this.mMediaPlayer.setVolume(0.0f, 0.0f);
+            this.mCurrentState = 1;
         } catch (Exception e) {
             e.printStackTrace();
             this.mCurrentState = -1;
             this.mTargetState = -1;
             if (this.mOnSubErrorInfoListener != null) {
-                this.mOnSubErrorInfoListener.onSubError(-24399, -24399, com.baidu.tieba.k.a.q(e));
+                this.mOnSubErrorInfoListener.onSubError(-24399, -24399, com.baidu.tieba.k.a.s(e));
             }
             if (this.mOnErrorListener != null) {
                 this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -24399, -24399);
@@ -238,7 +223,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             this.mCurrentState = -1;
             this.mTargetState = -1;
             if (this.mOnSubErrorInfoListener != null) {
-                this.mOnSubErrorInfoListener.onSubError(-34399, -34399, com.baidu.tieba.k.a.q(e2));
+                this.mOnSubErrorInfoListener.onSubError(-34399, -34399, com.baidu.tieba.k.a.s(e2));
             }
             if (this.mOnErrorListener != null) {
                 this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -34399, -34399);
@@ -249,13 +234,11 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
     public void release() throws RemoteException {
         if (this.mMediaPlayer != null) {
-            if (!this.mPlayerReuseEnable) {
-                try {
-                    this.mMediaPlayer.reset();
-                } catch (Throwable th) {
-                }
-                this.mMediaPlayer.release();
+            try {
+                this.mMediaPlayer.reset();
+            } catch (Throwable th) {
             }
+            this.mMediaPlayer.release();
             if (this.mContext instanceof a) {
                 ((a) this.mContext).removePlayer(this.mUri);
             }
@@ -461,11 +444,6 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
             }
         }
         return -1;
-    }
-
-    @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
-    public boolean isPlayerReuse() {
-        return this.isReuse;
     }
 
     @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer

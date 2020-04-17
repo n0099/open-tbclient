@@ -72,6 +72,7 @@ public class NavigationBar extends RelativeLayout {
     private Paint mSpecialBackgroundPaint;
     private View mStatusBarView;
     public TextView mTextTitle;
+    private int mTopPadding;
     private View mUnloginView;
     private View topCoverBgView;
 
@@ -98,6 +99,7 @@ public class NavigationBar extends RelativeLayout {
         this.isAutoNight = true;
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
+        this.mTopPadding = 0;
         this.mNavHeight = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.cp_bg_line_c;
@@ -136,6 +138,7 @@ public class NavigationBar extends RelativeLayout {
         this.isAutoNight = true;
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
+        this.mTopPadding = 0;
         this.mNavHeight = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.cp_bg_line_c;
@@ -174,6 +177,7 @@ public class NavigationBar extends RelativeLayout {
         this.isAutoNight = true;
         this.isFixedHeight = true;
         this.isNeedAddStatusBarHeight = false;
+        this.mTopPadding = 0;
         this.mNavHeight = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.ds88);
         this.mFixedNavHeight = 0;
         this.mBottomLineColor = R.color.cp_bg_line_c;
@@ -329,7 +333,11 @@ public class NavigationBar extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void initPadding() {
-        setPadding(com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
+        setPadding(com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), this.mTopPadding, com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
+    }
+
+    public void setContentPaddingTop(int i) {
+        this.mContentLayout.setPadding(com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), i, com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)), com.baidu.adp.lib.util.l.dip2px(this.mCurrentActivity, getResources().getDimension(R.dimen.ds0)));
     }
 
     @Override // android.widget.RelativeLayout, android.view.View
@@ -673,9 +681,9 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else if (this.mIsClose) {
-            SvgManager.aGG().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.aOU().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, R.color.cp_cont_f, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         } else {
-            SvgManager.aGG().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aOU().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, R.color.cp_cont_b, (SvgManager.SvgResourceStateType) null);
         }
     }
 
@@ -686,9 +694,9 @@ public class NavigationBar extends RelativeLayout {
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
             am.setNavbarIconSrc(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else if (this.mIsClose) {
-            SvgManager.aGG().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aOU().a(this.mBackImageView, R.drawable.icon_pure_topbar_close44_svg, i2, (SvgManager.SvgResourceStateType) null);
         } else {
-            SvgManager.aGG().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, i2, (SvgManager.SvgResourceStateType) null);
+            SvgManager.aOU().a(this.mBackImageView, R.drawable.icon_pure_topbar_return44_svg, i2, (SvgManager.SvgResourceStateType) null);
         }
     }
 

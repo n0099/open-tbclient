@@ -18,7 +18,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_GIFT);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, "1000");
+            jSONObject.put("vid", "1000");
             jSONObject.put("tag", "");
         } catch (JSONException e) {
             e.printStackTrace();
@@ -33,7 +33,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_AUDIENCE_NUMBER);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("tag", "");
         } catch (JSONException e) {
@@ -49,7 +49,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_AUDIENCE_HEAD);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("tag", "");
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("pos", i);
@@ -64,10 +64,10 @@ public class HaokanCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_SPEAK_GUIDE);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -82,7 +82,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_SPEAK_GUIDE_BUTTON);
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("ext", str3);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -106,7 +106,7 @@ public class HaokanCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("v", LogConfig.VALUE_LIVE_RECHARGE_ZONE);
             jSONObject.put("from", str3);
@@ -136,7 +136,7 @@ public class HaokanCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_RECHARGE_BANNER);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
         } catch (JSONException e) {
@@ -181,7 +181,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_SPEAK_HI_BUTTON);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -193,7 +193,7 @@ public class HaokanCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_SPEAK_HI_TOOLTIP);
@@ -213,7 +213,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_SPEAK_MORE_BUTTON);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -228,7 +228,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_SPEAK_UP_TOOLTIP);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("name", str3);
             jSONObject.put("pos", str2);
         } catch (JSONException e) {
@@ -242,9 +242,9 @@ public class HaokanCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_SPEAK_MORE_TOOLTIP);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -257,7 +257,7 @@ public class HaokanCommonLogger implements ICommonLogger {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("k", "click");
             jSONObject.put("v", LogConfig.VALUE_LIVE_SPEAK_MORE_TOOLTIP);
@@ -275,9 +275,9 @@ public class HaokanCommonLogger implements ICommonLogger {
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_WATCH_FOLLOW_GUIDE);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -294,7 +294,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("tag", "");
             jSONObject.put("loc", LogConfig.VALUE_LIVE_NOW_FOLLOW_ZONE);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("live_id", str2);
             jSONObject.put("name", str3);
         } catch (JSONException e) {
@@ -309,9 +309,9 @@ public class HaokanCommonLogger implements ICommonLogger {
         try {
             jSONObject.put(LogConfig.LOG_VIDEOTYPE, "live");
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
-            jSONObject.put("k", LogConfig.KEY_DISPLAY);
+            jSONObject.put("k", "display");
             jSONObject.put("v", LogConfig.VALUE_LIVE_EXIT_FOLLOW_GUIDE);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -328,7 +328,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("tag", "");
             jSONObject.put("loc", LogConfig.VALUE_LIVE_LEAVE_FOLLOW_ZONE);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
             jSONObject.put("live_id", str2);
             jSONObject.put("name", str3);
         } catch (JSONException e) {
@@ -345,7 +345,7 @@ public class HaokanCommonLogger implements ICommonLogger {
             jSONObject.put("tab", LogConfig.VALUE_LIVE_DETAIL);
             jSONObject.put("k", LogConfig.KEY_LEAVE_CLICK);
             jSONObject.put("v", LogConfig.VALUE_LIVE_EXIT_FOLLOW_GUIDE);
-            jSONObject.put(LogConfig.LOG_VID, str);
+            jSONObject.put("vid", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }

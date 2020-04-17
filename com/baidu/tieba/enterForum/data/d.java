@@ -1,14 +1,8 @@
 package com.baidu.tieba.enterForum.data;
 /* loaded from: classes9.dex */
-public class d implements com.baidu.tbadk.mvc.b.a {
-    public static final int[] fUY = {0, 1, 2, 3, 4, 5};
-    private int mType = 6;
-
-    public void setType(int i) {
-        this.mType = i;
-    }
-
-    public int getType() {
-        return this.mType;
-    }
+public class d implements com.baidu.tbadk.mvc.d.b {
+    public boolean gzE;
+    public boolean gzF;
+    public int gzG;
+    public int gzH;
 }

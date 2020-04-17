@@ -10,7 +10,7 @@ import tbclient.Share.ShareReqIdl;
 public class ShareReportNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f1026common;
+    private CommonReq f1032common;
     private long fid;
     private int from;
     private long tid;
@@ -22,7 +22,7 @@ public class ShareReportNetMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f1246common = getCommon();
+        builder.f1250common = getCommon();
         builder.fid = Long.valueOf(getFid());
         builder.tid = Long.valueOf(getTid());
         builder.from = Integer.valueOf(getFrom());
@@ -35,11 +35,11 @@ public class ShareReportNetMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f1026common;
+        return this.f1032common;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f1026common = commonReq;
+        this.f1032common = commonReq;
     }
 
     public long getFid() {

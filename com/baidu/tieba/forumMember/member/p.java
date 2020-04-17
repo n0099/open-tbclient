@@ -4,47 +4,47 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes10.dex */
 public class p implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gml = BdUniqueId.gen();
-    private String gmo;
-    private String gmp;
-    private int gmm = -1;
-    private int gmn = -1;
-    private int gmq = -1;
+    public static final BdUniqueId gVr = BdUniqueId.gen();
+    private String gVu;
+    private String gVv;
+    private int gVs = -1;
+    private int gVt = -1;
+    private int gVw = -1;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gml;
+        return gVr;
     }
 
-    public void su(int i) {
-        this.gmm = i;
+    public void sR(int i) {
+        this.gVs = i;
     }
 
-    public void sv(int i) {
-        this.gmq = i;
+    public void sS(int i) {
+        this.gVw = i;
     }
 
-    public int bCG() {
-        return this.gmn;
+    public int bNg() {
+        return this.gVt;
     }
 
-    public void sw(int i) {
-        this.gmn = i;
+    public void sT(int i) {
+        this.gVt = i;
     }
 
-    public void AZ(String str) {
-        this.gmo = str;
+    public void CJ(String str) {
+        this.gVu = str;
     }
 
-    public String bCH() {
-        return this.gmp;
+    public String bNh() {
+        return this.gVv;
     }
 
-    public void Ba(String str) {
-        this.gmp = str;
+    public void CK(String str) {
+        this.gVv = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.gmo) || StringUtils.isNull(this.gmp) || this.gmm < 0 || this.gmn < 0;
+        return StringUtils.isNull(this.gVu) || StringUtils.isNull(this.gVv) || this.gVs < 0 || this.gVt < 0;
     }
 }

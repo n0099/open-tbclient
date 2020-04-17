@@ -20,10 +20,12 @@ import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
 import com.baidu.android.imsdk.chatmessage.IGetNewMsgCountListener;
 import com.baidu.android.imsdk.chatmessage.IGetSessionListener;
 import com.baidu.android.imsdk.chatmessage.IMediaChatMsgChangedListener;
+import com.baidu.android.imsdk.chatmessage.IMediaContactorSettingListener;
 import com.baidu.android.imsdk.chatmessage.IMediaDeleteChatMsgListener;
 import com.baidu.android.imsdk.chatmessage.IMediaDeleteChatSessionListener;
 import com.baidu.android.imsdk.chatmessage.IMediaFetchChatMsgsListener;
 import com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener;
+import com.baidu.android.imsdk.chatmessage.IMediaGetContactorPauidListener;
 import com.baidu.android.imsdk.chatmessage.IMediaSendChatMsgListener;
 import com.baidu.android.imsdk.chatmessage.IMediaSetSessionReadListener;
 import com.baidu.android.imsdk.chatmessage.IMessageReceiveListener;
@@ -41,6 +43,7 @@ import com.baidu.android.imsdk.internal.BaseManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMManagerImpl;
 import com.baidu.android.imsdk.internal.IMSettings;
+import com.baidu.android.imsdk.shield.ISetForbidListener;
 import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -358,13 +361,9 @@ public class BIMManager extends BaseManager implements NoProGuard {
             @Override // com.baidu.android.imsdk.account.ILoginListener
             public void onLogoutResult(int i, String str, int i2) {
                 LogUtils.i(BaseManager.TAG, "onLogoutResult errorCode : " + i + " , errMsg, " + str + " , loginType, " + i2);
-                if (i != 0) {
-                    LoginManager.getInstance(BIMManager.sContext).onLogoutResultInternal(0, str);
-                    if (ILoginListener.this != null) {
-                        ILoginListener.this.onLogoutResult(0, "Force logout", i2);
-                    }
-                } else if (ILoginListener.this != null) {
-                    ILoginListener.this.onLogoutResult(0, "", i2);
+                LoginManager.getInstance(BIMManager.sContext).onLogoutResultInternal(0, str);
+                if (ILoginListener.this != null) {
+                    ILoginListener.this.onLogoutResult(0, i != 0 ? "Force logout" : "", i2);
                 }
             }
         });
@@ -568,6 +567,10 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ChatMsgManager.fetchMsgRequst(context, j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
     }
 
+    public static void fetchMsgByHostRequest(Context context, long j, long j2, int i, long j3, long j4, long j5, int i2, int i3, IFetchMsgByIdListener iFetchMsgByIdListener) {
+        ChatMsgManager.fetchMsgRequst(context, j, j2, i, j3, j4, j5, i2, iFetchMsgByIdListener);
+    }
+
     public static boolean isSupportMsgType(int i) {
         return i == 0 || i == 8 || i == 2 || i == 1 || i == 13 || i == 16 || i == 18 || i == 12 || i == 21 || i == 9 || i == 1002 || i == 1001 || i == 1003 || i == 1004 || i == 1005 || i == 1007 || i == 1008 || i == 1009 || i == 1010 || i == 1011 || i == 2010 || i == 1012 || i == 2001 || i == 80 || i == 31 || i == 32 || i == 33 || i == 20 || i == 22 || i == 25 || i == 26 || i == 24 || i == 2012 || i == 2014;
     }
@@ -623,24 +626,80 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ChatMsgManager.mediaGetChatSessions(context, j, j2, i, iMediaGetChatSessionListener);
     }
 
+    public static void mediaGetChatSessions(Context context, long j, int i, long j2, String str, long j3, int i2, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+        ChatMsgManager.mediaGetChatSessions(context, j, i, j2, str, j3, i2, iMediaGetChatSessionListener);
+    }
+
     public static void mediaFetchChatMsgs(Context context, long j, long j2, long j3, int i, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
         ChatMsgManager.mediaFetchChatMsgs(context, j, j2, j3, i, iMediaFetchChatMsgsListener);
+    }
+
+    public static void mediaFetchChatMsgs(Context context, long j, int i, long j2, String str, long j3, long j4, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+        ChatMsgManager.mediaFetchChatMsgs(context, j, i, j2, str, j3, j4, i2, iMediaFetchChatMsgsListener);
     }
 
     public static void mediaSendChatMsg(Context context, long j, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
         ChatMsgManager.mediaSendChatMsg(context, j, chatMsg, iMediaSendChatMsgListener);
     }
 
+    public static void mediaSendChatMsg(Context context, long j, int i, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+        ChatMsgManager.mediaSendChatMsg(context, j, i, j2, str, chatMsg, iMediaSendChatMsgListener);
+    }
+
     public static void mediaDeleteChatMsg(Context context, long j, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         ChatMsgManager.mediaDeleteChatMsg(context, j, -1L, list, iMediaDeleteChatMsgListener);
+    }
+
+    public static void mediaDeleteChatMsg(Context context, long j, int i, long j2, String str, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+        ChatMsgManager.mediaDeleteChatMsg(context, j, i, j2, str, -1L, list, iMediaDeleteChatMsgListener);
+    }
+
+    public static void mediaDeleteAllChatMsg(Context context, long j, long j2, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+        ChatMsgManager.mediaDeleteChatMsg(context, j, j2, null, iMediaDeleteChatMsgListener);
+    }
+
+    public static void mediaDeleteAllChatMsg(Context context, long j, int i, long j2, String str, long j3, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+        ChatMsgManager.mediaDeleteChatMsg(context, j, i, j2, str, j3, null, iMediaDeleteChatMsgListener);
     }
 
     public static void mediaSetSessionRead(Context context, long j, long j2, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
         ChatMsgManager.mediaSetSessionRead(context, j, j2, iMediaSetSessionReadListener);
     }
 
+    public static void mediaSetSessionRead(Context context, long j, int i, long j2, String str, long j3, IMediaSetSessionReadListener iMediaSetSessionReadListener) {
+        ChatMsgManager.mediaSetSessionRead(context, j, i, j2, str, j3, iMediaSetSessionReadListener);
+    }
+
     public static void mediaDeleteChatSession(Context context, long j, long j2, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
         ChatMsgManager.mediaDeleteChatSession(context, j, j2, iMediaDeleteChatSessionListener);
+    }
+
+    public static void mediaDeleteChatSession(Context context, long j, int i, long j2, String str, long j3, IMediaDeleteChatSessionListener iMediaDeleteChatSessionListener) {
+        ChatMsgManager.mediaDeleteChatSession(context, j, i, j2, str, j3, iMediaDeleteChatSessionListener);
+    }
+
+    public static void mediaGetContactorPauid(Context context, long j, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
+        ChatMsgManager.mediaGetContactorPauid(context, j, iMediaGetContactorPauidListener);
+    }
+
+    public static void mediaGetContactorPauid(Context context, long j, int i, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {
+        ChatMsgManager.mediaGetContactorPauid(context, j, i, j2, str, iMediaGetContactorPauidListener);
+    }
+
+    public static void mediaContactorSetting(Context context, long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatMsgManager.mediaContactorSetting(context, j, i, iMediaContactorSettingListener);
+    }
+
+    public static void mediaContactorSetting(Context context, long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatMsgManager.mediaContactorSetting(context, j, i, j2, str, i2, iMediaContactorSettingListener);
+    }
+
+    public static void mediaGetContactorSetting(Context context, long j, int i, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatMsgManager.mediaGetContactorSetting(context, j, i, iMediaContactorSettingListener);
+    }
+
+    public static void mediaGetContactorSetting(Context context, long j, int i, long j2, String str, int i2, IMediaContactorSettingListener iMediaContactorSettingListener) {
+        ChatMsgManager.mediaGetContactorSetting(context, j, i, j2, str, i2, iMediaContactorSettingListener);
     }
 
     public static void mediaRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
@@ -649,5 +708,9 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void mediaUnRegisterChatMsgChangedListener(Context context, IMediaChatMsgChangedListener iMediaChatMsgChangedListener) {
         ChatMsgManager.mediaUnRegisterChatMsgChangedListener(context, iMediaChatMsgChangedListener);
+    }
+
+    public static void setForbid(Context context, long j, long j2, int i, ISetForbidListener iSetForbidListener) {
+        ShieldAndTopManager.getInstance(context).setForbid(j, j2, i, iSetForbidListener);
     }
 }

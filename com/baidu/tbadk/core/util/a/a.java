@@ -1,19 +1,26 @@
 package com.baidu.tbadk.core.util.a;
+
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private b daX = new b();
-    private c daY = new c();
-    private d daZ = new d();
+    private b dAl = new b();
+    private c dAm = new c();
+    private d dAn = new d();
+    private HashMap<String, String> dAo = new HashMap<>();
 
-    public b aGL() {
-        return this.daX;
+    public b aOZ() {
+        return this.dAl;
     }
 
-    public c aGM() {
-        return this.daY;
+    public c aPa() {
+        return this.dAm;
     }
 
-    public d aGN() {
-        return this.daZ;
+    public d aPb() {
+        return this.dAn;
+    }
+
+    public HashMap<String, String> aPc() {
+        return this.dAo;
     }
 }

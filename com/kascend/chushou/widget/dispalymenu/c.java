@@ -33,12 +33,12 @@ public class c extends b {
     }
 
     @Override // com.kascend.chushou.widget.dispalymenu.b
-    public int ek(int i, int i2) {
+    public int dw(int i, int i2) {
         return i2;
     }
 
     @Override // com.kascend.chushou.widget.dispalymenu.b
-    public void c(boolean z, int i, int i2, int i3, int i4) {
+    public void b(boolean z, int i, int i2, int i3, int i4) {
         int i5 = (i3 - i) / 2;
         int paddingTop = this.a.getPaddingTop();
         for (int childCount = this.a.getChildCount() - 1; childCount >= 0; childCount--) {
@@ -54,7 +54,7 @@ public class c extends b {
     }
 
     @Override // com.kascend.chushou.widget.dispalymenu.b
-    public void b(int i, int i2, boolean z, int i3, int i4, int i5, int i6) {
+    public void a(int i, int i2, boolean z, int i3, int i4, int i5, int i6) {
         int i7 = (i5 - i3) / 2;
         int paddingBottom = (i6 - i4) - this.a.getPaddingBottom();
         boolean z2 = false;

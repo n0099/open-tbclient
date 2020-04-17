@@ -2,7 +2,7 @@ package kotlin;
 @h
 /* loaded from: classes7.dex */
 public final class l {
-    public static final l nDA = new l();
+    public static final l mWZ = new l();
 
     private l() {
     }

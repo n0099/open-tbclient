@@ -12,23 +12,23 @@ public class v implements com.baidu.swan.apps.adaptation.a.e {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public boolean bo(Context context) {
-        return a.cQ(context);
+    public boolean bc(Context context) {
+        return a.cE(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bp(Context context) {
-        return a.cS(context);
+    public String bd(Context context) {
+        return a.cG(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String bq(@NonNull Context context) {
-        return a.cT(context);
+    public String be(@NonNull Context context) {
+        return a.cH(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e
-    public String br(@NonNull Context context) {
-        return a.cR(context);
+    public String bf(@NonNull Context context) {
+        return a.cF(context);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.e

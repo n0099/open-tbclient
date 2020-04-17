@@ -2,8 +2,7 @@ package com.baidu.live.tbadk.widget.lottie;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.android.imsdk.utils.HanziToPinyin;
-import com.baidu.k.a.a;
+import com.baidu.h.a.a;
 import com.baidu.live.adp.lib.util.BdFileHelper;
 import com.baidu.live.adp.lib.util.BdStringHelper;
 import com.baidu.live.tbadk.TbConfig;
@@ -20,7 +19,6 @@ import java.io.InputStream;
 /* loaded from: classes3.dex */
 public class TBLottieAnimationView extends LottieAnimationView {
     private static final String DIR_ANIMATION = "animation";
-    public static final String INTERNEL_STORAGE_DIRECTORY = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
     public static final String JSON_FILE = "data.json";
     private boolean isFirstLoadInternal;
     private boolean isSettingForPlay;
@@ -71,7 +69,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
     }
 
     public static String getAnimationPath() {
-        return INTERNEL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + DIR_ANIMATION + "/";
+        return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.getTempDirName() + "/" + DIR_ANIMATION + "/";
     }
 
     public static boolean checkInternalTempDir(String str) {
@@ -82,7 +80,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         try {
             return file.mkdirs();
         } catch (Exception e) {
-            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", ".", "CheckTempDir", HanziToPinyin.Token.SEPARATOR, str));
+            TiebaInitialize.file(e, BdStringHelper.join("FileHelper", ".", "CheckTempDir", " ", str));
             return false;
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.sapi2.views;
 
 import android.os.CountDownTimer;
-import com.baidu.i.a.a;
+import com.baidu.f.a.a;
 import com.baidu.sapi2.views.SmsLoginView;
 /* loaded from: classes6.dex */
 class k extends CountDownTimer {

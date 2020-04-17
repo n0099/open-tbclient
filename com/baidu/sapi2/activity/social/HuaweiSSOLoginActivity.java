@@ -3,7 +3,7 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.i.a.a.a.a;
+import com.baidu.f.a.a.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;

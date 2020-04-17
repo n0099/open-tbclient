@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetGiftInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private g apC;
+    private g aIj;
 
     public GetGiftInfoHttpResponseMessage() {
         super(1021130);
@@ -18,8 +18,8 @@ public class GetGiftInfoHttpResponseMessage extends JsonHttpResponsedMessage {
         JSONObject optJSONObject;
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && jSONObject.optJSONArray("data") != null && (optJSONArray = jSONObject.optJSONArray("data")) != null && optJSONArray.length() > 0 && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
-            this.apC = new g();
-            this.apC.parseJson(optJSONObject);
+            this.aIj = new g();
+            this.aIj.parseJson(optJSONObject);
         }
     }
 }

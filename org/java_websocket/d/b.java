@@ -1,22 +1,21 @@
 package org.java_websocket.d;
 
-import com.baidu.android.imsdk.utils.HanziToPinyin;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes7.dex */
 public class b implements a {
-    private final String nOJ;
+    private final String nip;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.nOJ = str;
+        this.nip = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Sz(String str) {
-        for (String str2 : str.replaceAll(HanziToPinyin.Token.SEPARATOR, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.nOJ.equals(str2)) {
+    public boolean PO(String str) {
+        for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+            if (this.nip.equals(str2)) {
                 return true;
             }
         }
@@ -24,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String dOi() {
-        return this.nOJ;
+    public String dHi() {
+        return this.nip;
     }
 
     @Override // org.java_websocket.d.a
-    public a dOj() {
-        return new b(dOi());
+    public a dHj() {
+        return new b(dHi());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return dOi();
+        return dHi();
     }
 
     public boolean equals(Object obj) {
@@ -45,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.nOJ.equals(((b) obj).nOJ);
+        return this.nip.equals(((b) obj).nip);
     }
 
     public int hashCode() {
-        return this.nOJ.hashCode();
+        return this.nip.hashCode();
     }
 }

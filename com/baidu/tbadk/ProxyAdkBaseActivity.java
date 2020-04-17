@@ -108,7 +108,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = e.aFP();
+        this.customToast = e.aOd();
         super.onCreate(bundle);
         this.mLayoutMode = new com.baidu.tbadk.core.c();
         this.mLayoutInflateFactory = new a();
@@ -193,7 +193,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
 
     protected void adjustResizeForSoftInput() {
         if (this.mUseStyleImmersiveSticky) {
-            com.baidu.tbadk.core.view.e.ag(getPageContext().getPageActivity());
+            com.baidu.tbadk.core.view.e.ac(getPageContext().getPageActivity());
         }
     }
 
@@ -361,19 +361,19 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements c 
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).aEL();
+        BdToast.a((Context) getActivity(), (CharSequence) str, i, false).aMZ();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2, false).aEL();
+        BdToast.a(getActivity(), str, i, i2, false).aMZ();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).aEL();
+        BdToast.a(getActivity(), str, defaultIcon).aMZ();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).aEL();
+        BdToast.a(getActivity(), str, defaultIcon, i).aMZ();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity

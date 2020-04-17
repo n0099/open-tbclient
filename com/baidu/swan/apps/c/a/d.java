@@ -12,16 +12,16 @@ public class d extends com.baidu.swan.apps.core.d.h {
     private static final String TAG = d.class.getSimpleName();
 
     @Override // com.baidu.swan.apps.core.d.h
-    public com.baidu.swan.apps.adaptation.b.f IM() {
-        return com.baidu.swan.apps.core.k.d.Qz().QA().bx(getContext());
+    public com.baidu.swan.apps.adaptation.b.f Qy() {
+        return com.baidu.swan.apps.core.k.d.Yo().Yp().bl(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.h
-    protected com.baidu.swan.apps.core.f.d Jh() {
+    protected com.baidu.swan.apps.core.f.d QT() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.c.a.d.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
-            public boolean en(String str) {
-                return super.en(str);
+            public boolean fg(String str) {
+                return super.fg(str);
             }
         };
     }
@@ -29,20 +29,20 @@ public class d extends com.baidu.swan.apps.core.d.h {
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
     protected void ae(View view) {
         super.ae(view);
-        this.bnK.setRightZoneVisibility(true);
+        this.bLR.setRightZoneVisibility(true);
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected void Jl() {
-        FragmentActivity auD = auD();
-        if (auD != null && this.bnL == null) {
-            this.bnL = new com.baidu.swan.menu.h(auD, this.bnK, Jm(), com.baidu.swan.apps.w.a.Ud(), new com.baidu.swan.apps.view.c.b());
-            new com.baidu.swan.apps.aa.a(this.bnL, this).Yn();
+    protected void QX() {
+        FragmentActivity aCO = aCO();
+        if (aCO != null && this.bLS == null) {
+            this.bLS = new com.baidu.swan.menu.h(aCO, this.bLR, QY(), com.baidu.swan.apps.w.a.abS(), new com.baidu.swan.apps.view.c.b());
+            new com.baidu.swan.apps.aa.a(this.bLS, this).agt();
         }
     }
 
-    private int Jm() {
-        return NS() ? 18 : 12;
+    private int QY() {
+        return VG() ? 18 : 12;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [com.baidu.swan.apps.adaptation.b.d] */
@@ -50,41 +50,41 @@ public class d extends com.baidu.swan.apps.core.d.h {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         ae(inflate);
-        this.boR = IM();
-        this.boR.a(Jh());
-        this.bbl = this.boR.IS();
-        this.boR.loadUrl(this.mUrl);
+        this.bMY = Qy();
+        this.bMY.a(QT());
+        this.bzz = this.bMY.QE();
+        this.bMY.loadUrl(this.mUrl);
         FrameLayout frameLayout = (FrameLayout) inflate.findViewById(a.f.aiapps_webView_container);
-        this.boR.a(frameLayout, this.bbl.covertToView());
+        this.bMY.a(frameLayout, this.bzz.covertToView());
         a(frameLayout);
         return immersionEnabled() ? initImmersion(inflate) : inflate;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    protected boolean Ji() {
+    protected boolean QU() {
         return true;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.apps.core.d.b
-    public boolean IN() {
-        if (this.bbl != null && this.bbl.canGoBack()) {
-            this.bbl.goBack();
+    public boolean Qz() {
+        if (this.bzz != null && this.bzz.canGoBack()) {
+            this.bzz.goBack();
             return true;
         }
-        Jn();
+        QZ();
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.h, com.baidu.swan.support.v4.app.Fragment
     public void onDestroy() {
-        Jn();
+        QZ();
         super.onDestroy();
     }
 
-    private void Jn() {
-        com.baidu.swan.apps.a.a Jo;
-        if (!e.bcB.Jq() && (Jo = e.bcB.Jo()) != null) {
-            Jo.onResult(-2);
+    private void QZ() {
+        com.baidu.swan.apps.a.a Ra;
+        if (!e.bAP.Rc() && (Ra = e.bAP.Ra()) != null) {
+            Ra.onResult(-2);
         }
     }
 }

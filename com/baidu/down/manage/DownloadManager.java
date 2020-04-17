@@ -20,8 +20,6 @@ import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.utils.NamingThreadFactory;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mobstat.Config;
-import com.baidu.searchbox.datachannel.Contract;
-import com.google.android.exoplayer2.Format;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -201,11 +199,11 @@ public final class DownloadManager {
                 download.setTotalbytes(Long.valueOf(j3));
                 download.setProgressmap(str2);
                 long currentTimeMillis = System.currentTimeMillis();
-                if ((download.mLastSpeed != 0 && j4 == 0) || currentTimeMillis - download.mLastProgressNotiStamp >= 200) {
+                if ((download.mLastSpeed != 0 && j4 == 0) || currentTimeMillis - download.mLastProgressNotiStamp >= DownloadManager.MIN_PROGRESS_INTERVAL) {
                     download.mLastProgressNotiStamp = currentTimeMillis;
                     int progress = download.getProgress();
                     float currentProgress = download.getCurrentProgress();
-                    if ((download.mLastSpeed != 0 && j4 == 0) || j3 == Format.OFFSET_SAMPLE_RELATIVE || Math.abs(currentProgress - download.mLastProgressNoti) >= DownloadManager.MIN_PROGRESS_CHANGE) {
+                    if ((download.mLastSpeed != 0 && j4 == 0) || j3 == Long.MAX_VALUE || Math.abs(currentProgress - download.mLastProgressNoti) >= DownloadManager.MIN_PROGRESS_CHANGE) {
                         download.mLastSpeed = j4;
                         DownloadManager.this.notifyProgressChange(j, progress);
                         download.mLastProgressNoti = currentProgress;
@@ -435,7 +433,7 @@ public final class DownloadManager {
         HashMap hashMap = new HashMap();
         hashMap.put(Config.LAUNCH_REFERER, DownloadConstants.REFER);
         if (!TextUtils.isEmpty(download.getUrihost())) {
-            hashMap.put(Contract.SCHEME_KEY_HOST, download.getUrihost());
+            hashMap.put("host", download.getUrihost());
         }
         if (DEBUG) {
             Log.d("DownloadManager", "host:" + download.getUrihost());

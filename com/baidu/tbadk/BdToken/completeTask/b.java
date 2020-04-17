@@ -17,7 +17,7 @@ import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
 import com.baidu.tbadk.mutiprocess.g;
 /* loaded from: classes.dex */
 public class b {
-    private h cJJ;
+    private h diO;
     private a mData;
 
     public void a(a aVar) {
@@ -26,55 +26,55 @@ public class b {
 
     public void show() {
         if (this.mData != null) {
-            if (this.mData.showType == a.cJw) {
-                this.cJJ = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).aER();
-            } else if (this.mData.showType == a.cJx) {
+            if (this.mData.showType == a.diB) {
+                this.diO = h.b(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData).aNf();
+            } else if (this.mData.showType == a.diC) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
                 com.baidu.tbadk.core.business.b bVar = new com.baidu.tbadk.core.business.b(currentActivity);
                 bVar.a(currentActivity, this.mData);
                 bVar.show();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                com.baidu.tbadk.core.business.a.aAd().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.a.aAd().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
-            } else if (this.mData.showType == a.cJy) {
-                if (this.mData.cJC == a.cJA) {
+                com.baidu.tbadk.core.business.a.aIq().putInt("business_count_hint" + currentAccount + this.mData.activityId, com.baidu.tbadk.core.business.a.aIq().getInt("business_count_hint" + currentAccount + this.mData.activityId) - 1);
+            } else if (this.mData.showType == a.diD) {
+                if (this.mData.diH == a.diF) {
                     if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData.schema) && !aq.isEmpty(this.mData.url)) {
-                        rD(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
+                        sR(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
                     }
-                } else if (this.mData.cJC == a.cJB && !aq.isEmpty(this.mData.url)) {
-                    rD(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
+                } else if (this.mData.diH == a.diG && !aq.isEmpty(this.mData.url)) {
+                    sR(this.mData.url + "?page_type=open_full_screen_opacity_web_page");
                 }
-            } else if (this.mData.showType == a.cJz && !TextUtils.isEmpty(this.mData.message)) {
+            } else if (this.mData.showType == a.diE && !TextUtils.isEmpty(this.mData.message)) {
                 CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
                 completeTaskToastData.activityId = this.mData.activityId;
                 completeTaskToastData.missionId = this.mData.missionId;
                 completeTaskToastData.duration = this.mData.duration;
                 completeTaskToastData.message = this.mData.message;
                 completeTaskToastData.url = this.mData.url;
-                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.axC().axG();
+                completeTaskToastData.pageId = com.baidu.tbadk.BdToken.c.aFN().aFR();
                 CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
                 competeTaskEvent.taskToastData = completeTaskToastData;
                 g.publishEvent(competeTaskEvent);
-                c.au(this.mData.activityId, this.mData.missionId);
+                c.ax(this.mData.activityId, this.mData.missionId);
             }
         }
     }
 
-    private void rD(String str) {
+    private void sR(String str) {
         Activity currentActivity;
-        TbPageContext r;
-        if (!aq.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (r = r(currentActivity)) != null && !StringUtils.isNull(str)) {
-            r.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(currentActivity, "", str, true)));
+        TbPageContext n;
+        if (!aq.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (n = n(currentActivity)) != null && !StringUtils.isNull(str)) {
+            n.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(currentActivity, "", str, true)));
         }
     }
 
     public void clearData() {
-        if (this.cJJ != null) {
-            this.cJJ.hide();
-            this.cJJ = null;
+        if (this.diO != null) {
+            this.diO.hide();
+            this.diO = null;
         }
     }
 
-    private TbPageContext r(Activity activity) {
+    private TbPageContext n(Activity activity) {
         if (activity instanceof BaseActivity) {
             return ((BaseActivity) activity).getPageContext();
         }

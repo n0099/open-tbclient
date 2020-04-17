@@ -3,17 +3,17 @@ package com.baidu.swan.apps.view.narootview;
 import android.support.annotation.NonNull;
 /* loaded from: classes11.dex */
 public class b {
-    private int cbd;
-    private int cbe;
+    private int cAf;
+    private int cAg;
     private int mFlags = 0;
 
     @NonNull
-    public b hm(int i) {
+    public b ht(int i) {
         this.mFlags |= i;
         return this;
     }
 
-    public void hn(int i) {
+    public void hu(int i) {
         this.mFlags &= i ^ (-1);
     }
 
@@ -21,19 +21,19 @@ public class b {
         return (this.mFlags & 1) == 1;
     }
 
-    public int ahQ() {
-        return this.cbd;
+    public int apY() {
+        return this.cAf;
     }
 
-    public void ho(int i) {
-        this.cbd = i;
+    public void hv(int i) {
+        this.cAf = i;
     }
 
-    public int ahR() {
-        return this.cbe;
+    public int apZ() {
+        return this.cAg;
     }
 
-    public void hp(int i) {
-        this.cbe = i;
+    public void hw(int i) {
+        this.cAg = i;
     }
 }

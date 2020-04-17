@@ -10,7 +10,6 @@ import java.util.Map;
 /* loaded from: classes13.dex */
 public class b {
     static List<String> i;
-    public static boolean j = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static DnsParseResult a(String str, boolean z) {
@@ -20,10 +19,10 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        com.baidu.searchbox.dns.c.a k = new a.C0180a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+        com.baidu.searchbox.dns.c.a k = new a.C0213a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
         com.baidu.searchbox.dns.d.a i4 = k.i();
         com.baidu.searchbox.dns.d.a.a h = k.h();
-        int j2 = k.j();
+        int j = k.j();
         if (h != null) {
             List<String> a = a(h, DnsUtil.stackType);
             if (a == null || a.isEmpty()) {
@@ -31,18 +30,18 @@ public class b {
                 i3 = 0;
                 i2 = 1006;
             } else {
-                if (j2 == 1001) {
+                if (j == 1001) {
                     z = true;
                 }
                 if (DnsUtil.DEBUG) {
                     Log.d(DnsUtil.TAG, "DnsEngine getIplist -> cache response hit: " + str + " ip: " + a(a));
                 }
                 i3 = 2000;
-                i2 = j2;
+                i2 = j;
                 list = a;
             }
         } else {
-            i2 = j2;
+            i2 = j;
             list = null;
             i3 = 0;
         }
@@ -151,7 +150,6 @@ public class b {
     }
 
     private static void b(String str) {
-        DnsUtil.initNetworkStackType();
         com.baidu.searchbox.dns.d.a a = com.baidu.searchbox.dns.d.b.o().a(str, true, 1);
         if (a != null) {
             if (DnsUtil.DEBUG) {
@@ -173,19 +171,36 @@ public class b {
     }
 
     private static List<String> a(com.baidu.searchbox.dns.d.a.a aVar, int i2) {
+        boolean z = true;
         if (i2 == 3) {
-            return a(aVar, j);
-        }
-        if (i2 == 1) {
+            if (!DnsUtil.iPv6TestEnable || !DnsUtil.iPv6Perfer || !com.baidu.searchbox.dns.a.a.e().isIPv6TestArea()) {
+                z = false;
+            }
+            return a(aVar, z);
+        } else if (i2 == 1) {
+            return a(aVar, false);
+        } else {
+            if (i2 == 2) {
+                return a(aVar, true);
+            }
             return a(aVar, false);
         }
-        if (i2 == 2) {
-            return a(aVar, true);
-        }
-        return a(aVar, false);
     }
 
     private static List<String> a(com.baidu.searchbox.dns.d.a.a aVar, boolean z) {
+        if (z) {
+            ArrayList arrayList = new ArrayList();
+            List<String> ipList = aVar.getIpList();
+            List<String> z2 = aVar.z();
+            if (z2 != null) {
+                arrayList.addAll(z2);
+            }
+            if (ipList != null) {
+                arrayList.addAll(ipList);
+                return arrayList;
+            }
+            return arrayList;
+        }
         return aVar.getIpList();
     }
 }

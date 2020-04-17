@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
-/* loaded from: classes13.dex */
+/* loaded from: classes2.dex */
 public class TransmitForumActivityConfig extends IntentConfig {
     public static final String KEY_FORUM_LIST_SELECTED = "KEY_FORUM_LIST_SELECTED";
     public static final String KEY_RECOMMEND_FORUM_LIST = "KEY_RECOMMEND_FORUM_LIST";

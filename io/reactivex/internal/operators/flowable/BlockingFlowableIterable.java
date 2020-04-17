@@ -14,12 +14,12 @@ import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes7.dex */
 public final class BlockingFlowableIterable<T> implements Iterable<T> {
     final int bufferSize;
-    final io.reactivex.g<T> nyr;
+    final io.reactivex.g<T> mRJ;
 
     @Override // java.lang.Iterable
     public Iterator<T> iterator() {
         BlockingFlowableIterator blockingFlowableIterator = new BlockingFlowableIterator(this.bufferSize);
-        this.nyr.a((j) blockingFlowableIterator);
+        this.mRJ.a((j) blockingFlowableIterator);
         return blockingFlowableIterator;
     }
 
@@ -49,14 +49,14 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                 if (z) {
                     Throwable th = this.error;
                     if (th != null) {
-                        throw ExceptionHelper.J(th);
+                        throw ExceptionHelper.N(th);
                     }
                     if (isEmpty) {
                         return false;
                     }
                 }
                 if (isEmpty) {
-                    io.reactivex.internal.util.c.dKf();
+                    io.reactivex.internal.util.c.dDe();
                     this.lock.lock();
                     while (!this.done && this.queue.isEmpty()) {
                         try {
@@ -64,7 +64,7 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
                                 this.condition.await();
                             } catch (InterruptedException e) {
                                 run();
-                                throw ExceptionHelper.J(e);
+                                throw ExceptionHelper.N(e);
                             }
                         } finally {
                             this.lock.unlock();
@@ -94,7 +94,9 @@ public final class BlockingFlowableIterable<T> implements Iterable<T> {
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            SubscriptionHelper.setOnce(this, dVar, this.batchSize);
+            if (SubscriptionHelper.setOnce(this, dVar)) {
+                dVar.request(this.batchSize);
+            }
         }
 
         @Override // org.a.c

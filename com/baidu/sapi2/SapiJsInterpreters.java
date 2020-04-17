@@ -15,7 +15,7 @@ import android.os.Build;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.DatePicker;
-import com.baidu.android.util.time.DateTimeUtil;
+import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.live.tbadk.log.LogConfig;
@@ -51,7 +51,6 @@ import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.searchbox.ugc.utils.UgcUBCUtils;
 import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.text.SimpleDateFormat;
@@ -304,7 +303,7 @@ public class SapiJsInterpreters {
                     loadSlideWebViewResult.page = jSONObject.optString("page");
                     SapiJsInterpreters.this.c.x.loadSlideWebview(loadSlideWebViewResult);
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("errno", "0");
+                    jSONObject2.put(BaseJsonData.TAG_ERRNO, "0");
                     return jSONObject2.toString();
                 } catch (JSONException e) {
                     Log.e(e);
@@ -567,7 +566,7 @@ public class SapiJsInterpreters {
                 public void onCall(GetContactResult getContactResult) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("errno", 0);
+                        jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                         jSONObject.put("name", getContactResult.name);
                         jSONObject.put("phone", getContactResult.phone);
                     } catch (JSONException e) {
@@ -590,7 +589,7 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                 ClipboardManager clipboardManager = (ClipboardManager) SapiJsInterpreters.this.d.getSystemService("clipboard");
                 if (clipboardManager.hasPrimaryClip()) {
                     jSONObject.put("paste", clipboardManager.getPrimaryClip().getItemAt(0).getText().toString());
@@ -615,7 +614,7 @@ public class SapiJsInterpreters {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
             } catch (JSONException e) {
             }
             return jSONObject.toString();
@@ -789,7 +788,7 @@ public class SapiJsInterpreters {
             Object jSONArray;
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
             } catch (JSONException e) {
                 Log.e(e);
             }
@@ -886,7 +885,7 @@ public class SapiJsInterpreters {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
             } catch (JSONException e) {
             }
             return jSONObject.toString();
@@ -903,7 +902,7 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             try {
                 JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                int optInt = jSONObject.optInt("errno");
+                int optInt = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
                 String optString = jSONObject.optString("msg");
                 if (optInt != 0) {
                     if (SapiJsInterpreters.this.c.z != null) {
@@ -954,7 +953,7 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                 if (!TextUtils.isEmpty(SapiJsInterpreters.this.c.S)) {
                     jSONObject.put("description", new JSONObject(SapiJsInterpreters.this.c.S));
                 }
@@ -1283,7 +1282,7 @@ public class SapiJsInterpreters {
             try {
                 jSONObject.put("encryptedId", SapiJsInterpreters.this.c.T.encryptedId);
                 jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, SapiJsInterpreters.this.c.T.displayname);
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
             } catch (Exception e) {
                 Log.e(e);
             }
@@ -1316,7 +1315,7 @@ public class SapiJsInterpreters {
                 boolean z = !new JSONObject(command.getActionParams().get(0)).optBoolean("is_only_outside_get_token", true);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("is_outside_company", "0");
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                 if (z) {
                     SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
                     jSONObject.put("once_token", SapiAccountManager.getInstance().getDeviceAuthToken(SapiJsInterpreters.this.d, currentAccount == null ? null : currentAccount.uid, 122));
@@ -1358,7 +1357,7 @@ public class SapiJsInterpreters {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("hideTip", SapiJsInterpreters.this.c.U ? "1" : "0");
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
             } catch (Exception e) {
                 Log.e(e);
             }
@@ -1377,7 +1376,7 @@ public class SapiJsInterpreters {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("lastLoginType", SapiUtils.getLastLoginType());
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
             } catch (Exception e) {
                 Log.e(e);
             }
@@ -1442,7 +1441,7 @@ public class SapiJsInterpreters {
             Calendar calendar = Calendar.getInstance();
             Date time = calendar.getTime();
             try {
-                calendar.setTime(new SimpleDateFormat(DateTimeUtil.DAY_FORMAT).parse(str));
+                calendar.setTime(new SimpleDateFormat("yyyyMMdd").parse(str));
             } catch (Exception e) {
                 Log.e(e);
             }
@@ -1665,7 +1664,7 @@ public class SapiJsInterpreters {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("sidValue", SapiJsInterpreters.this.b.sidValue);
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
             } catch (JSONException e) {
                 Log.e(e);
             }
@@ -1743,7 +1742,7 @@ public class SapiJsInterpreters {
                     try {
                         jSONObject.put("with_permision", z);
                         jSONObject.put("send_suc", z2);
-                        jSONObject.put(UgcUBCUtils.UGC_TIME_CANCEL, z3);
+                        jSONObject.put("cancel", z3);
                     } catch (JSONException e) {
                         Log.e(e);
                     }
@@ -1961,7 +1960,7 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                 JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
                 String optString = jSONObject2.optString("portraitSign");
                 if (!TextUtils.isEmpty(optString)) {
@@ -2054,7 +2053,7 @@ public class SapiJsInterpreters {
                         try {
                             jSONObject.put("with_permision", false);
                             jSONObject.put("send_suc", false);
-                            jSONObject.put(UgcUBCUtils.UGC_TIME_CANCEL, false);
+                            jSONObject.put("cancel", false);
                         } catch (JSONException e2) {
                             Log.e(e2);
                         }
@@ -2205,7 +2204,7 @@ public class SapiJsInterpreters {
                     if (SapiJsInterpreters.this.c.M != null) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("errno", i);
+                            jSONObject.put(BaseJsonData.TAG_ERRNO, i);
                             jSONObject.put("text", str);
                             SapiJsInterpreters.this.c.M.confirm(jSONObject.toString());
                         } catch (JSONException e) {
@@ -2237,7 +2236,7 @@ public class SapiJsInterpreters {
             String str3;
             final JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                 jSONObject.put("status", 0);
                 JSONObject jSONObject2 = new JSONObject(command.getActionParams().get(0));
                 str2 = jSONObject2.optString("handle");
@@ -2326,7 +2325,7 @@ public class SapiJsInterpreters {
                 if (z) {
                     i = 0;
                 }
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                 jSONObject.put("guide", i);
                 if (TextUtils.isEmpty(optString)) {
                     str = "100";
@@ -2384,7 +2383,7 @@ public class SapiJsInterpreters {
                 } else {
                     i = 0;
                 }
-                jSONObject.put("errno", 0);
+                jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                 jSONObject.put("status", i);
             } catch (Exception e) {
                 Log.e(e);
@@ -2406,7 +2405,7 @@ public class SapiJsInterpreters {
                 public void setResult(int i) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("errno", 0);
+                        jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                         jSONObject.put("status", i);
                         SapiJsInterpreters.this.c.M.confirm(jSONObject.toString());
                     } catch (Exception e) {
@@ -2436,7 +2435,7 @@ public class SapiJsInterpreters {
                 public void setResult(int i) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("errno", 0);
+                        jSONObject.put(BaseJsonData.TAG_ERRNO, 0);
                         jSONObject.put("status", i);
                         SapiJsInterpreters.this.c.M.confirm(jSONObject.toString());
                         if (i == 0) {

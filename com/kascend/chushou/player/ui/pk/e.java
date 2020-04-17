@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes5.dex */
 public class e {
-    private static final e ngk = new e();
+    private static final e mCO = new e();
     private Handler b = new Handler(Looper.getMainLooper());
 
-    public static e dEE() {
-        return ngk;
+    public static e dyE() {
+        return mCO;
     }
 
     private e() {

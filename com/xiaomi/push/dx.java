@@ -14,16 +14,16 @@ public abstract class dx extends ai.a {
     protected int a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f245a;
+    protected Context f246a;
 
     public dx(Context context, int i) {
         this.a = i;
-        this.f245a = context;
+        this.f246a = context;
     }
 
     public static void a(Context context, ho hoVar) {
-        dk m221a = dl.a().m221a();
-        String a = m221a == null ? "" : m221a.a();
+        dk m226a = dl.a().m226a();
+        String a = m226a == null ? "" : m226a.a();
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hoVar.a())) {
             return;
         }
@@ -47,7 +47,7 @@ public abstract class dx extends ai.a {
         synchronized (dq.a) {
             try {
                 File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                y.m566a(file);
+                y.m571a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -134,17 +134,17 @@ public abstract class dx extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract hi mo155a();
+    public abstract hi mo160a();
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public abstract String mo155a();
+    public abstract String mo160a();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public boolean mo155a() {
-        return ag.a(this.f245a, String.valueOf(mo155a()), this.a);
+    public boolean mo160a() {
+        return ag.a(this.f246a, String.valueOf(mo160a()), this.a);
     }
 
     protected boolean b() {
@@ -153,21 +153,21 @@ public abstract class dx extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        if (mo155a()) {
-            dk m221a = dl.a().m221a();
-            String a = m221a == null ? "" : m221a.a();
+        if (mo160a()) {
+            dk m226a = dl.a().m226a();
+            String a = m226a == null ? "" : m226a.a();
             if (TextUtils.isEmpty(a) || !b()) {
                 return;
             }
-            String mo155a = mo155a();
-            if (TextUtils.isEmpty(mo155a)) {
+            String mo160a = mo160a();
+            if (TextUtils.isEmpty(mo160a)) {
                 return;
             }
             ho hoVar = new ho();
-            hoVar.a(mo155a);
+            hoVar.a(mo160a);
             hoVar.a(System.currentTimeMillis());
-            hoVar.a(mo155a());
-            a(this.f245a, hoVar, a);
+            hoVar.a(mo160a());
+            a(this.f246a, hoVar, a);
         }
     }
 }

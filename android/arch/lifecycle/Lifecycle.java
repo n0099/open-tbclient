@@ -19,12 +19,12 @@ public abstract class Lifecycle {
     @MainThread
     public abstract void a(@NonNull i iVar);
 
-    @NonNull
-    @MainThread
-    public abstract State au();
-
     @MainThread
     public abstract void b(@NonNull i iVar);
+
+    @NonNull
+    @MainThread
+    public abstract State fQ();
 
     /* loaded from: classes7.dex */
     public enum State {

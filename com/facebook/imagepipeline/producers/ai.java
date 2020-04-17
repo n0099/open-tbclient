@@ -8,61 +8,61 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes12.dex */
 public class ai implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
-    private final com.facebook.imagepipeline.b.f lRF;
-    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> lWS;
+    private final com.facebook.imagepipeline.b.f lZm;
     private final Executor mExecutor;
+    private final aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> meD;
 
     public ai(aj<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> ajVar, com.facebook.imagepipeline.b.f fVar, Executor executor) {
-        this.lWS = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
-        this.lRF = fVar;
+        this.meD = (aj) com.facebook.common.internal.g.checkNotNull(ajVar);
+        this.lZm = fVar;
         this.mExecutor = (Executor) com.facebook.common.internal.g.checkNotNull(executor);
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void c(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, ak akVar) {
         k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> cVar;
-        am drW = akVar.drW();
-        com.facebook.imagepipeline.request.b dsX = akVar.drV().dsX();
-        a aVar = new a(kVar, drW, akVar.getId(), dsX, akVar);
-        if (dsX instanceof com.facebook.imagepipeline.request.c) {
-            cVar = new b(aVar, (com.facebook.imagepipeline.request.c) dsX, akVar);
+        am dtU = akVar.dtU();
+        com.facebook.imagepipeline.request.b duT = akVar.dtT().duT();
+        a aVar = new a(kVar, dtU, akVar.getId(), duT, akVar);
+        if (duT instanceof com.facebook.imagepipeline.request.c) {
+            cVar = new b(aVar, (com.facebook.imagepipeline.request.c) duT, akVar);
         } else {
             cVar = new c(aVar);
         }
-        this.lWS.c(cVar, akVar);
+        this.meD.c(cVar, akVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes12.dex */
     public class a extends n<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>, com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> {
-        private final am lYn;
-        private final com.facebook.imagepipeline.request.b lYo;
         @GuardedBy("PostprocessorConsumer.this")
-        @Nullable
-        private com.facebook.common.references.a<com.facebook.imagepipeline.g.c> lYp;
-        @GuardedBy("PostprocessorConsumer.this")
-        private boolean lYq;
-        @GuardedBy("PostprocessorConsumer.this")
-        private boolean lYr;
+        private boolean Ot;
         private final String mRequestId;
         @GuardedBy("PostprocessorConsumer.this")
         private int mStatus;
+        private final am mfY;
+        private final com.facebook.imagepipeline.request.b mfZ;
         @GuardedBy("PostprocessorConsumer.this")
-        private boolean vA;
+        @Nullable
+        private com.facebook.common.references.a<com.facebook.imagepipeline.g.c> mga;
+        @GuardedBy("PostprocessorConsumer.this")
+        private boolean mgb;
+        @GuardedBy("PostprocessorConsumer.this")
+        private boolean mgc;
 
         public a(k<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> kVar, am amVar, String str, com.facebook.imagepipeline.request.b bVar, ak akVar) {
             super(kVar);
-            this.lYp = null;
+            this.mga = null;
             this.mStatus = 0;
-            this.lYq = false;
-            this.lYr = false;
-            this.lYn = amVar;
+            this.mgb = false;
+            this.mgc = false;
+            this.mfY = amVar;
             this.mRequestId = str;
-            this.lYo = bVar;
+            this.mfZ = bVar;
             akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ai.a.1
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-                public void don() {
-                    a.this.dsF();
+                public void dqk() {
+                    a.this.duD();
                 }
             });
         }
@@ -71,9 +71,9 @@ public class ai implements aj<com.facebook.common.references.a<com.facebook.imag
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
-        public void f(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
+        public void g(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
             if (!com.facebook.common.references.a.a(aVar)) {
-                if (IP(i)) {
+                if (Hr(i)) {
                     e(null, i);
                     return;
                 }
@@ -83,74 +83,74 @@ public class ai implements aj<com.facebook.common.references.a<com.facebook.imag
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        protected void B(Throwable th) {
-            E(th);
+        protected void F(Throwable th) {
+            I(th);
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        protected void dqF() {
-            dsF();
+        protected void dsD() {
+            duD();
         }
 
         private void c(@Nullable com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
             synchronized (this) {
-                if (!this.vA) {
-                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar2 = this.lYp;
-                    this.lYp = com.facebook.common.references.a.b((com.facebook.common.references.a) aVar);
+                if (!this.Ot) {
+                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar2 = this.mga;
+                    this.mga = com.facebook.common.references.a.b(aVar);
                     this.mStatus = i;
-                    this.lYq = true;
-                    boolean dsE = dsE();
-                    com.facebook.common.references.a.c(aVar2);
-                    if (dsE) {
-                        dsC();
+                    this.mgb = true;
+                    boolean duC = duC();
+                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar2);
+                    if (duC) {
+                        duA();
                     }
                 }
             }
         }
 
-        private void dsC() {
+        private void duA() {
             ai.this.mExecutor.execute(new Runnable() { // from class: com.facebook.imagepipeline.producers.ai.a.2
                 @Override // java.lang.Runnable
                 public void run() {
                     com.facebook.common.references.a aVar;
                     int i;
                     synchronized (a.this) {
-                        aVar = a.this.lYp;
+                        aVar = a.this.mga;
                         i = a.this.mStatus;
-                        a.this.lYp = null;
-                        a.this.lYq = false;
+                        a.this.mga = null;
+                        a.this.mgb = false;
                     }
                     if (com.facebook.common.references.a.a(aVar)) {
                         try {
                             a.this.d(aVar, i);
                         } finally {
-                            com.facebook.common.references.a.c(aVar);
+                            com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
                         }
                     }
-                    a.this.dsD();
+                    a.this.duB();
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void dsD() {
-            boolean dsE;
+        public void duB() {
+            boolean duC;
             synchronized (this) {
-                this.lYr = false;
-                dsE = dsE();
+                this.mgc = false;
+                duC = duC();
             }
-            if (dsE) {
-                dsC();
+            if (duC) {
+                duA();
             }
         }
 
-        private synchronized boolean dsE() {
+        private synchronized boolean duC() {
             boolean z = true;
             synchronized (this) {
-                if (this.vA || !this.lYq || this.lYr || !com.facebook.common.references.a.a(this.lYp)) {
+                if (this.Ot || !this.mgb || this.mgc || !com.facebook.common.references.a.a(this.mga)) {
                     z = false;
                 } else {
-                    this.lYr = true;
+                    this.mgc = true;
                 }
             }
             return z;
@@ -163,22 +163,22 @@ public class ai implements aj<com.facebook.common.references.a<com.facebook.imag
                 e(aVar, i);
                 return;
             }
-            this.lYn.fk(this.mRequestId, "PostprocessorProducer");
+            this.mfY.fi(this.mRequestId, "PostprocessorProducer");
             com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar2 = null;
             try {
                 aVar2 = g(aVar.get());
-                this.lYn.a(this.mRequestId, "PostprocessorProducer", a(this.lYn, this.mRequestId, this.lYo));
+                this.mfY.a(this.mRequestId, "PostprocessorProducer", a(this.mfY, this.mRequestId, this.mfZ));
                 e(aVar2, i);
             } catch (Exception e) {
-                this.lYn.a(this.mRequestId, "PostprocessorProducer", e, a(this.lYn, this.mRequestId, this.lYo));
-                E(e);
+                this.mfY.a(this.mRequestId, "PostprocessorProducer", e, a(this.mfY, this.mRequestId, this.mfZ));
+                I(e);
             } finally {
-                com.facebook.common.references.a.c(aVar2);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar2);
             }
         }
 
         private Map<String, String> a(am amVar, String str, com.facebook.imagepipeline.request.b bVar) {
-            if (amVar.Pe(str)) {
+            if (amVar.Ol(str)) {
                 return ImmutableMap.of("Postprocessor", bVar.getName());
             }
             return null;
@@ -190,48 +190,48 @@ public class ai implements aj<com.facebook.common.references.a<com.facebook.imag
 
         private com.facebook.common.references.a<com.facebook.imagepipeline.g.c> g(com.facebook.imagepipeline.g.c cVar) {
             com.facebook.imagepipeline.g.d dVar = (com.facebook.imagepipeline.g.d) cVar;
-            com.facebook.common.references.a<Bitmap> a = this.lYo.a(dVar.dqP(), ai.this.lRF);
+            com.facebook.common.references.a<Bitmap> a = this.mfZ.a(dVar.dsN(), ai.this.lZm);
             try {
-                return com.facebook.common.references.a.b(new com.facebook.imagepipeline.g.d(a, cVar.dqQ(), dVar.dqT(), dVar.dqU()));
+                return com.facebook.common.references.a.c(new com.facebook.imagepipeline.g.d(a, cVar.dsO(), dVar.dsR(), dVar.dsS()));
             } finally {
-                com.facebook.common.references.a.c(a);
+                com.facebook.common.references.a.c((com.facebook.common.references.a<?>) a);
             }
         }
 
         private void e(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
-            boolean IP = IP(i);
-            if ((!IP && !isClosed()) || (IP && OG())) {
-                dsh().g(aVar, i);
+            boolean Hr = Hr(i);
+            if ((!Hr && !isClosed()) || (Hr && Wv())) {
+                duf().h(aVar, i);
             }
         }
 
-        private void E(Throwable th) {
-            if (OG()) {
-                dsh().C(th);
+        private void I(Throwable th) {
+            if (Wv()) {
+                duf().G(th);
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void dsF() {
-            if (OG()) {
-                dsh().dlc();
+        public void duD() {
+            if (Wv()) {
+                duf().dmV();
             }
         }
 
         private synchronized boolean isClosed() {
-            return this.vA;
+            return this.Ot;
         }
 
-        private boolean OG() {
+        private boolean Wv() {
             boolean z = true;
             synchronized (this) {
-                if (this.vA) {
+                if (this.Ot) {
                     z = false;
                 } else {
-                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar = this.lYp;
-                    this.lYp = null;
-                    this.vA = true;
-                    com.facebook.common.references.a.c(aVar);
+                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar = this.mga;
+                    this.mga = null;
+                    this.Ot = true;
+                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
                 }
             }
             return z;
@@ -248,9 +248,9 @@ public class ai implements aj<com.facebook.common.references.a<com.facebook.imag
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
-        public void f(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
-            if (!IQ(i)) {
-                dsh().g(aVar, i);
+        public void g(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
+            if (!Hs(i)) {
+                duf().h(aVar, i);
             }
         }
     }
@@ -258,21 +258,21 @@ public class ai implements aj<com.facebook.common.references.a<com.facebook.imag
     /* loaded from: classes12.dex */
     class b extends n<com.facebook.common.references.a<com.facebook.imagepipeline.g.c>, com.facebook.common.references.a<com.facebook.imagepipeline.g.c>> implements com.facebook.imagepipeline.request.d {
         @GuardedBy("RepeatedPostprocessorConsumer.this")
-        @Nullable
-        private com.facebook.common.references.a<com.facebook.imagepipeline.g.c> lYp;
+        private boolean Ot;
         @GuardedBy("RepeatedPostprocessorConsumer.this")
-        private boolean vA;
+        @Nullable
+        private com.facebook.common.references.a<com.facebook.imagepipeline.g.c> mga;
 
         private b(a aVar, com.facebook.imagepipeline.request.c cVar, ak akVar) {
             super(aVar);
-            this.vA = false;
-            this.lYp = null;
+            this.Ot = false;
+            this.mga = null;
             cVar.a(this);
             akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ai.b.1
                 @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-                public void don() {
-                    if (b.this.OG()) {
-                        b.this.dsh().dlc();
+                public void dqk() {
+                    if (b.this.Wv()) {
+                        b.this.duf().dmV();
                     }
                 }
             });
@@ -282,35 +282,35 @@ public class ai implements aj<com.facebook.common.references.a<com.facebook.imag
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
-        public void f(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
-            if (!IQ(i)) {
+        public void g(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar, int i) {
+            if (!Hs(i)) {
                 p(aVar);
-                dsG();
+                duE();
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        protected void B(Throwable th) {
-            if (OG()) {
-                dsh().C(th);
+        protected void F(Throwable th) {
+            if (Wv()) {
+                duf().G(th);
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.n, com.facebook.imagepipeline.producers.b
-        protected void dqF() {
-            if (OG()) {
-                dsh().dlc();
+        protected void dsD() {
+            if (Wv()) {
+                duf().dmV();
             }
         }
 
-        private void dsG() {
+        private void duE() {
             synchronized (this) {
-                if (!this.vA) {
-                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> b = com.facebook.common.references.a.b((com.facebook.common.references.a) this.lYp);
+                if (!this.Ot) {
+                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> b = com.facebook.common.references.a.b(this.mga);
                     try {
-                        dsh().g(b, 0);
+                        duf().h(b, 0);
                     } finally {
-                        com.facebook.common.references.a.c(b);
+                        com.facebook.common.references.a.c((com.facebook.common.references.a<?>) b);
                     }
                 }
             }
@@ -318,25 +318,25 @@ public class ai implements aj<com.facebook.common.references.a<com.facebook.imag
 
         private void p(com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar) {
             synchronized (this) {
-                if (!this.vA) {
-                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar2 = this.lYp;
-                    this.lYp = com.facebook.common.references.a.b((com.facebook.common.references.a) aVar);
-                    com.facebook.common.references.a.c(aVar2);
+                if (!this.Ot) {
+                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar2 = this.mga;
+                    this.mga = com.facebook.common.references.a.b(aVar);
+                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar2);
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean OG() {
+        public boolean Wv() {
             boolean z = true;
             synchronized (this) {
-                if (this.vA) {
+                if (this.Ot) {
                     z = false;
                 } else {
-                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar = this.lYp;
-                    this.lYp = null;
-                    this.vA = true;
-                    com.facebook.common.references.a.c(aVar);
+                    com.facebook.common.references.a<com.facebook.imagepipeline.g.c> aVar = this.mga;
+                    this.mga = null;
+                    this.Ot = true;
+                    com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aVar);
                 }
             }
             return z;

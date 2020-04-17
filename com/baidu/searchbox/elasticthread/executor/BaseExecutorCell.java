@@ -4,11 +4,10 @@ import android.os.SystemClock;
 import com.baidu.searchbox.elasticthread.ElasticConfig;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
-import com.google.android.exoplayer2.Format;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes13.dex */
+/* loaded from: classes11.dex */
 public abstract class BaseExecutorCell implements Recordable {
     protected static final boolean DEBUG = false;
     protected int completedTaskCountInRecordLifeCycle;
@@ -17,10 +16,10 @@ public abstract class BaseExecutorCell implements Recordable {
     protected long workTimeInRecordLifeCycle;
     protected List<ElasticTask> mWorkingTasks = new LinkedList();
     protected long recordBeginTime = 0;
-    protected long recordEndTime = Format.OFFSET_SAMPLE_RELATIVE;
+    protected long recordEndTime = Long.MAX_VALUE;
     protected Recordable.RecordStatus mRecordStatus = Recordable.RecordStatus.UNINITIATED;
 
-    /* loaded from: classes13.dex */
+    /* loaded from: classes11.dex */
     public enum ExecutorType {
         ARTERY,
         DREDGE_NORMAL,
@@ -120,7 +119,7 @@ public abstract class BaseExecutorCell implements Recordable {
     @Override // com.baidu.searchbox.elasticthread.statistic.Recordable
     public synchronized void onRecordBegin() {
         this.recordBeginTime = SystemClock.elapsedRealtime();
-        this.recordEndTime = Format.OFFSET_SAMPLE_RELATIVE;
+        this.recordEndTime = Long.MAX_VALUE;
         this.workTimeInRecordLifeCycle = 0L;
         this.completedTaskCountInRecordLifeCycle = 0;
         this.mRecordStatus = Recordable.RecordStatus.RECORDING;
