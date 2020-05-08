@@ -483,8 +483,9 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes8.dex */
-    static final class SerializedForm implements Serializable {
+    public static final class SerializedForm implements Serializable {
         private static final long serialVersionUID = 0;
         private byte[] asBytes;
         private String messageClassName;

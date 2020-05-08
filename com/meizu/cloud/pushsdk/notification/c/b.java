@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.util.io.ActionJsonData;
 import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Map;
@@ -56,7 +57,7 @@ public class b {
     }
 
     public static void a(Context context) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager != null) {
             notificationManager.cancelAll();
         }
@@ -64,7 +65,7 @@ public class b {
 
     public static void a(Context context, String str) {
         Set<String> set;
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager == null || TextUtils.isEmpty(str) || (set = e.get(str)) == null) {
             return;
         }
@@ -76,7 +77,7 @@ public class b {
     }
 
     public static void a(Context context, String str, int i) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager != null) {
             com.meizu.cloud.a.a.i("NotificationUtils", "clear clearNotification notifyId " + i);
             notificationManager.cancel(i);
@@ -93,10 +94,10 @@ public class b {
             if (TextUtils.isEmpty(str2)) {
                 z = false;
             } else {
-                int h = com.meizu.cloud.pushsdk.util.b.h(context, str, str2);
-                com.meizu.cloud.a.a.e("NotificationUtils", "removeNotifyKey " + str2 + " notifyId " + h);
-                c(context, str, h);
-                z = com.meizu.cloud.pushsdk.util.b.i(context, str, str2);
+                int i = com.meizu.cloud.pushsdk.util.b.i(context, str, str2);
+                com.meizu.cloud.a.a.e("NotificationUtils", "removeNotifyKey " + str2 + " notifyId " + i);
+                c(context, str, i);
+                z = com.meizu.cloud.pushsdk.util.b.j(context, str, str2);
             }
         }
         return z;

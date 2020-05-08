@@ -6,17 +6,17 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class bl {
-    private String duc;
-    private String dud;
-    private int due;
-    private String duf;
-    private long dug;
+    private String dug;
     private String duh;
+    private int dui;
+    private String duj;
+    private long duk;
+    private String dul;
     private String imgUrl;
     private String subTitle;
     private String summary;
 
-    public String aIW() {
+    public String aIU() {
         return this.imgUrl;
     }
 
@@ -24,36 +24,36 @@ public class bl {
         return this.summary;
     }
 
+    public String aMD() {
+        return this.duh;
+    }
+
+    public int aME() {
+        return this.dui;
+    }
+
     public String aMF() {
-        return this.dud;
+        return this.duj;
     }
 
-    public int aMG() {
-        return this.due;
-    }
-
-    public String aMH() {
-        return this.duf;
-    }
-
-    public long aMI() {
-        return this.dug;
+    public long aMG() {
+        return this.duk;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
             this.imgUrl = topCode.img_url;
-            this.duc = topCode.game_link;
+            this.dug = topCode.game_link;
             this.summary = topCode.summary;
-            this.dud = topCode.code_link;
-            this.due = topCode.get_type.intValue();
-            this.duf = topCode.surplusgift;
+            this.duh = topCode.code_link;
+            this.dui = topCode.get_type.intValue();
+            this.duj = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.dug = 0L;
+                this.duk = 0L;
             } else {
-                this.dug = topCode.giftworth.longValue();
+                this.duk = topCode.giftworth.longValue();
             }
-            this.duh = topCode.type_text;
+            this.dul = topCode.type_text;
             this.subTitle = topCode.subtitle;
         }
     }
@@ -62,13 +62,13 @@ public class bl {
         if (jSONObject != null) {
             try {
                 this.imgUrl = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-                this.duc = jSONObject.optString("game_link");
+                this.dug = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.dud = jSONObject.optString("code_link");
-                this.due = jSONObject.optInt("get_type", 1);
-                this.duf = jSONObject.optString("surplusgift");
-                this.dug = jSONObject.optLong("giftworth", 0L);
-                this.duh = jSONObject.optString("type_text");
+                this.duh = jSONObject.optString("code_link");
+                this.dui = jSONObject.optInt("get_type", 1);
+                this.duj = jSONObject.optString("surplusgift");
+                this.duk = jSONObject.optLong("giftworth", 0L);
+                this.dul = jSONObject.optString("type_text");
                 this.subTitle = jSONObject.optString("subtitle");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -76,8 +76,8 @@ public class bl {
         }
     }
 
-    public String aMJ() {
-        return this.duh;
+    public String aMH() {
+        return this.dul;
     }
 
     public String getSubTitle() {

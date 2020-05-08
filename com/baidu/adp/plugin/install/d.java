@@ -51,14 +51,14 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 /* loaded from: classes.dex */
 public class d {
-    private static boolean QH = false;
-    private static Map<String, Boolean> QI = new HashMap();
-    private static String QJ = null;
-    private static boolean QK = false;
     private static boolean QL = false;
-    private static boolean QM = false;
+    private static Map<String, Boolean> QM = new HashMap();
+    private static String flag = null;
     private static boolean QN = false;
-    private static Signature[] QO = null;
+    private static boolean QO = false;
+    private static boolean QP = false;
+    private static boolean QR = false;
+    private static Signature[] QS = null;
 
     public static void onHandleIntent(Intent intent) {
         PluginSetting pluginSetting = null;
@@ -71,15 +71,15 @@ public class d {
             com.baidu.adp.plugin.b.a.nF().g("plugin_install", "intent_action_null", null);
             return;
         }
-        QH = intent.getBooleanExtra("is_debug_plugin", false);
+        QL = intent.getBooleanExtra("is_debug_plugin", false);
         if (action.equals(PluginInstallerService.ACTION_INSTALL)) {
             String stringExtra = intent.getStringExtra("install_src_file");
             String stringExtra2 = intent.getStringExtra("package_name");
-            QJ = intent.getStringExtra("install_flag");
-            if (QJ == null) {
-                QJ = "f" + System.currentTimeMillis();
+            flag = intent.getStringExtra("install_flag");
+            if (flag == null) {
+                flag = "f" + System.currentTimeMillis();
             }
-            com.baidu.adp.plugin.b.a.nF().f("plugin_install", "install_service_start", stringExtra2, QJ);
+            com.baidu.adp.plugin.b.a.nF().f("plugin_install", "install_service_start", stringExtra2, flag);
             try {
                 pluginSetting = (PluginSetting) intent.getSerializableExtra("plugin_setting");
             } catch (Throwable th) {
@@ -99,7 +99,7 @@ public class d {
                 }
             }
             String str = stringExtra2 + stringExtra;
-            if (QI.containsKey(str) && QI.get(str).booleanValue()) {
+            if (QM.containsKey(str) && QM.get(str).booleanValue()) {
                 com.baidu.adp.plugin.b.a.nF().f("plugin_install", "plugin_has_installed", stringExtra2, "b_pkgName_" + stringExtra2 + "-srcFile_" + stringExtra);
                 Intent intent3 = new Intent("com.baidu.adp.plugin.installrepeat");
                 intent3.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -212,7 +212,7 @@ public class d {
         File file = new File(substring);
         if (!file.exists()) {
             e(str, str2, "apk_not_exist", "file_not_exists-apkFilePath_" + substring);
-            com.baidu.adp.plugin.b.a.nF().f("plugin_install", "service_apk_not_exist", str2, QJ + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + substring);
+            com.baidu.adp.plugin.b.a.nF().f("plugin_install", "service_apk_not_exist", str2, flag + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + substring);
             return;
         }
         try {
@@ -520,7 +520,7 @@ public class d {
             str5 = packageArchiveInfo.versionName;
             i = packageArchiveInfo.versionCode;
         }
-        if (!BdBaseApplication.getInst().isDebugMode() && !QH) {
+        if (!BdBaseApplication.getInst().isDebugMode() && !QL) {
             if (!B(str6, file2.getAbsolutePath()).isSuccess) {
                 boolean z9 = false;
                 if (pluginSetting != null && str.startsWith("file://")) {
@@ -717,7 +717,7 @@ public class d {
         long currentTimeMillis2 = System.currentTimeMillis();
         a(file4.getAbsolutePath(), str6, file5);
         com.baidu.adp.plugin.b.a.nF().b("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis2, str6);
-        QI.put(str2 + str, true);
+        QM.put(str2 + str, true);
         Intent intent3 = new Intent("com.baidu.adp.plugin.installed");
         intent3.setPackage(BdBaseApplication.getInst().getPackageName());
         intent3.putExtra("package_name", str6);
@@ -732,7 +732,7 @@ public class d {
         intent3.putExtra("is_patch", z4);
         intent3.putExtra("replace_method_classes", str8);
         intent3.putExtra("is_inject_classloader", z2);
-        intent3.putExtra("install_flag", QJ);
+        intent3.putExtra("install_flag", flag);
         BdStatisticsManager.getInstance().save();
         BdBaseApplication.getInst().sendOrderedBroadcast(intent3, null);
         try {
@@ -838,7 +838,7 @@ public class d {
         intent.putExtra("fail_reason", str3);
         intent.putExtra("package_name", str2);
         intent.putExtra("install_comment", str4);
-        intent.putExtra("install_flag", QJ);
+        intent.putExtra("install_flag", flag);
         try {
             BdBaseApplication.getInst().sendBroadcast(intent);
         } catch (Throwable th) {
@@ -1188,10 +1188,10 @@ public class d {
 
     public static boolean nD() {
         String str;
-        if (QL) {
-            return QK;
+        if (QO) {
+            return QN;
         }
-        QL = true;
+        QO = true;
         String lowerCase = Build.CPU_ABI.toLowerCase();
         if (Build.VERSION.SDK_INT <= 7) {
             str = "none";
@@ -1206,11 +1206,11 @@ public class d {
             }
         }
         if (lowerCase.contains("armeabi-v7a") || str.contains("armeabi-v7a") || nE()) {
-            QK = true;
+            QN = true;
         } else if (lowerCase.contains("armeabi") || str.contains("armeabi")) {
-            QK = true;
+            QN = true;
         }
-        return QK;
+        return QN;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1268=4] */
@@ -1220,10 +1220,10 @@ public class d {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         InputStreamReader inputStreamReader2 = null;
-        if (QN) {
-            return QM;
+        if (QR) {
+            return QP;
         }
-        QN = true;
+        QR = true;
         try {
             fileInputStream = new FileInputStream("/proc/cpuinfo");
             try {
@@ -1266,7 +1266,7 @@ public class d {
                                 }
                             }
                         }
-                        QM = ((Integer) objArr[1]).intValue() == 7;
+                        QP = ((Integer) objArr[1]).intValue() == 7;
                         n.close((Reader) bufferedReader);
                         n.close((Reader) inputStreamReader);
                         n.close((InputStream) fileInputStream);
@@ -1279,7 +1279,7 @@ public class d {
                             n.close((Reader) bufferedReader);
                             n.close((Reader) inputStreamReader2);
                             n.close((InputStream) fileInputStream2);
-                            return QM;
+                            return QP;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -1324,7 +1324,7 @@ public class d {
             inputStreamReader = null;
             fileInputStream = null;
         }
-        return QM;
+        return QP;
     }
 
     private static void a(String str, String str2, File file) {
@@ -1363,9 +1363,9 @@ public class d {
         Signature[] signatureArr2;
         File file;
         Util.a aVar = new Util.a();
-        if (QO == null) {
+        if (QS == null) {
             try {
-                QO = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                QS = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
             } catch (Throwable th) {
                 com.baidu.adp.plugin.b.a.nF().f("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
             }
@@ -1394,11 +1394,11 @@ public class d {
             aVar.error = "get_newsignatures_null_" + str2;
             return aVar;
         }
-        Signature[] signatureArr3 = QO;
+        Signature[] signatureArr3 = QS;
         if (signatureArr3 == null && (file = new File(BdBaseApplication.getInst().getPackageCodePath())) != null && file.exists()) {
             try {
                 signatureArr3 = e.a(file.getAbsolutePath(), aVar);
-                QO = signatureArr3;
+                QS = signatureArr3;
             } catch (Throwable th4) {
                 aVar.error += "-exception_" + th4.toString();
                 return aVar;

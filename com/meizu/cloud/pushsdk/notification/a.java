@@ -8,6 +8,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -15,6 +16,7 @@ import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
+import com.baidu.android.util.io.ActionJsonData;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
@@ -33,7 +35,7 @@ public abstract class a implements c {
         this.b = pushNotificationBuilder;
         this.a = context;
         this.c = new Handler(context.getMainLooper());
-        this.d = (NotificationManager) context.getSystemService("notification");
+        this.d = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
     private void a(Notification.Builder builder) {
@@ -73,6 +75,17 @@ public abstract class a implements c {
         notification.extras.putString(PushConstants.NOTIFICATION_EXTRA_SEQ_ID, messageV3.getSeqId());
         notification.extras.putString(PushConstants.NOTIFICATION_EXTRA_DEVICE_ID, messageV3.getDeviceId());
         notification.extras.putString(PushConstants.NOTIFICATION_EXTRA_PUSH_TIMESTAMP, messageV3.getPushTimestamp());
+        if (!TextUtils.isEmpty(this.b.getAppLabel())) {
+            com.meizu.cloud.a.a.e("AbstractPushNotification", "set app label " + this.b.getAppLabel());
+            notification.extras.putString(PushConstants.EXTRA_SUBSTITUTE_APP_NAME, this.b.getAppLabel());
+            return;
+        }
+        String b = b(this.a, messageV3.getUploadDataPackageName());
+        com.meizu.cloud.a.a.e("AbstractPushNotification", "current package " + messageV3.getUploadDataPackageName() + " label is " + b);
+        if (TextUtils.isEmpty(b)) {
+            return;
+        }
+        notification.extras.putString(PushConstants.EXTRA_SUBSTITUTE_APP_NAME, b);
     }
 
     protected Notification a(MessageV3 messageV3, PendingIntent pendingIntent, PendingIntent pendingIntent2) {
@@ -185,6 +198,20 @@ public abstract class a implements c {
         return PendingIntent.getBroadcast(this.a, 0, intent, 1073741824);
     }
 
+    public String b(Context context, String str) {
+        CharSequence applicationLabel;
+        try {
+            PackageManager packageManager = context.getPackageManager();
+            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(str, 0);
+            if (applicationInfo != null && (applicationLabel = packageManager.getApplicationLabel(applicationInfo)) != null) {
+                return (String) applicationLabel;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            com.meizu.cloud.a.a.e("AbstractPushNotification", "can not find " + str + " application info");
+        }
+        return null;
+    }
+
     protected void b(Notification.Builder builder, MessageV3 messageV3) {
     }
 
@@ -255,11 +282,11 @@ public abstract class a implements c {
             abs = a2.a();
             com.meizu.cloud.a.a.e("AbstractPushNotification", "server notify id " + abs);
             if (!TextUtils.isEmpty(a2.b())) {
-                int h = com.meizu.cloud.pushsdk.util.b.h(this.a, messageV3.getUploadDataPackageName(), a2.b());
-                com.meizu.cloud.a.a.e("AbstractPushNotification", "notifyKey " + a2.b() + " preference notifyId is " + h);
-                if (h != 0) {
-                    com.meizu.cloud.a.a.e("AbstractPushNotification", "use preference notifyId " + h + " and cancel it");
-                    this.d.cancel(h);
+                int i = com.meizu.cloud.pushsdk.util.b.i(this.a, messageV3.getUploadDataPackageName(), a2.b());
+                com.meizu.cloud.a.a.e("AbstractPushNotification", "notifyKey " + a2.b() + " preference notifyId is " + i);
+                if (i != 0) {
+                    com.meizu.cloud.a.a.e("AbstractPushNotification", "use preference notifyId " + i + " and cancel it");
+                    this.d.cancel(i);
                 }
                 com.meizu.cloud.a.a.e("AbstractPushNotification", "store new notifyId " + abs + " by notifyKey " + a2.b());
                 com.meizu.cloud.pushsdk.util.b.b(this.a, messageV3.getUploadDataPackageName(), a2.b(), abs);

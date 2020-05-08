@@ -20,15 +20,15 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 /* loaded from: classes12.dex */
 public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<VideoHolderWrapper, c> {
-    private SwanAppComponentContainerView bGY;
-    private VideoHolderWrapper eEV;
+    private SwanAppComponentContainerView bHd;
+    private VideoHolderWrapper eFa;
     private Context mContext;
 
     public VideoContainerManager(@NonNull Context context, @NonNull c cVar) {
         super(context, cVar);
         this.mContext = context;
-        this.bGY = new SwanAppComponentContainerView(this.mContext);
-        this.bGY.setBackgroundColor(Color.parseColor("#666666"));
+        this.bHd = new SwanAppComponentContainerView(this.mContext);
+        this.bHd.setBackgroundColor(Color.parseColor("#666666"));
         ej(1);
     }
 
@@ -42,67 +42,67 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    /* renamed from: ek */
-    public VideoHolderWrapper ba(@NonNull Context context) {
-        return biv();
+    /* renamed from: dY */
+    public VideoHolderWrapper aO(@NonNull Context context) {
+        return bit();
     }
 
     @Override // com.baidu.swan.apps.component.b.a
     @NonNull
-    protected SwanAppComponentContainerView bw(@NonNull Context context) {
-        return this.bGY;
+    protected SwanAppComponentContainerView bk(@NonNull Context context) {
+        return this.bHd;
     }
 
     private void k(c cVar) {
         if (cVar != null) {
-            if (!(SB() != null)) {
-                if (biv().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) biv().getParent()).removeView(biv());
+            if (!(SA() != null)) {
+                if (bit().getParent() instanceof ViewGroup) {
+                    ((ViewGroup) bit().getParent()).removeView(bit());
                 }
-                biy().setDescendantFocusability(393216);
-                com.baidu.swan.apps.console.c.d("video", "Add CoverContainerWrapper " + Sw().isSuccess() + " position " + cVar.bGM);
+                biw().setDescendantFocusability(393216);
+                com.baidu.swan.apps.console.c.d("video", "Add CoverContainerWrapper " + Sv().isSuccess() + " position " + cVar.bGR);
                 return;
             }
-            c Sz = Sz();
-            if (!TextUtils.equals(cVar.bGI, Sz.bGI) || !TextUtils.equals(cVar.bGJ, Sz.bGJ) || !TextUtils.equals(cVar.bGK, Sz.bGK)) {
+            c Sy = Sy();
+            if (!TextUtils.equals(cVar.bGN, Sy.bGN) || !TextUtils.equals(cVar.bGO, Sy.bGO) || !TextUtils.equals(cVar.bGP, Sy.bGP)) {
                 com.baidu.swan.apps.component.e.a.aC("video", "updateCoverContainerPosition with different id");
             }
-            com.baidu.swan.apps.console.c.d("video", "Update CoverContainerWrapper " + a((VideoContainerManager) cVar).isSuccess() + " position " + cVar.bGM);
+            com.baidu.swan.apps.console.c.d("video", "Update CoverContainerWrapper " + a((VideoContainerManager) cVar).isSuccess() + " position " + cVar.bGR);
         }
     }
 
-    private VideoHolderWrapper biv() {
-        if (this.eEV == null) {
-            this.eEV = new VideoHolderWrapper(this.mContext);
+    private VideoHolderWrapper bit() {
+        if (this.eFa == null) {
+            this.eFa = new VideoHolderWrapper(this.mContext);
         }
-        return this.eEV;
+        return this.eFa;
     }
 
     public FrameLayout getVideoHolder() {
-        return biv().getVideoHolder();
+        return bit().getVideoHolder();
     }
 
     public void k(View.OnClickListener onClickListener) {
-        View playerIcon = biv().getPlayerIcon();
+        View playerIcon = bit().getPlayerIcon();
         playerIcon.setOnClickListener(onClickListener);
         k(playerIcon, 0);
     }
 
-    public void biw() {
-        k(biv().getPlayerIcon(), 8);
+    public void biu() {
+        k(bit().getPlayerIcon(), 8);
     }
 
     public void cY(String str, String str2) {
-        biv().setPoster(str, str2);
-        k(biv().getVideoPoster(), 0);
+        bit().setPoster(str, str2);
+        k(bit().getVideoPoster(), 0);
     }
 
-    public void bix() {
-        k(biv().getVideoPoster(), 8);
+    public void biv() {
+        k(bit().getVideoPoster(), 8);
     }
 
-    public SwanAppComponentContainerView biy() {
-        return this.bGY;
+    public SwanAppComponentContainerView biw() {
+        return this.bHd;
     }
 
     private void k(View view, int i) {
@@ -114,47 +114,47 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes12.dex */
     public class VideoHolderWrapper extends FrameLayout {
-        private FrameLayout eEP;
-        private ImageView eEW;
-        private SimpleDraweeView eEX;
+        private FrameLayout eEU;
+        private ImageView eFb;
+        private SimpleDraweeView eFc;
 
         public VideoHolderWrapper(@NonNull Context context) {
             super(context);
+            bix();
+            biy();
             biz();
-            biA();
-            biB();
+        }
+
+        private void bix() {
+            this.eEU = new FrameLayout(getContext());
+            addView(this.eEU, new FrameLayout.LayoutParams(-1, -1));
+        }
+
+        private void biy() {
+            this.eFc = new SimpleDraweeView(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+            this.eFc.getHierarchy().b(p.b.lWk);
+            addView(this.eFc, layoutParams);
         }
 
         private void biz() {
-            this.eEP = new FrameLayout(getContext());
-            addView(this.eEP, new FrameLayout.LayoutParams(-1, -1));
-        }
-
-        private void biA() {
-            this.eEX = new SimpleDraweeView(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.eEX.getHierarchy().b(p.b.lWg);
-            addView(this.eEX, layoutParams);
-        }
-
-        private void biB() {
-            this.eEW = new ImageView(VideoContainerManager.this.mContext);
-            this.eEW.setImageResource(R.drawable.btn_play);
+            this.eFb = new ImageView(VideoContainerManager.this.mContext);
+            this.eFb.setImageResource(R.drawable.btn_play);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.eEW, layoutParams);
+            addView(this.eFb, layoutParams);
         }
 
         public FrameLayout getVideoHolder() {
-            return this.eEP;
+            return this.eEU;
         }
 
         public View getPlayerIcon() {
-            return this.eEW;
+            return this.eFb;
         }
 
         public SimpleDraweeView getVideoPoster() {
-            return this.eEX;
+            return this.eFc;
         }
 
         public void setPoster(String str) {
@@ -166,7 +166,7 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                p.b bVar = p.b.lWg;
+                p.b bVar = p.b.lWk;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -190,17 +190,17 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
                 }
                 switch (c) {
                     case 0:
-                        p.b bVar2 = p.b.lWf;
+                        p.b bVar2 = p.b.lWj;
                         break;
                     case 1:
-                        p.b bVar3 = p.b.lWg;
+                        p.b bVar3 = p.b.lWk;
                         break;
                     case 2:
-                        p.b bVar4 = p.b.lWa;
+                        p.b bVar4 = p.b.lWe;
                         break;
                 }
-                this.eEX.getHierarchy().b(p.b.lWg);
-                a(str, this.eEX);
+                this.eFc.getHierarchy().b(p.b.lWk);
+                a(str, this.eFc);
             }
         }
 
@@ -216,7 +216,7 @@ public class VideoContainerManager extends com.baidu.swan.apps.component.b.a<Vid
             if (measuredWidth > 0 && measuredHeight > 0) {
                 Z.c(new d(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dnP().c(simpleDraweeView.getController()).aW(Z.duW()).doG());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.dnM().c(simpleDraweeView.getController()).aX(Z.duT()).doD());
         }
 
         public Uri getUri(String str) {

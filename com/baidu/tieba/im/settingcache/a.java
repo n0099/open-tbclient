@@ -13,20 +13,20 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> iuY = new HashMap<>();
+    protected HashMap<String, ChatSetting> ive = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
     public abstract void a(ChatSetting chatSetting, l<Void> lVar);
 
-    protected abstract com.baidu.adp.lib.cache.l<String> ciS();
+    protected abstract com.baidu.adp.lib.cache.l<String> ciQ();
 
     public abstract ChatSetting dS(String str, String str2);
 
     public void y(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.iuY) {
-            this.iuY.clear();
+        synchronized (this.ive) {
+            this.ive.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -34,14 +34,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + UgcConstant.AT_RULE_TAG;
-            synchronized (this.iuY) {
-                com.baidu.adp.lib.cache.l<String> ciS = ciS();
-                List<l.b<String>> b = r.b(ciS);
+            synchronized (this.ive) {
+                com.baidu.adp.lib.cache.l<String> ciQ = ciQ();
+                List<l.b<String>> b = r.b(ciQ);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = ciS.get(str4)) != null) {
-                            this.iuY.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = ciQ.get(str4)) != null) {
+                            this.ive.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }

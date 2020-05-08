@@ -9,155 +9,155 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private int hEK;
-    private int jVK = 0;
-    private int jVL = 0;
-    private ArrayList<ForumData> jVD = new ArrayList<>();
-    private ArrayList<ForumData> jVE = new ArrayList<>();
-    private ArrayList<ForumData> jVF = new ArrayList<>();
-    private ArrayList<ForumData> jVG = new ArrayList<>();
-    private ArrayList<ForumData> jVI = new ArrayList<>();
+    private int hEQ;
+    private int jVO = 0;
+    private int jVP = 0;
     private ArrayList<ForumData> jVH = new ArrayList<>();
+    private ArrayList<ForumData> jVI = new ArrayList<>();
+    private ArrayList<ForumData> jVJ = new ArrayList<>();
+    private ArrayList<ForumData> jVK = new ArrayList<>();
+    private ArrayList<ForumData> jVM = new ArrayList<>();
+    private ArrayList<ForumData> jVL = new ArrayList<>();
     private ap page = new ap();
-    private Date jVJ = null;
+    private Date jVN = null;
     private boolean isSucc = true;
 
     public b() {
         setHasMore(false);
     }
 
-    public int cGT() {
-        return this.jVK;
+    public int cGQ() {
+        return this.jVO;
     }
 
     public void Aw(int i) {
-        this.jVK = i;
+        this.jVO = i;
     }
 
     public void Ax(int i) {
-        this.jVK += i;
+        this.jVO += i;
     }
 
-    public int cGU() {
-        return this.jVL;
+    public int cGR() {
+        return this.jVP;
     }
 
     public void Ay(int i) {
-        this.jVL = i;
+        this.jVP = i;
     }
 
     public void Az(int i) {
-        this.jVL += i;
+        this.jVP += i;
     }
 
-    public ArrayList<ForumData> cGV() {
-        return this.jVE;
-    }
-
-    public ArrayList<ForumData> cGW() {
-        return this.jVF;
-    }
-
-    public ArrayList<ForumData> cGX() {
-        return this.jVH;
-    }
-
-    public ArrayList<ForumData> cGY() {
+    public ArrayList<ForumData> cGS() {
         return this.jVI;
     }
 
-    public ArrayList<ForumData> cGZ() {
-        return this.jVD;
+    public ArrayList<ForumData> cGT() {
+        return this.jVJ;
+    }
+
+    public ArrayList<ForumData> cGU() {
+        return this.jVL;
+    }
+
+    public ArrayList<ForumData> cGV() {
+        return this.jVM;
+    }
+
+    public ArrayList<ForumData> cGW() {
+        return this.jVH;
     }
 
     public void f(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.jVD == null) {
-            this.jVD = new ArrayList<>();
+        if (this.jVH == null) {
+            this.jVH = new ArrayList<>();
         }
-        if (this.jVE != null && arrayList != null) {
-            this.jVE.clear();
-            this.jVE.addAll(arrayList);
+        if (this.jVI != null && arrayList != null) {
+            this.jVI.clear();
+            this.jVI.addAll(arrayList);
         }
-        if (this.jVF != null && arrayList2 != null) {
-            this.jVF.clear();
-            this.jVF.addAll(arrayList2);
+        if (this.jVJ != null && arrayList2 != null) {
+            this.jVJ.clear();
+            this.jVJ.addAll(arrayList2);
         }
-        if (this.jVE != null || this.jVF != null) {
-            this.jVD.clear();
-            if (this.jVE != null) {
-                this.jVD.addAll(this.jVE);
+        if (this.jVI != null || this.jVJ != null) {
+            this.jVH.clear();
+            if (this.jVI != null) {
+                this.jVH.addAll(this.jVI);
             }
-            if (this.jVF != null) {
-                this.jVD.addAll(this.jVF);
+            if (this.jVJ != null) {
+                this.jVH.addAll(this.jVJ);
             }
         }
     }
 
     public void g(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.jVD == null) {
-            this.jVD = new ArrayList<>();
+        if (this.jVH == null) {
+            this.jVH = new ArrayList<>();
         }
-        if (this.jVE != null && arrayList != null) {
-            this.jVE.addAll(arrayList);
+        if (this.jVI != null && arrayList != null) {
+            this.jVI.addAll(arrayList);
         }
-        if (this.jVF != null && arrayList2 != null) {
-            this.jVF.addAll(arrayList2);
+        if (this.jVJ != null && arrayList2 != null) {
+            this.jVJ.addAll(arrayList2);
         }
-        if (this.jVE != null || this.jVF != null) {
-            this.jVD.clear();
-            if (this.jVE != null) {
-                this.jVD.addAll(this.jVE);
+        if (this.jVI != null || this.jVJ != null) {
+            this.jVH.clear();
+            if (this.jVI != null) {
+                this.jVH.addAll(this.jVI);
             }
-            if (this.jVF != null) {
-                this.jVD.addAll(this.jVF);
+            if (this.jVJ != null) {
+                this.jVH.addAll(this.jVJ);
             }
         }
     }
 
-    public ArrayList<ForumData> cHa() {
-        return this.jVG;
+    public ArrayList<ForumData> cGX() {
+        return this.jVK;
     }
 
     public void h(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.jVG == null) {
-            this.jVG = new ArrayList<>();
+        if (this.jVK == null) {
+            this.jVK = new ArrayList<>();
         }
-        if (this.jVH != null && arrayList != null) {
-            this.jVH.addAll(arrayList);
+        if (this.jVL != null && arrayList != null) {
+            this.jVL.addAll(arrayList);
         }
-        if (this.jVI != null && arrayList2 != null) {
-            this.jVI.addAll(arrayList2);
+        if (this.jVM != null && arrayList2 != null) {
+            this.jVM.addAll(arrayList2);
         }
-        if (this.jVH != null || this.jVI != null) {
-            this.jVG.clear();
-            if (this.jVH != null) {
-                this.jVG.addAll(this.jVH);
+        if (this.jVL != null || this.jVM != null) {
+            this.jVK.clear();
+            if (this.jVL != null) {
+                this.jVK.addAll(this.jVL);
             }
-            if (this.jVI != null) {
-                this.jVG.addAll(this.jVI);
+            if (this.jVM != null) {
+                this.jVK.addAll(this.jVM);
             }
         }
     }
 
     public void i(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.jVG == null) {
-            this.jVG = new ArrayList<>();
+        if (this.jVK == null) {
+            this.jVK = new ArrayList<>();
         }
-        if (this.jVH != null && arrayList != null) {
-            this.jVH.clear();
-            this.jVH.addAll(arrayList);
+        if (this.jVL != null && arrayList != null) {
+            this.jVL.clear();
+            this.jVL.addAll(arrayList);
         }
-        if (this.jVI != null && arrayList2 != null) {
-            this.jVI.clear();
-            this.jVI.addAll(arrayList2);
+        if (this.jVM != null && arrayList2 != null) {
+            this.jVM.clear();
+            this.jVM.addAll(arrayList2);
         }
-        if (this.jVH != null || this.jVI != null) {
-            this.jVG.clear();
-            if (this.jVH != null) {
-                this.jVG.addAll(this.jVH);
+        if (this.jVL != null || this.jVM != null) {
+            this.jVK.clear();
+            if (this.jVL != null) {
+                this.jVK.addAll(this.jVL);
             }
-            if (this.jVI != null) {
-                this.jVG.addAll(this.jVI);
+            if (this.jVM != null) {
+                this.jVK.addAll(this.jVM);
             }
         }
     }
@@ -176,22 +176,22 @@ public class b {
     public void parserJson(JSONObject jSONObject) {
         try {
             this.page.parserJson(jSONObject.optJSONObject("page"));
-            this.hEK = jSONObject.optInt("has_more", 1);
+            this.hEQ = jSONObject.optInt("has_more", 1);
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.jVJ = new Date(optLong);
+                this.jVN = new Date(optLong);
             } else {
-                this.jVJ = new Date();
+                this.jVN = new Date();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
             if (optJSONObject != null) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
                 if (optJSONArray != null) {
-                    this.jVK = optJSONArray.length();
+                    this.jVO = optJSONArray.length();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         ForumData forumData = new ForumData();
                         forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.jVE.add(forumData);
+                        this.jVI.add(forumData);
                     }
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
@@ -199,18 +199,18 @@ public class b {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         ForumData forumData2 = new ForumData();
                         forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.jVF.add(forumData2);
+                        this.jVJ.add(forumData2);
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
                 if (optJSONObject2 != null) {
                     JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
                     if (optJSONArray3 != null) {
-                        this.jVL = optJSONArray3.length();
+                        this.jVP = optJSONArray3.length();
                         for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                             ForumData forumData3 = new ForumData();
                             forumData3.parserJson(optJSONArray3.getJSONObject(i3));
-                            this.jVH.add(forumData3);
+                            this.jVL.add(forumData3);
                         }
                     }
                     JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
@@ -218,7 +218,7 @@ public class b {
                         for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                             ForumData forumData4 = new ForumData();
                             forumData4.parserJson(optJSONArray4.getJSONObject(i4));
-                            this.jVI.add(forumData4);
+                            this.jVM.add(forumData4);
                         }
                     }
                 }
@@ -230,10 +230,10 @@ public class b {
     }
 
     public boolean isHasMore() {
-        return this.hEK == 1;
+        return this.hEQ == 1;
     }
 
     public void setHasMore(boolean z) {
-        this.hEK = z ? 1 : 0;
+        this.hEQ = z ? 1 : 0;
     }
 }

@@ -61,7 +61,7 @@ public class a extends i {
             if (!z) {
                 str2 = "";
             } else {
-                str2 = ahe();
+                str2 = ahd();
                 JSONObject optJSONObject2 = jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
                 if (optJSONObject2 == null) {
                     optJSONObject2 = new JSONObject();
@@ -78,7 +78,7 @@ public class a extends i {
                 String next = keys.next();
                 String optString = optJSONObject.optString(next);
                 if (TextUtils.equals(optString, "cuid")) {
-                    str3 = com.baidu.swan.apps.w.a.abT().be(com.baidu.swan.apps.w.a.abO());
+                    str3 = com.baidu.swan.apps.w.a.abS().aS(com.baidu.swan.apps.w.a.abN());
                 } else if (TextUtils.equals(optString, ETAG.KEY_BAIDU_ID) && z) {
                     str3 = ag.getCookieValue(str2, "BAIDUID");
                 } else {

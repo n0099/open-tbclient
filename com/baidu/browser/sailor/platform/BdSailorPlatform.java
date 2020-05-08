@@ -21,6 +21,7 @@ import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.browser.sailor.feature.upload.BdUploadFeature;
 import com.baidu.browser.sailor.webkit.loader.BdWebkitManager;
+import com.baidu.sapi2.outsdk.c;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.daemon.ZeusThreadPoolUtil;
 import com.baidu.webkit.sdk.CookieManager;
@@ -288,7 +289,7 @@ public final class BdSailorPlatform implements INoProGuard {
         com.baidu.browser.sailor.webkit.a rh = com.baidu.browser.sailor.webkit.a.rh();
         try {
             rh.e();
-            rh.acP.clearCache(z);
+            rh.acS.clearCache(z);
         } catch (Exception e) {
             Log.printStackTrace(e);
         }
@@ -354,7 +355,7 @@ public final class BdSailorPlatform implements INoProGuard {
     public final boolean init(Context context, String str) {
         boolean z;
         File filesDir;
-        Log.d(TAG, "init");
+        Log.d(TAG, c.l);
         this.mContext = context;
         if (TextUtils.isEmpty(str)) {
             str = SAILOR_MODULE_NAME;

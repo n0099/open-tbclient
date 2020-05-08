@@ -21,11 +21,11 @@ import java.util.Map;
 public class v {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void co(Context context) {
+    public static void cc(Context context) {
         if (context != null) {
             String str = Build.MANUFACTURER;
             if (TextUtils.isEmpty(str)) {
-                cr(context);
+                cf(context);
                 return;
             }
             String lowerCase = str.toLowerCase();
@@ -33,26 +33,26 @@ public class v {
                 Log.d("SwanAppPermissionHelper", "goPermissionPage : " + lowerCase);
             }
             if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_XIAOMI)) {
-                cp(context);
+                cd(context);
             } else if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_MEIZU)) {
-                cq(context);
+                ce(context);
             } else {
-                Map<String, ComponentName> aoZ = aoZ();
-                if (aoZ.containsKey(lowerCase)) {
-                    a(context, aoZ.get(lowerCase));
+                Map<String, ComponentName> aoY = aoY();
+                if (aoY.containsKey(lowerCase)) {
+                    a(context, aoY.get(lowerCase));
                     return;
                 }
-                Map<String, String> apa = apa();
-                if (apa.containsKey(lowerCase)) {
-                    aj(context, apa.get(lowerCase));
+                Map<String, String> aoZ = aoZ();
+                if (aoZ.containsKey(lowerCase)) {
+                    X(context, aoZ.get(lowerCase));
                 } else {
-                    cr(context);
+                    cf(context);
                 }
             }
         }
     }
 
-    private static Map<String, ComponentName> aoZ() {
+    private static Map<String, ComponentName> aoY() {
         HashMap hashMap = new HashMap();
         hashMap.put(RomUtils.MANUFACTURER_HUAWEI, new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
         hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
@@ -61,7 +61,7 @@ public class v {
         return hashMap;
     }
 
-    private static Map<String, String> apa() {
+    private static Map<String, String> aoZ() {
         HashMap hashMap = new HashMap();
         hashMap.put(RomUtils.MANUFACTURER_OPPO, "com.coloros.safecenter");
         hashMap.put(RomUtils.MANUFACTURER_VIVO, "com.bairenkeji.icaller");
@@ -69,28 +69,28 @@ public class v {
         return hashMap;
     }
 
-    private static void cp(Context context) {
-        String apb = apb();
+    private static void cd(Context context) {
+        String apa = apa();
         if (DEBUG) {
-            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + apb);
+            Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + apa);
         }
         Intent intent = new Intent();
-        if ("V10".equals(apb) || "V9".equals(apb) || "V8".equals(apb)) {
+        if ("V10".equals(apa) || "V9".equals(apa) || "V8".equals(apa)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             context.startActivity(intent);
-        } else if ("V7".equals(apb) || "V6".equals(apb)) {
+        } else if ("V7".equals(apa) || "V6".equals(apa)) {
             intent.setAction("miui.intent.action.APP_PERM_EDITOR");
             intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
             intent.putExtra("extra_pkgname", context.getPackageName());
             context.startActivity(intent);
         } else {
-            cr(context);
+            cf(context);
         }
     }
 
-    private static String apb() {
+    private static String apa() {
         Throwable th;
         BufferedReader bufferedReader;
         String str = null;
@@ -124,7 +124,7 @@ public class v {
         return str;
     }
 
-    private static void cq(Context context) {
+    private static void ce(Context context) {
         try {
             Intent intent = new Intent("com.meizu.safe.security.SHOW_APPSEC");
             intent.addCategory("android.intent.category.DEFAULT");
@@ -134,7 +134,7 @@ public class v {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            cr(context);
+            cf(context);
         }
     }
 
@@ -147,19 +147,19 @@ public class v {
             if (DEBUG) {
                 e.printStackTrace();
             }
-            cr(context);
+            cf(context);
         }
     }
 
-    private static void aj(Context context, String str) {
+    private static void X(Context context, String str) {
         PackageInfo packageInfo = getPackageInfo(context, str);
         if (packageInfo == null) {
-            cr(context);
+            cf(context);
             return;
         }
         ResolveInfo e = e(context, packageInfo);
         if (e == null) {
-            cr(context);
+            cf(context);
             return;
         }
         try {
@@ -171,7 +171,7 @@ public class v {
             if (DEBUG) {
                 e2.printStackTrace();
             }
-            cr(context);
+            cf(context);
         }
     }
 
@@ -206,7 +206,7 @@ public class v {
         return list.get(0);
     }
 
-    private static void cr(Context context) {
+    private static void cf(Context context) {
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.setData(Uri.fromParts("package", context.getPackageName(), null));
         try {
@@ -218,7 +218,7 @@ public class v {
         }
     }
 
-    public static boolean ak(Context context, String str) {
+    public static boolean Y(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 throw new IllegalArgumentException("context or permission is null");

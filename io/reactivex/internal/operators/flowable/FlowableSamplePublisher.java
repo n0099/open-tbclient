@@ -8,17 +8,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
-    final boolean mSB;
-    final org.a.b<?> mSk;
+    final boolean mSF;
+    final org.a.b<?> mSn;
     final org.a.b<T> source;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
-        if (this.mSB) {
-            this.source.subscribe(new SampleMainEmitLast(bVar, this.mSk));
+        if (this.mSF) {
+            this.source.subscribe(new SampleMainEmitLast(bVar, this.mSn));
         } else {
-            this.source.subscribe(new SampleMainNoLast(bVar, this.mSk));
+            this.source.subscribe(new SampleMainNoLast(bVar, this.mSn));
         }
     }
 
@@ -114,32 +114,32 @@ public final class FlowableSamplePublisher<T> extends io.reactivex.g<T> {
 
     /* loaded from: classes7.dex */
     static final class a<T> implements j<Object> {
-        final SamplePublisherSubscriber<T> mSD;
+        final SamplePublisherSubscriber<T> mSG;
 
         a(SamplePublisherSubscriber<T> samplePublisherSubscriber) {
-            this.mSD = samplePublisherSubscriber;
+            this.mSG = samplePublisherSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(org.a.d dVar) {
-            if (this.mSD.setOther(dVar)) {
+            if (this.mSG.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(Object obj) {
-            this.mSD.run();
+            this.mSG.run();
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.mSD.error(th);
+            this.mSG.error(th);
         }
 
         @Override // org.a.c
         public void onComplete() {
-            this.mSD.complete();
+            this.mSG.complete();
         }
     }
 

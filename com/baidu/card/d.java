@@ -4,17 +4,17 @@ import android.view.View;
 import android.widget.RelativeLayout;
 /* loaded from: classes8.dex */
 public class d {
-    private RelativeLayout.LayoutParams ade;
-    private View adf;
-    protected ad adg;
+    private RelativeLayout.LayoutParams adh;
+    private View adi;
+    protected ad adj;
     private int insertIndex;
 
     public RelativeLayout.LayoutParams rn() {
-        return this.ade;
+        return this.adh;
     }
 
     public void a(RelativeLayout.LayoutParams layoutParams) {
-        this.ade = layoutParams;
+        this.adh = layoutParams;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,7 +22,7 @@ public class d {
     }
 
     public void b(ad adVar) {
-        this.adg = adVar;
+        this.adj = adVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,10 +38,10 @@ public class d {
     }
 
     public View rq() {
-        return this.adf;
+        return this.adi;
     }
 
     public void F(View view) {
-        this.adf = view;
+        this.adi = view;
     }
 }

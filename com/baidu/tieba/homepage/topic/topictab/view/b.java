@@ -9,12 +9,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.c;
 /* loaded from: classes9.dex */
 public class b extends com.baidu.tieba.card.a<c> {
-    private View gGc;
-    private c hUo;
+    private View gGi;
+    private c hUu;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gGc = getView().findViewById(R.id.card_topic_list_placeholder);
+        this.gGi = getView().findViewById(R.id.card_topic_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -30,11 +30,11 @@ public class b extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
         if (cVar != null) {
-            this.hUo = cVar;
-            am.setBackgroundColor(this.gGc, this.hUo.hTh);
-            ViewGroup.LayoutParams layoutParams = this.gGc.getLayoutParams();
-            layoutParams.height = l.getDimens(this.mContext, cVar.gEC);
-            this.gGc.setLayoutParams(layoutParams);
+            this.hUu = cVar;
+            am.setBackgroundColor(this.gGi, this.hUu.hTn);
+            ViewGroup.LayoutParams layoutParams = this.gGi.getLayoutParams();
+            layoutParams.height = l.getDimens(this.mContext, cVar.gEI);
+            this.gGi.setLayoutParams(layoutParams);
         }
     }
 

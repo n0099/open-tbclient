@@ -12,9 +12,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class d {
-    private static BlockPopInfo lgn;
-    private static BlockPopInfo lgo;
-    private TbPageContext duG;
+    private static BlockPopInfo lgr;
+    private static BlockPopInfo lgs;
+    private TbPageContext duK;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.ueg.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -27,13 +27,13 @@ public class d {
     };
 
     public d(TbPageContext tbPageContext) {
-        this.duG = tbPageContext;
-        this.duG.registerListener(this.mAccountChangedListener);
+        this.duK = tbPageContext;
+        this.duK.registerListener(this.mAccountChangedListener);
     }
 
     private boolean a(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null && blockPopInfo.appeal_status != null && blockPopInfo.appeal_status.intValue() == 1) {
-            BdToast.a(this.duG.getPageActivity(), blockPopInfo.appeal_msg, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).aMZ();
+            BdToast.a(this.duK.getPageActivity(), blockPopInfo.appeal_msg, R.drawable.icon_pure_toast_mistake40_svg, 3000, false).aMX();
             return true;
         } else if (blockPopInfo == null || blockPopInfo.can_post.intValue() != 0 || (!(blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) || blockPopInfo.appeal_status.intValue() == 1)) {
             return false;
@@ -42,7 +42,7 @@ public class d {
                 String str = blockPopInfo.block_info;
                 String str2 = blockPopInfo.ok_info;
                 if (aq.isEmpty(str) || aq.isEmpty(str2)) {
-                    BdToast.a(this.duG.getPageActivity(), this.duG.getString(R.string.hanpen_error), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).aMZ();
+                    BdToast.a(this.duK.getPageActivity(), this.duK.getString(R.string.hanpen_error), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).aMX();
                     return true;
                 }
                 b(blockPopInfo);
@@ -56,18 +56,18 @@ public class d {
         }
     }
 
-    public boolean cZY() {
-        return a(lgn);
+    public boolean cZV() {
+        return a(lgr);
     }
 
-    public boolean cZZ() {
-        return a(lgo);
+    public boolean cZW() {
+        return a(lgs);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.duG.getPageActivity());
-            aVar.uf(blockPopInfo.block_info);
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.duK.getPageActivity());
+            aVar.ui(blockPopInfo.block_info);
             aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.d.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -80,22 +80,22 @@ public class d {
                     d.this.c(blockPopInfo);
                 }
             });
-            aVar.b(this.duG).aMU();
+            aVar.b(this.duK).aMS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            AntiHelper.bj(this.duG.getPageActivity(), blockPopInfo.ahead_url);
+            AntiHelper.aX(this.duK.getPageActivity(), blockPopInfo.ahead_url);
         }
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        lgn = blockPopInfo;
+        lgr = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        lgo = blockPopInfo;
+        lgs = blockPopInfo;
     }
 }

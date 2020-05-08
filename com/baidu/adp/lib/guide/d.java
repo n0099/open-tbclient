@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private a Js;
+    private a Jv;
     private boolean mBuilt;
     private List<b> mComponents = new ArrayList();
-    private Configuration Jp = new Configuration();
+    private Configuration Js = new Configuration();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -24,7 +24,7 @@ public class d {
         if (i < 0 || i > 255) {
             throw new BuildException("Illegal alpha value, should between [0-255]");
         }
-        this.Jp.mAlpha = i;
+        this.Js.mAlpha = i;
         return this;
     }
 
@@ -35,7 +35,7 @@ public class d {
         if (view == null) {
             throw new BuildException("Illegal view.");
         }
-        this.Jp.mTargetView = view;
+        this.Js.mTargetView = view;
         return this;
     }
 
@@ -46,7 +46,7 @@ public class d {
         if (i <= 0) {
             throw new BuildException("Illegal view id.");
         }
-        this.Jp.mTargetViewId = i;
+        this.Js.mTargetViewId = i;
         return this;
     }
 
@@ -54,7 +54,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Jp.mAutoDismiss = z;
+        this.Js.mAutoDismiss = z;
         return this;
     }
 
@@ -62,7 +62,7 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Jp.mOverlayTarget = z;
+        this.Js.mOverlayTarget = z;
         return this;
     }
 
@@ -78,23 +78,23 @@ public class d {
         if (this.mBuilt) {
             throw new BuildException("Already created, rebuild a new one.");
         }
-        this.Js = aVar;
+        this.Jv = aVar;
         return this;
     }
 
     public d af(boolean z) {
-        this.Jp.mOutsideTouchable = z;
+        this.Js.mOutsideTouchable = z;
         return this;
     }
 
     public c km() {
         c cVar = new c();
         cVar.a((b[]) this.mComponents.toArray(new b[this.mComponents.size()]));
-        cVar.a(this.Jp);
         cVar.a(this.Js);
+        cVar.a(this.Jv);
         this.mComponents = null;
-        this.Jp = null;
         this.Js = null;
+        this.Jv = null;
         this.mBuilt = true;
         return cVar;
     }

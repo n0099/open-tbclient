@@ -8,21 +8,21 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes10.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int dgm;
-    private RequestGetGroupActivityMessage inO;
-    private RequestGetGroupActivityLocalMessage inP;
-    private RequestDelGroupActivityMessage inQ;
-    private GroupActivityActivity inR;
-    private GroupActivityData inS;
+    private int dgr;
+    private RequestGetGroupActivityMessage inU;
+    private RequestGetGroupActivityLocalMessage inV;
+    private RequestDelGroupActivityMessage inW;
+    private GroupActivityActivity inX;
+    private GroupActivityData inY;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.inR = groupActivityActivity;
+        this.inX = groupActivityActivity;
     }
 
-    public int cgC() {
+    public int cgA() {
         return this.mFrom;
     }
 
@@ -30,15 +30,15 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         this.mFrom = i;
     }
 
-    public int cgD() {
-        return this.dgm;
+    public int cgB() {
+        return this.dgr;
     }
 
     public void xe(int i) {
-        this.dgm = i;
+        this.dgr = i;
     }
 
-    public long cgE() {
+    public long cgC() {
         return this.mGroupId;
     }
 
@@ -71,8 +71,8 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.inO = xf(i);
-        this.inR.sendMessage(this.inO);
+        this.inU = xf(i);
+        this.inX.sendMessage(this.inU);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -80,36 +80,36 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void xh(int i) {
-        this.inP = xg(i);
-        this.inR.sendMessage(this.inP);
+        this.inV = xg(i);
+        this.inX.sendMessage(this.inV);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.inP;
+        return this.inV;
     }
 
     public Message<?> getSendMsg() {
-        return this.inO;
+        return this.inU;
     }
 
-    public Message<?> cgF() {
-        return this.inQ;
+    public Message<?> cgD() {
+        return this.inW;
     }
 
     public void r(long j, int i) {
-        this.inQ = new RequestDelGroupActivityMessage();
-        this.inQ.setActivityId(i);
-        this.inQ.setGroupId(j);
-        this.inR.sendMessage(this.inQ);
+        this.inW = new RequestDelGroupActivityMessage();
+        this.inW.setActivityId(i);
+        this.inW.setGroupId(j);
+        this.inX.sendMessage(this.inW);
     }
 
-    public GroupActivityData cgG() {
-        return this.inS;
+    public GroupActivityData cgE() {
+        return this.inY;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.inS = groupActivityData;
+            this.inY = groupActivityData;
         }
     }
 }

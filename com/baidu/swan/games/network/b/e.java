@@ -8,28 +8,28 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a cPD;
+    private a cPI;
     private final Object mLock = new Object();
-    private boolean cPB = true;
-    private List<b> cPC = new ArrayList(3);
+    private boolean cPG = true;
+    private List<b> cPH = new ArrayList(3);
 
     public e(@NonNull a aVar) {
-        this.cPD = aVar;
+        this.cPI = aVar;
     }
 
     public void axk() {
         synchronized (this.mLock) {
-            this.cPB = false;
+            this.cPG = false;
             axl();
         }
     }
 
     public void onSuccess(Object obj) {
         synchronized (this.mLock) {
-            if (this.cPB) {
+            if (this.cPG) {
                 f(1, obj);
             } else {
-                this.cPD.a(new b(1, obj));
+                this.cPI.a(new b(1, obj));
             }
         }
     }
@@ -40,30 +40,30 @@ public class e {
             bVar.errMsg = str2;
             bVar.statusCode = i;
             bVar.url = str;
-            if (this.cPB) {
+            if (this.cPG) {
                 f(2, bVar);
             } else {
-                this.cPD.a(new b(2, bVar));
+                this.cPI.a(new b(2, bVar));
             }
         }
     }
 
     public boolean b(JSEvent jSEvent) {
         synchronized (this.mLock) {
-            if (this.cPB) {
+            if (this.cPG) {
                 f(3, jSEvent);
             } else {
-                this.cPD.a(new b(3, jSEvent));
+                this.cPI.a(new b(3, jSEvent));
             }
         }
         return true;
     }
 
     private void axl() {
-        for (b bVar : this.cPC) {
-            this.cPD.a(bVar);
+        for (b bVar : this.cPH) {
+            this.cPI.a(bVar);
         }
-        this.cPC.clear();
+        this.cPH.clear();
     }
 
     private void f(int i, Object obj) {
@@ -71,7 +71,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SwanGameResponseCache", "addToCacheList type:" + i);
             }
-            this.cPC.add(new b(i, obj));
+            this.cPH.add(new b(i, obj));
         }
     }
 }

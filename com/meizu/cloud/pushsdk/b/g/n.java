@@ -1,30 +1,23 @@
 package com.meizu.cloud.pushsdk.b.g;
 
-import java.nio.charset.Charset;
+import java.io.IOException;
+import java.io.InterruptedIOException;
 /* loaded from: classes8.dex */
-final class n {
-    public static final Charset a = Charset.forName("UTF-8");
-
-    public static void a(long j, long j2, long j3) {
-        if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
-            throw new ArrayIndexOutOfBoundsException(String.format("size=%s offset=%s byteCount=%s", Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)));
+public class n {
+    public static final n a = new n() { // from class: com.meizu.cloud.pushsdk.b.g.n.1
+        @Override // com.meizu.cloud.pushsdk.b.g.n
+        public void a() throws IOException {
         }
-    }
+    };
+    private boolean b;
+    private long c;
 
-    public static void a(Throwable th) {
-        b(th);
-    }
-
-    public static boolean a(byte[] bArr, int i, byte[] bArr2, int i2, int i3) {
-        for (int i4 = 0; i4 < i3; i4++) {
-            if (bArr[i4 + i] != bArr2[i4 + i2]) {
-                return false;
-            }
+    public void a() throws IOException {
+        if (Thread.interrupted()) {
+            throw new InterruptedIOException("thread interrupted");
         }
-        return true;
-    }
-
-    private static <T extends Throwable> void b(Throwable th) throws Throwable {
-        throw th;
+        if (this.b && this.c - System.nanoTime() <= 0) {
+            throw new InterruptedIOException("deadline reached");
+        }
     }
 }

@@ -1,15 +1,20 @@
 package com.baidu.android.pushservice.d;
 
 import android.content.Context;
+import android.text.TextUtils;
 /* loaded from: classes8.dex */
 public abstract class c extends a {
-    public c(l lVar, Context context) {
-        super(lVar, context);
+    public c(i iVar, Context context) {
+        super(iVar, context);
     }
 
     @Override // com.baidu.android.pushservice.d.a
     public boolean c() {
-        this.c += com.baidu.android.pushservice.i.a(this.a).a();
+        String a = com.baidu.android.pushservice.j.a(this.a).a();
+        if (TextUtils.isEmpty(a)) {
+            a = "channel";
+        }
+        this.c += a;
         return super.c();
     }
 }

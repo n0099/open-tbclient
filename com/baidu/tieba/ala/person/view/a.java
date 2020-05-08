@@ -27,23 +27,23 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static final int fXw = "   ".length();
-    private z fJQ;
-    private TextView fXA;
-    private View fXB;
-    private List<AlaLiveMarkData> fXC;
-    private List<AlaLiveMarkData> fXD;
-    private List<AlaLiveMarkData> fXE;
-    private PersonCardActivity fXx;
-    private TextView fXy;
-    private TextView fXz;
+    private static final int fXB = "   ".length();
+    private z fJV;
+    private PersonCardActivity fXC;
+    private TextView fXD;
+    private TextView fXE;
+    private TextView fXF;
+    private View fXG;
+    private List<AlaLiveMarkData> fXH;
+    private List<AlaLiveMarkData> fXI;
+    private List<AlaLiveMarkData> fXJ;
+    private int fXK = 0;
+    private long lastClickTime = 0;
     private View mContentView;
     private View mRootView;
-    private int fXF = 0;
-    private long lastClickTime = 0;
 
     public a(PersonCardActivity personCardActivity, View view, View view2) {
-        this.fXx = personCardActivity;
+        this.fXC = personCardActivity;
         this.mContentView = view;
         this.mRootView = view2;
         initView();
@@ -51,41 +51,41 @@ public class a {
 
     private void initView() {
         if (this.mContentView != null) {
-            this.fXy = (TextView) this.mContentView.findViewById(a.g.user_mark_normal);
-            this.fXz = (TextView) this.mContentView.findViewById(a.g.user_mark_extra);
-            this.fXA = (TextView) this.mRootView.findViewById(a.g.user_name);
-            this.fXz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.a.1
+            this.fXD = (TextView) this.mContentView.findViewById(a.g.user_mark_normal);
+            this.fXE = (TextView) this.mContentView.findViewById(a.g.user_mark_extra);
+            this.fXF = (TextView) this.mRootView.findViewById(a.g.user_name);
+            this.fXE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.person.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.bBN();
+                    a.this.bBL();
                 }
             });
-            this.fXB = this.mContentView.findViewById(a.g.user_mark_divider);
+            this.fXG = this.mContentView.findViewById(a.g.user_mark_divider);
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tieba.ala.person.PersonCardActivity */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void bBN() {
+    public void bBL() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastClickTime >= 500) {
             this.lastClickTime = currentTimeMillis;
-            if (this.fJQ != null && com.baidu.live.v.a.Eo().aRw.avD != null) {
-                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(this.fJQ.user_id)) {
-                    String str = com.baidu.live.v.a.Eo().aRw.avD.avp;
+            if (this.fJV != null && com.baidu.live.v.a.En().aRB.avJ != null) {
+                if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(this.fJV.user_id)) {
+                    String str = com.baidu.live.v.a.En().aRB.avJ.avv;
                     if (!TextUtils.isEmpty(str)) {
-                        UrlManager.getInstance().dealOneLink(this.fXx.getPageContext(), new String[]{str});
+                        UrlManager.getInstance().dealOneLink(this.fXC.getPageContext(), new String[]{str});
                     }
                 } else {
-                    String str2 = com.baidu.live.v.a.Eo().aRw.avD.avq;
-                    if (str2 != null && this.fJQ != null) {
+                    String str2 = com.baidu.live.v.a.En().aRB.avJ.avw;
+                    if (str2 != null && this.fJV != null) {
                         if (str2.endsWith("/")) {
                             str2 = str2.substring(0, str2.length() - 1);
                         }
-                        String str3 = this.fJQ.user_id;
-                        String str4 = this.fJQ.portrait;
-                        String str5 = this.fJQ.user_nickname;
+                        String str3 = this.fJV.user_id;
+                        String str4 = this.fJV.portrait;
+                        String str5 = this.fJV.user_nickname;
                         StringBuilder sb = new StringBuilder();
                         sb.append("id=");
                         sb.append(ExtraParamsManager.getEncryptionUserId(str3));
@@ -110,7 +110,7 @@ public class a {
                         }
                         sb.insert(0, str2);
                         String sb2 = sb.toString();
-                        this.fXx.finish();
+                        this.fXC.finish();
                         if (!TextUtils.isEmpty(sb2)) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913132, sb2));
                         }
@@ -125,44 +125,44 @@ public class a {
 
     public void setData(z zVar) {
         if (zVar != null) {
-            this.fJQ = zVar;
-            if (this.fXC == null) {
-                this.fXC = new ArrayList();
+            this.fJV = zVar;
+            if (this.fXH == null) {
+                this.fXH = new ArrayList();
             }
-            this.fXC.clear();
-            if (this.fXD == null) {
-                this.fXD = new ArrayList();
+            this.fXH.clear();
+            if (this.fXI == null) {
+                this.fXI = new ArrayList();
             }
-            this.fXD.clear();
-            if (this.fXE == null) {
-                this.fXE = new ArrayList();
+            this.fXI.clear();
+            if (this.fXJ == null) {
+                this.fXJ = new ArrayList();
             }
-            this.fXE.clear();
+            this.fXJ.clear();
             bP(zVar.live_mark_info_new);
-            if (!ListUtils.isEmpty(this.fXC)) {
-                a("", "", this.fXy, this.fXC);
+            if (!ListUtils.isEmpty(this.fXH)) {
+                a("", "", this.fXD, this.fXH);
             }
-            if (!ListUtils.isEmpty(this.fXD)) {
-                int i = zVar.atQ;
+            if (!ListUtils.isEmpty(this.fXI)) {
+                int i = zVar.atW;
                 if (i <= 0) {
-                    i = this.fXF;
+                    i = this.fXK;
                 }
-                a("  ", i + this.fXx.getResources().getString(a.i.ala_count_mei), this.fXz, this.fXD);
-                this.fXz.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.f.sdk_person_card_more, 0);
-                this.fXB.setVisibility(0);
+                a("  ", i + this.fXC.getResources().getString(a.i.ala_count_mei), this.fXE, this.fXI);
+                this.fXE.setCompoundDrawablesWithIntrinsicBounds(0, 0, a.f.sdk_person_card_more, 0);
+                this.fXG.setVisibility(0);
             } else {
-                this.fXz.setText("");
-                this.fXz.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-                this.fXB.setVisibility(8);
+                this.fXE.setText("");
+                this.fXE.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                this.fXG.setVisibility(8);
             }
-            if (!ListUtils.isEmpty(this.fXE)) {
-                a(bBO() + " ", "", this.fXA, this.fXE);
+            if (!ListUtils.isEmpty(this.fXJ)) {
+                a(bBM() + " ", "", this.fXF, this.fXJ);
             }
         }
     }
 
-    private String bBO() {
-        String nameShow = this.fJQ.getNameShow();
+    private String bBM() {
+        String nameShow = this.fJV.getNameShow();
         if (nameShow != null) {
             if (TextHelper.getTextLengthWithEmoji(nameShow) > 20) {
                 return TextHelper.subStringWithEmoji(nameShow, 20) + StringHelper.STRING_MORE;
@@ -187,10 +187,10 @@ public class a {
             if (i3 < list.size()) {
                 AlaLiveMarkData alaLiveMarkData = list.get(i3);
                 if (alaLiveMarkData != null) {
-                    final int i4 = length + (fXw * i3);
+                    final int i4 = length + (fXB * i3);
                     final int i5 = i4 + 1;
                     if (1 == alaLiveMarkData.type) {
-                        new com.baidu.live.view.b(this.fXx, alaLiveMarkData, this.fJQ.level_id, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.2
+                        new com.baidu.live.view.b(this.fXC, alaLiveMarkData, this.fJV.level_id, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.2
                             @Override // com.baidu.live.view.c.a
                             public void d(Bitmap bitmap) {
                             }
@@ -202,7 +202,7 @@ public class a {
                             }
                         });
                     } else {
-                        new com.baidu.live.view.c(this.fXx, alaLiveMarkData, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.3
+                        new com.baidu.live.view.c(this.fXC, alaLiveMarkData, true, new c.a() { // from class: com.baidu.tieba.ala.person.view.a.3
                             @Override // com.baidu.live.view.c.a
                             public void d(Bitmap bitmap) {
                             }
@@ -229,7 +229,7 @@ public class a {
                 if (alaLiveMarkData != null && !TextUtils.isEmpty(alaLiveMarkData.mark_pic) && 3 != alaLiveMarkData.type && 4 != alaLiveMarkData.type) {
                     if (StringUtils.isNull(alaLiveMarkData.anchor_user_id) || "0".equals(alaLiveMarkData.anchor_user_id)) {
                         linkedList.add(alaLiveMarkData);
-                    } else if (alaLiveMarkData.anchor_user_id.equals(this.fXx.bBv())) {
+                    } else if (alaLiveMarkData.anchor_user_id.equals(this.fXC.bBt())) {
                         linkedList.add(alaLiveMarkData);
                     }
                 }
@@ -237,19 +237,19 @@ public class a {
             if (!ListUtils.isEmpty(linkedList)) {
                 for (AlaLiveMarkData alaLiveMarkData2 : linkedList) {
                     if (alaLiveMarkData2.type == 103 || alaLiveMarkData2.type == 104) {
-                        this.fXD.add(alaLiveMarkData2);
+                        this.fXI.add(alaLiveMarkData2);
                     } else if (alaLiveMarkData2.type == 2) {
-                        this.fXE.add(alaLiveMarkData2);
+                        this.fXJ.add(alaLiveMarkData2);
                     } else {
-                        this.fXC.add(alaLiveMarkData2);
+                        this.fXH.add(alaLiveMarkData2);
                     }
                 }
-                this.fXF = this.fXD.size();
-                if (this.fXF > 2) {
-                    this.fXD = this.fXD.subList(0, 2);
+                this.fXK = this.fXI.size();
+                if (this.fXK > 2) {
+                    this.fXI = this.fXI.subList(0, 2);
                 }
-                if (this.fXC.size() > 3) {
-                    this.fXC = this.fXC.subList(0, 3);
+                if (this.fXH.size() > 3) {
+                    this.fXH = this.fXH.subList(0, 3);
                 }
             }
         }

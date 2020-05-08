@@ -12,14 +12,14 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.swan.apps.y.f;
 /* loaded from: classes11.dex */
 public abstract class a extends ab {
-    private final String cRc;
+    private final String cRh;
 
     abstract boolean a(@NonNull com.baidu.swan.games.t.a.b.a aVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(j jVar, String str, String str2) {
         super(jVar, str);
-        this.cRc = str2;
+        this.cRh = str2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -29,18 +29,18 @@ public abstract class a extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.core.d.e Ou = f.aeK().Ou();
-        if (Ou == null) {
-            com.baidu.swan.apps.console.c.e(this.cRc, "fragment manager is null");
+        com.baidu.swan.apps.core.d.e Ot = f.aeJ().Ot();
+        if (Ot == null) {
+            com.baidu.swan.apps.console.c.e(this.cRh, "fragment manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.games.t.a.b.b bVar = (com.baidu.swan.games.t.a.b.b) Ou.q(i.class);
+        com.baidu.swan.games.t.a.b.b bVar = (com.baidu.swan.games.t.a.b.b) Ot.q(i.class);
         if (bVar == null) {
-            com.baidu.swan.apps.console.c.e(this.cRc, "fragment is null");
+            com.baidu.swan.apps.console.c.e(this.cRh, "fragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(bVar.WE(), unitedSchemeEntity, callbackHandler);
+        return a(bVar.WD(), unitedSchemeEntity, callbackHandler);
     }
 }

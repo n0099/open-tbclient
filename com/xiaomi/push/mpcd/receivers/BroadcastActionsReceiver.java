@@ -3,13 +3,13 @@ package com.xiaomi.push.mpcd.receivers;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.xiaomi.push.dr;
+import com.xiaomi.push.dw;
 /* loaded from: classes8.dex */
 public class BroadcastActionsReceiver extends BroadcastReceiver {
-    private dr a;
+    private dw a;
 
-    public BroadcastActionsReceiver(dr drVar) {
-        this.a = drVar;
+    public BroadcastActionsReceiver(dw dwVar) {
+        this.a = dwVar;
     }
 
     @Override // android.content.BroadcastReceiver

@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class ThreadPoolService implements com.baidu.sapi2.c {
-    private static final ThreadFactory a = new s();
+    private static final ThreadFactory a = new u();
     private static final int b = 0;
     private static final int c = 1;
     private Handler d;
@@ -24,7 +24,7 @@ public class ThreadPoolService implements com.baidu.sapi2.c {
         }
     }
 
-    /* synthetic */ ThreadPoolService(s sVar) {
+    /* synthetic */ ThreadPoolService(u uVar) {
         this();
     }
 
@@ -41,7 +41,7 @@ public class ThreadPoolService implements com.baidu.sapi2.c {
     }
 
     private ThreadPoolService() {
-        this.d = new t(this, Looper.getMainLooper());
+        this.d = new v(this, Looper.getMainLooper());
         this.poolService = new ThreadPoolExecutor(6, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), a);
         if (Build.VERSION.SDK_INT >= 9) {
             this.poolService.allowCoreThreadTimeOut(true);

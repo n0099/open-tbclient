@@ -61,22 +61,22 @@ public class an {
         }
     }
 
-    public boolean uH(String str) {
+    public boolean uK(String str) {
         int indexOf;
         return !aq.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1;
     }
 
-    public an aOQ() {
+    public an aON() {
         an anVar = new an(getKey());
         anVar.aK(getParams());
         return anVar;
     }
 
-    public void aOR() {
+    public void aOO() {
         TiebaStatic.log(this);
     }
 
-    public static an uI(String str) {
+    public static an uL(String str) {
         return new an(str);
     }
 }

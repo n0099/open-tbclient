@@ -1,164 +1,70 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONException;
+import android.os.Bundle;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class cj implements co {
-    private static cj a;
+public class cj {
+    public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f185a;
+    public long f162a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f186a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private ci f187a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private String f188a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, ch> f189a;
-    private int b;
+    private String f163a;
+    public int b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f190b;
-    private int c;
+    public long f164b;
+    public int c;
+    public int d;
+    public int e;
+    public String h;
 
-    /* renamed from: c  reason: collision with other field name */
-    private String f191c;
-    private int d;
-
-    public static synchronized cj a() {
-        cj cjVar;
-        synchronized (cj.class) {
-            cjVar = a;
-        }
-        return cjVar;
+    public cj() {
     }
 
-    private String a(ArrayList<cg> arrayList, String str) {
-        JSONObject jSONObject;
-        JSONObject jSONObject2 = new JSONObject();
-        if (!TextUtils.isEmpty(this.f188a)) {
-            jSONObject2.put("imei", cm.a(this.f188a));
-        }
-        jSONObject2.put("actionType", str);
-        jSONObject2.put("actionTime", System.currentTimeMillis());
-        ArrayList arrayList2 = new ArrayList();
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= arrayList.size()) {
-                jSONObject2.put("adList", new JSONArray((Collection) arrayList2));
-                return Base64.encodeToString(jSONObject2.toString().getBytes(), 2);
-            }
-            if (TextUtils.isEmpty(arrayList.get(i2).f182a)) {
-                jSONObject = new JSONObject();
-            } else {
-                try {
-                    jSONObject = new JSONObject(arrayList.get(i2).f182a);
-                } catch (Exception e) {
-                    Log.e("com.xiaomi.miui.ads.pushsdk", "content 不是json串");
-                    jSONObject = null;
-                }
-            }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            JSONObject jSONObject3 = jSONObject;
-            jSONObject3.put("adId", arrayList.get(i2).f181a);
-            arrayList2.add(jSONObject3);
-            i = i2 + 1;
-        }
+    public cj(cj cjVar) {
+        this.f162a = cjVar.f162a;
+        this.a = cjVar.a;
+        this.h = cjVar.h;
+        this.b = cjVar.b;
+        this.c = cjVar.c;
+        this.f164b = cjVar.f164b;
+        this.d = cjVar.d;
+        this.f163a = cjVar.f163a;
+        this.e = cjVar.e;
     }
 
-    private void a(ch chVar) {
-        if (this.f189a.containsKey(chVar.b)) {
-            return;
-        }
-        this.b++;
-        cm.m197a("send: " + this.b);
-        ck ckVar = new ck(this, this.f190b, this.f191c, chVar);
-        this.f189a.put(chVar.b, chVar);
-        ckVar.execute(new String[0]);
-    }
-
-    private void a(ArrayList<cg> arrayList, String str, int i) {
-        try {
-            String a2 = a(arrayList, str);
-            String a3 = cm.a(a2);
-            if (m196a(new ch(i, a2, a3))) {
-                a(new ch(i, a2, a3));
-            }
-        } catch (JSONException e) {
-        }
+    public Bundle a() {
+        Bundle bundle = new Bundle();
+        bundle.putLong("id", this.f162a);
+        bundle.putInt("showType", this.a);
+        bundle.putInt("nonsense", this.b);
+        bundle.putInt("receiveUpperBound", this.c);
+        bundle.putLong("lastShowTime", this.f164b);
+        bundle.putInt("multi", this.e);
+        return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m196a(ch chVar) {
-        if (cl.a(this.f186a)) {
-            return true;
-        }
-        b(chVar);
-        return false;
+    public String m197a() {
+        return this.f163a;
     }
 
-    private void b(ch chVar) {
-        this.d++;
-        cm.m197a("cacheCount: " + this.d);
-        this.f187a.a(chVar);
-        this.f187a.a();
+    public void a(String str) {
+        this.f163a = str;
     }
 
-    public void a(cg cgVar) {
-        if (cgVar.f181a <= 0) {
-            return;
-        }
-        ArrayList<cg> arrayList = new ArrayList<>();
-        arrayList.add(cgVar);
-        a(arrayList, "click", cgVar.a);
+    public void a(JSONObject jSONObject) {
+        this.f162a = jSONObject.optLong("id");
+        this.a = jSONObject.optInt("showType");
+        this.b = jSONObject.optInt("nonsense");
+        this.c = jSONObject.optInt("receiveUpperBound");
+        this.f164b = jSONObject.optLong("lastShowTime");
+        this.e = jSONObject.optInt("multi");
     }
 
-    @Override // com.xiaomi.push.co
-    public void a(Integer num, ch chVar) {
-        if (this.f189a.containsKey(chVar.b)) {
-            if (num.intValue() != 0) {
-                this.c++;
-                cm.m197a("faild: " + this.c + " " + chVar.b + "  " + this.f189a.size());
-                b(chVar);
-            } else {
-                this.f185a++;
-                cm.m197a("success: " + this.f185a);
-            }
-            this.f189a.remove(chVar.b);
-        }
-    }
-
-    public void b(cg cgVar) {
-        if (cgVar.f181a <= 0) {
-            return;
-        }
-        ArrayList<cg> arrayList = new ArrayList<>();
-        arrayList.add(cgVar);
-        a(arrayList, "remove", cgVar.a);
-    }
-
-    public void c(cg cgVar) {
-        if (cgVar.f181a <= 0) {
-            return;
-        }
-        ArrayList<cg> arrayList = new ArrayList<>();
-        arrayList.add(cgVar);
-        a(arrayList, "received", cgVar.a);
+    public String toString() {
+        return "";
     }
 }

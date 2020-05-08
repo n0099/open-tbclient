@@ -4,34 +4,34 @@ import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class f {
     final int capacityHint;
-    Object[] mVA;
-    Object[] mVB;
-    int mVC;
+    Object[] mVD;
+    Object[] mVE;
+    int mVF;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.mVA = new Object[this.capacityHint + 1];
-            this.mVB = this.mVA;
-            this.mVA[0] = obj;
-            this.mVC = 1;
+            this.mVD = new Object[this.capacityHint + 1];
+            this.mVE = this.mVD;
+            this.mVD[0] = obj;
+            this.mVF = 1;
             this.size = 1;
-        } else if (this.mVC == this.capacityHint) {
+        } else if (this.mVF == this.capacityHint) {
             Object[] objArr = new Object[this.capacityHint + 1];
             objArr[0] = obj;
-            this.mVB[this.capacityHint] = objArr;
-            this.mVB = objArr;
-            this.mVC = 1;
+            this.mVE[this.capacityHint] = objArr;
+            this.mVE = objArr;
+            this.mVF = 1;
             this.size++;
         } else {
-            this.mVB[this.mVC] = obj;
-            this.mVC++;
+            this.mVE[this.mVF] = obj;
+            this.mVF++;
             this.size++;
         }
     }
 
-    public Object[] dDf() {
-        return this.mVA;
+    public Object[] dDb() {
+        return this.mVD;
     }
 
     public int size() {
@@ -43,14 +43,14 @@ public class f {
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] dDf = dDf();
+        Object[] dDb = dDb();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(dDf[i4]);
+            arrayList.add(dDb[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                dDf = (Object[]) dDf[i];
+                dDb = (Object[]) dDb[i];
                 i4 = 0;
             }
         }

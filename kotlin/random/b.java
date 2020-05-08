@@ -6,7 +6,7 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public final class b extends kotlin.random.a {
-    private final a mXR = new a();
+    private final a mXU = new a();
 
     @h
     /* loaded from: classes7.dex */
@@ -17,15 +17,15 @@ public final class b extends kotlin.random.a {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
-        /* renamed from: dEa */
+        /* renamed from: dDW */
         public Random initialValue() {
             return new Random();
         }
     }
 
     @Override // kotlin.random.a
-    public Random dDZ() {
-        Random random = this.mXR.get();
+    public Random dDV() {
+        Random random = this.mXU.get();
         q.i(random, "implStorage.get()");
         return random;
     }

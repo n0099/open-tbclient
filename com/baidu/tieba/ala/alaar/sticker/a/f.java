@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.MessageManager;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class f {
-    public static void bkx() {
+    public static void bkv() {
         com.baidu.tieba.ala.alaar.messages.b bVar = new com.baidu.tieba.ala.alaar.messages.b("");
         bVar.setParams();
         MessageManager.getInstance().sendMessage(bVar);

@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.pubaccount.QuickReply;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,7 +65,7 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(new String(bArr));
             i2 = jSONObject.getInt("error_code");
-            jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+            jSONObject.optString("error_msg", "");
             if (i2 == 0) {
                 if (jSONObject.has("response_params")) {
                     str2 = jSONObject.getString("response_params");

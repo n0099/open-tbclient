@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
-    private static int cwt = 5;
-    private static int cwu = 0;
-    private TextView cwr;
-    private boolean cws;
+    private TextView cwx;
+    private boolean cwy;
     private ImageView mIconView;
     private ImageView mRedDot;
     private TextView mTextView;
+    private static int cwz = 5;
+    private static int cwA = 0;
 
     public SwanAppBottomTabIconView(Context context) {
         super(context);
@@ -25,7 +25,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mIconView = (ImageView) findViewById(a.f.bottom_tab_icon);
         this.mTextView = (TextView) findViewById(a.f.bottom_tab_text);
         this.mRedDot = (ImageView) findViewById(a.f.bottom_tab_red_dot);
-        this.cwr = (TextView) findViewById(a.f.bottom_tab_badge);
+        this.cwx = (TextView) findViewById(a.f.bottom_tab_badge);
     }
 
     public void setIconView(int i) {
@@ -41,8 +41,8 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
     }
 
     public void setTextView(String str) {
-        if (str.length() > cwt) {
-            str = str.substring(cwu, cwt);
+        if (str.length() > cwz) {
+            str = str.substring(cwA, cwz);
         }
         this.mTextView.setText(str);
     }
@@ -51,16 +51,16 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mTextView.setTextColor(i);
     }
 
-    public boolean aok() {
-        return this.cws;
+    public boolean aoj() {
+        return this.cwy;
     }
 
     public void setmIsSelect(boolean z) {
-        this.cws = z;
+        this.cwy = z;
     }
 
     public void setBadgeText(String str) {
-        this.cwr.setText(str);
+        this.cwx.setText(str);
     }
 
     public void setRedDotVisibleState(boolean z) {
@@ -73,9 +73,9 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
 
     public void setBadgeVisibleState(boolean z) {
         if (z) {
-            this.cwr.setVisibility(0);
+            this.cwx.setVisibility(0);
         } else {
-            this.cwr.setVisibility(8);
+            this.cwx.setVisibility(8);
         }
     }
 }

@@ -6,11 +6,15 @@ public class ServiceManager implements c {
     private static ServiceManager a;
     private ISAccountManager b;
 
-    public static ServiceManager getInstance() {
-        if (a == null) {
-            a = new ServiceManager();
+    public static synchronized ServiceManager getInstance() {
+        ServiceManager serviceManager;
+        synchronized (ServiceManager.class) {
+            if (a == null) {
+                a = new ServiceManager();
+            }
+            serviceManager = a;
         }
-        return a;
+        return serviceManager;
     }
 
     public ISAccountManager getIsAccountManager() {

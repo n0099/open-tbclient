@@ -26,41 +26,41 @@ import com.baidu.tieba.enterForum.data.h;
 import com.baidu.tieba.enterForum.data.k;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f, com.baidu.tieba.enterForum.data.d> {
-    private TextView aKJ;
-    private View cDX;
-    private View ckF;
-    private View duT;
-    private TextView gIN;
-    private TextView gIO;
-    private TextView gIP;
-    private TextView gIQ;
-    private ImageView gIR;
-    private TextView gIS;
+    private TextView aKP;
+    private View cEd;
+    private View ckL;
+    private View duX;
     private TextView gIT;
-    private ImageView glo;
-    private ViewEventCenter gyO;
-    private BarImageView gzf;
+    private TextView gIU;
+    private TextView gIV;
+    private TextView gIW;
+    private ImageView gIX;
+    private TextView gIY;
+    private TextView gIZ;
+    private ImageView glu;
+    private ViewEventCenter gyU;
+    private BarImageView gzl;
     private TextView mName;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.gyO = viewEventCenter;
-        this.ckF = view.findViewById(R.id.rootview);
-        this.mName = (TextView) this.ckF.findViewById(R.id.name);
-        this.gIN = (TextView) this.ckF.findViewById(R.id.live_label);
-        this.gIO = (TextView) this.ckF.findViewById(R.id.pinpai_label);
-        this.gIP = (TextView) this.ckF.findViewById(R.id.trial_label);
-        this.gIQ = (TextView) this.ckF.findViewById(R.id.edit_btn_label);
-        this.gIR = (ImageView) this.ckF.findViewById(R.id.sign);
-        this.glo = (ImageView) this.ckF.findViewById(R.id.grade);
-        this.gIS = (TextView) this.ckF.findViewById(R.id.owner_flag);
-        this.duT = this.ckF.findViewById(R.id.enterforum_item_divider);
-        this.aKJ = (TextView) this.ckF.findViewById(R.id.tv_add_love);
-        this.gzf = (BarImageView) this.ckF.findViewById(R.id.forum_avatar);
-        this.cDX = this.ckF.findViewById(R.id.forum_top_divider);
-        this.gIT = (TextView) this.ckF.findViewById(R.id.forum_intro);
-        this.gzf.setPlaceHolder(2);
-        this.gzf.setStrokeColorResId(R.color.cp_bg_line_d);
+        this.gyU = viewEventCenter;
+        this.ckL = view.findViewById(R.id.rootview);
+        this.mName = (TextView) this.ckL.findViewById(R.id.name);
+        this.gIT = (TextView) this.ckL.findViewById(R.id.live_label);
+        this.gIU = (TextView) this.ckL.findViewById(R.id.pinpai_label);
+        this.gIV = (TextView) this.ckL.findViewById(R.id.trial_label);
+        this.gIW = (TextView) this.ckL.findViewById(R.id.edit_btn_label);
+        this.gIX = (ImageView) this.ckL.findViewById(R.id.sign);
+        this.glu = (ImageView) this.ckL.findViewById(R.id.grade);
+        this.gIY = (TextView) this.ckL.findViewById(R.id.owner_flag);
+        this.duX = this.ckL.findViewById(R.id.enterforum_item_divider);
+        this.aKP = (TextView) this.ckL.findViewById(R.id.tv_add_love);
+        this.gzl = (BarImageView) this.ckL.findViewById(R.id.forum_avatar);
+        this.cEd = this.ckL.findViewById(R.id.forum_top_divider);
+        this.gIZ = (TextView) this.ckL.findViewById(R.id.forum_intro);
+        this.gzl.setPlaceHolder(2);
+        this.gzl.setStrokeColorResId(R.color.cp_bg_line_d);
     }
 
     @Override // com.baidu.tieba.tbadkCore.r
@@ -77,19 +77,19 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
         StateListDrawable stateListDrawable = new StateListDrawable();
         stateListDrawable.addState(new int[]{16842910, 16842919}, am.getDrawable(R.color.cp_bg_line_c));
         stateListDrawable.addState(new int[0], am.getDrawable(R.color.cp_bg_line_e).mutate());
-        this.ckF.setBackgroundDrawable(stateListDrawable);
-        this.gzf.setPlaceHolder(2);
+        this.ckL.setBackgroundDrawable(stateListDrawable);
+        this.gzl.setPlaceHolder(2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void ai(com.baidu.tieba.enterForum.data.f fVar) {
-        super.ai(fVar);
+    public void aj(com.baidu.tieba.enterForum.data.f fVar) {
+        super.aj(fVar);
         if (fVar != null) {
             b(fVar);
-            am.setBackgroundColor(this.duT, R.color.cp_bg_line_e);
-            SvgManager.aOU().a(this.gIR, R.drawable.icon_pure_ba_checkedin16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
+            am.setBackgroundColor(this.duX, R.color.cp_bg_line_e);
+            SvgManager.aOR().a(this.gIX, R.drawable.icon_pure_ba_checkedin16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL);
             am.setViewTextColor(this.mName, (int) R.color.cp_cont_b);
         }
     }
@@ -98,105 +98,105 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
         int i;
         int i2 = 0;
         if (fVar != null) {
-            com.baidu.tieba.enterForum.data.d dVar = (com.baidu.tieba.enterForum.data.d) aYL();
-            this.ckF.setBackgroundDrawable(am.kC(R.color.cp_bg_line_e));
-            this.ckF.setVisibility(0);
+            com.baidu.tieba.enterForum.data.d dVar = (com.baidu.tieba.enterForum.data.d) aYJ();
+            this.ckL.setBackgroundDrawable(am.kC(R.color.cp_bg_line_e));
+            this.ckL.setVisibility(0);
             this.mName.setVisibility(0);
             if (fVar instanceof h) {
                 final h hVar = (h) fVar;
                 this.mName.setText(hVar.getName());
-                this.gIR.setVisibility(hVar.bHL() == 0 ? 8 : 0);
+                this.gIX.setVisibility(hVar.bHJ() == 0 ? 8 : 0);
                 if (hVar.getLevel() == 0) {
-                    this.glo.setVisibility(8);
+                    this.glu.setVisibility(8);
                 } else {
-                    this.glo.setVisibility(0);
-                    am.setImageResource(this.glo, BitmapHelper.getGradeResourceIdInEnterForum(hVar.getLevel()));
+                    this.glu.setVisibility(0);
+                    am.setImageResource(this.glu, BitmapHelper.getGradeResourceIdInEnterForum(hVar.getLevel()));
                 }
-                this.gzf.setShowOval(true);
-                this.gzf.startLoad(hVar.getAvatar(), 10, false);
-                this.gzf.setShowOuterBorder(false);
-                this.gzf.setShowInnerBorder(true);
-                this.gzf.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-                this.gzf.setStrokeColorResId(R.color.cp_border_a);
-                if (hVar.bHK() > 0) {
-                    am.setBackgroundColor(this.cDX, R.color.cp_link_tip_a);
+                this.gzl.setShowOval(true);
+                this.gzl.startLoad(hVar.getAvatar(), 10, false);
+                this.gzl.setShowOuterBorder(false);
+                this.gzl.setShowInnerBorder(true);
+                this.gzl.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+                this.gzl.setStrokeColorResId(R.color.cp_border_a);
+                if (hVar.bHI() > 0) {
+                    am.setBackgroundColor(this.cEd, R.color.cp_link_tip_a);
                 } else {
-                    am.setBackgroundColor(this.cDX, R.color.transparent);
+                    am.setBackgroundColor(this.cEd, R.color.transparent);
                 }
-                if (!hVar.bHJ().isEmpty()) {
-                    this.gIT.setText(hVar.bHJ());
+                if (!hVar.bHH().isEmpty()) {
+                    this.gIZ.setText(hVar.bHH());
                 }
-                am.setViewTextColor(this.gIT, (int) R.color.cp_cont_d);
+                am.setViewTextColor(this.gIZ, (int) R.color.cp_cont_d);
                 if (getResources().getString(R.string.ala_follow_live_enter_live_square_txt).equals(hVar.getName())) {
                     TiebaStatic.log(new an("c12887"));
                 }
-                this.gIS.setVisibility((hVar.bHM() == 1 && hVar.isPrivateForum() == 1) ? 0 : 8);
-                if (hVar.bHN() == 1) {
-                    this.gIO.setVisibility(0);
-                    this.gIO.setText(R.string.brand_label_ba_text);
-                    am.setBackgroundResource(this.gIO, R.drawable.enter_forum_brand_label_bg_shape);
-                    am.setViewTextColor(this.gIO, (int) R.color.cp_cont_a);
-                    this.gIN.setVisibility(8);
+                this.gIY.setVisibility((hVar.bHK() == 1 && hVar.isPrivateForum() == 1) ? 0 : 8);
+                if (hVar.bHL() == 1) {
+                    this.gIU.setVisibility(0);
+                    this.gIU.setText(R.string.brand_label_ba_text);
+                    am.setBackgroundResource(this.gIU, R.drawable.enter_forum_brand_label_bg_shape);
+                    am.setViewTextColor(this.gIU, (int) R.color.cp_cont_a);
+                    this.gIT.setVisibility(8);
                 } else {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ALA_CHECK_LIVE_FORUM_BY_FID, Boolean.class, Long.valueOf(com.baidu.adp.lib.f.b.toLong(hVar.getId(), 0L)));
                     if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
-                        this.gIN.setVisibility(0);
-                        this.gIN.setText("");
-                        am.setBackgroundResource(this.gIN, R.drawable.icon_ba_list_live);
-                        am.setViewTextColor(this.gIN, (int) R.color.cp_cont_g);
+                        this.gIT.setVisibility(0);
+                        this.gIT.setText("");
+                        am.setBackgroundResource(this.gIT, R.drawable.icon_ba_list_live);
+                        am.setViewTextColor(this.gIT, (int) R.color.cp_cont_g);
                     } else {
-                        this.gIN.setVisibility(8);
+                        this.gIT.setVisibility(8);
                     }
-                    this.gIO.setVisibility(8);
+                    this.gIU.setVisibility(8);
                 }
-                if (hVar.bHQ()) {
-                    this.gIP.setVisibility(0);
+                if (hVar.bHO()) {
+                    this.gIV.setVisibility(0);
                     i = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds122) + 0;
                 } else {
-                    this.gIP.setVisibility(8);
+                    this.gIV.setVisibility(8);
                     i = 0;
                 }
-                if (hVar.bHR()) {
-                    this.gIQ.setVisibility(0);
+                if (hVar.bHP()) {
+                    this.gIW.setVisibility(0);
                     i += l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200);
                 } else {
-                    this.gIQ.setVisibility(8);
+                    this.gIW.setVisibility(8);
                 }
-                this.gIQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.c.1
+                this.gIW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         TiebaStatic.log("c13386");
-                        c.this.gyO.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(15, hVar, null, null));
+                        c.this.gyU.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(15, hVar, null, null));
                     }
                 });
                 i2 = i;
             } else if (fVar instanceof k) {
                 this.mName.setText(((k) fVar).getForumName());
-                this.gIR.setVisibility(8);
-                this.glo.setVisibility(8);
+                this.gIX.setVisibility(8);
+                this.glu.setVisibility(8);
                 if (getResources().getString(R.string.ala_follow_live_enter_live_square_txt).equals(((k) fVar).getForumName())) {
                     TiebaStatic.log(new an("c12887"));
                 }
             }
-            am.setBackgroundResource(this.gIS, R.drawable.icon_owner_bg);
-            am.setViewTextColor(this.gIS, (int) R.color.cp_cont_a);
+            am.setBackgroundResource(this.gIY, R.drawable.icon_owner_bg);
+            am.setViewTextColor(this.gIY, (int) R.color.cp_cont_a);
             am.setViewTextColor(this.mName, (int) R.color.cp_cont_b);
-            this.aKJ.setVisibility(8);
-            this.ckF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.c.2
+            this.aKP.setVisibility(8);
+            this.ckL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.c.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Bundle bundle = new Bundle();
-                    bundle.putParcelable("info_forum_image_rect", c.this.bKd());
-                    bundle.putParcelable("info_forum_name_rect", c.this.bKe());
+                    bundle.putParcelable("info_forum_image_rect", c.this.bKb());
+                    bundle.putParcelable("info_forum_name_rect", c.this.bKc());
                     com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(1, fVar, null, null);
                     bVar.setExtra(bundle);
-                    c.this.gyO.dispatchMvcEvent(bVar);
+                    c.this.gyU.dispatchMvcEvent(bVar);
                 }
             });
-            this.ckF.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.view.c.3
+            this.ckL.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.view.c.3
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    c.this.gyO.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(12, fVar, null, null));
+                    c.this.gyU.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(12, fVar, null, null));
                     return true;
                 }
             });
@@ -205,14 +205,14 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.f
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Rect bKd() {
+    public Rect bKb() {
         Rect rect = new Rect();
-        this.gzf.getGlobalVisibleRect(rect);
+        this.gzl.getGlobalVisibleRect(rect);
         return rect;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Rect bKe() {
+    public Rect bKc() {
         Rect rect = new Rect();
         this.mName.getGlobalVisibleRect(rect);
         return rect;

@@ -21,12 +21,12 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
     public int sortType = 0;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> aYG() {
+    public HashMap<String, Object> aYE() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> aYH() {
+    public HashMap<String, String> aYF() {
         return null;
     }
 

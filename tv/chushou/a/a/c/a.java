@@ -4,81 +4,81 @@ import android.text.TextUtils;
 import android.util.Log;
 /* loaded from: classes5.dex */
 public final class a implements b {
-    private static final a nrB = new a();
-    private volatile boolean lNX = false;
-    private volatile boolean nrC = false;
+    private static final a nrE = new a();
+    private volatile boolean lOb = false;
+    private volatile boolean nrF = false;
 
-    public static b dJF() {
-        return nrB;
+    public static b dJB() {
+        return nrE;
     }
 
     @Override // tv.chushou.a.a.c.b
-    public boolean dJG() {
-        return this.lNX;
+    public boolean dJC() {
+        return this.lOb;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void wP(boolean z) {
-        this.lNX = z;
+        this.lOb = z;
     }
 
     @Override // tv.chushou.a.a.c.b
     public void wQ(boolean z) {
-        this.nrC = z;
+        this.nrF = z;
     }
 
-    public String dJH() {
+    public String dJD() {
         return "Router";
     }
 
     @Override // tv.chushou.a.a.c.b
     public void v(String str, String str2) {
-        if (this.lNX) {
-            Log.v(Qb(str), Qc(str2));
+        if (this.lOb) {
+            Log.v(Qe(str), Qf(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void d(String str, String str2) {
-        if (this.lNX) {
-            Log.d(Qb(str), Qc(str2));
+        if (this.lOb) {
+            Log.d(Qe(str), Qf(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void i(String str, String str2) {
-        if (this.lNX) {
-            Log.i(Qb(str), Qc(str2));
+        if (this.lOb) {
+            Log.i(Qe(str), Qf(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void w(String str, String str2) {
-        if (this.lNX) {
-            Log.w(Qb(str), Qc(str2));
+        if (this.lOb) {
+            Log.w(Qe(str), Qf(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2) {
-        if (this.lNX) {
-            Log.e(Qb(str), Qc(str2));
+        if (this.lOb) {
+            Log.e(Qe(str), Qf(str2));
         }
     }
 
     @Override // tv.chushou.a.a.c.b
     public void e(String str, String str2, Throwable th) {
-        if (this.lNX) {
-            Log.e(Qb(str), Qc(str2), th);
+        if (this.lOb) {
+            Log.e(Qe(str), Qf(str2), th);
         }
     }
 
-    private String Qb(String str) {
-        return TextUtils.isEmpty(str) ? dJH() : str;
+    private String Qe(String str) {
+        return TextUtils.isEmpty(str) ? dJD() : str;
     }
 
-    private String Qc(String str) {
-        if (this.nrC) {
+    private String Qf(String str) {
+        if (this.nrF) {
             return str + a(Thread.currentThread().getStackTrace()[3]);
         }
         return str;

@@ -8,7 +8,7 @@ import tv.chushou.zues.widget.kpswitch.b;
 import tv.chushou.zues.widget.kpswitch.b.e;
 /* loaded from: classes5.dex */
 public class KPSwitchFSPanelRelativeLayout extends RelativeLayout implements b {
-    private a nvC;
+    private a nvF;
 
     public KPSwitchFSPanelRelativeLayout(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class KPSwitchFSPanelRelativeLayout extends RelativeLayout implements b {
     }
 
     private void init() {
-        this.nvC = new a(this);
+        this.nvF = new a(this);
     }
 
     @Override // tv.chushou.zues.widget.kpswitch.b
@@ -36,6 +36,6 @@ public class KPSwitchFSPanelRelativeLayout extends RelativeLayout implements b {
 
     @Override // tv.chushou.zues.widget.kpswitch.b
     public void wc(boolean z) {
-        this.nvC.wc(z);
+        this.nvF.wc(z);
     }
 }

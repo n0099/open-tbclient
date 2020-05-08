@@ -1,31 +1,13 @@
 package com.xiaomi.push;
 /* loaded from: classes8.dex */
-public class jn extends iw {
-    protected int a;
+public final class jn {
+    public final String a;
 
     public jn() {
-        this.a = 0;
-    }
-
-    public jn(int i) {
-        this.a = 0;
-        this.a = i;
-    }
-
-    public jn(int i, String str) {
-        super(str);
-        this.a = 0;
-        this.a = i;
-    }
-
-    public jn(int i, Throwable th) {
-        super(th);
-        this.a = 0;
-        this.a = i;
+        this("");
     }
 
     public jn(String str) {
-        super(str);
-        this.a = 0;
+        this.a = str;
     }
 }

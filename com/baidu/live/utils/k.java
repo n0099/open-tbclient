@@ -87,7 +87,7 @@ public class k {
         return false;
     }
 
-    public static boolean Gf() {
+    public static boolean Ge() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }
@@ -98,7 +98,7 @@ public class k {
         return true;
     }
 
-    public static boolean Gg() {
+    public static boolean Gf() {
         if (!TbadkCoreApplication.getInst().isHaokan() && !TbadkCoreApplication.getInst().isTieba() && !TbadkCoreApplication.getInst().isMobileBaidu() && !TbadkCoreApplication.getInst().isOther()) {
             return !ExtraParamsManager.getSaveFlowStatus();
         }

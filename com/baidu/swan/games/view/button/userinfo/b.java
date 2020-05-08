@@ -11,11 +11,11 @@ public class b extends com.baidu.swan.games.view.button.base.b {
             @Override // java.lang.Runnable
             public void run() {
                 if (com.baidu.swan.games.view.c.ayG() != null) {
-                    b.this.cSl = new UserInfoButton(com.baidu.swan.games.view.c.ayG(), b.this);
-                    b.this.cSl.setType(b.this.type);
-                    b.this.cSl.setButtonText(b.this.text);
-                    b.this.cSl.setImageUrl(b.this.image);
-                    b.this.cSl.setApiButtonStyle(b.this.style);
+                    b.this.cSq = new UserInfoButton(com.baidu.swan.games.view.c.ayG(), b.this);
+                    b.this.cSq.setType(b.this.type);
+                    b.this.cSq.setButtonText(b.this.text);
+                    b.this.cSq.setImageUrl(b.this.image);
+                    b.this.cSq.setApiButtonStyle(b.this.style);
                     b.this.ayZ();
                     b.this.azd();
                 }

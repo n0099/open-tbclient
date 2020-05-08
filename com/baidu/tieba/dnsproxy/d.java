@@ -5,17 +5,17 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 /* loaded from: classes6.dex */
 public class d {
-    private static volatile d gwm = null;
+    private static volatile d gws = null;
 
-    public static final d bGE() {
-        if (gwm == null) {
+    public static final d bGC() {
+        if (gws == null) {
             synchronized (d.class) {
-                if (gwm == null) {
-                    gwm = new d();
+                if (gws == null) {
+                    gws = new d();
                 }
             }
         }
-        return gwm;
+        return gws;
     }
 
     private d() {

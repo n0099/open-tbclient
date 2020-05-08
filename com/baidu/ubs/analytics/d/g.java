@@ -8,21 +8,21 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes8.dex */
 public final class g {
-    private static String[] lPd = {"android.permission.WRITE_EXTERNAL_STORAGE"};
-    private static File lPe = null;
-    private static RandomAccessFile lPf = null;
+    private static String[] lPh = {"android.permission.WRITE_EXTERNAL_STORAGE"};
+    private static File lPi = null;
+    private static RandomAccessFile lPj = null;
 
     public static synchronized boolean b(String str, String str2, String str3) {
         boolean z = false;
         synchronized (g.class) {
-            if (dlz() && f(str2, str3)) {
+            if (dlw() && f(str2, str3)) {
                 try {
-                    lPe = new File(str2 + str3);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(lPe, "rwd");
-                    lPf = randomAccessFile;
-                    randomAccessFile.seek(lPe.length());
-                    lPf.write((str + "\r\n").getBytes("UTF-8"));
-                    lPf.close();
+                    lPi = new File(str2 + str3);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(lPi, "rwd");
+                    lPj = randomAccessFile;
+                    randomAccessFile.seek(lPi.length());
+                    lPj.write((str + "\r\n").getBytes("UTF-8"));
+                    lPj.close();
                     z = true;
                 } catch (Exception e) {
                     j.b(e);
@@ -35,14 +35,14 @@ public final class g {
     public static synchronized String S(String str, String str2) {
         String str3;
         synchronized (g.class) {
-            if (dlz()) {
-                if (NF(str + str2)) {
+            if (dlw()) {
+                if (NI(str + str2)) {
                     try {
-                        lPe = new File(str + str2);
-                        lPf = new RandomAccessFile(lPe, "r");
+                        lPi = new File(str + str2);
+                        lPj = new RandomAccessFile(lPi, "r");
                         StringBuffer stringBuffer = new StringBuffer();
                         while (true) {
-                            String readLine = lPf.readLine();
+                            String readLine = lPj.readLine();
                             if (readLine == null) {
                                 break;
                             }
@@ -50,14 +50,14 @@ public final class g {
                         }
                         str3 = stringBuffer.toString();
                         try {
-                            lPf.close();
+                            lPj.close();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         try {
-                            lPf.close();
+                            lPj.close();
                         } catch (IOException e3) {
                             e3.printStackTrace();
                         }
@@ -71,39 +71,39 @@ public final class g {
         return str3;
     }
 
-    private static boolean dlz() {
+    private static boolean dlw() {
         String externalStorageState = Environment.getExternalStorageState();
-        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.dkW().getContext().checkCallingOrSelfPermission(lPd[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
+        return Build.VERSION.SDK_INT >= 23 ? com.baidu.ubs.analytics.d.dkT().getContext().checkCallingOrSelfPermission(lPh[0]) == 0 && externalStorageState.equals("mounted") : externalStorageState.equals("mounted");
     }
 
-    public static boolean NF(String str) {
+    public static boolean NI(String str) {
         File file = new File(str);
-        lPe = file;
+        lPi = file;
         return file.exists();
     }
 
-    public static boolean NG(String str) {
+    public static boolean NJ(String str) {
         File file = new File(str);
-        lPe = file;
+        lPi = file;
         return file.delete();
     }
 
     private static boolean f(String str, String str2) {
         try {
-            lPe = new File(str);
-            if (!NF(str)) {
-                lPe.mkdirs();
+            lPi = new File(str);
+            if (!NI(str)) {
+                lPi.mkdirs();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         try {
             File file = new File(str + str2);
-            lPe = file;
+            lPi = file;
             if (file.exists()) {
                 return true;
             }
-            return lPe.createNewFile();
+            return lPi.createNewFile();
         } catch (Exception e2) {
             e2.printStackTrace();
             return false;

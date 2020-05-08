@@ -9,9 +9,9 @@ import com.baidu.swan.games.view.recommend.a.b;
 import com.baidu.swan.games.view.recommend.a.d;
 /* loaded from: classes11.dex */
 public class a implements b {
-    private b cTU;
+    private b cTZ;
 
-    public a(final int i, @NonNull final d dVar, final a.InterfaceC0380a interfaceC0380a) {
+    public a(final int i, @NonNull final d dVar, final a.InterfaceC0401a interfaceC0401a) {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.1
             @Override // java.lang.Runnable
             public void run() {
@@ -20,8 +20,8 @@ public class a implements b {
                     com.baidu.swan.apps.console.c.e("RecommendButton", "context is null.");
                     return;
                 }
-                a.this.cTU = com.baidu.swan.games.view.recommend.a.a.a(i, ayG, dVar);
-                a.this.cTU.a(interfaceC0380a);
+                a.this.cTZ = com.baidu.swan.games.view.recommend.a.a.a(i, ayG, dVar);
+                a.this.cTZ.a(interfaceC0401a);
             }
         });
     }
@@ -31,20 +31,20 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cTU != null) {
-                    a.this.cTU.a(aVar);
+                if (a.this.cTZ != null) {
+                    a.this.cTZ.a(aVar);
                 }
             }
         });
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.b
-    public void a(final a.InterfaceC0380a interfaceC0380a) {
+    public void a(final a.InterfaceC0401a interfaceC0401a) {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cTU != null) {
-                    a.this.cTU.a(interfaceC0380a);
+                if (a.this.cTZ != null) {
+                    a.this.cTZ.a(interfaceC0401a);
                 }
             }
         });
@@ -55,8 +55,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.4
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cTU != null) {
-                    a.this.cTU.dP(z);
+                if (a.this.cTZ != null) {
+                    a.this.cTZ.dP(z);
                 }
             }
         });
@@ -67,8 +67,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.5
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cTU != null) {
-                    a.this.cTU.show();
+                if (a.this.cTZ != null) {
+                    a.this.cTZ.show();
                 }
             }
         });
@@ -79,8 +79,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.6
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cTU != null) {
-                    a.this.cTU.hide();
+                if (a.this.cTZ != null) {
+                    a.this.cTZ.hide();
                 }
             }
         });
@@ -91,8 +91,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.7
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cTU != null) {
-                    a.this.cTU.destroy();
+                if (a.this.cTZ != null) {
+                    a.this.cTZ.destroy();
                 }
             }
         });
@@ -103,8 +103,8 @@ public class a implements b {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.recommend.proxy.a.8
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.cTU != null) {
-                    a.this.cTU.update();
+                if (a.this.cTZ != null) {
+                    a.this.cTZ.update();
                 }
             }
         });

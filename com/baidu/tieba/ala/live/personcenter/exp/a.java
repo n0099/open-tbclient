@@ -11,13 +11,13 @@ import com.baidu.live.view.ALALevelView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> fqn = new ArrayList<>();
-    private AlaPersonCenterExpActivity fqo;
+    private ArrayList<b> fqs = new ArrayList<>();
+    private AlaPersonCenterExpActivity fqt;
     private Context mContext;
     private int mSkinType;
 
     public a(AlaPersonCenterExpActivity alaPersonCenterExpActivity) {
-        this.fqo = alaPersonCenterExpActivity;
+        this.fqt = alaPersonCenterExpActivity;
         this.mContext = alaPersonCenterExpActivity.getPageContext().getPageActivity();
     }
 
@@ -26,24 +26,24 @@ public class a extends BaseAdapter {
     }
 
     public void W(ArrayList<b> arrayList) {
-        this.fqn.clear();
-        this.fqn.addAll(arrayList);
+        this.fqs.clear();
+        this.fqs.addAll(arrayList);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.fqn == null) {
+        if (this.fqs == null) {
             return 1;
         }
-        return this.fqn.size() + 1;
+        return this.fqs.size() + 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.fqn.size())) {
+        if (1 != getItemViewType(i) || (i - 1 < 0 && i - 1 >= this.fqs.size())) {
             return null;
         }
-        return this.fqn.get(i - 1);
+        return this.fqs.get(i - 1);
     }
 
     @Override // android.widget.Adapter
@@ -77,45 +77,45 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_header, viewGroup, false);
         }
-        this.fqo.getLayoutMode().onModeChanged(view);
+        this.fqt.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     private View b(int i, View view, ViewGroup viewGroup) {
-        C0485a c0485a;
+        C0506a c0506a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.sdk_prc_person_center_exp_item, viewGroup, false);
-            C0485a c0485a2 = new C0485a(view);
-            view.setTag(c0485a2);
-            c0485a = c0485a2;
+            C0506a c0506a2 = new C0506a(view);
+            view.setTag(c0506a2);
+            c0506a = c0506a2;
         } else {
-            c0485a = (C0485a) view.getTag();
+            c0506a = (C0506a) view.getTag();
         }
         b bVar = (b) getItem(i);
         if (bVar != null) {
-            c0485a.aB(bVar.level, bVar.fqr);
+            c0506a.aB(bVar.level, bVar.fqw);
         }
-        this.fqo.getLayoutMode().onModeChanged(view);
+        this.fqt.getLayoutMode().onModeChanged(view);
         if (this.mSkinType == 1) {
-            c0485a.fcm.b(a.d.sdk_cp_cont_g, 0.7f);
+            c0506a.fcr.b(a.d.sdk_cp_cont_g, 0.7f);
         }
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.live.personcenter.exp.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0485a {
-        private ALALevelView fcm;
-        private TextView fqp;
+    public class C0506a {
+        private ALALevelView fcr;
+        private TextView fqu;
 
-        public C0485a(View view) {
-            this.fcm = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
-            this.fqp = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
+        public C0506a(View view) {
+            this.fcr = (ALALevelView) view.findViewById(a.g.ala_person_center_exp_level);
+            this.fqu = (TextView) view.findViewById(a.g.ala_person_center_exp_level_range);
         }
 
         public void aB(int i, String str) {
-            this.fcm.setupLevelIcon(i);
-            this.fqp.setText(str);
+            this.fcr.setupLevelIcon(i);
+            this.fqu.setText(str);
         }
     }
 

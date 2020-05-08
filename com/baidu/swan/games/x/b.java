@@ -15,8 +15,8 @@ public class b {
     }
 
     public static void a(String str, a aVar) {
-        e akN;
-        if (aVar != null && !TextUtils.isEmpty(str) && (akN = e.akN()) != null) {
+        e akM;
+        if (aVar != null && !TextUtils.isEmpty(str) && (akM = e.akM()) != null) {
             if (com.baidu.swan.games.x.a.ayf().qW(str)) {
                 aVar.ayg();
                 return;
@@ -25,7 +25,7 @@ public class b {
             if (TextUtils.isEmpty(md)) {
                 aVar.ed(2112);
             } else {
-                com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.e(akN.id, Integer.valueOf(akN.getVersion()).intValue(), md, 1), new com.baidu.swan.games.x.b.a(akN.id, akN.getVersion(), com.baidu.swan.games.x.a.ayf().W(str, 2), aVar));
+                com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.e(akM.id, Integer.valueOf(akM.getVersion()).intValue(), md, 1), new com.baidu.swan.games.x.b.a(akM.id, akM.getVersion(), com.baidu.swan.games.x.a.ayf().W(str, 2), aVar));
             }
         }
     }

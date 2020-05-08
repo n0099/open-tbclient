@@ -11,16 +11,9 @@ import com.baidu.sapi2.utils.enums.Domain;
 /* loaded from: classes6.dex */
 public class d {
     public void a(SapiConfiguration sapiConfiguration) {
-        String str;
         PassBiometric biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4);
         if (biometric == null || ((PassFaceRecogManager) biometric).getConfiguration() == null) {
-            Domain domain = sapiConfiguration.environment;
-            if (domain == Domain.DOMAIN_QA) {
-                str = PassBioEnv.PASSPORT_QA_DOMAIN;
-            } else {
-                str = domain == Domain.DOMAIN_RD ? PassBioEnv.PASSPORT_RD_DOMAIN : PassBioEnv.PASSPORT_DOMAIN;
-            }
-            biometric.config(new PassBiometricConfiguration.Builder((Application) sapiConfiguration.context.getApplicationContext()).setProductLineInfo(sapiConfiguration.tpl, sapiConfiguration.appId, sapiConfiguration.appSignKey).setRuntimeEnvironment(str).debug(sapiConfiguration.debug).build());
+            biometric.config(new PassBiometricConfiguration.Builder((Application) sapiConfiguration.context.getApplicationContext()).setProductLineInfo(sapiConfiguration.tpl, sapiConfiguration.appId, sapiConfiguration.appSignKey).setRuntimeEnvironment(sapiConfiguration.environment == Domain.DOMAIN_QA ? PassBioEnv.PASSPORT_QA_DOMAIN : PassBioEnv.PASSPORT_DOMAIN).debug(sapiConfiguration.debug).build());
         }
     }
 }

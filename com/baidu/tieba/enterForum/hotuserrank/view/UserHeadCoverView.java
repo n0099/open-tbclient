@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.hotuserrank.a.b;
 /* loaded from: classes9.dex */
 public class UserHeadCoverView extends FrameLayout {
-    private ImageView gDF;
-    private View gDG;
-    private ImageView gDH;
+    private ImageView gDL;
+    private View gDM;
+    private ImageView gDN;
 
     public UserHeadCoverView(@NonNull Context context) {
         super(context);
@@ -34,53 +34,53 @@ public class UserHeadCoverView extends FrameLayout {
     }
 
     private void init(Context context) {
-        this.gDF = new ImageView(context);
+        this.gDL = new ImageView(context);
         int dimens = l.getDimens(context, R.dimen.tbds78);
-        addView(this.gDF, new FrameLayout.LayoutParams(dimens, dimens));
-        this.gDG = new View(context);
+        addView(this.gDL, new FrameLayout.LayoutParams(dimens, dimens));
+        this.gDM = new View(context);
         int dimens2 = l.getDimens(context, R.dimen.tbds158);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimens2, dimens2);
         int dimens3 = l.getDimens(context, R.dimen.tbds26);
         layoutParams.leftMargin = dimens3;
         layoutParams.topMargin = dimens3;
-        addView(this.gDG, layoutParams);
-        this.gDH = new ImageView(context);
+        addView(this.gDM, layoutParams);
+        this.gDN = new ImageView(context);
         int dimens4 = l.getDimens(context, R.dimen.tbds36);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(dimens4, dimens4);
         layoutParams2.gravity = 85;
-        addView(this.gDH, layoutParams2);
+        addView(this.gDN, layoutParams2);
     }
 
     public void setData(b bVar) {
         if (bVar != null) {
             if (bVar.rankNum != null) {
                 if (bVar.rankNum.equals("1") || bVar.rankNum.equals("2") || bVar.rankNum.equals("3")) {
-                    this.gDF.setVisibility(0);
-                    this.gDG.setVisibility(0);
+                    this.gDL.setVisibility(0);
+                    this.gDM.setVisibility(0);
                     if (bVar.rankNum.equals("1")) {
-                        SvgManager.aOU().a(this.gDF, R.drawable.svg_icon_mask_first30, (SvgManager.SvgResourceStateType) null);
-                        this.gDG.setBackground(am.getDrawable(R.drawable.shape_hot_user_yellow_circle));
+                        SvgManager.aOR().a(this.gDL, R.drawable.svg_icon_mask_first30, (SvgManager.SvgResourceStateType) null);
+                        this.gDM.setBackground(am.getDrawable(R.drawable.shape_hot_user_yellow_circle));
                     } else if (bVar.rankNum.equals("2")) {
-                        SvgManager.aOU().a(this.gDF, R.drawable.svg_icon_mask_second30, (SvgManager.SvgResourceStateType) null);
-                        this.gDG.setBackground(am.getDrawable(R.drawable.shape_hot_user_gray_circle));
+                        SvgManager.aOR().a(this.gDL, R.drawable.svg_icon_mask_second30, (SvgManager.SvgResourceStateType) null);
+                        this.gDM.setBackground(am.getDrawable(R.drawable.shape_hot_user_gray_circle));
                     } else if (bVar.rankNum.equals("3")) {
-                        SvgManager.aOU().a(this.gDF, R.drawable.svg_icon_mask_third30, (SvgManager.SvgResourceStateType) null);
-                        this.gDG.setBackground(am.getDrawable(R.drawable.shape_hot_user_brown_circle));
+                        SvgManager.aOR().a(this.gDL, R.drawable.svg_icon_mask_third30, (SvgManager.SvgResourceStateType) null);
+                        this.gDM.setBackground(am.getDrawable(R.drawable.shape_hot_user_brown_circle));
                     }
                 } else {
-                    this.gDF.setVisibility(8);
-                    this.gDG.setVisibility(8);
+                    this.gDL.setVisibility(8);
+                    this.gDM.setVisibility(8);
                 }
             } else {
-                this.gDF.setVisibility(8);
-                this.gDG.setVisibility(8);
+                this.gDL.setVisibility(8);
+                this.gDM.setVisibility(8);
             }
-            if (bVar.gDy) {
-                this.gDH.setVisibility(0);
-                SvgManager.aOU().a(this.gDH, R.drawable.ic_icon_mask_v14_n_svg, (SvgManager.SvgResourceStateType) null);
+            if (bVar.gDE) {
+                this.gDN.setVisibility(0);
+                SvgManager.aOR().a(this.gDN, R.drawable.ic_icon_mask_v14_n_svg, (SvgManager.SvgResourceStateType) null);
                 return;
             }
-            this.gDH.setVisibility(8);
+            this.gDN.setVisibility(8);
         }
     }
 }

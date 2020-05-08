@@ -1,74 +1,67 @@
 package com.xiaomi.push;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
+import com.xiaomi.push.di;
+import java.io.File;
+import java.util.Date;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class dj implements Application.ActivityLifecycleCallbacks {
-    private Context a;
+public class dj extends di.b {
+    final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f240a;
-    private String b;
+    final /* synthetic */ di f213a;
 
-    public dj(Context context, String str) {
-        this.f240a = "";
-        this.a = context;
-        this.f240a = str;
+    /* renamed from: a  reason: collision with other field name */
+    File f214a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ String f215a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ Date f216a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ boolean f217a;
+    final /* synthetic */ String b;
+
+    /* renamed from: b  reason: collision with other field name */
+    final /* synthetic */ Date f218b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dj(di diVar, int i, Date date, Date date2, String str, String str2, boolean z) {
+        super();
+        this.f213a = diVar;
+        this.a = i;
+        this.f216a = date;
+        this.f218b = date2;
+        this.f215a = str;
+        this.b = str2;
+        this.f217a = z;
     }
 
-    private void a(String str) {
-        ho hoVar = new ho();
-        hoVar.a(str);
-        hoVar.a(System.currentTimeMillis());
-        hoVar.a(hi.ActivityActiveTimeStamp);
-        dx.a(this.a, hoVar);
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
-        String localClassName = activity.getLocalClassName();
-        if (TextUtils.isEmpty(this.f240a) || TextUtils.isEmpty(localClassName)) {
-            return;
+    @Override // com.xiaomi.push.di.b, com.xiaomi.push.al.b
+    public void b() {
+        if (aa.d()) {
+            try {
+                File file = new File(this.f213a.f206a.getExternalFilesDir(null) + "/.logcache");
+                file.mkdirs();
+                if (file.isDirectory()) {
+                    dh dhVar = new dh();
+                    dhVar.a(this.a);
+                    this.f214a = dhVar.a(this.f213a.f206a, this.f216a, this.f218b, file);
+                }
+            } catch (NullPointerException e) {
+            }
         }
-        this.b = "";
-        if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, localClassName)) {
-            this.f240a = "";
-            return;
+    }
+
+    @Override // com.xiaomi.push.al.b
+    /* renamed from: c */
+    public void mo225c() {
+        if (this.f214a != null && this.f214a.exists()) {
+            this.f213a.f207a.add(new di.c(this.f215a, this.b, this.f214a, this.f217a));
         }
-        a(this.a.getPackageName() + "|" + localClassName + ":" + this.f240a + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(System.currentTimeMillis() / 1000));
-        this.f240a = "";
-        this.b = "";
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
-        if (TextUtils.isEmpty(this.b)) {
-            this.b = activity.getLocalClassName();
-        }
-        this.f240a = String.valueOf(System.currentTimeMillis() / 1000);
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
+        this.f213a.a(0L);
     }
 }

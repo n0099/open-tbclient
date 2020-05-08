@@ -1,39 +1,21 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.fx;
 import com.xiaomi.push.service.XMPushService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.xiaomi.push.service.ap;
 /* loaded from: classes8.dex */
-public class bs extends XMPushService.i {
+class bs implements ap.a {
     final /* synthetic */ XMPushService a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f902a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ byte[] f903a;
-
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bs(XMPushService xMPushService, int i, String str, byte[] bArr) {
-        super(i);
+    public bs(XMPushService xMPushService) {
         this.a = xMPushService;
-        this.f902a = str;
-        this.f903a = bArr;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        return "send mi push message";
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
+    @Override // com.xiaomi.push.service.ap.a
     public void a() {
-        try {
-            w.a(this.a, this.f902a, this.f903a);
-        } catch (fx e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.a.a(10, e);
+        this.a.e();
+        if (ap.a().m539a() <= 0) {
+            this.a.a(new XMPushService.f(12, null));
         }
     }
 }

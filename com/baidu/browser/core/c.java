@@ -6,74 +6,74 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes11.dex */
 public class c implements SharedPreferences {
-    private a abk;
-    private e abl;
+    private a abn;
+    private e abo;
     private String mName;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
         this.mName = str;
-        this.abl = e.cU(this.mName);
+        this.abo = e.cU(this.mName);
     }
 
     @Override // android.content.SharedPreferences
     public Map<String, ?> getAll() {
-        return this.abl.getAll();
+        return this.abo.getAll();
     }
 
     @Override // android.content.SharedPreferences
     @Nullable
     public String getString(String str, @Nullable String str2) {
-        return this.abl.getString(str, str2);
+        return this.abo.getString(str, str2);
     }
 
     @Override // android.content.SharedPreferences
     @Nullable
     public Set<String> getStringSet(String str, @Nullable Set<String> set) {
-        return this.abl.getStringSet(str, set);
+        return this.abo.getStringSet(str, set);
     }
 
     @Override // android.content.SharedPreferences
     public int getInt(String str, int i) {
-        return this.abl.getInt(str, i);
+        return this.abo.getInt(str, i);
     }
 
     @Override // android.content.SharedPreferences
     public long getLong(String str, long j) {
-        return this.abl.getLong(str, j);
+        return this.abo.getLong(str, j);
     }
 
     @Override // android.content.SharedPreferences
     public float getFloat(String str, float f) {
-        return this.abl.getFloat(str, f);
+        return this.abo.getFloat(str, f);
     }
 
     @Override // android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
-        return this.abl.getBoolean(str, z);
+        return this.abo.getBoolean(str, z);
     }
 
     @Override // android.content.SharedPreferences
     public boolean contains(String str) {
-        return this.abl.contains(str);
+        return this.abo.contains(str);
     }
 
     @Override // android.content.SharedPreferences
     public SharedPreferences.Editor edit() {
-        if (this.abk == null) {
-            this.abk = new a();
+        if (this.abn == null) {
+            this.abn = new a();
         }
-        return this.abk;
+        return this.abn;
     }
 
     @Override // android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.abl.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.abo.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     @Override // android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        this.abl.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        this.abo.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     /* loaded from: classes11.dex */
@@ -83,60 +83,60 @@ public class c implements SharedPreferences {
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putString(String str, @Nullable String str2) {
-            c.this.abl.putString(str, str2);
+            c.this.abo.putString(str, str2);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putStringSet(String str, @Nullable Set<String> set) {
-            c.this.abl.putStringSet(str, set);
+            c.this.abo.putStringSet(str, set);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putInt(String str, int i) {
-            c.this.abl.putInt(str, i);
+            c.this.abo.putInt(str, i);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putLong(String str, long j) {
-            c.this.abl.putLong(str, j);
+            c.this.abo.putLong(str, j);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putFloat(String str, float f) {
-            c.this.abl.putFloat(str, f);
+            c.this.abo.putFloat(str, f);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor putBoolean(String str, boolean z) {
-            c.this.abl.putBoolean(str, z);
+            c.this.abo.putBoolean(str, z);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor remove(String str) {
-            c.this.abl.remove(str);
+            c.this.abo.remove(str);
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public SharedPreferences.Editor clear() {
-            c.this.abl.clear();
+            c.this.abo.clear();
             return this;
         }
 
         @Override // android.content.SharedPreferences.Editor
         public boolean commit() {
-            return c.this.abl.commit();
+            return c.this.abo.commit();
         }
 
         @Override // android.content.SharedPreferences.Editor
         public void apply() {
-            c.this.abl.apply();
+            c.this.abo.apply();
         }
     }
 }

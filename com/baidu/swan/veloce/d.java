@@ -13,29 +13,29 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
-    private static boolean dfd = false;
-    private static boolean dfe = false;
-    private static String dff = "";
-    private static String dfg = "";
-    private static HashMap<String, List<VeloceIpcResult.a>> dfh = new HashMap<>();
+    private static boolean dfi = false;
+    private static boolean dfj = false;
+    private static String dfk = "";
+    private static String dfl = "";
+    private static HashMap<String, List<VeloceIpcResult.a>> dfm = new HashMap<>();
 
     public static boolean aEG() {
-        if (ProcessUtils.isMainProcess() && dfe) {
-            return dfd;
+        if (ProcessUtils.isMainProcess() && dfj) {
+            return dfi;
         }
         DelegateResult h = h("veloce_is_veloce", null);
         if (h != null && h.isOk()) {
-            dfe = true;
-            dfd = h.mResult.getBoolean("is_veloce", false);
+            dfj = true;
+            dfi = h.mResult.getBoolean("is_veloce", false);
         }
-        return dfd;
+        return dfi;
     }
 
     public static String aEH() {
-        if (TextUtils.isEmpty(dff)) {
+        if (TextUtils.isEmpty(dfk)) {
             aEI();
         }
-        return dff;
+        return dfk;
     }
 
     private static Bundle aEI() {
@@ -44,8 +44,8 @@ public class d {
             return null;
         }
         Bundle bundle = h.mResult;
-        dff = bundle.getString("host_package");
-        dfg = bundle.getString("host_version");
+        dfk = bundle.getString("host_package");
+        dfl = bundle.getString("host_version");
         return bundle;
     }
 
@@ -61,14 +61,14 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 ji = null;
             } else {
-                List<VeloceIpcResult.a> list = dfh.get(str);
+                List<VeloceIpcResult.a> list = dfm.get(str);
                 if (list == null) {
                     ji = null;
                 } else {
                     for (VeloceIpcResult.a aVar : list) {
                         aVar.a(VeloceIpcResult.f(0, bundle));
                     }
-                    dfh.remove(list);
+                    dfm.remove(list);
                     ji = ji(0);
                 }
             }

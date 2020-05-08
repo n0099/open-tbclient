@@ -48,11 +48,11 @@ public class y extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            eVar.akX().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
+            eVar.akW().b(context, "mapp_images", new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void E(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
+                public void F(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
                     if (!com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
                         com.baidu.swan.apps.console.c.i("SaveImage", "Permission denied");
                         com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, optString2);
@@ -100,13 +100,13 @@ public class y extends ab {
 
     private File a(com.baidu.swan.apps.runtime.e eVar, String str, URI uri) {
         String nt;
-        com.baidu.swan.apps.storage.b.c aer = com.baidu.swan.apps.y.f.aeK().aer();
+        com.baidu.swan.apps.storage.b.c aeq = com.baidu.swan.apps.y.f.aeJ().aeq();
         if ("bdfile".equalsIgnoreCase(uri.getScheme())) {
-            nt = aer.nu(str);
-        } else if (com.baidu.swan.apps.ah.a.a.k(eVar.Ow())) {
-            nt = aer.nl(str);
+            nt = aeq.nu(str);
+        } else if (com.baidu.swan.apps.ah.a.a.k(eVar.Ov())) {
+            nt = aeq.nl(str);
         } else {
-            nt = aer.nt(str);
+            nt = aeq.nt(str);
         }
         if (TextUtils.isEmpty(nt)) {
             return null;

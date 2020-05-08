@@ -96,7 +96,7 @@ public abstract class a<K, A> {
         if (hp.jl()) {
             return 0.0f;
         }
-        return hp.FN.getInterpolation(hq());
+        return hp.FQ.getInterpolation(hq());
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)

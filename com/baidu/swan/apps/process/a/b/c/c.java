@@ -4,19 +4,19 @@ import android.text.TextUtils;
 /* loaded from: classes11.dex */
 public abstract class c implements a<com.baidu.swan.apps.process.a.b.a.b> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String chP;
+    private String chV;
 
     @Override // com.baidu.swan.apps.process.a.b.c.a
-    public String aiQ() {
-        if (!TextUtils.isEmpty(this.chP)) {
-            return this.chP;
+    public String aiP() {
+        if (!TextUtils.isEmpty(this.chV)) {
+            return this.chV;
         }
         StringBuilder sb = new StringBuilder();
         sb.append(System.currentTimeMillis()).append("").append(hashCode());
-        this.chP = sb.toString();
-        if (DEBUG && com.baidu.swan.apps.process.a.b.d.a.lC(this.chP)) {
+        this.chV = sb.toString();
+        if (DEBUG && com.baidu.swan.apps.process.a.b.d.a.lC(this.chV)) {
             throw new RuntimeException("illegal observer id");
         }
-        return this.chP;
+        return this.chV;
     }
 }

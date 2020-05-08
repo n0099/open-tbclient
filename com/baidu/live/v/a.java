@@ -23,11 +23,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private static volatile a aRv;
-    public v aQp;
-    public as aRw;
-    private boolean aRx;
-    private boolean aRy;
+    private static volatile a aRA;
+    public v aQu;
+    public as aRB;
+    private boolean aRC;
+    private boolean aRD;
     private HttpMessageListener syncListener = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.live.v.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -35,44 +35,44 @@ public class a {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
                     AlaSyncHttpResponseMessage alaSyncHttpResponseMessage = (AlaSyncHttpResponseMessage) httpResponsedMessage;
-                    if (alaSyncHttpResponseMessage.DR() != null) {
-                        a.this.aQp = alaSyncHttpResponseMessage.DR();
-                        a.this.aRx = true;
+                    if (alaSyncHttpResponseMessage.DQ() != null) {
+                        a.this.aQu = alaSyncHttpResponseMessage.DQ();
+                        a.this.aRC = true;
                     }
                 }
-                if (a.this.aQp != null) {
-                    TbadkCoreApplication.getInst().setAlaMenuToast(a.this.aQp.aqZ);
-                    TbadkCoreApplication.getInst().setAlaToastShowType(a.this.aQp.aqY);
+                if (a.this.aQu != null) {
+                    TbadkCoreApplication.getInst().setAlaMenuToast(a.this.aQu.arf);
+                    TbadkCoreApplication.getInst().setAlaToastShowType(a.this.aQu.are);
                 }
             }
         }
     };
-    private HttpMessageListener aRz = new HttpMessageListener(1021132) { // from class: com.baidu.live.v.a.2
+    private HttpMessageListener aRE = new HttpMessageListener(1021132) { // from class: com.baidu.live.v.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
                     LiveSyncHttpResponseMessage liveSyncHttpResponseMessage = (LiveSyncHttpResponseMessage) httpResponsedMessage;
-                    if (liveSyncHttpResponseMessage.DX() != null) {
-                        a.this.aRw = liveSyncHttpResponseMessage.DX();
-                        a.this.aRy = true;
+                    if (liveSyncHttpResponseMessage.DW() != null) {
+                        a.this.aRB = liveSyncHttpResponseMessage.DW();
+                        a.this.aRD = true;
                     }
                 }
             }
         }
     };
-    CustomMessageTask.CustomRunnable aRA = new CustomMessageTask.CustomRunnable() { // from class: com.baidu.live.v.a.3
+    CustomMessageTask.CustomRunnable aRF = new CustomMessageTask.CustomRunnable() { // from class: com.baidu.live.v.a.3
         @Override // com.baidu.live.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (a.this.aQp != null && !TextUtils.isEmpty(a.this.aQp.ata) && !TextUtils.isEmpty(a.this.aQp.asZ) && a.this.aQp.asY == 1) {
-                    jSONObject.putOpt("photo_url", a.this.aQp.ata);
-                    jSONObject.putOpt("resource_url", a.this.aQp.asZ);
+                if (a.this.aQu != null && !TextUtils.isEmpty(a.this.aQu.atg) && !TextUtils.isEmpty(a.this.aQu.atf) && a.this.aQu.ate == 1) {
+                    jSONObject.putOpt("photo_url", a.this.aQu.atg);
+                    jSONObject.putOpt("resource_url", a.this.aQu.atf);
                 }
-                if (a.this.aRw != null && a.this.aRw.avr != null && a.this.aRw.avr.vc() && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin())) {
-                    jSONObject.putOpt("general_exchange_homepage_url", a.this.aRw.avr.vd());
+                if (a.this.aRB != null && a.this.aRB.avx != null && a.this.aRB.avx.vb() && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin())) {
+                    jSONObject.putOpt("general_exchange_homepage_url", a.this.aRB.avx.vc());
                 }
                 return new CustomResponsedMessage<>(CmdConfigCustom.CMS_TBEAN_RESOURCE_URL_AND_PHOTO, jSONObject.toString());
             } catch (JSONException e) {
@@ -81,38 +81,38 @@ public class a {
         }
     };
 
-    public static a Eo() {
-        if (aRv == null) {
+    public static a En() {
+        if (aRA == null) {
             synchronized (a.class) {
-                if (aRv == null) {
-                    aRv = new a();
+                if (aRA == null) {
+                    aRA = new a();
                 }
             }
         }
-        return aRv;
+        return aRA;
     }
 
     private a() {
         MessageManager.getInstance().registerListener(this.syncListener);
-        MessageManager.getInstance().registerListener(this.aRz);
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMS_TBEAN_RESOURCE_URL_AND_PHOTO, this.aRA);
+        MessageManager.getInstance().registerListener(this.aRE);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMS_TBEAN_RESOURCE_URL_AND_PHOTO, this.aRF);
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        this.aQp = new v(true);
-        this.aRw = new as();
-        String string = com.baidu.live.c.tH().getString("key_live_sync_data", "");
+        this.aQu = new v(true);
+        this.aRB = new as();
+        String string = com.baidu.live.c.tG().getString("key_live_sync_data", "");
         if (!TextUtils.isEmpty(string)) {
-            this.aRw.parserJson(string);
+            this.aRB.parserJson(string);
         }
     }
 
-    public void Ep() {
-        this.aRx = false;
-        this.aRy = false;
+    public void Eo() {
+        this.aRC = false;
+        this.aRD = false;
     }
 
     public void b(BdUniqueId bdUniqueId) {
-        if (!this.aRx) {
+        if (!this.aRC) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_SYNC);
             String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
             if (activeVersion != null) {
@@ -121,8 +121,8 @@ public class a {
                 }
                 httpMessage.addParam("_active", activeVersion);
             }
-            if (this.aQp.arZ != null && !this.aQp.arZ.isEmpty()) {
-                httpMessage.addParam("_client_id", this.aQp.arZ);
+            if (this.aQu.asf != null && !this.aQu.asf.isEmpty()) {
+                httpMessage.addParam("_client_id", this.aQu.asf);
             } else {
                 httpMessage.addParam("_client_id", "0");
             }
@@ -133,8 +133,8 @@ public class a {
         }
     }
 
-    public void Eq() {
-        if (!this.aRy) {
+    public void Ep() {
+        if (!this.aRD) {
             HttpMessage httpMessage = new HttpMessage(1021132);
             String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
             if (activeVersion != null) {
@@ -144,7 +144,7 @@ public class a {
                 httpMessage.addParam("_active", activeVersion);
             }
             httpMessage.addParam(HttpConstants.DEVICE_TYPE, Build.VERSION.SDK_INT);
-            httpMessage.addParam("scene_from", q.xg());
+            httpMessage.addParam("scene_from", q.xf());
             httpMessage.addParam(HttpConstants.DEVICE_TYPE, Build.VERSION.SDK_INT);
             httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             MessageManager.getInstance().sendMessage(httpMessage);
@@ -152,7 +152,7 @@ public class a {
     }
 
     public void c(BdUniqueId bdUniqueId) {
-        if (!this.aRy) {
+        if (!this.aRD) {
             HttpMessage httpMessage = new HttpMessage(1021132);
             String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
             if (activeVersion != null) {
@@ -162,7 +162,7 @@ public class a {
                 httpMessage.addParam("_active", activeVersion);
             }
             httpMessage.addParam(HttpConstants.DEVICE_TYPE, Build.VERSION.SDK_INT);
-            httpMessage.addParam("scene_from", q.xg());
+            httpMessage.addParam("scene_from", q.xf());
             httpMessage.addParam(HttpConstants.DEVICE_TYPE, Build.VERSION.SDK_INT);
             httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
             httpMessage.setTag(bdUniqueId);
@@ -170,8 +170,8 @@ public class a {
         }
     }
 
-    public boolean Er() {
-        as asVar = Eo().aRw;
-        return (asVar == null || asVar.avx == null || !asVar.avx.axa || asVar.avu == null || asVar.avu.awq == null || TextUtils.isEmpty(asVar.avu.awq.aww)) ? false : true;
+    public boolean Eq() {
+        as asVar = En().aRB;
+        return (asVar == null || asVar.avD == null || !asVar.avD.axg || asVar.avA == null || asVar.avA.aww == null || TextUtils.isEmpty(asVar.avA.aww.awC)) ? false : true;
     }
 }

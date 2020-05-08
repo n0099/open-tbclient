@@ -40,6 +40,6 @@ public class SwanAppAdbDebugActivity extends Activity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 SwanAppAdbDebugActivity.this.finish();
             }
-        }).akx();
+        }).akw();
     }
 }

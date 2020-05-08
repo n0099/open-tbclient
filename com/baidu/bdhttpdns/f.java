@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 final class f {
-    private static volatile f aaR;
+    private static volatile f aaU;
 
     /* loaded from: classes.dex */
     interface a {
@@ -19,12 +19,12 @@ final class f {
 
     /* loaded from: classes.dex */
     private class b implements Runnable {
-        private a aaS;
+        private a aaV;
         private String b;
 
         public b(String str, a aVar) {
             this.b = str;
-            this.aaS = aVar;
+            this.aaV = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -38,7 +38,7 @@ final class f {
             } else {
                 arrayList = null;
             }
-            this.aaS.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
+            this.aaV.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.b);
         }
     }
 
@@ -86,14 +86,14 @@ final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static f qK() {
-        if (aaR == null) {
+        if (aaU == null) {
             synchronized (f.class) {
-                if (aaR == null) {
-                    aaR = new f();
+                if (aaU == null) {
+                    aaU = new f();
                 }
             }
         }
-        return aaR;
+        return aaU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -27,9 +27,9 @@ public final class b {
         }
         switch (c) {
             case 0:
-                a.C0274a Va = a.b.Va();
-                codeCacheSetting.maxCount = Va.maxCount;
-                codeCacheSetting.sizeLimit = Va.sizeLimit;
+                a.C0295a UZ = a.b.UZ();
+                codeCacheSetting.maxCount = UZ.maxCount;
+                codeCacheSetting.sizeLimit = UZ.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;

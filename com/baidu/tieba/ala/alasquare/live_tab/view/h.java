@@ -8,27 +8,27 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.b.e> {
-    private k eTB;
-    private k eTC;
+    private k eTG;
+    private k eTH;
     private ViewGroup rootView;
 
     public h(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
-        this.eTB = new k(tbPageContext);
-        this.eTC = new k(tbPageContext);
+        this.eTG = new k(tbPageContext);
+        this.eTH = new k(tbPageContext);
         this.rootView = (ViewGroup) getView();
         View view = new View(getContext());
         this.rootView.setPadding(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.rootView.addView(this.eTB.getView());
+        this.rootView.addView(this.eTG.getView());
         this.rootView.addView(view, new LinearLayout.LayoutParams(getTbPageContext().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.rootView.addView(this.eTC.getView());
+        this.rootView.addView(this.eTH.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundColor(this.rootView, R.color.cp_bg_line_d);
-        this.eTB.onChangeSkinType(tbPageContext, i);
-        this.eTC.onChangeSkinType(tbPageContext, i);
+        this.eTG.onChangeSkinType(tbPageContext, i);
+        this.eTH.onChangeSkinType(tbPageContext, i);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -40,8 +40,8 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.e eVar) {
         if (eVar != null) {
-            this.eTB.a(eVar.ePN);
-            this.eTC.a(eVar.ePO);
+            this.eTG.a(eVar.ePS);
+            this.eTH.a(eVar.ePT);
         }
     }
 

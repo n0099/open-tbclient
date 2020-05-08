@@ -4,12 +4,12 @@ import android.graphics.drawable.Drawable;
 import com.baidu.tbadk.core.util.SvgManager;
 /* loaded from: classes.dex */
 public abstract class a {
-    public SvgManager.SvgResourceStateType dBJ;
-    public int dvQ;
+    public SvgManager.SvgResourceStateType dBN;
+    public int dvU;
 
     public abstract Drawable getDrawable();
 
     public a(int i) {
-        this.dvQ = i;
+        this.dvU = i;
     }
 }

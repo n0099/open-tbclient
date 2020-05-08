@@ -12,9 +12,9 @@ import com.baidu.searchbox.afx.callback.OnVideoStartedListener;
 import com.baidu.searchbox.afx.proxy.MediaPlayerProxy;
 /* loaded from: classes3.dex */
 public class b implements c {
-    private AlphaVideo anC;
-    private c.a anD;
-    private MediaPlayerProxy anE;
+    private AlphaVideo anI;
+    private c.a anJ;
+    private MediaPlayerProxy anK;
 
     public b(Context context) {
         init(context);
@@ -22,87 +22,87 @@ public class b implements c {
 
     @Override // com.baidu.live.alphavideo.c
     public View getView() {
-        return this.anC;
+        return this.anI;
     }
 
     @Override // com.baidu.live.alphavideo.c
     public void a(c.a aVar) {
-        this.anD = aVar;
+        this.anJ = aVar;
     }
 
     @Override // com.baidu.live.alphavideo.c
     public long getDuration() {
-        if (this.anC != null) {
-            return this.anC.getDuration();
+        if (this.anI != null) {
+            return this.anI.getDuration();
         }
         return -1L;
     }
 
     @Override // com.baidu.live.alphavideo.c
     public void dB(String str) {
-        if (this.anC != null && !TextUtils.isEmpty(str)) {
-            this.anC.setSourcePath(str);
-            this.anC.play();
+        if (this.anI != null && !TextUtils.isEmpty(str)) {
+            this.anI.setSourcePath(str);
+            this.anI.play();
         }
     }
 
     @Override // com.baidu.live.alphavideo.c
     public void stop() {
-        if (this.anC != null) {
-            this.anC.stop();
+        if (this.anI != null) {
+            this.anI.stop();
         }
     }
 
     @Override // com.baidu.live.alphavideo.c
     public void reset() {
-        if (this.anE != null) {
-            this.anE.reset();
+        if (this.anK != null) {
+            this.anK.reset();
         }
     }
 
     @Override // com.baidu.live.alphavideo.c
     public void release() {
-        this.anD = null;
-        if (this.anC != null) {
-            this.anC.destroy();
+        this.anJ = null;
+        if (this.anI != null) {
+            this.anI.destroy();
         }
     }
 
     @Override // com.baidu.live.alphavideo.c
     public boolean isDestroyed() {
-        return this.anC == null || this.anC.isDestroyed();
+        return this.anI == null || this.anI.isDestroyed();
     }
 
     private void init(Context context) {
-        this.anC = new AlphaVideo(context);
-        AlphaVideo alphaVideo = this.anC;
+        this.anI = new AlphaVideo(context);
+        AlphaVideo alphaVideo = this.anI;
         MediaPlayerProxy mediaPlayerProxy = new MediaPlayerProxy();
-        this.anE = mediaPlayerProxy;
+        this.anK = mediaPlayerProxy;
         alphaVideo.setPlayer(mediaPlayerProxy);
-        this.anC.setOnVideoStartedListener(new OnVideoStartedListener() { // from class: com.baidu.live.alphavideo.b.1
+        this.anI.setOnVideoStartedListener(new OnVideoStartedListener() { // from class: com.baidu.live.alphavideo.b.1
             @Override // com.baidu.searchbox.afx.callback.OnVideoStartedListener
             public void onVideoStarted() {
-                if (b.this.anD != null) {
-                    b.this.anD.onStart();
+                if (b.this.anJ != null) {
+                    b.this.anJ.onStart();
                 }
             }
         });
-        this.anC.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.live.alphavideo.b.2
+        this.anI.setOnVideoEndedListener(new OnVideoEndedListener() { // from class: com.baidu.live.alphavideo.b.2
             @Override // com.baidu.searchbox.afx.callback.OnVideoEndedListener
             public void onVideoEnded() {
-                if (b.this.anD != null) {
-                    b.this.anD.onEnd();
+                if (b.this.anJ != null) {
+                    b.this.anJ.onEnd();
                 }
             }
         });
-        this.anC.setOnVideoErrorListener(new OnVideoErrorListener() { // from class: com.baidu.live.alphavideo.b.3
+        this.anI.setOnVideoErrorListener(new OnVideoErrorListener() { // from class: com.baidu.live.alphavideo.b.3
             @Override // com.baidu.searchbox.afx.callback.OnVideoErrorListener
             public boolean onError(ErrorInfo errorInfo) {
                 if (errorInfo != null) {
-                    b.this.anD.onError(errorInfo.mErrorCode, errorInfo.mErrorMsg);
+                    b.this.anJ.onError(errorInfo.mErrorCode, errorInfo.mErrorMsg);
                     return false;
                 }
-                b.this.anD.onError(-1, "unknown");
+                b.this.anJ.onError(-1, "unknown");
                 return false;
             }
         });

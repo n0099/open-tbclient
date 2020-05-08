@@ -16,14 +16,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a extends RecyclerView.Adapter<b> {
-    private InterfaceC0647a kLn = null;
-    private int kLo = 0;
+    private InterfaceC0668a kLr = null;
+    private int kLs = 0;
     private Context mContext;
     private List<String> mDataList;
 
     /* renamed from: com.baidu.tieba.square.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
-    public interface InterfaceC0647a {
+    public interface InterfaceC0668a {
         void a(View view, int i, String str);
     }
 
@@ -45,18 +45,18 @@ public class a extends RecyclerView.Adapter<b> {
     public void onBindViewHolder(@NonNull final b bVar, final int i) {
         final String str = this.mDataList.get(i);
         bVar.itemView.setTag(Integer.valueOf(i));
-        bVar.kLr.setText(str);
-        if (this.kLo == i) {
-            bVar.kLs.setVisibility(0);
-            am.setBackgroundColor(bVar.kLs, R.color.cp_link_tip_e);
+        bVar.kLv.setText(str);
+        if (this.kLs == i) {
+            bVar.kLw.setVisibility(0);
+            am.setBackgroundColor(bVar.kLw, R.color.cp_link_tip_e);
             am.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_e);
-            am.setViewTextColor(bVar.kLr, (int) R.color.cp_cont_b);
+            am.setViewTextColor(bVar.kLv, (int) R.color.cp_cont_b);
         } else {
-            bVar.kLs.setVisibility(8);
+            bVar.kLw.setVisibility(8);
             am.setBackgroundColor(bVar.itemView, R.color.cp_bg_line_c);
-            am.setViewTextColor(bVar.kLr, (int) R.color.cp_cont_j);
+            am.setViewTextColor(bVar.kLv, (int) R.color.cp_cont_j);
         }
-        if ("推荐".equals(cUE())) {
+        if ("推荐".equals(cUB())) {
             an anVar = new an("c13641");
             anVar.t("uid", TbadkApplication.getCurrentAccountId());
             anVar.af("obj_locate", 3);
@@ -66,8 +66,8 @@ public class a extends RecyclerView.Adapter<b> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.this.CR(i);
-                if (a.this.kLn != null) {
-                    a.this.kLn.a(bVar.itemView, i, str);
+                if (a.this.kLr != null) {
+                    a.this.kLr.a(bVar.itemView, i, str);
                 }
                 an anVar2 = new an("c13649");
                 anVar2.cI("resource_id", str);
@@ -84,23 +84,23 @@ public class a extends RecyclerView.Adapter<b> {
         return this.mDataList.size();
     }
 
-    public void b(InterfaceC0647a interfaceC0647a) {
-        this.kLn = interfaceC0647a;
+    public void b(InterfaceC0668a interfaceC0668a) {
+        this.kLr = interfaceC0668a;
     }
 
     public void p(int i, List<String> list) {
-        this.kLo = i;
+        this.kLs = i;
         this.mDataList = list;
         notifyDataSetChanged();
     }
 
     public void CR(int i) {
-        this.kLo = i;
+        this.kLs = i;
         notifyDataSetChanged();
     }
 
-    public String cUE() {
-        return CS(this.kLo);
+    public String cUB() {
+        return CS(this.kLs);
     }
 
     public String CS(int i) {
@@ -109,13 +109,13 @@ public class a extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes9.dex */
     public class b extends RecyclerView.ViewHolder {
-        private TextView kLr;
-        private View kLs;
+        private TextView kLv;
+        private View kLw;
 
         public b(@NonNull View view) {
             super(view);
-            this.kLr = (TextView) view.findViewById(R.id.tv_class_name);
-            this.kLs = view.findViewById(R.id.tv_line);
+            this.kLv = (TextView) view.findViewById(R.id.tv_class_name);
+            this.kLw = view.findViewById(R.id.tv_line);
         }
     }
 }

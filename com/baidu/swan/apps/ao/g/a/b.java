@@ -34,7 +34,7 @@ public class b extends ab {
             }
             return false;
         } else {
-            com.baidu.swan.apps.ao.g.a.aoc().aod();
+            com.baidu.swan.apps.ao.g.a.aob().aoc();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

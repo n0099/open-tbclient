@@ -10,7 +10,7 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static com.baidu.swan.apps.extcore.b.b eS(int i) {
-        return i == 1 ? c.ZE() : a.ZB();
+        return i == 1 ? c.ZD() : a.ZA();
     }
 
     public static void a(int i, @Nullable com.baidu.swan.apps.extcore.c.a aVar) {
@@ -22,13 +22,13 @@ public class b {
     }
 
     public static ExtensionCore eT(int i) {
-        return eS(i).YJ();
+        return eS(i).YI();
     }
 
     public static String eU(int i) {
-        ExtensionCore YJ = eS(i).YJ();
-        if (YJ != null) {
-            String str = YJ.extensionCoreVersionName;
+        ExtensionCore YI = eS(i).YI();
+        if (YI != null) {
+            String str = YI.extensionCoreVersionName;
             return TextUtils.isEmpty(str) ? "" : str;
         }
         return "";

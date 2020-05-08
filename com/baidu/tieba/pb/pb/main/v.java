@@ -19,18 +19,18 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public class v {
-    public int aqP;
+    public int aqV;
 
     public v(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
     }
 
-    private void Dw(String str) {
+    private void Dz(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
         Map<String, String> paramPair = ba.getParamPair(str);
         if (paramPair != null) {
-            this.aqP = 5;
+            this.aqV = 5;
             com.baidu.tbadk.core.util.an anVar = new com.baidu.tbadk.core.util.an("c10320");
             anVar.cI("obj_locate", paramPair.get("obj_locate"));
             anVar.af("obj_type", 1);
@@ -62,22 +62,22 @@ public class v {
             if (!StringUtils.isNull(uri2) && uri2.startsWith("tbpb://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
-                    Dw(decode);
-                    HashMap<String, Object> HH = HH(decode);
-                    String str = (String) HH.get("tid");
-                    if ("mpush".equals((String) HH.get("fr")) && !StringUtils.isNull(str)) {
+                    Dz(decode);
+                    HashMap<String, Object> HK = HK(decode);
+                    String str = (String) HK.get("tid");
+                    if ("mpush".equals((String) HK.get("fr")) && !StringUtils.isNull(str)) {
                         TiebaStatic.log(new com.baidu.tbadk.core.util.an("c11895").cI("tid", str));
                     }
                     HttpMessage httpMessage = new HttpMessage(1003393);
                     httpMessage.addParam("call_url", uri2);
                     MessageManager.getInstance().sendMessage(httpMessage);
-                    aVar.B(HH);
+                    aVar.B(HK);
                 }
             }
         }
     }
 
-    public HashMap<String, Object> HH(String str) {
+    public HashMap<String, Object> HK(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

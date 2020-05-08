@@ -16,10 +16,10 @@ public class e {
         try {
             try {
                 inputStream.read(bArr);
-                if (g(bArr, "RIFF")) {
+                if (f(bArr, "RIFF")) {
                     C(inputStream);
                     inputStream.read(bArr);
-                    if (g(bArr, "WEBP")) {
+                    if (f(bArr, "WEBP")) {
                         inputStream.read(bArr);
                         String ah = ah(bArr);
                         if ("VP8 ".equals(ah)) {
@@ -111,7 +111,7 @@ public class e {
         return new Pair<>(Integer.valueOf(E(inputStream) + 1), Integer.valueOf(E(inputStream) + 1));
     }
 
-    private static boolean g(byte[] bArr, String str) {
+    private static boolean f(byte[] bArr, String str) {
         if (bArr.length != str.length()) {
             return false;
         }

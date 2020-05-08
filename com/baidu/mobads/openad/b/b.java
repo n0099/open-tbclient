@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
+import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.AppActivity;
 import com.baidu.mobads.interfaces.download.activate.IXAppInfo;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
@@ -77,7 +78,7 @@ public class b implements Observer {
         this.c = null;
         XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdApkDownloaderObserver", "observer created");
         if (a == null) {
-            a = (NotificationManager) context.getSystemService("notification");
+            a = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         }
         this.d = context.getApplicationContext();
         this.c = aVar;

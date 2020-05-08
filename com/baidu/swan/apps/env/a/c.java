@@ -14,10 +14,10 @@ public class c implements a {
         if (list == null) {
             return null;
         }
-        List<SwanFavorItemData> ZY = SwanFavorDataManager.ZX().ZY();
-        if (ZY.size() != 0) {
+        List<SwanFavorItemData> ZX = SwanFavorDataManager.ZW().ZX();
+        if (ZX.size() != 0) {
             HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : ZY) {
+            for (SwanFavorItemData swanFavorItemData : ZX) {
                 hashSet.add(swanFavorItemData.getAppKey());
             }
             list.removeAll(hashSet);

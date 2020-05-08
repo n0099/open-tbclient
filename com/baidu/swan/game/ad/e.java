@@ -13,7 +13,7 @@ public class e extends b {
     }
 
     @Override // com.baidu.swan.game.ad.b
-    public View asr() {
+    public View asq() {
         return LayoutInflater.from(this.mContext).inflate(c.f.ng_game_portrait_por_play, (ViewGroup) null);
     }
 }

@@ -7,33 +7,33 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a {
-    public boolean bpS;
-    public List<C0192a> bpT;
+    public boolean bpX;
+    public List<C0214a> bpY;
 
     /* renamed from: com.baidu.poly.widget.coupon.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0192a {
-        public String bpU;
-        public String bpV;
-        public String bpW;
-        public Long bpX;
-        public int bpY;
+    public static class C0214a {
         public String bpZ;
+        public String bqa;
+        public String bqb;
+        public Long bqc;
+        public int bqd;
+        public String bqe;
         public String icon;
         public int type;
 
-        public C0192a() {
+        public C0214a() {
         }
 
-        C0192a(JSONObject jSONObject) {
+        C0214a(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.bpU = jSONObject.optString("display_name");
-                this.bpV = jSONObject.optString("pay_text");
+                this.bpZ = jSONObject.optString("display_name");
+                this.bqa = jSONObject.optString("pay_text");
                 this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-                this.bpW = jSONObject.optString("valid_info");
-                this.bpZ = jSONObject.optString("host_marketing_detail");
-                this.bpX = Long.valueOf(jSONObject.optLong("available_par_money"));
-                this.bpY = jSONObject.optInt("is_selected");
+                this.bqb = jSONObject.optString("valid_info");
+                this.bqe = jSONObject.optString("host_marketing_detail");
+                this.bqc = Long.valueOf(jSONObject.optLong("available_par_money"));
+                this.bqd = jSONObject.optInt("is_selected");
                 this.type = jSONObject.optInt("type");
             }
         }
@@ -41,15 +41,15 @@ public class a {
 
     public a(JSONArray jSONArray) {
         if (jSONArray != null) {
-            this.bpT = new ArrayList();
+            this.bpY = new ArrayList();
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
                 JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
                 if (jSONObject != null) {
-                    this.bpT.add(new C0192a(jSONObject));
+                    this.bpY.add(new C0214a(jSONObject));
                 }
             }
-            this.bpS = this.bpT.size() > 1;
+            this.bpX = this.bpY.size() > 1;
         }
     }
 }

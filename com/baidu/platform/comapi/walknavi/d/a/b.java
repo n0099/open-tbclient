@@ -13,7 +13,7 @@ public class b {
     private Context b;
     private com.baidu.platform.comapi.walknavi.d.a.a c;
     private com.baidu.platform.comapi.walknavi.d.a.f.b d;
-    private C0166b f;
+    private C0188b f;
     private a g;
     private com.baidu.platform.comapi.walknavi.d.a.a.b i;
     private com.baidu.platform.comapi.walknavi.d.a.d.b l;
@@ -117,7 +117,7 @@ public class b {
 
     private void a(com.baidu.platform.comapi.walknavi.d.a.a.a aVar) {
         this.j = c.QUERYING;
-        this.f = new C0166b(this);
+        this.f = new C0188b(this);
         this.e = com.baidu.platform.comapi.walknavi.d.a.f.e.a(this.b, aVar, this.f);
         if (this.e == null) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("Http Request Occur Error! Please Check");
@@ -127,10 +127,10 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0166b implements f.a<JSONObject> {
+    public static class C0188b implements f.a<JSONObject> {
         private SoftReference<b> a;
 
-        public C0166b(b bVar) {
+        public C0188b(b bVar) {
             this.a = new SoftReference<>(bVar);
         }
 

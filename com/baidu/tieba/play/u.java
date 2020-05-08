@@ -9,9 +9,9 @@ import tbclient.VideoDesc;
 import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class u {
-    private bj dqA;
+    private bj dqE;
     private int duration;
-    private String khM;
+    private String khQ;
     private int videoHeight;
     private String videoMd5;
     private long videoSize;
@@ -51,7 +51,7 @@ public class u {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.khM = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+                    this.khQ = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -59,7 +59,7 @@ public class u {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.khM = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+            this.khQ = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -69,8 +69,8 @@ public class u {
     }
 
     public void am(bj bjVar) {
-        h(bjVar.aKV());
-        this.dqA = bjVar;
+        h(bjVar.aKT());
+        this.dqE = bjVar;
     }
 
     public void b(AlaInfoData alaInfoData) {
@@ -79,8 +79,8 @@ public class u {
         }
     }
 
-    public bj aIw() {
-        return this.dqA;
+    public bj aIu() {
+        return this.dqE;
     }
 
     public int getVideoWidth() {
@@ -91,7 +91,7 @@ public class u {
         return this.videoHeight;
     }
 
-    public long cKk() {
+    public long cKh() {
         return this.videoSize;
     }
 
@@ -99,7 +99,7 @@ public class u {
         return this.duration;
     }
 
-    public String cKl() {
-        return this.khM;
+    public String cKi() {
+        return this.khQ;
     }
 }

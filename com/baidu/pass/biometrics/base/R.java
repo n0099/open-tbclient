@@ -9,13 +9,13 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int rim_base_toast_icon = 0x7f0f1a79;
-        public static final int rim_base_toast_message = 0x7f0f1a7a;
+        public static final int rim_base_toast_icon = 0x7f0f1a78;
+        public static final int rim_base_toast_message = 0x7f0f1a79;
     }
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int pass_bio_toast_tips = 0x7f0305c9;
+        public static final int pass_bio_toast_tips = 0x7f0305c7;
     }
 
     /* loaded from: classes.dex */

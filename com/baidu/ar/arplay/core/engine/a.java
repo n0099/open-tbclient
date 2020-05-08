@@ -50,7 +50,7 @@ public class a {
     private boolean isScreenOrientationLandscape = false;
     private int ff = 0;
     private int fg = 0;
-    private C0052a fh = null;
+    private C0073a fh = null;
     private Map<Integer, Vector<Float>> fi = new HashMap();
     private boolean fj = false;
     ARPMessage.MessageHandler fk = new ARPMessage.MessageHandler() { // from class: com.baidu.ar.arplay.core.engine.a.1
@@ -127,13 +127,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0052a {
+    public static class C0073a {
         public int fn;
         public long time;
         public float x;
         public float y;
 
-        private C0052a() {
+        private C0073a() {
         }
     }
 
@@ -180,9 +180,9 @@ public class a {
                     if (aVar == null || message.obj == null) {
                         return;
                     }
-                    C0052a c0052a = (C0052a) message.obj;
+                    C0073a c0073a = (C0073a) message.obj;
                     if (!aVar.eW) {
-                        this.fz.get().a(b.EGESTURE_CLICK.ordinal(), c0052a.time, c0052a.fn, c0052a.x, c0052a.y, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+                        this.fz.get().a(b.EGESTURE_CLICK.ordinal(), c0073a.time, c0073a.fn, c0073a.x, c0073a.y, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                     }
                     this.fz.get().a(b.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
                     return;
@@ -605,13 +605,13 @@ public class a {
                             } else {
                                 Message obtain = Message.obtain();
                                 obtain.what = 2;
-                                C0052a c0052a = new C0052a();
-                                c0052a.fn = motionEvent.getPointerId(0);
-                                c0052a.x = motionEvent.getX();
-                                c0052a.y = motionEvent.getY();
-                                c0052a.time = motionEvent.getDownTime();
-                                obtain.obj = c0052a;
-                                this.fh = c0052a;
+                                C0073a c0073a = new C0073a();
+                                c0073a.fn = motionEvent.getPointerId(0);
+                                c0073a.x = motionEvent.getX();
+                                c0073a.y = motionEvent.getY();
+                                c0073a.time = motionEvent.getDownTime();
+                                obtain.obj = c0073a;
+                                this.fh = c0073a;
                                 this.eQ.sendMessageDelayed(obtain, 400L);
                             }
                         }

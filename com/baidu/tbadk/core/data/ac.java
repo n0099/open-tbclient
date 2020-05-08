@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class ac {
-    public String doF;
-    public String doG;
+    public String doJ;
+    public String doK;
 }

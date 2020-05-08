@@ -10,49 +10,49 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public abstract class b<W extends d> implements ZeusPlugin {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected ZeusPlugin.Callback bUM;
-    private W bUN;
-    private boolean bUO = false;
-    private final List<ZeusPlugin.Command> bUP = new ArrayList();
-    private d.a bUQ = new d.a() { // from class: com.baidu.swan.apps.r.b.1
+    protected ZeusPlugin.Callback bUS;
+    private W bUT;
+    private boolean bUU = false;
+    private final List<ZeusPlugin.Command> bUV = new ArrayList();
+    private d.a bUW = new d.a() { // from class: com.baidu.swan.apps.r.b.1
         @Override // com.baidu.swan.apps.r.d.a
         public void dC(boolean z) {
             synchronized (b.this) {
                 if (b.DEBUG) {
                     Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
                 }
-                b.this.abl();
-                b.this.bUO = true;
+                b.this.abk();
+                b.this.bUU = true;
                 if (b.DEBUG) {
                     Log.i("BaseInlineController", "指令flush完成=========================");
                 }
             }
         }
     };
-    protected c<W> bUL = new c<>();
+    protected c<W> bUR = new c<>();
 
     public b(@NonNull W w) {
-        this.bUN = w;
+        this.bUT = w;
         if (DEBUG) {
             Log.i("BaseInlineController", "开始初始化组件");
         }
-        this.bUN.a(this.bUQ);
+        this.bUT.a(this.bUW);
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
     public void setCallback(ZeusPlugin.Callback callback) {
-        this.bUM = callback;
+        this.bUS = callback;
     }
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
     public void sendCommand(ZeusPlugin.Command command) {
         synchronized (this) {
             if (command != null) {
-                if (this.bUO) {
+                if (this.bUU) {
                     if (DEBUG) {
                         Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
                     }
-                    this.bUL.b(command, this.bUN);
+                    this.bUR.b(command, this.bUT);
                 } else {
                     ZeusPlugin.Command command2 = new ZeusPlugin.Command();
                     command2.what = command.what;
@@ -62,26 +62,26 @@ public abstract class b<W extends d> implements ZeusPlugin {
                     command2.arg4 = command.arg4;
                     command2.arg5 = command.arg5;
                     command2.obj = command.obj;
-                    this.bUP.add(command2);
+                    this.bUV.add(command2);
                     if (DEBUG) {
                         Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
                     }
-                    this.bUL.a(command);
+                    this.bUR.a(command);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void abl() {
-        if (this.bUP.size() != 0) {
-            Iterator<ZeusPlugin.Command> it = this.bUP.iterator();
+    public void abk() {
+        if (this.bUV.size() != 0) {
+            Iterator<ZeusPlugin.Command> it = this.bUV.iterator();
             while (it.hasNext()) {
                 ZeusPlugin.Command next = it.next();
                 if (DEBUG) {
                     Log.i("BaseInlineController", "flush-尝试分发Command: + " + next.what);
                 }
-                this.bUL.b(next, this.bUN);
+                this.bUR.b(next, this.bUT);
                 it.remove();
             }
         }

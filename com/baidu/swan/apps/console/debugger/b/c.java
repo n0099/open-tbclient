@@ -11,12 +11,12 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    String NV;
-    String bII;
-    String bIJ;
-    String bIK;
-    String bIL;
-    JSONArray bIM;
+    String NZ;
+    String bIN;
+    String bIO;
+    String bIP;
+    String bIQ;
+    JSONArray bIR;
     String mAppKey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -24,12 +24,12 @@ public class c {
         c cVar = new c();
         try {
             cVar.mAppKey = jSONObject.getString("appKey");
-            cVar.bII = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.gF(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ai.getVersionName();
-            cVar.NV = jSONObject.getString("wsUrl");
-            cVar.bIJ = jSONObject.optString("notInHistory", "1");
-            cVar.bIK = jSONObject.optString("masterPreload");
-            cVar.bIL = jSONObject.optString("slavePreload");
-            cVar.bIM = jSONObject.optJSONArray("hosts");
+            cVar.bIN = jSONObject.getString("appUrl") + "?swanJsVersion" + ETAG.EQUAL + com.baidu.swan.apps.swancore.b.gF(0) + ETAG.ITEM_SEPARATOR + "appVersion" + ETAG.EQUAL + ai.getVersionName();
+            cVar.NZ = jSONObject.getString("wsUrl");
+            cVar.bIO = jSONObject.optString("notInHistory", "1");
+            cVar.bIP = jSONObject.optString("masterPreload");
+            cVar.bIQ = jSONObject.optString("slavePreload");
+            cVar.bIR = jSONObject.optJSONArray("hosts");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -44,18 +44,18 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String eq(int i) {
-        return N(i, this.bII);
+        return N(i, this.bIN);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String er(int i) {
-        return N(i, this.NV);
+        return N(i, this.NZ);
     }
 
     private String N(int i, String str) {
-        if (this.bIM != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.bIM.length()) {
+        if (this.bIR != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.bIR.length()) {
             Uri parse = Uri.parse(str);
-            String optString = this.bIM.optString(i);
+            String optString = this.bIR.optString(i);
             if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
                 return str.replace(parse.getHost(), optString);
             }
@@ -66,6 +66,6 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isInvalid() {
-        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.bII) || TextUtils.isEmpty(this.NV);
+        return TextUtils.isEmpty(this.mAppKey) || TextUtils.isEmpty(this.bIN) || TextUtils.isEmpty(this.NZ);
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class OperableVideoErrorView extends LinearLayout {
-    TBSpecificationBtn kko;
+    TBSpecificationBtn kks;
 
     public OperableVideoErrorView(Context context) {
         super(context);
@@ -28,13 +28,13 @@ public class OperableVideoErrorView extends LinearLayout {
 
     private void init(Context context) {
         inflate(context, R.layout.operable_video_error, this);
-        this.kko = (TBSpecificationBtn) findViewById(R.id.retry);
-        this.kko.setTextSize(R.dimen.tbds36);
-        this.kko.setText(getResources().getString(R.string.click_retry));
-        this.kko.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
+        this.kks = (TBSpecificationBtn) findViewById(R.id.retry);
+        this.kks.setTextSize(R.dimen.tbds36);
+        this.kks.setText(getResources().getString(R.string.click_retry));
+        this.kks.setConfig(new com.baidu.tbadk.core.view.commonBtn.b());
     }
 
     public void setOutOnClickListener(View.OnClickListener onClickListener) {
-        this.kko.setOnClickListener(onClickListener);
+        this.kks.setOnClickListener(onClickListener);
     }
 }

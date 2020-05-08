@@ -15,8 +15,8 @@ public class f extends com.baidu.swan.apps.process.a.a.a {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: z */
-                public void E(Bundle bundle2) {
-                    f.this.chO.putBundle("key_result_stokent", bundle2);
+                public void F(Bundle bundle2) {
+                    f.this.chU.putBundle("key_result_stokent", bundle2);
                     f.this.finish();
                 }
             }, stringArray);

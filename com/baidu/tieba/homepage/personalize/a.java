@@ -22,24 +22,24 @@ import com.baidu.tieba.homepage.personalize.data.ConcernUnreadTipSocketResMsg;
 import com.baidu.tieba.homepage.personalize.view.ConcernUnreadTipView;
 /* loaded from: classes9.dex */
 public class a {
-    private TbPageContext duG;
-    private ScrollFragmentTabHost hMP;
-    private PersonalizePageView hMQ;
-    private ConcernUnreadTipView hMR;
-    private BdUniqueId hMS;
-    private Runnable hMT = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.a.1
+    private TbPageContext duK;
+    private ScrollFragmentTabHost hMV;
+    private PersonalizePageView hMW;
+    private ConcernUnreadTipView hMX;
+    private BdUniqueId hMY;
+    private Runnable hMZ = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.a.1
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.hMQ != null) {
-                if (a.this.hMR != null) {
-                    a.this.hMQ.removeView(a.this.hMR);
+            if (a.this.hMW != null) {
+                if (a.this.hMX != null) {
+                    a.this.hMW.removeView(a.this.hMX);
                     TiebaStatic.log(new an("c12632").af("obj_locate", 3));
                 }
-                a.this.hMQ.setIsUnreadTipShow(false);
+                a.this.hMW.setIsUnreadTipShow(false);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a gHl = new com.baidu.adp.framework.listener.a(1003387, CmdConfigSocket.CMD_CONCERN_UNREAD_TIP) { // from class: com.baidu.tieba.homepage.personalize.a.2
+    private com.baidu.adp.framework.listener.a gHr = new com.baidu.adp.framework.listener.a(1003387, CmdConfigSocket.CMD_CONCERN_UNREAD_TIP) { // from class: com.baidu.tieba.homepage.personalize.a.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof ConcernUnreadTipHttpResMsg) {
@@ -49,7 +49,7 @@ public class a {
             }
         }
     };
-    private CustomMessageListener hMU = new CustomMessageListener(CmdConfigCustom.CMD_JUMP_TO_CONCERN_TAB) { // from class: com.baidu.tieba.homepage.personalize.a.3
+    private CustomMessageListener hNa = new CustomMessageListener(CmdConfigCustom.CMD_JUMP_TO_CONCERN_TAB) { // from class: com.baidu.tieba.homepage.personalize.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -59,9 +59,9 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         if (tbPageContext != null) {
-            this.duG = tbPageContext;
-            tbPageContext.registerListener(this.gHl);
-            tbPageContext.registerListener(this.hMU);
+            this.duK = tbPageContext;
+            tbPageContext.registerListener(this.gHr);
+            tbPageContext.registerListener(this.hNa);
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003387, com.baidu.tieba.tbadkCore.a.a.bE(TbConfig.URL_CONCERN_UNREAD_TIP, CmdConfigSocket.CMD_CONCERN_UNREAD_TIP));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
@@ -75,34 +75,34 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.homepage.personalize.data.e eVar) {
-        if (eVar != null && eVar.bZV()) {
+        if (eVar != null && eVar.bZT()) {
             b(eVar);
         }
     }
 
     public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.hMP = scrollFragmentTabHost;
+        this.hMV = scrollFragmentTabHost;
     }
 
     public void a(PersonalizePageView personalizePageView) {
-        this.hMQ = personalizePageView;
+        this.hMW = personalizePageView;
     }
 
     public void b(com.baidu.tieba.homepage.personalize.data.e eVar) {
-        if (this.hMQ != null) {
-            this.hMR = new ConcernUnreadTipView(this.duG.getContext());
-            this.hMR.setBdUniqueId(this.hMS);
+        if (this.hMW != null) {
+            this.hMX = new ConcernUnreadTipView(this.duK.getContext());
+            this.hMX.setBdUniqueId(this.hMY);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 49;
-            this.hMR.setLayoutParams(layoutParams);
-            this.hMR.setData(eVar);
-            this.hMR.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.4
+            this.hMX.setLayoutParams(layoutParams);
+            this.hMX.setData(eVar);
+            this.hMX.setClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (a.this.hMR != null && a.this.hMR.fOY != null) {
-                        if (view.getId() != a.this.hMR.fOY.getId()) {
-                            if (a.this.hMP != null) {
-                                a.this.hMP.setCurrentTab(0);
+                    if (a.this.hMX != null && a.this.hMX.fPd != null) {
+                        if (view.getId() != a.this.hMX.fPd.getId()) {
+                            if (a.this.hMV != null) {
+                                a.this.hMV.setCurrentTab(0);
                                 return;
                             }
                             return;
@@ -112,40 +112,40 @@ public class a {
                     }
                 }
             });
-            this.hMQ.setIsUnreadTipShow(true);
-            this.hMQ.addView(this.hMR);
+            this.hMW.setIsUnreadTipShow(true);
+            this.hMW.addView(this.hMX);
             if (eVar != null) {
-                TiebaStatic.log(new an("c12631").af("obj_param1", eVar.hQi).af(TiebaInitialize.Params.OBJ_PARAM2, eVar.mThreadCount));
+                TiebaStatic.log(new an("c12631").af("obj_param1", eVar.hQo).af(TiebaInitialize.Params.OBJ_PARAM2, eVar.mThreadCount));
             }
-            com.baidu.adp.lib.f.e.lb().postDelayed(this.hMT, 5000L);
+            com.baidu.adp.lib.f.e.lb().postDelayed(this.hMZ, 5000L);
         }
     }
 
     public void nQ(boolean z) {
-        com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hMT);
-        if (this.hMQ != null) {
-            if (this.hMR != null) {
-                this.hMQ.removeView(this.hMR);
-                if (z && this.hMQ.getIsUnreadTipShow()) {
-                    com.baidu.tbadk.core.sharedPref.b.aNV().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), 0L);
+        com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hMZ);
+        if (this.hMW != null) {
+            if (this.hMX != null) {
+                this.hMW.removeView(this.hMX);
+                if (z && this.hMW.getIsUnreadTipShow()) {
+                    com.baidu.tbadk.core.sharedPref.b.aNT().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_UNREAD_TIP_NEXT_SHOW_TIME), 0L);
                     TiebaStatic.log(new an("c12632").af("obj_locate", 2));
                 }
             }
-            this.hMQ.setIsUnreadTipShow(false);
+            this.hMW.setIsUnreadTipShow(false);
         }
     }
 
     public void onDestroy() {
-        this.hMQ = null;
-        this.hMP = null;
-        if (this.hMT != null) {
-            com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hMT);
+        this.hMW = null;
+        this.hMV = null;
+        if (this.hMZ != null) {
+            com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hMZ);
         }
-        MessageManager.getInstance().unRegisterListener(this.gHl);
-        MessageManager.getInstance().unRegisterListener(this.hMU);
+        MessageManager.getInstance().unRegisterListener(this.gHr);
+        MessageManager.getInstance().unRegisterListener(this.hNa);
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.hMS = bdUniqueId;
+        this.hMY = bdUniqueId;
     }
 }

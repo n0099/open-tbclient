@@ -22,6 +22,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.android.util.sp.PreferenceUtils;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.searchbox.widget.graphics.Palette;
+import com.baidu.searchbox.widget.immersion.R;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes13.dex */
@@ -183,7 +184,7 @@ public class ImmersionHelper {
             childAt.setLayoutParams(layoutParams);
             View view = new View(this.mActivity);
             view.setTag(VIEW_TAG);
-            view.setId(com.baidu.searchbox.widget.immersion.R.id.immersion_custom_statusbar_view);
+            view.setId(R.id.immersion_custom_statusbar_view);
             this.mRootView.addView(view, 0, new ViewGroup.LayoutParams(-1, statusBarHeight));
             return view;
         } else {
@@ -234,7 +235,7 @@ public class ImmersionHelper {
     }
 
     private int getDefaultStatusBarViewBg() {
-        return Build.VERSION.SDK_INT >= 21 ? this.mActivity.getResources().getColor(com.baidu.searchbox.widget.immersion.R.color.statusbar_immersion_bg) : this.mActivity.getResources().getColor(com.baidu.searchbox.widget.immersion.R.color.statusbar_immersion_bg_below_lollipop);
+        return Build.VERSION.SDK_INT >= 21 ? this.mActivity.getResources().getColor(R.color.statusbar_immersion_bg) : this.mActivity.getResources().getColor(R.color.statusbar_immersion_bg_below_lollipop);
     }
 
     private int getStatusBarColor(int i) {
@@ -420,7 +421,7 @@ public class ImmersionHelper {
 
     public static void setDialogImmersion(Dialog dialog) {
         if (Build.VERSION.SDK_INT >= 21) {
-            int color = dialog.getContext().getResources().getColor(com.baidu.searchbox.widget.immersion.R.color.dialog_immersion_status_bar_color);
+            int color = dialog.getContext().getResources().getColor(R.color.dialog_immersion_status_bar_color);
             Window window = dialog.getWindow();
             window.clearFlags(67108864);
             window.addFlags(Integer.MIN_VALUE);
@@ -429,6 +430,6 @@ public class ImmersionHelper {
     }
 
     public static boolean isImmersionEnabled(View view) {
-        return (!SUPPORT_IMMERSION || view == null || view.findViewById(com.baidu.searchbox.widget.immersion.R.id.immersion_custom_statusbar_view) == null) ? false : true;
+        return (!SUPPORT_IMMERSION || view == null || view.findViewById(R.id.immersion_custom_statusbar_view) == null) ? false : true;
     }
 }

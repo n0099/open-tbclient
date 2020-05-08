@@ -23,20 +23,20 @@ import tbclient.User;
 import tbclient.VideoInfo;
 /* loaded from: classes11.dex */
 public class CardPersonDynamicThreadData extends b {
-    public static final BdUniqueId gtd = BdUniqueId.gen();
-    public int alN;
-    public bj dqA;
+    public static final BdUniqueId gtj = BdUniqueId.gen();
+    public int alT;
+    public bj dqE;
     public String firstPostId;
     public String forumId;
     public String forumName;
-    public int gte;
-    public String gtf;
-    public long gtg;
-    public int gth;
-    public String gtj;
-    public String gtk;
+    public String gtB;
+    public int gtk;
     public String gtl;
-    public String gtv;
+    public long gtm;
+    public int gtn;
+    public String gtp;
+    public String gtq;
+    public String gtr;
     public boolean isPrivacy;
     public String postId;
     public List<PbContent> rich_abstract;
@@ -48,24 +48,24 @@ public class CardPersonDynamicThreadData extends b {
     public String userName;
     public String userPortrait;
     public VideoInfo videoInfo;
-    public boolean gsP = false;
-    public boolean dYb = true;
-    public int gti = 0;
+    public boolean gsV = false;
+    public boolean dYg = true;
+    public int gto = 0;
     public int from = 0;
-    public Abs[] gtm = new Abs[0];
-    public MediaData[] gtn = new MediaData[0];
-    public VoiceData.VoiceModel[] gto = new VoiceData.VoiceModel[0];
-    public ZhiBoInfoTW gtp = new ZhiBoInfoTW();
-    public MultipleForum[] gtq = new MultipleForum[0];
-    public boolean gtr = true;
-    public boolean gts = true;
-    public boolean gtt = false;
-    public boolean gtu = false;
+    public Abs[] gts = new Abs[0];
+    public MediaData[] gtt = new MediaData[0];
+    public VoiceData.VoiceModel[] gtu = new VoiceData.VoiceModel[0];
+    public ZhiBoInfoTW gtv = new ZhiBoInfoTW();
+    public MultipleForum[] gtw = new MultipleForum[0];
+    public boolean gtx = true;
+    public boolean gty = true;
+    public boolean gtz = false;
+    public boolean gtA = false;
     public boolean isHost = true;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gtd;
+        return gtj;
     }
 
     public void a(User user, ThreadInfo threadInfo, int i, long j) {
@@ -74,10 +74,10 @@ public class CardPersonDynamicThreadData extends b {
             this.threadId = String.valueOf(threadInfo.tid);
             this.postId = String.valueOf(threadInfo.post_id);
             this.firstPostId = this.postId;
-            this.gte = threadInfo.create_time.intValue();
-            this.gtj = aq.getChineseYearBytime(j * 1000);
-            this.gtk = aq.getChineseMonthBytime(j * 1000);
-            this.gtl = aq.getDateBytime(j * 1000);
+            this.gtk = threadInfo.create_time.intValue();
+            this.gtp = aq.getChineseYearBytime(j * 1000);
+            this.gtq = aq.getChineseMonthBytime(j * 1000);
+            this.gtr = aq.getDateBytime(j * 1000);
             this.forumName = threadInfo.fname;
             this.videoInfo = threadInfo.video_info;
             this.title = threadInfo.title;
@@ -88,80 +88,80 @@ public class CardPersonDynamicThreadData extends b {
                 this.userId = threadInfo.author.id.longValue();
                 this.userPortrait = threadInfo.author.portrait;
             }
-            this.gtg = threadInfo.thread_type.intValue();
-            this.gtm = new Abs[threadInfo._abstract.size()];
+            this.gtm = threadInfo.thread_type.intValue();
+            this.gts = new Abs[threadInfo._abstract.size()];
             StringBuilder sb = new StringBuilder();
             if (threadInfo._abstract != null) {
-                for (int i2 = 0; i2 < this.gtm.length; i2++) {
+                for (int i2 = 0; i2 < this.gts.length; i2++) {
                     Abs abs = new Abs();
                     abs.parseProtobuf(threadInfo._abstract.get(i2));
-                    this.gtm[i2] = abs;
+                    this.gts[i2] = abs;
                     if (threadInfo._abstract.get(i2).type.intValue() == 0) {
                         sb.append(threadInfo._abstract.get(i2).text);
                     }
                 }
             }
-            this.gtf = sb.toString();
-            this.alN = threadInfo.reply_num.intValue();
-            this.gth = threadInfo.view_num.intValue();
+            this.gtl = sb.toString();
+            this.alT = threadInfo.reply_num.intValue();
+            this.gtn = threadInfo.view_num.intValue();
             if (threadInfo.media != null) {
-                this.gtn = new MediaData[threadInfo.media.size()];
-                for (int i3 = 0; i3 < this.gtn.length; i3++) {
+                this.gtt = new MediaData[threadInfo.media.size()];
+                for (int i3 = 0; i3 < this.gtt.length; i3++) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(threadInfo.media.get(i3));
-                    this.gtn[i3] = mediaData;
+                    this.gtt[i3] = mediaData;
                 }
             }
             if (threadInfo.voice_info != null) {
-                this.gto = new VoiceData.VoiceModel[threadInfo.voice_info.size()];
-                for (int i4 = 0; i4 < this.gto.length; i4++) {
+                this.gtu = new VoiceData.VoiceModel[threadInfo.voice_info.size()];
+                for (int i4 = 0; i4 < this.gtu.length; i4++) {
                     VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                     voiceModel.parserProtobuf(threadInfo.voice_info.get(i4));
-                    this.gto[i4] = voiceModel;
+                    this.gtu[i4] = voiceModel;
                 }
             }
             if (threadInfo.multiple_forum_list != null) {
-                this.gtq = new MultipleForum[threadInfo.multiple_forum_list.size()];
-                for (int i5 = 0; i5 < this.gtq.length; i5++) {
+                this.gtw = new MultipleForum[threadInfo.multiple_forum_list.size()];
+                for (int i5 = 0; i5 < this.gtw.length; i5++) {
                     MultipleForum multipleForum = new MultipleForum();
                     multipleForum.parseProtobuf(threadInfo.multiple_forum_list.get(i5));
-                    this.gtq[i5] = multipleForum;
+                    this.gtw[i5] = multipleForum;
                 }
             }
             if (threadInfo.twzhibo_info != null) {
-                this.gtp.parseProtobuf(threadInfo.twzhibo_info, i);
+                this.gtv.parseProtobuf(threadInfo.twzhibo_info, i);
             }
-            this.dqA = new bj();
-            this.dqA.a(threadInfo);
-            this.dqA.setId(this.threadId);
-            this.dqA.setTid(this.threadId);
-            this.dqA.setFid(threadInfo.fid.longValue());
-            this.dqA.jQ(this.alN);
-            this.dqA.jR(this.gth);
-            this.dqA.ca(this.gte);
+            this.dqE = new bj();
+            this.dqE.a(threadInfo);
+            this.dqE.setId(this.threadId);
+            this.dqE.setTid(this.threadId);
+            this.dqE.setFid(threadInfo.fid.longValue());
+            this.dqE.jQ(this.alT);
+            this.dqE.jR(this.gtn);
+            this.dqE.ca(this.gtk);
             if (threadInfo.agree != null) {
-                this.dqA.jZ(threadInfo.agree.agree_type.intValue());
-                this.dqA.jX(threadInfo.agree.has_agree.intValue());
+                this.dqE.jZ(threadInfo.agree.agree_type.intValue());
+                this.dqE.jX(threadInfo.agree.has_agree.intValue());
                 long longValue = threadInfo.agree.agree_num.longValue() > 0 ? threadInfo.agree.agree_num.longValue() : 0L;
                 long longValue2 = threadInfo.agree.disagree_num.longValue() > 0 ? threadInfo.agree.disagree_num.longValue() : 0L;
-                this.dqA.cb(longValue);
-                this.dqA.cc(longValue2);
-                if (this.dqA.aMb() == 1 && longValue == 0 && longValue2 == 0) {
-                    this.dqA.jY(1);
+                this.dqE.cb(longValue);
+                this.dqE.cc(longValue2);
+                if (this.dqE.aLZ() == 1 && longValue == 0 && longValue2 == 0) {
+                    this.dqE.jY(1);
                 }
             }
-            this.dqA.jV(threadInfo.is_ntitle.intValue());
-            this.dqA.dtS = true;
-            if (this.dqA.aKE() != null && user != null) {
-                this.dqA.aKE().parserProtobuf(user);
-                this.dqA.aLc();
+            this.dqE.jV(threadInfo.is_ntitle.intValue());
+            this.dqE.dtW = true;
+            if (this.dqE.aKC() != null && user != null) {
+                this.dqE.aKC().parserProtobuf(user);
+                this.dqE.aLa();
             }
-            this.dqA.ub(threadInfo.article_cover);
-            this.dqA.a(this.videoInfo);
-            if (this.dqA.aMA()) {
-                this.dqA.ka(1);
+            this.dqE.ue(threadInfo.article_cover);
+            this.dqE.a(this.videoInfo);
+            if (this.dqE.aMy()) {
+                this.dqE.ka(1);
             }
-            this.dqA.aLf();
+            this.dqE.aLd();
         }
     }
 
@@ -171,11 +171,11 @@ public class CardPersonDynamicThreadData extends b {
             this.threadId = String.valueOf(postInfoList.thread_id);
             this.postId = String.valueOf(postInfoList.post_id);
             this.firstPostId = this.postId;
-            this.gte = postInfoList.create_time.intValue();
+            this.gtk = postInfoList.create_time.intValue();
             long intValue = postInfoList.create_time.intValue() * 1000;
-            this.gtj = aq.getChineseYearBytime(intValue);
-            this.gtk = aq.getChineseMonthBytime(intValue);
-            this.gtl = aq.getDateBytime(intValue);
+            this.gtp = aq.getChineseYearBytime(intValue);
+            this.gtq = aq.getChineseMonthBytime(intValue);
+            this.gtr = aq.getDateBytime(intValue);
             this.forumName = postInfoList.forum_name;
             this.title = postInfoList.title;
             this.rich_title = postInfoList.rich_title;
@@ -183,8 +183,8 @@ public class CardPersonDynamicThreadData extends b {
             this.userName = postInfoList.user_name;
             this.userId = postInfoList.user_id.longValue();
             this.userPortrait = postInfoList.user_portrait;
-            this.gtg = postInfoList.thread_type.longValue();
-            this.gti = postInfoList.is_post_deleted.intValue();
+            this.gtm = postInfoList.thread_type.longValue();
+            this.gto = postInfoList.is_post_deleted.intValue();
             if (postInfoList.is_remain.intValue() == 0) {
                 this.isPrivacy = false;
             } else if (postInfoList.is_remain.intValue() == 1) {
@@ -192,119 +192,119 @@ public class CardPersonDynamicThreadData extends b {
             }
             StringBuilder sb = new StringBuilder();
             if (postInfoList.abstract_thread != null) {
-                this.gtm = new Abs[postInfoList.abstract_thread.size()];
-                for (int i2 = 0; i2 < this.gtm.length; i2++) {
+                this.gts = new Abs[postInfoList.abstract_thread.size()];
+                for (int i2 = 0; i2 < this.gts.length; i2++) {
                     Abs abs = new Abs();
                     abs.parseProtobuf(postInfoList.abstract_thread.get(i2));
-                    this.gtm[i2] = abs;
+                    this.gts[i2] = abs;
                     if (postInfoList.abstract_thread.get(i2).type.intValue() == 0) {
                         sb.append(postInfoList.abstract_thread.get(i2).text);
                     }
                 }
             }
-            this.gtf = sb.toString();
-            this.alN = postInfoList.reply_num.intValue();
-            this.gth = postInfoList.freq_num.intValue();
+            this.gtl = sb.toString();
+            this.alT = postInfoList.reply_num.intValue();
+            this.gtn = postInfoList.freq_num.intValue();
             if (postInfoList.media != null) {
-                this.gtn = new MediaData[postInfoList.media.size()];
-                for (int i3 = 0; i3 < this.gtn.length; i3++) {
+                this.gtt = new MediaData[postInfoList.media.size()];
+                for (int i3 = 0; i3 < this.gtt.length; i3++) {
                     MediaData mediaData = new MediaData();
                     mediaData.parserProtobuf(postInfoList.media.get(i3));
-                    this.gtn[i3] = mediaData;
+                    this.gtt[i3] = mediaData;
                 }
             }
             if (postInfoList.voice_info != null) {
-                this.gto = new VoiceData.VoiceModel[postInfoList.voice_info.size()];
-                for (int i4 = 0; i4 < this.gto.length; i4++) {
+                this.gtu = new VoiceData.VoiceModel[postInfoList.voice_info.size()];
+                for (int i4 = 0; i4 < this.gtu.length; i4++) {
                     VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                     voiceModel.parserProtobuf(postInfoList.voice_info.get(i4));
-                    this.gto[i4] = voiceModel;
+                    this.gtu[i4] = voiceModel;
                 }
             }
             if (postInfoList.twzhibo_info != null) {
-                this.gtp.parseProtobuf(postInfoList.twzhibo_info, i);
+                this.gtv.parseProtobuf(postInfoList.twzhibo_info, i);
             }
             if (postInfoList.video_info != null) {
                 this.videoInfo = postInfoList.video_info;
             }
             if (postInfoList.multiple_forum_list != null && postInfoList.multiple_forum_list.size() > 0) {
-                this.gtq = new MultipleForum[postInfoList.multiple_forum_list.size()];
-                for (int i5 = 0; i5 < this.gtq.length; i5++) {
+                this.gtw = new MultipleForum[postInfoList.multiple_forum_list.size()];
+                for (int i5 = 0; i5 < this.gtw.length; i5++) {
                     MultipleForum multipleForum = new MultipleForum();
                     multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i5));
-                    this.gtq[i5] = multipleForum;
+                    this.gtw[i5] = multipleForum;
                 }
             } else if (!TextUtils.isEmpty(this.forumName) && com.baidu.adp.lib.f.b.toLong(this.forumId, -1L) != -1) {
-                this.gtq = new MultipleForum[1];
+                this.gtw = new MultipleForum[1];
                 MultipleForum multipleForum2 = new MultipleForum();
                 multipleForum2.forum_id = com.baidu.adp.lib.f.b.toLong(this.forumId, 0L);
                 multipleForum2.forum_name = this.forumName;
-                this.gtq[0] = multipleForum2;
+                this.gtw[0] = multipleForum2;
             }
-            this.dqA = new bj();
+            this.dqE = new bj();
             if (postInfoList.ala_info != null) {
                 AlaInfoData alaInfoData = new AlaInfoData();
                 alaInfoData.parserProtobuf(postInfoList.ala_info);
-                this.dqA.a(alaInfoData);
-                this.dqA.setTitle(this.title);
-                this.gth = postInfoList.view_num.intValue();
+                this.dqE.a(alaInfoData);
+                this.dqE.setTitle(this.title);
+                this.gtn = postInfoList.view_num.intValue();
             }
             if (postInfoList.agree != null) {
-                this.dqA.jZ(postInfoList.agree.agree_type.intValue());
-                this.dqA.jX(postInfoList.agree.has_agree.intValue());
+                this.dqE.jZ(postInfoList.agree.agree_type.intValue());
+                this.dqE.jX(postInfoList.agree.has_agree.intValue());
                 long longValue = postInfoList.agree.agree_num.longValue() > 0 ? postInfoList.agree.agree_num.longValue() : 0L;
                 long longValue2 = postInfoList.agree.disagree_num.longValue() > 0 ? postInfoList.agree.disagree_num.longValue() : 0L;
-                this.dqA.cb(longValue);
-                this.dqA.cc(longValue2);
-                if (this.dqA.aMb() == 1 && longValue == 0 && longValue2 == 0) {
-                    this.dqA.jY(1);
+                this.dqE.cb(longValue);
+                this.dqE.cc(longValue2);
+                if (this.dqE.aLZ() == 1 && longValue == 0 && longValue2 == 0) {
+                    this.dqE.jY(1);
                 }
-                AgreeData aMs = this.dqA.aMs();
-                if (aMs != null) {
-                    aMs.threadId = this.threadId;
-                    aMs.parseProtobuf(postInfoList.agree);
+                AgreeData aMq = this.dqE.aMq();
+                if (aMq != null) {
+                    aMq.threadId = this.threadId;
+                    aMq.parseProtobuf(postInfoList.agree);
                 }
             }
             if (postInfoList.is_share_thread.intValue() == 1) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                 originalThreadInfo.a(postInfoList.origin_thread_info);
-                this.dqA.dto = originalThreadInfo;
-                this.dqA.isShareThread = true;
+                this.dqE.dtt = originalThreadInfo;
+                this.dqE.isShareThread = true;
             }
-            this.dqA.cd(postInfoList.share_num.intValue());
-            this.dqA.setId(this.threadId);
-            this.dqA.setTid(this.threadId);
-            this.dqA.setFid(postInfoList.forum_id.longValue());
-            this.dqA.tT(this.forumName);
-            this.dqA.jQ(this.alN);
-            this.dqA.jR(this.gth);
-            this.dqA.ca(this.gte);
-            this.dqA.setTitle(this.title);
-            this.dqA.aG(this.rich_title);
-            this.dqA.aH(this.rich_abstract);
-            this.dqA.tW(this.gtf);
-            this.dqA.setThreadType((int) this.gtg);
-            this.dqA.aF(postInfoList.first_post_content);
-            if (this.gtn != null) {
-                this.dqA.z(new ArrayList<>(Arrays.asList(this.gtn)));
+            this.dqE.cd(postInfoList.share_num.intValue());
+            this.dqE.setId(this.threadId);
+            this.dqE.setTid(this.threadId);
+            this.dqE.setFid(postInfoList.forum_id.longValue());
+            this.dqE.tW(this.forumName);
+            this.dqE.jQ(this.alT);
+            this.dqE.jR(this.gtn);
+            this.dqE.ca(this.gtk);
+            this.dqE.setTitle(this.title);
+            this.dqE.aG(this.rich_title);
+            this.dqE.aH(this.rich_abstract);
+            this.dqE.tZ(this.gtl);
+            this.dqE.setThreadType((int) this.gtm);
+            this.dqE.aF(postInfoList.first_post_content);
+            if (this.gtt != null) {
+                this.dqE.z(new ArrayList<>(Arrays.asList(this.gtt)));
             }
-            if (this.gto != null) {
-                this.dqA.A(new ArrayList<>(Arrays.asList(this.gto)));
+            if (this.gtu != null) {
+                this.dqE.A(new ArrayList<>(Arrays.asList(this.gtu)));
             }
-            this.dqA.jV(postInfoList.is_ntitle.intValue());
-            this.dqA.dtS = true;
-            if (this.dqA.aKE() != null && user != null) {
-                this.dqA.aKE().parserProtobuf(user);
-                this.dqA.aLc();
+            this.dqE.jV(postInfoList.is_ntitle.intValue());
+            this.dqE.dtW = true;
+            if (this.dqE.aKC() != null && user != null) {
+                this.dqE.aKC().parserProtobuf(user);
+                this.dqE.aLa();
             }
-            this.dqA.ub(postInfoList.article_cover);
-            this.dqA.a(this.videoInfo);
-            if (this.dqA.aMA()) {
-                this.dqA.ka(1);
+            this.dqE.ue(postInfoList.article_cover);
+            this.dqE.a(this.videoInfo);
+            if (this.dqE.aMy()) {
+                this.dqE.ka(1);
             }
-            this.dqA.isPrivacy = this.isPrivacy;
-            this.dqA.dtT = this.firstPostId;
-            this.dqA.aLf();
+            this.dqE.isPrivacy = this.isPrivacy;
+            this.dqE.dtX = this.firstPostId;
+            this.dqE.aLd();
         }
     }
 

@@ -4,7 +4,7 @@ import java.io.File;
 /* loaded from: classes3.dex */
 public class d extends c {
     @Override // com.baidu.tieba.ala.a.a.a.c
-    protected Class bne() {
+    protected Class bnc() {
         try {
             return Class.forName("dalvik.system.DexPathList$NativeLibraryElement");
         } catch (Exception e) {

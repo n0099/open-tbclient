@@ -12,25 +12,25 @@ import java.net.URLEncoder;
 /* loaded from: classes9.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b exQ;
+    private static b exV;
     private int mPort = 0;
 
     private b() {
-        a.bfB();
+        a.bfz();
     }
 
-    public static b bfD() {
-        if (exQ == null) {
+    public static b bfB() {
+        if (exV == null) {
             synchronized (b.class) {
-                if (exQ == null) {
-                    exQ = new b();
+                if (exV == null) {
+                    exV = new b();
                 }
             }
         }
-        return exQ;
+        return exV;
     }
 
-    private static long bfz() {
+    private static long bfx() {
         try {
             File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
             if (cacheDir != null && cacheDir.exists() && cacheDir.canRead() && cacheDir.canWrite()) {
@@ -44,60 +44,60 @@ public class b implements i {
         }
     }
 
-    private boolean bfE() {
-        d.D(TAG, "sdcard avalible size " + ((bfz() / 1024) / 1024) + "M");
-        return bfz() > 314572800 && getPort() > 0;
+    private boolean bfC() {
+        d.D(TAG, "sdcard avalible size " + ((bfx() / 1024) / 1024) + "M");
+        return bfx() > 314572800 && getPort() > 0;
     }
 
-    public void eb(Context context) {
+    public void dP(Context context) {
         if (context != null) {
-            e.ec(context).beK();
+            e.dQ(context).beI();
         }
     }
 
     @Override // com.baidu.tieba.play.i
-    public String xS(String str) {
-        if (bfE()) {
-            String xT = xT(str);
-            if (xT == null) {
-                String xQ = xQ(str);
-                if (xQ != null && new File(c.exD + xQ + "/header_downloaded").exists()) {
+    public String xV(String str) {
+        if (bfC()) {
+            String xW = xW(str);
+            if (xW == null) {
+                String xT = xT(str);
+                if (xT != null && new File(c.exI + xT + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return xT;
+            return xW;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
     public String ab(String str, boolean z) {
-        if (bfE()) {
-            String xT = xT(str);
-            if (xT == null) {
-                String xQ = xQ(str);
-                if (xQ != null) {
+        if (bfC()) {
+            String xW = xW(str);
+            if (xW == null) {
+                String xT = xT(str);
+                if (xT != null) {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.exD + xQ + "/header_downloaded").exists()) {
+                    if (new File(c.exI + xT + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
                 }
                 return str;
             }
-            return xT;
+            return xW;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
-    public String xT(String str) {
-        String xQ;
+    public String xW(String str) {
+        String xT;
         File file;
-        if (str == null || !str.contains("/") || (xQ = xQ(str)) == null || (file = new File(c.exD + xQ + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (xT = xT(str)) == null || (file = new File(c.exI + xT + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -105,30 +105,30 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public void d(Context context, String str, int i) {
-        e.ec(context).ap(str, i);
+        e.dQ(context).ap(str, i);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void aB(Context context, String str) {
-        e.ec(context).xW(str);
+    public void ap(Context context, String str) {
+        e.dQ(context).xZ(str);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void aC(Context context, String str) {
-        e.ec(context).xX(str);
+    public void aq(Context context, String str) {
+        e.dQ(context).ya(str);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void xU(String str) {
-        a.bfB().xR(str);
+    public void xX(String str) {
+        a.bfz().xU(str);
     }
 
     @Override // com.baidu.tieba.play.i
     public void clearCache(Context context) {
-        e.ec(context).clearCache();
+        e.dQ(context).clearCache();
     }
 
-    public static String xQ(String str) {
+    public static String xT(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -151,7 +151,7 @@ public class b implements i {
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
         if (this.mPort == 0) {
-            File file = new File(c.exE);
+            File file = new File(c.exJ);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -244,12 +244,12 @@ public class b implements i {
         return this.mPort;
     }
 
-    public void bfF() {
+    public void bfD() {
         this.mPort = 0;
     }
 
     @Override // com.baidu.tieba.play.i
-    public String xV(String str) {
-        return com.baidu.tieba.VideoCache.i.exD + xQ(str);
+    public String xY(String str) {
+        return com.baidu.tieba.VideoCache.i.exI + xT(str);
     }
 }

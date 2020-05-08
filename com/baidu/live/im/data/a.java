@@ -6,12 +6,12 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public abstract class a implements IAdapterData {
-    private com.baidu.live.data.a aMz;
-    private com.baidu.live.data.a aNl;
-    private List<Long> aNm;
-    private long aNo;
-    private double aNp;
-    private long aNq;
+    private com.baidu.live.data.a aMF;
+    private com.baidu.live.data.a aNr;
+    private List<Long> aNs;
+    private long aNu;
+    private double aNv;
+    private long aNw;
     private b barrageCardInfo;
     private String barrageId;
     private int barrageType;
@@ -34,7 +34,7 @@ public abstract class a implements IAdapterData {
     private int progressValue = 0;
     private long statisticsTaskId = -1;
     private boolean mIsPushForOperateAccount = false;
-    private boolean aNn = false;
+    private boolean aNt = false;
     private boolean isGifLoadSuccess = true;
     private boolean isUploading = false;
 
@@ -118,20 +118,20 @@ public abstract class a implements IAdapterData {
         this.objContent = obj;
     }
 
-    public com.baidu.live.data.a Cf() {
-        return this.aMz;
+    public com.baidu.live.data.a Ce() {
+        return this.aMF;
     }
 
     public void d(com.baidu.live.data.a aVar) {
-        this.aMz = aVar;
+        this.aMF = aVar;
     }
 
-    public com.baidu.live.data.a Cg() {
-        return this.aNl;
+    public com.baidu.live.data.a Cf() {
+        return this.aNr;
     }
 
     public void e(com.baidu.live.data.a aVar) {
-        this.aNl = aVar;
+        this.aNr = aVar;
     }
 
     public int getMsgType() {
@@ -208,31 +208,31 @@ public abstract class a implements IAdapterData {
 
     public void l(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() > 0) {
-            if (this.aNm == null) {
-                this.aNm = new ArrayList();
+            if (this.aNs == null) {
+                this.aNs = new ArrayList();
             }
             for (int i = 0; i < jSONArray.length(); i++) {
                 long optLong = jSONArray.optLong(i);
                 if (optLong > 0) {
-                    this.aNm.add(Long.valueOf(optLong));
+                    this.aNs.add(Long.valueOf(optLong));
                 }
             }
         }
     }
 
-    public List<Long> Ch() {
-        return this.aNm;
+    public List<Long> Cg() {
+        return this.aNs;
     }
 
-    public boolean Ci() {
-        return this.aNn;
+    public boolean Ch() {
+        return this.aNt;
     }
 
     public void bz(boolean z) {
-        this.aNn = z;
+        this.aNt = z;
     }
 
-    public int Cj() {
+    public int Ci() {
         return this.barrageType;
     }
 
@@ -240,7 +240,7 @@ public abstract class a implements IAdapterData {
         this.barrageType = i;
     }
 
-    public String Ck() {
+    public String Cj() {
         return this.barrageId;
     }
 
@@ -248,7 +248,7 @@ public abstract class a implements IAdapterData {
         this.barrageId = str;
     }
 
-    public b Cl() {
+    public b Ck() {
         return this.barrageCardInfo;
     }
 
@@ -256,7 +256,7 @@ public abstract class a implements IAdapterData {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] Cm() {
+    public String[] Cl() {
         return this.imEffect;
     }
 
@@ -264,27 +264,27 @@ public abstract class a implements IAdapterData {
         this.imEffect = strArr;
     }
 
-    public long Cn() {
-        return this.aNo;
+    public long Cm() {
+        return this.aNu;
     }
 
     public void ae(long j) {
-        this.aNo = j;
+        this.aNu = j;
     }
 
-    public double Co() {
-        return this.aNp;
+    public double Cn() {
+        return this.aNv;
     }
 
     public void i(double d) {
-        this.aNp = d;
+        this.aNv = d;
     }
 
-    public long Cp() {
-        return this.aNq;
+    public long Co() {
+        return this.aNw;
     }
 
     public void af(long j) {
-        this.aNq = j;
+        this.aNw = j;
     }
 }

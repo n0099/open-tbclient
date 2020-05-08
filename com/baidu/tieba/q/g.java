@@ -5,7 +5,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class g implements q {
     @Override // com.baidu.ubc.q
-    public String ahy() {
+    public String ahx() {
         return null;
     }
 
@@ -20,7 +20,7 @@ public class g implements q {
     }
 
     @Override // com.baidu.ubc.q
-    public List<String> cTg() {
+    public List<String> cTd() {
         return null;
     }
 }

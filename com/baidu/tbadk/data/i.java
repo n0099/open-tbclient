@@ -1,20 +1,20 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class i {
-    private boolean dVJ;
+    private boolean dVO;
     private String method;
     private boolean open;
 
-    public boolean aWs() {
-        return this.dVJ;
+    public boolean aWq() {
+        return this.dVO;
     }
 
     public void hs(boolean z) {
-        this.dVJ = z;
+        this.dVO = z;
     }
 
-    public void aWt() {
-        this.dVJ = false;
+    public void aWr() {
+        this.dVO = false;
     }
 
     public boolean isOpen() {

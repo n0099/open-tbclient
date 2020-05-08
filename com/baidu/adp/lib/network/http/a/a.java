@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> Ks;
-    private long Kt;
+    private List<String> Kv;
+    private long Kw;
     private String mHost;
     private long mStartTime = System.currentTimeMillis();
 
@@ -20,7 +20,7 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.Kt = jSONObject.optLong("ttl");
+            this.Kw = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
                 return null;
@@ -28,12 +28,12 @@ public class a {
             this.mHost = optJSONObject.keys().next();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.mHost);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP)) != null && optJSONArray.length() > 0) {
-                this.Ks = new ArrayList();
+                this.Kv = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.Ks.add((String) optJSONArray.get(i2));
+                        this.Kv.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -50,7 +50,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void E(long j) {
-        this.Kt = j;
+        this.Kw = j;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -59,7 +59,7 @@ public class a {
     }
 
     public List<String> kK() {
-        return this.Ks;
+        return this.Kv;
     }
 
     public String getHost() {
@@ -67,6 +67,6 @@ public class a {
     }
 
     public boolean F(long j) {
-        return j - this.mStartTime > this.Kt * 1000;
+        return j - this.mStartTime > this.Kw * 1000;
     }
 }

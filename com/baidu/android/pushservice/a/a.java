@@ -1,31 +1,16 @@
 package com.baidu.android.pushservice.a;
 /* loaded from: classes8.dex */
 public class a {
-    protected String a;
+    protected String a = "";
     protected String b;
-    protected String c;
-    protected int d;
-    protected int e;
-
-    public a() {
-    }
-
-    public a(String str) {
-        this.b = str;
-        this.a = "";
-    }
-
-    public a(String str, String str2) {
-        this(str);
-        this.c = str2;
-    }
+    protected int c;
 
     public String a() {
         return this.a;
     }
 
     public void a(int i) {
-        this.d = i;
+        this.c = i;
     }
 
     public void a(String str) {
@@ -36,23 +21,11 @@ public class a {
         return this.b;
     }
 
-    public void b(int i) {
-        this.e = i;
-    }
-
     public void b(String str) {
-        this.c = str;
+        this.b = str;
     }
 
-    public String c() {
+    public int c() {
         return this.c;
-    }
-
-    public int d() {
-        return this.d;
-    }
-
-    public int e() {
-        return this.e;
     }
 }

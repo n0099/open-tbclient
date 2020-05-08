@@ -20,59 +20,59 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class a implements i, k {
-    private static volatile a kqS;
-    private final AtomicReference<com.baidu.adp.lib.cache.l<String>> kqT = new AtomicReference<>(null);
-    private AtomicReference<com.baidu.adp.lib.cache.l<String>> kqU = new AtomicReference<>(null);
-    private boolean kqY = false;
-    private boolean kqZ = false;
-    private CustomMessageListener kra = new CustomMessageListener(CmdConfigCustom.CMD_SPLASH_AD_JUMP_URL) { // from class: com.baidu.tieba.recapp.a.1
+    private static volatile a kqW;
+    private final AtomicReference<com.baidu.adp.lib.cache.l<String>> kqX = new AtomicReference<>(null);
+    private AtomicReference<com.baidu.adp.lib.cache.l<String>> kqY = new AtomicReference<>(null);
+    private boolean krc = false;
+    private boolean krd = false;
+    private CustomMessageListener kre = new CustomMessageListener(CmdConfigCustom.CMD_SPLASH_AD_JUMP_URL) { // from class: com.baidu.tieba.recapp.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921022 && (customResponsedMessage.getData() instanceof String)) {
-                com.baidu.tieba.ad.a.bgj().c(TbadkCoreApplication.getInst(), new String[]{(String) customResponsedMessage.getData()});
+                com.baidu.tieba.ad.a.bgh().c(TbadkCoreApplication.getInst(), new String[]{(String) customResponsedMessage.getData()});
             }
         }
     };
-    private HashMap<String, f> kqV = new HashMap<>();
-    private int kqW = 0;
-    private String kqX = cNe();
+    private HashMap<String, f> kqZ = new HashMap<>();
+    private int kra = 0;
+    private String krb = cNb();
 
-    public static a cMZ() {
-        if (kqS == null) {
+    public static a cMW() {
+        if (kqW == null) {
             synchronized (a.class) {
-                if (kqS == null) {
-                    kqS = new a();
+                if (kqW == null) {
+                    kqW = new a();
                 }
             }
         }
-        return kqS;
+        return kqW;
     }
 
     private a() {
-        MessageManager.getInstance().registerListener(this.kra);
+        MessageManager.getInstance().registerListener(this.kre);
     }
 
     @Override // com.baidu.tieba.recapp.i
-    public void cNa() {
-        if (!this.kqY) {
+    public void cMX() {
+        if (!this.krc) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.adp.lib.cache.l lVar = (com.baidu.adp.lib.cache.l) a.this.kqT.get();
+                    com.baidu.adp.lib.cache.l lVar = (com.baidu.adp.lib.cache.l) a.this.kqX.get();
                     if (lVar != null) {
-                        lVar.a(a.this.kqX, new l.a<String>() { // from class: com.baidu.tieba.recapp.a.2.1
+                        lVar.a(a.this.krb, new l.a<String>() { // from class: com.baidu.tieba.recapp.a.2.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.adp.lib.cache.l.a
                             /* renamed from: dG */
                             public void onItemGet(String str, String str2) {
                                 if (!TextUtils.isEmpty(str2)) {
-                                    Iterator it = a.this.Jm(str2).iterator();
+                                    Iterator it = a.this.Jp(str2).iterator();
                                     while (it.hasNext()) {
                                         f fVar = (f) it.next();
                                         if (fVar != null) {
-                                            a.this.kqV.put(fVar.forumName, fVar);
-                                            a.this.kqY = true;
+                                            a.this.kqZ.put(fVar.forumName, fVar);
+                                            a.this.krc = true;
                                         }
                                     }
                                 }
@@ -81,8 +81,8 @@ public class a implements i, k {
                     }
                 }
             };
-            if (this.kqT.get() == null) {
-                new C0635a(this.kqT, "frs.refresh.count", runnable).execute(new Void[0]);
+            if (this.kqX.get() == null) {
+                new C0656a(this.kqX, "frs.refresh.count", runnable).execute(new Void[0]);
             }
         }
     }
@@ -97,28 +97,28 @@ public class a implements i, k {
     }
 
     private void l(String str, boolean z, boolean z2) {
-        cNf();
-        f fVar = this.kqV.get(str);
+        cNc();
+        f fVar = this.kqZ.get(str);
         if (fVar == null) {
             fVar = new f();
             fVar.forumName = str;
-            this.kqV.put(fVar.forumName, fVar);
+            this.kqZ.put(fVar.forumName, fVar);
         }
         fVar.am(z, z2);
-        H(this.kqV);
+        H(this.kqZ);
     }
 
     private synchronized void H(HashMap<String, f> hashMap) {
-        com.baidu.adp.lib.cache.l<String> lVar = this.kqT.get();
+        com.baidu.adp.lib.cache.l<String> lVar = this.kqX.get();
         if (lVar != null) {
             JSONArray jSONArray = new JSONArray();
             for (Map.Entry<String, f> entry : hashMap.entrySet()) {
-                JSONObject QW = entry.getValue().QW();
-                if (QW != null) {
-                    jSONArray.put(QW);
+                JSONObject QV = entry.getValue().QV();
+                if (QV != null) {
+                    jSONArray.put(QV);
                 }
             }
-            lVar.asyncSet(this.kqX, jSONArray.toString(), 86400000L);
+            lVar.asyncSet(this.krb, jSONArray.toString(), 86400000L);
         }
     }
 
@@ -133,15 +133,15 @@ public class a implements i, k {
     }
 
     private int m(String str, boolean z, boolean z2) {
-        f fVar = this.kqV.get(str);
-        if (fVar == null || !Jn(cNe())) {
+        f fVar = this.kqZ.get(str);
+        if (fVar == null || !Jq(cNb())) {
             return 0;
         }
         return fVar.al(z, z2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<f> Jm(String str) {
+    public ArrayList<f> Jp(String str) {
         ArrayList<f> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -157,83 +157,83 @@ public class a implements i, k {
     }
 
     @Override // com.baidu.tieba.recapp.k
-    public void cNb() {
-        if (!this.kqZ) {
+    public void cMY() {
+        if (!this.krd) {
             Runnable runnable = new Runnable() { // from class: com.baidu.tieba.recapp.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    ((com.baidu.adp.lib.cache.l) a.this.kqU.get()).a(a.this.kqX, new l.a<String>() { // from class: com.baidu.tieba.recapp.a.3.1
+                    ((com.baidu.adp.lib.cache.l) a.this.kqY.get()).a(a.this.krb, new l.a<String>() { // from class: com.baidu.tieba.recapp.a.3.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.adp.lib.cache.l.a
                         /* renamed from: dG */
                         public void onItemGet(String str, String str2) {
                             if (!TextUtils.isEmpty(str2)) {
                                 try {
-                                    a.this.kqW = Integer.parseInt(str2);
+                                    a.this.kra = Integer.parseInt(str2);
                                 } catch (NumberFormatException e) {
-                                    a.this.kqW = 0;
+                                    a.this.kra = 0;
                                 }
-                                a.this.kqZ = true;
+                                a.this.krd = true;
                             }
                         }
                     });
                 }
             };
-            if (this.kqU.get() == null) {
-                new C0635a(this.kqU, "hot.splash.count", runnable).execute(new Void[0]);
+            if (this.kqY.get() == null) {
+                new C0656a(this.kqY, "hot.splash.count", runnable).execute(new Void[0]);
             }
         }
     }
 
     @Override // com.baidu.tieba.recapp.k
-    public void cNc() {
-        com.baidu.adp.lib.cache.l<String> lVar = this.kqU.get();
+    public void cMZ() {
+        com.baidu.adp.lib.cache.l<String> lVar = this.kqY.get();
         if (lVar != null) {
-            cNf();
-            this.kqW++;
-            lVar.asyncSet(this.kqX, Integer.toString(this.kqW), 86400000L);
+            cNc();
+            this.kra++;
+            lVar.asyncSet(this.krb, Integer.toString(this.kra), 86400000L);
         }
     }
 
     @Override // com.baidu.tieba.recapp.k
-    public int cNd() {
-        if (Jn(cNe())) {
-            return this.kqW;
+    public int cNa() {
+        if (Jq(cNb())) {
+            return this.kra;
         }
         return 0;
     }
 
-    private String cNe() {
+    private String cNb() {
         return new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT).format(new Date());
     }
 
-    private boolean Jn(String str) {
-        if (TextUtils.isEmpty(this.kqX)) {
+    private boolean Jq(String str) {
+        if (TextUtils.isEmpty(this.krb)) {
             return false;
         }
-        return this.kqX.equals(str);
+        return this.krb.equals(str);
     }
 
-    private void cNf() {
-        String cNe = cNe();
-        if (!Jn(cNe)) {
-            this.kqV.clear();
-            this.kqW = 0;
-            this.kqX = cNe;
+    private void cNc() {
+        String cNb = cNb();
+        if (!Jq(cNb)) {
+            this.kqZ.clear();
+            this.kra = 0;
+            this.krb = cNb;
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    private static final class C0635a extends BdAsyncTask<Void, Void, Void> {
-        private final AtomicReference<com.baidu.adp.lib.cache.l<String>> kre;
-        private final String krf;
-        private final Runnable krg;
+    private static final class C0656a extends BdAsyncTask<Void, Void, Void> {
+        private final AtomicReference<com.baidu.adp.lib.cache.l<String>> kri;
+        private final String krj;
+        private final Runnable krk;
 
-        private C0635a(AtomicReference<com.baidu.adp.lib.cache.l<String>> atomicReference, String str, Runnable runnable) {
-            this.kre = atomicReference;
-            this.krf = str;
-            this.krg = runnable;
+        private C0656a(AtomicReference<com.baidu.adp.lib.cache.l<String>> atomicReference, String str, Runnable runnable) {
+            this.kri = atomicReference;
+            this.krj = str;
+            this.krk = runnable;
             setPriority(4);
         }
 
@@ -241,10 +241,10 @@ public class a implements i, k {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            if (this.kre.get() == null) {
-                synchronized (C0635a.class) {
-                    if (this.kre.get() == null) {
-                        this.kre.set(com.baidu.tbadk.core.c.a.aMT().ud(this.krf));
+            if (this.kri.get() == null) {
+                synchronized (C0656a.class) {
+                    if (this.kri.get() == null) {
+                        this.kri.set(com.baidu.tbadk.core.c.a.aMR().ug(this.krj));
                     }
                 }
             }
@@ -255,9 +255,9 @@ public class a implements i, k {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r2) {
-            super.onPostExecute((C0635a) r2);
-            if (this.krg != null) {
-                this.krg.run();
+            super.onPostExecute((C0656a) r2);
+            if (this.krk != null) {
+                this.krk.run();
             }
         }
     }

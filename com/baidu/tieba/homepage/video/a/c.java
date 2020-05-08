@@ -18,19 +18,19 @@ import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class c extends com.baidu.adp.widget.ListView.a<k, af<k>> {
-    private z<k> acX;
-    private r ahv;
-    public BdUniqueId ebv;
+    private z<k> ada;
+    private r ahy;
+    public BdUniqueId ebA;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.acX = new z<k>() { // from class: com.baidu.tieba.homepage.video.a.c.1
+        this.ada = new z<k>() { // from class: com.baidu.tieba.homepage.video.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, k kVar) {
-                if (view != null && kVar != null && kVar.aIw() != null) {
+                if (view != null && kVar != null && kVar.aIu() != null) {
                     c.this.c(view, kVar);
                 }
             }
@@ -39,7 +39,7 @@ public class c extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     }
 
     public void a(r rVar) {
-        this.ahv = rVar;
+        this.ahy = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -62,10 +62,10 @@ public class c extends com.baidu.adp.widget.ListView.a<k, af<k>> {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity());
         aVar.rB().bg(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds30));
         aVar.a(new j(this.mPageContext.getPageActivity()));
-        ad a = aVar.a(false, viewGroup, this.ahv);
+        ad a = aVar.a(false, viewGroup, this.ahy);
         a.bc(19);
         af afVar = new af(a);
-        afVar.setPageId(this.ebv);
+        afVar.setPageId(this.ebA);
         a(new v() { // from class: com.baidu.tieba.homepage.video.a.c.2
             @Override // com.baidu.adp.widget.ListView.v
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -73,11 +73,11 @@ public class c extends com.baidu.adp.widget.ListView.a<k, af<k>> {
                     af afVar2 = (af) view.getTag();
                     k kVar = (k) mVar;
                     kVar.objType = 1;
-                    if (c.this.acX != null) {
-                        c.this.acX.a(afVar2.getView(), kVar);
+                    if (c.this.ada != null) {
+                        c.this.ada.a(afVar2.getView(), kVar);
                     }
                     com.baidu.tieba.homepage.video.c.a.a(kVar, view.getContext(), 19, false, com.baidu.card.f.a((r) viewGroup2, view, i));
-                    afVar2.rD().b(new a.C0074a(1));
+                    afVar2.rD().b(new a.C0095a(1));
                 }
             }
         });
@@ -88,18 +88,18 @@ public class c extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, k kVar, af<k> afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.dqA == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.dqE == null) {
             return null;
         }
         kVar.rN(kVar.position + 1);
         afVar.rD().setPosition(i);
         afVar.b((af<k>) kVar);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        afVar.rD().a(this.acX);
+        afVar.rD().a(this.ada);
         return afVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.ebv = bdUniqueId;
+        this.ebA = bdUniqueId;
     }
 }

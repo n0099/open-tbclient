@@ -52,7 +52,7 @@ public class SegAR extends com.baidu.ar.c {
     private float tu = 0.0f;
 
     /* renamed from: tv  reason: collision with root package name */
-    private float f987tv = 1.0f;
+    private float f979tv = 1.0f;
     private int tE = 0;
     private int tF = 0;
     private byte[] il = null;
@@ -109,7 +109,7 @@ public class SegAR extends com.baidu.ar.c {
         hashMap3.put("hairThreshold", Float.valueOf(this.tl));
         hashMap3.put("hairBlendAlpha", Float.valueOf(this.tm));
         hashMap3.put("hairTopPos", Float.valueOf(this.tu));
-        hashMap3.put("hairBottomPos", Float.valueOf(this.f987tv));
+        hashMap3.put("hairBottomPos", Float.valueOf(this.f979tv));
         hashMap3.put("hairTop", new Vector4f(this.tr, this.ts, this.tt, 1.0f));
         hashMap3.put("hairBottom", new Vector4f(this.to, this.tp, this.tq, 1.0f));
         return hashMap3;
@@ -162,10 +162,10 @@ public class SegAR extends com.baidu.ar.c {
             return;
         }
         this.tu = c(bArr, i, i2);
-        this.f987tv = d(bArr, i, i2);
+        this.f979tv = d(bArr, i, i2);
         if (this.mDeviceOrientation == 1 || this.mDeviceOrientation == 3) {
             this.tu -= 16.0f / i2;
-            this.f987tv += 12.0f / i2;
+            this.f979tv += 12.0f / i2;
         }
     }
 

@@ -10,10 +10,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a> {
-    private TextView eSc;
-    private TbImageView eSd;
-    private TbImageView eSe;
-    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a eSf;
+    private TextView eSh;
+    private TbImageView eSi;
+    private TbImageView eSj;
+    private com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a eSk;
     private View mRoot;
     private TextView mTitle;
 
@@ -21,15 +21,15 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
         super(tbPageContext, viewGroup);
         this.mRoot = getView();
         this.mTitle = (TextView) getView().findViewById(R.id.id_tab_live_sub_notification_title);
-        this.eSc = (TextView) getView().findViewById(R.id.id_tab_live_sub_notification_close_go_to_open);
-        this.eSd = (TbImageView) getView().findViewById(R.id.id_tab_live_sub_notification_close_btn);
-        this.eSe = (TbImageView) getView().findViewById(R.id.id_tab_live_sub_notification_bg_img);
-        this.eSe.setAutoChangeStyle(true);
-        this.eSe.setDefaultResource(17170445);
-        this.eSe.setDefaultErrorResource(17170445);
-        this.eSe.setDefaultBgResource(17170445);
-        this.eSd.setOnClickListener(this);
-        this.eSc.setOnClickListener(this);
+        this.eSh = (TextView) getView().findViewById(R.id.id_tab_live_sub_notification_close_go_to_open);
+        this.eSi = (TbImageView) getView().findViewById(R.id.id_tab_live_sub_notification_close_btn);
+        this.eSj = (TbImageView) getView().findViewById(R.id.id_tab_live_sub_notification_bg_img);
+        this.eSj.setAutoChangeStyle(true);
+        this.eSj.setDefaultResource(17170445);
+        this.eSj.setDefaultErrorResource(17170445);
+        this.eSj.setDefaultBgResource(17170445);
+        this.eSi.setOnClickListener(this);
+        this.eSh.setOnClickListener(this);
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -37,10 +37,10 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         am.setBackgroundResource(this.mRoot, R.color.cp_bg_line_d);
         am.setViewTextColor(this.mTitle, (int) R.color.cp_cont_a);
-        am.setViewTextColor(this.eSc, (int) R.color.cp_cont_a);
-        am.setImageResource(this.eSd, R.drawable.icon_tab_live_close_n);
-        am.setBackgroundResource(this.eSc, R.drawable.tab_sub_notification_btn_bg_selecor);
-        am.setImageResource(this.eSe, R.drawable.bg_tab_live_notification);
+        am.setViewTextColor(this.eSh, (int) R.color.cp_cont_a);
+        am.setImageResource(this.eSi, R.drawable.icon_tab_live_close_n);
+        am.setBackgroundResource(this.eSh, R.drawable.tab_sub_notification_btn_bg_selecor);
+        am.setImageResource(this.eSj, R.drawable.bg_tab_live_notification);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -51,13 +51,13 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.alasquare.live
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.a aVar) {
-        this.eSf = aVar;
+        this.eSk = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bEy() != null) {
-            bEy().a(view, this.eSf);
+        if (bEw() != null) {
+            bEw().a(view, this.eSk);
         }
     }
 }

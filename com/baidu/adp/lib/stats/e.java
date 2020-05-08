@@ -7,9 +7,9 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e LG;
-    private HashMap<String, a> LC = new HashMap<>();
-    private HashMap<String, b> LD = new HashMap<>();
+    private static e LK;
+    private HashMap<String, a> LI = new HashMap<>();
+    private HashMap<String, b> LJ = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -31,14 +31,14 @@ public class e {
     };
 
     public static e lf() {
-        if (LG == null) {
+        if (LK == null) {
             synchronized (e.class) {
-                if (LG == null) {
-                    LG = new e();
+                if (LK == null) {
+                    LK = new e();
                 }
             }
         }
-        return LG;
+        return LK;
     }
 
     public e() {
@@ -46,42 +46,42 @@ public class e {
         bVar.ai(3000);
         bVar.aj(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar.ak(500);
-        this.LD.put("net", bVar);
-        this.LD.put("op", bVar);
-        this.LD.put("stat", bVar);
-        this.LD.put("crash", bVar);
-        this.LD.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
+        this.LJ.put("net", bVar);
+        this.LJ.put("op", bVar);
+        this.LJ.put("stat", bVar);
+        this.LJ.put("crash", bVar);
+        this.LJ.put(BdStatsConstant.StatsType.PERFORMANCE, bVar);
         b bVar2 = new b();
         bVar2.ai(3000);
         bVar2.aj(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar2.ak(1500);
-        this.LD.put("file", bVar2);
-        this.LD.put(BdStatsConstant.OpSubType.DB, bVar2);
-        this.LD.put("img", bVar2);
-        this.LD.put("voice", bVar2);
-        this.LD.put(BdStatsConstant.StatsType.ERROR, bVar2);
+        this.LJ.put("file", bVar2);
+        this.LJ.put(BdStatsConstant.OpSubType.DB, bVar2);
+        this.LJ.put("img", bVar2);
+        this.LJ.put("voice", bVar2);
+        this.LJ.put(BdStatsConstant.StatsType.ERROR, bVar2);
         b bVar3 = new b();
         bVar3.ai(3000);
         bVar3.aj(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar3.ak(1500);
-        this.LD.put("dbg", bVar3);
+        this.LJ.put("dbg", bVar3);
     }
 
     public synchronized boolean bP(String str) {
         a aVar;
         boolean z;
-        b bVar = this.LD.get(str);
+        b bVar = this.LJ.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.LC.get(str);
+            a aVar2 = this.LI.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
                 aVar3.al(false);
                 aVar3.ak(false);
                 aVar3.I(currentTimeMillis);
-                this.LC.put(str, aVar3);
+                this.LI.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
@@ -126,32 +126,32 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private long LI;
-        private long LJ;
-        private boolean LK;
+        private long LN;
+        private long LO;
+        private boolean LQ;
         private int mCount;
         private boolean mIsRunning;
 
         private a() {
             this.mIsRunning = false;
             this.mCount = 0;
-            this.LK = false;
+            this.LQ = false;
         }
 
         public boolean lg() {
-            return this.LK;
+            return this.LQ;
         }
 
         public void ak(boolean z) {
-            this.LK = z;
+            this.LQ = z;
         }
 
         public long lh() {
-            return this.LJ;
+            return this.LO;
         }
 
         public void H(long j) {
-            this.LJ = j;
+            this.LO = j;
         }
 
         public int li() {
@@ -163,11 +163,11 @@ public class e {
         }
 
         public long lj() {
-            return this.LI;
+            return this.LN;
         }
 
         public void I(long j) {
-            this.LI = j;
+            this.LN = j;
         }
 
         public boolean lk() {
@@ -182,8 +182,8 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        private int LM;
-        private int LN;
+        private int LR;
+        private int LS;
         private int mInterval;
 
         private b() {
@@ -198,19 +198,19 @@ public class e {
         }
 
         public int lm() {
-            return this.LM;
+            return this.LR;
         }
 
         public void aj(int i) {
-            this.LM = i;
+            this.LR = i;
         }
 
         public int ln() {
-            return this.LN;
+            return this.LS;
         }
 
         public void ak(int i) {
-            this.LN = i;
+            this.LS = i;
         }
     }
 }

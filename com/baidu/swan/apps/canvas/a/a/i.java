@@ -28,7 +28,7 @@ public class i {
         return !TextUtils.isEmpty(this.mType);
     }
 
-    public boolean Si() {
+    public boolean Sh() {
         return TextUtils.equals(this.mType, "linearGradient") || TextUtils.equals(this.mType, "circularGradient");
     }
 
@@ -36,7 +36,7 @@ public class i {
         return this.mColor;
     }
 
-    public Shader Sj() {
+    public Shader Si() {
         return this.mShader;
     }
 

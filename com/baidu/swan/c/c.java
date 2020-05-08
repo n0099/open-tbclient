@@ -1,10 +1,10 @@
 package com.baidu.swan.c;
 /* loaded from: classes11.dex */
 public class c {
-    private static boolean deS = true;
-    private static String deT;
+    private static boolean deX = true;
+    private static String deY;
 
     public static void aEs() {
-        deT = null;
+        deY = null;
     }
 }

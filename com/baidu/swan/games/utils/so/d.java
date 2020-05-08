@@ -8,15 +8,15 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static long cSa = -1;
+    private static long cSf = -1;
 
     public static void ayw() {
-        if (!com.baidu.swan.apps.w.a.acA().Qs()) {
+        if (!com.baidu.swan.apps.w.a.acz().Qr()) {
             com.baidu.swan.apps.core.j.a.du(false);
         } else if (!ayA()) {
             SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         } else {
-            com.baidu.swan.apps.w.a.acE().aE(a.cSb);
+            com.baidu.swan.apps.w.a.acD().aE(a.cSg);
         }
     }
 
@@ -29,17 +29,17 @@ public final class d {
     }
 
     public static void ayz() {
-        if (!com.baidu.swan.apps.w.a.acA().Qs()) {
+        if (!com.baidu.swan.apps.w.a.acz().Qr()) {
             com.baidu.swan.apps.core.j.a.du(false);
         } else if (!ayA()) {
             SoLoader.loadV8EngineSo(AppRuntime.getAppContext(), false);
         } else {
-            com.baidu.swan.apps.w.a.acE().aE(a.cSb);
+            com.baidu.swan.apps.w.a.acD().aE(a.cSg);
         }
     }
 
     private static boolean ayA() {
-        boolean z = a.cSb > -1;
+        boolean z = a.cSg > -1;
         if (DEBUG) {
             Log.d("SwanSoLoader", "isNeedToLoadNewV8So: " + z);
         }
@@ -47,7 +47,7 @@ public final class d {
     }
 
     public static void ayB() {
-        com.baidu.swan.apps.w.a.acE().PA();
+        com.baidu.swan.apps.w.a.acD().Pz();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:5:0x0012  */
@@ -55,47 +55,47 @@ public final class d {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void ayC() {
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.ajC().ajE().iterator();
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.ajB().ajD().iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next.ajt() || next.ajq()) {
+            if (next.ajs() || next.ajp()) {
                 return;
             }
             while (it.hasNext()) {
             }
         }
-        com.baidu.swan.apps.w.a.acE().PB();
+        com.baidu.swan.apps.w.a.acD().PA();
     }
 
     public static String ayD() {
-        return com.baidu.swan.apps.w.a.acE().aF(a.cSb);
+        return com.baidu.swan.apps.w.a.acD().aF(a.cSg);
     }
 
     public static void S(Bundle bundle) {
-        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.w.a.acE().PC());
+        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.w.a.acD().PB());
     }
 
-    public static void O(Intent intent) {
+    public static void B(Intent intent) {
         if (intent != null && intent.hasExtra("bundle_key_new_v8_so_switch")) {
-            cSa = intent.getLongExtra("bundle_key_new_v8_so_switch", cSa);
+            cSf = intent.getLongExtra("bundle_key_new_v8_so_switch", cSf);
         }
         if (DEBUG) {
-            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + cSa);
+            Log.i("SwanSoLoader", "updateNewV8SoEnabled: " + cSf);
         }
     }
 
-    public static long PC() {
-        return a.cSb;
+    public static long PB() {
+        return a.cSg;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a {
-        private static final long cSb = d.cSa;
+        private static final long cSg = d.cSf;
 
         static {
             if (d.DEBUG) {
-                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + cSb);
+                Log.i("SwanSoLoader", "CURRENT_V8_SO_VERSION: " + cSg);
             }
         }
     }

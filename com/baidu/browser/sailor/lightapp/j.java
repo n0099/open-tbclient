@@ -5,17 +5,17 @@ import android.util.SparseArray;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class j implements Runnable {
-    final /* synthetic */ BdLightappKernelClient acq;
-    final /* synthetic */ String acv;
-    final /* synthetic */ BdLightappKernelJsCallback acx;
-    final /* synthetic */ String acy;
+    final /* synthetic */ BdLightappKernelJsCallback acA;
+    final /* synthetic */ String acB;
+    final /* synthetic */ BdLightappKernelClient act;
+    final /* synthetic */ String acz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(BdLightappKernelClient bdLightappKernelClient, String str, BdLightappKernelJsCallback bdLightappKernelJsCallback, String str2) {
-        this.acq = bdLightappKernelClient;
-        this.acv = str;
-        this.acx = bdLightappKernelJsCallback;
-        this.acy = str2;
+        this.act = bdLightappKernelClient;
+        this.acz = str;
+        this.acA = bdLightappKernelJsCallback;
+        this.acB = str2;
     }
 
     @Override // java.lang.Runnable
@@ -30,32 +30,32 @@ public class j implements Runnable {
         MediaPlayer mediaPlayer4;
         MediaPlayer mediaPlayer5;
         try {
-            if ("lightapp.device.AUDIO_TYPE.PLAY".equals(this.acv)) {
-                sparseArray4 = this.acq.mJsCallbacks;
-                sparseArray4.put(4, this.acx);
-                mediaPlayer3 = this.acq.mMediaPlayer;
+            if ("lightapp.device.AUDIO_TYPE.PLAY".equals(this.acz)) {
+                sparseArray4 = this.act.mJsCallbacks;
+                sparseArray4.put(4, this.acA);
+                mediaPlayer3 = this.act.mMediaPlayer;
                 if (mediaPlayer3 != null) {
-                    mediaPlayer5 = this.acq.mMediaPlayer;
+                    mediaPlayer5 = this.act.mMediaPlayer;
                     mediaPlayer5.stop();
                 }
-                this.acq.prepareAudio(this.acy);
-                mediaPlayer4 = this.acq.mMediaPlayer;
+                this.act.prepareAudio(this.acB);
+                mediaPlayer4 = this.act.mMediaPlayer;
                 mediaPlayer4.start();
-            } else if ("lightapp.device.AUDIO_TYPE.STOP".equals(this.acv)) {
-                sparseArray2 = this.acq.mJsCallbacks;
-                sparseArray2.put(4, this.acx);
-                this.acq.ensureAudio();
-                mediaPlayer = this.acq.mMediaPlayer;
+            } else if ("lightapp.device.AUDIO_TYPE.STOP".equals(this.acz)) {
+                sparseArray2 = this.act.mJsCallbacks;
+                sparseArray2.put(4, this.acA);
+                this.act.ensureAudio();
+                mediaPlayer = this.act.mMediaPlayer;
                 if (mediaPlayer.isPlaying()) {
-                    mediaPlayer2 = this.acq.mMediaPlayer;
+                    mediaPlayer2 = this.act.mMediaPlayer;
                     mediaPlayer2.stop();
                 }
-                sparseArray3 = this.acq.mJsCallbacks;
+                sparseArray3 = this.act.mJsCallbacks;
                 ((BdLightappKernelJsCallback) sparseArray3.get(4)).handleResult("", true);
             }
         } catch (IllegalStateException e) {
-            this.acx.sendCallBackWithRetCode(1);
-            sparseArray = this.acq.mJsCallbacks;
+            this.acA.sendCallBackWithRetCode(1);
+            sparseArray = this.act.mJsCallbacks;
             sparseArray.remove(4);
             e.printStackTrace();
         }

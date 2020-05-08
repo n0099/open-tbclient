@@ -6,41 +6,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    private static c dfj;
-    private boolean dfk = false;
+    private static c dfo;
+    private boolean dfp = false;
     private List<a> mListeners = new ArrayList();
 
     private c() {
     }
 
     public static c aEP() {
-        if (dfj == null) {
+        if (dfo == null) {
             synchronized (c.class) {
-                if (dfj == null) {
-                    dfj = new c();
+                if (dfo == null) {
+                    dfo = new c();
                 }
             }
         }
-        return dfj;
+        return dfo;
     }
 
     public synchronized void aEQ() {
-        if (!this.dfk) {
+        if (!this.dfp) {
             if (b.aEJ()) {
                 aER();
             } else {
-                this.dfk = true;
+                this.dfp = true;
                 com.baidu.swan.a.d.a(new com.baidu.swan.a.a.a(b.aEM(), b.aEL()), new com.baidu.swan.a.a.d(new com.baidu.swan.a.e<com.baidu.swan.a.a.c>() { // from class: com.baidu.swan.e.c.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.a.e
                     /* renamed from: j */
-                    public void Q(com.baidu.swan.a.a.c cVar) {
+                    public void R(com.baidu.swan.a.a.c cVar) {
                         c.this.g(cVar);
                     }
 
                     @Override // com.baidu.swan.a.e
                     public void V(int i, String str) {
-                        c.this.dfk = false;
+                        c.this.dfp = false;
                         if (i == 1010) {
                             c.this.aER();
                         } else {
@@ -113,12 +113,12 @@ public class c {
             @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
             public void onInstallFinish(int i, String str) {
                 if (!c.this.aET()) {
-                    c.this.dfk = false;
+                    c.this.dfp = false;
                     c.this.aES();
                     return;
                 }
                 b.ac(cVar.versionName, cVar.versionCode);
-                c.this.dfk = false;
+                c.this.dfp = false;
                 c.this.aER();
             }
         });
@@ -130,12 +130,12 @@ public class c {
     }
 
     private synchronized void i(com.baidu.swan.a.a.c cVar) {
-        if (e.unzipFile(cVar.filePath, b.bPC)) {
+        if (e.unzipFile(cVar.filePath, b.bPH)) {
             b.ac(cVar.versionName, cVar.versionCode);
-            this.dfk = false;
+            this.dfp = false;
             aER();
         } else {
-            this.dfk = false;
+            this.dfp = false;
             aES();
         }
     }

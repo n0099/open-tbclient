@@ -20,20 +20,20 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class g {
-    private static volatile g MY;
-    private i Na;
-    private a Nb;
+    private static volatile g Nc;
+    private i Nf;
+    private a Ng;
     private com.baidu.adp.lib.stats.b mBdLogSetting;
     private com.baidu.adp.lib.stats.c mCommonData;
     private String uid;
     private final SimpleDateFormat mDateFormat = new SimpleDateFormat("yy-MM-dd_HH-mm-ss_SSS", Locale.getDefault());
-    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> MZ = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, com.baidu.adp.lib.stats.base.a> Ne = new ConcurrentHashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.b.g.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 6:
-                    for (Map.Entry entry : g.this.MZ.entrySet()) {
+                    for (Map.Entry entry : g.this.Ne.entrySet()) {
                         com.baidu.adp.lib.stats.base.a aVar = (com.baidu.adp.lib.stats.base.a) entry.getValue();
                         if (aVar.lD() > 0) {
                             g.this.a(aVar, true, true);
@@ -48,7 +48,7 @@ public class g {
             }
         }
     };
-    private j Mr = new j() { // from class: com.baidu.adp.lib.stats.b.g.5
+    private j Mv = new j() { // from class: com.baidu.adp.lib.stats.b.g.5
         @Override // com.baidu.adp.lib.stats.b.j
         public void o(com.baidu.adp.lib.stats.base.a aVar) {
             if (g.this.i(aVar)) {
@@ -64,22 +64,22 @@ public class g {
     };
 
     public static g mc() {
-        if (MY == null) {
+        if (Nc == null) {
             synchronized (g.class) {
-                if (MY == null) {
-                    MY = new g();
+                if (Nc == null) {
+                    Nc = new g();
                 }
             }
         }
-        return MY;
+        return Nc;
     }
 
     public void d(com.baidu.adp.lib.stats.c cVar) {
-        if (this.Nb == null) {
-            this.Nb = new a();
+        if (this.Ng == null) {
+            this.Ng = new a();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(BdStatsConstant.BROADCAST_ACCOUNT_CHANGED);
-            BdBaseApplication.getInst().registerReceiver(this.Nb, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.Ng, intentFilter);
         }
         this.mBdLogSetting = BdStatisticsManager.getInstance().getBdLogSetting();
         this.mCommonData = cVar;
@@ -104,23 +104,23 @@ public class g {
         String bV;
         com.baidu.adp.lib.stats.base.a aVar = null;
         synchronized (this) {
-            if (!TextUtils.isEmpty(str) && (aVar = this.MZ.get((bV = com.baidu.adp.lib.stats.base.a.bV(str)))) == null) {
+            if (!TextUtils.isEmpty(str) && (aVar = this.Ne.get((bV = com.baidu.adp.lib.stats.base.a.bV(str)))) == null) {
                 if ("alert".equals(bV)) {
                     aVar = new com.baidu.adp.lib.stats.b.a(null);
                 } else if (BdStatsConstant.StatsType.ERROR.equals(bV)) {
-                    aVar = new c(this.Mr);
+                    aVar = new c(this.Mv);
                 } else if ("dbg".equals(bV)) {
-                    aVar = new b(this.Mr);
+                    aVar = new b(this.Mv);
                 } else if ("stat".equals(bV)) {
-                    aVar = new f(this.Mr);
+                    aVar = new f(this.Mv);
                 } else if (BdStatsConstant.StatsType.PERFORMANCE.equals(bV)) {
-                    aVar = new e(this.Mr);
+                    aVar = new e(this.Mv);
                 } else {
-                    aVar = new c(this.Mr);
+                    aVar = new c(this.Mv);
                 }
                 if (aVar != null) {
                     aVar.bU(bV);
-                    this.MZ.put(bV, aVar);
+                    this.Ne.put(bV, aVar);
                 }
             }
         }
@@ -218,7 +218,7 @@ public class g {
     }
 
     public void md() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.MZ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Ne.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             n(value);
             l(value);
@@ -226,7 +226,7 @@ public class g {
     }
 
     public void me() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.MZ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Ne.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             k(value);
             j(value);
@@ -234,7 +234,7 @@ public class g {
     }
 
     public void mf() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.MZ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Ne.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             k(value);
             a(value, false, false);
@@ -250,7 +250,7 @@ public class g {
     }
 
     public void mg() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.MZ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Ne.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             n(value);
             l(value);
@@ -305,7 +305,7 @@ public class g {
     }
 
     public void mi() {
-        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.MZ.entrySet()) {
+        for (Map.Entry<String, com.baidu.adp.lib.stats.base.a> entry : this.Ne.entrySet()) {
             com.baidu.adp.lib.stats.base.a value = entry.getValue();
             if (this.mBdLogSetting != null) {
                 long bO = this.mBdLogSetting.bO(value.lI());
@@ -400,9 +400,9 @@ public class g {
     }
 
     public void mj() {
-        if (this.Na == null) {
-            this.Na = new i();
+        if (this.Nf == null) {
+            this.Nf = new i();
         }
-        this.Na.mj();
+        this.Nf.mj();
     }
 }

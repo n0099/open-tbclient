@@ -27,7 +27,7 @@ public class b extends ab {
             c.i("scanCode", "swanApp is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
-        } else if (eVar.Ru()) {
+        } else if (eVar.Rt()) {
             if (DEBUG) {
                 Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
             }
@@ -40,7 +40,7 @@ public class b extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.swan.apps.w.a.abW().a(eVar.akJ(), new a() { // from class: com.baidu.swan.apps.f.b.1
+            com.baidu.swan.apps.w.a.abV().a(eVar.akI(), new a() { // from class: com.baidu.swan.apps.f.b.1
                 @Override // com.baidu.swan.apps.f.a
                 public void onSuccess(String str, String str2, String str3) {
                     try {

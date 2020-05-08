@@ -1,124 +1,60 @@
 package com.xiaomi.push;
 
-import android.text.TextUtils;
-import java.util.ArrayList;
+import android.util.Base64;
+import com.baidu.webkit.internal.ETAG;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Collections;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
+import org.apache.http.NameValuePair;
 /* loaded from: classes8.dex */
-public class cr {
-    private String a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private final ArrayList<cq> f200a = new ArrayList<>();
-
-    public cr() {
-    }
-
-    public cr(String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("the host is empty");
+class cr {
+    public static String a(String str) {
+        if (str == null) {
+            return "";
         }
-        this.a = str;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x001a, code lost:
-        com.xiaomi.push.cu.a().m213a(r0.a());
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized cq a() {
-        cq cqVar;
-        int size = this.f200a.size() - 1;
-        while (true) {
-            if (size < 0) {
-                cqVar = null;
-                break;
-            }
-            cqVar = this.f200a.get(size);
-            if (cqVar.m203a()) {
-                break;
-            }
-            size--;
-        }
-        return cqVar;
-    }
-
-    public synchronized cr a(JSONObject jSONObject) {
-        this.a = jSONObject.getString("host");
-        JSONArray jSONArray = jSONObject.getJSONArray("fbs");
-        for (int i = 0; i < jSONArray.length(); i++) {
-            this.f200a.add(new cq(this.a).a(jSONArray.getJSONObject(i)));
-        }
-        return this;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public String m204a() {
-        return this.a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cq> m205a() {
-        return this.f200a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m206a() {
-        JSONObject jSONObject;
-        jSONObject = new JSONObject();
-        jSONObject.put("host", this.a);
-        JSONArray jSONArray = new JSONArray();
-        Iterator<cq> it = this.f200a.iterator();
-        while (it.hasNext()) {
-            jSONArray.put(it.next().m201a());
-        }
-        jSONObject.put("fbs", jSONArray);
-        return jSONObject;
-    }
-
-    public synchronized void a(cq cqVar) {
-        int i;
-        int i2 = 0;
-        while (true) {
-            i = i2;
-            if (i >= this.f200a.size()) {
-                break;
-            } else if (this.f200a.get(i).a(cqVar)) {
-                this.f200a.set(i, cqVar);
-                break;
-            } else {
-                i2 = i + 1;
-            }
-        }
-        if (i >= this.f200a.size()) {
-            this.f200a.add(cqVar);
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(m200a(str));
+            return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    public synchronized void a(boolean z) {
-        for (int size = this.f200a.size() - 1; size >= 0; size--) {
-            cq cqVar = this.f200a.get(size);
-            if (z) {
-                if (cqVar.c()) {
-                    this.f200a.remove(size);
-                }
-            } else if (!cqVar.b()) {
-                this.f200a.remove(size);
-            }
-        }
-    }
-
-    public String toString() {
+    public static String a(List<NameValuePair> list, String str) {
+        Collections.sort(list, new cs());
         StringBuilder sb = new StringBuilder();
-        sb.append(this.a);
-        sb.append("\n");
-        Iterator<cq> it = this.f200a.iterator();
-        while (it.hasNext()) {
-            sb.append(it.next());
+        boolean z = true;
+        Iterator<NameValuePair> it = list.iterator();
+        while (true) {
+            boolean z2 = z;
+            if (!it.hasNext()) {
+                sb.append(ETAG.ITEM_SEPARATOR).append(str);
+                return a(new String(Base64.encode(m200a(sb.toString()), 2)));
+            }
+            NameValuePair next = it.next();
+            if (!z2) {
+                sb.append(ETAG.ITEM_SEPARATOR);
+            }
+            sb.append(next.getName()).append(ETAG.EQUAL).append(next.getValue());
+            z = false;
         }
-        return sb.toString();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static void m199a(String str) {
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private static byte[] m200a(String str) {
+        try {
+            return str.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            return str.getBytes();
+        }
     }
 }

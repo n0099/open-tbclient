@@ -15,91 +15,91 @@ import com.baidu.tieba.pb.pb.main.PbFragment;
 import tbclient.SmartApp;
 /* loaded from: classes9.dex */
 public class b {
-    private View.OnClickListener haA;
-    private RelativeLayout jCC;
-    private HeadImageView jCD;
-    private TextView jCE;
-    private TextView jCF;
-    private ImageView jCG;
-    private PbFragment jpS;
+    private View.OnClickListener haG;
+    private RelativeLayout jCG;
+    private HeadImageView jCH;
+    private TextView jCI;
+    private TextView jCJ;
+    private ImageView jCK;
+    private PbFragment jpW;
 
     public b(PbFragment pbFragment, View.OnClickListener onClickListener) {
-        this.haA = null;
-        this.jpS = pbFragment;
-        this.haA = onClickListener;
+        this.haG = null;
+        this.jpW = pbFragment;
+        this.haG = onClickListener;
         initView();
     }
 
     public void initView() {
-        if (this.jCC == null) {
-            this.jCC = (RelativeLayout) LayoutInflater.from(this.jpS.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
-            this.jCD = (HeadImageView) this.jCC.findViewById(R.id.iv_pb_video_smart_app_head);
-            this.jCD.setIsRound(true);
-            this.jCD.setPlaceHolder(1);
-            this.jCE = (TextView) this.jCC.findViewById(R.id.tv_pb_video_smart_app_title);
-            this.jCF = (TextView) this.jCC.findViewById(R.id.tv_pb_video_smart_app_abstract);
-            this.jCG = (ImageView) this.jCC.findViewById(R.id.iv_pb_video_smart_app_arrow);
-            this.jCC.setOnClickListener(this.haA);
+        if (this.jCG == null) {
+            this.jCG = (RelativeLayout) LayoutInflater.from(this.jpW.getContext()).inflate(R.layout.pb_video_thread_smart_app_layout, (ViewGroup) null);
+            this.jCH = (HeadImageView) this.jCG.findViewById(R.id.iv_pb_video_smart_app_head);
+            this.jCH.setIsRound(true);
+            this.jCH.setPlaceHolder(1);
+            this.jCI = (TextView) this.jCG.findViewById(R.id.tv_pb_video_smart_app_title);
+            this.jCJ = (TextView) this.jCG.findViewById(R.id.tv_pb_video_smart_app_abstract);
+            this.jCK = (ImageView) this.jCG.findViewById(R.id.iv_pb_video_smart_app_arrow);
+            this.jCG.setOnClickListener(this.haG);
         }
     }
 
     public void a(com.baidu.tieba.pb.data.e eVar, BdTypeListView bdTypeListView) {
         String charSequence;
         if (eVar != null && bdTypeListView != null) {
-            if (eVar.cvu().aJr() && eVar.cvu().aLq() != null) {
-                SmartApp aLq = eVar.cvu().aLq();
-                this.jCC.setVisibility(0);
+            if (eVar.cvr().aJp() && eVar.cvr().aLo() != null) {
+                SmartApp aLo = eVar.cvr().aLo();
+                this.jCG.setVisibility(0);
                 c(bdTypeListView);
                 a(bdTypeListView, 1);
-                if (!aq.isEmpty(aLq.avatar)) {
-                    this.jCD.startLoad(aLq.avatar, 10, false, false);
+                if (!aq.isEmpty(aLo.avatar)) {
+                    this.jCH.startLoad(aLo.avatar, 10, false, false);
                 }
-                if (!aq.isEmpty(aLq.name)) {
-                    charSequence = aLq.name + " " + ((Object) this.jpS.getText(R.string.smart_app_suffix));
+                if (!aq.isEmpty(aLo.name)) {
+                    charSequence = aLo.name + " " + ((Object) this.jpW.getText(R.string.smart_app_suffix));
                 } else {
-                    charSequence = this.jpS.getText(R.string.intelligent_smart_app).toString();
+                    charSequence = this.jpW.getText(R.string.intelligent_smart_app).toString();
                 }
-                this.jCE.setText(charSequence);
-                if (!aq.isEmpty(aLq._abstract)) {
-                    this.jCF.setText(aLq._abstract);
+                this.jCI.setText(charSequence);
+                if (!aq.isEmpty(aLo._abstract)) {
+                    this.jCJ.setText(aLo._abstract);
                 } else {
-                    this.jCF.setText(this.jpS.getText(R.string.smart_app_default_abstract));
+                    this.jCJ.setText(this.jpW.getText(R.string.smart_app_default_abstract));
                 }
-                this.jCC.setTag(aLq);
+                this.jCG.setTag(aLo);
                 return;
             }
-            this.jCC.setVisibility(8);
+            this.jCG.setVisibility(8);
             c(bdTypeListView);
         }
     }
 
     public void a(BdTypeListView bdTypeListView, int i) {
-        if (bdTypeListView != null && this.jCC != null) {
-            bdTypeListView.addHeaderView(this.jCC, i);
+        if (bdTypeListView != null && this.jCG != null) {
+            bdTypeListView.addHeaderView(this.jCG, i);
         }
     }
 
     public void c(BdTypeListView bdTypeListView) {
-        if (bdTypeListView != null && this.jCC != null) {
-            bdTypeListView.removeHeaderView(this.jCC);
+        if (bdTypeListView != null && this.jCG != null) {
+            bdTypeListView.removeHeaderView(this.jCG);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.jCC != null) {
-            am.setBackgroundColor(this.jCC, R.color.cp_bg_line_c);
-        }
-        if (this.jCD != null) {
-            this.jCD.setIsNight(i == 1);
-        }
-        if (this.jCE != null) {
-            am.setViewTextColor(this.jCE, (int) R.color.cp_cont_b);
-        }
-        if (this.jCF != null) {
-            am.setViewTextColor(this.jCF, (int) R.color.cp_cont_j);
-        }
         if (this.jCG != null) {
-            am.setBackgroundResource(this.jCG, R.drawable.icon_common_arrow16_right_n);
+            am.setBackgroundColor(this.jCG, R.color.cp_bg_line_c);
+        }
+        if (this.jCH != null) {
+            this.jCH.setIsNight(i == 1);
+        }
+        if (this.jCI != null) {
+            am.setViewTextColor(this.jCI, (int) R.color.cp_cont_b);
+        }
+        if (this.jCJ != null) {
+            am.setViewTextColor(this.jCJ, (int) R.color.cp_cont_j);
+        }
+        if (this.jCK != null) {
+            am.setBackgroundResource(this.jCK, R.drawable.icon_common_arrow16_right_n);
         }
     }
 }

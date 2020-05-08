@@ -1,122 +1,71 @@
 package com.baidu.sapi2;
 
-import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.callback.GetTplStokenCallback;
-import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
-import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.sapi2.callback.GetUserInfoCallback;
+import com.baidu.sapi2.callback.Web2NativeLoginCallback;
+import com.baidu.sapi2.result.GetUserInfoResult;
+import com.baidu.sapi2.result.Web2NativeLoginResult;
 import com.baidu.sapi2.share.SapiShareClient;
-import com.baidu.sapi2.utils.Log;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.sapi2.utils.SapiUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class C extends HttpHandlerWrap {
-    final /* synthetic */ GetTplStokenCallback a;
-    final /* synthetic */ GetTplStokenResult b;
-    final /* synthetic */ SapiAccount c;
-    final /* synthetic */ List d;
-    final /* synthetic */ boolean e;
-    final /* synthetic */ String f;
-    final /* synthetic */ G g;
+public class C extends GetUserInfoCallback {
+    final /* synthetic */ Web2NativeLoginResult a;
+    final /* synthetic */ Web2NativeLoginCallback b;
+    final /* synthetic */ String c;
+    final /* synthetic */ String d;
+    final /* synthetic */ L e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public C(G g, Looper looper, GetTplStokenCallback getTplStokenCallback, GetTplStokenResult getTplStokenResult, SapiAccount sapiAccount, List list, boolean z, String str) {
-        super(looper);
-        this.g = g;
-        this.a = getTplStokenCallback;
-        this.b = getTplStokenResult;
-        this.c = sapiAccount;
-        this.d = list;
-        this.e = z;
-        this.f = str;
+    public C(L l, Web2NativeLoginResult web2NativeLoginResult, Web2NativeLoginCallback web2NativeLoginCallback, String str, String str2) {
+        this.e = l;
+        this.a = web2NativeLoginResult;
+        this.b = web2NativeLoginCallback;
+        this.c = str;
+        this.d = str2;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onFailure(Throwable th, int i, String str) {
-        if (TextUtils.isEmpty(this.f)) {
-            return;
-        }
-        this.b.setResultCode(i);
-        this.a.onFailure(this.b);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+    @Override // com.baidu.sapi2.callback.SapiCallback
     public void onFinish() {
-        this.a.onFinish();
+        this.b.onFinish();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+    @Override // com.baidu.sapi2.callback.SapiCallback
     public void onStart() {
-        this.a.onStart();
+        this.b.onStart();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onSuccess(int i, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.callback.LoginStatusAware
+    public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
+        this.a.setResultCode(400021);
+        this.b.onBdussExpired(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onFailure(GetUserInfoResult getUserInfoResult) {
+        this.a.setResultCode(-202);
+        this.b.onFailure(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onSuccess(GetUserInfoResult getUserInfoResult) {
         SapiConfiguration sapiConfiguration;
-        SapiConfiguration sapiConfiguration2;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            int parseInt = Integer.parseInt(jSONObject.optString(BaseJsonData.TAG_ERRNO));
-            this.b.setResultCode(parseInt);
-            if (parseInt == 0) {
-                Map<String, String> tplStokenMap = SapiAccount.DispersionCertification.getTplStokenMap(jSONObject.optJSONObject("stoken_list"));
-                this.b.tplStokenMap = tplStokenMap;
-                SapiAccount.ExtraProperty extraProperty = new SapiAccount.ExtraProperty();
-                if (!TextUtils.isEmpty(this.c.extra)) {
-                    extraProperty = SapiAccount.ExtraProperty.fromJSONObject(new JSONObject(this.c.extra));
-                }
-                extraProperty.dispersionCertification.tplStokenMap.putAll(tplStokenMap);
-                this.c.extra = extraProperty.toJSONObject().toString();
-                if (this.d.size() == tplStokenMap.size()) {
-                    if (!this.e) {
-                        sapiConfiguration = this.g.c;
-                        SapiContext.getInstance(sapiConfiguration.context).setCurrentAccount(this.c);
-                        SapiAccountManager.getInstance().preFetchStoken(this.c, false);
-                        sapiConfiguration2 = this.g.c;
-                        SapiContext.getInstance(sapiConfiguration2.context).addLoginAccount(this.c);
-                        new com.baidu.sapi2.share.m().a(false);
-                    } else {
-                        SapiShareClient.getInstance().validate(this.c);
-                    }
-                    this.a.onSuccess(this.b);
-                    return;
-                }
-                this.b.setResultCode(-306);
-                this.a.onFailure(this.b);
-            } else if (parseInt != 8) {
-                if (!TextUtils.isEmpty(this.f)) {
-                    this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-                    this.a.onFailure(this.b);
-                }
-            } else if (!TextUtils.isEmpty(this.f)) {
-                String optString = jSONObject.optString("ssnerror");
-                if (TextUtils.isEmpty(optString)) {
-                    optString = "0";
-                }
-                int parseInt2 = Integer.parseInt(optString);
-                if (parseInt2 == GetTplStokenResult.FailureType.BDUSS_PTOKEN_NOT_MATCH.ordinal()) {
-                    this.b.failureType = GetTplStokenResult.FailureType.BDUSS_PTOKEN_NOT_MATCH;
-                } else if (parseInt2 == GetTplStokenResult.FailureType.BDUSS_EXPIRED.ordinal()) {
-                    this.b.failureType = GetTplStokenResult.FailureType.BDUSS_EXPIRED;
-                }
-                this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
-                this.a.onFailure(this.b);
-            }
-        } catch (Exception e) {
-            Log.e(e);
-            if (!TextUtils.isEmpty(this.f)) {
-                this.b.setResultCode(-205);
-                this.a.onFailure(this.b);
-            }
+        SapiAccount sapiAccount = new SapiAccount();
+        sapiAccount.uid = getUserInfoResult.uid;
+        sapiAccount.username = getUserInfoResult.username;
+        sapiAccount.displayname = getUserInfoResult.displayname;
+        sapiAccount.bduss = this.c;
+        if (!TextUtils.isEmpty(this.d)) {
+            sapiAccount.ptoken = this.d;
         }
+        sapiConfiguration = this.e.d;
+        sapiAccount.app = SapiUtils.getAppName(sapiConfiguration.context);
+        SapiShareClient.getInstance().validate(sapiAccount);
+        this.a.setResultCode(0);
+        this.b.onSuccess(this.a);
+        new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.g);
     }
 }

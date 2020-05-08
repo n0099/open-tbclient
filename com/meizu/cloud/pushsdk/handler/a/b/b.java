@@ -24,7 +24,7 @@ public class b implements Parcelable {
     };
     private String a;
     private a b;
-    private e c;
+    private f c;
 
     public b() {
     }
@@ -32,27 +32,27 @@ public class b implements Parcelable {
     protected b(Parcel parcel) {
         this.a = parcel.readString();
         this.b = (a) parcel.readParcelable(a.class.getClassLoader());
-        this.c = (e) parcel.readParcelable(e.class.getClassLoader());
+        this.c = (f) parcel.readParcelable(f.class.getClassLoader());
     }
 
     public b(String str, String str2, String str3) {
         this.a = str;
         if (TextUtils.isEmpty(str)) {
             this.b = new a();
-            this.c = new e();
+            this.c = new f();
             return;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
                 this.b = a.a(jSONObject.getJSONObject("ctl"));
-                this.c = e.a(jSONObject.getJSONObject("statics"));
+                this.c = f.a(jSONObject.getJSONObject("statics"));
                 this.c.c(str2);
                 this.c.d(str3);
             }
         } catch (JSONException e) {
             this.b = new a();
-            this.c = new e();
+            this.c = new f();
             com.meizu.cloud.a.a.e("ControlMessage", "parse control message error " + e.getMessage());
         }
     }
@@ -63,11 +63,11 @@ public class b implements Parcelable {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
                 bVar.a(a.a(jSONObject.getJSONObject("ctl")));
-                bVar.a(e.a(jSONObject.getJSONObject("statics")));
+                bVar.a(f.a(jSONObject.getJSONObject("statics")));
             }
         } catch (Exception e) {
             com.meizu.cloud.a.a.e("ControlMessage", "parse control message error " + e.getMessage());
-            bVar.a(new e());
+            bVar.a(new f());
             bVar.a(new a());
         }
         return bVar;
@@ -81,11 +81,11 @@ public class b implements Parcelable {
         this.b = aVar;
     }
 
-    public void a(e eVar) {
-        this.c = eVar;
+    public void a(f fVar) {
+        this.c = fVar;
     }
 
-    public e b() {
+    public f b() {
         return this.c;
     }
 

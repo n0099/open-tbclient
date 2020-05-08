@@ -25,10 +25,10 @@ public class a extends com.baidu.swan.apps.api.a.c {
             @Override // com.baidu.swan.apps.api.a.c.a
             public com.baidu.swan.apps.api.b.b a(e eVar, JSONObject jSONObject, @Nullable final String str2) {
                 com.baidu.swan.apps.console.c.i("Api-Accelerometer", " init ");
-                com.baidu.swan.apps.ao.a.a anP = com.baidu.swan.apps.ao.a.a.anP();
-                anP.m(a.this.getContext(), C0256a.hn(jSONObject.optString("interval")));
-                anP.a(new a.InterfaceC0234a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
-                    @Override // com.baidu.swan.apps.ao.a.a.InterfaceC0234a
+                com.baidu.swan.apps.ao.a.a anO = com.baidu.swan.apps.ao.a.a.anO();
+                anO.m(a.this.getContext(), C0277a.hn(jSONObject.optString("interval")));
+                anO.a(new a.InterfaceC0255a() { // from class: com.baidu.swan.apps.api.module.k.a.1.1
+                    @Override // com.baidu.swan.apps.ao.a.a.InterfaceC0255a
                     public void a(double[] dArr) {
                         if (dArr == null || dArr.length != 3) {
                             com.baidu.swan.apps.console.c.e("Api-Accelerometer", "illegal accelerometers");
@@ -51,34 +51,34 @@ public class a extends com.baidu.swan.apps.api.a.c {
                         }
                     }
                 });
-                anP.anQ();
+                anO.anP();
                 return new com.baidu.swan.apps.api.b.b(0);
             }
         });
     }
 
-    public com.baidu.swan.apps.api.b.b RP() {
+    public com.baidu.swan.apps.api.b.b RO() {
         if (DEBUG) {
             Log.d("Api-Accelerometer", "stop accelerometer");
         }
         com.baidu.swan.apps.console.c.i("Api-Accelerometer", "stop listen accelerometer");
-        com.baidu.swan.apps.ao.a.a.anP().anR();
+        com.baidu.swan.apps.ao.a.a.anO().anQ();
         return new com.baidu.swan.apps.api.b.b(0);
     }
 
     /* renamed from: com.baidu.swan.apps.api.module.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0256a {
-        private static ArrayMap<String, Integer> bDP = new ArrayMap<>(3);
+    public static class C0277a {
+        private static ArrayMap<String, Integer> bDU = new ArrayMap<>(3);
 
         static {
-            bDP.put("ui", 60);
-            bDP.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
-            bDP.put("normal", 200);
+            bDU.put("ui", 60);
+            bDU.put(ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME, 20);
+            bDU.put("normal", 200);
         }
 
         public static int hn(String str) {
-            Integer num = bDP.get(str);
+            Integer num = bDU.get(str);
             if (num != null) {
                 return num.intValue();
             }

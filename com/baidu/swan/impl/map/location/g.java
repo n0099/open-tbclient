@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class g {
-    public PoiInfo cWl;
-    public boolean cWm;
+    public PoiInfo cWq;
+    public boolean cWr;
     public boolean isSelected;
 
     public g(PoiInfo poiInfo, boolean z, boolean z2) {
         if (poiInfo == null) {
-            this.cWl = new PoiInfo();
+            this.cWq = new PoiInfo();
         }
-        this.cWl = poiInfo;
+        this.cWq = poiInfo;
         this.isSelected = z;
-        this.cWm = z2;
+        this.cWr = z2;
     }
 
     public g(PoiInfo poiInfo) {

@@ -12,31 +12,31 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class a extends BaseAdapter {
-    private boolean gNV = false;
-    private com.baidu.tieba.location.data.a iQk;
-    private SearchLocationActivity iQl;
-    private NoDataView iQm;
+    private boolean gOb = false;
+    private com.baidu.tieba.location.data.a iQo;
+    private SearchLocationActivity iQp;
+    private NoDataView iQq;
 
     public a(SearchLocationActivity searchLocationActivity) {
-        this.iQl = searchLocationActivity;
+        this.iQp = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iQk == null || this.iQk.coM() == null || this.iQk.coM().isEmpty()) {
-            this.gNV = false;
+        if (this.iQo == null || this.iQo.coJ() == null || this.iQo.coJ().isEmpty()) {
+            this.gOb = false;
             return 1;
         }
-        this.gNV = true;
-        return this.iQk.coM().size();
+        this.gOb = true;
+        return this.iQo.coJ().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.iQk == null || this.iQk.coM() == null || this.iQk.coM().isEmpty()) {
+        if (this.iQo == null || this.iQo.coJ() == null || this.iQo.coJ().isEmpty()) {
             return null;
         }
-        return this.iQk.coM().get(i);
+        return this.iQo.coJ().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -46,57 +46,57 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.gNV) {
+        if (!this.gOb) {
             return bF(viewGroup);
         }
-        C0594a c0594a = null;
-        if (view != null && (view.getTag() instanceof C0594a)) {
-            c0594a = (C0594a) view.getTag();
+        C0615a c0615a = null;
+        if (view != null && (view.getTag() instanceof C0615a)) {
+            c0615a = (C0615a) view.getTag();
         }
-        if (c0594a == null) {
-            view = LayoutInflater.from(this.iQl.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
-            c0594a = cu(view);
-            view.setTag(c0594a);
+        if (c0615a == null) {
+            view = LayoutInflater.from(this.iQp.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
+            c0615a = cu(view);
+            view.setTag(c0615a);
         }
-        C0594a c0594a2 = c0594a;
-        c0594a2.iQn.setText(this.iQk.coM().get(i).getName());
-        am.setBackgroundColor(c0594a2.gba, R.color.cp_bg_line_c);
-        am.setViewTextColor(c0594a2.iQn, R.color.cp_cont_b, 1);
+        C0615a c0615a2 = c0615a;
+        c0615a2.iQr.setText(this.iQo.coJ().get(i).getName());
+        am.setBackgroundColor(c0615a2.gbf, R.color.cp_bg_line_c);
+        am.setViewTextColor(c0615a2.iQr, R.color.cp_cont_b, 1);
         am.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.location.data.a aVar) {
-        this.iQk = aVar;
+        this.iQo = aVar;
     }
 
-    public boolean coQ() {
-        return this.gNV;
+    public boolean coN() {
+        return this.gOb;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class C0594a {
-        View gba;
-        TextView iQn;
+    public class C0615a {
+        View gbf;
+        TextView iQr;
 
-        private C0594a() {
+        private C0615a() {
         }
     }
 
-    public C0594a cu(View view) {
-        C0594a c0594a = new C0594a();
-        c0594a.iQn = (TextView) view.findViewById(R.id.location_search_address_name);
-        c0594a.gba = view.findViewById(R.id.location_search_line);
-        return c0594a;
+    public C0615a cu(View view) {
+        C0615a c0615a = new C0615a();
+        c0615a.iQr = (TextView) view.findViewById(R.id.location_search_address_name);
+        c0615a.gbf = view.findViewById(R.id.location_search_line);
+        return c0615a;
     }
 
     public View bF(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.iQm = NoDataViewFactory.a(this.iQl.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.lr(R.string.text_try_to_chage_location), null);
-        this.iQm.onChangeSkinType(this.iQl.getPageContext(), skinType);
-        this.iQm.setVisibility(0);
-        return this.iQm;
+        this.iQq = NoDataViewFactory.a(this.iQp.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.lr(R.string.text_try_to_chage_location), null);
+        this.iQq.onChangeSkinType(this.iQp.getPageContext(), skinType);
+        this.iQq.setVisibility(0);
+        return this.iQq;
     }
 }

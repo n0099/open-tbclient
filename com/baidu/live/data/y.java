@@ -3,17 +3,17 @@ package com.baidu.live.data;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class y {
-    public int atK;
-    public int atL;
-    public int atM;
+    public int atQ;
+    public int atR;
+    public int atS;
 
     public void parseJson(JSONObject jSONObject) {
-        this.atK = jSONObject.optInt("watch_time");
-        this.atL = jSONObject.optInt("up_to_level");
-        this.atM = jSONObject.optInt("first_unlock_effective", 0);
+        this.atQ = jSONObject.optInt("watch_time");
+        this.atR = jSONObject.optInt("up_to_level");
+        this.atS = jSONObject.optInt("first_unlock_effective", 0);
     }
 
-    public boolean va() {
-        return this.atM == 1;
+    public boolean uZ() {
+        return this.atS == 1;
     }
 }

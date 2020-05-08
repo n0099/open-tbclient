@@ -17,7 +17,7 @@ public abstract class a {
     public void ah(ViewGroup viewGroup) {
     }
 
-    public void ug() {
+    public void uf() {
     }
 
     public void onDestroy() {

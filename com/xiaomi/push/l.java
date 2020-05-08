@@ -10,14 +10,14 @@ public class l {
     private static int b = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, o> f798a = null;
+    private static Map<String, o> f784a = null;
 
     public static synchronized int a() {
         int i;
         boolean z = false;
         synchronized (l.class) {
             if (a == 0) {
-                if (!TextUtils.isEmpty(m484a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m484a("ro.miui.ui.version.name"))) {
+                if (!TextUtils.isEmpty(m494a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m494a("ro.miui.ui.version.name"))) {
                     z = true;
                 }
                 a = z ? 1 : 2;
@@ -34,21 +34,21 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m483a() {
+    public static synchronized String m493a() {
         String str;
         synchronized (l.class) {
             int a2 = t.a();
-            str = (!m486a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
+            str = (!m496a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
         }
         return str;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m484a(String str) {
+    public static String m494a(String str) {
         String str2;
         try {
             try {
-                str2 = (String) at.a("android.os.SystemProperties", "get", str, "");
+                str2 = (String) ba.a("android.os.SystemProperties", "get", str, "");
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 str2 = null;
@@ -60,58 +60,58 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m485a() {
-        if (f798a != null) {
+    private static void m495a() {
+        if (f784a != null) {
             return;
         }
-        f798a = new HashMap();
-        f798a.put("CN", o.China);
-        f798a.put("FI", o.Europe);
-        f798a.put("SE", o.Europe);
-        f798a.put("NO", o.Europe);
-        f798a.put("FO", o.Europe);
-        f798a.put("EE", o.Europe);
-        f798a.put("LV", o.Europe);
-        f798a.put("LT", o.Europe);
-        f798a.put("BY", o.Europe);
-        f798a.put("MD", o.Europe);
-        f798a.put("UA", o.Europe);
-        f798a.put("PL", o.Europe);
-        f798a.put("CZ", o.Europe);
-        f798a.put("SK", o.Europe);
-        f798a.put("HU", o.Europe);
-        f798a.put("DE", o.Europe);
-        f798a.put("AT", o.Europe);
-        f798a.put("CH", o.Europe);
-        f798a.put("LI", o.Europe);
-        f798a.put("GB", o.Europe);
-        f798a.put("IE", o.Europe);
-        f798a.put("NL", o.Europe);
-        f798a.put("BE", o.Europe);
-        f798a.put("LU", o.Europe);
-        f798a.put("FR", o.Europe);
-        f798a.put("RO", o.Europe);
-        f798a.put("BG", o.Europe);
-        f798a.put("RS", o.Europe);
-        f798a.put("MK", o.Europe);
-        f798a.put("AL", o.Europe);
-        f798a.put("GR", o.Europe);
-        f798a.put("SI", o.Europe);
-        f798a.put("HR", o.Europe);
-        f798a.put("IT", o.Europe);
-        f798a.put("SM", o.Europe);
-        f798a.put("MT", o.Europe);
-        f798a.put("ES", o.Europe);
-        f798a.put("PT", o.Europe);
-        f798a.put("AD", o.Europe);
-        f798a.put("CY", o.Europe);
-        f798a.put("DK", o.Europe);
-        f798a.put("RU", o.Russia);
-        f798a.put("IN", o.India);
+        f784a = new HashMap();
+        f784a.put("CN", o.China);
+        f784a.put("FI", o.Europe);
+        f784a.put("SE", o.Europe);
+        f784a.put("NO", o.Europe);
+        f784a.put("FO", o.Europe);
+        f784a.put("EE", o.Europe);
+        f784a.put("LV", o.Europe);
+        f784a.put("LT", o.Europe);
+        f784a.put("BY", o.Europe);
+        f784a.put("MD", o.Europe);
+        f784a.put("UA", o.Europe);
+        f784a.put("PL", o.Europe);
+        f784a.put("CZ", o.Europe);
+        f784a.put("SK", o.Europe);
+        f784a.put("HU", o.Europe);
+        f784a.put("DE", o.Europe);
+        f784a.put("AT", o.Europe);
+        f784a.put("CH", o.Europe);
+        f784a.put("LI", o.Europe);
+        f784a.put("GB", o.Europe);
+        f784a.put("IE", o.Europe);
+        f784a.put("NL", o.Europe);
+        f784a.put("BE", o.Europe);
+        f784a.put("LU", o.Europe);
+        f784a.put("FR", o.Europe);
+        f784a.put("RO", o.Europe);
+        f784a.put("BG", o.Europe);
+        f784a.put("RS", o.Europe);
+        f784a.put("MK", o.Europe);
+        f784a.put("AL", o.Europe);
+        f784a.put("GR", o.Europe);
+        f784a.put("SI", o.Europe);
+        f784a.put("HR", o.Europe);
+        f784a.put("IT", o.Europe);
+        f784a.put("SM", o.Europe);
+        f784a.put("MT", o.Europe);
+        f784a.put("ES", o.Europe);
+        f784a.put("PT", o.Europe);
+        f784a.put("AD", o.Europe);
+        f784a.put("CY", o.Europe);
+        f784a.put("DK", o.Europe);
+        f784a.put("RU", o.Russia);
+        f784a.put("IN", o.India);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m486a() {
+    public static synchronized boolean m496a() {
         boolean z;
         synchronized (l.class) {
             z = a() == 1;
@@ -120,8 +120,8 @@ public class l {
     }
 
     private static o b(String str) {
-        m485a();
-        return f798a.get(str.toUpperCase());
+        m495a();
+        return f784a.get(str.toUpperCase());
     }
 
     public static String b() {
@@ -165,7 +165,7 @@ public class l {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static synchronized boolean m487b() {
+    public static synchronized boolean m497b() {
         boolean z;
         synchronized (l.class) {
             z = a() == 2;
@@ -175,7 +175,7 @@ public class l {
 
     public static boolean c() {
         if (b < 0) {
-            Object a2 = at.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
+            Object a2 = ba.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
             b = 0;
             if (a2 != null && (a2 instanceof Boolean) && !((Boolean) Boolean.class.cast(a2)).booleanValue()) {
                 b = 1;

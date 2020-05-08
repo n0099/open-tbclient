@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.chatuser.request.IMUserBaseHttpRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -43,7 +42,7 @@ public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
                 i3 = jSONObject2.getJSONObject("user_setting").optInt("push_privacy");
             } else {
                 i2 = jSONObject.getInt("error_code");
-                str2 = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+                str2 = jSONObject.optString("error_msg", "");
             }
         } catch (JSONException e) {
             LogUtils.e("IMUserQueryPrivacyRequest", "JSONException", e);

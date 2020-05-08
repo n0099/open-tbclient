@@ -4,27 +4,27 @@ import android.view.View;
 import tv.chushou.zues.widget.kpswitch.b.d;
 /* loaded from: classes5.dex */
 public class a {
-    private final View nuZ;
-    private boolean nva;
-    private View nvb;
+    private final View nvc;
+    private boolean nvd;
+    private View nve;
 
     public a(View view) {
-        this.nuZ = view;
+        this.nvc = view;
     }
 
     public void wc(boolean z) {
-        this.nva = z;
-        if (!z && this.nuZ.getVisibility() == 4) {
-            this.nuZ.setVisibility(8);
+        this.nvd = z;
+        if (!z && this.nvc.getVisibility() == 4) {
+            this.nvc.setVisibility(8);
         }
-        if (!z && this.nvb != null) {
-            dKs();
-            this.nvb = null;
+        if (!z && this.nve != null) {
+            dKo();
+            this.nve = null;
         }
     }
 
-    private void dKs() {
-        this.nuZ.setVisibility(4);
-        d.dC(this.nvb);
+    private void dKo() {
+        this.nvc.setVisibility(4);
+        d.dC(this.nve);
     }
 }

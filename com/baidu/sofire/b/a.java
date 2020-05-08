@@ -1,5 +1,6 @@
 package com.baidu.sofire.b;
 
+import com.baidu.sapi2.utils.h;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
@@ -7,7 +8,7 @@ import javax.crypto.spec.SecretKeySpec;
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, h.q);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -27,7 +28,7 @@ public final class a {
 
     public static byte[] b(byte[] bArr, byte[] bArr2) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, h.q);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {

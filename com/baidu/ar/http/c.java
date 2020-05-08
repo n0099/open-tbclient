@@ -12,7 +12,7 @@ class c implements l {
     private Object mLock;
 
     /* renamed from: pl  reason: collision with root package name */
-    private com.baidu.ar.ihttp.a f985pl;
+    private com.baidu.ar.ihttp.a f977pl;
     private volatile boolean pn;
     private g pq;
     private HttpURLConnection pr;
@@ -27,7 +27,7 @@ class c implements l {
         this.mLock = new Object();
         this.pn = false;
         this.pq = gVar;
-        this.f985pl = aVar;
+        this.f977pl = aVar;
         this.pr = null;
         this.ps = null;
     }
@@ -37,7 +37,7 @@ class c implements l {
         if (this.pn) {
             return;
         }
-        this.f985pl = null;
+        this.f977pl = null;
         this.pt = null;
         synchronized (this.mLock) {
             this.pn = true;
@@ -182,8 +182,8 @@ class c implements l {
                         synchronized (this.mLock) {
                             try {
                                 boolean z = this.pn;
-                                if (!z && this.f985pl != null) {
-                                    this.f985pl.a(dk);
+                                if (!z && this.f977pl != null) {
+                                    this.f977pl.a(dk);
                                 }
                             } catch (Throwable th) {
                                 th = th;
@@ -192,8 +192,8 @@ class c implements l {
                         }
                     } catch (HttpException e) {
                         e = e;
-                        if (0 == 0 && 0 == 0 && this.f985pl != null) {
-                            this.f985pl.a(e);
+                        if (0 == 0 && 0 == 0 && this.f977pl != null) {
+                            this.f977pl.a(e);
                         }
                         if (this.pr != null) {
                             this.pr.disconnect();

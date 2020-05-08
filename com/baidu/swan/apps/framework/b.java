@@ -5,17 +5,17 @@ import android.view.KeyEvent;
 public interface b {
     void RA();
 
-    void RB();
+    void Ry();
 
     void Rz();
 
-    void SH();
+    void SG();
+
+    void aah();
 
     void aai();
 
     void aaj();
-
-    void aak();
 
     boolean onKeyDown(int i, KeyEvent keyEvent);
 }

@@ -79,7 +79,7 @@ public class Plugin {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String PE;
+        public String PI;
         public boolean isSucc;
         public String pkgName;
         public String reason;
@@ -558,7 +558,7 @@ public class Plugin {
         if (findPluginSetting == null) {
             bVar.isSucc = false;
             bVar.reason = "settingnull";
-            bVar.PE = "createPluginResource";
+            bVar.PI = "createPluginResource";
             return bVar;
         } else if (findPluginSetting.isPatch) {
             this.mIsPluginResourceSucc = true;
@@ -595,7 +595,7 @@ public class Plugin {
                         return bVar;
                     } catch (Error e2) {
                         bVar.reason = "res_failed";
-                        bVar.PE = e2.getMessage();
+                        bVar.PI = e2.getMessage();
                         bVar.isSucc = false;
                         if (PluginPackageManager.nV().isMainProcess()) {
                             com.baidu.adp.plugin.b.a.nF().h("plugin_load", "res_failed", this.mPackageName, e2.getMessage());
@@ -603,7 +603,7 @@ public class Plugin {
                         }
                     } catch (Exception e3) {
                         bVar.reason = "res_failed";
-                        bVar.PE = e3.getMessage();
+                        bVar.PI = e3.getMessage();
                         bVar.isSucc = false;
                         if (PluginPackageManager.nV().isMainProcess()) {
                             com.baidu.adp.plugin.b.a.nF().h("plugin_load", "res_failed", this.mPackageName, e3.getMessage());
@@ -644,7 +644,7 @@ public class Plugin {
         if (findPluginSetting == null) {
             bVar.isSucc = false;
             bVar.reason = "settingnull";
-            bVar.PE = "createClassLoader";
+            bVar.PI = "createClassLoader";
             return bVar;
         }
         try {
@@ -666,7 +666,7 @@ public class Plugin {
                 z = true;
             } catch (ClassNotFoundException e) {
                 bVar.reason = "loadR";
-                bVar.PE = e.getMessage();
+                bVar.PI = e.getMessage();
                 if (PluginPackageManager.nV().isMainProcess()) {
                     com.baidu.adp.plugin.b.a.nF().h("plugin_load", "loadR", this.mPackageName, e.getMessage());
                 }
@@ -688,11 +688,11 @@ public class Plugin {
                         classLoader2 = classLoader2.getParent();
                     }
                     a.C0028a a2 = com.baidu.adp.plugin.util.a.a(classLoader2, this.mDexClassLoader, this.mPackageName + ".Static", false, this.mPluginApkFile.getAbsolutePath());
-                    if (a2 == null || !a2.SL) {
+                    if (a2 == null || !a2.SQ) {
                         com.baidu.adp.plugin.b.a.nF().h("plugin_load", "createClassLoader_failed", this.mPackageName, "patch apk inject failed!" + a2.mErrMsg);
                         bVar.isSucc = false;
                         bVar.reason = "patchClassLoaderInject_failed";
-                        bVar.PE = "inject failed, patch failed!";
+                        bVar.PI = "inject failed, patch failed!";
                         return bVar;
                     }
                 } else if (Build.VERSION.SDK_INT > 23 || (Util.oI() && Build.VERSION.SDK_INT < 21)) {
@@ -705,14 +705,14 @@ public class Plugin {
                     }
                     if (!bVar.isSucc) {
                         bVar.reason = "patch method replace failed";
-                        bVar.PE = "patch replace failed!!";
+                        bVar.PI = "patch replace failed!!";
                         com.baidu.adp.plugin.b.a.nF().h("plugin_load", "create_patch_classloader_error", this.mPackageName, bVar.reason);
                         return bVar;
                     }
                 } else {
                     bVar.isSucc = false;
                     bVar.reason = "replace lib load failed!";
-                    bVar.PE = "patch replace failed!!";
+                    bVar.PI = "patch replace failed!!";
                     com.baidu.adp.plugin.b.a.nF().h("plugin_load", "create_patch_classloader_error", this.mPackageName, bVar.reason);
                     return bVar;
                 }
@@ -724,12 +724,12 @@ public class Plugin {
                 }
                 this.mCurrentPluginMode = 1;
                 a.C0028a a3 = com.baidu.adp.plugin.util.a.a(classLoader3, this.mDexClassLoader, this.mPackageName + ".Static", true, this.mPluginApkFile.getAbsolutePath());
-                if (a3 != null && !a3.SL) {
+                if (a3 != null && !a3.SQ) {
                     if (PluginPackageManager.nV().isMainProcess()) {
                         com.baidu.adp.plugin.b.a.nF().log("plugin_inject_failed");
                     }
                     bVar.reason = "inject_failed";
-                    bVar.PE = a3.mErrMsg;
+                    bVar.PI = a3.mErrMsg;
                     com.baidu.adp.plugin.b.a.nF().h("plugin_load", "inject_failed", this.mPackageName, a3.mErrMsg);
                     this.mCurrentPluginMode = 2;
                     String str2 = "";
@@ -757,15 +757,15 @@ public class Plugin {
                         str = sb2.substring(0, sb2.length() - 1);
                     }
                     a.C0028a b2 = com.baidu.adp.plugin.util.a.b(this.mContext, new DexClassLoader(str2, this.mPluginDataRoot.getAbsolutePath(), str, classLoader3), this.mPackageName + ".Static");
-                    if (b2 != null && !b2.SL) {
+                    if (b2 != null && !b2.SQ) {
                         if (PluginPackageManager.nV().isMainProcess()) {
                             com.baidu.adp.plugin.b.a.nF().h("plugin_load", "replaceparent_failed", this.mPackageName, b2.mErrMsg);
                         }
                         bVar.isSucc = false;
                         bVar.reason = "replaceparent_failed";
-                        bVar.PE = b2.mErrMsg;
+                        bVar.PI = b2.mErrMsg;
                         return bVar;
-                    } else if (b2 != null && b2.SL) {
+                    } else if (b2 != null && b2.SQ) {
                         com.baidu.adp.plugin.b.a.nF().log("plugin_second_inject_succ");
                     }
                 }
@@ -777,7 +777,7 @@ public class Plugin {
             BdLog.e(e2);
             bVar.isSucc = false;
             bVar.reason = "new_dexloader_failed";
-            bVar.PE = e2.getMessage() + "---" + e2.getClass().getName();
+            bVar.PI = e2.getMessage() + "---" + e2.getClass().getName();
             if (PluginPackageManager.nV().isMainProcess()) {
                 com.baidu.adp.plugin.b.a.nF().h("plugin_load", "new_dexloader_failed", this.mPackageName, e2.getMessage() + "---" + e2.getClass().getName());
             }
@@ -896,14 +896,14 @@ public class Plugin {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Object, b> {
-        private com.baidu.adp.plugin.util.c PD;
+        private com.baidu.adp.plugin.util.c PH;
         private String packageName;
 
         public a(String str, com.baidu.adp.plugin.util.c cVar) {
             this.packageName = null;
-            this.PD = null;
+            this.PH = null;
             this.packageName = str;
-            this.PD = cVar;
+            this.PH = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -920,8 +920,8 @@ public class Plugin {
         /* renamed from: a */
         public void onPostExecute(b bVar) {
             super.onPostExecute(bVar);
-            if (this.PD != null) {
-                this.PD.a(bVar, this.packageName);
+            if (this.PH != null) {
+                this.PH.a(bVar, this.packageName);
             } else {
                 BdLog.e("listener is null");
                 if (PluginPackageManager.nV().isMainProcess()) {
@@ -960,7 +960,7 @@ public class Plugin {
                     str2 = "settingssize-" + com.baidu.adp.plugin.packageManager.pluginSettings.c.oz().ow().getPlugins().size() + "-filesize-" + new File(com.baidu.adp.plugin.packageManager.pluginSettings.b.ov().oy()).length();
                 }
                 bVar.reason = "apk_file_null";
-                bVar.PE = str2;
+                bVar.PI = str2;
                 com.baidu.adp.plugin.b.a.nF().h("plugin_load", "apk_file_null", str, str2);
             }
             com.baidu.adp.plugin.packageManager.pluginSettings.c.oz().cG(str);

@@ -15,109 +15,109 @@ import java.util.TimerTask;
 /* loaded from: classes11.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private long bfK;
-    private long bfL;
-    private long bfM;
-    private com.baidu.mario.a.b.d bfQ;
-    private boolean bfR;
-    private int bfS;
-    private c bfT;
-    private AudioParams bfV;
-    private com.baidu.mario.audio.a.a bfW;
-    private com.baidu.mario.gldraw2d.params.c bfm;
+    private long bfP;
+    private long bfQ;
+    private long bfR;
+    private com.baidu.mario.a.b.d bfV;
+    private boolean bfW;
+    private int bfX;
+    private c bfY;
+    private com.baidu.mario.gldraw2d.params.c bfr;
+    private AudioParams bga;
+    private com.baidu.mario.audio.a.a bgb;
     private Context mAppContext;
-    private int bfI = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
+    private int bfN = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
     private int mTextureId = -1;
-    private boolean bfJ = false;
-    private boolean bfN = false;
+    private boolean bfO = false;
+    private boolean bfS = false;
     private boolean mIsLandscape = false;
     private int mCanvasWidth = 0;
     private int mCanvasHeight = 0;
-    private byte[] bfX = ByteBuffer.allocate(3840).putShort(Short.MIN_VALUE).array();
-    private ByteBuffer bfY = ByteBuffer.allocate(3840).put(this.bfX);
-    private Timer bfZ = null;
-    private TimerTask bga = null;
-    private boolean bgb = false;
-    private boolean bgc = false;
-    private long bgd = 0;
-    private d bfO = d.IX();
-    private com.baidu.mario.a.a bfU = null;
-    private e bfP = new e() { // from class: com.baidu.mario.a.b.1
+    private byte[] bgc = ByteBuffer.allocate(3840).putShort(Short.MIN_VALUE).array();
+    private ByteBuffer bgd = ByteBuffer.allocate(3840).put(this.bgc);
+    private Timer bge = null;
+    private TimerTask bgf = null;
+    private boolean bgg = false;
+    private boolean bgh = false;
+    private long bgi = 0;
+    private d bfT = d.IW();
+    private com.baidu.mario.a.a bfZ = null;
+    private e bfU = new e() { // from class: com.baidu.mario.a.b.1
         @Override // com.baidu.mario.a.e
         public void onRecorderStart(boolean z) {
-            if (b.this.bfT != null) {
-                b.this.bfT.onStart();
-                b.this.bgb = true;
+            if (b.this.bfY != null) {
+                b.this.bfY.onStart();
+                b.this.bgg = true;
             }
         }
 
         @Override // com.baidu.mario.a.e
         public void aB(long j) {
-            b.this.bfM = j;
-            if (j > b.this.bfI && b.this.bfR) {
+            b.this.bfR = j;
+            if (j > b.this.bfN && b.this.bfW) {
                 b.this.stopRecord();
             }
         }
 
         @Override // com.baidu.mario.a.e
         public void onRecorderComplete(boolean z, String str) {
-            Log.i(b.TAG, "on RecorderComplete record time :" + b.this.bfM);
-            if (b.this.bfT != null) {
-                b.this.bfT.F((int) b.this.bfM, str);
+            Log.i(b.TAG, "on RecorderComplete record time :" + b.this.bfR);
+            if (b.this.bfY != null) {
+                b.this.bfY.F((int) b.this.bfR, str);
             }
         }
 
         @Override // com.baidu.mario.a.e
         public void onRecorderError(int i) {
             Log.i(b.TAG, "onRecorderError:" + i);
-            if (b.this.bfT != null) {
-                b.this.bfT.onError(i);
+            if (b.this.bfY != null) {
+                b.this.bfY.onError(i);
             }
         }
     };
 
     public b(Context context) {
         this.mAppContext = context;
-        a(new com.baidu.mario.a.b.d(), this.bfP);
+        a(new com.baidu.mario.a.b.d(), this.bfU);
     }
 
     public void setGameRecordCallback(c cVar) {
-        this.bfT = cVar;
+        this.bfY = cVar;
     }
 
     public void setAudioEngineProxy(com.baidu.mario.a.a aVar) {
-        this.bfU = aVar;
+        this.bfZ = aVar;
     }
 
     public void a(boolean z, EGLContext eGLContext, int i, int i2, Context context) {
         if (eGLContext != null) {
             this.mAppContext = context;
             Log.i(TAG, "onContextChanged:" + eGLContext + "; w:" + i + "; h:" + i2 + "; isFlip:" + z);
-            if (this.bfm == null) {
-                this.bfm = new com.baidu.mario.gldraw2d.params.c(eGLContext, 0, true);
+            if (this.bfr == null) {
+                this.bfr = new com.baidu.mario.gldraw2d.params.c(eGLContext, 0, true);
             } else {
-                this.bfm.a(eGLContext);
+                this.bfr.a(eGLContext);
             }
-            this.bfm.IH().setWidth(i);
-            this.bfm.IH().setHeight(i2);
+            this.bfr.IG().setWidth(i);
+            this.bfr.IG().setHeight(i2);
             if (z) {
-                this.bfm.IJ().a(MirrorType.VERTICALLY);
+                this.bfr.II().a(MirrorType.VERTICALLY);
             }
             this.mCanvasWidth = i;
             this.mCanvasHeight = i2;
-            this.bfQ.setVideoWidth(i);
-            this.bfQ.setVideoHeight(i2);
+            this.bfV.setVideoWidth(i);
+            this.bfV.setVideoHeight(i2);
         }
     }
 
     public void dt(int i) {
-        if (this.bfm != null) {
+        if (this.bfr != null) {
             if (this.mTextureId != i) {
                 com.baidu.mario.gldraw2d.d.d dVar = new com.baidu.mario.gldraw2d.d.d();
                 dVar.setId(i);
-                this.bfm.c(dVar);
-                if (this.bfO != null) {
-                    this.bfO.b(this.bfm);
+                this.bfr.c(dVar);
+                if (this.bfT != null) {
+                    this.bfT.b(this.bfr);
                 }
                 this.mTextureId = i;
             }
@@ -126,192 +126,192 @@ public class b {
     }
 
     private void d(int i, long j) {
-        if (this.bfR && this.bfQ != null) {
-            switch (this.bfS) {
+        if (this.bfW && this.bfV != null) {
+            switch (this.bfX) {
                 case 0:
-                    IV();
-                    if (this.bfO != null) {
-                        this.bfO.a(this.mAppContext, this.bfQ, this.bfP);
+                    IU();
+                    if (this.bfT != null) {
+                        this.bfT.a(this.mAppContext, this.bfV, this.bfU);
                     }
-                    this.bfS = 1;
+                    this.bfX = 1;
                     break;
                 case 1:
                     break;
                 case 2:
-                    this.bfm.IG().setId(i);
-                    if (this.bfO != null) {
-                        this.bfO.c(this.bfm);
+                    this.bfr.IF().setId(i);
+                    if (this.bfT != null) {
+                        this.bfT.c(this.bfr);
                     }
-                    this.bfS = 1;
+                    this.bfX = 1;
                     break;
                 default:
-                    throw new RuntimeException("unknown status " + this.bfS);
+                    throw new RuntimeException("unknown status " + this.bfX);
             }
         }
-        if (this.bfO != null && !this.bfJ) {
-            this.bfO.onVideoFrameAvailable(j - this.bfK);
+        if (this.bfT != null && !this.bfO) {
+            this.bfT.onVideoFrameAvailable(j - this.bfP);
         }
     }
 
-    public long IQ() {
-        return this.bfM;
+    public long IP() {
+        return this.bfR;
     }
 
-    public void IR() {
-        if (!this.bfJ) {
-            this.bfN = true;
+    public void IQ() {
+        if (!this.bfO) {
+            this.bfS = true;
             pauseRecord();
             return;
         }
-        this.bfN = false;
+        this.bfS = false;
     }
 
-    public void IS() {
-        if (this.bfJ && this.bfN) {
+    public void IR() {
+        if (this.bfO && this.bfS) {
             resumeRecord();
         }
-        this.bfN = false;
+        this.bfS = false;
     }
 
     public void startRecord(boolean z, int i, String str, boolean z2) {
-        if (!this.bfR) {
+        if (!this.bfW) {
             Log.i(TAG, "startRecored");
-            this.bgd = System.nanoTime();
+            this.bgi = System.nanoTime();
             this.mIsLandscape = z2;
-            this.bfQ.setOutputFile(str);
-            this.bfQ.setAudioIncluded(z);
-            this.bfQ.setOutputTotalMs(i * 1000);
-            this.bfQ.setVideoWidth(this.mCanvasWidth);
-            this.bfQ.setVideoHeight(this.mCanvasHeight);
-            this.bfK = 0L;
-            this.bfM = 0L;
+            this.bfV.setOutputFile(str);
+            this.bfV.setAudioIncluded(z);
+            this.bfV.setOutputTotalMs(i * 1000);
+            this.bfV.setVideoWidth(this.mCanvasWidth);
+            this.bfV.setVideoHeight(this.mCanvasHeight);
+            this.bfP = 0L;
+            this.bfR = 0L;
             if (i > 0 && i < 120) {
-                this.bfI = i * 1000;
+                this.bfN = i * 1000;
             } else {
-                this.bfI = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
+                this.bfN = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
             }
             a((AudioParams) null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void IT() {
-        if (this.bfZ != null) {
-            this.bfZ.cancel();
-            this.bfZ = null;
-            this.bga = null;
+    public synchronized void IS() {
+        if (this.bge != null) {
+            this.bge.cancel();
+            this.bge = null;
+            this.bgf = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, AudioParams audioParams) {
         if (audioParams != null) {
-            this.bfQ.setAudioSampleRate(audioParams.getSampleRate());
-            this.bfQ.setAudioFrameSize(audioParams.getFrameSize());
-            this.bfQ.setAudioChannel(audioParams.getChannelConfig());
+            this.bfV.setAudioSampleRate(audioParams.getSampleRate());
+            this.bfV.setAudioFrameSize(audioParams.getFrameSize());
+            this.bfV.setAudioChannel(audioParams.getChannelConfig());
         }
-        this.bgb = false;
-        this.bfR = true;
-        IT();
-        this.bfZ = new Timer();
-        this.bga = new TimerTask() { // from class: com.baidu.mario.a.b.2
+        this.bgg = false;
+        this.bfW = true;
+        IS();
+        this.bge = new Timer();
+        this.bgf = new TimerTask() { // from class: com.baidu.mario.a.b.2
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                if (!b.this.bgb || b.this.bgc) {
-                    b.this.c(b.this.bfY, 3840, System.nanoTime() - b.this.bgd);
-                    b.this.bgc = true;
+                if (!b.this.bgg || b.this.bgh) {
+                    b.this.c(b.this.bgd, 3840, System.nanoTime() - b.this.bgi);
+                    b.this.bgh = true;
                     return;
                 }
                 Log.i(b.TAG, "cancel audio time");
-                b.this.IT();
-                b.this.bgc = false;
+                b.this.IS();
+                b.this.bgh = false;
             }
         };
-        this.bfZ.schedule(this.bga, 300L, 20L);
+        this.bge.schedule(this.bgf, 300L, 20L);
     }
 
     private void a(AudioParams audioParams) {
-        if (this.bfW == null) {
-            IW();
+        if (this.bgb == null) {
+            IV();
         }
         if (audioParams == null) {
             Log.i(TAG, "audioParams is null,start to create AudioPams");
-            this.bfV = new AudioParams();
+            this.bga = new AudioParams();
         } else {
-            this.bfV = audioParams;
+            this.bga = audioParams;
         }
-        if (this.bfU != null) {
-            Log.i(TAG, "set audio engie:" + this.bfU);
-            this.bfU.a(this.bfW);
+        if (this.bfZ != null) {
+            Log.i(TAG, "set audio engie:" + this.bfZ);
+            this.bfZ.a(this.bgb);
         }
     }
 
     public void pauseRecord() {
-        if (this.bfJ) {
+        if (this.bfO) {
             Log.i(TAG, "pauseRecord cmd has executed, please run resumeRecord!");
-        } else if (this.bfR) {
-            this.bfJ = true;
+        } else if (this.bfW) {
+            this.bfO = true;
             Log.i(TAG, LuaMessageHelper.KEY_SEND_LUA_MESSAGE.PAUSE_RECORD);
-            this.bfL = System.nanoTime();
-            this.bfK = 0L;
-            if (this.bfO != null) {
-                this.bfO.Ja();
-                this.bfK = (this.bfL - (this.bfM * TimeUtils.NANOS_PER_MS)) - this.bfO.IY();
-                if (this.bfK < 0) {
-                    this.bfK = 0L;
+            this.bfQ = System.nanoTime();
+            this.bfP = 0L;
+            if (this.bfT != null) {
+                this.bfT.IZ();
+                this.bfP = (this.bfQ - (this.bfR * TimeUtils.NANOS_PER_MS)) - this.bfT.IX();
+                if (this.bfP < 0) {
+                    this.bfP = 0L;
                 }
             }
-            if (this.bfT != null) {
-                this.bfT.onPause();
+            if (this.bfY != null) {
+                this.bfY.onPause();
             }
-            IT();
+            IS();
         }
     }
 
     public void resumeRecord() {
-        if (this.bfJ) {
-            this.bfK += System.nanoTime() - this.bfL;
-            this.bfJ = false;
+        if (this.bfO) {
+            this.bfP += System.nanoTime() - this.bfQ;
+            this.bfO = false;
             a((AudioParams) null);
-            if (this.bfT != null) {
-                this.bfT.onResume();
+            if (this.bfY != null) {
+                this.bfY.onResume();
             }
         }
     }
 
-    private void IU() {
-        if (this.bfJ) {
-            this.bfK += System.nanoTime() - this.bfL;
-            this.bfJ = false;
+    private void IT() {
+        if (this.bfO) {
+            this.bfP += System.nanoTime() - this.bfQ;
+            this.bfO = false;
         }
     }
 
     public void stopRecord() {
         Log.i(TAG, "stopRecored");
-        IU();
-        this.bfR = false;
-        this.bgb = false;
-        this.bgc = false;
-        switch (this.bfS) {
+        IT();
+        this.bfW = false;
+        this.bgg = false;
+        this.bgh = false;
+        switch (this.bfX) {
             case 0:
                 return;
             case 1:
             case 2:
-                this.bfS = 0;
-                if (this.bfO != null) {
-                    this.bfO.stopRecorder();
+                this.bfX = 0;
+                if (this.bfT != null) {
+                    this.bfT.stopRecorder();
                     return;
                 }
                 return;
             default:
-                throw new RuntimeException("unknown status " + this.bfS);
+                throw new RuntimeException("unknown status " + this.bfX);
         }
     }
 
-    private void IV() {
-        if (this.bfQ != null && this.bfm != null) {
-            int videoHeight = this.bfQ.getVideoHeight();
-            int videoWidth = this.bfQ.getVideoWidth();
+    private void IU() {
+        if (this.bfV != null && this.bfr != null) {
+            int videoHeight = this.bfV.getVideoHeight();
+            int videoWidth = this.bfV.getVideoWidth();
             if (videoHeight >= 1920 || videoWidth >= 1920) {
                 videoHeight = (int) ((videoHeight * 2) / 3.0f);
                 videoWidth = (int) ((videoWidth * 2) / 3.0f);
@@ -323,74 +323,74 @@ public class b {
                 videoWidth++;
             }
             Log.i(TAG, "Record video width:" + videoWidth + " ;video height:" + videoHeight);
-            this.bfQ.setVideoWidth(videoWidth);
-            this.bfQ.setVideoHeight(videoHeight);
+            this.bfV.setVideoWidth(videoWidth);
+            this.bfV.setVideoHeight(videoHeight);
         }
     }
 
     public void a(com.baidu.mario.a.b.d dVar) {
-        this.bfQ = dVar;
+        this.bfV = dVar;
     }
 
     public void a(com.baidu.mario.a.b.d dVar, e eVar) {
         a(dVar);
-        this.bfP = eVar;
+        this.bfU = eVar;
     }
 
-    private void IW() {
-        if (this.bfW == null) {
-            this.bfW = new a(this);
+    private void IV() {
+        if (this.bgb == null) {
+            this.bgb = new a(this);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(ByteBuffer byteBuffer, int i, long j) {
-        if (this.bfO != null && this.bfR && byteBuffer != null && i > 0 && !this.bfJ) {
-            this.bfO.onAudioFrameAvailable(byteBuffer, i, j - this.bfK);
+        if (this.bfT != null && this.bfW && byteBuffer != null && i > 0 && !this.bfO) {
+            this.bfT.onAudioFrameAvailable(byteBuffer, i, j - this.bfP);
         }
     }
 
     public void release() {
-        if (this.bfO != null) {
-            this.bfO.onDestroy();
-            this.bfO = null;
+        if (this.bfT != null) {
+            this.bfT.onDestroy();
+            this.bfT = null;
         }
-        if (this.bfP != null) {
-            this.bfP = null;
+        if (this.bfU != null) {
+            this.bfU = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public static class a implements com.baidu.mario.audio.a.a {
-        private WeakReference<b> bgf;
+        private WeakReference<b> bgk;
 
         public a(b bVar) {
-            this.bgf = new WeakReference<>(bVar);
-            Log.i(b.TAG, "gameRecorderRef is:" + this.bgf.get());
+            this.bgk = new WeakReference<>(bVar);
+            Log.i(b.TAG, "gameRecorderRef is:" + this.bgk.get());
         }
 
         @Override // com.baidu.mario.audio.a.a
         public void a(boolean z, AudioParams audioParams) {
-            if (this.bgf.get() != null) {
-                this.bgf.get().b(z, audioParams);
+            if (this.bgk.get() != null) {
+                this.bgk.get().b(z, audioParams);
                 Log.i(b.TAG, "onAudioStart");
             }
         }
 
         @Override // com.baidu.mario.audio.a.a
         public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
-            if (this.bgf.get() != null) {
-                this.bgf.get().bgc = false;
-                this.bgf.get().c(byteBuffer, i, j);
+            if (this.bgk.get() != null) {
+                this.bgk.get().bgh = false;
+                this.bgk.get().c(byteBuffer, i, j);
             }
         }
 
         @Override // com.baidu.mario.audio.a.a
         public void onAudioStop(boolean z) {
             Log.i(b.TAG, "onAudioStop");
-            if (this.bgf.get() != null) {
-                this.bgf.get().IT();
+            if (this.bgk.get() != null) {
+                this.bgk.get().IS();
             }
         }
     }

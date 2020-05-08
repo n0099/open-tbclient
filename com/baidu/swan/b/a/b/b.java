@@ -9,14 +9,14 @@ import java.util.Collection;
 import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class b {
-    private DownloadManager cIk;
+    private DownloadManager cIq;
 
     public b(DownloadManager downloadManager) {
-        this.cIk = downloadManager;
+        this.cIq = downloadManager;
     }
 
     public Collection<Download> atq() {
-        return this.cIk.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.1
+        return this.cIq.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.1
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
                 return (download == null || b.this.a(download)) ? false : true;
@@ -39,7 +39,7 @@ public class b {
     }
 
     public synchronized Collection<Download> pr(final String str) {
-        return TextUtils.isEmpty(str) ? null : this.cIk.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.2
+        return TextUtils.isEmpty(str) ? null : this.cIq.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.2
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
                 return (download == null || !TextUtils.equals(download.getUrl(), str) || b.this.a(download)) ? false : true;
@@ -48,7 +48,7 @@ public class b {
     }
 
     public synchronized Collection<Download> ps(final String str) {
-        return TextUtils.isEmpty(str) ? null : this.cIk.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.3
+        return TextUtils.isEmpty(str) ? null : this.cIq.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.3
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
                 return download != null && TextUtils.equals(download.getUrl(), str);
@@ -61,7 +61,7 @@ public class b {
         if (atq != null && !atq.isEmpty()) {
             for (Download download : atq) {
                 if (download != null && (download.getState() == Download.DownloadState.WAITING || download.getState() == Download.DownloadState.DOWNLOADING)) {
-                    this.cIk.pause(download.getId().longValue());
+                    this.cIq.pause(download.getId().longValue());
                 }
             }
         }
@@ -71,10 +71,10 @@ public class b {
         int size;
         int i = 0;
         synchronized (this) {
-            Collection<Download> downloadListByFilter = this.cIk.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.4
+            Collection<Download> downloadListByFilter = this.cIq.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.4
                 @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
                 public boolean filter(Download download) {
-                    return (download == null || download.getState() != Download.DownloadState.FINISH || b.this.c(download) || !b.b(download) || com.baidu.swan.b.a.c.a.an(AppRuntime.getAppContext(), download.getKeyByUser())) ? false : true;
+                    return (download == null || download.getState() != Download.DownloadState.FINISH || b.this.c(download) || !b.b(download) || com.baidu.swan.b.a.c.a.ab(AppRuntime.getAppContext(), download.getKeyByUser())) ? false : true;
                 }
             });
             if (downloadListByFilter != null && downloadListByFilter.size() - 20 > 0) {
@@ -89,7 +89,7 @@ public class b {
                         break;
                     }
                     if (next != null) {
-                        this.cIk.cancel(next.getId().longValue());
+                        this.cIq.cancel(next.getId().longValue());
                     }
                     i = i2 + 1;
                 }
@@ -101,10 +101,10 @@ public class b {
         int size;
         int i = 0;
         synchronized (this) {
-            Collection<Download> downloadListByFilter = this.cIk.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.5
+            Collection<Download> downloadListByFilter = this.cIq.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.5
                 @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
                 public boolean filter(Download download) {
-                    return download != null && download.getState() == Download.DownloadState.FINISH && com.baidu.swan.b.a.c.a.an(AppRuntime.getAppContext(), download.getKeyByUser());
+                    return download != null && download.getState() == Download.DownloadState.FINISH && com.baidu.swan.b.a.c.a.ab(AppRuntime.getAppContext(), download.getKeyByUser());
                 }
             });
             if (downloadListByFilter != null && downloadListByFilter.size() - 30 > 0) {
@@ -119,7 +119,7 @@ public class b {
                         break;
                     }
                     if (next != null) {
-                        this.cIk.cancel(next.getId().longValue());
+                        this.cIq.cancel(next.getId().longValue());
                     }
                     i = i2 + 1;
                 }
@@ -128,7 +128,7 @@ public class b {
     }
 
     public synchronized void att() {
-        f(this.cIk.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.6
+        f(this.cIq.getDownloadListByFilter(new DownloadManager.DownloadItemFilter() { // from class: com.baidu.swan.b.a.b.b.6
             @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
             public boolean filter(Download download) {
                 return b.this.a(download);
@@ -146,7 +146,7 @@ public class b {
         if (collection != null) {
             for (Download download : collection) {
                 if (download != null) {
-                    this.cIk.cancel(download.getId().longValue());
+                    this.cIq.cancel(download.getId().longValue());
                 }
             }
         }
@@ -158,7 +158,7 @@ public class b {
         if (download == null) {
             return false;
         }
-        return (c(download) || (download.getState() == Download.DownloadState.FINISH && !b(download))) && !com.baidu.swan.b.a.c.a.an(AppRuntime.getAppContext(), download.getKeyByUser());
+        return (c(download) || (download.getState() == Download.DownloadState.FINISH && !b(download))) && !com.baidu.swan.b.a.c.a.ab(AppRuntime.getAppContext(), download.getKeyByUser());
     }
 
     public static boolean b(Download download) {

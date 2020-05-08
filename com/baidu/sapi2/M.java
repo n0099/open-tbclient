@@ -1,28 +1,36 @@
 package com.baidu.sapi2;
 
-import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
+import android.content.Context;
+import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.result.GetTplStokenResult;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-class M extends HttpHandlerWrap {
-    final /* synthetic */ N a;
+public class M extends GetTplStokenCallback {
+    final /* synthetic */ Context a;
+    final /* synthetic */ SapiAccountService b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public M(N n, boolean z) {
-        super(z);
-        this.a = n;
+    public M(SapiAccountService sapiAccountService, Context context) {
+        this.b = sapiAccountService;
+        this.a = context;
     }
 
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onFailure(Throwable th, int i, String str) {
-        N n = this.a;
-        n.b.a(n.c);
-        SapiContext.getInstance().setSapiOptions(this.a.b);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onFailure(GetTplStokenResult getTplStokenResult) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onSuccess(int i, String str) {
-        N n = this.a;
-        n.d.a(str, n.a);
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onFinish() {
+    }
+
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onStart() {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onSuccess(GetTplStokenResult getTplStokenResult) {
+        SapiAccountService.a(this.a, getTplStokenResult.tplStokenMap.get("pp"));
     }
 }

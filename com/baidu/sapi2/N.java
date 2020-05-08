@@ -1,41 +1,46 @@
 package com.baidu.sapi2;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.sapi2.P;
-import com.baidu.sapi2.S;
-import com.baidu.sapi2.httpwrap.HttpClientWrap;
-import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
+import com.baidu.sapi2.callback.SapiCallback;
+import com.baidu.sapi2.result.OAuthResult;
+import com.baidu.sapi2.utils.SapiUtils;
+import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class N implements P.a {
-    final /* synthetic */ S.a.C0203a a;
-    final /* synthetic */ S b;
-    final /* synthetic */ S.a c;
-    final /* synthetic */ P d;
+public class N implements SapiCallback<OAuthResult> {
+    final /* synthetic */ Map a;
+    final /* synthetic */ SapiAccount b;
+    final /* synthetic */ SapiAccountService c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public N(P p, S.a.C0203a c0203a, S s, S.a aVar) {
-        this.d = p;
-        this.a = c0203a;
-        this.b = s;
-        this.c = aVar;
+    public N(SapiAccountService sapiAccountService, Map map, SapiAccount sapiAccount) {
+        this.c = sapiAccountService;
+        this.a = map;
+        this.b = sapiAccount;
     }
 
-    @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0203a c0203a, String str) {
-        Context context;
-        if (TextUtils.isEmpty(this.a.a) || TextUtils.isEmpty(str)) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    /* renamed from: a */
+    public void onFailure(OAuthResult oAuthResult) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    /* renamed from: b */
+    public void onSuccess(OAuthResult oAuthResult) {
+        if (TextUtils.isEmpty(oAuthResult.openid)) {
             return;
         }
-        this.d.a(this.a.a, str);
-        P p = this.d;
-        context = p.d;
-        p.a(context, S.a.C0203a.c(this.a.a), str.getBytes());
+        this.a.put(oAuthResult.openid, this.b.uid);
+        SapiContext.getInstance().put(SapiContext.KEY_OPENID_UID_LIST, SapiUtils.mapToUrlParams(this.a, false));
     }
 
-    @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0203a c0203a) {
-        new HttpClientWrap().get(this.a.b, new HttpHashMapWrap(), null, null, new M(this, true));
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onFinish() {
+    }
+
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onStart() {
     }
 }

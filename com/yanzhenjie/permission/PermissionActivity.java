@@ -14,7 +14,7 @@ import android.view.Window;
 @RequiresApi(api = 23)
 /* loaded from: classes6.dex */
 public final class PermissionActivity extends Activity {
-    private static a mQV;
+    private static a mQY;
 
     /* loaded from: classes6.dex */
     interface a {
@@ -22,7 +22,7 @@ public final class PermissionActivity extends Activity {
     }
 
     public static void a(Context context, String[] strArr, a aVar) {
-        mQV = aVar;
+        mQY = aVar;
         Intent intent = new Intent(context, PermissionActivity.class);
         intent.setFlags(268435456);
         intent.putExtra("KEY_INPUT_PERMISSIONS", strArr);
@@ -34,7 +34,7 @@ public final class PermissionActivity extends Activity {
         super.onCreate(bundle);
         av(this);
         String[] stringArrayExtra = getIntent().getStringArrayExtra("KEY_INPUT_PERMISSIONS");
-        if (stringArrayExtra != null && mQV != null) {
+        if (stringArrayExtra != null && mQY != null) {
             requestPermissions(stringArrayExtra, 1);
         } else {
             finish();
@@ -43,8 +43,8 @@ public final class PermissionActivity extends Activity {
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (mQV != null) {
-            mQV.W(strArr);
+        if (mQY != null) {
+            mQY.W(strArr);
         }
         finish();
     }
@@ -52,7 +52,7 @@ public final class PermissionActivity extends Activity {
     @Override // android.app.Activity
     protected void onDestroy() {
         super.onDestroy();
-        mQV = null;
+        mQY = null;
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback

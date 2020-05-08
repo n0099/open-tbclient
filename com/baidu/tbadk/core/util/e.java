@@ -18,7 +18,7 @@ public class e {
         }
     };
 
-    public static e aOd() {
+    public static e aOb() {
         return new e();
     }
 

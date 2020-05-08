@@ -41,7 +41,7 @@ public class d extends c<SubAliasStatus> {
     }
 
     private void f(String str) {
-        com.meizu.cloud.pushsdk.util.b.g(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName(), str);
+        com.meizu.cloud.pushsdk.util.b.h(this.e, !TextUtils.isEmpty(this.h) ? this.h : this.e.getPackageName(), str);
     }
 
     private String p() {

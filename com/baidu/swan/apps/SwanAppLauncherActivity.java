@@ -25,7 +25,7 @@ public class SwanAppLauncherActivity extends Activity {
             Log.d("SwanAppLauncherActivity", MissionEvent.MESSAGE_CREATE);
         }
         if (!r.checkActivityRefuseServiceAndFinish(this)) {
-            SwanLauncher.Zy().s(getIntent().getExtras());
+            SwanLauncher.Zx().s(getIntent().getExtras());
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.SwanAppLauncherActivity.1
                 @Override // java.lang.Runnable
                 public void run() {

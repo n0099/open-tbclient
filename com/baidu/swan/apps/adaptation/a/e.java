@@ -11,18 +11,18 @@ public interface e {
     public interface a {
         void cS(boolean z);
 
-        void j(Exception exc);
+        void k(Exception exc);
     }
 
     void a(Activity activity, Bundle bundle, com.baidu.swan.apps.a.a aVar);
 
     void a(com.baidu.swan.apps.a.c cVar);
 
-    boolean bc(Context context);
+    boolean aQ(Context context);
 
-    String bd(Context context);
+    String aR(Context context);
 
-    String be(@NonNull Context context);
+    String aS(@NonNull Context context);
 
-    String bf(@NonNull Context context);
+    String aT(@NonNull Context context);
 }

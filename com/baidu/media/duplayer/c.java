@@ -16,11 +16,11 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes.dex */
 public class c {
-    private static MediaCodecInfo[] bih;
+    private static MediaCodecInfo[] bim;
     private static Map<String, Integer> d = new TreeMap(String.CASE_INSENSITIVE_ORDER);
     private static Map<String, MediaCodecInfo> f = new HashMap();
     public int b = 0;
-    public MediaCodecInfo bif;
+    public MediaCodecInfo bil;
     public String c;
 
     static {
@@ -101,7 +101,7 @@ public class c {
             }
         }
         c cVar = new c();
-        cVar.bif = mediaCodecInfo;
+        cVar.bil = mediaCodecInfo;
         cVar.b = i;
         cVar.c = str;
         return cVar;
@@ -136,16 +136,16 @@ public class c {
     public static synchronized void a() {
         synchronized (c.class) {
             try {
-                if (bih == null && Build.VERSION.SDK_INT >= 16) {
+                if (bim == null && Build.VERSION.SDK_INT >= 16) {
                     if (Build.VERSION.SDK_INT < 21) {
                         ArrayList arrayList = new ArrayList();
                         int codecCount = MediaCodecList.getCodecCount();
                         for (int i = 0; i < codecCount; i++) {
                             arrayList.add(MediaCodecList.getCodecInfoAt(i));
                         }
-                        bih = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
+                        bim = (MediaCodecInfo[]) arrayList.toArray(new MediaCodecInfo[arrayList.size()]);
                     } else {
-                        bih = new MediaCodecList(0).getCodecInfos();
+                        bim = new MediaCodecList(0).getCodecInfos();
                     }
                     fw("video/avc");
                     fw("video/hevc");
@@ -164,8 +164,8 @@ public class c {
             return mediaCodecInfo;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bih.length; i++) {
-            MediaCodecInfo mediaCodecInfo2 = bih[i];
+        for (int i = 0; i < bim.length; i++) {
+            MediaCodecInfo mediaCodecInfo2 = bim[i];
             if (!mediaCodecInfo2.isEncoder() && (supportedTypes = mediaCodecInfo2.getSupportedTypes()) != null) {
                 for (String str2 : supportedTypes) {
                     if (!TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(str) && (a = a(mediaCodecInfo2, str)) != null) {
@@ -192,7 +192,7 @@ public class c {
         if (cVar.b < 600) {
             return null;
         }
-        f.put(str, cVar.bif);
-        return cVar.bif;
+        f.put(str, cVar.bil);
+        return cVar.bil;
     }
 }

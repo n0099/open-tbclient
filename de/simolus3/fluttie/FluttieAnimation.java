@@ -20,13 +20,13 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
     private boolean pausedButNotByUser;
 
     /* renamed from: plugin  reason: collision with root package name */
-    private final FluttiePlugin f1044plugin;
+    private final FluttiePlugin f1036plugin;
     private Surface surface;
     private final TextureRegistry.SurfaceTextureEntry surfaceTexture;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public FluttieAnimation(FluttiePlugin fluttiePlugin, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, e eVar, float f, String str) {
-        this.f1044plugin = fluttiePlugin;
+        this.f1036plugin = fluttiePlugin;
         this.surfaceTexture = surfaceTextureEntry;
         this.surface = new Surface(surfaceTextureEntry.surfaceTexture());
         Rect gC = eVar.gC();
@@ -91,7 +91,7 @@ public class FluttieAnimation implements ValueAnimator.AnimatorUpdateListener {
 
     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
     public void onAnimationUpdate(@Nullable ValueAnimator valueAnimator) {
-        this.f1044plugin.getRenderingThreads().markDirty(this);
+        this.f1036plugin.getRenderingThreads().markDirty(this);
     }
 
     public boolean isPlaying() {

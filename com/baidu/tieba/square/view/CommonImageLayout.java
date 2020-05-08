@@ -15,17 +15,17 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class CommonImageLayout extends ViewGroup {
-    private static float[] kPf = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static float[] kPg = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static int kPh = 2;
-    private static int kPi = 4;
-    private static int kPj = 0;
+    private static float[] kPj = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static float[] kPk = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static int kPl = 2;
+    private static int kPm = 4;
+    private static int kPn = 0;
     public static float sRatio = -1.0f;
-    public TbImageView kPk;
-    public TbImageView kPl;
-    public TbImageView kPm;
-    private MediaData[] kPn;
-    private boolean kPo;
+    public TbImageView kPo;
+    public TbImageView kPp;
+    public TbImageView kPq;
+    private MediaData[] kPr;
+    private boolean kPs;
     private final Context mContext;
     private boolean mIsFromCDN;
     private int mPadding;
@@ -37,83 +37,83 @@ public class CommonImageLayout extends ViewGroup {
     private void initData() {
         if (sRatio < 0.0f) {
             sRatio = l.getEquipmentWidth(this.mContext) / 320.0f;
-            for (int i = 0; i < kPf.length; i++) {
-                float[] fArr = kPf;
+            for (int i = 0; i < kPj.length; i++) {
+                float[] fArr = kPj;
                 fArr[i] = fArr[i] * sRatio;
-                float[] fArr2 = kPg;
+                float[] fArr2 = kPk;
                 fArr2[i] = fArr2[i] * sRatio;
             }
-            kPh = (int) (kPh * sRatio);
-            kPi = (int) (kPi * sRatio);
+            kPl = (int) (kPl * sRatio);
+            kPm = (int) (kPm * sRatio);
         }
     }
 
     public CommonImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mPadding = 7;
-        this.kPo = false;
+        this.kPs = false;
         this.mIsFromCDN = false;
         this.mContext = context;
         initData();
         TbadkCoreApplication.getInst().getSkinType();
         Drawable drawable = am.getDrawable(R.color.common_color_10220);
-        this.kPk = new TbImageView(context);
-        this.kPl = new TbImageView(context);
-        this.kPm = new TbImageView(context);
-        this.kPk.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.kPl.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.kPm.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.kPk.setDefaultBg(drawable);
-        this.kPl.setDefaultBg(drawable);
-        this.kPm.setDefaultBg(drawable);
-        addView(this.kPk);
-        addView(this.kPl);
-        addView(this.kPm);
+        this.kPo = new TbImageView(context);
+        this.kPp = new TbImageView(context);
+        this.kPq = new TbImageView(context);
+        this.kPo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.kPp.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.kPq.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.kPo.setDefaultBg(drawable);
+        this.kPp.setDefaultBg(drawable);
+        this.kPq.setDefaultBg(drawable);
+        addView(this.kPo);
+        addView(this.kPp);
+        addView(this.kPq);
         this.mPadding = (int) (this.mPadding * sRatio);
     }
 
     public void setShowBig(boolean z) {
-        this.kPo = z;
+        this.kPs = z;
     }
 
     public void setData(MediaData[] mediaDataArr) {
-        this.kPn = mediaDataArr;
-        if (this.kPn == null || this.kPn.length <= 0) {
-            if (this.kPk != null) {
-                this.kPk.setTag(null);
+        this.kPr = mediaDataArr;
+        if (this.kPr == null || this.kPr.length <= 0) {
+            if (this.kPo != null) {
+                this.kPo.setTag(null);
             }
-            if (this.kPl != null) {
-                this.kPl.setTag(null);
+            if (this.kPp != null) {
+                this.kPp.setTag(null);
             }
-            if (this.kPm != null) {
-                this.kPm.setTag(null);
+            if (this.kPq != null) {
+                this.kPq.setTag(null);
             }
             requestLayout();
             invalidate();
             return;
         }
-        int length = this.kPn.length;
+        int length = this.kPr.length;
         if (length == 1) {
-            a(this.kPk, this.kPn[0]);
-            if (this.kPl != null) {
-                this.kPl.setTag(null);
-                this.kPl.setClickable(false);
+            a(this.kPo, this.kPr[0]);
+            if (this.kPp != null) {
+                this.kPp.setTag(null);
+                this.kPp.setClickable(false);
             }
-            if (this.kPm != null) {
-                this.kPm.setTag(null);
-                this.kPm.setClickable(false);
+            if (this.kPq != null) {
+                this.kPq.setTag(null);
+                this.kPq.setClickable(false);
             }
         } else if (length == 2) {
-            a(this.kPk, this.kPn[0]);
-            a(this.kPl, this.kPn[1]);
-            if (this.kPm != null) {
-                this.kPm.setTag(null);
-                this.kPm.setClickable(false);
+            a(this.kPo, this.kPr[0]);
+            a(this.kPp, this.kPr[1]);
+            if (this.kPq != null) {
+                this.kPq.setTag(null);
+                this.kPq.setClickable(false);
             }
         } else if (length == 3) {
-            a(this.kPk, this.kPn[0]);
-            a(this.kPl, this.kPn[1]);
-            a(this.kPm, this.kPn[2]);
+            a(this.kPo, this.kPr[0]);
+            a(this.kPp, this.kPr[1]);
+            a(this.kPq, this.kPr[2]);
         }
         requestLayout();
         invalidate();
@@ -124,54 +124,54 @@ public class CommonImageLayout extends ViewGroup {
         int i3;
         int i4;
         int i5 = 1073741823 & i;
-        if (kPj == 0) {
-            kPj = i5;
+        if (kPn == 0) {
+            kPn = i5;
         }
-        if (this.kPn == null || this.kPn.length == 0) {
+        if (this.kPr == null || this.kPr.length == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
-        if (this.kPo) {
-            setMeasuredDimension(kPj, (int) (kPg[this.kPn.length - 1] + 0.5f));
+        if (this.kPs) {
+            setMeasuredDimension(kPn, (int) (kPk[this.kPr.length - 1] + 0.5f));
         } else {
-            setMeasuredDimension(kPj, (int) (kPg[4] + 0.5f));
+            setMeasuredDimension(kPn, (int) (kPk[4] + 0.5f));
         }
-        switch (this.kPn.length) {
+        switch (this.kPr.length) {
             case 1:
-                if (this.kPo) {
-                    measureChild(this.kPk, kPj + 1073741824, ((int) (kPg[0] + 0.5f)) + 1073741824);
+                if (this.kPs) {
+                    measureChild(this.kPo, kPn + 1073741824, ((int) (kPk[0] + 0.5f)) + 1073741824);
                 } else {
-                    measureChild(this.kPk, ((int) (kPf[4] + 0.5f)) + 1073741824, ((int) (kPg[4] + 0.5f)) + 1073741824);
+                    measureChild(this.kPo, ((int) (kPj[4] + 0.5f)) + 1073741824, ((int) (kPk[4] + 0.5f)) + 1073741824);
                 }
-                measureChild(this.kPl, 0, 0);
-                measureChild(this.kPm, 0, 0);
+                measureChild(this.kPp, 0, 0);
+                measureChild(this.kPq, 0, 0);
                 return;
             case 2:
-                if (this.kPo) {
-                    i3 = ((int) (kPf[1] + 0.5f)) + 1073741824;
-                    i4 = ((int) (kPg[1] + 0.5f)) + 1073741824;
+                if (this.kPs) {
+                    i3 = ((int) (kPj[1] + 0.5f)) + 1073741824;
+                    i4 = ((int) (kPk[1] + 0.5f)) + 1073741824;
                 } else {
-                    i3 = ((int) (kPf[4] + 0.5f)) + 1073741824;
-                    i4 = ((int) (kPg[4] + 0.5f)) + 1073741824;
+                    i3 = ((int) (kPj[4] + 0.5f)) + 1073741824;
+                    i4 = ((int) (kPk[4] + 0.5f)) + 1073741824;
                 }
-                measureChild(this.kPk, i3, i4);
-                measureChild(this.kPl, i3, i4);
-                measureChild(this.kPm, 0, 0);
+                measureChild(this.kPo, i3, i4);
+                measureChild(this.kPp, i3, i4);
+                measureChild(this.kPq, 0, 0);
                 return;
             case 3:
-                if (this.kPo) {
-                    int i6 = ((int) (kPf[3] + 0.5f)) + 1073741824;
-                    int i7 = ((int) (kPg[3] + 0.5f)) + 1073741824;
-                    measureChild(this.kPk, ((int) (kPf[2] + 0.5f)) + 1073741824, ((int) (kPg[2] + 0.5f)) + 1073741824);
-                    measureChild(this.kPl, i6, i7);
-                    measureChild(this.kPm, i6, i7);
+                if (this.kPs) {
+                    int i6 = ((int) (kPj[3] + 0.5f)) + 1073741824;
+                    int i7 = ((int) (kPk[3] + 0.5f)) + 1073741824;
+                    measureChild(this.kPo, ((int) (kPj[2] + 0.5f)) + 1073741824, ((int) (kPk[2] + 0.5f)) + 1073741824);
+                    measureChild(this.kPp, i6, i7);
+                    measureChild(this.kPq, i6, i7);
                     return;
                 }
-                int i8 = ((int) (kPf[4] + 0.5f)) + 1073741824;
-                int i9 = ((int) (kPg[4] + 0.5f)) + 1073741824;
-                measureChild(this.kPk, i8, i9);
-                measureChild(this.kPl, i8, i9);
-                measureChild(this.kPm, i8, i9);
+                int i8 = ((int) (kPj[4] + 0.5f)) + 1073741824;
+                int i9 = ((int) (kPk[4] + 0.5f)) + 1073741824;
+                measureChild(this.kPo, i8, i9);
+                measureChild(this.kPp, i8, i9);
+                measureChild(this.kPq, i8, i9);
                 return;
             default:
                 return;
@@ -180,43 +180,43 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.kPn != null && this.kPn.length != 0) {
-            switch (this.kPn.length) {
+        if (this.kPr != null && this.kPr.length != 0) {
+            switch (this.kPr.length) {
                 case 1:
-                    if (this.kPo) {
-                        int i5 = (int) (kPf[0] + 0.5f);
-                        this.kPk.layout(0, 0, i3, i4 - i2);
+                    if (this.kPs) {
+                        int i5 = (int) (kPj[0] + 0.5f);
+                        this.kPo.layout(0, 0, i3, i4 - i2);
                     } else {
-                        this.kPk.layout(this.mPadding, 0, ((int) (kPf[4] + 0.5f)) + this.mPadding, i4 - i2);
+                        this.kPo.layout(this.mPadding, 0, ((int) (kPj[4] + 0.5f)) + this.mPadding, i4 - i2);
                     }
-                    this.kPl.layout(0, 0, 0, 0);
-                    this.kPm.layout(0, 0, 0, 0);
+                    this.kPp.layout(0, 0, 0, 0);
+                    this.kPq.layout(0, 0, 0, 0);
                     return;
                 case 2:
-                    if (this.kPo) {
-                        int i6 = (int) (kPf[1] + 0.5f);
-                        this.kPk.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
-                        this.kPl.layout(i6 + this.mPadding + kPi, 0, (i3 - this.mPadding) - i, i4 - i2);
+                    if (this.kPs) {
+                        int i6 = (int) (kPj[1] + 0.5f);
+                        this.kPo.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
+                        this.kPp.layout(i6 + this.mPadding + kPm, 0, (i3 - this.mPadding) - i, i4 - i2);
                     } else {
-                        int i7 = (int) (kPf[4] + 0.5f);
-                        this.kPk.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
-                        this.kPl.layout(this.mPadding + i7 + kPh, 0, (i7 * 2) + this.mPadding + kPh, i4 - i2);
+                        int i7 = (int) (kPj[4] + 0.5f);
+                        this.kPo.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
+                        this.kPp.layout(this.mPadding + i7 + kPl, 0, (i7 * 2) + this.mPadding + kPl, i4 - i2);
                     }
-                    this.kPm.layout(0, 0, 0, 0);
+                    this.kPq.layout(0, 0, 0, 0);
                     return;
                 case 3:
-                    if (this.kPo) {
-                        int i8 = (int) (kPf[2] + 0.5f);
-                        int i9 = (int) (kPf[3] + 0.5f);
-                        this.kPk.layout(0, 0, i8, i4 - i2);
-                        this.kPl.layout(kPh + i8, 0, i3, i9);
-                        this.kPm.layout(i8 + kPh, i9 + kPh, i3, i4 - i2);
+                    if (this.kPs) {
+                        int i8 = (int) (kPj[2] + 0.5f);
+                        int i9 = (int) (kPj[3] + 0.5f);
+                        this.kPo.layout(0, 0, i8, i4 - i2);
+                        this.kPp.layout(kPl + i8, 0, i3, i9);
+                        this.kPq.layout(i8 + kPl, i9 + kPl, i3, i4 - i2);
                         return;
                     }
-                    int i10 = (int) (kPf[4] + 0.5f);
-                    this.kPk.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
-                    this.kPl.layout(this.mPadding + i10 + kPh, 0, (i10 * 2) + this.mPadding + kPh, i4 - i2);
-                    this.kPm.layout((i10 * 2) + this.mPadding + (kPh * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
+                    int i10 = (int) (kPj[4] + 0.5f);
+                    this.kPo.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
+                    this.kPp.layout(this.mPadding + i10 + kPl, 0, (i10 * 2) + this.mPadding + kPl, i4 - i2);
+                    this.kPq.layout((i10 * 2) + this.mPadding + (kPl * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
                     return;
                 default:
                     return;
@@ -226,20 +226,20 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.kPn != null && this.kPn.length != 0) {
+        if (this.kPr != null && this.kPr.length != 0) {
             long drawingTime = getDrawingTime();
-            switch (this.kPn.length) {
+            switch (this.kPr.length) {
                 case 1:
-                    drawChild(canvas, this.kPk, drawingTime);
+                    drawChild(canvas, this.kPo, drawingTime);
                     return;
                 case 2:
-                    drawChild(canvas, this.kPk, drawingTime);
-                    drawChild(canvas, this.kPl, drawingTime);
+                    drawChild(canvas, this.kPo, drawingTime);
+                    drawChild(canvas, this.kPp, drawingTime);
                     return;
                 case 3:
-                    drawChild(canvas, this.kPk, drawingTime);
-                    drawChild(canvas, this.kPl, drawingTime);
-                    drawChild(canvas, this.kPm, drawingTime);
+                    drawChild(canvas, this.kPo, drawingTime);
+                    drawChild(canvas, this.kPp, drawingTime);
+                    drawChild(canvas, this.kPq, drawingTime);
                     return;
                 default:
                     return;

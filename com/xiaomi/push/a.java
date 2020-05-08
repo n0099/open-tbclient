@@ -4,13 +4,13 @@ public final class a {
     public static final a a = new a(new byte[0]);
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile int f111a = 0;
+    private volatile int f88a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private final byte[] f112a;
+    private final byte[] f89a;
 
     private a(byte[] bArr) {
-        this.f112a = bArr;
+        this.f89a = bArr;
     }
 
     public static a a(byte[] bArr) {
@@ -24,14 +24,14 @@ public final class a {
     }
 
     public int a() {
-        return this.f112a.length;
+        return this.f89a.length;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m125a() {
-        int length = this.f112a.length;
+    public byte[] m119a() {
+        int length = this.f89a.length;
         byte[] bArr = new byte[length];
-        System.arraycopy(this.f112a, 0, bArr, 0, length);
+        System.arraycopy(this.f89a, 0, bArr, 0, length);
         return bArr;
     }
 
@@ -41,12 +41,12 @@ public final class a {
         }
         if (obj instanceof a) {
             a aVar = (a) obj;
-            int length = this.f112a.length;
-            if (length != aVar.f112a.length) {
+            int length = this.f89a.length;
+            if (length != aVar.f89a.length) {
                 return false;
             }
-            byte[] bArr = this.f112a;
-            byte[] bArr2 = aVar.f112a;
+            byte[] bArr = this.f89a;
+            byte[] bArr2 = aVar.f89a;
             for (int i = 0; i < length; i++) {
                 if (bArr[i] != bArr2[i]) {
                     return false;
@@ -58,10 +58,10 @@ public final class a {
     }
 
     public int hashCode() {
-        int i = this.f111a;
+        int i = this.f88a;
         if (i == 0) {
-            byte[] bArr = this.f112a;
-            int length = this.f112a.length;
+            byte[] bArr = this.f89a;
+            int length = this.f89a.length;
             int i2 = 0;
             i = length;
             while (i2 < length) {
@@ -71,7 +71,7 @@ public final class a {
             if (i == 0) {
                 i = 1;
             }
-            this.f111a = i;
+            this.f88a = i;
         }
         return i;
     }

@@ -11,17 +11,17 @@ import org.json.JSONObject;
 public class c {
     private boolean isHost = false;
     private AlaUserInfoData user_info = new AlaUserInfoData();
-    private h fZx = new h();
-    private p fZy = new p();
-    private final a fZB = new a();
-    private List<AlaLiveInfoData> fZz = new ArrayList();
-    private List<o> fZA = new ArrayList();
+    private h fZC = new h();
+    private p fZD = new p();
+    private final a fZG = new a();
+    private List<AlaLiveInfoData> fZE = new ArrayList();
+    private List<o> fZF = new ArrayList();
 
-    public a bBV() {
-        return this.fZB;
+    public a bBT() {
+        return this.fZG;
     }
 
-    public AlaUserInfoData bBW() {
+    public AlaUserInfoData bBU() {
         return this.user_info;
     }
 
@@ -45,17 +45,17 @@ public class c {
                 for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
                     o oVar = new o();
                     oVar.parseJson(optJSONArray.getJSONObject(i));
-                    this.fZA.add(oVar);
+                    this.fZF.add(oVar);
                 }
                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
                 for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
                     AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                     alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
-                    this.fZz.add(alaLiveInfoData);
+                    this.fZE.add(alaLiveInfoData);
                 }
-                this.fZx.parserJson(jSONObject2.optJSONObject("media"));
-                this.fZy.parserJson(jSONObject2.optJSONObject("privacy_set"));
-                this.fZB.parserJson(jSONObject2.optJSONObject("authority_info"));
+                this.fZC.parserJson(jSONObject2.optJSONObject("media"));
+                this.fZD.parserJson(jSONObject2.optJSONObject("privacy_set"));
+                this.fZG.parserJson(jSONObject2.optJSONObject("authority_info"));
             } catch (Exception e) {
                 e.printStackTrace();
             }

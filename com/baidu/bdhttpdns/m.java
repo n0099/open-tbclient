@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes.dex */
 final class m {
-    private static volatile m abf;
+    private static volatile m abi;
     private final Executor b = new ThreadPoolExecutor(5, 25, 20, TimeUnit.SECONDS, new LinkedBlockingDeque(50));
 
     private m() {
@@ -14,14 +14,14 @@ final class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static m qN() {
-        if (abf == null) {
+        if (abi == null) {
             synchronized (m.class) {
-                if (abf == null) {
-                    abf = new m();
+                if (abi == null) {
+                    abi = new m();
                 }
             }
         }
-        return abf;
+        return abi;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

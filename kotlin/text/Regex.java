@@ -50,12 +50,12 @@ public final class Regex implements Serializable {
     */
     public Regex(String str, Set<? extends RegexOption> set) {
         this(r0);
-        int i;
+        int j;
         kotlin.jvm.internal.q.j(str, "pattern");
         kotlin.jvm.internal.q.j(set, "options");
         a aVar = Companion;
-        i = k.i(set);
-        Pattern compile = Pattern.compile(str, aVar.Jj(i));
+        j = k.j(set);
+        Pattern compile = Pattern.compile(str, aVar.Jj(j));
         kotlin.jvm.internal.q.i(compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
     }
 
@@ -147,12 +147,12 @@ public final class Regex implements Serializable {
         StringBuilder sb = new StringBuilder(length);
         do {
             if (find$default == null) {
-                kotlin.jvm.internal.q.dDV();
+                kotlin.jvm.internal.q.dDR();
             }
-            sb.append(charSequence, i, find$default.dEq().dEh().intValue());
+            sb.append(charSequence, i, find$default.dEm().dEd().intValue());
             sb.append(bVar.invoke(find$default));
-            i = find$default.dEq().dEi().intValue() + 1;
-            find$default = find$default.dEr();
+            i = find$default.dEm().dEe().intValue() + 1;
+            find$default = find$default.dEn();
             if (i >= length) {
                 break;
             }
@@ -185,7 +185,7 @@ public final class Regex implements Serializable {
         if (i >= 0) {
             Matcher matcher = this.nativePattern.matcher(charSequence);
             if (!matcher.find() || i == 1) {
-                return kotlin.collections.o.bB(charSequence.toString());
+                return kotlin.collections.o.bC(charSequence.toString());
             }
             ArrayList arrayList = new ArrayList(i > 0 ? kotlin.b.l.dL(i, 10) : 10);
             int i2 = i - 1;

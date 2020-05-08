@@ -4,55 +4,55 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 /* loaded from: classes11.dex */
 public abstract class d {
-    private Exception OC;
-    private b csl;
+    private Exception OG;
+    private b csr;
 
-    protected abstract boolean amt() throws Exception;
+    protected abstract boolean ams() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
-        return this.OC;
+        return this.OG;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d a(b bVar) {
-        this.csl = bVar;
+        this.csr = bVar;
         return this;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isOk() {
-        return this.OC == null;
+        return this.OG == null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d amu() {
+    public d amt() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.amt()) {
-                        d.this.amv();
+                    if (d.this.ams()) {
+                        d.this.amu();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    d.this.l(e);
+                    d.this.m(e);
                 }
             }
         });
         return this;
     }
 
-    public void amv() {
-        l(null);
+    public void amu() {
+        m(null);
     }
 
-    public void l(@Nullable Exception exc) {
-        this.OC = exc;
+    public void m(@Nullable Exception exc) {
+        this.OG = exc;
         c.j(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.this.csl.b(d.this);
+                d.this.csr.b(d.this);
             }
         });
     }

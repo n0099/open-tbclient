@@ -105,19 +105,19 @@ public class a extends UnitedSchemeBaseDispatcher {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e(TAG, "model is null");
             return false;
-        } else if (!a.Ok()) {
+        } else if (!a.Oj()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e(TAG, "parse insert params, but invalid");
             return false;
         } else {
-            com.baidu.swan.apps.component.b.c Sw = new com.baidu.i.a.a(context, a).Sw();
-            boolean isSuccess = Sw.isSuccess();
+            com.baidu.swan.apps.component.b.c Sv = new com.baidu.i.a.a(context, a).Sv();
+            boolean isSuccess = Sv.isSuccess();
             c.i(TAG, "insert anim view success = " + isSuccess);
             if (isSuccess) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sw.msg);
-                c.e(TAG, "insert anim view, but failure: " + Sw.msg);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sv.msg);
+                c.e(TAG, "insert anim view, but failure: " + Sv.msg);
             }
             return isSuccess;
         }
@@ -170,15 +170,15 @@ public class a extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "get component is null");
                 return false;
             }
-            com.baidu.swan.apps.component.b.c Sy = aVar.Sy();
-            boolean isSuccess = Sy.isSuccess();
+            com.baidu.swan.apps.component.b.c Sx = aVar.Sx();
+            boolean isSuccess = Sx.isSuccess();
             c.i(TAG, "remove anim view success = " + isSuccess);
             if (isSuccess) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return isSuccess;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sy.msg);
-            c.e(TAG, "remove anim view, but failure: " + Sy.msg);
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sx.msg);
+            c.e(TAG, "remove anim view, but failure: " + Sx.msg);
             return isSuccess;
         }
     }
@@ -194,7 +194,7 @@ public class a extends UnitedSchemeBaseDispatcher {
             c.e(TAG, "parse remove params, but invalid");
             return false;
         } else {
-            boolean a2 = a(a.path, e.akN());
+            boolean a2 = a(a.path, e.akM());
             String str = null;
             try {
                 JSONObject jSONObject = new JSONObject(unitedSchemeEntity.getParam("params"));

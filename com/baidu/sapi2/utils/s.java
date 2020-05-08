@@ -1,13 +1,15 @@
 package com.baidu.sapi2.utils;
 
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 /* loaded from: classes6.dex */
-class s implements ThreadFactory {
-    private final AtomicInteger a = new AtomicInteger(1);
+class s extends HttpHandlerWrap {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(boolean z) {
+        super(z);
+    }
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        return new Thread(runnable, "pass_pool_thread # " + this.a.getAndIncrement());
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+    public void onSuccess(int i, String str) {
     }
 }

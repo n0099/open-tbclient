@@ -5,10 +5,10 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class d {
     private String currentPageKey;
-    private String doY;
-    public String edd;
-    private String ede;
-    public String edf;
+    private String dpc;
+    public String edi;
+    private String edj;
+    public String edk;
     private long fid;
     public boolean isRouteStat = false;
     public String isVertical;
@@ -73,20 +73,20 @@ public class d {
         return this.task_id;
     }
 
-    public String aZk() {
-        return this.doY;
+    public String aZi() {
+        return this.dpc;
     }
 
-    public void wV(String str) {
-        this.doY = str;
+    public void wY(String str) {
+        this.dpc = str;
     }
 
-    public String aZl() {
-        return this.ede;
+    public String aZj() {
+        return this.edj;
     }
 
-    public void wW(String str) {
-        this.ede = str;
+    public void wZ(String str) {
+        this.edj = str;
     }
 
     public boolean isDirtyData() {

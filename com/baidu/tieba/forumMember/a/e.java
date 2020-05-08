@@ -6,9 +6,9 @@ import com.baidu.adp.widget.ListView.m;
 import tbclient.User;
 /* loaded from: classes10.dex */
 public class e implements m {
-    public static final BdUniqueId gUv = BdUniqueId.gen();
+    public static final BdUniqueId gUB = BdUniqueId.gen();
     private int fansNum;
-    private String gDu;
+    private String gDA;
     private String intro;
     private String name;
     private String nameShow;
@@ -16,7 +16,7 @@ public class e implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gUv;
+        return gUB;
     }
 
     public String getUserId() {
@@ -28,11 +28,11 @@ public class e implements m {
     }
 
     public String getHeadUrl() {
-        return this.gDu;
+        return this.gDA;
     }
 
     public void setHeadUrl(String str) {
-        this.gDu = str;
+        this.gDA = str;
     }
 
     public String getName() {

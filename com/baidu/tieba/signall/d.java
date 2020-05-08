@@ -8,19 +8,19 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d implements ae {
     private String avatar;
-    private int eVH;
+    private int eVM;
     private String errorMsg;
     private int forumId;
     private String forumName;
     private boolean isSigned;
-    private int kJh;
-    private int kJi;
-    private int kJj;
-    private int kJk;
-    private boolean kJl;
-    private boolean kJm;
-    private boolean kJn;
+    private int kJl;
+    private int kJm;
+    private int kJn;
     private int kJo;
+    private boolean kJp;
+    private boolean kJq;
+    private boolean kJr;
+    private int kJs;
 
     public int getForumId() {
         return this.forumId;
@@ -34,82 +34,82 @@ public class d implements ae {
         return this.avatar;
     }
 
+    public int cTD() {
+        return this.kJl;
+    }
+
+    public int cTE() {
+        return this.eVM;
+    }
+
+    public int cTF() {
+        return this.kJm;
+    }
+
     public int cTG() {
-        return this.kJh;
+        return this.kJn;
     }
 
     public int cTH() {
-        return this.eVH;
-    }
-
-    public int cTI() {
-        return this.kJi;
-    }
-
-    public int cTJ() {
-        return this.kJj;
-    }
-
-    public int cTK() {
-        return this.kJk;
+        return this.kJo;
     }
 
     public void CM(int i) {
-        this.kJh = i;
+        this.kJl = i;
     }
 
     public void CN(int i) {
-        this.eVH = i;
+        this.eVM = i;
     }
 
     public void CO(int i) {
-        this.kJi = i;
+        this.kJm = i;
     }
 
-    public boolean bmd() {
+    public boolean bmb() {
         return this.isSigned;
     }
 
     public void tG(boolean z) {
         this.isSigned = z;
-        this.kJh = 1;
+        this.kJl = 1;
     }
 
-    public boolean cTL() {
-        return this.kJm;
+    public boolean cTI() {
+        return this.kJq;
     }
 
     public void tH(boolean z) {
-        this.kJm = z;
-        this.kJh = 0;
+        this.kJq = z;
+        this.kJl = 0;
     }
 
-    public boolean cTM() {
-        return this.kJn;
+    public boolean cTJ() {
+        return this.kJr;
     }
 
     public void tI(boolean z) {
-        this.kJn = z;
+        this.kJr = z;
     }
 
-    public int cTN() {
-        return this.kJo;
+    public int cTK() {
+        return this.kJs;
     }
 
     public void CP(int i) {
-        this.kJo = i;
+        this.kJs = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean cTO() {
-        return this.kJl;
+    public boolean cTL() {
+        return this.kJp;
     }
 
     public void tJ(boolean z) {
-        this.kJl = z;
+        this.kJp = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -117,14 +117,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
-            this.kJh = jSONObject.optInt("is_sign_in");
-            this.eVH = jSONObject.optInt("cont_sign_num");
-            this.kJi = jSONObject.optInt("user_level");
-            this.kJj = jSONObject.optInt("user_exp");
-            this.kJk = jSONObject.optInt("need_exp");
-            if (this.kJh != 0) {
+            this.kJl = jSONObject.optInt("is_sign_in");
+            this.eVM = jSONObject.optInt("cont_sign_num");
+            this.kJm = jSONObject.optInt("user_level");
+            this.kJn = jSONObject.optInt("user_exp");
+            this.kJo = jSONObject.optInt("need_exp");
+            if (this.kJl != 0) {
                 this.isSigned = true;
-                this.kJm = false;
+                this.kJq = false;
             }
         }
     }

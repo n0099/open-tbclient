@@ -14,13 +14,13 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cJy;
-    private HandlerThread cJC;
-    private SwanAudioPlayer cJD;
+    private static volatile b cJE;
+    private HandlerThread cJI;
+    private SwanAudioPlayer cJJ;
     private Handler mHandler;
-    private HashMap<String, Long> cJA = new HashMap<>();
-    private String cJB = f.atM();
-    private com.baidu.swan.games.audio.a.b cJz = new com.baidu.swan.games.audio.a.b(this.cJB);
+    private HashMap<String, Long> cJG = new HashMap<>();
+    private String cJH = f.atM();
+    private com.baidu.swan.games.audio.a.b cJF = new com.baidu.swan.games.audio.a.b(this.cJH);
 
     static {
         com.baidu.swan.games.utils.so.d.ayx();
@@ -31,28 +31,28 @@ public class b {
         atU().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.cJD = SwanAudioPlayer.getInstance();
+                b.this.cJJ = SwanAudioPlayer.getInstance();
                 SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
             }
         });
     }
 
     public static b atS() {
-        if (cJy == null) {
+        if (cJE == null) {
             synchronized (b.class) {
-                if (cJy == null) {
-                    cJy = new b();
+                if (cJE == null) {
+                    cJE = new b();
                 }
             }
         }
-        return cJy;
+        return cJE;
     }
 
     private void atT() {
-        if (this.cJC == null) {
-            this.cJC = new HandlerThread("audio_thread");
-            this.cJC.start();
-            this.mHandler = new Handler(this.cJC.getLooper());
+        if (this.cJI == null) {
+            this.cJI = new HandlerThread("audio_thread");
+            this.cJI.start();
+            this.mHandler = new Handler(this.cJI.getLooper());
         }
     }
 
@@ -61,11 +61,11 @@ public class b {
     }
 
     public void a(String str, com.baidu.swan.games.audio.a.a aVar) {
-        this.cJz.a(str, aVar);
+        this.cJF.a(str, aVar);
     }
 
     public String pE(String str) throws MalformedURLException {
-        return this.cJB + f.pz(str);
+        return this.cJH + f.pz(str);
     }
 
     public synchronized c L(String str, boolean z) {
@@ -76,8 +76,8 @@ public class b {
     }
 
     public long pF(String str) {
-        if (this.cJA.containsKey(str)) {
-            return this.cJA.get(str).longValue();
+        if (this.cJG.containsKey(str)) {
+            return this.cJG.get(str).longValue();
         }
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
@@ -85,7 +85,7 @@ public class b {
                 mediaMetadataRetriever.setDataSource(str);
                 long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
                 mediaMetadataRetriever.release();
-                this.cJA.put(str, Long.valueOf(parseLong));
+                this.cJG.put(str, Long.valueOf(parseLong));
                 return parseLong;
             } catch (Exception e) {
                 if (DEBUG) {
@@ -100,36 +100,36 @@ public class b {
     }
 
     public void pauseAll() {
-        if (this.cJD != null) {
+        if (this.cJJ != null) {
             atU().postDelayed(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.cJD.pauseAll();
+                    b.this.cJJ.pauseAll();
                 }
             }, 50L);
         }
     }
 
     public void onResume() {
-        if (this.cJD != null) {
+        if (this.cJJ != null) {
             atU().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.cJD.resume();
+                    b.this.cJJ.resume();
                 }
             });
         }
     }
 
     public boolean atV() {
-        if (this.cJD != null) {
-            this.cJD.isAudioPlayer();
+        if (this.cJJ != null) {
+            this.cJJ.isAudioPlayer();
             return false;
         }
         return false;
     }
 
-    public void a(JsArrayBuffer jsArrayBuffer, a.InterfaceC0360a interfaceC0360a) {
-        a.atR().a(jsArrayBuffer, interfaceC0360a);
+    public void a(JsArrayBuffer jsArrayBuffer, a.InterfaceC0381a interfaceC0381a) {
+        a.atR().a(jsArrayBuffer, interfaceC0381a);
     }
 }

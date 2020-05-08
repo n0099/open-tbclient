@@ -7,8 +7,8 @@ import com.baidu.swan.games.bdtls.e;
 import com.baidu.swan.games.bdtls.model.i;
 /* loaded from: classes11.dex */
 public abstract class b {
-    protected boolean cKD = false;
-    protected int cKE = 0;
+    protected boolean cKJ = false;
+    protected int cKK = 0;
 
     public abstract void O(byte[] bArr);
 
@@ -19,18 +19,18 @@ public abstract class b {
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
         }
-        if (this.cKD) {
+        if (this.cKJ) {
             i a = d.atZ().a(e.aua().aub(), bArr);
             if (a != null) {
                 if (!TextUtils.isEmpty(a.getResponseMessage())) {
                     str = a.getResponseMessage();
                 }
-                this.cKE = a.auY().intValue();
+                this.cKK = a.auY().intValue();
             } else {
-                this.cKE = -1;
+                this.cKK = -1;
             }
-            e.aua().aub().hU(this.cKE);
-            if (this.cKE == -1) {
+            e.aua().aub().hU(this.cKK);
+            if (this.cKK == -1) {
                 com.baidu.swan.games.bdtls.c.atY().setEnable(false);
             }
         }
@@ -38,11 +38,11 @@ public abstract class b {
     }
 
     public final void pJ(String str) {
-        this.cKE = 0;
+        this.cKK = 0;
         com.baidu.swan.games.bdtls.c.atY().a(str, this);
     }
 
     public void fy(boolean z) {
-        this.cKD = z;
+        this.cKJ = z;
     }
 }

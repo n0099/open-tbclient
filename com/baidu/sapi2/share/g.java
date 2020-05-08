@@ -51,7 +51,7 @@ class g implements Runnable {
                 } else {
                     hashMap.put("isLogin", "false");
                 }
-                com.baidu.sapi2.utils.r.a("share_silent_account_success", hashMap);
+                com.baidu.sapi2.utils.t.a("share_silent_account_success", hashMap);
             }
         } catch (Throwable th) {
             try {

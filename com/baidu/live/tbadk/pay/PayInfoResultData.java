@@ -1,6 +1,5 @@
 package com.baidu.live.tbadk.pay;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.live.tbadk.core.data.BaseData;
 import java.io.Serializable;
@@ -26,7 +25,7 @@ public class PayInfoResultData extends BaseData implements Serializable {
     public void parserNuomiJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.errno = jSONObject.optInt("error_code", 0);
-            this.errmsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            this.errmsg = jSONObject.optString("error_msg");
             JSONObject optJSONObject = jSONObject.optJSONObject("order_info");
             if (optJSONObject != null) {
                 this.pay_status = optJSONObject.optInt("result");

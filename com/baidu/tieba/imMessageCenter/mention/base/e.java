@@ -10,52 +10,52 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class e {
-    private BdTypeRecyclerView Vf;
-    private List<com.baidu.adp.widget.ListView.a> aMd = new LinkedList();
-    private ArrayList<m> gxX;
-    private b iCd;
-    private b iCe;
-    private b iCf;
-    private b iCg;
-    private b iCh;
+    private BdTypeRecyclerView Vi;
+    private List<com.baidu.adp.widget.ListView.a> aMj = new LinkedList();
+    private ArrayList<m> gyd;
+    private b iCj;
+    private b iCk;
+    private b iCl;
+    private b iCm;
+    private b iCn;
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.Vf = bdTypeRecyclerView;
+            this.Vi = bdTypeRecyclerView;
             v(tbPageContext);
         }
     }
 
     private void v(TbPageContext tbPageContext) {
-        this.iCd = new b(tbPageContext, a.iBM);
-        this.iCe = new b(tbPageContext, a.iBN);
-        this.iCf = new b(tbPageContext, a.iBQ);
-        this.iCg = new b(tbPageContext, a.iBP);
-        this.iCh = new b(tbPageContext, a.iBO);
-        this.aMd.add(this.iCd);
-        this.aMd.add(this.iCe);
-        this.aMd.add(this.iCf);
-        this.aMd.add(this.iCg);
-        this.aMd.add(this.iCh);
-        this.Vf.addAdapters(this.aMd);
+        this.iCj = new b(tbPageContext, a.iBS);
+        this.iCk = new b(tbPageContext, a.iBT);
+        this.iCl = new b(tbPageContext, a.iBW);
+        this.iCm = new b(tbPageContext, a.iBV);
+        this.iCn = new b(tbPageContext, a.iBU);
+        this.aMj.add(this.iCj);
+        this.aMj.add(this.iCk);
+        this.aMj.add(this.iCl);
+        this.aMj.add(this.iCm);
+        this.aMj.add(this.iCn);
+        this.Vi.addAdapters(this.aMj);
     }
 
     public void onDestory() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aMd) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
         }
     }
 
     public void setData(ArrayList<m> arrayList) {
-        this.Vf.setData(arrayList);
-        this.gxX = arrayList;
+        this.Vi.setData(arrayList);
+        this.gyd = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.Vf.getAdapter().notifyDataSetChanged();
+        this.Vi.getAdapter().notifyDataSetChanged();
     }
 
     public void e(v vVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aMd) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
             if (aVar != null) {
                 aVar.a(vVar);
             }
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void setOnCardSubClickListener(z zVar) {
-        this.iCh.setOnCardSubClickListener(zVar);
-        this.iCg.setOnCardSubClickListener(zVar);
-        this.iCf.setOnCardSubClickListener(zVar);
+        this.iCn.setOnCardSubClickListener(zVar);
+        this.iCm.setOnCardSubClickListener(zVar);
+        this.iCl.setOnCardSubClickListener(zVar);
     }
 }

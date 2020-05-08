@@ -10,8 +10,8 @@ import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.AccountRealNameActivity;
 import com.baidu.sapi2.activity.AddressManageActivity;
 import com.baidu.sapi2.activity.AuthWidgetActivity;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.activity.BindWidgetActivity;
-import com.baidu.sapi2.activity.FillUProfileActivity;
 import com.baidu.sapi2.activity.InvoiceBuildActivity;
 import com.baidu.sapi2.activity.LoginActivity;
 import com.baidu.sapi2.activity.ModifyPwdActivity;
@@ -19,6 +19,7 @@ import com.baidu.sapi2.activity.NormalizeGuestAccountActivity;
 import com.baidu.sapi2.activity.OperationRecordActivity;
 import com.baidu.sapi2.activity.QrLoginActivity;
 import com.baidu.sapi2.activity.RegisterActivity;
+import com.baidu.sapi2.activity.SwitchAccountActivity;
 import com.baidu.sapi2.bio.BiometricsManager;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
@@ -31,13 +32,13 @@ import com.baidu.sapi2.callback.ImageCropCallback;
 import com.baidu.sapi2.callback.InvoiceBuildCallback;
 import com.baidu.sapi2.callback.LoginStatusChangeCallback;
 import com.baidu.sapi2.callback.NormalizeGuestAccountCallback;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
 import com.baidu.sapi2.callback.QrLoginCallback;
 import com.baidu.sapi2.callback.RegisterUserFaceIDCallback;
 import com.baidu.sapi2.callback.SapiWebCallback;
 import com.baidu.sapi2.callback.SmsViewLoginCallback;
 import com.baidu.sapi2.callback.VerifyUserFaceIDCallback;
 import com.baidu.sapi2.callback.WebBindWidgetCallback;
-import com.baidu.sapi2.callback.WebFillUProfileCallback;
 import com.baidu.sapi2.callback.WebModifyPwdCallback;
 import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.dto.AddressManageDTO;
@@ -47,11 +48,13 @@ import com.baidu.sapi2.dto.InvoiceBuildDTO;
 import com.baidu.sapi2.dto.NormalizeGuestAccountDTO;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.RealNameDTO;
+import com.baidu.sapi2.dto.SwitchAccountDTO;
 import com.baidu.sapi2.dto.WebBindWidgetDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
 import com.baidu.sapi2.dto.WebSocialLoginDTO;
 import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
+import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.result.RealNameFaceIDResult;
 import com.baidu.sapi2.result.UnRealNameFaceIDResult;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
@@ -65,6 +68,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,8 +78,9 @@ public final class PassportSDK {
     private static LoginStatusChangeCallback b;
     private AddressManageCallback A;
     private InvoiceBuildCallback B;
-    private String C;
-    private Context D = SapiAccountManager.getInstance().getSapiConfiguration().context;
+    private OneKeyLoginCallback C;
+    private String D;
+    private Context E = SapiAccountManager.getInstance().getSapiConfiguration().context;
     private AbstractThirdPartyService c;
     private WebAuthListener d;
     private WebLoginDTO e;
@@ -87,9 +92,9 @@ public final class PassportSDK {
     private AddressManageDTO k;
     private RealNameDTO l;
     private InvoiceBuildDTO m;
-    private AccountCenterCallback n;
-    private AccountRealNameCallback o;
-    private WebFillUProfileCallback p;
+    private SwitchAccountDTO n;
+    private AccountCenterCallback o;
+    private AccountRealNameCallback p;
     private WebBindWidgetCallback q;
     private WebModifyPwdCallback r;
     private SapiWebCallback s;
@@ -132,7 +137,7 @@ public final class PassportSDK {
             String optString = optJSONObject.optString("open_appid");
             String optString2 = optJSONObject.optString("open_apikey");
             if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new l(this, optInt, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult, context), optString, optString2);
+                SapiAccountManager.getInstance().getAccountService().extendSysWebViewMethodCheck(new n(this, optInt, extendSysWebViewMethodCallback, optJSONObject, extendSysWebViewMethodResult, context), optString, optString2);
                 return;
             }
             extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, "-310");
@@ -147,7 +152,7 @@ public final class PassportSDK {
     }
 
     public AccountCenterCallback getAccountCenterCallback() {
-        return this.n;
+        return this.o;
     }
 
     public AccountCenterDTO getAccountCenterDTO() {
@@ -155,7 +160,7 @@ public final class PassportSDK {
     }
 
     public AccountRealNameCallback getAccountRealNameCallback() {
-        return this.o;
+        return this.p;
     }
 
     public ActivityResultCallback getActivityResultCallback() {
@@ -198,6 +203,10 @@ public final class PassportSDK {
         return this.j;
     }
 
+    public OneKeyLoginCallback getOneKeyLoginCallback() {
+        return this.C;
+    }
+
     public QrLoginCallback getQrLoginCallback() {
         return this.v;
     }
@@ -210,12 +219,8 @@ public final class PassportSDK {
         return this.s;
     }
 
-    public String getSidKey() {
-        return SapiContext.getInstance().getSapiOptions().da;
-    }
-
     public String getSmsLoginStatExtra() {
-        return WebLoginDTO.getStatExtraDecode(this.C);
+        return WebLoginDTO.getStatExtraDecode(this.D);
     }
 
     public SmsViewLoginCallback getSmsViewLoginCallback() {
@@ -224,6 +229,10 @@ public final class PassportSDK {
 
     public WebSocialLoginDTO getSocialLoginDTO() {
         return this.h;
+    }
+
+    public SwitchAccountDTO getSwitchAccountDTO() {
+        return this.n;
     }
 
     public AbstractThirdPartyService getThirdPartyService() {
@@ -243,10 +252,6 @@ public final class PassportSDK {
 
     public WebBindWidgetDTO getWebBindWidgetDTO() {
         return this.g;
-    }
-
-    public WebFillUProfileCallback getWebFillUProfileCallback() {
-        return this.p;
     }
 
     public WebLoginDTO getWebLoginDTO() {
@@ -276,25 +281,25 @@ public final class PassportSDK {
 
     public void loadAccountCenter(AccountCenterCallback accountCenterCallback, AccountCenterDTO accountCenterDTO) {
         SapiAccount currentAccount;
-        if (SapiContext.getInstance(this.D).getSapiOptions().r().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance(this.D).getCurrentAccount()) != null) {
+        if (SapiContext.getInstance().getSapiOptions().q().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
             accountCenterDTO.bduss = currentAccount.bduss;
         }
-        this.n = accountCenterCallback;
+        this.o = accountCenterCallback;
         this.i = accountCenterDTO;
-        Intent intent = new Intent(this.D, AccountCenterActivity.class);
+        Intent intent = new Intent(this.E, AccountCenterActivity.class);
         intent.setFlags(268435456);
-        this.D.startActivity(intent);
+        this.E.startActivity(intent);
     }
 
     public void loadAccountRealName(AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
-        loadAccountRealName(this.D, accountRealNameCallback, realNameDTO);
+        loadAccountRealName(this.E, accountRealNameCallback, realNameDTO);
     }
 
     public void loadAddressManage(Context context, AddressManageDTO addressManageDTO, AddressManageCallback addressManageCallback) {
         this.k = addressManageDTO;
         this.A = addressManageCallback;
         if (context == null) {
-            context = this.D;
+            context = this.E;
         }
         Intent intent = new Intent(context, AddressManageActivity.class);
         if (!(context instanceof Activity)) {
@@ -306,41 +311,22 @@ public final class PassportSDK {
     public void loadBindWidget(WebBindWidgetCallback webBindWidgetCallback, WebBindWidgetDTO webBindWidgetDTO) {
         SapiAccount currentAccount;
         this.q = webBindWidgetCallback;
-        if (SapiContext.getInstance(this.D).getSapiOptions().r().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance(this.D).getCurrentAccount()) != null) {
+        if (SapiContext.getInstance().getSapiOptions().q().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
             webBindWidgetDTO.bduss = currentAccount.bduss;
         }
         this.g = webBindWidgetDTO;
-        Intent intent = new Intent(this.D, BindWidgetActivity.class);
+        Intent intent = new Intent(this.E, BindWidgetActivity.class);
         intent.putExtra(BindWidgetActivity.EXTRA_BIND_WIDGET_ACTION, webBindWidgetDTO.bindWidgetAction);
         intent.putExtra("EXTRA_BDUSS", webBindWidgetDTO.bduss);
         intent.setFlags(268435456);
-        this.D.startActivity(intent);
-    }
-
-    public void loadFillProfile(WebFillUProfileCallback webFillUProfileCallback, String str) {
-        this.p = webFillUProfileCallback;
-        Intent intent = new Intent(this.D, FillUProfileActivity.class);
-        intent.putExtra("EXTRA_BDUSS", str);
-        intent.putExtra(FillUProfileActivity.EXTRA_SIMPLIFIED, true);
-        intent.setFlags(268435456);
-        this.D.startActivity(intent);
-    }
-
-    public void loadHuaweiLogin(WebAuthListener webAuthListener, String str, String str2) {
-        this.d = webAuthListener;
-        a();
-        AbstractThirdPartyService abstractThirdPartyService = this.c;
-        if (abstractThirdPartyService == null) {
-            return;
-        }
-        abstractThirdPartyService.loadHuaweiLogin(this.D, webAuthListener, str, str2);
+        this.E.startActivity(intent);
     }
 
     public void loadInvoiceBuild(Context context, InvoiceBuildDTO invoiceBuildDTO, InvoiceBuildCallback invoiceBuildCallback) {
         this.m = invoiceBuildDTO;
         this.B = invoiceBuildCallback;
         if (context == null) {
-            context = this.D;
+            context = this.E;
         }
         Intent intent = new Intent(context, InvoiceBuildActivity.class);
         if (!(context instanceof Activity)) {
@@ -352,25 +338,40 @@ public final class PassportSDK {
     public void loadModifyPwd(WebModifyPwdCallback webModifyPwdCallback, String str) {
         SapiAccount currentAccount;
         this.r = webModifyPwdCallback;
-        if (SapiContext.getInstance(this.D).getSapiOptions().r().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance(this.D).getCurrentAccount()) != null) {
+        if (SapiContext.getInstance().getSapiOptions().q().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
             str = currentAccount.bduss;
         }
-        Intent intent = new Intent(this.D, ModifyPwdActivity.class);
+        Intent intent = new Intent(this.E, ModifyPwdActivity.class);
         intent.putExtra("EXTRA_BDUSS", str);
         intent.setFlags(268435456);
-        this.D.startActivity(intent);
+        this.E.startActivity(intent);
+    }
+
+    public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
+        loadOneKeyLogin(context, str, true, oneKeyLoginCallback);
     }
 
     public void loadOperationRecord(SapiWebCallback sapiWebCallback, String str) {
         this.s = sapiWebCallback;
-        Intent intent = new Intent(this.D, OperationRecordActivity.class);
+        Intent intent = new Intent(this.E, OperationRecordActivity.class);
         intent.putExtra("EXTRA_BDUSS", str);
         intent.setFlags(268435456);
-        this.D.startActivity(intent);
+        this.E.startActivity(intent);
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str) {
         loadQrLogin(qrLoginCallback, str, null, true);
+    }
+
+    public void loadSwitchAccount(SwitchAccountDTO switchAccountDTO, WebAuthListener webAuthListener) {
+        this.n = switchAccountDTO;
+        this.d = webAuthListener;
+        Intent intent = new Intent(this.E, SwitchAccountActivity.class);
+        intent.setFlags(268435456);
+        this.E.startActivity(intent);
+        LinkedHashMap linkedHashMap = new LinkedHashMap(1);
+        linkedHashMap.put("eventType", "switch_account_enter");
+        com.baidu.sapi2.utils.t.a(linkedHashMap);
     }
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
@@ -386,7 +387,7 @@ public final class PassportSDK {
 
     public void registerUserFaceID(RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
         if (TextUtils.isEmpty(faceIDRegDTO.authsid)) {
-            startAuth(new h(this, registerUserFaceIDCallback, faceIDRegDTO), faceIDRegDTO.authWidgetURL);
+            startAuth(new j(this, registerUserFaceIDCallback, faceIDRegDTO), faceIDRegDTO.authWidgetURL);
         } else {
             b(registerUserFaceIDCallback, "faceDetect", faceIDRegDTO.authsid, faceIDRegDTO.livingUname, faceIDRegDTO.showGuidePage, faceIDRegDTO.subpro, faceIDRegDTO.businessSence);
         }
@@ -399,23 +400,24 @@ public final class PassportSDK {
         this.g = null;
         this.h = null;
         this.j = null;
-        this.n = null;
-        this.p = null;
+        this.o = null;
         this.q = null;
         this.r = null;
         this.s = null;
         this.t = null;
         this.u = null;
         this.i = null;
-        this.o = null;
+        this.p = null;
         this.v = null;
         this.w = null;
-        this.C = null;
+        this.D = null;
         this.x = null;
         this.y = null;
         this.z = null;
         this.k = null;
         this.A = null;
+        this.C = null;
+        this.n = null;
         PassportViewManager.getInstance().release();
     }
 
@@ -427,24 +429,20 @@ public final class PassportSDK {
         this.t = imageCropCallback;
     }
 
-    public void setSidValue(String str) {
-        SapiAccountManager.getInstance().getConfignation().sidValue = str;
-    }
-
     public void setThirdPartyService(AbstractThirdPartyService abstractThirdPartyService) {
         this.c = abstractThirdPartyService;
     }
 
     public void startAuth(AuthWidgetCallback authWidgetCallback, String str) {
         this.y = authWidgetCallback;
-        Intent intent = new Intent(this.D, AuthWidgetActivity.class);
+        Intent intent = new Intent(this.E, AuthWidgetActivity.class);
         intent.putExtra(AuthWidgetActivity.EXTRA_PARAM_AUTH_URL, str);
         intent.setFlags(268435456);
-        this.D.startActivity(intent);
+        this.E.startActivity(intent);
     }
 
     public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        startLogin(this.D, webAuthListener, webLoginDTO);
+        startLogin(this.E, webAuthListener, webLoginDTO);
     }
 
     public void startNormalizeGuestAccount(Context context, NormalizeGuestAccountCallback normalizeGuestAccountCallback, NormalizeGuestAccountDTO normalizeGuestAccountDTO) {
@@ -461,19 +459,19 @@ public final class PassportSDK {
     public void startRegister(WebAuthListener webAuthListener, WebRegDTO webRegDTO) {
         this.d = webAuthListener;
         this.f = webRegDTO;
-        Intent intent = new Intent(this.D, RegisterActivity.class);
+        Intent intent = new Intent(this.E, RegisterActivity.class);
         intent.setFlags(268435456);
-        this.D.startActivity(intent);
+        this.E.startActivity(intent);
     }
 
     public void startSmsViewLogin(SmsViewLoginCallback smsViewLoginCallback, String str) {
         this.w = smsViewLoginCallback;
-        this.C = str;
+        this.D = str;
         SmsLoginView.notifyStartLogin();
     }
 
     public void verifyUserFaceId(VerifyUserFaceIDCallback verifyUserFaceIDCallback, FaceIDVerifyDTO faceIDVerifyDTO) {
-        verifyUserFaceId(this.D, verifyUserFaceIDCallback, faceIDVerifyDTO);
+        verifyUserFaceId(this.E, verifyUserFaceIDCallback, faceIDVerifyDTO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -495,7 +493,7 @@ public final class PassportSDK {
     }
 
     public void loadAccountRealName(Context context, AccountRealNameCallback accountRealNameCallback, RealNameDTO realNameDTO) {
-        this.o = accountRealNameCallback;
+        this.p = accountRealNameCallback;
         this.l = realNameDTO;
         Intent intent = new Intent(context, AccountRealNameActivity.class);
         if (realNameDTO != null) {
@@ -508,7 +506,21 @@ public final class PassportSDK {
             return;
         }
         intent.setFlags(268435456);
-        this.D.startActivity(intent);
+        this.E.startActivity(intent);
+    }
+
+    public void loadOneKeyLogin(Context context, String str, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
+        if (oneKeyLoginCallback != null) {
+            if (TextUtils.isEmpty(str)) {
+                Log.d(Log.TAG, "oneKeyLogin sign is empty!");
+                new com.baidu.sapi2.outsdk.c().a(oneKeyLoginCallback, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CHECK_SIGN_FAIL, (String) null);
+                return;
+            }
+            this.C = oneKeyLoginCallback;
+            new com.baidu.sapi2.outsdk.c().b(SapiAccountManager.getInstance().getSapiConfiguration(), new f(this, oneKeyLoginCallback, str, z, context));
+            return;
+        }
+        Log.e(Log.TAG, "When load oneKeyLogin, oneKeyLoginCallback can't be null!");
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2) {
@@ -520,11 +532,11 @@ public final class PassportSDK {
         if (!TextUtils.isEmpty(str)) {
             arrayList.add(new PassNameValuePair("extrajson", str));
         }
-        new com.baidu.sapi2.share.m().a(new e(this), i, i2, intent, arrayList);
+        new com.baidu.sapi2.share.m().a(new g(this), i, i2, intent, arrayList);
     }
 
     public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
-        SapiWebView.statLoadLogin = new com.baidu.sapi2.utils.o();
+        SapiWebView.statLoadLogin = new com.baidu.sapi2.utils.q();
         SapiWebView.statLoadLogin.g = System.currentTimeMillis();
         this.d = webAuthListener;
         this.e = webLoginDTO;
@@ -534,17 +546,21 @@ public final class PassportSDK {
         if (!TextUtils.isEmpty(webLoginDTO.preSetUname)) {
             intent.putExtra("username", webLoginDTO.preSetUname);
         }
+        int i = webLoginDTO.businessType;
+        if (i != 0) {
+            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
+        }
         if (context instanceof Activity) {
             context.startActivity(intent);
             return;
         }
         intent.setFlags(268435456);
-        this.D.startActivity(intent);
+        this.E.startActivity(intent);
     }
 
     public void verifyUserFaceId(Context context, VerifyUserFaceIDCallback verifyUserFaceIDCallback, FaceIDVerifyDTO faceIDVerifyDTO) {
         SapiAccount currentAccount;
-        if (SapiContext.getInstance(context).getSapiOptions().r().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance(context).getCurrentAccount()) != null) {
+        if (SapiContext.getInstance().getSapiOptions().q().contains(SapiAccountManager.getInstance().getConfignation().tpl) && (currentAccount = SapiContext.getInstance().getCurrentAccount()) != null) {
             faceIDVerifyDTO.bduss = currentAccount.bduss;
             faceIDVerifyDTO.uid = currentAccount.uid;
         }
@@ -552,7 +568,7 @@ public final class PassportSDK {
             RealNameFaceIDResult realNameFaceIDResult = new RealNameFaceIDResult();
             ArrayList arrayList = new ArrayList();
             arrayList.add("pp");
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new i(this, context, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult), faceIDVerifyDTO.bduss, arrayList);
+            SapiAccountManager.getInstance().getAccountService().getTplStoken(new k(this, context, faceIDVerifyDTO, verifyUserFaceIDCallback, realNameFaceIDResult), faceIDVerifyDTO.bduss, arrayList);
             return;
         }
         b(verifyUserFaceIDCallback, "outer", "", faceIDVerifyDTO.livingUname, faceIDVerifyDTO.showGuidePage, faceIDVerifyDTO.subpro, faceIDVerifyDTO.businessSence);
@@ -561,7 +577,7 @@ public final class PassportSDK {
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2, boolean z) {
         JSONObject jSONObject;
         ArrayList arrayList = new ArrayList(1);
-        this.v = new f(this, qrLoginCallback, arrayList);
+        this.v = new h(this, qrLoginCallback, arrayList);
         if (SapiAccountManager.getInstance().isLogin()) {
             a(str, z);
             return;
@@ -578,7 +594,7 @@ public final class PassportSDK {
             webLoginDTO.statExtra = URLEncoder.encode(jSONObject.toString());
         } catch (JSONException e) {
         }
-        startLogin(new g(this, arrayList, str, z), webLoginDTO);
+        startLogin(new i(this, arrayList, str, z), webLoginDTO);
     }
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, WebSocialLoginDTO webSocialLoginDTO) {
@@ -589,7 +605,7 @@ public final class PassportSDK {
         if (abstractThirdPartyService != null) {
             Context context = webSocialLoginDTO.context;
             if (context == null) {
-                context = this.D;
+                context = this.E;
             }
             abstractThirdPartyService.loadThirdPartyLogin(context, webSocialLoginDTO.socialType, 2002);
             webSocialLoginDTO.context = null;
@@ -598,16 +614,16 @@ public final class PassportSDK {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, boolean z) {
-        Intent intent = new Intent(this.D, QrLoginActivity.class);
+        Intent intent = new Intent(this.E, QrLoginActivity.class);
         intent.putExtra(QrLoginActivity.EXTRA_STRING_QR_LOGIN_URL, str);
         intent.putExtra(QrLoginActivity.EXTRA_BOOLEAN_FINISH_PAGE, z);
         intent.setFlags(268435456);
-        this.D.startActivity(intent);
+        this.E.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, Map<String, String> map, String str2, String str3, String str4, String str5, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
-        BiometricsManager.getInstance().recogWithBduss(context, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, new j(this, realNameFaceIDResult, verifyUserFaceIDCallback));
+        BiometricsManager.getInstance().recogWithBduss(context, BiometricsManager.buildSubPro(str, str5), map, str2, str3, str4, new l(this, realNameFaceIDResult, verifyUserFaceIDCallback));
     }
 
     private void a(FaceIDCallback faceIDCallback, String str, String str2, String str3, boolean z, String str4, String str5) {
@@ -615,12 +631,12 @@ public final class PassportSDK {
             BiometricsManager biometricsManager = BiometricsManager.getInstance();
             String buildSubPro = BiometricsManager.buildSubPro(str4, str5);
             HashMap hashMap = new HashMap();
-            k kVar = new k(this, new UnRealNameFaceIDResult(), str, faceIDCallback);
+            m mVar = new m(this, new UnRealNameFaceIDResult(), str, faceIDCallback);
             if (str.equals("faceDetect")) {
-                biometricsManager.recogWithFaceDetect(this.D, buildSubPro, hashMap, "0", str3, str2, kVar);
+                biometricsManager.recogWithFaceDetect(this.E, buildSubPro, hashMap, "0", str3, str2, mVar);
                 return;
             } else if (str.equals("outer")) {
-                biometricsManager.recogWithFaceOuter(this.D, buildSubPro, hashMap, "0", str3, kVar);
+                biometricsManager.recogWithFaceOuter(this.E, buildSubPro, hashMap, "0", str3, mVar);
                 return;
             } else {
                 return;
@@ -632,7 +648,7 @@ public final class PassportSDK {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback, JSONObject jSONObject, int i, ExtendSysWebViewMethodResult extendSysWebViewMethodResult) {
         BiometricsManager biometricsManager = BiometricsManager.getInstance();
-        m mVar = new m(this, extendSysWebViewMethodResult, extendSysWebViewMethodCallback);
+        o oVar = new o(this, extendSysWebViewMethodResult, extendSysWebViewMethodCallback);
         int optInt = jSONObject.optInt("imageFlag", 0);
         String optString = TextUtils.isEmpty(jSONObject.optString("subpro")) ? "pp" : jSONObject.optString("subpro");
         HashMap hashMap = new HashMap();
@@ -649,19 +665,19 @@ public final class PassportSDK {
         }
         if (i == 1) {
             biometricsManager.getClass();
-            a(extendSysWebViewMethodCallback, new BiometricsManager.a(), extendSysWebViewMethodResult, mVar, optString, hashMap, optInt + "");
+            a(extendSysWebViewMethodCallback, new BiometricsManager.a(), extendSysWebViewMethodResult, oVar, optString, hashMap, optInt + "");
         }
         if (i == 2) {
-            biometricsManager.recogWithCertInfo(this.D, optString, hashMap, optInt + "", jSONObject.optString("realname"), jSONObject.optString("idcardnum"), jSONObject.optString("bankmobile"), mVar);
+            biometricsManager.recogWithCertInfo(this.E, optString, hashMap, optInt + "", jSONObject.optString("realname"), jSONObject.optString("idcardnum"), jSONObject.optString("bankmobile"), oVar);
         }
         if (i == 3) {
-            biometricsManager.recogWithAuthToken(this.D, optString, hashMap, optInt + "", jSONObject.optString("authtoken"), mVar);
+            biometricsManager.recogWithAuthToken(this.E, optString, hashMap, optInt + "", jSONObject.optString("authtoken"), oVar);
         }
         if (i == 4) {
             if (jSONObject.optInt("type") == 1) {
-                biometricsManager.recogWithFaceDetect(this.D, optString, hashMap, optInt + "", jSONObject.optString("uid"), "", mVar);
+                biometricsManager.recogWithFaceDetect(this.E, optString, hashMap, optInt + "", jSONObject.optString("uid"), "", oVar);
             } else {
-                biometricsManager.recogWithFaceOuter(this.D, optString, hashMap, optInt + "", jSONObject.optString("uid"), mVar);
+                biometricsManager.recogWithFaceOuter(this.E, optString, hashMap, optInt + "", jSONObject.optString("uid"), oVar);
             }
         }
     }

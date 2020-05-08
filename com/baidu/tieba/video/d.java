@@ -3,7 +3,7 @@ package com.baidu.tieba.video;
 public interface d {
     void Ec(int i);
 
-    void dat();
+    void daq();
 
     void onConvertAborted();
 

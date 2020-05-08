@@ -6,8 +6,8 @@ import com.baidu.live.data.AlaLiveInfoData;
 import com.baidu.live.videochat.player.LivePlayer;
 /* loaded from: classes3.dex */
 public class b {
-    private LivePlayer aYG;
-    private com.baidu.live.o.b aYH;
+    private LivePlayer aYL;
+    private com.baidu.live.o.b aYM;
     private Activity mActivity;
 
     public b(Activity activity) {
@@ -15,40 +15,40 @@ public class b {
     }
 
     public void a(com.baidu.live.o.b bVar) {
-        this.aYH = bVar;
+        this.aYM = bVar;
     }
 
     public void d(AlaLiveInfoData alaLiveInfoData) {
-        if (this.aYG == null) {
-            this.aYG = new LivePlayer(this.mActivity);
-            this.aYG.setIPlayerCallBack(new com.baidu.live.o.b() { // from class: com.baidu.live.videochat.a.b.1
+        if (this.aYL == null) {
+            this.aYL = new LivePlayer(this.mActivity);
+            this.aYL.setIPlayerCallBack(new com.baidu.live.o.b() { // from class: com.baidu.live.videochat.a.b.1
                 @Override // com.baidu.live.o.b
                 public void bx(int i) {
-                    if (b.this.aYH != null) {
-                        b.this.aYH.bx(i);
+                    if (b.this.aYM != null) {
+                        b.this.aYM.bx(i);
                     }
                 }
             });
         }
-        this.aYG.b(alaLiveInfoData);
+        this.aYL.b(alaLiveInfoData);
     }
 
-    public void GN() {
-        if (this.aYG != null) {
-            this.aYG.setIPlayerCallBack(null);
-            this.aYG.bM(true);
-            this.aYG.destroy();
-            this.aYG = null;
+    public void GM() {
+        if (this.aYL != null) {
+            this.aYL.setIPlayerCallBack(null);
+            this.aYL.bM(true);
+            this.aYL.destroy();
+            this.aYL = null;
         }
     }
 
     public boolean isStarted() {
-        return this.aYG != null;
+        return this.aYL != null;
     }
 
-    public View GI() {
-        if (this.aYG != null) {
-            return this.aYG.getLivePlayer();
+    public View GH() {
+        if (this.aYL != null) {
+            return this.aYL.getLivePlayer();
         }
         return null;
     }

@@ -28,9 +28,9 @@ public class i extends f<PointF> {
         h hVar = (h) aVar;
         Path hd = hVar.hd();
         if (hd == null) {
-            return aVar.FL;
+            return aVar.FO;
         }
-        if (this.Cj == null || (pointF = (PointF) this.Cj.b(hVar.zN, hVar.FO.floatValue(), hVar.FL, hVar.FM, hq(), f, getProgress())) == null) {
+        if (this.Cj == null || (pointF = (PointF) this.Cj.b(hVar.zN, hVar.FR.floatValue(), hVar.FO, hVar.FP, hq(), f, getProgress())) == null) {
             if (this.Cr != hVar) {
                 this.Cs = new PathMeasure(hd, false);
                 this.Cr = hVar;

@@ -15,7 +15,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private static e bii;
+    private static e bin;
     private static String b = null;
     private static String c = null;
     private static final Set<String> d = new LinkedHashSet();
@@ -23,14 +23,14 @@ public class e {
     private e() {
     }
 
-    public static synchronized e JN() {
+    public static synchronized e JM() {
         e eVar;
         synchronized (e.class) {
-            if (bii == null) {
+            if (bin == null) {
                 b = Utils.f();
-                bii = new e();
+                bin = new e();
             }
-            eVar = bii;
+            eVar = bin;
         }
         return eVar;
     }
@@ -100,7 +100,7 @@ public class e {
         }
     }
 
-    public String[] JO() {
+    public String[] JN() {
         return (String[]) d.toArray(new String[d.size()]);
     }
 

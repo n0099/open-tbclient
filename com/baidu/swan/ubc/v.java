@@ -6,88 +6,88 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 class v {
-    private boolean deQ = false;
-    private JSONArray cjj = new JSONArray();
-    private SparseArray<Integer> deM = new SparseArray<>();
-    private ArrayList<String> deN = new ArrayList<>();
-    private long deO = 0;
-    private long deP = 0;
-    private String ddT = "0";
+    private boolean deV = false;
+    private JSONArray cjp = new JSONArray();
+    private SparseArray<Integer> deR = new SparseArray<>();
+    private ArrayList<String> deS = new ArrayList<>();
+    private long deT = 0;
+    private long deU = 0;
+    private String ddY = "0";
 
     public final void cr(JSONObject jSONObject) {
-        this.cjj.put(jSONObject);
+        this.cjp.put(jSONObject);
     }
 
     public final SparseArray<Integer> aEk() {
-        return this.deM;
+        return this.deR;
     }
 
     public final void aw(int i, int i2) {
-        this.deM.put(i, Integer.valueOf(i2));
+        this.deR.put(i, Integer.valueOf(i2));
     }
 
     public final ArrayList aEl() {
-        return this.deN;
+        return this.deS;
     }
 
     public final void sp(String str) {
-        if (!this.deN.contains(str)) {
-            this.deN.add(str);
+        if (!this.deS.contains(str)) {
+            this.deS.add(str);
         }
     }
 
     public final void r(long j, long j2) {
-        if ((j < this.deO || this.deO == 0) && j != 0) {
-            this.deO = j;
+        if ((j < this.deT || this.deT == 0) && j != 0) {
+            this.deT = j;
         }
-        if (j2 > this.deP) {
-            this.deP = j2;
+        if (j2 > this.deU) {
+            this.deU = j2;
         }
     }
 
     public boolean jh(int i) {
-        return this.cjj.toString().getBytes().length >= i;
+        return this.cjp.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.cjj.length() == 0;
+        return this.cjp.length() == 0;
     }
 
     public JSONArray aEm() {
-        return this.cjj;
+        return this.cjp;
     }
 
     public void clearData() {
-        this.deM.clear();
-        this.deN.clear();
-        this.cjj = null;
+        this.deR.clear();
+        this.deS.clear();
+        this.cjp = null;
     }
 
     public void sq(String str) {
-        this.ddT = str;
+        this.ddY = str;
     }
 
     public String aEn() {
-        return this.ddT;
+        return this.ddY;
     }
 
     public long aEo() {
-        return this.deO;
+        return this.deT;
     }
 
     public long getMaxTime() {
-        return this.deP;
+        return this.deU;
     }
 
     public JSONArray aEp() {
-        return this.cjj;
+        return this.cjp;
     }
 
     public boolean aEq() {
-        return this.deQ;
+        return this.deV;
     }
 
     public void ge(boolean z) {
-        this.deQ = z;
+        this.deV = z;
     }
 }

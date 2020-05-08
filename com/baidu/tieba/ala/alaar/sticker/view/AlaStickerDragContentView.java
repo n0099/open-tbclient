@@ -14,7 +14,7 @@ import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class AlaStickerDragContentView extends RelativeLayout {
     private int borderWidth;
-    private int eLC;
+    private int eLH;
 
     public AlaStickerDragContentView(Context context) {
         super(context);
@@ -30,7 +30,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
 
     public void bi(int i, int i2) {
         this.borderWidth = i;
-        this.eLC = i2;
+        this.eLH = i2;
     }
 
     public void a(int i, Bitmap bitmap, int i2, e eVar) {
@@ -44,7 +44,7 @@ public class AlaStickerDragContentView extends RelativeLayout {
             }
             dragTextView.setBackground(new BitmapDrawable(createScaledBitmap));
         }
-        dragTextView.setParentBorder(0, 0, this.borderWidth, this.eLC);
+        dragTextView.setParentBorder(0, 0, this.borderWidth, this.eLH);
         dragTextView.setOnDragViewEventListener(eVar);
         dragTextView.setTextColor(getContext().getResources().getColor(i2));
         if (i == 2) {

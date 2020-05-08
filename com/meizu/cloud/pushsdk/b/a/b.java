@@ -12,7 +12,6 @@ import com.meizu.cloud.pushsdk.b.c.g;
 import com.meizu.cloud.pushsdk.b.c.h;
 import com.meizu.cloud.pushsdk.b.c.j;
 import com.meizu.cloud.pushsdk.b.c.k;
-import com.meizu.cloud.pushsdk.b.g.f;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -89,7 +88,7 @@ public class b<T extends b> {
 
     /* renamed from: com.meizu.cloud.pushsdk.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0753b<T extends C0753b> {
+    public static class C0774b<T extends C0774b> {
         private int b;
         private String c;
         private Object d;
@@ -104,7 +103,7 @@ public class b<T extends b> {
         private HashMap<String, String> j = new HashMap<>();
         private HashMap<String, String> k = new HashMap<>();
 
-        public C0753b(String str) {
+        public C0774b(String str) {
             this.b = 0;
             this.c = str;
             this.b = 0;
@@ -235,7 +234,7 @@ public class b<T extends b> {
         this.K = aVar.k;
     }
 
-    public b(C0753b c0753b) {
+    public b(C0774b c0774b) {
         this.i = new HashMap<>();
         this.j = new HashMap<>();
         this.k = new HashMap<>();
@@ -254,19 +253,19 @@ public class b<T extends b> {
         this.K = null;
         this.L = null;
         this.d = 0;
-        this.b = c0753b.b;
-        this.c = c0753b.a;
-        this.e = c0753b.c;
-        this.g = c0753b.d;
-        this.i = c0753b.i;
-        this.F = c0753b.e;
-        this.H = c0753b.g;
-        this.G = c0753b.f;
-        this.I = c0753b.h;
-        this.m = c0753b.j;
-        this.n = c0753b.k;
-        this.J = c0753b.l;
-        this.K = c0753b.m;
+        this.b = c0774b.b;
+        this.c = c0774b.a;
+        this.e = c0774b.c;
+        this.g = c0774b.d;
+        this.i = c0774b.i;
+        this.F = c0774b.e;
+        this.H = c0774b.g;
+        this.G = c0774b.f;
+        this.I = c0774b.h;
+        this.m = c0774b.j;
+        this.n = c0774b.k;
+        this.J = c0774b.l;
+        this.K = c0774b.m;
     }
 
     public b(c cVar) {
@@ -355,19 +354,19 @@ public class b<T extends b> {
         switch (this.h) {
             case JSON_ARRAY:
                 try {
-                    return com.meizu.cloud.pushsdk.b.a.c.a(new JSONArray(f.a(kVar.b().a()).h()));
+                    return com.meizu.cloud.pushsdk.b.a.c.a(new JSONArray(com.meizu.cloud.pushsdk.b.g.g.a(kVar.b().a()).h()));
                 } catch (Exception e) {
                     return com.meizu.cloud.pushsdk.b.a.c.a(com.meizu.cloud.pushsdk.b.i.b.b(new com.meizu.cloud.pushsdk.b.b.a(e)));
                 }
             case JSON_OBJECT:
                 try {
-                    return com.meizu.cloud.pushsdk.b.a.c.a(new JSONObject(f.a(kVar.b().a()).h()));
+                    return com.meizu.cloud.pushsdk.b.a.c.a(new JSONObject(com.meizu.cloud.pushsdk.b.g.g.a(kVar.b().a()).h()));
                 } catch (Exception e2) {
                     return com.meizu.cloud.pushsdk.b.a.c.a(com.meizu.cloud.pushsdk.b.i.b.b(new com.meizu.cloud.pushsdk.b.b.a(e2)));
                 }
             case STRING:
                 try {
-                    return com.meizu.cloud.pushsdk.b.a.c.a(f.a(kVar.b().a()).h());
+                    return com.meizu.cloud.pushsdk.b.a.c.a(com.meizu.cloud.pushsdk.b.g.g.a(kVar.b().a()).h());
                 } catch (Exception e3) {
                     return com.meizu.cloud.pushsdk.b.a.c.a(com.meizu.cloud.pushsdk.b.i.b.b(new com.meizu.cloud.pushsdk.b.b.a(e3)));
                 }
@@ -390,7 +389,7 @@ public class b<T extends b> {
     public com.meizu.cloud.pushsdk.b.b.a a(com.meizu.cloud.pushsdk.b.b.a aVar) {
         try {
             if (aVar.a() != null && aVar.a().b() != null && aVar.a().b().a() != null) {
-                aVar.b(f.a(aVar.a().b().a()).h());
+                aVar.b(com.meizu.cloud.pushsdk.b.g.g.a(aVar.a().b().a()).h());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -431,7 +430,7 @@ public class b<T extends b> {
             Map.Entry<String, String> next = it.next();
             str2 = str.replace("{" + next.getKey() + "}", String.valueOf(next.getValue()));
         }
-        f.a g = com.meizu.cloud.pushsdk.b.c.f.c(str).g();
+        f.a g = f.c(str).g();
         for (Map.Entry<String, String> entry : this.m.entrySet()) {
             g.a(entry.getKey(), entry.getValue());
         }

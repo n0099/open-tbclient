@@ -38,7 +38,7 @@ public class t extends ab {
                 if (DEBUG) {
                     Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
                 }
-                com.baidu.swan.apps.performance.b.d.aij().b(optString, optString2, optLong);
+                com.baidu.swan.apps.performance.b.d.aii().b(optString, optString2, optLong);
             }
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);

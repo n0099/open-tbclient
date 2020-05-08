@@ -16,16 +16,16 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes10.dex */
 public class e {
     private Context context;
-    private View jmT;
-    private TextView jmU;
-    private ImageView jmV;
-    private TextView jmW;
-    private TextView jmX;
-    private a jmY;
-    public boolean jmZ;
-    private Animation jnb;
-    private long jna = 0;
-    private boolean jnc = false;
+    private View jmX;
+    private TextView jmY;
+    private ImageView jmZ;
+    private TextView jna;
+    private TextView jnb;
+    private a jnc;
+    public boolean jnd;
+    private Animation jnf;
+    private long jne = 0;
+    private boolean jng = false;
 
     /* loaded from: classes10.dex */
     public interface a {
@@ -36,42 +36,42 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.jmT = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
-        this.jmU = (TextView) this.jmT.findViewById(R.id.chosen_post_info_copyright);
-        this.jmV = (ImageView) this.jmT.findViewById(R.id.chosen_post_info_praise_icon);
-        this.jmW = (TextView) this.jmT.findViewById(R.id.chosen_post_info_praise_num);
-        this.jmX = (TextView) this.jmT.findViewById(R.id.chosen_post_info_original_post);
+        this.jmX = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
+        this.jmY = (TextView) this.jmX.findViewById(R.id.chosen_post_info_copyright);
+        this.jmZ = (ImageView) this.jmX.findViewById(R.id.chosen_post_info_praise_icon);
+        this.jna = (TextView) this.jmX.findViewById(R.id.chosen_post_info_praise_num);
+        this.jnb = (TextView) this.jmX.findViewById(R.id.chosen_post_info_original_post);
     }
 
-    public View cvn() {
-        return this.jmT;
+    public View cvk() {
+        return this.jmX;
     }
 
     public void a(a aVar) {
-        this.jmY = aVar;
+        this.jnc = aVar;
     }
 
     public void zi(int i) {
-        if (this.jmU != null) {
-            this.jmU.setText(i);
+        if (this.jmY != null) {
+            this.jmY.setText(i);
         }
     }
 
     public void N(View.OnClickListener onClickListener) {
-        if (this.jmX != null) {
-            this.jmX.setOnClickListener(onClickListener);
+        if (this.jnb != null) {
+            this.jnb.setOnClickListener(onClickListener);
         }
     }
 
     public void fd(long j) {
         if (j >= 0) {
-            this.jna = j;
-            if (this.jmW != null) {
-                this.jmW.setVisibility(0);
-                this.jmW.setText(this.context.getString(R.string.chosen_pb_praise_num, aq.numFormatOver10000(j)));
+            this.jne = j;
+            if (this.jna != null) {
+                this.jna.setVisibility(0);
+                this.jna.setText(this.context.getString(R.string.chosen_pb_praise_num, aq.numFormatOver10000(j)));
             }
-            if (this.jmW != null && this.jmW.getVisibility() == 8) {
-                this.jmW.setVisibility(0);
+            if (this.jna != null && this.jna.getVisibility() == 8) {
+                this.jna.setVisibility(0);
             }
         }
     }
@@ -81,14 +81,14 @@ public class e {
             zi(R.string.chosen_pb_copyright);
             fd(excellentPbThreadInfo.zan.zansum.longValue());
             qD(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.jmV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.jmZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.jnc && bc.checkUpIsLogin(e.this.context)) {
-                        e.this.jnc = true;
-                        e.this.jmV.startAnimation(e.this.cvp());
-                        if (e.this.jmY != null) {
-                            e.this.jmY.qz(e.this.jmZ);
+                    if (!e.this.jng && bc.checkUpIsLogin(e.this.context)) {
+                        e.this.jng = true;
+                        e.this.jmZ.startAnimation(e.this.cvm());
+                        if (e.this.jnc != null) {
+                            e.this.jnc.qz(e.this.jnd);
                         }
                     }
                 }
@@ -96,43 +96,43 @@ public class e {
             N(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.jmY != null) {
-                        e.this.jmY.t(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.jnc != null) {
+                        e.this.jnc.t(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
         }
     }
 
-    public void cvo() {
-        this.jnc = false;
+    public void cvl() {
+        this.jng = false;
     }
 
     public void qC(boolean z) {
         qD(z);
         if (z) {
-            this.jna++;
+            this.jne++;
         } else {
-            this.jna--;
+            this.jne--;
         }
-        fd(this.jna);
+        fd(this.jne);
     }
 
     private void qD(boolean z) {
-        this.jmZ = z;
+        this.jnd = z;
         if (z) {
-            am.setImageResource(this.jmV, R.drawable.btn_zambia_big_s);
+            am.setImageResource(this.jmZ, R.drawable.btn_zambia_big_s);
         } else {
-            am.setImageResource(this.jmV, R.drawable.btn_zambia_big_n);
+            am.setImageResource(this.jmZ, R.drawable.btn_zambia_big_n);
         }
-        this.jmV.setVisibility(0);
+        this.jmZ.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation cvp() {
-        if (this.jnb == null) {
-            this.jnb = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
+    public Animation cvm() {
+        if (this.jnf == null) {
+            this.jnf = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
         }
-        return this.jnb;
+        return this.jnf;
     }
 }

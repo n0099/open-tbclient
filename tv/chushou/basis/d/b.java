@@ -7,28 +7,28 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes5.dex */
 public class b {
-    private static volatile b nqX;
+    private static volatile b nra;
     private static volatile Application sApplication;
-    private final Map<String, Class<?>> nqY = new TreeMap();
-    private final Map<String, Object> nqZ = new TreeMap();
-    private static final tv.chushou.a.a.c.b nqW = tv.chushou.a.a.c.a.dJF();
+    private final Map<String, Class<?>> nrb = new TreeMap();
+    private final Map<String, Object> nrc = new TreeMap();
+    private static final tv.chushou.a.a.c.b nqZ = tv.chushou.a.a.c.a.dJB();
     private static volatile boolean sDebug = false;
 
     public static synchronized void a(a aVar) {
         synchronized (b.class) {
             sDebug = aVar.debug;
             sApplication = aVar.application;
-            nqW.wP(aVar.debug);
-            nqW.wQ(aVar.nra);
+            nqZ.wP(aVar.debug);
+            nqZ.wQ(aVar.nrd);
         }
     }
 
-    public static boolean Lr() {
+    public static boolean Lq() {
         return sDebug;
     }
 
     @SuppressLint({"PrivateApi"})
-    public static Application dJt() {
+    public static Application dJp() {
         if (sApplication != null) {
             return sApplication;
         }
@@ -45,32 +45,32 @@ public class b {
         return sApplication;
     }
 
-    public static tv.chushou.a.a.c.b dJu() {
-        return nqW;
+    public static tv.chushou.a.a.c.b dJq() {
+        return nqZ;
     }
 
-    public static b dJv() {
-        if (nqX == null) {
+    public static b dJr() {
+        if (nra == null) {
             synchronized (b.class) {
-                if (nqX == null) {
-                    nqX = new b();
+                if (nra == null) {
+                    nra = new b();
                 }
             }
         }
-        return nqX;
+        return nra;
     }
 
     public void e(Class<?> cls, Class<?> cls2) {
         if (cls != null && cls2 != null) {
             if (!cls.isAssignableFrom(cls2)) {
-                dJu().e("Router", "apiImpl must implements interface api");
+                dJq().e("Router", "apiImpl must implements interface api");
                 return;
             }
             String name = cls.getName();
-            if (this.nqY.get(name) != null) {
+            if (this.nrb.get(name) != null) {
                 throw new IllegalStateException("Component " + name + " already has an implementation");
             }
-            this.nqY.put(name, cls2);
+            this.nrb.put(name, cls2);
         }
     }
 
@@ -85,24 +85,24 @@ public class b {
         synchronized (this) {
             if (cls != null) {
                 String name = cls.getName();
-                Object obj = this.nqZ.get(name);
+                Object obj = this.nrc.get(name);
                 if (obj != null) {
                     t2 = (tv.chushou.basis.d.a) obj;
                 } else {
-                    Class<?> cls2 = this.nqY.get(name);
+                    Class<?> cls2 = this.nrb.get(name);
                     if (cls2 != null) {
                         try {
                             ?? r0 = (tv.chushou.basis.d.a) cls2.newInstance();
                             try {
-                                r0.init(dJt());
-                                this.nqZ.put(name, r0);
+                                r0.init(dJp());
+                                this.nrc.put(name, r0);
                                 t = r0;
                             } catch (Exception e) {
                                 t2 = r0;
                                 e = e;
-                                dJu().e("Router", "component " + name + " newInstance failed", e);
+                                dJq().e("Router", "component " + name + " newInstance failed", e);
                                 if (t2 == null) {
-                                    dJu().e(null, "Router getComponet:" + cls.getName() + " failed");
+                                    dJq().e(null, "Router getComponet:" + cls.getName() + " failed");
                                 }
                                 return t2;
                             }
@@ -113,8 +113,8 @@ public class b {
                         t = null;
                     }
                     t2 = t;
-                    if (t2 == null && Lr()) {
-                        dJu().e(null, "Router getComponet:" + cls.getName() + " failed");
+                    if (t2 == null && Lq()) {
+                        dJq().e(null, "Router getComponet:" + cls.getName() + " failed");
                     }
                 }
             }
@@ -126,7 +126,7 @@ public class b {
     public static class a {
         Application application;
         boolean debug;
-        boolean nra;
+        boolean nrd;
 
         public a(Application application) {
             this.application = application;

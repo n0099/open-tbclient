@@ -1,13 +1,13 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface f {
-    void GE(String str);
+    void GH(String str);
 
-    void GF(String str);
+    void GI(String str);
 
-    boolean GG(String str);
+    boolean GJ(String str);
 
-    boolean GH(String str);
+    boolean GK(String str);
 
     void e(String str, int i, int i2, String str2);
 

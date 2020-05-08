@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes13.dex */
 public class b implements c {
-    public static final b lRF = new b();
-    private String lRG = "unknown";
-    private int lRH = 5;
+    public static final b lRJ = new b();
+    private String lRK = "unknown";
+    private int lRL = 5;
 
-    public static b dnc() {
-        return lRF;
+    public static b dmZ() {
+        return lRJ;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.lRH <= i;
+        return this.lRL <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -62,21 +62,21 @@ public class b implements c {
     }
 
     private void q(int i, String str, String str2) {
-        Log.println(i, NX(str), str2);
+        Log.println(i, Oa(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, NX(str), j(str2, th));
+        Log.println(i, Oa(str), h(str2, th));
     }
 
-    private String NX(String str) {
-        if (this.lRG != null) {
-            return this.lRG + ":" + str;
+    private String Oa(String str) {
+        if (this.lRK != null) {
+            return this.lRK + ":" + str;
         }
         return str;
     }
 
-    private static String j(String str, Throwable th) {
+    private static String h(String str, Throwable th) {
         return str + '\n' + getStackTraceString(th);
     }
 

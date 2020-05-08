@@ -27,7 +27,7 @@ import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.HttpURLConnection;

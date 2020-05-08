@@ -5,29 +5,29 @@ import com.tb.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class r implements b, a.InterfaceC0763a {
-    private final List<a.InterfaceC0763a> listeners = new ArrayList();
-    private final ShapeTrimPath.Type mOM;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> mON;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> mOO;
-    private final com.tb.airbnb.lottie.a.b.a<?, Float> mOP;
+public class r implements b, a.InterfaceC0784a {
+    private final List<a.InterfaceC0784a> listeners = new ArrayList();
+    private final ShapeTrimPath.Type mOP;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> mOQ;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> mOR;
+    private final com.tb.airbnb.lottie.a.b.a<?, Float> mOS;
     private final String name;
 
     public r(com.tb.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.mOM = shapeTrimPath.dBi();
-        this.mON = shapeTrimPath.dCb().dBs();
-        this.mOO = shapeTrimPath.dCa().dBs();
-        this.mOP = shapeTrimPath.dBW().dBs();
-        aVar.a(this.mON);
-        aVar.a(this.mOO);
-        aVar.a(this.mOP);
-        this.mON.b(this);
-        this.mOO.b(this);
-        this.mOP.b(this);
+        this.mOP = shapeTrimPath.dBe();
+        this.mOQ = shapeTrimPath.dBX().dBo();
+        this.mOR = shapeTrimPath.dBW().dBo();
+        this.mOS = shapeTrimPath.dBS().dBo();
+        aVar.a(this.mOQ);
+        aVar.a(this.mOR);
+        aVar.a(this.mOS);
+        this.mOQ.b(this);
+        this.mOR.b(this);
+        this.mOS.b(this);
     }
 
-    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0763a
+    @Override // com.tb.airbnb.lottie.a.b.a.InterfaceC0784a
     public void ha() {
         int i = 0;
         while (true) {
@@ -51,24 +51,24 @@ public class r implements b, a.InterfaceC0763a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC0763a interfaceC0763a) {
-        this.listeners.add(interfaceC0763a);
+    public void a(a.InterfaceC0784a interfaceC0784a) {
+        this.listeners.add(interfaceC0784a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type dBi() {
-        return this.mOM;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dBj() {
-        return this.mON;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dBk() {
-        return this.mOO;
-    }
-
-    public com.tb.airbnb.lottie.a.b.a<?, Float> dBl() {
+    public ShapeTrimPath.Type dBe() {
         return this.mOP;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dBf() {
+        return this.mOQ;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dBg() {
+        return this.mOR;
+    }
+
+    public com.tb.airbnb.lottie.a.b.a<?, Float> dBh() {
+        return this.mOS;
     }
 }

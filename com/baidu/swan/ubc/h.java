@@ -6,12 +6,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class h {
-    private String Yw;
-    private String cgl;
-    private int ddY;
-    private JSONObject ddZ;
-    private String dea;
-    private boolean deb;
+    private String Yz;
+    private String cgr;
+    private int ded;
+    private JSONObject dee;
+    private String def;
+    private boolean deg;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -20,30 +20,30 @@ public class h {
 
     public h(String str, String str2, int i) {
         this.mContent = "";
-        this.deb = false;
-        this.Yw = "";
+        this.deg = false;
+        this.Yz = "";
         this.mId = str;
-        this.cgl = str;
-        this.ddY = -1;
+        this.cgr = str;
+        this.ded = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.ddZ = new JSONObject(this.mContent);
+            this.dee = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public h(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.deb = false;
-        this.Yw = "";
+        this.deg = false;
+        this.Yz = "";
         this.mId = str;
-        this.cgl = str;
-        this.ddY = -1;
-        this.ddZ = jSONObject;
+        this.cgr = str;
+        this.ded = -1;
+        this.dee = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -52,29 +52,29 @@ public class h {
 
     public h(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.deb = false;
-        this.Yw = "";
+        this.deg = false;
+        this.Yz = "";
         this.mId = str2;
-        this.cgl = str;
-        this.ddY = i;
+        this.cgr = str;
+        this.ded = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.ddZ = new JSONObject(this.mContent);
+            this.dee = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public h(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.deb = false;
-        this.Yw = "";
+        this.deg = false;
+        this.Yz = "";
         this.mId = str2;
-        this.cgl = str;
-        this.ddY = i;
+        this.cgr = str;
+        this.ded = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -86,7 +86,7 @@ public class h {
         }
         if (!TextUtils.isEmpty(this.mContent)) {
             try {
-                this.ddZ = new JSONObject(this.mContent);
+                this.dee = new JSONObject(this.mContent);
             } catch (JSONException e) {
             }
         }
@@ -96,12 +96,12 @@ public class h {
         return this.mId;
     }
 
-    public String ahG() {
-        return this.cgl;
+    public String ahF() {
+        return this.cgr;
     }
 
     public int aDJ() {
-        return this.ddY;
+        return this.ded;
     }
 
     public String getContent() {
@@ -117,7 +117,7 @@ public class h {
     }
 
     public String aDK() {
-        return this.dea;
+        return this.def;
     }
 
     public void setCategory(String str) {
@@ -129,28 +129,28 @@ public class h {
     }
 
     public JSONObject aDL() {
-        return this.ddZ;
+        return this.dee;
     }
 
     public String getFileName() {
-        return this.Yw;
+        return this.Yz;
     }
 
     public String aDM() {
-        return this.ddZ != null ? this.ddZ.optString("bizId") : "";
+        return this.dee != null ? this.dee.optString("bizId") : "";
     }
 
     public void gc(boolean z) {
-        this.deb = z;
+        this.deg = z;
     }
 
     public boolean aDH() {
-        return this.deb;
+        return this.deg;
     }
 
     public void aDN() {
-        if (this.mId != null && this.mId.equals(this.cgl) && d.aDw().sc(this.mId)) {
-            this.dea = s.aEh().ahy();
+        if (this.mId != null && this.mId.equals(this.cgr) && d.aDw().sc(this.mId)) {
+            this.def = s.aEh().ahx();
         }
     }
 }

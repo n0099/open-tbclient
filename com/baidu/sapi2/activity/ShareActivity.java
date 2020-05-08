@@ -33,7 +33,7 @@ public class ShareActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        SapiAccount currentAccount = SapiContext.getInstance(this).getCurrentAccount();
+        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (currentAccount == null) {
             this.u.setResultCode(p.l);
             g();
@@ -47,10 +47,10 @@ public class ShareActivity extends BaseActivity {
         Intent intent = new Intent();
         Bundle bundle = new Bundle();
         bundle.putParcelable(s, currentAccount);
-        bundle.putInt(m.f, SapiAccountManager.VERSION_CODE);
+        bundle.putInt(m.f, 242);
         bundle.putString("PKG", getPackageName());
-        if (SapiContext.getInstance(this).shareLivingunameEnable()) {
-            bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(this).getV2FaceLivingUnames());
+        if (SapiContext.getInstance().shareLivingunameEnable()) {
+            bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance().getV2FaceLivingUnames());
         }
         intent.putExtras(bundle);
         setResult(-1, intent);
@@ -67,7 +67,7 @@ public class ShareActivity extends BaseActivity {
         WebLoginDTO.Config config = new WebLoginDTO.Config();
         config.fastLoginFeatureList = new ArrayList();
         webLoginDTO.config = config;
-        SapiAccount currentAccount = SapiContext.getInstance(this).getCurrentAccount();
+        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (currentAccount != null) {
             webLoginDTO.encryptedId = currentAccount.uid;
             webLoginDTO.preSetUname = currentAccount.displayname;
@@ -165,7 +165,7 @@ public class ShareActivity extends BaseActivity {
             }
         });
         JSONObject jSONObject = new JSONObject();
-        SapiAccount currentAccount = SapiContext.getInstance(this).getCurrentAccount();
+        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         try {
             jSONObject.put(BaseJsonData.TAG_ERRNO, "0");
             String[] pkgIconAndName = SapiUtils.getPkgIconAndName(this, getPackageName());

@@ -2,9 +2,9 @@ package com.xiaomi.push.service;
 
 import android.content.Context;
 import com.xiaomi.mipush.sdk.ErrorCode;
-import com.xiaomi.push.fx;
+import com.xiaomi.push.gd;
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.al;
+import com.xiaomi.push.service.ap;
 import java.io.IOException;
 import java.util.Collection;
 import org.json.JSONException;
@@ -13,18 +13,18 @@ public class n extends XMPushService.i {
     private XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f921a;
+    private String f918a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f922a;
+    private byte[] f919a;
     private String b;
     private String c;
 
     public n(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
         super(9);
         this.a = xMPushService;
-        this.f921a = str;
-        this.f922a = bArr;
+        this.f918a = str;
+        this.f919a = bArr;
         this.b = str2;
         this.c = str3;
     }
@@ -42,11 +42,11 @@ public class n extends XMPushService.i {
     */
     public void a() {
         k kVar;
-        al.b next;
+        ap.b next;
         k a = l.a((Context) this.a);
         if (a == null) {
             try {
-                kVar = l.a(this.a, this.f921a, this.b, this.c);
+                kVar = l.a(this.a, this.f918a, this.b, this.c);
             } catch (IOException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 kVar = a;
@@ -58,29 +58,29 @@ public class n extends XMPushService.i {
                 o.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            Collection<al.b> m515a = al.a().m515a("5");
-            if (m515a.isEmpty()) {
+            Collection<ap.b> m541a = ap.a().m541a("5");
+            if (m541a.isEmpty()) {
                 next = kVar.a(this.a);
                 w.a(this.a, next);
-                al.a().a(next);
+                ap.a().a(next);
             } else {
-                next = m515a.iterator().next();
+                next = m541a.iterator().next();
             }
-            if (!this.a.m509c()) {
+            if (!this.a.m522c()) {
                 this.a.a(true);
                 return;
             }
             try {
-                if (next.f859a == al.c.binded) {
-                    w.a(this.a, this.f921a, this.f922a);
-                } else if (next.f859a == al.c.unbind) {
+                if (next.f856a == ap.c.binded) {
+                    w.a(this.a, this.f918a, this.f919a);
+                } else if (next.f856a == ap.c.unbind) {
                     XMPushService xMPushService = this.a;
                     XMPushService xMPushService2 = this.a;
                     xMPushService2.getClass();
                     xMPushService.a(new XMPushService.a(next));
                 }
                 return;
-            } catch (fx e3) {
+            } catch (gd e3) {
                 com.xiaomi.channel.commonutils.logger.b.a(e3);
                 this.a.a(10, e3);
                 return;

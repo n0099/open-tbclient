@@ -12,13 +12,13 @@ import com.baidu.tieba.card.x;
 import com.baidu.tieba.card.z;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.ala.livecard.a.a> implements x {
-    private com.baidu.tieba.ala.livecard.b.b frZ;
-    private z<bj> fsa;
+    private com.baidu.tieba.ala.livecard.b.b fse;
+    private z<bj> fsf;
     private String mForumName;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.fsa = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
+        this.fsf = new z<bj>() { // from class: com.baidu.tieba.ala.livecard.adapters.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
@@ -42,21 +42,21 @@ public class c extends com.baidu.tieba.frs.h<bj, com.baidu.tieba.ala.livecard.a.
         if (this.mPageContext == null) {
             return null;
         }
-        this.frZ = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
-        this.frZ.m(this.mPageId);
-        this.frZ.setForumName(this.mForumName);
-        return new com.baidu.tieba.ala.livecard.a.a(this.frZ);
+        this.fse = new com.baidu.tieba.ala.livecard.b.b(this.mPageContext);
+        this.fse.m(this.mPageId);
+        this.fse.setForumName(this.mForumName);
+        return new com.baidu.tieba.ala.livecard.a.a(this.fse);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bj bjVar, com.baidu.tieba.ala.livecard.a.a aVar) {
-        aVar.fsm.a(bjVar);
-        aVar.fsm.setForumName(this.mForumName);
-        aVar.fsm.c(this.fsa);
+        aVar.fsr.a(bjVar);
+        aVar.fsr.setForumName(this.mForumName);
+        aVar.fsr.c(this.fsf);
         if (bjVar != null) {
-            bjVar.aLN();
+            bjVar.aLL();
         }
         return aVar.getView();
     }

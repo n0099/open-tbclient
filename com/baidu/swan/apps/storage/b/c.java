@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.storage.b;
 /* loaded from: classes11.dex */
 public interface c {
-    String anx();
+    String anw();
 
     boolean bi(long j);
 

@@ -30,80 +30,80 @@ public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(this.mContext).inflate(R.layout.square_recent_history_living_item, (ViewGroup) null);
-            aVar.eUk = (TbImageView) view.findViewById(R.id.recent_history_living_img);
-            aVar.eUk.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
+            aVar.eUp = (TbImageView) view.findViewById(R.id.recent_history_living_img);
+            aVar.eUp.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
             aVar.title = (TextView) view.findViewById(R.id.recent_history_living_title);
-            aVar.eUl = (TextView) view.findViewById(R.id.recent_history_living_audience_count);
-            aVar.cTr = (TextView) view.findViewById(R.id.recent_history_living_user_name);
-            aVar.eUm = (TextView) view.findViewById(R.id.recent_history_living_living_tag);
-            aVar.eUn = (TextView) view.findViewById(R.id.recent_history_living_send_gift_tag);
+            aVar.eUq = (TextView) view.findViewById(R.id.recent_history_living_audience_count);
+            aVar.cTw = (TextView) view.findViewById(R.id.recent_history_living_user_name);
+            aVar.eUr = (TextView) view.findViewById(R.id.recent_history_living_living_tag);
+            aVar.eUs = (TextView) view.findViewById(R.id.recent_history_living_send_gift_tag);
             am.setBackgroundColor(view, R.color.cp_bg_line_d);
             am.setViewTextColor(aVar.title, (int) R.color.cp_cont_b);
-            am.setViewTextColor(aVar.eUl, (int) R.color.cp_cont_d);
-            am.setViewTextColor(aVar.cTr, (int) R.color.cp_cont_j);
-            am.setViewTextColor(aVar.eUn, (int) R.color.cp_cont_h);
+            am.setViewTextColor(aVar.eUq, (int) R.color.cp_cont_d);
+            am.setViewTextColor(aVar.cTw, (int) R.color.cp_cont_j);
+            am.setViewTextColor(aVar.eUs, (int) R.color.cp_cont_h);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         final com.baidu.tieba.ala.alasquare.recent_history.b.b pe = getItem(i);
-        if (pe != null && pe.dqA != null && pe.dqA.aKE() != null && pe.dqA.aKX() != null) {
-            MetaData aKE = pe.dqA.aKE();
-            aVar.eUk.startLoad(pe.dqA.aKX().cover, 10, false);
-            aVar.title.setText(pe.dqA.getTitle());
-            this.eUh = 0;
-            aVar.eUm.setVisibility(8);
-            aVar.eUn.setVisibility(8);
+        if (pe != null && pe.dqE != null && pe.dqE.aKC() != null && pe.dqE.aKV() != null) {
+            MetaData aKC = pe.dqE.aKC();
+            aVar.eUp.startLoad(pe.dqE.aKV().cover, 10, false);
+            aVar.title.setText(pe.dqE.getTitle());
+            this.eUm = 0;
+            aVar.eUr.setVisibility(8);
+            aVar.eUs.setVisibility(8);
             if (!v.isEmpty(pe.tagList)) {
                 for (b.a aVar2 : pe.tagList) {
                     if (aVar2 != null) {
-                        if (1 == aVar2.apx) {
-                            aVar.eUm.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar2.eUx)) {
-                                aVar.eUm.setText(aVar2.eUx);
+                        if (1 == aVar2.apD) {
+                            aVar.eUr.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar2.eUC)) {
+                                aVar.eUr.setText(aVar2.eUC);
                             }
-                            this.eUh++;
-                        } else if (2 == aVar2.apx) {
-                            aVar.eUn.setVisibility(0);
-                            if (!TextUtils.isEmpty(aVar2.eUx)) {
-                                aVar.eUn.setText(aVar2.eUx);
+                            this.eUm++;
+                        } else if (2 == aVar2.apD) {
+                            aVar.eUs.setVisibility(0);
+                            if (!TextUtils.isEmpty(aVar2.eUC)) {
+                                aVar.eUs.setText(aVar2.eUC);
                             }
-                            this.eUh++;
+                            this.eUm++;
                         }
                     }
                 }
             }
-            String name_show = aKE.getName_show();
-            if (this.eUh <= 1) {
+            String name_show = aKC.getName_show();
+            if (this.eUm <= 1) {
                 i2 = 14;
             } else {
                 i2 = 13;
             }
-            aVar.cTr.setText(k.byteLength(name_show) > i2 ? aq.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE) : name_show);
-            aVar.eUl.setText(this.mContext.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, aq.numberUniformFormatExtra(pe.dqA.aKX().audience_count)));
+            aVar.cTw.setText(k.byteLength(name_show) > i2 ? aq.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE) : name_show);
+            aVar.eUq.setText(this.mContext.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, aq.numberUniformFormatExtra(pe.dqE.aKV().audience_count)));
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     an anVar = new an("c12659");
-                    anVar.cI("tid", pe.dqA.getTid());
+                    anVar.cI("tid", pe.dqE.getTid());
                     TiebaStatic.log(anVar);
-                    b.this.a(b.this.mPageContext, pe.dqA, "recent_history_living_tab");
+                    b.this.a(b.this.mPageContext, pe.dqE, "recent_history_living_tab");
                 }
             });
             an anVar = new an("c12658");
-            anVar.cI("tid", pe.dqA.getTid());
-            com.baidu.tieba.ala.alasquare.c.a.blU().e(anVar);
+            anVar.cI("tid", pe.dqE.getTid());
+            com.baidu.tieba.ala.alasquare.c.a.blS().e(anVar);
         }
         return view;
     }
 
     /* loaded from: classes3.dex */
     private static class a {
-        public TextView cTr;
-        public TbImageView eUk;
-        public TextView eUl;
-        public TextView eUm;
-        public TextView eUn;
+        public TextView cTw;
+        public TbImageView eUp;
+        public TextView eUq;
+        public TextView eUr;
+        public TextView eUs;
         public TextView title;
 
         private a() {

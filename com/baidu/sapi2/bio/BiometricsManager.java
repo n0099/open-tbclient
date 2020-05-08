@@ -89,7 +89,7 @@ public class BiometricsManager implements c {
             passFaceRecogDTO.idCardNum = str8;
             passFaceRecogDTO.phoneNum = str9;
         } else if (passFaceRecogType == PassFaceRecogType.RECOG_TYPE_BDUSS) {
-            SapiAccount accountFromBduss = SapiContext.getInstance(context).getAccountFromBduss(str3);
+            SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(str3);
             if (accountFromBduss != null) {
                 passFaceRecogDTO.bduss = accountFromBduss.bduss;
                 passFaceRecogDTO.uid = accountFromBduss.uid;

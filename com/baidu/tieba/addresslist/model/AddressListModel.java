@@ -11,53 +11,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a eCu;
+    private a eCz;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.eCu = a.bgM();
+        this.eCz = a.bgK();
     }
 
-    public void a(a.InterfaceC0439a interfaceC0439a) {
-        this.eCu.a(interfaceC0439a);
+    public void a(a.InterfaceC0460a interfaceC0460a) {
+        this.eCz.a(interfaceC0460a);
     }
 
-    public void b(a.InterfaceC0439a interfaceC0439a) {
-        this.eCu.b(interfaceC0439a);
+    public void b(a.InterfaceC0460a interfaceC0460a) {
+        this.eCz.b(interfaceC0460a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bhg() {
-        return this.eCu.bgN();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> bhe() {
+        return this.eCz.bgL();
     }
 
-    public void bhh() {
+    public void bhf() {
         sendMessage(new CustomMessage(CmdConfigCustom.CMD_QUERY_LOCAL_ADDRESSLIST));
     }
 
-    public void bhc() {
+    public void bha() {
         super.sendMessage(new RequestGetAddressListMessage(CmdConfigSocket.CMD_GET_ADDRESSLIST));
     }
 
     public void bm(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.eCu.bi(list);
+        this.eCz.bi(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.eCu.a(aVar);
+        this.eCz.a(aVar);
     }
 
     public void cY(long j) {
-        this.eCu.cY(j);
+        this.eCz.cY(j);
     }
 
-    public int yI(String str) {
+    public int yL(String str) {
         int i;
-        if (c.vM(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> bgN = this.eCu.bgN();
-            if (bgN != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : bgN) {
-                    if (str.equals(aVar.aUQ())) {
-                        i = bgN.indexOf(aVar);
+        if (c.vP(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> bgL = this.eCz.bgL();
+            if (bgL != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : bgL) {
+                    if (str.equals(aVar.aUO())) {
+                        i = bgL.indexOf(aVar);
                         break;
                     }
                 }

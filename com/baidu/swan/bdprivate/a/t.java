@@ -11,12 +11,12 @@ public class t implements com.baidu.swan.apps.adaptation.a.g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public com.baidu.swan.apps.adaptation.a.c PH() {
+    public com.baidu.swan.apps.adaptation.a.c PG() {
         return new a();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public OkHttpClient PJ() {
+    public OkHttpClient PI() {
         return new OkHttpClient.Builder().build();
     }
 
@@ -63,7 +63,7 @@ public class t implements com.baidu.swan.apps.adaptation.a.g {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.g
-    public com.baidu.swan.apps.adaptation.a.b PI() {
+    public com.baidu.swan.apps.adaptation.a.b PH() {
         return new m();
     }
 }

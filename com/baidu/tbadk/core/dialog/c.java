@@ -10,9 +10,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends AlertDialog {
-    private FrameLayout cUm;
-    private TextView duC;
-    private CircleView duD;
+    private FrameLayout cUr;
+    private TextView duG;
+    private CircleView duH;
     private String mMessage;
     private TextView mTextView;
 
@@ -26,16 +26,16 @@ public class c extends AlertDialog {
         Window window = getWindow();
         if (window != null) {
             window.setContentView(R.layout.post_video_progress_dialog);
-            this.cUm = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cUm.getLayoutParams();
+            this.cUr = (FrameLayout) window.findViewById(R.id.frame_progress_dialog);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cUr.getLayoutParams();
             layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(R.dimen.ds32);
-            this.cUm.setLayoutParams(layoutParams);
+            this.cUr.setLayoutParams(layoutParams);
             if (!StringUtils.isNull(this.mMessage)) {
-                this.duC = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-                this.duC.setText(this.mMessage);
+                this.duG = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+                this.duG.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-            this.duD = (CircleView) window.findViewById(R.id.circle_progress_dialog);
+            this.duH = (CircleView) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 
@@ -43,15 +43,15 @@ public class c extends AlertDialog {
         if (this.mTextView != null) {
             this.mTextView.setText(i + "%");
         }
-        if (this.duD != null) {
-            this.duD.setProgress(i);
+        if (this.duH != null) {
+            this.duH.setProgress(i);
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.duC != null) {
-            this.duC.setText(this.mMessage);
+        if (this.duG != null) {
+            this.duG.setText(this.mMessage);
         }
     }
 }

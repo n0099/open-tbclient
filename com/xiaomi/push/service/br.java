@@ -1,43 +1,30 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import com.xiaomi.push.fn;
-import com.xiaomi.push.service.XMPushService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.xiaomi.push.ek;
+import com.xiaomi.push.ft;
+import com.xiaomi.push.fw;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class br extends XMPushService.i {
+class br extends ft {
     final /* synthetic */ XMPushService a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f900a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ byte[] f901a;
-    final /* synthetic */ int b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public br(XMPushService xMPushService, int i, int i2, byte[] bArr, String str) {
-        super(i);
+    public br(XMPushService xMPushService, Map map, int i, String str, fw fwVar) {
+        super(map, i, str, fwVar);
         this.a = xMPushService;
-        this.b = i2;
-        this.f901a = bArr;
-        this.f900a = str;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        return "clear account cache.";
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        fn fnVar;
-        l.m548a((Context) this.a);
-        al.a().m518a("5");
-        com.xiaomi.push.ab.a(this.b);
-        fnVar = this.a.f815a;
-        fnVar.c(fn.a());
-        this.a.a(this.f901a, this.f900a);
+    @Override // com.xiaomi.push.ft
+    /* renamed from: a */
+    public byte[] mo297a() {
+        try {
+            ek.b bVar = new ek.b();
+            bVar.a(be.a().m558a());
+            return bVar.a();
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.m50a("getOBBString err: " + e.toString());
+            return null;
+        }
     }
 }

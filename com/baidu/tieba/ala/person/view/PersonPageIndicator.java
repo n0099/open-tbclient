@@ -14,10 +14,10 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class PersonPageIndicator extends LinearLayout {
-    private View fYB;
-    private FrameLayout fYC;
-    private ViewPager.OnPageChangeListener fYD;
-    private LinearLayout fYE;
+    private View fYG;
+    private FrameLayout fYH;
+    private ViewPager.OnPageChangeListener fYI;
+    private LinearLayout fYJ;
     private ViewPager mViewPager;
 
     public PersonPageIndicator(Context context) {
@@ -38,29 +38,29 @@ public class PersonPageIndicator extends LinearLayout {
     private void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(a.h.ala_person_page_indicator, this);
-        this.fYB = findViewById(a.g.indicator);
-        this.fYC = (FrameLayout) findViewById(a.g.indicator_wrapper);
-        this.fYE = (LinearLayout) findViewById(a.g.tab_view_layout);
+        this.fYG = findViewById(a.g.indicator);
+        this.fYH = (FrameLayout) findViewById(a.g.indicator_wrapper);
+        this.fYJ = (LinearLayout) findViewById(a.g.tab_view_layout);
         if (TbadkCoreApplication.getInst().isHaokan()) {
-            this.fYB.setBackgroundResource(a.f.ala_person_indicator_bg_hk);
+            this.fYG.setBackgroundResource(a.f.ala_person_indicator_bg_hk);
         } else {
-            this.fYB.setBackgroundResource(a.f.ala_person_indicator_bg_qm);
+            this.fYG.setBackgroundResource(a.f.ala_person_indicator_bg_qm);
         }
     }
 
     public void setIndicatorMargin(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fYC.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fYH.getLayoutParams();
         layoutParams.leftMargin = i;
         layoutParams.rightMargin = i;
-        this.fYC.setLayoutParams(layoutParams);
+        this.fYH.setLayoutParams(layoutParams);
     }
 
-    public void Bk(String str) {
+    public void Bn(String str) {
         if (!StringUtils.isNull(str)) {
             TextView textView = new TextView(getContext());
             textView.setTextSize(0, BdUtilHelper.getDimens(getContext(), a.e.sdk_fontsize24));
             textView.setText(str);
-            this.fYE.addView(textView);
+            this.fYJ.addView(textView);
         }
     }
 
@@ -69,38 +69,38 @@ public class PersonPageIndicator extends LinearLayout {
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.ala.person.view.PersonPageIndicator.1
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i2, float f, int i3) {
-                if (f <= 0.0f || i2 >= PersonPageIndicator.this.fYE.getChildCount() - 1) {
-                    PersonPageIndicator.this.fYB.getLayoutParams().width = PersonPageIndicator.this.fYE.getChildAt(i2).getMeasuredWidth();
+                if (f <= 0.0f || i2 >= PersonPageIndicator.this.fYJ.getChildCount() - 1) {
+                    PersonPageIndicator.this.fYG.getLayoutParams().width = PersonPageIndicator.this.fYJ.getChildAt(i2).getMeasuredWidth();
                 } else {
-                    View childAt = PersonPageIndicator.this.fYE.getChildAt(i2);
-                    View childAt2 = PersonPageIndicator.this.fYE.getChildAt(i2 + 1);
-                    PersonPageIndicator.this.fYB.getLayoutParams().width = (int) (((childAt2.getWidth() - childAt.getWidth()) * f) + childAt.getWidth());
+                    View childAt = PersonPageIndicator.this.fYJ.getChildAt(i2);
+                    View childAt2 = PersonPageIndicator.this.fYJ.getChildAt(i2 + 1);
+                    PersonPageIndicator.this.fYG.getLayoutParams().width = (int) (((childAt2.getWidth() - childAt.getWidth()) * f) + childAt.getWidth());
                 }
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) PersonPageIndicator.this.fYB.getLayoutParams();
-                layoutParams.leftMargin = (int) ((((i * i2) + (i / 2)) - (PersonPageIndicator.this.fYB.getLayoutParams().width / 2)) + (i * f));
-                PersonPageIndicator.this.fYB.setLayoutParams(layoutParams);
-                if (PersonPageIndicator.this.fYD != null) {
-                    PersonPageIndicator.this.fYD.onPageScrolled(i2, f, i3);
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) PersonPageIndicator.this.fYG.getLayoutParams();
+                layoutParams.leftMargin = (int) ((((i * i2) + (i / 2)) - (PersonPageIndicator.this.fYG.getLayoutParams().width / 2)) + (i * f));
+                PersonPageIndicator.this.fYG.setLayoutParams(layoutParams);
+                if (PersonPageIndicator.this.fYI != null) {
+                    PersonPageIndicator.this.fYI.onPageScrolled(i2, f, i3);
                 }
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i2) {
-                if (PersonPageIndicator.this.fYD != null) {
-                    PersonPageIndicator.this.fYD.onPageSelected(i2);
+                if (PersonPageIndicator.this.fYI != null) {
+                    PersonPageIndicator.this.fYI.onPageSelected(i2);
                 }
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i2) {
-                if (PersonPageIndicator.this.fYD != null) {
-                    PersonPageIndicator.this.fYD.onPageScrollStateChanged(i2);
+                if (PersonPageIndicator.this.fYI != null) {
+                    PersonPageIndicator.this.fYI.onPageScrollStateChanged(i2);
                 }
             }
         });
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.fYD = onPageChangeListener;
+        this.fYI = onPageChangeListener;
     }
 }

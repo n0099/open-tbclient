@@ -21,7 +21,7 @@ import com.baidu.swan.games.u.d;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.framework.c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private long cNs;
+    private long cNy;
 
     public b(SwanAppActivity swanAppActivity, String str) {
         super(swanAppActivity, str);
@@ -30,9 +30,9 @@ public class b extends com.baidu.swan.apps.framework.c {
     @Override // com.baidu.swan.apps.framework.c
     protected void l(boolean z, boolean z2) {
         if (z) {
-            aaE();
+            aaD();
             if (z2) {
-                d.d(Ow());
+                d.d(Ov());
             }
         }
     }
@@ -43,17 +43,17 @@ public class b extends com.baidu.swan.apps.framework.c {
 
     @Override // com.baidu.swan.apps.framework.c
     protected void onCreate() {
-        aaU();
+        aaT();
         com.baidu.swan.games.u.b.axS().clear();
         com.baidu.swan.games.network.b.d.axj().release();
-        akH().eK(true);
+        akG().eK(true);
         awx();
-        V8Engine.setCrashKeyValue("game_title", Ow() == null ? "" : Ow().YT());
+        V8Engine.setCrashKeyValue("game_title", Ov() == null ? "" : Ov().YS());
     }
 
     @Override // com.baidu.swan.apps.framework.c
-    protected void aal() {
-        f.aeK().bT(this.bHg);
+    protected void aak() {
+        f.aeJ().bH(this.bHl);
     }
 
     @Override // com.baidu.swan.apps.framework.c
@@ -75,8 +75,8 @@ public class b extends com.baidu.swan.apps.framework.c {
     @Override // com.baidu.swan.apps.framework.c
     protected void onDestroy() {
         h.release();
-        d.b(RGState.METHOD_NAME_EXIT, Ow());
-        f.aeK().bU(this.bHg);
+        d.b(RGState.METHOD_NAME_EXIT, Ov());
+        f.aeJ().bI(this.bHl);
         f.release();
         com.baidu.swan.games.z.a.ayh().release();
         SwanInspectorEndpoint.awV().close();
@@ -85,19 +85,19 @@ public class b extends com.baidu.swan.apps.framework.c {
     }
 
     @Override // com.baidu.swan.apps.runtime.l, com.baidu.swan.apps.runtime.h
-    public int Om() {
+    public int Ol() {
         return 1;
     }
 
     private void awx() {
         pC();
-        if (com.baidu.swan.apps.runtime.d.akK().ajr()) {
-            f.aeK().a(Ow(), new com.baidu.swan.apps.t.b() { // from class: com.baidu.swan.games.i.b.1
+        if (com.baidu.swan.apps.runtime.d.akJ().ajq()) {
+            f.aeJ().a(Ov(), new com.baidu.swan.apps.t.b() { // from class: com.baidu.swan.games.i.b.1
                 @Override // com.baidu.swan.apps.t.b
                 public void a(int i, com.baidu.swan.apps.t.a aVar) {
                     a.b bVar = (a.b) aVar;
                     if (bVar != null && !TextUtils.isEmpty(bVar.appBundlePath)) {
-                        a.awo().e(b.this.Ow());
+                        a.awo().e(b.this.Ov());
                         a.awo().a(bVar);
                         com.baidu.swan.games.audio.b.b.atS();
                         b.this.awy();
@@ -105,7 +105,7 @@ public class b extends com.baidu.swan.apps.framework.c {
                 }
             });
             if (a.awo().aws() && a.awo().awu()) {
-                a.awo().l(this.bHg);
+                a.awo().l(this.bHl);
             }
         }
     }
@@ -121,36 +121,36 @@ public class b extends com.baidu.swan.apps.framework.c {
 
     @Override // com.baidu.swan.apps.framework.c
     @NonNull
-    protected a.b aaI() {
+    protected a.b aaH() {
         return new a.b() { // from class: com.baidu.swan.games.i.b.2
             @Override // com.baidu.swan.apps.process.messaging.client.a.b
             public boolean m(Message message) {
                 switch (message.what) {
                     case 100:
-                        com.baidu.swan.apps.process.messaging.a.aiT().a(new com.baidu.swan.apps.process.messaging.c(4));
-                        b.this.aaF();
+                        com.baidu.swan.apps.process.messaging.a.aiS().a(new com.baidu.swan.apps.process.messaging.c(4));
+                        b.this.aaE();
                         a.awo().awr();
-                        com.baidu.swan.apps.runtime.d.akK().akI();
+                        com.baidu.swan.apps.runtime.d.akJ().akH();
                         return true;
                     case 102:
-                        boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState();
-                        com.baidu.swan.apps.w.a.ack().cR(nightModeSwitcherState);
-                        if (b.this.bHg != null) {
-                            b.this.bHg.i(nightModeSwitcherState, false);
+                        boolean nightModeSwitcherState = com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState();
+                        com.baidu.swan.apps.w.a.acj().cR(nightModeSwitcherState);
+                        if (b.this.bHl != null) {
+                            b.this.bHl.i(nightModeSwitcherState, false);
                             return true;
                         }
                         return true;
                     case 103:
-                        e akN = e.akN();
-                        if (akN != null) {
-                            akN.akX().clear();
-                            com.baidu.swan.apps.network.c.a.ahk().ahq();
+                        e akM = e.akM();
+                        if (akM != null) {
+                            akM.akW().clear();
+                            com.baidu.swan.apps.network.c.a.ahj().ahp();
                         }
-                        b.this.aaF();
+                        b.this.aaE();
                         a.awo().awr();
                         return true;
                     case 106:
-                        com.baidu.swan.apps.runtime.d.akK().akI();
+                        com.baidu.swan.apps.runtime.d.akJ().akH();
                         return true;
                     case 107:
                         com.baidu.swan.apps.core.pms.h.l(message);
@@ -170,46 +170,46 @@ public class b extends com.baidu.swan.apps.framework.c {
 
     @Override // com.baidu.swan.apps.framework.c
     public void onBackPressed() {
-        com.baidu.swan.apps.console.c.d("SwanApp", "onBackPressed back stack count:" + this.bTQ.Wh());
+        com.baidu.swan.apps.console.c.d("SwanApp", "onBackPressed back stack count:" + this.bTW.Wg());
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         fVar.mValue = "back";
         a(fVar);
-        com.baidu.swan.apps.core.d.b We = this.bTQ.We();
-        if (We == null || !We.Qz()) {
-            if (aaM()) {
-                e akN = e.akN();
-                if (akN != null) {
-                    akN.alc().release();
+        com.baidu.swan.apps.core.d.b Wd = this.bTW.Wd();
+        if (Wd == null || !Wd.Qy()) {
+            if (aaL()) {
+                e akM = e.akM();
+                if (akM != null) {
+                    akM.alb().release();
                 }
-                d.b("back", Ow());
+                d.b("back", Ov());
                 return;
             }
-            this.bTQ.io("navigateBack").ab(com.baidu.swan.apps.core.d.e.bMB, com.baidu.swan.apps.core.d.e.bMA).Wm().commit();
+            this.bTW.io("navigateBack").ab(com.baidu.swan.apps.core.d.e.bMG, com.baidu.swan.apps.core.d.e.bMF).Wl().commit();
         }
     }
 
     @Override // com.baidu.swan.apps.framework.c
     public boolean isLandScape() {
-        return com.baidu.swan.apps.runtime.d.akK().akH().Ow().getOrientation() == 1;
+        return com.baidu.swan.apps.runtime.d.akJ().akG().Ov().getOrientation() == 1;
     }
 
     private void pC() {
-        this.cNs = 0L;
+        this.cNy = 0L;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.framework.c
-    public void aaN() {
-        super.aaN();
-        a.awo().W(this.bHg);
+    public void aaM() {
+        super.aaM();
+        a.awo().W(this.bHl);
     }
 
     public boolean awz() {
-        return this.cNs > 0;
+        return this.cNy > 0;
     }
 
     public long awA() {
-        return this.cNs;
+        return this.cNy;
     }
 
     public void onFirstFrameFinished() {
@@ -219,13 +219,13 @@ public class b extends com.baidu.swan.apps.framework.c {
                 if (b.DEBUG) {
                     Log.d("SwanGameFrame", "SwanGameCoreRuntime SwanGamePreloadManager onFirstFrameFinished");
                 }
-                b.this.cNs = System.currentTimeMillis();
-                d.d(b.this.Ow());
-                b.this.bHg.OA();
+                b.this.cNy = System.currentTimeMillis();
+                d.d(b.this.Ov());
+                b.this.bHl.Oz();
                 com.baidu.swan.apps.performance.f.bm("preload", "startup");
-                int WY = a.awo().WY();
+                int WX = a.awo().WX();
                 HybridUbcFlow lb = com.baidu.swan.apps.performance.f.lb("startup");
-                lb.a(HybridUbcFlow.SubmitStrategy.NA_ONLY).bk("codecache", String.valueOf(WY)).f(new UbcFlowEvent("na_first_paint")).ahI();
+                lb.a(HybridUbcFlow.SubmitStrategy.NA_ONLY).bk("codecache", String.valueOf(WX)).f(new UbcFlowEvent("na_first_paint")).ahH();
                 long s = lb.s("na_first_paint", "naStart");
                 a.awo().a(new com.baidu.swan.games.o.b(s));
                 if (b.DEBUG) {
@@ -236,19 +236,19 @@ public class b extends com.baidu.swan.apps.framework.c {
         });
     }
 
-    private void aaU() {
-        if (akH().available()) {
-            SwanCoreVersion YI = a.awo().YI();
-            long nB = com.baidu.swan.apps.swancore.b.nB(Ow().adF());
-            if (nB != 0 && YI != null && YI.swanCoreVersion != 0 && YI.swanCoreVersion < nB) {
+    private void aaT() {
+        if (akG().available()) {
+            SwanCoreVersion YH = a.awo().YH();
+            long nB = com.baidu.swan.apps.swancore.b.nB(Ov().adE());
+            if (nB != 0 && YH != null && YH.swanCoreVersion != 0 && YH.swanCoreVersion < nB) {
                 if (DEBUG) {
-                    Log.d("SwanGameFrame", "release SwanGameCoreRuntime minSwanVersion:" + nB + ", runtimeSwanCoreVersion:" + YI.swanCoreVersion);
+                    Log.d("SwanGameFrame", "release SwanGameCoreRuntime minSwanVersion:" + nB + ", runtimeSwanCoreVersion:" + YH.swanCoreVersion);
                 }
                 a.release();
                 return;
             }
-            SwanCoreVersion YI2 = Ow().YI();
-            if ((YI == null || YI2 == null || YI.swanCoreVersion == 0 || YI.swanCoreVersion >= YI2.swanCoreVersion || !com.baidu.swan.apps.x.b.a.fk(Ow().adO())) ? false : true) {
+            SwanCoreVersion YH2 = Ov().YH();
+            if ((YH == null || YH2 == null || YH.swanCoreVersion == 0 || YH.swanCoreVersion >= YH2.swanCoreVersion || !com.baidu.swan.apps.x.b.a.fk(Ov().adN())) ? false : true) {
                 if (DEBUG) {
                     Log.d("SwanGameFrame", "SwanGameCoreRuntime版本过低释放并重新加载");
                 }

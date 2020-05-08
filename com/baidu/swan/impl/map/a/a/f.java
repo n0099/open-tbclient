@@ -2,7 +2,6 @@ package com.baidu.swan.impl.map.a.a;
 
 import android.content.Context;
 import android.os.Bundle;
-import com.baidu.sapi2.activity.SlideActiviy;
 import org.json.JSONObject;
 /* loaded from: classes12.dex */
 public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.e> {
@@ -26,13 +25,13 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.z.a.e> {
 
     private Bundle a(com.baidu.swan.apps.z.a.e eVar) {
         Bundle bundle = new Bundle();
-        bundle.putString("slaveId", eVar.bGJ);
-        bundle.putDouble("latitude", eVar.bYd.latitude);
-        bundle.putDouble("longitude", eVar.bYd.longitude);
-        bundle.putDouble("scale", eVar.bYe);
-        bundle.putString("name", eVar.bYt);
-        bundle.putString(SlideActiviy.ADDRESS_PAGE_NAME, eVar.bYu);
-        bundle.putStringArrayList("ignoredApps", eVar.bYv);
+        bundle.putString("slaveId", eVar.bGO);
+        bundle.putDouble("latitude", eVar.bYj.latitude);
+        bundle.putDouble("longitude", eVar.bYj.longitude);
+        bundle.putDouble("scale", eVar.bYk);
+        bundle.putString("name", eVar.bYz);
+        bundle.putString("address", eVar.bYA);
+        bundle.putStringArrayList("ignoredApps", eVar.bYB);
         return bundle;
     }
 

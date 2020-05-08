@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.baidu.swan.bdprivate.b;
 /* loaded from: classes11.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private String cDA;
-    private boolean cDB;
-    private View cDw;
-    private TextView cDy;
-    private EditText cDz;
+    private View cDC;
+    private TextView cDE;
+    private EditText cDF;
+    private String cDG;
+    private boolean cDH;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -39,78 +39,78 @@ public class InvoiceInfoItemView extends RelativeLayout {
         this.mContext = context;
         inflate(context, b.f.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(b.e.item_root_view);
-        this.mRootView.setBackground(getResources().getDrawable(b.C0348b.invoice_edit_view_bg));
-        this.cDy = (TextView) findViewById(b.e.invoice_info_desc);
-        this.cDz = (EditText) findViewById(b.e.invoice_info_content);
-        this.cDw = findViewById(b.e.divider_line);
-        this.cDy.setTextColor(getResources().getColor(b.C0348b.invoice_info_desc));
-        this.cDz.setTextColor(getResources().getColor(b.C0348b.invoice_info_content));
-        this.cDz.setHintTextColor(getResources().getColor(b.C0348b.invoice_info_content_hint));
-        this.cDw.setBackground(getResources().getDrawable(b.C0348b.invoice_info_item_divider_line));
+        this.mRootView.setBackground(getResources().getDrawable(b.C0369b.invoice_edit_view_bg));
+        this.cDE = (TextView) findViewById(b.e.invoice_info_desc);
+        this.cDF = (EditText) findViewById(b.e.invoice_info_content);
+        this.cDC = findViewById(b.e.divider_line);
+        this.cDE.setTextColor(getResources().getColor(b.C0369b.invoice_info_desc));
+        this.cDF.setTextColor(getResources().getColor(b.C0369b.invoice_info_content));
+        this.cDF.setHintTextColor(getResources().getColor(b.C0369b.invoice_info_content_hint));
+        this.cDC.setBackground(getResources().getDrawable(b.C0369b.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.cDB = aVar.cDB;
-            this.cDy.setText(aVar.mDesc);
-            this.cDz.setHint(aVar.cDD);
-            if (!aVar.cDE) {
-                this.cDz.setSingleLine();
+            this.cDH = aVar.cDH;
+            this.cDE.setText(aVar.mDesc);
+            this.cDF.setHint(aVar.cDJ);
+            if (!aVar.cDK) {
+                this.cDF.setSingleLine();
             } else {
-                aVar.cDC |= 131072;
+                aVar.cDI |= 131072;
             }
-            this.cDz.setInputType(aVar.cDC);
-            if (!TextUtils.isEmpty(aVar.cDF)) {
-                this.cDz.setKeyListener(DigitsKeyListener.getInstance(aVar.cDF));
+            this.cDF.setInputType(aVar.cDI);
+            if (!TextUtils.isEmpty(aVar.cDL)) {
+                this.cDF.setKeyListener(DigitsKeyListener.getInstance(aVar.cDL));
             }
-            this.cDA = aVar.cDA;
+            this.cDG = aVar.cDG;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.cDz != null) {
-            return this.cDz.getText().toString().trim();
+        if (this.cDF != null) {
+            return this.cDF.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.cDz != null) {
-            this.cDz.setText(charSequence);
+        if (this.cDF != null) {
+            this.cDF.setText(charSequence);
         }
     }
 
-    public boolean aqV() {
-        return this.cDB;
+    public boolean aqU() {
+        return this.cDH;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.cDz != null && textWatcher != null) {
-            this.cDz.addTextChangedListener(textWatcher);
+        if (this.cDF != null && textWatcher != null) {
+            this.cDF.addTextChangedListener(textWatcher);
         }
     }
 
     public void a(TextWatcher textWatcher) {
-        if (this.cDz != null) {
-            this.cDz.removeTextChangedListener(textWatcher);
+        if (this.cDF != null) {
+            this.cDF.removeTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String cDA;
-        private boolean cDB = false;
-        private int cDC = 1;
-        private String cDD;
-        private boolean cDE;
-        private String cDF;
+        private String cDG;
+        private boolean cDH = false;
+        private int cDI = 1;
+        private String cDJ;
+        private boolean cDK;
+        private String cDL;
         private String mDesc;
         private String mErrorMessage;
 
         public a fo(boolean z) {
-            this.cDB = z;
+            this.cDH = z;
             return this;
         }
 
@@ -120,17 +120,17 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
 
         public a hC(int i) {
-            this.cDC = i;
+            this.cDI = i;
             return this;
         }
 
         public a oD(String str) {
-            this.cDD = str;
+            this.cDJ = str;
             return this;
         }
 
         public a oE(String str) {
-            this.cDA = str;
+            this.cDG = str;
             return this;
         }
 
@@ -140,12 +140,12 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
 
         public a fp(boolean z) {
-            this.cDE = z;
+            this.cDK = z;
             return this;
         }
 
         public a oG(String str) {
-            this.cDF = str;
+            this.cDL = str;
             return this;
         }
     }

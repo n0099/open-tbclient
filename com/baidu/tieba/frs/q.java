@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class q extends y.a {
-    public static BdUniqueId hbl = BdUniqueId.gen();
-    private LinearLayout dTF;
-    private int ebm;
-    public TextView hbm;
-    public ImageView hbn;
-    private int hbo;
-    private CustomMessageListener hbp;
+    public static BdUniqueId hbr = BdUniqueId.gen();
+    private LinearLayout dTK;
+    private int ebr;
+    public TextView hbs;
+    public ImageView hbt;
+    private int hbu;
+    private CustomMessageListener hbv;
     private ViewGroup mParent;
     private View mRootView;
     private Rect rect;
@@ -30,7 +30,7 @@ public class q extends y.a {
     public q(View view, ViewGroup viewGroup) {
         super(view);
         this.rect = new Rect();
-        this.hbp = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.q.1
+        this.hbv = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.q.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -42,16 +42,16 @@ public class q extends y.a {
         };
         this.mRootView = view;
         this.mParent = viewGroup;
-        this.dTF = (LinearLayout) view.findViewById(R.id.container);
-        this.hbn = (ImageView) view.findViewById(R.id.emotion_view);
-        this.hbm = (TextView) view.findViewById(R.id.no_data_tips);
-        com.baidu.tbadk.core.util.am.setImageResource(this.hbn, R.drawable.new_pic_emotion_06);
-        this.hbp.setTag(hbl);
-        MessageManager.getInstance().registerListener(this.hbp);
-        bQf();
+        this.dTK = (LinearLayout) view.findViewById(R.id.container);
+        this.hbt = (ImageView) view.findViewById(R.id.emotion_view);
+        this.hbs = (TextView) view.findViewById(R.id.no_data_tips);
+        com.baidu.tbadk.core.util.am.setImageResource(this.hbt, R.drawable.new_pic_emotion_06);
+        this.hbv.setTag(hbr);
+        MessageManager.getInstance().registerListener(this.hbv);
+        bQd();
     }
 
-    private void bQf() {
+    private void bQd() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.q.2
                 @Override // android.view.View.OnLayoutChangeListener
@@ -75,35 +75,35 @@ public class q extends y.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void mQ(int i) {
         if (this.mRootView != null && this.mParent != null) {
-            if (this.ebm <= 0) {
-                this.ebm = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+            if (this.ebr <= 0) {
+                this.ebr = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
             }
-            if (i != Integer.MAX_VALUE || this.hbo != Integer.MAX_VALUE) {
-                this.hbo = i;
+            if (i != Integer.MAX_VALUE || this.hbu != Integer.MAX_VALUE) {
+                this.hbu = i;
                 if (this.mParent.getLocalVisibleRect(this.rect)) {
                     int i2 = this.rect.bottom;
-                    int abs = Math.abs(this.dTF.getTop());
-                    int abs2 = i2 - Math.abs(this.dTF.getBottom());
-                    ViewGroup.LayoutParams layoutParams = this.dTF.getLayoutParams();
+                    int abs = Math.abs(this.dTK.getTop());
+                    int abs2 = i2 - Math.abs(this.dTK.getBottom());
+                    ViewGroup.LayoutParams layoutParams = this.dTK.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                        if (abs < this.ebm) {
-                            marginLayoutParams.topMargin = this.ebm;
-                            this.dTF.setLayoutParams(marginLayoutParams);
-                        } else if (abs == this.ebm) {
-                            if (abs2 > this.ebm) {
-                                marginLayoutParams.topMargin = ((abs2 - this.ebm) / 2) + this.ebm;
-                                this.dTF.setLayoutParams(marginLayoutParams);
+                        if (abs < this.ebr) {
+                            marginLayoutParams.topMargin = this.ebr;
+                            this.dTK.setLayoutParams(marginLayoutParams);
+                        } else if (abs == this.ebr) {
+                            if (abs2 > this.ebr) {
+                                marginLayoutParams.topMargin = ((abs2 - this.ebr) / 2) + this.ebr;
+                                this.dTK.setLayoutParams(marginLayoutParams);
                             }
-                        } else if (abs > this.ebm) {
-                            if (abs2 < this.ebm) {
-                                marginLayoutParams.topMargin = this.ebm;
-                            } else if (abs2 == this.ebm) {
-                                marginLayoutParams.topMargin = this.ebm;
-                            } else if (abs2 > this.ebm) {
+                        } else if (abs > this.ebr) {
+                            if (abs2 < this.ebr) {
+                                marginLayoutParams.topMargin = this.ebr;
+                            } else if (abs2 == this.ebr) {
+                                marginLayoutParams.topMargin = this.ebr;
+                            } else if (abs2 > this.ebr) {
                                 marginLayoutParams.topMargin = (abs + abs2) / 2;
                             }
-                            this.dTF.setLayoutParams(marginLayoutParams);
+                            this.dTK.setLayoutParams(marginLayoutParams);
                         }
                     }
                 }

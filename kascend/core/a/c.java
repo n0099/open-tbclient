@@ -14,11 +14,11 @@ import kascend.core.utils.KSUtils;
 public class c extends a {
     private File mFile;
     private String mPath;
-    private final String mWU;
+    private final String mWX;
 
     public c(Context context) {
         super(context);
-        this.mWU = "ksdevice";
+        this.mWX = "ksdevice";
         this.mPath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/kascend/.kas";
         this.mFile = new File(this.mPath);
         File parentFile = this.mFile.getParentFile();
@@ -83,13 +83,13 @@ public class c extends a {
                             if (split2.length == 2) {
                                 String str = split2[0];
                                 String str2 = split2[1];
-                                ?? Pu = kascend.core.utils.c.Pu("ksdevice" + str);
-                                boolean equals = TextUtils.equals(str2, Pu);
+                                ?? Px = kascend.core.utils.c.Px("ksdevice" + str);
+                                boolean equals = TextUtils.equals(str2, Px);
                                 r0 = str;
-                                byteArrayOutputStream = Pu;
+                                byteArrayOutputStream = Px;
                                 if (!equals) {
                                     deleteFile();
-                                    byteArrayOutputStream3 = Pu;
+                                    byteArrayOutputStream3 = Px;
                                 }
                                 return r0;
                             }
@@ -114,13 +114,13 @@ public class c extends a {
                             if (split.length == 2) {
                                 String str3 = split[0];
                                 String str4 = split[1];
-                                ?? Pu2 = kascend.core.utils.c.Pu("ksdevice" + str3);
-                                boolean equals2 = TextUtils.equals(str4, Pu2);
+                                ?? Px2 = kascend.core.utils.c.Px("ksdevice" + str3);
+                                boolean equals2 = TextUtils.equals(str4, Px2);
                                 r0 = str3;
-                                byteArrayOutputStream = Pu2;
+                                byteArrayOutputStream = Px2;
                                 if (!equals2) {
                                     deleteFile();
-                                    byteArrayOutputStream2 = Pu2;
+                                    byteArrayOutputStream2 = Px2;
                                 }
                                 return r0;
                             }
@@ -144,7 +144,7 @@ public class c extends a {
                                 deleteFile();
                             } else {
                                 String str5 = split4[0];
-                                if (TextUtils.equals(split4[1], kascend.core.utils.c.Pu("ksdevice" + str5))) {
+                                if (TextUtils.equals(split4[1], kascend.core.utils.c.Px("ksdevice" + str5))) {
                                     return str5;
                                 }
                                 deleteFile();
@@ -178,13 +178,13 @@ public class c extends a {
                 if (split3.length == 2) {
                     String str6 = split3[0];
                     String str7 = split3[1];
-                    ?? Pu3 = kascend.core.utils.c.Pu("ksdevice" + str6);
-                    boolean equals3 = TextUtils.equals(str7, Pu3);
+                    ?? Px3 = kascend.core.utils.c.Px("ksdevice" + str6);
+                    boolean equals3 = TextUtils.equals(str7, Px3);
                     r0 = str6;
-                    byteArrayOutputStream = Pu3;
+                    byteArrayOutputStream = Px3;
                     if (!equals3) {
                         deleteFile();
-                        byteArrayOutputStream4 = Pu3;
+                        byteArrayOutputStream4 = Px3;
                     }
                     return r0;
                 }
@@ -206,7 +206,7 @@ public class c extends a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void Ps(String str) {
+    public void Pv(String str) {
         FileOutputStream fileOutputStream;
         if (TextUtils.isEmpty(str)) {
             return;
@@ -216,7 +216,7 @@ public class c extends a {
             fileOutputStream = new FileOutputStream(this.mFile, false);
             try {
                 try {
-                    fileOutputStream.write(KSUtils.encrypt(String.format("%s:%s", str, kascend.core.utils.c.Pu("ksdevice" + str))).getBytes());
+                    fileOutputStream.write(KSUtils.encrypt(String.format("%s:%s", str, kascend.core.utils.c.Px("ksdevice" + str))).getBytes());
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();

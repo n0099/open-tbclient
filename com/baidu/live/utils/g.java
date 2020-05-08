@@ -7,26 +7,26 @@ import com.baidu.live.tbadk.core.util.UtilHelper;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class g {
-    public static int aw(Context context) {
-        int ax = ax(context);
+    public static int ak(Context context) {
+        int al = al(context);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            return ax + UtilHelper.getStatusBarHeight();
+            return al + UtilHelper.getStatusBarHeight();
         }
-        return ax;
+        return al;
     }
 
-    public static int ax(Context context) {
+    public static int al(Context context) {
         if (context == null) {
             context = TbadkCoreApplication.getInst().getContext();
         }
         return context.getResources().getDimensionPixelSize(a.e.sdk_ds220);
     }
 
-    public static int ay(Context context) {
+    public static int am(Context context) {
         return ((BdUtilHelper.getScreenDimensions(context)[0] / 2) * 4) / 3;
     }
 
-    public static int az(Context context) {
+    public static int an(Context context) {
         return BdUtilHelper.getScreenDimensions(context)[0] / 2;
     }
 }

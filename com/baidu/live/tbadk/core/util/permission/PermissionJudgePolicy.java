@@ -56,7 +56,7 @@ public class PermissionJudgePolicy {
     }
 
     public boolean startRequestPermission(Activity activity, boolean z, boolean z2) {
-        if (!a.KP()) {
+        if (!a.KO()) {
             onPermissionsGranted();
             return false;
         } else if (ListUtils.isEmpty(this.requestPermissionList)) {

@@ -16,7 +16,6 @@ import com.baidu.mobstat.Config;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.rp.Report;
-import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.IOException;
@@ -714,7 +713,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                 } catch (Throwable th) {
                                     com.baidu.sofire.i.d.a();
                                 }
-                                if (!((Boolean) com.baidu.sofire.i.d.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, true)).booleanValue()) {
+                                if (!((Boolean) com.baidu.sofire.i.d.a(invoke, com.baidu.sapi2.outsdk.c.l, new Class[]{Integer.TYPE, Boolean.TYPE}, 0, true)).booleanValue()) {
                                     HashMap hashMap5 = new HashMap();
                                     hashMap5.put("0", 6);
                                     hashMap5.put("1", String.valueOf(i));
@@ -850,7 +849,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             }
             Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, b);
             com.baidu.sofire.i.d.a(invoke, "setSecurityVerifyInfo", new Class[]{String.class, String.class}, str2, str3);
-            if (!((Boolean) com.baidu.sofire.i.d.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, true)).booleanValue()) {
+            if (!((Boolean) com.baidu.sofire.i.d.a(invoke, com.baidu.sapi2.outsdk.c.l, new Class[]{Integer.TYPE, Boolean.TYPE}, 0, true)).booleanValue()) {
                 com.baidu.sofire.b.a();
                 com.baidu.sofire.c.a(file);
                 b(c2.packageName);
@@ -1329,7 +1328,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                                 }
                                             }
                                         }
-                                    }, KeepJobService.JOB_CHECK_PERIODIC);
+                                    }, 600000L);
                                     new StringBuilder().append(str).append("object=").append(com.baidu.sofire.i.d.a(invoke, "unload", (Class<?>[]) null, new Object[0]));
                                     com.baidu.sofire.b.a();
                                     a.b(str);

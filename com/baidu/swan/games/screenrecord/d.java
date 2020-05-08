@@ -5,58 +5,58 @@ import android.util.Log;
 /* loaded from: classes11.dex */
 public class d {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d cQS = null;
-    private GameRecorderController cNJ;
-    private boolean cQT;
+    private static volatile d cQX = null;
+    private GameRecorderController cNO;
+    private boolean cQY;
 
     private d() {
     }
 
     public static d axE() {
-        if (cQS == null) {
+        if (cQX == null) {
             synchronized (d.class) {
-                if (cQS == null) {
-                    cQS = new d();
+                if (cQX == null) {
+                    cQX = new d();
                 }
             }
         }
-        return cQS;
+        return cQX;
     }
 
     public void g(GameRecorderController gameRecorderController) {
-        if (this.cNJ != null && this.cNJ != gameRecorderController) {
-            this.cNJ.release();
+        if (this.cNO != null && this.cNO != gameRecorderController) {
+            this.cNO.release();
         }
-        this.cNJ = gameRecorderController;
+        this.cNO = gameRecorderController;
     }
 
     @NonNull
     public GameRecorderController axF() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "getRecorderController:" + this.cNJ);
+            Log.i("GameRecorderManager", "getRecorderController:" + this.cNO);
         }
-        return this.cNJ == null ? GameRecorderController.axD() : this.cNJ;
+        return this.cNO == null ? GameRecorderController.axD() : this.cNO;
     }
 
     public void h(GameRecorderController gameRecorderController) {
-        if (this.cNJ != null && this.cNJ == gameRecorderController) {
-            this.cNJ.release();
-            this.cNJ = null;
+        if (this.cNO != null && this.cNO == gameRecorderController) {
+            this.cNO.release();
+            this.cNO = null;
         }
     }
 
     public boolean axG() {
         if (DEBUG) {
-            Log.i("GameRecorderManager", "isGamePause:" + this.cQT);
+            Log.i("GameRecorderManager", "isGamePause:" + this.cQY);
         }
-        return this.cQT;
+        return this.cQY;
     }
 
     public void axH() {
-        this.cQT = true;
+        this.cQY = true;
     }
 
     public void axI() {
-        this.cQT = false;
+        this.cQY = false;
     }
 }

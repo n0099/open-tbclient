@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes8.dex */
 class h {
-    private static final char[] a = com.coloros.mcssdk.c.a.f.toCharArray();
+    private static final char[] a = "0123456789ABCDEF".toCharArray();
 
     private static String a(byte[] bArr) {
         char[] cArr = new char[bArr.length * 2];

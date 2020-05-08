@@ -55,14 +55,14 @@ public class a extends ab {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bitmap apg = af.apg();
-                if (apg == null) {
+                final Bitmap apf = af.apf();
+                if (apf == null) {
                     a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
                 } else {
                     m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.l.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(apg, unitedSchemeEntity, callbackHandler, eVar);
+                            a.this.a(apf, unitedSchemeEntity, callbackHandler, eVar);
                         }
                     }, "savescreenshot");
                 }

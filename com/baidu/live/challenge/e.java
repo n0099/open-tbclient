@@ -15,5 +15,5 @@ public interface e {
 
     void setClickListener(View.OnClickListener onClickListener);
 
-    boolean uj();
+    boolean ui();
 }

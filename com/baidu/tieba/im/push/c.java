@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c itN = null;
-    private long iej = 0;
-    private List<Long> itO = new ArrayList();
-    private final CustomMessageListener isN = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.c.1
+    private static c itT = null;
+    private long iep = 0;
+    private List<Long> itU = new ArrayList();
+    private final CustomMessageListener isT = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.im.push.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,31 +27,31 @@ public class c {
     };
 
     private c() {
-        MessageManager.getInstance().registerListener(this.isN);
+        MessageManager.getInstance().registerListener(this.isT);
     }
 
-    public static c civ() {
-        if (itN == null) {
+    public static c cit() {
+        if (itT == null) {
             synchronized (c.class) {
-                if (itN == null) {
-                    itN = new c();
+                if (itT == null) {
+                    itT = new c();
                 }
             }
         }
-        return itN;
+        return itT;
     }
 
     public synchronized void bY(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.iej = com.baidu.adp.lib.f.b.toLong(str, 0L);
+                this.iep = com.baidu.adp.lib.f.b.toLong(str, 0L);
                 try {
                     String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.itO.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.itU.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -65,22 +65,22 @@ public class c {
     }
 
     public synchronized void clear() {
-        this.iej = 0L;
-        this.itO.clear();
+        this.iep = 0L;
+        this.itU.clear();
     }
 
     public long getGid() {
-        return this.iej;
+        return this.iep;
     }
 
-    public Long ciw() {
-        return com.baidu.tieba.im.memorycache.b.chC().chN().get(this.iej);
+    public Long ciu() {
+        return com.baidu.tieba.im.memorycache.b.chA().chL().get(this.iep);
     }
 
-    public synchronized List<Long> cix() {
+    public synchronized List<Long> civ() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.itO) {
+        for (Long l : this.itU) {
             if (l != null) {
                 arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.eN(l.longValue())));
             }
@@ -88,23 +88,23 @@ public class c {
         return arrayList;
     }
 
-    public synchronized void ciy() {
-        this.itO.clear();
+    public synchronized void ciw() {
+        this.itU.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0061, code lost:
-        r9.itO.add(java.lang.Long.valueOf(r12));
+        r9.itU.add(java.lang.Long.valueOf(r12));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void C(long j, long j2) {
-        if (this.iej != 0 && this.iej != j) {
-            this.itO.clear();
-            i.a("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.iej);
+        if (this.iep != 0 && this.iep != j) {
+            this.itU.clear();
+            i.a("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.iep);
         }
-        this.iej = j;
-        Iterator<Long> it = this.itO.iterator();
+        this.iep = j;
+        Iterator<Long> it = this.itU.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -116,17 +116,17 @@ public class c {
         }
     }
 
-    public synchronized boolean ciz() {
+    public synchronized boolean cix() {
         boolean z;
-        if (this.iej > 0) {
-            z = this.itO.size() > 0;
+        if (this.iep > 0) {
+            z = this.itU.size() > 0;
         }
         return z;
     }
 
     public synchronized boolean eI(long j) {
         boolean z;
-        Iterator<Long> it = this.itO.iterator();
+        Iterator<Long> it = this.itU.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -141,10 +141,10 @@ public class c {
         return z;
     }
 
-    public synchronized String ciA() {
+    public synchronized String ciy() {
         String str;
         str = "";
-        for (Long l : this.itO) {
+        for (Long l : this.itU) {
             str = (l == null || l.longValue() == 0) ? str : (str + l.longValue()) + Constants.ACCEPT_TIME_SEPARATOR_SP;
         }
         return str;

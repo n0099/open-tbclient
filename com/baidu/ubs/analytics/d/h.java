@@ -3,7 +3,7 @@ package com.baidu.ubs.analytics.d;
 import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONArray;
 import org.json.JSONException;

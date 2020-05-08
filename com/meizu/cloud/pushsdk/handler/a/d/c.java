@@ -39,7 +39,7 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
     public RegisterStatus c(Intent intent) {
         RegisterStatus registerStatus = (RegisterStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_REGISTER_STATUS);
         if (!TextUtils.isEmpty(registerStatus.getPushId())) {
-            com.meizu.cloud.pushsdk.util.b.f(c(), registerStatus.getPushId(), c().getPackageName());
+            com.meizu.cloud.pushsdk.util.b.g(c(), registerStatus.getPushId(), c().getPackageName());
             com.meizu.cloud.pushsdk.util.b.a(c(), (int) ((System.currentTimeMillis() / 1000) + registerStatus.getExpireTime()), c().getPackageName());
         }
         return registerStatus;

@@ -1,81 +1,67 @@
 package com.baidu.sapi2;
 
+import android.content.Context;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.sapi2.callback.GetUserInfoCallback;
-import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
-import com.baidu.sapi2.result.GetUserInfoResult;
+import com.baidu.pass.http.HttpHashMap;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.httpwrap.HttpClientWrap;
+import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.sapi2.utils.Log;
+import java.net.HttpCookie;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class A extends HttpHandlerWrap {
-    final /* synthetic */ GetUserInfoCallback a;
-    final /* synthetic */ GetUserInfoResult b;
-    final /* synthetic */ G c;
+public class A implements com.baidu.sapi2.callback.a.a {
+    final /* synthetic */ OneKeyLoginCallback a;
+    final /* synthetic */ com.baidu.sapi2.callback.a.b b;
+    final /* synthetic */ L c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public A(G g, Looper looper, GetUserInfoCallback getUserInfoCallback, GetUserInfoResult getUserInfoResult) {
-        super(looper);
-        this.c = g;
-        this.a = getUserInfoCallback;
-        this.b = getUserInfoResult;
+    public A(L l, OneKeyLoginCallback oneKeyLoginCallback, com.baidu.sapi2.callback.a.b bVar) {
+        this.c = l;
+        this.a = oneKeyLoginCallback;
+        this.b = bVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onFailure(Throwable th, int i, String str) {
-        this.b.setResultCode(i);
-        this.a.onFailure(this.b);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onFinish() {
-        this.a.onFinish();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onStart() {
-        this.a.onStart();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onSuccess(int i, String str) {
-        int b = this.c.b(str);
-        this.b.setResultCode(b);
-        if (b != 0) {
-            if (b != 400021) {
-                this.a.onFailure(this.b);
-                return;
-            } else {
-                this.a.onBdussExpired(this.b);
-                return;
+    @Override // com.baidu.sapi2.callback.a.a
+    public void a(String str) {
+        SapiConfiguration sapiConfiguration;
+        SapiConfiguration sapiConfiguration2;
+        List<HttpCookie> a;
+        String x;
+        String str2;
+        JSONObject jSONObject = null;
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e) {
+                Log.e(e);
             }
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.b.portraitSign = jSONObject.optString("portrait_tag");
-            this.b.isInitialPortrait = "0".equals(this.b.portraitSign);
-            String optString = jSONObject.optString("portrait");
-            if (!TextUtils.isEmpty(optString)) {
-                this.b.portrait = String.format("http://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.b.portraitSign);
-                this.b.portraitHttps = String.format("https://himg.bdimg.com/sys/portrait/item/%s.jpg?%s", optString, this.b.portraitSign);
+            HttpHashMap httpHashMap = new HttpHashMap();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    httpHashMap.put(next, jSONObject.optString(next));
+                }
             }
-            this.b.username = jSONObject.optString("username");
-            this.b.uid = jSONObject.optString("userid");
-            this.b.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
-            this.b.incompleteUser = "1".equals(jSONObject.optString("incomplete_user"));
-            this.b.secureMobile = jSONObject.optString("securemobil");
-            this.b.secureEmail = jSONObject.optString("secureemail");
-            this.b.havePwd = "1".equals(jSONObject.optString("have_psw"));
-            this.b.carSdkFace = jSONObject.optInt("carSdkFace");
-            this.b.faceLoginSwitch = jSONObject.optInt("faceLoginSwitch");
-            this.a.onSuccess(this.b);
-        } catch (Exception e) {
-            this.a.onFailure(this.b);
+            L l = this.c;
+            sapiConfiguration = l.d;
+            Context context = sapiConfiguration.context;
+            sapiConfiguration2 = this.c.d;
+            a = l.a(context, sapiConfiguration2);
+            HttpClientWrap httpClientWrap = new HttpClientWrap();
+            String l2 = this.c.l();
+            x = this.c.x();
+            httpClientWrap.post(l2, httpHashMap, a, x, new z(this, Looper.getMainLooper()));
+            return;
         }
+        str2 = L.a;
+        Log.e(str2, "oneKeyLogin execute JavaScript failed, it only support after KitKat version");
+        new com.baidu.sapi2.outsdk.c().a(this.a, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_EXECUTE_JS_FAIL, (String) null);
     }
 }

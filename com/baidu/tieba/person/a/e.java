@@ -10,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
-    private List<com.baidu.adp.widget.ListView.a> aMd = new ArrayList();
-    private HTypeListView jRK;
-    private c jRL;
-    private b jRM;
-    private a jRN;
+    private List<com.baidu.adp.widget.ListView.a> aMj = new ArrayList();
+    private HTypeListView jRO;
+    private c jRP;
+    private b jRQ;
+    private a jRR;
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.jRK = hTypeListView;
-        BC();
+        this.jRO = hTypeListView;
+        BB();
     }
 
-    private void BC() {
-        this.jRL = new c(this.mTbPageContext, l.afA);
-        this.jRM = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.jRV);
-        this.jRN = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.jRA);
-        this.aMd.add(this.jRL);
-        this.aMd.add(this.jRM);
-        this.aMd.add(this.jRN);
-        this.jRK.addAdapters(this.aMd);
+    private void BB() {
+        this.jRP = new c(this.mTbPageContext, l.afD);
+        this.jRQ = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.jRZ);
+        this.jRR = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.jRE);
+        this.aMj.add(this.jRP);
+        this.aMj.add(this.jRQ);
+        this.aMj.add(this.jRR);
+        this.jRO.addAdapters(this.aMj);
     }
 
     public void setDatas(List<m> list) {
-        if (this.jRK != null) {
-            this.jRK.setData(list);
+        if (this.jRO != null) {
+            this.jRO.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.jRK != null && (this.jRK.getAdapter() instanceof y)) {
-            ((y) this.jRK.getAdapter()).notifyDataSetChanged();
+        if (this.jRO != null && (this.jRO.getAdapter() instanceof y)) {
+            ((y) this.jRO.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.jRL.E(onClickListener);
-        this.jRM.E(onClickListener);
+        this.jRP.E(onClickListener);
+        this.jRQ.E(onClickListener);
     }
 }

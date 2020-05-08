@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class WrapLineLayout extends ViewGroup {
-    private List<List<View>> dJI;
-    private List<Integer> dJJ;
+    private List<List<View>> dJM;
+    private List<Integer> dJN;
 
     public WrapLineLayout(Context context) {
         super(context);
-        this.dJI = new ArrayList();
-        this.dJJ = new ArrayList();
+        this.dJM = new ArrayList();
+        this.dJN = new ArrayList();
     }
 
     public WrapLineLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dJI = new ArrayList();
-        this.dJJ = new ArrayList();
+        this.dJM = new ArrayList();
+        this.dJN = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -91,8 +91,8 @@ public class WrapLineLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        this.dJI.clear();
-        this.dJJ.clear();
+        this.dJM.clear();
+        this.dJN.clear();
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
@@ -105,8 +105,8 @@ public class WrapLineLayout extends ViewGroup {
             int measuredWidth = childAt.getMeasuredWidth();
             int measuredHeight = childAt.getMeasuredHeight();
             if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                this.dJJ.add(Integer.valueOf(i5));
-                this.dJI.add(arrayList);
+                this.dJN.add(Integer.valueOf(i5));
+                this.dJM.add(arrayList);
                 i6 = 0;
                 arrayList = new ArrayList();
             }
@@ -117,17 +117,17 @@ public class WrapLineLayout extends ViewGroup {
             i5 = max;
             i6 = i8;
         }
-        this.dJJ.add(Integer.valueOf(i5));
-        this.dJI.add(arrayList);
+        this.dJN.add(Integer.valueOf(i5));
+        this.dJM.add(arrayList);
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        int size = this.dJI.size();
+        int size = this.dJM.size();
         int i9 = 0;
         int i10 = paddingTop;
         int i11 = paddingLeft;
         while (i9 < size) {
-            List<View> list = this.dJI.get(i9);
-            int intValue = this.dJJ.get(i9).intValue();
+            List<View> list = this.dJM.get(i9);
+            int intValue = this.dJN.get(i9).intValue();
             int i12 = 0;
             while (true) {
                 int i13 = i12;

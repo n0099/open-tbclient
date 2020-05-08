@@ -12,13 +12,13 @@ import okio.ByteString;
 /* loaded from: classes.dex */
 public final class Layout extends Message<Layout, Builder> {
     private static final long serialVersionUID = 0;
-    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
     public final Float height;
-    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
     public final Float width;
-    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float x;
-    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    @WireField(dAV = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float y;
     public static final ProtoAdapter<Layout> ADAPTER = new ProtoAdapter_Layout();
     public static final Float DEFAULT_X = Float.valueOf(0.0f);
@@ -161,11 +161,11 @@ public final class Layout extends Message<Layout, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public Layout decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dAR = cVar.dAR();
+            long dAN = cVar.dAN();
             while (true) {
-                int dAS = cVar.dAS();
-                if (dAS != -1) {
-                    switch (dAS) {
+                int dAO = cVar.dAO();
+                if (dAO != -1) {
+                    switch (dAO) {
                         case 1:
                             builder.x(ProtoAdapter.FLOAT.decode(cVar));
                             break;
@@ -179,12 +179,12 @@ public final class Layout extends Message<Layout, Builder> {
                             builder.height(ProtoAdapter.FLOAT.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dAT = cVar.dAT();
-                            builder.addUnknownField(dAS, dAT, dAT.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dAP = cVar.dAP();
+                            builder.addUnknownField(dAO, dAP, dAP.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gc(dAR);
+                    cVar.gc(dAN);
                     return builder.build();
                 }
             }

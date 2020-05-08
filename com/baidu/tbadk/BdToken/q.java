@@ -16,12 +16,12 @@ public class q {
     private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.q.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TbPageContext<?> aGq;
+            TbPageContext<?> aGo;
             Object tag = view.getTag();
             if (tag instanceof CompleteTaskToastData) {
                 CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                if (!TextUtils.isEmpty(completeTaskToastData.url) && (aGq = q.aGq()) != null) {
-                    ba.aOY().b(aGq, new String[]{completeTaskToastData.url});
+                if (!TextUtils.isEmpty(completeTaskToastData.url) && (aGo = q.aGo()) != null) {
+                    ba.aOV().b(aGo, new String[]{completeTaskToastData.url});
                     com.baidu.tbadk.BdToken.completeTask.c.ay(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
@@ -81,7 +81,7 @@ public class q {
         com.baidu.tbadk.mutiprocess.g.publishEvent(missionEvent);
     }
 
-    public static TbPageContext aGq() {
+    public static TbPageContext aGo() {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
         if (currentActivity instanceof BaseActivity) {
             return ((BaseActivity) currentActivity).getPageContext();
@@ -93,15 +93,15 @@ public class q {
     }
 
     public static com.baidu.tbadk.core.dialog.f a(CompleteTaskToastData completeTaskToastData) {
-        TbPageContext aGq;
-        if (completeTaskToastData == null || (aGq = aGq()) == null || aGq.getUniqueId() == null || completeTaskToastData.pageId != aGq.getUniqueId().getId()) {
+        TbPageContext aGo;
+        if (completeTaskToastData == null || (aGo = aGo()) == null || aGo.getUniqueId() == null || completeTaskToastData.pageId != aGo.getUniqueId().getId()) {
             return null;
         }
-        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(aGq.getPageActivity(), completeTaskToastData.message);
+        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(aGo.getPageActivity(), completeTaskToastData.message);
         d.ko(completeTaskToastData.duration);
         d.setOnClickListener(mOnClickListener);
         d.setTag(completeTaskToastData);
-        d.aNd();
+        d.aNb();
         return d;
     }
 

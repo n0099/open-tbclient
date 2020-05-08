@@ -8,26 +8,26 @@ import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.apps.y.f;
 /* loaded from: classes11.dex */
 public class d {
-    private b cRS;
+    private b cRX;
 
     public d(JsObject jsObject) {
-        this.cRS = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
+        this.cRX = b.l(com.baidu.swan.games.binding.model.c.c(jsObject));
         a.ayh().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity aev = f.aeK().aev();
-        if (aev == null) {
+        final SwanAppActivity aeu = f.aeJ().aeu();
+        if (aeu == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (aev.isDestroyed() || aev.getIntent() == null) {
+        } else if (aeu.isDestroyed() || aeu.getIntent() == null) {
             return false;
         } else {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.z.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.m(aev);
+                    com.baidu.swan.games.utils.a.m(aeu);
                 }
             });
             return true;
@@ -43,7 +43,7 @@ public class d {
     */
     public void c(c cVar) {
         boolean z = false;
-        if (this.cRS != null && JSEvent.isValid(cVar)) {
+        if (this.cRX != null && JSEvent.isValid(cVar)) {
             com.baidu.swan.apps.console.c.d("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", cVar.type, Boolean.valueOf(cVar.hasUpdate)));
             String str = cVar.type;
             switch (str.hashCode()) {
@@ -69,13 +69,13 @@ public class d {
             }
             switch (z) {
                 case false:
-                    this.cRS.b(cVar);
+                    this.cRX.b(cVar);
                     return;
                 case true:
-                    this.cRS.ayj();
+                    this.cRX.ayj();
                     return;
                 case true:
-                    this.cRS.Xw();
+                    this.cRX.Xv();
                     return;
                 default:
                     return;

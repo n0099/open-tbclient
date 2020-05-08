@@ -12,27 +12,27 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class b {
-    private long dgA;
-    private volatile int dgB;
-    private volatile int dgC;
-    private boolean dgD;
-    private int dgE;
-    public boolean dgF;
-    private final ArrayList<h> dgG;
-    private int dgm;
-    private int dgn;
-    private long dgo;
-    private String dgp;
-    private int dgq;
-    private long dgr;
-    private String dgs;
-    private String dgt;
+    private String dgA;
+    private long dgB;
+    private int dgC;
+    private long dgD;
+    private int[] dgE;
+    private long dgF;
+    private volatile int dgG;
+    private volatile int dgH;
+    private boolean dgI;
+    private int dgJ;
+    public boolean dgK;
+    private final ArrayList<h> dgL;
+    private int dgr;
+    private int dgs;
+    private long dgt;
     private String dgu;
-    private String dgv;
+    private int dgv;
     private long dgw;
-    private int dgx;
-    private long dgy;
-    private int[] dgz;
+    private String dgx;
+    private String dgy;
+    private String dgz;
     private long mFid;
     private String mSource;
     private volatile int mTag;
@@ -41,80 +41,80 @@ public class b {
     private String mToken;
     private int xP;
     public static String ACTIVITY_ID = "activityid";
-    public static String dfI = "missionid";
-    public static String dfJ = "activitysource";
+    public static String dfN = "missionid";
+    public static String dfO = "activitysource";
     public static String SOURCE = "source";
-    public static String dfK = "tab";
-    public static String dfL = "calltype";
-    public static String dfM = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
-    public static String dfN = "browsetimepage";
-    public static String dfO = "browsetime";
-    public static String dfP = "threadnum";
-    public static String dfQ = "forumnum";
-    public static String dfR = "cleartype";
-    public static String dfS = "cleartime";
+    public static String dfP = "tab";
+    public static String dfQ = "calltype";
+    public static String dfR = DownloadDataConstants.Columns.COLUMN_TASK_TYPE;
+    public static String dfS = "browsetimepage";
+    public static String dfT = "browsetime";
+    public static String dfU = "threadnum";
+    public static String dfV = "forumnum";
+    public static String dfW = "cleartype";
+    public static String dfX = "cleartime";
     public static String TID = "tid";
     public static String FID = "fid";
-    public static String dfT = "threadtext";
-    public static String dfU = "threadimg";
-    public static String dfV = "threadforum";
-    public static String dfW = "total_limit";
-    public static int dfX = -1;
-    public static int dfY = 1;
-    public static int dfZ = 2;
-    public static int dga = 3;
-    public static int dgb = 4;
-    public static int dgc = 5;
-    public static int dgd = 6;
-    public static int dge = 7;
-    public static int dgf = 8;
-    public static int dgg = 9;
-    public static int dgh = -1;
-    public static int dgi = 0;
-    public static int dgj = 1;
-    public static int dgk = 2;
-    public static int dgl = 3;
+    public static String dfY = "threadtext";
+    public static String dfZ = "threadimg";
+    public static String dga = "threadforum";
+    public static String dgb = "total_limit";
+    public static int dgc = -1;
+    public static int dgd = 1;
+    public static int dge = 2;
+    public static int dgf = 3;
+    public static int dgg = 4;
+    public static int dgh = 5;
+    public static int dgi = 6;
+    public static int dgj = 7;
+    public static int dgk = 8;
+    public static int dgl = 9;
+    public static int dgm = -1;
+    public static int dgn = 0;
+    public static int dgo = 1;
+    public static int dgp = 2;
+    public static int dgq = 3;
 
     public void reset() {
-        this.dgG.clear();
-        this.dgB = 0;
-        this.dgC = 0;
+        this.dgL.clear();
+        this.dgG = 0;
+        this.dgH = 0;
         this.mTag = 0;
     }
 
     public void a(h hVar) {
         if (this.mTaskType == 7 && (hVar instanceof k)) {
-            if (!this.dgG.contains(hVar)) {
-                this.dgG.add(hVar);
+            if (!this.dgL.contains(hVar)) {
+                this.dgL.add(hVar);
             }
         } else if (this.mTaskType == 1 && (hVar instanceof m)) {
-            if (!this.dgG.contains(hVar)) {
-                this.dgG.add(hVar);
+            if (!this.dgL.contains(hVar)) {
+                this.dgL.add(hVar);
             }
         } else if (this.mTaskType == 2 && (hVar instanceof j)) {
-            if (!this.dgG.contains(hVar)) {
-                this.dgG.add(hVar);
+            if (!this.dgL.contains(hVar)) {
+                this.dgL.add(hVar);
             }
         } else if (this.mTaskType == 4 && (hVar instanceof i)) {
-            if (!this.dgG.contains(hVar)) {
-                this.dgG.add(hVar);
+            if (!this.dgL.contains(hVar)) {
+                this.dgL.add(hVar);
             }
-        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.dgG.contains(hVar)) {
-            this.dgG.add(hVar);
+        } else if (this.mTaskType == 8 && (hVar instanceof l) && !this.dgL.contains(hVar)) {
+            this.dgL.add(hVar);
         }
     }
 
     public ArrayList<h> aFm() {
-        return this.dgG;
+        return this.dgL;
     }
 
     public int aFn() {
         int i;
-        int size = this.dgG.size();
+        int size = this.dgL.size();
         int i2 = 0;
         int i3 = 0;
         while (i2 < size) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.dgG, i2);
+            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.dgL, i2);
             if (hVar instanceof k) {
                 i = ((k) hVar).getTag() == getTag() ? i3 + 1 : i3;
             } else {
@@ -143,9 +143,9 @@ public class b {
     }
 
     public void aFo() {
-        int size = this.dgG.size();
+        int size = this.dgL.size();
         for (int i = 0; i < size; i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.dgG, i);
+            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.dgL, i);
             if (hVar != null) {
                 hVar.gh(true);
             }
@@ -153,8 +153,8 @@ public class b {
     }
 
     public boolean bS(long j) {
-        for (int i = 0; i < this.dgG.size(); i++) {
-            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.dgG, i);
+        for (int i = 0; i < this.dgL.size(); i++) {
+            h hVar = (h) com.baidu.tbadk.core.util.v.getItem(this.dgL, i);
             if (hVar != null) {
                 long b = b(hVar);
                 if (b > 0 && b == j && hVar.gt()) {
@@ -219,13 +219,13 @@ public class b {
 
     public String aFp() {
         try {
-            ArrayList<h> arrayList = this.dgG;
+            ArrayList<h> arrayList = this.dgL;
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < arrayList.size(); i++) {
                 h hVar = (h) com.baidu.tbadk.core.util.v.getItem(arrayList, i);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("i", b(hVar));
-                jSONObject.put("t", hVar.aGj());
+                jSONObject.put("t", hVar.aGh());
                 jSONObject.put("c", hVar.gt());
                 jSONObject.put(Config.APP_VERSION_CODE, hVar.getTag());
                 jSONArray.put(jSONObject);
@@ -238,25 +238,25 @@ public class b {
     }
 
     public b() {
-        this.dgx = dgh;
-        this.dgB = 0;
-        this.dgC = 0;
-        this.dgD = false;
-        this.dgE = 1;
+        this.dgC = dgm;
+        this.dgG = 0;
+        this.dgH = 0;
+        this.dgI = false;
+        this.dgJ = 1;
         this.mTag = 0;
-        this.dgF = false;
-        this.dgG = new ArrayList<>();
+        this.dgK = false;
+        this.dgL = new ArrayList<>();
     }
 
     public b(String str) {
-        this.dgx = dgh;
-        this.dgB = 0;
-        this.dgC = 0;
-        this.dgD = false;
-        this.dgE = 1;
+        this.dgC = dgm;
+        this.dgG = 0;
+        this.dgH = 0;
+        this.dgI = false;
+        this.dgJ = 1;
         this.mTag = 0;
-        this.dgF = false;
-        this.dgG = new ArrayList<>();
+        this.dgK = false;
+        this.dgL = new ArrayList<>();
         sG(str);
     }
 
@@ -267,29 +267,29 @@ public class b {
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.dgm = jSONObject.optInt(ACTIVITY_ID);
-                this.dgn = jSONObject.optInt(dfI);
-                this.dgs = jSONObject.optString(dfJ);
+                this.dgr = jSONObject.optInt(ACTIVITY_ID);
+                this.dgs = jSONObject.optInt(dfN);
+                this.dgx = jSONObject.optString(dfO);
                 this.mSource = jSONObject.optString(SOURCE);
-                this.dgt = jSONObject.optString(dfK);
-                this.xP = jSONObject.optInt(dfL);
-                this.mTaskType = jSONObject.optInt(dfM);
-                this.dgp = jSONObject.optString(dfN);
-                this.dgz = sH(this.dgp);
-                this.dgo = jSONObject.optLong(dfO);
-                this.mThreadNum = jSONObject.optInt(dfP);
-                this.dgq = jSONObject.optInt(dfQ);
-                this.dgx = jSONObject.optInt(dfR);
-                this.dgy = jSONObject.optLong(dfS);
-                this.dgA = aFv();
-                this.dgr = jSONObject.optLong(TID);
+                this.dgy = jSONObject.optString(dfP);
+                this.xP = jSONObject.optInt(dfQ);
+                this.mTaskType = jSONObject.optInt(dfR);
+                this.dgu = jSONObject.optString(dfS);
+                this.dgE = sH(this.dgu);
+                this.dgt = jSONObject.optLong(dfT);
+                this.mThreadNum = jSONObject.optInt(dfU);
+                this.dgv = jSONObject.optInt(dfV);
+                this.dgC = jSONObject.optInt(dfW);
+                this.dgD = jSONObject.optLong(dfX);
+                this.dgF = aFv();
+                this.dgw = jSONObject.optLong(TID);
                 this.mFid = jSONObject.optLong(FID);
-                this.dgu = jSONObject.optString(dfT);
-                this.dgv = jSONObject.optString(dfU);
-                this.dgw = jSONObject.optLong(dfV);
-                int optInt = jSONObject.optInt(dfW);
+                this.dgz = jSONObject.optString(dfY);
+                this.dgA = jSONObject.optString(dfZ);
+                this.dgB = jSONObject.optLong(dga);
+                int optInt = jSONObject.optInt(dgb);
                 if (optInt > 0) {
-                    this.dgE = optInt;
+                    this.dgJ = optInt;
                 }
                 return true;
             }
@@ -301,50 +301,50 @@ public class b {
     }
 
     public b(MissionInfo missionInfo) {
-        this.dgx = dgh;
-        this.dgB = 0;
-        this.dgC = 0;
-        this.dgD = false;
-        this.dgE = 1;
+        this.dgC = dgm;
+        this.dgG = 0;
+        this.dgH = 0;
+        this.dgI = false;
+        this.dgJ = 1;
         this.mTag = 0;
-        this.dgF = false;
-        this.dgG = new ArrayList<>();
+        this.dgK = false;
+        this.dgL = new ArrayList<>();
         if (missionInfo != null) {
-            this.dgm = missionInfo.activityid.intValue();
-            this.dgn = missionInfo.missionid.intValue();
+            this.dgr = missionInfo.activityid.intValue();
+            this.dgs = missionInfo.missionid.intValue();
             this.mTaskType = missionInfo.tasktype.intValue();
-            this.dgx = missionInfo.cleartype.intValue();
-            this.dgy = missionInfo.cleartime.intValue();
-            this.dgA = aFv();
-            this.dgp = missionInfo.browsetimepage;
-            this.dgz = sH(this.dgp);
+            this.dgC = missionInfo.cleartype.intValue();
+            this.dgD = missionInfo.cleartime.intValue();
+            this.dgF = aFv();
+            this.dgu = missionInfo.browsetimepage;
+            this.dgE = sH(this.dgu);
             if (missionInfo.threadnum.intValue() > 0) {
                 this.mThreadNum = missionInfo.threadnum.intValue();
             }
             if (missionInfo.browsetime.intValue() > 0) {
-                this.dgo = missionInfo.browsetime.intValue();
+                this.dgt = missionInfo.browsetime.intValue();
             }
             if (missionInfo.total_limit.intValue() > 0) {
-                this.dgE = missionInfo.total_limit.intValue();
+                this.dgJ = missionInfo.total_limit.intValue();
             }
         }
     }
 
     public boolean aFq() {
-        return this.dgm > 0 && this.dgn > 0 && this.mTaskType > 0 && this.dgo > 0;
+        return this.dgr > 0 && this.dgs > 0 && this.mTaskType > 0 && this.dgt > 0;
     }
 
     public synchronized int aFr() {
         int i;
-        i = this.dgC + 1;
-        this.dgC = i;
+        i = this.dgH + 1;
+        this.dgH = i;
         return i;
     }
 
     public synchronized int aFs() {
         int i;
-        i = this.dgB + 1;
-        this.dgB = i;
+        i = this.dgG + 1;
+        this.dgG = i;
         return i;
     }
 
@@ -357,10 +357,10 @@ public class b {
 
     private int[] sH(String str) {
         if (this.mTaskType == 8) {
-            return new int[]{dfX};
+            return new int[]{dgc};
         }
         if (this.mTaskType == 7) {
-            return new int[]{dfY, dgf, dgg};
+            return new int[]{dgd, dgk, dgl};
         }
         if (str == null) {
             return null;
@@ -381,23 +381,23 @@ public class b {
     }
 
     public long aFv() {
-        if (this.dgx == dgh) {
+        if (this.dgC == dgm) {
             return 0L;
         }
-        if (this.dgx == dgi) {
-            return (System.currentTimeMillis() / 1000) + this.dgy;
+        if (this.dgC == dgn) {
+            return (System.currentTimeMillis() / 1000) + this.dgD;
         }
-        if (this.dgx == dgj) {
-            long aFw = (aFw() / 1000) + this.dgy;
+        if (this.dgC == dgo) {
+            long aFw = (aFw() / 1000) + this.dgD;
             if (System.currentTimeMillis() > aFw) {
                 return aFw + 86400;
             }
             return aFw;
-        } else if (this.dgx == dgk) {
-            return l((int) this.dgy, jj(4)) / 1000;
+        } else if (this.dgC == dgp) {
+            return l((int) this.dgD, jj(4)) / 1000;
         } else {
-            if (this.dgx == dgl) {
-                return this.dgy / 1000;
+            if (this.dgC == dgq) {
+                return this.dgD / 1000;
             }
             return 0L;
         }
@@ -462,31 +462,31 @@ public class b {
     }
 
     public int getActivityId() {
-        return this.dgm;
+        return this.dgr;
     }
 
     public void setActivityId(int i) {
-        this.dgm = i;
+        this.dgr = i;
     }
 
     public int aFx() {
-        return this.dgn;
-    }
-
-    public void jk(int i) {
-        this.dgn = i;
-    }
-
-    public String aFy() {
         return this.dgs;
     }
 
+    public void jk(int i) {
+        this.dgs = i;
+    }
+
+    public String aFy() {
+        return this.dgx;
+    }
+
     public void sI(String str) {
-        this.dgs = str;
+        this.dgx = str;
     }
 
     public String aFz() {
-        return this.dgt;
+        return this.dgy;
     }
 
     public String getSource() {
@@ -510,24 +510,24 @@ public class b {
     }
 
     public String aFB() {
-        return this.dgp;
+        return this.dgu;
     }
 
     public void sJ(String str) {
-        this.dgp = str;
-        this.dgz = sH(str);
+        this.dgu = str;
+        this.dgE = sH(str);
     }
 
     public int[] aFC() {
-        return this.dgz;
+        return this.dgE;
     }
 
     public long aFD() {
-        return this.dgo;
+        return this.dgt;
     }
 
     public void bT(long j) {
-        this.dgo = j;
+        this.dgt = j;
     }
 
     public int getThreadNum() {
@@ -539,43 +539,43 @@ public class b {
     }
 
     public int aFE() {
-        return this.dgq;
+        return this.dgv;
     }
 
     public void jn(int i) {
-        this.dgq = i;
+        this.dgv = i;
     }
 
     public int aFF() {
-        return this.dgx;
+        return this.dgC;
     }
 
     public void jo(int i) {
-        this.dgx = i;
+        this.dgC = i;
     }
 
     public long aFG() {
-        return this.dgy;
+        return this.dgD;
     }
 
     public void bU(long j) {
-        this.dgy = j;
+        this.dgD = j;
     }
 
     public long aFH() {
-        return this.dgA;
+        return this.dgF;
     }
 
     public void bV(long j) {
-        this.dgA = j;
+        this.dgF = j;
     }
 
     public long getTid() {
-        return this.dgr;
+        return this.dgw;
     }
 
     public void setTid(long j) {
-        this.dgr = j;
+        this.dgw = j;
     }
 
     public long getFid() {
@@ -587,35 +587,35 @@ public class b {
     }
 
     public String aFI() {
-        return this.dgu;
+        return this.dgz;
     }
 
     public void sK(String str) {
-        this.dgu = str;
+        this.dgz = str;
     }
 
     public String aFJ() {
-        return this.dgv;
+        return this.dgA;
     }
 
     public void sL(String str) {
-        this.dgv = str;
+        this.dgA = str;
     }
 
     public long aFK() {
-        return this.dgw;
+        return this.dgB;
     }
 
     public void bW(long j) {
-        this.dgw = j;
+        this.dgB = j;
     }
 
     public int aFL() {
-        return this.dgE;
+        return this.dgJ;
     }
 
     public void jp(int i) {
-        this.dgE = i;
+        this.dgJ = i;
     }
 
     public void jq(int i) {
@@ -627,11 +627,11 @@ public class b {
     }
 
     public boolean aFM() {
-        return this.dgD;
+        return this.dgI;
     }
 
     public void gg(boolean z) {
-        this.dgD = z;
+        this.dgI = z;
     }
 
     public String getToken() {

@@ -51,14 +51,14 @@ public class u extends GetUserInfoCallback {
     public void onSuccess(GetUserInfoResult getUserInfoResult) {
         String str;
         ShareStorage.StorageModel storageModel = new ShareStorage.StorageModel(null);
-        SapiAccount currentAccount = SapiContext.getInstance(this.b).getCurrentAccount();
+        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (TextUtils.isEmpty(getUserInfoResult.portraitHttps)) {
             str = ShareStorage.d;
             storageModel.url = str;
         } else {
             storageModel.url = getUserInfoResult.portraitHttps;
         }
-        SapiContext.getInstance(this.b).put(SapiContext.KEY_LAST_LOGIN_USER_PORTRAIT, storageModel.url);
+        SapiContext.getInstance().put(SapiContext.KEY_LAST_LOGIN_USER_PORTRAIT, storageModel.url);
         storageModel.displayname = currentAccount.displayname;
         storageModel.app = SapiUtils.getAppName(this.b);
         storageModel.tpl = SapiAccountManager.getInstance().getSapiConfiguration().tpl;

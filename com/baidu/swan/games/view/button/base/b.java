@@ -11,8 +11,8 @@ import com.baidu.swan.apps.as.af;
 import com.baidu.swan.apps.as.ai;
 import com.baidu.swan.games.view.button.base.a;
 /* loaded from: classes11.dex */
-public class b extends EventTargetImpl implements a.InterfaceC0379a {
-    protected ApiButton cSl;
+public class b extends EventTargetImpl implements a.InterfaceC0400a {
+    protected ApiButton cSq;
     @V8JavascriptField
     public String image;
     @V8JavascriptField
@@ -25,7 +25,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0379a {
     public b(JsObject jsObject, com.baidu.swan.games.e.b bVar) {
         super(bVar);
         this.type = "text";
-        this.text = com.baidu.swan.apps.w.a.abO().getString(a.h.aiapps_aigames_userinfo_button_text_des);
+        this.text = com.baidu.swan.apps.w.a.abN().getString(a.h.aiapps_aigames_userinfo_button_text_des);
         n(jsObject);
     }
 
@@ -34,9 +34,9 @@ public class b extends EventTargetImpl implements a.InterfaceC0379a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.1
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.cSl != null) {
-                    com.baidu.swan.games.view.c.av(b.this.cSl);
-                    b.this.cSl = null;
+                if (b.this.cSq != null) {
+                    com.baidu.swan.games.view.c.av(b.this.cSq);
+                    b.this.cSq = null;
                 }
             }
         });
@@ -47,8 +47,8 @@ public class b extends EventTargetImpl implements a.InterfaceC0379a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.2
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.cSl != null) {
-                    b.this.cSl.hide();
+                if (b.this.cSq != null) {
+                    b.this.cSq.hide();
                 }
             }
         });
@@ -59,8 +59,8 @@ public class b extends EventTargetImpl implements a.InterfaceC0379a {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.3
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.cSl != null) {
-                    b.this.cSl.show();
+                if (b.this.cSq != null) {
+                    b.this.cSq.show();
                 }
             }
         });
@@ -74,7 +74,7 @@ public class b extends EventTargetImpl implements a.InterfaceC0379a {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.d("BaseButtonProxy", "onFieldChangedCallback fieldName=" + str);
                 }
-                if (b.this.cSl != null) {
+                if (b.this.cSq != null) {
                     String str2 = str;
                     char c = 65535;
                     switch (str2.hashCode()) {
@@ -93,10 +93,10 @@ public class b extends EventTargetImpl implements a.InterfaceC0379a {
                     }
                     switch (c) {
                         case 0:
-                            b.this.cSl.setButtonText(b.this.text);
+                            b.this.cSq.setButtonText(b.this.text);
                             return;
                         case 1:
-                            b.this.cSl.setImageUrl(b.this.image);
+                            b.this.cSq.setImageUrl(b.this.image);
                             return;
                         default:
                             return;
@@ -106,13 +106,13 @@ public class b extends EventTargetImpl implements a.InterfaceC0379a {
         });
     }
 
-    @Override // com.baidu.swan.games.view.button.base.a.InterfaceC0379a
+    @Override // com.baidu.swan.games.view.button.base.a.InterfaceC0400a
     public void ayY() {
         ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.view.button.base.b.5
             @Override // java.lang.Runnable
             public void run() {
-                if (b.this.cSl != null && !b.this.aza()) {
-                    b.this.cSl.ayQ();
+                if (b.this.cSq != null && !b.this.aza()) {
+                    b.this.cSq.ayQ();
                 }
             }
         });
@@ -120,32 +120,32 @@ public class b extends EventTargetImpl implements a.InterfaceC0379a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean ayZ() {
-        if (this.cSl == null || this.style == null) {
+        if (this.cSq == null || this.style == null) {
             return false;
         }
         this.style.a(this);
         com.baidu.swan.apps.model.a.a.a azb = azb();
-        return azb != null && com.baidu.swan.games.view.c.c(this.cSl, azb);
+        return azb != null && com.baidu.swan.games.view.c.c(this.cSq, azb);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean aza() {
         com.baidu.swan.apps.model.a.a.a azb;
-        return (this.cSl == null || this.style == null || (azb = azb()) == null || !com.baidu.swan.games.view.c.b(this.cSl, azb)) ? false : true;
+        return (this.cSq == null || this.style == null || (azb = azb()) == null || !com.baidu.swan.games.view.c.b(this.cSq, azb)) ? false : true;
     }
 
     private com.baidu.swan.apps.model.a.a.a azb() {
-        if (this.style == null || this.cSl == null) {
+        if (this.style == null || this.cSq == null) {
             return null;
         }
         int C = af.C(this.style.width);
         int C2 = af.C(this.style.height);
         int C3 = af.C(this.style.left);
-        int C4 = af.C(this.style.f1016top);
+        int C4 = af.C(this.style.f1008top);
         int C5 = af.C(this.style.borderWidth);
         int i = C < C5 * 2 ? C5 * 2 : C;
         int i2 = C2 < C5 * 2 ? C5 * 2 : C2;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cSl.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cSq.getLayoutParams();
         if (layoutParams != null && layoutParams.width == i && layoutParams.height == i2 && layoutParams.leftMargin == C3 && layoutParams.topMargin == C4) {
             return null;
         }

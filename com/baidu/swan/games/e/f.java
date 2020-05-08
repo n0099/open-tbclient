@@ -37,7 +37,7 @@ public class f extends com.baidu.swan.games.e.a {
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
-        public String WX() {
+        public String WW() {
             return "swan-game-worker.js";
         }
     }

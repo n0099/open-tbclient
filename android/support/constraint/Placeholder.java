@@ -10,7 +10,6 @@ import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes6.dex */
 public class Placeholder extends View {
     private View mContent;
@@ -81,7 +80,7 @@ public class Placeholder extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         if (isInEditMode()) {
-            canvas.drawRGB(SapiAccountManager.VERSION_CODE, SapiAccountManager.VERSION_CODE, SapiAccountManager.VERSION_CODE);
+            canvas.drawRGB(223, 223, 223);
             Paint paint = new Paint();
             paint.setARGB(255, Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST, Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST, Constants.METHOD_IM_SEND_QUIZ_ANSWER_CAST);
             paint.setTextAlign(Paint.Align.CENTER);

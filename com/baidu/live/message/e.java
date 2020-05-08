@@ -3,11 +3,11 @@ package com.baidu.live.message;
 import com.baidu.live.adp.framework.message.HttpMessage;
 /* loaded from: classes3.dex */
 public class e extends HttpMessage {
-    private String aEj;
+    private String aEp;
 
     public e(String str) {
         super(1021120);
-        this.aEj = str;
-        addParam("scene_from", this.aEj);
+        this.aEp = str;
+        addParam("scene_from", this.aEp);
     }
 }

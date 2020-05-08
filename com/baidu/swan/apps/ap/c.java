@@ -3,13 +3,13 @@ package com.baidu.swan.apps.ap;
 import java.util.Locale;
 /* loaded from: classes11.dex */
 public final class c<ValueT> {
-    private a<ValueT> cwN;
+    private a<ValueT> cwT;
     public final String id;
     private ValueT mValue;
 
     /* loaded from: classes11.dex */
     public interface a<ValueT> {
-        ValueT anv() throws IllegalStateException;
+        ValueT anu() throws IllegalStateException;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.ap.e */
@@ -17,27 +17,27 @@ public final class c<ValueT> {
     /* JADX WARN: Multi-variable type inference failed */
     public c(String str) {
         this.id = str;
-        e.aow().a(this);
+        e.aov().a(this);
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, aov());
+        return String.format(Locale.getDefault(), "%s :: %s(%s)", super.toString(), this.id, aou());
     }
 
     public c<ValueT> a(a<ValueT> aVar) {
-        this.cwN = aVar;
+        this.cwT = aVar;
         update();
         return this;
     }
 
     public boolean update() {
-        return b(this.cwN);
+        return b(this.cwT);
     }
 
     public boolean b(a<ValueT> aVar) {
         if (aVar != null) {
             try {
-                return P(aVar.anv());
+                return Q(aVar.anu());
             } catch (IllegalStateException e) {
                 com.baidu.swan.apps.console.c.w("Tracer", "index update IllegalStateException " + e.getMessage());
                 return false;
@@ -48,13 +48,13 @@ public final class c<ValueT> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.ap.e */
     /* JADX WARN: Multi-variable type inference failed */
-    public boolean P(ValueT valuet) {
+    public boolean Q(ValueT valuet) {
         this.mValue = valuet;
-        e.aow().b(this);
+        e.aov().b(this);
         return true;
     }
 
-    public CharSequence aov() {
+    public CharSequence aou() {
         return this.mValue == null ? "" : this.mValue.toString();
     }
 }

@@ -20,20 +20,20 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
 public class LiveRecorderConfigHelper {
-    private static volatile LiveRecorderConfigHelper aRp;
-    private c aRn = new c();
-    private boolean aRo = false;
+    private static volatile LiveRecorderConfigHelper aRu;
+    private c aRs = new c();
+    private boolean aRt = false;
 
     public VideoResolution f(boolean z, boolean z2) {
         if (!z2) {
-            return cv(a.Eo().aQp.arG);
+            return cv(a.En().aQu.arM);
         }
         if (TbadkCoreApplication.getInst().isOther()) {
             if (z && z2) {
-                return cv(a.Eo().aQp.arO);
+                return cv(a.En().aQu.arU);
             }
             if (!z && z2) {
-                return cv(a.Eo().aQp.arP);
+                return cv(a.En().aQu.arV);
             }
             return VideoResolution.P540;
         }
@@ -56,15 +56,15 @@ public class LiveRecorderConfigHelper {
         return VideoResolution.P540;
     }
 
-    public static LiveRecorderConfigHelper Ei() {
-        if (aRp == null) {
+    public static LiveRecorderConfigHelper Eh() {
+        if (aRu == null) {
             synchronized (LiveRecorderConfigHelper.class) {
-                if (aRp == null) {
-                    aRp = new LiveRecorderConfigHelper();
+                if (aRu == null) {
+                    aRu = new LiveRecorderConfigHelper();
                 }
             }
         }
-        return aRp;
+        return aRu;
     }
 
     public AlaLiveVideoConfig d(int i, int i2, boolean z) {
@@ -75,15 +75,15 @@ public class LiveRecorderConfigHelper {
         if (videoResolution == null) {
             videoResolution = cv(i);
         }
-        if (i2 == 1 && !a.Eo().aQp.arH) {
+        if (i2 == 1 && !a.En().aQu.arN) {
             videoResolution = VideoResolution.P360;
         }
-        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(eO(a.Eo().aQp.arJ), eO(a.Eo().aQp.arK), a.Eo().aQp.increaseThreshold, a.Eo().aQp.decreaseThreshold, a.Eo().aQp.increaseCount, a.Eo().aQp.arH, a.Eo().aQp.arI, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
+        AlaLiveVideoConfig isLandscape = new AlaLiveVideoConfig(eO(a.En().aQu.arP), eO(a.En().aQu.arQ), a.En().aQu.increaseThreshold, a.En().aQu.decreaseThreshold, a.En().aQu.increaseCount, a.En().aQu.arN, a.En().aQu.arO, videoResolution.getWidth(), videoResolution.getHeight()).setIsLandscape(z);
         if (i2 == 1) {
             isLandscape.setPreviewWidth(720);
             isLandscape.setPreviewHeight(1280);
-            if (a.Eo().aQp != null) {
-                isLandscape.setSupportFaceStyle(a.Eo().aQp.arT);
+            if (a.En().aQu != null) {
+                isLandscape.setSupportFaceStyle(a.En().aQu.arZ);
             }
             return isLandscape;
         } else if (i2 == 2) {
@@ -98,26 +98,26 @@ public class LiveRecorderConfigHelper {
     public void a(boolean z, AlaLiveVideoConfig alaLiveVideoConfig) {
         if (alaLiveVideoConfig != null) {
             if (z) {
-                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(eO(a.Eo().aQp.arM));
+                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(eO(a.En().aQu.arS));
             } else {
-                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(eO(a.Eo().aQp.arN));
+                alaLiveVideoConfig.getRtcBitRateConfig().resetBitRateItem(eO(a.En().aQu.arT));
             }
         }
     }
 
-    public void Ej() {
-        if (!this.aRo) {
-            this.aRn.dM(a.Eo().aQp.arL);
-            AlaNdkAdapter.setDomainConfigEnable(this.aRn.apB ? 1 : 0);
-            if (this.aRn.apA.size() > 0 && this.aRn.apz.length() > 0 && this.aRn.apB) {
-                for (int i = 0; i < this.aRn.apA.size(); i++) {
-                    c.a aVar = this.aRn.apA.get(i);
+    public void Ei() {
+        if (!this.aRt) {
+            this.aRs.dM(a.En().aQu.arR);
+            AlaNdkAdapter.setDomainConfigEnable(this.aRs.apH ? 1 : 0);
+            if (this.aRs.apG.size() > 0 && this.aRs.apF.length() > 0 && this.aRs.apH) {
+                for (int i = 0; i < this.aRs.apG.size(); i++) {
+                    c.a aVar = this.aRs.apG.get(i);
                     if (aVar != null && aVar.ip != null && aVar.ip.length() > 0) {
-                        AlaNdkAdapter.setDomainConfig(this.aRn.apz, aVar.ip, aVar.apD);
+                        AlaNdkAdapter.setDomainConfig(this.aRs.apF, aVar.ip, aVar.apJ);
                     }
                 }
             }
-            this.aRo = true;
+            this.aRt = true;
         }
     }
 

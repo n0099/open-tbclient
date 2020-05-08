@@ -1,20 +1,30 @@
 package com.xiaomi.push;
+
+import com.xiaomi.push.je;
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes8.dex */
-public class jd extends iw {
-    protected int a;
+public class jd {
+    private ji a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private final jp f768a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private final ByteArrayOutputStream f769a;
 
     public jd() {
-        this.a = 0;
+        this(new je.a());
     }
 
-    public jd(int i, String str) {
-        super(str);
-        this.a = 0;
-        this.a = i;
+    public jd(jk jkVar) {
+        this.f769a = new ByteArrayOutputStream();
+        this.f768a = new jp(this.f769a);
+        this.a = jkVar.a(this.f768a);
     }
 
-    public jd(String str) {
-        super(str);
-        this.a = 0;
+    public byte[] a(ix ixVar) {
+        this.f769a.reset();
+        ixVar.b(this.a);
+        return this.f769a.toByteArray();
     }
 }

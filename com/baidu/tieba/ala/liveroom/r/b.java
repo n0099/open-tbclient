@@ -10,12 +10,12 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.ala.liveroom.a {
-    private String aEh;
-    private int aqR;
-    private long eId;
-    private c fOR;
-    private long fOS;
-    private String fOT;
+    private String aEn;
+    private int aqX;
+    private long eIi;
+    private c fOW;
+    private long fOX;
+    private String fOY;
     private boolean mIsHost;
     private String mPortrait;
     public String otherParams;
@@ -25,25 +25,25 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     }
 
     public void a(int i, long j, String str, boolean z, String str2, String str3, String str4, long j2) {
-        this.aqR = i;
-        this.fOS = j;
-        this.fOT = str;
+        this.aqX = i;
+        this.fOX = j;
+        this.fOY = str;
         this.mIsHost = z;
         this.mPortrait = str2;
-        this.aEh = str4;
-        this.eId = j2;
+        this.aEn = str4;
+        this.eIi = j2;
         this.otherParams = str3;
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void ah(ViewGroup viewGroup) {
         super.ah(viewGroup);
-        if (this.fOR == null) {
-            com.baidu.live.p.a aVar = new com.baidu.live.p.a(getPageContext().getPageActivity(), this.aqR, this.fOS, this.mIsHost, this.mPortrait, this.otherParams, this.aEh, this.eId);
-            aVar.userName = this.fOT;
+        if (this.fOW == null) {
+            com.baidu.live.p.a aVar = new com.baidu.live.p.a(getPageContext().getPageActivity(), this.aqX, this.fOX, this.mIsHost, this.mPortrait, this.otherParams, this.aEn, this.eIi);
+            aVar.userName = this.fOY;
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2913036, c.class, aVar);
             if (runTask != null && runTask.getData() != null) {
-                this.fOR = (c) runTask.getData();
+                this.fOW = (c) runTask.getData();
             }
         }
         if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRankHourUnabled()) {
@@ -52,46 +52,46 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
     }
 
     private void ao(ViewGroup viewGroup) {
-        if (this.fOR != null && this.fOR.Ed() != null && viewGroup.indexOfChild(this.fOR.Ed()) < 0) {
-            this.fOR.Ed().setId(a.g.ala_liveroom_ranklist);
+        if (this.fOW != null && this.fOW.Ec() != null && viewGroup.indexOfChild(this.fOW.Ec()) < 0) {
+            this.fOW.Ec().setId(a.g.ala_liveroom_ranklist);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(1, a.g.guard_club_entry_id);
             layoutParams.addRule(3, a.g.ala_liveroom_hostheader);
             layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds20);
             layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.e.sdk_ds14);
-            viewGroup.addView(this.fOR.Ed(), layoutParams);
+            viewGroup.addView(this.fOW.Ec(), layoutParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
-    public void ug() {
-        super.ug();
-        if (this.fOR != null && this.fOR.Ed() != null && this.fOR.Ed().getParent() != null) {
-            ((ViewGroup) this.fOR.Ed().getParent()).removeView(this.fOR.Ed());
+    public void uf() {
+        super.uf();
+        if (this.fOW != null && this.fOW.Ec() != null && this.fOW.Ec().getParent() != null) {
+            ((ViewGroup) this.fOW.Ec().getParent()).removeView(this.fOW.Ec());
         }
-        if (this.fOR != null) {
-            this.fOR.destory();
-            this.fOR = null;
+        if (this.fOW != null) {
+            this.fOW.destory();
+            this.fOW = null;
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.a
     public void onDestroy() {
-        if (this.fOR != null) {
-            this.fOR.destory();
-            this.fOR = null;
+        if (this.fOW != null) {
+            this.fOW.destory();
+            this.fOW = null;
         }
     }
 
-    public void bzN() {
-        if (this.fOR != null) {
-            this.fOR.Eg();
+    public void bzL() {
+        if (this.fOW != null) {
+            this.fOW.Ef();
         }
     }
 
-    public void bzO() {
-        if (this.fOR != null) {
-            this.fOR.Eh();
+    public void bzM() {
+        if (this.fOW != null) {
+            this.fOW.Eg();
         }
     }
 }

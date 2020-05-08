@@ -11,8 +11,8 @@ import com.baidu.live.u.a;
 import com.baidu.live.utils.k;
 /* loaded from: classes3.dex */
 public class AlaGraffitiGiftInfoView extends LinearLayout {
-    private TbImageView aGe;
-    private HeadImageView aGf;
+    private TbImageView aGk;
+    private HeadImageView aGl;
     private TextView mTitle;
 
     public AlaGraffitiGiftInfoView(Context context) {
@@ -33,21 +33,21 @@ public class AlaGraffitiGiftInfoView extends LinearLayout {
     private void init() {
         View.inflate(getContext(), a.h.popup_graffiti_gift_info_layout, this);
         setBackgroundResource(a.f.ala_small_gift_bg_alpha_shape);
-        this.aGe = (TbImageView) findViewById(a.g.graffiti_sender_img);
-        this.aGe.setIsNight(false);
-        this.aGe.setAutoChangeStyle(false);
-        this.aGf = (HeadImageView) findViewById(a.g.graffiti_sender_avatar);
-        this.aGf.setIsRound(true);
-        this.aGf.setAutoChangeStyle(false);
-        this.aGf.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.aGf.setIsNight(false);
-        this.aGf.setAutoChangeStyle(false);
+        this.aGk = (TbImageView) findViewById(a.g.graffiti_sender_img);
+        this.aGk.setIsNight(false);
+        this.aGk.setAutoChangeStyle(false);
+        this.aGl = (HeadImageView) findViewById(a.g.graffiti_sender_avatar);
+        this.aGl.setIsRound(true);
+        this.aGl.setAutoChangeStyle(false);
+        this.aGl.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.aGl.setIsNight(false);
+        this.aGl.setAutoChangeStyle(false);
         this.mTitle = (TextView) findViewById(a.g.graffiti_sender_info_txt);
     }
 
     public void setGiftInfo(String str, String str2, String str3) {
-        this.aGf.setUrl(str);
-        k.a(this.aGf, str, false, false);
+        this.aGl.setUrl(str);
+        k.a(this.aGl, str, false, false);
         this.mTitle.setText(str3);
     }
 }

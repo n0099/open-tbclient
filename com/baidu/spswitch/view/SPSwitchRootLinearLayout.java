@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.baidu.spswitch.a.c;
 /* loaded from: classes13.dex */
 public class SPSwitchRootLinearLayout extends LinearLayout {
-    private c bza;
+    private c bzf;
 
     public SPSwitchRootLinearLayout(Context context) {
         this(context, null);
@@ -24,12 +24,12 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     }
 
     private void init() {
-        this.bza = new c(this);
+        this.bzf = new c(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.bza.V(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        this.bzf.V(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
         super.onMeasure(i, i2);
     }
 }

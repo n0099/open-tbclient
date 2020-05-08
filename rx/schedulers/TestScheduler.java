@@ -9,7 +9,7 @@ import rx.k;
 import rx.subscriptions.e;
 /* loaded from: classes6.dex */
 public class TestScheduler extends g {
-    static long npp;
+    static long nps;
     final Queue<c> queue = new PriorityQueue(11, new a());
     long time;
 
@@ -18,16 +18,16 @@ public class TestScheduler extends g {
     public static final class c {
         final rx.functions.a action;
         private final long count;
-        final g.a npu;
+        final g.a npx;
         final long time;
 
         c(g.a aVar, long j, rx.functions.a aVar2) {
-            long j2 = TestScheduler.npp;
-            TestScheduler.npp = 1 + j2;
+            long j2 = TestScheduler.nps;
+            TestScheduler.nps = 1 + j2;
             this.count = j2;
             this.time = j;
             this.action = aVar2;
-            this.npu = aVar;
+            this.npx = aVar;
         }
 
         public String toString() {
@@ -82,7 +82,7 @@ public class TestScheduler extends g {
             }
             this.time = peek.time == 0 ? this.time : peek.time;
             this.queue.remove();
-            if (!peek.npu.isUnsubscribed()) {
+            if (!peek.npx.isUnsubscribed()) {
                 peek.action.call();
             }
         }
@@ -96,19 +96,19 @@ public class TestScheduler extends g {
 
     /* loaded from: classes6.dex */
     final class b extends g.a {
-        private final rx.subscriptions.a npq = new rx.subscriptions.a();
+        private final rx.subscriptions.a npt = new rx.subscriptions.a();
 
         b() {
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.npq.unsubscribe();
+            this.npt.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.npq.isUnsubscribed();
+            return this.npt.isUnsubscribed();
         }
 
         @Override // rx.g.a

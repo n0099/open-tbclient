@@ -4,9 +4,9 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
     public long currentTime;
-    public long fQA;
-    public a fQB;
-    public int fQz;
+    public int fQE;
+    public long fQF;
+    public a fQG;
 
     public c(JSONObject jSONObject) {
         parseJson(jSONObject);
@@ -14,22 +14,22 @@ public class c {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.fQz = jSONObject.optInt("is_lucky_moment");
+            this.fQE = jSONObject.optInt("is_lucky_moment");
             this.currentTime = jSONObject.optLong("current_time");
-            this.fQA = jSONObject.optLong("expired_time");
-            this.fQB = new a(jSONObject.optJSONObject("lucky_gift_info"));
+            this.fQF = jSONObject.optLong("expired_time");
+            this.fQG = new a(jSONObject.optJSONObject("lucky_gift_info"));
         }
     }
 
     /* loaded from: classes3.dex */
     public class a {
-        public String fQC;
+        public String fQH;
         public String giftName;
 
         public a(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.giftName = jSONObject.optString("gift_name");
-                this.fQC = jSONObject.optString("pro_up_ratio");
+                this.fQH = jSONObject.optString("pro_up_ratio");
             }
         }
     }

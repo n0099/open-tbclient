@@ -1,28 +1,20 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.al;
+import android.text.TextUtils;
 /* loaded from: classes8.dex */
-class an extends XMPushService.i {
-    final /* synthetic */ al.b.c a;
+public class an {
+    private static long a = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public an(al.b.c cVar, int i) {
-        super(i);
-        this.a = cVar;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    private static String f847a = "";
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        return "clear peer job";
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        if (this.a.a == this.a.f868a.f855a) {
-            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f868a.g);
-            this.a.f868a.f855a = null;
+    public static String a() {
+        if (TextUtils.isEmpty(f847a)) {
+            f847a = com.xiaomi.push.bf.a(4);
         }
+        StringBuilder append = new StringBuilder().append(f847a);
+        long j = a;
+        a = 1 + j;
+        return append.append(j).toString();
     }
 }

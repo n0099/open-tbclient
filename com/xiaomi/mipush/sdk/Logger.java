@@ -3,8 +3,8 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import com.baidu.tbadk.TbConfig;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-import com.xiaomi.push.dg;
-import com.xiaomi.push.dh;
+import com.xiaomi.push.dl;
+import com.xiaomi.push.dm;
 import java.io.File;
 /* loaded from: classes8.dex */
 public class Logger {
@@ -75,10 +75,10 @@ public class Logger {
         } else if (hasWritePermission(context)) {
             z = true;
         }
-        com.xiaomi.channel.commonutils.logger.b.a(new dg(z2 ? sUserLogger : null, z ? new dh(context) : null));
+        com.xiaomi.channel.commonutils.logger.b.a(new dl(z2 ? sUserLogger : null, z ? new dm(context) : null));
     }
 
     public static void uploadLogFile(Context context, boolean z) {
-        com.xiaomi.push.ai.a(context).a(new w(context, z));
+        com.xiaomi.push.ai.a(context).a(new u(context, z));
     }
 }

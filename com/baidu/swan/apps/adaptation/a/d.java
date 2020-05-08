@@ -3,11 +3,13 @@ package com.baidu.swan.apps.adaptation.a;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public interface d {
-    String OW();
+    String OV();
 
-    boolean OX();
+    boolean OW();
 
-    int OY();
+    int OX();
+
+    boolean OY();
 
     boolean OZ();
 
@@ -17,37 +19,35 @@ public interface d {
 
     boolean Pc();
 
-    boolean Pd();
+    String Pd();
 
-    String Pe();
+    boolean Pe();
 
     boolean Pf();
 
     boolean Pg();
 
-    boolean Ph();
+    String Ph();
 
-    String Pi();
+    boolean Pi();
 
     boolean Pj();
 
-    boolean Pk();
+    long Pk();
 
-    long Pl();
+    boolean Pl();
 
     boolean Pm();
 
-    boolean Pn();
+    long Pn();
 
-    long Po();
+    boolean Po();
 
     boolean Pp();
 
-    boolean Pq();
+    int Pq();
 
-    int Pr();
-
-    boolean Ps();
+    boolean Pr();
 
     boolean dY(int i);
 

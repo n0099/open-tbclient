@@ -23,18 +23,18 @@ public final class b {
         }
     }
 
-    public final boolean ahj() {
+    public final boolean ahi() {
         k axo = axo();
         if (axo != null) {
-            return axo.ahj();
+            return axo.ahi();
         }
         return false;
     }
 
     private final k axo() {
-        com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
-        if (akN != null) {
-            return akN.alb();
+        com.baidu.swan.apps.runtime.e akM = com.baidu.swan.apps.runtime.e.akM();
+        if (akM != null) {
+            return akM.ala();
         }
         return null;
     }

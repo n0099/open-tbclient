@@ -10,32 +10,32 @@ import tbclient.AlaLiveInfo;
 import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes9.dex */
 public class f extends com.baidu.tbadk.core.data.a {
-    public static final BdUniqueId hQm = BdUniqueId.gen();
-    private List<AlaLiveInfo> hQn = new ArrayList();
+    public static final BdUniqueId hQs = BdUniqueId.gen();
+    private List<AlaLiveInfo> hQt = new ArrayList();
 
     public void a(UserFollowLive userFollowLive) {
-        this.hQn.clear();
+        this.hQt.clear();
         if (userFollowLive != null && userFollowLive._switch.intValue() != 0 && !v.isEmpty(userFollowLive.user_follow_live)) {
-            this.hQn.addAll(userFollowLive.user_follow_live);
+            this.hQt.addAll(userFollowLive.user_follow_live);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hQm;
+        return hQs;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bj aIw() {
+    public bj aIu() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public al aIy() {
+    public al aIw() {
         return null;
     }
 
-    public List<AlaLiveInfo> bZW() {
-        return this.hQn;
+    public List<AlaLiveInfo> bZU() {
+        return this.hQt;
     }
 }

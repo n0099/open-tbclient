@@ -81,7 +81,7 @@ public final class ProgresshudPlugin implements MethodChannel.MethodCallHandler 
                 q.i(inst4, "BdBaseApplication.getInst()");
                 int identifier = resources.getIdentifier(androidNameFromIos, "drawable", inst4.getPackageName());
                 activity4 = ProgresshudPluginKt.mCurrentActivity;
-                BdToast.a((Context) activity4, (CharSequence) valueOf2, identifier, false).aMZ();
+                BdToast.a((Context) activity4, (CharSequence) valueOf2, identifier, false).aMX();
             }
         } else if (q.k(methodCall.method, "showWithStatus")) {
             ProgresshudPluginKt.getDialog().showWithStatus(methodCall.arguments.toString(), ProgresshudPluginKt.getMaskType());

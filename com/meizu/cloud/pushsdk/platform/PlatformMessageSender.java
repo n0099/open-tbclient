@@ -14,7 +14,6 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.meizu.cloud.pushsdk.util.c;
 /* loaded from: classes8.dex */
 public class PlatformMessageSender {
 
@@ -148,7 +147,7 @@ public class PlatformMessageSender {
     }
 
     public static void launchStartActivity(Context context, String str, String str2, String str3) {
-        d a2 = c.a(str3);
+        d a2 = com.meizu.cloud.pushsdk.util.d.a(str3);
         MessageV3 parse = MessageV3.parse(str, str, a2.e(), a2.f(), a2.c(), a2.d(), str2);
         Intent intent = new Intent();
         intent.setData(Uri.parse("custom://" + System.currentTimeMillis()));
@@ -169,7 +168,7 @@ public class PlatformMessageSender {
     }
 
     public static void showQuickNotification(Context context, String str, String str2) {
-        d a2 = c.a(str2);
+        d a2 = com.meizu.cloud.pushsdk.util.d.a(str2);
         Intent intent = new Intent();
         intent.putExtra(PushConstants.EXTRA_APP_PUSH_SEQ_ID, a2.d());
         intent.putExtra(PushConstants.EXTRA_APP_PUSH_TASK_ID, a2.c());

@@ -24,12 +24,12 @@ public class b extends ab {
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.runtime.e eVar) {
         com.baidu.swan.apps.console.c.i("RemoteDebugAction", "handleSubAction subAction: " + str);
-        if (!e.TG()) {
+        if (!e.TF()) {
             com.baidu.swan.apps.console.c.e("RemoteDebugAction", "Can't invoke this action outside Remote Debug mode");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        SwanAppActivity akJ = com.baidu.swan.apps.runtime.d.akK().akJ();
+        SwanAppActivity akI = com.baidu.swan.apps.runtime.d.akJ().akI();
         char c = 65535;
         switch (str.hashCode()) {
             case -279631955:
@@ -48,19 +48,19 @@ public class b extends ab {
         switch (c) {
             case 0:
                 com.baidu.swan.apps.console.c.i("RemoteDebugAction", "Remote Debug reload");
-                if (akJ != null) {
-                    Intent intent = akJ.getIntent();
-                    e.TI();
-                    com.baidu.swan.apps.runtime.d.akK().v(new String[0]);
-                    com.baidu.swan.apps.runtime.d.akK().c(intent.getExtras(), "update_tag_by_remote_debug");
+                if (akI != null) {
+                    Intent intent = akI.getIntent();
+                    e.TH();
+                    com.baidu.swan.apps.runtime.d.akJ().v(new String[0]);
+                    com.baidu.swan.apps.runtime.d.akJ().c(intent.getExtras(), "update_tag_by_remote_debug");
                 }
                 return true;
             case 1:
-                if (akJ != null) {
+                if (akI != null) {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        akJ.finishAndRemoveTask();
+                        akI.finishAndRemoveTask();
                     } else {
-                        akJ.finish();
+                        akI.finish();
                     }
                     System.exit(0);
                 }

@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,23 +20,11 @@ public class c {
     public static String a(Context context) {
         if (TextUtils.isEmpty(b)) {
             if (a()) {
-                b = i.a(context);
-            } else if (TextUtils.isEmpty(b)) {
-                StringBuilder sb = new StringBuilder();
-                String str = Build.SERIAL;
-                com.meizu.cloud.a.a.i("DeviceUtils", "device serial " + str);
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                sb.append(str);
-                String b2 = b(context);
-                com.meizu.cloud.a.a.e("DeviceUtils", "mac address " + b2);
-                if (TextUtils.isEmpty(b2)) {
-                    return null;
-                }
-                sb.append(b2.replace(":", "").toUpperCase());
-                b = sb.toString();
+                b = d(context);
+            } else {
+                b = c(context);
             }
+            return b;
         }
         return b;
     }
@@ -50,12 +39,14 @@ public class c {
             com.meizu.cloud.a.a.e("DeviceUtils", "getMacAddressWithIfName File not found Exception");
         } catch (IOException e2) {
             com.meizu.cloud.a.a.e("DeviceUtils", "getMacAddressWithIfName IOException");
+        } catch (Exception e3) {
+            com.meizu.cloud.a.a.e("DeviceUtils", "getMacAddressWithIfName Exception ");
         }
         return r0;
     }
 
     public static boolean a() {
-        String a2 = k.a("ro.target.product");
+        String a2 = j.a("ro.target.product");
         if (TextUtils.isEmpty(a2)) {
             com.meizu.cloud.a.a.i("DeviceUtils", "current product is phone");
             return true;
@@ -101,5 +92,27 @@ public class c {
             return a;
         }
         return a;
+    }
+
+    private static String c(Context context) {
+        StringBuilder sb = new StringBuilder();
+        String str = Build.SERIAL;
+        com.meizu.cloud.a.a.i("DeviceUtils", "device serial " + str);
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        sb.append(str);
+        String b2 = b(context);
+        com.meizu.cloud.a.a.e("DeviceUtils", "mac address " + b2);
+        if (TextUtils.isEmpty(b2)) {
+            return null;
+        }
+        sb.append(b2.replace(":", "").toUpperCase());
+        return sb.toString();
+    }
+
+    private static String d(Context context) {
+        com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
+        return a2.a ? (String) a2.b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

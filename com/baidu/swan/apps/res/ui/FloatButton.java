@@ -57,63 +57,63 @@ public class FloatButton extends FullScreenFloatView {
         Rect rect = new Rect();
         switch (motionEvent.getAction()) {
             case 0:
-                this.cjQ.getHitRect(rect);
+                this.cjW.getHitRect(rect);
                 if (rect.contains((int) x, (int) y)) {
-                    this.cjX = x;
-                    this.aXa = y;
-                    this.cjV = true;
-                    this.cjU = true;
-                    postDelayed(this.cjY, ViewConfiguration.getTapTimeout());
+                    this.ckd = x;
+                    this.aXf = y;
+                    this.ckb = true;
+                    this.cka = true;
+                    postDelayed(this.cke, ViewConfiguration.getTapTimeout());
                     break;
                 }
                 break;
             case 1:
-                if (this.cjU) {
-                    if (this.cjZ != null) {
-                        this.cjZ.onClick();
+                if (this.cka) {
+                    if (this.ckf != null) {
+                        this.ckf.onClick();
                     }
-                    removeCallbacks(this.cjY);
-                } else if (this.cjV && this.cjZ != null) {
-                    this.cjZ.aeA();
+                    removeCallbacks(this.cke);
+                } else if (this.ckb && this.ckf != null) {
+                    this.ckf.aez();
                 }
                 if (DEBUG) {
-                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.cjU);
+                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.cka);
                 }
-                if (this.cjW && !this.cjU && x >= 0.0f && x <= this.cjT && y >= 0.0f && y <= this.mParentHeight + this.cjS) {
-                    this.cjQ.animate().x(this.cjT - this.cjR).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                if (this.ckc && !this.cka && x >= 0.0f && x <= this.cjZ && y >= 0.0f && y <= this.mParentHeight + this.cjY) {
+                    this.cjW.animate().x(this.cjZ - this.cjX).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                 }
-                this.cjU = false;
-                this.cjV = false;
+                this.cka = false;
+                this.ckb = false;
                 break;
             case 2:
-                float abs = Math.abs(x - this.cjX);
-                float abs2 = Math.abs(y - this.aXa);
+                float abs = Math.abs(x - this.ckd);
+                float abs2 = Math.abs(y - this.aXf);
                 if (Math.sqrt((abs * abs) + (abs2 * abs2)) > 10.0d) {
-                    this.cjU = false;
+                    this.cka = false;
                 }
                 n(x, y);
                 break;
             case 3:
-                this.cjU = false;
-                this.cjV = false;
+                this.cka = false;
+                this.ckb = false;
                 break;
             case 4:
-                this.cjU = false;
-                this.cjV = false;
+                this.cka = false;
+                this.ckb = false;
                 break;
         }
-        return this.cjU | this.cjV;
+        return this.cka | this.ckb;
     }
 
     private void n(float f, float f2) {
-        if (this.cjQ != null) {
+        if (this.cjW != null) {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> x = " + f + ", y = " + f2);
             }
-            int i = (int) (f - (this.cjR / 2));
-            int i2 = (int) (f2 - (this.cjS / 2));
-            int i3 = this.cjT - this.cjR;
-            int i4 = (this.mParentHeight - this.cjS) - 168;
+            int i = (int) (f - (this.cjX / 2));
+            int i2 = (int) (f2 - (this.cjY / 2));
+            int i3 = this.cjZ - this.cjX;
+            int i4 = (this.mParentHeight - this.cjY) - 168;
             if (i <= 0) {
                 i = 0;
             }
@@ -129,8 +129,8 @@ public class FloatButton extends FullScreenFloatView {
             if (DEBUG) {
                 Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight);
             }
-            this.cjQ.setX(i3);
-            this.cjQ.setY(i4);
+            this.cjW.setX(i3);
+            this.cjW.setY(i4);
             requestLayout();
         }
     }

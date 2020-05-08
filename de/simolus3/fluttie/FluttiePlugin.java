@@ -238,7 +238,7 @@ public class FluttiePlugin implements Application.ActivityLifecycleCallbacks, Me
                 f.l(str2, null).a(iVar).c(iVar2);
                 return;
             case 1:
-                f.F(this.registrar.context(), this.registrar.lookupKeyForAsset(str2)).a(iVar).c(iVar2);
+                f.t(this.registrar.context(), this.registrar.lookupKeyForAsset(str2)).a(iVar).c(iVar2);
                 return;
             case 2:
                 if (str2.endsWith(".json")) {

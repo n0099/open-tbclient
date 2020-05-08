@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 /* loaded from: classes13.dex */
 public class d {
-    public static void O(Context context, String str) {
+    public static void C(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             if (!(context instanceof Activity) && intent != null) {

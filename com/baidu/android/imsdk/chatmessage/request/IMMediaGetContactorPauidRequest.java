@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
@@ -95,7 +94,7 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int optInt = jSONObject.optInt("error_code", 0);
-            str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            str = jSONObject.optString("error_msg");
             j = jSONObject.optLong("pa_uid", -1L);
             i3 = jSONObject.optInt("is_buser", -1);
             i2 = optInt;

@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean ebh;
+    private static boolean ebm;
 
     static {
-        ebh = false;
-        ebh = b.aNV().getInt("key_lcs_log_switch", 0) == 1;
-        if (ebh) {
-            xC();
+        ebm = false;
+        ebm = b.aNT().getInt("key_lcs_log_switch", 0) == 1;
+        if (ebm) {
+            xB();
         }
     }
 
-    private static void xC() {
+    private static void xB() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LCS_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.LCS_STATISTICS_URL);
         tbHttpMessageTask.setResponsedClass(LCSStatisticsResponseMessage.class);
@@ -31,7 +31,7 @@ public class a {
     }
 
     public static void f(int i, int i2, int i3, int i4, int i5, int i6) {
-        if (ebh) {
+        if (ebm) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
             httpMessage.addParam("cmd", i);
             httpMessage.addParam("lcs_status", i2);

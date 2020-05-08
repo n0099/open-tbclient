@@ -9,25 +9,25 @@ public class bt {
     private String activity_all_icon;
     private String activity_half_icon;
     private String activity_url;
-    private int ayy;
-    private long dnb;
+    private int ayE;
+    private long dnf;
 
     public String getActivityUrl() {
         return this.activity_url;
     }
 
-    public String aMN() {
+    public String aML() {
         return this.activity_all_icon;
     }
 
-    public String aMO() {
+    public String aMM() {
         return this.activity_half_icon;
     }
 
     public void a(YuleActivity yuleActivity) {
         if (yuleActivity != null) {
-            this.dnb = yuleActivity.activity_id.longValue();
-            this.ayy = yuleActivity.activity_type.intValue();
+            this.dnf = yuleActivity.activity_id.longValue();
+            this.ayE = yuleActivity.activity_type.intValue();
             this.activity_url = yuleActivity.activity_url;
             this.activity_all_icon = yuleActivity.activity_all_icon;
             this.activity_half_icon = yuleActivity.activity_half_icon;
@@ -37,8 +37,8 @@ public class bt {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.dnb = jSONObject.optLong("activity_id");
-                this.ayy = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.dnf = jSONObject.optLong("activity_id");
+                this.ayE = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
                 this.activity_url = jSONObject.optString("activity_url");
                 this.activity_all_icon = jSONObject.optString("activity_all_icon");
                 this.activity_half_icon = jSONObject.optString("activity_half_icon");

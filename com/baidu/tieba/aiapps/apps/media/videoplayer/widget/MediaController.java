@@ -19,55 +19,55 @@ import java.util.Timer;
 import java.util.TimerTask;
 /* loaded from: classes12.dex */
 public class MediaController extends RelativeLayout {
-    private ImageButton eFK;
-    private View eFL;
-    private View eFM;
-    private TextView eFN;
-    private SeekBar eFO;
-    private TextView eFP;
-    private long eFQ;
-    private Timer eFR;
-    private Timer eFS;
-    private SwanVideoView eFT;
-    boolean eFU;
-    private boolean eFV;
-    private a eFr;
+    private ImageButton eFP;
+    private View eFQ;
+    private View eFR;
+    private TextView eFS;
+    private SeekBar eFT;
+    private TextView eFU;
+    private long eFV;
+    private Timer eFW;
+    private Timer eFX;
+    private SwanVideoView eFY;
+    boolean eFZ;
+    private a eFw;
+    private boolean eGa;
     private Handler mMainThreadHandler;
 
     public MediaController(Context context) {
         super(context);
-        this.eFV = false;
-        biJ();
+        this.eGa = false;
+        biH();
     }
 
     public MediaController(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eFV = false;
-        biJ();
+        this.eGa = false;
+        biH();
     }
 
-    private void biJ() {
+    private void biH() {
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.media_controller, this);
-        this.eFK = (ImageButton) inflate.findViewById(R.id.btn_play);
-        this.eFK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.1
+        this.eFP = (ImageButton) inflate.findViewById(R.id.btn_play);
+        this.eFP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (MediaController.this.eFT != null) {
-                    if (MediaController.this.eFT.isPlaying()) {
-                        MediaController.this.eFK.setBackgroundResource(R.drawable.btn_play);
-                        MediaController.this.eFT.pause();
+                if (MediaController.this.eFY != null) {
+                    if (MediaController.this.eFY.isPlaying()) {
+                        MediaController.this.eFP.setBackgroundResource(R.drawable.btn_play);
+                        MediaController.this.eFY.pause();
                         return;
                     }
                     Log.d("SimpleMediaController", "mPlayButton clicked : to resume");
-                    MediaController.this.eFK.setBackgroundResource(R.drawable.btn_pause);
-                    MediaController.this.eFT.start();
+                    MediaController.this.eFP.setBackgroundResource(R.drawable.btn_pause);
+                    MediaController.this.eFY.start();
                 }
             }
         });
-        this.eFN = (TextView) inflate.findViewById(R.id.tv_position);
-        this.eFO = (SeekBar) inflate.findViewById(R.id.seekbar);
-        this.eFP = (TextView) inflate.findViewById(R.id.tv_duration);
-        this.eFO.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.2
+        this.eFS = (TextView) inflate.findViewById(R.id.tv_position);
+        this.eFT = (SeekBar) inflate.findViewById(R.id.seekbar);
+        this.eFU = (TextView) inflate.findViewById(R.id.tv_duration);
+        this.eFT.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.2
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
                 MediaController.this.oK(i);
@@ -75,44 +75,44 @@ public class MediaController extends RelativeLayout {
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStartTrackingTouch(SeekBar seekBar) {
-                MediaController.this.eFU = true;
+                MediaController.this.eFZ = true;
             }
 
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
-                if (MediaController.this.eFT.getDuration() > 0) {
-                    MediaController.this.eFQ = seekBar.getProgress();
-                    if (MediaController.this.eFT != null) {
-                        MediaController.this.eFT.seekTo(seekBar.getProgress());
+                if (MediaController.this.eFY.getDuration() > 0) {
+                    MediaController.this.eFV = seekBar.getProgress();
+                    if (MediaController.this.eFY != null) {
+                        MediaController.this.eFY.seekTo(seekBar.getProgress());
                     }
                 }
-                MediaController.this.eFU = false;
+                MediaController.this.eFZ = false;
             }
         });
-        this.eFM = inflate.findViewById(R.id.btn_mute);
-        this.eFM.setBackgroundResource(this.eFT != null && this.eFT.isMute() ? R.drawable.mute_on : R.drawable.mute_off);
-        this.eFM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.3
+        this.eFR = inflate.findViewById(R.id.btn_mute);
+        this.eFR.setBackgroundResource(this.eFY != null && this.eFY.isMute() ? R.drawable.mute_on : R.drawable.mute_off);
+        this.eFR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (MediaController.this.eFT != null) {
-                    MediaController.this.eFT.setMuted(!MediaController.this.eFT.isMute());
+                if (MediaController.this.eFY != null) {
+                    MediaController.this.eFY.setMuted(!MediaController.this.eFY.isMute());
                 }
             }
         });
-        this.eFL = inflate.findViewById(R.id.btn_toggle_screen);
-        this.eFL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.4
-            private boolean eFX;
+        this.eFQ = inflate.findViewById(R.id.btn_toggle_screen);
+        this.eFQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.4
+            private boolean eGc;
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                this.eFX = !this.eFX;
-                if (MediaController.this.eFr != null) {
-                    MediaController.this.eFr.iG(this.eFX);
+                this.eGc = !this.eGc;
+                if (MediaController.this.eFw != null) {
+                    MediaController.this.eFw.iG(this.eGc);
                 }
             }
         });
-        this.eFO.setEnabled(false);
-        this.eFK.setEnabled(false);
+        this.eFT.setEnabled(false);
+        this.eFP.setEnabled(false);
     }
 
     public Handler getMainThreadHandler() {
@@ -122,101 +122,101 @@ public class MediaController extends RelativeLayout {
         return this.mMainThreadHandler;
     }
 
-    public void biK() {
-        int currentPlayerState = this.eFT.getCurrentPlayerState();
-        this.eFV = false;
+    public void biI() {
+        int currentPlayerState = this.eFY.getCurrentPlayerState();
+        this.eGa = false;
         switch (currentPlayerState) {
             case -1:
             case 0:
-                biM();
-                this.eFK.setEnabled(true);
-                this.eFK.setBackgroundResource(R.drawable.btn_play);
-                this.eFO.setEnabled(false);
-                oK(this.eFT == null ? 0 : this.eFT.getCurrentPosition());
-                oJ(this.eFT != null ? this.eFT.getDuration() : 0);
+                biK();
+                this.eFP.setEnabled(true);
+                this.eFP.setBackgroundResource(R.drawable.btn_play);
+                this.eFT.setEnabled(false);
+                oK(this.eFY == null ? 0 : this.eFY.getCurrentPosition());
+                oJ(this.eFY != null ? this.eFY.getDuration() : 0);
                 return;
             case 1:
-                this.eFK.setEnabled(false);
-                this.eFO.setEnabled(false);
+                this.eFP.setEnabled(false);
+                this.eFT.setEnabled(false);
                 return;
             case 2:
-                this.eFK.setEnabled(true);
-                this.eFK.setBackgroundResource(R.drawable.btn_play);
-                this.eFO.setEnabled(true);
-                oJ(this.eFT == null ? 0 : this.eFT.getDuration());
-                this.eFO.setMax(this.eFT != null ? this.eFT.getDuration() : 0);
+                this.eFP.setEnabled(true);
+                this.eFP.setBackgroundResource(R.drawable.btn_play);
+                this.eFT.setEnabled(true);
+                oJ(this.eFY == null ? 0 : this.eFY.getDuration());
+                this.eFT.setMax(this.eFY != null ? this.eFY.getDuration() : 0);
                 return;
             case 3:
-                biL();
-                this.eFO.setEnabled(true);
-                this.eFK.setEnabled(true);
-                this.eFK.setBackgroundResource(R.drawable.btn_pause);
+                biJ();
+                this.eFT.setEnabled(true);
+                this.eFP.setEnabled(true);
+                this.eFP.setBackgroundResource(R.drawable.btn_pause);
                 return;
             case 4:
-                this.eFK.setEnabled(true);
-                this.eFK.setBackgroundResource(R.drawable.btn_play);
+                this.eFP.setEnabled(true);
+                this.eFP.setBackgroundResource(R.drawable.btn_play);
                 return;
             case 5:
-                biM();
-                this.eFO.setProgress(this.eFO.getMax());
-                this.eFO.setEnabled(false);
-                this.eFK.setEnabled(true);
-                this.eFK.setBackgroundResource(R.drawable.btn_play);
+                biK();
+                this.eFT.setProgress(this.eFT.getMax());
+                this.eFT.setEnabled(false);
+                this.eFP.setEnabled(true);
+                this.eFP.setBackgroundResource(R.drawable.btn_play);
                 return;
             default:
                 return;
         }
     }
 
-    private void biL() {
-        if (this.eFR != null) {
-            this.eFR.cancel();
-            this.eFR = null;
+    private void biJ() {
+        if (this.eFW != null) {
+            this.eFW.cancel();
+            this.eFW = null;
         }
-        this.eFR = new Timer();
-        this.eFR.schedule(new TimerTask() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.5
+        this.eFW = new Timer();
+        this.eFW.schedule(new TimerTask() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.5
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 MediaController.this.getMainThreadHandler().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.5.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        MediaController.this.biO();
+                        MediaController.this.biM();
                     }
                 });
             }
         }, 0L, 1000L);
     }
 
-    private void biM() {
-        if (this.eFR != null) {
-            this.eFR.cancel();
-            this.eFR = null;
+    private void biK() {
+        if (this.eFW != null) {
+            this.eFW.cancel();
+            this.eFW = null;
         }
     }
 
     public void o(SwanVideoView swanVideoView) {
-        this.eFT = swanVideoView;
+        this.eFY = swanVideoView;
     }
 
     public void setToggleScreenListener(a aVar) {
-        this.eFr = aVar;
+        this.eFw = aVar;
     }
 
     private void show() {
-        if (this.eFT != null) {
-            setProgress((int) this.eFQ);
+        if (this.eFY != null) {
+            setProgress((int) this.eFV);
             setVisibility(0);
         }
     }
 
-    public void biN() {
+    public void biL() {
         show();
-        if (this.eFS != null) {
-            this.eFS.cancel();
-            this.eFS = null;
+        if (this.eFX != null) {
+            this.eFX.cancel();
+            this.eFX = null;
         }
-        this.eFS = new Timer();
-        this.eFS.schedule(new TimerTask() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.6
+        this.eFX = new Timer();
+        this.eFX.schedule(new TimerTask() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.6
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 MediaController.this.getMainThreadHandler().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.widget.MediaController.6.1
@@ -234,15 +234,15 @@ public class MediaController extends RelativeLayout {
     }
 
     private void oJ(int i) {
-        if (this.eFP != null) {
-            this.eFP.setText(oL(i));
+        if (this.eFU != null) {
+            this.eFU.setText(oL(i));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void oK(int i) {
-        if (this.eFN != null) {
-            this.eFN.setText(oL(i));
+        if (this.eFS != null) {
+            this.eFS.setText(oL(i));
         }
     }
 
@@ -258,37 +258,37 @@ public class MediaController extends RelativeLayout {
     }
 
     private void setMax(int i) {
-        if (!this.eFV) {
-            if (this.eFO != null) {
-                this.eFO.setMax(i);
+        if (!this.eGa) {
+            if (this.eFT != null) {
+                this.eFT.setMax(i);
             }
             oJ(i);
             if (i > 0) {
-                this.eFV = true;
+                this.eGa = true;
             }
         }
     }
 
     public void setProgress(int i) {
-        if (this.eFO != null) {
-            this.eFO.setProgress(i);
+        if (this.eFT != null) {
+            this.eFT.setProgress(i);
         }
     }
 
     public void setMute(boolean z) {
-        if (this.eFM != null) {
-            this.eFM.setBackgroundResource(z ? R.drawable.mute_on : R.drawable.mute_off);
+        if (this.eFR != null) {
+            this.eFR.setBackgroundResource(z ? R.drawable.mute_on : R.drawable.mute_off);
         }
     }
 
-    public void biO() {
+    public void biM() {
         int duration;
-        if (this.eFT != null && !this.eFU) {
-            long currentPosition = this.eFT.getCurrentPosition();
+        if (this.eFY != null && !this.eFZ) {
+            long currentPosition = this.eFY.getCurrentPosition();
             if (currentPosition > 0) {
-                this.eFQ = currentPosition;
+                this.eFV = currentPosition;
             }
-            if (getVisibility() == 0 && (duration = this.eFT.getDuration()) > 0) {
+            if (getVisibility() == 0 && (duration = this.eFY.getDuration()) > 0) {
                 setMax(duration);
                 setProgress((int) currentPosition);
             }

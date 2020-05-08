@@ -120,7 +120,6 @@ public class ClientConfigManagerImpl implements e {
         return this.mPushConfigSettings;
     }
 
-    @Override // com.vivo.push.cache.e
     public String getSuitTag() {
         return preparePushConfigSettings().c("CSPT");
     }

@@ -1,7 +1,21 @@
 package com.xiaomi.push;
 
-import java.util.List;
+import com.xiaomi.push.ek;
+import com.xiaomi.push.service.be;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public interface hf {
-    void a(List<hk> list, String str, String str2);
+public class hf extends be.a {
+    final /* synthetic */ he a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public hf(he heVar) {
+        this.a = heVar;
+    }
+
+    @Override // com.xiaomi.push.service.be.a
+    public void a(ek.b bVar) {
+        if (bVar.m247e()) {
+            he.m330a().m334a(bVar.e());
+        }
+    }
 }

@@ -9,19 +9,19 @@ import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class a {
     protected String TAG;
-    protected String bfn;
-    protected String bfo;
-    protected boolean bvP;
-    protected boolean bvQ;
-    protected int bvR;
-    protected int bvS;
-    protected int bvT;
-    protected int bvU;
-    protected int bvV;
+    protected String bft;
+    protected String bfu;
+    protected boolean bvU;
+    protected boolean bvV;
     protected int bvW;
     protected int bvX;
-    protected int[] bvY;
-    protected int[] bvZ;
+    protected int bvY;
+    protected int bvZ;
+    protected int bwa;
+    protected int bwb;
+    protected int bwc;
+    protected int[] bwd;
+    protected int[] bwe;
     protected Context mContext;
     protected int mCoordsPerVertex;
     protected int mImageHeight;
@@ -36,31 +36,31 @@ public class a {
 
     public a(Context context, String str, String str2) {
         this.TAG = getClass().getSimpleName();
-        this.bvQ = true;
+        this.bvV = true;
         this.mCoordsPerVertex = 2;
-        this.mVertexCount = com.baidu.rtc.camera.filter.glfilter.utils.b.bwd.length / this.mCoordsPerVertex;
-        this.bvW = -1;
-        this.bvX = -1;
+        this.mVertexCount = com.baidu.rtc.camera.filter.glfilter.utils.b.bwi.length / this.mCoordsPerVertex;
+        this.bwb = -1;
+        this.bwc = -1;
         this.mContext = context;
         this.mRunOnDraw = new LinkedList<>();
-        this.bfn = str;
-        this.bfo = str2;
-        Nx();
+        this.bft = str;
+        this.bfu = str2;
+        Nw();
     }
 
-    public void Nx() {
-        if (!TextUtils.isEmpty(this.bfn) && !TextUtils.isEmpty(this.bfo)) {
-            this.mProgramHandle = com.baidu.rtc.camera.filter.glfilter.utils.a.createProgram(this.bfn, this.bfo);
-            this.bvR = GLES30.glGetAttribLocation(this.mProgramHandle, "aPosition");
-            this.bvS = GLES30.glGetAttribLocation(this.mProgramHandle, "aTextureCoord");
-            this.bvT = GLES30.glGetUniformLocation(this.mProgramHandle, "inputTexture");
-            this.bvP = true;
+    public void Nw() {
+        if (!TextUtils.isEmpty(this.bft) && !TextUtils.isEmpty(this.bfu)) {
+            this.mProgramHandle = com.baidu.rtc.camera.filter.glfilter.utils.a.createProgram(this.bft, this.bfu);
+            this.bvW = GLES30.glGetAttribLocation(this.mProgramHandle, "aPosition");
+            this.bvX = GLES30.glGetAttribLocation(this.mProgramHandle, "aTextureCoord");
+            this.bvY = GLES30.glGetUniformLocation(this.mProgramHandle, "inputTexture");
+            this.bvU = true;
             return;
         }
-        this.bvR = -1;
-        this.bvS = -1;
-        this.bvT = -1;
-        this.bvP = false;
+        this.bvW = -1;
+        this.bvX = -1;
+        this.bvY = -1;
+        this.bvU = false;
     }
 
     public void P(int i, int i2) {
@@ -69,13 +69,13 @@ public class a {
     }
 
     public void Q(int i, int i2) {
-        this.bvU = i;
-        this.bvV = i2;
+        this.bvZ = i;
+        this.bwa = i2;
     }
 
     public boolean a(int i, FloatBuffer floatBuffer, FloatBuffer floatBuffer2) {
-        if (this.bvP && i != -1 && this.bvQ) {
-            GLES30.glViewport(0, 0, this.bvU, this.bvV);
+        if (this.bvU && i != -1 && this.bvV) {
+            GLES30.glViewport(0, 0, this.bvZ, this.bwa);
             GLES30.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
             GLES30.glClear(16384);
             GLES30.glUseProgram(this.mProgramHandle);
@@ -87,91 +87,91 @@ public class a {
     }
 
     public int b(int i, FloatBuffer floatBuffer, FloatBuffer floatBuffer2) {
-        if (i != -1 && this.bvY != null && this.bvP && this.bvQ) {
-            GLES30.glViewport(0, 0, this.bvW, this.bvX);
-            GLES30.glBindFramebuffer(36160, this.bvY[0]);
+        if (i != -1 && this.bwd != null && this.bvU && this.bvV) {
+            GLES30.glViewport(0, 0, this.bwb, this.bwc);
+            GLES30.glBindFramebuffer(36160, this.bwd[0]);
             GLES30.glUseProgram(this.mProgramHandle);
             runPendingOnDrawTasks();
             c(i, floatBuffer, floatBuffer2);
             GLES30.glBindFramebuffer(36160, 0);
-            return this.bvZ[0];
+            return this.bwe[0];
         }
         return i;
     }
 
     protected void c(int i, FloatBuffer floatBuffer, FloatBuffer floatBuffer2) {
         floatBuffer.position(0);
-        GLES30.glVertexAttribPointer(this.bvR, this.mCoordsPerVertex, 5126, false, 0, (Buffer) floatBuffer);
-        GLES30.glEnableVertexAttribArray(this.bvR);
+        GLES30.glVertexAttribPointer(this.bvW, this.mCoordsPerVertex, 5126, false, 0, (Buffer) floatBuffer);
+        GLES30.glEnableVertexAttribArray(this.bvW);
         floatBuffer2.position(0);
-        GLES30.glVertexAttribPointer(this.bvS, 2, 5126, false, 0, (Buffer) floatBuffer2);
-        GLES30.glEnableVertexAttribArray(this.bvS);
+        GLES30.glVertexAttribPointer(this.bvX, 2, 5126, false, 0, (Buffer) floatBuffer2);
+        GLES30.glEnableVertexAttribArray(this.bvX);
         GLES30.glActiveTexture(33984);
-        GLES30.glBindTexture(NB(), i);
-        GLES30.glUniform1i(this.bvT, 0);
+        GLES30.glBindTexture(NA(), i);
+        GLES30.glUniform1i(this.bvY, 0);
+        Nx();
         Ny();
         Nz();
-        NA();
-        GLES30.glDisableVertexAttribArray(this.bvR);
-        GLES30.glDisableVertexAttribArray(this.bvS);
-        GLES30.glBindTexture(NB(), 0);
+        GLES30.glDisableVertexAttribArray(this.bvW);
+        GLES30.glDisableVertexAttribArray(this.bvX);
+        GLES30.glBindTexture(NA(), 0);
         GLES30.glUseProgram(0);
     }
 
-    public void Ny() {
+    public void Nx() {
     }
 
-    protected void Nz() {
+    protected void Ny() {
         GLES30.glDrawArrays(5, 0, this.mVertexCount);
     }
 
-    public void NA() {
+    public void Nz() {
     }
 
-    public int NB() {
+    public int NA() {
         return 3553;
     }
 
     public void release() {
-        if (this.bvP) {
+        if (this.bvU) {
             GLES30.glDeleteProgram(this.mProgramHandle);
             this.mProgramHandle = -1;
         }
-        NC();
+        NB();
     }
 
     public void R(int i, int i2) {
         if (isInitialized()) {
-            if (this.bvY != null && (this.bvW != i || this.bvX != i2)) {
-                NC();
+            if (this.bwd != null && (this.bwb != i || this.bwc != i2)) {
+                NB();
             }
-            if (this.bvY == null) {
-                this.bvW = i;
-                this.bvX = i2;
-                this.bvY = new int[1];
-                this.bvZ = new int[1];
-                com.baidu.rtc.camera.filter.glfilter.utils.a.a(this.bvY, this.bvZ, i, i2);
+            if (this.bwd == null) {
+                this.bwb = i;
+                this.bwc = i2;
+                this.bwd = new int[1];
+                this.bwe = new int[1];
+                com.baidu.rtc.camera.filter.glfilter.utils.a.a(this.bwd, this.bwe, i, i2);
             }
         }
     }
 
-    public void NC() {
-        if (this.bvP) {
-            if (this.bvZ != null) {
-                GLES30.glDeleteTextures(1, this.bvZ, 0);
-                this.bvZ = null;
+    public void NB() {
+        if (this.bvU) {
+            if (this.bwe != null) {
+                GLES30.glDeleteTextures(1, this.bwe, 0);
+                this.bwe = null;
             }
-            if (this.bvY != null) {
-                GLES30.glDeleteFramebuffers(1, this.bvY, 0);
-                this.bvY = null;
+            if (this.bwd != null) {
+                GLES30.glDeleteFramebuffers(1, this.bwd, 0);
+                this.bwd = null;
             }
-            this.bvW = -1;
-            this.bvW = -1;
+            this.bwb = -1;
+            this.bwb = -1;
         }
     }
 
     public boolean isInitialized() {
-        return this.bvP;
+        return this.bvU;
     }
 
     protected void runPendingOnDrawTasks() {

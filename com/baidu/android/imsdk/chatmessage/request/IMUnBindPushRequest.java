@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.util.io.BaseJsonData;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -52,7 +51,7 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
             if (i2 == 0) {
                 str = Constants.ERROR_MSG_SUCCESS;
             } else {
-                str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+                str = jSONObject.optString("error_msg");
             }
             if (i2 == 0) {
                 BindStateManager.clearUnBindInfo(this.mContext);

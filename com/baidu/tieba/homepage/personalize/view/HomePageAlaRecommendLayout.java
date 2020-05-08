@@ -22,9 +22,9 @@ import java.util.List;
 import tbclient.AlaLiveInfo;
 /* loaded from: classes9.dex */
 public class HomePageAlaRecommendLayout extends LinearLayout {
-    private CustomMessageListener dzH;
-    private BdRecyclerView ghQ;
-    private com.baidu.tieba.homepage.personalize.a.a hQU;
+    private CustomMessageListener dzL;
+    private BdRecyclerView ghW;
+    private com.baidu.tieba.homepage.personalize.a.a hRa;
     private Context mContext;
     private List<AlaLiveInfo> mData;
     private int mSkinType;
@@ -36,7 +36,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     public HomePageAlaRecommendLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.dzH = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.personalize.view.HomePageAlaRecommendLayout.1
+        this.dzL = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.homepage.personalize.view.HomePageAlaRecommendLayout.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -45,7 +45,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
                     for (AlaLiveInfo alaLiveInfo : HomePageAlaRecommendLayout.this.mData) {
                         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.user_info.user_id != null && data.toUid.equals(alaLiveInfo.user_info.user_id.toString())) {
                             HomePageAlaRecommendLayout.this.mData.remove(alaLiveInfo);
-                            HomePageAlaRecommendLayout.this.cad();
+                            HomePageAlaRecommendLayout.this.cab();
                             return;
                         }
                     }
@@ -60,33 +60,33 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.home_page_ala_recommend_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.ghQ = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
-        this.hQU = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
-        this.ghQ.setAdapter(this.hQU);
-        this.ghQ.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
-        this.ghQ.setItemAnimator(new DefaultItemAnimator());
+        this.ghW = (BdRecyclerView) findViewById(R.id.ala_recommend_list);
+        this.hRa = new com.baidu.tieba.homepage.personalize.a.a(this.mContext);
+        this.ghW.setAdapter(this.hRa);
+        this.ghW.setLayoutManager(new LinearLayoutManager(this.mContext, 0, false));
+        this.ghW.setItemAnimator(new DefaultItemAnimator());
         int dimens = l.getDimens(this.mContext, R.dimen.tbds20);
-        this.ghQ.addItemDecoration(new a(dimens, 0, dimens));
+        this.ghW.addItemDecoration(new a(dimens, 0, dimens));
     }
 
     public void setData(com.baidu.tieba.homepage.personalize.data.f fVar) {
-        if (fVar == null || v.isEmpty(fVar.bZW())) {
+        if (fVar == null || v.isEmpty(fVar.bZU())) {
             setVisibility(8);
             return;
         }
-        this.mData = fVar.bZW();
+        this.mData = fVar.bZU();
         setVisibility(0);
-        cad();
+        cab();
     }
 
-    public void cad() {
+    public void cab() {
         if (v.isEmpty(this.mData)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.hQU.setData(this.mData);
-        this.hQU.notifyDataSetChanged();
+        this.hRa.setData(this.mData);
+        this.hRa.notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {
@@ -97,13 +97,13 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
-        MessageManager.getInstance().registerListener(this.dzH);
+        MessageManager.getInstance().registerListener(this.dzL);
         super.onAttachedToWindow();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        MessageManager.getInstance().unRegisterListener(this.dzH);
+        MessageManager.getInstance().unRegisterListener(this.dzL);
         super.onDetachedFromWindow();
     }
 }

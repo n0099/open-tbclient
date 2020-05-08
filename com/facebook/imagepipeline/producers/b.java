@@ -5,11 +5,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public abstract class b<T> implements k<T> {
-    private boolean meE = false;
+    private boolean meI = false;
 
     protected abstract void F(Throwable th);
 
-    protected abstract void dsD();
+    protected abstract void dsA();
 
     protected abstract void g(T t, int i);
 
@@ -39,47 +39,47 @@ public abstract class b<T> implements k<T> {
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void h(@Nullable T t, int i) {
-        if (!this.meE) {
-            this.meE = Hr(i);
+        if (!this.meI) {
+            this.meI = Hr(i);
             try {
                 g(t, i);
             } catch (Exception e) {
-                p(e);
+                q(e);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void G(Throwable th) {
-        if (!this.meE) {
-            this.meE = true;
+        if (!this.meI) {
+            this.meI = true;
             try {
                 F(th);
             } catch (Exception e) {
-                p(e);
+                q(e);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.k
-    public synchronized void dmV() {
-        if (!this.meE) {
-            this.meE = true;
+    public synchronized void dmS() {
+        if (!this.meI) {
+            this.meI = true;
             try {
-                dsD();
+                dsA();
             } catch (Exception e) {
-                p(e);
+                q(e);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.producers.k
     public synchronized void au(float f) {
-        if (!this.meE) {
+        if (!this.meI) {
             try {
                 aI(f);
             } catch (Exception e) {
-                p(e);
+                q(e);
             }
         }
     }
@@ -87,7 +87,7 @@ public abstract class b<T> implements k<T> {
     protected void aI(float f) {
     }
 
-    protected void p(Exception exc) {
+    protected void q(Exception exc) {
         com.facebook.common.c.a.c(getClass(), "unhandled exception", exc);
     }
 }

@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import java.util.HashMap;
 /* loaded from: classes9.dex */
 public class SchemaRouteActivity extends BaseActivity {
-    private final f.a gZF = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
+    private final f.a gZL = new f.a() { // from class: com.baidu.tieba.tblauncher.SchemaRouteActivity.1
         @Override // com.baidu.tbadk.BdToken.f.a
         public void B(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(f.PARAM_URL) instanceof String)) {
@@ -35,11 +35,11 @@ public class SchemaRouteActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        ay(getIntent());
+        al(getIntent());
         finish();
     }
 
-    private void ay(Intent intent) {
+    private void al(Intent intent) {
         if (intent != null) {
             z(intent.getData());
             String dataString = intent.getDataString();
@@ -56,7 +56,7 @@ public class SchemaRouteActivity extends BaseActivity {
             } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
                 Uri data = intent.getData();
                 if (f.n(data)) {
-                    f.aGd().d(data, this.gZF);
+                    f.aGb().d(data, this.gZL);
                     return;
                 }
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(getActivity());

@@ -9,39 +9,39 @@ import android.view.ViewGroup;
 import tv.chushou.zues.widget.kpswitch.b.e;
 /* loaded from: classes5.dex */
 public class c {
-    private int byN = -1;
+    private int byS = -1;
     private final int mStatusBarHeight;
-    private final View nvg;
-    private boolean nvh;
-    private tv.chushou.zues.widget.kpswitch.a nvi;
+    private final View nvj;
+    private boolean nvk;
+    private tv.chushou.zues.widget.kpswitch.a nvl;
 
     public c(View view) {
-        this.nvg = view;
+        this.nvj = view;
         this.mStatusBarHeight = tv.chushou.zues.utils.systemBar.b.getStatusBarHeight(view.getContext());
-        this.nvh = e.A((Activity) view.getContext());
+        this.nvk = e.A((Activity) view.getContext());
     }
 
     @TargetApi(16)
     public void V(int i, int i2) {
-        if (this.nvh && Build.VERSION.SDK_INT >= 16 && this.nvg.getFitsSystemWindows()) {
+        if (this.nvk && Build.VERSION.SDK_INT >= 16 && this.nvj.getFitsSystemWindows()) {
             Rect rect = new Rect();
-            this.nvg.getWindowVisibleDisplayFrame(rect);
+            this.nvj.getWindowVisibleDisplayFrame(rect);
             i2 = rect.bottom - rect.top;
         }
         if (i2 >= 0) {
-            if (this.byN < 0) {
-                this.byN = i2;
+            if (this.byS < 0) {
+                this.byS = i2;
                 return;
             }
-            int i3 = this.byN - i2;
+            int i3 = this.byS - i2;
             if (i3 != 0 && Math.abs(i3) != this.mStatusBarHeight) {
-                this.byN = i2;
-                tv.chushou.zues.widget.kpswitch.a dA = dA(this.nvg);
+                this.byS = i2;
+                tv.chushou.zues.widget.kpswitch.a dA = dA(this.nvj);
                 if (dA != null) {
                     if (i3 > 0) {
-                        dA.Oa();
-                    } else if (dA.dKq() && dA.isVisible()) {
                         dA.NZ();
+                    } else if (dA.dKm() && dA.isVisible()) {
+                        dA.NY();
                     }
                 }
             }
@@ -49,13 +49,13 @@ public class c {
     }
 
     private tv.chushou.zues.widget.kpswitch.a dA(View view) {
-        if (this.nvi != null && this.nvi.dKr()) {
-            return this.nvi;
+        if (this.nvl != null && this.nvl.dKn()) {
+            return this.nvl;
         }
         if (view instanceof tv.chushou.zues.widget.kpswitch.a) {
-            this.nvi = (tv.chushou.zues.widget.kpswitch.a) view;
-            if (this.nvi.dKr()) {
-                return this.nvi;
+            this.nvl = (tv.chushou.zues.widget.kpswitch.a) view;
+            if (this.nvl.dKn()) {
+                return this.nvl;
             }
         }
         if (view instanceof ViewGroup) {
@@ -66,11 +66,11 @@ public class c {
                     break;
                 }
                 tv.chushou.zues.widget.kpswitch.a dA = dA(((ViewGroup) view).getChildAt(i2));
-                if (dA == null || !dA.dKr()) {
+                if (dA == null || !dA.dKn()) {
                     i = i2 + 1;
                 } else {
-                    this.nvi = dA;
-                    return this.nvi;
+                    this.nvl = dA;
+                    return this.nvl;
                 }
             }
         }
@@ -78,14 +78,14 @@ public class c {
     }
 
     public void setIsTranslucentStatus(boolean z) {
-        this.nvh = z;
+        this.nvk = z;
     }
 
-    public void dKt() {
-        this.byN = -1;
+    public void dKp() {
+        this.byS = -1;
     }
 
-    public void dwZ() {
-        this.nvi = null;
+    public void dwW() {
+        this.nvl = null;
     }
 }

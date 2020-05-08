@@ -24,18 +24,18 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c dOB;
+    private static volatile c dOG;
     private final LinkedList<ImMessageCenterPojo> mList = new LinkedList<>();
-    private int dOC = 0;
-    private int dOD = 0;
-    private int mReplyNum = 0;
-    private int dOE = 0;
-    private boolean dOF = false;
-    private int dOG = 0;
-    private boolean dOH = false;
+    private int dOH = 0;
     private int dOI = 0;
-    private boolean dOJ = false;
-    private final CustomMessageListener dOK = new CustomMessageListener(0) { // from class: com.baidu.tbadk.coreExtra.messageCenter.c.1
+    private int mReplyNum = 0;
+    private int dOJ = 0;
+    private boolean dOK = false;
+    private int dOL = 0;
+    private boolean dOM = false;
+    private int dON = 0;
+    private boolean dOO = false;
+    private final CustomMessageListener dOP = new CustomMessageListener(0) { // from class: com.baidu.tbadk.coreExtra.messageCenter.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,9 +51,9 @@ public class c {
                 } else if (customResponsedMessage.getCmd() == 2016001) {
                     c.this.f(customResponsedMessage);
                 } else if (customResponsedMessage.getCmd() == 2016010) {
-                    c.this.aTK();
+                    c.this.aTI();
                 } else if (customResponsedMessage.getCmd() == 2016011) {
-                    c.this.aTL();
+                    c.this.aTJ();
                 }
             }
         }
@@ -62,40 +62,40 @@ public class c {
     private c() {
     }
 
-    public static c aTJ() {
-        if (dOB == null) {
+    public static c aTH() {
+        if (dOG == null) {
             synchronized (c.class) {
-                if (dOB == null) {
-                    dOB = new c();
+                if (dOG == null) {
+                    dOG = new c();
                 }
             }
         }
-        return dOB;
+        return dOG;
     }
 
     public void init() {
         reset();
         MessageManager.getInstance().registerStickyMode(CmdConfigCustom.CMD_HOME_NOTIFY_MSG);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL, this.dOK);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.dOK);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.dOK);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.dOK);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.dOK);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.dOK);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.dOK);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL, this.dOP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.dOP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.dOP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.dOP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.dOP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SETTING_CHANGE, this.dOP);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.dOP);
     }
 
     private void reset() {
         this.mList.clear();
-        this.dOC = 0;
-        this.dOD = 0;
+        this.dOH = 0;
+        this.dOI = 0;
         this.mReplyNum = 0;
-        this.dOE = 0;
-        this.dOF = false;
-        this.dOG = 0;
-        this.dOH = false;
-        this.dOG = 0;
-        this.dOH = false;
+        this.dOJ = 0;
+        this.dOK = false;
+        this.dOL = 0;
+        this.dOM = false;
+        this.dOL = 0;
+        this.dOM = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,24 +107,24 @@ public class c {
             }
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) responsedMessage;
             A(newsNotifyMessage.getMsgAgree(), newsNotifyMessage.getMsgAtme(), newsNotifyMessage.getMsgReplyme());
-            aTM();
+            aTK();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTK() {
-        A(this.dOC, this.dOD, this.mReplyNum);
+    public void aTI() {
+        A(this.dOH, this.dOI, this.mReplyNum);
         aN(this.mList);
         aO(this.mList);
-        aTM();
+        aTK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aTL() {
-        A(this.dOC, this.dOD, this.mReplyNum);
+    public void aTJ() {
+        A(this.dOH, this.dOI, this.mReplyNum);
         aN(this.mList);
         aO(this.mList);
-        aTM();
+        aTK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -148,7 +148,7 @@ public class c {
                 }
                 aN(this.mList);
                 aO(this.mList);
-                aTM();
+                aTK();
             }
         }
     }
@@ -168,7 +168,7 @@ public class c {
             }
             aN(this.mList);
             aO(this.mList);
-            aTM();
+            aTK();
         }
     }
 
@@ -189,23 +189,23 @@ public class c {
         this.mList.clear();
         aN(this.mList);
         aO(this.mList);
-        aTM();
+        aTK();
     }
 
     private void A(int i, int i2, int i3) {
         boolean z = i > 0 || i2 > 0 || i3 > 0;
-        int i4 = (i <= 0 || !d.aTN().aUe()) ? 0 : 0 + i;
-        if (i2 > 0 && d.aTN().aTS()) {
+        int i4 = (i <= 0 || !d.aTL().aUc()) ? 0 : 0 + i;
+        if (i2 > 0 && d.aTL().aTQ()) {
             i4 += i2;
         }
-        if (i3 > 0 && d.aTN().aTU()) {
+        if (i3 > 0 && d.aTL().aTS()) {
             i4 += i3;
         }
-        int i5 = d.aTN().aTQ() == 0 ? 0 : i4;
-        this.dOF = i5 <= 0 ? false : z;
-        this.dOE = i5;
-        this.dOC = i;
-        this.dOD = i2;
+        int i5 = d.aTL().aTO() == 0 ? 0 : i4;
+        this.dOK = i5 <= 0 ? false : z;
+        this.dOJ = i5;
+        this.dOH = i;
+        this.dOI = i2;
         this.mReplyNum = i3;
     }
 
@@ -223,8 +223,8 @@ public class c {
                     } else if (imMessageCenterPojo.getCustomGroupType() == -7) {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        if (d.aTN().aUd()) {
-                            GroupSettingItemData dS = com.baidu.tieba.im.settingcache.b.ciT().dS(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                        if (d.aTL().aUb()) {
+                            GroupSettingItemData dS = com.baidu.tieba.im.settingcache.b.ciR().dS(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (dS != null) {
                                 if (dS.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();
@@ -236,8 +236,8 @@ public class c {
                         }
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        if (d.aTN().aTV()) {
-                            PersonalSettingItemData dS2 = com.baidu.tieba.im.settingcache.e.ciW().dS(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                        if (d.aTL().aTT()) {
+                            PersonalSettingItemData dS2 = com.baidu.tieba.im.settingcache.e.ciU().dS(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                             if (dS2 != null) {
                                 if (dS2.isAcceptNotify()) {
                                     i += imMessageCenterPojo.getUnread_count();
@@ -250,7 +250,7 @@ public class c {
                         z = true;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
                         if (imMessageCenterPojo.getUserType() == 4) {
-                            if (d.aTN().aTV()) {
+                            if (d.aTL().aTT()) {
                                 i += imMessageCenterPojo.getUnread_count();
                                 z = true;
                             }
@@ -261,12 +261,12 @@ public class c {
                     }
                 }
             }
-            if (d.aTN().aTQ() == 0) {
+            if (d.aTL().aTO() == 0) {
                 i = 0;
             }
             boolean z2 = i > 0 ? z : false;
-            this.dOG = i;
-            this.dOH = z2;
+            this.dOL = i;
+            this.dOM = z2;
         }
     }
 
@@ -286,8 +286,8 @@ public class c {
                 i2 = i2;
             }
             boolean z2 = i2 > 0 ? z : false;
-            this.dOI = i2;
-            this.dOJ = z2;
+            this.dON = i2;
+            this.dOO = z2;
         }
     }
 
@@ -317,10 +317,10 @@ public class c {
         if (imMessageCenterPojo == null) {
             return false;
         }
-        HashMap<Integer, HashSet> aTE = b.aTg().aTE();
-        if (aTE != null && aTE.size() > 0) {
-            HashSet hashSet = aTE.get(0);
-            HashSet hashSet2 = aTE.get(1);
+        HashMap<Integer, HashSet> aTC = b.aTe().aTC();
+        if (aTC != null && aTC.size() > 0) {
+            HashSet hashSet = aTC.get(0);
+            HashSet hashSet2 = aTC.get(1);
             if (hashSet != null && !aq.isEmpty(imMessageCenterPojo.getGid()) && hashSet.contains(imMessageCenterPojo.getGid())) {
                 return false;
             }
@@ -333,21 +333,21 @@ public class c {
 
     private boolean c(ImMessageCenterPojo imMessageCenterPojo) {
         HashSet hashSet;
-        HashMap<Integer, HashSet> aTE = b.aTg().aTE();
-        return (aTE == null || aTE.size() <= 0 || (hashSet = aTE.get(0)) == null || aq.isEmpty(imMessageCenterPojo.getGid()) || !hashSet.contains(imMessageCenterPojo.getGid())) ? false : true;
+        HashMap<Integer, HashSet> aTC = b.aTe().aTC();
+        return (aTC == null || aTC.size() <= 0 || (hashSet = aTC.get(0)) == null || aq.isEmpty(imMessageCenterPojo.getGid()) || !hashSet.contains(imMessageCenterPojo.getGid())) ? false : true;
     }
 
-    private void aTM() {
+    private void aTK() {
         NewsRemindMessage newsRemindMessage = new NewsRemindMessage();
-        newsRemindMessage.setMsgAgreeCount(this.dOC);
-        newsRemindMessage.setMsgAtCount(this.dOD);
+        newsRemindMessage.setMsgAgreeCount(this.dOH);
+        newsRemindMessage.setMsgAtCount(this.dOI);
         newsRemindMessage.setMsgReplyCount(this.mReplyNum);
-        newsRemindMessage.setMsgCount(this.dOE);
-        newsRemindMessage.setHasMsgRemind(this.dOF);
-        newsRemindMessage.setChatCount(this.dOG);
-        newsRemindMessage.setHasChatRemind(this.dOH);
-        newsRemindMessage.setNotificationCount(this.dOI);
-        newsRemindMessage.setHasNotificationRemind(this.dOJ);
+        newsRemindMessage.setMsgCount(this.dOJ);
+        newsRemindMessage.setHasMsgRemind(this.dOK);
+        newsRemindMessage.setChatCount(this.dOL);
+        newsRemindMessage.setHasChatRemind(this.dOM);
+        newsRemindMessage.setNotificationCount(this.dON);
+        newsRemindMessage.setHasNotificationRemind(this.dOO);
         MessageManager.getInstance().dispatchResponsedMessage(newsRemindMessage);
     }
 }

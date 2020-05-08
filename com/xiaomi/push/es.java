@@ -1,15 +1,18 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import java.util.List;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 /* loaded from: classes8.dex */
-public class es extends com.xiaomi.clientreport.processor.a {
-    public es(Context context) {
-        super(context);
-    }
+public enum es {
+    ACTIVITY(PushConstants.INTENT_ACTIVITY_NAME),
+    SERVICE_ACTION("service_action"),
+    SERVICE_COMPONENT("service_component"),
+    PROVIDER("provider");
+    
 
-    @Override // com.xiaomi.clientreport.processor.a
-    public void a(List<String> list) {
-        eu.a(this.a, list);
+    /* renamed from: a  reason: collision with other field name */
+    public String f308a;
+
+    es(String str) {
+        this.f308a = str;
     }
 }

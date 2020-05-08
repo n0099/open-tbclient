@@ -12,7 +12,7 @@ public class d extends com.meizu.cloud.pushsdk.handler.a.a<SubAliasStatus> {
     }
 
     private void c(String str) {
-        com.meizu.cloud.pushsdk.util.b.g(c(), c().getPackageName(), str);
+        com.meizu.cloud.pushsdk.util.b.h(c(), c().getPackageName(), str);
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c

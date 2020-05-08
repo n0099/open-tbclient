@@ -10,38 +10,38 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d extends a {
-    private boolean dKi;
+    private boolean dKm;
 
     public d() {
-        this.dJT = R.color.cp_link_tip_a;
-        this.dKi = false;
+        this.dJX = R.color.cp_link_tip_a;
+        this.dKm = false;
     }
 
     public void lJ(@ColorInt int i) {
-        this.dJT = i;
+        this.dJX = i;
+        this.dKm = false;
         this.dKi = false;
-        this.dKe = false;
-        if (this.dKg != null) {
-            this.dKg.aQR();
+        if (this.dKk != null) {
+            this.dKk.aQO();
         }
     }
 
-    public void aQV() {
-        this.dJT = R.color.cp_cont_a;
-        this.dKi = false;
-        this.dKe = true;
-        if (this.dKg != null) {
-            this.dKg.aQR();
+    public void aQS() {
+        this.dJX = R.color.cp_cont_a;
+        this.dKm = false;
+        this.dKi = true;
+        if (this.dKk != null) {
+            this.dKk.aQO();
         }
     }
 
     public void lI(@ColorRes int i) {
-        this.dJT = i;
-        this.dJU = R.color.cp_btn_b;
+        this.dJX = i;
+        this.dJY = R.color.cp_btn_b;
+        this.dKm = true;
         this.dKi = true;
-        this.dKe = true;
-        if (this.dKg != null) {
-            this.dKg.aQR();
+        if (this.dKk != null) {
+            this.dKk.aQO();
         }
     }
 
@@ -53,10 +53,10 @@ public class d extends a {
 
     private Drawable W(float f) {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (this.dKi) {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), am.getColor(this.dJU));
+        if (this.dKm) {
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), am.getColor(this.dJY));
         } else {
-            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(this.dKe ? am.getColor(this.dJT) : this.dJT, 0.5f));
+            gradientDrawable.setStroke(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1), com.baidu.tieba.tbadkCore.c.l(this.dKi ? am.getColor(this.dJX) : this.dJX, 0.5f));
         }
         gradientDrawable.setShape(0);
         gradientDrawable.setCornerRadius(f);

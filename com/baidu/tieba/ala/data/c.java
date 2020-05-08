@@ -5,40 +5,40 @@ import com.baidu.live.tbadk.log.LogConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public long Kt;
-    public String feA;
-    public int feB;
-    public int feC;
-    public String feD;
-    public String feE;
+    public long Kw;
+    public String feC;
+    public int feD;
+    public int feE;
     public String feF;
-    public long feG;
-    public long feH;
-    public String fex;
-    public int fey;
-    public int fez;
+    public int feG;
+    public int feH;
+    public String feI;
+    public String feJ;
+    public String feK;
+    public long feL;
+    public long feM;
     public String mDesc;
     public String mGiftName;
     public int mStatus;
 
     public void parserJson(JSONObject jSONObject) {
-        this.fex = jSONObject.optString("wish_id");
+        this.feC = jSONObject.optString("wish_id");
         this.mGiftName = jSONObject.optString("gift_name");
-        this.fey = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
-        this.feA = jSONObject.optString("gift_url");
-        this.fez = jSONObject.optInt("gift_type");
+        this.feD = jSONObject.optInt(LogConfig.LOG_GIFT_ID);
+        this.feF = jSONObject.optString("gift_url");
+        this.feE = jSONObject.optInt("gift_type");
         this.mDesc = jSONObject.optString("desc");
         if (TextUtils.equals("null", this.mDesc)) {
             this.mDesc = "";
         }
-        this.feB = jSONObject.optInt("process_num");
-        this.feC = jSONObject.optInt("finish_num");
-        this.feD = jSONObject.optString("toplist_1");
-        this.feE = jSONObject.optString("toplist_2");
-        this.feF = jSONObject.optString("toplist_3");
-        this.Kt = jSONObject.optLong("expire_time");
-        this.feG = jSONObject.optLong("expire_seconds");
-        this.feH = jSONObject.optLong("expire_hour");
+        this.feG = jSONObject.optInt("process_num");
+        this.feH = jSONObject.optInt("finish_num");
+        this.feI = jSONObject.optString("toplist_1");
+        this.feJ = jSONObject.optString("toplist_2");
+        this.feK = jSONObject.optString("toplist_3");
+        this.Kw = jSONObject.optLong("expire_time");
+        this.feL = jSONObject.optLong("expire_seconds");
+        this.feM = jSONObject.optLong("expire_hour");
         this.mStatus = jSONObject.optInt("status");
     }
 }

@@ -11,15 +11,20 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
+import com.baidu.sapi2.outsdk.c;
 import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
+import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
+    public static final String EXTRA_BUSINESS_FROM = "business_from";
+    public static final String EXTRA_BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";
     public static final String EXTRA_BUSINESS_TYPE = "business_type";
     public static final String EXTRA_EXTERNAL_TITLE = "extra_external_title";
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
@@ -28,15 +33,27 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String RESULT_BUSINESS_TYPE_PRE_SET_UNAME = "business_pre_set_username";
     private String r;
     private String s;
-    private AuthorizationListener t = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
+    private String t;
+    private AuthorizationListener u = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onFailed(int i, String str) {
+            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.t)) {
+                new c().a(PassportSDK.getInstance().getOneKeyLoginCallback(), -103, (String) null);
+            }
             LoadExternalWebViewActivity.this.setResult(0);
             LoadExternalWebViewActivity.this.finish();
         }
 
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onSuccess(AccountType accountType) {
+            if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.t)) {
+                OneKeyLoginCallback oneKeyLoginCallback = PassportSDK.getInstance().getOneKeyLoginCallback();
+                OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
+                oneKeyLoginResult.setResultCode(0);
+                if (oneKeyLoginCallback != null) {
+                    oneKeyLoginCallback.onSuccess(oneKeyLoginResult);
+                }
+            }
             Intent intent = new Intent();
             intent.putExtra("account_type", accountType.getType());
             LoadExternalWebViewActivity.this.setResult(-1, intent);
@@ -91,6 +108,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         super.init();
         this.r = getIntent().getStringExtra(EXTRA_EXTERNAL_TITLE);
         this.s = getIntent().getStringExtra("extra_external_url");
+        this.t = getIntent().getStringExtra(EXTRA_BUSINESS_FROM);
         if (TextUtils.isEmpty(this.s)) {
             setResult(0);
             finish();
@@ -155,7 +173,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     public void setupViews() {
         super.setupViews();
         configTitle();
-        this.sapiWebView.setAuthorizationListener(this.t);
+        this.sapiWebView.setAuthorizationListener(this.u);
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {

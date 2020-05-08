@@ -5,64 +5,64 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes12.dex */
 public class t {
-    private final k<com.facebook.imagepipeline.g.e> mfb;
-    private final ak mfi;
-    private long mfj = 0;
-    private int mfk;
+    private final k<com.facebook.imagepipeline.g.e> mff;
+    private final ak mfm;
+    private long mfn = 0;
+    private int mfo;
     @Nullable
-    private com.facebook.imagepipeline.common.a mfl;
+    private com.facebook.imagepipeline.common.a mfp;
 
     public t(k<com.facebook.imagepipeline.g.e> kVar, ak akVar) {
-        this.mfb = kVar;
-        this.mfi = akVar;
+        this.mff = kVar;
+        this.mfm = akVar;
     }
 
-    public k<com.facebook.imagepipeline.g.e> duf() {
-        return this.mfb;
+    public k<com.facebook.imagepipeline.g.e> duc() {
+        return this.mff;
     }
 
-    public ak dug() {
-        return this.mfi;
+    public ak dud() {
+        return this.mfm;
     }
 
     public String getId() {
-        return this.mfi.getId();
+        return this.mfm.getId();
     }
 
-    public am dtU() {
-        return this.mfi.dtU();
+    public am dtR() {
+        return this.mfm.dtR();
     }
 
     public Uri getUri() {
-        return this.mfi.dtT().duL();
+        return this.mfm.dtQ().duI();
     }
 
-    public long duh() {
-        return this.mfj;
+    public long due() {
+        return this.mfn;
     }
 
     public void fQ(long j) {
-        this.mfj = j;
+        this.mfn = j;
     }
 
-    public int dui() {
-        return this.mfk;
+    public int duf() {
+        return this.mfo;
     }
 
     public void Ht(int i) {
-        this.mfk = i;
+        this.mfo = i;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a duj() {
-        return this.mfl;
+    public com.facebook.imagepipeline.common.a dug() {
+        return this.mfp;
     }
 
     public void c(com.facebook.imagepipeline.common.a aVar) {
-        this.mfl = aVar;
+        this.mfp = aVar;
     }
 
-    public Map<String, String> duk() {
-        return this.mfi.dtT().duk();
+    public Map<String, String> duh() {
+        return this.mfm.dtQ().duh();
     }
 }

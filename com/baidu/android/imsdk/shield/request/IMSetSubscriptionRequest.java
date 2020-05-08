@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.shield.ISetSubscriptionListener;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -35,7 +34,7 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int i3 = jSONObject.getInt("error_code");
-            String optString = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+            String optString = jSONObject.optString("error_msg", "");
             i2 = i3;
             str = optString;
         } catch (Exception e) {

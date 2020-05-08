@@ -66,16 +66,16 @@ public final class MaybeSwitchIfEmptySingle<T> extends w<T> {
         /* loaded from: classes7.dex */
         static final class a<T> implements y<T> {
             final y<? super T> actual;
-            final AtomicReference<io.reactivex.disposables.b> mRB;
+            final AtomicReference<io.reactivex.disposables.b> mRE;
 
             a(y<? super T> yVar, AtomicReference<io.reactivex.disposables.b> atomicReference) {
                 this.actual = yVar;
-                this.mRB = atomicReference;
+                this.mRE = atomicReference;
             }
 
             @Override // io.reactivex.y
             public void onSubscribe(io.reactivex.disposables.b bVar) {
-                DisposableHelper.setOnce(this.mRB, bVar);
+                DisposableHelper.setOnce(this.mRE, bVar);
             }
 
             @Override // io.reactivex.y

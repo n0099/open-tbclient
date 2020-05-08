@@ -11,14 +11,14 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ShareFromFrsView extends LinearLayout {
-    private TextView cTr;
+    private TextView cTw;
     private Context context;
-    private HeadImageView hCf;
-    private ShareFromFrsMsgData hCi;
-    private TextView iwl;
-    private TextView iwm;
-    private TextView iwn;
-    private TextView iwo;
+    private HeadImageView hCl;
+    private ShareFromFrsMsgData hCo;
+    private TextView iwr;
+    private TextView iws;
+    private TextView iwt;
+    private TextView iwu;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -34,42 +34,42 @@ public class ShareFromFrsView extends LinearLayout {
 
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_frs_view, this);
-        this.cTr = (TextView) findViewById(R.id.frs_name);
-        this.hCf = (HeadImageView) findViewById(R.id.frs_img);
-        this.iwm = (TextView) findViewById(R.id.frs_member_num);
-        this.iwo = (TextView) findViewById(R.id.frs_post_num);
-        this.iwl = (TextView) findViewById(R.id.frs_member_num_label);
-        this.iwn = (TextView) findViewById(R.id.frs_post_num_label);
+        this.cTw = (TextView) findViewById(R.id.frs_name);
+        this.hCl = (HeadImageView) findViewById(R.id.frs_img);
+        this.iws = (TextView) findViewById(R.id.frs_member_num);
+        this.iwu = (TextView) findViewById(R.id.frs_post_num);
+        this.iwr = (TextView) findViewById(R.id.frs_member_num_label);
+        this.iwt = (TextView) findViewById(R.id.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.cTr.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
-            this.iwm.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
-            this.iwo.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
-            this.iwl.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
-            this.iwn.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.cTw.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b));
+            this.iws.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.iwu.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.iwr.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
+            this.iwt.setTextColor(getContext().getResources().getColor(R.color.cp_cont_f));
             return;
         }
-        this.cTr.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.iwm.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.iwo.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.iwl.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
-        this.iwn.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.cTw.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.iws.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.iwu.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.iwr.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
+        this.iwt.setTextColor(getContext().getResources().getColor(R.color.cp_cont_g));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.hCi = shareFromFrsMsgData;
+        this.hCo = shareFromFrsMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.cTr.setText(getShortName(this.hCi.getName()));
-        this.hCf.setPlaceHolder(1);
-        this.hCf.setAutoChangeStyle(false);
-        this.hCf.startLoad(this.hCi.getImageUrl(), 10, false);
-        this.iwm.setText(aq.numFormatOver10000(this.hCi.getMemberNum()));
-        this.iwo.setText(aq.numFormatOver10000(this.hCi.getPostNum()));
+        this.cTw.setText(getShortName(this.hCo.getName()));
+        this.hCl.setPlaceHolder(1);
+        this.hCl.setAutoChangeStyle(false);
+        this.hCl.startLoad(this.hCo.getImageUrl(), 10, false);
+        this.iws.setText(aq.numFormatOver10000(this.hCo.getMemberNum()));
+        this.iwu.setText(aq.numFormatOver10000(this.hCo.getPostNum()));
     }
 
     private String getShortName(String str) {

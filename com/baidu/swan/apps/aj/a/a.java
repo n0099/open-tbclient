@@ -8,9 +8,9 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c.a cpr;
-    private c.a cps;
-    private HashMap<String, c.a> cpt = new HashMap<>();
+    private HashMap<String, c.a> cpA = new HashMap<>();
+    private c.a cpy;
+    private c.a cpz;
 
     public void ms(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -24,47 +24,47 @@ public class a {
     }
 
     public ArrayList<String> eM(boolean z) {
-        if (this.cps != null && this.cps.data != null && this.cps.data.size() > 0) {
+        if (this.cpz != null && this.cpz.data != null && this.cpz.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.cps.token + ", data=" + this.cps.data);
+                Log.e("SwanAppWebSafe", "read webActions from cache: token=" + this.cpz.token + ", data=" + this.cpz.data);
             }
-            return this.cps.data;
+            return this.cpz.data;
         }
-        if (this.cps != null) {
-            this.cps.token = "";
-            this.cps.data.clear();
+        if (this.cpz != null) {
+            this.cpz.token = "";
+            this.cpz.data.clear();
         } else {
-            this.cps = new c.a();
+            this.cpz = new c.a();
         }
-        c.a(z, this.cps);
-        return this.cps.data;
+        c.a(z, this.cpz);
+        return this.cpz.data;
     }
 
-    public ArrayList<String> alN() {
+    public ArrayList<String> alM() {
         c.a aVar = new c.a();
         c.a(aVar);
         return aVar.data;
     }
 
     public ArrayList<String> E(String str, boolean z) {
-        if (this.cpr != null && this.cpr.data != null && this.cpr.data.size() > 0) {
+        if (this.cpy != null && this.cpy.data != null && this.cpy.data.size() > 0) {
             if (DEBUG) {
-                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.cpr.token + ", data=" + this.cpr.data);
+                Log.e("SwanAppWebSafe", "read webdomains from cache: token=" + this.cpy.token + ", data=" + this.cpy.data);
             }
-            return this.cpr.data;
+            return this.cpy.data;
         }
-        if (this.cpr != null) {
-            this.cpr.token = "";
-            this.cpr.data.clear();
+        if (this.cpy != null) {
+            this.cpy.token = "";
+            this.cpy.data.clear();
         } else {
-            this.cpr = new c.a();
+            this.cpy = new c.a();
         }
-        c.a(z, str, this.cpr);
-        return this.cpr.data;
+        c.a(z, str, this.cpy);
+        return this.cpy.data;
     }
 
     public c.a k(String str, String str2, boolean z) {
-        c.a aVar = this.cpt.get(str2);
+        c.a aVar = this.cpA.get(str2);
         if (aVar != null && aVar.data != null && aVar.data.size() > 0) {
             if (DEBUG) {
                 Log.e("SwanAppWebSafe", "read serverDomains from cache: data= " + aVar.data);
@@ -77,20 +77,20 @@ public class a {
                 aVar = new c.a();
             }
             c.a(z, str, str2, aVar);
-            this.cpt.put(str2, aVar);
+            this.cpA.put(str2, aVar);
         }
         return aVar;
     }
 
     public void release() {
-        if (this.cpr != null) {
-            this.cpr.data.clear();
+        if (this.cpy != null) {
+            this.cpy.data.clear();
         }
-        if (this.cps != null) {
-            this.cps.data.clear();
+        if (this.cpz != null) {
+            this.cpz.data.clear();
         }
-        this.cpr = null;
-        this.cps = null;
+        this.cpy = null;
+        this.cpz = null;
         if (DEBUG) {
             Log.d("SwanAppWebSafe", "release cache done");
         }

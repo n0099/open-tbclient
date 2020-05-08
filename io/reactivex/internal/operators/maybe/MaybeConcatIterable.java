@@ -15,12 +15,12 @@ import org.a.c;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class MaybeConcatIterable<T> extends g<T> {
-    final Iterable<? extends o<? extends T>> mRF;
+    final Iterable<? extends o<? extends T>> mRI;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         try {
-            ConcatMaybeObserver concatMaybeObserver = new ConcatMaybeObserver(cVar, (Iterator) io.reactivex.internal.functions.a.h(this.mRF.iterator(), "The sources Iterable returned a null Iterator"));
+            ConcatMaybeObserver concatMaybeObserver = new ConcatMaybeObserver(cVar, (Iterator) io.reactivex.internal.functions.a.h(this.mRI.iterator(), "The sources Iterable returned a null Iterator"));
             cVar.onSubscribe(concatMaybeObserver);
             concatMaybeObserver.drain();
         } catch (Throwable th) {

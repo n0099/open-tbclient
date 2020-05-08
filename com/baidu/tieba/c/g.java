@@ -37,22 +37,18 @@ import java.util.ArrayList;
 import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes.dex */
 public class g implements View.OnClickListener {
-    bj adG;
-    private NavigationBarCoverTip gvu;
-    private View gvv;
-    private TextView gvw;
-    private TextView gvx;
-    private com.baidu.tbadk.core.view.a gvy;
-    private Activity mActivity;
-    private TbPageContext mPageContext;
-    private long postId;
-    private long threadId;
-    private boolean gvz = false;
-    private boolean gvA = false;
-    private final com.baidu.adp.framework.listener.a gvB = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.c.g.1
+    bj adJ;
+    private NavigationBarCoverTip gvA;
+    private View gvB;
+    private TextView gvC;
+    private TextView gvD;
+    private com.baidu.tbadk.core.view.a gvE;
+    private boolean gvF = false;
+    private boolean gvG = false;
+    private final com.baidu.adp.framework.listener.a gvH = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.c.g.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            g.this.bzU();
+            g.this.bzS();
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                 GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                 g.this.a(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
@@ -62,80 +58,84 @@ public class g implements View.OnClickListener {
             }
         }
     };
+    private Activity mActivity;
+    private TbPageContext mPageContext;
+    private long postId;
+    private long threadId;
 
     public g(TbPageContext tbPageContext, NavigationBarCoverTip navigationBarCoverTip) {
         this.mActivity = tbPageContext.getPageActivity();
         this.mPageContext = tbPageContext;
-        this.gvu = navigationBarCoverTip;
-        this.gvB.setTag(tbPageContext.getUniqueId());
-        this.gvB.getHttpMessageListener().setSelfListener(true);
-        this.gvB.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.gvB);
+        this.gvA = navigationBarCoverTip;
+        this.gvH.setTag(tbPageContext.getUniqueId());
+        this.gvH.getHttpMessageListener().setSelfListener(true);
+        this.gvH.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.gvH);
     }
 
     public void lF(boolean z) {
-        this.gvz = z;
+        this.gvF = z;
     }
 
     public void b(PostWriteCallBackData postWriteCallBackData) {
-        if (postWriteCallBackData != null && this.gvu != null) {
+        if (postWriteCallBackData != null && this.gvA != null) {
             this.postId = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getPostId(), 0L);
             this.threadId = com.baidu.adp.lib.f.b.toLong(postWriteCallBackData.getThreadId(), 0L);
             if (this.postId != 0 && this.threadId != 0) {
-                this.gvA = false;
-                if (this.gvv == null) {
-                    this.gvv = View.inflate(this.mActivity, R.layout.write_thread_share_guide, null);
-                    this.gvw = (TextView) this.gvv.findViewById(R.id.write_thread_success_tips);
-                    this.gvx = (TextView) this.gvv.findViewById(R.id.share_icon);
+                this.gvG = false;
+                if (this.gvB == null) {
+                    this.gvB = View.inflate(this.mActivity, R.layout.write_thread_share_guide, null);
+                    this.gvC = (TextView) this.gvB.findViewById(R.id.write_thread_success_tips);
+                    this.gvD = (TextView) this.gvB.findViewById(R.id.share_icon);
                 }
-                am.setViewTextColor(this.gvw, (int) R.color.cp_cont_a);
-                am.setViewTextColor(this.gvx, (int) R.color.cp_cont_a);
-                am.setBackgroundResource(this.gvx, R.drawable.share_now_bg);
-                am.setBackgroundColor(this.gvu, R.color.cp_link_tip_a_alpha95);
-                this.gvx.setOnClickListener(this);
-                this.gvu.a(this.mActivity, this.gvv, 5000);
+                am.setViewTextColor(this.gvC, (int) R.color.cp_cont_a);
+                am.setViewTextColor(this.gvD, (int) R.color.cp_cont_a);
+                am.setBackgroundResource(this.gvD, R.drawable.share_now_bg);
+                am.setBackgroundColor(this.gvA, R.color.cp_link_tip_a_alpha95);
+                this.gvD.setOnClickListener(this);
+                this.gvA.a(this.mActivity, this.gvB, 5000);
             }
         }
     }
 
     private void showLoadingDialog() {
-        if (this.gvy == null) {
-            this.gvy = new com.baidu.tbadk.core.view.a(this.mPageContext);
+        if (this.gvE == null) {
+            this.gvE = new com.baidu.tbadk.core.view.a(this.mPageContext);
         }
-        this.gvy.setDialogVisiable(true);
+        this.gvE.setDialogVisiable(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bzU() {
-        if (this.gvy != null) {
-            this.gvy.setDialogVisiable(false);
+    public void bzS() {
+        if (this.gvE != null) {
+            this.gvE.setDialogVisiable(false);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!this.gvA) {
-            this.gvA = true;
+        if (!this.gvG) {
+            this.gvG = true;
             if (!j.isNetWorkAvailable()) {
                 this.mPageContext.showToast(R.string.neterror);
-                this.gvu.hideTip();
+                this.gvA.hideTip();
                 return;
             }
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = this.mActivity.getResources().getDisplayMetrics().density;
-            int i = ar.aOV().aOW() ? 2 : 1;
+            int i = ar.aOS().aOT() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
             requestGetMyPostNetMessage.setTag(this.mPageContext.getUniqueId());
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             showLoadingDialog();
-            this.gvu.hideTip();
-            aQB();
+            this.gvA.hideTip();
+            aQy();
         }
     }
 
-    private void aQB() {
+    private void aQy() {
         an anVar = new an(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
         anVar.t("tid", this.threadId);
         anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
@@ -152,56 +152,56 @@ public class g implements View.OnClickListener {
             this.mPageContext.showToast(R.string.neterror);
             return;
         }
-        this.adG = new bj();
-        this.adG.a(getMyPostResIdl.data.thread_info);
-        aQD();
+        this.adJ = new bj();
+        this.adJ.a(getMyPostResIdl.data.thread_info);
+        aQA();
     }
 
-    private void aQD() {
-        if (this.adG != null && this.mActivity != null) {
-            String valueOf = String.valueOf(this.adG.getFid());
-            String aKJ = this.adG.aKJ();
-            String title = this.adG.getTitle();
+    private void aQA() {
+        if (this.adJ != null && this.mActivity != null) {
+            String valueOf = String.valueOf(this.adJ.getFid());
+            String aKH = this.adJ.aKH();
+            String title = this.adJ.getTitle();
             if (TextUtils.isEmpty(title)) {
-                title = this.adG.getAbstract();
+                title = this.adJ.getAbstract();
             }
-            String tid = this.adG.getTid();
+            String tid = this.adJ.getTid();
             String str = "http://tieba.baidu.com/p/" + tid + "?share=9105&fr=share";
-            String z = z(this.adG);
+            String z = z(this.adJ);
             Uri parse = z == null ? null : Uri.parse(z);
-            String str2 = this.adG.getAbstract();
+            String str2 = this.adJ.getAbstract();
             String format = MessageFormat.format(this.mActivity.getResources().getString(R.string.share_content_tpl), title, str2);
             ShareItem shareItem = new ShareItem();
             shareItem.title = title;
             shareItem.content = format;
             shareItem.readCount = 0L;
-            shareItem.dQv = str2;
+            shareItem.dQA = str2;
             shareItem.linkUrl = str;
-            shareItem.dua = 5;
-            shareItem.dQq = this.gvz;
+            shareItem.due = 5;
+            shareItem.dQv = this.gvF;
             shareItem.extData = tid;
-            shareItem.dQy = 3;
+            shareItem.dQD = 3;
             shareItem.fid = valueOf;
-            shareItem.fName = aKJ;
+            shareItem.fName = aKH;
             shareItem.tid = tid;
-            shareItem.dQl = true;
-            shareItem.dQx = getShareObjSource();
-            shareItem.dQC = A(this.adG);
+            shareItem.dQq = true;
+            shareItem.dQC = getShareObjSource();
+            shareItem.dQH = A(this.adJ);
             if (parse != null) {
                 shareItem.imageUri = parse;
             }
-            shareItem.dQF = OriginalThreadInfo.ShareInfo.generateShareInfo(this.adG);
-            shareItem.dQG = ShareItem.ForwardInfo.generateForwardInfo(this.adG);
+            shareItem.dQK = OriginalThreadInfo.ShareInfo.generateShareInfo(this.adJ);
+            shareItem.dQL = ShareItem.ForwardInfo.generateForwardInfo(this.adJ);
             TbadkCoreApplication.getInst().setShareItem(shareItem);
-            shareItem.dQM = this.adG.getShareImageUrl();
+            shareItem.dQR = this.adJ.getShareImageUrl();
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.dQy);
-            bundle.putInt("obj_type", shareItem.dQC);
+            bundle.putInt("obj_param1", shareItem.dQD);
+            bundle.putInt("obj_type", shareItem.dQH);
             bundle.putString("fid", shareItem.fid);
             bundle.putString("tid", shareItem.tid);
-            bundle.putInt("obj_source", shareItem.dua);
+            bundle.putInt("obj_source", shareItem.due);
             shareItem.Y(bundle);
-            e.bGe().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
+            e.bGc().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
         }
     }
 
@@ -210,13 +210,13 @@ public class g implements View.OnClickListener {
     }
 
     private String z(bj bjVar) {
-        if (bjVar == null || bjVar.aKO() == null) {
+        if (bjVar == null || bjVar.aKM() == null) {
             return null;
         }
-        ArrayList<MediaData> aKO = bjVar.aKO();
-        int size = aKO.size();
+        ArrayList<MediaData> aKM = bjVar.aKM();
+        int size = aKM.size();
         for (int i = 0; i < size; i++) {
-            MediaData mediaData = aKO.get(i);
+            MediaData mediaData = aKM.get(i);
             if (mediaData != null && mediaData.getType() == 3) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     return mediaData.getThumbnails_url();
@@ -231,20 +231,20 @@ public class g implements View.OnClickListener {
 
     private int A(bj bjVar) {
         if (bjVar != null) {
-            if (bjVar.aKG()) {
+            if (bjVar.aKE()) {
                 return 4;
             }
-            if (bjVar.aKB() == 1) {
+            if (bjVar.aKz() == 1) {
                 return 3;
             }
-            return bjVar.aLT() ? 2 : 1;
+            return bjVar.aLR() ? 2 : 1;
         }
         return 0;
     }
 
     public void onDestroy() {
-        if (this.gvu != null) {
-            this.gvu.onDestroy();
+        if (this.gvA != null) {
+            this.gvA.onDestroy();
         }
     }
 }

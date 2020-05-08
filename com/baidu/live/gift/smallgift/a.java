@@ -22,35 +22,35 @@ import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class a {
-    private k aAx;
-    private int aEW;
-    private int aEX;
-    private boolean aGg;
-    private ArrayList<c> aGh;
-    private b aHh;
-    private b aHi;
-    private AlaSmallGiftView aHj;
-    private AlaSmallGiftView aHk;
-    private int aHl;
-    private b.a aHm;
-    private boolean ayq;
+    private k aAD;
+    private int aFc;
+    private int aFd;
+    private boolean aGm;
+    private ArrayList<c> aGn;
+    private b aHn;
+    private b aHo;
+    private AlaSmallGiftView aHp;
+    private AlaSmallGiftView aHq;
+    private int aHr;
+    private b.a aHs;
+    private boolean ayw;
     private Context mContext;
     private View mRootView;
 
     public a(Context context, k kVar) {
-        this.aGg = false;
-        this.aHm = new b.a() { // from class: com.baidu.live.gift.smallgift.a.1
+        this.aGm = false;
+        this.aHs = new b.a() { // from class: com.baidu.live.gift.smallgift.a.1
             @Override // com.baidu.live.gift.smallgift.b.a
-            public void zJ() {
-                if (!a.this.zI()) {
-                    a.this.xu();
+            public void zI() {
+                if (!a.this.zH()) {
+                    a.this.xt();
                 }
             }
 
             @Override // com.baidu.live.gift.smallgift.b.a
             public void r(c cVar) {
-                if (cVar != null && cVar.aEc < cVar.aEb) {
-                    if (a.this.aAx.a(cVar)) {
+                if (cVar != null && cVar.aEi < cVar.aEh) {
+                    if (a.this.aAD.a(cVar)) {
                         if (cVar.userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                             cVar.priority = 10;
                         } else {
@@ -66,47 +66,47 @@ public class a {
             }
         };
         this.mContext = context;
-        this.aAx = kVar;
+        this.aAD = kVar;
         initData();
         initView();
     }
 
     public a(Context context, k kVar, boolean z) {
         this(context, kVar);
-        this.ayq = z;
-        this.aHj.setMode(z);
-        this.aHk.setMode(z);
+        this.ayw = z;
+        this.aHp.setMode(z);
+        this.aHq.setMode(z);
     }
 
     private void initData() {
-        this.aGh = new ArrayList<>();
+        this.aGn = new ArrayList<>();
         Resources resources = this.mContext.getResources();
-        this.aEW = (int) resources.getDimension(a.e.sdk_ds650);
-        this.aEX = (resources.getDimensionPixelOffset(a.e.sdk_ds136) * 2) + resources.getDimensionPixelOffset(a.e.sdk_ds46) + resources.getDimensionPixelOffset(a.e.sdk_ds12);
-        this.aHl = (int) (resources.getDimensionPixelOffset(a.e.sdk_ds6) + (BdUtilHelper.getEquipmentHeight(this.mContext) * 0.27f) + resources.getDimensionPixelSize(a.e.sdk_tbds64) + resources.getDimensionPixelSize(a.e.sdk_tbds27) + resources.getDimensionPixelSize(a.e.sdk_tbds130) + resources.getDimensionPixelOffset(a.e.sdk_ds80) + resources.getDimensionPixelOffset(a.e.sdk_ds20));
+        this.aFc = (int) resources.getDimension(a.e.sdk_ds650);
+        this.aFd = (resources.getDimensionPixelOffset(a.e.sdk_ds136) * 2) + resources.getDimensionPixelOffset(a.e.sdk_ds46) + resources.getDimensionPixelOffset(a.e.sdk_ds12);
+        this.aHr = (int) (resources.getDimensionPixelOffset(a.e.sdk_ds6) + (BdUtilHelper.getEquipmentHeight(this.mContext) * 0.27f) + resources.getDimensionPixelSize(a.e.sdk_tbds64) + resources.getDimensionPixelSize(a.e.sdk_tbds27) + resources.getDimensionPixelSize(a.e.sdk_tbds130) + resources.getDimensionPixelOffset(a.e.sdk_ds80) + resources.getDimensionPixelOffset(a.e.sdk_ds20));
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(a.h.ala_small_gift_panel_layout, (ViewGroup) null);
-        this.aHj = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift1);
-        this.aHk = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift2);
-        this.aHh = new b(this.aHj);
-        this.aHh.a(this.aHm);
-        this.aHi = new b(this.aHk);
-        this.aHi.a(this.aHm);
+        this.aHp = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift1);
+        this.aHq = (AlaSmallGiftView) this.mRootView.findViewById(a.g.alaSmallGift2);
+        this.aHn = new b(this.aHp);
+        this.aHn.a(this.aHs);
+        this.aHo = new b(this.aHq);
+        this.aHo.a(this.aHs);
         setRootViewParam(1);
-        this.aAx.M(this.mRootView);
+        this.aAD.M(this.mRootView);
     }
 
     private void setRootViewParam(int i) {
         if (i == 2) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.aEW, this.aEX);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.aFc, this.aFd);
             layoutParams.topMargin = (int) this.mContext.getResources().getDimension(a.e.sdk_ds160);
             layoutParams.addRule(10);
             this.mRootView.setLayoutParams(layoutParams);
         } else if (i == 1) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.aEX);
-            layoutParams2.bottomMargin = this.aHl;
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.aFd);
+            layoutParams2.bottomMargin = this.aHr;
             layoutParams2.addRule(12);
             this.mRootView.setLayoutParams(layoutParams2);
         }
@@ -123,7 +123,7 @@ public class a {
                 layoutParams.addRule(10);
                 layoutParams.addRule(12, 0);
             } else if (UtilHelper.getRealScreenOrientation(this.mContext) == 1) {
-                layoutParams.bottomMargin = this.aHl;
+                layoutParams.bottomMargin = this.aHr;
                 layoutParams.topMargin = 0;
                 layoutParams.addRule(12);
                 layoutParams.addRule(10, 0);
@@ -132,42 +132,42 @@ public class a {
         }
     }
 
-    public void xy() {
+    public void xx() {
         setRootViewParam(UtilHelper.getRealScreenOrientation(this.mContext));
-        if (this.aHh != null) {
-            this.aHh.xy();
+        if (this.aHn != null) {
+            this.aHn.xx();
         }
-        if (this.aHi != null) {
-            this.aHi.xy();
+        if (this.aHo != null) {
+            this.aHo.xx();
         }
+    }
+
+    public void wD() {
+        this.aGm = true;
+        if (this.aHn != null) {
+            this.aHn.wD();
+        }
+        if (this.aHo != null) {
+            this.aHo.wD();
+        }
+        this.aAD.wF();
     }
 
     public void wE() {
-        this.aGg = true;
-        if (this.aHh != null) {
-            this.aHh.wE();
+        this.aGm = false;
+        this.aAD.M(this.mRootView);
+        if (this.aHn != null) {
+            this.aHn.wE();
         }
-        if (this.aHi != null) {
-            this.aHi.wE();
-        }
-        this.aAx.wG();
-    }
-
-    public void wF() {
-        this.aGg = false;
-        this.aAx.M(this.mRootView);
-        if (this.aHh != null) {
-            this.aHh.wF();
-        }
-        if (this.aHi != null) {
-            this.aHi.wF();
+        if (this.aHo != null) {
+            this.aHo.wE();
         }
     }
 
     public void d(c cVar) {
         boolean z = true;
         if (cVar != null && !StringUtils.isNull(cVar.userId) && !StringUtils.isNull(cVar.giftId)) {
-            if (!this.aHh.v(cVar) && !this.aHi.v(cVar)) {
+            if (!this.aHn.v(cVar) && !this.aHo.v(cVar)) {
                 z = false;
             }
             if (!z) {
@@ -179,7 +179,7 @@ public class a {
     private void n(c cVar) {
         boolean z;
         boolean z2 = false;
-        Iterator<c> it = this.aGh.iterator();
+        Iterator<c> it = this.aGn.iterator();
         while (true) {
             z = z2;
             if (!it.hasNext()) {
@@ -198,13 +198,13 @@ public class a {
     }
 
     public static boolean c(c cVar, c cVar2) {
-        return cVar != null && !StringUtils.isNull(cVar.aDY) && cVar.aDY.equals(cVar2.aDY) && Math.abs(cVar2.yo() - cVar.yo()) <= 3000 && cVar2.aEb <= 99;
+        return cVar != null && !StringUtils.isNull(cVar.aEe) && cVar.aEe.equals(cVar2.aEe) && Math.abs(cVar2.yn() - cVar.yn()) <= 3000 && cVar2.aEh <= 99;
     }
 
     public static void d(c cVar, c cVar2) {
         q.a(cVar, cVar2);
-        cVar.aEb += cVar2.aEb;
-        cVar.Z(cVar2.yo());
+        cVar.aEh += cVar2.aEh;
+        cVar.Z(cVar2.yn());
     }
 
     private void o(c cVar) {
@@ -212,28 +212,28 @@ public class a {
             p(cVar);
             return;
         }
-        this.aGh.add(cVar);
-        if (cVar.aEd) {
-            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.aqq, cVar.aqr, cVar.giftId, "");
+        this.aGn.add(cVar);
+        if (cVar.aEj) {
+            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_ENTER_LIST, cVar.aqw, cVar.aqx, cVar.giftId, "");
         }
         try {
-            xr();
+            xq();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        xu();
+        xt();
     }
 
     public void p(c cVar) {
-        if (this.aGg) {
+        if (this.aGm) {
             q(cVar);
-        } else if (!this.aHh.zX() && this.aHh.s(cVar)) {
-            this.aHh.u(cVar);
-        } else if (!this.aHi.zX() && this.aHi.s(cVar)) {
-            this.aHi.u(cVar);
+        } else if (!this.aHn.zW() && this.aHn.s(cVar)) {
+            this.aHn.u(cVar);
+        } else if (!this.aHo.zW() && this.aHo.s(cVar)) {
+            this.aHo.u(cVar);
         } else {
             q(cVar);
-            xu();
+            xt();
         }
     }
 
@@ -243,92 +243,92 @@ public class a {
         int i2 = 0;
         while (true) {
             i = i2;
-            if (i >= this.aGh.size()) {
+            if (i >= this.aGn.size()) {
                 i = -1;
                 break;
-            } else if (cVar.priority > this.aGh.get(i).priority) {
+            } else if (cVar.priority > this.aGn.get(i).priority) {
                 break;
             } else {
                 i2 = i + 1;
             }
         }
         if (i == -1) {
-            this.aGh.add(cVar);
+            this.aGn.add(cVar);
         } else {
-            this.aGh.add(i, cVar);
+            this.aGn.add(i, cVar);
         }
         try {
-            xr();
+            xq();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void xr() {
-        if (this.aGh != null) {
-            int i = com.baidu.live.v.a.Eo().aQp != null ? com.baidu.live.v.a.Eo().aQp.ato : 0;
-            if (i > 0 && this.aGh.size() >= i) {
-                Collections.sort(this.aGh, new c.a());
-                ArrayList arrayList = new ArrayList(this.aGh.subList(0, Math.max((int) (i * 0.7f), 1)));
-                this.aGh.clear();
-                this.aGh.addAll(arrayList);
+    private void xq() {
+        if (this.aGn != null) {
+            int i = com.baidu.live.v.a.En().aQu != null ? com.baidu.live.v.a.En().aQu.atu : 0;
+            if (i > 0 && this.aGn.size() >= i) {
+                Collections.sort(this.aGn, new c.a());
+                ArrayList arrayList = new ArrayList(this.aGn.subList(0, Math.max((int) (i * 0.7f), 1)));
+                this.aGn.clear();
+                this.aGn.addAll(arrayList);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xu() {
-        if (!this.aGh.isEmpty() && !this.aGg) {
-            if (this.aHh.isReady() || this.aHi.isReady()) {
-                c remove = this.aGh.remove(0);
+    public void xt() {
+        if (!this.aGn.isEmpty() && !this.aGm) {
+            if (this.aHn.isReady() || this.aHo.isReady()) {
+                c remove = this.aGn.remove(0);
                 if (remove != null) {
                     remove.Z(System.currentTimeMillis());
                     k(remove);
-                    xu();
+                    xt();
                     return;
                 }
-                xu();
+                xt();
             }
         }
     }
 
     private void k(c cVar) {
-        if (this.aHh.isReady()) {
-            this.aHh.t(cVar);
-        } else if (this.aHi.isReady()) {
-            this.aHi.t(cVar);
+        if (this.aHn.isReady()) {
+            this.aHn.t(cVar);
+        } else if (this.aHo.isReady()) {
+            this.aHo.t(cVar);
         }
-        if (cVar.aEd) {
-            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.aqq, cVar.aqr, cVar.giftId, "");
+        if (cVar.aEj) {
+            LogManager.getLiveIMLogger().doGiftIMLog(LogConfig.GIFT_IM_SHOW, cVar.aqw, cVar.aqx, cVar.giftId, "");
         }
     }
 
-    public boolean zI() {
-        return this.aGh.isEmpty();
+    public boolean zH() {
+        return this.aGn.isEmpty();
     }
 
-    public View wJ() {
+    public View wI() {
         return this.mRootView;
     }
 
     public void bE(int i) {
         if (i == 2 && UtilHelper.getRealScreenOrientation(this.mContext) == 1) {
             Resources resources = this.mContext.getResources();
-            this.aHl = (int) (resources.getDimensionPixelOffset(a.e.sdk_ds6) + (BdUtilHelper.getEquipmentHeight(this.mContext) * 0.33f) + resources.getDimensionPixelSize(a.e.sdk_tbds27) + resources.getDimensionPixelSize(a.e.sdk_tbds130) + resources.getDimensionPixelOffset(a.e.sdk_ds80) + resources.getDimensionPixelOffset(a.e.sdk_ds20));
+            this.aHr = (int) (resources.getDimensionPixelOffset(a.e.sdk_ds6) + (BdUtilHelper.getEquipmentHeight(this.mContext) * 0.33f) + resources.getDimensionPixelSize(a.e.sdk_tbds27) + resources.getDimensionPixelSize(a.e.sdk_tbds130) + resources.getDimensionPixelOffset(a.e.sdk_ds80) + resources.getDimensionPixelOffset(a.e.sdk_ds20));
             setRootViewParam(1);
         }
     }
 
     public void onDestroy() {
-        this.aGg = false;
-        if (this.aGh != null) {
-            this.aGh.clear();
+        this.aGm = false;
+        if (this.aGn != null) {
+            this.aGn.clear();
         }
-        if (this.aHh != null) {
-            this.aHh.onDestroy();
+        if (this.aHn != null) {
+            this.aHn.onDestroy();
         }
-        if (this.aHi != null) {
-            this.aHi.onDestroy();
+        if (this.aHo != null) {
+            this.aHo.onDestroy();
         }
         this.mContext = null;
     }

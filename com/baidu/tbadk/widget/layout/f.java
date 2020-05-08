@@ -7,23 +7,23 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int ene;
-    protected int enf;
-    private double eng;
-    private boolean enh;
+    private int enj;
+    protected int enk;
+    private double enl;
+    private boolean enm;
 
     public f() {
-        this.ene = 3;
-        this.enf = this.ene;
-        this.enh = true;
+        this.enj = 3;
+        this.enk = this.enj;
+        this.enm = true;
     }
 
     public f(int i) {
-        this.ene = 3;
-        this.enf = this.ene;
-        this.enh = true;
+        this.enj = 3;
+        this.enk = this.enj;
+        this.enm = true;
         if (i > 0) {
-            this.enf = i;
+            this.enk = i;
         }
     }
 
@@ -44,22 +44,22 @@ public class f implements c {
         }
         int count = v.getCount(list);
         if (count >= 2) {
-            constrainImageLayout.setImageMaxChildCount(this.ene);
+            constrainImageLayout.setImageMaxChildCount(this.enj);
             constrainImageLayout.setCanCenterStart(false);
         } else {
             constrainImageLayout.setImageMaxChildCount(-1);
             constrainImageLayout.setCanCenterStart(true);
         }
-        int i3 = count - this.enf;
+        int i3 = count - this.enk;
         if (i3 > 0) {
-            int i4 = this.enf + i;
+            int i4 = this.enk + i;
             List<MediaData> subList = v.subList(list, i, i4);
             String string = TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
-            if (!this.enh) {
+            if (!this.enm) {
                 string = null;
             }
             constrainImageLayout.setExtraCenterText(string);
-            constrainImageLayout.setUrls(subList, i, true, this.enh);
+            constrainImageLayout.setUrls(subList, i, true, this.enm);
             i2 = i4;
         } else {
             constrainImageLayout.setUrls(v.subList(list, i, count), i);
@@ -75,13 +75,13 @@ public class f implements c {
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.eng > 0.0d) {
-            return this.eng;
+        if (this.enl > 0.0d) {
+            return this.enl;
         }
         return 0.6666666666666666d;
     }
 
     public void n(double d) {
-        this.eng = d;
+        this.enl = d;
     }
 }

@@ -1,5 +1,8 @@
 package com.baidu.android.pushservice.b;
 
+import android.content.Context;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
 import com.baidu.ar.constants.HttpConstants;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -14,6 +17,7 @@ public class c {
     private String f;
     private String g;
     private a h;
+    private int i = 0;
 
     /* loaded from: classes8.dex */
     public class a {
@@ -24,12 +28,13 @@ public class c {
         }
     }
 
-    public c(String str) {
+    public c(Context context, String str) {
         this.a = str;
-        d(str);
+        a(context, str);
     }
 
-    private void d(String str) {
+    private void a(Context context, String str) {
+        int i = 0;
         try {
             JSONObject jSONObject = new JSONObject(str);
             a(jSONObject.getString(HttpConstants.HTTP_MANUFACTURER));
@@ -54,8 +59,8 @@ public class c {
             ArrayList<e> arrayList = new ArrayList<>();
             if (jSONObject.has("osversion")) {
                 JSONArray jSONArray = jSONObject.getJSONArray("osversion");
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                     e eVar = new e();
                     eVar.a(jSONObject2.getString("key"));
                     eVar.b(jSONObject2.getString("value"));
@@ -73,8 +78,8 @@ public class c {
             ArrayList<f> arrayList2 = new ArrayList<>();
             if (jSONObject.has("systemprop")) {
                 JSONArray jSONArray2 = jSONObject.getJSONArray("systemprop");
-                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                    JSONObject jSONObject3 = jSONArray2.getJSONObject(i2);
+                for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
+                    JSONObject jSONObject3 = jSONArray2.getJSONObject(i3);
                     f fVar = new f();
                     fVar.a(jSONObject3.getString("key"));
                     fVar.b(jSONObject3.getString("value"));
@@ -87,6 +92,13 @@ public class c {
                     fVar.c(jSONObject3.getString("regular"));
                     arrayList2.add(fVar);
                 }
+            }
+            if (jSONObject.has("proxyswitch")) {
+                try {
+                    i = Integer.parseInt(jSONObject.getString("proxyswitch"));
+                } catch (NumberFormatException e) {
+                }
+                b(i);
             }
             if (jSONObject.has("apkname")) {
                 b(jSONObject.getString("apkname"));
@@ -104,7 +116,8 @@ public class c {
             if (arrayList2.size() > 0) {
                 b(arrayList2);
             }
-        } catch (Exception e) {
+        } catch (Exception e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
         }
     }
 
@@ -132,6 +145,10 @@ public class c {
 
     public String b() {
         return this.b;
+    }
+
+    public void b(int i) {
+        this.i = i;
     }
 
     public void b(String str) {
@@ -164,6 +181,10 @@ public class c {
 
     public String g() {
         return this.g;
+    }
+
+    public int h() {
+        return this.i;
     }
 
     public String toString() {

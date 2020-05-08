@@ -90,8 +90,8 @@ public class AudioSession {
         this.mNDKAdapter.setNDKCallback(this.mRecorderCallback);
         this.mNdkPlayer = new AlaNDKPlayerAdapter();
         this.mNdkPlayer.setNDKCallback(this.mPlayerCallback);
-        if (!NetworkManager.NL().NM()) {
-            NetworkManager.NL().init((Application) context.getApplicationContext());
+        if (!NetworkManager.NK().NL()) {
+            NetworkManager.NK().init((Application) context.getApplicationContext());
         }
         this.mPlayerService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.4
             @Override // java.lang.Runnable
@@ -128,7 +128,7 @@ public class AudioSession {
             this.mAudioDevices = new a(this.mContext, this.mNDKAdapter.getNativeObject());
             startAudioRecord();
             startAudioPlayer();
-            NetworkManager.NL().a(this.mNetworkChangeListener);
+            NetworkManager.NK().a(this.mNetworkChangeListener);
             this.mHasStart = true;
             this.mIsStop = false;
             return 0;
@@ -144,7 +144,7 @@ public class AudioSession {
         if (stopNativeObject() != 0) {
             Log.e(TAG, "stopNativeObject failed");
         }
-        NetworkManager.NL().b(this.mNetworkChangeListener);
+        NetworkManager.NK().b(this.mNetworkChangeListener);
         this.mIsStop = true;
         if (this.mHasStart && this.mRtcHandler != null && this.mRtcConfig != null) {
             this.mRtcHandler.onStop(this.mRtcConfig.roomId, this.mRtcConfig.lineId);
@@ -208,7 +208,7 @@ public class AudioSession {
             if (this.mNDKAdapter.startNative(this.mRtcUrl, getNetworkState(), this.mBaseInfo.toJsonString()) != 0) {
                 Log.e(TAG, "startNative failed");
                 return -1;
-            } else if (this.mNDKAdapter.initAudioEncoderNative(d.bwU, 1, 16) != 0) {
+            } else if (this.mNDKAdapter.initAudioEncoderNative(d.bwZ, 1, 16) != 0) {
                 Log.e(TAG, "initAudioEncoderNative failed");
                 return -1;
             } else if (this.mNDKAdapter.initPKPlayer(this.mNdkPlayer) != 0) {
@@ -279,16 +279,16 @@ public class AudioSession {
         this.mRecordService.submit(new Runnable() { // from class: com.baidu.rtc.AudioSession.8
             @Override // java.lang.Runnable
             public void run() {
-                if (!AudioSession.this.mAudioDevices.T(d.bwU, 16)) {
+                if (!AudioSession.this.mAudioDevices.T(d.bwZ, 16)) {
                     Log.e(AudioSession.TAG, "initAudioRecord failed");
                     AudioSession.this.mAudioDevices.stopAudioRecord();
                 } else if (!d.useOpenSLES()) {
                     while (!AudioSession.this.mIsStop && !AudioSession.this.mRecordService.isShutdown()) {
                         if (AudioSession.this.mIsEnablePlaySound) {
                             try {
-                                byte[] NE = AudioSession.this.mAudioDevices.NE();
-                                if (NE != null) {
-                                    AudioSession.this.mNDKAdapter.sendPCMDataNative2(NE, 2048);
+                                byte[] ND = AudioSession.this.mAudioDevices.ND();
+                                if (ND != null) {
+                                    AudioSession.this.mNDKAdapter.sendPCMDataNative2(ND, 2048);
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -319,7 +319,7 @@ public class AudioSession {
         c.getAppVersion(this.mContext);
         this.mBaseInfo.mStreamType = AlaLiveBaseInfo.STREAM_TYPE_SEND;
         this.mBaseInfo.mUid = "" + this.mRtcConfig.userId;
-        this.mBaseInfo.mNetWork = NetworkManager.NL().NN().toString();
+        this.mBaseInfo.mNetWork = NetworkManager.NK().NM().toString();
         this.mBaseInfo.mCuid = this.mRtcConfig.cuid;
     }
 
@@ -361,12 +361,12 @@ public class AudioSession {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int getNetworkState() {
-        int NO = NetworkManager.NL().NO();
-        if (NO <= 0) {
+        int NN = NetworkManager.NK().NN();
+        if (NN <= 0) {
             return 0;
         }
-        if (NO < 2) {
-            return NO;
+        if (NN < 2) {
+            return NN;
         }
         return 2;
     }

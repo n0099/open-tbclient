@@ -38,7 +38,7 @@ public class f extends com.meizu.cloud.pushsdk.handler.a.a<UnRegisterStatus> {
     public UnRegisterStatus c(Intent intent) {
         UnRegisterStatus unRegisterStatus = (UnRegisterStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_UNREGISTER_STATUS);
         if (unRegisterStatus.isUnRegisterSuccess()) {
-            com.meizu.cloud.pushsdk.util.b.f(c(), "", c().getPackageName());
+            com.meizu.cloud.pushsdk.util.b.g(c(), "", c().getPackageName());
         }
         return unRegisterStatus;
     }

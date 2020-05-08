@@ -7,18 +7,18 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class d {
-    private static volatile d ddE;
-    private HashSet<String> ddF = new HashSet<>();
-    private HashSet<String> ddG = new HashSet<>();
-    private HashSet<String> ddH = new HashSet<>();
-    private HashSet<String> ddI = new HashSet<>();
-    private HashMap<String, String> ddJ = new HashMap<>();
-    private HashMap<String, String> ddK = new HashMap<>();
-    private HashMap<String, g> ddL = new HashMap<>();
+    private static volatile d ddJ;
+    private HashSet<String> ddK = new HashSet<>();
+    private HashSet<String> ddL = new HashSet<>();
     private HashSet<String> ddM = new HashSet<>();
-    private int ddN;
-    private int ddO;
-    private int ddP;
+    private HashSet<String> ddN = new HashSet<>();
+    private HashMap<String, String> ddO = new HashMap<>();
+    private HashMap<String, String> ddP = new HashMap<>();
+    private HashMap<String, g> ddQ = new HashMap<>();
+    private HashSet<String> ddR = new HashSet<>();
+    private int ddS;
+    private int ddT;
+    private int ddU;
     private Context mContext;
 
     private d() {
@@ -26,152 +26,152 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static d aDw() {
-        if (ddE == null) {
+        if (ddJ == null) {
             synchronized (d.class) {
-                if (ddE == null) {
-                    ddE = new d();
+                if (ddJ == null) {
+                    ddJ = new d();
                 }
             }
         }
-        return ddE;
+        return ddJ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
-        this.ddN = 360000;
+        this.ddS = 360000;
         u aEi = u.aEi();
-        this.ddO = aEi.getInt("ubc_data_expire_time", 259200000);
-        this.ddP = aEi.getInt("ubc_database_limit", 4000);
-        cVar.aDt().a(this.ddF, this.ddI, this.ddG, this.ddH, this.ddJ, this.ddK, this.ddL, this.ddM);
+        this.ddT = aEi.getInt("ubc_data_expire_time", 259200000);
+        this.ddU = aEi.getInt("ubc_database_limit", 4000);
+        cVar.aDt().a(this.ddK, this.ddN, this.ddL, this.ddM, this.ddO, this.ddP, this.ddQ, this.ddR);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void aw(List<f> list) {
         for (f fVar : list) {
             if ("0".equals(fVar.aDA())) {
-                this.ddF.add(fVar.getId());
-            } else {
-                this.ddF.remove(fVar.getId());
-            }
-            if ("1".equals(fVar.aDB())) {
-                this.ddG.add(fVar.getId());
-            } else {
-                this.ddG.remove(fVar.getId());
-            }
-            if ("1".equals(fVar.aDC())) {
-                this.ddH.add(fVar.getId());
-            } else {
-                this.ddH.remove(fVar.getId());
-            }
-            if (fVar.aDD() >= 1 && fVar.aDD() <= 100) {
-                this.ddJ.put(fVar.getId(), String.valueOf(fVar.aDD()));
-            } else {
-                this.ddJ.remove(fVar.getId());
-            }
-            if (!TextUtils.isEmpty(fVar.getCategory())) {
-                this.ddK.put(fVar.getId(), fVar.getCategory());
+                this.ddK.add(fVar.getId());
             } else {
                 this.ddK.remove(fVar.getId());
             }
-            if (fVar.aDF() != 0 && fVar.aDE() != 0) {
-                g gVar = new g(fVar.getId(), fVar.aDF(), fVar.aDE());
-                this.ddL.put(gVar.getId(), gVar);
+            if ("1".equals(fVar.aDB())) {
+                this.ddL.add(fVar.getId());
+            } else {
+                this.ddL.remove(fVar.getId());
             }
-            if (TextUtils.equals(fVar.aDG(), "1")) {
+            if ("1".equals(fVar.aDC())) {
                 this.ddM.add(fVar.getId());
             } else {
                 this.ddM.remove(fVar.getId());
+            }
+            if (fVar.aDD() >= 1 && fVar.aDD() <= 100) {
+                this.ddO.put(fVar.getId(), String.valueOf(fVar.aDD()));
+            } else {
+                this.ddO.remove(fVar.getId());
+            }
+            if (!TextUtils.isEmpty(fVar.getCategory())) {
+                this.ddP.put(fVar.getId(), fVar.getCategory());
+            } else {
+                this.ddP.remove(fVar.getId());
+            }
+            if (fVar.aDF() != 0 && fVar.aDE() != 0) {
+                g gVar = new g(fVar.getId(), fVar.aDF(), fVar.aDE());
+                this.ddQ.put(gVar.getId(), gVar);
+            }
+            if (TextUtils.equals(fVar.aDG(), "1")) {
+                this.ddR.add(fVar.getId());
+            } else {
+                this.ddR.remove(fVar.getId());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean Z(String str, int i) {
-        if (this.ddF.contains(str)) {
+        if (this.ddK.contains(str)) {
             return false;
         }
-        return ((i & 16) == 0 && (i & 32) == 0) || this.ddI.contains(str);
+        return ((i & 16) == 0 && (i & 32) == 0) || this.ddN.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean sb(String str) {
-        if (s.aEh().ahz()) {
+        if (s.aEh().ahy()) {
             return true;
         }
-        return this.ddG.contains(str);
+        return this.ddL.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean sc(String str) {
-        return this.ddH.contains(str);
+        return this.ddM.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String sd(String str) {
-        return this.ddK.containsKey(str) ? this.ddK.get(str) : "";
+        return this.ddP.containsKey(str) ? this.ddP.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int aDx() {
-        return this.ddN;
+        return this.ddS;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void iY(int i) {
-        if (i * 60000 >= this.ddN) {
-            this.ddN = i * 60000;
+        if (i * 60000 >= this.ddS) {
+            this.ddS = i * 60000;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int aDy() {
-        return this.ddO;
+        return this.ddT;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void iZ(int i) {
-        if (i >= this.ddO) {
-            this.ddO = i;
+        if (i >= this.ddT) {
+            this.ddT = i;
             u.aEi().putInt("ubc_data_expire_time", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int aDz() {
-        return this.ddP;
+        return this.ddU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ja(int i) {
-        if (i >= this.ddP) {
-            this.ddP = i;
+        if (i >= this.ddU) {
+            this.ddU = i;
             u.aEi().putInt("ubc_database_limit", i);
         }
     }
 
     public int se(String str) {
-        if (s.aEh().ahA() || TextUtils.isEmpty(str) || !this.ddJ.containsKey(str)) {
+        if (s.aEh().ahz() || TextUtils.isEmpty(str) || !this.ddO.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.ddJ.get(str));
+        return Integer.parseInt(this.ddO.get(str));
     }
 
     public boolean sf(String str) {
-        if (this.ddL == null || !this.ddL.containsKey(str)) {
+        if (this.ddQ == null || !this.ddQ.containsKey(str)) {
             return false;
         }
-        return this.ddL.get(str).aDH();
+        return this.ddQ.get(str).aDH();
     }
 
     public boolean sg(String str) {
-        if (this.ddL == null || !this.ddL.containsKey(str)) {
+        if (this.ddQ == null || !this.ddQ.containsKey(str)) {
             return false;
         }
-        return this.ddL.get(str).aDI();
+        return this.ddQ.get(str).aDI();
     }
 
     public String sh(String str) {
-        return (TextUtils.isEmpty(str) || !this.ddM.contains(str)) ? "0" : "1";
+        return (TextUtils.isEmpty(str) || !this.ddR.contains(str)) ? "0" : "1";
     }
 }

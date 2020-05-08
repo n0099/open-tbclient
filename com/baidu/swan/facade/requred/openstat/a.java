@@ -18,8 +18,8 @@ public class a implements l {
         com.baidu.swan.facade.requred.openstat.imupload.c cVar = new com.baidu.swan.facade.requred.openstat.imupload.c();
         HashMap hashMap = new HashMap(2);
         hashMap.put("cuid", s.aEh().getDeviceId(AppRuntime.getApplication()));
-        hashMap.put("uuid", s.aEh().cc(AppRuntime.getApplication()));
-        com.baidu.swan.facade.requred.openstat.imupload.b.arM().a(hashMap, jSONArray.toString().getBytes(), (String) null, cVar);
+        hashMap.put("uuid", s.aEh().bQ(AppRuntime.getApplication()));
+        com.baidu.swan.facade.requred.openstat.imupload.b.arL().a(hashMap, jSONArray.toString().getBytes(), (String) null, cVar);
         if (DEBUG) {
             Log.d("OpenBehaviorUploader", "errorCode : " + cVar.errorCode);
             Log.d("OpenBehaviorUploader", "errorMsg : " + cVar.errMsg);

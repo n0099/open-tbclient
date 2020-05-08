@@ -1,6 +1,6 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;

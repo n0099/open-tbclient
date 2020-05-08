@@ -1,13 +1,13 @@
 package com.baidu.adp.a.a;
 /* loaded from: classes.dex */
 public class a {
-    private boolean Gk;
+    private boolean Gn;
 
     public boolean jp() {
-        return this.Gk;
+        return this.Gn;
     }
 
     public void start() {
-        this.Gk = true;
+        this.Gn = true;
     }
 }

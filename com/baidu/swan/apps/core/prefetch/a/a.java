@@ -7,24 +7,24 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes11.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static int bPo = -1;
+    private static int bPt = -1;
 
-    public static int XH() {
-        if (com.baidu.swan.apps.ah.a.a.aiu()) {
-            bPo = 2;
-            return bPo;
+    public static int XG() {
+        if (com.baidu.swan.apps.ah.a.a.ait()) {
+            bPt = 2;
+            return bPt;
         }
-        if (DEBUG && bPo == -1) {
-            bPo = XI();
-            Log.d("PrefetchABSwitcher", "getPrefetchABSwitch switch: " + bPo);
+        if (DEBUG && bPt == -1) {
+            bPt = XH();
+            Log.d("PrefetchABSwitcher", "getPrefetchABSwitch switch: " + bPt);
         }
-        if (bPo == -1) {
-            bPo = com.baidu.swan.apps.w.a.abR().getSwitch("swan_prefetch_policy", 0);
+        if (bPt == -1) {
+            bPt = com.baidu.swan.apps.w.a.abQ().getSwitch("swan_prefetch_policy", 0);
         }
-        return bPo;
+        return bPt;
     }
 
-    public static int XI() {
+    public static int XH() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("swan_prefetch_policy", -1);
     }
 }

@@ -8,47 +8,47 @@ import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes13.dex */
 public class c {
-    public static final boolean lSp;
-    public static final boolean lSq;
-    public static final boolean lSr;
+    private static final byte[] lSA;
+    private static final byte[] lSB;
+    private static final byte[] lSC;
+    public static final boolean lSt;
+    public static final boolean lSu;
+    public static final boolean lSv;
     @Nullable
-    public static b lSs;
-    private static boolean lSt;
-    private static final byte[] lSu;
-    private static final byte[] lSv;
-    private static final byte[] lSw;
-    private static final byte[] lSx;
+    public static b lSw;
+    private static boolean lSx;
     private static final byte[] lSy;
+    private static final byte[] lSz;
 
     static {
-        lSp = Build.VERSION.SDK_INT <= 17;
-        lSq = Build.VERSION.SDK_INT >= 14;
-        lSr = dnx();
-        lSs = null;
-        lSt = false;
-        lSu = Oc("RIFF");
-        lSv = Oc("WEBP");
-        lSw = Oc("VP8 ");
-        lSx = Oc("VP8L");
-        lSy = Oc("VP8X");
+        lSt = Build.VERSION.SDK_INT <= 17;
+        lSu = Build.VERSION.SDK_INT >= 14;
+        lSv = dnu();
+        lSw = null;
+        lSx = false;
+        lSy = Of("RIFF");
+        lSz = Of("WEBP");
+        lSA = Of("VP8 ");
+        lSB = Of("VP8L");
+        lSC = Of("VP8X");
     }
 
     @Nullable
-    public static b dnw() {
+    public static b dnt() {
         b bVar;
-        if (lSt) {
-            return lSs;
+        if (lSx) {
+            return lSw;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        lSt = true;
+        lSx = true;
         return bVar;
     }
 
-    private static byte[] Oc(String str) {
+    private static byte[] Of(String str) {
         try {
             return str.getBytes(HTTP.ASCII);
         } catch (UnsupportedEncodingException e) {
@@ -56,7 +56,7 @@ public class c {
         }
     }
 
-    private static boolean dnx() {
+    private static boolean dnu() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }
@@ -73,27 +73,27 @@ public class c {
     }
 
     public static boolean j(byte[] bArr, int i) {
-        return b(bArr, i + 12, lSy) && ((bArr[i + 20] & 2) == 2);
+        return b(bArr, i + 12, lSC) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean k(byte[] bArr, int i) {
-        return b(bArr, i + 12, lSw);
+        return b(bArr, i + 12, lSA);
     }
 
     public static boolean l(byte[] bArr, int i) {
-        return b(bArr, i + 12, lSx);
+        return b(bArr, i + 12, lSB);
     }
 
     public static boolean r(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && b(bArr, i + 12, lSy);
+        return i2 >= 21 && b(bArr, i + 12, lSC);
     }
 
     public static boolean m(byte[] bArr, int i) {
-        return b(bArr, i + 12, lSy) && ((bArr[i + 20] & 16) == 16);
+        return b(bArr, i + 12, lSC) && ((bArr[i + 20] & 16) == 16);
     }
 
     public static boolean s(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && b(bArr, i, lSu) && b(bArr, i + 8, lSv);
+        return i2 >= 20 && b(bArr, i, lSy) && b(bArr, i + 8, lSz);
     }
 
     private static boolean b(byte[] bArr, int i, byte[] bArr2) {

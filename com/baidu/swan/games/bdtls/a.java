@@ -6,7 +6,7 @@ public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public boolean atX() {
-        boolean z = com.baidu.swan.apps.w.a.abR().getSwitch("game_bdtls_switcher", false);
+        boolean z = com.baidu.swan.apps.w.a.abQ().getSwitch("game_bdtls_switcher", false);
         if (DEBUG) {
             com.baidu.swan.apps.console.c.v("BDTLS", "isBdtlsSwitch=" + z);
         }

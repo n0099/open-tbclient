@@ -9,12 +9,12 @@ import com.baidu.swan.apps.adaptation.b.e;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String[] bEa = {"swan", "swanAPI"};
+    private static final String[] bEf = {"swan", "swanAPI"};
 
     @NonNull
     public static Pair<Boolean, com.baidu.swan.apps.api.b.a> a(com.baidu.swan.apps.api.a.a aVar, String str) {
         com.baidu.swan.apps.api.b.b bVar = new com.baidu.swan.apps.api.b.b();
-        boolean a = a(str, aVar.Rt().Rr());
+        boolean a = a(str, aVar.Rs().Rq());
         if (a) {
             bVar.statusCode = 402;
         }
@@ -32,14 +32,14 @@ public class a {
                 throw new RuntimeException("whitelistName is empty");
             }
         } else {
-            String QF = ((e) callbackHandler).QF();
-            if ("ai_apps_widget".equals(QF)) {
+            String QE = ((e) callbackHandler).QE();
+            if ("ai_apps_widget".equals(QE)) {
                 z = ht(str);
-            } else if ("ai_apps_ad_landing".equals(QF)) {
+            } else if ("ai_apps_ad_landing".equals(QE)) {
                 if (!com.baidu.swan.apps.aj.a.b.mw(str)) {
                     z = true;
                 }
-            } else if (!"swan_app_alliance_login_widget".equals(QF) && !"swan_app_alliance_choose_address_widget".equals(QF) && DEBUG) {
+            } else if (!"swan_app_alliance_login_widget".equals(QE) && !"swan_app_alliance_choose_address_widget".equals(QE) && DEBUG) {
                 Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
             }
             if (DEBUG) {
@@ -59,7 +59,7 @@ public class a {
             return !com.baidu.swan.apps.aj.a.b.mu(str);
         }
         String substring = str.substring(indexOf + 1);
-        int length = bEa.length;
+        int length = bEf.length;
         for (int i = 0; i < length; i++) {
             if (com.baidu.swan.apps.aj.a.b.mu(strArr[i] + "/" + substring)) {
                 return false;

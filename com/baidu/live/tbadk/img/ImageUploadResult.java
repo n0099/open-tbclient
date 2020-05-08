@@ -1,6 +1,5 @@
 package com.baidu.live.tbadk.img;
 
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.adp.lib.util.BdLog;
 import java.io.Serializable;
 import org.json.JSONException;
@@ -43,7 +42,7 @@ public class ImageUploadResult implements Serializable {
         }
         if (jSONObject != null) {
             imageUploadResult.error_code = jSONObject.optInt("error_code");
-            imageUploadResult.error_msg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            imageUploadResult.error_msg = jSONObject.optString("error_msg");
             imageUploadResult.resourceId = jSONObject.optString("resourceId");
             imageUploadResult.chunkNo = jSONObject.optInt("chunkNo");
             imageUploadResult.picId = jSONObject.optInt("picId");

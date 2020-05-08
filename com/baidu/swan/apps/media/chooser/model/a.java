@@ -4,8 +4,8 @@ import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class a implements Comparable<Object> {
     private String Au;
-    private String cbO;
-    public ArrayList<MediaModel> cbP;
+    private String cbU;
+    public ArrayList<MediaModel> cbV;
     private long lastModified;
 
     public String gU() {
@@ -16,12 +16,12 @@ public class a implements Comparable<Object> {
         this.Au = str;
     }
 
-    public String afL() {
-        return this.cbO;
+    public String afK() {
+        return this.cbU;
     }
 
     public void kw(String str) {
-        this.cbO = str;
+        this.cbU = str;
     }
 
     public long getLastModified() {
@@ -32,23 +32,23 @@ public class a implements Comparable<Object> {
         this.lastModified = j;
     }
 
-    public int afM() {
-        return this.cbP.size();
+    public int afL() {
+        return this.cbV.size();
     }
 
-    public ArrayList<MediaModel> afG() {
-        return this.cbP;
+    public ArrayList<MediaModel> afF() {
+        return this.cbV;
     }
 
     public void h(MediaModel mediaModel) {
-        if (this.cbP == null) {
-            this.cbP = new ArrayList<>();
+        if (this.cbV == null) {
+            this.cbV = new ArrayList<>();
         }
-        this.cbP.add(mediaModel);
+        this.cbV.add(mediaModel);
     }
 
     public String toString() {
-        return "MediaDir [firstImgPath=, dirName=" + this.Au + ", imageCount=" + afM() + "]";
+        return "MediaDir [firstImgPath=, dirName=" + this.Au + ", imageCount=" + afL() + "]";
     }
 
     public boolean equals(Object obj) {

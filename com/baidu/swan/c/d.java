@@ -5,10 +5,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
-    private static String deU = b.aEr().getString("openstat_switch", "1");
+    private static String deZ = b.aEr().getString("openstat_switch", "1");
 
     public static boolean aEt() {
-        return TextUtils.equals(deU, "1");
+        return TextUtils.equals(deZ, "1");
     }
 
     public static boolean ss(String str) {

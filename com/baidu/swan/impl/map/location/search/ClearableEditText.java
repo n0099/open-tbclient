@@ -10,8 +10,8 @@ import com.baidu.swan.apps.as.af;
 import com.baidu.tieba.R;
 /* loaded from: classes12.dex */
 public class ClearableEditText extends AppCompatEditText {
-    private static final int cWK = af.C(10.0f);
-    private Drawable cWJ;
+    private static final int cWP = af.C(10.0f);
+    private Drawable cWO;
 
     public ClearableEditText(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void init() {
-        this.cWJ = getResources().getDrawable(R.drawable.aiapps_location_search_del);
+        this.cWO = getResources().getDrawable(R.drawable.aiapps_location_search_del);
     }
 
     @Override // android.widget.TextView
@@ -49,7 +49,7 @@ public class ClearableEditText extends AppCompatEditText {
         switch (motionEvent.getAction()) {
             case 1:
                 Drawable drawable = getCompoundDrawables()[2];
-                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + cWK && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - cWK) {
+                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + cWP && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - cWP) {
                     setText("");
                     break;
                 }
@@ -59,6 +59,6 @@ public class ClearableEditText extends AppCompatEditText {
     }
 
     private void setClearIconVisible(boolean z) {
-        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.cWJ : null, getCompoundDrawables()[3]);
+        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.cWO : null, getCompoundDrawables()[3]);
     }
 }

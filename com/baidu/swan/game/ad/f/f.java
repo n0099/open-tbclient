@@ -7,7 +7,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes11.dex */
 public class f {
-    private a cHS;
+    private a cHY;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -19,7 +19,7 @@ public class f {
     @V8JavascriptField
 
     /* renamed from: top  reason: collision with root package name */
-    public int f1015top;
+    public int f1007top;
     @V8JavascriptField
     public int width;
 
@@ -34,7 +34,7 @@ public class f {
 
     private void a(@NonNull com.baidu.swan.games.binding.model.c cVar) {
         this.left = cVar.optInt("left", this.left);
-        this.f1015top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1015top);
+        this.f1007top = cVar.optInt(VerticalTranslateLayout.TOP, this.f1007top);
         this.width = cVar.optInt("width", this.width);
         this.height = cVar.optInt("height", this.height);
     }
@@ -44,12 +44,12 @@ public class f {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.cHS != null) {
-            this.cHS.pg(str);
+        if (this.cHY != null) {
+            this.cHY.pg(str);
         }
     }
 
     public void a(a aVar) {
-        this.cHS = aVar;
+        this.cHY = aVar;
     }
 }

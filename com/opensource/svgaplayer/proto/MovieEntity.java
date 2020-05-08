@@ -17,15 +17,15 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final ProtoAdapter<MovieEntity> ADAPTER = new ProtoAdapter_MovieEntity();
     public static final String DEFAULT_VERSION = "";
     private static final long serialVersionUID = 0;
-    @WireField(dAZ = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", dBa = WireField.Label.REPEATED, tag = 5)
+    @WireField(dAV = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", dAW = WireField.Label.REPEATED, tag = 5)
     public final List<AudioEntity> audios;
-    @WireField(dAY = "com.squareup.wire.ProtoAdapter#STRING", dAZ = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
+    @WireField(dAU = "com.squareup.wire.ProtoAdapter#STRING", dAV = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
     public final Map<String, ByteString> images;
-    @WireField(dAZ = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
+    @WireField(dAV = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
     public final MovieParams params;
-    @WireField(dAZ = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", dBa = WireField.Label.REPEATED, tag = 4)
+    @WireField(dAV = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", dAW = WireField.Label.REPEATED, tag = 4)
     public final List<SpriteEntity> sprites;
-    @WireField(dAZ = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(dAV = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String version;
 
     public MovieEntity(String str, MovieParams movieParams, Map<String, ByteString> map, List<SpriteEntity> list, List<AudioEntity> list2) {
@@ -102,9 +102,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final class Builder extends Message.a<MovieEntity, Builder> {
         public MovieParams params;
         public String version;
-        public Map<String, ByteString> images = a.dBd();
-        public List<SpriteEntity> sprites = a.dBc();
-        public List<AudioEntity> audios = a.dBc();
+        public Map<String, ByteString> images = a.dAZ();
+        public List<SpriteEntity> sprites = a.dAY();
+        public List<AudioEntity> audios = a.dAY();
 
         public Builder version(String str) {
             this.version = str;
@@ -177,11 +177,11 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long dAR = cVar.dAR();
+            long dAN = cVar.dAN();
             while (true) {
-                int dAS = cVar.dAS();
-                if (dAS != -1) {
-                    switch (dAS) {
+                int dAO = cVar.dAO();
+                if (dAO != -1) {
+                    switch (dAO) {
                         case 1:
                             builder.version(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -198,12 +198,12 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
                             builder.audios.add(AudioEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding dAT = cVar.dAT();
-                            builder.addUnknownField(dAS, dAT, dAT.rawProtoAdapter().decode(cVar));
+                            FieldEncoding dAP = cVar.dAP();
+                            builder.addUnknownField(dAO, dAP, dAP.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.gc(dAR);
+                    cVar.gc(dAN);
                     return builder.build();
                 }
             }

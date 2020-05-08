@@ -1,33 +1,36 @@
 package com.baidu.sapi2;
 
-import com.baidu.sapi2.callback.QrLoginCallback;
-import com.baidu.sapi2.result.QrLoginResult;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import java.util.List;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.outsdk.c;
+import com.baidu.sapi2.result.OneKeyLoginResult;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class f extends QrLoginCallback {
-    final /* synthetic */ QrLoginCallback a;
-    final /* synthetic */ List b;
-    final /* synthetic */ PassportSDK c;
+public class f implements c.a {
+    final /* synthetic */ OneKeyLoginCallback a;
+    final /* synthetic */ String b;
+    final /* synthetic */ boolean c;
+    final /* synthetic */ Context d;
+    final /* synthetic */ PassportSDK e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(PassportSDK passportSDK, QrLoginCallback qrLoginCallback, List list) {
-        this.c = passportSDK;
-        this.a = qrLoginCallback;
-        this.b = list;
+    public f(PassportSDK passportSDK, OneKeyLoginCallback oneKeyLoginCallback, String str, boolean z, Context context) {
+        this.e = passportSDK;
+        this.a = oneKeyLoginCallback;
+        this.b = str;
+        this.c = z;
+        this.d = context;
     }
 
-    @Override // com.baidu.sapi2.callback.QrLoginCallback
-    public void onFinish(QrLoginResult qrLoginResult) {
-        this.a.onFinish(qrLoginResult);
-        if (this.b.size() == 1) {
-            ((WebAuthResult) this.b.get(0)).finishActivity();
-            this.a.onLocalLogin((WebAuthResult) this.b.get(0));
+    @Override // com.baidu.sapi2.outsdk.c.a
+    public void onGetTokenComplete(JSONObject jSONObject) {
+        String optString = jSONObject.optString("token");
+        if (!TextUtils.isEmpty(optString)) {
+            SapiAccountManager.getInstance().getAccountService().a(this.a, optString, this.b, new e(this));
+        } else {
+            new com.baidu.sapi2.outsdk.c().a(this.a, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL, (String) null);
         }
-    }
-
-    @Override // com.baidu.sapi2.callback.QrLoginCallback
-    public void onLocalLogin(WebAuthResult webAuthResult) {
     }
 }

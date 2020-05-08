@@ -12,29 +12,29 @@ import com.baidu.tieba.frs.aw;
 import com.baidu.tieba.frs.n;
 /* loaded from: classes9.dex */
 public class a {
-    private int byX;
-    private TextView hly;
-    private aw hqC;
-    private final FrsFragment hri;
-    private boolean htt;
-    private int htu = -1;
+    private int bzc;
+    private TextView hlE;
+    private aw hqI;
+    private final FrsFragment hro;
+    private int htA = -1;
+    private boolean htz;
 
     public a(FrsFragment frsFragment) {
-        this.byX = 0;
+        this.bzc = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.hri = frsFragment;
+        this.hro = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.byX = UtilHelper.getStatusBarHeight();
+            this.bzc = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void bUq() {
-        if (this.htt && this.htu >= 0) {
-            uv(this.htu);
+    public void bUo() {
+        if (this.htz && this.htA >= 0) {
+            uv(this.htA);
         }
-        this.htt = false;
+        this.htz = false;
     }
 
     public void uu(int i) {
@@ -50,43 +50,43 @@ public class a {
     private void uv(int i) {
         FrameLayout frameLayout;
         String string;
-        n bOx = this.hri.bOx();
-        if (bOx != null && bOx.getListView() != null && (frameLayout = (FrameLayout) bOx.bPS()) != null) {
-            if (this.hly == null && this.hri.getPageContext() != null) {
-                this.hly = new TextView(this.hri.getPageContext().getPageActivity());
-                this.hly.setTextSize(0, this.hri.getResources().getDimensionPixelSize(R.dimen.fontsize28));
-                this.hly.setGravity(17);
+        n bOv = this.hro.bOv();
+        if (bOv != null && bOv.getListView() != null && (frameLayout = (FrameLayout) bOv.bPQ()) != null) {
+            if (this.hlE == null && this.hro.getPageContext() != null) {
+                this.hlE = new TextView(this.hro.getPageContext().getPageActivity());
+                this.hlE.setTextSize(0, this.hro.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+                this.hlE.setGravity(17);
             }
-            if (this.hly != null) {
+            if (this.hlE != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(R.string.smart_frs_refresh_nodata);
                 }
-                this.hly.setText(string);
+                this.hlE.setText(string);
             }
-            am.setBackgroundResource(this.hly, R.color.cp_link_tip_a);
-            am.setViewTextColor(this.hly, (int) R.color.cp_cont_i);
+            am.setBackgroundResource(this.hlE, R.color.cp_link_tip_a);
+            am.setViewTextColor(this.hlE, (int) R.color.cp_cont_i);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds56));
-            if (this.hqC == null) {
-                this.hqC = new aw();
+            if (this.hqI == null) {
+                this.hqI = new aw();
             }
-            this.hqC.a(this.hly, frameLayout, layoutParams, 2000);
-            this.htu = -1;
+            this.hqI.a(this.hlE, frameLayout, layoutParams, 2000);
+            this.htA = -1;
         }
     }
 
     public void nk(boolean z) {
-        this.htt = z;
+        this.htz = z;
     }
 
     public void uw(int i) {
-        this.htu = i;
+        this.htA = i;
     }
 
     public void onDestroy() {
-        if (this.hqC != null) {
-            this.hqC.onDestroy();
+        if (this.hqI != null) {
+            this.hqI.onDestroy();
         }
     }
 }

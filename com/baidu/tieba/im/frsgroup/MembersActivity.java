@@ -42,16 +42,16 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes10.dex */
 public class MembersActivity extends BaseActivity<MembersActivity> implements View.OnClickListener, BdListView.e {
-    private com.baidu.tbadk.core.view.h imi;
-    private m imj;
-    private MembersModel imk;
-    private final com.baidu.adp.framework.listener.c icV = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REQUEST_MEMBERS_BY_ID) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.6
+    private com.baidu.tbadk.core.view.h imo;
+    private m imp;
+    private MembersModel imq;
+    private final com.baidu.adp.framework.listener.c idb = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REQUEST_MEMBERS_BY_ID) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             RequestMembersMessage requestMembersMessage;
-            l cgl = MembersActivity.this.imj.cgl();
-            MembersActivity.this.bUy();
+            l cgj = MembersActivity.this.imp.cgj();
+            MembersActivity.this.bUw();
             if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseMembersMessage)) {
                 MembersActivity.this.showToast(R.string.neterror);
                 return;
@@ -63,7 +63,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
             } else {
                 requestMembersMessage = (RequestMembersMessage) orginalMessage;
             }
-            MembersActivity.this.imk.setRequestM(requestMembersMessage);
+            MembersActivity.this.imq.setRequestM(requestMembersMessage);
             if (responseMembersMessage.getError() != 0) {
                 if (responseMembersMessage.getError() > 0) {
                     MembersActivity.this.showToast(StringUtils.isNull(responseMembersMessage.getErrorString()) ? MembersActivity.this.getResources().getString(R.string.neterror) : responseMembersMessage.getErrorString());
@@ -76,34 +76,34 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
             MembersData membersData = responseMembersMessage.getMembersData();
             List<UserData> users = membersData.getUsers();
             if (users != null) {
-                if (MembersActivity.this.bZy()) {
+                if (MembersActivity.this.bZw()) {
                     MembersActivity.this.a(membersData.getPermission());
                 }
-                if (MembersActivity.this.bZy()) {
-                    cgl.reset(true);
+                if (MembersActivity.this.bZw()) {
+                    cgj.reset(true);
                 }
-                if (users.size() != MembersActivity.this.imk.getLen()) {
-                    cgl.oJ(false);
-                    cgl.oK(false);
-                    if (MembersActivity.this.bZy() && users.size() == 0) {
-                        MembersActivity.this.cfZ();
+                if (users.size() != MembersActivity.this.imq.getLen()) {
+                    cgj.oJ(false);
+                    cgj.oK(false);
+                    if (MembersActivity.this.bZw() && users.size() == 0) {
+                        MembersActivity.this.cfX();
                         return;
                     }
                 } else {
-                    cgl.oK(true);
+                    cgj.oK(true);
                 }
-                MembersActivity.this.imk.addStart(users.size());
-                MembersActivity.this.imk.setLen(20);
-                cgl.di(users);
-                cgl.notifyDataSetChanged();
+                MembersActivity.this.imq.addStart(users.size());
+                MembersActivity.this.imq.setLen(20);
+                cgj.di(users);
+                cgj.notifyDataSetChanged();
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c iml = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REMOVE_MEMBERS) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.7
+    private final com.baidu.adp.framework.listener.c imr = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_REMOVE_MEMBERS) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            MembersActivity.this.imj.showProgressBar(false);
+            MembersActivity.this.imp.showProgressBar(false);
             if (socketResponsedMessage == null || !(socketResponsedMessage instanceof ResponseRemoveMembersMessage)) {
                 MembersActivity.this.showToast(R.string.neterror);
                 return;
@@ -119,12 +119,12 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 }
             }
             MembersActivity.this.showToast(R.string.delete_success);
-            MembersActivity.this.imj.cgl().dj(MembersActivity.this.imk.getUserIds());
-            MembersActivity.this.imj.cgm();
-            MembersActivity.this.imj.cgl().cge();
+            MembersActivity.this.imp.cgj().dj(MembersActivity.this.imq.getUserIds());
+            MembersActivity.this.imp.cgk();
+            MembersActivity.this.imp.cgj().cgc();
         }
     };
-    private final CustomMessageListener imm = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.2
+    private final CustomMessageListener ims = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -136,7 +136,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                         MembersActivity.this.reset();
                     } else if (cmd.equals("kick_out")) {
                         MembersActivity.this.reset();
-                        MembersActivity.this.imj.cdA().startPullRefresh();
+                        MembersActivity.this.imp.cdy().startPullRefresh();
                     }
                 }
             }
@@ -160,21 +160,21 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     private void initListener() {
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.imm);
-        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.imm);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT, this.ims);
+        registerListener(CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS, this.ims);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.imk.saveInstance(bundle);
+        this.imq.saveInstance(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.imj.cgk().aPY();
+        this.imp.cgi().aPV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -183,38 +183,38 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
         super.onDestroy();
     }
 
-    public MembersModel cfY() {
-        return this.imk;
+    public MembersModel cfW() {
+        return this.imq;
     }
 
     private void initUI() {
-        this.imj = new m(this);
-        final BdListView cdA = this.imj.cdA();
-        this.imi = new com.baidu.tbadk.core.view.h(getPageContext());
-        this.imi.setListPullRefreshListener(new g.c() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.1
+        this.imp = new m(this);
+        final BdListView cdy = this.imp.cdy();
+        this.imo = new com.baidu.tbadk.core.view.h(getPageContext());
+        this.imo.setListPullRefreshListener(new g.c() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.1
             @Override // com.baidu.tbadk.core.view.g.c
             public void onListPullRefresh(boolean z) {
-                if (!MembersActivity.this.imj.cgl().cdm()) {
-                    if (!MembersActivity.this.bZy()) {
+                if (!MembersActivity.this.imp.cgj().cdk()) {
+                    if (!MembersActivity.this.bZw()) {
                         MembersActivity.this.reset();
                     }
-                    MembersActivity.this.imk.sendMessage(MembersActivity.this.imk.getGroupId(), MembersActivity.this.imk.getStart(), MembersActivity.this.imk.getLen(), MembersActivity.this.imk.getOrderType());
+                    MembersActivity.this.imq.sendMessage(MembersActivity.this.imq.getGroupId(), MembersActivity.this.imq.getStart(), MembersActivity.this.imq.getLen(), MembersActivity.this.imq.getOrderType());
                     return;
                 }
-                cdA.completePullRefreshPostDelayed(0L);
+                cdy.completePullRefreshPostDelayed(0L);
             }
         });
-        cdA.setPullRefresh(this.imi);
-        cdA.setOnSrollToBottomListener(this);
-        cdA.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.3
+        cdy.setPullRefresh(this.imo);
+        cdy.setOnSrollToBottomListener(this);
+        cdy.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.3
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                l cgl = MembersActivity.this.imj.cgl();
-                UserData userData = (UserData) cgl.getItem(i);
+                l cgj = MembersActivity.this.imp.cgj();
+                UserData userData = (UserData) cgj.getItem(i);
                 if (userData != null) {
-                    if (cgl.cdm()) {
+                    if (cgj.cdk()) {
                         if (!userData.getPermission().isController()) {
-                            cgl.f(Long.valueOf(userData.getUserIdLong()));
+                            cgj.f(Long.valueOf(userData.getUserIdLong()));
                             return;
                         }
                         return;
@@ -223,11 +223,11 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 }
             }
         });
-        cdA.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.4
+        cdy.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.4
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
-                if (!MembersActivity.this.imj.cgl().cdm() && MembersActivity.this.imk.isController()) {
-                    UserData userData = (UserData) MembersActivity.this.imj.cgl().getItem(i);
+                if (!MembersActivity.this.imp.cgj().cdk() && MembersActivity.this.imq.isController()) {
+                    UserData userData = (UserData) MembersActivity.this.imp.cgj().getItem(i);
                     if (userData != null) {
                         if (userData.getPermission().isController()) {
                             return false;
@@ -239,7 +239,7 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                             @Override // com.baidu.tbadk.core.dialog.a.b
                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                 aVar.dismiss();
-                                MembersActivity.this.a(MembersActivity.this.imk.getGroupId(), arrayList);
+                                MembersActivity.this.a(MembersActivity.this.imq.getGroupId(), arrayList);
                             }
                         }, new a.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.4.2
                             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -253,14 +253,14 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                 return false;
             }
         });
-        this.imj.cgh().setOnClickListener(this);
-        this.imj.cgi().setOnClickListener(this);
-        this.imj.cgj().setOnClickListener(this);
-        this.imj.setController(false);
-        this.imj.cgl().a(new l.a() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.5
+        this.imp.cgf().setOnClickListener(this);
+        this.imp.cgg().setOnClickListener(this);
+        this.imp.cgh().setOnClickListener(this);
+        this.imp.setController(false);
+        this.imp.cgj().a(new l.a() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.5
             @Override // com.baidu.tieba.im.frsgroup.l.a
             public void xa(int i) {
-                MembersActivity.this.imj.xb(i);
+                MembersActivity.this.imp.xb(i);
             }
         });
     }
@@ -268,9 +268,9 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, List<Long> list) {
         if (list != null && list.size() != 0) {
-            this.imj.showProgressBar(true);
-            this.imk.setUserIds(list);
-            this.imk.sendRemoveMessage(j, dh(list));
+            this.imp.showProgressBar(true);
+            this.imq.setUserIds(list);
+            this.imq.sendRemoveMessage(j, dh(list));
         }
     }
 
@@ -286,86 +286,86 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
     }
 
     private void startLoading() {
-        this.imk.setUseCache(false);
-        this.imk.setRequestM(null);
-        this.imj.cgl().reset(true);
-        this.imk.setStart(0);
-        this.imk.setLen(50);
-        this.imj.cdA().startPullRefresh();
+        this.imq.setUseCache(false);
+        this.imq.setRequestM(null);
+        this.imp.cgj().reset(true);
+        this.imq.setStart(0);
+        this.imq.setLen(50);
+        this.imp.cdy().startPullRefresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void reset() {
-        this.imk.setUseCache(true);
-        this.imk.setRequestM(null);
-        this.imj.cgl().reset(false);
-        this.imk.setStart(0);
-        this.imk.setLen(50);
+        this.imq.setUseCache(true);
+        this.imq.setRequestM(null);
+        this.imp.cgj().reset(false);
+        this.imq.setStart(0);
+        this.imq.setLen(50);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUy() {
-        if (bZy()) {
-            this.imj.bUy();
+    public void bUw() {
+        if (bZw()) {
+            this.imp.bUw();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bZy() {
-        return 50 == this.imk.getLen();
+    public boolean bZw() {
+        return 50 == this.imq.getLen();
     }
 
     public void initData(Bundle bundle) {
-        this.imk = new MembersModel(this);
-        this.imk.setUniqueId(getUniqueId());
+        this.imq = new MembersModel(this);
+        this.imq.setUniqueId(getUniqueId());
         if (bundle == null) {
-            this.imk.initWithIntent(getIntent());
+            this.imq.initWithIntent(getIntent());
         } else {
-            this.imk.initWithBundle(bundle);
+            this.imq.initWithBundle(bundle);
         }
-        registerListener(this.icV);
-        registerListener(this.iml);
+        registerListener(this.idb);
+        registerListener(this.imr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(UserData.Permission permission) {
         if (permission != null) {
             boolean isController = permission.isController();
-            this.imk.setController(isController);
-            this.imj.setController(isController);
+            this.imq.setController(isController);
+            this.imp.setController(isController);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cfZ() {
-        this.imj.cgk().e(getPageContext());
-        this.imj.cgk().setTextOption(NoDataViewFactory.d.lr(R.string.members_no_person));
-        this.imj.cgk().setVisibility(0);
+    public void cfX() {
+        this.imp.cgi().e(getPageContext());
+        this.imp.cgi().setTextOption(NoDataViewFactory.d.lr(R.string.members_no_person));
+        this.imp.cgi().setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.imj.onChangeSkinType(i);
-        this.imi.changeSkin(i);
+        this.imp.onChangeSkinType(i);
+        this.imo.changeSkin(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.imj.cgn()) {
+        if (view == this.imp.cgl()) {
+            cfY();
+        } else if (view == this.imp.cgf()) {
             cga();
-        } else if (view == this.imj.cgh()) {
-            cgc();
-            this.imj.oN(false);
-        } else if (view == this.imj.cgi()) {
+            this.imp.oN(false);
+        } else if (view == this.imp.cgg()) {
+            cfZ();
+            this.imp.oN(true);
+        } else if (view == this.imp.cgh()) {
             cgb();
-            this.imj.oN(true);
-        } else if (view == this.imj.cgj()) {
-            cgd();
         }
     }
 
-    private void cga() {
+    private void cfY() {
         final com.baidu.tbadk.core.dialog.i iVar = new com.baidu.tbadk.core.dialog.i(getPageContext());
         iVar.a(TbadkApplication.getInst().getString(R.string.members_order), getResources().getStringArray(R.array.members_order_by), new k.c() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.8
             @Override // com.baidu.tbadk.core.dialog.k.c
@@ -382,44 +382,44 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
                         i2 = 2;
                         break;
                 }
-                MembersActivity.this.imk.setOrderType(i2);
+                MembersActivity.this.imq.setOrderType(i2);
                 MembersActivity.this.showToast(MembersActivity.this.getResources().getStringArray(R.array.members_order_by_short)[i]);
                 MembersActivity.this.reset();
-                MembersActivity.this.imj.cdA().startPullRefresh();
+                MembersActivity.this.imp.cdy().startPullRefresh();
             }
         });
         iVar.showDialog();
     }
 
+    private void cfZ() {
+        this.imp.xb(0);
+        this.imp.oM(false);
+        this.imp.cgj().oL(false);
+        this.imp.cgj().cgc();
+        this.imp.cgk();
+    }
+
+    private void cga() {
+        this.imp.xb(0);
+        this.imp.oM(true);
+        this.imp.cgj().oL(true);
+        this.imp.cgk();
+    }
+
     private void cgb() {
-        this.imj.xb(0);
-        this.imj.oM(false);
-        this.imj.cgl().oL(false);
-        this.imj.cgl().cge();
-        this.imj.cgm();
-    }
-
-    private void cgc() {
-        this.imj.xb(0);
-        this.imj.oM(true);
-        this.imj.cgl().oL(true);
-        this.imj.cgm();
-    }
-
-    private void cgd() {
-        Set<Long> cgf = this.imj.cgl().cgf();
-        if (cgf.size() > 0) {
+        Set<Long> cgd = this.imp.cgj().cgd();
+        if (cgd.size() > 0) {
             final ArrayList arrayList = new ArrayList();
-            arrayList.addAll(cgf);
+            arrayList.addAll(cgd);
             DialogUtil.removeMembersDialog(getPageContext().getPageActivity(), new a.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.9
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    MembersActivity.this.imj.oM(false);
-                    MembersActivity.this.imj.cgl().oL(false);
-                    MembersActivity.this.imj.cgm();
-                    MembersActivity.this.a(MembersActivity.this.imk.getGroupId(), arrayList);
-                    MembersActivity.this.imj.oN(true);
+                    MembersActivity.this.imp.oM(false);
+                    MembersActivity.this.imp.cgj().oL(false);
+                    MembersActivity.this.imp.cgk();
+                    MembersActivity.this.a(MembersActivity.this.imq.getGroupId(), arrayList);
+                    MembersActivity.this.imp.oN(true);
                 }
             }, new a.b() { // from class: com.baidu.tieba.im.frsgroup.MembersActivity.10
                 @Override // com.baidu.tbadk.core.dialog.a.b
@@ -430,9 +430,9 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
         }
     }
 
-    private void blb() {
-        if (this.imj.cgl().cgg()) {
-            this.imk.sendMessage(this.imk.getGroupId(), this.imk.getStart(), this.imk.getLen(), this.imk.getOrderType());
+    private void bkZ() {
+        if (this.imp.cgj().cge()) {
+            this.imq.sendMessage(this.imq.getGroupId(), this.imq.getStart(), this.imq.getLen(), this.imq.getOrderType());
         }
     }
 
@@ -444,14 +444,14 @@ public class MembersActivity extends BaseActivity<MembersActivity> implements Vi
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        blb();
+        bkZ();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
     public p onGetPreLoadListView() {
-        if (this.imj == null || this.imj.cdA() == null) {
+        if (this.imp == null || this.imp.cdy() == null) {
             return null;
         }
-        return this.imj.cdA().getPreLoadHandle();
+        return this.imp.cdy().getPreLoadHandle();
     }
 }

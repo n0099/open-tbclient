@@ -35,26 +35,26 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class CandidateSearchActivity extends BaseActivity {
     private List<com.baidu.tieba.barselect.data.a> dataList;
-    private ImageView fiM;
-    private BdRecyclerView gil;
-    private b gim;
-    private com.baidu.tieba.barselect.model.a gin;
-    private View gio;
-    private EditText gip;
-    private ImageView giq;
-    private TextView gir;
+    private ImageView fiR;
+    private BdRecyclerView gir;
+    private b gis;
+    private com.baidu.tieba.barselect.model.a git;
+    private View giu;
+    private EditText giv;
+    private ImageView giw;
+    private TextView gix;
     private String mForumId;
     private NavigationBar mNavigationBar;
     private View mNoDataView;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view.getId() != CandidateSearchActivity.this.gir.getId()) {
-                if (view.getId() == CandidateSearchActivity.this.giq.getId()) {
-                    CandidateSearchActivity.this.gip.setText("");
-                    CandidateSearchActivity.this.gil.setVisibility(0);
+            if (view.getId() != CandidateSearchActivity.this.gix.getId()) {
+                if (view.getId() == CandidateSearchActivity.this.giw.getId()) {
+                    CandidateSearchActivity.this.giv.setText("");
+                    CandidateSearchActivity.this.gir.setVisibility(0);
                     CandidateSearchActivity.this.mNoDataView.setVisibility(8);
-                    CandidateSearchActivity.this.gim.setData(new ArrayList());
+                    CandidateSearchActivity.this.gis.setData(new ArrayList());
                     return;
                 }
                 return;
@@ -62,7 +62,7 @@ public class CandidateSearchActivity extends BaseActivity {
             CandidateSearchActivity.this.finish();
         }
     };
-    private com.baidu.adp.framework.listener.a gis = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641) { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.2
+    private com.baidu.adp.framework.listener.a giy = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CANDIDATE_SEARCH, 309641) { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
@@ -73,14 +73,14 @@ public class CandidateSearchActivity extends BaseActivity {
                     aVar = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
                 }
                 if (responsedMessage.getError() != 0 || aVar == null) {
-                    CandidateSearchActivity.this.gil.setVisibility(8);
+                    CandidateSearchActivity.this.gir.setVisibility(8);
                     CandidateSearchActivity.this.mNoDataView.setVisibility(0);
                     return;
                 }
-                CandidateSearchActivity.this.gil.setVisibility(0);
+                CandidateSearchActivity.this.gir.setVisibility(0);
                 CandidateSearchActivity.this.mNoDataView.setVisibility(8);
-                if (CandidateSearchActivity.this.gip.getText() != null) {
-                    aVar.giL = CandidateSearchActivity.this.gip.getText().toString();
+                if (CandidateSearchActivity.this.giv.getText() != null) {
+                    aVar.giR = CandidateSearchActivity.this.giv.getText().toString();
                 }
                 if (CandidateSearchActivity.this.dataList != null) {
                     CandidateSearchActivity.this.dataList.clear();
@@ -88,7 +88,7 @@ public class CandidateSearchActivity extends BaseActivity {
                     CandidateSearchActivity.this.dataList = new ArrayList();
                 }
                 CandidateSearchActivity.this.dataList.add(aVar);
-                CandidateSearchActivity.this.gim.setData(CandidateSearchActivity.this.dataList);
+                CandidateSearchActivity.this.gis.setData(CandidateSearchActivity.this.dataList);
             }
         }
     };
@@ -96,15 +96,15 @@ public class CandidateSearchActivity extends BaseActivity {
         @Override // android.widget.TextView.OnEditorActionListener
         public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
             if (i == 3) {
-                if (CandidateSearchActivity.this.gip.getText() != null && !TextUtils.isEmpty(CandidateSearchActivity.this.gip.getText().toString()) && !TextUtils.isEmpty(CandidateSearchActivity.this.mForumId)) {
-                    CandidateSearchActivity.this.gin.v(com.baidu.adp.lib.f.b.toInt(CandidateSearchActivity.this.gip.getText().toString(), 0), com.baidu.adp.lib.f.b.toLong(CandidateSearchActivity.this.mForumId, 0L));
+                if (CandidateSearchActivity.this.giv.getText() != null && !TextUtils.isEmpty(CandidateSearchActivity.this.giv.getText().toString()) && !TextUtils.isEmpty(CandidateSearchActivity.this.mForumId)) {
+                    CandidateSearchActivity.this.git.v(com.baidu.adp.lib.f.b.toInt(CandidateSearchActivity.this.giv.getText().toString(), 0), com.baidu.adp.lib.f.b.toLong(CandidateSearchActivity.this.mForumId, 0L));
                 }
                 return true;
             }
             return false;
         }
     };
-    private HttpMessageListener git = new HttpMessageListener(CmdConfigHttp.CMD_BAR_VOTE) { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.4
+    private HttpMessageListener giz = new HttpMessageListener(CmdConfigHttp.CMD_BAR_VOTE) { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -114,7 +114,7 @@ public class CandidateSearchActivity extends BaseActivity {
                     l.showToast(TbadkCoreApplication.getInst(), (int) R.string.bar_manager_vote_success);
                     if (CandidateSearchActivity.this.dataList != null) {
                         for (com.baidu.tieba.barselect.data.a aVar : CandidateSearchActivity.this.dataList) {
-                            aVar.giM = true;
+                            aVar.giS = true;
                         }
                     }
                 } else if (error == 3250023) {
@@ -150,12 +150,12 @@ public class CandidateSearchActivity extends BaseActivity {
             CandidateSearchActivity.this.lk(!StringUtils.isNull(editable.toString()));
         }
     };
-    private Runnable giu = new Runnable() { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.6
+    private Runnable giA = new Runnable() { // from class: com.baidu.tieba.barselect.CandidateSearchActivity.6
         @Override // java.lang.Runnable
         public void run() {
-            if (CandidateSearchActivity.this.gip != null) {
-                CandidateSearchActivity.this.gip.requestFocus();
-                l.showSoftKeyPad(CandidateSearchActivity.this, CandidateSearchActivity.this.gip);
+            if (CandidateSearchActivity.this.giv != null) {
+                CandidateSearchActivity.this.giv.requestFocus();
+                l.showSoftKeyPad(CandidateSearchActivity.this, CandidateSearchActivity.this.giv);
             }
         }
     };
@@ -168,36 +168,36 @@ public class CandidateSearchActivity extends BaseActivity {
         if (getIntent() != null) {
             this.mForumId = getIntent().getStringExtra("forum_id");
         }
-        blF();
-        this.gil = (BdRecyclerView) findViewById(R.id.recycler_view);
-        this.gil.setLayoutManager(new LinearLayoutManager(this));
+        blD();
+        this.gir = (BdRecyclerView) findViewById(R.id.recycler_view);
+        this.gir.setLayoutManager(new LinearLayoutManager(this));
         this.mNoDataView = findViewById(R.id.text_no_data);
-        this.gim = new b();
-        this.gil.setAdapter(this.gim);
-        registerListener(this.gis);
-        registerListener(this.git);
-        this.gin = new com.baidu.tieba.barselect.model.a(getPageContext());
-        com.baidu.adp.lib.f.e.lb().postDelayed(this.giu, 100L);
+        this.gis = new b();
+        this.gir.setAdapter(this.gis);
+        registerListener(this.giy);
+        registerListener(this.giz);
+        this.git = new com.baidu.tieba.barselect.model.a(getPageContext());
+        com.baidu.adp.lib.f.e.lb().postDelayed(this.giA, 100L);
     }
 
-    private void blF() {
+    private void blD() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
         this.mNavigationBar.showBottomLine();
-        this.gio = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.candidate_search_navigation_view, (View.OnClickListener) null);
-        this.fiM = (ImageView) this.gio.findViewById(R.id.search_bar_icon);
-        this.gip = (EditText) this.gio.findViewById(R.id.home_et_search);
-        this.giq = (ImageView) this.gio.findViewById(R.id.home_bt_search_del);
-        this.giq.setOnClickListener(this.mOnClickListener);
-        this.gir = (TextView) this.gio.findViewById(R.id.home_bt_search_cancel_s);
+        this.giu = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.candidate_search_navigation_view, (View.OnClickListener) null);
+        this.fiR = (ImageView) this.giu.findViewById(R.id.search_bar_icon);
+        this.giv = (EditText) this.giu.findViewById(R.id.home_et_search);
+        this.giw = (ImageView) this.giu.findViewById(R.id.home_bt_search_del);
+        this.giw.setOnClickListener(this.mOnClickListener);
+        this.gix = (TextView) this.giu.findViewById(R.id.home_bt_search_cancel_s);
         lk(false);
-        this.gir.setText(getString(R.string.cancel));
-        this.gir.setOnClickListener(this.mOnClickListener);
-        this.gip.setOnEditorActionListener(this.mOnEditorActionListener);
-        this.gip.addTextChangedListener(this.mTextWatcher);
+        this.gix.setText(getString(R.string.cancel));
+        this.gix.setOnClickListener(this.mOnClickListener);
+        this.giv.setOnEditorActionListener(this.mOnEditorActionListener);
+        this.giv.addTextChangedListener(this.mTextWatcher);
     }
 
     public void lk(boolean z) {
-        this.giq.setVisibility(z ? 0 : 8);
+        this.giw.setVisibility(z ? 0 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -206,17 +206,17 @@ public class CandidateSearchActivity extends BaseActivity {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         am.setViewTextColor(this.mNoDataView, (int) R.color.cp_cont_d);
-        SvgManager.aOU().a(this.fiM, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
-        this.gip.setHintTextColor(am.getColor(R.color.cp_cont_e));
-        am.setNavbarTitleColor(this.gip, R.color.cp_cont_b, R.color.s_navbar_title_color);
-        SvgManager.aOU().a(this.giq, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        am.setViewTextColor(this.gir, R.color.cp_link_tip_a, 1);
+        SvgManager.aOR().a(this.fiR, R.drawable.icon_pure_topbar_search44_svg, R.color.cp_cont_d, (SvgManager.SvgResourceStateType) null);
+        this.giv.setHintTextColor(am.getColor(R.color.cp_cont_e));
+        am.setNavbarTitleColor(this.giv, R.color.cp_cont_b, R.color.s_navbar_title_color);
+        SvgManager.aOR().a(this.giw, R.drawable.icon_pure_search_empty16_svg, R.color.cp_cont_d, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        am.setViewTextColor(this.gix, R.color.cp_link_tip_a, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.adp.lib.f.e.lb().removeCallbacks(this.giu);
+        com.baidu.adp.lib.f.e.lb().removeCallbacks(this.giA);
     }
 }

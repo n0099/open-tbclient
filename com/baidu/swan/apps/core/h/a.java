@@ -5,17 +5,17 @@ import java.util.Map;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bPp;
-    private Map<String, Object> bPq;
+    private static volatile a bPu;
+    private Map<String, Object> bPv;
 
-    private void XJ() {
-        this.bPq = null;
-        bPp = null;
+    private void XI() {
+        this.bPv = null;
+        bPu = null;
     }
 
     public static void release() {
-        if (bPp != null) {
-            bPp.XJ();
+        if (bPu != null) {
+            bPu.XI();
         }
     }
 }

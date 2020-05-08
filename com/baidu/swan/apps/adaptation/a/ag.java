@@ -3,9 +3,9 @@ package com.baidu.swan.apps.adaptation.a;
 public interface ag {
     void PA();
 
-    void PB();
+    long PB();
 
-    long PC();
+    void Pz();
 
     void aE(long j);
 

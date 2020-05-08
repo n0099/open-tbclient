@@ -5,18 +5,18 @@ import com.baidu.adp.widget.ListView.m;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a implements m {
-    public static final BdUniqueId gcI = BdUniqueId.gen();
-    public String apE;
+    public static final BdUniqueId gcN = BdUniqueId.gen();
+    public String apK;
     public int categoryType;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gcI;
+        return gcN;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.apE = jSONObject.optString("effect_type_name");
+            this.apK = jSONObject.optString("effect_type_name");
             this.categoryType = jSONObject.optInt("effect_type");
         }
     }

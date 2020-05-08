@@ -1,52 +1,59 @@
 package com.baidu.sapi2;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
-import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
-import com.baidu.sapi2.callback.FaceIDCallback;
-import com.baidu.sapi2.result.UnRealNameFaceIDResult;
-import org.json.JSONObject;
+import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.callback.VerifyUserFaceIDCallback;
+import com.baidu.sapi2.dto.FaceIDVerifyDTO;
+import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.sapi2.result.RealNameFaceIDResult;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class k extends PassFaceRecogCallback {
-    final /* synthetic */ UnRealNameFaceIDResult a;
-    final /* synthetic */ String b;
-    final /* synthetic */ FaceIDCallback c;
-    final /* synthetic */ PassportSDK d;
+public class k extends GetTplStokenCallback {
+    final /* synthetic */ Context a;
+    final /* synthetic */ FaceIDVerifyDTO b;
+    final /* synthetic */ VerifyUserFaceIDCallback c;
+    final /* synthetic */ RealNameFaceIDResult d;
+    final /* synthetic */ PassportSDK e;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(PassportSDK passportSDK, UnRealNameFaceIDResult unRealNameFaceIDResult, String str, FaceIDCallback faceIDCallback) {
-        this.d = passportSDK;
-        this.a = unRealNameFaceIDResult;
-        this.b = str;
-        this.c = faceIDCallback;
+    public k(PassportSDK passportSDK, Context context, FaceIDVerifyDTO faceIDVerifyDTO, VerifyUserFaceIDCallback verifyUserFaceIDCallback, RealNameFaceIDResult realNameFaceIDResult) {
+        this.e = passportSDK;
+        this.a = context;
+        this.b = faceIDVerifyDTO;
+        this.c = verifyUserFaceIDCallback;
+        this.d = realNameFaceIDResult;
+    }
+
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onFinish() {
+    }
+
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onStart() {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-    /* renamed from: a */
-    public void onFailure(PassFaceRecogResult passFaceRecogResult) {
-        this.a.setResultCode(passFaceRecogResult.getResultCode());
-        this.c.onFailure(this.a);
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onFailure(GetTplStokenResult getTplStokenResult) {
+        this.d.setResultCode(getTplStokenResult.getResultCode());
+        this.d.setResultMsg(getTplStokenResult.getResultMsg());
+        this.c.onFailure(this.d);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.pass.biometrics.base.callback.PassBiometricCallback
-    /* renamed from: b */
-    public void onSuccess(PassFaceRecogResult passFaceRecogResult) {
-        JSONObject jSONObject;
-        this.a.setResultMsg(passFaceRecogResult.getResultMsg());
-        if (this.b.equals("faceDetect") && (jSONObject = passFaceRecogResult.extraJson) != null) {
-            this.a.registerResult = jSONObject.toString();
-        }
-        UnRealNameFaceIDResult unRealNameFaceIDResult = this.a;
-        unRealNameFaceIDResult.callBackKey = passFaceRecogResult.callbackkey;
-        if (TextUtils.isEmpty(unRealNameFaceIDResult.callBackKey)) {
-            this.a.setResultCode(-205);
-            this.c.onFailure(this.a);
+    @Override // com.baidu.sapi2.callback.SapiCallback
+    public void onSuccess(GetTplStokenResult getTplStokenResult) {
+        String str = getTplStokenResult.tplStokenMap.get("pp");
+        if (!TextUtils.isEmpty(str)) {
+            PassportSDK passportSDK = this.e;
+            Context context = this.a;
+            FaceIDVerifyDTO faceIDVerifyDTO = this.b;
+            passportSDK.a(context, faceIDVerifyDTO.subpro, null, "0", faceIDVerifyDTO.bduss, str, faceIDVerifyDTO.businessSence, this.c, this.d);
             return;
         }
-        this.a.setResultCode(0);
-        this.c.onSuccess(this.a);
+        this.d.setResultCode(-402);
+        this.d.setResultMsg("服务异常，请稍后再试");
+        this.c.onFailure(this.d);
     }
 }

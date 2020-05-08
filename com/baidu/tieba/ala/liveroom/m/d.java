@@ -11,8 +11,8 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.liveroom.messages.AlaDiversionInfoResponseMessage;
 /* loaded from: classes3.dex */
 public class d extends BdBaseModel {
-    private a fMQ;
-    private HttpMessageListener fMR;
+    private a fMV;
+    private HttpMessageListener fMW;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -23,25 +23,25 @@ public class d extends BdBaseModel {
 
     public d(BdPageContext<?> bdPageContext, a aVar) {
         super(bdPageContext);
-        this.fMR = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.m.d.1
+        this.fMW = new HttpMessageListener(1021181) { // from class: com.baidu.tieba.ala.liveroom.m.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021181 && (httpResponsedMessage instanceof AlaDiversionInfoResponseMessage)) {
                     AlaDiversionInfoResponseMessage alaDiversionInfoResponseMessage = (AlaDiversionInfoResponseMessage) httpResponsedMessage;
-                    if (d.this.fMQ != null) {
+                    if (d.this.fMV != null) {
                         if (alaDiversionInfoResponseMessage.getError() != 0 || !alaDiversionInfoResponseMessage.isSuccess()) {
-                            d.this.fMQ.aK(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
+                            d.this.fMV.aK(alaDiversionInfoResponseMessage.getError(), alaDiversionInfoResponseMessage.getErrorString());
                         } else {
-                            d.this.fMQ.a(alaDiversionInfoResponseMessage.byD());
+                            d.this.fMV.a(alaDiversionInfoResponseMessage.byB());
                         }
                     }
                 }
             }
         };
-        this.fMQ = aVar;
+        this.fMV = aVar;
         initTasks();
-        registerListener(this.fMR);
+        registerListener(this.fMW);
     }
 
     private void initTasks() {

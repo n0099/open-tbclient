@@ -3,16 +3,20 @@ package com.baidu.android.pushservice.message;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.g.m;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -106,7 +110,7 @@ public class PublicMsg implements Parcelable {
         this.mAdvertiseBigPictureContent = parcel.readString();
     }
 
-    private void addCustomContentToIntent(Intent intent) {
+    private void addCustomContentToIntent(Context context, Intent intent) {
         if (this.mCustomContent != null) {
             try {
                 JSONObject jSONObject = new JSONObject(this.mCustomContent);
@@ -117,40 +121,14 @@ public class PublicMsg implements Parcelable {
                 }
                 intent.putExtra("extra_extra_custom_content", this.mCustomContent);
             } catch (JSONException e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
-        }
-    }
-
-    private void insertBehavior(Context context, com.baidu.android.pushservice.a.f fVar, com.baidu.android.pushservice.g.h hVar, com.baidu.android.pushservice.g.g gVar) {
-        if (fVar != null) {
-            gVar.b(fVar.c());
-            com.baidu.android.pushservice.g.g a = com.baidu.android.pushservice.i.l.a(gVar, context, fVar.c());
-            hVar.j = fVar.c();
-            try {
-                m.a(context, hVar);
-                m.a(context, a);
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    private void insertNotiBehavior(Context context, String str, String str2, String str3) {
-        com.baidu.android.pushservice.g.h hVar = new com.baidu.android.pushservice.g.h();
-        hVar.d = str3;
-        hVar.a = str;
-        hVar.e = System.currentTimeMillis();
-        hVar.f = com.baidu.android.pushservice.g.a.b.b(context);
-        hVar.c = com.baidu.android.pushservice.message.a.k.MSG_TYPE_MULTI_PRIVATE_NOTIFICATION.a();
-        hVar.h = str2;
-        com.baidu.android.pushservice.a.f d = com.baidu.android.pushservice.a.b.a(context).d(str2);
-        if (d != null) {
-            insertBehavior(context, d, hVar, new com.baidu.android.pushservice.g.g(str2));
         }
     }
 
     private void sendResult(final Context context, String str, int i) {
-        final String a = com.baidu.android.pushservice.i.a(context).a();
-        final String b = com.baidu.android.pushservice.i.a(context).b();
+        final String a = com.baidu.android.pushservice.j.a(context).a();
+        final String b = com.baidu.android.pushservice.j.a(context).b();
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(b)) {
             com.baidu.android.pushservice.f.a.b(TAG, "Fail Send Public msg result. Token invalid!", context.getApplicationContext());
             return;
@@ -162,22 +140,24 @@ public class PublicMsg implements Parcelable {
             jSONObject.put("result_code", i);
         } catch (JSONException e) {
             com.baidu.android.pushservice.f.a.b(TAG, e.getMessage(), context.getApplicationContext());
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         }
         final String jSONObject2 = jSONObject.toString();
-        com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("PushService-linkhit", (short) 90) { // from class: com.baidu.android.pushservice.message.PublicMsg.1
-            @Override // com.baidu.android.pushservice.h.c
+        com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("PushService-linkhit", (short) 90) { // from class: com.baidu.android.pushservice.message.PublicMsg.1
+            @Override // com.baidu.android.pushservice.g.c
             public void a() {
                 try {
                     HashMap hashMap = new HashMap();
-                    com.baidu.android.pushservice.d.b.a(hashMap);
+                    com.baidu.android.pushservice.d.b.a(context, hashMap);
                     hashMap.put("method", "linkhit");
                     hashMap.put("channel_token", b);
                     hashMap.put("data", jSONObject2);
-                    if (com.baidu.android.pushservice.e.b.a(com.baidu.android.pushservice.g.e() + a, "POST", hashMap).b() == 200) {
+                    if (com.baidu.android.pushservice.e.b.a(context, com.baidu.android.pushservice.h.e() + a, "POST", hashMap).b() == 200) {
                         com.baidu.android.pushservice.f.a.c(PublicMsg.TAG, "<<< public msg send result return OK!", context.getApplicationContext());
                     }
                 } catch (Exception e2) {
                     com.baidu.android.pushservice.f.a.b(PublicMsg.TAG, "error : " + e2.getMessage(), context.getApplicationContext());
+                    new b.c(context).a(Log.getStackTraceString(e2)).a();
                 }
             }
         });
@@ -196,6 +176,7 @@ public class PublicMsg implements Parcelable {
             }
         } catch (URISyntaxException e) {
             com.baidu.android.pushservice.f.a.b(TAG, "error " + e.getMessage(), context.getApplicationContext());
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         }
     }
 
@@ -234,10 +215,13 @@ public class PublicMsg implements Parcelable {
         try {
         } catch (PackageManager.NameNotFoundException e) {
             com.baidu.android.pushservice.f.a.b(TAG, "package not exist \r\n" + e.getMessage(), context);
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         } catch (URISyntaxException e2) {
             com.baidu.android.pushservice.f.a.b(TAG, "uri to intent fail \r\n" + e2.getMessage(), context);
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
         } catch (Exception e3) {
             com.baidu.android.pushservice.f.a.b(TAG, "parse customize action error\r\n" + e3.getMessage(), context);
+            new b.c(context).a(Log.getStackTraceString(e3)).a();
         }
         if (packageManager.getPackageInfo(this.mPkgName, 0).versionCode >= this.mPkgVercode) {
             Intent parseUri = Intent.parseUri(this.mPkgContent, 0);
@@ -257,6 +241,7 @@ public class PublicMsg implements Parcelable {
                     context.startActivity(intent);
                 } catch (ActivityNotFoundException e4) {
                     com.baidu.android.pushservice.f.a.b(TAG, ">>> Url cann't be deal! \r\n" + e4.getMessage(), context);
+                    new b.c(context).a(Log.getStackTraceString(e4)).a();
                 }
             }
             sendResult(context, str2, i2);
@@ -268,14 +253,10 @@ public class PublicMsg implements Parcelable {
         sendResult(context, str2, i2);
     }
 
-    public void handleAlarmMessage(Context context, String str, String str2, String str3) {
-        insertNotiBehavior(context, str2, str3, str);
-    }
-
     public void handlePrivateNotification(Context context, String str, String str2, String str3, byte[] bArr, byte[] bArr2) {
+        ActivityInfo activityInfo;
         com.baidu.android.pushservice.f.a.a(TAG, "=== Handle private notification: " + str, context);
         if ("com.baidu.android.pushservice.action.privatenotification.DELETE".equals(str)) {
-            insertNotiBehavior(context, str2, str3, "010202");
             return;
         }
         PackageManager packageManager = context.getPackageManager();
@@ -288,9 +269,8 @@ public class PublicMsg implements Parcelable {
                 intent.putExtra("com.baidu.pushservice.app_id", str3);
                 intent.putExtra("baidu_message_secur_info", bArr);
                 intent.putExtra("baidu_message_body", bArr2);
-                addCustomContentToIntent(intent);
-                com.baidu.android.pushservice.i.l.b(context, intent, "com.baidu.android.pushservice.action.notification.CLICK", this.mPkgName);
-                insertNotiBehavior(context, str2, str3, "010201");
+                addCustomContentToIntent(context, intent);
+                m.b(context, intent, "com.baidu.android.pushservice.action.notification.CLICK", this.mPkgName);
                 if (this.mOpenType == 1 && this.mUrl != null) {
                     Intent intent2 = new Intent();
                     intent2.setAction("android.intent.action.VIEW");
@@ -304,20 +284,28 @@ public class PublicMsg implements Parcelable {
                         Intent parseUri = Intent.parseUri(this.mPkgContent, 0);
                         parseUri.setPackage(this.mPkgName);
                         if (packageManager.queryBroadcastReceivers(parseUri, 0).size() > 0) {
-                            context.sendBroadcast(parseUri);
-                        } else if (packageManager.queryIntentActivities(parseUri, 0).size() > 0) {
-                            parseUri.addFlags(268435456);
-                            parseUri.putExtra("open_type", 1);
-                            parseUri.putExtra("msgid", str2);
-                            context.startActivity(parseUri);
+                            String action = parseUri.getAction();
+                            if (action != null && action.startsWith("com.baidu.android.pushservice.action")) {
+                                context.sendBroadcast(parseUri);
+                            }
+                        } else {
+                            List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(parseUri, 0);
+                            if (queryIntentActivities != null && queryIntentActivities.size() > 0 && (activityInfo = queryIntentActivities.get(0).activityInfo) != null && activityInfo.exported) {
+                                parseUri.addFlags(268435456);
+                                parseUri.putExtra("open_type", 1);
+                                parseUri.putExtra("msgid", str2);
+                                context.startActivity(parseUri);
+                            }
                         }
                     }
                 }
             }
         } catch (PackageManager.NameNotFoundException e) {
             com.baidu.android.pushservice.f.a.b(TAG, "package not exist \r\n" + e.getMessage(), context);
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         } catch (URISyntaxException e2) {
             com.baidu.android.pushservice.f.a.b(TAG, "uri to intent fail \r\n" + e2.getMessage(), context);
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
         }
     }
 

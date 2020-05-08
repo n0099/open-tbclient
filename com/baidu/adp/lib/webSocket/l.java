@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private String NY;
-    private int OI;
-    private int OJ;
-    private boolean OL;
-    private boolean OM;
     private int OO;
     private int OP;
     private boolean OQ;
     private boolean OR;
+    private int OT;
+    private int OU;
+    private boolean OV;
+    private boolean OW;
+    private String Oc;
 
     public l() {
-        this.NY = null;
-        this.OI = 32768;
-        this.OJ = 131072;
-        this.OL = false;
-        this.OM = true;
-        this.OO = 30000;
-        this.OP = 30000;
-        this.OQ = true;
+        this.Oc = null;
+        this.OO = 32768;
+        this.OP = 131072;
+        this.OQ = false;
         this.OR = true;
-        this.NY = null;
+        this.OT = 30000;
+        this.OU = 30000;
+        this.OV = true;
+        this.OW = true;
+        this.Oc = null;
     }
 
     public l(l lVar) {
-        this.NY = null;
-        this.OI = lVar.OI;
-        this.OJ = lVar.OJ;
-        this.OL = lVar.OL;
-        this.OM = lVar.OM;
+        this.Oc = null;
         this.OO = lVar.OO;
         this.OP = lVar.OP;
         this.OQ = lVar.OQ;
         this.OR = lVar.OR;
-        this.NY = lVar.NY;
+        this.OT = lVar.OT;
+        this.OU = lVar.OU;
+        this.OV = lVar.OV;
+        this.OW = lVar.OW;
+        this.Oc = lVar.Oc;
     }
 
     public boolean mS() {
-        return this.OL;
-    }
-
-    public int mT() {
-        return this.OI;
-    }
-
-    public int mU() {
-        return this.OJ;
-    }
-
-    public boolean getTcpNoDelay() {
-        return this.OM;
-    }
-
-    public int mV() {
-        return this.OO;
-    }
-
-    public int mW() {
-        return this.OP;
-    }
-
-    public boolean mX() {
         return this.OQ;
     }
 
-    public boolean mY() {
+    public int mT() {
+        return this.OO;
+    }
+
+    public int mU() {
+        return this.OP;
+    }
+
+    public boolean getTcpNoDelay() {
         return this.OR;
     }
 
+    public int mV() {
+        return this.OT;
+    }
+
+    public int mW() {
+        return this.OU;
+    }
+
+    public boolean mX() {
+        return this.OV;
+    }
+
+    public boolean mY() {
+        return this.OW;
+    }
+
     public String mZ() {
-        return this.NY;
+        return this.Oc;
     }
 
     public void cc(String str) {
-        this.NY = str;
+        this.Oc = str;
     }
 }

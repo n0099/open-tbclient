@@ -7,7 +7,7 @@ public final class R {
         public static final int retry_btn_default = 0x7f0217c4;
         public static final int retry_btn_press = 0x7f0217c5;
         public static final int retry_btn_selector = 0x7f0217c6;
-        public static final int weibosdk_common_shadow_top = 0x7f021ec0;
-        public static final int weibosdk_empty_failed = 0x7f021ec1;
+        public static final int weibosdk_common_shadow_top = 0x7f021ec2;
+        public static final int weibosdk_empty_failed = 0x7f021ec3;
     }
 }

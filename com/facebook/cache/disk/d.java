@@ -22,34 +22,34 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes13.dex */
 public class d implements h, com.facebook.common.a.a {
-    private final g lQD;
-    private final CacheEventListener lQE;
-    private final boolean lQG;
-    private final long lQN;
-    private final long lQO;
-    private final CountDownLatch lQP;
-    private long lQQ;
+    private final g lQH;
+    private final CacheEventListener lQI;
+    private final boolean lQK;
+    private final long lQR;
+    private final long lQS;
+    private final CountDownLatch lQT;
+    private long lQU;
     @GuardedBy("mLock")
-    final Set<String> lQR;
-    private final long lQT;
-    private final c lQV;
-    private boolean lQX;
-    private final CacheErrorLogger lQr;
-    private final com.facebook.common.time.a lQs;
-    private static final Class<?> lQm = d.class;
-    private static final long lQL = TimeUnit.HOURS.toMillis(2);
-    private static final long lQM = TimeUnit.MINUTES.toMillis(30);
+    final Set<String> lQV;
+    private final long lQX;
+    private final c lQZ;
+    private final CacheErrorLogger lQv;
+    private final com.facebook.common.time.a lQw;
+    private boolean lRb;
+    private static final Class<?> lQq = d.class;
+    private static final long lQP = TimeUnit.HOURS.toMillis(2);
+    private static final long lQQ = TimeUnit.MINUTES.toMillis(30);
     private final Object mLock = new Object();
-    private final StatFsHelper lQU = StatFsHelper.dnq();
-    private long lQS = -1;
-    private final a lQW = new a();
+    private final StatFsHelper lQY = StatFsHelper.dnn();
+    private long lQW = -1;
+    private final a lRa = new a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes13.dex */
     public static class a {
         private boolean mInitialized = false;
         private long mSize = -1;
-        private long faM = -1;
+        private long faR = -1;
 
         a() {
         }
@@ -60,12 +60,12 @@ public class d implements h, com.facebook.common.a.a {
 
         public synchronized void reset() {
             this.mInitialized = false;
-            this.faM = -1L;
+            this.faR = -1L;
             this.mSize = -1L;
         }
 
         public synchronized void G(long j, long j2) {
-            this.faM = j2;
+            this.faR = j2;
             this.mSize = j;
             this.mInitialized = true;
         }
@@ -73,7 +73,7 @@ public class d implements h, com.facebook.common.a.a {
         public synchronized void H(long j, long j2) {
             if (this.mInitialized) {
                 this.mSize += j;
-                this.faM += j2;
+                this.faR += j2;
             }
         }
 
@@ -82,59 +82,59 @@ public class d implements h, com.facebook.common.a.a {
         }
 
         public synchronized long getCount() {
-            return this.faM;
+            return this.faR;
         }
     }
 
     /* loaded from: classes13.dex */
     public static class b {
-        public final long lQN;
-        public final long lQO;
-        public final long lQT;
+        public final long lQR;
+        public final long lQS;
+        public final long lQX;
 
         public b(long j, long j2, long j3) {
-            this.lQT = j;
-            this.lQN = j2;
-            this.lQO = j3;
+            this.lQX = j;
+            this.lQR = j2;
+            this.lQS = j3;
         }
     }
 
     public d(c cVar, g gVar, b bVar, CacheEventListener cacheEventListener, CacheErrorLogger cacheErrorLogger, @Nullable com.facebook.common.a.b bVar2, Context context, Executor executor, boolean z) {
-        this.lQN = bVar.lQN;
-        this.lQO = bVar.lQO;
-        this.lQQ = bVar.lQO;
-        this.lQV = cVar;
-        this.lQD = gVar;
-        this.lQE = cacheEventListener;
-        this.lQT = bVar.lQT;
-        this.lQr = cacheErrorLogger;
+        this.lQR = bVar.lQR;
+        this.lQS = bVar.lQS;
+        this.lQU = bVar.lQS;
+        this.lQZ = cVar;
+        this.lQH = gVar;
+        this.lQI = cacheEventListener;
+        this.lQX = bVar.lQX;
+        this.lQv = cacheErrorLogger;
         if (bVar2 != null) {
             bVar2.a(this);
         }
-        this.lQs = com.facebook.common.time.c.dnv();
-        this.lQG = z;
-        this.lQR = new HashSet();
-        if (this.lQG) {
-            this.lQP = new CountDownLatch(1);
+        this.lQw = com.facebook.common.time.c.dnr();
+        this.lQK = z;
+        this.lQV = new HashSet();
+        if (this.lQK) {
+            this.lQT = new CountDownLatch(1);
             executor.execute(new Runnable() { // from class: com.facebook.cache.disk.d.1
                 @Override // java.lang.Runnable
                 public void run() {
                     synchronized (d.this.mLock) {
-                        d.this.dmJ();
+                        d.this.dmG();
                     }
-                    d.this.lQX = true;
-                    d.this.lQP.countDown();
+                    d.this.lRb = true;
+                    d.this.lQT.countDown();
                 }
             });
             return;
         }
-        this.lQP = new CountDownLatch(0);
+        this.lQT = new CountDownLatch(0);
     }
 
     @Override // com.facebook.cache.disk.h
     public com.facebook.a.a d(com.facebook.cache.common.b bVar) {
         com.facebook.a.a aVar;
-        i h = i.dmP().h(bVar);
+        i h = i.dmM().h(bVar);
         try {
             synchronized (this.mLock) {
                 List<String> a2 = com.facebook.cache.common.c.a(bVar);
@@ -146,8 +146,8 @@ public class d implements h, com.facebook.common.a.a {
                         break;
                     }
                     String str2 = a2.get(i);
-                    h.NW(str2);
-                    com.facebook.a.a A = this.lQV.A(str2, bVar);
+                    h.NZ(str2);
+                    com.facebook.a.a A = this.lQZ.A(str2, bVar);
                     if (A != null) {
                         str = str2;
                         aVar = A;
@@ -158,18 +158,18 @@ public class d implements h, com.facebook.common.a.a {
                     aVar = A;
                 }
                 if (aVar == null) {
-                    this.lQE.b(h);
-                    this.lQR.remove(str);
+                    this.lQI.b(h);
+                    this.lQV.remove(str);
                 } else {
-                    this.lQE.a(h);
-                    this.lQR.add(str);
+                    this.lQI.a(h);
+                    this.lQV.add(str);
                 }
             }
             return aVar;
         } catch (IOException e) {
-            this.lQr.a(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, lQm, "getResource", e);
+            this.lQv.a(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, lQq, "getResource", e);
             h.d(e);
-            this.lQE.e(h);
+            this.lQI.e(h);
             return null;
         } finally {
             h.recycle();
@@ -177,47 +177,47 @@ public class d implements h, com.facebook.common.a.a {
     }
 
     private c.b a(String str, com.facebook.cache.common.b bVar) throws IOException {
-        dmH();
-        return this.lQV.z(str, bVar);
+        dmE();
+        return this.lQZ.z(str, bVar);
     }
 
     private com.facebook.a.a a(c.b bVar, com.facebook.cache.common.b bVar2, String str) throws IOException {
-        com.facebook.a.a aG;
+        com.facebook.a.a aH;
         synchronized (this.mLock) {
-            aG = bVar.aG(bVar2);
-            this.lQR.add(str);
-            this.lQW.H(aG.size(), 1L);
+            aH = bVar.aH(bVar2);
+            this.lQV.add(str);
+            this.lRa.H(aH.size(), 1L);
         }
-        return aG;
+        return aH;
     }
 
     @Override // com.facebook.cache.disk.h
     public com.facebook.a.a a(com.facebook.cache.common.b bVar, com.facebook.cache.common.h hVar) throws IOException {
         String b2;
-        i h = i.dmP().h(bVar);
-        this.lQE.c(h);
+        i h = i.dmM().h(bVar);
+        this.lQI.c(h);
         synchronized (this.mLock) {
             b2 = com.facebook.cache.common.c.b(bVar);
         }
-        h.NW(b2);
+        h.NZ(b2);
         try {
             try {
                 c.b a2 = a(b2, bVar);
                 try {
                     a2.a(hVar, bVar);
                     com.facebook.a.a a3 = a(a2, bVar, b2);
-                    h.fC(a3.size()).fD(this.lQW.getSize());
-                    this.lQE.d(h);
+                    h.fC(a3.size()).fD(this.lRa.getSize());
+                    this.lQI.d(h);
                     return a3;
                 } finally {
-                    if (!a2.dmt()) {
-                        com.facebook.common.c.a.h(lQm, "Failed to delete temp file");
+                    if (!a2.dmq()) {
+                        com.facebook.common.c.a.h(lQq, "Failed to delete temp file");
                     }
                 }
             } catch (IOException e) {
                 h.d(e);
-                this.lQE.f(h);
-                com.facebook.common.c.a.b(lQm, "Failed inserting a file into the cache", (Throwable) e);
+                this.lQI.f(h);
+                com.facebook.common.c.a.b(lQq, "Failed inserting a file into the cache", (Throwable) e);
                 throw e;
             }
         } finally {
@@ -237,27 +237,27 @@ public class d implements h, com.facebook.common.a.a {
                         break;
                     }
                     String str = a2.get(i2);
-                    this.lQV.NS(str);
-                    this.lQR.remove(str);
+                    this.lQZ.NV(str);
+                    this.lQV.remove(str);
                     i = i2 + 1;
                 }
             } catch (IOException e) {
-                this.lQr.a(CacheErrorLogger.CacheErrorCategory.DELETE_FILE, lQm, "delete: " + e.getMessage(), e);
+                this.lQv.a(CacheErrorLogger.CacheErrorCategory.DELETE_FILE, lQq, "delete: " + e.getMessage(), e);
             }
         }
     }
 
-    private void dmH() throws IOException {
+    private void dmE() throws IOException {
         synchronized (this.mLock) {
-            boolean dmJ = dmJ();
-            dmI();
-            long size = this.lQW.getSize();
-            if (size > this.lQQ && !dmJ) {
-                this.lQW.reset();
-                dmJ();
+            boolean dmG = dmG();
+            dmF();
+            long size = this.lRa.getSize();
+            if (size > this.lQU && !dmG) {
+                this.lRa.reset();
+                dmG();
             }
-            if (size > this.lQQ) {
-                a((this.lQQ * 9) / 10, CacheEventListener.EvictionReason.CACHE_FULL);
+            if (size > this.lQU) {
+                a((this.lQU * 9) / 10, CacheEventListener.EvictionReason.CACHE_FULL);
             }
         }
     }
@@ -267,8 +267,8 @@ public class d implements h, com.facebook.common.a.a {
         int i;
         long j2;
         try {
-            Collection<c.a> h = h(this.lQV.dmq());
-            long size = this.lQW.getSize();
+            Collection<c.a> h = h(this.lQZ.dmn());
+            long size = this.lRa.getSize();
             long j3 = size - j;
             int i2 = 0;
             long j4 = 0;
@@ -283,29 +283,29 @@ public class d implements h, com.facebook.common.a.a {
                 if (j2 > j3) {
                     break;
                 }
-                long a2 = this.lQV.a(next);
-                this.lQR.remove(next.getId());
+                long a2 = this.lQZ.a(next);
+                this.lQV.remove(next.getId());
                 if (a2 > 0) {
                     i++;
                     j2 += a2;
-                    i fE = i.dmP().NW(next.getId()).a(evictionReason).fC(a2).fD(size - j2).fE(j);
-                    this.lQE.g(fE);
+                    i fE = i.dmM().NZ(next.getId()).a(evictionReason).fC(a2).fD(size - j2).fE(j);
+                    this.lQI.g(fE);
                     fE.recycle();
                 }
                 long j5 = j2;
                 i2 = i;
                 j4 = j5;
             }
-            this.lQW.H(-j2, -i);
-            this.lQV.dmp();
+            this.lRa.H(-j2, -i);
+            this.lQZ.dmm();
         } catch (IOException e) {
-            this.lQr.a(CacheErrorLogger.CacheErrorCategory.EVICTION, lQm, "evictAboveSize: " + e.getMessage(), e);
+            this.lQv.a(CacheErrorLogger.CacheErrorCategory.EVICTION, lQq, "evictAboveSize: " + e.getMessage(), e);
             throw e;
         }
     }
 
     private Collection<c.a> h(Collection<c.a> collection) {
-        long now = lQL + this.lQs.now();
+        long now = lQP + this.lQw.now();
         ArrayList arrayList = new ArrayList(collection.size());
         ArrayList arrayList2 = new ArrayList(collection.size());
         for (c.a aVar : collection) {
@@ -315,17 +315,17 @@ public class d implements h, com.facebook.common.a.a {
                 arrayList2.add(aVar);
             }
         }
-        Collections.sort(arrayList2, this.lQD.dmu());
+        Collections.sort(arrayList2, this.lQH.dmr());
         arrayList.addAll(arrayList2);
         return arrayList;
     }
 
     @GuardedBy("mLock")
-    private void dmI() {
-        if (this.lQU.a(this.lQV.isExternal() ? StatFsHelper.StorageType.EXTERNAL : StatFsHelper.StorageType.INTERNAL, this.lQO - this.lQW.getSize())) {
-            this.lQQ = this.lQN;
+    private void dmF() {
+        if (this.lQY.a(this.lQZ.isExternal() ? StatFsHelper.StorageType.EXTERNAL : StatFsHelper.StorageType.INTERNAL, this.lQS - this.lRa.getSize())) {
+            this.lQU = this.lQR;
         } else {
-            this.lQQ = this.lQO;
+            this.lQU = this.lQS;
         }
     }
 
@@ -334,7 +334,7 @@ public class d implements h, com.facebook.common.a.a {
         synchronized (this.mLock) {
             List<String> a2 = com.facebook.cache.common.c.a(bVar);
             for (int i = 0; i < a2.size(); i++) {
-                if (this.lQR.contains(a2.get(i))) {
+                if (this.lQV.contains(a2.get(i))) {
                     return true;
                 }
             }
@@ -352,8 +352,8 @@ public class d implements h, com.facebook.common.a.a {
                 List<String> a2 = com.facebook.cache.common.c.a(bVar);
                 for (int i = 0; i < a2.size(); i++) {
                     String str = a2.get(i);
-                    if (this.lQV.B(str, bVar)) {
-                        this.lQR.add(str);
+                    if (this.lQZ.B(str, bVar)) {
+                        this.lQV.add(str);
                         return true;
                     }
                 }
@@ -366,16 +366,16 @@ public class d implements h, com.facebook.common.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     @GuardedBy("mLock")
-    public boolean dmJ() {
-        long now = this.lQs.now();
-        if (!this.lQW.isInitialized() || this.lQS == -1 || now - this.lQS > lQM) {
-            return dmK();
+    public boolean dmG() {
+        long now = this.lQw.now();
+        if (!this.lRa.isInitialized() || this.lQW == -1 || now - this.lQW > lQQ) {
+            return dmH();
         }
         return false;
     }
 
     @GuardedBy("mLock")
-    private boolean dmK() {
+    private boolean dmH() {
         Set<String> set;
         int i;
         int i2;
@@ -385,11 +385,11 @@ public class d implements h, com.facebook.common.a.a {
         int i3 = 0;
         int i4 = 0;
         long j2 = -1;
-        long now = this.lQs.now();
-        long j3 = now + lQL;
-        if (this.lQG && this.lQR.isEmpty()) {
-            set = this.lQR;
-        } else if (this.lQG) {
+        long now = this.lQw.now();
+        long j3 = now + lQP;
+        if (this.lQK && this.lQV.isEmpty()) {
+            set = this.lQV;
+        } else if (this.lQK) {
             set = new HashSet();
         } else {
             set = null;
@@ -397,7 +397,7 @@ public class d implements h, com.facebook.common.a.a {
         try {
             long j4 = 0;
             int i5 = 0;
-            for (c.a aVar : this.lQV.dmq()) {
+            for (c.a aVar : this.lQZ.dmn()) {
                 int i6 = i5 + 1;
                 j4 += aVar.getSize();
                 if (aVar.getTimestamp() > j3) {
@@ -408,7 +408,7 @@ public class d implements h, com.facebook.common.a.a {
                     i2 = i7;
                     z = true;
                 } else {
-                    if (this.lQG) {
+                    if (this.lQK) {
                         set.add(aVar.getId());
                     }
                     long j5 = j2;
@@ -424,19 +424,19 @@ public class d implements h, com.facebook.common.a.a {
                 j2 = j;
             }
             if (z2) {
-                this.lQr.a(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, lQm, "Future timestamp found in " + i3 + " files , with a total size of " + i4 + " bytes, and a maximum time delta of " + j2 + "ms", null);
+                this.lQv.a(CacheErrorLogger.CacheErrorCategory.READ_INVALID_ENTRY, lQq, "Future timestamp found in " + i3 + " files , with a total size of " + i4 + " bytes, and a maximum time delta of " + j2 + "ms", null);
             }
-            if (this.lQW.getCount() != i5 || this.lQW.getSize() != j4) {
-                if (this.lQG && this.lQR != set) {
-                    this.lQR.clear();
-                    this.lQR.addAll(set);
+            if (this.lRa.getCount() != i5 || this.lRa.getSize() != j4) {
+                if (this.lQK && this.lQV != set) {
+                    this.lQV.clear();
+                    this.lQV.addAll(set);
                 }
-                this.lQW.G(j4, i5);
+                this.lRa.G(j4, i5);
             }
-            this.lQS = now;
+            this.lQW = now;
             return true;
         } catch (IOException e) {
-            this.lQr.a(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, lQm, "calcFileCacheSize: " + e.getMessage(), e);
+            this.lQv.a(CacheErrorLogger.CacheErrorCategory.GENERIC_IO, lQq, "calcFileCacheSize: " + e.getMessage(), e);
             return false;
         }
     }

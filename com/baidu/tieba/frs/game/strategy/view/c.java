@@ -8,31 +8,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class c {
-    private final List<com.baidu.adp.widget.ListView.a> aMd = new ArrayList();
-    private com.baidu.adp.base.e dvc;
-    private BdTypeListView eOe;
-    private b hlk;
+    private final List<com.baidu.adp.widget.ListView.a> aMj = new ArrayList();
+    private com.baidu.adp.base.e dvg;
+    private BdTypeListView eOj;
+    private b hlq;
 
     public c(com.baidu.adp.base.e eVar, BdTypeListView bdTypeListView) {
-        this.dvc = eVar;
-        this.eOe = bdTypeListView;
-        BC();
+        this.dvg = eVar;
+        this.eOj = bdTypeListView;
+        BB();
     }
 
-    private void BC() {
-        this.hlk = new b((TbPageContext) this.dvc, com.baidu.tieba.frs.game.strategy.data.b.hkr);
-        this.aMd.add(this.hlk);
-        this.eOe.addAdapters(this.aMd);
+    private void BB() {
+        this.hlq = new b((TbPageContext) this.dvg, com.baidu.tieba.frs.game.strategy.data.b.hkx);
+        this.aMj.add(this.hlq);
+        this.eOj.addAdapters(this.aMj);
     }
 
     public void setData(List<m> list) {
-        if (this.eOe != null) {
-            this.eOe.setData(list);
+        if (this.eOj != null) {
+            this.eOj.setData(list);
         }
     }
 
     public void b(v vVar) {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aMd) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
             if (aVar != null) {
                 aVar.a(vVar);
             }
@@ -40,8 +40,8 @@ public class c {
     }
 
     public void notifyDataSetChanged() {
-        if (this.eOe.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            this.eOe.getAdapter().notifyDataSetChanged();
+        if (this.eOj.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            this.eOj.getAdapter().notifyDataSetChanged();
         }
     }
 }

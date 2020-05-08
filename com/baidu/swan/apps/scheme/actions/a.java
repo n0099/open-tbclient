@@ -26,7 +26,7 @@ public class a extends ab {
             if (optJSONObject != null) {
                 Toast.makeText(context, aU(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
             } else {
-                alS();
+                alR();
                 Toast.makeText(context, a.h.swanapp_delete_debug_abtest_config, 1).show();
             }
             return true;
@@ -38,29 +38,29 @@ public class a extends ab {
         if (jSONObject == null) {
             return false;
         }
-        String alT = alT();
-        if (TextUtils.isEmpty(alT)) {
+        String alS = alS();
+        if (TextUtils.isEmpty(alS)) {
             return false;
         }
-        return com.baidu.swan.apps.v.a.j(alT, jSONObject.toString(), false);
+        return com.baidu.swan.apps.v.a.j(alS, jSONObject.toString(), false);
     }
 
-    private void alS() {
-        String alT = alT();
-        if (!TextUtils.isEmpty(alT)) {
-            File file = new File(alT);
+    private void alR() {
+        String alS = alS();
+        if (!TextUtils.isEmpty(alS)) {
+            File file = new File(alS);
             if (file.exists()) {
                 file.delete();
             }
         }
     }
 
-    public static String alT() {
-        File aoR = com.baidu.swan.apps.as.i.aoR();
-        if (aoR == null) {
+    public static String alS() {
+        File aoQ = com.baidu.swan.apps.as.i.aoQ();
+        if (aoQ == null) {
             return null;
         }
-        String path = aoR.getPath();
+        String path = aoQ.getPath();
         if (TextUtils.isEmpty(path)) {
             return null;
         }

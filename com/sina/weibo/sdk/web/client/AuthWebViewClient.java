@@ -12,7 +12,6 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.sapi2.activity.SlideActiviy;
 import com.sina.weibo.sdk.auth.AccessTokenKeeper;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
@@ -52,7 +51,7 @@ public class AuthWebViewClient extends BaseWebViewClient {
         if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
             try {
                 Intent intent = new Intent("android.intent.action.VIEW");
-                intent.putExtra(SlideActiviy.ADDRESS_PAGE_NAME, str.replace(UrlSchemaHelper.SCHEMA_TYPE_SMS, ""));
+                intent.putExtra("address", str.replace(UrlSchemaHelper.SCHEMA_TYPE_SMS, ""));
                 intent.setType("vnd.android-dir/mms-sms");
                 this.context.startActivity(intent);
                 return true;

@@ -1,9 +1,9 @@
 package com.baidu.tieba.k;
 /* loaded from: classes.dex */
 public interface h {
-    void GI(String str);
+    void GL(String str);
 
-    void GJ(String str);
+    void GM(String str);
 
     void be(int i, String str);
 
@@ -13,13 +13,13 @@ public interface h {
 
     void bh(int i, String str);
 
+    void crA();
+
+    void crB();
+
     void crC();
 
-    void crD();
-
-    void crE();
-
-    void crF();
+    void crz();
 
     void l(int i, int i2, String str);
 }

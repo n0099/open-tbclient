@@ -12,7 +12,7 @@ public final class r {
             long availableBlocks = statFs2.getAvailableBlocks() * statFs2.getBlockSize();
             return "Total: " + com.baidu.crabsdk.c.c.Q(blockCount) + " Used: " + com.baidu.crabsdk.c.c.Q(blockCount - availableBlocks) + " Free: " + com.baidu.crabsdk.c.c.Q(availableBlocks);
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("getInternalStorageInfo error!", e);
+            com.baidu.crabsdk.c.a.a("getInternalStorageInfo error!", e);
             return "N/A";
         }
     }

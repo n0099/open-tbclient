@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.os.RemoteException;
 import android.text.TextUtils;
 import com.vivo.vms.IPCInvoke;
 import java.util.HashMap;
@@ -21,17 +20,18 @@ public final class b implements ServiceConnection {
     private boolean c;
     private String d;
     private Context e;
-    private AtomicInteger f;
     private volatile IPCInvoke g;
-    private Object h = new Object();
     private String i;
     private Handler j;
+    private Object h = new Object();
+    private AtomicInteger f = new AtomicInteger(1);
 
     private b(Context context, String str) {
         this.d = null;
         this.j = null;
         this.e = context;
         this.i = str;
+        this.j = new Handler(Looper.getMainLooper(), new c(this));
         this.d = com.vivo.push.util.s.b(context);
         if (TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.i)) {
             com.vivo.push.util.p.c(this.e, "init error : push pkgname is " + this.d + " ; action is " + this.i);
@@ -39,8 +39,6 @@ public final class b implements ServiceConnection {
             return;
         }
         this.c = com.vivo.push.util.z.a(context, this.d) >= 1260;
-        this.f = new AtomicInteger(1);
-        this.j = new Handler(Looper.getMainLooper(), new c(this));
         b();
     }
 
@@ -157,8 +155,7 @@ public final class b implements ServiceConnection {
         }
         try {
             i = this.f.get();
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (Exception e2) {
             com.vivo.push.util.p.a("AidlManager", "invoke error ", e2);
             int i2 = this.f.get();
             com.vivo.push.util.p.d("AidlManager", "Enter disconnect, Connection Status: " + i2);

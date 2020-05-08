@@ -19,29 +19,29 @@ import com.baidu.live.u.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d implements com.baidu.live.challenge.k, k {
-    private final FrameLayout cSf;
-    private String dPW;
-    private j fAh;
-    private c fAi;
-    private f fAj;
-    private b fAk;
-    private h fAl;
-    private a fAm;
-    private e fAn;
-    private com.baidu.live.challenge.j fAo;
-    private l fAp;
+    private final FrameLayout cSk;
+    private String dQb;
+    private j fAm;
+    private c fAn;
+    private f fAo;
+    private b fAp;
+    private h fAq;
+    private a fAr;
+    private e fAs;
+    private com.baidu.live.challenge.j fAt;
+    private l fAu;
     private Context mContext;
     private ViewGroup mParentView;
     private final Handler mHandler = new Handler();
-    private boolean fAq = false;
+    private boolean fAv = false;
 
     public d(Context context) {
         this.mContext = context;
-        this.cSf = new FrameLayout(context);
-        this.cSf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.d.1
+        this.cSk = new FrameLayout(context);
+        this.cSk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.fAo == null || (d.this.fAo.uw() != ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_MATCHING && d.this.fAo.uw() != ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_CHALLENGING)) {
+                if (d.this.fAt == null || (d.this.fAt.uv() != ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_MATCHING && d.this.fAt.uv() != ChallenfeInfoData.ChallengeStatus.CHALLENGE_STAGE_CHALLENGING)) {
                     d.this.removeView();
                 }
             }
@@ -50,42 +50,42 @@ public class d implements com.baidu.live.challenge.k, k {
 
     @Override // com.baidu.live.challenge.k
     public void dK(String str) {
-        this.dPW = str;
+        this.dQb = str;
     }
 
     @Override // com.baidu.live.challenge.k
     public void a(com.baidu.live.challenge.j jVar) {
-        this.fAo = jVar;
+        this.fAt = jVar;
     }
 
     @Override // com.baidu.live.challenge.k
     public void b(ViewGroup viewGroup, boolean z) {
-        if (viewGroup != null && this.cSf.getParent() == null) {
+        if (viewGroup != null && this.cSk.getParent() == null) {
             this.mParentView = viewGroup;
             if (z) {
-                us();
+                ur();
                 return;
             }
-            bui();
-            bup();
+            bug();
+            bun();
         }
     }
 
-    private void bui() {
-        if (this.cSf.getLayoutParams() == null) {
-            this.mParentView.addView(this.cSf, new ViewGroup.LayoutParams(-1, -1));
+    private void bug() {
+        if (this.cSk.getLayoutParams() == null) {
+            this.mParentView.addView(this.cSk, new ViewGroup.LayoutParams(-1, -1));
         } else {
-            this.mParentView.addView(this.cSf);
+            this.mParentView.addView(this.cSk);
         }
     }
 
     @Override // com.baidu.live.challenge.k, com.baidu.tieba.ala.liveroom.challenge.panel.k
     public void removeView() {
-        if (!this.fAq) {
-            this.fAq = true;
-            if (this.fAn != null) {
-                this.fAn.buq();
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0128a.sdk_push_up_out);
+        if (!this.fAv) {
+            this.fAv = true;
+            if (this.fAs != null) {
+                this.fAs.buo();
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.mContext, a.C0149a.sdk_push_up_out);
                 loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.d.2
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
@@ -96,7 +96,7 @@ public class d implements com.baidu.live.challenge.k, k {
                         d.this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.d.2.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                d.this.buj();
+                                d.this.buh();
                             }
                         });
                     }
@@ -105,59 +105,59 @@ public class d implements com.baidu.live.challenge.k, k {
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-                this.fAn.b(loadAnimation);
+                this.fAs.b(loadAnimation);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buj() {
-        this.fAq = false;
-        if (this.fAn != null) {
-            this.fAn.hide();
+    public void buh() {
+        this.fAv = false;
+        if (this.fAs != null) {
+            this.fAs.hide();
         }
-        if (this.cSf.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.cSf.getParent()).removeView(this.cSf);
+        if (this.cSk.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.cSk.getParent()).removeView(this.cSk);
         }
         this.mParentView = null;
-        this.fAn = null;
-        if (this.fAp != null) {
-            this.fAp.uF();
+        this.fAs = null;
+        if (this.fAu != null) {
+            this.fAu.uE();
         }
     }
 
-    public void us() {
-        if (this.fAo != null) {
-            this.fAo.us();
+    public void ur() {
+        if (this.fAt != null) {
+            this.fAt.ur();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
     public void dB(long j) {
-        if (this.fAo != null) {
-            this.fAo.U(j);
+        if (this.fAt != null) {
+            this.fAt.U(j);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
-    public void buk() {
+    public void bui() {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(this.mContext, a.i.sdk_network_not_available);
             return;
         }
-        if (this.fAj == null) {
-            this.fAj = new f(this.mContext, this);
+        if (this.fAo == null) {
+            this.fAo = new f(this.mContext, this);
         }
-        a(this.fAj);
-        if (this.fAo != null) {
-            this.fAo.uu();
+        a(this.fAo);
+        if (this.fAt != null) {
+            this.fAt.ut();
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
-    public void bul() {
-        if (this.fAo != null) {
-            this.fAo.uv();
+    public void buj() {
+        if (this.fAt != null) {
+            this.fAt.uu();
         }
     }
 
@@ -165,95 +165,95 @@ public class d implements com.baidu.live.challenge.k, k {
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
             BdUtilHelper.showToast(this.mContext, a.i.sdk_network_not_available);
         } else if (dVar != null) {
-            if (this.fAk == null) {
-                this.fAk = new b(this.mContext, this);
+            if (this.fAp == null) {
+                this.fAp = new b(this.mContext, this);
             }
-            this.fAk.b(dVar);
-            a(this.fAk);
-            if (this.fAo != null) {
-                this.fAo.S(dVar.userId);
+            this.fAp.b(dVar);
+            a(this.fAp);
+            if (this.fAt != null) {
+                this.fAt.S(dVar.userId);
             }
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
     public void R(long j) {
-        if (this.fAo != null) {
-            this.fAo.R(j);
+        if (this.fAt != null) {
+            this.fAt.R(j);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
     public void dC(long j) {
-        if (this.fAo != null) {
-            this.fAo.T(j);
+        if (this.fAt != null) {
+            this.fAt.T(j);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
     public void bt(int i, int i2) {
-        if (this.fAo != null) {
-            this.fAo.r(i, i2);
+        if (this.fAt != null) {
+            this.fAt.r(i, i2);
         }
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
     public void i(int i, int i2, String str) {
-        if (this.fAo != null) {
-            this.fAo.e(i, i2, str);
+        if (this.fAt != null) {
+            this.fAt.e(i, i2, str);
         }
+    }
+
+    @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
+    public void buk() {
+        if (this.fAq == null) {
+            this.fAq = new h(this.mContext, this);
+        }
+        bt(1, 30);
+        a(this.fAq);
+    }
+
+    @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
+    public void bul() {
+        if (this.fAn == null) {
+            this.fAn = new c(this.mContext, this, this.dQb);
+        }
+        this.fAt.us();
+        a(this.fAn);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
     public void bum() {
-        if (this.fAl == null) {
-            this.fAl = new h(this.mContext, this);
-        }
-        bt(1, 30);
-        a(this.fAl);
-    }
-
-    @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
-    public void bun() {
-        if (this.fAi == null) {
-            this.fAi = new c(this.mContext, this, this.dPW);
-        }
-        this.fAo.ut();
-        a(this.fAi);
-    }
-
-    @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
-    public void buo() {
-        if (this.fAp != null) {
-            this.fAp.uC();
+        if (this.fAu != null) {
+            this.fAu.uB();
         }
     }
 
-    private void bup() {
-        if (this.fAh == null) {
-            this.fAh = new j(this.mContext, this);
+    private void bun() {
+        if (this.fAm == null) {
+            this.fAm = new j(this.mContext, this);
         }
-        a(this.fAh);
+        a(this.fAm);
     }
 
     private void a(e eVar) {
         if (eVar != null) {
-            this.cSf.removeAllViews();
-            if (this.fAn != null) {
-                this.fAn.hide();
+            this.cSk.removeAllViews();
+            if (this.fAs != null) {
+                this.fAs.hide();
             }
-            eVar.b(this.cSf, this.fAn == null ? 0 : this.fAn.bue());
-            this.fAn = eVar;
+            eVar.b(this.cSk, this.fAs == null ? 0 : this.fAs.buc());
+            this.fAs = eVar;
         }
     }
 
-    @Override // com.baidu.live.challenge.j.InterfaceC0105j
-    public void uB() {
-        bui();
-        bun();
+    @Override // com.baidu.live.challenge.j.InterfaceC0126j
+    public void uA() {
+        bug();
+        bul();
     }
 
-    @Override // com.baidu.live.challenge.j.InterfaceC0105j
+    @Override // com.baidu.live.challenge.j.InterfaceC0126j
     public void l(int i, String str) {
         if (!TextUtils.isEmpty(str)) {
             BdUtilHelper.showToast(this.mContext, str);
@@ -262,18 +262,18 @@ public class d implements com.baidu.live.challenge.k, k {
 
     @Override // com.baidu.live.challenge.j.i
     public void a(boolean z, String str, com.baidu.live.challenge.a aVar) {
-        if (this.fAj != null && (!StringUtils.isNull(str) || (z && aVar != null))) {
-            this.fAj.f(aVar);
+        if (this.fAo != null && (!StringUtils.isNull(str) || (z && aVar != null))) {
+            this.fAo.f(aVar);
         }
-        if (z && aVar != null && this.fAp != null) {
-            this.fAp.a(aVar);
+        if (z && aVar != null && this.fAu != null) {
+            this.fAu.a(aVar);
         }
     }
 
     @Override // com.baidu.live.challenge.j.i
     public void k(int i, String str) {
         if (i == 1492002) {
-            bul();
+            buj();
             if (!TextUtils.isEmpty(str)) {
                 BdUtilHelper.showToast(this.mContext, str);
             }
@@ -282,13 +282,13 @@ public class d implements com.baidu.live.challenge.k, k {
 
     @Override // com.baidu.live.challenge.j.i
     public void c(int i, String str, com.baidu.live.challenge.a aVar) {
-        if (i == 1 && aVar != null && this.fAj != null) {
-            this.fAj.f(aVar);
-            if (this.fAp != null) {
-                this.fAp.a(aVar);
+        if (i == 1 && aVar != null && this.fAo != null) {
+            this.fAo.f(aVar);
+            if (this.fAu != null) {
+                this.fAu.a(aVar);
             }
         } else if (i == 0) {
-            bun();
+            bul();
         } else if (!StringUtils.isNull(str)) {
             BdUtilHelper.showToast(this.mContext, str);
         } else {
@@ -299,11 +299,11 @@ public class d implements com.baidu.live.challenge.k, k {
     @Override // com.baidu.live.challenge.j.d
     public void a(int i, String str, com.baidu.live.challenge.a aVar) {
         if (aVar != null) {
-            if (this.fAk != null) {
-                this.fAk.e(aVar);
-            }
             if (this.fAp != null) {
-                this.fAp.a(aVar);
+                this.fAp.e(aVar);
+            }
+            if (this.fAu != null) {
+                this.fAu.a(aVar);
             }
         }
     }
@@ -314,8 +314,8 @@ public class d implements com.baidu.live.challenge.k, k {
             if (!TextUtils.isEmpty(str)) {
                 BdUtilHelper.showToast(this.mContext, str);
             }
-            if (this.fAn instanceof b) {
-                ((b) this.fAn).buf();
+            if (this.fAs instanceof b) {
+                ((b) this.fAs).bud();
             }
         }
     }
@@ -323,14 +323,14 @@ public class d implements com.baidu.live.challenge.k, k {
     @Override // com.baidu.live.challenge.j.d
     public void b(int i, String str, com.baidu.live.challenge.a aVar) {
         if (i == 101) {
-            if (this.fAk != null) {
-                this.fAk.e(aVar);
-            }
             if (this.fAp != null) {
-                this.fAp.a(aVar);
+                this.fAp.e(aVar);
+            }
+            if (this.fAu != null) {
+                this.fAu.a(aVar);
             }
         } else if (i == 100) {
-            bun();
+            bul();
         } else if (i == 102) {
             if (!StringUtils.isNull(str)) {
                 BdUtilHelper.showToast(this.mContext, str);
@@ -345,16 +345,16 @@ public class d implements com.baidu.live.challenge.k, k {
         if (aVar == null) {
             BdUtilHelper.showToast(this.mContext, this.mContext.getString(a.i.ala_challenge_panel_random_fail_title));
         } else if (z) {
-            if (this.fAm == null) {
-                this.fAm = new a(this.mContext, this);
+            if (this.fAr == null) {
+                this.fAr = new a(this.mContext, this);
             }
-            this.fAm.d(aVar);
-            a(this.fAm);
-            if (this.fAp != null) {
-                this.fAp.a(aVar);
+            this.fAr.d(aVar);
+            a(this.fAr);
+            if (this.fAu != null) {
+                this.fAu.a(aVar);
             }
-        } else if (!StringUtils.isNull(aVar.apd)) {
-            BdUtilHelper.showToast(this.mContext, aVar.apd);
+        } else if (!StringUtils.isNull(aVar.apj)) {
+            BdUtilHelper.showToast(this.mContext, aVar.apj);
         } else {
             BdUtilHelper.showToast(this.mContext, this.mContext.getString(a.i.ala_challenge_panel_random_fail_title));
         }
@@ -372,13 +372,13 @@ public class d implements com.baidu.live.challenge.k, k {
     @Override // com.baidu.live.challenge.j.g
     public void a(com.baidu.live.challenge.d dVar) {
         if (dVar != null) {
-            if (dVar.apm) {
+            if (dVar.apt) {
                 d(dVar);
                 return;
             }
             BdUtilHelper.showToast(this.mContext, this.mContext.getString(a.i.ala_challenge_panel_host_challenging));
-            if (this.fAl != null) {
-                this.fAl.f(dVar);
+            if (this.fAq != null) {
+                this.fAq.f(dVar);
             }
         }
     }
@@ -390,17 +390,17 @@ public class d implements com.baidu.live.challenge.k, k {
         } else {
             BdUtilHelper.showToast(this.mContext, this.mContext.getString(a.i.ala_challenge_panel_request_fail));
         }
-        if (this.fAl != null) {
-            this.fAl.buu();
+        if (this.fAq != null) {
+            this.fAq.bus();
         }
     }
 
     @Override // com.baidu.live.challenge.j.f
     public void p(List<com.baidu.live.challenge.d> list) {
-        if (this.fAi == null) {
-            this.fAi = new c(this.mContext, this, this.dPW);
+        if (this.fAn == null) {
+            this.fAn = new c(this.mContext, this, this.dQb);
         }
-        this.fAi.bL(list);
+        this.fAn.bL(list);
     }
 
     @Override // com.baidu.live.challenge.j.f
@@ -414,24 +414,24 @@ public class d implements com.baidu.live.challenge.k, k {
 
     @Override // com.baidu.live.challenge.j.h
     public void a(com.baidu.live.challenge.b bVar, List<com.baidu.live.challenge.d> list) {
-        if (this.fAl != null) {
-            this.fAl.b(bVar, list);
+        if (this.fAq != null) {
+            this.fAq.b(bVar, list);
         }
     }
 
     @Override // com.baidu.live.challenge.j.h
     public void j(int i, String str) {
-        if (this.fAl != null) {
-            this.fAl.aJ(i, str);
+        if (this.fAq != null) {
+            this.fAq.aJ(i, str);
         }
     }
 
     @Override // com.baidu.live.challenge.j.c
     public void b(ag agVar, ah ahVar, ah ahVar2) {
-        if (this.cSf.getParent() != null) {
+        if (this.cSk.getParent() != null) {
             removeView();
-            if (this.fAp != null) {
-                this.fAp.uD();
+            if (this.fAu != null) {
+                this.fAu.uC();
             }
         }
     }
@@ -450,40 +450,40 @@ public class d implements com.baidu.live.challenge.k, k {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
-    public void uE() {
-        if (this.fAp != null) {
-            this.fAp.uE();
+    public void uD() {
+        if (this.fAu != null) {
+            this.fAu.uD();
         }
     }
 
     @Override // com.baidu.live.challenge.k
     public void bw(int i) {
-        if (this.fAh == null) {
-            this.fAh = new j(this.mContext, this);
+        if (this.fAm == null) {
+            this.fAm = new j(this.mContext, this);
         }
-        this.fAh.bw(i);
+        this.fAm.bw(i);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.k
     public void by(int i) {
-        this.fAo.by(i);
+        this.fAt.by(i);
     }
 
     @Override // com.baidu.live.challenge.k
     public void a(l lVar) {
-        this.fAp = lVar;
+        this.fAu = lVar;
     }
 
     @Override // com.baidu.live.challenge.k
     public boolean onBackKeyDown() {
-        if (this.fAn == null) {
+        if (this.fAs == null) {
             return false;
         }
-        return this.fAn.onBackKeyDown();
+        return this.fAs.onBackKeyDown();
     }
 
     @Override // com.baidu.live.challenge.k
     public boolean isActive() {
-        return this.cSf.getParent() != null;
+        return this.cSk.getParent() != null;
     }
 }

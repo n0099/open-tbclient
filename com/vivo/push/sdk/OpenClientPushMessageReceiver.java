@@ -53,7 +53,7 @@ public abstract class OpenClientPushMessageReceiver extends BasePushMessageRecei
     }
 
     @Override // com.vivo.push.sdk.BasePushMessageReceiver, com.vivo.push.sdk.PushMessageCallback
-    public final void onTransmissionMessage(Context context, UnvarnishedMessage unvarnishedMessage) {
+    public void onTransmissionMessage(Context context, UnvarnishedMessage unvarnishedMessage) {
     }
 
     @Override // com.vivo.push.sdk.PushMessageCallback

@@ -7,7 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.sapi2.activity.social.HuaweiLoginActivity;
+import com.baidu.sapi2.activity.social.FacebookSSOLoginActivity;
 import com.baidu.sapi2.activity.social.HuaweiSSOLoginActivity;
 import com.baidu.sapi2.activity.social.MeizuSSOLoginActivity;
 import com.baidu.sapi2.activity.social.QQSSOLoginActivity;
@@ -15,7 +15,6 @@ import com.baidu.sapi2.activity.social.SinaSSOLoginActivity;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.share.face.FaceLoginService;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -35,7 +34,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     public List<HttpCookie> getCookies(Context context, SapiConfiguration sapiConfiguration) {
         ArrayList arrayList = new ArrayList();
         if (Build.VERSION.SDK_INT >= 9) {
-            String deviceInfo = SapiContext.getInstance(context).getDeviceInfo();
+            String deviceInfo = SapiContext.getInstance().getDeviceInfo();
             HttpCookie httpCookie = new HttpCookie("cuid", SapiUtils.getClientId(sapiConfiguration.context));
             if (deviceInfo == null) {
                 deviceInfo = "";
@@ -64,44 +63,8 @@ public class ThirdPartyService implements AbstractThirdPartyService {
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
-    public void loadHuaweiLogin(Context context, WebAuthListener webAuthListener, String str, String str2) {
-        Intent intent = new Intent(context, HuaweiLoginActivity.class);
-        intent.putExtra("access_token", str2);
-        intent.putExtra("uid", str);
-        intent.setFlags(268435456);
-        context.startActivity(intent);
-    }
-
-    @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i) {
-        Intent intent;
-        if (System.currentTimeMillis() - this.lastInvokeTime >= MIN_INVOKE_INTER_TIME) {
-            this.lastInvokeTime = System.currentTimeMillis();
-            SapiStatUtil.statThirdLoginEnter(socialType);
-            boolean z = context instanceof Activity;
-            if (socialType == SocialType.SINA_WEIBO_SSO) {
-                intent = new Intent(context, SinaSSOLoginActivity.class);
-            } else if (socialType == SocialType.HUAWEI) {
-                intent = new Intent(context, HuaweiSSOLoginActivity.class);
-            } else if (socialType == SocialType.WEIXIN) {
-                intent = new Intent(context, WXLoginActivity.class);
-            } else if (socialType == SocialType.QQ_SSO) {
-                intent = new Intent(context, QQSSOLoginActivity.class);
-            } else if (socialType == SocialType.MEIZU) {
-                intent = new Intent(context, MeizuSSOLoginActivity.class);
-            } else {
-                throw new IllegalArgumentException(socialType.getName() + " type login not support");
-            }
-            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
-            if (!z) {
-                intent.setFlags(268435456);
-                context.startActivity(intent);
-            } else if (socialType == SocialType.WEIXIN) {
-                context.startActivity(intent);
-            } else {
-                ((Activity) context).startActivityForResult(intent, 2001);
-            }
-        }
+        loadThirdPartyLogin(context, socialType, i, null);
     }
 
     public SapiAccount sapiAccountResponseToAccount(Context context, SapiAccountResponse sapiAccountResponse) {
@@ -117,7 +80,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
         sapiAccount.app = TextUtils.isEmpty(sapiAccountResponse.app) ? SapiUtils.getAppName(context) : sapiAccountResponse.app;
         sapiAccount.extra = sapiAccountResponse.extra;
         if (SocialType.UNKNOWN != sapiAccountResponse.socialType) {
-            SapiContext.getInstance(sapiConfiguration.context).put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
+            SapiContext.getInstance().put(SapiContext.KEY_PRE_LOGIN_TYPE, sapiAccountResponse.socialType.getName());
             sapiAccount.addSocialInfo(sapiAccountResponse.socialType, sapiAccountResponse.socialPortraitUrl);
             sapiAccount.putExtra("account_type", Integer.valueOf(sapiAccountResponse.accountType.getType()));
         }
@@ -125,7 +88,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
         if (!sapiAccountResponse.tplStokenMap.isEmpty()) {
             sapiAccount.addDispersionCertification(sapiAccountResponse.tplStokenMap);
         }
-        SapiContext.getInstance(sapiConfiguration.context).setAccountActionType(sapiAccountResponse.actionType);
+        SapiContext.getInstance().setAccountActionType(sapiAccountResponse.actionType);
         sapiAccount.addIsGuestAccount(sapiAccountResponse.isGuestAccount);
         if (!TextUtils.isEmpty(sapiAccountResponse.livingUname)) {
             new FaceLoginService().syncFaceLoginUID(context, sapiAccountResponse.livingUname);
@@ -140,6 +103,41 @@ public class ThirdPartyService implements AbstractThirdPartyService {
             intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
             intent.putExtra(AccountCenterActivity.EXTRA_WEIIXIN_BIND_URL, str);
             activity.startActivity(intent);
+        }
+    }
+
+    @Override // com.baidu.sapi2.service.AbstractThirdPartyService
+    public void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str) {
+        Intent intent;
+        if (System.currentTimeMillis() - this.lastInvokeTime >= MIN_INVOKE_INTER_TIME) {
+            this.lastInvokeTime = System.currentTimeMillis();
+            SapiStatUtil.statThirdLoginEnter(socialType);
+            boolean z = context instanceof Activity;
+            if (socialType == SocialType.SINA_WEIBO_SSO) {
+                intent = new Intent(context, SinaSSOLoginActivity.class);
+            } else if (socialType == SocialType.HUAWEI) {
+                intent = new Intent(context, HuaweiSSOLoginActivity.class);
+            } else if (socialType == SocialType.WEIXIN) {
+                intent = new Intent(context, WXLoginActivity.class);
+            } else if (socialType == SocialType.QQ_SSO) {
+                intent = new Intent(context, QQSSOLoginActivity.class);
+            } else if (socialType == SocialType.MEIZU) {
+                intent = new Intent(context, MeizuSSOLoginActivity.class);
+            } else if (socialType == SocialType.FACEBOOK) {
+                intent = new Intent(context, FacebookSSOLoginActivity.class);
+            } else {
+                throw new IllegalArgumentException(socialType.getName() + " type login not support");
+            }
+            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
+            if (!TextUtils.isEmpty(str)) {
+                intent.putExtra("extraJson", str);
+            }
+            if (!z) {
+                intent.setFlags(268435456);
+                context.startActivity(intent);
+                return;
+            }
+            ((Activity) context).startActivityForResult(intent, 2001);
         }
     }
 }

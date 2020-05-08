@@ -46,7 +46,7 @@ public class c extends ab {
                 com.baidu.swan.apps.console.c.e("stopMediaVolumeListen", "id is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (!d.anT().nE(optString)) {
+            } else if (!d.anS().nE(optString)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {

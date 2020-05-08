@@ -6,56 +6,56 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0607a joP;
+    private InterfaceC0628a joT;
     private int count = 0;
-    private long joN = 0;
-    private long joO = 0;
-    private long joQ = 500;
+    private long joR = 0;
+    private long joS = 0;
+    private long joU = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.joN = 0L;
-                a.this.joO = 0L;
+                a.this.joR = 0L;
+                a.this.joS = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.joP != null) {
-                    a.this.joP.cwo();
+                if (a.this.joT != null) {
+                    a.this.joT.cwl();
                 }
                 a.this.count = 0;
-                a.this.joN = 0L;
-                a.this.joO = 0L;
+                a.this.joR = 0L;
+                a.this.joS = 0L;
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0607a {
-        void cwn();
+    public interface InterfaceC0628a {
+        void cwk();
 
-        void cwo();
+        void cwl();
     }
 
-    public a(InterfaceC0607a interfaceC0607a) {
-        this.joP = interfaceC0607a;
+    public a(InterfaceC0628a interfaceC0628a) {
+        this.joT = interfaceC0628a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.joP == null) {
+            if (this.joT == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.joN = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.joQ);
+                this.joR = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.joU);
                 return true;
             } else if (this.count == 2) {
-                this.joO = System.currentTimeMillis();
-                if (this.joO - this.joN < this.joQ) {
-                    this.joP.cwn();
+                this.joS = System.currentTimeMillis();
+                if (this.joS - this.joR < this.joU) {
+                    this.joT.cwk();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

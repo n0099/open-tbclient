@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
-import com.baidu.android.common.security.Base64;
+import com.baidu.pass.common.SecurityUtil;
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -39,7 +39,7 @@ public class SapiDataEncryptor implements com.baidu.sapi2.c {
             return null;
         }
         try {
-            return new String(Base64.decode(new AES().decrypt(Base64.decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
+            return new String(SecurityUtil.base64Decode(new AES().decrypt(SecurityUtil.base64Decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
         } catch (Throwable th) {
             Log.e(Log.TAG, th.toString());
             return "";
@@ -51,7 +51,7 @@ public class SapiDataEncryptor implements com.baidu.sapi2.c {
             return null;
         }
         try {
-            return Base64.encode(new AES().encrypt(Base64.encode(str.getBytes(), "UTF-8"), new StringBuffer(str2).reverse().toString(), str2), "UTF-8");
+            return SecurityUtil.base64Encode(new AES().encrypt(SecurityUtil.base64Encode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2));
         } catch (Throwable th) {
             Log.e(Log.TAG, th.toString());
             return "";
@@ -69,7 +69,7 @@ public class SapiDataEncryptor implements com.baidu.sapi2.c {
     }
 
     public String decrypt(String str) throws Exception {
-        return new String(this.c.decrypt(Base64.decode(str.getBytes()), new StringBuffer(this.b).reverse().toString(), this.b), "UTF-8");
+        return new String(this.c.decrypt(SecurityUtil.base64Decode(str.getBytes()), new StringBuffer(this.b).reverse().toString(), this.b), "UTF-8");
     }
 
     public String encrypt(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
@@ -85,20 +85,20 @@ public class SapiDataEncryptor implements com.baidu.sapi2.c {
             }
             for (int i = 0; i < length; i++) {
                 if (1 == length) {
-                    jSONArray.put(Base64.encode(a(publicKey, bytes), "UTF-8"));
+                    jSONArray.put(SecurityUtil.base64Encode(a(publicKey, bytes)));
                 } else if (i != length - 1) {
                     byte[] bArr = new byte[116];
                     System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                    jSONArray.put(Base64.encode(a(publicKey, bArr), "UTF-8"));
+                    jSONArray.put(SecurityUtil.base64Encode(a(publicKey, bArr)));
                 } else {
                     int i2 = i * 116;
                     int length2 = bytes.length - i2;
                     byte[] bArr2 = new byte[length2];
                     System.arraycopy(bytes, i2, bArr2, 0, length2);
-                    jSONArray.put(Base64.encode(a(publicKey, bArr2), "UTF-8"));
+                    jSONArray.put(SecurityUtil.base64Encode(a(publicKey, bArr2)));
                 }
             }
-            return Base64.encode(jSONArray.toString().getBytes("UTF-8"), "UTF-8");
+            return SecurityUtil.base64Encode(jSONArray.toString().getBytes("UTF-8"));
         }
         return null;
     }
@@ -122,7 +122,7 @@ public class SapiDataEncryptor implements com.baidu.sapi2.c {
         }
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (byte b : bArr) {
-            sb.append("0123456789ABCDEF".charAt((b >> 4) & 15)).append("0123456789ABCDEF".charAt(b & 15));
+            sb.append(a.charAt((b >> 4) & 15)).append(a.charAt(b & 15));
         }
         return sb.toString();
     }

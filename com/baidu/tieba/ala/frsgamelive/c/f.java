@@ -7,24 +7,24 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private TbPageContext fie;
-    private d fif;
+    private TbPageContext fij;
+    private d fik;
 
     public f(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.fie = tbPageContext;
+        this.fij = tbPageContext;
         initView();
     }
 
     private void initView() {
-        this.fif = new d(this.fie);
-        ((ViewGroup) getView()).addView(this.fif.getView());
+        this.fik = new d(this.fij);
+        ((ViewGroup) getView()).addView(this.fik.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.fif != null) {
-            this.fif.onChangeSkinType(tbPageContext, i);
+        if (this.fik != null) {
+            this.fik.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -36,8 +36,8 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.dqA != null && this.fif != null) {
-            this.fif.a(cVar.dqA);
+        if (cVar != null && cVar.dqE != null && this.fik != null) {
+            this.fik.a(cVar.dqE);
         }
     }
 
@@ -46,18 +46,18 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     public void c(com.baidu.tieba.ala.d dVar) {
-        if (this.fif != null) {
-            this.fif.d(dVar);
+        if (this.fik != null) {
+            this.fik.d(dVar);
         }
     }
 
     /* loaded from: classes3.dex */
     public static class a extends y.a {
-        public f fig;
+        public f fil;
 
         public a(f fVar) {
             super(fVar.getView());
-            this.fig = fVar;
+            this.fil = fVar;
         }
     }
 }

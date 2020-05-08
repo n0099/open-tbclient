@@ -20,59 +20,59 @@ import com.baidu.tieba.square.square.SquareModel;
 /* loaded from: classes10.dex */
 public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c {
     public static boolean needRefresh = false;
-    private TbPageContext<Object> duG;
+    private TbPageContext<Object> duK;
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private j kNX = null;
-    private SquareModel kNY = null;
-    private boolean kNZ = false;
-    private boolean kOa = false;
-    private long gAV = -1;
-    private final SquareModel.a kOb = new SquareModel.a() { // from class: com.baidu.tieba.square.square.f.2
+    private j kOb = null;
+    private SquareModel kOc = null;
+    private boolean kOd = false;
+    private boolean kOe = false;
+    private long gBb = -1;
+    private final SquareModel.a kOf = new SquareModel.a() { // from class: com.baidu.tieba.square.square.f.2
         @Override // com.baidu.tieba.square.square.SquareModel.a
         public void a(boolean z, String str, h hVar) {
-            f.this.kNX.z(true, "");
-            f.this.hideLoadingView(f.this.kNX.getRootView());
+            f.this.kOb.z(true, "");
+            f.this.hideLoadingView(f.this.kOb.getRootView());
             if (z && hVar != null && !hVar.isEmpty()) {
-                f.this.kNX.c(f.this.kNY.cVj());
-                f.this.kNZ = true;
-                f.this.kNX.hideNoDataView();
-                f.this.bLc();
+                f.this.kOb.c(f.this.kOc.cVg());
+                f.this.kOd = true;
+                f.this.kOb.hideNoDataView();
+                f.this.bLa();
             }
-            if (f.this.kOa) {
-                f.this.kOa = false;
+            if (f.this.kOe) {
+                f.this.kOe = false;
                 f.this.tO(true);
-                if (!f.this.kNZ) {
-                    f.this.kNX.hideNoDataView();
-                    f.this.showLoadingView(f.this.kNX.getRootView());
+                if (!f.this.kOd) {
+                    f.this.kOb.hideNoDataView();
+                    f.this.showLoadingView(f.this.kOb.getRootView());
                 }
             } else {
-                if (f.this.gAV > -1) {
+                if (f.this.gBb > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    TiebaStatic.page(TiebaInitialize.OpKey.OP_SQUARE_ENTER, currentTimeMillis - f.this.gAV, f.this.kNY.bIY() - f.this.gAV, f.this.kNY.bIW(), f.this.kNY.bIX(), currentTimeMillis - f.this.kNY.bIV());
-                    f.this.gAV = -1L;
+                    TiebaStatic.page(TiebaInitialize.OpKey.OP_SQUARE_ENTER, currentTimeMillis - f.this.gBb, f.this.kOc.bIW() - f.this.gBb, f.this.kOc.bIU(), f.this.kOc.bIV(), currentTimeMillis - f.this.kOc.bIT());
+                    f.this.gBb = -1L;
                 }
-                if (!f.this.kNZ) {
+                if (!f.this.kOd) {
                     if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                        f.this.kNX.wU(R.string.no_data_text);
+                        f.this.kOb.wU(R.string.no_data_text);
                     } else {
-                        f.this.kNX.wU(R.string.game_index_no_network_text);
+                        f.this.kOb.wU(R.string.game_index_no_network_text);
                     }
                 }
             }
             if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                f.this.kNX.cVm();
-                if (!f.this.kNZ) {
-                    f.this.bLb();
+                f.this.kOb.cVj();
+                if (!f.this.kOd) {
+                    f.this.bKZ();
                     return;
                 }
                 return;
             }
-            f.this.duG.showToast(str);
-            f.this.kNX.cVn();
+            f.this.duK.showToast(str);
+            f.this.kOb.cVk();
         }
     };
-    private final NoNetworkView.a gGl = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.f.3
+    private final NoNetworkView.a gGr = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.f.3
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
             if (z) {
@@ -80,7 +80,7 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
             }
         }
     };
-    private final View.OnKeyListener kOc = new View.OnKeyListener() { // from class: com.baidu.tieba.square.square.f.4
+    private final View.OnKeyListener kOg = new View.OnKeyListener() { // from class: com.baidu.tieba.square.square.f.4
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (view instanceof ListView) {
@@ -104,7 +104,7 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
             return false;
         }
     };
-    private final g.c dHd = new g.c() { // from class: com.baidu.tieba.square.square.f.5
+    private final g.c dHh = new g.c() { // from class: com.baidu.tieba.square.square.f.5
         @Override // com.baidu.tbadk.core.view.g.c
         public void onListPullRefresh(boolean z) {
             f.this.tO(true);
@@ -115,8 +115,8 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.duG = getPageContext();
-        this.gAV = System.currentTimeMillis();
+        this.duK = getPageContext();
+        this.gBb = System.currentTimeMillis();
         this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.square_view, (ViewGroup) null);
         getPageContext().getPageActivity().setContentView(this.mRootView);
         initUI();
@@ -124,33 +124,33 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
     }
 
     private void initUI() {
-        this.kNX = new j(getPageContext(), this.mRootView, this.kOc);
-        this.kNX.setListPullRefreshListener(this.dHd);
-        this.mNavigationBar = (NavigationBar) this.duG.getPageActivity().findViewById(R.id.view_navigation_bar);
+        this.kOb = new j(getPageContext(), this.mRootView, this.kOg);
+        this.kOb.setListPullRefreshListener(this.dHh);
+        this.mNavigationBar = (NavigationBar) this.duK.getPageActivity().findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.square.square.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 f.this.closeActivity();
             }
         });
-        this.mNavigationBar.setTitleText(this.duG.getString(R.string.ba_square));
+        this.mNavigationBar.setTitleText(this.duK.getString(R.string.ba_square));
     }
 
     private void initData() {
-        this.kNY = new SquareModel(getPageContext());
-        this.kNY.a(this.kOb);
-        this.kOa = true;
-        tO(this.kOa);
+        this.kOc = new SquareModel(getPageContext());
+        this.kOc.a(this.kOf);
+        this.kOe = true;
+        tO(this.kOe);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLb() {
-        this.kNX.c(this.gGl);
+    public void bKZ() {
+        this.kOb.c(this.gGr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bLc() {
-        this.kNX.d(this.gGl);
+    public void bLa() {
+        this.kOb.d(this.gGr);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -171,15 +171,15 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kNX != null) {
-            this.kNX.onChangeSkinType(i);
+        if (this.kOb != null) {
+            this.kOb.onChangeSkinType(i);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
     }
 
     private void cancelAllAsyncTask() {
-        if (this.kNY != null) {
-            this.kNY.cancelLoadData();
+        if (this.kOc != null) {
+            this.kOc.cancelLoadData();
         }
     }
 
@@ -188,19 +188,19 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
         boolean z2;
         boolean z3;
         boolean z4 = false;
-        if (this.kNY != null) {
-            boolean z5 = this.kNY.cVj() == null || this.kNY.cVj().isEmpty();
+        if (this.kOc != null) {
+            boolean z5 = this.kOc.cVg() == null || this.kOc.cVg().isEmpty();
             boolean z6 = z;
             if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                 boolean z7 = z5;
                 z2 = z6;
                 z3 = z7;
             } else {
-                this.kOa = false;
+                this.kOe = false;
                 z3 = true;
                 z2 = false;
             }
-            if (this.kOa) {
+            if (this.kOe) {
                 z3 = true;
             } else {
                 z4 = z2;
@@ -208,9 +208,9 @@ public class f extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c
             if (z3 || z4) {
                 cancelAllAsyncTask();
                 if (z4) {
-                    this.kNY.cVk();
+                    this.kOc.cVh();
                 } else {
-                    this.kNY.cVl();
+                    this.kOc.cVi();
                 }
             }
         }

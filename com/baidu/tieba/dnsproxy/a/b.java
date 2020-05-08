@@ -7,10 +7,10 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class b {
     String address;
-    float gwI;
+    float gwO;
     private List<Integer> data = new ArrayList();
-    boolean gwJ = false;
-    boolean gwK = false;
+    boolean gwP = false;
+    boolean gwQ = false;
 
     public static final b a(DnsIpData dnsIpData) {
         if (dnsIpData == null) {
@@ -53,9 +53,9 @@ public class b {
         float f2 = 0.0f;
         int size = this.data.size();
         if (size <= 0) {
-            this.gwI = 0.0f;
+            this.gwO = 0.0f;
         } else if (size == 1) {
-            this.gwI = this.data.get(0).intValue();
+            this.gwO = this.data.get(0).intValue();
         } else {
             Iterator<Integer> it = this.data.iterator();
             float f3 = 1.0f;
@@ -70,15 +70,15 @@ public class b {
                 f3 *= 0.5f;
                 f2 = (intValue * f3) + f;
             }
-            this.gwI = ((i * f3) / size) + f;
-            if (this.gwI < 0.05d) {
-                if (!this.gwJ) {
-                    com.baidu.tieba.dnsproxy.d.bGE().ai("ip_weight_lower", this.address, String.valueOf(this.gwI));
-                    this.gwJ = true;
+            this.gwO = ((i * f3) / size) + f;
+            if (this.gwO < 0.05d) {
+                if (!this.gwP) {
+                    com.baidu.tieba.dnsproxy.d.bGC().ai("ip_weight_lower", this.address, String.valueOf(this.gwO));
+                    this.gwP = true;
                 }
-            } else if (this.gwJ && this.gwI > 0.5d && !this.gwK) {
-                com.baidu.tieba.dnsproxy.d.bGE().ai("ip_weight_lower_recover", this.address, String.valueOf(this.gwI));
-                this.gwK = true;
+            } else if (this.gwP && this.gwO > 0.5d && !this.gwQ) {
+                com.baidu.tieba.dnsproxy.d.bGC().ai("ip_weight_lower_recover", this.address, String.valueOf(this.gwO));
+                this.gwQ = true;
             }
         }
     }

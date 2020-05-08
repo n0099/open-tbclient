@@ -97,7 +97,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             this.s = getIntent().getStringExtra("EXTRA_BDUSS");
-            SapiAccount accountFromBduss = SapiContext.getInstance(this).getAccountFromBduss(this.s);
+            SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.s);
             if (!TextUtils.isEmpty(this.s) && accountFromBduss != null) {
                 this.t = accountFromBduss.getSocialType();
                 init();

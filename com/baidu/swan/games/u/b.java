@@ -7,60 +7,60 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    private static volatile b cRu;
-    private int aEA;
-    private volatile ArrayList<a> cRv = new ArrayList<>(20);
+    private static volatile b cRz;
+    private int aEG;
+    private volatile ArrayList<a> cRA = new ArrayList<>(20);
 
     private b() {
     }
 
     public static b axS() {
-        if (cRu == null) {
+        if (cRz == null) {
             synchronized (b.class) {
-                if (cRu == null) {
-                    cRu = new b();
+                if (cRz == null) {
+                    cRz = new b();
                 }
             }
         }
-        return cRu;
+        return cRz;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (this.cRv.size() < 20) {
-                this.cRv.add(aVar);
+            if (this.cRA.size() < 20) {
+                this.cRA.add(aVar);
             } else {
-                this.aEA++;
+                this.aEG++;
             }
         }
     }
 
     public synchronized JSONObject axT() {
         JSONObject jSONObject;
-        int size = this.cRv.size();
+        int size = this.cRA.size();
         if (size == 0) {
             jSONObject = null;
         } else {
             JSONObject jSONObject2 = new JSONObject();
             try {
-                jSONObject2.put("dropcnt", this.aEA);
+                jSONObject2.put("dropcnt", this.aEG);
                 jSONObject2.put("errorcnt", size);
                 JSONArray jSONArray = new JSONArray();
                 jSONObject2.put("errors", jSONArray);
-                Iterator<a> it = this.cRv.iterator();
+                Iterator<a> it = this.cRA.iterator();
                 while (it.hasNext()) {
                     jSONArray.put(it.next().toJSON());
                 }
             } catch (JSONException e) {
             }
-            this.cRv.clear();
+            this.cRA.clear();
             jSONObject = jSONObject2;
         }
         return jSONObject;
     }
 
     public synchronized void clear() {
-        this.cRv.clear();
-        this.aEA = 0;
+        this.cRA.clear();
+        this.aEG = 0;
     }
 }

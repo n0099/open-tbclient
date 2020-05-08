@@ -2,7 +2,6 @@ package com.baidu.sapi2.service;
 
 import android.app.Activity;
 import android.content.Context;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.utils.enums.SocialType;
 /* loaded from: classes6.dex */
 public interface AbstractThirdPartyService {
@@ -14,9 +13,9 @@ public interface AbstractThirdPartyService {
 
     void handleWXLoginResp(Activity activity, String str, String str2, int i);
 
-    void loadHuaweiLogin(Context context, WebAuthListener webAuthListener, String str, String str2);
-
     void loadThirdPartyLogin(Context context, SocialType socialType, int i);
+
+    void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str);
 
     void socialBind(Activity activity, SocialType socialType, int i, String str);
 }

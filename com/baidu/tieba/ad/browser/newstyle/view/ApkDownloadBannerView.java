@@ -15,10 +15,10 @@ import com.baidu.tieba.ad.download.mvp.b;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 /* loaded from: classes8.dex */
 public class ApkDownloadBannerView extends LinearLayout implements b {
-    private BannerDownloadProgressBar ezH;
-    private BannerDownloadStateBar ezI;
-    private BannerDownloadStateBar ezJ;
-    private int ezK;
+    private BannerDownloadProgressBar ezM;
+    private BannerDownloadStateBar ezN;
+    private BannerDownloadStateBar ezO;
+    private int ezP;
     private int mMax;
     private View mRootView;
 
@@ -33,7 +33,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     public ApkDownloadBannerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mMax = 100;
-        this.ezK = 1;
+        this.ezP = 1;
         initView(context);
         setDownloadStateBarPosition(1);
     }
@@ -44,26 +44,26 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
         setGravity(16);
         int dip2px = l.dip2px(getContext(), 22.0f);
         setPadding(dip2px, 0, dip2px, 0);
-        this.ezH = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
-        this.ezI = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
-        this.ezJ = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
-        this.ezH.setTextColor(Color.parseColor("#999999"));
+        this.ezM = (BannerDownloadProgressBar) this.mRootView.findViewById(R.id.apk_download_progress);
+        this.ezN = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_left);
+        this.ezO = (BannerDownloadStateBar) this.mRootView.findViewById(R.id.apk_download_state_right);
+        this.ezM.setTextColor(Color.parseColor("#999999"));
     }
 
     public void setDownloadStateBarPosition(int i) {
-        this.ezK = i;
-        switch (this.ezK) {
+        this.ezP = i;
+        switch (this.ezP) {
             case 0:
-                this.ezI.setVisibility(0);
-                this.ezJ.setVisibility(8);
+                this.ezN.setVisibility(0);
+                this.ezO.setVisibility(8);
                 return;
             case 1:
-                this.ezI.setVisibility(8);
-                this.ezJ.setVisibility(0);
+                this.ezN.setVisibility(8);
+                this.ezO.setVisibility(0);
                 return;
             default:
-                this.ezI.setVisibility(0);
-                this.ezJ.setVisibility(8);
+                this.ezN.setVisibility(0);
+                this.ezO.setVisibility(8);
                 return;
         }
     }
@@ -71,7 +71,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ad.download.mvp.b
     public BannerDownloadStateBar getActionBar() {
-        return this.ezI.getVisibility() == 0 ? this.ezI : this.ezJ;
+        return this.ezN.getVisibility() == 0 ? this.ezN : this.ezO;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
@@ -85,7 +85,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
 
     @Override // com.baidu.tieba.ad.download.mvp.b
     public void dm(int i) {
-        this.ezH.setProgress(i);
+        this.ezM.setProgress(i);
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.b
@@ -93,12 +93,12 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
         switch (downloadStatus) {
             case STATUS_NONE:
                 dm(0);
-                this.ezH.setText("");
+                this.ezM.setText("");
                 break;
             case STATUS_SUCCESS:
             case STATUS_INSTALL_SUCCESS:
                 dm(this.mMax);
-                this.ezH.setText("");
+                this.ezM.setText("");
                 break;
             case STATUS_DOWNLOADING:
             case STATUS_PAUSED:
@@ -106,7 +106,7 @@ public class ApkDownloadBannerView extends LinearLayout implements b {
                 break;
             default:
                 dm(0);
-                this.ezH.setText("");
+                this.ezM.setText("");
                 break;
         }
         a(downloadStatus);

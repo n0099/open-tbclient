@@ -13,9 +13,9 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, af<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
-    private String aey;
-    public BdUniqueId ebv;
-    private NEGFeedBackView.a euS;
+    private String aeB;
+    public BdUniqueId ebA;
+    private NEGFeedBackView.a euX;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -41,7 +41,7 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         com.baidu.card.ad rC = aVar.rC();
         rC.bc(2);
         af<com.baidu.tieba.homepage.topic.topictab.b.a> afVar = new af<>(rC);
-        afVar.setPageId(this.ebv);
+        afVar.setPageId(this.ebA);
         return afVar;
     }
 
@@ -53,21 +53,21 @@ public class t extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             return null;
         }
         TiebaStatic.log(new an("c13448").t("topic_id", aVar.topicId));
-        afVar.rD().setPage(this.aey);
+        afVar.rD().setPage(this.aeB);
         com.baidu.card.w aF = afVar.aF(false);
         aF.bb(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds19));
-        aF.a(this.euS);
+        aF.a(this.euX);
         afVar.b((af<com.baidu.tieba.homepage.topic.topictab.b.a>) aVar);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return afVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void yc(String str) {
-        this.aey = str;
+    public void yf(String str) {
+        this.aeB = str;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.euS = aVar;
+        this.euX = aVar;
     }
 }

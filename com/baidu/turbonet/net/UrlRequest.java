@@ -26,11 +26,11 @@ public interface UrlRequest {
 
     void Fo(int i);
 
-    void MT(String str);
+    void MW(String str);
 
-    void MU(String str);
+    void MX(String str);
 
-    void MV(String str);
+    void MY(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -38,11 +38,11 @@ public interface UrlRequest {
 
     void cancel();
 
-    void diX();
+    void diU();
 
-    void diY();
+    void diV();
 
-    void diZ();
+    void diW();
 
     Object getTag();
 
@@ -56,28 +56,28 @@ public interface UrlRequest {
 
     /* loaded from: classes.dex */
     public static final class Builder {
-        boolean lJC;
-        boolean lJD;
-        boolean lJE;
         boolean lJG;
-        int lJH;
-        int lJI;
-        int lJJ;
-        int lJK;
-        String lJL;
-        String lJM;
-        final Callback lJm;
-        String lKw;
-        UploadDataProvider lLN;
-        Executor lLO;
-        boolean lLP;
-        final TurbonetEngine lLa;
+        boolean lJH;
+        boolean lJI;
+        boolean lJK;
+        int lJL;
+        int lJM;
+        int lJN;
+        int lJO;
+        String lJP;
+        String lJQ;
+        final Callback lJq;
+        String lKA;
+        UploadDataProvider lLR;
+        Executor lLS;
+        boolean lLT;
+        final TurbonetEngine lLe;
         final Executor mExecutor;
         Object mTag;
         final String mUrl;
-        final ArrayList<Pair<String, String>> lLM = new ArrayList<>();
+        final ArrayList<Pair<String, String>> lLQ = new ArrayList<>();
         int mPriority = 3;
-        Collection<Object> lJB = Collections.emptyList();
+        Collection<Object> lJF = Collections.emptyList();
 
         @Retention(RetentionPolicy.SOURCE)
         /* loaded from: classes.dex */
@@ -98,25 +98,25 @@ public interface UrlRequest {
                 throw new NullPointerException("TurbonetEngine is required.");
             }
             this.mUrl = str;
-            this.lJm = callback;
+            this.lJq = callback;
             this.mExecutor = executor;
-            this.lLa = turbonetEngine;
-            this.lLP = false;
-            this.lJG = false;
-            this.lJH = 0;
-            this.lJI = 0;
-            this.lJJ = 0;
-            this.lJK = 0;
+            this.lLe = turbonetEngine;
+            this.lLT = false;
+            this.lJK = false;
+            this.lJL = 0;
+            this.lJM = 0;
+            this.lJN = 0;
+            this.lJO = 0;
             this.mTag = null;
-            this.lJL = null;
-            this.lJM = null;
+            this.lJP = null;
+            this.lJQ = null;
         }
 
-        public Builder Nf(String str) {
+        public Builder Ni(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
-            this.lKw = str;
+            this.lKA = str;
             return this;
         }
 
@@ -130,48 +130,48 @@ public interface UrlRequest {
             if (Headers.ACCEPT_ENCODING.equalsIgnoreCase(str)) {
                 Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
             } else {
-                this.lLM.add(Pair.create(str, str2));
+                this.lLQ.add(Pair.create(str, str2));
             }
             return this;
         }
 
-        public Builder djR() {
-            this.lJC = true;
+        public Builder djO() {
+            this.lJG = true;
             return this;
         }
 
-        public Builder djS() {
-            this.lLP = true;
+        public Builder djP() {
+            this.lLT = true;
             return this;
         }
 
-        public Builder djT() {
-            this.lJE = true;
+        public Builder djQ() {
+            this.lJI = true;
             return this;
         }
 
         public Builder FB(int i) {
-            this.lJH = i;
+            this.lJL = i;
             return this;
         }
 
         public Builder FC(int i) {
-            this.lJI = i;
+            this.lJM = i;
             return this;
         }
 
         public Builder FD(int i) {
-            this.lJJ = i;
+            this.lJN = i;
             return this;
         }
 
-        public Builder Ng(String str) {
-            this.lJL = str;
+        public Builder Nj(String str) {
+            this.lJP = str;
             return this;
         }
 
-        public Builder Nh(String str) {
-            this.lJM = str;
+        public Builder Nk(String str) {
+            this.lJQ = str;
             return this;
         }
 
@@ -182,53 +182,53 @@ public interface UrlRequest {
             if (executor == null) {
                 throw new NullPointerException("Invalid UploadDataProvider Executor.");
             }
-            if (this.lKw == null) {
-                this.lKw = "POST";
+            if (this.lKA == null) {
+                this.lKA = "POST";
             }
-            this.lLN = uploadDataProvider;
-            this.lLO = executor;
+            this.lLR = uploadDataProvider;
+            this.lLS = executor;
             return this;
         }
 
-        public UrlRequest djU() {
-            UrlRequest a = this.lLa.a(this.mUrl, this.lJm, this.mExecutor, this.mPriority, this.lJB, this.lJC, this.lJD, this.lJE);
-            if (this.lKw != null) {
-                a.MT(this.lKw);
+        public UrlRequest djR() {
+            UrlRequest a = this.lLe.a(this.mUrl, this.lJq, this.mExecutor, this.mPriority, this.lJF, this.lJG, this.lJH, this.lJI);
+            if (this.lKA != null) {
+                a.MW(this.lKA);
             }
-            Iterator<Pair<String, String>> it = this.lLM.iterator();
+            Iterator<Pair<String, String>> it = this.lLQ.iterator();
             while (it.hasNext()) {
                 Pair<String, String> next = it.next();
                 a.addHeader((String) next.first, (String) next.second);
             }
-            if (this.lLN != null) {
-                a.a(this.lLN, this.lLO);
+            if (this.lLR != null) {
+                a.a(this.lLR, this.lLS);
             }
-            if (this.lLP) {
-                a.diY();
+            if (this.lLT) {
+                a.diV();
             }
-            if (this.lJG) {
-                a.diZ();
+            if (this.lJK) {
+                a.diW();
             }
-            if (this.lJH > 0) {
-                a.setTimeout(this.lJH);
+            if (this.lJL > 0) {
+                a.setTimeout(this.lJL);
             }
-            if (this.lJI > 0) {
-                a.Fm(this.lJI);
+            if (this.lJM > 0) {
+                a.Fm(this.lJM);
             }
-            if (this.lJJ > 0) {
-                a.Fn(this.lJJ);
+            if (this.lJN > 0) {
+                a.Fn(this.lJN);
             }
-            if (this.lJK > 0) {
-                a.Fo(this.lJK);
+            if (this.lJO > 0) {
+                a.Fo(this.lJO);
             }
             if (this.mTag != null) {
                 a.setTag(this.mTag);
             }
-            if (!TextUtils.isEmpty(this.lJL)) {
-                a.MU(this.lJL);
+            if (!TextUtils.isEmpty(this.lJP)) {
+                a.MX(this.lJP);
             }
-            if (!TextUtils.isEmpty(this.lJM)) {
-                a.MV(this.lJM);
+            if (!TextUtils.isEmpty(this.lJQ)) {
+                a.MY(this.lJQ);
             }
             return a;
         }

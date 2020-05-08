@@ -8,48 +8,48 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes12.dex */
 public class c extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private b cVQ;
-    private TextView cWe;
-    private View cWf;
-    private g cWg;
-    private e cWh;
+    private b cVV;
+    private TextView cWj;
+    private View cWk;
+    private g cWl;
+    private e cWm;
     private TextView mSubTitle;
 
     public c(View view, b bVar, e eVar) {
         super(view);
         init(view);
-        this.cVQ = bVar;
-        this.cWh = eVar;
+        this.cVV = bVar;
+        this.cWm = eVar;
     }
 
     private void init(View view) {
-        this.cWe = (TextView) view.findViewById(R.id.main_title);
+        this.cWj = (TextView) view.findViewById(R.id.main_title);
         this.mSubTitle = (TextView) view.findViewById(R.id.sub_title);
-        this.cWf = view.findViewById(R.id.select);
-        this.cWf.setVisibility(8);
+        this.cWk = view.findViewById(R.id.select);
+        this.cWk.setVisibility(8);
         this.itemView.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cVQ.aAy();
-        this.cWg.isSelected = true;
-        this.cVQ.notifyDataSetChanged();
-        if (this.cWh != null) {
-            this.cWh.a(this.cWg);
+        this.cVV.aAy();
+        this.cWl.isSelected = true;
+        this.cVV.notifyDataSetChanged();
+        if (this.cWm != null) {
+            this.cWm.a(this.cWl);
         }
     }
 
     public void a(g gVar, String str, boolean z) {
         if (gVar != null) {
-            this.cWg = gVar;
-            this.cWe.setText(z ? cj(gVar.cWl.name, str) : gVar.cWl.name);
+            this.cWl = gVar;
+            this.cWj.setText(z ? cj(gVar.cWq.name, str) : gVar.cWq.name);
             this.mSubTitle.setVisibility(0);
-            this.mSubTitle.setText(gVar.cWl.address);
-            if (gVar.cWm || TextUtils.isEmpty(gVar.cWl.address)) {
+            this.mSubTitle.setText(gVar.cWq.address);
+            if (gVar.cWr || TextUtils.isEmpty(gVar.cWq.address)) {
                 this.mSubTitle.setVisibility(8);
             }
-            this.cWf.setVisibility(gVar.isSelected ? 0 : 8);
+            this.cWk.setVisibility(gVar.isSelected ? 0 : 8);
         }
     }
 

@@ -1,22 +1,30 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
+import com.xiaomi.mipush.sdk.MiTinyDataClient;
+import java.util.concurrent.ScheduledFuture;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public final class ae implements Runnable {
-    final /* synthetic */ String a;
-    final /* synthetic */ String b;
+public class ae implements Runnable {
+    final /* synthetic */ MiTinyDataClient.a.C0799a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(String str, String str2) {
-        this.a = str;
-        this.b = str2;
+    public ae(MiTinyDataClient.a.C0799a c0799a) {
+        this.a = c0799a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Context context;
-        context = MiPushClient.sContext;
-        MiPushClient.initialize(context, this.a, this.b, null);
+        ScheduledFuture scheduledFuture;
+        ScheduledFuture scheduledFuture2;
+        if (this.a.f33a.size() != 0) {
+            this.a.b();
+            return;
+        }
+        scheduledFuture = this.a.f34a;
+        if (scheduledFuture != null) {
+            scheduledFuture2 = this.a.f34a;
+            scheduledFuture2.cancel(false);
+            this.a.f34a = null;
+        }
     }
 }

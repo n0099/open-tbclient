@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes9.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.personalize.data.f, af<com.baidu.tieba.homepage.personalize.data.f>> {
-    private com.baidu.adp.widget.ListView.r ahv;
-    public BdUniqueId ebv;
+    private com.baidu.adp.widget.ListView.r ahy;
+    public BdUniqueId ebA;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -27,13 +27,13 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: aA */
     public af<com.baidu.tieba.homepage.personalize.data.f> b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
-        aVar.c(new com.baidu.tieba.homepage.personalize.view.b(this.mPageContext, this.ebv));
+        aVar.c(new com.baidu.tieba.homepage.personalize.view.b(this.mPageContext, this.ebA));
         aVar.rB().bh(0);
         aVar.rB().bj(0);
         aVar.rB().bi(0);
         aVar.rB().bd(0);
-        af<com.baidu.tieba.homepage.personalize.data.f> afVar = new af<>(aVar.a(true, viewGroup, this.ahv));
-        afVar.setPageId(this.ebv);
+        af<com.baidu.tieba.homepage.personalize.data.f> afVar = new af<>(aVar.a(true, viewGroup, this.ahy));
+        afVar.setPageId(this.ebA);
         an anVar = new an("c13620");
         anVar.t("uid", TbadkApplication.getCurrentAccountId());
         anVar.af("fid", 0);
@@ -54,6 +54,6 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.ebv = bdUniqueId;
+        this.ebA = bdUniqueId;
     }
 }

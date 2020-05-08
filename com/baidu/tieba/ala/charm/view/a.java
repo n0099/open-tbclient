@@ -12,63 +12,63 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<ALaCharmData> dvq = new ArrayList<>();
-    private View.OnClickListener fbG;
-    private View.OnClickListener fbH;
-    private View.OnClickListener fbI;
-    private int fbJ;
+    private ArrayList<ALaCharmData> dvu = new ArrayList<>();
+    private View.OnClickListener fbL;
+    private View.OnClickListener fbM;
+    private View.OnClickListener fbN;
+    private int fbO;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public a(TbPageContext tbPageContext, int i) {
-        this.fbJ = 1;
+        this.fbO = 1;
         this.mPageContext = tbPageContext;
-        this.fbJ = i;
+        this.fbO = i;
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.fbG = onClickListener;
+        this.fbL = onClickListener;
     }
 
     public void n(View.OnClickListener onClickListener) {
-        this.fbI = onClickListener;
+        this.fbN = onClickListener;
     }
 
     public void o(View.OnClickListener onClickListener) {
-        this.fbH = onClickListener;
+        this.fbM = onClickListener;
     }
 
     public void setData(ArrayList<ALaCharmData> arrayList) {
         if (arrayList != null) {
-            this.dvq.clear();
-            this.dvq.addAll(arrayList);
+            this.dvu.clear();
+            this.dvu.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     public void U(ArrayList<ALaCharmData> arrayList) {
         if (!ListUtils.isEmpty(arrayList)) {
-            this.dvq.addAll(arrayList);
+            this.dvu.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dvq == null) {
+        if (this.dvu == null) {
             return 0;
         }
-        return this.dvq.size();
+        return this.dvu.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: pw */
     public ALaCharmData getItem(int i) {
-        if (this.dvq == null) {
+        if (this.dvu == null) {
             return null;
         }
-        return this.dvq.get(i);
+        return this.dvu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -81,17 +81,17 @@ public class a extends BaseAdapter {
         d dVar;
         View inflate;
         if (view == null) {
-            if (this.fbJ == 1) {
+            if (this.fbO == 1) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
-            } else if (this.fbJ == 2) {
+            } else if (this.fbO == 2) {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_game_live_list_layout, (ViewGroup) null);
             } else {
                 inflate = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(a.h.ala_charm_detail_list_layout, (ViewGroup) null);
             }
-            d dVar2 = new d(inflate, this.fbJ);
-            dVar2.p(this.fbI);
-            dVar2.m(this.fbG);
-            dVar2.q(this.fbH);
+            d dVar2 = new d(inflate, this.fbO);
+            dVar2.p(this.fbN);
+            dVar2.m(this.fbL);
+            dVar2.q(this.fbM);
             inflate.setTag(dVar2);
             view = inflate;
             dVar = dVar2;
@@ -106,8 +106,8 @@ public class a extends BaseAdapter {
     }
 
     public void ac(String str, boolean z) {
-        if (this.dvq != null && str != null) {
-            Iterator<ALaCharmData> it = this.dvq.iterator();
+        if (this.dvu != null && str != null) {
+            Iterator<ALaCharmData> it = this.dvu.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes10.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader kpM;
+    private MultiFormatReader kpQ;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -19,12 +19,12 @@ public class ZXingView extends QRCodeView {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        cMN();
+        cMK();
     }
 
-    private void cMN() {
-        this.kpM = new MultiFormatReader();
-        this.kpM.setHints(a.kpL);
+    private void cMK() {
+        this.kpQ = new MultiFormatReader();
+        this.kpQ.setHints(a.kpP);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect Bu = this.koH.Bu(i2);
+                Rect Bu = this.koL.Bu(i2);
                 if (Bu != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, Bu.left, Bu.top, Bu.width(), Bu.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.kpM.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.kpQ.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.kpM.reset();
+                this.kpQ.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.kpM.reset();
+            this.kpQ.reset();
         }
     }
 }

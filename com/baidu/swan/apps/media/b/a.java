@@ -10,21 +10,21 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes11.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public String cct;
-    public int ccp = 60000;
-    public String ccq = TranscoderPlugin.AUDIO_CODEC;
+    public String ccz;
+    public int ccw = 60000;
+    public String ccx = TranscoderPlugin.AUDIO_CODEC;
     public int channel = 1;
     public int sampleRate = CoolPraiseGuideLottieView.ANIM_DURATION;
     public int bitRate = 16000;
-    public int ccr = 1;
+    public int ccy = 1;
 
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null && jSONObject.length() > 0) {
             aVar = new a();
-            aVar.ccp = jSONObject.optInt("duration", 60000);
-            aVar.ccq = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
-            if (TextUtils.isEmpty(aVar.ccq)) {
-                aVar.ccq = TranscoderPlugin.AUDIO_CODEC;
+            aVar.ccw = jSONObject.optInt("duration", 60000);
+            aVar.ccx = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
+            if (TextUtils.isEmpty(aVar.ccx)) {
+                aVar.ccx = TranscoderPlugin.AUDIO_CODEC;
             }
             aVar.channel = jSONObject.optInt("numberOfChannels", 1);
             aVar.sampleRate = jSONObject.optInt("sampleRate", CoolPraiseGuideLottieView.ANIM_DURATION);
@@ -42,26 +42,26 @@ public class a {
                         break;
                 }
             }
-            aVar.ccr = kA(jSONObject.optString("audioSource", "auto"));
-            aVar.cct = jSONObject.optString("cb");
+            aVar.ccy = kA(jSONObject.optString("audioSource", "auto"));
+            aVar.ccz = jSONObject.optString("cb");
         }
         return aVar;
     }
 
-    public JSONObject agb() {
-        if (this.ccp > 600000 || this.ccp < 0) {
+    public JSONObject aga() {
+        if (this.ccw > 600000 || this.ccw < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
         if (this.channel != 1 && this.channel != 2) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
         }
-        if (!TextUtils.equals(this.ccq, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.ccq, "pcm")) {
+        if (!TextUtils.equals(this.ccx, TranscoderPlugin.AUDIO_CODEC) && !TextUtils.equals(this.ccx, "pcm")) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
         }
         if (this.sampleRate != 8000 && this.sampleRate != 16000 && this.sampleRate != 44100) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
         }
-        if (!TextUtils.equals(this.ccq, "pcm")) {
+        if (!TextUtils.equals(this.ccx, "pcm")) {
             boolean z = false;
             switch (this.sampleRate) {
                 case CoolPraiseGuideLottieView.ANIM_DURATION /* 8000 */:
@@ -87,14 +87,14 @@ public class a {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
             }
         }
-        if (this.ccr < 0) {
+        if (this.ccy < 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
         }
         return null;
     }
 
     public String toString() {
-        return "recordTime : " + this.ccp + "; channel : " + this.channel + "; audioFormat : " + this.ccq + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.cct;
+        return "recordTime : " + this.ccw + "; channel : " + this.channel + "; audioFormat : " + this.ccx + "; sampleRate : " + this.sampleRate + "; bitRate : " + this.bitRate + "; callbacks : " + this.ccz;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

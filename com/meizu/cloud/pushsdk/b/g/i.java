@@ -1,95 +1,110 @@
 package com.meizu.cloud.pushsdk.b.g;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
-public final class i {
-    final byte[] a;
-    int b;
-    int c;
-    boolean d;
-    boolean e;
-    i f;
-    i g;
+final class i implements d {
+    public final b a;
+    public final m b;
+    private boolean c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i() {
-        this.a = new byte[2048];
-        this.e = true;
-        this.d = false;
+    public i(m mVar) {
+        this(mVar, new b());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(i iVar) {
-        this(iVar.a, iVar.b, iVar.c);
-        iVar.d = true;
-    }
-
-    i(byte[] bArr, int i, int i2) {
-        this.a = bArr;
-        this.b = i;
-        this.c = i2;
-        this.e = false;
-        this.d = true;
-    }
-
-    public i a() {
-        i iVar = this.f != this ? this.f : null;
-        this.g.f = this.f;
-        this.f.g = this.g;
-        this.f = null;
-        this.g = null;
-        return iVar;
-    }
-
-    public i a(int i) {
-        if (i <= 0 || i > this.c - this.b) {
-            throw new IllegalArgumentException();
+    public i(m mVar, b bVar) {
+        if (mVar == null) {
+            throw new IllegalArgumentException("source == null");
         }
-        i iVar = new i(this);
-        iVar.c = iVar.b + i;
-        this.b += i;
-        this.g.a(iVar);
-        return iVar;
+        this.a = bVar;
+        this.b = mVar;
     }
 
-    public i a(i iVar) {
-        iVar.g = this;
-        iVar.f = this.f;
-        this.f.g = iVar;
-        this.f = iVar;
-        return iVar;
-    }
-
-    public void a(i iVar, int i) {
-        if (!iVar.e) {
-            throw new IllegalArgumentException();
+    @Override // com.meizu.cloud.pushsdk.b.g.m
+    public long b(b bVar, long j) throws IOException {
+        if (bVar == null) {
+            throw new IllegalArgumentException("sink == null");
         }
-        if (iVar.c + i > 2048) {
-            if (iVar.d) {
-                throw new IllegalArgumentException();
+        if (j < 0) {
+            throw new IllegalArgumentException("byteCount < 0: " + j);
+        }
+        if (this.c) {
+            throw new IllegalStateException("closed");
+        }
+        if (this.a.b == 0 && this.b.b(this.a, 2048L) == -1) {
+            return -1L;
+        }
+        return this.a.b(bVar, Math.min(j, this.a.b));
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.g.m, java.lang.AutoCloseable
+    public void close() throws IOException {
+        if (this.c) {
+            return;
+        }
+        this.c = true;
+        this.b.close();
+        this.a.j();
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.g.d
+    public InputStream d() {
+        return new InputStream() { // from class: com.meizu.cloud.pushsdk.b.g.i.1
+            @Override // java.io.InputStream
+            public int available() throws IOException {
+                if (i.this.c) {
+                    throw new IOException("closed");
+                }
+                return (int) Math.min(i.this.a.b, 2147483647L);
             }
-            if ((iVar.c + i) - iVar.b > 2048) {
-                throw new IllegalArgumentException();
+
+            @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+            public void close() throws IOException {
+                i.this.close();
             }
-            System.arraycopy(iVar.a, iVar.b, iVar.a, 0, iVar.c - iVar.b);
-            iVar.c -= iVar.b;
-            iVar.b = 0;
-        }
-        System.arraycopy(this.a, this.b, iVar.a, iVar.c, i);
-        iVar.c += i;
-        this.b += i;
+
+            @Override // java.io.InputStream
+            public int read() throws IOException {
+                if (i.this.c) {
+                    throw new IOException("closed");
+                }
+                if (i.this.a.b == 0 && i.this.b.b(i.this.a, 2048L) == -1) {
+                    return -1;
+                }
+                return i.this.a.f() & 255;
+            }
+
+            @Override // java.io.InputStream
+            public int read(byte[] bArr, int i, int i2) throws IOException {
+                if (i.this.c) {
+                    throw new IOException("closed");
+                }
+                o.a(bArr.length, i, i2);
+                if (i.this.a.b == 0 && i.this.b.b(i.this.a, 2048L) == -1) {
+                    return -1;
+                }
+                return i.this.a.a(bArr, i, i2);
+            }
+
+            public String toString() {
+                return i.this + ".inputStream()";
+            }
+        };
     }
 
-    public void b() {
-        if (this.g == this) {
-            throw new IllegalStateException();
-        }
-        if (this.g.e) {
-            int i = this.c - this.b;
-            if (i <= (this.g.d ? 0 : this.g.b) + (2048 - this.g.c)) {
-                a(this.g, i);
-                a();
-                j.a(this);
-            }
-        }
+    @Override // com.meizu.cloud.pushsdk.b.g.d
+    public String h() throws IOException {
+        this.a.a(this.b);
+        return this.a.h();
+    }
+
+    @Override // com.meizu.cloud.pushsdk.b.g.d
+    public byte[] i() throws IOException {
+        this.a.a(this.b);
+        return this.a.i();
+    }
+
+    public String toString() {
+        return "buffer(" + this.b + ")";
     }
 }

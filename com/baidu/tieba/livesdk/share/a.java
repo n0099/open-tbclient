@@ -74,21 +74,21 @@ public class a implements IShareChannel, f {
             case 3:
                 z = x.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mm");
                 if (!z) {
-                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0589b.share_weixin_not_installed_yet));
+                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0610b.share_weixin_not_installed_yet));
                     break;
                 }
                 break;
             case 6:
                 z = x.isInstalledPackage(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (!z) {
-                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0589b.share_weibo_not_installed_yet));
+                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0610b.share_weibo_not_installed_yet));
                     break;
                 }
                 break;
             case 8:
                 z = x.isInstalledPackage(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
                 if (!z) {
-                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0589b.share_qq_not_installed_yet));
+                    l.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(b.C0610b.share_qq_not_installed_yet));
                     break;
                 }
                 break;

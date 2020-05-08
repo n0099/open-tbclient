@@ -19,21 +19,21 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.media.c.a bAi;
-    private JSONObject bAj;
+    private com.baidu.swan.apps.media.c.a bAn;
+    private JSONObject bAo;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Context context, JSONObject jSONObject, com.baidu.swan.apps.media.c.a aVar) {
         this.mContext = context;
-        this.bAj = jSONObject;
-        this.bAi = aVar;
+        this.bAo = jSONObject;
+        this.bAn = aVar;
     }
 
     private String b(String str, HashMap<String, String> hashMap) {
         HashMap hashMap2 = new HashMap();
-        if (this.bAi != null) {
-            hashMap2.put("cur_time", String.valueOf(this.bAi.getDuration() / 1000));
+        if (this.bAn != null) {
+            hashMap2.put("cur_time", String.valueOf(this.bAn.getDuration() / 1000));
         }
         hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
         hashMap.putAll(hashMap2);
@@ -67,7 +67,7 @@ public class b {
             hashMap.put("da_page", "VIDEOADDETAI");
         }
         hashMap.put("play_mode", String.valueOf((SwanAppNetworkUtils.isWifiNetworkConnected(this.mContext) && TextUtils.equals(str, "vstart")) ? 0 : 1));
-        JSONArray optJSONArray = this.bAj != null ? this.bAj.optJSONArray(str) : null;
+        JSONArray optJSONArray = this.bAo != null ? this.bAo.optJSONArray(str) : null;
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 String optString = optJSONArray.optString(i);
@@ -76,9 +76,9 @@ public class b {
                     HttpUrl parse = HttpUrl.parse(b);
                     if (parse != null) {
                         Request build = new Request.Builder().url(parse.newBuilder().build()).build();
-                        e akO = e.akO();
-                        if (akO != null) {
-                            akO.akZ().a(build, new Callback() { // from class: com.baidu.swan.apps.adlanding.b.1
+                        e akN = e.akN();
+                        if (akN != null) {
+                            akN.akY().a(build, new Callback() { // from class: com.baidu.swan.apps.adlanding.b.1
                                 @Override // okhttp3.Callback
                                 public void onFailure(Call call, IOException iOException) {
                                     if (b.DEBUG) {

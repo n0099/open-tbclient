@@ -4,7 +4,6 @@ import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.sapi2.activity.SlideActiviy;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -67,7 +66,7 @@ public class CloudRgcResult {
             if (jSONObject != null) {
                 this.name = jSONObject.optString("name");
                 this.uid = jSONObject.optString("id");
-                this.address = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
+                this.address = jSONObject.optString("address");
                 this.tag = jSONObject.optString("tag");
                 JSONObject optJSONObject = jSONObject.optJSONObject("location");
                 if (optJSONObject != null) {

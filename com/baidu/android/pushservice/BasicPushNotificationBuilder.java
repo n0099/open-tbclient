@@ -6,7 +6,9 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.i.l;
+import com.baidu.android.pushservice.i.m;
+import com.baidu.browser.sailor.platform.BdSailorPlatform;
+import com.baidu.webkit.internal.GlobalConstants;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -28,6 +30,7 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         this.mNotificationText = (String) objectInputStream.readObject();
         this.mChannelId = (String) objectInputStream.readObject();
         this.mChannelName = (String) objectInputStream.readObject();
+        this.mColor = objectInputStream.readInt();
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
@@ -36,7 +39,7 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         objectOutputStream.writeInt(this.mNotificationDefaults);
         if (this.mNotificationsound != null) {
             objectOutputStream.writeBoolean(true);
-            objectOutputStream.writeObject(this.mNotificationsound.toString());
+            objectOutputStream.writeObject(this.mNotificationsound);
         } else {
             objectOutputStream.writeBoolean(false);
         }
@@ -52,6 +55,7 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         objectOutputStream.writeObject(this.mNotificationText);
         objectOutputStream.writeObject(this.mChannelId);
         objectOutputStream.writeObject(this.mChannelName);
+        objectOutputStream.writeInt(this.mColor);
     }
 
     @Override // com.baidu.android.pushservice.PushNotificationBuilder
@@ -70,16 +74,30 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         if (this.mStatusbarIcon != 0) {
             builder.setSmallIcon(this.mStatusbarIcon);
         } else {
-            builder.setSmallIcon(context.getApplicationInfo().icon);
+            int i = 0;
+            if (context.getPackageName().equals(GlobalConstants.SEARCHBOX_PACKAGE_NAME) || context.getPackageName().equals(BdSailorPlatform.LITE_PACKAGE_NAME) || context.getPackageName().equals("com.baidu.push.qa")) {
+                try {
+                    i = context.getResources().getIdentifier(Build.VERSION.SDK_INT >= 21 ? "notification_icon_m" : "icon_statusbar", "drawable", context.getPackageName());
+                } catch (Throwable th) {
+                }
+            }
+            if (i == 0) {
+                builder.setSmallIcon(context.getApplicationInfo().icon);
+            } else {
+                builder.setSmallIcon(i);
+            }
         }
         builder.setContentTitle(this.mNotificationTitle);
         builder.setContentText(this.mNotificationText);
-        if (l.E(context)) {
+        if (Build.VERSION.SDK_INT >= 21 && this.mColor != 0) {
+            builder.setColor(this.mColor);
+        }
+        if (m.p(context)) {
             if (TextUtils.isEmpty(this.mChannelId)) {
                 this.mChannelId = "com.baidu.android.pushservice.push";
             }
             if (TextUtils.isEmpty(this.mChannelName)) {
-                this.mChannelName = "Push";
+                this.mChannelName = "云推送";
             }
             com.baidu.android.pushservice.i.h.a(context, this.mChannelId, this.mChannelName);
             builder.setChannelId(this.mChannelId);

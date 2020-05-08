@@ -12,15 +12,15 @@ import org.json.JSONObject;
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String mQK = "";
+    private String mQN = "";
     private String from = "";
     private String wm = "";
-    private String mQL = "";
-    private String mQM = "";
-    private String mQN = "";
+    private String mQO = "";
+    private String mQP = "";
+    private String mQQ = "";
     private HashMap<String, String> extra = new HashMap<>();
 
-    private String Pn(String str) {
+    private String Pq(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -41,29 +41,29 @@ public class b implements Cloneable {
             }
         }
         if (z) {
-            return Pn(jSONObject.toString());
+            return Pq(jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
     public String wn(boolean z) {
-        return z ? Pn(this.mQM) : this.mQM;
+        return z ? Pq(this.mQP) : this.mQP;
     }
 
     public String wo(boolean z) {
-        return z ? Pn(this.wm) : this.wm;
+        return z ? Pq(this.wm) : this.wm;
     }
 
-    public void Po(String str) {
+    public void Pr(String str) {
         this.wm = str;
     }
 
     public String wp(boolean z) {
-        return z ? Pn(this.mQL) : this.mQL;
+        return z ? Pq(this.mQO) : this.mQO;
     }
 
     public String wq(boolean z) {
-        return z ? Pn(this.from) : this.from;
+        return z ? Pq(this.from) : this.from;
     }
 
     public void setFrom(String str) {
@@ -71,7 +71,7 @@ public class b implements Cloneable {
     }
 
     public String wr(boolean z) {
-        return z ? Pn(this.appKey) : this.appKey;
+        return z ? Pq(this.appKey) : this.appKey;
     }
 
     public void setAppKey(String str) {
@@ -87,10 +87,10 @@ public class b implements Cloneable {
     }
 
     public String ws(boolean z) {
-        return z ? Pn(this.mQK) : this.mQK;
+        return z ? Pq(this.mQN) : this.mQN;
     }
 
-    public boolean dCz() {
+    public boolean dCv() {
         return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.wm)) ? false : true;
     }
 

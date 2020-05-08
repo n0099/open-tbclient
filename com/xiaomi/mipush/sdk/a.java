@@ -7,8 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.xiaomi.push.eu;
-import com.xiaomi.push.ev;
+import com.xiaomi.push.fa;
+import com.xiaomi.push.fb;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
@@ -49,9 +49,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         this.a.add(stringExtra);
         if (intExtra == 3000) {
-            ev.a(activity.getApplicationContext()).a(activity.getPackageName(), eu.m263a(intExtra), stringExtra, 3008, "App calls by business message is visiable");
+            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m267a(intExtra), stringExtra, 3008, null);
         } else if (intExtra == 1000) {
-            ev.a(activity.getApplicationContext()).a(activity.getPackageName(), eu.m263a(intExtra), stringExtra, 1008, "app calls by notification message is visiable");
+            fb.a(activity.getApplicationContext()).a(activity.getPackageName(), fa.m267a(intExtra), stringExtra, 1008, null);
         }
     }
 

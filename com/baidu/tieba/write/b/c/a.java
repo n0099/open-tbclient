@@ -13,27 +13,27 @@ import java.util.LinkedList;
 /* loaded from: classes2.dex */
 public class a {
     private boolean isOriginalImg;
-    private b lAm;
-    private e lAl = new e(true);
-    private com.baidu.tbadk.img.b eaV = new com.baidu.tbadk.img.b();
+    private b lAq;
+    private e lAp = new e(true);
+    private com.baidu.tbadk.img.b eba = new com.baidu.tbadk.img.b();
 
     /* renamed from: com.baidu.tieba.write.b.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0675a {
-        void cra();
+    public interface InterfaceC0696a {
+        void cqX();
     }
 
-    public void a(LinkedList<ImageFileInfo> linkedList, boolean z, InterfaceC0675a interfaceC0675a) {
+    public void a(LinkedList<ImageFileInfo> linkedList, boolean z, InterfaceC0696a interfaceC0696a) {
         if (linkedList == null || linkedList.size() <= 0) {
-            if (interfaceC0675a != null) {
-                interfaceC0675a.cra();
+            if (interfaceC0696a != null) {
+                interfaceC0696a.cqX();
                 return;
             }
             return;
         }
         this.isOriginalImg = z;
-        if (this.lAm != null) {
-            this.lAm.cancel();
+        if (this.lAq != null) {
+            this.lAq.cancel();
         }
         LinkedList linkedList2 = new LinkedList();
         Iterator<ImageFileInfo> it = linkedList.iterator();
@@ -44,21 +44,21 @@ public class a {
             }
         }
         if (linkedList2.size() > 0) {
-            this.lAm = new b(linkedList, interfaceC0675a);
-            this.lAm.execute(new String[0]);
-        } else if (interfaceC0675a != null) {
-            interfaceC0675a.cra();
+            this.lAq = new b(linkedList, interfaceC0696a);
+            this.lAq.execute(new String[0]);
+        } else if (interfaceC0696a != null) {
+            interfaceC0696a.cqX();
         }
     }
 
     /* loaded from: classes2.dex */
     public class b extends BdAsyncTask<String, Void, Void> {
-        LinkedList<ImageFileInfo> lAn;
-        InterfaceC0675a lAo;
+        LinkedList<ImageFileInfo> lAr;
+        InterfaceC0696a lAs;
 
-        public b(LinkedList<ImageFileInfo> linkedList, InterfaceC0675a interfaceC0675a) {
-            this.lAn = linkedList;
-            this.lAo = interfaceC0675a;
+        public b(LinkedList<ImageFileInfo> linkedList, InterfaceC0696a interfaceC0696a) {
+            this.lAr = linkedList;
+            this.lAs = interfaceC0696a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,12 +66,12 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(String... strArr) {
             try {
-                if (this.lAn != null) {
-                    Iterator<ImageFileInfo> it = this.lAn.iterator();
+                if (this.lAr != null) {
+                    Iterator<ImageFileInfo> it = this.lAr.iterator();
                     while (it.hasNext()) {
                         ImageFileInfo next = it.next();
                         String j = a.this.j(next);
-                        com.baidu.tieba.write.b.a.Mx(j);
+                        com.baidu.tieba.write.b.a.MA(j);
                         next.setFilePath(j);
                         next.setContentUriStr(null);
                     }
@@ -85,8 +85,8 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r2) {
-            if (this.lAo != null) {
-                this.lAo.cra();
+            if (this.lAs != null) {
+                this.lAs.cqX();
             }
         }
     }
@@ -99,7 +99,7 @@ public class a {
         if (imageFileInfo.getImageType() == 1) {
             return k(imageFileInfo);
         }
-        return this.lAl.c(imageFileInfo, this.isOriginalImg);
+        return this.lAp.c(imageFileInfo, this.isOriginalImg);
     }
 
     private String k(ImageFileInfo imageFileInfo) {
@@ -109,7 +109,7 @@ public class a {
         if (imageFileInfo == null || imageFileInfo.getImageType() != 1) {
             return null;
         }
-        com.baidu.adp.widget.ImageView.a a2 = this.eaV.a(imageFileInfo, true);
+        com.baidu.adp.widget.ImageView.a a2 = this.eba.a(imageFileInfo, true);
         if (a2 != null) {
             rawBitmap = a2.getRawBitmap();
         } else {
@@ -133,7 +133,7 @@ public class a {
             }
         }
         if (rawBitmap != null) {
-            return m.saveFileAsPic(e.eaU + "/", s.toMd5(imageFileInfo.toCachedKey(false)) + ".jpg", rawBitmap, 80, Bitmap.CompressFormat.JPEG);
+            return m.saveFileAsPic(e.eaZ + "/", s.toMd5(imageFileInfo.toCachedKey(false)) + ".jpg", rawBitmap, 80, Bitmap.CompressFormat.JPEG);
         }
         return null;
     }

@@ -1,61 +1,30 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.ar.pose.PoseAR;
-import java.util.HashMap;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes8.dex */
-public class eg {
-    public static void a(Context context, String str, int i, String str2) {
-        ai.a(context).a(new eh(context, str, i, str2));
+public class eg extends ed {
+    public eg(Context context, int i) {
+        super(context, i);
     }
 
-    private static void a(Context context, HashMap<String, String> hashMap) {
-        eo m260a = ek.a(context).m260a();
-        if (m260a != null) {
-            m260a.a(context, hashMap);
-        }
+    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public int mo162a() {
+        return 23;
     }
 
-    private static void b(Context context, HashMap<String, String> hashMap) {
-        eo m260a = ek.a(context).m260a();
-        if (m260a != null) {
-            m260a.c(context, hashMap);
-        }
+    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public ho mo162a() {
+        return ho.Storage;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void c(Context context, String str, int i, String str2) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            HashMap hashMap = new HashMap();
-            hashMap.put("awake_info", str);
-            hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf(i));
-            hashMap.put("description", str2);
-            switch (ek.a(context).a()) {
-                case 1:
-                    a(context, hashMap);
-                    break;
-                case 2:
-                    c(context, hashMap);
-                    break;
-                case 3:
-                    a(context, hashMap);
-                    c(context, hashMap);
-                    break;
-            }
-            b(context, hashMap);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-        }
-    }
-
-    private static void c(Context context, HashMap<String, String> hashMap) {
-        eo m260a = ek.a(context).m260a();
-        if (m260a != null) {
-            m260a.b(context, hashMap);
-        }
+    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public String mo162a() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("ram:").append(i.m388b()).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append("rom:").append(i.m390c()).append("|").append("ramOriginal:").append(i.d()).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append("romOriginal:").append(i.e());
+        return sb.toString();
     }
 }

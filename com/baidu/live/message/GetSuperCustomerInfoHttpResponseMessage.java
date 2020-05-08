@@ -6,14 +6,14 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetSuperCustomerInfoHttpResponseMessage extends JsonHttpResponsedMessage {
-    private u aQA;
+    private u aQF;
 
     public GetSuperCustomerInfoHttpResponseMessage() {
         super(1021186);
     }
 
-    public u DW() {
-        return this.aQA;
+    public u DV() {
+        return this.aQF;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
@@ -21,8 +21,8 @@ public class GetSuperCustomerInfoHttpResponseMessage extends JsonHttpResponsedMe
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             Log.d("SuperCustomerHelper", "GetSuperCustomerInfoHttpResponseMessage retJson:" + jSONObject.toString());
-            this.aQA = new u();
-            this.aQA.parseJson(jSONObject);
+            this.aQF = new u();
+            this.aQF.parseJson(jSONObject);
         }
     }
 }

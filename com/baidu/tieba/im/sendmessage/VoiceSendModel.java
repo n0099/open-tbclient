@@ -6,8 +6,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class VoiceSendModel extends BdBaseModel {
-    private a iuT;
-    private b iuU;
+    private a iuZ;
+    private b iva;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -29,24 +29,24 @@ public class VoiceSendModel extends BdBaseModel {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.iuT = new a(str, chatMessage);
-        this.iuT.execute(new Object[0]);
+        this.iuZ = new a(str, chatMessage);
+        this.iuZ.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.iuU = bVar;
+        this.iva = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private ChatMessage iuV;
-        private com.baidu.tieba.im.sendmessage.b iuW = new com.baidu.tieba.im.sendmessage.b();
+        private ChatMessage ivb;
+        private com.baidu.tieba.im.sendmessage.b ivc = new com.baidu.tieba.im.sendmessage.b();
         private String mVid;
 
         public a(String str, ChatMessage chatMessage) {
             this.mVid = str;
-            this.iuV = chatMessage;
+            this.ivb = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -55,7 +55,7 @@ public class VoiceSendModel extends BdBaseModel {
         /* renamed from: j */
         public String doInBackground(Object... objArr) {
             try {
-                return this.iuW.Fe(this.mVid);
+                return this.ivc.Fh(this.mVid);
             } catch (Exception e) {
                 return null;
             }
@@ -66,8 +66,8 @@ public class VoiceSendModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (VoiceSendModel.this.iuU != null) {
-                VoiceSendModel.this.iuU.a(str, this.iuV);
+            if (VoiceSendModel.this.iva != null) {
+                VoiceSendModel.this.iva.a(str, this.ivb);
             }
         }
     }

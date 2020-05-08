@@ -7,7 +7,7 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetNuomiOrderHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private HashMap<String, String> fpn;
+    private HashMap<String, String> fpt;
     private String orderId;
 
     public GetNuomiOrderHttpResponsedMessage() {
@@ -18,28 +18,28 @@ public class GetNuomiOrderHttpResponsedMessage extends JsonHttpResponsedMessage 
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
-            this.fpn = new HashMap<>();
+            this.fpt = new HashMap<>();
             this.orderId = jSONObject.optString("tpOrderId");
-            this.fpn.put("dealId", jSONObject.optString("dealId"));
-            this.fpn.put("appKey", jSONObject.optString("appKey"));
-            this.fpn.put("tpOrderId", jSONObject.optString("tpOrderId"));
-            this.fpn.put("timestamp", jSONObject.optString("timestamp"));
-            this.fpn.put("totalAmount", jSONObject.optString("totalAmount"));
-            this.fpn.put(CashierData.RETURN_URL, jSONObject.optString(CashierData.RETURN_URL));
-            this.fpn.put(TbEnum.SystemMessage.KEY_USER_ID, jSONObject.optString(TbEnum.SystemMessage.KEY_USER_ID));
-            this.fpn.put(CashierData.NOTIFY_URL, jSONObject.optString(CashierData.NOTIFY_URL));
-            this.fpn.put("dealTitle", jSONObject.optString("dealTitle"));
-            this.fpn.put("returnData", jSONObject.optString("returnData"));
-            this.fpn.put("nativeAppId", jSONObject.optString("nativeAppId"));
-            this.fpn.put("channel", jSONObject.optString("channel"));
-            this.fpn.put(CashierData.DEVICE_TYPE, jSONObject.optString(CashierData.DEVICE_TYPE));
-            this.fpn.put("rsaSign", jSONObject.optString("rsaSign"));
-            this.fpn.put("bizInfo", jSONObject.optString("bizInfo"));
+            this.fpt.put("dealId", jSONObject.optString("dealId"));
+            this.fpt.put("appKey", jSONObject.optString("appKey"));
+            this.fpt.put("tpOrderId", jSONObject.optString("tpOrderId"));
+            this.fpt.put("timestamp", jSONObject.optString("timestamp"));
+            this.fpt.put("totalAmount", jSONObject.optString("totalAmount"));
+            this.fpt.put(CashierData.RETURN_URL, jSONObject.optString(CashierData.RETURN_URL));
+            this.fpt.put(TbEnum.SystemMessage.KEY_USER_ID, jSONObject.optString(TbEnum.SystemMessage.KEY_USER_ID));
+            this.fpt.put(CashierData.NOTIFY_URL, jSONObject.optString(CashierData.NOTIFY_URL));
+            this.fpt.put("dealTitle", jSONObject.optString("dealTitle"));
+            this.fpt.put("returnData", jSONObject.optString("returnData"));
+            this.fpt.put("nativeAppId", jSONObject.optString("nativeAppId"));
+            this.fpt.put("channel", jSONObject.optString("channel"));
+            this.fpt.put(CashierData.DEVICE_TYPE, jSONObject.optString(CashierData.DEVICE_TYPE));
+            this.fpt.put("rsaSign", jSONObject.optString("rsaSign"));
+            this.fpt.put("bizInfo", jSONObject.optString("bizInfo"));
         }
     }
 
-    public HashMap<String, String> bpM() {
-        return this.fpn;
+    public HashMap<String, String> bpK() {
+        return this.fpt;
     }
 
     public String getOrderId() {

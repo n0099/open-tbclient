@@ -40,10 +40,10 @@ public class g extends a {
             unitedSchemeEntity.result = eg(1001);
             return false;
         }
-        com.baidu.swan.apps.component.b.c Sy = aVar.Sy();
-        boolean isSuccess = Sy.isSuccess();
+        com.baidu.swan.apps.component.b.c Sx = aVar.Sx();
+        boolean isSuccess = Sx.isSuccess();
         if (!isSuccess) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: " + Sy.msg);
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "remove canvas fail: " + Sx.msg);
         }
         a(unitedSchemeEntity, callbackHandler, isSuccess);
         return isSuccess;

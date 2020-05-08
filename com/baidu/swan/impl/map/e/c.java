@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
 public abstract class c implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
-    BaiduMap cUT;
-    private List<OverlayOptions> cXl;
-    List<Overlay> cXm;
+    BaiduMap cUY;
+    private List<OverlayOptions> cXq;
+    List<Overlay> cXr;
 
     public abstract List<OverlayOptions> aAL();
 
     public c(BaiduMap baiduMap) {
-        this.cUT = null;
-        this.cXl = null;
-        this.cXm = null;
-        this.cUT = baiduMap;
-        if (this.cXl == null) {
-            this.cXl = new ArrayList();
+        this.cUY = null;
+        this.cXq = null;
+        this.cXr = null;
+        this.cUY = baiduMap;
+        if (this.cXq == null) {
+            this.cXq = new ArrayList();
         }
-        if (this.cXm == null) {
-            this.cXm = new ArrayList();
+        if (this.cXr == null) {
+            this.cXr = new ArrayList();
         }
     }
 
     public final void aAN() {
-        if (this.cUT != null) {
+        if (this.cUY != null) {
             aAO();
             if (aAL() != null) {
-                this.cXl.addAll(aAL());
+                this.cXq.addAll(aAL());
             }
-            for (OverlayOptions overlayOptions : this.cXl) {
-                this.cXm.add(this.cUT.addOverlay(overlayOptions));
+            for (OverlayOptions overlayOptions : this.cXq) {
+                this.cXr.add(this.cUY.addOverlay(overlayOptions));
             }
         }
     }
 
     public final void aAO() {
-        if (this.cUT != null) {
-            for (Overlay overlay : this.cXm) {
+        if (this.cUY != null) {
+            for (Overlay overlay : this.cXr) {
                 overlay.remove();
             }
-            this.cXl.clear();
-            this.cXm.clear();
+            this.cXq.clear();
+            this.cXr.clear();
         }
     }
 
     public void aAP() {
-        if (this.cUT != null && this.cXm.size() > 0) {
+        if (this.cUY != null && this.cXr.size() > 0) {
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
-            for (Overlay overlay : this.cXm) {
+            for (Overlay overlay : this.cXr) {
                 if (overlay instanceof Marker) {
                     builder.include(((Marker) overlay).getPosition());
                 }
             }
-            this.cUT.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+            this.cUY.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
 }

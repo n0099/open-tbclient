@@ -177,14 +177,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         initWebView();
         this.mView = new f(this);
         initData();
-        this.mView.aHT();
+        this.mView.aHR();
         this.mView.f(this.mOnRefreshClickListener);
         this.mView.go(this.mIsLogin);
         this.mView.go(isNeedShowMenuItem());
         if (!StringUtils.isNull(this.mUrlTitle)) {
-            this.mView.tC(this.mUrlTitle);
+            this.mView.tF(this.mUrlTitle);
         }
-        if (!this.mView.aHR() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
+        if (!this.mView.aHP() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
             bc.addStateBarViewSpace(this.mView.mRoot, R.color.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
@@ -417,12 +417,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (context == null || str == null || (parse = Uri.parse(str)) == null) {
             return null;
         }
-        List<String> aRN = com.baidu.tbadk.coreExtra.data.f.aRN();
-        if (v.isEmpty(aRN)) {
+        List<String> aRK = com.baidu.tbadk.coreExtra.data.f.aRK();
+        if (v.isEmpty(aRK)) {
             return null;
         }
         String scheme = parse.getScheme();
-        Iterator<String> it = aRN.iterator();
+        Iterator<String> it = aRK.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -432,7 +432,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 break;
             }
         }
-        if (scheme != null && !scheme.equals(SHOUBAI_SCHEME) && !scheme.equals(com.baidu.tbadk.BdToken.f.dhl)) {
+        if (scheme != null && !scheme.equals(SHOUBAI_SCHEME) && !scheme.equals(com.baidu.tbadk.BdToken.f.dhq)) {
             z = z && "1".equals(parse.getQueryParameter(KEY_FOR_NATIVE_CHECK));
         }
         if (z) {
@@ -506,9 +506,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             shareItem.imageUri = Uri.parse(str4);
         }
-        shareItem.dQm = true;
+        shareItem.dQr = true;
         shareItem.extData = this.mUrl;
-        shareItem.dQx = 13;
+        shareItem.dQC = 13;
         Bundle bundle = new Bundle();
         bundle.putString(TiebaInitialize.Params.OBJ_URL, shareItem.linkUrl);
         shareItem.Y(bundle);
@@ -546,14 +546,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                         shareItem.topic = optString5;
                     }
                     if (!aq.isEmpty(optString6)) {
-                        shareItem.dQD = optString6;
+                        shareItem.dQI = optString6;
                     }
                     if (!aq.isEmpty(optString7)) {
-                        shareItem.dQE = optString7;
+                        shareItem.dQJ = optString7;
                     }
                     shareItem.shareType = jSONObject.optInt("shareimg");
                     if (!aq.isEmpty(optString8) && "1".equals(optString8)) {
-                        shareItem.dQr = true;
+                        shareItem.dQw = true;
                         shareItem.title = optString + " " + optString2;
                     }
                     String optString9 = jSONObject.optString("extdata");
@@ -749,14 +749,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b tE = com.baidu.tbadk.core.a.a.aIf().tE(TbadkCoreApplication.getCurrentBduss());
-        if (tE != null) {
-            if (tE.mBduss != null) {
-                str3 = tE.mBduss;
+        a.b tH = com.baidu.tbadk.core.a.a.aId().tH(TbadkCoreApplication.getCurrentBduss());
+        if (tH != null) {
+            if (tH.mBduss != null) {
+                str3 = tH.mBduss;
             }
-            if (tE.mPtoken != null) {
+            if (tH.mPtoken != null) {
                 str = str3;
-                str2 = tE.mPtoken;
+                str2 = tH.mPtoken;
                 ag.a aVar = new ag.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

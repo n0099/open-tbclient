@@ -3,7 +3,9 @@ package com.baidu.android.pushservice.viproxy;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.i.l;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.sdk.OpenClientPushMessageReceiver;
 import org.json.JSONObject;
@@ -35,8 +37,9 @@ public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
             intent.putExtra("vi_notification_msg_id", optString);
             intent.putExtra("vi_notification_pkg_content", optString3);
             intent.putExtra("extra_extra_custom_content", optString4);
-            l.a(intent, context.getApplicationContext());
+            m.a(intent, context.getApplicationContext());
         } catch (Exception e) {
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         }
     }
 

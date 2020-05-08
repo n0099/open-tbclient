@@ -4,12 +4,12 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class anim {
-        public static final int svfade_in_center = 0x7f04011d;
-        public static final int svfade_out_center = 0x7f04011e;
-        public static final int svslide_in_bottom = 0x7f04011f;
-        public static final int svslide_in_top = 0x7f040120;
-        public static final int svslide_out_bottom = 0x7f040121;
-        public static final int svslide_out_top = 0x7f040122;
+        public static final int svfade_in_center = 0x7f04011e;
+        public static final int svfade_out_center = 0x7f04011f;
+        public static final int svslide_in_bottom = 0x7f040120;
+        public static final int svslide_in_top = 0x7f040121;
+        public static final int svslide_out_bottom = 0x7f040122;
+        public static final int svslide_out_top = 0x7f040123;
     }
 
     /* loaded from: classes.dex */
@@ -28,7 +28,7 @@ public final class R {
         public static final int bgColor_svprogressdefaultview = 0x7f0d0157;
         public static final int roundColor_svprogresshuddefault = 0x7f0d078e;
         public static final int roundProgressColor_svprogresshuddefault = 0x7f0d078f;
-        public static final int textColor_svprogresshuddefault_msg = 0x7f0d0a04;
+        public static final int textColor_svprogresshuddefault_msg = 0x7f0d0a05;
     }
 
     /* loaded from: classes.dex */
@@ -56,11 +56,11 @@ public final class R {
     public static final class id {
         public static final int FILL = 0x7f0f018a;
         public static final int STROKE = 0x7f0f018b;
-        public static final int circleProgressBar = 0x7f0f234a;
-        public static final int ivBigLoading = 0x7f0f2348;
-        public static final int ivSmallLoading = 0x7f0f2349;
-        public static final int sv_outmost_container = 0x7f0f171c;
-        public static final int tvMsg = 0x7f0f234b;
+        public static final int circleProgressBar = 0x7f0f2349;
+        public static final int ivBigLoading = 0x7f0f2347;
+        public static final int ivSmallLoading = 0x7f0f2348;
+        public static final int sv_outmost_container = 0x7f0f171b;
+        public static final int tvMsg = 0x7f0f234a;
     }
 
     /* loaded from: classes.dex */
@@ -70,8 +70,8 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static final int layout_svprogresshud = 0x7f0304de;
-        public static final int view_svprogressdefault = 0x7f030844;
+        public static final int layout_svprogresshud = 0x7f0304dc;
+        public static final int view_svprogressdefault = 0x7f030841;
     }
 
     /* loaded from: classes.dex */

@@ -1,46 +1,35 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.database.Cursor;
-import com.xiaomi.push.bw;
-import java.util.ArrayList;
-import java.util.List;
+import com.xiaomi.push.ai;
+import java.lang.ref.WeakReference;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class br extends bw.b<Long> {
-    private long a;
+public class br extends ai.a {
+    final /* synthetic */ bp a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private String f159a;
-
-    public br(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i, String str6) {
-        super(str, list, str2, strArr, str3, str4, str5, i);
-        this.a = 0L;
-        this.f159a = str6;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public br(bp bpVar) {
+        this.a = bpVar;
     }
 
-    public static br a(String str) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("count(*)");
-        return new br(str, arrayList, null, null, null, null, null, 0, "job to get count of all message");
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public int mo162a() {
+        return 10054;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.xiaomi.push.bw.b
-    public Long a(Context context, Cursor cursor) {
-        return Long.valueOf(cursor.getLong(0));
-    }
-
-    @Override // com.xiaomi.push.bw.b, com.xiaomi.push.bw.a
-    public Object a() {
-        return Long.valueOf(this.a);
-    }
-
-    @Override // com.xiaomi.push.bw.b
-    public void a(Context context, List<Long> list) {
-        if (context == null || list == null || list.size() <= 0) {
-            return;
-        }
-        this.a = list.get(0).longValue();
+    @Override // java.lang.Runnable
+    public void run() {
+        String c;
+        Context context;
+        Context context2;
+        com.xiaomi.channel.commonutils.logger.b.c("exec== DbSizeControlJob");
+        c = this.a.c();
+        context = this.a.f133a;
+        bu buVar = new bu(c, new WeakReference(context));
+        context2 = this.a.f133a;
+        cb.a(context2).a(buVar);
+        this.a.b("check_time");
     }
 }

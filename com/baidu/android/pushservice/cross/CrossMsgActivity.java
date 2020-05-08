@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.i.l;
+import com.baidu.android.pushservice.i.m;
 /* loaded from: classes8.dex */
 public class CrossMsgActivity extends Activity {
     @Override // android.app.Activity
@@ -37,7 +37,7 @@ public class CrossMsgActivity extends Activity {
                     intent2.putExtra("com.baidu.pushservice.app_id", stringExtra6);
                     intent2.putExtra("baidu_message_secur_info", byteArrayExtra);
                     intent2.putExtra("baidu_message_body", byteArrayExtra2);
-                    l.a(intent2, getApplicationContext());
+                    m.a(intent2, getApplicationContext());
                 }
             }
         }

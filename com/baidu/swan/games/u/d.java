@@ -15,45 +15,45 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class d {
     public static void d(b.a aVar) {
-        Bundle adG;
-        if (aVar != null && axU() && (adG = aVar.adG()) != null && adG.getLong("page_display_flag_for_statistic") > 0) {
+        Bundle adF;
+        if (aVar != null && axU() && (adF = aVar.adF()) != null && adF.getLong("page_display_flag_for_statistic") > 0) {
             long j = aVar.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             f fVar = new f();
             fVar.mFrom = com.baidu.swan.apps.statistic.f.gz(aVar.getAppFrameType());
             fVar.mAppId = aVar.getAppId();
-            fVar.mSource = aVar.adB();
+            fVar.mSource = aVar.adA();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realsuccess";
-            fVar.cux = String.valueOf(currentTimeMillis - j);
-            fVar.nd(adG.getString("ubc"));
+            fVar.cuD = String.valueOf(currentTimeMillis - j);
+            fVar.nd(adF.getString("ubc"));
             com.baidu.swan.apps.statistic.f.onEvent(fVar);
-            adG.remove("page_display_flag_for_statistic");
+            adF.remove("page_display_flag_for_statistic");
         }
     }
 
     public static void b(String str, b.a aVar) {
-        Bundle adG;
-        if (aVar != null && !axU() && (adG = aVar.adG()) != null && adG.getLong("page_display_flag_for_statistic") > 0) {
+        Bundle adF;
+        if (aVar != null && !axU() && (adF = aVar.adF()) != null && adF.getLong("page_display_flag_for_statistic") > 0) {
             long j = aVar.getLong("launch_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             f fVar = new f();
             fVar.mFrom = com.baidu.swan.apps.statistic.f.gz(aVar.getAppFrameType());
             fVar.mAppId = aVar.getAppId();
-            fVar.mSource = aVar.adB();
+            fVar.mSource = aVar.adA();
             fVar.mType = Config.LAUNCH;
             fVar.mValue = "realcancel";
-            fVar.cuw = String.valueOf(currentTimeMillis - j);
+            fVar.cuC = String.valueOf(currentTimeMillis - j);
             fVar.s(TiebaInitialize.LogFields.REASON, str);
             fVar.s("errorList", b.axS().axT());
-            fVar.nd(adG.getString("ubc"));
+            fVar.nd(adF.getString("ubc"));
             com.baidu.swan.apps.statistic.f.onEvent(fVar);
-            adG.remove("page_display_flag_for_statistic");
+            adF.remove("page_display_flag_for_statistic");
         }
     }
 
     public static void qP(String str) {
-        if (com.baidu.swan.apps.runtime.d.akK().Om() == 1 && !axU()) {
+        if (com.baidu.swan.apps.runtime.d.akJ().Ol() == 1 && !axU()) {
             com.baidu.swan.apps.performance.f.lb("startup").f(new UbcFlowEvent(str));
         }
     }
@@ -75,12 +75,12 @@ public class d {
     }
 
     public static boolean axU() {
-        SwanAppActivity akJ;
-        e akN = e.akN();
-        if (akN != null && (akJ = akN.akJ()) != null) {
-            com.baidu.swan.apps.framework.c On = akJ.On();
-            if (On instanceof com.baidu.swan.games.i.b) {
-                return ((com.baidu.swan.games.i.b) On).awz();
+        SwanAppActivity akI;
+        e akM = e.akM();
+        if (akM != null && (akI = akM.akI()) != null) {
+            com.baidu.swan.apps.framework.c Om = akI.Om();
+            if (Om instanceof com.baidu.swan.games.i.b) {
+                return ((com.baidu.swan.games.i.b) Om).awz();
             }
             return false;
         }
@@ -88,12 +88,12 @@ public class d {
     }
 
     public static long axV() {
-        SwanAppActivity akJ;
-        e akN = e.akN();
-        if (akN != null && (akJ = akN.akJ()) != null) {
-            com.baidu.swan.apps.framework.c On = akJ.On();
-            if (On instanceof com.baidu.swan.games.i.b) {
-                return ((com.baidu.swan.games.i.b) On).awA();
+        SwanAppActivity akI;
+        e akM = e.akM();
+        if (akM != null && (akI = akM.akI()) != null) {
+            com.baidu.swan.apps.framework.c Om = akI.Om();
+            if (Om instanceof com.baidu.swan.games.i.b) {
+                return ((com.baidu.swan.games.i.b) Om).awA();
             }
             return 0L;
         }

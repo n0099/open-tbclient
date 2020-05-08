@@ -41,22 +41,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private Dialog aIv;
-    private n aqQ;
-    private bc awq;
+    private Dialog aIB;
+    private n aqW;
+    private bc aww;
     private Context context;
-    private AnimatorSet fGB;
+    private AnimatorSet fGG;
     private View mContentView;
     private String otherParams;
-    private boolean fGC = false;
+    private boolean fGH = false;
     private Handler handler = new Handler();
-    private boolean fGD = false;
-    private boolean fGE = false;
-    private boolean fGF = false;
+    private boolean fGI = false;
+    private boolean fGJ = false;
+    private boolean fGK = false;
 
-    public void xl() {
-        if (this.aIv != null && this.aIv.isShowing()) {
-            Context context = this.aIv.getContext();
+    public void xk() {
+        if (this.aIB != null && this.aIB.isShowing()) {
+            Context context = this.aIB.getContext();
             if (context != null) {
                 if (context instanceof Activity) {
                     Activity activity = (Activity) context;
@@ -68,12 +68,12 @@ public class a {
                         return;
                     }
                 }
-                this.aIv.dismiss();
+                this.aIB.dismiss();
             } else {
                 return;
             }
         }
-        this.aIv = null;
+        this.aIB = null;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:44:0x00d8  */
@@ -94,24 +94,24 @@ public class a {
         int i3 = 0;
         this.context = context;
         if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.aqQ = nVar;
+            this.aqW = nVar;
             this.otherParams = str;
-            if (this.aqQ != null && this.aqQ.aqx != null) {
+            if (this.aqW != null && this.aqW.aqD != null) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("test_firstRecharge", false);
                 Map<String, Object> process = ExtraParamsManager.getInstance().buildParamsExtra().process(hashMap);
                 boolean booleanValue = process.containsKey("test_firstRecharge") ? ((Boolean) process.get("test_firstRecharge")).booleanValue() : false;
                 if (booleanValue) {
-                    this.aqQ.aqx.isNewUser = true;
+                    this.aqW.aqD.isNewUser = true;
                 }
-                this.fGD = this.aqQ.aqx.isNewUser;
-                if (this.fGD && !this.fGC && TbadkCoreApplication.isLogin() && (asVar = com.baidu.live.v.a.Eo().aRw) != null && asVar.avx != null && asVar.avx.axa && (bbVar = asVar.avu) != null) {
-                    this.awq = bbVar.awq;
-                    if (this.awq != null && !TextUtils.isEmpty(this.awq.aww)) {
-                        int i4 = this.awq.awk;
-                        int i5 = this.awq.awl;
+                this.fGI = this.aqW.aqD.isNewUser;
+                if (this.fGI && !this.fGH && TbadkCoreApplication.isLogin() && (asVar = com.baidu.live.v.a.En().aRB) != null && asVar.avD != null && asVar.avD.axg && (bbVar = asVar.avA) != null) {
+                    this.aww = bbVar.aww;
+                    if (this.aww != null && !TextUtils.isEmpty(this.aww.awC)) {
+                        int i4 = this.aww.awq;
+                        int i5 = this.aww.awr;
                         final String b = j.b(new Date());
-                        String string = c.tH().getString("first_recharge_show_trace", "");
+                        String string = c.tG().getString("first_recharge_show_trace", "");
                         if (!TextUtils.isEmpty(string)) {
                             try {
                                 jSONArray = new JSONArray(string);
@@ -145,7 +145,7 @@ public class a {
                                         }
                                     }
                                 }
-                                i2 = this.awq.awm;
+                                i2 = this.aww.aws;
                                 if (i2 <= 0) {
                                     i2 = 20;
                                 }
@@ -165,13 +165,13 @@ public class a {
                                                 return;
                                             }
                                         }
-                                        if (a.this.aqQ != null && a.this.aqQ.aqx != null && a.this.aqQ.aqx.isNewUser) {
-                                            a.this.a(context, a.this.awq);
-                                            a.this.a(b, a.this.awq);
+                                        if (a.this.aqW != null && a.this.aqW.aqD != null && a.this.aqW.aqD.isNewUser) {
+                                            a.this.a(context, a.this.aww);
+                                            a.this.a(b, a.this.aww);
                                         }
                                     }
                                 }, i2 * 1000);
-                                this.fGC = true;
+                                this.fGH = true;
                             }
                             return;
                         }
@@ -187,7 +187,7 @@ public class a {
                         }
                         if (i5 >= 0) {
                         }
-                        i2 = this.awq.awm;
+                        i2 = this.aww.aws;
                         if (i2 <= 0) {
                         }
                         if (booleanValue) {
@@ -205,13 +205,13 @@ public class a {
                                         return;
                                     }
                                 }
-                                if (a.this.aqQ != null && a.this.aqQ.aqx != null && a.this.aqQ.aqx.isNewUser) {
-                                    a.this.a(context, a.this.awq);
-                                    a.this.a(b, a.this.awq);
+                                if (a.this.aqW != null && a.this.aqW.aqD != null && a.this.aqW.aqD.isNewUser) {
+                                    a.this.a(context, a.this.aww);
+                                    a.this.a(b, a.this.aww);
                                 }
                             }
                         }, i2 * 1000);
-                        this.fGC = true;
+                        this.fGH = true;
                     }
                 }
             }
@@ -220,7 +220,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final bc bcVar) {
-        xl();
+        xk();
         View inflate = LayoutInflater.from(context).inflate(a.h.dialog_first_recharge, (ViewGroup) null);
         final Dialog dialog = new Dialog(context, a.j.FlowerGuideDialogStyle);
         dialog.requestWindowFeature(1);
@@ -228,19 +228,19 @@ public class a {
         dialog.setContentView(inflate);
         dialog.setCanceledOnTouchOutside(false);
         this.mContentView = inflate;
-        this.aIv = dialog;
-        bvz();
+        this.aIB = dialog;
+        bvx();
         inflate.findViewById(a.g.main_layout).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.i.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    a.this.xl();
-                    if (a.this.aqQ != null && a.this.aqQ.mLiveInfo != null) {
-                        String str = bcVar.aww;
+                    a.this.xk();
+                    if (a.this.aqW != null && a.this.aqW.mLiveInfo != null) {
+                        String str = bcVar.awC;
                         if (!TextUtils.isEmpty(str)) {
-                            BrowserHelper.startInternalWebActivity(context, str.contains("?") ? str + "&liveId=" + a.this.aqQ.mLiveInfo.live_id : str + "?liveId=" + a.this.aqQ.mLiveInfo.live_id);
-                            if (a.this.aqQ != null) {
-                                LogManager.getFirstChargeLogger().doClickLiveFirstChargePopupLog(a.this.aqQ.mLiveInfo.live_id + "", a.this.aqQ.mLiveInfo.room_id + "", a.this.aqQ.mLiveInfo.feed_id, a.this.otherParams);
+                            BrowserHelper.startInternalWebActivity(context, str.contains("?") ? str + "&liveId=" + a.this.aqW.mLiveInfo.live_id : str + "?liveId=" + a.this.aqW.mLiveInfo.live_id);
+                            if (a.this.aqW != null) {
+                                LogManager.getFirstChargeLogger().doClickLiveFirstChargePopupLog(a.this.aqW.mLiveInfo.live_id + "", a.this.aqW.mLiveInfo.room_id + "", a.this.aqW.mLiveInfo.feed_id, a.this.otherParams);
                                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1396", "click", "liveroom", "firstcharg_clk").setContentExt(null, "popup", null));
                             }
                         }
@@ -254,9 +254,9 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 try {
-                    a.this.xl();
-                    if (a.this.aqQ != null) {
-                        LogManager.getFirstChargeLogger().doClickLiveFirstChargePopupCloseLog(a.this.aqQ.mLiveInfo.live_id + "", a.this.aqQ.mLiveInfo.room_id + "", a.this.aqQ.mLiveInfo.feed_id, a.this.otherParams);
+                    a.this.xk();
+                    if (a.this.aqW != null) {
+                        LogManager.getFirstChargeLogger().doClickLiveFirstChargePopupCloseLog(a.this.aqW.mLiveInfo.live_id + "", a.this.aqW.mLiveInfo.room_id + "", a.this.aqW.mLiveInfo.feed_id, a.this.otherParams);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -267,33 +267,33 @@ public class a {
         tbImageView.setDefaultBgResource(a.f.sdk_shape_transparent);
         TbImageView tbImageView2 = (TbImageView) inflate.findViewById(a.g.recharge_imageView);
         tbImageView2.setDefaultBgResource(a.f.sdk_shape_transparent);
-        if (!TextUtils.isEmpty(bcVar.awv)) {
-            tbImageView2.startLoad(bcVar.awv, 10, false);
+        if (!TextUtils.isEmpty(bcVar.awB)) {
+            tbImageView2.startLoad(bcVar.awB, 10, false);
         }
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(tbImageView2, "scaleX", 1.0f, 1.2f, 1.0f);
         ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(tbImageView2, "scaleY", 1.0f, 1.2f, 1.0f);
         ofFloat.setRepeatCount(-1);
         ofFloat2.setRepeatCount(-1);
-        this.fGB = new AnimatorSet();
-        this.fGB.play(ofFloat).with(ofFloat2);
-        this.fGB.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.fGB.setDuration(2000L);
-        this.fGB.setStartDelay(0L);
+        this.fGG = new AnimatorSet();
+        this.fGG.play(ofFloat).with(ofFloat2);
+        this.fGG.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.fGG.setDuration(2000L);
+        this.fGG.setStartDelay(0L);
         dialog.setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.baidu.tieba.ala.liveroom.i.a.4
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                if (a.this.fGB != null) {
-                    a.this.fGB.start();
+                if (a.this.fGG != null) {
+                    a.this.fGG.start();
                 }
             }
         });
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.i.a.5
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (a.this.fGB != null) {
-                    a.this.fGB.cancel();
+                if (a.this.fGG != null) {
+                    a.this.fGG.cancel();
                 }
-                a.this.fGC = false;
+                a.this.fGH = false;
             }
         });
         tbImageView.setEvent(new TbImageView.ImageViewEvent() { // from class: com.baidu.tieba.ala.liveroom.i.a.6
@@ -309,12 +309,12 @@ public class a {
                         } else if (activity.isFinishing()) {
                             return;
                         }
-                        if (a.this.aqQ != null) {
+                        if (a.this.aqW != null) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913097, "firstRechargeDialog"));
                             if (dialog != null && !dialog.isShowing()) {
                                 dialog.show();
-                                if (a.this.aqQ != null) {
-                                    LogManager.getFirstChargeLogger().doDisplayLiveFirstChargePopupLog(a.this.aqQ.mLiveInfo.live_id + "", a.this.aqQ.mLiveInfo.room_id + "", a.this.aqQ.mLiveInfo.feed_id, a.this.otherParams);
+                                if (a.this.aqW != null) {
+                                    LogManager.getFirstChargeLogger().doDisplayLiveFirstChargePopupLog(a.this.aqW.mLiveInfo.live_id + "", a.this.aqW.mLiveInfo.room_id + "", a.this.aqW.mLiveInfo.feed_id, a.this.otherParams);
                                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("1394", "display", "liveroom", "firstcharg_show").setContentExt(null, "popup", null));
                                 }
                             }
@@ -329,8 +329,8 @@ public class a {
             public void onCancel() {
             }
         });
-        if (!TextUtils.isEmpty(bcVar.awu)) {
-            tbImageView.startLoad(bcVar.awu, 10, false);
+        if (!TextUtils.isEmpty(bcVar.awA)) {
+            tbImageView.startLoad(bcVar.awA, 10, false);
         }
     }
 
@@ -340,8 +340,8 @@ public class a {
         int i2 = 0;
         if (bcVar != null) {
             try {
-                i = bcVar.awk;
-                i2 = bcVar.awl;
+                i = bcVar.awq;
+                i2 = bcVar.awr;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return;
@@ -350,7 +350,7 @@ public class a {
             i = 0;
         }
         if (i >= 0 || i2 >= 0) {
-            String string = c.tH().getString("first_recharge_show_trace", "");
+            String string = c.tG().getString("first_recharge_show_trace", "");
             if (!TextUtils.isEmpty(string)) {
                 jSONArray = new JSONArray(string);
             } else {
@@ -359,58 +359,58 @@ public class a {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("date", str);
             jSONArray.put(jSONObject);
-            c.tH().putString("first_recharge_show_trace", jSONArray.toString());
+            c.tG().putString("first_recharge_show_trace", jSONArray.toString());
         }
     }
 
     public void onResume() {
-        if (!this.fGE && this.fGD && this.context != null && this.aqQ != null && this.aqQ.aqx != null && !this.aqQ.aqx.isNewUser) {
-            xl();
-            if (this.fGD && this.awq != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098, this.awq.aqW));
+        if (!this.fGJ && this.fGI && this.context != null && this.aqW != null && this.aqW.aqD != null && !this.aqW.aqD.isNewUser) {
+            xk();
+            if (this.fGI && this.aww != null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913098, this.aww.arc));
             }
-            this.fGE = true;
-            bvy();
+            this.fGJ = true;
+            bvw();
         }
     }
 
     public void r(n nVar) {
-        if (!this.fGF && this.fGD && nVar != null && nVar.aqx != null) {
-            boolean z = nVar.aqx.isNewUser;
-            this.aqQ = nVar;
-            if (!z && this.fGD) {
+        if (!this.fGK && this.fGI && nVar != null && nVar.aqD != null) {
+            boolean z = nVar.aqD.isNewUser;
+            this.aqW = nVar;
+            if (!z && this.fGI) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913115));
-                this.fGF = true;
-                bvy();
+                this.fGK = true;
+                bvw();
             }
         }
     }
 
-    private void bvy() {
-        if (this.fGE && this.fGF) {
-            this.fGD = false;
+    private void bvw() {
+        if (this.fGJ && this.fGK) {
+            this.fGI = false;
         }
     }
 
     public void release() {
-        this.fGC = false;
-        this.aqQ = null;
+        this.fGH = false;
+        this.aqW = null;
         this.handler.removeCallbacksAndMessages(null);
-        xl();
-        if (this.fGB != null) {
-            this.fGB.cancel();
-            this.fGB = null;
+        xk();
+        if (this.fGG != null) {
+            this.fGG.cancel();
+            this.fGG = null;
         }
     }
 
-    public void wK() {
-        if (this.aIv != null && this.aIv.isShowing() && this.mContentView != null) {
-            this.aIv.show();
-            bvz();
+    public void wJ() {
+        if (this.aIB != null && this.aIB.isShowing() && this.mContentView != null) {
+            this.aIB.show();
+            bvx();
         }
     }
 
-    private void bvz() {
+    private void bvx() {
         TbImageView tbImageView = (TbImageView) this.mContentView.findViewById(a.g.rechargeBg_imageView);
         tbImageView.setDefaultBgResource(a.f.sdk_shape_transparent);
         TbImageView tbImageView2 = (TbImageView) this.mContentView.findViewById(a.g.recharge_imageView);
@@ -419,19 +419,19 @@ public class a {
         int dimension2 = (int) this.context.getResources().getDimension(a.e.sdk_ds720);
         int dimension3 = (int) this.context.getResources().getDimension(a.e.sdk_ds176);
         int dimension4 = (int) this.context.getResources().getDimension(a.e.sdk_ds474);
-        if (UtilHelper.getRealScreenOrientation(this.aIv.getContext()) == 2) {
+        if (UtilHelper.getRealScreenOrientation(this.aIB.getContext()) == 2) {
             int dimension5 = (int) (BdUtilHelper.getScreenDimensions(this.context)[1] - this.context.getResources().getDimension(a.e.sdk_ds120));
             tbImageView.getLayoutParams().height = (int) (((dimension5 * 1.0f) * dimension) / (dimension + dimension3));
             tbImageView.getLayoutParams().width = (int) (((tbImageView.getLayoutParams().height * dimension2) * 1.0f) / dimension);
             tbImageView2.getLayoutParams().height = (int) (((dimension5 * 1.0f) * dimension3) / (dimension + dimension3));
             tbImageView2.getLayoutParams().width = (int) (((tbImageView2.getLayoutParams().height * dimension4) * 1.0f) / dimension3);
-            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.aIv.getWindow(), true, false);
+            UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.aIB.getWindow(), true, false);
             return;
         }
         tbImageView.getLayoutParams().height = dimension;
         tbImageView.getLayoutParams().width = dimension2;
         tbImageView2.getLayoutParams().height = dimension3;
         tbImageView2.getLayoutParams().width = dimension4;
-        UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.aIv.getWindow(), true, false);
+        UtilHelper.useNavigationBarStyleImmersiveSticky_L(this.aIB.getWindow(), true, false);
     }
 }

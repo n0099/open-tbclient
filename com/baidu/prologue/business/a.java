@@ -20,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     public static void a(final com.baidu.prologue.a.b.a aVar) {
-        a(aVar, IMTrack.DbBuilder.ACTION_UPDATE, aVar.pw()).MB().MA().a(new m() { // from class: com.baidu.prologue.business.a.1
+        a(aVar, IMTrack.DbBuilder.ACTION_UPDATE, aVar.pw()).MA().Mz().a(new m() { // from class: com.baidu.prologue.business.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
             /* renamed from: fO */
@@ -34,7 +34,7 @@ public class a {
 
             @Override // com.baidu.prologue.service.network.j
             public void n(Throwable th) {
-                f.brS.e("Afd", "update接口 " + th.getMessage());
+                f.brW.e("Afd", "update接口 " + th.getMessage());
             }
         });
     }
@@ -42,7 +42,7 @@ public class a {
     public static void a(final com.baidu.prologue.a.b.a aVar, final c cVar) {
         Request.a a = a(aVar, "query", aVar.pw());
         a.cM(true);
-        a.MB().MA().a(new m() { // from class: com.baidu.prologue.business.a.2
+        a.MA().Mz().a(new m() { // from class: com.baidu.prologue.business.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
             /* renamed from: fO */
@@ -62,17 +62,17 @@ public class a {
 
             @Override // com.baidu.prologue.service.network.j
             public void n(Throwable th) {
-                f.brS.e("Afd", "query接口 " + th.getMessage());
+                f.brW.e("Afd", "query接口 " + th.getMessage());
                 cVar.m(th);
             }
         });
     }
 
     private static Request.a a(com.baidu.prologue.a.b.a aVar, String str, String str2) {
-        Request.a aVar2 = new Request.a(aVar.Lh(), com.baidu.prologue.a.a.a.Lg() + (TextUtils.equals(str, IMTrack.DbBuilder.ACTION_UPDATE) ? "?action=update" : "?action=query"));
+        Request.a aVar2 = new Request.a(aVar.Lg(), com.baidu.prologue.a.a.a.Lf() + (TextUtils.equals(str, IMTrack.DbBuilder.ACTION_UPDATE) ? "?action=update" : "?action=query"));
         aVar2.aw("ac", "3");
         aVar2.aw("pid", str2);
-        aVar2.aw("product_id ", aVar.Ls());
+        aVar2.aw("product_id ", aVar.Lr());
         a(aVar2, aVar);
         a(aVar2, str);
         return aVar2;
@@ -86,26 +86,26 @@ public class a {
             jSONObject.put("v", str);
             jSONArray.put(jSONObject);
             JSONObject jSONObject2 = new JSONObject();
-            List<com.baidu.prologue.business.data.e> LU = com.baidu.prologue.business.data.d.LU();
+            List<com.baidu.prologue.business.data.e> LT = com.baidu.prologue.business.data.d.LT();
             ArrayList arrayList = new ArrayList();
             JSONArray jSONArray2 = new JSONArray();
-            if (LU != null && LU.size() > 0) {
-                for (com.baidu.prologue.business.data.e eVar : LU) {
+            if (LT != null && LT.size() > 0) {
+                for (com.baidu.prologue.business.data.e eVar : LT) {
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("k", eVar.bsq);
-                    if (!TextUtils.isEmpty(eVar.bsq)) {
+                    jSONObject3.put("k", eVar.bsu);
+                    if (!TextUtils.isEmpty(eVar.bsu)) {
                         int f = com.baidu.prologue.business.data.d.f(eVar);
                         Log.e("Afd", "onAdSuccess: " + f);
                         if (f == 0) {
-                            arrayList.add(eVar.bsq);
+                            arrayList.add(eVar.bsu);
                         }
                     }
-                    jSONObject3.put("r", String.valueOf(eVar.bsz));
+                    jSONObject3.put("r", String.valueOf(eVar.bsD));
                     jSONArray2.put(jSONObject3);
                 }
             }
             jSONObject2.put("d", jSONArray2);
-            jSONObject2.put("s", com.baidu.prologue.business.data.f.LZ());
+            jSONObject2.put("s", com.baidu.prologue.business.data.f.LY());
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put("k", "adinfo");
             jSONObject4.put("v", jSONObject2.toString());
@@ -121,32 +121,32 @@ public class a {
     }
 
     private static void a(Request.a aVar, com.baidu.prologue.a.b.a aVar2) {
-        aVar.aw("ver", aVar2.Li());
+        aVar.aw("ver", aVar2.Lh());
         aVar.aw("sv", "1.0");
-        aVar.aw("uid", aVar2.Lq());
-        aVar.aw("bdid", aVar2.Lo());
-        aVar.aw("cuid", aVar2.Lk());
-        aVar.aw("mod", aVar2.Ll());
-        aVar.aw("ov", aVar2.Lj());
-        aVar.aw("imei", aVar2.Lm());
-        aVar.aw(j.c, aVar2.Lp());
+        aVar.aw("uid", aVar2.Lp());
+        aVar.aw("bdid", aVar2.Ln());
+        aVar.aw("cuid", aVar2.Lj());
+        aVar.aw("mod", aVar2.Lk());
+        aVar.aw("ov", aVar2.Li());
+        aVar.aw("imei", aVar2.Ll());
+        aVar.aw(j.c, aVar2.Lo());
         aVar.aw("fmt", "json");
-        aVar.aw("coot", aVar2.Lv());
-        aVar.aw("lgt", aVar2.Lw()[0]);
-        aVar.aw("lat", aVar2.Lw()[1]);
-        aVar.aw("apna", aVar2.Ln());
-        aVar.aw("eid", aVar2.Lu());
+        aVar.aw("coot", aVar2.Lu());
+        aVar.aw("lgt", aVar2.Lv()[0]);
+        aVar.aw("lat", aVar2.Lv()[1]);
+        aVar.aw("apna", aVar2.Lm());
+        aVar.aw("eid", aVar2.Lt());
         aVar.aw("st", "1");
         aVar.aw("ot", "2");
-        aVar.aw("nt", String.valueOf(new g(aVar2.Lh()).My()));
+        aVar.aw("nt", String.valueOf(new g(aVar2.Lg()).Mx()));
         aVar.aw(Config.EXCEPTION_CRASH_TYPE, "2");
         aVar.aw("is_https", "1");
         aVar.aw("android_id", aVar2.androidId());
-        aVar.aw("from", aVar2.Lx());
-        aVar.aw(BdStatsConstant.StatsKey.CURRENT_CHANNEL, aVar2.Ly());
+        aVar.aw("from", aVar2.Lw());
+        aVar.aw(BdStatsConstant.StatsKey.CURRENT_CHANNEL, aVar2.Lx());
         aVar.av("User-Agent", aVar2.userAgent());
-        if (!TextUtils.isEmpty(aVar2.LC())) {
-            aVar.aw("oaid", aVar2.LC());
+        if (!TextUtils.isEmpty(aVar2.LB())) {
+            aVar.aw("oaid", aVar2.LB());
         }
     }
 }

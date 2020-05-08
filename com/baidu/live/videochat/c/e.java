@@ -5,6 +5,8 @@ public interface e extends c {
 
     void B(int i, String str);
 
+    void Gu();
+
     void Gv();
 
     void Gw();
@@ -12,8 +14,6 @@ public interface e extends c {
     void Gx();
 
     void Gy();
-
-    void Gz();
 
     void a(com.baidu.live.videochat.b.a aVar);
 

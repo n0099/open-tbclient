@@ -9,14 +9,14 @@ import com.baidu.webkit.sdk.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes11.dex */
 public class d implements Runnable {
-    final /* synthetic */ Intent QD;
-    final /* synthetic */ BdLightappKernelClient acq;
+    final /* synthetic */ Intent QH;
+    final /* synthetic */ BdLightappKernelClient act;
     final /* synthetic */ int val$requestCode;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BdLightappKernelClient bdLightappKernelClient, Intent intent, int i) {
-        this.acq = bdLightappKernelClient;
-        this.QD = intent;
+        this.act = bdLightappKernelClient;
+        this.QH = intent;
         this.val$requestCode = i;
     }
 
@@ -24,17 +24,17 @@ public class d implements Runnable {
     public void run() {
         SparseArray sparseArray;
         try {
-            if (this.acq.mActivity != null) {
-                this.acq.mActivity.startActivityForResult(this.QD, this.val$requestCode);
-                this.acq.regLappActivityResultListener();
+            if (this.act.mActivity != null) {
+                this.act.mActivity.startActivityForResult(this.QH, this.val$requestCode);
+                this.act.regLappActivityResultListener();
             } else {
                 Log.w("BdLightappKernelClient", "mActivity is null.");
             }
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
             Toast.makeText(BdSailorPlatform.getInstance().getAppContext(), com.baidu.browser.core.g.N("string", "sailor_msg_activity_not_found"), 0).show();
-            int intExtra = this.QD.getIntExtra("jsaction_key", -1);
-            sparseArray = this.acq.mJsCallbacks;
+            int intExtra = this.QH.getIntExtra("jsaction_key", -1);
+            sparseArray = this.act.mJsCallbacks;
             BdLightappKernelJsCallback bdLightappKernelJsCallback = (BdLightappKernelJsCallback) sparseArray.get(intExtra);
             if (bdLightappKernelJsCallback != null) {
                 bdLightappKernelJsCallback.sendFailCallBack(e.getMessage());

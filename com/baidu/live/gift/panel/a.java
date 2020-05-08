@@ -14,33 +14,33 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a implements w {
-    private com.baidu.live.gift.c.a aGH;
+    private com.baidu.live.gift.c.a aGN;
     private Context mContext;
 
     public a(Context context) {
         this.mContext = context;
-        zq();
+        zp();
+    }
+
+    @Override // com.baidu.live.gift.w
+    public void xh() {
+        this.aGN.zm();
     }
 
     @Override // com.baidu.live.gift.w
     public void xi() {
-        this.aGH.zn();
-    }
-
-    @Override // com.baidu.live.gift.w
-    public void xj() {
     }
 
     @Override // com.baidu.live.gift.w
     public void release() {
-        if (this.aGH != null) {
-            this.aGH.release();
+        if (this.aGN != null) {
+            this.aGN.release();
         }
     }
 
-    private void zq() {
-        this.aGH = new com.baidu.live.gift.c.a();
-        this.aGH.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
+    private void zp() {
+        this.aGN = new com.baidu.live.gift.c.a();
+        this.aGN.a(new com.baidu.live.gift.c.b() { // from class: com.baidu.live.gift.panel.a.1
             @Override // com.baidu.live.gift.c.b, com.baidu.live.gift.c.c.a
             public void a(boolean z, int i, String str, ArrayList<i> arrayList, ArrayList<d> arrayList2, ArrayList<e> arrayList3) {
                 super.a(z, i, str, arrayList, arrayList2, arrayList3);
@@ -58,7 +58,7 @@ public class a implements w {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, List<i> list) {
         if (z) {
-            s.wV().w(list);
+            s.wU().w(list);
         }
     }
 
@@ -72,37 +72,37 @@ public class a implements w {
             BdUtilHelper.showToast(this.mContext.getApplicationContext(), str);
         }
         if (i == 101) {
-            if (this.aGH == null) {
-                this.aGH = new com.baidu.live.gift.c.a();
+            if (this.aGN == null) {
+                this.aGN = new com.baidu.live.gift.c.a();
             }
-            this.aGH.zn();
+            this.aGN.zm();
         }
     }
 
     private void w(String str, int i) {
         List<i> datas;
-        if (!TextUtils.isEmpty(str) && (datas = s.wV().getDatas()) != null) {
+        if (!TextUtils.isEmpty(str) && (datas = s.wU().getDatas()) != null) {
             ArrayList<i> arrayList = new ArrayList(datas);
             for (i iVar : arrayList) {
-                List<g> ww = iVar.ww();
-                if (ww != null) {
+                List<g> wv = iVar.wv();
+                if (wv != null) {
                     if (i == 0) {
-                        Iterator<g> it = ww.iterator();
+                        Iterator<g> it = wv.iterator();
                         while (it.hasNext()) {
-                            if (it.next().vV().equals(str)) {
+                            if (it.next().vU().equals(str)) {
                                 it.remove();
                             }
                         }
                     } else {
-                        for (g gVar : ww) {
-                            if (gVar.vV().equals(str)) {
-                                gVar.ayN.ayU = i;
+                        for (g gVar : wv) {
+                            if (gVar.vU().equals(str)) {
+                                gVar.ayT.aza = i;
                             }
                         }
                     }
                 }
             }
-            s.wV().w(arrayList);
+            s.wU().w(arrayList);
         }
     }
 }

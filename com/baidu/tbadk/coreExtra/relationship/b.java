@@ -22,7 +22,7 @@ public class b {
         return this.time;
     }
 
-    public int aUS() {
+    public int aUQ() {
         return this.hide;
     }
 }

@@ -13,7 +13,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 /* loaded from: classes6.dex */
 public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
-    private static CustomMessageListener MI = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.e.a.1
+    private static CustomMessageListener MO = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.e.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,7 +40,7 @@ public class a implements FlutterPlugin, MethodChannel.MethodCallHandler {
     }
 
     private static void init() {
-        MessageManager.getInstance().registerListener(MI);
+        MessageManager.getInstance().registerListener(MO);
     }
 
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {

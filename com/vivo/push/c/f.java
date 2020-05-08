@@ -76,9 +76,9 @@ public final class f extends com.vivo.push.v {
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
         if (!this.a.getPackageName().equals(com.vivo.push.util.s.b(this.a))) {
-            com.vivo.push.b.k kVar = (com.vivo.push.b.k) yVar;
-            int d = kVar.d();
-            int e = kVar.e();
+            com.vivo.push.b.l lVar = (com.vivo.push.b.l) yVar;
+            int d = lVar.d();
+            int e = lVar.e();
             com.vivo.push.util.p.d("OnChangePushStatusTask", "OnChangePushStatusTask serviceStatus is " + d + " ; receiverStatus is " + e);
             if (d == 2) {
                 b(this.a);

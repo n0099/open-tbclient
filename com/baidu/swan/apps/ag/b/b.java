@@ -27,13 +27,13 @@ public class b {
         JSONObject jSONObject = new JSONObject();
         for (com.baidu.swan.apps.ag.f.a aVar : gt) {
             if (aVar != null && aVar.isValid()) {
-                String str = aVar.QY;
+                String str = aVar.Rb;
                 long d = d(e.jr(str), str);
-                long nB = com.baidu.swan.apps.swancore.b.nB(aVar.chG);
+                long nB = com.baidu.swan.apps.swancore.b.nB(aVar.chM);
                 File aQ = d > nB ? e.aQ(str, String.valueOf(d)) : null;
                 if (aQ == null) {
                     try {
-                        jSONObject.put(str, aVar.chI);
+                        jSONObject.put(str, aVar.chO);
                         com.baidu.swan.apps.ag.d.a.print("apply path inner swan app, name = " + str);
                     } catch (JSONException e) {
                         com.baidu.swan.apps.ag.d.a.print(Log.getStackTraceString(e));
@@ -48,7 +48,7 @@ public class b {
                     } catch (CloneNotSupportedException e2) {
                         com.baidu.swan.apps.ag.d.a.print(Log.getStackTraceString(e2));
                     }
-                    aVar.chG = com.baidu.swan.apps.swancore.b.bk(d);
+                    aVar.chM = com.baidu.swan.apps.swancore.b.bk(d);
                 }
                 if (z) {
                     a(aVar, true);
@@ -65,17 +65,17 @@ public class b {
             com.baidu.swan.apps.ag.d.a.print("plugin is invalid");
             return;
         }
-        final String str = aVar.QY;
-        String str2 = aVar.chG;
+        final String str = aVar.Rb;
+        String str2 = aVar.chM;
         h cn = com.baidu.swan.pms.database.a.aBI().cn(str, str2);
         if (cn != null && !cn.aBX()) {
             com.baidu.swan.apps.ag.d.a.print("plugin is new, not yet expired");
         } else {
-            c.a(new d(str, str2, aVar.chH), new com.baidu.swan.apps.ag.a.a(str, str2, new com.baidu.swan.apps.core.f.b<Boolean>() { // from class: com.baidu.swan.apps.ag.b.b.1
+            c.a(new d(str, str2, aVar.chN), new com.baidu.swan.apps.ag.a.a(str, str2, new com.baidu.swan.apps.core.f.b<Boolean>() { // from class: com.baidu.swan.apps.ag.b.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.core.f.b
                 /* renamed from: d */
-                public void G(Boolean bool) {
+                public void H(Boolean bool) {
                     com.baidu.swan.apps.ag.d.a.print("download plugin result = " + bool);
                     if (z) {
                         com.baidu.swan.apps.ag.e.a.K(str, 2);

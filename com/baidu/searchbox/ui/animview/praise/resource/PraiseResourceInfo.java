@@ -44,7 +44,7 @@ public final class PraiseResourceInfo {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            return new PraiseResourceInfo(jSONObject.optString("pkg_name"), "", jSONObject.optString(JSON_KEY_RES_SAVE_PATH), jSONObject.optLong("version"), jSONObject.optString(JSON_KEY_MIN_HOST_VER), jSONObject.optString(JSON_KEY_MAX_HOST_VER));
+            return new PraiseResourceInfo(jSONObject.optString(JSON_KEY_PKG_NAME), "", jSONObject.optString(JSON_KEY_RES_SAVE_PATH), jSONObject.optLong("version"), jSONObject.optString(JSON_KEY_MIN_HOST_VER), jSONObject.optString(JSON_KEY_MAX_HOST_VER));
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -92,7 +92,7 @@ public final class PraiseResourceInfo {
     public String toJSONString() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("pkg_name", this.mPkgName);
+            jSONObject.put(JSON_KEY_PKG_NAME, this.mPkgName);
             jSONObject.put(JSON_KEY_RES_SAVE_PATH, this.mPraiseResSavePath);
             jSONObject.put("version", this.mVersion);
             jSONObject.put(JSON_KEY_MIN_HOST_VER, this.mMinHostVer);

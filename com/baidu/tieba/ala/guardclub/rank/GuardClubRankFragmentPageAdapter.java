@@ -6,30 +6,30 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 /* loaded from: classes3.dex */
 public class GuardClubRankFragmentPageAdapter extends FragmentPagerAdapter {
-    public Fragment aGR;
-    private Fragment[] aGS;
+    public Fragment aGX;
+    private Fragment[] aGY;
 
     public GuardClubRankFragmentPageAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 
     public void a(Fragment... fragmentArr) {
-        this.aGS = fragmentArr;
+        this.aGY = fragmentArr;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        return this.aGS[i];
+        return this.aGY[i];
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.aGS.length;
+        return this.aGY.length;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        this.aGR = (Fragment) obj;
+        this.aGX = (Fragment) obj;
         super.setPrimaryItem(viewGroup, i, obj);
     }
 }

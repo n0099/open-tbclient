@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BdBaseModel {
-    private HttpMessageListener fpT;
-    private a fri;
+    private HttpMessageListener fpY;
+    private a frn;
     private boolean hasMore;
     private int pn;
     private int totalCount;
@@ -32,7 +32,7 @@ public class b extends BdBaseModel {
         this.userList = new ArrayList();
         this.pn = 1;
         this.hasMore = false;
-        this.fpT = new HttpMessageListener(1021079, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.b.1
+        this.fpY = new HttpMessageListener(1021079, true) { // from class: com.baidu.tieba.ala.live.personcenter.forbidden.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -40,32 +40,32 @@ public class b extends BdBaseModel {
                     AlaForbiddenListResponseMessage alaForbiddenListResponseMessage = (AlaForbiddenListResponseMessage) httpResponsedMessage;
                     com.baidu.tieba.ala.live.personcenter.forbidden.message.a aVar = (com.baidu.tieba.ala.live.personcenter.forbidden.message.a) alaForbiddenListResponseMessage.getmOrginalMessage();
                     if (!alaForbiddenListResponseMessage.isSuccess()) {
-                        if (b.this.fri != null) {
-                            b.this.fri.av(alaForbiddenListResponseMessage.getError(), alaForbiddenListResponseMessage.getErrorString());
+                        if (b.this.frn != null) {
+                            b.this.frn.av(alaForbiddenListResponseMessage.getError(), alaForbiddenListResponseMessage.getErrorString());
                             return;
                         }
                         return;
                     }
-                    com.baidu.tieba.ala.live.personcenter.forbidden.b.a bql = alaForbiddenListResponseMessage.bql();
-                    b.this.totalCount = bql.getTotalCount();
-                    if (aVar.bdZ()) {
-                        b.this.userList = bql.getUserList();
+                    com.baidu.tieba.ala.live.personcenter.forbidden.b.a bqj = alaForbiddenListResponseMessage.bqj();
+                    b.this.totalCount = bqj.getTotalCount();
+                    if (aVar.bdX()) {
+                        b.this.userList = bqj.getUserList();
                     } else {
                         b.this.pn = aVar.getPn();
-                        b.this.userList.addAll(bql.getUserList());
+                        b.this.userList.addAll(bqj.getUserList());
                     }
-                    b.this.hasMore = bql.hasMore();
-                    if (b.this.fri != null) {
-                        b.this.fri.jg(b.this.hasMore);
+                    b.this.hasMore = bqj.hasMore();
+                    if (b.this.frn != null) {
+                        b.this.frn.jg(b.this.hasMore);
                     }
                 }
             }
         };
-        xC();
-        registerListener(this.fpT);
+        xB();
+        registerListener(this.fpY);
     }
 
-    private void xC() {
+    private void xB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021079, TbConfig.SERVER_ADDRESS + "ala/perm/getImBlacklist");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -74,14 +74,14 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void bpU() {
+    public void bpS() {
         com.baidu.tieba.ala.live.personcenter.forbidden.message.a aVar = new com.baidu.tieba.ala.live.personcenter.forbidden.message.a();
         aVar.setPn(1);
         aVar.buildParams();
         sendMessage(aVar);
     }
 
-    public void boP() {
+    public void boN() {
         com.baidu.tieba.ala.live.personcenter.forbidden.message.a aVar = new com.baidu.tieba.ala.live.personcenter.forbidden.message.a();
         aVar.setPn(this.pn + 1);
         aVar.buildParams();
@@ -90,7 +90,7 @@ public class b extends BdBaseModel {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        bpU();
+        bpS();
         return true;
     }
 
@@ -113,14 +113,14 @@ public class b extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.fri = aVar;
+        this.frn = aVar;
     }
 
     public void a(com.baidu.tieba.ala.live.personcenter.forbidden.b.b bVar) {
         this.userList.remove(bVar);
         this.totalCount--;
-        if (this.fri != null) {
-            this.fri.jg(this.hasMore);
+        if (this.frn != null) {
+            this.frn.jg(this.hasMore);
         }
     }
 }

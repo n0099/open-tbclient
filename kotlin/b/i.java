@@ -5,10 +5,10 @@ import kotlin.collections.ae;
 @kotlin.h
 /* loaded from: classes7.dex */
 public class i implements Iterable<Long> {
-    public static final a mYo = new a(null);
-    private final long mYl;
-    private final long mYm;
-    private final long mYn;
+    public static final a mYr = new a(null);
+    private final long mYo;
+    private final long mYp;
+    private final long mYq;
 
     public i(long j, long j2, long j3) {
         if (j3 == 0) {
@@ -17,43 +17,43 @@ public class i implements Iterable<Long> {
         if (j3 == Long.MIN_VALUE) {
             throw new IllegalArgumentException("Step must be greater than Long.MIN_VALUE to avoid overflow on negation.");
         }
-        this.mYl = j;
-        this.mYm = kotlin.internal.c.g(j, j2, j3);
-        this.mYn = j3;
+        this.mYo = j;
+        this.mYp = kotlin.internal.c.g(j, j2, j3);
+        this.mYq = j3;
     }
 
-    public final long dEl() {
-        return this.mYl;
+    public final long dEh() {
+        return this.mYo;
     }
 
-    public final long dEm() {
-        return this.mYm;
+    public final long dEi() {
+        return this.mYp;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: dEn */
+    /* renamed from: dEj */
     public ae iterator() {
-        return new j(this.mYl, this.mYm, this.mYn);
+        return new j(this.mYo, this.mYp, this.mYq);
     }
 
     public boolean isEmpty() {
-        return this.mYn > 0 ? this.mYl > this.mYm : this.mYl < this.mYm;
+        return this.mYq > 0 ? this.mYo > this.mYp : this.mYo < this.mYp;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.mYl == ((i) obj).mYl && this.mYm == ((i) obj).mYm && this.mYn == ((i) obj).mYn));
+        return (obj instanceof i) && ((isEmpty() && ((i) obj).isEmpty()) || (this.mYo == ((i) obj).mYo && this.mYp == ((i) obj).mYp && this.mYq == ((i) obj).mYq));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (int) ((31 * ((31 * (this.mYl ^ (this.mYl >>> 32))) + (this.mYm ^ (this.mYm >>> 32)))) + (this.mYn ^ (this.mYn >>> 32)));
+        return (int) ((31 * ((31 * (this.mYo ^ (this.mYo >>> 32))) + (this.mYp ^ (this.mYp >>> 32)))) + (this.mYq ^ (this.mYq >>> 32)));
     }
 
     public String toString() {
-        return this.mYn > 0 ? this.mYl + IStringUtil.TOP_PATH + this.mYm + " step " + this.mYn : this.mYl + " downTo " + this.mYm + " step " + (-this.mYn);
+        return this.mYq > 0 ? this.mYo + IStringUtil.TOP_PATH + this.mYp + " step " + this.mYq : this.mYo + " downTo " + this.mYp + " step " + (-this.mYq);
     }
 
     @kotlin.h

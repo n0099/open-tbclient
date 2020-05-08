@@ -72,7 +72,7 @@ public final class d {
 
     private static Key di(String str) {
         try {
-            return new SecretKeySpec(str.getBytes(), "AES");
+            return new SecretKeySpec(str.getBytes(), com.baidu.sapi2.utils.h.q);
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -81,7 +81,7 @@ public final class d {
 
     public static String dj(String str) {
         try {
-            Key di = di(sN());
+            Key di = di(sM());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             int blockSize = cipher.getBlockSize();
             byte[] bytes = str.getBytes();
@@ -91,7 +91,7 @@ public final class d {
             }
             byte[] bArr = new byte[length];
             System.arraycopy(bytes, 0, bArr, 0, bytes.length);
-            cipher.init(1, di, new IvParameterSpec(sO().getBytes()));
+            cipher.init(1, di, new IvParameterSpec(sN().getBytes()));
             return new String(Base64.encodeToString(cipher.doFinal(bArr), 0));
         } catch (Exception e) {
             e.printStackTrace();
@@ -101,16 +101,16 @@ public final class d {
 
     public static String dk(String str) {
         try {
-            Key di = di(sN());
+            Key di = di(sM());
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-            cipher.init(2, di, new IvParameterSpec(sO().getBytes()));
+            cipher.init(2, di, new IvParameterSpec(sN().getBytes()));
             return new String(cipher.doFinal(Base64.decode(str, 0))).trim();
         } catch (Exception e) {
             return null;
         }
     }
 
-    private static String sN() {
+    private static String sM() {
         Random random = new Random();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(a(ExifInterface.LONGITUDE_WEST, false));
@@ -123,7 +123,7 @@ public final class d {
         return stringBuffer.toString();
     }
 
-    private static String sO() {
+    private static String sN() {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i < 9; i++) {
             sb.append(String.valueOf(i));

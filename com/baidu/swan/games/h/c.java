@@ -3,7 +3,7 @@ package com.baidu.swan.games.h;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class c {
-    public byte[] cMd;
+    public byte[] cMj;
     public String digest;
     public int errCode;
     public String errMsg;

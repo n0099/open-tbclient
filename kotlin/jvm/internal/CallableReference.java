@@ -10,7 +10,7 @@ import kotlin.reflect.KParameter;
 import kotlin.reflect.KVisibility;
 /* loaded from: classes7.dex */
 public abstract class CallableReference implements Serializable, kotlin.reflect.b {
-    public static final Object NO_RECEIVER = NoReceiver.mXL;
+    public static final Object NO_RECEIVER = NoReceiver.mXO;
     protected final Object receiver;
     private transient kotlin.reflect.b reflected;
 
@@ -18,13 +18,13 @@ public abstract class CallableReference implements Serializable, kotlin.reflect.
 
     /* loaded from: classes7.dex */
     private static class NoReceiver implements Serializable {
-        private static final NoReceiver mXL = new NoReceiver();
+        private static final NoReceiver mXO = new NoReceiver();
 
         private NoReceiver() {
         }
 
         private Object readResolve() throws ObjectStreamException {
-            return mXL;
+            return mXO;
         }
     }
 

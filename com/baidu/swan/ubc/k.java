@@ -7,11 +7,11 @@ import org.json.JSONArray;
 public interface k {
     void C(String str, int i);
 
-    int Om();
+    int Ol();
 
-    ExecutorService PD();
+    ExecutorService PC();
 
-    l Qq();
+    l Qp();
 
     void a(String str, int i, JSONArray jSONArray);
 
@@ -19,17 +19,17 @@ public interface k {
 
     void a(String str, String str2, int i, String str3, long j, int i2);
 
-    String acO();
+    String acN();
 
-    boolean ahA();
+    String ahx();
 
-    String ahy();
+    boolean ahy();
 
     boolean ahz();
 
-    void c(String str, Object obj, int i);
+    String bQ(Context context);
 
-    String cc(Context context);
+    void c(String str, Object obj, int i);
 
     void f(String str, int i, String str2);
 

@@ -28,7 +28,7 @@ public class e extends AbsDelegateAdapter<com.baidu.tieba.ala.person.hosttabpane
     @Override // com.baidu.live.adp.widget.listview.AbsDelegateAdapter
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.person.hosttabpanel.b.d dVar, e.a aVar) {
-        aVar.fWM.onBindDataToView(dVar);
+        aVar.fWR.onBindDataToView(dVar);
         return aVar.getView();
     }
 }

@@ -28,10 +28,10 @@ import tv.chushou.zues.widget.fresco.b;
 import tv.chushou.zues.widget.gift.a.a;
 /* loaded from: classes5.dex */
 public class GiftFrameLayout extends FrameLayout {
-    public static double nus = 1.0d;
-    public static double nut = 500.0d;
-    public static double nuu = 200.0d;
-    public static double nuv = 1000.0d;
+    public static double nuv = 1.0d;
+    public static double nuw = 500.0d;
+    public static double nux = 200.0d;
+    public static double nuy = 1000.0d;
     private String TAG;
     private boolean isShowing;
     private Context mContext;
@@ -39,50 +39,50 @@ public class GiftFrameLayout extends FrameLayout {
     private int mType;
     private ObjectAnimator nuA;
     private AnimatorSet nuB;
-    private FrameLayout nuC;
-    private FrescoThumbnailView nuD;
-    private View nuE;
-    private FrescoThumbnailView nuF;
+    private ObjectAnimator nuC;
+    private ObjectAnimator nuD;
+    private AnimatorSet nuE;
+    private FrameLayout nuF;
     private FrescoThumbnailView nuG;
-    private FrescoThumbnailView nuH;
-    private TextView nuI;
-    private TextView nuJ;
-    private LinearLayout nuK;
-    private ComboNumView nuL;
-    private int nuM;
-    private int nuN;
-    private a nuO;
-    private c nuP;
-    private boolean nuQ;
-    private Animation nuR;
-    private Animation nuS;
-    private Animation.AnimationListener nuT;
-    private boolean nuU;
-    private long nuV;
-    private b nuW;
-    public int nuX;
-    private ObjectAnimator nuw;
-    private ObjectAnimator nux;
-    private AnimatorSet nuy;
+    private View nuH;
+    private FrescoThumbnailView nuI;
+    private FrescoThumbnailView nuJ;
+    private FrescoThumbnailView nuK;
+    private TextView nuL;
+    private TextView nuM;
+    private LinearLayout nuN;
+    private ComboNumView nuO;
+    private int nuP;
+    private int nuQ;
+    private a nuR;
+    private c nuS;
+    private boolean nuT;
+    private Animation nuU;
+    private Animation nuV;
+    private Animation.AnimationListener nuW;
+    private boolean nuX;
+    private long nuY;
+    private b nuZ;
     private ObjectAnimator nuz;
+    public int nva;
     public long updateTime;
 
     static /* synthetic */ int d(GiftFrameLayout giftFrameLayout) {
-        int i = giftFrameLayout.nuN;
-        giftFrameLayout.nuN = i + 1;
+        int i = giftFrameLayout.nuQ;
+        giftFrameLayout.nuQ = i + 1;
         return i;
     }
 
     static /* synthetic */ long h(GiftFrameLayout giftFrameLayout) {
-        long j = giftFrameLayout.nuV;
-        giftFrameLayout.nuV = j - 1;
+        long j = giftFrameLayout.nuY;
+        giftFrameLayout.nuY = j - 1;
         return j;
     }
 
     public void setLayoutDefaultBg(int i) {
-        this.nuX = i;
-        if (this.nuD != null && this.nuO != null) {
-            this.nuD.bU(this.nuO.nui, this.nuX);
+        this.nva = i;
+        if (this.nuG != null && this.nuR != null) {
+            this.nuG.bU(this.nuR.nul, this.nva);
         }
     }
 
@@ -99,12 +99,12 @@ public class GiftFrameLayout extends FrameLayout {
         this.TAG = "GiftFrameLayout";
         this.mType = 1;
         this.updateTime = 0L;
-        this.nuM = 0;
-        this.nuN = 0;
+        this.nuP = 0;
+        this.nuQ = 0;
         this.isShowing = false;
-        this.nuQ = false;
-        this.nuU = false;
-        this.nuX = b.d.zues_show_gift_animation;
+        this.nuT = false;
+        this.nuX = false;
+        this.nva = b.d.zues_show_gift_animation;
         this.mType = i;
         this.mContext = context;
         this.mInflater = LayoutInflater.from(context);
@@ -118,36 +118,36 @@ public class GiftFrameLayout extends FrameLayout {
         } else {
             inflate = this.mInflater.inflate(b.f.zues_widget_play_show_gift_item, (ViewGroup) this, false);
         }
-        this.nuK = (LinearLayout) inflate.findViewById(b.e.tv_text_content);
-        this.nuC = (FrameLayout) inflate.findViewById(b.e.fl_gift);
-        this.nuD = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_bg);
-        this.nuH = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_icon);
-        this.nuH.setAnim(true);
-        this.nuE = inflate.findViewById(b.e.rl_user_avatar);
-        this.nuF = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_user);
-        this.nuG = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_user_frame);
-        this.nuI = (TextView) inflate.findViewById(b.e.tv_gift_user);
-        this.nuJ = (TextView) inflate.findViewById(b.e.tv_gift_desc);
+        this.nuN = (LinearLayout) inflate.findViewById(b.e.tv_text_content);
+        this.nuF = (FrameLayout) inflate.findViewById(b.e.fl_gift);
+        this.nuG = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_bg);
+        this.nuK = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_icon);
+        this.nuK.setAnim(true);
+        this.nuH = inflate.findViewById(b.e.rl_user_avatar);
+        this.nuI = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_user);
+        this.nuJ = (FrescoThumbnailView) inflate.findViewById(b.e.iv_gift_user_frame);
+        this.nuL = (TextView) inflate.findViewById(b.e.tv_gift_user);
+        this.nuM = (TextView) inflate.findViewById(b.e.tv_gift_desc);
         addView(inflate);
-        this.nuP = new c(this.mContext.getMainLooper(), new Handler.Callback() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.1
+        this.nuS = new c(this.mContext.getMainLooper(), new Handler.Callback() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.1
             @Override // android.os.Handler.Callback
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        GiftFrameLayout.this.dKo();
+                        GiftFrameLayout.this.dKk();
                         return false;
                     default:
                         return false;
                 }
             }
         });
-        this.nuL = (ComboNumView) findViewById(b.e.ll_numb);
+        this.nuO = (ComboNumView) findViewById(b.e.ll_numb);
         if (this.mType == 2) {
-            this.nuL.setType(2);
+            this.nuO.setType(2);
         }
-        this.nuR = AnimationUtils.loadAnimation(this.mContext, b.a.zues_scalein_switch);
-        this.nuS = AnimationUtils.loadAnimation(this.mContext, b.a.zues_scalein_end);
-        this.nuT = new Animation.AnimationListener() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.2
+        this.nuU = AnimationUtils.loadAnimation(this.mContext, b.a.zues_scalein_switch);
+        this.nuV = AnimationUtils.loadAnimation(this.mContext, b.a.zues_scalein_end);
+        this.nuW = new Animation.AnimationListener() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -155,39 +155,39 @@ public class GiftFrameLayout extends FrameLayout {
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 boolean z;
-                int i = GiftFrameLayout.this.nuM - GiftFrameLayout.this.nuN;
+                int i = GiftFrameLayout.this.nuP - GiftFrameLayout.this.nuQ;
                 if (i > 150) {
-                    GiftFrameLayout.this.nuN = (i / 10) + GiftFrameLayout.this.nuN;
+                    GiftFrameLayout.this.nuQ = (i / 10) + GiftFrameLayout.this.nuQ;
                     z = true;
                 } else if (i > 50) {
-                    GiftFrameLayout.this.nuN += 5;
+                    GiftFrameLayout.this.nuQ += 5;
                     z = true;
                 } else if (i > 40) {
-                    GiftFrameLayout.this.nuN += 4;
+                    GiftFrameLayout.this.nuQ += 4;
                     z = true;
                 } else if (i > 30) {
-                    GiftFrameLayout.this.nuN += 3;
+                    GiftFrameLayout.this.nuQ += 3;
                     z = true;
                 } else if (i > 20) {
-                    GiftFrameLayout.this.nuN += 2;
+                    GiftFrameLayout.this.nuQ += 2;
                     z = true;
                 } else if (i <= 0) {
-                    GiftFrameLayout.this.nuN = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                    GiftFrameLayout.this.nuQ = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                     z = false;
                 } else {
                     GiftFrameLayout.d(GiftFrameLayout.this);
                     z = true;
                 }
-                if (GiftFrameLayout.this.nuP != null) {
+                if (GiftFrameLayout.this.nuS != null) {
                     if (z) {
-                        if (!GiftFrameLayout.this.nuP.JG(1)) {
-                            GiftFrameLayout.this.nuP.JF(1);
+                        if (!GiftFrameLayout.this.nuS.JG(1)) {
+                            GiftFrameLayout.this.nuS.JF(1);
                             return;
                         }
                         return;
                     }
-                    tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(GiftFrameLayout.this.nuO, tv.chushou.zues.widget.gift.b.a.REMOVE));
-                    GiftFrameLayout.this.nuP.removeMessages(1);
+                    tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(GiftFrameLayout.this.nuR, tv.chushou.zues.widget.gift.b.a.REMOVE));
+                    GiftFrameLayout.this.nuS.removeMessages(1);
                 }
             }
 
@@ -195,87 +195,87 @@ public class GiftFrameLayout extends FrameLayout {
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.nuR.setAnimationListener(this.nuT);
-        this.nuS.setAnimationListener(this.nuT);
+        this.nuU.setAnimationListener(this.nuW);
+        this.nuV.setAnimationListener(this.nuW);
     }
 
     public boolean isShowing() {
         return this.isShowing;
     }
 
-    public boolean dKn() {
-        return this.nuQ;
+    public boolean dKj() {
+        return this.nuT;
     }
 
     public void b(a aVar) {
-        this.nuQ = false;
+        this.nuT = false;
         this.updateTime = System.currentTimeMillis();
         this.isShowing = true;
         setGift(aVar);
-        if (this.nuw == null) {
-            this.nuw = tv.chushou.zues.widget.gift.a.a(this.nuC, -getWidth(), 0.0f, Double.valueOf(nut * nus).longValue());
-            this.nuw.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.3
+        if (this.nuz == null) {
+            this.nuz = tv.chushou.zues.widget.gift.a.a(this.nuF, -getWidth(), 0.0f, Double.valueOf(nuw * nuv).longValue());
+            this.nuz.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.3
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
                     GiftFrameLayout.this.setVisibility(0);
                     GiftFrameLayout.this.setAlpha(1.0f);
-                    GiftFrameLayout.this.setStartNumber(GiftFrameLayout.this.nuO.nuj);
+                    GiftFrameLayout.this.setStartNumber(GiftFrameLayout.this.nuR.nun);
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    if (GiftFrameLayout.this.nuO != null) {
-                        if (GiftFrameLayout.this.nuO.nuk != GiftFrameLayout.this.nuO.nuj) {
-                            GiftFrameLayout.this.setEndNumber(GiftFrameLayout.this.nuO.nuk);
+                    if (GiftFrameLayout.this.nuR != null) {
+                        if (GiftFrameLayout.this.nuR.nuo != GiftFrameLayout.this.nuR.nun) {
+                            GiftFrameLayout.this.setEndNumber(GiftFrameLayout.this.nuR.nuo);
                             return;
                         }
-                        GiftFrameLayout.this.nuN = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-                        tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(GiftFrameLayout.this.nuO, tv.chushou.zues.widget.gift.b.a.REMOVE));
+                        GiftFrameLayout.this.nuQ = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                        tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(GiftFrameLayout.this.nuR, tv.chushou.zues.widget.gift.b.a.REMOVE));
                     }
                 }
             });
         } else {
-            this.nuw.setDuration(Double.valueOf(nut * nus).longValue());
+            this.nuz.setDuration(Double.valueOf(nuw * nuv).longValue());
         }
-        if (this.nux == null) {
-            this.nux = tv.chushou.zues.widget.gift.a.b(this.nuH, -tv.chushou.zues.utils.a.dip2px(this.mContext, 160.0f), 0.0f, Double.valueOf(nuu * nus).longValue());
-            this.nux.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.4
+        if (this.nuA == null) {
+            this.nuA = tv.chushou.zues.widget.gift.a.b(this.nuK, -tv.chushou.zues.utils.a.dip2px(this.mContext, 160.0f), 0.0f, Double.valueOf(nux * nuv).longValue());
+            this.nuA.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.4
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     super.onAnimationStart(animator);
-                    if (GiftFrameLayout.this.nuH != null) {
-                        GiftFrameLayout.this.nuH.setVisibility(0);
+                    if (GiftFrameLayout.this.nuK != null) {
+                        GiftFrameLayout.this.nuK.setVisibility(0);
                     }
                 }
             });
         } else {
-            this.nux.setDuration(Double.valueOf(nuu * nus).longValue());
+            this.nuA.setDuration(Double.valueOf(nux * nuv).longValue());
         }
-        if (this.nuy == null) {
-            this.nuy = tv.chushou.zues.widget.gift.a.a(this.nuw, this.nux);
-            this.nuy.start();
+        if (this.nuB == null) {
+            this.nuB = tv.chushou.zues.widget.gift.a.a(this.nuz, this.nuA);
+            this.nuB.start();
             return;
         }
-        this.nuy.start();
+        this.nuB.start();
     }
 
     public void a(long j, float f) {
-        if (this.nuW != null) {
-            this.nuW.dispose();
+        if (this.nuZ != null) {
+            this.nuZ.dispose();
         }
-        long j2 = this.nuV == 0 ? (long) (nut * nus) : 0L;
-        if (this.nuV < j) {
-            this.nuV = j;
+        long j2 = this.nuY == 0 ? (long) (nuw * nuv) : 0L;
+        if (this.nuY < j) {
+            this.nuY = j;
         }
-        if (this.nuV != 0) {
-            this.nuW = g.a(0L, this.nuV, j2, 1000.0f * f, TimeUnit.MILLISECONDS).a(io.reactivex.a.b.a.dCH()).b(new io.reactivex.c.g<Long>() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.5
+        if (this.nuY != 0) {
+            this.nuZ = g.a(0L, this.nuY, j2, 1000.0f * f, TimeUnit.MILLISECONDS).a(io.reactivex.a.b.a.dCD()).b(new io.reactivex.c.g<Long>() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: i */
                 public void accept(Long l) throws Exception {
                     GiftFrameLayout.h(GiftFrameLayout.this);
-                    if (GiftFrameLayout.this.nuV == 0) {
+                    if (GiftFrameLayout.this.nuY == 0) {
                         GiftFrameLayout.this.hide();
                     }
                 }
@@ -286,57 +286,57 @@ public class GiftFrameLayout extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void hide() {
         if (this.mContext != null) {
-            this.nuQ = true;
-            if (this.nuz == null) {
-                this.nuz = tv.chushou.zues.widget.gift.a.a(this, 0, -tv.chushou.zues.utils.a.dip2px(this.mContext, 55.0f), Double.valueOf(nuv * nus).longValue(), 0);
-                this.nuz.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.6
+            this.nuT = true;
+            if (this.nuC == null) {
+                this.nuC = tv.chushou.zues.widget.gift.a.a(this, 0, -tv.chushou.zues.utils.a.dip2px(this.mContext, 55.0f), Double.valueOf(nuy * nuv).longValue(), 0);
+                this.nuC.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.6
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         GiftFrameLayout.this.setVisibility(4);
-                        if (GiftFrameLayout.this.nuH != null) {
-                            GiftFrameLayout.this.nuH.setVisibility(4);
+                        if (GiftFrameLayout.this.nuK != null) {
+                            GiftFrameLayout.this.nuK.setVisibility(4);
                         }
                     }
                 });
             } else {
-                this.nuz.setDuration(Double.valueOf(nuv * nus).longValue());
+                this.nuC.setDuration(Double.valueOf(nuy * nuv).longValue());
             }
-            if (this.nuA == null) {
-                this.nuA = tv.chushou.zues.widget.gift.a.a((View) this, -tv.chushou.zues.utils.a.dip2px(this.mContext, 55.0f), 0, 20L);
+            if (this.nuD == null) {
+                this.nuD = tv.chushou.zues.widget.gift.a.a((View) this, -tv.chushou.zues.utils.a.dip2px(this.mContext, 55.0f), 0, 20L);
             }
-            if (this.nuB == null) {
-                this.nuB = tv.chushou.zues.widget.gift.a.a(this.nuz, this.nuA);
-                this.nuB.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.7
+            if (this.nuE == null) {
+                this.nuE = tv.chushou.zues.widget.gift.a.a(this.nuC, this.nuD);
+                this.nuE.addListener(new AnimatorListenerAdapter() { // from class: tv.chushou.zues.widget.gift.view.GiftFrameLayout.7
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
                         GiftFrameLayout.this.isShowing = false;
-                        GiftFrameLayout.this.nuO = null;
-                        GiftFrameLayout.this.dKp();
+                        GiftFrameLayout.this.nuR = null;
+                        GiftFrameLayout.this.dKl();
                         tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(null, tv.chushou.zues.widget.gift.b.a.GET));
                     }
                 });
-                this.nuB.start();
+                this.nuE.start();
                 return;
             }
-            this.nuB.start();
+            this.nuE.start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dKo() {
+    public void dKk() {
         int i;
-        if (this.nuN > this.nuM) {
-            this.nuN = this.nuM;
-            if (this.nuP != null) {
-                tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(this.nuO, tv.chushou.zues.widget.gift.b.a.REMOVE));
-                this.nuP.removeMessages(1);
+        if (this.nuQ > this.nuP) {
+            this.nuQ = this.nuP;
+            if (this.nuS != null) {
+                tv.chushou.zues.a.a.post(new tv.chushou.zues.widget.gift.b.a(this.nuR, tv.chushou.zues.widget.gift.b.a.REMOVE));
+                this.nuS.removeMessages(1);
                 return;
             }
             return;
         }
-        this.nuU = this.nuN == this.nuM;
-        this.nuL.setNumber(this.nuN);
-        int i2 = this.nuM - this.nuN;
+        this.nuX = this.nuQ == this.nuP;
+        this.nuO.setNumber(this.nuQ);
+        int i2 = this.nuP - this.nuQ;
         if (i2 > 20) {
             i = 50;
         } else if (i2 > 10) {
@@ -346,90 +346,78 @@ public class GiftFrameLayout extends FrameLayout {
         } else {
             i = 300;
         }
-        this.nuR.setDuration(i);
-        this.nuL.startAnimation(this.nuU ? this.nuS : this.nuR);
+        this.nuU.setDuration(i);
+        this.nuO.startAnimation(this.nuX ? this.nuV : this.nuU);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dKp() {
-        this.nuN = 0;
+    public void dKl() {
+        this.nuQ = 0;
     }
 
     public void JY(int i) {
         this.updateTime = System.currentTimeMillis();
-        if (this.nuO != null) {
-            this.nuO.nuk = i;
-            setEndNumber(this.nuO.nuk);
+        if (this.nuR != null) {
+            this.nuR.nuo = i;
+            setEndNumber(this.nuR.nuo);
         }
-        if (this.nuW != null) {
-            this.nuW.dispose();
+        if (this.nuZ != null) {
+            this.nuZ.dispose();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setStartNumber(int i) {
-        this.nuN = i;
-        this.nuL.setNumber(this.nuN);
+        this.nuQ = i;
+        this.nuO.setNumber(this.nuQ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setEndNumber(int i) {
-        this.nuM = i;
-        if (this.nuN == Integer.MAX_VALUE) {
-            this.nuN = this.nuM;
+        this.nuP = i;
+        if (this.nuQ == Integer.MAX_VALUE) {
+            this.nuQ = this.nuP;
         }
-        if (this.nuP != null && !this.nuP.JG(1)) {
-            this.nuP.JF(1);
+        if (this.nuS != null && !this.nuS.JG(1)) {
+            this.nuS.JF(1);
         }
     }
 
     public a getGift() {
-        return this.nuO;
+        return this.nuR;
     }
 
     private void setGift(a aVar) {
-        this.nuO = aVar;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.nuK.getLayoutParams();
+        this.nuR = aVar;
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.nuN.getLayoutParams();
         if (aVar.mShowAvatar) {
-            this.nuE.setVisibility(0);
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.nuE.getLayoutParams();
-            this.nuF.setVisibility(0);
-            this.nuF.i(aVar.nue, b.C0831b.zues_default_placeholder_bg, b.a.small, b.a.small);
-            if (h.isEmpty(aVar.nuf)) {
-                this.nuG.setVisibility(8);
+            this.nuH.setVisibility(0);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.nuH.getLayoutParams();
+            this.nuI.setVisibility(0);
+            this.nuI.i(aVar.nuh, b.C0852b.zues_default_placeholder_bg, b.a.small, b.a.small);
+            if (h.isEmpty(aVar.nui)) {
+                this.nuJ.setVisibility(8);
                 layoutParams2.setMargins(tv.chushou.zues.utils.a.dip2px(this.mContext, 14.0f), 0, tv.chushou.zues.utils.a.dip2px(this.mContext, 4.0f), 0);
             } else {
-                this.nuG.setVisibility(0);
-                this.nuG.i(aVar.nuf, b.C0831b.float_transparent, b.C0840b.ntZ, b.C0840b.ntZ);
+                this.nuJ.setVisibility(0);
+                this.nuJ.i(aVar.nui, b.C0852b.float_transparent, b.C0861b.nuc, b.C0861b.nuc);
                 layoutParams2.setMargins(tv.chushou.zues.utils.a.dip2px(this.mContext, 10.5f), 0, tv.chushou.zues.utils.a.dip2px(this.mContext, 4.0f), 0);
             }
             layoutParams.setMargins(0, 0, 0, 0);
         } else {
-            this.nuE.setVisibility(8);
+            this.nuH.setVisibility(8);
             layoutParams.setMargins(tv.chushou.zues.utils.a.dip2px(this.mContext, 10.0f), 0, 0, 0);
         }
-        this.nuH.h(aVar.nuh, b.d.zues_btn_gift_icon, b.C0840b.ntY, b.C0840b.ntY);
-        this.nuK.setLayoutParams(layoutParams);
-        this.nuI.setText(aVar.mNickName);
-        this.nuJ.setText(aVar.nug);
-        this.nuD.bU(aVar.nui, this.nuX);
+        this.nuK.h(aVar.nuk, b.d.zues_btn_gift_icon, b.C0861b.nub, b.C0861b.nub);
+        this.nuN.setLayoutParams(layoutParams);
+        this.nuL.setText(aVar.mNickName);
+        this.nuM.setText(aVar.nuj);
+        this.nuG.bU(aVar.nul, this.nva);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.nuy != null) {
-            this.nuy.cancel();
-            this.nuy = null;
-        }
-        if (this.nuw != null) {
-            this.nuw.cancel();
-            this.nuw = null;
-        }
-        if (this.nux != null) {
-            this.nux.cancel();
-            this.nux = null;
-        }
         if (this.nuB != null) {
             this.nuB.cancel();
             this.nuB = null;
@@ -442,34 +430,46 @@ public class GiftFrameLayout extends FrameLayout {
             this.nuA.cancel();
             this.nuA = null;
         }
-        if (this.nuR != null) {
-            this.nuR.cancel();
-            this.nuR = null;
+        if (this.nuE != null) {
+            this.nuE.cancel();
+            this.nuE = null;
         }
-        if (this.nuS != null) {
-            this.nuS.cancel();
-            this.nuS = null;
+        if (this.nuC != null) {
+            this.nuC.cancel();
+            this.nuC = null;
         }
-        this.nuT = null;
+        if (this.nuD != null) {
+            this.nuD.cancel();
+            this.nuD = null;
+        }
+        if (this.nuU != null) {
+            this.nuU.cancel();
+            this.nuU = null;
+        }
+        if (this.nuV != null) {
+            this.nuV.cancel();
+            this.nuV = null;
+        }
+        this.nuW = null;
         this.mInflater = null;
         this.mContext = null;
-        this.nuC = null;
-        this.nuD = null;
         this.nuF = null;
-        this.nuH = null;
+        this.nuG = null;
         this.nuI = null;
-        this.nuJ = null;
-        if (this.nuL != null) {
-            this.nuL.release();
-            this.nuL = null;
+        this.nuK = null;
+        this.nuL = null;
+        this.nuM = null;
+        if (this.nuO != null) {
+            this.nuO.release();
+            this.nuO = null;
         }
-        this.nuO = null;
-        if (this.nuP != null) {
-            this.nuP.bZ(null);
-            this.nuP = null;
+        this.nuR = null;
+        if (this.nuS != null) {
+            this.nuS.ca(null);
+            this.nuS = null;
         }
-        if (this.nuW != null) {
-            this.nuW.dispose();
+        if (this.nuZ != null) {
+            this.nuZ.dispose();
         }
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tieba.ala.a;
 /* loaded from: classes3.dex */
 public class a extends g implements h {
-    private g[] eZC;
-    private float[] eZD;
+    private g[] eZH;
+    private float[] eZI;
     private float mFactor;
 
     public a(g... gVarArr) {
@@ -10,24 +10,24 @@ public class a extends g implements h {
     }
 
     public a(String str, g... gVarArr) {
-        this.eZC = gVarArr;
-        this.eZD = new float[this.eZC.length];
-        for (int i = 0; i < this.eZC.length; i++) {
-            this.eZD[i] = this.eZC[i].getProgress();
+        this.eZH = gVarArr;
+        this.eZI = new float[this.eZH.length];
+        for (int i = 0; i < this.eZH.length; i++) {
+            this.eZI[i] = this.eZH[i].getProgress();
         }
-        this.mFactor = 1.0f / this.eZC.length;
+        this.mFactor = 1.0f / this.eZH.length;
     }
 
     @Override // com.baidu.tieba.ala.a.g
     protected void onAttach() {
-        for (g gVar : this.eZC) {
+        for (g gVar : this.eZH) {
             gVar.a(this);
         }
     }
 
     @Override // com.baidu.tieba.ala.a.g
     protected void onDetach() {
-        for (g gVar : this.eZC) {
+        for (g gVar : this.eZH) {
             gVar.detach();
         }
     }
@@ -35,7 +35,7 @@ public class a extends g implements h {
     @Override // com.baidu.tieba.ala.a.g
     public float getProgress() {
         float f = 0.0f;
-        for (g gVar : this.eZC) {
+        for (g gVar : this.eZH) {
             f += gVar.getProgress() * this.mFactor;
         }
         return f;
@@ -43,7 +43,7 @@ public class a extends g implements h {
 
     @Override // com.baidu.tieba.ala.a.g
     public boolean gt() {
-        for (g gVar : this.eZC) {
+        for (g gVar : this.eZH) {
             if (!gVar.gt()) {
                 return false;
             }
@@ -53,26 +53,26 @@ public class a extends g implements h {
 
     @Override // com.baidu.tieba.ala.a.h
     public void a(g gVar, float f) {
-        if (bnd() != null) {
-            for (int i = 0; i < this.eZC.length; i++) {
-                if (gVar == this.eZC[i]) {
-                    this.eZD[i] = f;
+        if (bnb() != null) {
+            for (int i = 0; i < this.eZH.length; i++) {
+                if (gVar == this.eZH[i]) {
+                    this.eZI[i] = f;
                 }
             }
-            bnd().a(this, bmM());
+            bnb().a(this, bmK());
         }
     }
 
     @Override // com.baidu.tieba.ala.a.h
     public void a(g gVar) {
-        if (bnd() != null) {
-            for (int i = 0; i < this.eZC.length; i++) {
-                if (gVar == this.eZC[i]) {
-                    this.eZD[i] = 100.0f;
+        if (bnb() != null) {
+            for (int i = 0; i < this.eZH.length; i++) {
+                if (gVar == this.eZH[i]) {
+                    this.eZI[i] = 100.0f;
                     if (ps(i)) {
-                        bnd().a(this);
+                        bnb().a(this);
                     } else {
-                        bnd().a(this, bmM());
+                        bnb().a(this, bmK());
                     }
                 }
             }
@@ -81,22 +81,22 @@ public class a extends g implements h {
 
     @Override // com.baidu.tieba.ala.a.h
     public void b(g gVar) {
-        if (bnd() != null) {
-            bnd().b(gVar);
+        if (bnb() != null) {
+            bnb().b(gVar);
         }
     }
 
-    private float bmM() {
+    private float bmK() {
         float f = 0.0f;
-        for (float f2 : this.eZD) {
+        for (float f2 : this.eZI) {
             f += f2 * this.mFactor;
         }
         return f;
     }
 
     private boolean ps(int i) {
-        for (int i2 = 0; i2 < this.eZC.length; i2++) {
-            if (i2 != i && !this.eZC[i2].gt()) {
+        for (int i2 = 0; i2 < this.eZH.length; i2++) {
+            if (i2 != i && !this.eZH[i2].gt()) {
                 return false;
             }
         }

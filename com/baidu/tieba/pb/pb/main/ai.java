@@ -10,17 +10,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class ai extends l<com.baidu.tieba.pb.data.j, aj> {
-    private View.OnClickListener aDc;
-    private com.baidu.tieba.pb.data.e jqC;
-    private BdUniqueId jza;
-    private BdUniqueId jzb;
-    private boolean jzc;
+    private View.OnClickListener aDi;
+    private com.baidu.tieba.pb.data.e jqG;
+    private BdUniqueId jze;
+    private BdUniqueId jzf;
+    private boolean jzg;
 
     public ai(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
         super(bVar, bdUniqueId);
-        this.jzc = false;
-        this.jza = BdUniqueId.gen();
-        this.jzb = BdUniqueId.gen();
+        this.jzg = false;
+        this.jze = BdUniqueId.gen();
+        this.jzf = BdUniqueId.gen();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,13 +28,13 @@ public class ai extends l<com.baidu.tieba.pb.data.j, aj> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bN */
     public aj b(ViewGroup viewGroup) {
-        aj ajVar = new aj(this.jsa.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_title_layout, viewGroup, false));
-        ajVar.Wb = false;
-        ajVar.R(this.aDc);
-        if (getType() == com.baidu.tieba.pb.data.j.jow) {
-            ajVar.j(this.jza);
-        } else if (getType() == com.baidu.tieba.pb.data.j.jox) {
-            ajVar.s(this.jzb);
+        aj ajVar = new aj(this.jse.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_title_layout, viewGroup, false));
+        ajVar.Wf = false;
+        ajVar.R(this.aDi);
+        if (getType() == com.baidu.tieba.pb.data.j.joA) {
+            ajVar.j(this.jze);
+        } else if (getType() == com.baidu.tieba.pb.data.j.joB) {
+            ajVar.s(this.jzf);
         }
         return ajVar;
     }
@@ -45,34 +45,34 @@ public class ai extends l<com.baidu.tieba.pb.data.j, aj> {
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.j jVar, aj ajVar) {
         super.a(i, view, viewGroup, (ViewGroup) jVar, (com.baidu.tieba.pb.data.j) ajVar);
         if (ajVar != null) {
-            cAb();
+            czY();
             ajVar.a(jVar);
         }
         return view;
     }
 
-    private void cAb() {
-        if (this.jqC != null && this.jqC.cvu() != null && this.jqC.cvt() != null && this.jqC.jny && !this.jzc) {
-            this.jzc = true;
-            boolean isLike = this.jqC.cvt().getIsLike();
-            TiebaStatic.log(new com.baidu.tbadk.core.util.an("common_exp").cI("page_type", PageStayDurationConstants.PageName.PB).af("obj_isad", 1).af("obj_floor", 1).af("obj_adlocate", 9).cI("obj_id", this.jqC.cvt().getForumId()).af("thread_type", this.jqC.cvu().getThreadType()).cI("tid", this.jqC.cvu().getId()));
+    private void czY() {
+        if (this.jqG != null && this.jqG.cvr() != null && this.jqG.cvq() != null && this.jqG.jnC && !this.jzg) {
+            this.jzg = true;
+            boolean isLike = this.jqG.cvq().getIsLike();
+            TiebaStatic.log(new com.baidu.tbadk.core.util.an("common_exp").cI("page_type", PageStayDurationConstants.PageName.PB).af("obj_isad", 1).af("obj_floor", 1).af("obj_adlocate", 9).cI("obj_id", this.jqG.cvq().getForumId()).af("thread_type", this.jqG.cvr().getThreadType()).cI("tid", this.jqG.cvr().getId()));
             if (!isLike) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.an("common_exp").cI("page_type", PageStayDurationConstants.PageName.PB).af("obj_isad", 1).af("obj_floor", 1).af("obj_adlocate", 10).cI("obj_id", this.jqC.cvt().getForumId()).af("thread_type", this.jqC.cvu().getThreadType()).cI("tid", this.jqC.cvu().getId()));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.an("common_exp").cI("page_type", PageStayDurationConstants.PageName.PB).af("obj_isad", 1).af("obj_floor", 1).af("obj_adlocate", 10).cI("obj_id", this.jqG.cvq().getForumId()).af("thread_type", this.jqG.cvr().getThreadType()).cI("tid", this.jqG.cvr().getId()));
             }
         }
     }
 
     public void onDestroy() {
-        this.jzc = false;
-        MessageManager.getInstance().unRegisterListener(this.jza);
-        MessageManager.getInstance().unRegisterListener(this.jzb);
+        this.jzg = false;
+        MessageManager.getInstance().unRegisterListener(this.jze);
+        MessageManager.getInstance().unRegisterListener(this.jzf);
     }
 
     public void z(View.OnClickListener onClickListener) {
-        this.aDc = onClickListener;
+        this.aDi = onClickListener;
     }
 
     public void setData(com.baidu.tieba.pb.data.e eVar) {
-        this.jqC = eVar;
+        this.jqG = eVar;
     }
 }

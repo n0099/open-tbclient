@@ -5,21 +5,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
 public class a {
-    private ArrayList<Integer> exX;
-    private c exY;
+    private ArrayList<Integer> eyc;
+    private c eyd;
     private HashMap<String, b> mData = new HashMap<>();
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.exX = arrayList;
-        this.exY = cVar;
+        this.eyc = arrayList;
+        this.eyd = cVar;
     }
 
     public int ar(String str, int i) {
-        if (this.mData == null || aq.isEmpty(str) || this.exX == null || !this.exX.contains(Integer.valueOf(i))) {
+        if (this.mData == null || aq.isEmpty(str) || this.eyc == null || !this.eyc.contains(Integer.valueOf(i))) {
             return 0;
         }
         if (!this.mData.containsKey(str)) {
-            ya(str);
+            yd(str);
         }
         b bVar = this.mData.get(str);
         if (bVar == null) {
@@ -28,16 +28,16 @@ public class a {
         return bVar.or(i);
     }
 
-    public void ya(String str) {
-        if (this.mData != null && !aq.isEmpty(str) && this.exY != null) {
+    public void yd(String str) {
+        if (this.mData != null && !aq.isEmpty(str) && this.eyd != null) {
             if (this.mData.containsKey(str)) {
                 b bVar = this.mData.get(str);
-                this.exY.a(this.exX, bVar);
+                this.eyd.a(this.eyc, bVar);
                 this.mData.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.exY.a(this.exX, bVar2);
+            this.eyd.a(this.eyc, bVar2);
             this.mData.put(str, bVar2);
         }
     }

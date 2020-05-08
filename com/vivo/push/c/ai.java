@@ -1,111 +1,96 @@
 package com.vivo.push.c;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.mapapi.UIMsg;
-import com.vivo.push.cache.ClientConfigManagerImpl;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public final class ai extends com.vivo.push.v {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(com.vivo.push.y yVar) {
-        super(yVar);
+public final class ai {
+    public static com.vivo.push.v a(com.vivo.push.y yVar) {
+        switch (yVar.b()) {
+            case 0:
+            case 2000:
+            case 2001:
+            case 2002:
+            case 2003:
+            case 2004:
+            case 2005:
+            case UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE /* 2008 */:
+            case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
+            case 2010:
+            case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:
+            case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
+            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME /* 2013 */:
+            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:
+            case 2015:
+                return new aj(yVar);
+            case 1:
+                return new ac(yVar);
+            case 2:
+                return new h(yVar);
+            case 3:
+                return new p(yVar);
+            case 4:
+                return new r(yVar);
+            case 5:
+                return new t(yVar);
+            case 6:
+                return new z(yVar);
+            case 7:
+                return new n(yVar);
+            case 8:
+                return new l(yVar);
+            case 9:
+                return new g(yVar);
+            case 10:
+                return new d(yVar);
+            case 11:
+                return new af(yVar);
+            case 12:
+                return new f(yVar);
+            case 20:
+                return new ah(yVar);
+            case 100:
+                return new b(yVar);
+            case 101:
+                return new c(yVar);
+            case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND /* 2006 */:
+                return new a(yVar);
+            case UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE /* 2007 */:
+                return new ak(yVar);
+            default:
+                return null;
+        }
     }
 
-    @Override // com.vivo.push.v
-    protected final void a(com.vivo.push.y yVar) {
-        if (this.a == null) {
-            com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask " + yVar + " ; mContext is Null");
-        } else if (yVar == null) {
-            com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask pushCommand is Null");
-        } else {
-            com.vivo.push.model.b a = com.vivo.push.util.s.a(this.a);
-            switch (yVar.b()) {
-                case 0:
-                    if (com.vivo.push.p.a().e()) {
-                        Context context = this.a;
-                        Intent intent = new Intent();
-                        intent.setPackage(context.getPackageName());
-                        intent.setClassName(context.getPackageName(), "com.vivo.push.sdk.service.CommandService");
-                        List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 128);
-                        if (queryIntentServices == null || queryIntentServices.size() <= 0) {
-                            com.vivo.push.util.p.d("ModuleUtil", "disableDeprecatedService is null");
-                        } else {
-                            PackageManager packageManager = context.getPackageManager();
-                            ComponentName componentName = new ComponentName(context, queryIntentServices.get(0).serviceInfo.name);
-                            if (packageManager.getComponentEnabledSetting(componentName) != 2) {
-                                packageManager.setComponentEnabledSetting(componentName, 2, 1);
-                            }
-                        }
-                        Context context2 = this.a;
-                        Intent intent2 = new Intent();
-                        intent2.setPackage(context2.getPackageName());
-                        intent2.setClassName(context2.getPackageName(), "com.vivo.push.sdk.service.LinkProxyActivity");
-                        List<ResolveInfo> queryIntentActivities = context2.getPackageManager().queryIntentActivities(intent2, 128);
-                        if (queryIntentActivities == null || queryIntentActivities.size() <= 0) {
-                            com.vivo.push.util.p.d("ModuleUtil", "disableDeprecatedActivity is null");
-                            break;
-                        } else {
-                            PackageManager packageManager2 = context2.getPackageManager();
-                            ComponentName componentName2 = new ComponentName(context2, queryIntentActivities.get(0).activityInfo.name);
-                            if (packageManager2.getComponentEnabledSetting(componentName2) != 2) {
-                                packageManager2.setComponentEnabledSetting(componentName2, 2, 1);
-                                break;
-                            }
-                        }
-                    }
-                    break;
-                case 2002:
-                case 2003:
-                case 2004:
-                case 2005:
-                    if (a == null || a.c()) {
-                        com.vivo.push.p.a().a(((com.vivo.push.b.c) yVar).h(), 1005);
-                        break;
-                    } else {
-                        int a2 = com.vivo.push.util.r.a((com.vivo.push.b.c) yVar);
-                        if (a2 != 0) {
-                            com.vivo.push.p.a().a(((com.vivo.push.b.c) yVar).h(), a2);
-                            return;
-                        }
-                    }
-                    break;
-                case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
-                    com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.a).isDebug());
-                    if (com.vivo.push.util.p.a()) {
-                        com.vivo.push.p.a().k();
-                        com.vivo.push.util.a aVar = new com.vivo.push.util.a();
-                        aVar.a(this.a, "com.vivo.push_preferences.hybridapptoken_v1");
-                        aVar.a();
-                        com.vivo.push.util.a aVar2 = new com.vivo.push.util.a();
-                        aVar2.a(this.a, "com.vivo.push_preferences.appconfig_v1");
-                        aVar2.a();
-                        if (!com.vivo.push.p.a().e()) {
-                            ClientConfigManagerImpl.getInstance(this.a).clearPush();
-                            break;
-                        }
-                    }
-                    break;
-                case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:
-                    com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.a).isDebug(((com.vivo.push.b.x) yVar).d()));
-                    break;
-            }
-            if (a == null) {
-                com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask " + yVar + " ; pushPkgInfo is Null");
-                return;
-            }
-            String a3 = a.a();
-            if (a.c()) {
-                com.vivo.push.p.a().a(((com.vivo.push.b.c) yVar).h(), 1004);
-                yVar = new com.vivo.push.b.e();
-                com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask " + yVar + " ; pkgName is InBlackList ");
-            }
-            com.vivo.push.a.a.a(this.a, a3, yVar);
+    public static ab b(com.vivo.push.y yVar) {
+        switch (yVar.b()) {
+            case 1:
+                return new ac(yVar);
+            case 2:
+                return new h(yVar);
+            case 3:
+                return new p(yVar);
+            case 4:
+                return new r(yVar);
+            case 5:
+                return new t(yVar);
+            case 6:
+                return new z(yVar);
+            case 7:
+                return new n(yVar);
+            case 8:
+                return new l(yVar);
+            case 9:
+                return new g(yVar);
+            case 10:
+                return new d(yVar);
+            case 11:
+                return new af(yVar);
+            case 20:
+                return new ah(yVar);
+            case 2016:
+                return new k(yVar);
+            default:
+                return null;
         }
     }
 }

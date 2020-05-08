@@ -16,9 +16,9 @@ public class b extends com.baidu.tbadk.mvc.f.a<String, com.baidu.tbadk.mvc.d.b> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
-    /* renamed from: IR */
-    public void ai(String str) {
-        super.ai(str);
+    /* renamed from: IU */
+    public void aj(String str) {
+        super.aj(str);
         this.text.setText(str);
     }
 

@@ -17,20 +17,20 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class RichTextLayout extends LinearLayout implements View.OnClickListener, m<com.baidu.tbadk.core.data.a> {
-    private View.OnClickListener adb;
-    public TextView ady;
-    private boolean afl;
-    private final int ahg;
-    private boolean ahi;
+    public TextView adB;
+    private View.OnClickListener adf;
+    private boolean afo;
+    private final int ahj;
+    private boolean ahl;
     private Context mContext;
     private String mFrom;
     public TextView mTitle;
 
     public RichTextLayout(Context context) {
         super(context);
-        this.ahg = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
-        this.ahi = false;
-        this.afl = false;
+        this.ahj = l.getEquipmentWidth(TbadkCoreApplication.getInst()) - (l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+        this.ahl = false;
+        this.afo = false;
         this.mContext = context;
         initUI();
     }
@@ -39,74 +39,74 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
         LayoutInflater.from(getContext()).inflate(R.layout.richtext_normal_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.ady = (TextView) findViewById(R.id.thread_card_abstract);
+        this.adB = (TextView) findViewById(R.id.thread_card_abstract);
         this.mTitle = (TextView) findViewById(R.id.thread_card_title);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
-    public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.aIw() != null) {
-            bj aIw = aVar.aIw();
-            OriginalThreadInfo originalThreadInfo = aIw.dto;
-            if (originalThreadInfo != null && this.ahi) {
+    public void B(com.baidu.tbadk.core.data.a aVar) {
+        if (aVar != null && aVar.aIu() != null) {
+            bj aIu = aVar.aIu();
+            OriginalThreadInfo originalThreadInfo = aIu.dtt;
+            if (originalThreadInfo != null && this.ahl) {
                 this.mTitle.setVisibility(8);
-                this.ady.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
-                if (originalThreadInfo.doe) {
-                    au.a(this.ady, this.mTitle, new SpannableString(originalThreadInfo.title), aIw, this.ahg, this.ahi, this.afl);
-                    am.setViewTextColor(this.ady, (int) R.color.cp_cont_c);
+                this.adB.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize39));
+                if (originalThreadInfo.doi) {
+                    au.a(this.adB, this.mTitle, new SpannableString(originalThreadInfo.title), aIu, this.ahj, this.ahl, this.afo);
+                    am.setViewTextColor(this.adB, (int) R.color.cp_cont_c);
                 } else {
-                    au.a(this.ady, this.mTitle, originalThreadInfo.dpf, aIw, this.ahg, this.ahi, this.afl);
+                    au.a(this.adB, this.mTitle, originalThreadInfo.dpj, aIu, this.ahj, this.ahl, this.afo);
                 }
             } else {
-                au.a(this.mTitle, aIw, this.afl);
-                this.ady.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
-                au.a(this.ady, this.mTitle, aIw.aKg(), aIw, this.ahg, this.ahi, this.afl);
+                au.a(this.mTitle, aIu, this.afo);
+                this.adB.setTextSize(0, l.getDimens(this.mContext, R.dimen.tbfontsize44));
+                au.a(this.adB, this.mTitle, aIu.aKe(), aIu, this.ahj, this.ahl, this.afo);
             }
-            if (!this.ahi) {
-                this.ady.setClickable(false);
+            if (!this.ahl) {
+                this.adB.setClickable(false);
                 this.mTitle.setClickable(false);
-            } else if (originalThreadInfo != null && originalThreadInfo.doe) {
+            } else if (originalThreadInfo != null && originalThreadInfo.doi) {
                 setOnClickListener(null);
                 setClickable(true);
             } else {
                 setOnClickListener(this);
-                this.ady.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.RichTextLayout.1
+                this.adB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.RichTextLayout.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (RichTextLayout.this.adb != null) {
-                            RichTextLayout.this.adb.onClick(view);
+                        if (RichTextLayout.this.adf != null) {
+                            RichTextLayout.this.adf.onClick(view);
                         }
                     }
                 });
                 this.mTitle.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.view.RichTextLayout.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (RichTextLayout.this.adb != null) {
-                            RichTextLayout.this.adb.onClick(view);
+                        if (RichTextLayout.this.adf != null) {
+                            RichTextLayout.this.adf.onClick(view);
                         }
                     }
                 });
-                this.ady.setClickable(true);
+                this.adB.setClickable(true);
                 this.mTitle.setClickable(true);
             }
         }
     }
 
     public void setTransmit(boolean z) {
-        this.ahi = z;
+        this.ahl = z;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.adb != null) {
-            this.adb.onClick(view);
+        if (this.adf != null) {
+            this.adf.onClick(view);
         }
     }
 
     public void setJumpToPbListener(View.OnClickListener onClickListener) {
-        this.adb = onClickListener;
+        this.adf = onClickListener;
     }
 
     public void setFrom(String str) {
@@ -114,6 +114,6 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
     }
 
     public void setNeedFrsTabName(boolean z) {
-        this.afl = z;
+        this.afo = z;
     }
 }

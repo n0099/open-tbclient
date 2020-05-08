@@ -1,26 +1,48 @@
 package com.baidu.sapi2;
-
-import android.os.Looper;
-import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class q extends HttpHandlerWrap {
-    final /* synthetic */ G a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(G g, Looper looper) {
-        super(looper);
-        this.a = g;
+final class q extends com.baidu.sapi2.share.k {
+    @Override // com.baidu.sapi2.share.k
+    protected String a(SapiAccount sapiAccount) {
+        return sapiAccount.extra;
     }
 
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onFailure(Throwable th, int i, String str) {
-        super.onFailure(th, i, str);
+    @Override // com.baidu.sapi2.share.k
+    protected String b(SapiAccount sapiAccount) {
+        return sapiAccount.ptoken;
     }
 
-    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-    public void onSuccess(int i, String str) {
-        super.onSuccess(i, str);
+    @Override // com.baidu.sapi2.share.k
+    protected void c(SapiAccount sapiAccount, String str) {
+        sapiAccount.ptoken = str;
+    }
+
+    @Override // com.baidu.sapi2.share.k
+    protected void d(SapiAccount sapiAccount, String str) {
+        sapiAccount.stoken = str;
+    }
+
+    @Override // com.baidu.sapi2.share.k
+    protected void a(SapiAccount sapiAccount, SapiAccount sapiAccount2) {
+        sapiAccount.updateSession(sapiAccount2);
+    }
+
+    @Override // com.baidu.sapi2.share.k
+    protected void b(SapiAccount sapiAccount, String str) {
+        sapiAccount.extra = str;
+    }
+
+    @Override // com.baidu.sapi2.share.k
+    protected String c(SapiAccount sapiAccount) {
+        return sapiAccount.stoken;
+    }
+
+    @Override // com.baidu.sapi2.share.k
+    protected void d(SapiAccount sapiAccount) {
+        sapiAccount.a();
+    }
+
+    @Override // com.baidu.sapi2.share.k
+    protected void a(SapiAccount sapiAccount, String str) {
+        sapiAccount.setAccountPkg(str);
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.c> {
-    private h fih;
+    private h fim;
     private TbPageContext mPageContext;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -17,20 +17,20 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     }
 
     private void initView() {
-        this.fih = new h(this.mPageContext);
-        ((ViewGroup) getView()).addView(this.fih.getView());
+        this.fim = new h(this.mPageContext);
+        ((ViewGroup) getView()).addView(this.fim.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.fih != null) {
-            this.fih.onChangeSkinType(tbPageContext, i);
+        if (this.fim != null) {
+            this.fim.onChangeSkinType(tbPageContext, i);
         }
     }
 
     public void c(com.baidu.tieba.ala.d dVar) {
-        if (this.fih != null) {
-            this.fih.d(dVar);
+        if (this.fim != null) {
+            this.fim.d(dVar);
         }
     }
 
@@ -42,8 +42,8 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.ala.frsgamelive.b.c cVar) {
-        if (cVar != null && cVar.dqA != null && this.fih != null) {
-            this.fih.a(cVar.dqA);
+        if (cVar != null && cVar.dqE != null && this.fim != null) {
+            this.fim.a(cVar.dqE);
         }
     }
 
@@ -53,11 +53,11 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.ala.frsgamelive.b.
 
     /* loaded from: classes3.dex */
     public static class a extends y.a {
-        public g fii;
+        public g fin;
 
         public a(g gVar) {
             super(gVar.getView());
-            this.fii = gVar;
+            this.fin = gVar;
         }
     }
 }

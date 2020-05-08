@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes11.dex */
 public class g implements Runnable {
-    private AtomicBoolean cMU = new AtomicBoolean(false);
-    private List<g> cMV = Collections.synchronizedList(new ArrayList());
-    private final h cMf;
+    private final h cMl;
+    private AtomicBoolean cNa = new AtomicBoolean(false);
+    private List<g> cNb = Collections.synchronizedList(new ArrayList());
     private String[] mPaths;
     private final Runnable mRunnable;
     private String mTag;
 
     public g(h hVar, Runnable runnable, String str, String[] strArr) {
-        this.cMf = hVar;
+        this.cMl = hVar;
         this.mRunnable = runnable;
         this.mTag = str;
         this.mPaths = strArr;
@@ -26,7 +26,7 @@ public class g implements Runnable {
         try {
             awa();
         } finally {
-            this.cMf.c(this);
+            this.cMl.c(this);
         }
     }
 
@@ -47,24 +47,24 @@ public class g implements Runnable {
     }
 
     public boolean awd() {
-        return this.cMU.get();
+        return this.cNa.get();
     }
 
     public void awe() {
-        this.cMU.set(true);
+        this.cNa.set(true);
     }
 
     public void a(g gVar) {
-        if (!this.cMV.contains(gVar)) {
-            this.cMV.add(gVar);
+        if (!this.cNb.contains(gVar)) {
+            this.cNb.add(gVar);
         }
     }
 
     public void b(g gVar) {
-        this.cMV.remove(gVar);
+        this.cNb.remove(gVar);
     }
 
     public boolean awf() {
-        return this.cMV.isEmpty();
+        return this.cNb.isEmpty();
     }
 }

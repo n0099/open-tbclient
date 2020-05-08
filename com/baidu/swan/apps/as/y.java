@@ -6,37 +6,37 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 /* loaded from: classes11.dex */
 public class y {
-    private static int cxJ = -1;
+    private static int cxP = -1;
 
-    public static void apc() {
-        String apd = apd();
-        if (!TextUtils.isEmpty(apd)) {
+    public static void apb() {
+        String apc = apc();
+        if (!TextUtils.isEmpty(apc)) {
             if (com.baidu.swan.apps.b.DEBUG) {
-                Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + apd);
+                Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + apc);
             }
-            WebSettingsGlobalBlink.setRefererPattern(apd, com.baidu.swan.apps.core.k.d.Yo().YA());
+            WebSettingsGlobalBlink.setRefererPattern(apc, com.baidu.swan.apps.core.k.d.Yn().Yz());
         }
     }
 
-    public static String apd() {
-        int ape = ape();
+    public static String apc() {
+        int apd = apd();
         if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("SwanAppRefererUtils", "referer switch is " + ape);
+            Log.d("SwanAppRefererUtils", "referer switch is " + apd);
         }
-        if (ape == 1) {
+        if (apd == 1) {
             return oa("https://smartapp.baidu.com/%s/%s/page-frame.html");
         }
-        if (ape != 2) {
+        if (apd != 2) {
             return null;
         }
         return oa("https://smartapps.cn/%s/%s/page-frame.html");
     }
 
-    public static int ape() {
-        if (cxJ < 0) {
-            cxJ = com.baidu.swan.apps.w.a.abR().Pr();
+    public static int apd() {
+        if (cxP < 0) {
+            cxP = com.baidu.swan.apps.w.a.abQ().Pq();
         }
-        return cxJ;
+        return cxP;
     }
 
     public static boolean nZ(String str) {
@@ -44,7 +44,7 @@ public class y {
     }
 
     public static String oa(String str) {
-        com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
-        return akN != null ? String.format(str, akN.getAppKey(), akN.alh()) : "";
+        com.baidu.swan.apps.runtime.e akM = com.baidu.swan.apps.runtime.e.akM();
+        return akM != null ? String.format(str, akM.getAppKey(), akM.alg()) : "";
     }
 }

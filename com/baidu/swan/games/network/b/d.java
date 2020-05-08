@@ -8,37 +8,37 @@ import okhttp3.HttpUrl;
 /* loaded from: classes11.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile d cPz;
-    private HashMap<String, com.baidu.swan.games.network.a> cPA = new HashMap<>();
+    private static volatile d cPE;
+    private HashMap<String, com.baidu.swan.games.network.a> cPF = new HashMap<>();
 
     private d() {
     }
 
     public static d axj() {
-        if (cPz == null) {
+        if (cPE == null) {
             synchronized (d.class) {
-                if (cPz == null) {
-                    cPz = new d();
+                if (cPE == null) {
+                    cPE = new d();
                 }
             }
         }
-        return cPz;
+        return cPE;
     }
 
     public void a(com.baidu.swan.games.e.b bVar, a.b bVar2) {
-        if (bVar != null && bVar2 != null && bVar2.cOB != null && bVar2.cOB.cQv != null) {
+        if (bVar != null && bVar2 != null && bVar2.cOG != null && bVar2.cOG.cQA != null) {
             release();
-            if (com.baidu.swan.apps.w.a.abR().getSwitch("swan_game_resource_preload", 0) == 1) {
-                bVar2.cOB.cQv.a(bVar);
+            if (com.baidu.swan.apps.w.a.abQ().getSwitch("swan_game_resource_preload", 0) == 1) {
+                bVar2.cOG.cQA.a(bVar);
             }
         }
     }
 
     public synchronized void a(String str, com.baidu.swan.games.network.a aVar) {
         if (aVar != null) {
-            String V = V(str, aVar.cPm);
+            String V = V(str, aVar.cPr);
             if (!TextUtils.isEmpty(V)) {
-                this.cPA.put(V, aVar);
+                this.cPF.put(V, aVar);
                 if (DEBUG) {
                     Log.d("SwanGamePreloadManager", "addRequestTask url:" + str);
                 }
@@ -53,7 +53,7 @@ public class d {
                 String optString = cVar.optString("url");
                 String V = V(optString, i);
                 if (!TextUtils.isEmpty(V)) {
-                    aVar = this.cPA.remove(V);
+                    aVar = this.cPF.remove(V);
                     if (aVar != null) {
                         a(bVar, "preload used, url = " + optString);
                     }
@@ -67,7 +67,7 @@ public class d {
     }
 
     public synchronized void release() {
-        this.cPA.clear();
+        this.cPF.clear();
     }
 
     private String V(String str, int i) {

@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public class s {
     public static String a(String str, String str2) {
         try {
-            return (String) Class.forName("android.os.SystemProperties").getMethod("get", String.class, String.class).invoke(null, str, str2);
+            return (String) t.a(null, "android.os.SystemProperties").getMethod("get", String.class, String.class).invoke(null, str, str2);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.m50a("SystemProperties.get: " + e);
             return str2;

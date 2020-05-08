@@ -24,24 +24,24 @@ import java.util.zip.ZipInputStream;
 public class f {
     private static final Map<String, m<e>> zR = new HashMap();
 
-    public static m<e> E(Context context, String str) {
-        return com.airbnb.lottie.network.b.H(context, str);
+    public static m<e> s(Context context, String str) {
+        return com.airbnb.lottie.network.b.v(context, str);
     }
 
-    public static m<e> F(Context context, final String str) {
+    public static m<e> t(Context context, final String str) {
         final Context applicationContext = context.getApplicationContext();
         return a(str, new Callable<l<e>>() { // from class: com.airbnb.lottie.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.concurrent.Callable
             /* renamed from: gM */
             public l<e> call() {
-                return f.G(applicationContext, str);
+                return f.u(applicationContext, str);
             }
         });
     }
 
     @WorkerThread
-    public static l<e> G(Context context, String str) {
+    public static l<e> u(Context context, String str) {
         l<e> c;
         try {
             String str2 = "asset_" + str;

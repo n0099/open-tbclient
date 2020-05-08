@@ -12,7 +12,7 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    private g Lp;
+    private g Lt;
     public long logID;
     private ArrayList<BasicNameValuePair> mKvLists;
     private long mStartTime;
@@ -119,30 +119,30 @@ public class a {
     }
 
     public void a(c cVar) {
-        if (this.Lp == null) {
-            this.Lp = new g();
+        if (this.Lt == null) {
+            this.Lt = new g();
         }
-        this.Lp.b(cVar);
+        this.Lt.b(cVar);
         if (this.mKvLists != null && this.mKvLists.size() > 0) {
             Iterator<BasicNameValuePair> it = this.mKvLists.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (BdStatsConstant.StatsKey.TYPE.equals(next.getName())) {
-                    this.Lp.bT(next.getValue());
+                    this.Lt.bT(next.getValue());
                 } else if ("st".equals(next.getName())) {
-                    this.Lp.setAction(next.getValue());
+                    this.Lt.setAction(next.getValue());
                 } else if ("errNo".equals(next.getName())) {
-                    this.Lp.setErrorCode(next.getValue());
+                    this.Lt.setErrorCode(next.getValue());
                 } else if ("errMsg".equals(next.getName())) {
-                    this.Lp.setErrorMessage(next.getValue());
+                    this.Lt.setErrorMessage(next.getValue());
                 } else {
-                    this.Lp.x(next.getName(), next.getValue());
+                    this.Lt.x(next.getName(), next.getValue());
                 }
             }
         }
     }
 
     public g le() {
-        return this.Lp;
+        return this.Lt;
     }
 }

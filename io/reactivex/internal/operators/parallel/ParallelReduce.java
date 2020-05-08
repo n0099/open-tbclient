@@ -9,8 +9,8 @@ import java.util.concurrent.Callable;
 import org.a.d;
 /* loaded from: classes7.dex */
 public final class ParallelReduce<T, R> extends a<R> {
-    final Callable<R> mRS;
-    final a<? extends T> mTU;
+    final Callable<R> mRV;
+    final a<? extends T> mTX;
     final c<R, ? super T, R> reducer;
 
     @Override // io.reactivex.parallel.a
@@ -20,14 +20,14 @@ public final class ParallelReduce<T, R> extends a<R> {
             org.a.c<? super Object>[] cVarArr2 = new org.a.c[length];
             for (int i = 0; i < length; i++) {
                 try {
-                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.mRS.call(), "The initialSupplier returned a null value"), this.reducer);
+                    cVarArr2[i] = new ParallelReduceSubscriber(cVarArr[i], io.reactivex.internal.functions.a.h(this.mRV.call(), "The initialSupplier returned a null value"), this.reducer);
                 } catch (Throwable th) {
                     io.reactivex.exceptions.a.L(th);
                     a(cVarArr, th);
                     return;
                 }
             }
-            this.mTU.a(cVarArr2);
+            this.mTX.a(cVarArr2);
         }
     }
 
@@ -38,8 +38,8 @@ public final class ParallelReduce<T, R> extends a<R> {
     }
 
     @Override // io.reactivex.parallel.a
-    public int dCR() {
-        return this.mTU.dCR();
+    public int dCN() {
+        return this.mTX.dCN();
     }
 
     /* loaded from: classes7.dex */

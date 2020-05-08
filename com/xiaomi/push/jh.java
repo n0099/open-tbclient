@@ -1,13 +1,19 @@
 package com.xiaomi.push;
 /* loaded from: classes8.dex */
 public final class jh {
-    public final String a;
+    public final byte a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final int f779a;
+    public final byte b;
 
     public jh() {
-        this("");
+        this((byte) 0, (byte) 0, 0);
     }
 
-    public jh(String str) {
-        this.a = str;
+    public jh(byte b, byte b2, int i) {
+        this.a = b;
+        this.b = b2;
+        this.f779a = i;
     }
 }

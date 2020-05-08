@@ -1,56 +1,48 @@
 package com.xiaomi.push;
 
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import org.json.JSONObject;
+import android.os.AsyncTask;
 /* loaded from: classes8.dex */
-public class cp {
-    private int a;
+class cp extends AsyncTask<String, Integer, Integer> {
+    cm a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f194a;
+    ct f176a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f195a;
-    private long b;
-    private long c;
+    String f177a;
+    String b;
 
-    public cp() {
-        this(0, 0L, 0L, null);
+    public cp(ct ctVar, String str, String str2, cm cmVar) {
+        this.f177a = str;
+        this.b = str2;
+        this.f176a = ctVar;
+        this.a = cmVar;
     }
 
-    public cp(int i, long j, long j2, Exception exc) {
-        this.a = i;
-        this.f194a = j;
-        this.c = j2;
-        this.b = System.currentTimeMillis();
-        if (exc != null) {
-            this.f195a = exc.getClass().getSimpleName();
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Integer doInBackground(String... strArr) {
+        return Integer.valueOf(cq.a(this.f177a, this.b, this.a));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public void onPostExecute(Integer num) {
+        super.onPostExecute(num);
+        if (this.f176a != null) {
+            this.f176a.a(num, this.a);
         }
     }
 
-    public int a() {
-        return this.a;
-    }
-
-    public cp a(JSONObject jSONObject) {
-        this.f194a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
-        this.c = jSONObject.getLong(TiebaInitialize.LogFields.SIZE);
-        this.b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
-        this.a = jSONObject.getInt("wt");
-        this.f195a = jSONObject.optString("expt");
-        return this;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m199a() {
-        JSONObject jSONObject = new JSONObject();
-        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f194a);
-        jSONObject.put(TiebaInitialize.LogFields.SIZE, this.c);
-        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
-        jSONObject.put("wt", this.a);
-        jSONObject.put("expt", this.f195a);
-        return jSONObject;
+    @Override // android.os.AsyncTask
+    protected void onCancelled() {
+        super.onCancelled();
+        if (this.f176a != null) {
+            this.f176a.a(1, this.a);
+        }
     }
 }

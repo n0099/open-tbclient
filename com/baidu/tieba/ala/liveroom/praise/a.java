@@ -10,17 +10,17 @@ import com.baidu.tieba.ala.liveroom.operation.b;
 import com.baidu.tieba.ala.liveroom.praise.DetailPraiseView;
 /* loaded from: classes3.dex */
 public class a {
-    private DetailPraiseView fOD;
-    private b fOE;
-    private DetailPraiseView.a fOF = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
+    private DetailPraiseView fOI;
+    private b fOJ;
+    private DetailPraiseView.a fOK = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void bzL() {
-            if (a.this.fOE != null) {
-                a.this.fOE.l(a.this.fOD, 12);
+        public void bzJ() {
+            if (a.this.fOJ != null) {
+                a.this.fOJ.l(a.this.fOI, 12);
             }
         }
     };
-    private CustomMessageListener fal = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
+    private CustomMessageListener faq = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.liveroom.praise.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,46 +38,46 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.fal.setTag(this.mTbPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.fal);
+        this.faq.setTag(this.mTbPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.faq);
     }
 
     public void b(b bVar) {
-        this.fOE = bVar;
+        this.fOJ = bVar;
     }
 
     public void kQ(boolean z) {
-        if (this.fOD != null) {
-            this.fOD.setShowPraise(z);
+        if (this.fOI != null) {
+            this.fOI.setShowPraise(z);
         }
     }
 
     public void setPraiseEnable(boolean z) {
-        if (this.fOD != null) {
-            this.fOD.setPraiseEnable(z);
+        if (this.fOI != null) {
+            this.fOI.setPraiseEnable(z);
         }
     }
 
     public void an(ViewGroup viewGroup) {
         if (viewGroup != null && this.mTbPageContext != null) {
-            if (this.fOD == null) {
-                this.fOD = new DetailPraiseView(this.mTbPageContext.getPageActivity());
+            if (this.fOI == null) {
+                this.fOI = new DetailPraiseView(this.mTbPageContext.getPageActivity());
             }
-            this.fOD.setOnDoubleClickListener(this.fOF);
-            if (this.fOD.getParent() != null) {
-                ((ViewGroup) this.fOD.getParent()).removeView(this.fOD);
+            this.fOI.setOnDoubleClickListener(this.fOK);
+            if (this.fOI.getParent() != null) {
+                ((ViewGroup) this.fOI.getParent()).removeView(this.fOI);
             }
-            viewGroup.addView(this.fOD, 0, new RelativeLayout.LayoutParams(-1, -1));
+            viewGroup.addView(this.fOI, 0, new RelativeLayout.LayoutParams(-1, -1));
         }
     }
 
-    public void bpr() {
-        if (this.fOD != null) {
-            this.fOD.bpr();
+    public void bpp() {
+        if (this.fOI != null) {
+            this.fOI.bpp();
         }
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.fal);
+        MessageManager.getInstance().unRegisterListener(this.faq);
     }
 }

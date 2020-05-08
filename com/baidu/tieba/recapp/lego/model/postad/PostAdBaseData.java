@@ -122,9 +122,9 @@ public class PostAdBaseData implements ICardInfo {
     public static final class b {
         public String content;
         public String forum_name;
-        public int giQ;
+        public int giW;
         public int goodsStyle;
-        private List<String> kta;
+        private List<String> kte;
         public String portrait;
         public AdCard.b portraitClick;
         public int reply_num;
@@ -136,8 +136,8 @@ public class PostAdBaseData implements ICardInfo {
         public String title;
         public String username;
 
-        public List<String> cNF() {
-            return this.kta;
+        public List<String> cNC() {
+            return this.kte;
         }
 
         public static b dr(JSONObject jSONObject) {
@@ -154,9 +154,9 @@ public class PostAdBaseData implements ICardInfo {
             if (optJSONObject != null) {
                 bVar.portraitClick = new AdCard.b();
                 bVar.portraitClick.scheme = optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
-                bVar.portraitClick.alJ = optJSONObject.optString("alsStat");
-                bVar.portraitClick.alK = optJSONObject.optString("urlStat");
-                bVar.portraitClick.ksL = optJSONObject.optInt("need_login");
+                bVar.portraitClick.alP = optJSONObject.optString("alsStat");
+                bVar.portraitClick.alQ = optJSONObject.optString("urlStat");
+                bVar.portraitClick.ksP = optJSONObject.optInt("need_login");
             } else {
                 bVar.portraitClick = null;
             }
@@ -166,7 +166,7 @@ public class PostAdBaseData implements ICardInfo {
             bVar.time = jSONObject.optInt("time");
             bVar.forum_name = jSONObject.optString("forum_name");
             bVar.reply_num = jSONObject.optInt("reply_num", 0);
-            bVar.giQ = jSONObject.optInt("agree_num", 0);
+            bVar.giW = jSONObject.optInt("agree_num", 0);
             bVar.tag_name = jSONObject.optString("tag_name", "广告");
             JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -177,12 +177,12 @@ public class PostAdBaseData implements ICardInfo {
                         bVar.threadPicList[i].pic = optJSONArray.getJSONObject(i).optString(UgcUBCUtils.UGC_TYPE_PIC_BTN);
                         JSONObject optJSONObject2 = optJSONArray.getJSONObject(i).optJSONObject("pic_click");
                         if (optJSONObject2 != null) {
-                            bVar.threadPicList[i].ksN = new AdCard.b();
-                            bVar.threadPicList[i].ksN.scheme = optJSONObject2.optString(SuspensionBallEntity.KEY_SCHEME);
-                            bVar.threadPicList[i].ksN.alJ = optJSONObject2.optString("alsStat");
-                            bVar.threadPicList[i].ksN.alK = optJSONObject2.optString("urlStat");
+                            bVar.threadPicList[i].ksR = new AdCard.b();
+                            bVar.threadPicList[i].ksR.scheme = optJSONObject2.optString(SuspensionBallEntity.KEY_SCHEME);
+                            bVar.threadPicList[i].ksR.alP = optJSONObject2.optString("alsStat");
+                            bVar.threadPicList[i].ksR.alQ = optJSONObject2.optString("urlStat");
                         } else {
-                            bVar.threadPicList[i].ksN = null;
+                            bVar.threadPicList[i].ksR = null;
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -191,11 +191,11 @@ public class PostAdBaseData implements ICardInfo {
             } else {
                 bVar.threadPicList = null;
             }
-            bVar.kta = new ArrayList();
+            bVar.kte = new ArrayList();
             if (bVar.threadPicList != null) {
                 for (AdCard.d dVar : bVar.threadPicList) {
                     if (!TextUtils.isEmpty(dVar.pic)) {
-                        bVar.kta.add(dVar.pic);
+                        bVar.kte.add(dVar.pic);
                     }
                 }
             }
@@ -204,25 +204,25 @@ public class PostAdBaseData implements ICardInfo {
 
         public void updataThreadData(bj bjVar) {
             if (bjVar != null) {
-                bjVar.tW(this.content);
+                bjVar.tZ(this.content);
                 bjVar.setTitle(this.title);
                 bjVar.ca(this.time);
-                bjVar.tT(this.forum_name);
+                bjVar.tW(this.forum_name);
                 bjVar.jQ(this.reply_num);
-                bjVar.jY(this.giQ);
-                bjVar.aKE().setName_show(this.username);
-                bjVar.aKE().setPortrait(this.portrait);
+                bjVar.jY(this.giW);
+                bjVar.aKC().setName_show(this.username);
+                bjVar.aKC().setPortrait(this.portrait);
             }
         }
     }
 
     /* loaded from: classes13.dex */
     public static final class a {
-        public String Xp;
+        public String Xs;
         public b buttonClick;
         public String buttonText;
         public c extraData;
-        public String ksY;
+        public String ktc;
         public String scheme;
         public String style;
         public String tagName;
@@ -230,21 +230,21 @@ public class PostAdBaseData implements ICardInfo {
 
         /* renamed from: com.baidu.tieba.recapp.lego.model.postad.PostAdBaseData$a$a  reason: collision with other inner class name */
         /* loaded from: classes13.dex */
-        public static final class C0640a {
+        public static final class C0661a {
             public String downloadUrl;
             public String packageName;
         }
 
         /* loaded from: classes13.dex */
         public static class b {
-            public String alJ;
-            public String alK;
+            public String alP;
+            public String alQ;
             public String scheme;
         }
 
         /* loaded from: classes13.dex */
         public static final class c {
-            public C0640a ksZ;
+            public C0661a ktd;
         }
 
         public int BC(int i) {
@@ -258,11 +258,11 @@ public class PostAdBaseData implements ICardInfo {
         }
 
         public void h(AdvertAppInfo advertAppInfo) {
-            if (advertAppInfo != null && this.extraData != null && this.extraData.ksZ != null) {
-                advertAppInfo.apkUrl = this.extraData.ksZ.downloadUrl;
-                advertAppInfo.dmr = this.extraData.ksZ.packageName;
+            if (advertAppInfo != null && this.extraData != null && this.extraData.ktd != null) {
+                advertAppInfo.apkUrl = this.extraData.ktd.downloadUrl;
+                advertAppInfo.dmv = this.extraData.ktd.packageName;
                 if ("apk_download".equals(this.style)) {
-                    advertAppInfo.XQ = 3;
+                    advertAppInfo.XT = 3;
                 }
             }
         }
@@ -277,23 +277,23 @@ public class PostAdBaseData implements ICardInfo {
                 aVar.scheme = jSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
                 aVar.buttonText = jSONObject.optString("button_text");
                 aVar.tagName = jSONObject.optString("tag_name");
-                aVar.Xp = jSONObject.optString("ad_title");
-                aVar.ksY = jSONObject.optString("ad_content");
+                aVar.Xs = jSONObject.optString("ad_title");
+                aVar.ktc = jSONObject.optString("ad_content");
                 JSONObject optJSONObject = jSONObject.optJSONObject("button_click");
                 if (optJSONObject != null) {
                     aVar.buttonClick = new b();
                     aVar.buttonClick.scheme = optJSONObject.optString(SuspensionBallEntity.KEY_SCHEME);
-                    aVar.buttonClick.alJ = optJSONObject.optString("als_stat");
-                    aVar.buttonClick.alK = optJSONObject.optString("url_stat");
+                    aVar.buttonClick.alP = optJSONObject.optString("als_stat");
+                    aVar.buttonClick.alQ = optJSONObject.optString("url_stat");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("ext_data");
                 if (optJSONObject2 != null) {
                     aVar.extraData = new c();
                     JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
                     if (optJSONObject3 != null) {
-                        aVar.extraData.ksZ = new C0640a();
-                        aVar.extraData.ksZ.packageName = optJSONObject3.optString("pkgname");
-                        aVar.extraData.ksZ.downloadUrl = optJSONObject3.optString("download_url");
+                        aVar.extraData.ktd = new C0661a();
+                        aVar.extraData.ktd.packageName = optJSONObject3.optString("pkgname");
+                        aVar.extraData.ktd.downloadUrl = optJSONObject3.optString("download_url");
                     }
                 }
             }

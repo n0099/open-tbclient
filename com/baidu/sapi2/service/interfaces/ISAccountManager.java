@@ -10,8 +10,6 @@ public interface ISAccountManager {
 
     String getCurrentZid(Context context);
 
-    String getDeviceAuthToken(Context context, String str, int i);
-
     a getIsAccountService();
 
     SapiAccount getSession();

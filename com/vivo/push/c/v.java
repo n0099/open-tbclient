@@ -6,11 +6,11 @@ import com.vivo.push.sdk.PushMessageCallback;
 /* loaded from: classes8.dex */
 final class v implements Runnable {
     final /* synthetic */ UPSNotificationMessage a;
-    final /* synthetic */ s b;
+    final /* synthetic */ t b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(s sVar, UPSNotificationMessage uPSNotificationMessage) {
-        this.b = sVar;
+    public v(t tVar, UPSNotificationMessage uPSNotificationMessage) {
+        this.b = tVar;
         this.a = uPSNotificationMessage;
     }
 

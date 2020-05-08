@@ -8,13 +8,13 @@ import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.m;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.o;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c, l> {
-    private o eRd;
-    private m eRi;
+    private o eRi;
+    private m eRn;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.eRm);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c.eRr);
         this.mPageContext = tbPageContext;
     }
 
@@ -23,28 +23,28 @@ public class f extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: G */
     public l b(ViewGroup viewGroup) {
-        this.eRi = new m(this.mPageContext, viewGroup);
-        if (this.eRd != null) {
-            this.eRi.a(this.eRd);
+        this.eRn = new m(this.mPageContext, viewGroup);
+        if (this.eRi != null) {
+            this.eRn.a(this.eRi);
         }
-        return new l(this.eRi);
+        return new l(this.eRn);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.c cVar, l lVar) {
-        if (lVar == null || lVar.eRi == null) {
+        if (lVar == null || lVar.eRn == null) {
             return null;
         }
-        lVar.eRi.a(cVar);
+        lVar.eRn.a(cVar);
         return lVar.getView();
     }
 
     public void a(o oVar) {
-        this.eRd = oVar;
-        if (this.eRi != null) {
-            this.eRi.a(this.eRd);
+        this.eRi = oVar;
+        if (this.eRn != null) {
+            this.eRn.a(this.eRi);
         }
     }
 }

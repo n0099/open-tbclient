@@ -379,7 +379,7 @@ public class BdSailor implements INoProGuard {
         this.mClient = bdSailorClient;
         WebKitFactory.setWebKitClient(bdSailorClient);
         setSailorFeatureListener();
-        BdSailorPlatform.getStatic().acC = this.mClient;
+        BdSailorPlatform.getStatic().acF = this.mClient;
     }
 
     public void setSailorNetProbeInterface(ISailorNetProbeInterface iSailorNetProbeInterface) {

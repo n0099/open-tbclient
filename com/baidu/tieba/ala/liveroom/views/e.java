@@ -4,24 +4,24 @@ public interface e {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bxY();
+        void bxW();
 
-        void bxZ();
+        void bxX();
     }
 
     /* loaded from: classes3.dex */
     public interface b {
+        void bxY();
+
+        void bxZ();
+
         void bya();
 
-        void byb();
+        boolean byb();
 
         void byc();
 
-        boolean byd();
-
-        void bye();
-
-        void byf();
+        void byd();
 
         void onCloseClicked();
     }

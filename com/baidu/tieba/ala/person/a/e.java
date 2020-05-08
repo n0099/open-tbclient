@@ -9,15 +9,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e {
-    public List<AlaLiveInfoData> fVI;
-    public c fVJ;
+    public List<AlaLiveInfoData> fVN;
+    public c fVO;
 
-    public List bBH() {
+    public List bBF() {
         int i = 0;
-        if (ListUtils.isEmpty(this.fVI)) {
+        if (ListUtils.isEmpty(this.fVN)) {
             return null;
         }
-        int count = ListUtils.getCount(this.fVI);
+        int count = ListUtils.getCount(this.fVN);
         ArrayList arrayList = new ArrayList(count / 2);
         if (count != 1) {
             while (true) {
@@ -26,14 +26,14 @@ public class e {
                     break;
                 }
                 a aVar = new a();
-                aVar.fVG = (AlaLiveInfoData) ListUtils.getItem(this.fVI, i2);
-                aVar.fVH = (AlaLiveInfoData) ListUtils.getItem(this.fVI, i2 + 1);
+                aVar.fVL = (AlaLiveInfoData) ListUtils.getItem(this.fVN, i2);
+                aVar.fVM = (AlaLiveInfoData) ListUtils.getItem(this.fVN, i2 + 1);
                 arrayList.add(aVar);
                 i = i2 + 2;
             }
         } else {
             a aVar2 = new a();
-            aVar2.fVG = (AlaLiveInfoData) ListUtils.getItem(this.fVI, 0);
+            aVar2.fVL = (AlaLiveInfoData) ListUtils.getItem(this.fVN, 0);
             arrayList.add(aVar2);
         }
         return arrayList;
@@ -51,18 +51,18 @@ public class e {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("record_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.fVI = new ArrayList(optJSONArray.length());
+                this.fVN = new ArrayList(optJSONArray.length());
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
                         alaLiveInfoData.parserJson(optJSONObject);
-                        this.fVI.add(alaLiveInfoData);
+                        this.fVN.add(alaLiveInfoData);
                     }
                 }
             }
-            this.fVJ = new c();
-            this.fVJ.parserJson(jSONObject.optJSONObject("page"));
+            this.fVO = new c();
+            this.fVO.parserJson(jSONObject.optJSONObject("page"));
         }
     }
 }

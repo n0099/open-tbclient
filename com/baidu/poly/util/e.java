@@ -37,8 +37,8 @@ public class e {
 
     private static NetworkInfo getActiveNetworkInfo() {
         ConnectivityManager connectivityManager;
-        Context Lb = f.Lb();
-        if (Lb != null && (connectivityManager = (ConnectivityManager) Lb.getSystemService("connectivity")) != null) {
+        Context La = f.La();
+        if (La != null && (connectivityManager = (ConnectivityManager) La.getSystemService("connectivity")) != null) {
             return connectivityManager.getActiveNetworkInfo();
         }
         return null;

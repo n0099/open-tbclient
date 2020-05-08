@@ -10,35 +10,35 @@ import com.baidu.adp.widget.ListView.r;
 import com.baidu.tieba.card.CardLinkageManager;
 /* loaded from: classes8.dex */
 public class ThreadCardView extends FrameLayout {
-    private r ahv;
-    private boolean ahw;
-    private Runnable ahx;
-    private Runnable ahy;
+    private Runnable ahA;
+    private Runnable ahB;
+    private r ahy;
+    private boolean ahz;
     private int mPosition;
     private ViewGroup mViewGroup;
 
     public ThreadCardView(Context context) {
         super(context);
-        this.ahx = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.1
+        this.ahA = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!ThreadCardView.this.ahw) {
-                    if (ThreadCardView.this.ahv != null) {
-                        CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahv, ThreadCardView.this.mPosition, true);
+                if (!ThreadCardView.this.ahz) {
+                    if (ThreadCardView.this.ahy != null) {
+                        CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahy, ThreadCardView.this.mPosition, true);
                     } else if (ThreadCardView.this.mViewGroup instanceof r) {
                         CardLinkageManager.INSTANCE.pressLinkage((r) ThreadCardView.this.mViewGroup, ThreadCardView.this.mPosition, true);
                     }
-                    if (ThreadCardView.this.ahw) {
+                    if (ThreadCardView.this.ahz) {
                         CardLinkageManager.INSTANCE.pressLinkage((r) ThreadCardView.this.mViewGroup, ThreadCardView.this.mPosition, false);
                     }
                 }
             }
         };
-        this.ahy = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.2
+        this.ahB = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (ThreadCardView.this.ahv != null) {
-                    CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahv, ThreadCardView.this.mPosition, false);
+                if (ThreadCardView.this.ahy != null) {
+                    CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahy, ThreadCardView.this.mPosition, false);
                 } else if (ThreadCardView.this.mViewGroup instanceof r) {
                     CardLinkageManager.INSTANCE.pressLinkage((r) ThreadCardView.this.mViewGroup, ThreadCardView.this.mPosition, false);
                 }
@@ -48,26 +48,26 @@ public class ThreadCardView extends FrameLayout {
 
     public ThreadCardView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ahx = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.1
+        this.ahA = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!ThreadCardView.this.ahw) {
-                    if (ThreadCardView.this.ahv != null) {
-                        CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahv, ThreadCardView.this.mPosition, true);
+                if (!ThreadCardView.this.ahz) {
+                    if (ThreadCardView.this.ahy != null) {
+                        CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahy, ThreadCardView.this.mPosition, true);
                     } else if (ThreadCardView.this.mViewGroup instanceof r) {
                         CardLinkageManager.INSTANCE.pressLinkage((r) ThreadCardView.this.mViewGroup, ThreadCardView.this.mPosition, true);
                     }
-                    if (ThreadCardView.this.ahw) {
+                    if (ThreadCardView.this.ahz) {
                         CardLinkageManager.INSTANCE.pressLinkage((r) ThreadCardView.this.mViewGroup, ThreadCardView.this.mPosition, false);
                     }
                 }
             }
         };
-        this.ahy = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.2
+        this.ahB = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (ThreadCardView.this.ahv != null) {
-                    CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahv, ThreadCardView.this.mPosition, false);
+                if (ThreadCardView.this.ahy != null) {
+                    CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahy, ThreadCardView.this.mPosition, false);
                 } else if (ThreadCardView.this.mViewGroup instanceof r) {
                     CardLinkageManager.INSTANCE.pressLinkage((r) ThreadCardView.this.mViewGroup, ThreadCardView.this.mPosition, false);
                 }
@@ -77,26 +77,26 @@ public class ThreadCardView extends FrameLayout {
 
     public ThreadCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ahx = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.1
+        this.ahA = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (!ThreadCardView.this.ahw) {
-                    if (ThreadCardView.this.ahv != null) {
-                        CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahv, ThreadCardView.this.mPosition, true);
+                if (!ThreadCardView.this.ahz) {
+                    if (ThreadCardView.this.ahy != null) {
+                        CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahy, ThreadCardView.this.mPosition, true);
                     } else if (ThreadCardView.this.mViewGroup instanceof r) {
                         CardLinkageManager.INSTANCE.pressLinkage((r) ThreadCardView.this.mViewGroup, ThreadCardView.this.mPosition, true);
                     }
-                    if (ThreadCardView.this.ahw) {
+                    if (ThreadCardView.this.ahz) {
                         CardLinkageManager.INSTANCE.pressLinkage((r) ThreadCardView.this.mViewGroup, ThreadCardView.this.mPosition, false);
                     }
                 }
             }
         };
-        this.ahy = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.2
+        this.ahB = new Runnable() { // from class: com.baidu.card.view.ThreadCardView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (ThreadCardView.this.ahv != null) {
-                    CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahv, ThreadCardView.this.mPosition, false);
+                if (ThreadCardView.this.ahy != null) {
+                    CardLinkageManager.INSTANCE.pressLinkage(ThreadCardView.this.ahy, ThreadCardView.this.mPosition, false);
                 } else if (ThreadCardView.this.mViewGroup instanceof r) {
                     CardLinkageManager.INSTANCE.pressLinkage((r) ThreadCardView.this.mViewGroup, ThreadCardView.this.mPosition, false);
                 }
@@ -105,7 +105,7 @@ public class ThreadCardView extends FrameLayout {
     }
 
     public void setITypeListView(r rVar) {
-        this.ahv = rVar;
+        this.ahy = rVar;
     }
 
     public void setParent(ViewGroup viewGroup) {
@@ -120,21 +120,21 @@ public class ThreadCardView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.ahw = false;
-                postDelayed(this.ahx, ViewConfiguration.getTapTimeout());
+                this.ahz = false;
+                postDelayed(this.ahA, ViewConfiguration.getTapTimeout());
                 break;
             case 1:
-                this.ahw = true;
-                removeCallbacks(this.ahx);
-                CardLinkageManager.INSTANCE.pressLinkage(this.ahv, this.mPosition, true);
-                postDelayed(this.ahy, ViewConfiguration.getTapTimeout());
+                this.ahz = true;
+                removeCallbacks(this.ahA);
+                CardLinkageManager.INSTANCE.pressLinkage(this.ahy, this.mPosition, true);
+                postDelayed(this.ahB, ViewConfiguration.getTapTimeout());
                 break;
             case 3:
-                this.ahw = true;
-                removeCallbacks(this.ahx);
-                removeCallbacks(this.ahy);
-                if (this.ahv != null) {
-                    CardLinkageManager.INSTANCE.pressLinkage(this.ahv, this.mPosition, false);
+                this.ahz = true;
+                removeCallbacks(this.ahA);
+                removeCallbacks(this.ahB);
+                if (this.ahy != null) {
+                    CardLinkageManager.INSTANCE.pressLinkage(this.ahy, this.mPosition, false);
                     break;
                 } else if (this.mViewGroup instanceof r) {
                     CardLinkageManager.INSTANCE.pressLinkage((r) this.mViewGroup, this.mPosition, false);
@@ -147,8 +147,8 @@ public class ThreadCardView extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        removeCallbacks(this.ahx);
-        removeCallbacks(this.ahy);
+        removeCallbacks(this.ahA);
+        removeCallbacks(this.ahB);
         super.onDetachedFromWindow();
     }
 }

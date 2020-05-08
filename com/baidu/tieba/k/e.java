@@ -13,9 +13,9 @@ public interface e {
 
     void a(a aVar);
 
-    void crA();
+    void crw();
 
-    void crB();
+    void crx();
 
-    void crz();
+    void cry();
 }

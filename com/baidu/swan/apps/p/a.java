@@ -29,7 +29,7 @@ public class a extends c {
             com.baidu.swan.apps.console.c.e("Api-GameCenterApi", "empty cb");
             return new com.baidu.swan.apps.api.b.b(202, "empty cb");
         }
-        return a(jSONObject, new C0300a(optString));
+        return a(jSONObject, new C0321a(optString));
     }
 
     public com.baidu.swan.apps.api.b.b ji(String str) {
@@ -54,7 +54,7 @@ public class a extends c {
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
-        com.baidu.swan.apps.api.b.b a = com.baidu.swan.apps.w.a.acI().a(optString, optJSONObject, bVar);
+        com.baidu.swan.apps.api.b.b a = com.baidu.swan.apps.w.a.acH().a(optString, optJSONObject, bVar);
         if (a == null) {
             return new com.baidu.swan.apps.api.b.b(0);
         }
@@ -64,16 +64,16 @@ public class a extends c {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0300a implements com.baidu.swan.apps.p.b {
-        private String bTu;
+    public class C0321a implements com.baidu.swan.apps.p.b {
+        private String bTA;
 
-        private C0300a(String str) {
-            this.bTu = str;
+        private C0321a(String str) {
+            this.bTA = str;
         }
 
         @Override // com.baidu.swan.apps.p.b
         public void V(@Nullable JSONObject jSONObject) {
-            a.this.a(this.bTu, jSONObject == null ? new com.baidu.swan.apps.api.b.b(0) : new com.baidu.swan.apps.api.b.b(0, jSONObject));
+            a.this.a(this.bTA, jSONObject == null ? new com.baidu.swan.apps.api.b.b(0) : new com.baidu.swan.apps.api.b.b(0, jSONObject));
         }
 
         @Override // com.baidu.swan.apps.p.b
@@ -81,7 +81,7 @@ public class a extends c {
             if (c.DEBUG && i == 0) {
                 Log.e("Api-GameCenterApi", "GameCenterCallback:onFail errCode cannot be ERR_OK.");
             }
-            a.this.a(this.bTu, str == null ? new com.baidu.swan.apps.api.b.b(i) : new com.baidu.swan.apps.api.b.b(i, str));
+            a.this.a(this.bTA, str == null ? new com.baidu.swan.apps.api.b.b(i) : new com.baidu.swan.apps.api.b.b(i, str));
         }
     }
 

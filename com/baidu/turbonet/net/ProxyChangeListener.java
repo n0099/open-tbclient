@@ -21,9 +21,9 @@ import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class ProxyChangeListener {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static boolean lLl;
-    private b lLm;
-    private Delegate lLn;
+    private static boolean lLp;
+    private b lLq;
+    private Delegate lLr;
     private Context mContext;
     private long mNativePtr;
     private final Looper mLooper = Looper.myLooper();
@@ -31,7 +31,7 @@ public class ProxyChangeListener {
 
     /* loaded from: classes.dex */
     public interface Delegate {
-        void djC();
+        void djz();
     }
 
     @NativeClassQualifiedName
@@ -42,13 +42,13 @@ public class ProxyChangeListener {
 
     static {
         $assertionsDisabled = !ProxyChangeListener.class.desiredAssertionStatus();
-        lLl = true;
+        lLp = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final String[] lLo;
+        public final String[] lLs;
         public final String mHost;
         public final String mPacUrl;
         public final int mPort;
@@ -57,7 +57,7 @@ public class ProxyChangeListener {
             this.mHost = str;
             this.mPort = i;
             this.mPacUrl = str2;
-            this.lLo = strArr;
+            this.lLs = strArr;
         }
     }
 
@@ -171,13 +171,13 @@ public class ProxyChangeListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b bVar, a aVar) {
-        if (lLl && bVar == this.lLm) {
-            if (this.lLn != null) {
-                this.lLn.djC();
+        if (lLp && bVar == this.lLq) {
+            if (this.lLr != null) {
+                this.lLr.djz();
             }
             if (this.mNativePtr != 0) {
                 if (aVar != null) {
-                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.lLo);
+                    nativeProxySettingsChangedTo(this.mNativePtr, aVar.mHost, aVar.mPort, aVar.mPacUrl, aVar.lLs);
                 } else {
                     nativeProxySettingsChanged(this.mNativePtr);
                 }
@@ -186,18 +186,18 @@ public class ProxyChangeListener {
     }
 
     private void registerReceiver() {
-        if (this.lLm == null) {
+        if (this.lLq == null) {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-            this.lLm = new b();
-            this.mContext.getApplicationContext().registerReceiver(this.lLm, intentFilter);
+            this.lLq = new b();
+            this.mContext.getApplicationContext().registerReceiver(this.lLq, intentFilter);
         }
     }
 
     private void unregisterReceiver() {
-        if (this.lLm != null) {
-            this.mContext.unregisterReceiver(this.lLm);
-            this.lLm = null;
+        if (this.lLq != null) {
+            this.mContext.unregisterReceiver(this.lLq);
+            this.lLq = null;
         }
     }
 

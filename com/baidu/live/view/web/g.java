@@ -5,17 +5,17 @@ import com.baidu.live.tbadk.scheme.SchemeCallback;
 import com.baidu.live.view.web.a.j;
 /* loaded from: classes3.dex */
 public class g {
-    private SchemeCallback bcA;
-    private f bcB;
-    private h bcC;
+    private SchemeCallback bcF;
+    private f bcG;
+    private h bcH;
     private Activity context;
     private boolean isHost = false;
     private long liveId;
     private long userId;
     private String userName;
 
-    public a[] HN() {
-        r0[0].a(this.bcC);
+    public a[] HM() {
+        r0[0].a(this.bcH);
         com.baidu.live.view.web.a.d dVar = new com.baidu.live.view.web.a.d();
         dVar.setHost(this.isHost);
         com.baidu.live.view.web.a.g gVar = new com.baidu.live.view.web.a.g(this.context);
@@ -25,7 +25,7 @@ public class g {
         hVar.setUserId(this.userId);
         hVar.setUserName(this.userName);
         hVar.setLiveId(this.liveId);
-        a[] aVarArr = {new com.baidu.live.view.web.a.i(this.context, this.bcA), dVar, gVar, new com.baidu.live.view.web.a.f(this.bcA), hVar, new com.baidu.live.view.web.a.e(this.bcA), new com.baidu.live.view.web.a.c(), new com.baidu.live.view.web.a.a(this.bcB), new com.baidu.live.view.web.a.b(this.bcA), new j(this.bcA)};
+        a[] aVarArr = {new com.baidu.live.view.web.a.i(this.context, this.bcF), dVar, gVar, new com.baidu.live.view.web.a.f(this.bcF), hVar, new com.baidu.live.view.web.a.e(this.bcF), new com.baidu.live.view.web.a.c(), new com.baidu.live.view.web.a.a(this.bcG), new com.baidu.live.view.web.a.b(this.bcF), new j(this.bcF)};
         return aVarArr;
     }
 
@@ -35,12 +35,12 @@ public class g {
     }
 
     public g a(SchemeCallback schemeCallback) {
-        this.bcA = schemeCallback;
+        this.bcF = schemeCallback;
         return this;
     }
 
     public g a(f fVar) {
-        this.bcB = fVar;
+        this.bcG = fVar;
         return this;
     }
 
@@ -60,7 +60,7 @@ public class g {
     }
 
     public g b(h hVar) {
-        this.bcC = hVar;
+        this.bcH = hVar;
         return this;
     }
 

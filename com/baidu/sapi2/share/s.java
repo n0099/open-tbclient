@@ -3,7 +3,7 @@ package com.baidu.sapi2.share;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.util.Base64;
-import com.baidu.android.common.security.MD5Util;
+import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.utils.AES;
@@ -31,7 +31,7 @@ class s implements Runnable {
             this.a.b = 1;
         }
         context = this.b.a.h;
-        String md5 = MD5Util.toMd5(context.getPackageName().getBytes(), false);
+        String md5 = SecurityUtil.md5(context.getPackageName().getBytes(), false);
         try {
             str = new String(Base64.encode(new AES().encrypt(this.a.a().toString(), "2314906973403010", "w0d4o27mh3k1e461"), 0));
         } catch (Exception e) {

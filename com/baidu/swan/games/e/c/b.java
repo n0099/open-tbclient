@@ -11,22 +11,22 @@ import java.util.HashMap;
 /* loaded from: classes11.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile b cLT;
-    private HashMap<String, c> cJm = new HashMap<>();
+    private static volatile b cLZ;
+    private HashMap<String, c> cJs = new HashMap<>();
     private HashMap<String, ArrayList<ValueCallback<String>>> mCallbackMap = new HashMap<>();
     private final Object mObject = new Object();
-    private com.baidu.swan.games.network.b cJo = com.baidu.swan.games.network.b.axh();
-    private String cJn = f.atM();
+    private com.baidu.swan.games.network.b cJu = com.baidu.swan.games.network.b.axh();
+    private String cJt = f.atM();
 
     public static b avX() {
-        if (cLT == null) {
+        if (cLZ == null) {
             synchronized (b.class) {
-                if (cLT == null) {
-                    cLT = new b();
+                if (cLZ == null) {
+                    cLZ = new b();
                 }
             }
         }
-        return cLT;
+        return cLZ;
     }
 
     public void a(String str, ValueCallback<String> valueCallback) {
@@ -58,15 +58,15 @@ public class b implements a {
     }
 
     private boolean pC(String str) {
-        return this.cJm.containsKey(str);
+        return this.cJs.containsKey(str);
     }
 
     private void pD(String str) {
         if (DEBUG) {
             Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
         }
-        c cVar = new c(this.cJo, this.cJn, str, this);
-        this.cJm.put(str, cVar);
+        c cVar = new c(this.cJu, this.cJt, str, this);
+        this.cJs.put(str, cVar);
         cVar.load();
     }
 
@@ -92,7 +92,7 @@ public class b implements a {
                         Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.cJm.remove(str);
+                this.cJs.remove(str);
             }
         }
     }
@@ -106,12 +106,12 @@ public class b implements a {
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).onReceiveValue("");
                 }
-                this.cJm.remove(str);
+                this.cJs.remove(str);
             }
         }
     }
 
     private String pE(String str) throws MalformedURLException {
-        return this.cJn + f.pz(str);
+        return this.cJt + f.pz(str);
     }
 }

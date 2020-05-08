@@ -30,8 +30,8 @@ public final class e {
 
     private static void a(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            Context Lh = com.baidu.prologue.a.b.a.brQ.get().Lh();
-            marginLayoutParams.setMargins(l.dip2px(Lh, iArr[0]), l.dip2px(Lh, iArr[1]), l.dip2px(Lh, iArr[2]), l.dip2px(Lh, iArr[3]));
+            Context Lg = com.baidu.prologue.a.b.a.brU.get().Lg();
+            marginLayoutParams.setMargins(l.dip2px(Lg, iArr[0]), l.dip2px(Lg, iArr[1]), l.dip2px(Lg, iArr[2]), l.dip2px(Lg, iArr[3]));
         }
     }
 

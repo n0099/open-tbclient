@@ -14,32 +14,32 @@ import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cJn;
-    private com.baidu.swan.games.network.b cJo;
-    private a cJp;
+    private String cJt;
+    private com.baidu.swan.games.network.b cJu;
+    private a cJv;
     private String mSrc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.baidu.swan.games.network.b bVar, String str, String str2, a aVar) {
         this.mSrc = "";
-        this.cJn = "";
-        this.cJo = bVar;
-        this.cJn = str;
+        this.cJt = "";
+        this.cJu = bVar;
+        this.cJt = str;
         this.mSrc = str2;
-        this.cJp = aVar;
+        this.cJv = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void load() {
-        this.cJo.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.audio.a.c.1
+        this.cJu.a(new Request.Builder().url(this.mSrc).build(), new Callback() { // from class: com.baidu.swan.games.audio.a.c.1
             @Override // okhttp3.Callback
             public void onFailure(Call call, IOException iOException) {
                 if (c.DEBUG) {
                     Log.e("AudioDownloader", c.this.mSrc + " load failed");
                     iOException.printStackTrace();
                 }
-                if (c.this.cJp != null) {
-                    c.this.cJp.X(-1, c.this.mSrc);
+                if (c.this.cJv != null) {
+                    c.this.cJv.X(-1, c.this.mSrc);
                 }
             }
 
@@ -57,7 +57,7 @@ public class c {
                     try {
                         try {
                             String pz = f.pz(c.this.mSrc);
-                            String str = c.this.cJn + pz.substring(0, pz.lastIndexOf("/"));
+                            String str = c.this.cJt + pz.substring(0, pz.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
@@ -85,8 +85,8 @@ public class c {
                                             if (file != null) {
                                                 file.delete();
                                             }
-                                            if (c.this.cJp != null) {
-                                                c.this.cJp.X(-1, c.this.mSrc);
+                                            if (c.this.cJv != null) {
+                                                c.this.cJv.X(-1, c.this.mSrc);
                                             }
                                             com.baidu.swan.d.c.closeSafely(inputStream2);
                                             com.baidu.swan.d.c.closeSafely(fileOutputStream2);
@@ -119,16 +119,16 @@ public class c {
                                     if (c.DEBUG) {
                                         Log.e("AudioDownloader", c.this.mSrc + " load rename success path = " + absolutePath);
                                     }
-                                    if (c.this.cJp != null) {
-                                        c.this.cJp.bK(c.this.mSrc, absolutePath);
+                                    if (c.this.cJv != null) {
+                                        c.this.cJv.bK(c.this.mSrc, absolutePath);
                                     }
                                 } else {
                                     if (c.DEBUG) {
                                         Log.e("AudioDownloader", c.this.mSrc + " load rename error path = " + absolutePath);
                                     }
                                     file3.delete();
-                                    if (c.this.cJp != null) {
-                                        c.this.cJp.X(-1, absolutePath);
+                                    if (c.this.cJv != null) {
+                                        c.this.cJv.X(-1, absolutePath);
                                     }
                                 }
                                 com.baidu.swan.d.c.closeSafely(inputStream);

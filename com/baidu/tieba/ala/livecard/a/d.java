@@ -17,21 +17,21 @@ import com.baidu.tieba.card.ala.AlaVideoContainer;
 import com.baidu.tieba.card.l;
 /* loaded from: classes3.dex */
 public class d implements View.OnClickListener {
-    private bj adG;
-    private final View.OnClickListener agi = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
+    private bj adJ;
+    private final View.OnClickListener agl = new View.OnClickListener() { // from class: com.baidu.tieba.ala.livecard.a.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.fsu != null) {
-                d.this.fsu.c(view, d.this.adG);
+            if (d.this.fsz != null) {
+                d.this.fsz.c(view, d.this.adJ);
             }
         }
     };
-    public RelativeLayout fsp;
-    public ThreadUserInfoLayout fsq;
-    public ThreadCommentAndPraiseInfoLayout fsr;
-    public View fss;
-    public AlaVideoContainer fst;
-    private com.baidu.tieba.ala.livecard.vc.c fsu;
+    public RelativeLayout fsu;
+    public ThreadUserInfoLayout fsv;
+    public ThreadCommentAndPraiseInfoLayout fsw;
+    public View fsx;
+    public AlaVideoContainer fsy;
+    private com.baidu.tieba.ala.livecard.vc.c fsz;
     public View mDivider;
     private String mForumName;
     public TextView mTextTitle;
@@ -39,18 +39,18 @@ public class d implements View.OnClickListener {
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.rootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_ala_stage_live_item, (ViewGroup) null);
-        this.fsp = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
-        this.fsq = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
-        this.fsq.setFrom(3);
+        this.fsu = (RelativeLayout) this.rootView.findViewById(R.id.layout_root);
+        this.fsv = (ThreadUserInfoLayout) this.rootView.findViewById(R.id.card_frs_ala_video_user_info_layout);
+        this.fsv.setFrom(3);
         this.mTextTitle = (TextView) this.rootView.findViewById(R.id.text_title);
-        this.fst = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
-        this.fss = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
-        this.fsr = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
+        this.fsy = (AlaVideoContainer) this.rootView.findViewById(R.id.ala_video_container);
+        this.fsx = this.rootView.findViewById(R.id.divider_below_reply_number_layout);
+        this.fsw = (ThreadCommentAndPraiseInfoLayout) this.rootView.findViewById(R.id.text_bottom);
         this.mDivider = this.rootView.findViewById(R.id.divider_line);
-        this.fsp.setOnClickListener(this);
-        this.fsr.setOnClickListener(this);
-        this.fsr.getCommentContainer().setOnClickListener(this);
-        this.fst.setOnVideoClickListener(this);
+        this.fsu.setOnClickListener(this);
+        this.fsw.setOnClickListener(this);
+        this.fsw.getCommentContainer().setOnClickListener(this);
+        this.fsy.setOnVideoClickListener(this);
     }
 
     public View getRootView() {
@@ -58,57 +58,57 @@ public class d implements View.OnClickListener {
     }
 
     public void refreshView() {
-        if (this.adG != null && this.adG.aKE() != null) {
-            d(this.adG, this.mForumName);
+        if (this.adJ != null && this.adJ.aKC() != null) {
+            d(this.adJ, this.mForumName);
         }
     }
 
     public void d(bj bjVar, String str) {
-        if (bjVar != null && bjVar.aKE() != null) {
-            this.adG = bjVar;
+        if (bjVar != null && bjVar.aKC() != null) {
+            this.adJ = bjVar;
             this.mForumName = str;
-            this.fsp.setVisibility(0);
-            this.fsq.setData(bjVar);
-            if (this.fsq.getHeaderImg() != null) {
-                this.fsq.getHeaderImg().setData(bjVar);
+            this.fsu.setVisibility(0);
+            this.fsv.setData(bjVar);
+            if (this.fsv.getHeaderImg() != null) {
+                this.fsv.getHeaderImg().setData(bjVar);
             }
-            this.fsq.setUserAfterClickListener(this.agi);
+            this.fsv.setUserAfterClickListener(this.agl);
             bjVar.s(false, true);
-            this.mTextTitle.setText(bjVar.aLl());
-            this.fst.getController().a(bjVar, str, "", false);
-            this.fst.getController().startPlayAnimation();
-            this.fsr.setReplyTimeVisible(false);
-            this.fsr.setNeedAddReplyIcon(true);
-            this.fsr.setIsBarViewVisible(false);
-            this.fsr.setCommentNumEnable(false);
-            this.fsr.setOnClickListener(this);
-            this.fsr.setLiveShareEnable(false);
-            this.fsr.setShareVisible(true);
-            this.fsr.setShowPraiseNum(true);
-            this.fsr.setNeedAddPraiseIcon(true);
-            this.fsr.setFrom(2);
-            if (this.fsr.setData(bjVar)) {
-                this.fss.setVisibility(8);
+            this.mTextTitle.setText(bjVar.aLj());
+            this.fsy.getController().a(bjVar, str, "", false);
+            this.fsy.getController().startPlayAnimation();
+            this.fsw.setReplyTimeVisible(false);
+            this.fsw.setNeedAddReplyIcon(true);
+            this.fsw.setIsBarViewVisible(false);
+            this.fsw.setCommentNumEnable(false);
+            this.fsw.setOnClickListener(this);
+            this.fsw.setLiveShareEnable(false);
+            this.fsw.setShareVisible(true);
+            this.fsw.setShowPraiseNum(true);
+            this.fsw.setNeedAddPraiseIcon(true);
+            this.fsw.setFrom(2);
+            if (this.fsw.setData(bjVar)) {
+                this.fsx.setVisibility(8);
             } else {
-                this.fss.setVisibility(0);
+                this.fsx.setVisibility(0);
             }
             U(bjVar);
         }
     }
 
     public void m(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null && this.fsr != null && this.fsq != null) {
-            this.fsq.setPageUniqueId(bdUniqueId);
+        if (bdUniqueId != null && this.fsw != null && this.fsv != null) {
+            this.fsv.setPageUniqueId(bdUniqueId);
         }
     }
 
     private void U(bj bjVar) {
-        this.fsr.onChangeSkinType();
-        this.fsq.onChangeSkinType();
-        this.fst.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.fsp.setBackgroundDrawable(am.kC(R.color.cp_bg_line_e));
+        this.fsw.onChangeSkinType();
+        this.fsv.onChangeSkinType();
+        this.fsy.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        this.fsu.setBackgroundDrawable(am.kC(R.color.cp_bg_line_e));
         am.setBackgroundColor(this.mDivider, R.color.cp_bg_line_c);
-        if (bjVar != null && l.BC(bjVar.getId())) {
+        if (bjVar != null && l.BF(bjVar.getId())) {
             am.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_d);
         } else {
             am.setViewTextColor(this.mTextTitle, (int) R.color.cp_cont_b);
@@ -116,20 +116,20 @@ public class d implements View.OnClickListener {
     }
 
     public void a(com.baidu.tieba.ala.livecard.vc.c cVar) {
-        this.fsu = cVar;
+        this.fsz = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fsp || view == this.fsr.getCommentContainer()) {
-            if (this.adG != null) {
-                l.BB(this.adG.getId());
+        if (view == this.fsu || view == this.fsw.getCommentContainer()) {
+            if (this.adJ != null) {
+                l.BE(this.adJ.getId());
             }
-            if (this.fsu != null) {
-                this.fsu.b(view, this.adG);
+            if (this.fsz != null) {
+                this.fsz.b(view, this.adJ);
             }
-        } else if (view.getId() == R.id.video_container && this.fsu != null) {
-            this.fsu.b(view, this.adG);
+        } else if (view.getId() == R.id.video_container && this.fsz != null) {
+            this.fsz.b(view, this.adJ);
         }
     }
 }

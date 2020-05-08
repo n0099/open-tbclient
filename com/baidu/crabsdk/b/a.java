@@ -13,38 +13,38 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public final class a {
     private static long aR;
-    private static Activity ajT;
-    private static com.baidu.crabsdk.c.b<List> ajU = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
-    private static boolean ajV = false;
-    private static boolean ajW = true;
-    private static int ajX = 0;
-    private static int ajY = 0;
+    private static Activity ajZ;
+    private static com.baidu.crabsdk.c.b<List> aka = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.e);
+    private static boolean akb = false;
+    private static boolean akc = true;
+    private static int akd = 0;
+    private static int ake = 0;
     private static int aU = 0;
-    private static boolean ajZ = false;
+    private static boolean akf = false;
 
     public static void a(Activity activity) {
-        ajV = true;
-        ajT = activity;
+        akb = true;
+        ajZ = activity;
         ArrayList arrayList = new ArrayList(3);
         arrayList.add(activity.getClass().getName());
         arrayList.add(new Date());
-        ajU.add(arrayList);
-        int size = ajU.size();
+        aka.add(arrayList);
+        int size = aka.size();
         if (size >= 2) {
-            List list = ajU.get(size - 2);
-            if (list.size() == 3 && ((Date) ajU.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
-                ajX++;
+            List list = aka.get(size - 2);
+            if (list.size() == 3 && ((Date) aka.get(size - 1).get(1)).getTime() - ((Date) list.get(2)).getTime() > com.baidu.crabsdk.a.l) {
+                akd++;
             }
         } else {
-            ajX++;
+            akd++;
         }
-        ajY = (ajY + 1) % 100;
+        ake = (ake + 1) % 100;
     }
 
     @SuppressLint({"NewApi"})
     public static void a(Application application) {
-        if (ajW) {
-            ajW = false;
+        if (akc) {
+            akc = false;
             aR = System.currentTimeMillis();
             if (Build.VERSION.SDK_INT >= 14) {
                 application.registerActivityLifecycleCallbacks(new b());
@@ -54,16 +54,16 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Activity activity) {
-        if (ajT != null && activity != null && ajT.hashCode() == activity.hashCode()) {
-            ajT = null;
+        if (ajZ != null && activity != null && ajZ.hashCode() == activity.hashCode()) {
+            ajZ = null;
         }
-        int i = ajY - aU;
-        int size = ajU.size();
+        int i = ake - aU;
+        int size = aka.size();
         if (i < 0) {
             i += 100;
         }
         if (i > 0 && size >= i) {
-            List list = ajU.get(size - i);
+            List list = aka.get(size - i);
             if (list.size() == 2) {
                 list.add(new Date());
             }
@@ -89,9 +89,9 @@ public final class a {
 
     public static String q() {
         StringBuilder sb = new StringBuilder();
-        int size = ajU.size();
+        int size = aka.size();
         for (int i = 0; i < size; i++) {
-            List list = ajU.get((size - i) - 1);
+            List list = aka.get((size - i) - 1);
             if (list.size() == 3) {
                 sb.append((String) list.get(0)).append(" from ").append(com.baidu.crabsdk.c.c.a((Date) list.get(1))).append(" to ").append(com.baidu.crabsdk.c.c.a((Date) list.get(2))).append("\n");
             } else if (list.size() == 2) {
@@ -102,30 +102,30 @@ public final class a {
     }
 
     public static String r() {
-        if (ajT == null) {
+        if (ajZ == null) {
             com.baidu.crabsdk.c.a.de("cur Page info is null!");
             return "N/A";
         }
-        return ajT.getClass().getName();
+        return ajZ.getClass().getName();
     }
 
-    public static byte[] sA() {
-        if (ajT == null) {
+    public static byte[] sz() {
+        if (ajZ == null) {
             return new byte[0];
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            View decorView = ajT.getWindow().getDecorView();
+            View decorView = ajZ.getWindow().getDecorView();
             decorView.setDrawingCacheEnabled(true);
             Bitmap drawingCache = decorView.getDrawingCache();
             if (drawingCache != null) {
                 drawingCache.compress(Bitmap.CompressFormat.JPEG, 30, byteArrayOutputStream);
             } else {
-                com.baidu.crabsdk.c.a.de("getScreenshot failed, curActivity " + ajT.getClass().getName());
+                com.baidu.crabsdk.c.a.de("getScreenshot failed, curActivity " + ajZ.getClass().getName());
             }
             decorView.setDrawingCacheEnabled(false);
         } catch (RuntimeException e) {
-            com.baidu.crabsdk.c.a.f("getScreenshot failed, curActivity " + ajT.getClass().getName(), e);
+            com.baidu.crabsdk.c.a.a("getScreenshot failed, curActivity " + ajZ.getClass().getName(), e);
         }
         return byteArrayOutputStream.toByteArray();
     }

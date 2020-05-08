@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
 public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends io.reactivex.internal.operators.flowable.a<TLeft, R> {
     final h<? super TLeft, ? extends org.a.b<TLeftEnd>> leftEnd;
-    final org.a.b<? extends TRight> mSk;
+    final org.a.b<? extends TRight> mSn;
     final io.reactivex.c.c<? super TLeft, ? super io.reactivex.g<TRight>, ? extends R> resultSelector;
     final h<? super TRight, ? extends org.a.b<TRightEnd>> rightEnd;
 
@@ -40,8 +40,8 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         groupJoinSubscription.disposables.a(leftRightSubscriber);
         LeftRightSubscriber leftRightSubscriber2 = new LeftRightSubscriber(groupJoinSubscription, false);
         groupJoinSubscription.disposables.a(leftRightSubscriber2);
-        this.mRJ.a((j) leftRightSubscriber);
-        this.mSk.subscribe(leftRightSubscriber2);
+        this.mRM.a((j) leftRightSubscriber);
+        this.mSn.subscribe(leftRightSubscriber2);
     }
 
     /* loaded from: classes7.dex */
@@ -60,7 +60,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         static final Integer RIGHT_CLOSE = 4;
         final AtomicLong requested = new AtomicLong();
         final io.reactivex.disposables.a disposables = new io.reactivex.disposables.a();
-        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dCB());
+        final io.reactivex.internal.queue.a<Object> queue = new io.reactivex.internal.queue.a<>(io.reactivex.g.dCx());
         final Map<Integer, UnicastProcessor<TRight>> lefts = new LinkedHashMap();
         final Map<Integer, TRight> rights = new LinkedHashMap();
         final AtomicReference<Throwable> error = new AtomicReference<>();
@@ -142,10 +142,10 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                     } else if (!z2) {
                         Object poll = aVar.poll();
                         if (num == LEFT_VALUE) {
-                            UnicastProcessor<TRight> dDk = UnicastProcessor.dDk();
+                            UnicastProcessor<TRight> dDg = UnicastProcessor.dDg();
                             int i2 = this.leftIndex;
                             this.leftIndex = i2 + 1;
-                            this.lefts.put(Integer.valueOf(i2), dDk);
+                            this.lefts.put(Integer.valueOf(i2), dDg);
                             try {
                                 org.a.b bVar = (org.a.b) io.reactivex.internal.functions.a.h(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
                                 LeftRightEndSubscriber leftRightEndSubscriber = new LeftRightEndSubscriber(this, true, i2);
@@ -158,12 +158,12 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                                     return;
                                 }
                                 try {
-                                    Object obj = (Object) io.reactivex.internal.functions.a.h(this.resultSelector.apply(poll, dDk), "The resultSelector returned a null value");
+                                    Object obj = (Object) io.reactivex.internal.functions.a.h(this.resultSelector.apply(poll, dDg), "The resultSelector returned a null value");
                                     if (this.requested.get() != 0) {
                                         cVar.onNext(obj);
                                         io.reactivex.internal.util.b.c(this.requested, 1L);
                                         for (TRight tright : this.rights.values()) {
-                                            dDk.onNext(tright);
+                                            dDg.onNext(tright);
                                         }
                                     } else {
                                         fail(new MissingBackpressureException("Could not emit value due to lack of requests"), cVar, aVar);

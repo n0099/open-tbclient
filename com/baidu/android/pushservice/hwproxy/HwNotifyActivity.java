@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.e;
-import com.baidu.android.pushservice.i.l;
+import com.baidu.android.pushservice.f;
+import com.baidu.android.pushservice.i.m;
 /* loaded from: classes8.dex */
 public class HwNotifyActivity extends Activity {
     @Override // android.app.Activity
@@ -14,10 +14,10 @@ public class HwNotifyActivity extends Activity {
         try {
             Intent intent = getIntent();
             if (intent != null && intent.getData() != null) {
-                String b = e.b(intent);
-                String a = e.a(intent);
-                if (!TextUtils.isEmpty(a)) {
-                    l.c(getApplicationContext(), intent, b, a);
+                String d = f.d(this, intent);
+                String c = f.c(this, intent);
+                if (!TextUtils.isEmpty(c)) {
+                    m.c(getApplicationContext(), intent, d, c);
                 }
             }
         } catch (Exception e) {

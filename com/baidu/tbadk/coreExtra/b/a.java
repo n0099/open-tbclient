@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a dLY = null;
-    private boolean dLX;
-    private int dLZ;
+    private static volatile a dMc = null;
+    private boolean dMb;
+    private int dMd;
 
     private a() {
-        this.dLX = false;
-        this.dLZ = 0;
+        this.dMb = false;
+        this.dMd = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.setSdCard(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.call()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.dLZ = Integer.parseInt(content);
+                    this.dMd = Integer.parseInt(content);
                 }
-                if (this.dLZ == 1 || this.dLZ == 2) {
-                    this.dLX = true;
+                if (this.dMd == 1 || this.dMd == 2) {
+                    this.dMb = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a aRw() {
-        if (dLY == null) {
+    public static a aRt() {
+        if (dMc == null) {
             synchronized (a.class) {
-                if (dLY == null) {
-                    dLY = new a();
+                if (dMc == null) {
+                    dMc = new a();
                 }
             }
         }
-        return dLY;
+        return dMc;
     }
 
-    public boolean aRx() {
-        return this.dLX;
+    public boolean aRu() {
+        return this.dMb;
     }
 
-    public int aRy() {
-        return this.dLZ;
+    public int aRv() {
+        return this.dMd;
     }
 
-    public String aRz() {
-        return this.dLX ? "pub_env=" + this.dLZ + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String aRw() {
+        return this.dMb ? "pub_env=" + this.dMd + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

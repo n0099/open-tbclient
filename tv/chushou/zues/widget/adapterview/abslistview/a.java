@@ -12,9 +12,9 @@ import java.util.List;
 public abstract class a<T> extends BaseAdapter {
     protected Context context;
     protected List<T> data;
-    protected final int mGz;
+    protected final int mGE;
 
-    public abstract void a(C0836a c0836a, T t);
+    public abstract void a(C0857a c0857a, T t);
 
     public a(Context context, List<T> list, int i) {
         this.context = context;
@@ -23,7 +23,7 @@ public abstract class a<T> extends BaseAdapter {
         } else {
             this.data = list;
         }
-        this.mGz = i;
+        this.mGE = i;
     }
 
     @Override // android.widget.Adapter
@@ -49,38 +49,38 @@ public abstract class a<T> extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0836a c0836a;
+        C0857a c0857a;
         if (view == null) {
             view = LayoutInflater.from(this.context).inflate(Iz(getItemViewType(i)), viewGroup, false);
-            c0836a = new C0836a(view);
-            view.setTag(c0836a);
+            c0857a = new C0857a(view);
+            view.setTag(c0857a);
         } else {
-            c0836a = (C0836a) view.getTag();
+            c0857a = (C0857a) view.getTag();
         }
-        a(c0836a, this.data.get(i));
+        a(c0857a, this.data.get(i));
         return view;
     }
 
     protected int Iz(int i) {
-        return this.mGz;
+        return this.mGE;
     }
 
     /* renamed from: tv.chushou.zues.widget.adapterview.abslistview.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0836a {
-        public View iCl;
-        private final SparseArray<View> mGJ = new SparseArray<>();
+    public static class C0857a {
+        public View iCr;
+        private final SparseArray<View> mGO = new SparseArray<>();
 
-        public C0836a(View view) {
-            this.iCl = view;
+        public C0857a(View view) {
+            this.iCr = view;
         }
 
         /* JADX WARN: Incorrect return type in method signature: <T:Landroid/view/View;>(I)TT; */
         public View JQ(int i) {
-            View view = this.mGJ.get(i);
+            View view = this.mGO.get(i);
             if (view == null) {
-                View findViewById = this.iCl.findViewById(i);
-                this.mGJ.put(i, findViewById);
+                View findViewById = this.iCr.findViewById(i);
+                this.mGO.put(i, findViewById);
                 return findViewById;
             }
             return view;

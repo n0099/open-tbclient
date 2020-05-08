@@ -7,15 +7,15 @@ import java.util.List;
 public interface a {
     void I(Bitmap bitmap);
 
-    void Ig(String str);
+    void Ij(String str);
 
-    void LE(String str);
+    void LH(String str);
 
-    void cFs();
+    void cFp();
 
-    void daX();
+    void daU();
 
-    void daZ();
+    void daW();
 
     void eE(List<PendantData> list);
 

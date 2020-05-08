@@ -9,22 +9,22 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 class SystemMessageHandler extends Handler {
-    private long lHX;
-    private long lHY = 0;
+    private long lIb;
+    private long lIc = 0;
 
     private native void nativeDoRunLoopOnce(long j, long j2);
 
     private SystemMessageHandler(long j) {
-        this.lHX = 0L;
-        this.lHX = j;
+        this.lIb = 0L;
+        this.lIb = j;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 2) {
-            this.lHY = 0L;
+            this.lIc = 0L;
         }
-        nativeDoRunLoopOnce(this.lHX, this.lHY);
+        nativeDoRunLoopOnce(this.lIb, this.lIc);
     }
 
     @CalledByNative
@@ -34,10 +34,10 @@ class SystemMessageHandler extends Handler {
 
     @CalledByNative
     private void scheduleDelayedWork(long j, long j2) {
-        if (this.lHY != 0) {
+        if (this.lIc != 0) {
             removeMessages(2);
         }
-        this.lHY = j;
+        this.lIc = j;
         sendMessageDelayed(Fk(2), j2);
     }
 
@@ -57,7 +57,7 @@ class SystemMessageHandler extends Handler {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        static final c lHZ;
+        static final c lId;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* loaded from: classes.dex */
@@ -66,14 +66,14 @@ class SystemMessageHandler extends Handler {
         }
 
         public static void a(Message message, boolean z) {
-            lHZ.a(message, z);
+            lId.a(message, z);
         }
 
         static {
             if (Build.VERSION.SDK_INT >= 22) {
-                lHZ = new b();
+                lId = new b();
             } else {
-                lHZ = new C0688a();
+                lId = new C0709a();
             }
         }
 
@@ -91,12 +91,12 @@ class SystemMessageHandler extends Handler {
 
         /* renamed from: com.baidu.turbonet.base.SystemMessageHandler$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        static class C0688a implements c {
-            private Method lIa;
+        static class C0709a implements c {
+            private Method lIe;
 
-            C0688a() {
+            C0709a() {
                 try {
-                    this.lIa = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
+                    this.lIe = Class.forName("android.os.Message").getMethod("setAsynchronous", Boolean.TYPE);
                 } catch (ClassNotFoundException e) {
                     com.baidu.turbonet.base.a.h("cr.SysMessageHandler", "Failed to find android.os.Message class", e);
                 } catch (NoSuchMethodException e2) {
@@ -108,21 +108,21 @@ class SystemMessageHandler extends Handler {
 
             @Override // com.baidu.turbonet.base.SystemMessageHandler.a.c
             public void a(Message message, boolean z) {
-                if (this.lIa != null) {
+                if (this.lIe != null) {
                     try {
-                        this.lIa.invoke(message, Boolean.valueOf(z));
+                        this.lIe.invoke(message, Boolean.valueOf(z));
                     } catch (IllegalAccessException e) {
                         com.baidu.turbonet.base.a.h("cr.SysMessageHandler", "Illegal access to async message creation, disabling.", new Object[0]);
-                        this.lIa = null;
+                        this.lIe = null;
                     } catch (IllegalArgumentException e2) {
                         com.baidu.turbonet.base.a.h("cr.SysMessageHandler", "Illegal argument for async message creation, disabling.", new Object[0]);
-                        this.lIa = null;
+                        this.lIe = null;
                     } catch (RuntimeException e3) {
                         com.baidu.turbonet.base.a.h("cr.SysMessageHandler", "Runtime exception during async message creation, disabling.", new Object[0]);
-                        this.lIa = null;
+                        this.lIe = null;
                     } catch (InvocationTargetException e4) {
                         com.baidu.turbonet.base.a.h("cr.SysMessageHandler", "Invocation exception during async message creation, disabling.", new Object[0]);
-                        this.lIa = null;
+                        this.lIe = null;
                     }
                 }
             }

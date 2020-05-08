@@ -10,9 +10,9 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    protected com.baidu.mario.gldraw2d.a.a bfh;
-    private List<b> bfi;
-    private int bfj = 0;
+    protected com.baidu.mario.gldraw2d.a.a bfm;
+    private List<b> bfn;
+    private int bfo = 0;
 
     public a(Object obj, List<c> list) {
         a(obj, list);
@@ -20,21 +20,21 @@ public class a {
 
     public void P(List<c> list) {
         Log.d(TAG, "updateSurfaceDrawer !!!");
-        this.bfh.releaseEglSurface();
-        for (b bVar : this.bfi) {
+        this.bfm.releaseEglSurface();
+        for (b bVar : this.bfn) {
             bVar.release();
         }
-        this.bfi.clear();
+        this.bfn.clear();
         a(null, list);
     }
 
     private void a(Object obj, List<c> list) {
         b bVar;
         if (list != null && list.size() != 0) {
-            if (this.bfi == null) {
-                this.bfi = new ArrayList();
+            if (this.bfn == null) {
+                this.bfn = new ArrayList();
             } else {
-                this.bfi.clear();
+                this.bfn.clear();
             }
             int i = 0;
             while (true) {
@@ -43,71 +43,71 @@ public class a {
                     break;
                 }
                 try {
-                    this.bfi.add(new b(list.get(i2)));
-                    if (list.get(i2).IO()) {
-                        this.bfj = i2;
+                    this.bfn.add(new b(list.get(i2)));
+                    if (list.get(i2).IN()) {
+                        this.bfo = i2;
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 i = i2 + 1;
             }
-            if (this.bfi.size() > this.bfj) {
+            if (this.bfn.size() > this.bfo) {
                 if (obj != null) {
                     if (obj instanceof Surface) {
-                        this.bfh = new com.baidu.mario.gldraw2d.a.a(this.bfi.get(this.bfj).Il(), (Surface) obj, true);
+                        this.bfm = new com.baidu.mario.gldraw2d.a.a(this.bfn.get(this.bfo).Ik(), (Surface) obj, true);
                     } else if (obj instanceof SurfaceTexture) {
-                        this.bfh = new com.baidu.mario.gldraw2d.a.a(this.bfi.get(this.bfj).Il(), (SurfaceTexture) obj);
+                        this.bfm = new com.baidu.mario.gldraw2d.a.a(this.bfn.get(this.bfo).Ik(), (SurfaceTexture) obj);
                     } else if (obj instanceof SurfaceHolder) {
-                        this.bfh = new com.baidu.mario.gldraw2d.a.a(this.bfi.get(this.bfj).Il(), (SurfaceHolder) obj);
+                        this.bfm = new com.baidu.mario.gldraw2d.a.a(this.bfn.get(this.bfo).Ik(), (SurfaceHolder) obj);
                     }
-                } else if (this.bfi != null && this.bfi != null && (bVar = this.bfi.get(this.bfj)) != null) {
-                    this.bfh.a(bVar.Il());
+                } else if (this.bfn != null && this.bfn != null && (bVar = this.bfn.get(this.bfo)) != null) {
+                    this.bfm.a(bVar.Ik());
                 }
             }
-            for (b bVar2 : this.bfi) {
-                if (this.bfh != null) {
-                    this.bfh.b(bVar2.Il());
-                    bVar2.Ik();
+            for (b bVar2 : this.bfn) {
+                if (this.bfm != null) {
+                    this.bfm.b(bVar2.Ik());
+                    bVar2.Ij();
                 }
             }
         }
     }
 
     public void a(com.baidu.mario.gldraw2d.c.c cVar) {
-        for (b bVar : this.bfi) {
-            if (this.bfh != null) {
-                this.bfh.b(bVar.Il());
+        for (b bVar : this.bfn) {
+            if (this.bfm != null) {
+                this.bfm.b(bVar.Ik());
                 bVar.a(cVar);
             }
         }
     }
 
-    public void Ij() {
-        if (this.bfh != null) {
-            this.bfh.release();
-            this.bfh = null;
+    public void Ii() {
+        if (this.bfm != null) {
+            this.bfm.release();
+            this.bfm = null;
         }
-        if (this.bfi != null) {
-            for (b bVar : this.bfi) {
+        if (this.bfn != null) {
+            for (b bVar : this.bfn) {
                 bVar.release();
             }
-            this.bfi.clear();
-            this.bfi = null;
+            this.bfn.clear();
+            this.bfn = null;
         }
     }
 
     public void az(long j) {
-        if (this.bfh != null && this.bfi != null && this.bfi.size() != 0) {
+        if (this.bfm != null && this.bfn != null && this.bfn.size() != 0) {
             synchronized (this) {
-                for (b bVar : this.bfi) {
-                    this.bfh.b(bVar.Il());
+                for (b bVar : this.bfn) {
+                    this.bfm.b(bVar.Ik());
                     bVar.aA(j);
                 }
                 notifyAll();
             }
-            this.bfh.setPresentationTime(j);
-            this.bfh.swapBuffers();
+            this.bfm.setPresentationTime(j);
+            this.bfm.swapBuffers();
         }
     }
 }

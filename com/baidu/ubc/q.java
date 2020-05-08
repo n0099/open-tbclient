@@ -3,9 +3,9 @@ package com.baidu.ubc;
 import java.util.List;
 /* loaded from: classes12.dex */
 public interface q {
-    String ahy();
+    String ahx();
 
-    List<String> cTg();
+    List<String> cTd();
 
     boolean isPeakTime();
 

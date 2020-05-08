@@ -4,7 +4,7 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.net.Uri;
-import com.xiaomi.mipush.sdk.p;
+import com.xiaomi.mipush.sdk.n;
 /* loaded from: classes8.dex */
 public class HelpContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
@@ -14,7 +14,7 @@ public class HelpContentProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
-        p.a(getContext(), null, uri);
+        n.a(getContext(), null, uri);
         return "success";
     }
 

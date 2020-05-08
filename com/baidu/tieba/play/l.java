@@ -10,11 +10,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class l {
     static {
-        cJF();
-        cJG();
+        cJC();
+        cJD();
     }
 
-    private static void cJF() {
+    private static void cJC() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001804, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -22,7 +22,7 @@ public class l {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void cJG() {
+    private static void cJD() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003359, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -46,7 +46,7 @@ public class l {
         httpMessage.addParam("obj_type", str);
         httpMessage.addParam("playduration", j2);
         if (yVar != null) {
-            httpMessage.addParam("video_md5", yVar.kis);
+            httpMessage.addParam("video_md5", yVar.kiw);
         }
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM2, str2);
@@ -56,19 +56,19 @@ public class l {
 
     private static void a(HttpMessage httpMessage, y yVar) {
         if (httpMessage != null && yVar != null) {
-            httpMessage.addParam("tid", yVar.ahL);
-            httpMessage.addParam("fid", yVar.eQf);
-            httpMessage.addParam(TiebaInitialize.Params.OBJ_TO, yVar.kin);
-            httpMessage.addParam("obj_id", yVar.dol);
-            httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM3, yVar.kio);
+            httpMessage.addParam("tid", yVar.ahO);
+            httpMessage.addParam("fid", yVar.eQk);
+            httpMessage.addParam(TiebaInitialize.Params.OBJ_TO, yVar.kir);
+            httpMessage.addParam("obj_id", yVar.dop);
+            httpMessage.addParam(TiebaInitialize.Params.OBJ_PARAM3, yVar.kis);
             httpMessage.addParam("obj_source", yVar.mSource);
             httpMessage.addParam("obj_locate", yVar.mLocate);
-            httpMessage.addParam("obj_param1", yVar.kip);
-            if (!StringUtils.isNull(yVar.kit)) {
-                httpMessage.addParam("topic_type", yVar.kit);
+            httpMessage.addParam("obj_param1", yVar.kit);
+            if (!StringUtils.isNull(yVar.kix)) {
+                httpMessage.addParam("topic_type", yVar.kix);
             }
-            if (!StringUtils.isNull(yVar.kiu)) {
-                httpMessage.addParam("is_vertical", yVar.kiu);
+            if (!StringUtils.isNull(yVar.kiy)) {
+                httpMessage.addParam("is_vertical", yVar.kiy);
             }
         }
     }

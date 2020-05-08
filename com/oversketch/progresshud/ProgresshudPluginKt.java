@@ -14,7 +14,7 @@ public final class ProgresshudPluginKt {
     public static final SVProgressHUD getDialog() {
         SVProgressHUD sVProgressHUD = dialog;
         if (sVProgressHUD == null) {
-            q.Pw("dialog");
+            q.Pz("dialog");
         }
         return sVProgressHUD;
     }
@@ -27,7 +27,7 @@ public final class ProgresshudPluginKt {
     public static final SVProgressHUD.SVProgressHUDMaskType getMaskType() {
         SVProgressHUD.SVProgressHUDMaskType sVProgressHUDMaskType = maskType;
         if (sVProgressHUDMaskType == null) {
-            q.Pw("maskType");
+            q.Pz("maskType");
         }
         return sVProgressHUDMaskType;
     }

@@ -21,7 +21,7 @@ public class a extends com.baidu.swan.apps.adaptation.implementation.b {
     }
 
     @Override // com.baidu.swan.apps.adaptation.implementation.b, com.baidu.swan.apps.adaptation.a.d
-    public boolean Ph() {
+    public boolean Pg() {
         return false;
     }
 }

@@ -107,7 +107,7 @@ public final class r {
                                     httpURLConnection = httpURLConnection2;
                                     e = e;
                                     try {
-                                        com.baidu.crabsdk.c.a.f("Upload Data Error!", e);
+                                        com.baidu.crabsdk.c.a.a("Upload Data Error!", e);
                                         if (dataOutputStream2 != null) {
                                             try {
                                                 dataOutputStream2.close();
@@ -210,7 +210,7 @@ public final class r {
                         httpURLConnection = httpURLConnection2;
                         e = e6;
                         inputStreamReader = inputStreamReader4;
-                        com.baidu.crabsdk.c.a.f("Upload Data Error!", e);
+                        com.baidu.crabsdk.c.a.a("Upload Data Error!", e);
                         if (dataOutputStream2 != null) {
                         }
                         if (httpURLConnection != null) {
@@ -286,7 +286,7 @@ public final class r {
             outputStream.close();
             sb = new StringBuilder();
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("GetResponse Error!", e);
+            com.baidu.crabsdk.c.a.a("GetResponse Error!", e);
         }
         if (httpURLConnection.getResponseCode() != 200) {
             com.baidu.crabsdk.c.a.v("Failed! ResponseCode == " + httpURLConnection.getResponseCode());

@@ -7,7 +7,7 @@ public class d extends f<com.airbnb.lottie.model.content.c> {
 
     public d(List<com.airbnb.lottie.e.a<com.airbnb.lottie.model.content.c>> list) {
         super(list);
-        com.airbnb.lottie.model.content.c cVar = list.get(0).FL;
+        com.airbnb.lottie.model.content.c cVar = list.get(0).FO;
         int size = cVar == null ? 0 : cVar.getSize();
         this.Cl = new com.airbnb.lottie.model.content.c(new float[size], new int[size]);
     }
@@ -17,7 +17,7 @@ public class d extends f<com.airbnb.lottie.model.content.c> {
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: d */
     public com.airbnb.lottie.model.content.c a(com.airbnb.lottie.e.a<com.airbnb.lottie.model.content.c> aVar, float f) {
-        this.Cl.a(aVar.FL, aVar.FM, f);
+        this.Cl.a(aVar.FO, aVar.FP, f);
         return this.Cl;
     }
 }

@@ -6,72 +6,72 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 /* loaded from: classes10.dex */
 public class BestStringsFitTextView extends TextView {
-    private String kOY;
-    private float kOZ;
-    private String kPa;
-    private boolean kPb;
+    private String kPc;
+    private float kPd;
+    private String kPe;
+    private boolean kPf;
     private String[] textArray;
 
     public BestStringsFitTextView(Context context) {
         super(context);
-        this.kOY = " ";
-        this.kOZ = 0.0f;
-        this.kPa = "";
-        this.kPb = false;
+        this.kPc = " ";
+        this.kPd = 0.0f;
+        this.kPe = "";
+        this.kPf = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kOY = " ";
-        this.kOZ = 0.0f;
-        this.kPa = "";
-        this.kPb = false;
+        this.kPc = " ";
+        this.kPd = 0.0f;
+        this.kPe = "";
+        this.kPf = false;
     }
 
     public BestStringsFitTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kOY = " ";
-        this.kOZ = 0.0f;
-        this.kPa = "";
-        this.kPb = false;
+        this.kPc = " ";
+        this.kPd = 0.0f;
+        this.kPe = "";
+        this.kPf = false;
     }
 
-    protected void cVo() {
-        this.kOZ = (getWidth() - getPaddingLeft()) - getPaddingRight();
+    protected void cVl() {
+        this.kPd = (getWidth() - getPaddingLeft()) - getPaddingRight();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.textArray.length; i++) {
             if (i > 0) {
-                sb.append(this.kOY);
+                sb.append(this.kPc);
             }
             sb.append(this.textArray[i]);
             String sb2 = sb.toString();
-            if (this.kOZ < getPaint().measureText(sb2)) {
+            if (this.kPd < getPaint().measureText(sb2)) {
                 break;
             }
-            this.kPb = true;
-            this.kPa = sb2;
+            this.kPf = true;
+            this.kPe = sb2;
         }
-        setText(this.kPa);
+        setText(this.kPe);
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.textArray != null && !this.kPb) {
-            cVo();
+        if (this.textArray != null && !this.kPf) {
+            cVl();
         }
     }
 
     public void setTextArray(String[] strArr) {
         this.textArray = strArr;
-        cVo();
+        cVl();
     }
 
     public String getSeperator() {
-        return this.kOY;
+        return this.kPc;
     }
 
     public void setSeperator(String str) {
-        this.kOY = str;
+        this.kPc = str;
     }
 }

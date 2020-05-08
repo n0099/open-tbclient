@@ -73,7 +73,7 @@ public class a extends c {
             if ("key".equals(jsObject.getPropertyName(i))) {
                 int propertyType = jsObject.getPropertyType(i);
                 if (propertyType == 7) {
-                    return d.Y(jsObject.toString(i));
+                    return d.Z(jsObject.toString(i));
                 }
                 return d.qV(String.format("parameter error: the key must be string instead of %s.", d.id(propertyType)));
             }

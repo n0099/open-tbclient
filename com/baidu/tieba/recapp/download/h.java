@@ -18,15 +18,15 @@ import java.io.File;
 public class h {
     public static final boolean a(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.aRM()) {
+        if (adAdSense != null && !adAdSense.aRJ()) {
             return r.a(context, advertAppInfo, i, downloadStaticsData);
         }
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.dmp;
-        if (StringUtils.isNull(str) && advertAppInfo.dmx != null) {
-            str = advertAppInfo.dmx.userName;
+        String str = advertAppInfo.dmt;
+        if (StringUtils.isNull(str) && advertAppInfo.dmB != null) {
+            str = advertAppInfo.dmB.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -38,25 +38,25 @@ public class h {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.aWD().b(advertAppInfo);
-        String str2 = advertAppInfo.dmp;
+        com.baidu.tbadk.distribute.a.aWB().b(advertAppInfo);
+        String str2 = advertAppInfo.dmt;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        i.cNA().a(advertAppInfo.dmr, advertAppInfo.apkUrl, str2, i, i.Js(advertAppInfo.dmr).intValue(), null, true, false, true, advertAppInfo.dmx.userPortrait, downloadStaticsData, advertAppInfo.dmx.userName);
+        i.cNx().a(advertAppInfo.dmv, advertAppInfo.apkUrl, str2, i, i.Jv(advertAppInfo.dmv).intValue(), null, true, false, true, advertAppInfo.dmB.userPortrait, downloadStaticsData, advertAppInfo.dmB.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        if (adAdSense != null && !adAdSense.aRM()) {
+        if (adAdSense != null && !adAdSense.aRJ()) {
             r.f(advertAppInfo);
         } else {
-            i.cNA().z(advertAppInfo.apkUrl, advertAppInfo.dmr, true);
+            i.cNx().z(advertAppInfo.apkUrl, advertAppInfo.dmv, true);
         }
     }
 
-    public static final void aY(Context context, String str) {
+    public static final void aM(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             l.showToast(context, (int) R.string.download_error);
             return;

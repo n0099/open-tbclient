@@ -344,20 +344,20 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
             c();
         } catch (Exception e) {
             e.printStackTrace();
-            onError(CyberPlayerManager.MEDIA_ERROR_OPEN_VIDEO_FAIL, 0, null);
+            onError(-111, 0, null);
         }
     }
 
     private void c() {
-        ArrayList<a.C0081a> b;
+        ArrayList<a.C0102a> b;
         if (this.b == null || (b = this.u.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0081a c0081a = b.get(i);
-            if (c0081a != null && c0081a.a() != null) {
-                this.b.setExternalInfo(c0081a.a(), c0081a.b());
+            a.C0102a c0102a = b.get(i);
+            if (c0102a != null && c0102a.a() != null) {
+                this.b.setExternalInfo(c0102a.a(), c0102a.b());
             }
         }
     }

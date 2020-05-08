@@ -10,17 +10,17 @@ import com.baidu.tieba.R;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class ClientConfigModel extends BdBaseModel {
-    private a dkO;
-    private final com.baidu.adp.framework.listener.a dkP;
+    private a dkS;
+    private final com.baidu.adp.framework.listener.a dkT;
 
     public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, a aVar) {
         super(bdBaseFragmentActivity.getPageContext());
-        this.dkP = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.clientConfig.ClientConfigModel.1
+        this.dkT = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.clientConfig.ClientConfigModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (!ClientConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
-                    if (ClientConfigModel.this.dkO != null) {
-                        ClientConfigModel.this.dkO.onError("");
+                    if (ClientConfigModel.this.dkS != null) {
+                        ClientConfigModel.this.dkS.onError("");
                     }
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     String errorString = responsedMessage.getErrorString();
@@ -28,20 +28,20 @@ public class ClientConfigModel extends BdBaseModel {
                     if (!StringUtils.isNull(errorString)) {
                         string = errorString;
                     }
-                    if (ClientConfigModel.this.dkO != null) {
-                        ClientConfigModel.this.dkO.onError(string);
+                    if (ClientConfigModel.this.dkS != null) {
+                        ClientConfigModel.this.dkS.onError(string);
                     }
                 } else if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                     ClientConfigModel.this.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                 } else if (responsedMessage instanceof ClientConfigSocketResponse) {
                     ClientConfigModel.this.a(((ClientConfigSocketResponse) responsedMessage).getData());
-                } else if (ClientConfigModel.this.dkO != null) {
-                    ClientConfigModel.this.dkO.onError("");
+                } else if (ClientConfigModel.this.dkS != null) {
+                    ClientConfigModel.this.dkS.onError("");
                 }
             }
         };
-        this.dkO = aVar;
-        registerListener(this.dkP);
+        this.dkS = aVar;
+        registerListener(this.dkT);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -54,7 +54,7 @@ public class ClientConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void tD(String str) {
+    public void tG(String str) {
         ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
         clientConfigNetMessage.setType(str);
         sendMessage(clientConfigNetMessage);
@@ -68,11 +68,11 @@ public class ClientConfigModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.dkO != null) {
-                this.dkO.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+            if (this.dkS != null) {
+                this.dkS.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
             }
-        } else if (this.dkO != null) {
-            this.dkO.af(dataRes);
+        } else if (this.dkS != null) {
+            this.dkS.ag(dataRes);
         }
     }
 }

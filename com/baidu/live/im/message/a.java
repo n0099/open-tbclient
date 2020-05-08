@@ -4,7 +4,7 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.util.TbEnum;
 /* loaded from: classes3.dex */
 public class a extends HttpMessage {
-    private boolean aNv;
+    private boolean aNB;
     private String appId;
     private com.baidu.live.im.data.b barrageCardInfo;
     private String barrageId;
@@ -20,7 +20,7 @@ public class a extends HttpMessage {
 
     public a(String str, short s, int i, String str2) {
         super(1021013);
-        this.aNv = false;
+        this.aNB = false;
         this.content = str;
         this.msgType = s;
         this.groupId = i;
@@ -35,7 +35,7 @@ public class a extends HttpMessage {
         return this.content;
     }
 
-    public short Cq() {
+    public short Cp() {
         return this.msgType;
     }
 
@@ -47,7 +47,7 @@ public class a extends HttpMessage {
         this.roomId = str;
     }
 
-    public String Cr() {
+    public String Cq() {
         return this.otherParams;
     }
 
@@ -55,7 +55,7 @@ public class a extends HttpMessage {
         this.otherParams = str;
     }
 
-    public long Cs() {
+    public long Cr() {
         return this.price;
     }
 
@@ -63,7 +63,7 @@ public class a extends HttpMessage {
         this.price = j;
     }
 
-    public int Cj() {
+    public int Ci() {
         return this.barrageType;
     }
 
@@ -71,7 +71,7 @@ public class a extends HttpMessage {
         this.barrageType = i;
     }
 
-    public String Ck() {
+    public String Cj() {
         return this.barrageId;
     }
 
@@ -79,7 +79,7 @@ public class a extends HttpMessage {
         this.barrageId = str;
     }
 
-    public com.baidu.live.im.data.b Cl() {
+    public com.baidu.live.im.data.b Ck() {
         return this.barrageCardInfo;
     }
 
@@ -87,7 +87,7 @@ public class a extends HttpMessage {
         this.barrageCardInfo = bVar;
     }
 
-    public String[] Cm() {
+    public String[] Cl() {
         return this.imEffect;
     }
 
@@ -96,10 +96,10 @@ public class a extends HttpMessage {
     }
 
     public void bA(boolean z) {
-        this.aNv = z;
+        this.aNB = z;
     }
 
-    public boolean Ct() {
-        return this.aNv;
+    public boolean Cs() {
+        return this.aNB;
     }
 }

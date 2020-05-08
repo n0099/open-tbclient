@@ -3,10 +3,19 @@ package com.baidu.android.pushservice.i;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import java.util.HashMap;
+import android.net.wifi.WifiManager;
+import android.telephony.TelephonyManager;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
+import com.xiaomi.mipush.sdk.Constants;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
 /* loaded from: classes8.dex */
 public class g {
     private static ConnectivityManager a = null;
+    private static TelephonyManager b = null;
 
     public static boolean a(Context context) {
         NetworkInfo c = c(context);
@@ -24,21 +33,93 @@ public class g {
     public static NetworkInfo c(Context context) {
         NetworkInfo networkInfo = null;
         try {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext == null) {
+            context = context.getApplicationContext();
+            if (context == null) {
             }
-            ConnectivityManager f = f(applicationContext);
-            if (f != null) {
-                networkInfo = f.getActiveNetworkInfo();
+            ConnectivityManager j = j(context);
+            if (j != null) {
+                networkInfo = j.getActiveNetworkInfo();
                 if (networkInfo == null) {
                 }
             }
         } catch (Exception e) {
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         }
         return networkInfo;
     }
 
     public static String d(Context context) {
+        return k(context) != null ? k(context).getSimOperatorName() : "noPermission";
+    }
+
+    public static String e(Context context) {
+        if (context.checkCallingOrSelfPermission("android.permission.ACCESS_WIFI_STATE") == 0) {
+            int ipAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getIpAddress();
+            return String.format("%d.%d.%d.%d", Integer.valueOf(ipAddress & 255), Integer.valueOf((ipAddress >> 8) & 255), Integer.valueOf((ipAddress >> 16) & 255), Integer.valueOf((ipAddress >> 24) & 255));
+        }
+        return "nonWifiIp";
+    }
+
+    public static String f(Context context) {
+        String str = "nonMobileIp";
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            while (networkInterfaces.hasMoreElements()) {
+                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                while (inetAddresses.hasMoreElements()) {
+                    InetAddress nextElement = inetAddresses.nextElement();
+                    str = (nextElement.isLoopbackAddress() || !(nextElement instanceof Inet4Address)) ? str : nextElement.getHostAddress().toString();
+                }
+            }
+            return str;
+        } catch (Exception e) {
+            return str;
+        }
+    }
+
+    public static String g(Context context) {
+        String str;
+        if (k(context) != null) {
+            int networkType = k(context).getNetworkType();
+            switch (networkType) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    str = "2G";
+                    break;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    str = "3G";
+                    break;
+                case 13:
+                case 18:
+                    str = "4G";
+                    break;
+                default:
+                    str = "";
+                    break;
+            }
+            return str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + networkType;
+        }
+        return "unKnow";
+    }
+
+    public static String h(Context context) {
+        return a(context) ? b(context) ? "wifi|" + e(context) : d(context) + "|" + f(context) + "|" + g(context) : "nonNet";
+    }
+
+    public static String i(Context context) {
         if (a(context)) {
             NetworkInfo c = c(context);
             switch (c != null ? c.getType() : -1) {
@@ -63,26 +144,7 @@ public class g {
         return "connectionless";
     }
 
-    public static boolean e(Context context) {
-        boolean a2 = a(context);
-        if (a2 || !l.u(context, "android.permission.INTERNET")) {
-            return a2;
-        }
-        try {
-            com.baidu.android.pushservice.e.a a3 = com.baidu.android.pushservice.e.b.a(com.baidu.android.pushservice.g.d, "GET", (HashMap<String, String>) null);
-            if (a3.b() != 0) {
-                if (a3.a() != null) {
-                    return true;
-                }
-                return a2;
-            }
-            return a2;
-        } catch (Exception e) {
-            return a2;
-        }
-    }
-
-    private static ConnectivityManager f(Context context) {
+    private static ConnectivityManager j(Context context) {
         if (context == null) {
             return a;
         }
@@ -90,5 +152,17 @@ public class g {
             a = (ConnectivityManager) context.getSystemService("connectivity");
         }
         return a;
+    }
+
+    private static TelephonyManager k(Context context) {
+        if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
+            if (context == null) {
+                return b;
+            }
+            if (b == null) {
+                b = (TelephonyManager) context.getSystemService("phone");
+            }
+        }
+        return b;
     }
 }

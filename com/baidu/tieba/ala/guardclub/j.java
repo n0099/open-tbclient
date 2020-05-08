@@ -6,38 +6,38 @@ import com.baidu.live.tbadk.BaseActivity;
 import com.baidu.tieba.ala.guardclub.model.g;
 /* loaded from: classes3.dex */
 public class j {
-    private k fkN;
-    private com.baidu.tieba.ala.guardclub.model.g fkO;
+    private k fkS;
+    private com.baidu.tieba.ala.guardclub.model.g fkT;
 
     public j(BaseActivity baseActivity, long j, long j2, long j3, boolean z, boolean z2, boolean z3, boolean z4, String str, BdUniqueId bdUniqueId, g.a aVar) {
-        this.fkN = new k(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
-        this.fkO = new com.baidu.tieba.ala.guardclub.model.g(j3, z3, aVar);
-        this.fkN.setOtherParams(str);
-        this.fkO.j(this.fkN);
-        this.fkN.a(this.fkO);
+        this.fkS = new k(baseActivity, j, j2, z, z2, z3, z4, bdUniqueId);
+        this.fkT = new com.baidu.tieba.ala.guardclub.model.g(j3, z3, aVar);
+        this.fkS.setOtherParams(str);
+        this.fkT.j(this.fkS);
+        this.fkS.a(this.fkT);
     }
 
     public void jF(boolean z) {
-        this.fkN.jF(z);
+        this.fkS.jF(z);
     }
 
-    public void xy() {
-        if (this.fkN != null) {
-            this.fkN.xy();
+    public void xx() {
+        if (this.fkS != null) {
+            this.fkS.xx();
         }
     }
 
     public View getView() {
-        return this.fkN.getView();
+        return this.fkS.getView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ayM() {
-        if (this.fkO != null) {
-            this.fkO.onDestory();
+        if (this.fkT != null) {
+            this.fkT.onDestory();
         }
-        if (this.fkN != null) {
-            this.fkN.boG();
+        if (this.fkS != null) {
+            this.fkS.boE();
         }
     }
 }

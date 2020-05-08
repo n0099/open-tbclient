@@ -3,7 +3,7 @@ package com.vivo.push.c;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-final class h extends aa {
+final class h extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(com.vivo.push.y yVar) {
         super(yVar);
@@ -11,15 +11,15 @@ final class h extends aa {
 
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
-        com.vivo.push.b.t tVar = (com.vivo.push.b.t) yVar;
-        ArrayList<String> d = tVar.d();
-        List<String> e = tVar.e();
+        com.vivo.push.b.v vVar = (com.vivo.push.b.v) yVar;
+        ArrayList<String> d = vVar.d();
+        List<String> e = vVar.e();
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         ArrayList arrayList3 = new ArrayList();
         ArrayList arrayList4 = new ArrayList();
-        int h = tVar.h();
-        String g = tVar.g();
+        int h = vVar.h();
+        String g = vVar.g();
         if (d != null) {
             for (String str : d) {
                 if (str.startsWith("ali/")) {
@@ -42,14 +42,14 @@ final class h extends aa {
             if (arrayList.size() > 0) {
                 com.vivo.push.p.a().b(arrayList);
             }
-            com.vivo.push.p.a().a(tVar.g(), arrayList3.size() > 0 ? 10000 : h);
+            com.vivo.push.p.a().a(vVar.g(), arrayList3.size() > 0 ? 10000 : h);
             com.vivo.push.w.b(new i(this, h, arrayList, arrayList3, g));
         }
         if (arrayList2.size() > 0 || arrayList4.size() > 0) {
             if (arrayList2.size() > 0) {
                 com.vivo.push.p.a().c(arrayList2);
             }
-            com.vivo.push.p.a().a(tVar.g(), h);
+            com.vivo.push.p.a().a(vVar.g(), h);
             com.vivo.push.w.b(new j(this, h, arrayList2, arrayList4, g));
         }
     }

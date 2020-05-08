@@ -14,23 +14,23 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes13.dex */
 public class a {
-    private static a ivm = new a();
-    private HashSet<String> ivn = new HashSet<>();
-    private StringBuilder ivo = new StringBuilder();
+    private static a ivs = new a();
+    private HashSet<String> ivt = new HashSet<>();
+    private StringBuilder ivu = new StringBuilder();
 
     private a() {
     }
 
-    public static a ciY() {
-        return ivm;
+    public static a ciW() {
+        return ivs;
     }
 
-    public void ciZ() {
+    public void ciX() {
         String str;
         String str2 = null;
-        if (this.ivn != null) {
+        if (this.ivt != null) {
             StringBuilder sb = new StringBuilder();
-            Iterator<String> it = this.ivn.iterator();
+            Iterator<String> it = this.ivt.iterator();
             while (it.hasNext()) {
                 String next = it.next();
                 if (next != null && next.length() > 0) {
@@ -41,44 +41,44 @@ public class a {
                 sb.deleteCharAt(sb.length() - 1);
                 if (sb.length() > 0) {
                     str = sb.toString();
-                    if (this.ivo != null && this.ivo.length() > 0) {
-                        this.ivo.deleteCharAt(this.ivo.length() - 1);
-                        str2 = this.ivo.toString();
+                    if (this.ivu != null && this.ivu.length() > 0) {
+                        this.ivu.deleteCharAt(this.ivu.length() - 1);
+                        str2 = this.ivu.toString();
                     }
                     new AddMsgRecordModel().reqViewAndClick(str, str2);
                 }
             }
         }
         str = null;
-        if (this.ivo != null) {
-            this.ivo.deleteCharAt(this.ivo.length() - 1);
-            str2 = this.ivo.toString();
+        if (this.ivu != null) {
+            this.ivu.deleteCharAt(this.ivu.length() - 1);
+            str2 = this.ivu.toString();
         }
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void cja() {
-        if (this.ivo != null && this.ivo.length() > 0) {
-            this.ivo.delete(0, this.ivo.length());
+    public void ciY() {
+        if (this.ivu != null && this.ivu.length() > 0) {
+            this.ivu.delete(0, this.ivu.length());
         }
-        if (this.ivn != null) {
-            this.ivn.clear();
+        if (this.ivt != null) {
+            this.ivt.clear();
         }
     }
 
     public void a(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d Fk;
+        d Fn;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Fk = e.Fk(chatMessage.getContent())) != null && !TextUtils.isEmpty(Fk.taskId) && this.ivn.add(Fk.taskId)) {
-                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Fk.iji, "task_id", Fk.taskId);
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (Fn = e.Fn(chatMessage.getContent())) != null && !TextUtils.isEmpty(Fn.taskId) && this.ivt.add(Fn.taskId)) {
+                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", Fn.ijp, "task_id", Fn.taskId);
             }
         }
     }
 
-    public void Ff(String str) {
+    public void Fi(String str) {
         if (str != null && str.length() > 0) {
-            this.ivo.append(str).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            this.ivu.append(str).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         }
     }
 }

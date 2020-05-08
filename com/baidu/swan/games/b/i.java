@@ -8,37 +8,37 @@ import java.util.List;
 public class i {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = i.class.getSimpleName();
-    private static volatile boolean bIf = false;
-    private static volatile boolean cLv = false;
-    private static volatile List<com.baidu.swan.apps.n.a.b> cLw = new ArrayList();
+    private static volatile boolean bIk = false;
+    private static volatile boolean cLB = false;
+    private static volatile List<com.baidu.swan.apps.n.a.b> cLC = new ArrayList();
 
     private i() {
     }
 
     public static void de(boolean z) {
-        bIf = z;
+        bIk = z;
         com.baidu.swan.apps.console.c.de(z);
     }
 
     public static void avC() {
         synchronized (i.class) {
-            cLw = new ArrayList();
+            cLC = new ArrayList();
         }
-        cLv = false;
+        cLB = false;
     }
 
     public static void avD() {
-        if (bIf && !cLv) {
+        if (bIk && !cLB) {
             synchronized (i.class) {
-                if (cLw != null) {
-                    for (int i = 0; i < cLw.size(); i++) {
-                        com.baidu.swan.apps.y.f.aeK().a("console", cLw.get(i));
+                if (cLC != null) {
+                    for (int i = 0; i < cLC.size(); i++) {
+                        com.baidu.swan.apps.y.f.aeJ().a("console", cLC.get(i));
                     }
-                    cLw.clear();
-                    cLw = null;
+                    cLC.clear();
+                    cLC = null;
                 }
             }
-            cLv = true;
+            cLB = true;
         }
     }
 
@@ -65,26 +65,26 @@ public class i {
     }
 
     public static void bN(String str, String str2) {
-        if (bIf) {
+        if (bIk) {
             a(c.bL(str, str2));
         }
     }
 
     public static void bO(String str, String str2) {
-        if (bIf) {
+        if (bIk) {
             a(c.bM(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.n.a.b bVar) {
-        if (!cLv) {
+        if (!cLB) {
             synchronized (i.class) {
-                if (cLw != null) {
-                    cLw.add(bVar);
+                if (cLC != null) {
+                    cLC.add(bVar);
                     return;
                 }
             }
         }
-        com.baidu.swan.apps.y.f.aeK().a("console", bVar);
+        com.baidu.swan.apps.y.f.aeJ().a("console", bVar);
     }
 }

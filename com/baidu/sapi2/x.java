@@ -1,71 +1,63 @@
 package com.baidu.sapi2;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.callback.GetUserInfoCallback;
-import com.baidu.sapi2.callback.Web2NativeLoginCallback;
-import com.baidu.sapi2.result.GetUserInfoResult;
-import com.baidu.sapi2.result.Web2NativeLoginResult;
-import com.baidu.sapi2.share.SapiShareClient;
-import com.baidu.sapi2.utils.SapiUtils;
+import android.os.Looper;
+import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.sapi2.callback.SapiCallback;
+import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
+import com.baidu.sapi2.result.SapiResult;
+import com.baidu.sapi2.utils.Log;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public class x extends GetUserInfoCallback {
-    final /* synthetic */ Web2NativeLoginResult a;
-    final /* synthetic */ Web2NativeLoginCallback b;
-    final /* synthetic */ String c;
-    final /* synthetic */ String d;
-    final /* synthetic */ G e;
+public class x extends HttpHandlerWrap {
+    final /* synthetic */ SapiCallback a;
+    final /* synthetic */ SapiResult b;
+    final /* synthetic */ L c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(G g, Web2NativeLoginResult web2NativeLoginResult, Web2NativeLoginCallback web2NativeLoginCallback, String str, String str2) {
-        this.e = g;
-        this.a = web2NativeLoginResult;
-        this.b = web2NativeLoginCallback;
-        this.c = str;
-        this.d = str2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(L l, Looper looper, SapiCallback sapiCallback, SapiResult sapiResult) {
+        super(looper);
+        this.c = l;
+        this.a = sapiCallback;
+        this.b = sapiResult;
     }
 
-    @Override // com.baidu.sapi2.callback.SapiCallback
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+    public void onFailure(Throwable th, int i, String str) {
+        this.b.setResultCode(i);
+        this.b.setResultMsg(str);
+        this.a.onFailure(this.b);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
     public void onFinish() {
-        this.b.onFinish();
+        this.a.onFinish();
     }
 
-    @Override // com.baidu.sapi2.callback.SapiCallback
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
     public void onStart() {
-        this.b.onStart();
+        this.a.onStart();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.sapi2.callback.LoginStatusAware
-    public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
-        this.a.setResultCode(400021);
-        this.b.onBdussExpired(this.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.sapi2.callback.SapiCallback
-    public void onFailure(GetUserInfoResult getUserInfoResult) {
-        this.a.setResultCode(-202);
-        this.b.onFailure(this.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.sapi2.callback.SapiCallback
-    public void onSuccess(GetUserInfoResult getUserInfoResult) {
-        SapiConfiguration sapiConfiguration;
-        SapiAccount sapiAccount = new SapiAccount();
-        sapiAccount.uid = getUserInfoResult.uid;
-        sapiAccount.username = getUserInfoResult.username;
-        sapiAccount.displayname = getUserInfoResult.displayname;
-        sapiAccount.bduss = this.c;
-        if (!TextUtils.isEmpty(this.d)) {
-            sapiAccount.ptoken = this.d;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+    public void onSuccess(int i, String str) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.b.setResultCode(jSONObject.optInt(BaseJsonData.TAG_ERRNO));
+            this.b.setResultMsg(jSONObject.optString(BaseJsonData.TAG_ERRMSG));
+        } catch (JSONException e) {
+            Log.e(e);
         }
-        sapiConfiguration = this.e.c;
-        sapiAccount.app = SapiUtils.getAppName(sapiConfiguration.context);
-        SapiShareClient.getInstance().validate(sapiAccount);
-        this.a.setResultCode(0);
-        this.b.onSuccess(this.a);
-        new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.g);
+        if (this.b.getResultCode() == 0) {
+            this.a.onSuccess(this.b);
+        } else {
+            this.a.onFailure(this.b);
+        }
     }
 }

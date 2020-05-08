@@ -10,22 +10,22 @@ public class PbHistoryCacheModel extends CacheModel<a, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<a> aYU() {
+    public Class<a> aYS() {
         return a.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int aYV() {
+    public int aYT() {
         return CmdConfigCustom.CMD_READ_PB_HISTORY_LIST;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int aYW() {
+    public int aYU() {
         return CmdConfigCustom.CMD_WRITE_PB_HISTORY;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String aYD() {
+    public String aYB() {
         return "tb.pb_history";
     }
 }

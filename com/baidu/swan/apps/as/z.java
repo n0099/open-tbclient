@@ -18,7 +18,7 @@ public class z {
     private static String sRomName;
     private static String sRomVersion;
 
-    public static boolean cs(Context context) {
+    public static boolean cg(Context context) {
         if (context == null) {
             return false;
         }
@@ -32,7 +32,7 @@ public class z {
             return hasNotchAtOPPO(context);
         }
         if (isMiui()) {
-            return ct(context);
+            return ch(context);
         }
         return false;
     }
@@ -65,7 +65,7 @@ public class z {
         return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
     }
 
-    private static boolean ct(@NonNull Context context) {
+    private static boolean ch(@NonNull Context context) {
         try {
             Class<?> loadClass = context.getClassLoader().loadClass("android.os.SystemProperties");
             return ((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() == 1;
@@ -78,14 +78,14 @@ public class z {
         }
     }
 
-    public static int cu(Context context) {
+    public static int ci(Context context) {
         if (Build.VERSION.SDK_INT < 26) {
             return 0;
         }
         if (Build.VERSION.SDK_INT >= 28) {
-            return apf();
+            return ape();
         }
-        if (cs(context)) {
+        if (cg(context)) {
             if (isMiui()) {
                 Resources resources = context.getResources();
                 try {
@@ -117,11 +117,11 @@ public class z {
     }
 
     @RequiresApi(28)
-    private static int apf() {
+    private static int ape() {
         int i = 0;
-        if (com.baidu.swan.apps.runtime.e.akN() != null && com.baidu.swan.apps.runtime.e.akN().getActivity() != null) {
+        if (com.baidu.swan.apps.runtime.e.akM() != null && com.baidu.swan.apps.runtime.e.akM().getActivity() != null) {
             try {
-                DisplayCutout displayCutout = com.baidu.swan.apps.runtime.e.akN().getActivity().getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
+                DisplayCutout displayCutout = com.baidu.swan.apps.runtime.e.akM().getActivity().getWindow().getDecorView().getRootWindowInsets().getDisplayCutout();
                 if (displayCutout != null) {
                     i = displayCutout.getSafeInsetTop();
                     if (DEBUG) {

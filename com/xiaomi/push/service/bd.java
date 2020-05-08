@@ -1,27 +1,47 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.bc;
-import java.util.concurrent.ConcurrentHashMap;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-class bd implements Runnable {
-    final /* synthetic */ bc a;
+public class bd implements ServiceConnection {
+    final /* synthetic */ bb a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bd(bc bcVar) {
-        this.a = bcVar;
+    public bd(bb bbVar) {
+        this.a = bbVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ConcurrentHashMap concurrentHashMap;
-        try {
-            concurrentHashMap = this.a.f893a;
-            for (bc.a aVar : concurrentHashMap.values()) {
-                aVar.run();
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        List<Message> list;
+        List list2;
+        Messenger messenger;
+        synchronized (this.a) {
+            this.a.b = new Messenger(iBinder);
+            this.a.f881b = false;
+            list = this.a.f879a;
+            for (Message message : list) {
+                try {
+                    messenger = this.a.b;
+                    messenger.send(message);
+                } catch (RemoteException e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                }
             }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("Sync job exception :" + e.getMessage());
+            list2 = this.a.f879a;
+            list2.clear();
         }
-        this.a.f894a = false;
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        this.a.b = null;
+        this.a.f881b = false;
     }
 }

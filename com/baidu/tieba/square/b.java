@@ -24,51 +24,51 @@ import com.baidu.tieba.enterForum.home.forumRecommendSocketResponseMessage;
 import com.baidu.tieba.square.a.a;
 /* loaded from: classes9.dex */
 public class b {
-    private final a kKZ;
-    private final ForumSquareActivity kLc;
-    private com.baidu.adp.framework.listener.a kLi = new com.baidu.adp.framework.listener.a(1002400, CmdConfigSocket.CMD_FORUM_RECOMMEND) { // from class: com.baidu.tieba.square.b.1
+    private final a kLd;
+    private final ForumSquareActivity kLg;
+    private com.baidu.adp.framework.listener.a kLm = new com.baidu.adp.framework.listener.a(1002400, CmdConfigSocket.CMD_FORUM_RECOMMEND) { // from class: com.baidu.tieba.square.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String str = "";
             if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
                 forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
                 if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendsocketresponsemessage.getHotSearchInfoData().bHI();
+                    str = forumrecommendsocketresponsemessage.getHotSearchInfoData().bHG();
                 }
             } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
                 forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
                 if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendhttpresponsemessage.getHotSearchInfoData().bHI();
+                    str = forumrecommendhttpresponsemessage.getHotSearchInfoData().bHG();
                 }
             }
             if (TextUtils.isEmpty(str)) {
-                str = b.this.kLc.getResources().getString(R.string.enter_forum_search_tip);
+                str = b.this.kLg.getResources().getString(R.string.enter_forum_search_tip);
             }
-            if (b.this.kKZ != null) {
-                b.this.kKZ.setSearchHint(str);
+            if (b.this.kLd != null) {
+                b.this.kLd.setSearchHint(str);
             }
         }
     };
-    private final View.OnClickListener kLh = new View.OnClickListener() { // from class: com.baidu.tieba.square.b.2
+    private final View.OnClickListener kLl = new View.OnClickListener() { // from class: com.baidu.tieba.square.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.kLc.cUp();
+            b.this.kLg.cUm();
         }
     };
-    private View.OnClickListener kLj = new View.OnClickListener() { // from class: com.baidu.tieba.square.b.3
+    private View.OnClickListener kLn = new View.OnClickListener() { // from class: com.baidu.tieba.square.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TiebaStatic.log(new an("c13654").t("uid", TbadkCoreApplication.getCurrentAccountId()));
-            b.this.cUD();
+            b.this.cUA();
         }
     };
-    private a.InterfaceC0647a kLk = new a.InterfaceC0647a() { // from class: com.baidu.tieba.square.b.4
-        @Override // com.baidu.tieba.square.a.a.InterfaceC0647a
+    private a.InterfaceC0668a kLo = new a.InterfaceC0668a() { // from class: com.baidu.tieba.square.b.4
+        @Override // com.baidu.tieba.square.a.a.InterfaceC0668a
         public void a(View view, int i, String str) {
-            b.this.kLc.Kp(str);
+            b.this.kLg.Ks(str);
         }
     };
-    private RecyclerView.OnScrollListener kLl = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.square.b.5
+    private RecyclerView.OnScrollListener kLp = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.square.b.5
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
@@ -81,52 +81,52 @@ public class b {
             super.onScrolled(recyclerView, i, i2);
         }
     };
-    private BdListView.e TQ = new BdListView.e() { // from class: com.baidu.tieba.square.b.6
+    private BdListView.e TT = new BdListView.e() { // from class: com.baidu.tieba.square.b.6
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            b.this.kLc.bpg();
+            b.this.kLg.bpe();
         }
     };
 
     public b(@NonNull ForumSquareActivity forumSquareActivity, @NonNull a aVar) {
-        this.kLc = forumSquareActivity;
-        this.kKZ = aVar;
-        this.kKZ.af(this.kLj);
-        this.kKZ.ag(this.kLh);
-        this.kKZ.a(this.kLk);
-        this.kKZ.e(this.TQ);
-        this.kKZ.a(this.kLl);
+        this.kLg = forumSquareActivity;
+        this.kLd = aVar;
+        this.kLd.af(this.kLn);
+        this.kLd.ag(this.kLl);
+        this.kLd.a(this.kLo);
+        this.kLd.e(this.TT);
+        this.kLd.a(this.kLp);
     }
 
-    public void cUB() {
+    public void cUy() {
         String hotSearch = TbSingleton.getInstance().getHotSearch();
         if (!TextUtils.isEmpty(hotSearch)) {
-            this.kKZ.setSearchHint(hotSearch);
+            this.kLd.setSearchHint(hotSearch);
         } else if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            this.kLc.registerListener(this.kLi);
-            cUC();
+            this.kLg.registerListener(this.kLm);
+            cUz();
         }
     }
 
-    private void cUC() {
+    private void cUz() {
         forumRecommendRequestMessage forumrecommendrequestmessage = new forumRecommendRequestMessage();
         forumrecommendrequestmessage.set_like_forum(Integer.valueOf(TbadkCoreApplication.isLogin() ? 1 : 0));
         forumrecommendrequestmessage.set_topic(0);
         forumrecommendrequestmessage.set_recommend(1);
-        this.kLc.sendMessage(forumrecommendrequestmessage);
+        this.kLg.sendMessage(forumrecommendrequestmessage);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.square.ForumSquareActivity */
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.square.ForumSquareActivity */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void cUD() {
+    public void cUA() {
         if (!j.isNetWorkAvailable()) {
-            this.kLc.showToast(R.string.neterror);
+            this.kLg.showToast(R.string.neterror);
         } else if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            TbadkCoreApplication.getInst().login(this.kLc.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.kLc.getPageContext().getPageActivity(), true, RequestResponseCode.REQUEST_LOGIN_CREATE_BAR)));
+            TbadkCoreApplication.getInst().login(this.kLg.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.kLg.getPageContext().getPageActivity(), true, RequestResponseCode.REQUEST_LOGIN_CREATE_BAR)));
         } else {
-            ba.aOY().b(this.kLc.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+            ba.aOV().b(this.kLg.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
         }
     }
 }

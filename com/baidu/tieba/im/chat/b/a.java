@@ -24,7 +24,7 @@ public abstract class a {
 
     /* renamed from: com.baidu.tieba.im.chat.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0562a {
+    public interface InterfaceC0583a {
         boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo);
     }
 
@@ -37,7 +37,7 @@ public abstract class a {
 
     /* loaded from: classes.dex */
     public interface c {
-        boolean Ei(String str);
+        boolean El(String str);
     }
 
     public static boolean a(ChatMessage chatMessage, int i) {
@@ -51,7 +51,7 @@ public abstract class a {
         }
     }
 
-    public static void Eh(String str) {
+    public static void Ek(String str) {
         if (!TextUtils.isEmpty(str)) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             try {
@@ -70,16 +70,16 @@ public abstract class a {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GOD_FEED_MSG_RECIEVED, Integer.valueOf(optInt5)));
                 }
                 if (optInt >= 0 && optInt2 >= 0 && optInt3 >= 0 && optInt6 >= 0 && optInt4 >= 0) {
-                    if (com.baidu.tbadk.coreExtra.messageCenter.d.aTN().aTQ() <= 0) {
+                    if (com.baidu.tbadk.coreExtra.messageCenter.d.aTL().aTO() <= 0) {
                         optInt4 = 0;
                         optInt3 = 0;
                     }
-                    int i = com.baidu.tbadk.coreExtra.messageCenter.d.aTN().aTT() ? optInt3 : 0;
+                    int i = com.baidu.tbadk.coreExtra.messageCenter.d.aTL().aTR() ? optInt3 : 0;
                     if (currentAccount != null && currentAccount.length() > 0) {
-                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.b.aTg().getMsgChat();
-                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.b.aTg().getMsgBookmark();
-                        com.baidu.tbadk.coreExtra.messageCenter.b.aTg().cz(jSONObject);
-                        com.baidu.tbadk.coreExtra.messageCenter.b.aTg().a(optInt, optInt2, optInt6, msgChat, i, msgBookmark, optInt4);
+                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.b.aTe().getMsgChat();
+                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.b.aTe().getMsgBookmark();
+                        com.baidu.tbadk.coreExtra.messageCenter.b.aTe().cz(jSONObject);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.aTe().a(optInt, optInt2, optInt6, msgChat, i, msgBookmark, optInt4);
                     }
                 }
             } catch (Exception e) {
@@ -91,7 +91,7 @@ public abstract class a {
         a(groupMsgData, imMessageCenterPojo, bVar, cVar, z, null);
     }
 
-    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC0562a interfaceC0562a) {
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, b bVar, c cVar, boolean z, InterfaceC0583a interfaceC0583a) {
         int i;
         boolean z2;
         boolean z3;
@@ -117,7 +117,7 @@ public abstract class a {
             long j = pulled_msgId;
             for (ChatMessage chatMessage : listMessage) {
                 long msgId = j < chatMessage.getMsgId() ? chatMessage.getMsgId() : j;
-                if (interfaceC0562a == null || !interfaceC0562a.a(chatMessage, imMessageCenterPojo)) {
+                if (interfaceC0583a == null || !interfaceC0583a.a(chatMessage, imMessageCenterPojo)) {
                     chatMessage.setLocalData(new MsgLocalData());
                     chatMessage.getLocalData().setStatus((short) 3);
                     CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo(chatMessage);
@@ -143,7 +143,7 @@ public abstract class a {
             if (commonMsgPojo != null) {
                 commonMsgPojo.checkRidAndSelf();
             }
-            if (cVar != null && cVar.Ei(valueOf)) {
+            if (cVar != null && cVar.El(valueOf)) {
                 i3 = 0;
             }
             imMessageCenterPojo.setUnread_count(i3);

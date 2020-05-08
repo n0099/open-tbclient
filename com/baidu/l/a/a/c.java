@@ -3,21 +3,21 @@ package com.baidu.l.a.a;
 public interface c {
     void FR(int i);
 
-    void NL(String str);
+    void NO(String str);
 
-    void NM(String str);
+    void NP(String str);
 
-    void NN(String str);
+    void NQ(String str);
 
-    boolean dlC();
+    c dlJ();
 
-    c dlM();
+    String dlK();
 
-    String dlN();
+    String dlL();
 
-    String dlO();
+    String dlM();
 
-    String dlP();
+    boolean dlz();
 
     int getStatusCode();
 

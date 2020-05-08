@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.sapi2.biometrics.liveness.R;
+import com.baidu.sapi2.result.OneKeyLoginResult;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LrcView extends FrameLayout {
@@ -193,7 +194,7 @@ public class LrcView extends FrameLayout {
                             this.u.setColor(Color.argb(255, 255, 255, 255));
                             canvas.drawCircle(this.v[0], this.v[1], this.w, this.u);
                             canvas.drawCircle(this.v[2], this.v[3], this.w, this.u);
-                            this.u.setAlpha(((int) (((this.f - 108) / 36.0f) * 144.0f)) + 111);
+                            this.u.setAlpha(((int) (((this.f + OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CHECK_SIGN_FAIL) / 36.0f) * 144.0f)) + 111);
                             canvas.drawCircle(this.v[4], this.v[5], this.w, this.u);
                         } else if (this.f >= 72) {
                             this.u.setColor(Color.argb(255, 255, 255, 255));

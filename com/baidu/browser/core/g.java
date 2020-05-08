@@ -9,11 +9,11 @@ import java.util.HashMap;
 @SuppressLint({"NewApi"})
 /* loaded from: classes11.dex */
 public final class g {
-    private static g abv;
-    private LongSparseArray<WeakReference<Bitmap>> abw = new LongSparseArray<>();
-    private Context mContext;
     private static final String LOG_TAG = g.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> abx = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.e<String, Integer>> abA = new HashMap<>();
+    private static g aby;
+    private LongSparseArray<WeakReference<Bitmap>> abz = new LongSparseArray<>();
+    private Context mContext;
 
     private g() {
     }
@@ -21,10 +21,10 @@ public final class g {
     public static synchronized g qW() {
         g gVar;
         synchronized (g.class) {
-            if (abv == null) {
-                abv = new g();
+            if (aby == null) {
+                aby = new g();
             }
-            gVar = abv;
+            gVar = aby;
         }
         return gVar;
     }
@@ -43,10 +43,10 @@ public final class g {
     public static int N(String str, String str2) {
         com.baidu.browser.core.util.e<String, Integer> eVar;
         O(str2, str);
-        com.baidu.browser.core.util.e<String, Integer> eVar2 = abx.get(str);
+        com.baidu.browser.core.util.e<String, Integer> eVar2 = abA.get(str);
         if (eVar2 == null) {
             com.baidu.browser.core.util.e<String, Integer> eVar3 = new com.baidu.browser.core.util.e<>(100);
-            abx.put(str, eVar3);
+            abA.put(str, eVar3);
             eVar = eVar3;
         } else {
             eVar = eVar2;

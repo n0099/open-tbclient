@@ -7,7 +7,7 @@ import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
 /* loaded from: classes8.dex */
 public class e {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> eAZ;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> eBe;
     private String mKey;
 
     public String getKey() {
@@ -15,22 +15,22 @@ public class e {
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> getContacts() {
-        if (this.eAZ == null) {
-            this.eAZ = new ArrayList();
+        if (this.eBe == null) {
+            this.eBe = new ArrayList();
         }
-        return this.eAZ;
+        return this.eBe;
     }
 
     public void a(listData listdata) {
         if (listdata != null) {
             this.mKey = listdata.key;
             if (listdata.friend_list != null) {
-                this.eAZ = new ArrayList();
+                this.eBe = new ArrayList();
                 for (friendList friendlist : listdata.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.vK(this.mKey);
-                    this.eAZ.add(aVar);
+                    aVar.vN(this.mKey);
+                    this.eBe.add(aVar);
                 }
             }
         }
@@ -40,12 +40,12 @@ public class e {
         if (robotslist != null) {
             this.mKey = robotslist.key;
             if (robotslist.friend_list != null) {
-                this.eAZ = new ArrayList();
+                this.eBe = new ArrayList();
                 for (friendList friendlist : robotslist.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.vK(this.mKey);
-                    this.eAZ.add(aVar);
+                    aVar.vN(this.mKey);
+                    this.eBe.add(aVar);
                 }
             }
         }

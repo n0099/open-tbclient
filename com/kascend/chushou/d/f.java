@@ -29,7 +29,7 @@ public final class f {
             q.i(string, "Res.getString(id)");
             return string;
         } else if (str == null) {
-            q.dDV();
+            q.dDR();
             return str;
         } else {
             return str;

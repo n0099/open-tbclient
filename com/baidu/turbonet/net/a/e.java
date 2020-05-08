@@ -6,19 +6,19 @@ import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends InputStream {
-    private final d lMM;
-    private boolean lMN;
-    private IOException lMO;
+    private final d lMQ;
+    private boolean lMR;
+    private IOException lMS;
     private ByteBuffer mBuffer;
 
     public e(d dVar) {
-        this.lMM = dVar;
+        this.lMQ = dVar;
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        dkt();
-        if (dku()) {
+        dkq();
+        if (dkr()) {
             return this.mBuffer.get() & 255;
         }
         return -1;
@@ -32,8 +32,8 @@ public class e extends InputStream {
         if (i2 == 0) {
             return 0;
         }
-        dkt();
-        if (dku()) {
+        dkq();
+        if (dkr()) {
             int min = Math.min(this.mBuffer.limit() - this.mBuffer.position(), i2);
             this.mBuffer.get(bArr, i, min);
             return min;
@@ -43,24 +43,24 @@ public class e extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(IOException iOException) {
-        this.lMO = iOException;
-        this.lMN = true;
+        this.lMS = iOException;
+        this.lMR = true;
         this.mBuffer = null;
     }
 
-    private void dkt() throws IOException {
-        if (this.lMN) {
-            if (this.lMO != null) {
-                throw this.lMO;
+    private void dkq() throws IOException {
+        if (this.lMR) {
+            if (this.lMS != null) {
+                throw this.lMS;
             }
-        } else if (!dku()) {
+        } else if (!dkr()) {
             if (this.mBuffer == null) {
                 this.mBuffer = ByteBuffer.allocateDirect(32768);
             }
             this.mBuffer.clear();
-            this.lMM.k(this.mBuffer);
-            if (this.lMO != null) {
-                throw this.lMO;
+            this.lMQ.k(this.mBuffer);
+            if (this.lMS != null) {
+                throw this.lMS;
             }
             if (this.mBuffer != null) {
                 this.mBuffer.flip();
@@ -68,7 +68,7 @@ public class e extends InputStream {
         }
     }
 
-    private boolean dku() {
+    private boolean dkr() {
         return this.mBuffer != null && this.mBuffer.hasRemaining();
     }
 }

@@ -27,7 +27,7 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         int padding;
 
         /* renamed from: top  reason: collision with root package name */
-        ConstraintWidget f961top;
+        ConstraintWidget f953top;
 
         HorizontalSlice() {
         }
@@ -337,7 +337,7 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         float f2 = f;
         for (int i = 0; i < this.mNumRows; i++) {
             HorizontalSlice horizontalSlice = new HorizontalSlice();
-            horizontalSlice.f961top = constraintWidget;
+            horizontalSlice.f953top = constraintWidget;
             if (i < this.mNumRows - 1) {
                 Guideline guideline = new Guideline();
                 guideline.setOrientation(0);
@@ -366,7 +366,7 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
             VerticalSlice verticalSlice = this.mVerticalSlices.get(i3);
             ConstraintWidget constraintWidget2 = verticalSlice.left;
             ConstraintWidget constraintWidget3 = verticalSlice.right;
-            ConstraintWidget constraintWidget4 = horizontalSlice.f961top;
+            ConstraintWidget constraintWidget4 = horizontalSlice.f953top;
             ConstraintWidget constraintWidget5 = horizontalSlice.bottom;
             constraintWidget.getAnchor(ConstraintAnchor.Type.LEFT).connect(constraintWidget2.getAnchor(ConstraintAnchor.Type.LEFT), this.mPadding);
             if (constraintWidget3 instanceof Guideline) {

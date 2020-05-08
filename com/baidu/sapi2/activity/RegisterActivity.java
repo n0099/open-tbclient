@@ -37,6 +37,12 @@ public class RegisterActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
+    public void onBottomBackBtnClick() {
+        this.sapiWebView.back();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
         WebAuthListener webAuthListener = PassportSDK.getInstance().getWebAuthListener();
@@ -90,12 +96,7 @@ public class RegisterActivity extends BaseActivity {
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.RegisterActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
-                SapiWebView sapiWebView = RegisterActivity.this.sapiWebView;
-                if (sapiWebView != null && sapiWebView.canGoBack()) {
-                    RegisterActivity.this.sapiWebView.goBack();
-                } else {
-                    RegisterActivity.this.onClose();
-                }
+                RegisterActivity.this.onClose();
             }
         });
         this.sapiWebView.setAuthorizationListener(new AuthorizationListener() { // from class: com.baidu.sapi2.activity.RegisterActivity.3

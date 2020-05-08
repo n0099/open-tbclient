@@ -5,20 +5,20 @@ import com.baidu.live.tbadk.TbPageContext;
 public class a extends com.baidu.live.tieba.pb.interactionpopupwindow.a<d, AlaChallengeRewardData> implements com.baidu.live.tieba.pb.interactionpopupwindow.c {
     public a(TbPageContext tbPageContext, AlaChallengeRewardData alaChallengeRewardData) {
         super(tbPageContext, new d(tbPageContext), alaChallengeRewardData);
-        if (this.aUH instanceof d) {
-            ((d) this.aUH).a(this);
+        if (this.aUM instanceof d) {
+            ((d) this.aUM).a(this);
         }
         cY(80);
         bQ(true);
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean Fd() {
+    public boolean Fc() {
         return true;
     }
 
     @Override // com.baidu.live.tieba.pb.interactionpopupwindow.c
-    public boolean Fe() {
+    public boolean Fd() {
         return true;
     }
 

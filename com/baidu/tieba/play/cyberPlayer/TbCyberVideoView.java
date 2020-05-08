@@ -35,114 +35,114 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.play.a.a {
-    private static l eFt;
-    private WeakReference<Context> ahH;
-    private String ahL;
-    private final CustomMessageListener evS;
-    private boolean jci;
-    private boolean jcj;
-    private boolean kgJ;
-    private i kgo;
-    private d kgs;
-    private boolean kiA;
-    private String kiB;
-    private boolean kiC;
-    private b kiD;
+    private static l eFy;
+    private WeakReference<Context> ahK;
+    private String ahO;
+    private final CustomMessageListener evX;
+    private boolean jcm;
+    private boolean jcn;
+    private boolean kgN;
+    private i kgs;
+    private d kgw;
     private boolean kiE;
-    private int kiF;
-    private g.f kiG;
-    private g.a kiH;
-    private g.InterfaceC0630g kiI;
-    private g.b kiJ;
-    private g.e kiK;
-    private QuickVideoView.b kiL;
-    private CyberPlayerManager.OnPreparedListener kiM;
-    private CyberPlayerManager.OnCompletionListener kiN;
-    private CyberPlayerManager.OnErrorListener kiO;
-    private CyberPlayerManager.OnSeekCompleteListener kiP;
-    private CyberPlayerManager.OnInfoListener kiQ;
+    private String kiF;
+    private boolean kiG;
+    private b kiH;
+    private boolean kiI;
+    private int kiJ;
+    private g.f kiK;
+    private g.a kiL;
+    private g.InterfaceC0651g kiM;
+    private g.b kiN;
+    private g.e kiO;
+    private QuickVideoView.b kiP;
+    private CyberPlayerManager.OnPreparedListener kiQ;
+    private CyberPlayerManager.OnCompletionListener kiR;
+    private CyberPlayerManager.OnErrorListener kiS;
+    private CyberPlayerManager.OnSeekCompleteListener kiT;
+    private CyberPlayerManager.OnInfoListener kiU;
     private PowerManager.WakeLock mWakeLock;
 
     static {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, l.class);
         if (runTask != null) {
-            eFt = (l) runTask.getData();
+            eFy = (l) runTask.getData();
         }
     }
 
     public TbCyberVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet, 1);
-        this.ahH = null;
-        this.kiE = false;
-        this.kgJ = false;
-        this.kiM = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.1
+        this.ahK = null;
+        this.kiI = false;
+        this.kgN = false;
+        this.kiQ = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.1
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                int IL;
-                if (TbCyberVideoView.this.kiD != null) {
-                    TbCyberVideoView.this.kiD.fl(TbCyberVideoView.this.getDuration());
+                int IO;
+                if (TbCyberVideoView.this.kiH != null) {
+                    TbCyberVideoView.this.kiH.fl(TbCyberVideoView.this.getDuration());
                 }
                 if (TbCyberVideoView.this.getVideoMonitor() != null) {
                     TbCyberVideoView.this.getVideoMonitor().yQ(-400);
                 }
                 if (ViewCompat.isAttachedToWindow(TbCyberVideoView.this.getView())) {
-                    TbVideoViewSet.cKw().a(TbCyberVideoView.this, TbCyberVideoView.this.kiB);
-                    if (TbCyberVideoView.this.kiG != null) {
-                        TbCyberVideoView.this.kiG.onPrepared(null);
+                    TbVideoViewSet.cKt().a(TbCyberVideoView.this, TbCyberVideoView.this.kiF);
+                    if (TbCyberVideoView.this.kiK != null) {
+                        TbCyberVideoView.this.kiK.onPrepared(null);
                     }
-                    if (TbCyberVideoView.this.kiA && (IL = x.cKr().IL(TbCyberVideoView.this.kiB)) > 0) {
-                        TbCyberVideoView.this.seekTo(IL);
+                    if (TbCyberVideoView.this.kiE && (IO = x.cKo().IO(TbCyberVideoView.this.kiF)) > 0) {
+                        TbCyberVideoView.this.seekTo(IO);
                     }
-                    if (TbCyberVideoView.this.kiC) {
+                    if (TbCyberVideoView.this.kiG) {
                         TbCyberVideoView.this.start();
                     }
                 }
             }
         };
-        this.kiN = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.2
+        this.kiR = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.2
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
-                if (TbCyberVideoView.this.kgo != null) {
-                    TbCyberVideoView.this.kgo.GM(TbCyberVideoView.this.getLocateSource());
-                    TbCyberVideoView.this.kgo = null;
+                if (TbCyberVideoView.this.kgs != null) {
+                    TbCyberVideoView.this.kgs.GP(TbCyberVideoView.this.getLocateSource());
+                    TbCyberVideoView.this.kgs = null;
                 }
-                x.cKr().remove(TbCyberVideoView.this.kiB);
+                x.cKo().remove(TbCyberVideoView.this.kiF);
                 if (!TbCyberVideoView.this.getCyberPlayer().isLooping()) {
-                    if (TbCyberVideoView.this.kiD != null) {
-                        TbCyberVideoView.this.kiD.onComplete();
-                    }
-                    TbCyberVideoView.this.kiC = false;
                     if (TbCyberVideoView.this.kiH != null) {
-                        TbCyberVideoView.this.kiH.onCompletion(null);
+                        TbCyberVideoView.this.kiH.onComplete();
+                    }
+                    TbCyberVideoView.this.kiG = false;
+                    if (TbCyberVideoView.this.kiL != null) {
+                        TbCyberVideoView.this.kiL.onCompletion(null);
                     }
                 }
             }
         };
-        this.kiO = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.3
+        this.kiS = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.3
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
-                if (TbCyberVideoView.this.kgs != null && TbCyberVideoView.this.getCurrentPosition() > 0 && TbCyberVideoView.this.cJP()) {
-                    x.cKr().bv(TbCyberVideoView.this.kiB, TbCyberVideoView.this.getCurrentPosition());
+                if (TbCyberVideoView.this.kgw != null && TbCyberVideoView.this.getCurrentPosition() > 0 && TbCyberVideoView.this.cJM()) {
+                    x.cKo().bv(TbCyberVideoView.this.kiF, TbCyberVideoView.this.getCurrentPosition());
                 }
-                TbVideoViewSet.cKw().IN(TbCyberVideoView.this.kiB);
-                if (TbCyberVideoView.this.kiJ == null || TbCyberVideoView.this.kiJ.onError(null, i, i2)) {
+                TbVideoViewSet.cKt().IQ(TbCyberVideoView.this.kiF);
+                if (TbCyberVideoView.this.kiN == null || TbCyberVideoView.this.kiN.onError(null, i, i2)) {
                 }
                 return true;
             }
         };
-        this.kiP = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.4
+        this.kiT = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.4
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
             public void onSeekComplete() {
-                if (TbCyberVideoView.this.kiI != null) {
-                    TbCyberVideoView.this.kiI.b(null);
+                if (TbCyberVideoView.this.kiM != null) {
+                    TbCyberVideoView.this.kiM.b(null);
                 }
             }
         };
-        this.kiQ = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.5
+        this.kiU = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.5
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
             public boolean onInfo(int i, int i2, Object obj) {
-                if (TbCyberVideoView.this.kiK != null) {
-                    TbCyberVideoView.this.kiK.onInfo(null, i, i2);
+                if (TbCyberVideoView.this.kiO != null) {
+                    TbCyberVideoView.this.kiO.onInfo(null, i, i2);
                 }
                 if (TbCyberVideoView.this.getVideoMonitor() != null && i == 10009 && (obj instanceof String)) {
                     try {
@@ -152,21 +152,21 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
                     }
                 }
                 if (i == 904) {
-                    TbCyberVideoView.this.kiD.a(TbCyberVideoView.this);
+                    TbCyberVideoView.this.kiH.a(TbCyberVideoView.this);
                     return true;
                 }
                 return true;
             }
         };
-        this.evS = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.6
+        this.evX = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     TbCyberVideoView.this.stop();
-                    if (TbCyberVideoView.this.kgo != null) {
-                        TbCyberVideoView.this.kgo.GL(TbCyberVideoView.this.getLocateSource());
-                        TbCyberVideoView.this.kgo = null;
+                    if (TbCyberVideoView.this.kgs != null) {
+                        TbCyberVideoView.this.kgs.GO(TbCyberVideoView.this.getLocateSource());
+                        TbCyberVideoView.this.kgs = null;
                     }
                 }
             }
@@ -176,77 +176,77 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
 
     public TbCyberVideoView(Context context) {
         super(context, 1);
-        this.ahH = null;
-        this.kiE = false;
-        this.kgJ = false;
-        this.kiM = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.1
+        this.ahK = null;
+        this.kiI = false;
+        this.kgN = false;
+        this.kiQ = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.1
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                int IL;
-                if (TbCyberVideoView.this.kiD != null) {
-                    TbCyberVideoView.this.kiD.fl(TbCyberVideoView.this.getDuration());
+                int IO;
+                if (TbCyberVideoView.this.kiH != null) {
+                    TbCyberVideoView.this.kiH.fl(TbCyberVideoView.this.getDuration());
                 }
                 if (TbCyberVideoView.this.getVideoMonitor() != null) {
                     TbCyberVideoView.this.getVideoMonitor().yQ(-400);
                 }
                 if (ViewCompat.isAttachedToWindow(TbCyberVideoView.this.getView())) {
-                    TbVideoViewSet.cKw().a(TbCyberVideoView.this, TbCyberVideoView.this.kiB);
-                    if (TbCyberVideoView.this.kiG != null) {
-                        TbCyberVideoView.this.kiG.onPrepared(null);
+                    TbVideoViewSet.cKt().a(TbCyberVideoView.this, TbCyberVideoView.this.kiF);
+                    if (TbCyberVideoView.this.kiK != null) {
+                        TbCyberVideoView.this.kiK.onPrepared(null);
                     }
-                    if (TbCyberVideoView.this.kiA && (IL = x.cKr().IL(TbCyberVideoView.this.kiB)) > 0) {
-                        TbCyberVideoView.this.seekTo(IL);
+                    if (TbCyberVideoView.this.kiE && (IO = x.cKo().IO(TbCyberVideoView.this.kiF)) > 0) {
+                        TbCyberVideoView.this.seekTo(IO);
                     }
-                    if (TbCyberVideoView.this.kiC) {
+                    if (TbCyberVideoView.this.kiG) {
                         TbCyberVideoView.this.start();
                     }
                 }
             }
         };
-        this.kiN = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.2
+        this.kiR = new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.2
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
-                if (TbCyberVideoView.this.kgo != null) {
-                    TbCyberVideoView.this.kgo.GM(TbCyberVideoView.this.getLocateSource());
-                    TbCyberVideoView.this.kgo = null;
+                if (TbCyberVideoView.this.kgs != null) {
+                    TbCyberVideoView.this.kgs.GP(TbCyberVideoView.this.getLocateSource());
+                    TbCyberVideoView.this.kgs = null;
                 }
-                x.cKr().remove(TbCyberVideoView.this.kiB);
+                x.cKo().remove(TbCyberVideoView.this.kiF);
                 if (!TbCyberVideoView.this.getCyberPlayer().isLooping()) {
-                    if (TbCyberVideoView.this.kiD != null) {
-                        TbCyberVideoView.this.kiD.onComplete();
-                    }
-                    TbCyberVideoView.this.kiC = false;
                     if (TbCyberVideoView.this.kiH != null) {
-                        TbCyberVideoView.this.kiH.onCompletion(null);
+                        TbCyberVideoView.this.kiH.onComplete();
+                    }
+                    TbCyberVideoView.this.kiG = false;
+                    if (TbCyberVideoView.this.kiL != null) {
+                        TbCyberVideoView.this.kiL.onCompletion(null);
                     }
                 }
             }
         };
-        this.kiO = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.3
+        this.kiS = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.3
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
-                if (TbCyberVideoView.this.kgs != null && TbCyberVideoView.this.getCurrentPosition() > 0 && TbCyberVideoView.this.cJP()) {
-                    x.cKr().bv(TbCyberVideoView.this.kiB, TbCyberVideoView.this.getCurrentPosition());
+                if (TbCyberVideoView.this.kgw != null && TbCyberVideoView.this.getCurrentPosition() > 0 && TbCyberVideoView.this.cJM()) {
+                    x.cKo().bv(TbCyberVideoView.this.kiF, TbCyberVideoView.this.getCurrentPosition());
                 }
-                TbVideoViewSet.cKw().IN(TbCyberVideoView.this.kiB);
-                if (TbCyberVideoView.this.kiJ == null || TbCyberVideoView.this.kiJ.onError(null, i, i2)) {
+                TbVideoViewSet.cKt().IQ(TbCyberVideoView.this.kiF);
+                if (TbCyberVideoView.this.kiN == null || TbCyberVideoView.this.kiN.onError(null, i, i2)) {
                 }
                 return true;
             }
         };
-        this.kiP = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.4
+        this.kiT = new CyberPlayerManager.OnSeekCompleteListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.4
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
             public void onSeekComplete() {
-                if (TbCyberVideoView.this.kiI != null) {
-                    TbCyberVideoView.this.kiI.b(null);
+                if (TbCyberVideoView.this.kiM != null) {
+                    TbCyberVideoView.this.kiM.b(null);
                 }
             }
         };
-        this.kiQ = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.5
+        this.kiU = new CyberPlayerManager.OnInfoListener() { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.5
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
             public boolean onInfo(int i, int i2, Object obj) {
-                if (TbCyberVideoView.this.kiK != null) {
-                    TbCyberVideoView.this.kiK.onInfo(null, i, i2);
+                if (TbCyberVideoView.this.kiO != null) {
+                    TbCyberVideoView.this.kiO.onInfo(null, i, i2);
                 }
                 if (TbCyberVideoView.this.getVideoMonitor() != null && i == 10009 && (obj instanceof String)) {
                     try {
@@ -256,21 +256,21 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
                     }
                 }
                 if (i == 904) {
-                    TbCyberVideoView.this.kiD.a(TbCyberVideoView.this);
+                    TbCyberVideoView.this.kiH.a(TbCyberVideoView.this);
                     return true;
                 }
                 return true;
             }
         };
-        this.evS = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.6
+        this.evX = new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     TbCyberVideoView.this.stop();
-                    if (TbCyberVideoView.this.kgo != null) {
-                        TbCyberVideoView.this.kgo.GL(TbCyberVideoView.this.getLocateSource());
-                        TbCyberVideoView.this.kgo = null;
+                    if (TbCyberVideoView.this.kgs != null) {
+                        TbCyberVideoView.this.kgs.GO(TbCyberVideoView.this.getLocateSource());
+                        TbCyberVideoView.this.kgs = null;
                     }
                 }
             }
@@ -288,25 +288,25 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
         } catch (Exception e) {
             BdLog.e(e);
         }
-        this.ahH = new WeakReference<>(TbadkCoreApplication.getInst());
-        setOnPreparedListener(this.kiM);
-        setOnCompletionListener(this.kiN);
-        setOnErrorListener(this.kiO);
-        setOnSeekCompleteListener(this.kiP);
-        setOnInfoListener(this.kiQ);
-        this.kiD = new b();
+        this.ahK = new WeakReference<>(TbadkCoreApplication.getInst());
+        setOnPreparedListener(this.kiQ);
+        setOnCompletionListener(this.kiR);
+        setOnErrorListener(this.kiS);
+        setOnSeekCompleteListener(this.kiT);
+        setOnInfoListener(this.kiU);
+        this.kiH = new b();
         am.setBackgroundResource(this, R.color.black_alpha100);
     }
 
     private void w(Uri uri) {
         a pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
-        if (pcdnConfigData != null && pcdnConfigData.cKt() && pcdnConfigData.v(uri) && c.cKB() > 0) {
+        if (pcdnConfigData != null && pcdnConfigData.cKq() && pcdnConfigData.v(uri) && c.cKy() > 0) {
             setOption(CyberPlayerManager.OPT_PCDN_TYPE, "2014");
             setOption(CyberPlayerManager.OPT_ENABLE_PCDN, "1");
-            setOption(CyberPlayerManager.OPT_ENABLE_P2P, pcdnConfigData.cKu() ? "1" : "0");
-            setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(c.cKB()));
-            this.jci = true;
-            this.jcj = pcdnConfigData.cKu();
+            setOption(CyberPlayerManager.OPT_ENABLE_P2P, pcdnConfigData.cKr() ? "1" : "0");
+            setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(c.cKy()));
+            this.jcm = true;
+            this.jcn = pcdnConfigData.cKr();
         }
     }
 
@@ -316,127 +316,127 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
     }
 
     public void setMute(boolean z) {
-        this.kiE = z;
+        this.kiI = z;
         getCyberPlayer().muteOrUnmuteAudio(z);
-        af.a(this.ahH, !z);
+        af.a(this.ahK, !z);
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setVolume(float f, float f2) {
         if (getCyberPlayer() != null) {
-            this.kiE = f == 0.0f && f2 == 0.0f;
+            this.kiI = f == 0.0f && f2 == 0.0f;
             getCyberPlayer().setVolume(f, f2);
         }
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setBusiness(d dVar) {
-        this.kgs = dVar;
-        if ((this.kgs instanceof n) && ((n) this.kgs).cKb() != null) {
-            this.kiD.h((n) this.kgs);
+        this.kgw = dVar;
+        if ((this.kgw instanceof n) && ((n) this.kgw).cJY() != null) {
+            this.kiH.h((n) this.kgw);
         }
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setOnPreparedListener(g.f fVar) {
-        this.kiG = fVar;
+        this.kiK = fVar;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setOnCompletionListener(g.a aVar) {
-        this.kiH = aVar;
+        this.kiL = aVar;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setOnErrorListener(g.b bVar) {
-        this.kiJ = bVar;
+        this.kiN = bVar;
     }
 
     @Override // com.baidu.tieba.play.a.a
-    public void setOnSeekCompleteListener(g.InterfaceC0630g interfaceC0630g) {
-        this.kiI = interfaceC0630g;
+    public void setOnSeekCompleteListener(g.InterfaceC0651g interfaceC0651g) {
+        this.kiM = interfaceC0651g;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setOnOutInfoListener(g.e eVar) {
-        this.kiK = eVar;
+        this.kiO = eVar;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setOnSurfaceDestroyedListener(QuickVideoView.b bVar) {
-        this.kiL = bVar;
+        this.kiP = bVar;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setContinuePlayEnable(boolean z) {
-        this.kiA = z;
+        this.kiE = z;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public String getOriginUrl() {
-        return this.kiB;
+        return this.kiF;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setVideoDuration(int i) {
-        this.kiF = i;
+        this.kiJ = i;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setVideoPath(String str, String str2) {
         if (!aq.isEmpty(str)) {
-            this.ahL = str2;
-            this.kiB = str;
-            String IH = IH(str);
-            if (eFt != null) {
-                this.kgo = eFt.ap(this.ahL, this.kiB, null);
-                if (this.kgo != null) {
-                    this.kgo.qa(CyberPlayerManager.hasCacheFile(IH));
+            this.ahO = str2;
+            this.kiF = str;
+            String IK = IK(str);
+            if (eFy != null) {
+                this.kgs = eFy.ap(this.ahO, this.kiF, null);
+                if (this.kgs != null) {
+                    this.kgs.qa(CyberPlayerManager.hasCacheFile(IK));
                 }
             }
-            if (this.kgs != null && this.kgs.cJD() != null) {
-                this.kgs.cJD().setPlayer(this);
+            if (this.kgw != null && this.kgw.cJA() != null) {
+                this.kgw.cJA().setPlayer(this);
             }
-            this.kiD.cKv();
-            w(Uri.parse(IH));
-            if (this.kgo != null) {
-                this.kgo.crG();
+            this.kiH.cKs();
+            w(Uri.parse(IK));
+            if (this.kgs != null) {
+                this.kgs.crD();
             }
-            String host = Uri.parse(this.kiB).getHost();
-            setOption(CyberPlayerManager.OPT_FEED_VIDEO, ((!StringUtils.isNull(host) && host.contains("tb-video.bdstatic.com")) && (this.kiF < 900)) ? "1" : "0");
-            setVideoPath(IH);
+            String host = Uri.parse(this.kiF).getHost();
+            setOption(CyberPlayerManager.OPT_FEED_VIDEO, ((!StringUtils.isNull(host) && host.contains("tb-video.bdstatic.com")) && (this.kiJ < 900)) ? "1" : "0");
+            setVideoPath(IK);
         }
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void b(TbVideoViewSet.a aVar) {
         if (aVar != null) {
-            this.kgJ = true;
-            if (!cJS()) {
-                aVar.cKx();
+            this.kgN = true;
+            if (!cJP()) {
+                aVar.cKu();
             }
-            if (!cJR()) {
-                aVar.cKy();
-                this.kiC = true;
-                setVideoPath(this.kiB, this.ahL);
+            if (!cJO()) {
+                aVar.cKv();
+                this.kiG = true;
+                setVideoPath(this.kiF, this.ahO);
                 return;
             }
         } else {
-            this.kgJ = false;
+            this.kgN = false;
         }
         start();
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void start() {
-        if (!this.kiE) {
-            af.a(this.ahH, true);
+        if (!this.kiI) {
+            af.a(this.ahK, true);
             setVolume(1.0f, 1.0f);
         }
-        this.kiC = true;
+        this.kiG = true;
         super.start();
-        if (this.kiD != null) {
-            this.kiD.onStart();
+        if (this.kiH != null) {
+            this.kiH.onStart();
         }
         try {
             if (this.mWakeLock != null && !this.mWakeLock.isHeld()) {
@@ -447,37 +447,37 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
         }
         if (getVideoMonitor() != null) {
             getVideoMonitor().yS(-400);
-            getVideoMonitor().Z(this.jci, this.jcj);
+            getVideoMonitor().Z(this.jcm, this.jcn);
         }
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void a(TbVideoViewSet.a aVar) {
-        if (isPlaying() || this.kiC) {
+        if (isPlaying() || this.kiG) {
             b(aVar);
             return;
         }
-        this.kiC = true;
+        this.kiG = true;
         if (aVar != null) {
-            this.kgJ = true;
-            if (!cJS()) {
-                aVar.cKx();
+            this.kgN = true;
+            if (!cJP()) {
+                aVar.cKu();
             }
         } else {
-            this.kgJ = false;
+            this.kgN = false;
         }
-        setVideoPath(this.kiB, this.ahL);
+        setVideoPath(this.kiF, this.ahO);
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void pause() {
-        af.a(this.ahH, false);
-        if (isPlaying() && cJP()) {
-            x.cKr().bv(this.kiB, getCurrentPositionSync());
+        af.a(this.ahK, false);
+        if (isPlaying() && cJM()) {
+            x.cKo().bv(this.kiF, getCurrentPositionSync());
         }
         super.pause();
-        if (this.kiD != null) {
-            this.kiD.onPause();
+        if (this.kiH != null) {
+            this.kiH.onPause();
         }
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
@@ -486,23 +486,23 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
         } catch (Exception e) {
             BdLog.e(e);
         }
-        if (this.kgo != null) {
-            this.kgo.crL();
+        if (this.kgs != null) {
+            this.kgs.crI();
         }
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void stop() {
-        if (!this.kgJ) {
+        if (!this.kgN) {
             stopPlayback();
             return;
         }
-        if (this.kiB != null && isPlaying()) {
-            af.a(this.ahH, false);
+        if (this.kiF != null && isPlaying()) {
+            af.a(this.ahK, false);
         }
-        this.kiC = false;
-        if (isPlaying() && cJP()) {
-            x.cKr().bv(this.kiB, getCurrentPositionSync());
+        this.kiG = false;
+        if (isPlaying() && cJM()) {
+            x.cKo().bv(this.kiF, getCurrentPositionSync());
         }
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
@@ -512,22 +512,22 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
             BdLog.e(e);
         }
         super.pause();
-        if (this.kiD != null) {
-            this.kiD.onStop();
+        if (this.kiH != null) {
+            this.kiH.onStop();
         }
-        if (this.kgo != null && this.kgo.GN(getLocateSource())) {
-            this.kgo = null;
+        if (this.kgs != null && this.kgs.GQ(getLocateSource())) {
+            this.kgs = null;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView, com.baidu.cyberplayer.sdk.ICyberVideoView
     public void stopPlayback() {
-        if (this.kiB != null && isPlaying()) {
-            af.a(this.ahH, false);
+        if (this.kiF != null && isPlaying()) {
+            af.a(this.ahK, false);
         }
-        this.kiC = false;
-        if (isPlaying() && cJP()) {
-            x.cKr().bv(this.kiB, getCurrentPositionSync());
+        this.kiG = false;
+        if (isPlaying() && cJM()) {
+            x.cKo().bv(this.kiF, getCurrentPositionSync());
         }
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
@@ -537,12 +537,12 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
             BdLog.e(e);
         }
         super.stopPlayback();
-        TbVideoViewSet.cKw().IN(this.kiB);
-        if (this.kiD != null) {
-            this.kiD.onStop();
+        TbVideoViewSet.cKt().IQ(this.kiF);
+        if (this.kiH != null) {
+            this.kiH.onStop();
         }
-        if (this.kgo != null && this.kgo.GN(getLocateSource())) {
-            this.kgo = null;
+        if (this.kgs != null && this.kgs.GQ(getLocateSource())) {
+            this.kgs = null;
         }
     }
 
@@ -554,14 +554,14 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.evS);
+        MessageManager.getInstance().registerListener(this.evX);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.kiL != null) {
-            this.kiL.onSurfaceDestroyed();
+        if (this.kiP != null) {
+            this.kiP.onSurfaceDestroyed();
         }
         try {
             if (this.mWakeLock != null && this.mWakeLock.isHeld()) {
@@ -570,11 +570,11 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
         } catch (Exception e) {
             BdLog.e(e);
         }
-        MessageManager.getInstance().unRegisterListener(this.evS);
+        MessageManager.getInstance().unRegisterListener(this.evX);
     }
 
-    private String IH(String str) {
-        if (!aq.isEmpty(str) && com.baidu.tieba.video.g.day().daz()) {
+    private String IK(String str) {
+        if (!aq.isEmpty(str) && com.baidu.tieba.video.g.dav().daw()) {
             if (str.contains("http://tb-video.bdstatic.com")) {
                 return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
             }
@@ -591,19 +591,19 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
     }
 
     @Override // com.baidu.tieba.play.a.a
-    public boolean cJN() {
-        return this.kiC;
+    public boolean cJK() {
+        return this.kiG;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void e(long j, long j2, long j3) {
-        if (this.kgo != null) {
-            this.kgo.e(j, j2, j3);
+        if (this.kgs != null) {
+            this.kgs.e(j, j2, j3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cJP() {
+    public boolean cJM() {
         return getCyberPlayer() != null && getCyberPlayer().getDuration() >= getCyberPlayer().getCurrentPosition();
     }
 
@@ -634,33 +634,33 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
 
     /* JADX INFO: Access modifiers changed from: private */
     public String getLocateSource() {
-        if (!(this.kgs instanceof n) || ((n) this.kgs).cKb() == null) {
+        if (!(this.kgw instanceof n) || ((n) this.kgw).cJY() == null) {
             return "";
         }
-        return ((n) this.kgs).kho ? "v_mid_page" : ((n) this.kgs).cKb().mLocate;
+        return ((n) this.kgw).khs ? "v_mid_page" : ((n) this.kgw).cJY().mLocate;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public i getVideoMonitor() {
-        if (this.kgo != null) {
-            return this.kgo;
+        if (this.kgs != null) {
+            return this.kgs;
         }
-        if (!StringUtils.isNull(this.kiB) && eFt != null) {
-            this.kgo = eFt.ap(this.ahL, this.kiB, null);
+        if (!StringUtils.isNull(this.kiF) && eFy != null) {
+            this.kgs = eFy.ap(this.ahO, this.kiF, null);
         }
-        return this.kgo;
+        return this.kgs;
     }
 
-    private boolean cJR() {
-        return this == TbVideoViewSet.cKw().IM(this.kiB);
+    private boolean cJO() {
+        return this == TbVideoViewSet.cKt().IP(this.kiF);
     }
 
-    private boolean cJS() {
+    private boolean cJP() {
         return getParent() != null;
     }
 
     @Override // com.baidu.tieba.play.a.a
-    public void cJQ() {
+    public void cJN() {
         clearCallbacks();
         if (getParent() instanceof ViewGroup) {
             ((ViewGroup) getParent()).removeView(this);
@@ -668,39 +668,39 @@ public class TbCyberVideoView extends CyberVideoView implements com.baidu.tieba.
     }
 
     private void clearCallbacks() {
+        this.kiP = null;
         this.kiL = null;
-        this.kiH = null;
-        this.kiJ = null;
+        this.kiN = null;
+        this.kiO = null;
         this.kiK = null;
-        this.kiG = null;
-        this.kiI = null;
+        this.kiM = null;
     }
 
     @Override // com.baidu.tieba.play.a.a
     public void setTryUseViewInSet(boolean z) {
-        this.kgJ = z;
+        this.kgN = z;
     }
 
     @Override // com.baidu.tieba.play.a.a
     @Deprecated
-    public void cJL() {
-        if (this.kiD != null) {
-            this.kiD.cKv();
-            this.kiD.fl(getDuration());
-            this.kiD.a(this);
+    public void cJI() {
+        if (this.kiH != null) {
+            this.kiH.cKs();
+            this.kiH.fl(getDuration());
+            this.kiH.a(this);
         }
         if (getVideoMonitor() != null) {
-            getVideoMonitor().qa(CyberPlayerManager.hasCacheFile(this.kiB));
+            getVideoMonitor().qa(CyberPlayerManager.hasCacheFile(this.kiF));
             getVideoMonitor().yR(-400);
         }
     }
 
     @Override // com.baidu.tieba.play.a.a
     @Deprecated
-    public void cJM() {
+    public void cJJ() {
         if (getVideoMonitor() != null) {
-            getVideoMonitor().qa(CyberPlayerManager.hasCacheFile(this.kiB));
-            getVideoMonitor().crG();
+            getVideoMonitor().qa(CyberPlayerManager.hasCacheFile(this.kiF));
+            getVideoMonitor().crD();
             getVideoMonitor().yQ(-400);
         }
     }

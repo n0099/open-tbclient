@@ -6,14 +6,14 @@ import java.io.File;
 /* loaded from: classes3.dex */
 public class f {
     public static void g(Context context, File file) {
-        bnf().g(context, file);
+        bnd().g(context, file);
     }
 
     public static boolean h(Context context, File file) {
-        return bnf().h(context, file);
+        return bnd().h(context, file);
     }
 
-    private static a bnf() {
+    private static a bnd() {
         if (Build.VERSION.SDK_INT >= 26) {
             return new d();
         }

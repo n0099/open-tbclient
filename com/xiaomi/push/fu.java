@@ -1,32 +1,50 @@
 package com.xiaomi.push;
 
-import com.xiaomi.push.service.XMPushService;
+import com.alibaba.fastjson.asm.Opcodes;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 /* loaded from: classes8.dex */
-class fu extends XMPushService.i {
-    final /* synthetic */ long a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ ft f394a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fu(ft ftVar, int i, long j) {
-        super(i);
-        this.f394a = ftVar;
-        this.a = j;
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        return "check the ping-pong." + this.a;
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        Thread.yield();
-        if (!this.f394a.c() || this.f394a.a(this.a)) {
-            return;
+public class fu {
+    public static int a(Throwable th) {
+        Throwable a = (!(th instanceof gd) || ((gd) th).a() == null) ? th : ((gd) th).a();
+        String message = a.getMessage();
+        if (a.getCause() != null) {
+            message = a.getCause().getMessage();
         }
-        this.f394a.b.a(22, (Exception) null);
+        if (a instanceof SocketTimeoutException) {
+            return 105;
+        }
+        if (!(a instanceof SocketException)) {
+            if (a instanceof UnknownHostException) {
+                return 107;
+            }
+            return th instanceof gd ? 399 : 0;
+        } else if (message.indexOf("Network is unreachable") != -1) {
+            return 102;
+        } else {
+            if (message.indexOf("Connection refused") != -1) {
+                return 103;
+            }
+            if (message.indexOf("Connection timed out") != -1) {
+                return 105;
+            }
+            if (message.endsWith("EACCES (Permission denied)")) {
+                return 101;
+            }
+            if (message.indexOf("Connection reset by peer") != -1) {
+                return 109;
+            }
+            if (message.indexOf("Broken pipe") != -1) {
+                return 110;
+            }
+            if (message.indexOf("No route to host") != -1) {
+                return 104;
+            }
+            if (message.endsWith("EINVAL (Invalid argument)")) {
+                return 106;
+            }
+            return Opcodes.IFNONNULL;
+        }
     }
 }

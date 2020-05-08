@@ -14,15 +14,15 @@ import java.util.concurrent.Executors;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a cJr;
-    private HashMap<String, ArrayList<InterfaceC0360a>> cJs = new HashMap<>();
-    final ExecutorService cJt = Executors.newCachedThreadPool();
+    private static volatile a cJx;
+    private HashMap<String, ArrayList<InterfaceC0381a>> cJy = new HashMap<>();
+    final ExecutorService cJz = Executors.newCachedThreadPool();
     private Object mLock = new Object();
-    private String cJu = f.atM() + f.atN();
+    private String cJA = f.atM() + f.atN();
 
     /* renamed from: com.baidu.swan.games.audio.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0360a {
+    public interface InterfaceC0381a {
         void atQ();
 
         void gt(String str);
@@ -32,30 +32,30 @@ public class a {
     }
 
     public static a atR() {
-        if (cJr == null) {
+        if (cJx == null) {
             synchronized (a.class) {
-                if (cJr == null) {
-                    cJr = new a();
+                if (cJx == null) {
+                    cJx = new a();
                 }
             }
         }
-        return cJr;
+        return cJx;
     }
 
-    public void a(final JsArrayBuffer jsArrayBuffer, final InterfaceC0360a interfaceC0360a) {
-        this.cJt.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
+    public void a(final JsArrayBuffer jsArrayBuffer, final InterfaceC0381a interfaceC0381a) {
+        this.cJz.execute(new Runnable() { // from class: com.baidu.swan.games.audio.b.a.1
             @Override // java.lang.Runnable
             public void run() {
                 String E = a.this.E(jsArrayBuffer.buffer());
                 File file = new File(E);
                 if (!file.exists()) {
-                    if (!a.this.a(E, interfaceC0360a)) {
+                    if (!a.this.a(E, interfaceC0381a)) {
                         a.this.g(E, jsArrayBuffer.buffer());
                     }
                 } else if (!file.isDirectory()) {
-                    interfaceC0360a.gt(E);
+                    interfaceC0381a.gt(E);
                 } else {
-                    interfaceC0360a.atQ();
+                    interfaceC0381a.atQ();
                 }
             }
         });
@@ -69,7 +69,7 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
     public void g(String str, byte[] bArr) {
         FileOutputStream fileOutputStream;
-        File file = new File(this.cJu);
+        File file = new File(this.cJA);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -126,32 +126,32 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(String str, InterfaceC0360a interfaceC0360a) {
-        ArrayList<InterfaceC0360a> arrayList;
+    public boolean a(String str, InterfaceC0381a interfaceC0381a) {
+        ArrayList<InterfaceC0381a> arrayList;
         boolean z;
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0360a> arrayList2 = this.cJs.get(str);
+            ArrayList<InterfaceC0381a> arrayList2 = this.cJy.get(str);
             if (arrayList2 != null) {
                 arrayList = arrayList2;
                 z = true;
             } else {
                 arrayList = new ArrayList<>();
-                this.cJs.put(str, arrayList);
+                this.cJy.put(str, arrayList);
                 z = false;
             }
-            arrayList.add(interfaceC0360a);
+            arrayList.add(interfaceC0381a);
         }
         return z;
     }
 
     private void oj(String str) {
         synchronized (this.mLock) {
-            ArrayList<InterfaceC0360a> arrayList = this.cJs.get(str);
+            ArrayList<InterfaceC0381a> arrayList = this.cJy.get(str);
             if (arrayList != null) {
                 boolean isEmpty = TextUtils.isEmpty(str);
-                Iterator<InterfaceC0360a> it = arrayList.iterator();
+                Iterator<InterfaceC0381a> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    InterfaceC0360a next = it.next();
+                    InterfaceC0381a next = it.next();
                     if (!isEmpty) {
                         if (DEBUG) {
                             Log.e("AudioBufferManager", "save success path: " + str);
@@ -161,7 +161,7 @@ public class a {
                         next.atQ();
                     }
                 }
-                this.cJs.remove(str);
+                this.cJy.remove(str);
             }
         }
     }
@@ -169,7 +169,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public String E(byte[] bArr) {
         String D = f.D(bArr);
-        StringBuilder append = new StringBuilder().append(this.cJu).append(bArr.length);
+        StringBuilder append = new StringBuilder().append(this.cJA).append(bArr.length);
         if (TextUtils.isEmpty(D)) {
             D = "";
         }

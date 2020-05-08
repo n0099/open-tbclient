@@ -5,50 +5,50 @@ import com.baidu.browser.sailor.lightapp.BdLightappActionClient;
 import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes11.dex */
 public final class a {
-    private BdLightappActionClient acg;
+    private BdLightappActionClient acj;
 
     public a(WebView webView, BdLightappActionClient bdLightappActionClient) {
-        this.acg = bdLightappActionClient;
+        this.acj = bdLightappActionClient;
         bdLightappActionClient.setCurrentWebiew(webView);
     }
 
     @JavascriptInterface
     public final synchronized void addWz(String str) {
-        this.acg.addWz(str);
+        this.acj.addWz(str);
     }
 
     @JavascriptInterface
     public final synchronized void addseniorWz(String str, String str2) {
-        this.acg.addseniorWz(str, str2);
+        this.acj.addseniorWz(str, str2);
     }
 
     @JavascriptInterface
     public final void consult(String str, String str2) {
-        this.acg.consult(str, str2);
+        this.acj.consult(str, str2);
     }
 
     @JavascriptInterface
     public final synchronized void deleteWz(String str, String str2) {
-        this.acg.deleteWz(str, str2);
+        this.acj.deleteWz(str, str2);
     }
 
     @JavascriptInterface
     public final void follow(String str, String str2) {
-        this.acg.follow(str, str2);
+        this.acj.follow(str, str2);
     }
 
     @JavascriptInterface
     public final synchronized void invokeWz(String str, String str2) {
-        this.acg.invokeWz(str, str2);
+        this.acj.invokeWz(str, str2);
     }
 
     @JavascriptInterface
     public final synchronized int queryWzStatus(String str) {
-        return this.acg.queryWzStatus(str);
+        return this.acj.queryWzStatus(str);
     }
 
     @JavascriptInterface
     public final void queryZhidaStatus(String str, String str2) {
-        this.acg.queryZhidaStatus(str, str2);
+        this.acj.queryZhidaStatus(str, str2);
     }
 }

@@ -6,6 +6,8 @@ import org.json.JSONObject;
 public interface b {
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 
+    String acI();
+
     String acJ();
 
     String acK();
@@ -22,11 +24,9 @@ public interface b {
 
     String acQ();
 
-    String acR();
+    CookieManager acR();
 
-    CookieManager acS();
-
-    String acT();
+    String acS();
 
     String getProcessName();
 

@@ -13,7 +13,6 @@ import com.baidu.android.imsdk.pubaccount.PaInfo;
 import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
 import java.security.NoSuchAlgorithmException;
@@ -107,7 +106,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         try {
             JSONObject jSONObject = new JSONObject(str2);
             int i3 = jSONObject.getInt("error_code");
-            String optString = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+            String optString = jSONObject.optString("error_msg", "");
             if (i3 != 0 || !jSONObject.has("response_params")) {
                 arrayList = null;
             } else {

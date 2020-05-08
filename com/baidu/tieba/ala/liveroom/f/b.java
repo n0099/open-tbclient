@@ -23,12 +23,12 @@ import com.baidu.live.view.web.f;
 import com.baidu.live.view.web.g;
 /* loaded from: classes3.dex */
 public class b extends Dialog {
-    private f bcB;
-    private CommonWebLayout bcf;
-    private View bcg;
-    private Activity caH;
-    private a fEF;
-    private RoundRectRelativeLayout fEG;
+    private f bcG;
+    private CommonWebLayout bck;
+    private View bcl;
+    private Activity caN;
+    private a fEK;
+    private RoundRectRelativeLayout fEL;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -37,36 +37,36 @@ public class b extends Dialog {
 
     public b(@NonNull Activity activity) {
         super(activity, a.j.sdk_Transparent);
-        this.caH = activity;
+        this.caN = activity;
         init();
     }
 
     public void a(a aVar) {
-        this.fEF = aVar;
+        this.fEK = aVar;
     }
 
     public void b(f fVar) {
-        this.bcB = fVar;
+        this.bcG = fVar;
     }
 
-    public CommonWebLayout bmE() {
-        return this.bcf;
+    public CommonWebLayout bmC() {
+        return this.bck;
     }
 
     public void show(String str) {
-        CB();
+        CA();
         show();
-        this.bcf.loadUrl(str);
+        this.bck.loadUrl(str);
         ShowUtil.windowCount++;
     }
 
     private void init() {
-        Di();
+        Dh();
         initView();
-        wD();
+        wC();
     }
 
-    private void Di() {
+    private void Dh() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
         Window window = getWindow();
@@ -74,7 +74,7 @@ public class b extends Dialog {
             window.setBackgroundDrawableResource(17170445);
             window.setGravity(80);
             window.getDecorView().setPadding(0, 0, 0, 0);
-            WindowManager windowManager = (WindowManager) this.caH.getSystemService("window");
+            WindowManager windowManager = (WindowManager) this.caN.getSystemService("window");
             if (windowManager != null) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 if (Build.VERSION.SDK_INT >= 17) {
@@ -91,66 +91,66 @@ public class b extends Dialog {
     }
 
     private void initView() {
-        float dimensionPixelOffset = this.caH.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
-        this.fEG = new RoundRectRelativeLayout(this.caH);
-        this.fEG.setCornerRadius(dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f);
+        float dimensionPixelOffset = this.caN.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
+        this.fEL = new RoundRectRelativeLayout(this.caN);
+        this.fEL.setCornerRadius(dimensionPixelOffset, dimensionPixelOffset, 0.0f, 0.0f);
         initWebView();
-        buW();
-        setContentView(this.fEG);
+        buU();
+        setContentView(this.fEL);
     }
 
     private void initWebView() {
-        this.bcf = new CommonWebLayout(this.caH);
-        this.bcf.setCallback(new c() { // from class: com.baidu.tieba.ala.liveroom.f.b.1
+        this.bck = new CommonWebLayout(this.caN);
+        this.bck.setCallback(new c() { // from class: com.baidu.tieba.ala.liveroom.f.b.1
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public void fe(String str) {
-                if (b.this.bcg != null) {
-                    b.this.bcg.setVisibility(8);
+                if (b.this.bcl != null) {
+                    b.this.bcl.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public void c(String str, int i, String str2) {
-                if (b.this.bcg != null) {
-                    b.this.bcg.setVisibility(8);
+                if (b.this.bcl != null) {
+                    b.this.bcl.setVisibility(8);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
-            public void HK() {
-                if (b.this.bcg != null) {
-                    b.this.bcg.setVisibility(0);
+            public void HJ() {
+                if (b.this.bcl != null) {
+                    b.this.bcl.setVisibility(0);
                 }
             }
 
             @Override // com.baidu.live.view.web.c, com.baidu.live.view.web.b
             public boolean a(String str, JsResult jsResult) {
-                if (b.this.fEF != null) {
-                    return b.this.fEF.a(str, jsResult);
+                if (b.this.fEK != null) {
+                    return b.this.fEK.a(str, jsResult);
                 }
                 return true;
             }
         });
         g gVar = new g();
-        gVar.u(this.caH).a(this.bcB).a(this.bcf.getSchemeCallback());
-        com.baidu.live.view.web.a[] HN = gVar.HN();
-        for (com.baidu.live.view.web.a aVar : HN) {
-            this.bcf.addJavascriptInterface(aVar, aVar.getName());
+        gVar.u(this.caN).a(this.bcG).a(this.bck.getSchemeCallback());
+        com.baidu.live.view.web.a[] HM = gVar.HM();
+        for (com.baidu.live.view.web.a aVar : HM) {
+            this.bck.addJavascriptInterface(aVar, aVar.getName());
         }
-        this.fEG.addView(this.bcf, new ViewGroup.LayoutParams(-1, -1));
+        this.fEL.addView(this.bck, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    private void buW() {
-        this.bcg = LayoutInflater.from(this.caH).inflate(a.h.live_commerce_web_goods_progress, (ViewGroup) null);
-        this.fEG.addView(this.bcg, new ViewGroup.LayoutParams(-1, -1));
+    private void buU() {
+        this.bcl = LayoutInflater.from(this.caN).inflate(a.h.live_commerce_web_goods_progress, (ViewGroup) null);
+        this.fEL.addView(this.bcl, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    private void wD() {
+    private void wC() {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.f.b.2
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (b.this.bcf != null) {
-                    b.this.bcf.release();
+                if (b.this.bck != null) {
+                    b.this.bck.release();
                 }
                 if (ShowUtil.windowCount > 0) {
                     ShowUtil.windowCount--;
@@ -159,12 +159,12 @@ public class b extends Dialog {
         });
     }
 
-    private void CB() {
+    private void CA() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 1.0f, 1, 0.0f);
         translateAnimation.setDuration(300L);
         translateAnimation.setInterpolator(new LinearInterpolator());
-        if (this.fEG != null) {
-            this.fEG.startAnimation(translateAnimation);
+        if (this.fEL != null) {
+            this.fEL.startAnimation(translateAnimation);
         }
     }
 }

@@ -14,21 +14,21 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class f {
-    private HttpMessageTask.HTTP_METHOD Ki;
+    private HttpMessageTask.HTTP_METHOD Kl;
     private String url = "";
-    protected Map<String, String> Kj = new HashMap();
-    protected LinkedList<BasicNameValuePair> Kk = new LinkedList<>();
-    protected HashMap<String, byte[]> Kl = new HashMap<>();
-    private boolean Km = false;
-    private boolean Kn = false;
-    private boolean Ko = false;
+    protected Map<String, String> Km = new HashMap();
+    protected LinkedList<BasicNameValuePair> Kn = new LinkedList<>();
+    protected HashMap<String, byte[]> Ko = new HashMap<>();
+    private boolean Kp = false;
+    private boolean Kq = false;
+    private boolean Kr = false;
 
     public HttpMessageTask.HTTP_METHOD getMethod() {
-        return this.Ki;
+        return this.Kl;
     }
 
     public void setMethod(HttpMessageTask.HTTP_METHOD http_method) {
-        this.Ki = http_method;
+        this.Kl = http_method;
     }
 
     public String getUrl() {
@@ -44,13 +44,13 @@ public class f {
     }
 
     public boolean kF() {
-        return this.Kl != null && this.Kl.size() > 0;
+        return this.Ko != null && this.Ko.size() > 0;
     }
 
     public String c(d dVar) {
-        if (this.Kk.size() == 0) {
+        if (this.Kn.size() == 0) {
             if (dVar != null) {
-                dVar.JM = this.url.length();
+                dVar.JP = this.url.length();
             }
             return this.url;
         }
@@ -64,27 +64,27 @@ public class f {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.Kk.size()) {
+            if (i2 >= this.Kn.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append(ETAG.ITEM_SEPARATOR);
             }
-            sb.append(this.Kk.get(i2).getName());
+            sb.append(this.Kn.get(i2).getName());
             sb.append(ETAG.EQUAL);
-            sb.append(k.getUrlEncode(this.Kk.get(i2).getValue()));
+            sb.append(k.getUrlEncode(this.Kn.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
-            dVar.JM = sb.length();
+            dVar.JP = sb.length();
         }
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void f(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.Kj != null) {
-            for (Map.Entry<String, String> entry : this.Kj.entrySet()) {
+        if (httpURLConnection != null && this.Km != null) {
+            for (Map.Entry<String, String> entry : this.Km.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -97,8 +97,8 @@ public class f {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.Kk != null) {
-                    Iterator<BasicNameValuePair> it = this.Kk.iterator();
+                if (this.Kn != null) {
+                    Iterator<BasicNameValuePair> it = this.Kn.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -115,8 +115,8 @@ public class f {
                         }
                     }
                 }
-                if (this.Kl != null) {
-                    for (Map.Entry<String, byte[]> entry : this.Kl.entrySet()) {
+                if (this.Ko != null) {
+                    for (Map.Entry<String, byte[]> entry : this.Ko.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -136,7 +136,7 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.JM = i;
+            dVar.JP = i;
         }
     }
 
@@ -156,14 +156,14 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.JM = i;
+            dVar.JP = i;
         }
     }
 
     private StringBuilder kG() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.Kk != null) {
-            Iterator<BasicNameValuePair> it = this.Kk.iterator();
+        if (this.Kn != null) {
+            Iterator<BasicNameValuePair> it = this.Kn.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -186,12 +186,12 @@ public class f {
     }
 
     public void v(HashMap<String, String> hashMap) {
-        this.Kj = hashMap;
+        this.Km = hashMap;
     }
 
     public String bA(String str) {
-        if (this.Kj != null) {
-            return this.Kj.get(str);
+        if (this.Km != null) {
+            return this.Km.get(str);
         }
         return null;
     }
@@ -202,9 +202,9 @@ public class f {
                 Object value = entry.getValue();
                 if (value != null) {
                     if (value instanceof String) {
-                        this.Kk.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                        this.Kn.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                     } else if (value instanceof byte[]) {
-                        this.Kl.put(entry.getKey(), (byte[]) entry.getValue());
+                        this.Ko.put(entry.getKey(), (byte[]) entry.getValue());
                     } else {
                         throw new UnsupportedOperationException("post type is not String and byte[]");
                     }
@@ -214,28 +214,28 @@ public class f {
     }
 
     public void addPostData(String str, byte[] bArr) {
-        this.Kl.put(str, bArr);
+        this.Ko.put(str, bArr);
     }
 
     public void addPostData(String str, String str2) {
-        this.Kk.add(new BasicNameValuePair(str, str2));
+        this.Kn.add(new BasicNameValuePair(str, str2));
     }
 
     public void addPostData(BasicNameValuePair basicNameValuePair) {
-        this.Kk.add(basicNameValuePair);
+        this.Kn.add(basicNameValuePair);
     }
 
     public void s(String str, String str2) {
-        if (this.Kj != null) {
-            this.Kj.put(str, str2);
+        if (this.Km != null) {
+            this.Km.put(str, str2);
         }
     }
 
     public void ah(boolean z) {
-        this.Km = z;
+        this.Kp = z;
     }
 
     public boolean kI() {
-        return this.Km;
+        return this.Kp;
     }
 }

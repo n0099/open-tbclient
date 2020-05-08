@@ -20,7 +20,7 @@ public abstract class c implements b {
     }
 
     @Override // com.baidu.live.view.web.b
-    public void HK() {
+    public void HJ() {
     }
 
     @Override // com.baidu.live.view.web.b

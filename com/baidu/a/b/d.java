@@ -9,6 +9,8 @@ public interface d {
 
     String k(String str, boolean z);
 
+    String sl();
+
     String sm();
 
     String sn();
@@ -16,6 +18,4 @@ public interface d {
     String so();
 
     String sp();
-
-    String sq();
 }

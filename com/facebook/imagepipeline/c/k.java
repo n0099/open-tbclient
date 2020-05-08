@@ -5,13 +5,13 @@ import android.support.v7.widget.ActivityChooserView;
 public class k implements com.facebook.common.internal.j<q> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.j
-    /* renamed from: dqu */
+    /* renamed from: dqr */
     public q get() {
-        int dqv = dqv();
-        return new q(dqv, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, dqv, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, dqv / 8);
+        int dqs = dqs();
+        return new q(dqs, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, dqs, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, dqs / 8);
     }
 
-    private int dqv() {
+    private int dqs() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
         if (min < 16777216) {
             return 1048576;

@@ -39,14 +39,14 @@ public class g<TResult> {
     }
 
     private g(TResult tresult) {
-        k(tresult);
+        l(tresult);
     }
 
     private g(boolean z) {
         if (z) {
             gx();
         } else {
-            k(null);
+            l(null);
         }
     }
 
@@ -97,7 +97,7 @@ public class g<TResult> {
         return exc;
     }
 
-    public static <TResult> g<TResult> j(TResult tresult) {
+    public static <TResult> g<TResult> k(TResult tresult) {
         if (tresult == null) {
             return (g<TResult>) zf;
         }
@@ -105,13 +105,13 @@ public class g<TResult> {
             return ((Boolean) tresult).booleanValue() ? (g<TResult>) zg : (g<TResult>) zh;
         }
         h hVar = new h();
-        hVar.l(tresult);
+        hVar.m(tresult);
         return hVar.gy();
     }
 
-    public static <TResult> g<TResult> e(Exception exc) {
+    public static <TResult> g<TResult> f(Exception exc) {
         h hVar = new h();
-        hVar.g(exc);
+        hVar.h(exc);
         return hVar.gy();
     }
 
@@ -132,16 +132,16 @@ public class g<TResult> {
                         return;
                     }
                     try {
-                        hVar.l(callable.call());
+                        hVar.m(callable.call());
                     } catch (CancellationException e) {
                         hVar.gz();
                     } catch (Exception e2) {
-                        hVar.g(e2);
+                        hVar.h(e2);
                     }
                 }
             });
         } catch (Exception e) {
-            hVar.g(new ExecutorException(e));
+            hVar.h(new ExecutorException(e));
         }
         return hVar.gy();
     }
@@ -213,16 +213,16 @@ public class g<TResult> {
                         return;
                     }
                     try {
-                        hVar.l(fVar.a(gVar));
+                        hVar.m(fVar.a(gVar));
                     } catch (CancellationException e) {
                         hVar.gz();
                     } catch (Exception e2) {
-                        hVar.g(e2);
+                        hVar.h(e2);
                     }
                 }
             });
         } catch (Exception e) {
-            hVar.g(new ExecutorException(e));
+            hVar.h(new ExecutorException(e));
         }
     }
 
@@ -241,7 +241,7 @@ public class g<TResult> {
                     try {
                         g gVar2 = (g) fVar.a(gVar);
                         if (gVar2 == null) {
-                            hVar.l(null);
+                            hVar.m(null);
                         } else {
                             gVar2.a(new f<TContinuationResult, Void>() { // from class: bolts.g.4.1
                                 /* JADX DEBUG: Method merged with bridge method */
@@ -255,9 +255,9 @@ public class g<TResult> {
                                     } else if (gVar3.isCancelled()) {
                                         hVar.gz();
                                     } else if (gVar3.gu()) {
-                                        hVar.g(gVar3.gv());
+                                        hVar.h(gVar3.gv());
                                     } else {
-                                        hVar.l(gVar3.getResult());
+                                        hVar.m(gVar3.getResult());
                                     }
                                     return null;
                                 }
@@ -266,12 +266,12 @@ public class g<TResult> {
                     } catch (CancellationException e) {
                         hVar.gz();
                     } catch (Exception e2) {
-                        hVar.g(e2);
+                        hVar.h(e2);
                     }
                 }
             });
         } catch (Exception e) {
-            hVar.g(new ExecutorException(e));
+            hVar.h(new ExecutorException(e));
         }
     }
 
@@ -307,7 +307,7 @@ public class g<TResult> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean k(TResult tresult) {
+    public boolean l(TResult tresult) {
         boolean z = true;
         synchronized (this.lock) {
             if (this.complete) {
@@ -323,7 +323,7 @@ public class g<TResult> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean f(Exception exc) {
+    public boolean g(Exception exc) {
         synchronized (this.lock) {
             if (this.complete) {
                 return false;

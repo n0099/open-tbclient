@@ -19,11 +19,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public final class a {
-    private static HashMap<String, Integer> cxD = new HashMap<>();
-    private static HashMap<String, Integer> cxE = new HashMap<>();
-    private static HashMap<String, String> cxF = new HashMap<>();
-    private static HashMap<String, String> cxG = new HashMap<>();
-    private static final Pattern cxH;
+    private static HashMap<String, Integer> cxJ = new HashMap<>();
+    private static HashMap<String, Integer> cxK = new HashMap<>();
+    private static HashMap<String, String> cxL = new HashMap<>();
+    private static HashMap<String, String> cxM = new HashMap<>();
+    private static final Pattern cxN;
 
     static {
         g("application/andrew-inset", "ez", 5);
@@ -344,15 +344,15 @@ public final class a {
         g("audio/aac", TranscoderPlugin.AUDIO_CODEC, 1);
         g("application/vnd.rn-realmedia", "rm", 0);
         g("message/rfc822", "mht", 11);
-        cxH = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        cxN = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void g(String str, String str2, int i) {
-        cxD.put(str2, Integer.valueOf(i));
-        cxE.put(str, Integer.valueOf(i));
-        cxF.put(str2, str);
-        if (!cxG.containsKey(str)) {
-            cxG.put(str, str2);
+        cxJ.put(str2, Integer.valueOf(i));
+        cxK.put(str, Integer.valueOf(i));
+        cxL.put(str2, str);
+        if (!cxM.containsKey(str)) {
+            cxM.put(str, str2);
         }
     }
 
@@ -361,9 +361,9 @@ public final class a {
     }
 
     public static int v(String str, String str2, boolean z) {
-        Integer num = cxE.get(str2);
+        Integer num = cxK.get(str2);
         if (num == null) {
-            num = cxD.get(str);
+            num = cxJ.get(str);
             if (num == null) {
                 num = 5;
             } else if (z && num.intValue() == 8) {
@@ -387,14 +387,14 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return cxF.get(str);
+        return cxL.get(str);
     }
 
-    public static String yt(String str) {
+    public static String yw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return cxG.get(str);
+        return cxM.get(str);
     }
 
     public static String Z(String str, String str2, String str3) {
@@ -406,7 +406,7 @@ public final class a {
         if (0 != 0 || str2 == null) {
             str4 = null;
         } else {
-            str4 = yu(str2);
+            str4 = yx(str2);
             if (str4 != null && (lastIndexOf2 = str4.lastIndexOf(File.separator) + 1) > 0) {
                 str4 = str4.substring(lastIndexOf2);
             }
@@ -453,10 +453,10 @@ public final class a {
         } else {
             if (str3 != null) {
                 String substring = str4.substring(str4.lastIndexOf(".") + 1);
-                String yt = yt(str3);
+                String yw = yw(str3);
                 String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                 String lowerCase = !TextUtils.isEmpty(substring) ? substring.toLowerCase() : "";
-                String lowerCase2 = !TextUtils.isEmpty(yt) ? yt.toLowerCase() : "";
+                String lowerCase2 = !TextUtils.isEmpty(yw) ? yw.toLowerCase() : "";
                 String lowerCase3 = !TextUtils.isEmpty(extensionFromMimeType) ? extensionFromMimeType.toLowerCase() : "";
                 String nV = nV(lowerCase);
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(lowerCase);
@@ -504,9 +504,9 @@ public final class a {
         return null;
     }
 
-    static String yu(String str) {
+    static String yx(String str) {
         try {
-            Matcher matcher = cxH.matcher(str);
+            Matcher matcher = cxN.matcher(str);
             if (matcher.find()) {
                 return matcher.group(2);
             }

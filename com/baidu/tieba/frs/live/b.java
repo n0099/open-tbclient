@@ -14,15 +14,15 @@ import com.baidu.tieba.card.r;
 import com.baidu.tieba.card.x;
 /* loaded from: classes9.dex */
 public class b implements CustomMessageTask.CustomRunnable<bj>, x {
-    private int hgF = 3;
-    private com.baidu.tieba.frs.d.b hqM;
+    private int hgL = 3;
+    private com.baidu.tieba.frs.d.b hqS;
     private BdUniqueId mPageId;
     private TbPageTag mTbPageTag;
 
     public b(com.baidu.tieba.frs.d.b bVar, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
-        this.hqM = null;
+        this.hqS = null;
         this.mTbPageTag = null;
-        this.hqM = bVar;
+        this.hqS = bVar;
         this.mTbPageTag = tbPageTag;
         this.mPageId = bdUniqueId;
     }
@@ -34,51 +34,51 @@ public class b implements CustomMessageTask.CustomRunnable<bj>, x {
             bj data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 au(data);
-                com.baidu.tieba.frs.d.c.bUu().a(this.hqM, data, 1);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hqM, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.bUs().a(this.hqS, data, 1);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hqS, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
                 au(data);
-                com.baidu.tieba.frs.d.c.bUu().a(this.hqM, data, 2);
-                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.hqM, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.bUs().a(this.hqS, data, 2);
+                com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.hqS, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
                 au(data);
-                com.baidu.tieba.frs.d.c.bUu().a(this.hqM, data, 4);
-                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hqM, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.bUs().a(this.hqS, data, 4);
+                com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.hqS, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
                 av(data);
-                com.baidu.tieba.frs.d.c.bUu().a(this.hqM, data);
-                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.hqM, this.mTbPageTag);
+                com.baidu.tieba.frs.d.c.bUs().a(this.hqS, data);
+                com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.hqS, this.mTbPageTag);
             }
         }
         return null;
     }
 
     private void au(bj bjVar) {
-        if (bjVar != null && bjVar.aKE() != null && bjVar.aKX() != null) {
+        if (bjVar != null && bjVar.aKC() != null && bjVar.aKV() != null) {
             long j = 0;
-            if (bjVar.aKX().user_info != null) {
-                j = bjVar.aKX().user_info.ala_id;
+            if (bjVar.aKV().user_info != null) {
+                j = bjVar.aKV().user_info.ala_id;
             }
-            TiebaStatic.log(new an("c13615").cI("uid", bjVar.aKE().getUserId()).t("fid", bjVar.getFid()).cI(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag).af("obj_type", bjVar.aKX().isChushou ? 2 : 1).cI("tid", bjVar.getTid()).t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bjVar.aKX().live_id).t("star_id", j).cI("extra", bjVar.mRecomExtra));
+            TiebaStatic.log(new an("c13615").cI("uid", bjVar.aKC().getUserId()).t("fid", bjVar.getFid()).cI(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag).af("obj_type", bjVar.aKV().isChushou ? 2 : 1).cI("tid", bjVar.getTid()).t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bjVar.aKV().live_id).t("star_id", j).cI("extra", bjVar.mRecomExtra));
         }
     }
 
     private void av(bj bjVar) {
-        if (bjVar != null && bjVar.aKE() != null && bjVar.aKX() != null) {
+        if (bjVar != null && bjVar.aKC() != null && bjVar.aKV() != null) {
             long j = 0;
-            if (bjVar.aKX().user_info != null) {
-                j = bjVar.aKX().user_info.ala_id;
+            if (bjVar.aKV().user_info != null) {
+                j = bjVar.aKV().user_info.ala_id;
             }
             an anVar = new an("c13614");
-            anVar.cI("uid", bjVar.aKE().getUserId());
+            anVar.cI("uid", bjVar.aKC().getUserId());
             anVar.t("fid", bjVar.getFid());
             anVar.cI(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag);
-            anVar.af("obj_type", bjVar.aKX().isChushou ? 2 : 1);
+            anVar.af("obj_type", bjVar.aKV().isChushou ? 2 : 1);
             anVar.cI("tid", bjVar.getTid());
-            anVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bjVar.aKX().live_id);
+            anVar.t(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bjVar.aKV().live_id);
             anVar.t("star_id", j);
             anVar.cI("extra", bjVar.mRecomExtra);
-            r.bEY().e(anVar);
+            r.bEW().e(anVar);
         }
     }
 
@@ -88,6 +88,6 @@ public class b implements CustomMessageTask.CustomRunnable<bj>, x {
 
     @Override // com.baidu.tieba.card.x
     public void pV(int i) {
-        this.hgF = i;
+        this.hgL = i;
     }
 }

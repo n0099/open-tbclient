@@ -11,13 +11,13 @@ import com.baidu.live.tbadk.core.atomdata.AlaLiveRoomActivityConfig;
 public class e {
     public static void init() {
         TbConfig.setLiveEnterFrom(AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_SDK);
-        com.baidu.c.b.a.aB(TbadkCoreApplication.getInst()).a(new com.baidu.c.b.b.b());
-        com.baidu.c.b.a.aB(TbadkCoreApplication.getInst()).a(new com.baidu.live.widget.a());
+        com.baidu.c.b.a.ap(TbadkCoreApplication.getInst()).a(new com.baidu.c.b.b.b());
+        com.baidu.c.b.a.ap(TbadkCoreApplication.getInst()).a(new com.baidu.live.widget.a());
+        tI();
         tJ();
-        tK();
     }
 
-    public static void tJ() {
+    public static void tI() {
         AccountHelper.setOnSyncAccountCallback(new OnSyncAccountCallback() { // from class: com.baidu.live.e.1
             @Override // com.baidu.live.tbadk.account.OnSyncAccountCallback
             public void onSyncAccount(boolean z) {
@@ -26,7 +26,7 @@ public class e {
         });
     }
 
-    public static void tK() {
+    public static void tJ() {
         com.baidu.live.a.a.d(TbadkCoreApplication.getInst().getApp());
     }
 }

@@ -10,20 +10,20 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.l, a> implements com.baidu.tieba.a.f {
-    private String aey;
-    public BdUniqueId ebv;
-    private z gEg;
-    private com.baidu.tieba.homepage.concern.view.b hJh;
+    private String aeB;
+    public BdUniqueId ebA;
+    private z gEm;
+    private com.baidu.tieba.homepage.concern.view.b hJn;
     private TbPageContext<?> mPageContext;
 
     public u(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.gEg = new z<com.baidu.tieba.card.data.l>() { // from class: com.baidu.tieba.homepage.concern.a.u.1
+        this.gEm = new z<com.baidu.tieba.card.data.l>() { // from class: com.baidu.tieba.homepage.concern.a.u.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                if (view != null && u.this.hJh != null && u.this.hJh.getView() != null && lVar != null && lVar.aIw() != null && !StringUtils.isNull(lVar.aIw().getTid())) {
+                if (view != null && u.this.hJn != null && u.this.hJn.getView() != null && lVar != null && lVar.aIu() != null && !StringUtils.isNull(lVar.aIu().getTid())) {
                     if (view.getId() == R.id.user_avatar || view.getId() == R.id.user_name) {
                         com.baidu.tieba.homepage.concern.b.a(view, lVar, 1);
                     } else if (view.getId() == R.id.frame_video) {
@@ -45,8 +45,8 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* renamed from: bl */
     public a b(ViewGroup viewGroup) {
         final com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext);
-        if (this.ebv != null) {
-            bVar.m(this.ebv);
+        if (this.ebA != null) {
+            bVar.m(this.ebA);
         }
         if (!at(1)) {
             bVar.setPreloadSizeReadyCallback(new com.baidu.adp.widget.a.b() { // from class: com.baidu.tieba.homepage.concern.a.u.2
@@ -59,39 +59,39 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             });
         }
-        this.hJh = bVar;
-        return new a(this.hJh);
+        this.hJn = bVar;
+        return new a(this.hJn);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, a aVar) {
-        if (lVar == null || aVar == null || aVar.hJk == null) {
+        if (lVar == null || aVar == null || aVar.hJq == null) {
             return null;
         }
         lVar.rN(i + 1);
-        com.baidu.tieba.card.r.bEY().e(lVar.BH("c12351"));
-        if (aVar.hJk instanceof com.baidu.tieba.a.e) {
-            aVar.hJk.setPage(this.aey);
+        com.baidu.tieba.card.r.bEW().e(lVar.BK("c12351"));
+        if (aVar.hJq instanceof com.baidu.tieba.a.e) {
+            aVar.hJq.setPage(this.aeB);
         }
-        aVar.hJk.a(lVar);
-        aVar.hJk.c(this.gEg);
+        aVar.hJq.a(lVar);
+        aVar.hJq.c(this.gEm);
         return aVar.getView();
     }
 
     /* loaded from: classes9.dex */
     public static class a extends y.a {
-        public com.baidu.tieba.homepage.concern.view.b hJk;
+        public com.baidu.tieba.homepage.concern.view.b hJq;
 
         public a(com.baidu.tieba.homepage.concern.view.b bVar) {
             super(bVar.getView());
-            this.hJk = bVar;
+            this.hJq = bVar;
         }
     }
 
     @Override // com.baidu.tieba.a.f
-    public void yc(String str) {
-        this.aey = str;
+    public void yf(String str) {
+        this.aeB = str;
     }
 }

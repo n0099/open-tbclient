@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes6.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> njc = new AtomicReference<>();
-    private final g npm;
-    private final g npn;
-    private final g npo;
+    private static final AtomicReference<Schedulers> njf = new AtomicReference<>();
+    private final g npp;
+    private final g npq;
+    private final g npr;
 
-    private static Schedulers dIN() {
+    private static Schedulers dIJ() {
         Schedulers schedulers;
         while (true) {
-            schedulers = njc.get();
+            schedulers = njf.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (njc.compareAndSet(null, schedulers)) {
+                if (njf.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.dIP();
+                schedulers.dIL();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g dIE = f.dIz().dIE();
-        g dII = dIE.dII();
-        if (dII != null) {
-            this.npm = dII;
+        rx.c.g dIA = f.dIv().dIA();
+        g dIE = dIA.dIE();
+        if (dIE != null) {
+            this.npp = dIE;
         } else {
-            this.npm = rx.c.g.dIF();
+            this.npp = rx.c.g.dIB();
         }
-        g dIJ = dIE.dIJ();
-        if (dIJ != null) {
-            this.npn = dIJ;
+        g dIF = dIA.dIF();
+        if (dIF != null) {
+            this.npq = dIF;
         } else {
-            this.npn = rx.c.g.dIG();
+            this.npq = rx.c.g.dIC();
         }
-        g dIK = dIE.dIK();
-        if (dIK != null) {
-            this.npo = dIK;
+        g dIG = dIA.dIG();
+        if (dIG != null) {
+            this.npr = dIG;
         } else {
-            this.npo = rx.c.g.dIH();
+            this.npr = rx.c.g.dID();
         }
     }
 
     public static g immediate() {
-        return e.nnr;
+        return e.nnu;
     }
 
     public static g trampoline() {
-        return j.nnP;
+        return j.nnS;
     }
 
     public static g newThread() {
-        return c.k(dIN().npo);
+        return c.k(dIJ().npr);
     }
 
     public static g computation() {
-        return c.i(dIN().npm);
+        return c.i(dIJ().npp);
     }
 
     public static g io() {
-        return c.j(dIN().npn);
+        return c.j(dIJ().npq);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = njc.getAndSet(null);
+        Schedulers andSet = njf.getAndSet(null);
         if (andSet != null) {
-            andSet.dIP();
+            andSet.dIL();
         }
     }
 
     public static void start() {
-        Schedulers dIN = dIN();
-        dIN.dIO();
-        synchronized (dIN) {
-            d.nnp.start();
+        Schedulers dIJ = dIJ();
+        dIJ.dIK();
+        synchronized (dIJ) {
+            d.nns.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers dIN = dIN();
-        dIN.dIP();
-        synchronized (dIN) {
-            d.nnp.shutdown();
+        Schedulers dIJ = dIJ();
+        dIJ.dIL();
+        synchronized (dIJ) {
+            d.nns.shutdown();
         }
     }
 
-    synchronized void dIO() {
-        if (this.npm instanceof h) {
-            ((h) this.npm).start();
+    synchronized void dIK() {
+        if (this.npp instanceof h) {
+            ((h) this.npp).start();
         }
-        if (this.npn instanceof h) {
-            ((h) this.npn).start();
+        if (this.npq instanceof h) {
+            ((h) this.npq).start();
         }
-        if (this.npo instanceof h) {
-            ((h) this.npo).start();
+        if (this.npr instanceof h) {
+            ((h) this.npr).start();
         }
     }
 
-    synchronized void dIP() {
-        if (this.npm instanceof h) {
-            ((h) this.npm).shutdown();
+    synchronized void dIL() {
+        if (this.npp instanceof h) {
+            ((h) this.npp).shutdown();
         }
-        if (this.npn instanceof h) {
-            ((h) this.npn).shutdown();
+        if (this.npq instanceof h) {
+            ((h) this.npq).shutdown();
         }
-        if (this.npo instanceof h) {
-            ((h) this.npo).shutdown();
+        if (this.npr instanceof h) {
+            ((h) this.npr).shutdown();
         }
     }
 }

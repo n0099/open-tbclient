@@ -6,18 +6,18 @@ import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private TbImageView fun;
-    private View fuo;
+    private TbImageView fus;
+    private View fut;
     private int mPosition;
     private View mRoot;
 
     public a(View view, int i) {
         this.mRoot = view;
-        this.fun = (TbImageView) view.findViewById(a.g.ala_live_active_view_img);
-        this.fuo = view.findViewById(a.g.new_icon);
-        this.fun.setDefaultErrorResource(0);
-        this.fun.setDefaultBgResource(a.d.sdk_transparent);
-        this.fun.setAutoChangeStyle(false);
+        this.fus = (TbImageView) view.findViewById(a.g.ala_live_active_view_img);
+        this.fut = view.findViewById(a.g.new_icon);
+        this.fus.setDefaultErrorResource(0);
+        this.fus.setDefaultBgResource(a.d.sdk_transparent);
+        this.fus.setAutoChangeStyle(false);
         this.mPosition = i;
     }
 
@@ -29,11 +29,11 @@ public class a {
         if (fVar != null) {
             this.mRoot.setTag(a.g.ala_active_view_position, Integer.valueOf(this.mPosition));
             this.mRoot.setTag(a.g.ala_active_view_data, fVar);
-            this.fun.startLoad(fVar.pic_url, 10, false);
-            if (fVar.apH) {
-                this.fuo.setVisibility(0);
+            this.fus.startLoad(fVar.pic_url, 10, false);
+            if (fVar.apN) {
+                this.fut.setVisibility(0);
             } else {
-                this.fuo.setVisibility(4);
+                this.fut.setVisibility(4);
             }
         }
     }

@@ -8,30 +8,30 @@ import okhttp3.Interceptor;
 import okhttp3.Response;
 /* loaded from: classes11.dex */
 public class a implements Interceptor {
-    private InterfaceC0297a cfA;
-    final e cfB = new e() { // from class: com.baidu.swan.apps.network.a.a.1
+    private InterfaceC0318a cfG;
+    final e cfH = new e() { // from class: com.baidu.swan.apps.network.a.a.1
         @Override // com.baidu.swan.apps.network.e
         public void a(long j, long j2, boolean z) {
-            if (a.this.cfA == null) {
+            if (a.this.cfG == null) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
                 }
             } else if (j2 == -1 && j != 0) {
-                a.this.cfA.b(0, j, j2);
+                a.this.cfG.b(0, j, j2);
             } else {
                 long j3 = 10485760;
-                com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
-                if (akN != null && akN.ale()) {
+                com.baidu.swan.apps.runtime.e akM = com.baidu.swan.apps.runtime.e.akM();
+                if (akM != null && akM.ald()) {
                     j3 = Config.RAVEN_LOG_LIMIT;
                 }
                 if (j2 > j3) {
-                    a.this.cfA.aX(j2);
+                    a.this.cfG.aX(j2);
                 } else if (j2 <= 0 || j > j2 || j == 0) {
-                    a.this.cfA.k(j, j2);
+                    a.this.cfG.k(j, j2);
                 } else {
                     int floor = (int) Math.floor((100 * j) / j2);
                     if (floor <= 100) {
-                        a.this.cfA.b(floor, j, j2);
+                        a.this.cfG.b(floor, j, j2);
                     }
                 }
             }
@@ -40,7 +40,7 @@ public class a implements Interceptor {
 
     /* renamed from: com.baidu.swan.apps.network.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0297a {
+    public interface InterfaceC0318a {
         void aX(long j);
 
         void b(int i, long j, long j2);
@@ -48,13 +48,13 @@ public class a implements Interceptor {
         void k(long j, long j2);
     }
 
-    public void a(InterfaceC0297a interfaceC0297a) {
-        this.cfA = interfaceC0297a;
+    public void a(InterfaceC0318a interfaceC0318a) {
+        this.cfG = interfaceC0318a;
     }
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Response proceed = chain.proceed(chain.request());
-        return proceed.newBuilder().body(new h(proceed.body(), this.cfB)).build();
+        return proceed.newBuilder().body(new h(proceed.body(), this.cfH)).build();
     }
 }

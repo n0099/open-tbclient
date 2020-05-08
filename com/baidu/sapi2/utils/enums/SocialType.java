@@ -10,7 +10,8 @@ public enum SocialType {
     HUAWEI(45, "华为"),
     IQIYI(47, "爱奇艺"),
     XIAOMI(49, "小米"),
-    MEIZU(50, "魅族");
+    MEIZU(50, "魅族"),
+    FACEBOOK(55, "facebook");
     
     private int b;
     private String c;
@@ -26,13 +27,16 @@ public enum SocialType {
                 if (i != 42) {
                     if (i != 45) {
                         if (i != 47) {
-                            if (i != 49) {
-                                if (i != 50) {
-                                    return UNKNOWN;
+                            if (i != 55) {
+                                if (i != 49) {
+                                    if (i != 50) {
+                                        return UNKNOWN;
+                                    }
+                                    return MEIZU;
                                 }
-                                return MEIZU;
+                                return XIAOMI;
                             }
-                            return XIAOMI;
+                            return FACEBOOK;
                         }
                         return IQIYI;
                     }

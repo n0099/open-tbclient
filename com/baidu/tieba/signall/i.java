@@ -7,44 +7,44 @@ import org.json.JSONObject;
 public class i {
     private int forumId;
     private String forumName;
-    private a kJc = new a();
-    private int kKo;
-    private int kKp;
-    private int kKq;
-    private int kKr;
+    private a kJg = new a();
+    private int kKs;
+    private int kKt;
+    private int kKu;
+    private int kKv;
     private int signed;
 
     public int getForumId() {
         return this.forumId;
     }
 
-    public int cUb() {
+    public int cTY() {
         return this.signed;
     }
 
-    public int cUc() {
-        return this.kKq;
+    public int cTZ() {
+        return this.kKu;
     }
 
     public int getCurScore() {
-        return this.kKr;
+        return this.kKv;
     }
 
-    public a cTw() {
-        return this.kJc;
+    public a cTt() {
+        return this.kJg;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.kJc.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
+                this.kJg.parserJson(jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR));
                 this.forumId = jSONObject.optInt("forum_id");
                 this.forumName = jSONObject.optString("forum_name");
                 this.signed = jSONObject.optInt("signed");
-                this.kKo = jSONObject.optInt("is_on");
-                this.kKp = jSONObject.optInt("is_filter");
-                this.kKq = jSONObject.optInt("sign_day_count");
-                this.kKr = jSONObject.optInt("cur_score");
+                this.kKs = jSONObject.optInt("is_on");
+                this.kKt = jSONObject.optInt("is_filter");
+                this.kKu = jSONObject.optInt("sign_day_count");
+                this.kKv = jSONObject.optInt("cur_score");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

@@ -66,7 +66,7 @@ public class d {
         }
     }
 
-    public static d Y(@Nullable Object obj) {
+    public static d Z(@Nullable Object obj) {
         return new d(null, obj);
     }
 

@@ -9,11 +9,11 @@ public interface n {
 
     void dqB();
 
-    void dqC();
+    void dqu();
 
-    void dqD();
+    void dqv();
 
-    void dqE();
+    void dqw();
 
     void dqx();
 

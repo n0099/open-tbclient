@@ -8,14 +8,14 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class c {
-    public static final String cTh = null;
-    private List<String> cTi = new ArrayList();
+    public static final String cTm = null;
+    private List<String> cTn = new ArrayList();
 
     public void f(int i, String str, String str2) {
         String il = il(i);
         String O = O(il, str, str2);
-        if (!this.cTi.contains(O)) {
-            String appKey = com.baidu.swan.apps.runtime.e.akN() == null ? null : com.baidu.swan.apps.runtime.e.akN().getAppKey();
+        if (!this.cTn.contains(O)) {
+            String appKey = com.baidu.swan.apps.runtime.e.akM() == null ? null : com.baidu.swan.apps.runtime.e.akM().getAppKey();
             com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
             eVar.mType = "click";
             eVar.mPage = il;
@@ -25,7 +25,7 @@ public class c {
             }
             eVar.s("current_appkey", appKey);
             f.b(eVar);
-            this.cTi.add(O);
+            this.cTn.add(O);
         }
     }
 
@@ -39,12 +39,12 @@ public class c {
             eVar.s("game_list", b);
         }
         f.b(eVar);
-        this.cTi.clear();
+        this.cTn.clear();
     }
 
     public void c(int i, String str, String str2, String str3) {
         String il = il(i);
-        String appKey = com.baidu.swan.apps.runtime.e.akN() == null ? null : com.baidu.swan.apps.runtime.e.akN().getAppKey();
+        String appKey = com.baidu.swan.apps.runtime.e.akM() == null ? null : com.baidu.swan.apps.runtime.e.akM().getAppKey();
         com.baidu.swan.apps.statistic.a.e eVar = new com.baidu.swan.apps.statistic.a.e();
         eVar.mType = "click";
         eVar.mPage = il;
@@ -85,11 +85,11 @@ public class c {
     }
 
     private JSONArray b(com.baidu.swan.games.view.recommend.model.a aVar) {
-        if (aVar == null || aVar.cTE == null) {
+        if (aVar == null || aVar.cTJ == null) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
-        for (RecommendItemModel recommendItemModel : aVar.cTE) {
+        for (RecommendItemModel recommendItemModel : aVar.cTJ) {
             jSONArray.put(recommendItemModel.appKey);
         }
         return jSONArray;

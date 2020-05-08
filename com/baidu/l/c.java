@@ -6,7 +6,7 @@ import android.util.Log;
 import com.baidu.l.a.e;
 /* loaded from: classes6.dex */
 public class c {
-    private static c lPq;
+    private static c lPu;
     private Context mCtx;
     private static String TAG = "UnionIDHelper";
     private static boolean DEBUG = false;
@@ -15,16 +15,16 @@ public class c {
         this.mCtx = context.getApplicationContext();
     }
 
-    public static c fG(Context context) {
-        if (lPq == null) {
+    public static c fu(Context context) {
+        if (lPu == null) {
             synchronized (c.class) {
-                if (lPq == null) {
-                    lPq = new c(context);
-                    com.baidu.l.a.a.fH(context);
+                if (lPu == null) {
+                    lPu = new c(context);
+                    com.baidu.l.a.a.fv(context);
                 }
             }
         }
-        return lPq;
+        return lPu;
     }
 
     public void a(b bVar) {
@@ -32,7 +32,7 @@ public class c {
     }
 
     public void a(d dVar, final b bVar, Looper looper) {
-        e.dlI().a(this.mCtx, looper, new com.baidu.l.a.a.b() { // from class: com.baidu.l.c.1
+        e.dlF().a(this.mCtx, looper, new com.baidu.l.a.a.b() { // from class: com.baidu.l.c.1
             @Override // com.baidu.l.a.a.b
             public void a(com.baidu.l.a.a.c cVar) {
                 if (c.DEBUG) {
@@ -40,20 +40,20 @@ public class c {
                     Log.d(c.TAG, "异步回调 (listener != null):" + (bVar != null));
                 }
                 if (bVar != null) {
-                    bVar.a(0, cVar == null ? null : new a(cVar.dlC(), cVar.isSupport(), cVar.dlN(), cVar.dlO(), cVar.dlP(), cVar.getStatusCode()));
+                    bVar.a(0, cVar == null ? null : new a(cVar.dlz(), cVar.isSupport(), cVar.dlK(), cVar.dlL(), cVar.dlM(), cVar.getStatusCode()));
                 }
             }
         });
     }
 
-    public a dlE() {
-        com.baidu.l.a.a.c fJ = e.dlI().fJ(this.mCtx);
+    public a dlB() {
+        com.baidu.l.a.a.c fx = e.dlF().fx(this.mCtx);
         if (DEBUG) {
-            Log.d(TAG, "同步 结果:" + fJ);
+            Log.d(TAG, "同步 结果:" + fx);
         }
-        if (fJ == null) {
+        if (fx == null) {
             return null;
         }
-        return new a(fJ.dlC(), fJ.isSupport(), fJ.dlN(), fJ.dlO(), fJ.dlP(), fJ.getStatusCode());
+        return new a(fx.dlz(), fx.isSupport(), fx.dlK(), fx.dlL(), fx.dlM(), fx.getStatusCode());
     }
 }

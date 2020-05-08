@@ -12,46 +12,46 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.core.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0273a {
-        void UT();
+    public interface InterfaceC0294a {
+        void US();
 
-        void UU();
+        void UT();
 
         void ev(int i);
     }
 
-    public static void a(String str, final int i, InterfaceC0273a interfaceC0273a, final String str2, String str3) {
+    public static void a(String str, final int i, InterfaceC0294a interfaceC0294a, final String str2, String str3) {
         if (DEBUG) {
             Log.d("SwanPreDownload", "AppId: " + str + ", scene: " + str2);
         }
         if (TextUtils.isEmpty(str)) {
-            if (interfaceC0273a != null) {
-                interfaceC0273a.UT();
+            if (interfaceC0294a != null) {
+                interfaceC0294a.US();
             }
-        } else if (!ib(h.anz().getString("predownload_network_switch", "1"))) {
-            if (interfaceC0273a != null) {
-                interfaceC0273a.ev(6);
+        } else if (!ib(h.any().getString("predownload_network_switch", "1"))) {
+            if (interfaceC0294a != null) {
+                interfaceC0294a.ev(6);
             }
         } else {
             c cVar = new c(str, TextUtils.equals("swangame", str3) ? 1 : 0);
             cVar.rO("1");
             cVar.rP(str2);
-            com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.b.a(str, interfaceC0273a) { // from class: com.baidu.swan.apps.core.a.a.a.1
+            com.baidu.swan.pms.c.a(cVar, new com.baidu.swan.apps.core.pms.b.a(str, interfaceC0294a) { // from class: com.baidu.swan.apps.core.a.a.a.1
                 @Override // com.baidu.swan.apps.core.pms.f, com.baidu.swan.pms.a.g
-                public void UR() {
-                    this.bOy = str2;
+                public void UQ() {
+                    this.bOD = str2;
                 }
 
                 @Override // com.baidu.swan.apps.core.pms.f
-                protected int US() {
+                protected int UR() {
                     return i;
                 }
 
                 @Override // com.baidu.swan.pms.a.g, com.baidu.swan.pms.a.d
                 public void aE(String str4, String str5) {
                     super.aE(str4, str5);
-                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bOx != null) {
-                        this.bOx.add(new UbcFlowEvent(str5));
+                    if (!TextUtils.isEmpty(str5) && TextUtils.equals(str4, "770") && this.bOC != null) {
+                        this.bOC.add(new UbcFlowEvent(str5));
                     }
                 }
             });

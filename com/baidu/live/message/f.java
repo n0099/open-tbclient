@@ -4,23 +4,23 @@ import com.baidu.live.adp.framework.message.HttpMessage;
 import com.baidu.live.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class f extends HttpMessage {
-    private int aQn;
-    private int aQo;
+    private int aQt;
+    private int mCommand;
 
     public f(int i, int i2) {
         super(1021047);
-        this.aQn = i;
-        this.aQo = i2;
+        this.aQt = i;
+        this.mCommand = i2;
         addParam("is_audio", i);
         addParam("command", i2);
         addParam("tbs", TbadkCoreApplication.getInst().getTbs());
     }
 
-    public boolean DQ() {
-        return this.aQn == 1;
+    public boolean DP() {
+        return this.aQt == 1;
     }
 
     public boolean isSwitchOpen() {
-        return this.aQo == 1;
+        return this.mCommand == 1;
     }
 }

@@ -126,7 +126,7 @@ public class e {
         @Deprecated
         public static com.airbnb.lottie.a a(Context context, String str, n nVar) {
             C0011a c0011a = new C0011a(nVar);
-            f.F(context, str).a(c0011a);
+            f.t(context, str).a(c0011a);
             return c0011a;
         }
 

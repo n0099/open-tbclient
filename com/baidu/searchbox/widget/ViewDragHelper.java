@@ -12,7 +12,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import java.util.Arrays;
-/* loaded from: classes11.dex */
+/* loaded from: classes6.dex */
 public class ViewDragHelper {
     private static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
@@ -65,7 +65,7 @@ public class ViewDragHelper {
         }
     };
 
-    /* loaded from: classes11.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Callback {
         public abstract boolean isPageTranslucent();
 

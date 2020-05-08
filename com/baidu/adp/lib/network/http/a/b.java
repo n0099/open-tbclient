@@ -16,11 +16,11 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b Kv = null;
-    private com.baidu.adp.lib.network.http.a.a Ku;
+    private static b Ky = null;
+    private com.baidu.adp.lib.network.http.a.a Kx;
     private HashMap<String, com.baidu.adp.lib.network.http.a.a> mCache = new HashMap<>();
-    private InterfaceC0020b Kw = null;
-    private int Kx = 0;
+    private InterfaceC0020b Kz = null;
+    private int KA = 0;
 
     /* renamed from: com.baidu.adp.lib.network.http.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -32,18 +32,18 @@ public class b {
     }
 
     public static b kL() {
-        if (Kv == null) {
+        if (Ky == null) {
             synchronized (b.class) {
-                if (Kv == null) {
-                    Kv = new b();
+                if (Ky == null) {
+                    Ky = new b();
                 }
             }
         }
-        return Kv;
+        return Ky;
     }
 
     public void a(InterfaceC0020b interfaceC0020b) {
-        this.Kw = interfaceC0020b;
+        this.Kz = interfaceC0020b;
     }
 
     public c bC(String str) {
@@ -110,22 +110,22 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (bE(str) && this.Ku.kK().size() > this.Kx) {
-            if (this.Kw != null) {
-                InterfaceC0020b interfaceC0020b = this.Kw;
-                List<String> kK = this.Ku.kK();
-                int i = this.Kx;
-                this.Kx = i + 1;
+        if (bE(str) && this.Kx.kK().size() > this.KA) {
+            if (this.Kz != null) {
+                InterfaceC0020b interfaceC0020b = this.Kz;
+                List<String> kK = this.Kx.kK();
+                int i = this.KA;
+                this.KA = i + 1;
                 interfaceC0020b.u(kK.get(i), str);
             }
             return true;
-        } else if (this.Ku != null && this.Ku.kK() != null && this.Ku.kK().size() <= this.Kx) {
-            this.Kx = 0;
-            this.Ku = null;
+        } else if (this.Kx != null && this.Kx.kK() != null && this.Kx.kK().size() <= this.KA) {
+            this.KA = 0;
+            this.Kx = null;
             return false;
         } else {
-            this.Kx = 0;
-            this.Ku = null;
+            this.KA = 0;
+            this.Kx = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -134,7 +134,7 @@ public class b {
     }
 
     private boolean bE(String str) {
-        return (this.Ku == null || TextUtils.isEmpty(str) || !str.equals(this.Ku.getHost()) || this.Ku.kK() == null || this.Ku.kK().size() == 0 || this.Ku.F(System.currentTimeMillis()) || this.Ku.kK().size() <= this.Kx) ? false : true;
+        return (this.Kx == null || TextUtils.isEmpty(str) || !str.equals(this.Kx.getHost()) || this.Kx.kK() == null || this.Kx.kK().size() == 0 || this.Kx.F(System.currentTimeMillis()) || this.Kx.kK().size() <= this.KA) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -380,14 +380,14 @@ public class b {
         public void onProgressUpdate(com.baidu.adp.lib.network.http.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
-                b.this.Ku = aVarArr[0];
-                if (aVarArr[0].kK() != null && aVarArr[0].kK().size() > 0 && b.this.Kw != null) {
-                    b.this.Kw.u(aVarArr[0].kK().get(0), aVarArr[0].getHost());
+                b.this.Kx = aVarArr[0];
+                if (aVarArr[0].kK() != null && aVarArr[0].kK().size() > 0 && b.this.Kz != null) {
+                    b.this.Kz.u(aVarArr[0].kK().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.Kw != null) {
-                b.this.Kw.u(null, null);
+            if (b.this.Kz != null) {
+                b.this.Kz.u(null, null);
             }
         }
 

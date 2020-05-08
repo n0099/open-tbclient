@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.an;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e {
-    private static final b dwc = new a();
-    private static final b dwd = new c();
-    private static final boolean dwe;
+    private static final b dwg = new a();
+    private static final b dwh = new c();
+    private static final boolean dwi;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -50,15 +50,15 @@ public class e {
     }
 
     public static void T(String str, String str2, String str3) {
-        if (dwe) {
-            dwc.T(str, str2, str3);
+        if (dwi) {
+            dwg.T(str, str2, str3);
         }
-        dwd.T(str, str2, str3);
+        dwh.T(str, str2, str3);
     }
 
     public static void debug(String str) {
-        if (dwe) {
-            dwc.T(null, null, str);
+        if (dwi) {
+            dwg.T(null, null, str);
         }
     }
 
@@ -67,6 +67,6 @@ public class e {
     }
 
     static {
-        dwe = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+        dwi = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
     }
 }

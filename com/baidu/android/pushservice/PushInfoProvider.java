@@ -4,37 +4,16 @@ import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.UriMatcher;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.os.Build;
-import com.baidu.android.pushservice.g.m;
-import com.baidu.webkit.internal.GlobalConstants;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 /* loaded from: classes8.dex */
 public class PushInfoProvider extends ContentProvider {
     private Context a;
     private UriMatcher b = new UriMatcher(-1);
-
-    private static boolean a(Context context) {
-        if (Build.VERSION.SDK_INT >= 24) {
-            if (context.getPackageName().startsWith(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
-                return true;
-            }
-            try {
-                PackageManager packageManager = context.getPackageManager();
-                PackageInfo packageInfo = packageManager != null ? packageManager.getPackageInfo(context.getPackageName(), 0) : null;
-                if (packageInfo != null) {
-                    if (packageInfo.applicationInfo.targetSdkVersion >= 24) {
-                        return true;
-                    }
-                }
-            } catch (Exception e) {
-            }
-        }
-        return false;
-    }
 
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
@@ -54,7 +33,7 @@ public class PushInfoProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         this.a = getContext();
-        String str = a(this.a) ? "pushinfo_v3" : "pushinfo";
+        String str = m.o(this.a) ? "pushinfo_v3" : "pushinfo";
         if (this.b == null) {
             this.b = new UriMatcher(-1);
         }
@@ -64,6 +43,7 @@ public class PushInfoProvider extends ContentProvider {
             this.b.addURI(this.a.getPackageName() + ".bdpush", "msgInfo", 3);
             this.b.addURI(this.a.getPackageName() + ".bdpush", "appstatus", 4);
         } catch (Throwable th) {
+            new b.c(this.a).a(Log.getStackTraceString(th)).a();
         }
         return true;
     }
@@ -74,7 +54,7 @@ public class PushInfoProvider extends ContentProvider {
         synchronized (com.baidu.android.pushservice.c.c.a()) {
             try {
             } catch (Exception e) {
-                m.a(this.a, e);
+                new b.c(this.a).a(Log.getStackTraceString(e)).a();
             }
             switch (this.b.match(uri)) {
                 case 1:
@@ -113,18 +93,18 @@ public class PushInfoProvider extends ContentProvider {
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:10:0x001c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:58:0x0017 */
-    /* JADX DEBUG: Multi-variable search result rejected for r2v24, resolved type: long */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x0017 */
+    /* JADX DEBUG: Multi-variable search result rejected for r2v26, resolved type: long */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:11:0x001e A[Catch: all -> 0x007e, TryCatch #7 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:33:0x0075, B:35:0x007a, B:36:0x007d, B:28:0x0068, B:30:0x006d), top: B:54:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0075 A[Catch: all -> 0x007e, TryCatch #7 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:33:0x0075, B:35:0x007a, B:36:0x007d, B:28:0x0068, B:30:0x006d), top: B:54:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x007a A[Catch: all -> 0x007e, TryCatch #7 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:33:0x0075, B:35:0x007a, B:36:0x007d, B:28:0x0068, B:30:0x006d), top: B:54:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0019 A[Catch: all -> 0x007e, TRY_ENTER, TryCatch #7 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:33:0x0075, B:35:0x007a, B:36:0x007d, B:28:0x0068, B:30:0x006d), top: B:54:0x0009 }] */
-    /* JADX WARN: Type inference failed for: r2v16 */
-    /* JADX WARN: Type inference failed for: r2v21 */
-    /* JADX WARN: Type inference failed for: r2v22 */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x001e A[Catch: all -> 0x008c, TryCatch #5 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:34:0x0083, B:36:0x0088, B:37:0x008b, B:28:0x0075, B:30:0x007a), top: B:55:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0083 A[Catch: all -> 0x008c, TryCatch #5 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:34:0x0083, B:36:0x0088, B:37:0x008b, B:28:0x0075, B:30:0x007a), top: B:55:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0088 A[Catch: all -> 0x008c, TryCatch #5 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:34:0x0083, B:36:0x0088, B:37:0x008b, B:28:0x0075, B:30:0x007a), top: B:55:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:9:0x0019 A[Catch: all -> 0x008c, TRY_ENTER, TryCatch #5 {, blocks: (B:9:0x0019, B:11:0x001e, B:12:0x0021, B:34:0x0083, B:36:0x0088, B:37:0x008b, B:28:0x0075, B:30:0x007a), top: B:55:0x0009 }] */
+    /* JADX WARN: Type inference failed for: r2v18 */
     /* JADX WARN: Type inference failed for: r2v23 */
+    /* JADX WARN: Type inference failed for: r2v24 */
     /* JADX WARN: Type inference failed for: r2v25 */
+    /* JADX WARN: Type inference failed for: r2v27 */
     @Override // android.content.ContentProvider
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -137,7 +117,6 @@ public class PushInfoProvider extends ContentProvider {
         SQLiteDatabase sQLiteDatabase2;
         long j2 = -1;
         synchronized (com.baidu.android.pushservice.c.c.a()) {
-            SQLiteDatabase sQLiteDatabase3 = null;
             Cursor cursor2 = null;
             try {
                 switch (this.b.match(uri)) {
@@ -158,7 +137,7 @@ public class PushInfoProvider extends ContentProvider {
                                         sQLiteDatabase = j;
                                         e = e;
                                         try {
-                                            m.a(this.a, e);
+                                            new b.c(this.a).a(Log.getStackTraceString(e)).a();
                                             if (cursor != null) {
                                                 cursor.close();
                                             }
@@ -172,22 +151,21 @@ public class PushInfoProvider extends ContentProvider {
                                         } catch (Throwable th) {
                                             th = th;
                                             cursor2 = cursor;
-                                            sQLiteDatabase3 = sQLiteDatabase;
                                             if (cursor2 != null) {
                                                 cursor2.close();
                                             }
-                                            if (sQLiteDatabase3 != null) {
-                                                sQLiteDatabase3.close();
+                                            if (sQLiteDatabase != null) {
+                                                sQLiteDatabase.close();
                                             }
                                             throw th;
                                         }
                                     } catch (Throwable th2) {
                                         cursor2 = query;
-                                        sQLiteDatabase3 = j;
+                                        sQLiteDatabase = j;
                                         th = th2;
                                         if (cursor2 != null) {
                                         }
-                                        if (sQLiteDatabase3 != null) {
+                                        if (sQLiteDatabase != null) {
                                         }
                                         throw th;
                                     }
@@ -200,7 +178,7 @@ public class PushInfoProvider extends ContentProvider {
                                 e = e2;
                                 cursor = null;
                             } catch (Throwable th3) {
-                                sQLiteDatabase3 = a;
+                                sQLiteDatabase = a;
                                 th = th3;
                             }
                         } else {
@@ -230,6 +208,7 @@ public class PushInfoProvider extends ContentProvider {
                 cursor = null;
             } catch (Throwable th4) {
                 th = th4;
+                sQLiteDatabase = null;
             }
         }
         return (int) j;

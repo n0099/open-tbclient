@@ -21,17 +21,17 @@ public class e {
                 tbPageContext = ((BaseFragmentActivity) context).getPageContext();
             }
             if (tbPageContext != null) {
-                if (zVar.kRv != null) {
-                    com.baidu.tieba.aiapps.a.b(zVar.kRv.id, zVar.kRv.link, "1191003700000000", zVar.kRv.dhQ);
+                if (zVar.kRz != null) {
+                    com.baidu.tieba.aiapps.a.b(zVar.kRz.id, zVar.kRz.link, "1191003700000000", zVar.kRz.dhV);
                 } else {
-                    ba.aOY().b(tbPageContext, new String[]{zVar.link});
+                    ba.aOV().b(tbPageContext, new String[]{zVar.link});
                 }
-                if (zVar.gBs) {
+                if (zVar.gBy) {
                     if (view != null) {
                         view.setVisibility(8);
                     }
-                    zVar.gBs = false;
-                    com.baidu.tbadk.core.sharedPref.b.aNV().putString("frs_service_version_" + zVar.forumName + zVar.name, zVar.version);
+                    zVar.gBy = false;
+                    com.baidu.tbadk.core.sharedPref.b.aNT().putString("frs_service_version_" + zVar.forumName + zVar.name, zVar.version);
                 }
             }
         }
@@ -41,7 +41,7 @@ public class e {
         if (zVar != null) {
             an anVar = new an("c13627");
             anVar.cI("fid", zVar.forumId);
-            anVar.af("obj_type", zVar.kRv == null ? 1 : 2);
+            anVar.af("obj_type", zVar.kRz == null ? 1 : 2);
             anVar.af("obj_locate", zVar.index);
             anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(anVar);
@@ -52,7 +52,7 @@ public class e {
         if (zVar != null) {
             an anVar = new an("c13626");
             anVar.cI("fid", zVar.forumId);
-            anVar.af("obj_type", zVar.kRv == null ? 1 : 2);
+            anVar.af("obj_type", zVar.kRz == null ? 1 : 2);
             anVar.af("obj_locate", zVar.index);
             anVar.cI("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(anVar);

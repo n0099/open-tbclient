@@ -4,19 +4,19 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public b aPK;
-    private List<d> aoi = new LinkedList();
-    private List<e> aPL = new LinkedList();
+    public b aPQ;
+    private List<d> aoo = new LinkedList();
+    private List<e> aPR = new LinkedList();
 
     public void a(d dVar) {
-        if (dVar != null && !this.aoi.contains(dVar)) {
-            this.aoi.add(dVar);
+        if (dVar != null && !this.aoo.contains(dVar)) {
+            this.aoo.add(dVar);
         }
     }
 
     public void a(e eVar) {
-        if (eVar != null && !this.aPL.contains(eVar)) {
-            this.aPL.add(eVar);
+        if (eVar != null && !this.aPR.contains(eVar)) {
+            this.aPR.add(eVar);
         }
     }
 }

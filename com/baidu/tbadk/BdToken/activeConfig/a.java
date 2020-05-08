@@ -7,37 +7,37 @@ import tbclient.FloatStrategy;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private DataRes diw;
+    private DataRes diA;
     public boolean isNewUser = false;
-    public String dix = "";
-    private final ArrayList<com.baidu.tbadk.BdToken.b> diy = new ArrayList<>();
-    private final ArrayList<FloatStrategy> diz = new ArrayList<>();
+    public String diB = "";
+    private final ArrayList<com.baidu.tbadk.BdToken.b> diC = new ArrayList<>();
+    private final ArrayList<FloatStrategy> diD = new ArrayList<>();
 
-    public ArrayList<com.baidu.tbadk.BdToken.b> aGA() {
-        return this.diy;
+    public ArrayList<com.baidu.tbadk.BdToken.b> aGy() {
+        return this.diC;
     }
 
-    public ArrayList<FloatStrategy> aGB() {
-        return this.diz;
+    public ArrayList<FloatStrategy> aGz() {
+        return this.diD;
     }
 
     public void a(DataRes dataRes) {
-        this.diw = dataRes;
-        this.diy.clear();
-        this.diz.clear();
+        this.diA = dataRes;
+        this.diC.clear();
+        this.diD.clear();
         if (dataRes != null) {
             this.isNewUser = dataRes.is_new_user.intValue() == 1;
-            this.dix = dataRes.active_url;
-            this.diz.addAll(dataRes.float_list);
-            for (MissionInfo missionInfo : this.diw.mission_list) {
+            this.diB = dataRes.active_url;
+            this.diD.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.diA.mission_list) {
                 if (missionInfo != null) {
                     com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        com.baidu.tbadk.core.f.a.aNS().a(missionInfo);
+                        com.baidu.tbadk.core.f.a.aNQ().a(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
-                        p.aGo().q(bVar);
+                        p.aGm().q(bVar);
                     } else if (bVar.aFq()) {
-                        this.diy.add(bVar);
+                        this.diC.add(bVar);
                     }
                 }
             }

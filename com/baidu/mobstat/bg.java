@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.mobstat.bt;
 import com.baidu.webkit.internal.ETAG;
-import com.coloros.mcssdk.mode.CommandMessage;
+import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;

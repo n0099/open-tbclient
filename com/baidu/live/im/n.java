@@ -11,9 +11,9 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import com.baidu.live.tbadk.extraparams.ExtraParamsManager;
 /* loaded from: classes3.dex */
 public class n implements ILoginListener {
-    private static volatile n aLW;
-    private boolean aLU = false;
-    private a aLV;
+    private static volatile n aMc;
+    private boolean aMa = false;
+    private a aMb;
     private boolean mIsDestroy;
     private boolean mIsLogin;
 
@@ -25,15 +25,15 @@ public class n implements ILoginListener {
     private n() {
     }
 
-    public static n Bv() {
-        if (aLW == null) {
+    public static n Bu() {
+        if (aMc == null) {
             synchronized (n.class) {
-                if (aLW == null) {
-                    aLW = new n();
+                if (aMc == null) {
+                    aMc = new n();
                 }
             }
         }
-        return aLW;
+        return aMc;
     }
 
     public void init(Context context) {
@@ -49,12 +49,12 @@ public class n implements ILoginListener {
             BIMManager.init(context, Constants.APPID_TIEBA, 0, cuid);
         }
         LogUtils.d("imlog", "BIMManager init env:" + i);
-        this.aLU = true;
+        this.aMa = true;
     }
 
     public void a(a aVar) {
         this.mIsLogin = true;
-        this.aLV = aVar;
+        this.aMb = aVar;
         String fromHost = TbConfig.getFromHost();
         String currentFromHost = TbConfig.getCurrentFromHost();
         if (TbadkCoreApplication.isLogin()) {
@@ -69,15 +69,15 @@ public class n implements ILoginListener {
         LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuid + ", from = " + fromHost + ", cfrom = " + currentFromHost);
     }
 
-    public void Bw() {
+    public void Bv() {
         AccountManager.disconnect(TbadkCoreApplication.getInst());
     }
 
     @Override // com.baidu.android.imsdk.account.ILoginListener
     public void onLoginResult(int i, String str) {
-        if (this.aLV != null) {
-            this.aLV.m(i, str);
-            this.aLV = null;
+        if (this.aMb != null) {
+            this.aMb.m(i, str);
+            this.aMb = null;
         }
     }
 
@@ -90,6 +90,6 @@ public class n implements ILoginListener {
 
     public void destroy() {
         this.mIsDestroy = true;
-        Bw();
+        Bv();
     }
 }

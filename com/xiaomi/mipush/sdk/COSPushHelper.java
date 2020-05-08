@@ -7,11 +7,11 @@ import android.os.SystemClock;
 public class COSPushHelper {
 
     /* renamed from: a  reason: collision with other field name */
-    private static volatile boolean f19a = false;
+    private static volatile boolean f23a = false;
     private static long a = 0;
 
     public static void convertMessage(Intent intent) {
-        j.a(intent);
+        h.a(intent);
     }
 
     public static void doInNetworkChange(Context context) {
@@ -25,11 +25,11 @@ public class COSPushHelper {
     }
 
     public static boolean getNeedRegister() {
-        return f19a;
+        return f23a;
     }
 
     public static boolean hasNetwork(Context context) {
-        return j.m108a(context);
+        return h.m110a(context);
     }
 
     public static void onNotificationMessageCome(Context context, String str) {
@@ -39,7 +39,7 @@ public class COSPushHelper {
     }
 
     public static void registerCOSAssemblePush(Context context) {
-        AbstractPushManager a2 = g.a(context).a(f.ASSEMBLE_PUSH_COS);
+        AbstractPushManager a2 = e.a(context).a(d.ASSEMBLE_PUSH_COS);
         if (a2 != null) {
             com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH :  register cos when network change!");
             a2.register();
@@ -48,11 +48,11 @@ public class COSPushHelper {
 
     public static synchronized void setNeedRegister(boolean z) {
         synchronized (COSPushHelper.class) {
-            f19a = z;
+            f23a = z;
         }
     }
 
     public static void uploadToken(Context context, String str) {
-        j.a(context, f.ASSEMBLE_PUSH_COS, str);
+        h.a(context, d.ASSEMBLE_PUSH_COS, str);
     }
 }

@@ -16,12 +16,12 @@ public class WebpTranscoderImpl implements c {
 
     @Override // com.facebook.imagepipeline.nativecode.c
     public boolean d(com.facebook.c.c cVar) {
-        if (cVar == com.facebook.c.b.lYQ) {
+        if (cVar == com.facebook.c.b.lYU) {
             return Build.VERSION.SDK_INT >= 14;
-        } else if (cVar == com.facebook.c.b.lYR || cVar == com.facebook.c.b.lYS || cVar == com.facebook.c.b.lYT) {
-            return com.facebook.common.g.c.lSr;
+        } else if (cVar == com.facebook.c.b.lYV || cVar == com.facebook.c.b.lYW || cVar == com.facebook.c.b.lYX) {
+            return com.facebook.common.g.c.lSv;
         } else {
-            if (cVar != com.facebook.c.b.lYU) {
+            if (cVar != com.facebook.c.b.lYY) {
                 throw new IllegalArgumentException("Image format is not a WebP.");
             }
             return false;
@@ -30,13 +30,13 @@ public class WebpTranscoderImpl implements c {
 
     @Override // com.facebook.imagepipeline.nativecode.c
     public void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
-        b.dme();
+        b.dmb();
         nativeTranscodeWebpToJpeg((InputStream) g.checkNotNull(inputStream), (OutputStream) g.checkNotNull(outputStream), i);
     }
 
     @Override // com.facebook.imagepipeline.nativecode.c
     public void f(InputStream inputStream, OutputStream outputStream) throws IOException {
-        b.dme();
+        b.dmb();
         nativeTranscodeWebpToPng((InputStream) g.checkNotNull(inputStream), (OutputStream) g.checkNotNull(outputStream));
     }
 }

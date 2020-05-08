@@ -20,13 +20,13 @@ import com.baidu.tieba.R;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes13.dex */
 public class FeedAdProgressButton extends View implements a {
-    private int kzl;
-    private int kzm;
-    private int kzn;
-    private int kzo;
     private int kzp;
-    private RectF kzq;
-    private Shader kzr;
+    private int kzq;
+    private int kzr;
+    private int kzs;
+    private int kzt;
+    private RectF kzu;
+    private Shader kzv;
     private int mForegroundColor;
     private Paint mForegroundPaint;
     private int mMax;
@@ -40,15 +40,15 @@ public class FeedAdProgressButton extends View implements a {
 
     public FeedAdProgressButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kzl = R.color.cp_btn_a;
-        this.kzm = R.color.cp_link_tip_a;
-        this.kzn = R.color.cp_link_tip_a;
-        this.kzo = R.drawable.ad_download_progress_button_bg;
+        this.kzp = R.color.cp_btn_a;
+        this.kzq = R.color.cp_link_tip_a;
+        this.kzr = R.color.cp_link_tip_a;
+        this.kzs = R.drawable.ad_download_progress_button_bg;
         this.mProgress = 0;
-        this.mTextColor = am.getColor(this.kzl);
-        this.kzp = am.getColor(this.kzm);
+        this.mTextColor = am.getColor(this.kzp);
+        this.kzt = am.getColor(this.kzq);
         this.mTextSize = 10.0f;
-        this.mForegroundColor = am.getColor(this.kzn);
+        this.mForegroundColor = am.getColor(this.kzr);
         this.mMax = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
@@ -57,15 +57,15 @@ public class FeedAdProgressButton extends View implements a {
 
     public FeedAdProgressButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kzl = R.color.cp_btn_a;
-        this.kzm = R.color.cp_link_tip_a;
-        this.kzn = R.color.cp_link_tip_a;
-        this.kzo = R.drawable.ad_download_progress_button_bg;
+        this.kzp = R.color.cp_btn_a;
+        this.kzq = R.color.cp_link_tip_a;
+        this.kzr = R.color.cp_link_tip_a;
+        this.kzs = R.drawable.ad_download_progress_button_bg;
         this.mProgress = 0;
-        this.mTextColor = am.getColor(this.kzl);
-        this.kzp = am.getColor(this.kzm);
+        this.mTextColor = am.getColor(this.kzp);
+        this.kzt = am.getColor(this.kzq);
         this.mTextSize = 10.0f;
-        this.mForegroundColor = am.getColor(this.kzn);
+        this.mForegroundColor = am.getColor(this.kzr);
         this.mMax = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
@@ -80,14 +80,14 @@ public class FeedAdProgressButton extends View implements a {
         this.strokeWidth = getResources().getDimensionPixelSize(R.dimen.ds1);
         this.mForegroundColor = obtainStyledAttributes.getInteger(0, color2);
         this.mTextColor = obtainStyledAttributes.getColor(1, color);
-        this.kzp = obtainStyledAttributes.getColor(2, color);
+        this.kzt = obtainStyledAttributes.getColor(2, color);
         this.mMax = obtainStyledAttributes.getInteger(3, this.mMax);
         this.mProgress = obtainStyledAttributes.getInteger(4, 0);
         this.mText = obtainStyledAttributes.getString(6);
         this.mTextSize = obtainStyledAttributes.getDimension(5, (int) getResources().getDimension(R.dimen.fontsize24));
         this.mRadius = obtainStyledAttributes.getDimensionPixelSize(7, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        this.kzq = new RectF();
+        this.kzu = new RectF();
         qs();
     }
 
@@ -96,16 +96,16 @@ public class FeedAdProgressButton extends View implements a {
         this.mForegroundPaint.setAntiAlias(true);
         this.mForegroundPaint.setStyle(Paint.Style.FILL);
         this.mForegroundPaint.setColor(this.mForegroundColor);
-        CX();
+        CW();
     }
 
-    private void CX() {
+    private void CW() {
         if (this.mTextPaint == null) {
             this.mTextPaint = new TextPaint();
             this.mTextPaint.setAntiAlias(true);
             this.mTextPaint.setTextSize(this.mTextSize);
         }
-        int i = this.mProgress > 0 ? this.mTextColor : this.kzp;
+        int i = this.mProgress > 0 ? this.mTextColor : this.kzt;
         if (i != this.mTextPaint.getColor()) {
             this.mTextPaint.setColor(i);
         }
@@ -118,24 +118,24 @@ public class FeedAdProgressButton extends View implements a {
             t(canvas);
         }
         if (!TextUtils.isEmpty(this.mText)) {
-            CX();
+            CW();
             Paint.FontMetrics fontMetrics = this.mTextPaint.getFontMetrics();
             canvas.drawText(this.mText, (getMeasuredWidth() - this.mTextPaint.measureText(this.mText)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.mTextPaint);
         }
     }
 
     private void t(Canvas canvas) {
-        if (this.kzq == null) {
-            this.kzq = new RectF();
+        if (this.kzu == null) {
+            this.kzu = new RectF();
         }
-        this.kzq.left = this.strokeWidth;
-        this.kzq.top = this.strokeWidth;
-        this.kzq.right = getMeasuredWidth() - this.strokeWidth;
-        this.kzq.bottom = getMeasuredHeight() - this.strokeWidth;
+        this.kzu.left = this.strokeWidth;
+        this.kzu.top = this.strokeWidth;
+        this.kzu.right = getMeasuredWidth() - this.strokeWidth;
+        this.kzu.bottom = getMeasuredHeight() - this.strokeWidth;
         float f = this.mProgress / (this.mMax + 0.0f);
-        this.kzr = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.mForegroundColor, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
-        this.mForegroundPaint.setShader(this.kzr);
-        canvas.drawRoundRect(this.kzq, this.mRadius, this.mRadius, this.mForegroundPaint);
+        this.kzv = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.mForegroundColor, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
+        this.mForegroundPaint.setShader(this.kzv);
+        canvas.drawRoundRect(this.kzu, this.mRadius, this.mRadius, this.mForegroundPaint);
     }
 
     public void setMax(int i) {
@@ -169,7 +169,7 @@ public class FeedAdProgressButton extends View implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextColor(int i) {
-        this.kzp = i;
+        this.kzt = i;
         this.mTextColor = i;
         postInvalidate();
     }
@@ -196,27 +196,27 @@ public class FeedAdProgressButton extends View implements a {
     }
 
     public void setTextColorInitSkin(@ColorRes int i) {
-        this.kzm = i;
+        this.kzq = i;
     }
 
     public void setBackgroundSkin(@DrawableRes int i) {
-        this.kzo = i;
+        this.kzs = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void onChangeSkinType() {
-        am.setBackgroundResource(this, this.kzo);
-        this.mTextColor = am.getColor(this.kzl);
-        this.kzp = am.getColor(this.kzm);
-        this.mForegroundColor = am.getColor(this.kzn);
+        am.setBackgroundResource(this, this.kzs);
+        this.mTextColor = am.getColor(this.kzp);
+        this.kzt = am.getColor(this.kzq);
+        this.mForegroundColor = am.getColor(this.kzr);
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
-    public void ckO() {
-        am.setBackgroundResource(this, this.kzo);
-        this.mTextColor = am.getColor(this.kzl);
-        this.kzp = am.getColor(this.kzm);
-        this.mForegroundColor = am.getColor(this.kzn);
+    public void ckM() {
+        am.setBackgroundResource(this, this.kzs);
+        this.mTextColor = am.getColor(this.kzp);
+        this.kzt = am.getColor(this.kzq);
+        this.mForegroundColor = am.getColor(this.kzr);
         postInvalidate();
     }
 }

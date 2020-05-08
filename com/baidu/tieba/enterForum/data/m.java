@@ -1,12 +1,12 @@
 package com.baidu.tieba.enterForum.data;
 /* loaded from: classes9.dex */
 public class m extends f {
-    private boolean gAg;
+    private boolean gAm;
     private String title;
 
     public m(String str, boolean z) {
         setType(7);
-        this.gAg = z;
+        this.gAm = z;
         this.title = str;
     }
 

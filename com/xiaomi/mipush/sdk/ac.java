@@ -1,26 +1,41 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Build;
+import android.text.TextUtils;
+import com.heytap.mcssdk.mode.CommandMessage;
+import com.vivo.push.PushClientConstants;
+import com.xiaomi.push.bf;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-final class ac implements Runnable {
-    final /* synthetic */ Context a;
-
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f34a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(Context context, Intent intent) {
-        this.a = context;
-        this.f34a = intent;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
+class ac {
+    public static HashMap<String, String> a(Context context, String str) {
+        HashMap<String, String> hashMap = new HashMap<>();
         try {
-            this.a.startService(this.f34a);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m50a(e.getMessage());
+            hashMap.put("appToken", b.m90a(context).b());
+            hashMap.put("regId", MiPushClient.getRegId(context));
+            hashMap.put("appId", b.m90a(context).m91a());
+            hashMap.put("regResource", b.m90a(context).e());
+            if (!com.xiaomi.push.l.d()) {
+                String g = com.xiaomi.push.i.g(context);
+                if (!TextUtils.isEmpty(g)) {
+                    hashMap.put("imeiMd5", bf.a(g));
+                }
+            }
+            hashMap.put("isMIUI", String.valueOf(com.xiaomi.push.l.m496a()));
+            hashMap.put("miuiVersion", com.xiaomi.push.l.m493a());
+            hashMap.put("devId", com.xiaomi.push.i.a(context, true));
+            hashMap.put("model", Build.MODEL);
+            hashMap.put(PushClientConstants.TAG_PKG_NAME, context.getPackageName());
+            hashMap.put(CommandMessage.SDK_VERSION, "3_7_5");
+            hashMap.put("androidVersion", String.valueOf(Build.VERSION.SDK_INT));
+            hashMap.put("os", Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
+            hashMap.put("andId", com.xiaomi.push.i.e(context));
+            if (!TextUtils.isEmpty(str)) {
+                hashMap.put("clientInterfaceId", str);
+            }
+        } catch (Throwable th) {
         }
+        return hashMap;
     }
 }

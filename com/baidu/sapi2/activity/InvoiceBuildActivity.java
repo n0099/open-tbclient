@@ -18,11 +18,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
-    private static final String A = "select";
-    private static final String B = "isCheck";
-    private static final String C = "isCheckTag";
-    private static final String D = "slidePage";
-    private static final String z = "InvoiceBuildActivity";
+    private static final String A = "InvoiceBuildActivity";
+    private static final String B = "select";
+    private static final String C = "isCheck";
+    private static final String D = "isCheckTag";
     private InvoiceBuildDTO E;
     private InvoiceBuildResult F = new InvoiceBuildResult();
 
@@ -63,7 +62,7 @@ public class InvoiceBuildActivity extends SlideActiviy {
 
     @Override // com.baidu.sapi2.activity.SlideActiviy
     public void finishActivityAfterSlideOver() {
-        if (z.equals(getClass().getSimpleName())) {
+        if (A.equals(getClass().getSimpleName())) {
             this.F.setResultCode(-301);
             finishActivity();
             return;
@@ -153,13 +152,18 @@ public class InvoiceBuildActivity extends SlideActiviy {
             }
         });
         ArrayList arrayList = new ArrayList(1);
-        arrayList.add(new PassNameValuePair(D, "1"));
-        arrayList.add(new PassNameValuePair(A, this.E.TYPE));
-        if (this.E.isExamineVAT) {
-            arrayList.add(new PassNameValuePair(B, "1"));
-        }
-        if (this.E.showCheckTag) {
-            arrayList.add(new PassNameValuePair(C, "1"));
+        arrayList.add(new PassNameValuePair("slidePage", "1"));
+        InvoiceBuildDTO invoiceBuildDTO = this.E;
+        if (invoiceBuildDTO != null) {
+            arrayList.add(new PassNameValuePair(B, invoiceBuildDTO.TYPE));
+            arrayList.add(new PassNameValuePair("tplse", this.E.tplse));
+            arrayList.add(new PassNameValuePair("tplt", this.E.tplt));
+            if (this.E.isExamineVAT) {
+                arrayList.add(new PassNameValuePair(C, "1"));
+            }
+            if (this.E.showCheckTag) {
+                arrayList.add(new PassNameValuePair(D, "1"));
+            }
         }
         loadInvoiceUrl(arrayList);
     }

@@ -9,17 +9,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.ag;
 /* loaded from: classes9.dex */
 public class af extends l<at, ag> {
-    private com.baidu.tieba.pb.data.e jqC;
-    private ag.a jyD;
+    private com.baidu.tieba.pb.data.e jqG;
+    private ag.a jyH;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public af(PbFragment pbFragment, BdUniqueId bdUniqueId) {
         super(pbFragment, bdUniqueId);
-        this.jyD = new ag.a() { // from class: com.baidu.tieba.pb.pb.main.af.1
+        this.jyH = new ag.a() { // from class: com.baidu.tieba.pb.pb.main.af.1
             @Override // com.baidu.tieba.pb.pb.main.ag.a
             public void a(at atVar) {
                 if (atVar != null) {
-                    com.baidu.tieba.pb.c.a.a(af.this.jqC, atVar, atVar.locate, 6);
+                    com.baidu.tieba.pb.c.a.a(af.this.jqG, atVar, atVar.locate, 6);
                 }
             }
         };
@@ -30,7 +30,7 @@ public class af extends l<at, ag> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bM */
     public ag b(ViewGroup viewGroup) {
-        return new ag(this.jpS.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.jyD);
+        return new ag(this.jpW.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_recommend_novel, viewGroup, false), this.jyH);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,13 +40,13 @@ public class af extends l<at, ag> {
         super.a(i, view, viewGroup, (ViewGroup) atVar, (at) agVar);
         if (atVar != null) {
             atVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.jpS.getUniqueId(), this.jqC, atVar, atVar.locate, 6);
+            com.baidu.tieba.pb.c.a.a(this.jpW.getUniqueId(), this.jqG, atVar, atVar.locate, 6);
             agVar.b(atVar);
         }
         return view;
     }
 
     public void setData(com.baidu.tieba.pb.data.e eVar) {
-        this.jqC = eVar;
+        this.jqG = eVar;
     }
 }

@@ -23,48 +23,48 @@ public class c implements com.baidu.tieba.ala.alaar.sticker.download.a.d {
 
     /* loaded from: classes3.dex */
     private static class a implements Runnable {
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.c eKk;
-        private final com.baidu.tieba.ala.alaar.sticker.download.a.a eKm;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.c eKp;
+        private final com.baidu.tieba.ala.alaar.sticker.download.a.a eKr;
 
         public a(com.baidu.tieba.ala.alaar.sticker.download.a.c cVar) {
-            this.eKk = cVar;
-            this.eKm = this.eKk.bkm();
+            this.eKp = cVar;
+            this.eKr = this.eKp.bkk();
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            switch (this.eKk.getStatus()) {
+            switch (this.eKp.getStatus()) {
                 case 102:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTING");
-                    this.eKm.onConnecting();
+                    this.eKr.onConnecting();
                     return;
                 case 103:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.eKk.getLength() + " acceptRanges: " + this.eKk.isAcceptRanges());
-                    this.eKm.onConnected(this.eKk.getLength(), this.eKk.isAcceptRanges());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CONNECTED length: " + this.eKp.getLength() + " acceptRanges: " + this.eKp.isAcceptRanges());
+                    this.eKr.onConnected(this.eKp.getLength(), this.eKp.isAcceptRanges());
                     return;
                 case 104:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.eKk.getFinished() + " length: " + this.eKk.getLength() + " percent: " + this.eKk.getPercent());
-                    this.eKm.onProgress(this.eKk.getFinished(), this.eKk.getLength(), this.eKk.getPercent());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PROGRESS finished: " + this.eKp.getFinished() + " length: " + this.eKp.getLength() + " percent: " + this.eKp.getPercent());
+                    this.eKr.onProgress(this.eKp.getFinished(), this.eKp.getLength(), this.eKp.getPercent());
                     return;
                 case 105:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.eKk.getSavedPath());
-                    if (!this.eKk.getCalledCompleted()) {
-                        this.eKk.setCalledCompleted(true);
-                        this.eKm.onCompleted(this.eKk.getSavedPath());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_COMPLETED Path:" + this.eKp.getSavedPath());
+                    if (!this.eKp.getCalledCompleted()) {
+                        this.eKp.setCalledCompleted(true);
+                        this.eKr.onCompleted(this.eKp.getSavedPath());
                         return;
                     }
                     return;
                 case 106:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_PAUSED");
-                    this.eKm.onDownloadPaused();
+                    this.eKr.onDownloadPaused();
                     return;
                 case 107:
                     com.baidu.tieba.ala.alaar.sticker.b.a.d("DownloadStatusDelivery", "STATUS_CANCELED");
-                    this.eKm.onDownloadCanceled();
+                    this.eKr.onDownloadCanceled();
                     return;
                 case 108:
-                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.eKk.getException().getCause());
-                    this.eKm.a((DownloadException) this.eKk.getException());
+                    com.baidu.tieba.ala.alaar.sticker.b.a.e("DownloadStatusDelivery", "STATUS_FAILED error: " + this.eKp.getException().getCause());
+                    this.eKr.a((DownloadException) this.eKp.getException());
                     return;
                 default:
                     return;

@@ -10,34 +10,34 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes11.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String cxb;
+    private static String cxh;
 
-    public static String aoy() {
+    public static String aox() {
         return nN("swan");
     }
 
-    public static String Zo() {
+    public static String Zn() {
         return nN("swangame");
     }
 
     private static String nN(String str) {
-        String hostName = com.baidu.swan.apps.w.a.acz().getHostName();
+        String hostName = com.baidu.swan.apps.w.a.acy().getHostName();
         a aVar = new a();
         aVar.nO(str).nP(c.getVersion()).nQ(hostName).nR(getVersionName()).nS(getOSVersion());
-        return aVar.aoz();
+        return aVar.aoy();
     }
 
     private static Context getContext() {
-        return com.baidu.swan.apps.w.a.abO();
+        return com.baidu.swan.apps.w.a.abN();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(cxb)) {
-            return cxb;
+        if (!TextUtils.isEmpty(cxh)) {
+            return cxh;
         }
         try {
-            cxb = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return cxb;
+            cxh = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return cxh;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -56,54 +56,54 @@ public class b {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private static String cxg = "%s/%s";
-        private static String cxh = "%s-%s/%s";
-        private static String cxi = "(Baidu; P1 %s)";
-        private static String cxj = "%s/%s";
-        private String ajg;
-        private String cxc;
-        private String cxd;
-        private String cxe;
-        private String cxf;
+        private static String cxm = "%s/%s";
+        private static String cxn = "%s-%s/%s";
+        private static String cxo = "(Baidu; P1 %s)";
+        private static String cxp = "%s/%s";
+        private String ajl;
+        private String cxi;
+        private String cxj;
+        private String cxk;
+        private String cxl;
 
         public a nO(String str) {
-            this.cxc = str;
+            this.cxi = str;
             return this;
         }
 
         public a nP(String str) {
-            this.cxd = str;
+            this.cxj = str;
             return this;
         }
 
         public a nQ(String str) {
-            this.cxe = str;
+            this.cxk = str;
             return this;
         }
 
         public a nR(String str) {
-            this.cxf = str;
+            this.cxl = str;
             return this;
         }
 
         public a nS(String str) {
-            this.ajg = str;
+            this.ajl = str;
             return this;
         }
 
-        public String aoz() {
-            String format = String.format(cxg, this.cxc, this.cxd);
-            String format2 = String.format(cxh, this.cxc, this.cxe, this.cxf);
-            String format3 = String.format(cxj, this.cxe, this.cxf);
-            String format4 = String.format(cxi, this.ajg);
-            if (aoA()) {
+        public String aoy() {
+            String format = String.format(cxm, this.cxi, this.cxj);
+            String format2 = String.format(cxn, this.cxi, this.cxk, this.cxl);
+            String format3 = String.format(cxp, this.cxk, this.cxl);
+            String format4 = String.format(cxo, this.ajl);
+            if (aoz()) {
                 return String.format("%s %s %s %s", format, format2, format3, format4);
             }
             return String.format("%s %s %s", format, format2, format4);
         }
 
-        private boolean aoA() {
-            return TextUtils.equals("baiduboxapp", this.cxe);
+        private boolean aoz() {
+            return TextUtils.equals("baiduboxapp", this.cxk);
         }
     }
 }

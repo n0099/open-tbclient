@@ -30,13 +30,13 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
     @Override // android.app.Service
     public void onCreate() {
         SwanAppProcessInfo.init(getProcessInfo());
-        com.baidu.swan.apps.w.a.acG().Ql();
+        com.baidu.swan.apps.w.a.acF().Qk();
         super.onCreate();
-        this.mMessenger = new Messenger(a.ajd().ajg());
+        this.mMessenger = new Messenger(a.ajc().ajf());
         if (DEBUG) {
             Log.i(TAG, "onCreate " + getProcessInfo());
         }
-        a.ajd().ajf();
+        a.ajc().aje();
     }
 
     @Override // android.app.Service
@@ -90,14 +90,14 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
             if (!TextUtils.isEmpty(stringExtra)) {
                 bk.bk("preload_scene", stringExtra);
             }
-            if (com.baidu.swan.apps.w.a.abR() != null && com.baidu.swan.apps.w.a.abR().OZ()) {
+            if (com.baidu.swan.apps.w.a.abQ() != null && com.baidu.swan.apps.w.a.abQ().OY()) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("time", currentTimeMillis);
                     jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                     jSONObject.put(BdStatsConstant.StatsKey.COST, currentTimeMillis - longExtra2);
-                    jSONObject.put("is_preload_started", d.bRc);
-                    jSONObject.put("is_preload_ready", d.Yo().Yt());
+                    jSONObject.put("is_preload_started", d.bRh);
+                    jSONObject.put("is_preload_ready", d.Yn().Ys());
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -107,21 +107,21 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 ll.bk(jSONObject);
                 f.onEvent(ll);
             }
-            d.b.E(intent);
-            com.baidu.swan.games.utils.so.d.O(intent);
-            com.baidu.swan.apps.y.f.aeK().I(intent);
-            com.baidu.swan.games.i.a.awo().D(intent);
+            d.b.r(intent);
+            com.baidu.swan.games.utils.so.d.B(intent);
+            com.baidu.swan.apps.y.f.aeJ().v(intent);
+            com.baidu.swan.games.i.a.awo().q(intent);
             ai.o(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.apps.y.f.aeK().Pv();
-                    com.baidu.swan.apps.w.a.ach().ada();
+                    com.baidu.swan.apps.y.f.aeJ().Pu();
+                    com.baidu.swan.apps.w.a.acg().acZ();
                 }
             });
             m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.SwanAppLocalService.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    g.bAS.Ri();
+                    g.bAX.Rh();
                 }
             }, "updateMaBduss");
         }

@@ -1,53 +1,27 @@
 package com.xiaomi.push.service;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
-import android.provider.Settings;
-import com.baidu.android.util.devices.RomUtils;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.ap;
 /* loaded from: classes8.dex */
-public class as {
-    private static as a;
+class as extends XMPushService.i {
+    final /* synthetic */ ap.b.c a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private int f871a = 0;
-
-    /* renamed from: a  reason: collision with other field name */
-    private Context f872a;
-
-    private as(Context context) {
-        this.f872a = context.getApplicationContext();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public as(ap.b.c cVar, int i) {
+        super(i);
+        this.a = cVar;
     }
 
-    public static as a(Context context) {
-        if (a == null) {
-            a = new as(context);
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "check peer job";
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        if (ap.a().a(this.a.f865a.g, this.a.f865a.f861b).f852a == null) {
+            ap.b.this.f854a.a(this.a.f865a.g, this.a.f865a.f861b, 2, null, null);
         }
-        return a;
-    }
-
-    @SuppressLint({"NewApi"})
-    public int a() {
-        if (this.f871a != 0) {
-            return this.f871a;
-        }
-        if (Build.VERSION.SDK_INT >= 17) {
-            this.f871a = Settings.Global.getInt(this.f872a.getContentResolver(), "device_provisioned", 0);
-            return this.f871a;
-        }
-        this.f871a = Settings.Secure.getInt(this.f872a.getContentResolver(), "device_provisioned", 0);
-        return this.f871a;
-    }
-
-    @SuppressLint({"NewApi"})
-    /* renamed from: a  reason: collision with other method in class */
-    public Uri m522a() {
-        return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned");
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m523a() {
-        return com.xiaomi.push.ab.f113a.contains("xmsf") || com.xiaomi.push.ab.f113a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f113a.contains("miui");
     }
 }

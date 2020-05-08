@@ -5,6 +5,12 @@ public interface b {
 
     void Ij(int i);
 
+    void dxh();
+
+    void dxi();
+
+    void dxj();
+
     void dxk();
 
     void dxl();
@@ -16,10 +22,4 @@ public interface b {
     void dxo();
 
     void dxp();
-
-    void dxq();
-
-    void dxr();
-
-    void dxs();
 }

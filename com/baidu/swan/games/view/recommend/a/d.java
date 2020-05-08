@@ -5,9 +5,9 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.swan.apps.a;
 /* loaded from: classes11.dex */
 public class d {
-    private float cTj;
-    private float cTk;
-    private a cTl;
+    private float cTo;
+    private float cTp;
+    private a cTq;
     @V8JavascriptField
     public volatile float height;
     @V8JavascriptField
@@ -15,7 +15,7 @@ public class d {
     @V8JavascriptField
 
     /* renamed from: top  reason: collision with root package name */
-    public volatile float f1017top;
+    public volatile float f1009top;
     @V8JavascriptField
     public volatile float width;
 
@@ -25,13 +25,13 @@ public class d {
     }
 
     public d() {
-        Resources resources = com.baidu.swan.apps.w.a.abO() != null ? com.baidu.swan.apps.w.a.abO().getResources() : null;
+        Resources resources = com.baidu.swan.apps.w.a.abN() != null ? com.baidu.swan.apps.w.a.abN().getResources() : null;
         this.left = b(resources, a.d.swangame_recommend_button_default_left);
-        this.f1017top = b(resources, a.d.swangame_recommend_button_default_top);
+        this.f1009top = b(resources, a.d.swangame_recommend_button_default_top);
         this.width = b(resources, a.d.swangame_recommend_button_default_width);
         this.height = b(resources, a.d.swangame_recommend_button_default_height);
-        this.cTj = this.width;
-        this.cTk = this.height;
+        this.cTo = this.width;
+        this.cTp = this.height;
     }
 
     private float b(Resources resources, int i) {
@@ -42,18 +42,18 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.cTl = aVar;
+        this.cTq = aVar;
     }
 
     public void onFieldChangedCallback(String str) {
-        this.width = this.cTj;
-        this.height = this.cTk;
-        if (this.cTl != null) {
-            this.cTl.pg(str);
+        this.width = this.cTo;
+        this.height = this.cTp;
+        if (this.cTq != null) {
+            this.cTq.pg(str);
         }
     }
 
     public String toString() {
-        return "{left=" + this.left + ", top=" + this.f1017top + ", width=" + this.width + ", height=" + this.height + "}";
+        return "{left=" + this.left + ", top=" + this.f1009top + ", width=" + this.width + ", height=" + this.height + "}";
     }
 }

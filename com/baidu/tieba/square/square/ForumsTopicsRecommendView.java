@@ -14,15 +14,15 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes10.dex */
 public class ForumsTopicsRecommendView extends ViewGroup implements com.baidu.tbadk.imageManager.b {
-    private final int dIM;
-    private View eAS;
-    private ArrayList<bg> eIA;
-    private final int kNR;
-    private final int kNS;
-    private final int kNT;
-    private ArrayList<TbImageView> kNU;
-    private float kNV;
-    private int kNW;
+    private final int dIQ;
+    private View eAX;
+    private ArrayList<bg> eIF;
+    private final int kNV;
+    private final int kNW;
+    private final int kNX;
+    private ArrayList<TbImageView> kNY;
+    private float kNZ;
+    private int kOa;
     private Context mContext;
     private int mImageHeight;
     private int mImageWidth;
@@ -34,39 +34,39 @@ public class ForumsTopicsRecommendView extends ViewGroup implements com.baidu.tb
     public ForumsTopicsRecommendView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = null;
-        this.kNU = new ArrayList<>(4);
+        this.kNY = new ArrayList<>(4);
         this.mImageWidth = 0;
         this.mImageHeight = 0;
-        this.kNV = 0.62222224f;
-        this.kNW = 0;
-        this.eIA = null;
-        this.eAS = null;
+        this.kNZ = 0.62222224f;
+        this.kOa = 0;
+        this.eIF = null;
+        this.eAX = null;
         this.mContext = context;
-        this.kNS = l.getEquipmentWidth(context);
-        this.kNR = context.getResources().getDimensionPixelSize(R.dimen.ds20);
-        this.dIM = context.getResources().getDimensionPixelSize(R.dimen.ds14);
-        this.kNT = context.getResources().getDimensionPixelSize(R.dimen.ds22);
+        this.kNW = l.getEquipmentWidth(context);
+        this.kNV = context.getResources().getDimensionPixelSize(R.dimen.ds20);
+        this.dIQ = context.getResources().getDimensionPixelSize(R.dimen.ds14);
+        this.kNX = context.getResources().getDimensionPixelSize(R.dimen.ds22);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.forums_topics_recommend, (ViewGroup) this, true);
-        this.kNU.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic1));
-        this.kNU.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic2));
-        this.kNU.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic3));
-        this.kNU.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic4));
-        this.mImageWidth = ((this.kNS - (this.kNR * 2)) - this.dIM) / 2;
-        this.mImageHeight = (int) (this.mImageWidth * this.kNV);
-        setPadding(this.kNR, 0, this.kNR, 0);
+        this.kNY.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic1));
+        this.kNY.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic2));
+        this.kNY.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic3));
+        this.kNY.add((TbImageView) viewGroup.findViewById(R.id.forum_topic_pic4));
+        this.mImageWidth = ((this.kNW - (this.kNV * 2)) - this.dIQ) / 2;
+        this.mImageHeight = (int) (this.mImageWidth * this.kNZ);
+        setPadding(this.kNV, 0, this.kNV, 0);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         int i3 = i & 1073741823;
         int childCount = getChildCount();
-        int i4 = i3 - (this.kNR * 2);
-        int i5 = (int) (0.5f + (((i4 - this.dIM) / 2.0f) * this.kNV));
+        int i4 = i3 - (this.kNV * 2);
+        int i5 = (int) (0.5f + (((i4 - this.dIQ) / 2.0f) * this.kNZ));
         for (int i6 = 0; i6 < childCount; i6++) {
-            getChildAt(i6).measure(((i4 - this.dIM) / 2) + 1073741824, i5 + 1073741824);
+            getChildAt(i6).measure(((i4 - this.dIQ) / 2) + 1073741824, i5 + 1073741824);
         }
-        int i7 = this.kNW / 2;
-        setMeasuredDimension(i3, ((i7 - 1) * this.dIM) + (i7 * i5) + this.kNT);
+        int i7 = this.kOa / 2;
+        setMeasuredDimension(i3, ((i7 - 1) * this.dIQ) + (i7 * i5) + this.kNX);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -89,9 +89,9 @@ public class ForumsTopicsRecommendView extends ViewGroup implements com.baidu.tb
                     i8 = getPaddingLeft();
                 }
                 childAt.layout(i8, paddingTop, childAt.getMeasuredWidth() + i8, childAt.getMeasuredHeight() + paddingTop);
-                int measuredWidth = childAt.getMeasuredWidth() + this.dIM + i8;
+                int measuredWidth = childAt.getMeasuredWidth() + this.dIQ + i8;
                 if (i7 % 2 != 0) {
-                    i5 = childAt.getMeasuredHeight() + this.dIM + paddingTop;
+                    i5 = childAt.getMeasuredHeight() + this.dIQ + paddingTop;
                     i6 = measuredWidth;
                 } else {
                     i5 = paddingTop;
@@ -107,12 +107,12 @@ public class ForumsTopicsRecommendView extends ViewGroup implements com.baidu.tb
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
-        Kv(str);
+        Ky(str);
     }
 
-    private void Kv(String str) {
+    private void Ky(String str) {
         HeadImageView headImageView;
-        if (this.eAS != null && (headImageView = (HeadImageView) this.eAS.findViewWithTag(str)) != null) {
+        if (this.eAX != null && (headImageView = (HeadImageView) this.eAX.findViewWithTag(str)) != null) {
             headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             headImageView.invalidate();
         }

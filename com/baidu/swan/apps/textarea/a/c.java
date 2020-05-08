@@ -35,7 +35,7 @@ public class c extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
         }
-        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.SA();
+        com.baidu.swan.apps.component.components.textarea.b bVar = (com.baidu.swan.apps.component.components.textarea.b) aVar.Sz();
         bVar.aj(optParamsAsJo);
         com.baidu.swan.apps.component.b.c a = aVar.a((com.baidu.swan.apps.component.components.textarea.a) bVar);
         if (!a.isSuccess()) {

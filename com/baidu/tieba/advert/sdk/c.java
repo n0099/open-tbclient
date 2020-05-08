@@ -23,7 +23,7 @@ import com.baidu.tieba.R;
 import tbclient.AppPosInfo;
 /* loaded from: classes10.dex */
 public class c {
-    private CustomMessageTask eCO = new CustomMessageTask(2156676, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.advert.sdk.c.1
+    private CustomMessageTask eCT = new CustomMessageTask(2156676, new CustomMessageTask.CustomRunnable<d>() { // from class: com.baidu.tieba.advert.sdk.c.1
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<d> customMessage) {
             if (customMessage != null) {
@@ -34,26 +34,26 @@ public class c {
     });
 
     public c() {
-        bhq();
+        bho();
     }
 
-    public void xC() {
-        this.eCO.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.eCO);
+    public void xB() {
+        this.eCT.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.eCT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final d dVar) {
-        if (dVar != null && dVar.aHs() != null && dVar.aHs().getContext() != null) {
-            final com.baidu.tbadk.g.c aHt = dVar.aHt();
+        if (dVar != null && dVar.aHq() != null && dVar.aHq().getContext() != null) {
+            final com.baidu.tbadk.g.c aHr = dVar.aHr();
             com.baidu.prologue.business.d dVar2 = new com.baidu.prologue.business.d() { // from class: com.baidu.tieba.advert.sdk.c.2
                 @Override // com.baidu.prologue.business.d
-                public void LI() {
+                public void LH() {
                     if (BdLog.isDebugMode()) {
                         BdLog.e("");
                     }
-                    if (aHt != null) {
-                        aHt.sW("load fail");
+                    if (aHr != null) {
+                        aHr.sZ("load fail");
                     }
                 }
 
@@ -62,8 +62,8 @@ public class c {
                     if (BdLog.isDebugMode()) {
                         BdLog.e("");
                     }
-                    if (aHt != null) {
-                        aHt.aHp();
+                    if (aHr != null) {
+                        aHr.aHn();
                     }
                 }
 
@@ -72,15 +72,15 @@ public class c {
                     if (BdLog.isDebugMode()) {
                         BdLog.e("");
                     }
-                    if (aHt != null) {
-                        aHt.aHr();
+                    if (aHr != null) {
+                        aHr.aHp();
                     }
                 }
 
                 @Override // com.baidu.prologue.business.d
                 @NonNull
-                public ViewGroup LJ() {
-                    return dVar.aHs();
+                public ViewGroup LI() {
+                    return dVar.aHq();
                 }
 
                 @Override // com.baidu.prologue.business.d
@@ -88,13 +88,13 @@ public class c {
                     if (BdLog.isDebugMode()) {
                         BdLog.e("");
                     }
-                    if (aHt != null) {
-                        aHt.onAdClick();
+                    if (aHr != null) {
+                        aHr.onAdClick();
                     }
                 }
 
                 @Override // com.baidu.prologue.business.d
-                public void LK() {
+                public void LJ() {
                     if (BdLog.isDebugMode()) {
                         BdLog.e("");
                     }
@@ -102,12 +102,12 @@ public class c {
                 }
 
                 @Override // com.baidu.prologue.business.d
-                public void LL() {
+                public void LK() {
                     if (BdLog.isDebugMode()) {
                         BdLog.e("");
                     }
-                    if (aHt != null) {
-                        aHt.sW("play error");
+                    if (aHr != null) {
+                        aHr.sZ("play error");
                     }
                 }
             };
@@ -115,16 +115,16 @@ public class c {
                 if (BdLog.isDebugMode()) {
                     BdLog.e("new bes splash load");
                 }
-                com.baidu.prologue.a.Lf().a(dVar.aHs().getContext(), dVar2);
+                com.baidu.prologue.a.Le().a(dVar.aHq().getContext(), dVar2);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                aHt.sW("oom");
+                aHr.sZ("oom");
             }
         }
     }
 
-    private void bhq() {
-        com.baidu.prologue.a.b.a.brQ.set(new a(TbadkCoreApplication.getInst()));
+    private void bho() {
+        com.baidu.prologue.a.b.a.brU.set(new a(TbadkCoreApplication.getInst()));
     }
 
     /* loaded from: classes10.dex */
@@ -137,71 +137,71 @@ public class c {
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public Context Lh() {
+        public Context Lg() {
             return this.mContext;
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Li() {
+        public String Lh() {
             return TbConfig.getVersion();
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Lj() {
+        public String Li() {
             return Build.VERSION.RELEASE;
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Lk() {
+        public String Lj() {
             return TbadkCoreApplication.getInst().getCuidGalaxy2();
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
         public String userAgent() {
-            String baM = ag.baM();
-            if (TextUtils.isEmpty(baM)) {
-                baM = "bdtb for Android " + TbConfig.getVersion();
+            String baK = ag.baK();
+            if (TextUtils.isEmpty(baK)) {
+                baK = "bdtb for Android " + TbConfig.getVersion();
             }
             if (BdLog.isDebugMode()) {
-                BdLog.e("userAgent=" + baM);
+                BdLog.e("userAgent=" + baK);
             }
-            return baM;
+            return baK;
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Ll() {
+        public String Lk() {
             return Build.MODEL;
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Lm() {
+        public String Ll() {
             return TbadkCoreApplication.getInst().getImei();
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Ln() {
+        public String Lm() {
             return TbadkCoreApplication.getInst().getPackageName();
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
         public String androidId() {
-            return com.baidu.prologue.a.c.c.aK(this.mContext);
+            return com.baidu.prologue.a.c.c.ay(this.mContext);
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Lo() {
+        public String Ln() {
             String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
             if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-                cookie = com.baidu.tbadk.browser.a.djS;
+                cookie = com.baidu.tbadk.browser.a.djW;
             }
             if (cookie != null) {
                 String[] split = cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
@@ -216,14 +216,14 @@ public class c {
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Lp() {
-            int[] LH = com.baidu.prologue.business.b.LG().LH();
-            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{String.valueOf(LH[0]), String.valueOf(LH[1]), "android", Li(), String.valueOf(LH[2])});
+        public String Lo() {
+            int[] LG = com.baidu.prologue.business.b.LF().LG();
+            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{String.valueOf(LG[0]), String.valueOf(LG[1]), "android", Lh(), String.valueOf(LG[2])});
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Lq() {
+        public String Lp() {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null) {
                 return "";
@@ -232,13 +232,13 @@ public class c {
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public boolean Lr() {
+        public boolean Lq() {
             return false;
         }
 
         @Override // com.baidu.prologue.a.b.a
         @NonNull
-        public String Ls() {
+        public String Lr() {
             return "2";
         }
 
@@ -249,35 +249,35 @@ public class c {
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public boolean Lt() {
+        public boolean Ls() {
             return this.mContext.getResources().getConfiguration().orientation == 2;
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public String Lu() {
+        public String Lt() {
             if (TbadkCoreApplication.getInst() == null || TbadkCoreApplication.getInst().getAdAdSense() == null) {
                 return null;
             }
-            return TbadkCoreApplication.getInst().getAdAdSense().dMt;
+            return TbadkCoreApplication.getInst().getAdAdSense().dMx;
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public String Lv() {
-            AppPosInfo cOe = com.baidu.tieba.recapp.d.a.cOb().cOe();
-            if (cOe != null) {
-                return cOe.coordinate_type;
+        public String Lu() {
+            AppPosInfo cOb = com.baidu.tieba.recapp.d.a.cNY().cOb();
+            if (cOb != null) {
+                return cOb.coordinate_type;
             }
             return null;
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public String[] Lw() {
-            AppPosInfo cOe;
-            if (com.baidu.tieba.recapp.d.a.cOb() != null && (cOe = com.baidu.tieba.recapp.d.a.cOb().cOe()) != null) {
+        public String[] Lv() {
+            AppPosInfo cOb;
+            if (com.baidu.tieba.recapp.d.a.cNY() != null && (cOb = com.baidu.tieba.recapp.d.a.cNY().cOb()) != null) {
                 if (BdLog.isDebugMode()) {
-                    BdLog.e("" + cOe.longitude + "|" + cOe.latitude);
+                    BdLog.e("" + cOb.longitude + "|" + cOb.latitude);
                 }
-                return new String[]{cOe.longitude, cOe.latitude};
+                return new String[]{cOb.longitude, cOb.latitude};
             }
             if (BdLog.isDebugMode()) {
                 BdLog.e("0, 0");
@@ -286,27 +286,27 @@ public class c {
         }
 
         @Override // com.baidu.prologue.a.b.a
+        public String Lw() {
+            return "1099a";
+        }
+
+        @Override // com.baidu.prologue.a.b.a
         public String Lx() {
             return "1099a";
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public String Ly() {
-            return "1099a";
-        }
-
-        @Override // com.baidu.prologue.a.b.a
-        public int Lz() {
+        public int Ly() {
             return R.drawable.bg_bes_splash_logo_white;
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public int LA() {
+        public int Lz() {
             return R.drawable.bg_bes_splash_logo_blue;
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public int LB() {
+        public int LA() {
             return R.drawable.pic_splash_logo;
         }
 
@@ -320,17 +320,17 @@ public class c {
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public String LC() {
-            return w.baz();
+        public String LB() {
+            return w.bax();
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public int LD() {
+        public int LC() {
             return 5000;
         }
 
         @Override // com.baidu.prologue.a.b.a
-        public String LE() {
+        public String LD() {
             return "http://afd.baidu.com/afd/entry";
         }
     }

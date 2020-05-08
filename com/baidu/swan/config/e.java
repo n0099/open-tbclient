@@ -1,9 +1,9 @@
 package com.baidu.swan.config;
 /* loaded from: classes7.dex */
 public class e {
-    public static boolean DEBUG = arj().isDebug();
+    public static boolean DEBUG = ari().isDebug();
 
-    public static a arj() {
-        return com.baidu.swan.apps.w.a.d.acY();
+    public static a ari() {
+        return com.baidu.swan.apps.w.a.d.acX();
     }
 }

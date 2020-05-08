@@ -1,6 +1,7 @@
 package com.vivo.push;
 
 import android.content.Context;
+import com.heytap.mcssdk.mode.Message;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.util.VivoPushException;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class PushManager {
     }
 
     public void setNotifyStyle(int i) {
-        p.a().b(i);
+        p.a().c(i);
     }
 
     public void checkManifest() throws VivoPushException {
@@ -48,12 +49,18 @@ public class PushManager {
     }
 
     void killPush() {
-        p.a().r();
+        p.a().q();
     }
 
     public void reset() {
         if (com.vivo.push.util.p.a()) {
-            p.a().m();
+            p.a().a(-1);
+        }
+    }
+
+    public void reset(int i) {
+        if (com.vivo.push.util.p.a()) {
+            p.a().a(i);
         }
     }
 
@@ -191,15 +198,15 @@ public class PushManager {
     }
 
     public void enableNet() {
-        p.a().n();
+        p.a().m();
     }
 
     public boolean isEnableNet() {
-        return p.a().q();
+        return p.a().p();
     }
 
     public void disableNet() {
-        p.a().o();
+        p.a().n();
     }
 
     public String getClientId() {
@@ -215,7 +222,7 @@ public class PushManager {
     }
 
     public void setMode(int i) {
-        p.a().a(i);
+        p.a().b(i);
     }
 
     public void setSystemModel(boolean z) {
@@ -223,15 +230,15 @@ public class PushManager {
     }
 
     public String getVersion() {
-        return "2.4.0";
+        return "2.5.3";
     }
 
     public void showDebugInfo() {
-        p.a().p();
+        p.a().o();
     }
 
     public Map<String, String> getDebugInfo() {
-        return p.a().t();
+        return p.a().s();
     }
 
     public boolean reportData(Context context, long j, long j2) {
@@ -239,11 +246,11 @@ public class PushManager {
         if (j2 <= 0) {
             return false;
         }
-        com.vivo.push.b.y yVar = new com.vivo.push.b.y(j2);
+        com.vivo.push.b.aa aaVar = new com.vivo.push.b.aa(j2);
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("messageID", String.valueOf(j));
-        yVar.a(hashMap);
-        p.a().a(yVar);
+        hashMap.put(Message.MESSAGE_ID, String.valueOf(j));
+        aaVar.a(hashMap);
+        p.a().a(aaVar);
         return true;
     }
 }

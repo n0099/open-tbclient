@@ -41,8 +41,8 @@ public class a extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         } else {
-            String akP = e.akP();
-            if (TextUtils.isEmpty(akP) || TextUtils.isEmpty(akP.trim())) {
+            String akO = e.akO();
+            if (TextUtils.isEmpty(akO) || TextUtils.isEmpty(akO.trim())) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
@@ -53,16 +53,16 @@ public class a extends ab {
             }
             String optString2 = optParamsAsJo.optString("path");
             if (!StringUtils.isNull(optString2) && optString2.contains("/pages/frshistory/frshistory?")) {
-                com.baidu.tieba.aiapps.apps.m.e.aK(context, unitedSchemeEntity.getParam("params"));
+                com.baidu.tieba.aiapps.apps.m.e.ay(context, unitedSchemeEntity.getParam("params"));
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            Request h = h(akP, optParamsAsJo);
+            Request h = h(akO, optParamsAsJo);
             if (h == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            eVar.akZ().a(h, new Callback() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
+            eVar.akY().a(h, new Callback() { // from class: com.baidu.tieba.aiapps.apps.l.a.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
@@ -106,7 +106,7 @@ public class a extends ab {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("app_key", str);
-                jSONObject2.put("srcAppPage", bjm());
+                jSONObject2.put("srcAppPage", bjk());
                 jSONObject2.put("params", jSONObject);
                 request = new Request.Builder().url("https://spapi.baidu.com/ma/navigate").post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
                 if (DEBUG) {
@@ -129,11 +129,11 @@ public class a extends ab {
         return Uri.parse(str);
     }
 
-    private String bjm() {
-        com.baidu.swan.apps.core.d.e Ou = f.aeK().Ou();
-        if (Ou == null || Ou.Wf() == null) {
+    private String bjk() {
+        com.baidu.swan.apps.core.d.e Ot = f.aeJ().Ot();
+        if (Ot == null || Ot.We() == null) {
             return "";
         }
-        return Ou.Wf().VT().getPage() + "?" + Ou.Wf().VT().getParams();
+        return Ot.We().VS().getPage() + "?" + Ot.We().VS().getParams();
     }
 }

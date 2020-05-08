@@ -9,25 +9,25 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes.dex */
 public final class b extends Drawable {
-    private boolean mJh;
-    private int mJi;
-    private final com.opensource.svgaplayer.a.b mJj;
-    private final f mJk;
-    private final c mJl;
+    private boolean mJk;
+    private int mJl;
+    private final com.opensource.svgaplayer.a.b mJm;
+    private final f mJn;
+    private final c mJo;
     private ImageView.ScaleType scaleType;
 
     public b(f fVar, c cVar) {
         q.j(fVar, "videoItem");
         q.j(cVar, "dynamicItem");
-        this.mJk = fVar;
-        this.mJl = cVar;
-        this.mJh = true;
+        this.mJn = fVar;
+        this.mJo = cVar;
+        this.mJk = true;
         this.scaleType = ImageView.ScaleType.MATRIX;
-        this.mJj = new com.opensource.svgaplayer.a.b(this.mJk, this.mJl);
+        this.mJm = new com.opensource.svgaplayer.a.b(this.mJn, this.mJo);
     }
 
-    public final f dzj() {
-        return this.mJk;
+    public final f dzf() {
+        return this.mJn;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -37,19 +37,19 @@ public final class b extends Drawable {
     }
 
     public final void wk(boolean z) {
-        if (this.mJh != z) {
-            this.mJh = z;
+        if (this.mJk != z) {
+            this.mJk = z;
             invalidateSelf();
         }
     }
 
-    public final int dzi() {
-        return this.mJi;
+    public final int dze() {
+        return this.mJl;
     }
 
     public final void IH(int i) {
-        if (this.mJi != i) {
-            this.mJi = i;
+        if (this.mJl != i) {
+            this.mJl = i;
             invalidateSelf();
         }
     }
@@ -61,8 +61,8 @@ public final class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!this.mJh && canvas != null) {
-            this.mJj.a(canvas, this.mJi, this.scaleType);
+        if (!this.mJk && canvas != null) {
+            this.mJm.a(canvas, this.mJl, this.scaleType);
         }
     }
 

@@ -19,15 +19,15 @@ public class a {
     private IScreenShotListener e;
     private HandlerThread f;
     private Handler g;
-    private C0208a h;
-    private C0208a i;
+    private C0229a h;
+    private C0229a i;
 
     /* renamed from: com.baidu.sapi2.shell.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0208a extends ContentObserver {
+    private class C0229a extends ContentObserver {
         private final Uri a;
 
-        public C0208a(Uri uri, Handler handler) {
+        public C0229a(Uri uri, Handler handler) {
             super(handler);
             this.a = uri;
         }
@@ -50,8 +50,8 @@ public class a {
         this.f = new HandlerThread(a);
         this.f.start();
         this.g = new Handler(this.f.getLooper());
-        this.h = new C0208a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.g);
-        this.i = new C0208a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.g);
+        this.h = new C0229a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.g);
+        this.i = new C0229a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.g);
     }
 
     public void a() {

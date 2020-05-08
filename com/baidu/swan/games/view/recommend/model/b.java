@@ -15,11 +15,11 @@ public class b {
         c cVar = new c();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            cVar.QZ = jSONObject.getInt(BaseJsonData.TAG_ERRNO);
+            cVar.Rc = jSONObject.getInt(BaseJsonData.TAG_ERRNO);
             cVar.errMsg = jSONObject.optString(BaseJsonData.TAG_ERRMSG);
             cVar.data = jSONObject.optJSONObject("data");
         } catch (JSONException e) {
-            cVar.QZ = -1;
+            cVar.Rc = -1;
             cVar.errMsg = "network error: response parse failed.";
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.e("RecommendModelParser", "parseResponseModel error:" + e);
@@ -36,13 +36,13 @@ public class b {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
         if (optJSONObject != null) {
-            aVar.cTD = bU(optJSONObject);
+            aVar.cTI = bU(optJSONObject);
         }
-        aVar.cTE = new ArrayList();
+        aVar.cTJ = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                aVar.cTE.add(bU(optJSONArray.optJSONObject(i)));
+                aVar.cTJ.add(bU(optJSONArray.optJSONObject(i)));
             }
         }
         return aVar;

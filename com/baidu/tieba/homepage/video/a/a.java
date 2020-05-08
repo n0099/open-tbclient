@@ -11,84 +11,84 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private BdTypeRecyclerView Vf;
-    private LinkedList<com.baidu.adp.widget.ListView.a> hLE = new LinkedList<>();
-    private c hUA;
-    private f hUw;
-    private b hUx;
-    private d hUy;
-    private e hUz;
+    private BdTypeRecyclerView Vi;
+    private LinkedList<com.baidu.adp.widget.ListView.a> hLK = new LinkedList<>();
+    private f hUC;
+    private b hUD;
+    private d hUE;
+    private e hUF;
+    private c hUG;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Vf = bdTypeRecyclerView;
-        BC();
+        this.Vi = bdTypeRecyclerView;
+        BB();
     }
 
-    private void BC() {
-        this.hUw = new f(this.mPageContext, k.gsA);
-        this.hUx = new b(this.mPageContext, l.dqV);
-        this.hUy = new d(this.mPageContext, k.gsI);
-        this.hUz = new e(this.mPageContext, k.gsJ);
-        this.hUA = new c(this.mPageContext, k.gsH);
-        this.hUw.a(this.Vf);
-        this.hUx.a(this.Vf);
-        this.hUy.a(this.Vf);
-        this.hUz.a(this.Vf);
-        this.hUA.a(this.Vf);
-        this.hLE.add(this.hUw);
-        this.hLE.add(this.hUx);
-        this.hLE.add(this.hUy);
-        this.hLE.add(this.hUz);
-        this.hLE.add(this.hUA);
-        this.Vf.addAdapters(this.hLE);
+    private void BB() {
+        this.hUC = new f(this.mPageContext, k.gsG);
+        this.hUD = new b(this.mPageContext, l.dqZ);
+        this.hUE = new d(this.mPageContext, k.gsO);
+        this.hUF = new e(this.mPageContext, k.gsP);
+        this.hUG = new c(this.mPageContext, k.gsN);
+        this.hUC.a(this.Vi);
+        this.hUD.a(this.Vi);
+        this.hUE.a(this.Vi);
+        this.hUF.a(this.Vi);
+        this.hUG.a(this.Vi);
+        this.hLK.add(this.hUC);
+        this.hLK.add(this.hUD);
+        this.hLK.add(this.hUE);
+        this.hLK.add(this.hUF);
+        this.hLK.add(this.hUG);
+        this.Vi.addAdapters(this.hLK);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Vf != null) {
-            this.Vf.getListAdapter().notifyDataSetChanged();
+        if (this.Vi != null) {
+            this.Vi.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.hUw != null) {
-            this.hUw.setPageUniqueId(bdUniqueId);
+        if (this.hUC != null) {
+            this.hUC.setPageUniqueId(bdUniqueId);
         }
-        if (this.hUx != null) {
-            this.hUx.setPageUniqueId(bdUniqueId);
+        if (this.hUD != null) {
+            this.hUD.setPageUniqueId(bdUniqueId);
         }
-        if (this.hUy != null) {
-            this.hUy.setPageUniqueId(bdUniqueId);
+        if (this.hUE != null) {
+            this.hUE.setPageUniqueId(bdUniqueId);
         }
-        if (this.hUz != null) {
-            this.hUz.setPageUniqueId(bdUniqueId);
+        if (this.hUF != null) {
+            this.hUF.setPageUniqueId(bdUniqueId);
         }
-        if (this.hUA != null) {
-            this.hUA.setPageUniqueId(bdUniqueId);
+        if (this.hUG != null) {
+            this.hUG.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<m> list) {
-        this.Vf.setData(list);
+        this.Vi.setData(list);
     }
 
     public List<m> getDataList() {
-        if (this.Vf != null) {
-            return this.Vf.getData();
+        if (this.Vi != null) {
+            return this.Vi.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.hUz != null) {
-            this.hUz.setEventCallback(aVar);
+        if (this.hUF != null) {
+            this.hUF.setEventCallback(aVar);
         }
     }
 
     public void onPause() {
-        if (this.hUx != null) {
-            this.hUx.onPause();
+        if (this.hUD != null) {
+            this.hUD.onPause();
         }
     }
 
@@ -96,8 +96,8 @@ public class a {
     }
 
     public void b(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        if (this.hUx != null) {
-            this.hUx.b(eVar);
+        if (this.hUD != null) {
+            this.hUD.b(eVar);
         }
     }
 }

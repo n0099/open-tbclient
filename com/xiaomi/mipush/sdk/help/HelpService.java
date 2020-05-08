@@ -3,7 +3,7 @@ package com.xiaomi.mipush.sdk.help;
 import android.app.IntentService;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.p;
+import com.xiaomi.mipush.sdk.n;
 /* loaded from: classes8.dex */
 public class HelpService extends IntentService {
     public HelpService() {
@@ -15,6 +15,6 @@ public class HelpService extends IntentService {
         if (TextUtils.isEmpty(intent.getStringExtra("awake_info"))) {
             return;
         }
-        p.a(this, intent, null);
+        n.a(this, intent, null);
     }
 }

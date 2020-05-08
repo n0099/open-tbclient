@@ -11,92 +11,92 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class a {
-    private BdTypeRecyclerView Vf;
-    private LinkedList<com.baidu.adp.widget.ListView.a> hLE = new LinkedList<>();
-    private f hLF;
-    private c hLG;
-    private d hLH;
-    private e hLI;
+    private BdTypeRecyclerView Vi;
+    private LinkedList<com.baidu.adp.widget.ListView.a> hLK = new LinkedList<>();
+    private f hLL;
+    private c hLM;
+    private d hLN;
+    private e hLO;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         this.mPageContext = tbPageContext;
-        this.Vf = bdTypeRecyclerView;
-        BC();
+        this.Vi = bdTypeRecyclerView;
+        BB();
     }
 
-    private void BC() {
-        this.hLF = new f(this.mPageContext, k.gsA);
-        this.hLG = new c(this.mPageContext, l.dqV);
-        this.hLH = new d(this.mPageContext, k.gsI);
-        this.hLI = new e(this.mPageContext, k.gsJ);
-        this.hLF.a(this.Vf);
-        this.hLG.a(this.Vf);
-        this.hLH.a(this.Vf);
-        this.hLI.a(this.Vf);
-        this.hLE.add(this.hLF);
-        this.hLE.add(this.hLG);
-        this.hLE.add(this.hLH);
-        this.hLE.add(this.hLI);
-        this.Vf.addAdapters(this.hLE);
+    private void BB() {
+        this.hLL = new f(this.mPageContext, k.gsG);
+        this.hLM = new c(this.mPageContext, l.dqZ);
+        this.hLN = new d(this.mPageContext, k.gsO);
+        this.hLO = new e(this.mPageContext, k.gsP);
+        this.hLL.a(this.Vi);
+        this.hLM.a(this.Vi);
+        this.hLN.a(this.Vi);
+        this.hLO.a(this.Vi);
+        this.hLK.add(this.hLL);
+        this.hLK.add(this.hLM);
+        this.hLK.add(this.hLN);
+        this.hLK.add(this.hLO);
+        this.Vi.addAdapters(this.hLK);
     }
 
     public void notifyDataSetChanged() {
-        if (this.Vf != null) {
-            this.Vf.getListAdapter().notifyDataSetChanged();
+        if (this.Vi != null) {
+            this.Vi.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.hLF != null) {
-            this.hLF.setPageUniqueId(bdUniqueId);
+        if (this.hLL != null) {
+            this.hLL.setPageUniqueId(bdUniqueId);
         }
-        if (this.hLG != null) {
-            this.hLG.setPageUniqueId(bdUniqueId);
+        if (this.hLM != null) {
+            this.hLM.setPageUniqueId(bdUniqueId);
         }
-        if (this.hLH != null) {
-            this.hLH.setPageUniqueId(bdUniqueId);
+        if (this.hLN != null) {
+            this.hLN.setPageUniqueId(bdUniqueId);
         }
-        if (this.hLI != null) {
-            this.hLI.setPageUniqueId(bdUniqueId);
+        if (this.hLO != null) {
+            this.hLO.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void setData(List<m> list) {
-        this.Vf.setData(list);
+        this.Vi.setData(list);
     }
 
     public List<m> getDataList() {
-        if (this.Vf != null) {
-            return this.Vf.getData();
+        if (this.Vi != null) {
+            return this.Vi.getData();
         }
         return null;
     }
 
     public void b(NEGFeedBackView.a aVar) {
-        if (this.hLI != null) {
-            this.hLI.setEventCallback(aVar);
+        if (this.hLO != null) {
+            this.hLO.setEventCallback(aVar);
         }
     }
 
     public void vQ(int i) {
-        if (this.hLF != null) {
-            this.hLF.vQ(i);
+        if (this.hLL != null) {
+            this.hLL.vQ(i);
         }
-        if (this.hLG != null) {
-            this.hLG.vQ(i);
+        if (this.hLM != null) {
+            this.hLM.vQ(i);
         }
-        if (this.hLH != null) {
-            this.hLH.vQ(i);
+        if (this.hLN != null) {
+            this.hLN.vQ(i);
         }
-        if (this.hLI != null) {
-            this.hLI.vQ(i);
+        if (this.hLO != null) {
+            this.hLO.vQ(i);
         }
     }
 
     public void onPause() {
-        if (this.hLG != null) {
-            this.hLG.onPause();
+        if (this.hLM != null) {
+            this.hLM.onPause();
         }
     }
 

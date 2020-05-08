@@ -16,7 +16,7 @@ import android.widget.FrameLayout;
 import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.live.adp.R;
 import com.baidu.live.adp.lib.util.BdLog;
-import com.baidu.sapi2.shell.SapiErrorCode;
+import com.baidu.sapi2.result.OneKeyLoginResult;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -323,9 +323,9 @@ public class HorizontalTranslateLayout extends FrameLayout {
                     this.mLastDownX = x;
                     this.mLastDownY = y;
                     this.mHandler.removeMessages(-100);
-                    this.mHandler.removeMessages(MSG_ANIMATE_LEFT_OPEN);
+                    this.mHandler.removeMessages(-104);
                     this.mHandler.removeMessages(-101);
-                    this.mHandler.removeMessages(MSG_ANIMATE_RIGHT_OPEN);
+                    this.mHandler.removeMessages(-105);
                     return false;
                 case 1:
                 default:
@@ -479,14 +479,14 @@ public class HorizontalTranslateLayout extends FrameLayout {
         public void handleMessage(Message message) {
             if (HorizontalTranslateLayout.this.mAnimator.iAnimating) {
                 switch (message.what) {
-                    case HorizontalTranslateLayout.MSG_ANIMATE_RIGHT_OPEN /* -105 */:
+                    case -105:
                         HorizontalTranslateLayout.this.mAnimator.computeRightOpenAnimation();
                         return;
-                    case HorizontalTranslateLayout.MSG_ANIMATE_LEFT_OPEN /* -104 */:
+                    case -104:
                         HorizontalTranslateLayout.this.mAnimator.computeLeftOpenAnimation();
                         return;
-                    case SapiErrorCode.INVALID_ARG /* -103 */:
-                    case -102:
+                    case -103:
+                    case OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL /* -102 */:
                     default:
                         return;
                     case -101:
@@ -715,7 +715,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
             HorizontalTranslateLayout.this.mLeftTranslate = (int) (ViewConfig.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(HorizontalTranslateLayout.MSG_ANIMATE_LEFT_OPEN, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
         }
 
         void computeRightOpenAnimation() {
@@ -733,7 +733,7 @@ public class HorizontalTranslateLayout extends FrameLayout {
             }
             HorizontalTranslateLayout.this.mLeftTranslate = (int) (ViewConfig.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
             HorizontalTranslateLayout.this.invalidate();
-            HorizontalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(HorizontalTranslateLayout.MSG_ANIMATE_RIGHT_OPEN, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
         }
 
         void animateLeftOpen(float f) {
@@ -750,10 +750,10 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.iAnimatingPosition = 0.0f;
             this.iAnimationDistance = 0 - HorizontalTranslateLayout.this.mLeftTranslate;
             this.iAnimationStart = HorizontalTranslateLayout.this.mLeftTranslate;
-            HorizontalTranslateLayout.this.mHandler.removeMessages(HorizontalTranslateLayout.MSG_ANIMATE_LEFT_OPEN);
+            HorizontalTranslateLayout.this.mHandler.removeMessages(-104);
             BdLog.d("Animator@animateTopOpen " + this.iAnimationDistance);
             BdLog.d("Animator@animateTopOpen " + f);
-            HorizontalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(HorizontalTranslateLayout.MSG_ANIMATE_LEFT_OPEN, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(-104, this.iCurrentAnimationTime);
         }
 
         void animateRightOpen(float f) {
@@ -772,8 +772,8 @@ public class HorizontalTranslateLayout extends FrameLayout {
             this.iAnimationStart = HorizontalTranslateLayout.this.mLeftTranslate;
             BdLog.d("Animator@animateBottomOpen " + this.iAnimationDistance);
             BdLog.d("Animator@animateBottomOpen " + f);
-            HorizontalTranslateLayout.this.mHandler.removeMessages(HorizontalTranslateLayout.MSG_ANIMATE_RIGHT_OPEN);
-            HorizontalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(HorizontalTranslateLayout.MSG_ANIMATE_RIGHT_OPEN, this.iCurrentAnimationTime);
+            HorizontalTranslateLayout.this.mHandler.removeMessages(-105);
+            HorizontalTranslateLayout.this.mHandler.sendEmptyMessageAtTime(-105, this.iCurrentAnimationTime);
         }
 
         void animateLeft(float f) {

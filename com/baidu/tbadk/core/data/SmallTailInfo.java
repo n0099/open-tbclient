@@ -51,13 +51,13 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String wr = TbFaceManager.aYl().wr(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(wr)) {
-                        sb.append(EMOTION_PREFIX + wr + EMOTION_SUFFIX);
+                    String wu = TbFaceManager.aYj().wu(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(wu)) {
+                        sb.append(EMOTION_PREFIX + wu + EMOTION_SUFFIX);
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.aYl().a(TbadkCoreApplication.getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.aYj().a(TbadkCoreApplication.getInst(), sb.toString(), null);
         }
     }
 

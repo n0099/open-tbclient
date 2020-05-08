@@ -2,7 +2,9 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.android.pushservice.i.l;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 import com.meizu.cloud.pushsdk.MzPushMessageReceiver;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
@@ -30,8 +32,9 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
             intent.putExtra("mz_notification_content", content);
             intent.putExtra("mz_notification_self_define_content", selfDefineContentString);
             intent.putExtra("mz_push_msg_type", 3);
-            l.a(intent, context.getApplicationContext());
+            m.a(intent, context.getApplicationContext());
         } catch (Exception e) {
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         }
     }
 
@@ -42,10 +45,11 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
     @Override // com.meizu.cloud.pushsdk.MzPushMessageReceiver, com.meizu.cloud.pushsdk.base.IntentReceiver, android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         try {
-            if (Double.parseDouble(l.j()) < 6.0d) {
+            if (Double.parseDouble(m.n(context)) < 6.0d) {
                 return;
             }
         } catch (Exception e) {
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         }
         super.onReceive(context, intent);
     }
@@ -62,8 +66,9 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
                 Intent intent = new Intent("com.meizu.mzpush.REGISTER");
                 intent.putExtra("mz_pushid", pushId);
                 intent.putExtra("mz_register_errorcode", registerStatus.getCode());
-                l.a(intent, context.getApplicationContext());
+                m.a(intent, context.getApplicationContext());
             } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }

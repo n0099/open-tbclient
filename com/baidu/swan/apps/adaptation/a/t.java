@@ -6,5 +6,5 @@ import java.util.List;
 /* loaded from: classes11.dex */
 public interface t {
     @Nullable
-    List<ContentValues> Pu();
+    List<ContentValues> Pt();
 }

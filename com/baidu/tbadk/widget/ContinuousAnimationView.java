@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ContinuousAnimationView extends TBLottieAnimationView implements BdSwipeRefreshLayout.b {
-    private boolean ehg;
-    private boolean ehh;
+    private boolean ehl;
+    private boolean ehm;
 
     public ContinuousAnimationView(Context context) {
         this(context, null);
@@ -22,8 +22,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     public ContinuousAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ehg = false;
-        this.ehh = false;
+        this.ehl = false;
+        this.ehm = false;
         init();
     }
 
@@ -31,31 +31,31 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.widget.ContinuousAnimationView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                ContinuousAnimationView.this.baQ();
-                ContinuousAnimationView.this.ehg = true;
+                ContinuousAnimationView.this.baO();
+                ContinuousAnimationView.this.ehl = true;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                ContinuousAnimationView.this.baN();
-                if (ContinuousAnimationView.this.ehh) {
-                    ContinuousAnimationView.this.ehh = false;
+                ContinuousAnimationView.this.baL();
+                if (ContinuousAnimationView.this.ehm) {
+                    ContinuousAnimationView.this.ehm = false;
                 }
-                ContinuousAnimationView.this.ehg = false;
+                ContinuousAnimationView.this.ehl = false;
                 ContinuousAnimationView.this.setFrame(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                ContinuousAnimationView.this.baO();
+                ContinuousAnimationView.this.baM();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                ContinuousAnimationView.this.baP();
-                if (ContinuousAnimationView.this.ehh) {
+                ContinuousAnimationView.this.baN();
+                if (ContinuousAnimationView.this.ehm) {
                     ContinuousAnimationView.this.cancelAnimation();
-                    ContinuousAnimationView.this.ehh = false;
+                    ContinuousAnimationView.this.ehm = false;
                 }
             }
         });
@@ -75,8 +75,8 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     @Override // com.baidu.tbadk.widget.lottie.TBLottieAnimationView, com.airbnb.lottie.LottieAnimationView
     public void pauseAnimation() {
-        if (this.ehg) {
-            this.ehh = true;
+        if (this.ehl) {
+            this.ehm = true;
         }
     }
 
@@ -91,19 +91,19 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void baL() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void baM() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void baN() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void baO() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void baP() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void baQ() {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b

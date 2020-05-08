@@ -65,7 +65,7 @@ public class SelectedLocationInfo implements Parcelable {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", this.mName);
-            jSONObject.put("address", this.mAddress);
+            jSONObject.put(ADDRESS, this.mAddress);
             jSONObject.put(LATITUDE, this.mLatitude);
             jSONObject.put(LONGITUDE, this.mLongitude);
         } catch (JSONException e) {

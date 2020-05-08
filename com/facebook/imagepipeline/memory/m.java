@@ -6,19 +6,19 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes12.dex */
 public class m implements com.facebook.common.memory.g {
-    private final com.facebook.common.memory.j maj;
-    private final k mdZ;
+    private final com.facebook.common.memory.j man;
+    private final k med;
 
     public m(k kVar, com.facebook.common.memory.j jVar) {
-        this.mdZ = kVar;
-        this.maj = jVar;
+        this.med = kVar;
+        this.man = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.g
     /* renamed from: u */
     public l p(InputStream inputStream) throws IOException {
-        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.mdZ);
+        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.med);
         try {
             return a(inputStream, nativePooledByteBufferOutputStream);
         } finally {
@@ -30,11 +30,11 @@ public class m implements com.facebook.common.memory.g {
     @Override // com.facebook.common.memory.g
     /* renamed from: ag */
     public l ab(byte[] bArr) {
-        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.mdZ, bArr.length);
+        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.med, bArr.length);
         try {
             try {
                 nativePooledByteBufferOutputStream.write(bArr, 0, bArr.length);
-                return nativePooledByteBufferOutputStream.dni();
+                return nativePooledByteBufferOutputStream.dnf();
             } catch (IOException e) {
                 throw com.facebook.common.internal.l.y(e);
             }
@@ -47,7 +47,7 @@ public class m implements com.facebook.common.memory.g {
     @Override // com.facebook.common.memory.g
     /* renamed from: d */
     public l c(InputStream inputStream, int i) throws IOException {
-        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.mdZ, i);
+        NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream = new NativePooledByteBufferOutputStream(this.med, i);
         try {
             return a(inputStream, nativePooledByteBufferOutputStream);
         } finally {
@@ -56,21 +56,21 @@ public class m implements com.facebook.common.memory.g {
     }
 
     l a(InputStream inputStream, NativePooledByteBufferOutputStream nativePooledByteBufferOutputStream) throws IOException {
-        this.maj.e(inputStream, nativePooledByteBufferOutputStream);
-        return nativePooledByteBufferOutputStream.dni();
+        this.man.e(inputStream, nativePooledByteBufferOutputStream);
+        return nativePooledByteBufferOutputStream.dnf();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.g
-    /* renamed from: dtv */
-    public NativePooledByteBufferOutputStream dnh() {
-        return new NativePooledByteBufferOutputStream(this.mdZ);
+    /* renamed from: dts */
+    public NativePooledByteBufferOutputStream dne() {
+        return new NativePooledByteBufferOutputStream(this.med);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.g
     /* renamed from: Hj */
     public NativePooledByteBufferOutputStream Gb(int i) {
-        return new NativePooledByteBufferOutputStream(this.mdZ, i);
+        return new NativePooledByteBufferOutputStream(this.med, i);
     }
 }

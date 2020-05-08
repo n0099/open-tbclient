@@ -1,5 +1,6 @@
 package org.conscrypt;
 
+import com.baidu.sapi2.utils.h;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.InvocationTargetException;
 import java.security.AlgorithmParameters;
@@ -488,7 +489,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
 
             @Override // org.conscrypt.OpenSSLCipher
             String getBaseCipherName() {
-                return "AES";
+                return h.q;
             }
 
             @Override // org.conscrypt.OpenSSLCipher.EVP_CIPHER
@@ -1051,7 +1052,7 @@ public abstract class OpenSSLCipher extends CipherSpi {
 
             @Override // org.conscrypt.OpenSSLCipher
             String getBaseCipherName() {
-                return "AES";
+                return h.q;
             }
 
             @Override // org.conscrypt.OpenSSLCipher

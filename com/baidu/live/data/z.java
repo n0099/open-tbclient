@@ -13,11 +13,11 @@ import org.json.JSONObject;
 public class z {
     public long ala_id;
     public long anchor_live;
-    public String atN = "";
-    public int atO;
-    public String atP;
-    public int atQ;
-    public String atR;
+    public String atT = "";
+    public int atU;
+    public String atV;
+    public int atW;
+    public String atX;
     public int change_sex;
     public String channel_count;
     public long charm_count;
@@ -74,7 +74,7 @@ public class z {
         if (jSONObject != null) {
             this.ala_id = jSONObject.optLong("ala_id");
             this.user_id = jSONObject.optString("user_id");
-            this.atN = jSONObject.optString("meta_key");
+            this.atT = jSONObject.optString("meta_key");
             this.verify_info_status = jSONObject.optInt("verify_info_status");
             this.verify_video_status = jSONObject.optInt("verify_video_status");
             this.verify_type = jSONObject.optInt("verify_type");
@@ -87,7 +87,7 @@ public class z {
             if (StringUtils.isNull(this.portrait)) {
                 this.portrait = jSONObject.optString("portrait");
             }
-            this.atP = jSONObject.optString("app_from");
+            this.atV = jSONObject.optString("app_from");
             this.level_id = jSONObject.optInt("level_id");
             this.level_exp = jSONObject.optInt("level_exp");
             this.next_exp = jSONObject.optInt("next_exp");
@@ -116,7 +116,7 @@ public class z {
             this.enter_live = jSONObject.optLong("enter_live");
             this.is_live_admin = jSONObject.optInt("is_live_admin");
             this.is_block = jSONObject.optInt("is_block");
-            this.atO = jSONObject.optInt("is_chat_block");
+            this.atU = jSONObject.optInt("is_chat_block");
             this.third_app_id = jSONObject.optString("third_app_id");
             this.stream_id = jSONObject.optLong(BdStatsConstant.StatsKey.STREAM_ID);
             this.has_tieba_username = jSONObject.optInt("has_tieba_username");
@@ -125,7 +125,7 @@ public class z {
             this.great_anchor_desc_grade = jSONObject.optString("great_anchor_desc_grade");
             this.great_anchor_desc_role = jSONObject.optString("great_anchor_desc_role");
             this.petal_num = jSONObject.optInt("petal_num");
-            this.atR = jSONObject.optString("bd_personal_page");
+            this.atX = jSONObject.optString("bd_personal_page");
             JSONArray optJSONArray = jSONObject.optJSONArray("live_mark_info_new");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 this.live_mark_info_new = new ArrayList(optJSONArray.length());
@@ -136,7 +136,7 @@ public class z {
                     this.live_mark_info_new.add(alaLiveMarkData);
                 }
             }
-            this.atQ = jSONObject.optInt("live_mark_total");
+            this.atW = jSONObject.optInt("live_mark_total");
             if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
                 this.extraUserInfo = jSONObject.optJSONObject(TbConfig.getSubappType() + "_info");
             }

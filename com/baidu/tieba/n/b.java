@@ -1,7 +1,6 @@
 package com.baidu.tieba.n;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.VideoPlatformStatic;
@@ -10,46 +9,46 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class b extends c.a {
-    private final int kkR;
-    private final int kkS;
-    private com.baidu.tieba.k.a.e[] klA;
-    private final long kly;
-    private final String klz;
+    private final int kkV;
+    private final int kkW;
+    private final long klC;
+    private final String klD;
+    private com.baidu.tieba.k.a.e[] klE;
     private final int what;
 
     public b(int i, int i2, int i3, long j, String str, com.baidu.tieba.k.a.e... eVarArr) {
         super(300);
-        this.kkR = i;
+        this.kkV = i;
         this.what = i2;
-        this.kkS = i3;
-        this.kly = j;
-        this.klz = str;
-        this.klA = eVarArr;
+        this.kkW = i3;
+        this.klC = j;
+        this.klD = str;
+        this.klE = eVarArr;
     }
 
     @Override // com.baidu.tieba.n.c.a, com.baidu.tieba.n.c
-    public JSONObject cKT() {
-        JSONObject cKT = super.cKT();
+    public JSONObject cKQ() {
+        JSONObject cKQ = super.cKQ();
         try {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(new JSONObject().put(PushConstants.EXTRA_ERROR_CODE, d(this.kkR, this.what, this.kkS, this.kly).toString()));
-            if (this.klA != null) {
-                int length = this.klA.length;
+            jSONArray.put(new JSONObject().put("error_msg", d(this.kkV, this.what, this.kkW, this.klC).toString()));
+            if (this.klE != null) {
+                int length = this.klE.length;
                 for (int i = 0; i < length; i++) {
-                    com.baidu.tieba.k.a.e eVar = this.klA[i];
+                    com.baidu.tieba.k.a.e eVar = this.klE[i];
                     if (eVar != null) {
-                        jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.k.d.GC(eVar.url).toString()));
+                        jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.k.d.GF(eVar.url).toString()));
                     }
                 }
             }
-            if (!StringUtils.isNull(this.klz)) {
-                jSONArray.put(new JSONObject().put("error_parent", this.klz));
+            if (!StringUtils.isNull(this.klD)) {
+                jSONArray.put(new JSONObject().put("error_parent", this.klD));
             }
-            cKT.put("ext", jSONArray);
+            cKQ.put("ext", jSONArray);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return cKT;
+        return cKQ;
     }
 
     public static JSONObject d(int i, int i2, int i3, long j) {

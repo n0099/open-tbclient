@@ -1,58 +1,83 @@
 package com.xiaomi.push;
+
+import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes8.dex */
-public final class jl extends jm {
-    private int a;
+public class jl {
+    private static int a = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
-    /* renamed from: a  reason: collision with other field name */
-    private byte[] f797a;
-    private int b;
-
-    @Override // com.xiaomi.push.jm
-    public int a() {
-        return this.a;
+    public static void a(ji jiVar, byte b) {
+        a(jiVar, b, a);
     }
 
-    @Override // com.xiaomi.push.jm
-    public int a(byte[] bArr, int i, int i2) {
-        int b = b();
-        if (i2 > b) {
-            i2 = b;
+    public static void a(ji jiVar, byte b, int i) {
+        int i2 = 0;
+        if (i <= 0) {
+            throw new jc("Maximum skip depth exceeded");
         }
-        if (i2 > 0) {
-            System.arraycopy(this.f797a, this.a, bArr, i, i2);
-            a(i2);
+        switch (b) {
+            case 2:
+                jiVar.m490a();
+                return;
+            case 3:
+                jiVar.a();
+                return;
+            case 4:
+                jiVar.m478a();
+                return;
+            case 5:
+            case 7:
+            case 9:
+            default:
+                return;
+            case 6:
+                jiVar.m488a();
+                return;
+            case 8:
+                jiVar.m479a();
+                return;
+            case 10:
+                jiVar.m480a();
+                return;
+            case 11:
+                jiVar.m487a();
+                return;
+            case 12:
+                jiVar.m485a();
+                while (true) {
+                    jf m481a = jiVar.m481a();
+                    if (m481a.a == 0) {
+                        jiVar.f();
+                        return;
+                    } else {
+                        a(jiVar, m481a.a, i - 1);
+                        jiVar.g();
+                    }
+                }
+            case 13:
+                jh m483a = jiVar.m483a();
+                while (i2 < m483a.f779a) {
+                    a(jiVar, m483a.a, i - 1);
+                    a(jiVar, m483a.b, i - 1);
+                    i2++;
+                }
+                jiVar.h();
+                return;
+            case 14:
+                jm m484a = jiVar.m484a();
+                while (i2 < m484a.f780a) {
+                    a(jiVar, m484a.a, i - 1);
+                    i2++;
+                }
+                jiVar.j();
+                return;
+            case 15:
+                jg m482a = jiVar.m482a();
+                while (i2 < m482a.f778a) {
+                    a(jiVar, m482a.a, i - 1);
+                    i2++;
+                }
+                jiVar.i();
+                return;
         }
-        return i2;
-    }
-
-    @Override // com.xiaomi.push.jm
-    public void a(int i) {
-        this.a += i;
-    }
-
-    public void a(byte[] bArr) {
-        b(bArr, 0, bArr.length);
-    }
-
-    @Override // com.xiaomi.push.jm
-    public void a(byte[] bArr, int i, int i2) {
-        throw new UnsupportedOperationException("No writing allowed!");
-    }
-
-    @Override // com.xiaomi.push.jm
-    public byte[] a() {
-        return this.f797a;
-    }
-
-    @Override // com.xiaomi.push.jm
-    public int b() {
-        return this.b - this.a;
-    }
-
-    @Override // com.xiaomi.push.jm
-    public void b(byte[] bArr, int i, int i2) {
-        this.f797a = bArr;
-        this.a = i;
-        this.b = i + i2;
     }
 }

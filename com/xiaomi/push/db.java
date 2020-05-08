@@ -1,56 +1,62 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
-/* synthetic */ class db {
-    static final /* synthetic */ int[] a = new int[hg.values().length];
 
-    static {
-        try {
-            a[hg.Registration.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+import java.util.ArrayList;
+import java.util.Iterator;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes8.dex */
+public class db extends cv {
+    cv a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ cz f197a;
+    final /* synthetic */ cv b;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public db(cz czVar, String str, cv cvVar) {
+        super(str);
+        this.f197a = czVar;
+        this.b = cvVar;
+        this.a = this.b;
+        this.f183b = this.f183b;
+        if (this.b != null) {
+            this.f = this.b.f;
         }
-        try {
-            a[hg.UnRegistration.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+    }
+
+    @Override // com.xiaomi.push.cv
+    public synchronized ArrayList<String> a(boolean z) {
+        ArrayList<String> arrayList;
+        arrayList = new ArrayList<>();
+        if (this.a != null) {
+            arrayList.addAll(this.a.a(true));
         }
-        try {
-            a[hg.Subscription.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+        synchronized (cz.b) {
+            cv cvVar = cz.b.get(this.f183b);
+            if (cvVar != null) {
+                Iterator<String> it = cvVar.a(true).iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (arrayList.indexOf(next) == -1) {
+                        arrayList.add(next);
+                    }
+                }
+                arrayList.remove(this.f183b);
+                arrayList.add(this.f183b);
+            }
         }
-        try {
-            a[hg.UnSubscription.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
+        return arrayList;
+    }
+
+    @Override // com.xiaomi.push.cv
+    public synchronized void a(String str, cu cuVar) {
+        if (this.a != null) {
+            this.a.a(str, cuVar);
         }
-        try {
-            a[hg.SendMessage.ordinal()] = 5;
-        } catch (NoSuchFieldError e5) {
-        }
-        try {
-            a[hg.AckMessage.ordinal()] = 6;
-        } catch (NoSuchFieldError e6) {
-        }
-        try {
-            a[hg.SetConfig.ordinal()] = 7;
-        } catch (NoSuchFieldError e7) {
-        }
-        try {
-            a[hg.ReportFeedback.ordinal()] = 8;
-        } catch (NoSuchFieldError e8) {
-        }
-        try {
-            a[hg.MultiConnectionBroadcast.ordinal()] = 9;
-        } catch (NoSuchFieldError e9) {
-        }
-        try {
-            a[hg.MultiConnectionResult.ordinal()] = 10;
-        } catch (NoSuchFieldError e10) {
-        }
-        try {
-            a[hg.Notification.ordinal()] = 11;
-        } catch (NoSuchFieldError e11) {
-        }
-        try {
-            a[hg.Command.ordinal()] = 12;
-        } catch (NoSuchFieldError e12) {
-        }
+    }
+
+    @Override // com.xiaomi.push.cv
+    public boolean b() {
+        return false;
     }
 }

@@ -11,59 +11,59 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes10.dex */
 public class f extends y.a {
-    public int afT;
+    public int afW;
     public View dividerLine;
-    public GroupImageView ilq;
-    public TextView ilr;
-    public TextView ils;
-    public TextView ilt;
-    public TextView ilu;
-    public ImageView ilv;
-    public ImageView ilw;
-    public ImageView ilx;
-    public ImageView[] ily;
+    public TextView ilA;
+    public ImageView ilB;
+    public ImageView ilC;
+    public ImageView ilD;
+    public ImageView[] ilE;
+    public GroupImageView ilw;
+    public TextView ilx;
+    public TextView ily;
+    public TextView ilz;
     public View rootView;
 
     public f(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.afT = 3;
+        this.afW = 3;
         this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.ilq = (GroupImageView) view.findViewById(R.id.item_head);
-        this.ilr = (TextView) view.findViewById(R.id.item_group_name);
-        this.ils = (TextView) view.findViewById(R.id.item_group_meizi);
-        this.ilt = (TextView) view.findViewById(R.id.item_group_num);
-        this.ilu = (TextView) view.findViewById(R.id.item_introduce);
-        this.ilv = (ImageView) view.findViewById(R.id.item_grade1);
-        this.ilw = (ImageView) view.findViewById(R.id.item_grade2);
-        this.ilx = (ImageView) view.findViewById(R.id.item_grade3);
+        this.ilw = (GroupImageView) view.findViewById(R.id.item_head);
+        this.ilx = (TextView) view.findViewById(R.id.item_group_name);
+        this.ily = (TextView) view.findViewById(R.id.item_group_meizi);
+        this.ilz = (TextView) view.findViewById(R.id.item_group_num);
+        this.ilA = (TextView) view.findViewById(R.id.item_introduce);
+        this.ilB = (ImageView) view.findViewById(R.id.item_grade1);
+        this.ilC = (ImageView) view.findViewById(R.id.item_grade2);
+        this.ilD = (ImageView) view.findViewById(R.id.item_grade3);
         this.dividerLine = view.findViewById(R.id.divider_line);
-        this.ily = new ImageView[4];
-        this.ily[1] = this.ilv;
-        this.ily[2] = this.ilw;
-        this.ily[3] = this.ilx;
+        this.ilE = new ImageView[4];
+        this.ilE[1] = this.ilB;
+        this.ilE[2] = this.ilC;
+        this.ilE[3] = this.ilD;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.ilq.setTag(null);
-            this.ilq.setDrawBorder(true);
-            this.ilq.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.ilw.setTag(null);
+            this.ilw.setDrawBorder(true);
+            this.ilw.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.ilq.setTag(portrait);
-                this.ilq.startLoad(portrait, 10, false);
+                this.ilw.setTag(portrait);
+                this.ilw.startLoad(portrait, 10, false);
             }
-            this.ilr.setText(groupInfoData.getName());
-            this.ils.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.ilt.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.ilu.setText(groupInfoData.getIntro().trim());
-            a(this.ily, groupInfoData.getGrade());
+            this.ilx.setText(groupInfoData.getName());
+            this.ily.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.ilz.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.ilA.setText(groupInfoData.getIntro().trim());
+            a(this.ilE, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                am.setViewTextColor(this.ilr, R.color.common_color_10009, 1);
-                am.setImageResource(this.ilv, R.drawable.icon_vip_grade_big_small_s);
-                am.setImageResource(this.ilw, R.drawable.icon_vip_grade_big_small_s);
-                am.setImageResource(this.ilx, R.drawable.icon_vip_grade_big_small_s);
+                am.setViewTextColor(this.ilx, R.color.common_color_10009, 1);
+                am.setImageResource(this.ilB, R.drawable.icon_vip_grade_big_small_s);
+                am.setImageResource(this.ilC, R.drawable.icon_vip_grade_big_small_s);
+                am.setImageResource(this.ilD, R.drawable.icon_vip_grade_big_small_s);
             }
         }
     }

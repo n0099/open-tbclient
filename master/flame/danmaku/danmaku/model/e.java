@@ -20,22 +20,22 @@ public class e extends d {
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFo() {
+    public float dFk() {
         return 0.0f;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFp() {
+    public float dFl() {
         return 0.0f;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFq() {
+    public float dFm() {
         return 0.0f;
     }
 
     @Override // master.flame.danmaku.danmaku.model.d
-    public float dFr() {
+    public float dFn() {
         return 0.0f;
     }
 

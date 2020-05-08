@@ -12,16 +12,16 @@ import com.baidu.live.adp.BdUniqueId;
 import com.baidu.live.adp.lib.asynctask.BdAsyncTask;
 /* loaded from: classes3.dex */
 public class FrameAnimationView<T> extends ImageView implements d {
-    private BdUniqueId aQF;
-    private T[] fEl;
-    private Bitmap fEm;
-    private Rect fEn;
-    private long fEo;
-    private long fEp;
-    private boolean fEq;
-    private b fEr;
-    private com.baidu.tieba.ala.liveroom.challenge.a.a fEs;
-    private Runnable fEt;
+    private BdUniqueId aQK;
+    private T[] fEq;
+    private Bitmap fEr;
+    private Rect fEs;
+    private long fEt;
+    private long fEu;
+    private boolean fEv;
+    private b fEw;
+    private com.baidu.tieba.ala.liveroom.challenge.a.a fEx;
+    private Runnable fEy;
     private int index;
     private boolean isPlaying;
     private int mFrameCount;
@@ -39,12 +39,12 @@ public class FrameAnimationView<T> extends ImageView implements d {
         super(context);
         this.index = 0;
         this.srcRect = new Rect();
-        this.fEn = new Rect();
-        this.fEo = 0L;
-        this.fEt = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
+        this.fEs = new Rect();
+        this.fEt = 0L;
+        this.fEy = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrameAnimationView.this.buS();
+                FrameAnimationView.this.buQ();
             }
         };
     }
@@ -53,12 +53,12 @@ public class FrameAnimationView<T> extends ImageView implements d {
         super(context, attributeSet);
         this.index = 0;
         this.srcRect = new Rect();
-        this.fEn = new Rect();
-        this.fEo = 0L;
-        this.fEt = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
+        this.fEs = new Rect();
+        this.fEt = 0L;
+        this.fEy = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrameAnimationView.this.buS();
+                FrameAnimationView.this.buQ();
             }
         };
     }
@@ -67,12 +67,12 @@ public class FrameAnimationView<T> extends ImageView implements d {
         super(context, attributeSet, i);
         this.index = 0;
         this.srcRect = new Rect();
-        this.fEn = new Rect();
-        this.fEo = 0L;
-        this.fEt = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
+        this.fEs = new Rect();
+        this.fEt = 0L;
+        this.fEy = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                FrameAnimationView.this.buS();
+                FrameAnimationView.this.buQ();
             }
         };
     }
@@ -80,20 +80,20 @@ public class FrameAnimationView<T> extends ImageView implements d {
     public void startAnim() {
         if (this.mFrameCount > 0) {
             this.index = 0;
-            this.fEo = 0L;
+            this.fEt = 0L;
             a aVar = new a(this);
-            aVar.setTag(this.aQF);
+            aVar.setTag(this.aQK);
             aVar.setKey("FRAMEANIMATIONVIEW_ASYNCTASK_KEY");
-            aVar.execute(this.fEl[this.index]);
+            aVar.execute(this.fEq[this.index]);
             this.isPlaying = true;
         }
     }
 
-    private void buR() {
+    private void buP() {
         a aVar = new a(this);
-        aVar.setTag(this.aQF);
+        aVar.setTag(this.aQK);
         aVar.setKey("FRAMEANIMATIONVIEW_ASYNCTASK_KEY");
-        aVar.execute(this.fEl[this.index]);
+        aVar.execute(this.fEq[this.index]);
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -103,81 +103,81 @@ public class FrameAnimationView<T> extends ImageView implements d {
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.view.d
     public void s(Bitmap bitmap) {
-        if (this.fEo <= 0) {
-            this.fEo = System.currentTimeMillis();
+        if (this.fEt <= 0) {
+            this.fEt = System.currentTimeMillis();
         }
         if (bitmap != null) {
-            if (this.fEm != null) {
-                this.fEm.recycle();
+            if (this.fEr != null) {
+                this.fEr.recycle();
             }
-            this.fEm = bitmap;
-            this.srcRect.set(0, 0, this.fEm.getWidth(), this.fEm.getHeight());
+            this.fEr = bitmap;
+            this.srcRect.set(0, 0, this.fEr.getWidth(), this.fEr.getHeight());
             invalidate();
         } else {
             invalidate();
         }
-        if (this.index == 0 && this.fEr != null) {
-            this.fEr.onAnimStart();
+        if (this.index == 0 && this.fEw != null) {
+            this.fEw.onAnimStart();
         }
         this.index++;
-        if (this.fEl == null || this.index >= this.fEl.length) {
+        if (this.fEq == null || this.index >= this.fEq.length) {
             stopAnim();
         } else {
-            buS();
+            buQ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buS() {
-        int currentTimeMillis = (int) (((System.currentTimeMillis() - this.fEo) * this.mFrameCount) / this.fEp);
+    public void buQ() {
+        int currentTimeMillis = (int) (((System.currentTimeMillis() - this.fEt) * this.mFrameCount) / this.fEu);
         if (currentTimeMillis > this.index) {
             this.index = currentTimeMillis;
-            if (this.index >= this.fEl.length) {
+            if (this.index >= this.fEq.length) {
                 stopAnim();
                 return;
             } else {
-                buR();
+                buP();
                 return;
             }
         }
-        this.mHandler.postDelayed(this.fEt, 10L);
+        this.mHandler.postDelayed(this.fEy, 10L);
     }
 
     public void stopAnim() {
-        if (this.fEq) {
+        if (this.fEv) {
             startAnim();
             return;
         }
         this.isPlaying = false;
-        if (this.fEr != null) {
-            this.fEr.onAnimEnd();
+        if (this.fEw != null) {
+            this.fEw.onAnimEnd();
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.fEm != null) {
-            this.fEn.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
-            canvas.drawBitmap(this.fEm, this.srcRect, this.fEn, (Paint) null);
+        if (this.fEr != null) {
+            this.fEs.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
+            canvas.drawBitmap(this.fEr, this.srcRect, this.fEs, (Paint) null);
         }
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
-        this.aQF = bdUniqueId;
+        this.aQK = bdUniqueId;
     }
 
     public void setOnFrameAnimationCallback(b bVar) {
-        this.fEr = bVar;
+        this.fEw = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<T, Bitmap, Bitmap> {
-        private d fEv;
+        private d fEA;
 
         private a(d dVar) {
-            this.fEv = dVar;
+            this.fEA = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -188,7 +188,7 @@ public class FrameAnimationView<T> extends ImageView implements d {
             if (tArr == null || tArr[0] == null) {
                 return null;
             }
-            return FrameAnimationView.this.fEs.as(tArr[0]);
+            return FrameAnimationView.this.fEx.at(tArr[0]);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -196,8 +196,8 @@ public class FrameAnimationView<T> extends ImageView implements d {
         @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            if (this.fEv != null) {
-                this.fEv.s(bitmap);
+            if (this.fEA != null) {
+                this.fEA.s(bitmap);
             }
         }
     }

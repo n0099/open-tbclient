@@ -23,9 +23,9 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private a ebd;
-    private e ebe;
-    public boolean ebf;
+    private a ebi;
+    private e ebj;
+    public boolean ebk;
     private String from;
     private boolean isCancelled;
     private Object progressObject;
@@ -52,7 +52,7 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.ebd = aVar;
+        this.ebi = aVar;
         this.progressObject = obj;
         if (aVar != null) {
             this.chunkSize = 10240;
@@ -85,7 +85,7 @@ public class f {
                     UploadedImageInfo uploadedPicInfo = a2.getUploadedPicInfo();
                     if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
                         uploadedPicInfo.isGif = imageFileInfo.isGif();
-                        uploadedPicInfo.isBJH = this.ebf;
+                        uploadedPicInfo.isBJH = this.ebk;
                         imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
                     } else {
                         errorData.setError_code(-53);
@@ -127,10 +127,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.ebe == null) {
-            this.ebe = new e();
+        if (this.ebj == null) {
+            this.ebj = new e();
         }
-        return f(this.ebe.c(imageFileInfo, z), z, z2);
+        return f(this.ebj.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -338,7 +338,7 @@ public class f {
                                             } else {
                                                 this.mNetwork.addPostData("isFinish", String.valueOf(0));
                                             }
-                                            if (this.ebf) {
+                                            if (this.ebk) {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
                                             } else {
                                                 this.mNetwork.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
@@ -362,7 +362,7 @@ public class f {
                                                 this.mNetwork.addPostData("saveOrigin", "0");
                                             }
                                             if (z2) {
-                                                int imageWaterType = i.aIe().getImageWaterType();
+                                                int imageWaterType = i.aIc().getImageWaterType();
                                                 if (imageWaterType != 0) {
                                                     this.mNetwork.addPostData("pic_water_type", String.valueOf(imageWaterType));
                                                 }
@@ -370,12 +370,12 @@ public class f {
                                                 if (!StringUtils.isNull(currentAccountName) && imageWaterType == 1) {
                                                     this.mNetwork.addPostData("user_name", currentAccountName);
                                                 }
-                                                String forumNameForWaterImage = i.aIe().getForumNameForWaterImage();
+                                                String forumNameForWaterImage = i.aIc().getForumNameForWaterImage();
                                                 if (!StringUtils.isNull(forumNameForWaterImage) && imageWaterType == 2) {
                                                     this.mNetwork.addPostData("forum_name", forumNameForWaterImage);
                                                 }
                                             }
-                                            String forumNameForWaterImage2 = i.aIe().getForumNameForWaterImage();
+                                            String forumNameForWaterImage2 = i.aIc().getForumNameForWaterImage();
                                             if (!StringUtils.isNull(forumNameForWaterImage2)) {
                                                 this.mNetwork.addPostData("small_flow_fname", forumNameForWaterImage2);
                                             }
@@ -392,8 +392,8 @@ public class f {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
                                                     long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.chunkSize) : j4;
-                                                    if (this.ebd != null) {
-                                                        this.ebd.onImageDataSentInBackground(str, this.progressObject, j5, length);
+                                                    if (this.ebi != null) {
+                                                        this.ebi.onImageDataSentInBackground(str, this.progressObject, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;

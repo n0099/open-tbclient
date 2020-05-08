@@ -1,58 +1,74 @@
 package com.xiaomi.mipush.sdk;
 
-import com.xiaomi.push.hl;
-import java.util.HashMap;
+import android.content.ComponentName;
+import android.content.Context;
+import android.text.TextUtils;
+import com.xiaomi.push.ba;
 /* loaded from: classes8.dex */
 public class m {
-    private static HashMap<f, a> a = new HashMap<>();
+    private static int a = -1;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
-    public static class a {
-        public String a;
-        public String b;
-
-        public a(String str, String str2) {
-            this.a = str;
-            this.b = str2;
+    public static ah a(Context context) {
+        try {
+            return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? ah.OTHER : ah.HUAWEI;
+        } catch (Exception e) {
+            return ah.OTHER;
         }
     }
 
-    static {
-        a(f.ASSEMBLE_PUSH_HUAWEI, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
-        a(f.ASSEMBLE_PUSH_FCM, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
-        a(f.ASSEMBLE_PUSH_COS, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
-        a(f.ASSEMBLE_PUSH_FTOS, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
-    }
-
-    public static bd a(f fVar) {
-        switch (fVar) {
-            case ASSEMBLE_PUSH_HUAWEI:
-                return bd.UPLOAD_HUAWEI_TOKEN;
-            case ASSEMBLE_PUSH_FCM:
-                return bd.UPLOAD_FCM_TOKEN;
-            case ASSEMBLE_PUSH_COS:
-                return bd.UPLOAD_COS_TOKEN;
-            case ASSEMBLE_PUSH_FTOS:
-                return bd.UPLOAD_FTOS_TOKEN;
-            default:
-                return null;
+    private static boolean a() {
+        try {
+            String str = (String) ba.a("android.os.SystemProperties", "get", "ro.build.hw_emui_api_level", "");
+            if (!TextUtils.isEmpty(str)) {
+                if (Integer.parseInt(str) >= 9) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
         }
+        return false;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m110a(f fVar) {
-        return a.get(fVar);
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static hl m111a(f fVar) {
-        return hl.AggregatePushSwitch;
-    }
-
-    private static void a(f fVar, a aVar) {
-        if (aVar != null) {
-            a.put(fVar, aVar);
+    public static boolean m114a(Context context) {
+        Object a2 = ba.a(ba.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
+        Object a3 = ba.a("com.google.android.gms.common.ConnectionResult", "SUCCESS");
+        if (a3 == null || !(a3 instanceof Integer)) {
+            com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
+            a = 0;
+            return false;
         }
+        int intValue = ((Integer) Integer.class.cast(a3)).intValue();
+        if (a2 != null) {
+            if (a2 instanceof Integer) {
+                a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
+            } else {
+                a = 0;
+                com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
+            }
+        }
+        com.xiaomi.channel.commonutils.logger.b.c("is google service can be used" + (a > 0));
+        return a > 0;
+    }
+
+    public static boolean b(Context context) {
+        boolean z = false;
+        Object a2 = ba.a("com.xiaomi.assemble.control.COSPushManager", "isSupportPush", context);
+        if (a2 != null && (a2 instanceof Boolean)) {
+            z = ((Boolean) Boolean.class.cast(a2)).booleanValue();
+        }
+        com.xiaomi.channel.commonutils.logger.b.c("color os push  is avaliable ? :" + z);
+        return z;
+    }
+
+    public static boolean c(Context context) {
+        boolean z = false;
+        Object a2 = ba.a("com.xiaomi.assemble.control.FTOSPushManager", "isSupportPush", context);
+        if (a2 != null && (a2 instanceof Boolean)) {
+            z = ((Boolean) Boolean.class.cast(a2)).booleanValue();
+        }
+        com.xiaomi.channel.commonutils.logger.b.c("fun touch os push  is avaliable ? :" + z);
+        return z;
     }
 }

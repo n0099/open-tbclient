@@ -13,34 +13,34 @@ import com.baidu.tbadk.core.data.bj;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class c {
-    public static b dP(Context context) {
+    public static b dD(Context context) {
         if (context != null) {
-            f<?> S = i.S(context);
-            if (S instanceof a) {
-                return ((a) S).getTbPageInfo();
+            f<?> F = i.F(context);
+            if (F instanceof a) {
+                return ((a) F).getTbPageInfo();
             }
             return null;
         }
         return null;
     }
 
-    public static TbPageTag dQ(Context context) {
-        b dP = dP(context);
-        if (dP == null) {
+    public static TbPageTag dE(Context context) {
+        b dD = dD(context);
+        if (dD == null) {
             return null;
         }
-        return dP.aZj();
+        return dD.aZh();
     }
 
-    public static TbPageTag dR(Context context) {
-        f<?> S;
-        if (context == null || (S = i.S(context)) == null || S.getPageContext() == null || S.getPageContext().getPageActivity() == null) {
+    public static TbPageTag dF(Context context) {
+        f<?> F;
+        if (context == null || (F = i.F(context)) == null || F.getPageContext() == null || F.getPageContext().getPageActivity() == null) {
             return null;
         }
-        return X(S.getPageContext().getPageActivity().getIntent());
+        return K(F.getPageContext().getPageActivity().getIntent());
     }
 
-    public static TbPageTag X(Intent intent) {
+    public static TbPageTag K(Intent intent) {
         if (intent != null) {
             return (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
         }
@@ -48,11 +48,11 @@ public class c {
     }
 
     public static an a(Context context, an anVar) {
-        return (context == null || anVar == null) ? anVar : a(anVar, dP(context));
+        return (context == null || anVar == null) ? anVar : a(anVar, dD(context));
     }
 
     public static an a(an anVar, b bVar) {
-        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.aZj());
+        return (bVar == null || anVar == null) ? anVar : a(anVar, bVar.getPrePageTag(), bVar.aZh());
     }
 
     public static an a(an anVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
@@ -87,12 +87,12 @@ public class c {
         if (context == null || anVar == null) {
             return null;
         }
-        TbPageTag dR = dR(context);
-        if (dR != null) {
-            if (!TextUtils.isEmpty(dR.locatePage)) {
-                anVar.cI("obj_tab", dR.locatePage);
+        TbPageTag dF = dF(context);
+        if (dF != null) {
+            if (!TextUtils.isEmpty(dF.locatePage)) {
+                anVar.cI("obj_tab", dF.locatePage);
             }
-            anVar.af("sort_tab", dR.sortType);
+            anVar.af("sort_tab", dF.sortType);
             return anVar;
         }
         return anVar;
@@ -103,7 +103,7 @@ public class c {
             return null;
         }
         an anVar = new an(str);
-        anVar.cI("tid", bjVar.getId()).t("fid", bjVar.getFid()).af("card_type", bjVar.aMD());
+        anVar.cI("tid", bjVar.getId()).t("fid", bjVar.getFid()).af("card_type", bjVar.aMB());
         anVar.cI(TableDefine.SessionColumns.COLUMN_WEIGHT, bjVar.mRecomWeight).cI(TiebaInitialize.Params.AB_TAG, bjVar.mRecomAbTag).cI("extra", bjVar.mRecomExtra).cI("source", bjVar.mRecomSource);
         b(context, anVar);
         return anVar;

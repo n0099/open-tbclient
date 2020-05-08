@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes3.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
-    private int cYy;
-    private int cYz;
+    private int cYD;
+    private int cYE;
 
     public AlaBannerRecyclerView(Context context) {
         super(context);
@@ -29,8 +29,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
         int y = (int) motionEvent.getY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.cYz = y;
-                this.cYy = x;
+                this.cYE = y;
+                this.cYD = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
                 break;
             case 1:
@@ -38,8 +38,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 getParent().requestDisallowInterceptTouchEvent(false);
                 break;
             case 2:
-                int i = y - this.cYz;
-                int i2 = x - this.cYy;
+                int i = y - this.cYE;
+                int i2 = x - this.cYD;
                 if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
                     getParent().requestDisallowInterceptTouchEvent(false);
                     break;
@@ -49,8 +49,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 }
                 break;
         }
-        this.cYz = y;
-        this.cYy = x;
+        this.cYE = y;
+        this.cYD = x;
         return super.dispatchTouchEvent(motionEvent);
     }
 

@@ -12,7 +12,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.NoSuchAlgorithmException;
@@ -39,7 +38,7 @@ public class IMUpdateGroupNameRequest extends GroupBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 i = jSONObject.getInt("error_code");
-                str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+                str = jSONObject.optString("error_msg", "");
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                 i = 1010;

@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State mXa = State.NotReady;
-    private T mXb;
+    private State mXd = State.NotReady;
+    private T mXe;
 
-    protected abstract void dDz();
+    protected abstract void dDv();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (this.mXa != State.Failed) {
-            switch (this.mXa) {
+        if (this.mXd != State.Failed) {
+            switch (this.mXd) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return dDy();
+                    return dDu();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.mXa = State.NotReady;
-            return this.mXb;
+            this.mXd = State.NotReady;
+            return this.mXe;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean dDy() {
-        this.mXa = State.Failed;
-        dDz();
-        return this.mXa == State.Ready;
+    private final boolean dDu() {
+        this.mXd = State.Failed;
+        dDv();
+        return this.mXd == State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bA(T t) {
-        this.mXb = t;
-        this.mXa = State.Ready;
+    public final void bB(T t) {
+        this.mXe = t;
+        this.mXd = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.mXa = State.Done;
+        this.mXd = State.Done;
     }
 }

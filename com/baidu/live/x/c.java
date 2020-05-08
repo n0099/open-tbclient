@@ -9,5 +9,5 @@ public interface c {
 
     void release();
 
-    void xl();
+    void xk();
 }

@@ -18,13 +18,13 @@ public final class f {
                         sb.append('\n');
                     }
                 } catch (IllegalAccessException e) {
-                    com.baidu.crabsdk.c.a.f("Failed to inspect device configuration: " + configuration, e);
+                    com.baidu.crabsdk.c.a.a("Failed to inspect device configuration: " + configuration, e);
                 } catch (IllegalArgumentException e2) {
-                    com.baidu.crabsdk.c.a.f("Failed to inspect device configuration: " + configuration, e2);
+                    com.baidu.crabsdk.c.a.a("Failed to inspect device configuration: " + configuration, e2);
                 }
             }
         } catch (RuntimeException e3) {
-            com.baidu.crabsdk.c.a.f("getConfigInfo", e3);
+            com.baidu.crabsdk.c.a.a("getConfigInfo", e3);
         }
         return sb.toString();
     }

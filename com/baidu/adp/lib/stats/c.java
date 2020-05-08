@@ -3,10 +3,10 @@ package com.baidu.adp.lib.stats;
 public class c {
     public String LA;
     public String LB;
-    public String Lq;
-    public String Lr;
-    public String Ls;
-    public String Lt;
+    public String LC;
+    public String LD;
+    public String LG;
+    public String LH;
     public String Lu;
     public String Lv;
     public String Lw;

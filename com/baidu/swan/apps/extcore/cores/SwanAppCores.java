@@ -48,7 +48,7 @@ public class SwanAppCores extends SwanAppIPCData {
         return "SwanAppCores{mSwanCoreVersion=" + this.mSwanCoreVersion + ", mExtensionCore=" + this.mExtensionCore + '}';
     }
 
-    public SwanCoreVersion YI() {
+    public SwanCoreVersion YH() {
         return this.mSwanCoreVersion;
     }
 
@@ -56,7 +56,7 @@ public class SwanAppCores extends SwanAppIPCData {
         this.mSwanCoreVersion = swanCoreVersion;
     }
 
-    public ExtensionCore YJ() {
+    public ExtensionCore YI() {
         return this.mExtensionCore;
     }
 

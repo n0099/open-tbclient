@@ -7,17 +7,17 @@ import com.baidu.prologue.b;
 import com.baidu.prologue.image.PrologueImageView;
 /* loaded from: classes6.dex */
 public class c extends b<com.baidu.prologue.business.b.b> {
-    protected PrologueImageView btk;
-    View btl;
-    String btm;
+    protected PrologueImageView bto;
+    View btp;
+    String btq;
     protected Bitmap mBitmap;
 
     public c(Context context) {
         super(context);
-        this.btk = null;
+        this.bto = null;
         this.mBitmap = null;
-        this.btl = null;
-        this.btm = "";
+        this.btp = null;
+        this.btq = "";
     }
 
     @Override // com.baidu.prologue.business.c.a
@@ -26,23 +26,23 @@ public class c extends b<com.baidu.prologue.business.b.b> {
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public void Mf() {
-        this.btk = (PrologueImageView) this.mRootView.findViewById(b.C0194b.splash_ad_image);
-        this.btl = this.mRootView.findViewById(b.C0194b.image_splash_clickable);
-        if (this.bth) {
-            com.baidu.prologue.image.d.Mr().a(this.btm, this.btk);
+    public void Me() {
+        this.bto = (PrologueImageView) this.mRootView.findViewById(b.C0216b.splash_ad_image);
+        this.btp = this.mRootView.findViewById(b.C0216b.image_splash_clickable);
+        if (this.btl) {
+            com.baidu.prologue.image.d.Mq().a(this.btq, this.bto);
         } else {
-            this.btk.setImageBitmap(this.mBitmap);
+            this.bto.setImageBitmap(this.mBitmap);
         }
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public View Mb() {
-        return this.btl;
+    public View Ma() {
+        return this.btp;
     }
 
     public void setImageUrl(String str) {
-        this.btm = str;
+        this.btq = str;
     }
 
     public c f(Bitmap bitmap) {

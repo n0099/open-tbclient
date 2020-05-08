@@ -31,7 +31,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
     protected IOAdDownloader.DownloadStatus i;
     protected volatile int j;
     protected int k;
-    protected ArrayList<RunnableC0154a> l;
+    protected ArrayList<RunnableC0175a> l;
     private String n;
     private String o;
     protected Boolean f = true;
@@ -341,11 +341,11 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                 }
             }
             for (h hVar2 : arrayList2) {
-                RunnableC0154a runnableC0154a = new RunnableC0154a(hVar2.c(), this.c, hVar2.f(), hVar2.d(), hVar2.e(), hVar2.a());
+                RunnableC0175a runnableC0175a = new RunnableC0175a(hVar2.c(), this.c, hVar2.f(), hVar2.d(), hVar2.e(), hVar2.a());
                 if (hVar2.d() == 0 && hVar2.a() == 0) {
-                    runnableC0154a.a(httpURLConnection);
+                    runnableC0175a.a(httpURLConnection);
                 }
-                this.l.add(runnableC0154a);
+                this.l.add(runnableC0175a);
             }
         }
         if (this.f.booleanValue()) {
@@ -423,9 +423,9 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                         this.m = new g(this.a);
                     }
                     ArrayList arrayList4 = new ArrayList();
-                    Iterator<RunnableC0154a> it = this.l.iterator();
+                    Iterator<RunnableC0175a> it = this.l.iterator();
                     while (it.hasNext()) {
-                        RunnableC0154a next = it.next();
+                        RunnableC0175a next = it.next();
                         arrayList4.add(new h(next.a, url, str, next.d, next.e, next.f));
                         XAdSDKFoundationFacade.getInstance().getAdLogger().d("Downloader", "save to db: start=" + next.d + ";end =" + next.e + ";complete=" + next.f);
                     }
@@ -606,14 +606,14 @@ public class a extends Observable implements IOAdDownloader, Runnable {
         }
     }
 
-    protected void a(ArrayList<RunnableC0154a> arrayList) {
+    protected void a(ArrayList<RunnableC0175a> arrayList) {
         XAdSDKFoundationFacade.getInstance().getIoUtils().renameFile(this.d + this.g + ".tmp", this.d + this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.mobads.openad.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public class RunnableC0154a implements Runnable {
+    public class RunnableC0175a implements Runnable {
         protected int a;
         protected URL b;
         protected String c;
@@ -626,7 +626,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
         private volatile int k = 0;
         protected boolean g = false;
 
-        public RunnableC0154a(int i, URL url, String str, int i2, int i3, int i4) {
+        public RunnableC0175a(int i, URL url, String str, int i2, int i3, int i4) {
             this.a = i;
             this.b = url;
             this.c = str;

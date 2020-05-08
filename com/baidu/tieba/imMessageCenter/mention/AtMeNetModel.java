@@ -10,12 +10,12 @@ public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int KA() {
+    protected int Kz() {
         return 1002200;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Ku() {
+    protected String Kt() {
         return Config.ATME_ADDRESS;
     }
 
@@ -25,7 +25,7 @@ public class AtMeNetModel extends NetModel<b, c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Kz() {
+    protected int Ky() {
         return 0;
     }
 }

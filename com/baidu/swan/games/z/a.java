@@ -5,27 +5,27 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes11.dex */
 public class a {
-    private static final ReentrantLock cRN = new ReentrantLock();
-    private static volatile a cRO;
-    private d cKR;
-    private List<c> cLI = new ArrayList(3);
+    private static final ReentrantLock cRS = new ReentrantLock();
+    private static volatile a cRT;
+    private d cKX;
+    private List<c> cLO = new ArrayList(3);
 
     private a() {
     }
 
     public static a ayh() {
-        if (cRO == null) {
+        if (cRT == null) {
             synchronized (a.class) {
-                if (cRO == null) {
-                    cRO = new a();
+                if (cRT == null) {
+                    cRT = new a();
                 }
             }
         }
-        return cRO;
+        return cRT;
     }
 
     public void a(d dVar) {
-        this.cKR = dVar;
+        this.cKX = dVar;
         ayi();
     }
 
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.cKR = null;
-        this.cLI.clear();
+        this.cKX = null;
+        this.cLO.clear();
     }
 
     private void a(c cVar) {
-        cRN.lock();
+        cRS.lock();
         try {
-            if (this.cKR != null) {
-                this.cKR.c(cVar);
+            if (this.cKX != null) {
+                this.cKX.c(cVar);
             } else {
-                this.cLI.add(cVar);
+                this.cLO.add(cVar);
             }
         } finally {
-            cRN.unlock();
+            cRS.unlock();
         }
     }
 
     private void ayi() {
-        if (!this.cLI.isEmpty() && this.cKR != null) {
-            cRN.lock();
+        if (!this.cLO.isEmpty() && this.cKX != null) {
+            cRS.lock();
             try {
-                for (c cVar : this.cLI) {
-                    this.cKR.c(cVar);
+                for (c cVar : this.cLO) {
+                    this.cKX.c(cVar);
                 }
-                this.cLI.clear();
+                this.cLO.clear();
             } finally {
-                cRN.unlock();
+                cRS.unlock();
             }
         }
     }

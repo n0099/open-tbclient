@@ -61,10 +61,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             }
         }
         if (!this.msg.isEmpty()) {
-            l<byte[]> uc = com.baidu.tbadk.core.c.a.aMT().uc("tb.im_official_history");
+            l<byte[]> uf = com.baidu.tbadk.core.c.a.aMR().uf("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
-                uc.setForever(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + String.valueOf(requestHistoryMessage.getFid()), bArr);
+                uf.setForever(TbadkApplication.getCurrentAccount() + UgcConstant.AT_RULE_TAG + String.valueOf(requestHistoryMessage.getFid()), bArr);
             }
         }
     }

@@ -5,34 +5,34 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class o {
-    private g aAe = new g();
-    private int aAf = 0;
+    private g aAk = new g();
+    private int aAl = 0;
     private String mIcon;
 
-    public g wS() {
-        return this.aAe;
+    public g wR() {
+        return this.aAk;
     }
 
-    public int wT() {
-        return this.aAf;
+    public int wS() {
+        return this.aAl;
     }
 
-    public String wU() {
+    public String wT() {
         return this.mIcon;
     }
 
     public void parseJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.aAf = optJSONObject.optInt("switch");
+            this.aAl = optJSONObject.optInt("switch");
             this.mIcon = optJSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
-            this.aAe = new g();
-            this.aAe.parseJson(optJSONObject.optJSONObject("gift_info"));
-            if (!TextUtils.equals(this.aAe.vV(), com.baidu.live.c.tH().getString("quick_gift_id", ""))) {
-                com.baidu.live.c.tH().putString("quick_gift_id", this.aAe.vV());
-                com.baidu.live.c.tH().putBoolean("quick_gift_guide_show", true);
+            this.aAk = new g();
+            this.aAk.parseJson(optJSONObject.optJSONObject("gift_info"));
+            if (!TextUtils.equals(this.aAk.vU(), com.baidu.live.c.tG().getString("quick_gift_id", ""))) {
+                com.baidu.live.c.tG().putString("quick_gift_id", this.aAk.vU());
+                com.baidu.live.c.tG().putBoolean("quick_gift_guide_show", true);
             }
-            this.aAe.setSceneFrom(com.baidu.live.utils.q.Gl());
+            this.aAk.setSceneFrom(com.baidu.live.utils.q.Gk());
         }
     }
 }

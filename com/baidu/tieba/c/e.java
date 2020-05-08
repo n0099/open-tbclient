@@ -18,27 +18,27 @@ import com.baidu.tieba.c.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0525a {
-    private static e gvl = null;
-    private a gvm;
-    private a gvn;
-    private ArrayList<TransmitForumData> gvo;
-    private ArrayList<TransmitForumData> gvq;
+public class e implements a.InterfaceC0546a {
+    private static e gvr = null;
+    private a gvs;
+    private a gvt;
+    private ArrayList<TransmitForumData> gvu;
+    private ArrayList<TransmitForumData> gvw;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean gvp = false;
-    private boolean gvr = false;
+    private boolean gvv = false;
+    private boolean gvx = false;
     private boolean isLoading = false;
 
-    public static e bGe() {
-        if (gvl == null) {
+    public static e bGc() {
+        if (gvr == null) {
             synchronized (e.class) {
-                if (gvl == null) {
-                    gvl = new e();
+                if (gvr == null) {
+                    gvr = new e();
                 }
             }
         }
-        return gvl;
+        return gvr;
     }
 
     private e() {
@@ -46,38 +46,38 @@ public class e implements a.InterfaceC0525a {
     }
 
     private void init() {
-        bGg();
-        bGf();
+        bGe();
+        bGd();
         this.isLoading = false;
     }
 
-    private void bGf() {
+    private void bGd() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_ENTERFORUM_DATA), a.class);
         if (runTask != null) {
-            this.gvn = (a) runTask.getData();
+            this.gvt = (a) runTask.getData();
         }
-        if (this.gvn != null) {
-            this.gvn.a(this);
+        if (this.gvt != null) {
+            this.gvt.a(this);
         }
     }
 
-    private void bGg() {
+    private void bGe() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(CmdConfigCustom.CMD_GET_SELECT_FORUM_CONTROLLER), a.class);
         if (runTask != null) {
-            this.gvm = (a) runTask.getData();
+            this.gvs = (a) runTask.getData();
         }
-        if (this.gvm != null) {
-            this.gvm.a(this);
+        if (this.gvs != null) {
+            this.gvs.a(this);
         }
     }
 
     public void b(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !k.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.location = bGk();
+                shareDialogConfig.shareItem.location = bGi();
             }
             if (l.isNetOk() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
-                bGh();
+                bGf();
             }
             shareDialogConfig.setIsShowTransmitShare(true);
             shareDialogConfig.setTransmitForumList(this.mForumList);
@@ -86,42 +86,42 @@ public class e implements a.InterfaceC0525a {
         }
     }
 
-    public void bGh() {
+    public void bGf() {
         this.isLoading = true;
-        if (this.gvm != null) {
-            this.gvm.bFW();
+        if (this.gvs != null) {
+            this.gvs.bFU();
         }
-        if (this.gvn != null) {
-            this.gvn.bFW();
+        if (this.gvt != null) {
+            this.gvt.bFU();
         }
     }
 
-    @Override // com.baidu.tieba.c.a.InterfaceC0525a
+    @Override // com.baidu.tieba.c.a.InterfaceC0546a
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.gvq = arrayList;
+                this.gvw = arrayList;
             }
-            this.gvr = true;
+            this.gvx = true;
         } else if (i == 2) {
             if (z) {
-                this.gvo = arrayList;
+                this.gvu = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.gvp = true;
+            this.gvv = true;
         }
-        bGi();
+        bGg();
     }
 
-    private void bGi() {
-        if (this.gvm == null || this.gvp) {
-            if (this.gvn == null || this.gvr) {
-                this.gvp = false;
-                this.gvr = false;
+    private void bGg() {
+        if (this.gvs == null || this.gvv) {
+            if (this.gvt == null || this.gvx) {
+                this.gvv = false;
+                this.gvx = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!v.isEmpty(this.gvo)) {
-                    Iterator<TransmitForumData> it = this.gvo.iterator();
+                if (!v.isEmpty(this.gvu)) {
+                    Iterator<TransmitForumData> it = this.gvu.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
                         if (!dV(next.forumId)) {
@@ -129,8 +129,8 @@ public class e implements a.InterfaceC0525a {
                         }
                     }
                 }
-                if (!v.isEmpty(this.gvq)) {
-                    Iterator<TransmitForumData> it2 = this.gvq.iterator();
+                if (!v.isEmpty(this.gvw)) {
+                    Iterator<TransmitForumData> it2 = this.gvw.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
                         if (!dV(next2.forumId)) {
@@ -138,14 +138,14 @@ public class e implements a.InterfaceC0525a {
                         }
                     }
                 }
-                this.gvo = null;
-                this.gvq = null;
-                bGj();
+                this.gvu = null;
+                this.gvw = null;
+                bGh();
             }
         }
     }
 
-    private void bGj() {
+    private void bGh() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHARE_FORUM_DATA_LOADED, this.mForumList));
     }
 
@@ -163,7 +163,7 @@ public class e implements a.InterfaceC0525a {
         return false;
     }
 
-    private Location bGk() {
+    private Location bGi() {
         if (ab.checkLocationForGoogle(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService("location");
             Criteria criteria = new Criteria();

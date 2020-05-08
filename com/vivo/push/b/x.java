@@ -1,40 +1,34 @@
 package com.vivo.push.b;
-
-import com.baidu.android.imsdk.IMConstants;
 /* loaded from: classes8.dex */
-public final class x extends com.vivo.push.y {
-    private int a;
+public abstract class x extends u {
+    private String a;
+    private long b;
 
-    public x() {
-        super(IMConstants.IM_MSG_TYPE_SHIELD);
-        this.a = 0;
+    public x(int i) {
+        super(i);
     }
 
-    public final int d() {
+    public final long f() {
+        return this.b;
+    }
+
+    public final String i() {
         return this.a;
     }
 
-    public final void a(int i) {
-        this.a = i;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public void c(com.vivo.push.a aVar) {
+        super.c(aVar);
+        aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.a);
+        aVar.a("notify_id", this.b);
     }
 
-    @Override // com.vivo.push.y
-    protected final void c(com.vivo.push.a aVar) {
-        aVar.a("com.bbk.push.ikey.MODE_TYPE", this.a);
-    }
-
-    @Override // com.vivo.push.y
-    protected final void d(com.vivo.push.a aVar) {
-        this.a = aVar.b("com.bbk.push.ikey.MODE_TYPE", 0);
-    }
-
-    @Override // com.vivo.push.y
-    public final String toString() {
-        return "PushModeCommand";
-    }
-
-    @Override // com.vivo.push.y
-    public final boolean c() {
-        return true;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.vivo.push.b.u, com.vivo.push.y
+    public void d(com.vivo.push.a aVar) {
+        super.d(aVar);
+        this.a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
+        this.b = aVar.b("notify_id", -1L);
     }
 }

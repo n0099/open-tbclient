@@ -14,9 +14,9 @@ public abstract class ILiveMultiBeautyView extends LinearLayout {
 
     public abstract void setViewData();
 
-    public abstract void tV();
+    public abstract void tU();
 
-    public abstract void tW();
+    public abstract void tV();
 
     public ILiveMultiBeautyView(Context context) {
         super(context);

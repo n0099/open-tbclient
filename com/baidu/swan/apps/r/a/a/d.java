@@ -7,7 +7,7 @@ import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 public class d extends com.baidu.swan.apps.r.a<com.baidu.swan.apps.r.a.c> {
     @Override // com.baidu.swan.apps.r.a
     @NonNull
-    public String abk() {
+    public String abj() {
         return "pageScrollUp";
     }
 

@@ -46,7 +46,7 @@ public class a extends com.baidu.tbadk.mvc.f.b<tinfo, com.baidu.tbadk.mvc.d.b, c
                 }
             }
             if (tinfoVar != null) {
-                ag(tinfoVar);
+                ah(tinfoVar);
             }
         }
     }

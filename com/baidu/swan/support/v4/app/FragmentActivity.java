@@ -28,8 +28,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
-public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
-    boolean dcf;
+public class FragmentActivity extends g implements a.InterfaceC0416a, c.a {
+    boolean dck;
     boolean mCreated;
     boolean mReallyStopped;
     boolean mRequestedPermissionsFromFragment;
@@ -48,7 +48,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
                     return;
                 case 2:
                     FragmentActivity.this.onResumeFragments();
-                    FragmentActivity.this.dce.execPendingActions();
+                    FragmentActivity.this.dcj.execPendingActions();
                     return;
                 default:
                     super.handleMessage(message);
@@ -56,7 +56,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
             }
         }
     };
-    final i dce = i.a(new a());
+    final i dcj = i.a(new a());
 
     @Override // com.baidu.swan.support.v4.app.g, android.app.Activity, android.view.LayoutInflater.Factory2
     public /* bridge */ /* synthetic */ View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
@@ -71,8 +71,8 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
     /* loaded from: classes11.dex */
     static final class b {
         Object custom;
-        List<Fragment> dch;
-        com.baidu.swan.support.v4.b.f<String, o> dci;
+        List<Fragment> dcm;
+        com.baidu.swan.support.v4.b.f<String, o> dcn;
 
         b() {
         }
@@ -81,16 +81,16 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        this.dce.noteStateNotSaved();
+        this.dcj.noteStateNotSaved();
         int i3 = i >> 16;
         if (i3 != 0) {
             int i4 = i3 - 1;
-            int activeFragmentsCount = this.dce.getActiveFragmentsCount();
+            int activeFragmentsCount = this.dcj.getActiveFragmentsCount();
             if (activeFragmentsCount == 0 || i4 < 0 || i4 >= activeFragmentsCount) {
                 Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
                 return;
             }
-            Fragment fragment = this.dce.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i4);
+            Fragment fragment = this.dcj.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i4);
             if (fragment == null) {
                 Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
                 return;
@@ -104,7 +104,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (!this.dce.aCQ().popBackStackImmediate()) {
+        if (!this.dcj.aCQ().popBackStackImmediate()) {
             supportFinishAfterTransition();
         }
     }
@@ -116,28 +116,28 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.dce.dispatchConfigurationChanged(configuration);
+        this.dcj.dispatchConfigurationChanged(configuration);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        this.dce.f(null);
+        this.dcj.f(null);
         super.onCreate(bundle);
         b bVar = (b) getLastNonConfigurationInstance();
         if (bVar != null) {
-            this.dce.a(bVar.dci);
+            this.dcj.a(bVar.dcn);
         }
         if (bundle != null) {
-            this.dce.restoreAllState(bundle.getParcelable("android:support:fragments"), bVar != null ? bVar.dch : null);
+            this.dcj.restoreAllState(bundle.getParcelable("android:support:fragments"), bVar != null ? bVar.dcm : null);
         }
-        this.dce.dispatchCreate();
+        this.dcj.dispatchCreate();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
         if (i == 0) {
-            boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.dce.dispatchCreateOptionsMenu(menu, getMenuInflater());
+            boolean onCreatePanelMenu = super.onCreatePanelMenu(i, menu) | this.dcj.dispatchCreateOptionsMenu(menu, getMenuInflater());
             if (Build.VERSION.SDK_INT < 11) {
                 return true;
             }
@@ -149,7 +149,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.swan.support.v4.app.f
     public final View dispatchFragmentsOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.dce.onCreateView(view, str, context, attributeSet);
+        return this.dcj.onCreateView(view, str, context, attributeSet);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -157,8 +157,8 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
     public void onDestroy() {
         super.onDestroy();
         doReallyStop(false);
-        this.dce.dispatchDestroy();
-        this.dce.doLoaderDestroy();
+        this.dcj.dispatchDestroy();
+        this.dcj.doLoaderDestroy();
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -173,7 +173,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
-        this.dce.dispatchLowMemory();
+        this.dcj.dispatchLowMemory();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -183,9 +183,9 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
         }
         switch (i) {
             case 0:
-                return this.dce.dispatchOptionsItemSelected(menuItem);
+                return this.dcj.dispatchOptionsItemSelected(menuItem);
             case 6:
-                return this.dce.dispatchContextItemSelected(menuItem);
+                return this.dcj.dispatchContextItemSelected(menuItem);
             default:
                 return false;
         }
@@ -195,7 +195,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
     public void onPanelClosed(int i, Menu menu) {
         switch (i) {
             case 0:
-                this.dce.dispatchOptionsMenuClosed(menu);
+                this.dcj.dispatchOptionsMenuClosed(menu);
                 break;
         }
         super.onPanelClosed(i, menu);
@@ -210,19 +210,19 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
             this.mHandler.removeMessages(2);
             onResumeFragments();
         }
-        this.dce.dispatchPause();
+        this.dcj.dispatchPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        this.dce.noteStateNotSaved();
+        this.dcj.noteStateNotSaved();
     }
 
     @Override // android.app.Activity
     public void onStateNotSaved() {
-        this.dce.noteStateNotSaved();
+        this.dcj.noteStateNotSaved();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -231,7 +231,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
         super.onResume();
         this.mHandler.sendEmptyMessage(2);
         this.mResumed = true;
-        this.dce.execPendingActions();
+        this.dcj.execPendingActions();
     }
 
     @Override // android.app.Activity
@@ -239,11 +239,11 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
         super.onPostResume();
         this.mHandler.removeMessages(2);
         onResumeFragments();
-        this.dce.execPendingActions();
+        this.dcj.execPendingActions();
     }
 
     protected void onResumeFragments() {
-        this.dce.dispatchResume();
+        this.dcj.dispatchResume();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -251,12 +251,12 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
         if (i != 0 || menu == null) {
             return super.onPreparePanel(i, view, menu);
         }
-        if (this.dcf) {
-            this.dcf = false;
+        if (this.dck) {
+            this.dck = false;
             menu.clear();
             onCreatePanelMenu(i, menu);
         }
-        return onPrepareOptionsPanel(view, menu) | this.dce.dispatchPrepareOptionsMenu(menu);
+        return onPrepareOptionsPanel(view, menu) | this.dcj.dispatchPrepareOptionsMenu(menu);
     }
 
     protected boolean onPrepareOptionsPanel(View view, Menu menu) {
@@ -269,15 +269,15 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
             doReallyStop(true);
         }
         Object onRetainCustomNonConfigurationInstance = onRetainCustomNonConfigurationInstance();
-        List<Fragment> retainNonConfig = this.dce.retainNonConfig();
-        com.baidu.swan.support.v4.b.f<String, o> aCR = this.dce.aCR();
+        List<Fragment> retainNonConfig = this.dcj.retainNonConfig();
+        com.baidu.swan.support.v4.b.f<String, o> aCR = this.dcj.aCR();
         if (retainNonConfig == null && aCR == null && onRetainCustomNonConfigurationInstance == null) {
             return null;
         }
         b bVar = new b();
         bVar.custom = onRetainCustomNonConfigurationInstance;
-        bVar.dch = retainNonConfig;
-        bVar.dci = aCR;
+        bVar.dcm = retainNonConfig;
+        bVar.dcn = aCR;
         return bVar;
     }
 
@@ -285,7 +285,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        Parcelable saveAllState = this.dce.saveAllState();
+        Parcelable saveAllState = this.dcj.saveAllState();
         if (saveAllState != null) {
             bundle.putParcelable("android:support:fragments", saveAllState);
         }
@@ -300,13 +300,13 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
         this.mHandler.removeMessages(1);
         if (!this.mCreated) {
             this.mCreated = true;
-            this.dce.dispatchActivityCreated();
+            this.dcj.dispatchActivityCreated();
         }
-        this.dce.noteStateNotSaved();
-        this.dce.execPendingActions();
-        this.dce.doLoaderStart();
-        this.dce.dispatchStart();
-        this.dce.reportLoaderStart();
+        this.dcj.noteStateNotSaved();
+        this.dcj.execPendingActions();
+        this.dcj.doLoaderStart();
+        this.dcj.dispatchStart();
+        this.dcj.reportLoaderStart();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -315,7 +315,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
         super.onStop();
         this.mStopped = true;
         this.mHandler.sendEmptyMessage(1);
-        this.dce.dispatchStop();
+        this.dcj.dispatchStop();
     }
 
     public Object onRetainCustomNonConfigurationInstance() {
@@ -326,7 +326,7 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
         if (Build.VERSION.SDK_INT >= 11) {
             d.Z(this);
         } else {
-            this.dcf = true;
+            this.dck = true;
         }
     }
 
@@ -348,8 +348,8 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
         printWriter.print(this.mStopped);
         printWriter.print(" mReallyStopped=");
         printWriter.println(this.mReallyStopped);
-        this.dce.dumpLoaders(str2, fileDescriptor, printWriter, strArr);
-        this.dce.aCQ().dump(str, fileDescriptor, printWriter, strArr);
+        this.dcj.dumpLoaders(str2, fileDescriptor, printWriter, strArr);
+        this.dcj.aCQ().dump(str, fileDescriptor, printWriter, strArr);
         printWriter.print(str);
         printWriter.println("View Hierarchy:");
         a(str + "  ", printWriter, getWindow().getDecorView());
@@ -473,15 +473,15 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
     }
 
     void onReallyStop() {
-        this.dce.doLoaderStop(this.mRetaining);
-        this.dce.dispatchReallyStop();
+        this.dcj.doLoaderStop(this.mRetaining);
+        this.dcj.dispatchReallyStop();
     }
 
     public void d(Fragment fragment) {
     }
 
     public k aCQ() {
-        return this.dce.aCQ();
+        return this.dcj.aCQ();
     }
 
     @Override // android.app.Activity
@@ -501,17 +501,17 @@ public class FragmentActivity extends g implements a.InterfaceC0395a, c.a {
         }
     }
 
-    @Override // android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0395a
+    @Override // android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0416a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         int i2 = (i >> 8) & 255;
         if (i2 != 0) {
             int i3 = i2 - 1;
-            int activeFragmentsCount = this.dce.getActiveFragmentsCount();
+            int activeFragmentsCount = this.dcj.getActiveFragmentsCount();
             if (activeFragmentsCount == 0 || i3 < 0 || i3 >= activeFragmentsCount) {
                 Log.w("FragmentActivity", "Activity result fragment index out of range: 0x" + Integer.toHexString(i));
                 return;
             }
-            Fragment fragment = this.dce.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i3);
+            Fragment fragment = this.dcj.getActiveFragments(new ArrayList(activeFragmentsCount)).get(i3);
             if (fragment == null) {
                 Log.w("FragmentActivity", "Activity result no fragment exists for index: 0x" + Integer.toHexString(i));
             } else {

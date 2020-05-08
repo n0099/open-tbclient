@@ -20,23 +20,23 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.r;
 /* loaded from: classes.dex */
 public class McnVideoAdView extends FrameLayout {
-    private float UY;
-    private float UZ;
-    private ViewParent bhB;
-    private TbImageView bhq;
-    private TextView bhr;
-    private TextView bhs;
-    private Animation bht;
-    private Animation bhu;
-    private boolean bhv;
-    private com.baidu.mcn.a bhw;
-    private a bhx;
+    private static final int bhD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
+    private static final int bhE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds156);
+    private static final int bhF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112);
+    private float Vb;
+    private float Vc;
+    private boolean bhA;
+    private com.baidu.mcn.a bhB;
+    private a bhC;
+    private ViewParent bhG;
+    private TbImageView bhv;
+    private TextView bhw;
+    private TextView bhx;
+    private Animation bhy;
+    private Animation bhz;
     private boolean isShowing;
     private Context mContext;
     private final Handler mHandler;
-    private static final int bhy = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
-    private static final int bhz = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds156);
-    private static final int bhA = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -50,7 +50,7 @@ public class McnVideoAdView extends FrameLayout {
     public McnVideoAdView(Context context) {
         super(context);
         this.isShowing = false;
-        this.bhv = false;
+        this.bhA = false;
         this.mHandler = new Handler();
         this.mContext = context;
         init();
@@ -59,7 +59,7 @@ public class McnVideoAdView extends FrameLayout {
     public McnVideoAdView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isShowing = false;
-        this.bhv = false;
+        this.bhA = false;
         this.mHandler = new Handler();
         this.mContext = context;
         init();
@@ -68,7 +68,7 @@ public class McnVideoAdView extends FrameLayout {
     public McnVideoAdView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.isShowing = false;
-        this.bhv = false;
+        this.bhA = false;
         this.mHandler = new Handler();
         this.mContext = context;
         init();
@@ -76,16 +76,16 @@ public class McnVideoAdView extends FrameLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(R.layout.mcn_video_ad_layout, this);
-        this.bhq = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
-        this.bhr = (TextView) findViewById(R.id.id_mcn_video_ad_title);
-        this.bhs = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
-        this.bhq.setConrers(5);
-        this.bhq.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
-        this.bhq.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
-        this.bhq.setRadius(l.getDimens(this.mContext, R.dimen.tbds20));
-        this.bht = AnimationUtils.loadAnimation(this.mContext, R.anim.mcn_video_ad_open_anim);
-        this.bhu = AnimationUtils.loadAnimation(this.mContext, R.anim.mcn_video_ad_close_anim);
-        this.bhu.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.mcn.McnVideoAdView.1
+        this.bhv = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
+        this.bhw = (TextView) findViewById(R.id.id_mcn_video_ad_title);
+        this.bhx = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
+        this.bhv.setConrers(5);
+        this.bhv.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
+        this.bhv.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
+        this.bhv.setRadius(l.getDimens(this.mContext, R.dimen.tbds20));
+        this.bhy = AnimationUtils.loadAnimation(this.mContext, R.anim.mcn_video_ad_open_anim);
+        this.bhz = AnimationUtils.loadAnimation(this.mContext, R.anim.mcn_video_ad_close_anim);
+        this.bhz.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.mcn.McnVideoAdView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -103,13 +103,13 @@ public class McnVideoAdView extends FrameLayout {
 
     private void setData(com.baidu.mcn.a aVar) {
         if (aVar != null) {
-            this.bhw = aVar;
-            this.bhq.startLoad(aVar.bhf, 10, false);
-            if (!StringUtils.isNull(aVar.bhg)) {
-                this.bhr.setText(aVar.bhg);
+            this.bhB = aVar;
+            this.bhv.startLoad(aVar.bhk, 10, false);
+            if (!StringUtils.isNull(aVar.bhl)) {
+                this.bhw.setText(aVar.bhl);
             }
-            if (!StringUtils.isNull(aVar.bhh)) {
-                this.bhs.setText(aVar.bhh);
+            if (!StringUtils.isNull(aVar.bhm)) {
+                this.bhx.setText(aVar.bhm);
             }
         }
     }
@@ -118,55 +118,55 @@ public class McnVideoAdView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.UY = motionEvent.getX();
-                this.UZ = motionEvent.getY();
-                this.bhB = getParent();
-                if (this.bhB != null) {
-                    this.bhB.requestDisallowInterceptTouchEvent(true);
+                this.Vb = motionEvent.getX();
+                this.Vc = motionEvent.getY();
+                this.bhG = getParent();
+                if (this.bhG != null) {
+                    this.bhG.requestDisallowInterceptTouchEvent(true);
                     break;
                 }
                 break;
             case 1:
-                JH();
-                if (Math.abs(motionEvent.getX() - this.UY) < 5.0f && Math.abs(motionEvent.getY() - this.UZ) < 5.0f) {
+                JG();
+                if (Math.abs(motionEvent.getX() - this.Vb) < 5.0f && Math.abs(motionEvent.getY() - this.Vc) < 5.0f) {
                     click();
                     break;
                 }
                 break;
             case 2:
-                if (motionEvent.getX() - this.UY > 10.0f && this.isShowing) {
-                    this.bhv = true;
+                if (motionEvent.getX() - this.Vb > 10.0f && this.isShowing) {
+                    this.bhA = true;
                     dismiss();
-                    if (this.bhx != null) {
-                        this.bhx.c(this.bhw);
+                    if (this.bhC != null) {
+                        this.bhC.c(this.bhB);
                         break;
                     }
                 }
                 break;
             case 3:
-                JH();
+                JG();
                 break;
         }
         return true;
     }
 
-    private void JH() {
+    private void JG() {
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.mcn.McnVideoAdView.2
             @Override // java.lang.Runnable
             public void run() {
-                if (McnVideoAdView.this.bhB != null) {
-                    McnVideoAdView.this.bhB.requestDisallowInterceptTouchEvent(false);
-                    McnVideoAdView.this.bhB = null;
+                if (McnVideoAdView.this.bhG != null) {
+                    McnVideoAdView.this.bhG.requestDisallowInterceptTouchEvent(false);
+                    McnVideoAdView.this.bhG = null;
                 }
             }
         }, 500L);
     }
 
     private void click() {
-        if (this.mContext != null && this.bhw != null && this.bhw.bhi != null) {
-            r.aZ(this.mContext, this.bhw.bhi);
-            if (this.bhx != null) {
-                this.bhx.b(this.bhw);
+        if (this.mContext != null && this.bhB != null && this.bhB.bhn != null) {
+            r.aN(this.mContext, this.bhB.bhn);
+            if (this.bhC != null) {
+                this.bhC.b(this.bhB);
             }
         }
     }
@@ -181,16 +181,16 @@ public class McnVideoAdView extends FrameLayout {
 
     public void a(com.baidu.mcn.a aVar, ViewGroup viewGroup) {
         b(aVar, viewGroup);
-        if (this.bht != null) {
+        if (this.bhy != null) {
             clearAnimation();
-            startAnimation(this.bht);
+            startAnimation(this.bhy);
         }
     }
 
     public void dismiss() {
-        if (this.bhu != null) {
+        if (this.bhz != null) {
             clearAnimation();
-            startAnimation(this.bhu);
+            startAnimation(this.bhz);
         }
     }
 
@@ -201,8 +201,8 @@ public class McnVideoAdView extends FrameLayout {
     public void reset() {
         removeView();
         this.isShowing = false;
-        this.bhv = false;
-        this.bhw = null;
+        this.bhA = false;
+        this.bhB = null;
     }
 
     public void b(com.baidu.mcn.a aVar, ViewGroup viewGroup) {
@@ -211,27 +211,27 @@ public class McnVideoAdView extends FrameLayout {
         viewGroup.removeView(this);
         viewGroup.addView(this);
         if (viewGroup instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bhy, bhz);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bhD, bhE);
             layoutParams.gravity = 85;
-            layoutParams.bottomMargin = bhA;
+            layoutParams.bottomMargin = bhF;
             setLayoutParams(layoutParams);
         } else if (viewGroup instanceof RelativeLayout) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(bhy, bhz);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(bhD, bhE);
             layoutParams2.addRule(11);
             layoutParams2.addRule(12);
-            layoutParams2.setMargins(0, 0, 0, bhA);
+            layoutParams2.setMargins(0, 0, 0, bhF);
             setLayoutParams(layoutParams2);
         }
-        if (this.bhx != null) {
-            this.bhx.a(aVar);
+        if (this.bhC != null) {
+            this.bhC.a(aVar);
         }
     }
 
-    public void JG() {
+    public void JF() {
         removeView();
     }
 
     public void setIMcnStatListener(a aVar) {
-        this.bhx = aVar;
+        this.bhC = aVar;
     }
 }

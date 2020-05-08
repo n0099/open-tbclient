@@ -9,8 +9,8 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b implements ak {
-    private HashMap<String, Boolean> cIG = new HashMap<>();
-    private a cIH = new a();
+    private HashMap<String, Boolean> cIM = new HashMap<>();
+    private a cIN = new a();
 
     @Override // com.baidu.swan.apps.adaptation.a.ak
     @Nullable
@@ -19,17 +19,17 @@ public class b implements ak {
             bVar.V(null);
             return null;
         }
-        return this.cIH.b(jSONObject, a(bVar));
+        return this.cIN.b(jSONObject, a(bVar));
     }
 
     public boolean pw(String str) {
-        return TextUtils.equals(this.cIH.name, str);
+        return TextUtils.equals(this.cIN.name, str);
     }
 
     public boolean atx() {
         Boolean bool;
         String appKey = getAppKey();
-        if (!TextUtils.isEmpty(appKey) && (bool = this.cIG.get(appKey)) != null) {
+        if (!TextUtils.isEmpty(appKey) && (bool = this.cIM.get(appKey)) != null) {
             return bool.booleanValue();
         }
         return false;
@@ -55,14 +55,14 @@ public class b implements ak {
     public void fv(boolean z) {
         String appKey = getAppKey();
         if (!TextUtils.isEmpty(appKey)) {
-            this.cIG.put(appKey, Boolean.valueOf(z));
+            this.cIM.put(appKey, Boolean.valueOf(z));
         }
     }
 
     private String getAppKey() {
-        e akO = e.akO();
-        if (akO != null) {
-            return akO.getAppKey();
+        e akN = e.akN();
+        if (akN != null) {
+            return akN.getAppKey();
         }
         return null;
     }

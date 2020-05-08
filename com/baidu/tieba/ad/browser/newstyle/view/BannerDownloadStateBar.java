@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class BannerDownloadStateBar extends LinearLayout {
-    private TextView ezT;
-    private ImageView ezU;
+    private TextView ezY;
+    private ImageView ezZ;
     private View mRootView;
 
     public BannerDownloadStateBar(Context context) {
@@ -35,8 +35,8 @@ public class BannerDownloadStateBar extends LinearLayout {
         setOrientation(0);
         setGravity(17);
         setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-        this.ezU = (ImageView) this.mRootView.findViewById(R.id.apk_download_state_icon);
-        this.ezT = (TextView) this.mRootView.findViewById(R.id.apk_download_state_text);
+        this.ezZ = (ImageView) this.mRootView.findViewById(R.id.apk_download_state_icon);
+        this.ezY = (TextView) this.mRootView.findViewById(R.id.apk_download_state_text);
         setState(0);
     }
 
@@ -44,45 +44,45 @@ public class BannerDownloadStateBar extends LinearLayout {
         switch (i) {
             case 0:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.ezU.setVisibility(8);
-                this.ezU.setImageDrawable(null);
-                this.ezT.setText(R.string.ad_button_download_now);
-                this.ezT.setTextColor(Color.parseColor("#333333"));
+                this.ezZ.setVisibility(8);
+                this.ezZ.setImageDrawable(null);
+                this.ezY.setText(R.string.ad_button_download_now);
+                this.ezY.setTextColor(Color.parseColor("#333333"));
                 return;
             case 1:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.ezU.setVisibility(0);
-                this.ezU.setImageResource(R.drawable.ad_banner_download_pause);
-                this.ezT.setText(R.string.ad_button_pause);
-                this.ezT.setTextColor(Color.parseColor("#333333"));
+                this.ezZ.setVisibility(0);
+                this.ezZ.setImageResource(R.drawable.ad_banner_download_pause);
+                this.ezY.setText(R.string.ad_button_pause);
+                this.ezY.setTextColor(Color.parseColor("#333333"));
                 return;
             case 2:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.ezU.setVisibility(0);
-                this.ezU.setImageResource(R.drawable.ad_banner_download_resume);
-                this.ezT.setText(R.string.ad_button_resume);
-                this.ezT.setTextColor(Color.parseColor("#333333"));
+                this.ezZ.setVisibility(0);
+                this.ezZ.setImageResource(R.drawable.ad_banner_download_resume);
+                this.ezY.setText(R.string.ad_button_resume);
+                this.ezY.setTextColor(Color.parseColor("#333333"));
                 return;
             case 3:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.ezU.setVisibility(8);
-                this.ezU.setImageDrawable(null);
-                this.ezT.setText(R.string.ad_button_install);
-                this.ezT.setTextColor(Color.parseColor("#FFFFFF"));
+                this.ezZ.setVisibility(8);
+                this.ezZ.setImageDrawable(null);
+                this.ezY.setText(R.string.ad_button_install);
+                this.ezY.setTextColor(Color.parseColor("#FFFFFF"));
                 return;
             case 4:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_open);
-                this.ezU.setVisibility(8);
-                this.ezU.setImageDrawable(null);
-                this.ezT.setText(R.string.ad_button_open);
-                this.ezT.setTextColor(Color.parseColor("#FFFFFF"));
+                this.ezZ.setVisibility(8);
+                this.ezZ.setImageDrawable(null);
+                this.ezY.setText(R.string.ad_button_open);
+                this.ezY.setTextColor(Color.parseColor("#FFFFFF"));
                 return;
             default:
                 setBackgroundResource(R.drawable.ad_banner_download_button_bg_normal);
-                this.ezU.setVisibility(8);
-                this.ezU.setImageDrawable(null);
-                this.ezT.setText(R.string.ad_button_download_now);
-                this.ezT.setTextColor(Color.parseColor("#333333"));
+                this.ezZ.setVisibility(8);
+                this.ezZ.setImageDrawable(null);
+                this.ezY.setText(R.string.ad_button_download_now);
+                this.ezY.setTextColor(Color.parseColor("#333333"));
                 return;
         }
     }

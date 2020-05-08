@@ -1,134 +1,127 @@
 package com.xiaomi.push;
+
+import com.xiaomi.push.hc;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.ap;
+import java.util.Hashtable;
 /* loaded from: classes8.dex */
-public enum hg {
-    Registration(1),
-    UnRegistration(2),
-    Subscription(3),
-    UnSubscription(4),
-    SendMessage(5),
-    AckMessage(6),
-    SetConfig(7),
-    ReportFeedback(8),
-    Notification(9),
-    Command(10),
-    MultiConnectionBroadcast(11),
-    MultiConnectionResult(12),
-    ConnectionKick(13),
-    ApnsMessage(14),
-    IOSDeviceTokenWrite(15),
-    SaveInvalidRegId(16),
-    ApnsCertChanged(17),
-    RegisterDevice(18),
-    ExpandTopicInXmq(19),
-    SendMessageNew(22),
-    ExpandTopicInXmqNew(23),
-    DeleteInvalidMessage(24),
-    BadAction(99),
-    Presence(100),
-    FetchOfflineMessage(101),
-    SaveJob(102),
-    Broadcast(103),
-    BatchPresence(104),
-    BatchMessage(105),
-    StatCounter(107),
-    FetchTopicMessage(108),
-    DeleteAliasCache(109),
-    UpdateRegistration(110),
-    BatchMessageNew(112),
-    PublicWelfareMessage(113),
-    RevokeMessage(114),
-    SimulatorJob(200);
-    
+public class hg {
+    private static final int a = fh.PING_RTT.a();
 
-    /* renamed from: a  reason: collision with other field name */
-    private final int f453a;
-
-    hg(int i) {
-        this.f453a = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes8.dex */
+    public static class a {
+        static Hashtable<Integer, Long> a = new Hashtable<>();
     }
 
-    public static hg a(int i) {
-        switch (i) {
-            case 1:
-                return Registration;
-            case 2:
-                return UnRegistration;
-            case 3:
-                return Subscription;
-            case 4:
-                return UnSubscription;
-            case 5:
-                return SendMessage;
-            case 6:
-                return AckMessage;
-            case 7:
-                return SetConfig;
-            case 8:
-                return ReportFeedback;
-            case 9:
-                return Notification;
-            case 10:
-                return Command;
-            case 11:
-                return MultiConnectionBroadcast;
-            case 12:
-                return MultiConnectionResult;
-            case 13:
-                return ConnectionKick;
-            case 14:
-                return ApnsMessage;
-            case 15:
-                return IOSDeviceTokenWrite;
-            case 16:
-                return SaveInvalidRegId;
-            case 17:
-                return ApnsCertChanged;
-            case 18:
-                return RegisterDevice;
-            case 19:
-                return ExpandTopicInXmq;
-            case 22:
-                return SendMessageNew;
-            case 23:
-                return ExpandTopicInXmqNew;
-            case 24:
-                return DeleteInvalidMessage;
-            case 99:
-                return BadAction;
-            case 100:
-                return Presence;
-            case 101:
-                return FetchOfflineMessage;
-            case 102:
-                return SaveJob;
-            case 103:
-                return Broadcast;
-            case 104:
-                return BatchPresence;
-            case 105:
-                return BatchMessage;
-            case 107:
-                return StatCounter;
-            case 108:
-                return FetchTopicMessage;
-            case 109:
-                return DeleteAliasCache;
-            case 110:
-                return UpdateRegistration;
-            case 112:
-                return BatchMessageNew;
-            case 113:
-                return PublicWelfareMessage;
-            case 114:
-                return RevokeMessage;
-            case 200:
-                return SimulatorJob;
-            default:
-                return null;
+    public static void a() {
+        a(0, a);
+    }
+
+    public static void a(int i) {
+        fi m332a = he.m330a().m332a();
+        m332a.a(fh.CHANNEL_STATS_COUNTER.a());
+        m332a.c(i);
+        he.m330a().a(m332a);
+    }
+
+    public static synchronized void a(int i, int i2) {
+        synchronized (hg.class) {
+            if (i2 < 16777215) {
+                a.a.put(Integer.valueOf((i << 24) | i2), Long.valueOf(System.currentTimeMillis()));
+            } else {
+                com.xiaomi.channel.commonutils.logger.b.d("stats key should less than 16777215");
+            }
         }
     }
 
-    public int a() {
-        return this.f453a;
+    public static void a(int i, int i2, int i3, String str, int i4) {
+        fi m332a = he.m330a().m332a();
+        m332a.a((byte) i);
+        m332a.a(i2);
+        m332a.b(i3);
+        m332a.b(str);
+        m332a.c(i4);
+        he.m330a().a(m332a);
+    }
+
+    public static synchronized void a(int i, int i2, String str, int i3) {
+        synchronized (hg.class) {
+            long currentTimeMillis = System.currentTimeMillis();
+            int i4 = (i << 24) | i2;
+            if (a.a.containsKey(Integer.valueOf(i4))) {
+                fi m332a = he.m330a().m332a();
+                m332a.a(i2);
+                m332a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
+                m332a.b(str);
+                if (i3 > -1) {
+                    m332a.c(i3);
+                }
+                he.m330a().a(m332a);
+                a.a.remove(Integer.valueOf(i2));
+            } else {
+                com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
+            }
+        }
+    }
+
+    public static void a(XMPushService xMPushService, ap.b bVar) {
+        new gz(xMPushService, bVar).a();
+    }
+
+    public static void a(String str, int i, Exception exc) {
+        fi m332a = he.m330a().m332a();
+        if (i > 0) {
+            m332a.a(fh.GSLB_REQUEST_SUCCESS.a());
+            m332a.b(str);
+            m332a.b(i);
+            he.m330a().a(m332a);
+            return;
+        }
+        try {
+            hc.a a2 = hc.a(exc);
+            m332a.a(a2.a.a());
+            m332a.c(a2.f421a);
+            m332a.b(str);
+            he.m330a().a(m332a);
+        } catch (NullPointerException e) {
+        }
+    }
+
+    public static void a(String str, Exception exc) {
+        try {
+            hc.a b = hc.b(exc);
+            fi m332a = he.m330a().m332a();
+            m332a.a(b.a.a());
+            m332a.c(b.f421a);
+            m332a.b(str);
+            he.m330a().a(m332a);
+        } catch (NullPointerException e) {
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static byte[] m336a() {
+        fj m333a = he.m330a().m333a();
+        if (m333a != null) {
+            return iw.a(m333a);
+        }
+        return null;
+    }
+
+    public static void b() {
+        a(0, a, null, -1);
+    }
+
+    public static void b(String str, Exception exc) {
+        try {
+            hc.a d = hc.d(exc);
+            fi m332a = he.m330a().m332a();
+            m332a.a(d.a.a());
+            m332a.c(d.f421a);
+            m332a.b(str);
+            he.m330a().a(m332a);
+        } catch (NullPointerException e) {
+        }
     }
 }

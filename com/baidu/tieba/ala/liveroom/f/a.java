@@ -16,82 +16,82 @@ import com.baidu.searchbox.ugc.model.UgcConstant;
 import com.baidu.tieba.ala.liveroom.f.b;
 /* loaded from: classes3.dex */
 public class a implements f, b.a {
-    private CustomMessageListener aGM;
-    private b fEB;
-    private d fEC;
+    private CustomMessageListener aGS;
+    private b fEG;
+    private d fEH;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        zr();
+        zq();
     }
 
-    public void AB(String str) {
-        this.fEB = new b(this.mPageContext.getPageActivity());
-        this.fEB.a(this);
-        this.fEB.b(this);
-        this.fEB.bmE().setBackgroundColor(zq(str));
-        this.fEB.show(str);
+    public void AE(String str) {
+        this.fEG = new b(this.mPageContext.getPageActivity());
+        this.fEG.a(this);
+        this.fEG.b(this);
+        this.fEG.bmC().setBackgroundColor(zt(str));
+        this.fEG.show(str);
     }
 
     public void resume() {
-        if (this.fEB != null && this.fEB.isShowing() && this.fEB.bmE() != null) {
-            this.fEB.bmE().onResume();
-            this.fEB.bmE().reload();
+        if (this.fEG != null && this.fEG.isShowing() && this.fEG.bmC() != null) {
+            this.fEG.bmC().onResume();
+            this.fEG.bmC().reload();
         }
     }
 
     public void pause() {
-        if (this.fEB != null && this.fEB.isShowing() && this.fEB.bmE() != null) {
-            this.fEB.bmE().onPause();
+        if (this.fEG != null && this.fEG.isShowing() && this.fEG.bmC() != null) {
+            this.fEG.bmC().onPause();
         }
     }
 
     public void release() {
-        buV();
-        MessageManager.getInstance().unRegisterListener(this.aGM);
+        buT();
+        MessageManager.getInstance().unRegisterListener(this.aGS);
     }
 
     @Override // com.baidu.tieba.ala.liveroom.f.b.a
     public boolean a(String str, final JsResult jsResult) {
-        this.fEC = new d(this.mPageContext.getPageActivity());
-        this.fEC.setCancelable(false);
-        this.fEC.setCanceledOnTouchOutside(false);
-        this.fEC.ci(false);
-        this.fEC.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
-        this.fEC.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
+        this.fEH = new d(this.mPageContext.getPageActivity());
+        this.fEH.setCancelable(false);
+        this.fEH.setCanceledOnTouchOutside(false);
+        this.fEH.ci(false);
+        this.fEH.n(this.mPageContext.getString(a.i.sdk_live_disclaimer), str, this.mPageContext.getString(a.i.sdk_live_iknow), this.mPageContext.getString(a.i.sdk_live_cancel));
+        this.fEH.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.f.a.1
             @Override // com.baidu.live.view.d.a
-            public void Hy() {
+            public void Hx() {
                 if (jsResult != null) {
                     jsResult.confirm();
                 }
             }
 
             @Override // com.baidu.live.view.d.a
-            public void Hz() {
+            public void Hy() {
                 if (jsResult != null) {
                     jsResult.cancel();
                 }
             }
         });
-        this.fEC.show();
+        this.fEH.show();
         return true;
     }
 
-    private void zr() {
-        this.aGM = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
+    private void zq() {
+        this.aGS = new CustomMessageListener(2913097) { // from class: com.baidu.tieba.ala.liveroom.f.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof String) && TextUtils.equals((String) customResponsedMessage.getData(), "into_end_view")) {
-                    a.this.buV();
+                    a.this.buT();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aGM);
+        MessageManager.getInstance().registerListener(this.aGS);
     }
 
-    private int zq(String str) {
+    private int zt(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {
@@ -109,18 +109,18 @@ public class a implements f, b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buV() {
-        if (this.fEB != null) {
-            this.fEB.dismiss();
+    public void buT() {
+        if (this.fEG != null) {
+            this.fEG.dismiss();
         }
-        if (this.fEC != null) {
-            this.fEC.release();
+        if (this.fEH != null) {
+            this.fEH.release();
         }
     }
 
     @Override // com.baidu.live.view.web.f
     /* renamed from: do */
     public void mo22do(int i) {
-        buV();
+        buT();
     }
 }

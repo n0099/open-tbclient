@@ -50,25 +50,25 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean djj();
+    public abstract boolean djg();
 
     abstract boolean isEnabled();
 
     /* loaded from: classes.dex */
     public static class Builder {
-        private String dew;
-        private boolean lJC;
-        private boolean lKf;
-        private String lLA;
-        private LibraryLoader lLB;
+        private String deB;
+        private boolean lJG;
+        private boolean lKj;
         private String lLC;
-        private boolean lLD;
-        private boolean lLE;
-        private int lLF;
-        private long lLG;
-        private JSONObject lLH;
-        private String lLI;
-        private String lLy;
+        private String lLE;
+        private LibraryLoader lLF;
+        private String lLG;
+        private boolean lLH;
+        private boolean lLI;
+        private int lLJ;
+        private long lLK;
+        private JSONObject lLL;
+        private String lLM;
         private String mAppName;
         private final Context mContext;
         private String mUserAgent;
@@ -85,44 +85,44 @@ public abstract class TurbonetEngine {
 
         public Builder(Context context) {
             this.mContext = context;
-            MZ("turbonet");
-            this.lLH = new JSONObject();
+            Nc("turbonet");
+            this.lLL = new JSONObject();
             vo(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void djI() {
-            if (this.lLB == null) {
-                if (this.lLC.equals("turbonet")) {
-                    System.loadLibrary(this.lLC);
+        public void djF() {
+            if (this.lLF == null) {
+                if (this.lLG.equals("turbonet")) {
+                    System.loadLibrary(this.lLG);
                     return;
                 } else {
-                    System.load(this.lLC);
+                    System.load(this.lLG);
                     return;
                 }
             }
-            this.lLB.loadLibrary(this.lLC);
+            this.lLF.loadLibrary(this.lLG);
         }
 
-        public Builder MZ(String str) {
-            this.lLC = str;
+        public Builder Nc(String str) {
+            this.lLG = str;
             return this;
         }
 
         private void d(String str, String str2, Object obj) {
             try {
-                JSONObject optJSONObject = this.lLH.optJSONObject(str);
+                JSONObject optJSONObject = this.lLL.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.lLH.put(str, optJSONObject);
+                this.lLL.put(str, optJSONObject);
             } catch (JSONException e) {
                 throw new IllegalStateException("JSON expcetion:", e);
             }
         }
 
-        public Builder Na(String str) {
+        public Builder Nd(String str) {
             d(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
             this.mUserAgent = str;
             return this;
@@ -135,89 +135,89 @@ public abstract class TurbonetEngine {
 
         public Builder vo(boolean z) {
             d(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
-            this.lLD = z;
+            this.lLH = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean djJ() {
-            return this.lLD;
+        public boolean djG() {
+            return this.lLH;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean djK() {
-            return this.lLE;
+        public boolean djH() {
+            return this.lLI;
         }
 
-        public Builder Nb(String str) {
+        public Builder Ne(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
-            this.lLy = str;
+            this.lLC = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String djE() {
-            return this.lLy;
+        public String djB() {
+            return this.lLC;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public boolean cacheDisabled() {
-            return this.lJC;
+            return this.lJG;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long djL() {
-            return this.lLG;
+        public long djI() {
+            return this.lLK;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public int djM() {
-            return this.lLF;
+        public int djJ() {
+            return this.lLJ;
         }
 
         public String getAppPackageName() {
-            return this.dew;
+            return this.deB;
         }
 
         public Builder D(boolean z, String str) {
             d("nq", "network_quality_enabled", Boolean.valueOf(z));
             d("nq", "watched_groups", str);
-            this.lKf = z;
+            this.lKj = z;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean djN() {
-            return this.lKf;
+        public boolean djK() {
+            return this.lKj;
         }
 
-        public Builder Nc(String str) {
+        public Builder Nf(String str) {
             d("app", "cuid", str);
-            this.lLA = str;
+            this.lLE = str;
             return this;
         }
 
-        public Builder Nd(String str) {
+        public Builder Ng(String str) {
             d("app", "app_name", str);
             this.mAppName = str;
             return this;
         }
 
-        public Builder Ne(String str) {
-            this.lLI = str;
+        public Builder Nh(String str) {
+            this.lLM = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String djO() {
-            return this.lLI;
+        public String djL() {
+            return this.lLM;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String djP() {
-            return this.lLH.toString();
+        public String djM() {
+            return this.lLL.toString();
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -225,7 +225,7 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine djQ() {
+        public TurbonetEngine djN() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
@@ -234,7 +234,7 @@ public abstract class TurbonetEngine {
             }
             d(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (getUserAgent() == null) {
-                Na(c.fC(this.mContext));
+                Nd(c.fq(this.mContext));
             }
             return TurbonetEngine.a(this);
         }
@@ -258,23 +258,23 @@ public abstract class TurbonetEngine {
     /* loaded from: classes.dex */
     public static final class UrlRequestMetrics {
         @Nullable
-        private final Long lJW;
+        private final Long lKa;
         @Nullable
-        private final Long lJX;
+        private final Long lKb;
         @Nullable
-        private final Long lLJ;
+        private final Long lLN;
         @Nullable
-        private final Long lLK;
+        private final Long lLO;
 
         public UrlRequestMetrics(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
-            this.lJW = l;
-            this.lJX = l2;
-            this.lLJ = l3;
-            this.lLK = l4;
+            this.lKa = l;
+            this.lKb = l2;
+            this.lLN = l3;
+            this.lLO = l4;
         }
     }
 
-    public long diQ() {
+    public long diN() {
         return 0L;
     }
 }

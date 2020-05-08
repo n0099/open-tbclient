@@ -50,8 +50,8 @@ public class a extends ab {
                 i = ConstantData.Forum.SPECAIL_FORUM_TYPE_GAME.equals(optString2) ? 1 : 3;
             }
             c.d("StartDeviceMotionAction", "startSensor===");
-            if (!com.baidu.swan.apps.ao.g.a.aoc().a(i, new a.InterfaceC0238a() { // from class: com.baidu.swan.apps.ao.g.a.a.1
-                @Override // com.baidu.swan.apps.ao.g.a.InterfaceC0238a
+            if (!com.baidu.swan.apps.ao.g.a.aob().a(i, new a.InterfaceC0259a() { // from class: com.baidu.swan.apps.ao.g.a.a.1
+                @Override // com.baidu.swan.apps.ao.g.a.InterfaceC0259a
                 public void w(float[] fArr) {
                     if (fArr != null && fArr.length == 3) {
                         a.this.a(unitedSchemeEntity, callbackHandler, optString, fArr);

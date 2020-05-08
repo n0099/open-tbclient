@@ -6,6 +6,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.location.d.j;
 import dalvik.system.DexClassLoader;
 import java.io.File;
@@ -108,7 +109,7 @@ public class f extends Service {
             try {
                 int intExtra = intent.getIntExtra("command", 0);
                 if (intExtra == 1) {
-                    startForeground(intent.getIntExtra("id", 0), (Notification) intent.getParcelableExtra("notification"));
+                    startForeground(intent.getIntExtra("id", 0), (Notification) intent.getParcelableExtra(ActionJsonData.TAG_NOTIFICATION));
                     isStartedServing = true;
                 } else if (intExtra == 2) {
                     stopForeground(intent.getBooleanExtra("removenotify", true));

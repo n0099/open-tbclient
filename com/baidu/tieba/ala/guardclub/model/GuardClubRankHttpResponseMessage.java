@@ -8,10 +8,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GuardClubRankHttpResponseMessage extends JsonHttpResponsedMessage {
-    public boolean aIV;
-    public com.baidu.live.guardclub.f aIX;
-    public List<k> fme;
-    public com.baidu.live.guardclub.a fmf;
+    public boolean aJb;
+    public com.baidu.live.guardclub.f aJd;
+    public List<k> fmj;
+    public com.baidu.live.guardclub.a fmk;
     public boolean hasMore;
     public int pageIndex;
 
@@ -26,26 +26,26 @@ public class GuardClubRankHttpResponseMessage extends JsonHttpResponsedMessage {
         if (i == 1021146 && jSONObject != null && getError() == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("guard_club_info");
             if (optJSONObject2 != null) {
-                this.fmf = new com.baidu.live.guardclub.a();
-                this.fmf.parseJson(optJSONObject2);
+                this.fmk = new com.baidu.live.guardclub.a();
+                this.fmk.parseJson(optJSONObject2);
             }
             this.pageIndex = optJSONObject.optInt(Config.PACKAGE_NAME);
             this.hasMore = optJSONObject.optInt("has_more") == 1;
-            this.aIV = optJSONObject.optInt("is_anchor") == 1;
+            this.aJb = optJSONObject.optInt("is_anchor") == 1;
             JSONArray optJSONArray = optJSONObject.optJSONArray("club_rank_list");
             if (optJSONArray != null) {
-                this.fme = new ArrayList();
+                this.fmj = new ArrayList();
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     k cH = new k().cH(optJSONArray.optJSONObject(i2));
                     if (cH != null) {
-                        this.fme.add(cH);
+                        this.fmj.add(cH);
                     }
                 }
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("login_member_info");
             if (optJSONObject3 != null) {
-                this.aIX = new com.baidu.live.guardclub.f();
-                this.aIX.parseJson(optJSONObject3);
+                this.aJd = new com.baidu.live.guardclub.f();
+                this.aJd.parseJson(optJSONObject3);
             }
         }
     }

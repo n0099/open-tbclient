@@ -16,299 +16,299 @@ import com.baidu.tieba.ala.liveroom.views.AlaLiveView;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private com.baidu.tieba.ala.liveroom.data.a fwI;
-    private at fxs;
-    private boolean fxx;
-    private short fye = 0;
-    private com.baidu.live.liveroom.f.a fyf;
-    private com.baidu.live.liveroom.a.b fyg;
+    private com.baidu.tieba.ala.liveroom.data.a fwN;
+    private boolean fxC;
+    private at fxx;
+    private short fyj = 0;
+    private com.baidu.live.liveroom.f.a fyk;
+    private com.baidu.live.liveroom.a.b fyl;
     private String otherParams;
 
     public void d(short s) {
-        if (this.fyf != null && (this.fyf instanceof b)) {
-            this.fyf.bI(true);
-            this.fyf = null;
+        if (this.fyk != null && (this.fyk instanceof b)) {
+            this.fyk.bI(true);
+            this.fyk = null;
         }
-        if (this.fyf == null) {
-            this.fyf = com.baidu.live.liveroom.f.c.DJ().DK().b(s);
-            if (this.fyf != null) {
-                this.fyf.setActivity(this.fwI.pageContext.getPageActivity());
-                this.fyf.a(this.fyg);
-                this.fyf.b(this.fwI.fFd);
-                if (this.fwI.fFd.getParent() != null && (this.fwI.fFd.getParent() instanceof ViewGroup)) {
-                    this.fyf.h((ViewGroup) this.fwI.fFd.getParent());
+        if (this.fyk == null) {
+            this.fyk = com.baidu.live.liveroom.f.c.DI().DJ().b(s);
+            if (this.fyk != null) {
+                this.fyk.setActivity(this.fwN.pageContext.getPageActivity());
+                this.fyk.a(this.fyl);
+                this.fyk.b(this.fwN.fFi);
+                if (this.fwN.fFi.getParent() != null && (this.fwN.fFi.getParent() instanceof ViewGroup)) {
+                    this.fyk.h((ViewGroup) this.fwN.fFi.getParent());
                 }
-                this.fyf.a(this.fwI.fFb, this.fwI.aPW);
-                this.fye = (short) 0;
-                this.fwI.fFg = false;
-                this.fyf.init();
+                this.fyk.a(this.fwN.fFg, this.fwN.aQc);
+                this.fyj = (short) 0;
+                this.fwN.fFl = false;
+                this.fyk.init();
                 return;
             }
             return;
         }
-        this.fyf.b(this.fwI.fFd);
-        if (this.fwI.fFd.getParent() != null && (this.fwI.fFd.getParent() instanceof ViewGroup)) {
-            this.fyf.h((ViewGroup) this.fwI.fFd.getParent());
+        this.fyk.b(this.fwN.fFi);
+        if (this.fwN.fFi.getParent() != null && (this.fwN.fFi.getParent() instanceof ViewGroup)) {
+            this.fyk.h((ViewGroup) this.fwN.fFi.getParent());
         }
-        this.fyf.a(this.fwI.fFb, this.fwI.aPW);
+        this.fyk.a(this.fwN.fFg, this.fwN.aQc);
     }
 
     public void e(short s) {
         if (1 == s) {
-            if (this.fyf != null && !(this.fyf instanceof a)) {
-                this.fyf.bI(true);
-                this.fyf = null;
+            if (this.fyk != null && !(this.fyk instanceof a)) {
+                this.fyk.bI(true);
+                this.fyk = null;
             }
-            if (this.fyf == null) {
+            if (this.fyk == null) {
                 a aVar = new a();
-                this.fye = (short) 0;
-                aVar.a(this.fwI);
-                aVar.a(this.fyg);
-                aVar.setActivity(this.fwI.pageContext.getPageActivity());
-                this.fwI.fFg = false;
+                this.fyj = (short) 0;
+                aVar.a(this.fwN);
+                aVar.a(this.fyl);
+                aVar.setActivity(this.fwN.pageContext.getPageActivity());
+                this.fwN.fFl = false;
                 aVar.setOtherParams(this.otherParams);
                 aVar.init();
-                this.fyf = aVar;
+                this.fyk = aVar;
             }
-            this.fyf.a(this.fwI.fFb, this.fwI.aPW);
+            this.fyk.a(this.fwN.fFg, this.fwN.aQc);
         } else if (2 == s) {
-            if (this.fyf != null && !(this.fyf instanceof d)) {
-                this.fyf.bI(true);
-                this.fyf = null;
+            if (this.fyk != null && !(this.fyk instanceof d)) {
+                this.fyk.bI(true);
+                this.fyk = null;
             }
-            if (this.fyf == null) {
+            if (this.fyk == null) {
                 d dVar = new d();
-                this.fye = (short) 0;
-                dVar.a(this.fwI);
-                dVar.a(this.fyg);
-                dVar.setActivity(this.fwI.pageContext.getPageActivity());
-                this.fwI.fFg = false;
+                this.fyj = (short) 0;
+                dVar.a(this.fwN);
+                dVar.a(this.fyl);
+                dVar.setActivity(this.fwN.pageContext.getPageActivity());
+                this.fwN.fFl = false;
                 dVar.setOtherParams(this.otherParams);
                 dVar.init();
-                this.fyf = dVar;
+                this.fyk = dVar;
             }
         }
-        if (this.fyf instanceof b) {
-            b bVar = (b) this.fyf;
-            bVar.bsy();
-            bVar.jX(this.fxx);
-            bVar.a(this.fxs);
+        if (this.fyk instanceof b) {
+            b bVar = (b) this.fyk;
+            bVar.bsw();
+            bVar.jX(this.fxC);
+            bVar.a(this.fxx);
         }
     }
 
     public void a(TbPageContext tbPageContext, AlaLiveView alaLiveView, f fVar, e eVar, com.baidu.tieba.ala.liveroom.m.c cVar, String str, boolean z, long j, ArrayList<AlaBroadcastGiftToastData> arrayList, at atVar) {
-        if (this.fwI == null) {
-            this.fwI = new com.baidu.tieba.ala.liveroom.data.a();
+        if (this.fwN == null) {
+            this.fwN = new com.baidu.tieba.ala.liveroom.data.a();
         }
-        this.fwI.pageContext = tbPageContext;
-        this.fwI.fFd = alaLiveView;
-        this.fwI.aPW = fVar;
-        this.fwI.fFb = eVar;
-        this.fwI.fFc = cVar;
-        this.fwI.fromType = str;
-        this.fwI.enterTime = j;
-        this.fwI.fFe = z;
-        this.fwI.fFh = arrayList;
-        this.fwI.fFi = false;
-        this.fxs = atVar;
+        this.fwN.pageContext = tbPageContext;
+        this.fwN.fFi = alaLiveView;
+        this.fwN.aQc = fVar;
+        this.fwN.fFg = eVar;
+        this.fwN.fFh = cVar;
+        this.fwN.fromType = str;
+        this.fwN.enterTime = j;
+        this.fwN.fFj = z;
+        this.fwN.fFm = arrayList;
+        this.fwN.fFn = false;
+        this.fxx = atVar;
     }
 
     public void jX(boolean z) {
-        this.fxx = z;
-        if (this.fyf != null && (this.fyf instanceof b)) {
-            ((b) this.fyf).jX(z);
+        this.fxC = z;
+        if (this.fyk != null && (this.fyk instanceof b)) {
+            ((b) this.fyk).jX(z);
         }
     }
 
     public void a(com.baidu.live.liveroom.a.b bVar) {
-        this.fyg = bVar;
-        if (this.fyf != null) {
-            this.fyf.a(this.fyg);
+        this.fyl = bVar;
+        if (this.fyk != null) {
+            this.fyk.a(this.fyl);
         }
     }
 
     public void a(AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout) {
-        if (this.fwI != null) {
-            this.fwI.fFb = alaLiveRoomBlurPageLayout;
+        if (this.fwN != null) {
+            this.fwN.fFg = alaLiveRoomBlurPageLayout;
         }
     }
 
     public void kb(boolean z) {
-        if (this.fye != 1) {
-            if (this.fwI != null) {
-                this.fwI.fFg = false;
+        if (this.fyj != 1) {
+            if (this.fwN != null) {
+                this.fwN.fFl = false;
             }
             try {
-                if (this.fyf != null) {
-                    if (this.fwI != null) {
-                        this.fyf.k(this.fwI.fFc.DN());
+                if (this.fyk != null) {
+                    if (this.fwN != null) {
+                        this.fyk.k(this.fwN.fFh.DM());
                     }
-                    if ((this.fyf instanceof d) && z) {
-                        ((d) this.fyf).kd(true);
+                    if ((this.fyk instanceof d) && z) {
+                        ((d) this.fyk).kd(true);
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.fye = (short) 1;
+            this.fyj = (short) 1;
         }
     }
 
     public void bx(int i) {
-        this.fwI.fFi = true;
-        if (this.fyf != null) {
-            this.fyf.bx(i);
+        this.fwN.fFn = true;
+        if (this.fyk != null) {
+            this.fyk.bx(i);
         }
     }
 
-    public void btl() {
-        if (this.fwI != null) {
-            this.fwI.fFf = true;
+    public void btj() {
+        if (this.fwN != null) {
+            this.fwN.fFk = true;
         }
     }
 
     public void a(n nVar) {
-        if (this.fyf != null) {
-            this.fyf.i(nVar);
+        if (this.fyk != null) {
+            this.fyk.i(nVar);
         }
     }
 
     public void c(h hVar) {
-        if (this.fyf != null) {
-            this.fyf.b(hVar);
+        if (this.fyk != null) {
+            this.fyk.b(hVar);
         }
     }
 
     public void kc(boolean z) {
-        if (this.fye != 3) {
+        if (this.fyj != 3) {
             try {
-                if (this.fwI != null) {
-                    this.fwI.fFg = false;
+                if (this.fwN != null) {
+                    this.fwN.fFl = false;
                 }
-                if (this.fyf != null) {
-                    this.fyf.bJ(z);
+                if (this.fyk != null) {
+                    this.fyk.bJ(z);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.fye = (short) 3;
+            this.fyj = (short) 3;
         }
     }
 
-    public void btm() {
-        if (this.fye != 4) {
+    public void btk() {
+        if (this.fyj != 4) {
             try {
-                if (this.fwI != null) {
-                    this.fwI.fFg = true;
-                    if (this.fyf != null) {
-                        this.fyf.l(this.fwI.fFc.DN());
+                if (this.fwN != null) {
+                    this.fwN.fFl = true;
+                    if (this.fyk != null) {
+                        this.fyk.l(this.fwN.fFh.DM());
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.fxs = null;
-            this.fye = (short) 4;
+            this.fxx = null;
+            this.fyj = (short) 4;
         }
     }
 
-    public boolean btn() {
-        if (this.fyf == null || !(this.fyf instanceof b)) {
+    public boolean btl() {
+        if (this.fyk == null || !(this.fyk instanceof b)) {
             return false;
         }
-        return ((b) this.fyf).bsq();
+        return ((b) this.fyk).bso();
     }
 
-    public boolean bto() {
-        if (this.fyf != null && (this.fyf instanceof b) && ((b) this.fyf).fxG) {
+    public boolean btm() {
+        if (this.fyk != null && (this.fyk instanceof b) && ((b) this.fyk).fxL) {
             return false;
         }
-        if (this.fye != 5) {
-            if (this.fwI != null) {
-                this.fwI.fFg = false;
+        if (this.fyj != 5) {
+            if (this.fwN != null) {
+                this.fwN.fFl = false;
             }
             try {
-                if (this.fyf != null) {
-                    boolean DI = this.fyf.DI();
-                    if (DI && (this.fyf instanceof b)) {
-                        ((b) this.fyf).fxF = true;
+                if (this.fyk != null) {
+                    boolean DH = this.fyk.DH();
+                    if (DH && (this.fyk instanceof b)) {
+                        ((b) this.fyk).fxK = true;
                     }
-                    return DI;
+                    return DH;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            this.fye = (short) 5;
+            this.fyj = (short) 5;
         }
-        if (this.fyf != null && (this.fyf instanceof b)) {
-            ((b) this.fyf).fxF = true;
+        if (this.fyk != null && (this.fyk instanceof b)) {
+            ((b) this.fyk).fxK = true;
         }
         return true;
     }
 
     public void onDestroy() {
-        if (this.fyf != null) {
-            this.fyf.bI(false);
+        if (this.fyk != null) {
+            this.fyk.bI(false);
         }
     }
 
     public void enterBackground() {
-        if (this.fyf != null) {
-            this.fyf.onPause();
+        if (this.fyk != null) {
+            this.fyk.onPause();
         }
     }
 
     public void enterForeground() {
-        if (this.fyf != null) {
-            this.fyf.onResume();
+        if (this.fyk != null) {
+            this.fyk.onResume();
         }
     }
 
-    public void btp() {
-        if (this.fyf != null) {
-            this.fyf.onStop();
+    public void btn() {
+        if (this.fyk != null) {
+            this.fyk.onStop();
         }
     }
 
-    public void btq() {
-        if (this.fyf != null) {
-            this.fyf.onStart();
+    public void bto() {
+        if (this.fyk != null) {
+            this.fyk.onStart();
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.fyf != null) {
-            this.fyf.onActivityResult(i, i2, intent);
+        if (this.fyk != null) {
+            this.fyk.onActivityResult(i, i2, intent);
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.fyf != null) {
-            this.fyf.e(z, TbadkCoreApplication.getInst().getKeyboardHeight());
+        if (this.fyk != null) {
+            this.fyk.e(z, TbadkCoreApplication.getInst().getKeyboardHeight());
         }
     }
 
     public void l(int i, int i2, int i3) {
-        if (this.fyf != null) {
-            this.fyf.l(i, i2, i3);
+        if (this.fyk != null) {
+            this.fyk.l(i, i2, i3);
         }
     }
 
-    public com.baidu.tieba.ala.liveroom.data.a bti() {
-        return this.fwI;
+    public com.baidu.tieba.ala.liveroom.data.a btg() {
+        return this.fwN;
     }
 
     public void setOtherParams(String str) {
         this.otherParams = str;
     }
 
-    public com.baidu.live.liveroom.f.a btr() {
-        return this.fyf;
+    public com.baidu.live.liveroom.f.a btp() {
+        return this.fyk;
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (this.fyf != null) {
-            return this.fyf.onKeyDown(i, keyEvent);
+        if (this.fyk != null) {
+            return this.fyk.onKeyDown(i, keyEvent);
         }
         return false;
     }

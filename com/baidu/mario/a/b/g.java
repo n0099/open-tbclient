@@ -12,13 +12,13 @@ public class g extends b {
     private Surface mInputSurface;
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long IY() {
-        return super.IY();
+    public /* bridge */ /* synthetic */ long IX() {
+        return super.IX();
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void JA() {
-        super.JA();
+    public /* bridge */ /* synthetic */ void Jx() {
+        super.Jx();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -54,7 +54,7 @@ public class g extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.bgX = eVar;
+            this.bhc = eVar;
             MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.getVideoCodec(), dVar.getVideoWidth(), dVar.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
             createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.getVideoBitrate());
@@ -64,18 +64,18 @@ public class g extends b {
                 this.mEncoder = MediaCodec.createEncoderByType(dVar.getVideoCodec());
                 this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                 this.mInputSurface = this.mEncoder.createInputSurface();
-                this.bgZ = true;
+                this.bhe = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.bgY == null) {
-                this.bgY.cm(z);
+            if (this.bhd == null) {
+                this.bhd.cm(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.bgY == null) {
+        if (this.bhd == null) {
         }
     }
 
@@ -84,13 +84,13 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void Jx() {
-        if (this.bha == 0) {
-            this.bha = this.mBufferInfo.presentationTimeUs;
-            bhb = 0L;
+    protected void Jw() {
+        if (this.bhf == 0) {
+            this.bhf = this.mBufferInfo.presentationTimeUs;
+            bhg = 0L;
         }
-        this.mBufferInfo.presentationTimeUs -= this.bha;
-        bhb = this.mBufferInfo.presentationTimeUs;
-        com.baidu.mario.a.d.IX().aC(bhb / 1000);
+        this.mBufferInfo.presentationTimeUs -= this.bhf;
+        bhg = this.mBufferInfo.presentationTimeUs;
+        com.baidu.mario.a.d.IW().aC(bhg / 1000);
     }
 }

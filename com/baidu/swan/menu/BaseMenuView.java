@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.baidu.swan.menu.g;
 /* loaded from: classes11.dex */
 public abstract class BaseMenuView extends FrameLayout {
-    private TextView cXI;
-    private View cXJ;
-    private final int cXK;
+    private TextView cXN;
+    private View cXO;
+    private final int cXP;
     private View mContentView;
     protected Context mContext;
     private View mMaskView;
@@ -34,10 +34,10 @@ public abstract class BaseMenuView extends FrameLayout {
         this.mContext = context;
         View inflate = inflate(context, g.e.aiapp_menu_base_view_layout, this);
         this.mMaskView = inflate.findViewById(g.d.background);
-        this.cXI = (TextView) inflate.findViewById(g.d.cancel);
-        this.cXJ = inflate.findViewById(g.d.divider);
+        this.cXN = (TextView) inflate.findViewById(g.d.cancel);
+        this.cXO = inflate.findViewById(g.d.divider);
         Resources resources = context.getResources();
-        this.cXK = ((int) resources.getDimension(g.b.aiapp_menu_cancel_btn_height)) + ((int) resources.getDimension(g.b.aiapp_menu_divider_height));
+        this.cXP = ((int) resources.getDimension(g.b.aiapp_menu_cancel_btn_height)) + ((int) resources.getDimension(g.b.aiapp_menu_divider_height));
     }
 
     View getBgView() {
@@ -49,23 +49,23 @@ public abstract class BaseMenuView extends FrameLayout {
         if (view != null) {
             int height = view.getHeight();
             if (height != 0) {
-                this.mMaskView.getLayoutParams().height = height + this.cXK;
+                this.mMaskView.getLayoutParams().height = height + this.cXP;
             }
             this.mContentView = view;
-            layoutParams.bottomMargin = this.cXK;
+            layoutParams.bottomMargin = this.cXP;
             addView(view, layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void it(int i) {
-        this.mMaskView.getLayoutParams().height = this.cXK + i;
+        this.mMaskView.getLayoutParams().height = this.cXP + i;
         this.mMaskView.requestLayout();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setClickListener(View.OnClickListener onClickListener) {
-        this.cXI.setOnClickListener(onClickListener);
+        this.cXN.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -77,10 +77,10 @@ public abstract class BaseMenuView extends FrameLayout {
     public void aAZ() {
         Resources resources = getResources();
         this.mMaskView.setBackground(resources.getDrawable(g.c.swan_common_menu_content_bg));
-        this.cXJ.setBackgroundColor(resources.getColor(g.a.aiapp_menu_split_line_day));
-        this.cXI.setBackgroundColor(resources.getColor(g.a.aiapp_menu_cancel_text_color_bg));
-        this.cXI.setTextColor(resources.getColorStateList(g.a.aiapp_menu_cancel_text_color_day));
-        this.cXJ.setAlpha(1.0f);
-        this.cXI.setAlpha(1.0f);
+        this.cXO.setBackgroundColor(resources.getColor(g.a.aiapp_menu_split_line_day));
+        this.cXN.setBackgroundColor(resources.getColor(g.a.aiapp_menu_cancel_text_color_bg));
+        this.cXN.setTextColor(resources.getColorStateList(g.a.aiapp_menu_cancel_text_color_day));
+        this.cXO.setAlpha(1.0f);
+        this.cXN.setAlpha(1.0f);
     }
 }

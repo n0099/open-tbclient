@@ -3,17 +3,17 @@ package com.baidu.tieba.ala.liveroom.h;
 import java.util.HashSet;
 /* loaded from: classes3.dex */
 public class g {
-    private static HashSet<Integer> fGA = new HashSet<>();
+    private static HashSet<Integer> fGF = new HashSet<>();
 
     public static void qt(int i) {
-        if (fGA != null) {
-            fGA.add(Integer.valueOf(i));
+        if (fGF != null) {
+            fGF.add(Integer.valueOf(i));
         }
     }
 
     public static void qu(int i) {
-        if (fGA != null) {
-            fGA.remove(Integer.valueOf(i));
+        if (fGF != null) {
+            fGF.remove(Integer.valueOf(i));
         }
     }
 
@@ -24,9 +24,9 @@ public class g {
     */
     public static boolean qv(int i) {
         int i2 = 2913168;
-        if (fGA != null) {
-            if (!fGA.contains(2913168)) {
-                if (fGA.contains(2913128)) {
+        if (fGF != null) {
+            if (!fGF.contains(2913168)) {
+                if (fGF.contains(2913128)) {
                     i2 = 2913128;
                 }
             }
@@ -37,9 +37,9 @@ public class g {
         }
     }
 
-    public static void bvx() {
-        if (fGA != null) {
-            fGA.clear();
+    public static void bvv() {
+        if (fGF != null) {
+            fGF.clear();
         }
     }
 }

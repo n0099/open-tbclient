@@ -14,60 +14,60 @@ import com.baidu.tieba.frs.an;
 import com.baidu.tieba.frs.view.FrsHeaderViewContainer;
 /* loaded from: classes9.dex */
 public class k {
-    private static int hxA = 5000;
-    private AppBarLayout VZ;
-    private ValueAnimator dGV;
-    private FrsHeaderViewContainer haR;
-    private BdTypeRecyclerView hau;
-    private PullRefreshFrameLayout hxB;
-    private ValueAnimator hxC;
-    private an hxF;
-    private com.baidu.tieba.frs.l hxG;
-    private View hxH;
-    private int hxK;
-    private int hxL;
-    private boolean hxD = false;
-    private boolean hxE = false;
-    private RelativeLayout.LayoutParams hxI = null;
-    private int hxJ = 0;
-    private PullRefreshFrameLayout.b hxM = new PullRefreshFrameLayout.b() { // from class: com.baidu.tieba.frs.vc.k.1
+    private static int hxG = 5000;
+    private AppBarLayout Wc;
+    private ValueAnimator dGZ;
+    private BdTypeRecyclerView haA;
+    private FrsHeaderViewContainer haX;
+    private PullRefreshFrameLayout hxH;
+    private ValueAnimator hxI;
+    private an hxL;
+    private com.baidu.tieba.frs.l hxM;
+    private View hxN;
+    private int hxQ;
+    private int hxR;
+    private boolean hxJ = false;
+    private boolean hxK = false;
+    private RelativeLayout.LayoutParams hxO = null;
+    private int hxP = 0;
+    private PullRefreshFrameLayout.b hxS = new PullRefreshFrameLayout.b() { // from class: com.baidu.tieba.frs.vc.k.1
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.b
         public void m(double d) {
-            if (k.this.hxH != null && k.this.hxI != null) {
-                k.this.hxI.height = (int) (k.this.hxJ + (PullRefreshFrameLayout.dGE * d));
-                k.this.hxH.setLayoutParams(k.this.hxI);
-                if (k.this.hxG != null) {
-                    k.this.hxG.q(d);
+            if (k.this.hxN != null && k.this.hxO != null) {
+                k.this.hxO.height = (int) (k.this.hxP + (PullRefreshFrameLayout.dGI * d));
+                k.this.hxN.setLayoutParams(k.this.hxO);
+                if (k.this.hxM != null) {
+                    k.this.hxM.q(d);
                 }
             }
         }
 
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.b
         public void c(final int i, double d) {
-            if (k.this.hxH != null && k.this.hxI != null && k.this.hxG != null) {
-                k.this.dGV = ValueAnimator.ofFloat(0.0f, 1.0f);
-                k.this.dGV.setDuration(150L);
-                final int i2 = k.this.hxI.height;
-                final int height = k.this.hxG.getHeight();
-                k.this.dGV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.k.1.1
+            if (k.this.hxN != null && k.this.hxO != null && k.this.hxM != null) {
+                k.this.dGZ = ValueAnimator.ofFloat(0.0f, 1.0f);
+                k.this.dGZ.setDuration(150L);
+                final int i2 = k.this.hxO.height;
+                final int height = k.this.hxM.getHeight();
+                k.this.dGZ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.k.1.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
                         float animatedFraction = valueAnimator.getAnimatedFraction();
-                        k.this.hxI.height = (int) (i2 - (i * animatedFraction));
-                        k.this.hxH.setLayoutParams(k.this.hxI);
-                        if (k.this.hxG != null) {
-                            k.this.hxG.setHeight((int) (height - (animatedFraction * i)));
+                        k.this.hxO.height = (int) (i2 - (i * animatedFraction));
+                        k.this.hxN.setLayoutParams(k.this.hxO);
+                        if (k.this.hxM != null) {
+                            k.this.hxM.setHeight((int) (height - (animatedFraction * i)));
                         }
                     }
                 });
-                k.this.dGV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.vc.k.1.2
+                k.this.dGZ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.vc.k.1.2
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        k.this.hxK = k.this.hxI.height;
+                        k.this.hxQ = k.this.hxO.height;
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -78,42 +78,42 @@ public class k {
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-                k.this.dGV.start();
+                k.this.dGZ.start();
             }
         }
 
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.b
-        public void aQo() {
-            if (k.this.hxI != null) {
-                final int i = k.this.hxI.height;
-                final int i2 = k.this.hxI.height - k.this.hxJ;
+        public void aQl() {
+            if (k.this.hxO != null) {
+                final int i = k.this.hxO.height;
+                final int i2 = k.this.hxO.height - k.this.hxP;
                 final int i3 = 0;
-                if (k.this.hxG != null) {
-                    i3 = k.this.hxG.bPj();
+                if (k.this.hxM != null) {
+                    i3 = k.this.hxM.bPh();
                 }
                 if (i2 > 0) {
-                    k.this.dGV = ValueAnimator.ofFloat(0.0f, 1.0f);
-                    k.this.dGV.setDuration(300L);
-                    k.this.dGV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.k.1.3
+                    k.this.dGZ = ValueAnimator.ofFloat(0.0f, 1.0f);
+                    k.this.dGZ.setDuration(300L);
+                    k.this.dGZ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.k.1.3
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
                             float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                            k.this.hxI.height = (int) (i - (i2 * floatValue));
-                            k.this.hxH.setLayoutParams(k.this.hxI);
-                            if (k.this.hxG != null && i3 > 0) {
-                                k.this.hxG.setHeight((int) (i3 - (floatValue * i2)));
+                            k.this.hxO.height = (int) (i - (i2 * floatValue));
+                            k.this.hxN.setLayoutParams(k.this.hxO);
+                            if (k.this.hxM != null && i3 > 0) {
+                                k.this.hxM.setHeight((int) (i3 - (floatValue * i2)));
                             }
                         }
                     });
-                    k.this.dGV.start();
-                    k.this.dGV.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.vc.k.1.4
+                    k.this.dGZ.start();
+                    k.this.dGZ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.vc.k.1.4
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationStart(Animator animator) {
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            k.this.hxK = 0;
+                            k.this.hxQ = 0;
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
@@ -124,191 +124,191 @@ public class k {
                         public void onAnimationRepeat(Animator animator) {
                         }
                     });
-                    if (k.this.hxF != null) {
-                        k.this.hxF.aQo();
+                    if (k.this.hxL != null) {
+                        k.this.hxL.aQl();
                     }
                 }
             }
         }
     };
-    private PullRefreshFrameLayout.a hxN = new PullRefreshFrameLayout.a() { // from class: com.baidu.tieba.frs.vc.k.2
+    private PullRefreshFrameLayout.a hxT = new PullRefreshFrameLayout.a() { // from class: com.baidu.tieba.frs.vc.k.2
         @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.a
-        public void aQn() {
-            k.this.bVH();
+        public void aQk() {
+            k.this.bVF();
         }
     };
-    private Runnable hxO = new Runnable() { // from class: com.baidu.tieba.frs.vc.k.3
+    private Runnable hxU = new Runnable() { // from class: com.baidu.tieba.frs.vc.k.3
         @Override // java.lang.Runnable
         public void run() {
-            if (k.this.hxE) {
-                k.this.bVI();
+            if (k.this.hxK) {
+                k.this.bVG();
             }
         }
     };
 
     public k(@NonNull FrsFragment frsFragment) {
-        this.hxB = null;
+        this.hxH = null;
         View rootView = frsFragment.getRootView();
-        this.hxB = (PullRefreshFrameLayout) rootView.findViewById(R.id.frs_content_layout);
-        this.hxB.setFromFrs();
-        this.hxB.setOnTouchCallback(this.hxM);
-        this.hxB.setOnPullRefreshListener(this.hxN);
-        this.hxB.aQm();
-        this.haR = (FrsHeaderViewContainer) rootView.findViewById(R.id.header_view_container);
-        this.VZ = (AppBarLayout) rootView.findViewById(R.id.frs_app_bar_layout);
-        this.hau = (BdTypeRecyclerView) rootView.findViewById(R.id.frs_lv_thread);
-        bQd();
+        this.hxH = (PullRefreshFrameLayout) rootView.findViewById(R.id.frs_content_layout);
+        this.hxH.setFromFrs();
+        this.hxH.setOnTouchCallback(this.hxS);
+        this.hxH.setOnPullRefreshListener(this.hxT);
+        this.hxH.aQj();
+        this.haX = (FrsHeaderViewContainer) rootView.findViewById(R.id.header_view_container);
+        this.Wc = (AppBarLayout) rootView.findViewById(R.id.frs_app_bar_layout);
+        this.haA = (BdTypeRecyclerView) rootView.findViewById(R.id.frs_lv_thread);
+        bQb();
     }
 
     public void setInterceptScrollDown(boolean z) {
-        this.hxB.setInterceptScrollDown(z);
+        this.hxH.setInterceptScrollDown(z);
     }
 
-    public int bVF() {
-        return this.hxK;
+    public int bVD() {
+        return this.hxQ;
     }
 
-    public int bVG() {
-        return this.hxJ;
+    public int bVE() {
+        return this.hxP;
     }
 
-    public void aqh() {
-        if (this.hxB != null) {
-            this.hxB.aqh();
+    public void aqg() {
+        if (this.hxH != null) {
+            this.hxH.aqg();
         }
     }
 
     public void H(int i, boolean z) {
-        if (i == this.hxL) {
-            this.hxD = z;
+        if (i == this.hxR) {
+            this.hxJ = z;
             if (z) {
                 startPullRefresh();
                 return;
             }
-            this.hau.getAdapter().notifyDataSetChanged();
-            blz();
+            this.haA.getAdapter().notifyDataSetChanged();
+            blx();
         }
     }
 
-    public boolean bOZ() {
-        return this.hxD;
+    public boolean bOX() {
+        return this.hxJ;
     }
 
     public void onDestroy() {
-        if (this.hxE) {
-            bVI();
+        if (this.hxK) {
+            bVG();
         }
-        if (this.dGV != null) {
-            this.dGV.cancel();
-            this.dGV.removeAllListeners();
-            this.dGV.removeAllUpdateListeners();
-            this.dGV = null;
+        if (this.dGZ != null) {
+            this.dGZ.cancel();
+            this.dGZ.removeAllListeners();
+            this.dGZ.removeAllUpdateListeners();
+            this.dGZ = null;
         }
-        com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hxO);
+        com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hxU);
     }
 
     public void startPullRefresh() {
-        if (this.hxB != null || this.hxB.isEnable()) {
-            if (this.hau != null) {
-                this.hau.setSelection(0);
+        if (this.hxH != null || this.hxH.isEnable()) {
+            if (this.haA != null) {
+                this.haA.setSelection(0);
             }
-            if (this.VZ != null) {
-                this.VZ.setExpanded(true);
+            if (this.Wc != null) {
+                this.Wc.setExpanded(true);
             }
-            if (!this.hxE) {
-                this.hxC = ValueAnimator.ofFloat(0.0f, 1.0f);
-                this.hxC.setDuration(300L);
-                this.hxC.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.k.4
+            if (!this.hxK) {
+                this.hxI = ValueAnimator.ofFloat(0.0f, 1.0f);
+                this.hxI.setDuration(300L);
+                this.hxI.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.k.4
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
                         float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                        if (k.this.hxI != null) {
-                            k.this.hxI.height = (int) (k.this.hxJ + (PullRefreshFrameLayout.dGD * floatValue));
-                            k.this.hxH.setLayoutParams(k.this.hxI);
+                        if (k.this.hxO != null) {
+                            k.this.hxO.height = (int) (k.this.hxP + (PullRefreshFrameLayout.dGH * floatValue));
+                            k.this.hxN.setLayoutParams(k.this.hxO);
                         }
-                        if (k.this.hxG != null) {
-                            k.this.hxG.setHeight((int) ((floatValue * PullRefreshFrameLayout.dGD) + k.this.hxG.getOriginHeight()));
+                        if (k.this.hxM != null) {
+                            k.this.hxM.setHeight((int) ((floatValue * PullRefreshFrameLayout.dGH) + k.this.hxM.getOriginHeight()));
                         }
                     }
                 });
-                this.hxC.start();
-                this.hxB.setRefreshing(true);
-                bVH();
+                this.hxI.start();
+                this.hxH.setRefreshing(true);
+                bVF();
             }
         }
     }
 
-    public void bQc() {
+    public void bQa() {
         final View headBgContainer;
-        if (this.haR != null && (headBgContainer = this.haR.getHeadBgContainer()) != null) {
-            if (this.hxG == null) {
-                this.hxG = new com.baidu.tieba.frs.l(headBgContainer);
+        if (this.haX != null && (headBgContainer = this.haX.getHeadBgContainer()) != null) {
+            if (this.hxM == null) {
+                this.hxM = new com.baidu.tieba.frs.l(headBgContainer);
             }
-            if (this.hxG.bPj() > 0) {
-                this.hxG.setHeight(this.hxG.bPj());
+            if (this.hxM.bPh() > 0) {
+                this.hxM.setHeight(this.hxM.bPh());
             }
             headBgContainer.post(new Runnable() { // from class: com.baidu.tieba.frs.vc.k.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (k.this.hxG.getOriginHeight() < 0) {
-                        k.this.hxG.setOriginHeight(headBgContainer.getMeasuredHeight());
+                    if (k.this.hxM.getOriginHeight() < 0) {
+                        k.this.hxM.setOriginHeight(headBgContainer.getMeasuredHeight());
                     }
-                    if (k.this.hxG.bPj() < 0) {
-                        k.this.hxG.tg(headBgContainer.getMeasuredHeight());
+                    if (k.this.hxM.bPh() < 0) {
+                        k.this.hxM.tg(headBgContainer.getMeasuredHeight());
                     }
                 }
             });
         }
     }
 
-    public void bQd() {
-        if (this.haR != null) {
-            this.hxH = this.haR.getHeaderEmptyView();
-            if (this.hxH != null) {
-                this.hxJ = 0;
-                this.hxI = (RelativeLayout.LayoutParams) this.hxH.getLayoutParams();
-                if (this.hxH.getHeight() > 0) {
-                    this.hxI.height = this.hxJ;
-                    this.hxH.setLayoutParams(this.hxI);
+    public void bQb() {
+        if (this.haX != null) {
+            this.hxN = this.haX.getHeaderEmptyView();
+            if (this.hxN != null) {
+                this.hxP = 0;
+                this.hxO = (RelativeLayout.LayoutParams) this.hxN.getLayoutParams();
+                if (this.hxN.getHeight() > 0) {
+                    this.hxO.height = this.hxP;
+                    this.hxN.setLayoutParams(this.hxO);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVH() {
-        com.baidu.adp.lib.f.e.lb().postDelayed(this.hxO, hxA);
-        this.hxE = true;
-        if (this.hxF != null) {
-            this.hxF.aQn();
+    public void bVF() {
+        com.baidu.adp.lib.f.e.lb().postDelayed(this.hxU, hxG);
+        this.hxK = true;
+        if (this.hxL != null) {
+            this.hxL.aQk();
         }
     }
 
-    public void bVI() {
-        this.hxE = false;
-        if (this.hxB != null) {
-            this.hxB.aQl();
+    public void bVG() {
+        this.hxK = false;
+        if (this.hxH != null) {
+            this.hxH.aQi();
         }
     }
 
-    public void blz() {
-        if (this.hxE) {
-            bVI();
-            com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hxO);
+    public void blx() {
+        if (this.hxK) {
+            bVG();
+            com.baidu.adp.lib.f.e.lb().removeCallbacks(this.hxU);
         }
     }
 
     public void mA(boolean z) {
-        if (this.hxB != null) {
-            this.hxB.setEnable(z);
+        if (this.hxH != null) {
+            this.hxH.setEnable(z);
         }
     }
 
     public void a(an anVar) {
-        this.hxF = anVar;
+        this.hxL = anVar;
     }
 
     public void tr(int i) {
-        this.hxL = i;
+        this.hxR = i;
     }
 }

@@ -11,46 +11,46 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.personCenter.c.m;
 /* loaded from: classes9.dex */
 public class e extends com.baidu.tieba.card.a<m> {
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a> dvL;
-    private LinearLayout jUA;
-    private AutoBannerView jUB;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a> dvP;
+    private LinearLayout jUE;
+    private AutoBannerView jUF;
     private int mSkinType;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.dvL = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a>() { // from class: com.baidu.tieba.personCenter.view.e.1
+        this.dvP = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a>() { // from class: com.baidu.tieba.personCenter.view.e.1
             @Override // com.baidu.tbadk.core.flow.a.d
             public void ah(int i, String str) {
-                if (e.this.jUB != null && str != null) {
-                    if (e.this.jUB.checkIndex(i)) {
+                if (e.this.jUF != null && str != null) {
+                    if (e.this.jUF.checkIndex(i)) {
                         TiebaStatic.log(new an("c13247").af("obj_locate", i).cI("obj_param1", str));
                     }
-                    e.this.jUB.aRb();
-                    e.this.jUB.Io(str);
+                    e.this.jUF.aQY();
+                    e.this.jUF.Ir(str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.personCenter.c.a aVar) {
-                if (e.this.jUB != null && aVar != null && aVar.cGl() != null && e.this.jUB.checkIndex(i)) {
-                    TiebaStatic.log(new an("c13246").cI("uid", TbadkCoreApplication.getCurrentAccount()).af("obj_locate", i).cI("obj_param1", aVar.cGl()));
+                if (e.this.jUF != null && aVar != null && aVar.cGi() != null && e.this.jUF.checkIndex(i)) {
+                    TiebaStatic.log(new an("c13246").cI("uid", TbadkCoreApplication.getCurrentAccount()).af("obj_locate", i).cI("obj_param1", aVar.cGi()));
                 }
             }
         };
         View view = getView();
-        this.jUA = (LinearLayout) view.findViewById(R.id.viewpager);
-        this.jUB = (AutoBannerView) view.findViewById(R.id.person_center_auto_banner_view);
-        this.jUB.setMarqueenTime(3000L);
-        this.jUB.getCoverFlowView().setCallback(this.dvL);
+        this.jUE = (LinearLayout) view.findViewById(R.id.viewpager);
+        this.jUF = (AutoBannerView) view.findViewById(R.id.person_center_auto_banner_view);
+        this.jUF.setMarqueenTime(3000L);
+        this.jUF.getCoverFlowView().setCallback(this.dvP);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            if (this.jUB != null) {
-                this.jUB.onChangeSkinType(i);
+            if (this.jUF != null) {
+                this.jUF.onChangeSkinType(i);
             }
             am.setBackgroundColor(getView(), R.color.cp_bg_line_e);
             this.mSkinType = i;
@@ -66,8 +66,8 @@ public class e extends com.baidu.tieba.card.a<m> {
     @Override // com.baidu.tieba.card.a
     public void a(m mVar) {
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (this.jUA != null && mVar != null && mVar.jTm != null && this.jUB != null && mVar.jTm.size() != 0) {
-            this.jUB.dZ(mVar.jTm);
+        if (this.jUE != null && mVar != null && mVar.jTq != null && this.jUF != null && mVar.jTq.size() != 0) {
+            this.jUF.dZ(mVar.jTq);
         }
     }
 
@@ -77,8 +77,8 @@ public class e extends com.baidu.tieba.card.a<m> {
 
     @Override // com.baidu.tieba.card.a
     public void onDestroy() {
-        if (this.jUB != null) {
-            this.jUB.aRb();
+        if (this.jUF != null) {
+            this.jUF.aQY();
         }
     }
 }

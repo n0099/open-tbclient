@@ -1,148 +1,125 @@
 package com.meizu.cloud.pushsdk.b.g;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.logging.Logger;
 /* loaded from: classes8.dex */
-final class g implements b {
-    public final a a;
-    public final k b;
-    private boolean c;
+public final class g {
+    private static final Logger a = Logger.getLogger(g.class.getName());
 
-    public g(k kVar) {
-        this(kVar, new a());
+    private g() {
     }
 
-    public g(k kVar, a aVar) {
-        if (kVar == null) {
+    public static c a(l lVar) {
+        if (lVar == null) {
             throw new IllegalArgumentException("sink == null");
         }
-        this.a = aVar;
-        this.b = kVar;
+        return new h(lVar);
     }
 
-    @Override // com.meizu.cloud.pushsdk.b.g.b
-    public long a(l lVar) throws IOException {
-        if (lVar == null) {
+    public static d a(m mVar) {
+        if (mVar == null) {
             throw new IllegalArgumentException("source == null");
         }
-        long j = 0;
-        while (true) {
-            long b = lVar.b(this.a, 2048L);
-            if (b == -1) {
-                return j;
+        return new i(mVar);
+    }
+
+    public static l a(OutputStream outputStream) {
+        return a(outputStream, new n());
+    }
+
+    private static l a(final OutputStream outputStream, final n nVar) {
+        if (outputStream == null) {
+            throw new IllegalArgumentException("out == null");
+        }
+        if (nVar == null) {
+            throw new IllegalArgumentException("timeout == null");
+        }
+        return new l() { // from class: com.meizu.cloud.pushsdk.b.g.g.1
+            @Override // com.meizu.cloud.pushsdk.b.g.l
+            public void a(b bVar, long j) throws IOException {
+                o.a(bVar.b, 0L, j);
+                while (j > 0) {
+                    n.this.a();
+                    j jVar = bVar.a;
+                    int min = (int) Math.min(j, jVar.c - jVar.b);
+                    outputStream.write(jVar.a, jVar.b, min);
+                    jVar.b += min;
+                    j -= min;
+                    bVar.b -= min;
+                    if (jVar.b == jVar.c) {
+                        bVar.a = jVar.a();
+                        k.a(jVar);
+                    }
+                }
             }
-            j += b;
-            a();
-        }
-    }
 
-    public b a() throws IOException {
-        if (this.c) {
-            throw new IllegalStateException("closed");
-        }
-        long e = this.a.e();
-        if (e > 0) {
-            this.b.a(this.a, e);
-        }
-        return this;
-    }
-
-    @Override // com.meizu.cloud.pushsdk.b.g.k
-    public void a(a aVar, long j) throws IOException {
-        if (this.c) {
-            throw new IllegalStateException("closed");
-        }
-        this.a.a(aVar, j);
-        a();
-    }
-
-    @Override // com.meizu.cloud.pushsdk.b.g.b
-    public a b() {
-        return this.a;
-    }
-
-    @Override // com.meizu.cloud.pushsdk.b.g.b
-    public b b(d dVar) throws IOException {
-        if (this.c) {
-            throw new IllegalStateException("closed");
-        }
-        this.a.b(dVar);
-        return a();
-    }
-
-    @Override // com.meizu.cloud.pushsdk.b.g.b
-    public b b(String str) throws IOException {
-        if (this.c) {
-            throw new IllegalStateException("closed");
-        }
-        this.a.b(str);
-        return a();
-    }
-
-    @Override // com.meizu.cloud.pushsdk.b.g.b
-    public b c(byte[] bArr) throws IOException {
-        if (this.c) {
-            throw new IllegalStateException("closed");
-        }
-        this.a.c(bArr);
-        return a();
-    }
-
-    @Override // com.meizu.cloud.pushsdk.b.g.b
-    public b c(byte[] bArr, int i, int i2) throws IOException {
-        if (this.c) {
-            throw new IllegalStateException("closed");
-        }
-        this.a.c(bArr, i, i2);
-        return a();
-    }
-
-    @Override // com.meizu.cloud.pushsdk.b.g.k, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.l
-    public void close() throws IOException {
-        if (this.c) {
-            return;
-        }
-        Throwable th = null;
-        try {
-            if (this.a.b > 0) {
-                this.b.a(this.a, this.a.b);
+            @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
+            public void close() throws IOException {
+                outputStream.close();
             }
-        } catch (Throwable th2) {
-            th = th2;
-        }
-        try {
-            this.b.close();
-        } catch (Throwable th3) {
-            if (th == null) {
-                th = th3;
+
+            @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Flushable
+            public void flush() throws IOException {
+                outputStream.flush();
             }
-        }
-        this.c = true;
-        if (th != null) {
-            n.a(th);
-        }
+
+            public String toString() {
+                return "sink(" + outputStream + ")";
+            }
+        };
     }
 
-    @Override // com.meizu.cloud.pushsdk.b.g.b
-    public b e(long j) throws IOException {
-        if (this.c) {
-            throw new IllegalStateException("closed");
+    public static m a(File file) throws FileNotFoundException {
+        if (file == null) {
+            throw new IllegalArgumentException("file == null");
         }
-        this.a.e(j);
-        return a();
+        return a(new FileInputStream(file));
     }
 
-    @Override // com.meizu.cloud.pushsdk.b.g.k, java.io.Flushable
-    public void flush() throws IOException {
-        if (this.c) {
-            throw new IllegalStateException("closed");
-        }
-        if (this.a.b > 0) {
-            this.b.a(this.a, this.a.b);
-        }
-        this.b.flush();
+    public static m a(InputStream inputStream) {
+        return a(inputStream, new n());
     }
 
-    public String toString() {
-        return "buffer(" + this.b + ")";
+    private static m a(final InputStream inputStream, final n nVar) {
+        if (inputStream == null) {
+            throw new IllegalArgumentException("in == null");
+        }
+        if (nVar == null) {
+            throw new IllegalArgumentException("timeout == null");
+        }
+        return new m() { // from class: com.meizu.cloud.pushsdk.b.g.g.2
+            @Override // com.meizu.cloud.pushsdk.b.g.m
+            public long b(b bVar, long j) throws IOException {
+                if (j < 0) {
+                    throw new IllegalArgumentException("byteCount < 0: " + j);
+                }
+                if (j == 0) {
+                    return 0L;
+                }
+                n.this.a();
+                j c = bVar.c(1);
+                int read = inputStream.read(c.a, c.c, (int) Math.min(j, 2048 - c.c));
+                if (read == -1) {
+                    return -1L;
+                }
+                c.c += read;
+                bVar.b += read;
+                return read;
+            }
+
+            @Override // com.meizu.cloud.pushsdk.b.g.m, java.lang.AutoCloseable
+            public void close() throws IOException {
+                inputStream.close();
+            }
+
+            public String toString() {
+                return "source(" + inputStream + ")";
+            }
+        };
     }
 }

@@ -16,7 +16,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes9.dex */
 public class a {
-    private final c hJA = new c();
+    private final c hJG = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         int i2;
@@ -50,7 +50,7 @@ public class a {
                 bj bjVar = new bj();
                 bjVar.gC(true);
                 bjVar.a(concernData.thread_list);
-                if ((k.ab(bjVar) || l.ab(bjVar)) && bjVar.getType() != bj.dqZ) {
+                if ((k.ab(bjVar) || l.ab(bjVar)) && bjVar.getType() != bj.drd) {
                     int[] imageWidthAndHeight = bjVar.getImageWidthAndHeight();
                     k aC = d.aC(bjVar);
                     if (aC != null) {
@@ -59,9 +59,9 @@ public class a {
                         d.a(aC);
                     }
                     if (k.ab(bjVar)) {
-                        aC.BE("1");
+                        aC.BH("1");
                     } else if (l.ab(bjVar)) {
-                        aC.BE("2");
+                        aC.BH("2");
                     }
                     if (aC != null && aC.isValid()) {
                         linkedList.add(aC);
@@ -71,13 +71,13 @@ public class a {
                         aB.tid = bjVar.getTid();
                         aB.position = i3;
                         if (aB instanceof k) {
-                            if (bjVar.aMy()) {
+                            if (bjVar.aMw()) {
                                 d.d(aB);
-                            } else if (bjVar.aLH() == 1) {
+                            } else if (bjVar.aLF() == 1) {
                                 d.b(aB);
-                                aB.dqB = imageWidthAndHeight[0];
-                                aB.dqC = imageWidthAndHeight[1];
-                            } else if (bjVar.aLH() >= 2) {
+                                aB.dqF = imageWidthAndHeight[0];
+                                aB.dqG = imageWidthAndHeight[1];
+                            } else if (bjVar.aLF() >= 2) {
                                 d.c(aB);
                             } else {
                                 d.e(aB);
@@ -87,9 +87,9 @@ public class a {
                         }
                     }
                     if (k.ab(bjVar)) {
-                        aB.BE("1");
+                        aB.BH("1");
                     } else if (l.ab(bjVar)) {
-                        aB.BE("2");
+                        aB.BH("2");
                     }
                     if (aB != null && aB.isValid()) {
                         linkedList.add(aB);
@@ -101,11 +101,11 @@ public class a {
                         d.g(aC2);
                     }
                     if (k.ab(bjVar)) {
-                        aC2.BE("1");
+                        aC2.BH("1");
                     } else if (l.ab(bjVar)) {
-                        aC2.BE("2");
+                        aC2.BH("2");
                     }
-                    if (aC2 != null && !StringUtils.isNull(bjVar.aKJ())) {
+                    if (aC2 != null && !StringUtils.isNull(bjVar.aKH())) {
                         linkedList.add(aC2);
                     }
                     if (concernData.thread_list != null && concernData.thread_list.top_agree_post != null) {
@@ -116,9 +116,9 @@ public class a {
                             d.i(aC3);
                         }
                         if (k.ab(bjVar)) {
-                            aC3.BE("1");
+                            aC3.BH("1");
                         } else if (l.ab(bjVar)) {
-                            aC3.BE("2");
+                            aC3.BH("2");
                         }
                         if (aC3 != null && aC3.isValid()) {
                             linkedList.add(aC3);
@@ -130,17 +130,17 @@ public class a {
                         aC4.position = i3;
                         d.j(aC4);
                     }
-                    if (bjVar.getType() == bj.dqE) {
-                        aC4.BE("1");
+                    if (bjVar.getType() == bj.dqI) {
+                        aC4.BH("1");
                     } else if (l.ab(bjVar)) {
-                        aC4.BE("2");
+                        aC4.BH("2");
                     }
                     if (aC4 != null && aC4.isValid()) {
                         linkedList.add(aC4);
                     }
                 } else if (bjVar.isShareThread) {
                     k kVar = new k();
-                    kVar.dqA = bjVar;
+                    kVar.dqE = bjVar;
                     kVar.position = i3;
                     linkedList.add(kVar);
                 } else if (l.ab(bjVar)) {
@@ -154,23 +154,23 @@ public class a {
                     j jVar = new j(bjVar);
                     if (jVar != null) {
                         jVar.tid = bjVar.getTid();
-                        jVar.BE("3");
+                        jVar.BH("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
                     }
-                } else if (e.ab(bjVar) && bjVar.aJt()) {
+                } else if (e.ab(bjVar) && bjVar.aJr()) {
                     e eVar = new e(bjVar);
                     eVar.position = i3;
                     linkedList.add(eVar);
                 } else {
                     k kVar2 = new k();
-                    kVar2.dqA = bjVar;
-                    kVar2.BE(kVar2.dqA.isLinkThread() ? "4" : "1");
+                    kVar2.dqE = bjVar;
+                    kVar2.BH(kVar2.dqE.isLinkThread() ? "4" : "1");
                     kVar2.position = i3;
                     kVar2.isLinkThread = false;
                     kVar2.rO(concernData.source.intValue());
-                    if (kVar2.dqA != null && kVar2.isValid() && !StringUtils.isNull(kVar2.dqA.getId()) && !"0".equals(kVar2.dqA.getTid())) {
+                    if (kVar2.dqE != null && kVar2.isValid() && !StringUtils.isNull(kVar2.dqE.getId()) && !"0".equals(kVar2.dqE.getTid())) {
                         linkedList.add(kVar2);
                     }
                 }
@@ -178,8 +178,8 @@ public class a {
             }
             i3 = i2;
         }
-        this.hJA.etG = linkedList;
-        return this.hJA;
+        this.hJG.etL = linkedList;
+        return this.hJG;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -210,7 +210,7 @@ public class a {
                     }
                 }
             }
-            this.hJA.hQw = v.getCount(list) - count;
+            this.hJG.hQC = v.getCount(list) - count;
         }
     }
 

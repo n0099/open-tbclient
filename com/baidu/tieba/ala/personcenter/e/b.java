@@ -13,17 +13,17 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.c.e;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.a<e> {
-    private TextView gdk;
-    private TextView gdl;
-    private TextView gdm;
-    private TextView gdn;
-    private TextView gdo;
-    private ImageView gdp;
-    private ImageView gdq;
-    private ProgressBar gdr;
-    private FrameLayout gds;
-    private View gdt;
-    private e gdu;
+    private TextView gdp;
+    private TextView gdq;
+    private TextView gdr;
+    private TextView gds;
+    private TextView gdt;
+    private ImageView gdu;
+    private ImageView gdv;
+    private ProgressBar gdw;
+    private FrameLayout gdx;
+    private View gdy;
+    private e gdz;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -31,16 +31,16 @@ public class b extends com.baidu.tieba.card.a<e> {
     }
 
     private void ag(View view) {
-        this.gds = (FrameLayout) view.findViewById(R.id.ala_person_center_header_bg);
-        this.gdk = (TextView) view.findViewById(R.id.ala_person_center_level);
-        this.gdl = (TextView) view.findViewById(R.id.ala_person_center_level_cur_text);
-        this.gdm = (TextView) view.findViewById(R.id.ala_person_center_level_next_text);
-        this.gdn = (TextView) view.findViewById(R.id.ala_person_center_exp_txt);
-        this.gdo = (TextView) view.findViewById(R.id.ala_person_center_tips);
-        this.gdp = (ImageView) view.findViewById(R.id.ala_person_center_level_img);
-        this.gdr = (ProgressBar) view.findViewById(R.id.ala_person_center_level_progress);
-        this.gdq = (ImageView) view.findViewById(R.id.ala_person_center_bg_aiglet);
-        this.gdt = view.findViewById(R.id.ala_person_center_level_layout);
+        this.gdx = (FrameLayout) view.findViewById(R.id.ala_person_center_header_bg);
+        this.gdp = (TextView) view.findViewById(R.id.ala_person_center_level);
+        this.gdq = (TextView) view.findViewById(R.id.ala_person_center_level_cur_text);
+        this.gdr = (TextView) view.findViewById(R.id.ala_person_center_level_next_text);
+        this.gds = (TextView) view.findViewById(R.id.ala_person_center_exp_txt);
+        this.gdt = (TextView) view.findViewById(R.id.ala_person_center_tips);
+        this.gdu = (ImageView) view.findViewById(R.id.ala_person_center_level_img);
+        this.gdw = (ProgressBar) view.findViewById(R.id.ala_person_center_level_progress);
+        this.gdv = (ImageView) view.findViewById(R.id.ala_person_center_bg_aiglet);
+        this.gdy = view.findViewById(R.id.ala_person_center_level_layout);
         getView().setOnClickListener(this);
     }
 
@@ -54,79 +54,79 @@ public class b extends com.baidu.tieba.card.a<e> {
     /* renamed from: b */
     public void a(e eVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = eVar.getPersonCenterData();
-        if (personCenterData != null && personCenterData.bBW() != null) {
-            this.gdu = eVar;
-            if (personCenterData.bBW().live_status != 1 && !personCenterData.isHost()) {
+        if (personCenterData != null && personCenterData.bBU() != null) {
+            this.gdz = eVar;
+            if (personCenterData.bBU().live_status != 1 && !personCenterData.isHost()) {
+                this.gdy.setVisibility(8);
+                this.gds.setVisibility(8);
                 this.gdt.setVisibility(8);
-                this.gdn.setVisibility(8);
-                this.gdo.setVisibility(8);
             } else {
+                this.gdy.setVisibility(0);
+                this.gds.setVisibility(0);
                 this.gdt.setVisibility(0);
-                this.gdn.setVisibility(0);
-                this.gdo.setVisibility(0);
             }
-            int i = personCenterData.bBW().level_id;
+            int i = personCenterData.bBU().level_id;
             if (i > 40) {
                 i = 40;
             }
-            this.gdk.setText("Lv" + Integer.toString(i));
-            this.gdl.setText("Lv" + Integer.toString(i));
+            this.gdp.setText("Lv" + Integer.toString(i));
+            this.gdq.setText("Lv" + Integer.toString(i));
             if (i < 40) {
-                this.gdm.setText("Lv" + Integer.toString(i + 1));
+                this.gdr.setText("Lv" + Integer.toString(i + 1));
             } else {
-                this.gdm.setVisibility(8);
+                this.gdr.setVisibility(8);
             }
             if (i <= 10) {
-                this.gdp.setBackgroundResource(R.drawable.icon_live_level_1);
-                this.gdk.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_1));
+                this.gdu.setBackgroundResource(R.drawable.icon_live_level_1);
+                this.gdp.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_1));
             } else if (i <= 20) {
-                this.gdp.setBackgroundResource(R.drawable.icon_live_level_2);
-                this.gdk.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_2));
+                this.gdu.setBackgroundResource(R.drawable.icon_live_level_2);
+                this.gdp.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_2));
             } else if (i <= 30) {
-                this.gdp.setBackgroundResource(R.drawable.icon_live_level_3);
-                this.gdk.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_3));
+                this.gdu.setBackgroundResource(R.drawable.icon_live_level_3);
+                this.gdp.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_3));
             } else if (i <= 40) {
-                this.gdp.setBackgroundResource(R.drawable.icon_live_level_4);
-                this.gdk.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_4));
+                this.gdu.setBackgroundResource(R.drawable.icon_live_level_4);
+                this.gdp.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_4));
             } else {
-                this.gdk.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_5));
-                this.gdp.setBackgroundResource(R.drawable.icon_live_level_5);
+                this.gdp.setTextColor(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_color_level_5));
+                this.gdu.setBackgroundResource(R.drawable.icon_live_level_5);
             }
-            this.gdr.setMax(personCenterData.bBW().next_exp);
-            this.gdr.setProgress(personCenterData.bBW().level_exp);
+            this.gdw.setMax(personCenterData.bBU().next_exp);
+            this.gdw.setProgress(personCenterData.bBU().level_exp);
             StringBuilder sb = new StringBuilder();
-            sb.append(Integer.toString(personCenterData.bBW().level_exp));
+            sb.append(Integer.toString(personCenterData.bBU().level_exp));
             int length = sb.length();
-            sb.append("/").append(Integer.toString(personCenterData.bBW().next_exp));
+            sb.append("/").append(Integer.toString(personCenterData.bBU().next_exp));
             SpannableString spannableString = new SpannableString(sb.toString());
             spannableString.setSpan(new ForegroundColorSpan(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.ala_person_center_exp_text)), 0, length, 33);
             spannableString.setSpan(new ForegroundColorSpan(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.cp_cont_g)), length, sb.length(), 33);
-            this.gdn.setText(spannableString);
+            this.gds.setText(spannableString);
             if (i >= 40) {
-                this.gdo.setText(R.string.ala_level_max_tips);
+                this.gdt.setText(R.string.ala_level_max_tips);
             } else {
-                this.gdo.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_level_next_tips), Integer.valueOf(personCenterData.bBW().next_exp - personCenterData.bBW().level_exp)));
+                this.gdt.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_level_next_tips), Integer.valueOf(personCenterData.bBU().next_exp - personCenterData.bBU().level_exp)));
             }
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setBackgroundResource(this.gds, R.drawable.bg_live_mine);
-        am.setBackgroundResource(this.gdq, R.drawable.bg1_live_mine);
+        am.setBackgroundResource(this.gdx, R.drawable.bg_live_mine);
+        am.setBackgroundResource(this.gdv, R.drawable.bg1_live_mine);
         if (i == 1) {
-            this.gdl.setAlpha(0.7f);
-            this.gdm.setAlpha(0.7f);
-            this.gdo.setAlpha(0.7f);
-            this.gdn.setAlpha(0.7f);
+            this.gdq.setAlpha(0.7f);
             this.gdr.setAlpha(0.7f);
+            this.gdt.setAlpha(0.7f);
+            this.gds.setAlpha(0.7f);
+            this.gdw.setAlpha(0.7f);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (bEy() != null) {
-            bEy().a(view, this.gdu);
+        if (bEw() != null) {
+            bEw().a(view, this.gdz);
         }
     }
 }

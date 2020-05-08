@@ -5,16 +5,16 @@ import com.airbnb.lottie.a.a.n;
 import com.airbnb.lottie.model.a.m;
 /* loaded from: classes6.dex */
 public class f implements b {
-    private final com.airbnb.lottie.model.a.b DZ;
-    private final m<PointF, PointF> Dr;
-    private final com.airbnb.lottie.model.a.f Dx;
+    private final com.airbnb.lottie.model.a.f DA;
+    private final m<PointF, PointF> Du;
+    private final com.airbnb.lottie.model.a.b Ec;
     private final String name;
 
     public f(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.b bVar) {
         this.name = str;
-        this.Dr = mVar;
-        this.Dx = fVar;
-        this.DZ = bVar;
+        this.Du = mVar;
+        this.DA = fVar;
+        this.Ec = bVar;
     }
 
     public String getName() {
@@ -22,15 +22,15 @@ public class f implements b {
     }
 
     public com.airbnb.lottie.model.a.b is() {
-        return this.DZ;
+        return this.Ec;
     }
 
     public com.airbnb.lottie.model.a.f hU() {
-        return this.Dx;
+        return this.DA;
     }
 
     public m<PointF, PointF> hN() {
-        return this.Dr;
+        return this.Du;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -39,6 +39,6 @@ public class f implements b {
     }
 
     public String toString() {
-        return "RectangleShape{position=" + this.Dr + ", size=" + this.Dx + '}';
+        return "RectangleShape{position=" + this.Du + ", size=" + this.DA + '}';
     }
 }

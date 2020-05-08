@@ -10,11 +10,11 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.akN() != null && e.akN().Ow() != null) {
-            b.a Ow = e.akN().Ow();
-            aVar.mFrom = f.gz(Ow.getAppFrameType());
-            aVar.mAppId = Ow.getAppId();
-            aVar.mSource = Ow.adB();
+        if (e.akM() != null && e.akM().Ov() != null) {
+            b.a Ov = e.akM().Ov();
+            aVar.mFrom = f.gz(Ov.getAppFrameType());
+            aVar.mAppId = Ov.getAppId();
+            aVar.mSource = Ov.adA();
         }
         f.a("916", aVar);
     }
@@ -23,11 +23,11 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = str2;
-        if (e.akN() != null && e.akN().Ow() != null) {
-            b.a Ow = e.akN().Ow();
-            aVar.mFrom = f.gz(Ow.getAppFrameType());
-            aVar.mAppId = Ow.getAppId();
-            aVar.mSource = Ow.adB();
+        if (e.akM() != null && e.akM().Ov() != null) {
+            b.a Ov = e.akM().Ov();
+            aVar.mFrom = f.gz(Ov.getAppFrameType());
+            aVar.mAppId = Ov.getAppId();
+            aVar.mSource = Ov.adA();
         }
         aVar.mErrorCode = str3;
         f.a("916", aVar);
@@ -37,11 +37,11 @@ public class b {
         a aVar = new a();
         aVar.mType = str;
         aVar.mValue = "show";
-        if (e.akN() != null && e.akN().Ow() != null) {
-            b.a Ow = e.akN().Ow();
-            aVar.mFrom = f.gz(Ow.getAppFrameType());
-            aVar.mAppId = Ow.getAppId();
-            aVar.mSource = Ow.adB();
+        if (e.akM() != null && e.akM().Ov() != null) {
+            b.a Ov = e.akM().Ov();
+            aVar.mFrom = f.gz(Ov.getAppFrameType());
+            aVar.mAppId = Ov.getAppId();
+            aVar.mSource = Ov.adA();
         }
         aVar.s("early", ayN() ? "0" : "1");
         f.a("916", aVar);

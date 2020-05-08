@@ -11,12 +11,12 @@ public class h<TResult> {
         return this.zq.gx();
     }
 
-    public boolean k(TResult tresult) {
-        return this.zq.k(tresult);
+    public boolean l(TResult tresult) {
+        return this.zq.l(tresult);
     }
 
-    public boolean f(Exception exc) {
-        return this.zq.f(exc);
+    public boolean g(Exception exc) {
+        return this.zq.g(exc);
     }
 
     public void gz() {
@@ -25,14 +25,14 @@ public class h<TResult> {
         }
     }
 
-    public void l(TResult tresult) {
-        if (!k(tresult)) {
+    public void m(TResult tresult) {
+        if (!l(tresult)) {
             throw new IllegalStateException("Cannot set the result of a completed task.");
         }
     }
 
-    public void g(Exception exc) {
-        if (!f(exc)) {
+    public void h(Exception exc) {
+        if (!g(exc)) {
             throw new IllegalStateException("Cannot set the error on a completed task.");
         }
     }

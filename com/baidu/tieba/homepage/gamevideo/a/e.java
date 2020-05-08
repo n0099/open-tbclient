@@ -21,11 +21,11 @@ import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
-    private z<k> acX;
-    private r ahv;
-    private int dDp;
-    private BdUniqueId ebv;
-    private NEGFeedBackView.a euS;
+    private z<k> ada;
+    private r ahy;
+    private int dDt;
+    private BdUniqueId ebA;
+    private NEGFeedBackView.a euX;
     private TbPageContext mPageContext;
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.y$a] */
@@ -37,13 +37,13 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.acX = new z<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.1
+        this.ada = new z<k>() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, k kVar) {
                 int id = view.getId();
                 if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
-                    com.baidu.tieba.homepage.gamevideo.e.a.c(kVar, e.this.dDp);
+                    com.baidu.tieba.homepage.gamevideo.e.a.c(kVar, e.this.dDt);
                 }
             }
         };
@@ -51,7 +51,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
     }
 
     public void a(r rVar) {
-        this.ahv = rVar;
+        this.ahy = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,19 +62,19 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity(), false);
         ag agVar = new ag(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.dmT = 15;
-        dVar.dmZ = 11;
+        dVar.dmX = 15;
+        dVar.dnd = 11;
         agVar.setAgreeStatisticData(dVar);
         agVar.setFrom(12);
         agVar.setShareReportFrom(9);
-        agVar.setGameId(this.dDp);
+        agVar.setGameId(this.dDt);
         agVar.bl(18);
         agVar.aW(32);
         aVar.b(agVar);
-        ad a = aVar.a(true, viewGroup, this.ahv);
+        ad a = aVar.a(true, viewGroup, this.ahy);
         a.bc(18);
         af<k> afVar = new af<>(a);
-        afVar.setPageId(this.ebv);
+        afVar.setPageId(this.ebA);
         a(new v() { // from class: com.baidu.tieba.homepage.gamevideo.a.e.2
             @Override // com.baidu.adp.widget.ListView.v
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -82,11 +82,11 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
                     af afVar2 = (af) view.getTag();
                     k kVar = (k) mVar;
                     kVar.objType = 1;
-                    if (e.this.acX != null) {
-                        e.this.acX.a(afVar2.getView(), kVar);
+                    if (e.this.ada != null) {
+                        e.this.ada.a(afVar2.getView(), kVar);
                     }
                     com.baidu.tieba.homepage.gamevideo.e.a.a(kVar, view.getContext(), 18, false, com.baidu.card.f.a((r) viewGroup2, view, i));
-                    afVar2.rD().b(new a.C0074a(1));
+                    afVar2.rD().b(new a.C0095a(1));
                 }
             }
         });
@@ -95,7 +95,7 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
 
     /* renamed from: a  reason: avoid collision after fix types in other method */
     protected View a2(final int i, final View view, final ViewGroup viewGroup, k kVar, af afVar) {
-        if (kVar == null || afVar == null || afVar.getView() == null || kVar.dqA == null) {
+        if (kVar == null || afVar == null || afVar.getView() == null || kVar.dqE == null) {
             return null;
         }
         kVar.rN(kVar.position + 1);
@@ -110,22 +110,22 @@ public class e extends com.baidu.adp.widget.ListView.a<k, af<k>> {
                 }
             });
         }
-        afVar.aF(false).a(this.euS);
+        afVar.aF(false).a(this.euX);
         afVar.b((af) kVar);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        afVar.rD().a(this.acX);
+        afVar.rD().a(this.ada);
         return afVar.getView();
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.ebv = bdUniqueId;
+        this.ebA = bdUniqueId;
     }
 
     public void vQ(int i) {
-        this.dDp = i;
+        this.dDt = i;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.euS = aVar;
+        this.euX = aVar;
     }
 }

@@ -13,7 +13,6 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,10 +62,10 @@ public class IMGroupSetRequest extends IMUserBaseHttpRequest {
             JSONObject jSONObject = new JSONObject(new String(bArr));
             if (jSONObject.has("response_params")) {
                 i3 = jSONObject.getJSONObject("response_params").getInt("error_code");
-                optString = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, Constants.ERROR_MSG_SUCCESS);
+                optString = jSONObject.optString("error_msg", Constants.ERROR_MSG_SUCCESS);
             } else {
                 i3 = jSONObject.getInt("error_code");
-                optString = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+                optString = jSONObject.optString("error_msg", "");
             }
             i2 = i3;
             str = optString;

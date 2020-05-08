@@ -11,47 +11,47 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class m {
-    private static Map<Long, Long> aXK = new HashMap();
-    private static Map<Long, Set<Long>> aXL = new HashMap();
+    private static Map<Long, Long> aXP = new HashMap();
+    private static Map<Long, Set<Long>> aXQ = new HashMap();
 
     public static Long ap(long j) {
-        if (aXK.containsKey(Long.valueOf(j))) {
-            return aXK.get(Long.valueOf(j));
+        if (aXP.containsKey(Long.valueOf(j))) {
+            return aXP.get(Long.valueOf(j));
         }
         return 0L;
     }
 
     public static void g(long j, long j2) {
-        aXK.put(Long.valueOf(j), Long.valueOf(j2));
+        aXP.put(Long.valueOf(j), Long.valueOf(j2));
     }
 
     public static boolean h(long j, long j2) {
         Set<Long> set;
-        if (aXL.containsKey(Long.valueOf(j)) && (set = aXL.get(Long.valueOf(j))) != null) {
+        if (aXQ.containsKey(Long.valueOf(j)) && (set = aXQ.get(Long.valueOf(j))) != null) {
             return set.contains(Long.valueOf(j2));
         }
         return false;
     }
 
     public static void i(long j, long j2) {
-        if (!aXL.containsKey(Long.valueOf(j))) {
+        if (!aXQ.containsKey(Long.valueOf(j))) {
             HashSet hashSet = new HashSet();
             hashSet.add(Long.valueOf(j2));
-            aXL.put(Long.valueOf(j), hashSet);
+            aXQ.put(Long.valueOf(j), hashSet);
             return;
         }
-        Set<Long> set = aXL.get(Long.valueOf(j));
+        Set<Long> set = aXQ.get(Long.valueOf(j));
         if (set != null) {
             set.add(Long.valueOf(j2));
             return;
         }
         HashSet hashSet2 = new HashSet();
         hashSet2.add(Long.valueOf(j2));
-        aXL.put(Long.valueOf(j), hashSet2);
+        aXQ.put(Long.valueOf(j), hashSet2);
     }
 
-    public static void Gh() {
-        aXL.clear();
+    public static void Gg() {
+        aXQ.clear();
     }
 
     public static void j(long j, long j2) {

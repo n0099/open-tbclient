@@ -357,11 +357,11 @@ public class m {
         return ((float) imageFileWH[0]) * equipmentDensity >= 100.0f && f >= 3.0f && f <= 50.0f;
     }
 
-    public static boolean uv(String str) {
+    public static boolean uy(String str) {
         return str.endsWith(".heif") || str.endsWith(".heic");
     }
 
-    public static boolean uw(String str) {
+    public static boolean uz(String str) {
         return str != null && str.endsWith(".css");
     }
 
@@ -1866,15 +1866,15 @@ public class m {
         }
         final int length = strArr.length;
         MediaScannerConnection.scanFile(TbadkCoreApplication.getInst(), strArr, null, new MediaScannerConnection.OnScanCompletedListener() { // from class: com.baidu.tbadk.core.util.m.1
-            int dyc = 0;
+            int dyg = 0;
 
             @Override // android.media.MediaScannerConnection.OnScanCompletedListener
             public void onScanCompleted(String str3, Uri uri) {
-                this.dyc++;
+                this.dyg++;
                 if (uri != null) {
                     hashMap.put(str3, uri.toString());
                 }
-                if (this.dyc == length) {
+                if (this.dyg == length) {
                     com.baidu.adp.lib.f.e.lb().post(new Runnable() { // from class: com.baidu.tbadk.core.util.m.1.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -1978,7 +1978,7 @@ public class m {
         return str.toLowerCase().startsWith("content:") || str.toLowerCase().startsWith("file:");
     }
 
-    public static String ux(String str) {
+    public static String uA(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1986,7 +1986,7 @@ public class m {
         return parse.getLastPathSegment();
     }
 
-    public static String uy(String str) {
+    public static String uB(String str) {
         Uri parse = Uri.parse(str);
         if (parse == null) {
             return null;
@@ -1994,7 +1994,7 @@ public class m {
         return (TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/") + parse.getLastPathSegment();
     }
 
-    public static void uz(@NonNull String str) {
+    public static void uC(@NonNull String str) {
         if (str != null) {
             E(new File(CACHE_DIR + "/" + str));
         }

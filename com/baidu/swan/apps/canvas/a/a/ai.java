@@ -6,7 +6,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class ai extends a {
-    private int bEY = 0;
+    private int bFd = 0;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
@@ -14,13 +14,13 @@ public class ai extends a {
             if (jSONArray.length() > 0) {
                 String optString = jSONArray.optString(0);
                 if (TextUtils.equals(optString, VerticalTranslateLayout.TOP)) {
-                    this.bEY = 1;
+                    this.bFd = 1;
                 } else if (TextUtils.equals(optString, "middle")) {
-                    this.bEY = 2;
+                    this.bFd = 2;
                 } else if (TextUtils.equals(optString, VerticalTranslateLayout.BOTTOM)) {
-                    this.bEY = 3;
+                    this.bFd = 3;
                 } else {
-                    this.bEY = 0;
+                    this.bFd = 0;
                 }
             }
         } catch (Exception e) {
@@ -32,6 +32,6 @@ public class ai extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        bVar.bEY = this.bEY;
+        bVar.bFd = this.bFd;
     }
 }

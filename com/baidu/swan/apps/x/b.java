@@ -18,11 +18,11 @@ public class b extends com.baidu.swan.apps.process.a.a.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.as.d.b
             /* renamed from: z */
-            public void E(Bundle bundle2) {
+            public void F(Bundle bundle2) {
                 b.this.mAppId = bundle2.getString("key_launch_app_id");
                 b.this.mStatus = bundle2.getInt("key_launch_status");
                 if (TextUtils.equals(string, b.this.mAppId)) {
-                    b.this.chO.putInt("ok", b.this.mStatus);
+                    b.this.chU.putInt("ok", b.this.mStatus);
                     b.this.finish();
                 }
                 b.xL.remove(string);

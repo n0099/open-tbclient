@@ -1,9 +1,9 @@
 package com.baidu.tbadk.r;
 /* loaded from: classes.dex */
 public interface b {
-    void LI();
+    void LH();
 
-    void aHp();
+    void aHn();
 
     void aa(String str, boolean z);
 

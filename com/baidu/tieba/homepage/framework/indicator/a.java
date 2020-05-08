@@ -6,39 +6,39 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tieba.R;
 /* loaded from: classes9.dex */
 public class a {
-    private int hKV;
-    private int hKW;
-    private int hKX;
-    private int hKY;
-    private int hKZ;
-    private int hLa;
-    private int hLb = 1;
+    private int hLb;
+    private int hLc;
+    private int hLd;
+    private int hLe;
+    private int hLf;
+    private int hLg;
+    private int hLh = 1;
 
     public a() {
-        this.hKV = -1;
-        this.hKW = -1;
-        this.hKX = -1;
-        this.hKY = -1;
-        this.hKZ = -1;
-        this.hLa = -1;
-        this.hKV = 0;
-        this.hKW = 1;
+        this.hLb = -1;
+        this.hLc = -1;
+        this.hLd = -1;
+        this.hLe = -1;
+        this.hLf = -1;
+        this.hLg = -1;
+        this.hLb = 0;
+        this.hLc = 1;
         int i = 2;
-        int bYx = bYx();
-        if ((bYx & 16) > 0) {
-            this.hKX = 2;
+        int bYv = bYv();
+        if ((bYv & 16) > 0) {
+            this.hLd = 2;
             i = 3;
         }
-        if ((bYx & 128) > 0) {
-            this.hLa = i;
+        if ((bYv & 128) > 0) {
+            this.hLg = i;
             i++;
         }
-        if ((bYx & 32) > 0 && MessageManager.getInstance().findTask(2921399) != null) {
-            this.hKY = i;
+        if ((bYv & 32) > 0 && MessageManager.getInstance().findTask(2921399) != null) {
+            this.hLe = i;
             i++;
         }
-        if ((bYx & 64) > 0) {
-            this.hKZ = i;
+        if ((bYv & 64) > 0) {
+            this.hLf = i;
             int i2 = i + 1;
         }
     }
@@ -46,91 +46,91 @@ public class a {
     public int getPosition(int i) {
         switch (i) {
             case 0:
-                return this.hKV;
+                return this.hLb;
             case 1:
-                return this.hKW;
+                return this.hLc;
             case 2:
             case 3:
             case 4:
             default:
                 return -1;
             case 5:
-                return this.hKX;
+                return this.hLd;
             case 6:
-                return this.hKY;
+                return this.hLe;
             case 7:
-                return this.hKZ;
+                return this.hLf;
             case 8:
-                return this.hLa;
+                return this.hLg;
         }
     }
 
     public int getType(int i) {
-        if (i == this.hKV) {
+        if (i == this.hLb) {
             return 0;
         }
-        if (i == this.hKW) {
+        if (i == this.hLc) {
             return 1;
         }
-        if (i == this.hKX) {
+        if (i == this.hLd) {
             return 5;
         }
-        if (i == this.hKY) {
+        if (i == this.hLe) {
             return 6;
         }
-        if (i == this.hKZ) {
+        if (i == this.hLf) {
             return 7;
         }
-        if (i == this.hLa) {
+        if (i == this.hLg) {
             return 8;
         }
         return -1;
     }
 
-    public int bYw() {
-        return this.hLb;
+    public int bYu() {
+        return this.hLh;
     }
 
-    private int bYx() {
-        return com.baidu.tbadk.core.sharedPref.b.aNV().getInt("recommend_tab_show", 55);
+    private int bYv() {
+        return com.baidu.tbadk.core.sharedPref.b.aNT().getInt("recommend_tab_show", 55);
     }
 
     public String w(Context context, int i) {
         if (context == null) {
             return null;
         }
-        if (i == this.hKV) {
-            String string = com.baidu.tbadk.core.sharedPref.b.aNV().getString("key_concern", "");
+        if (i == this.hLb) {
+            String string = com.baidu.tbadk.core.sharedPref.b.aNT().getString("key_concern", "");
             if (StringUtils.isNull(string)) {
                 return context.getString(R.string.tab_name_concern);
             }
             return string;
-        } else if (i == this.hKW) {
-            String string2 = com.baidu.tbadk.core.sharedPref.b.aNV().getString("key_rec", "");
+        } else if (i == this.hLc) {
+            String string2 = com.baidu.tbadk.core.sharedPref.b.aNT().getString("key_rec", "");
             if (StringUtils.isNull(string2)) {
                 return context.getString(R.string.tab_name_recommend);
             }
             return string2;
-        } else if (i == this.hKX) {
-            String string3 = com.baidu.tbadk.core.sharedPref.b.aNV().getString("key_topic", "");
+        } else if (i == this.hLd) {
+            String string3 = com.baidu.tbadk.core.sharedPref.b.aNT().getString("key_topic", "");
             if (StringUtils.isNull(string3)) {
                 return context.getString(R.string.tab_name_topic);
             }
             return string3;
-        } else if (i == this.hKY) {
-            String string4 = com.baidu.tbadk.core.sharedPref.b.aNV().getString("key_live", "");
+        } else if (i == this.hLe) {
+            String string4 = com.baidu.tbadk.core.sharedPref.b.aNT().getString("key_live", "");
             if (StringUtils.isNull(string4)) {
                 return context.getString(R.string.tab_name_live);
             }
             return string4;
-        } else if (i == this.hKZ) {
-            String string5 = com.baidu.tbadk.core.sharedPref.b.aNV().getString("key_game_video", "");
+        } else if (i == this.hLf) {
+            String string5 = com.baidu.tbadk.core.sharedPref.b.aNT().getString("key_game_video", "");
             if (StringUtils.isNull(string5)) {
                 return context.getString(R.string.tab_name_game_video);
             }
             return string5;
-        } else if (i == this.hLa) {
-            String string6 = com.baidu.tbadk.core.sharedPref.b.aNV().getString("key_video_tab", "");
+        } else if (i == this.hLg) {
+            String string6 = com.baidu.tbadk.core.sharedPref.b.aNT().getString("key_video_tab", "");
             if (StringUtils.isNull(string6)) {
                 return context.getString(R.string.tab_name_video_recommend);
             }

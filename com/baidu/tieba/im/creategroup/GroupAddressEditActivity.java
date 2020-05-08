@@ -9,10 +9,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.GroupAddressEditActivityConfig;
 /* loaded from: classes10.dex */
 public class GroupAddressEditActivity extends BaseActivity<GroupAddressEditActivity> implements AdapterView.OnItemClickListener, BdSwitchView.a {
-    k iiz = null;
+    k iiF = null;
     private String[] addresses = null;
-    private boolean iiA = false;
-    private int iiB = -1;
+    private boolean iiG = false;
+    private int iiH = -1;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -21,28 +21,28 @@ public class GroupAddressEditActivity extends BaseActivity<GroupAddressEditActiv
         Intent intent = getIntent();
         if (intent != null) {
             this.addresses = intent.getStringArrayExtra(GroupAddressEditActivityConfig.INTENT_GROUP_ADRESS_LIST);
-            this.iiB = intent.getIntExtra(GroupAddressEditActivityConfig.INTENT_GROUP_SELECTEDINDEX, 0);
-            this.iiA = intent.getBooleanExtra(GroupAddressEditActivityConfig.INTENT_GROUP_ADDRESS_ISHIDDEN, false);
+            this.iiH = intent.getIntExtra(GroupAddressEditActivityConfig.INTENT_GROUP_SELECTEDINDEX, 0);
+            this.iiG = intent.getBooleanExtra(GroupAddressEditActivityConfig.INTENT_GROUP_ADDRESS_ISHIDDEN, false);
         }
-        this.iiz = new k(getPageContext(), this.addresses, this.iiA);
+        this.iiF = new k(getPageContext(), this.addresses, this.iiG);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iiz.onChangeSkinType(i);
+        this.iiF.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iiz.ceL() || view == this.iiz.getBackButton()) {
+        if (view == this.iiF.ceJ() || view == this.iiF.getBackButton()) {
             Intent intent = new Intent();
-            if (this.iiB > -1 && this.iiB < this.addresses.length) {
-                intent.putExtra("Selected_Business", this.addresses[this.iiB]);
+            if (this.iiH > -1 && this.iiH < this.addresses.length) {
+                intent.putExtra("Selected_Business", this.addresses[this.iiH]);
             }
-            intent.putExtra("Hidden_Address_Flag", this.iiA);
+            intent.putExtra("Hidden_Address_Flag", this.iiG);
             setResult(-1, intent);
             finish();
         }
@@ -51,19 +51,19 @@ public class GroupAddressEditActivity extends BaseActivity<GroupAddressEditActiv
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            this.iiA = true;
+            this.iiG = true;
         } else {
-            this.iiA = false;
+            this.iiG = false;
         }
     }
 
-    public int ceK() {
-        return this.iiB;
+    public int ceI() {
+        return this.iiH;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        this.iiB = i;
-        this.iiz.ceM();
+        this.iiH = i;
+        this.iiF.ceK();
     }
 }

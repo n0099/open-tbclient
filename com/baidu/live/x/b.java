@@ -7,9 +7,9 @@ import org.json.JSONObject;
 public interface b {
     void B(JSONObject jSONObject);
 
-    void EB();
+    void EA();
 
-    void EC();
+    void EB();
 
     void a(x xVar);
 

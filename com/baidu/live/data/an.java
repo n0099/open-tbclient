@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class an extends BaseData {
-    public int aqT;
-    public ArrayList<f> ava = new ArrayList<>();
+    public int aqZ;
+    public ArrayList<f> avg = new ArrayList<>();
 
     @Override // com.baidu.live.tbadk.core.data.BaseData
     public void parserJson(JSONObject jSONObject) {
@@ -19,10 +19,10 @@ public class an extends BaseData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.aqT = optJSONObject.optInt("interval");
+                    this.aqZ = optJSONObject.optInt("interval");
                 }
-                if (this.aqT <= 0) {
-                    this.aqT = 5;
+                if (this.aqZ <= 0) {
+                    this.aqZ = 5;
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("im_rate");
                 if (optJSONObject2 == null) {
@@ -40,7 +40,7 @@ public class an extends BaseData {
                             fVar.a(aVar);
                             fVar.parseJson(optJSONObject4);
                             fVar.serverTime = optLong;
-                            this.ava.add(fVar);
+                            this.avg.add(fVar);
                         }
                     }
                 }

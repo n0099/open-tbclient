@@ -18,7 +18,7 @@ public class AdOperateBarCreator {
 
     public AdOperateBarHolder obtainHolder(AdPost adPost, RelativeLayout relativeLayout, AdOperateBarHolder adOperateBarHolder, c cVar) {
         if (adPost != null && adPost.adData != null) {
-            if (adOperateBarHolder != null && by(adPost.adData.style, adOperateBarHolder.kxM)) {
+            if (adOperateBarHolder != null && by(adPost.adData.style, adOperateBarHolder.kxQ)) {
                 adOperateBarHolder.setDownloadAppCallback(cVar);
                 return adOperateBarHolder;
             } else if (relativeLayout == null) {

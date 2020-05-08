@@ -4,10 +4,11 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.android.util.io.ActionJsonData;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.a.b.g;
+import com.meizu.cloud.pushsdk.handler.a.b.h;
 /* loaded from: classes8.dex */
-public class e extends com.meizu.cloud.pushsdk.handler.a.a<g> {
+public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
     }
@@ -21,18 +22,18 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: a */
-    public void b(g gVar) {
-        com.meizu.cloud.pushsdk.util.c.c(c(), gVar.c(), gVar.a().b().d(), gVar.a().b().a(), gVar.a().b().e(), gVar.a().b().b());
+    public void b(h hVar) {
+        com.meizu.cloud.pushsdk.util.d.c(c(), hVar.c(), hVar.a().b().d(), hVar.a().b().a(), hVar.a().b().e(), hVar.a().b().b());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(g gVar, com.meizu.cloud.pushsdk.notification.c cVar) {
-        NotificationManager notificationManager = (NotificationManager) c().getSystemService("notification");
+    public void a(h hVar, com.meizu.cloud.pushsdk.notification.c cVar) {
+        NotificationManager notificationManager = (NotificationManager) c().getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager != null) {
-            com.meizu.cloud.a.a.e("AbstractMessageHandler", "start cancel notification id " + gVar.b());
-            notificationManager.cancel(gVar.b());
+            com.meizu.cloud.a.a.e("AbstractMessageHandler", "start cancel notification id " + hVar.b());
+            notificationManager.cancel(hVar.b());
         }
     }
 
@@ -58,9 +59,9 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: j */
-    public g c(Intent intent) {
+    public h c(Intent intent) {
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_SEQ_ID);
-        return new g(intent.getStringExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE), g(intent), stringExtra, intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY), stringExtra2);
+        return new h(intent.getStringExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE), g(intent), stringExtra, intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY), stringExtra2);
     }
 }

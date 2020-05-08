@@ -4,40 +4,40 @@ import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class e {
-    private static ArrayList<MediaModel> cbH;
+    private static ArrayList<MediaModel> cbN;
 
-    public static ArrayList<MediaModel> afJ() {
-        return cbH;
+    public static ArrayList<MediaModel> afI() {
+        return cbN;
     }
 
     public static int getSelectedCount() {
-        if (cbH == null) {
+        if (cbN == null) {
             return 0;
         }
-        return cbH.size();
+        return cbN.size();
     }
 
-    public static String afK() {
-        if (cbH == null || cbH.size() == 0 || cbH.get(0) == null) {
+    public static String afJ() {
+        if (cbN == null || cbN.size() == 0 || cbN.get(0) == null) {
             return null;
         }
-        return cbH.get(0).getType();
+        return cbN.get(0).getType();
     }
 
     public static boolean c(MediaModel mediaModel) {
-        if (cbH == null || cbH.size() == 0) {
+        if (cbN == null || cbN.size() == 0) {
             return false;
         }
-        return cbH.contains(mediaModel);
+        return cbN.contains(mediaModel);
     }
 
     public static int d(MediaModel mediaModel) {
-        if (mediaModel == null || cbH == null) {
+        if (mediaModel == null || cbN == null) {
             return -1;
         }
-        int size = cbH.size();
+        int size = cbN.size();
         for (int i = 0; i < size; i++) {
-            if (mediaModel.equals(cbH.get(i))) {
+            if (mediaModel.equals(cbN.get(i))) {
                 return i;
             }
         }
@@ -45,31 +45,31 @@ public class e {
     }
 
     public static void clear() {
-        if (cbH != null) {
-            cbH.clear();
-            cbH = null;
+        if (cbN != null) {
+            cbN.clear();
+            cbN = null;
         }
     }
 
     public static void e(MediaModel mediaModel) {
         if (mediaModel != null) {
-            if (cbH == null) {
-                cbH = new ArrayList<>();
+            if (cbN == null) {
+                cbN = new ArrayList<>();
             }
-            cbH.add(mediaModel);
+            cbN.add(mediaModel);
         }
     }
 
     public static void f(MediaModel mediaModel) {
-        if (cbH != null) {
-            cbH.remove(mediaModel);
+        if (cbN != null) {
+            cbN.remove(mediaModel);
         }
     }
 
     public static boolean g(MediaModel mediaModel) {
-        if (cbH == null) {
+        if (cbN == null) {
             return false;
         }
-        return cbH.contains(mediaModel);
+        return cbN.contains(mediaModel);
     }
 }

@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class c {
-    public static void aOc() {
+    public static void aOa() {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
             mainDBDatabaseManager.execSQLNoException("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
         }
     }
 
-    public static void us(String str) {
+    public static void uv(String str) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
@@ -35,7 +35,7 @@ public class c {
         return mainDBDatabaseManager.execSQLNoException("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{lVar.getMd5(), Long.valueOf(lVar.getTotalLength()), Integer.valueOf(lVar.getChunkNo()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.l ut(String str) {
+    public static com.baidu.tbadk.coreExtra.data.l uw(String str) {
         Cursor cursor;
         Exception e;
         com.baidu.tbadk.coreExtra.data.l lVar;

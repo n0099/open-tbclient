@@ -22,52 +22,52 @@ import rx.schedulers.Schedulers;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a ccG;
-    private String ccH;
-    private int ccI;
-    private com.baidu.swan.apps.media.b.b.b ccK;
-    private long ccL;
-    private long ccM;
-    private com.baidu.swan.apps.media.b.b ccO;
-    private com.baidu.swan.apps.media.b.b.a ccP;
+    private static volatile a ccM;
+    private String ccN;
+    private int ccO;
+    private com.baidu.swan.apps.media.b.b.b ccQ;
+    private long ccR;
+    private long ccS;
+    private com.baidu.swan.apps.media.b.b ccU;
+    private com.baidu.swan.apps.media.b.b.a ccV;
     private String mAppId;
     private AudioRecord mAudioRecord;
     private Context mContext;
     private boolean mIsBackground;
     private TelephonyManager mTelephonyManager;
     private Timer mTimer;
-    private int ccJ = -1;
-    private com.baidu.swan.apps.media.b.a ccN = new com.baidu.swan.apps.media.b.a();
-    private boolean ccQ = false;
+    private int ccP = -1;
+    private com.baidu.swan.apps.media.b.a ccT = new com.baidu.swan.apps.media.b.a();
+    private boolean ccW = false;
 
     private a() {
     }
 
-    public static a agc() {
-        if (ccG == null) {
+    public static a agb() {
+        if (ccM == null) {
             synchronized (a.class) {
-                if (ccG == null) {
-                    ccG = new a();
+                if (ccM == null) {
+                    ccM = new a();
                 }
             }
         }
-        return ccG;
+        return ccM;
     }
 
     public void a(String str, com.baidu.swan.apps.media.b.a aVar, Context context, com.baidu.swan.apps.media.b.b bVar, String str2) {
         int i;
-        if (this.ccJ != -1 && this.ccJ != 3) {
+        if (this.ccP != -1 && this.ccP != 3) {
             c.e("recorder", "wrong state, can't init");
             return;
         }
-        this.ccN = aVar;
+        this.ccT = aVar;
         kB(str);
-        this.ccO = bVar;
-        this.ccI = AudioRecord.getMinBufferSize(aVar.sampleRate, aVar.channel, 2);
-        if (this.ccI <= 0) {
-            agj();
+        this.ccU = bVar;
+        this.ccO = AudioRecord.getMinBufferSize(aVar.sampleRate, aVar.channel, 2);
+        if (this.ccO <= 0) {
+            agi();
             c.e("recorder", "wrong buffer size");
-            agg();
+            agf();
             return;
         }
         if (aVar.channel == 1) {
@@ -75,44 +75,44 @@ public class a {
         } else {
             i = 12;
         }
-        this.mAudioRecord = new AudioRecord(aVar.ccr, aVar.sampleRate, i, 2, this.ccI);
-        this.ccJ = 0;
+        this.mAudioRecord = new AudioRecord(aVar.ccy, aVar.sampleRate, i, 2, this.ccO);
+        this.ccP = 0;
         this.mContext = context;
         this.mAppId = str2;
-        agl();
+        agk();
     }
 
     private void kB(String str) {
         String str2;
-        if (TextUtils.equals(this.ccN.ccq, "mp3")) {
+        if (TextUtils.equals(this.ccT.ccx, "mp3")) {
             str2 = ".mp3";
-        } else if (TextUtils.equals(this.ccN.ccq, "pcm")) {
+        } else if (TextUtils.equals(this.ccT.ccx, "pcm")) {
             str2 = ".pcm";
         } else {
             str2 = ".aac";
         }
-        this.ccH = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
+        this.ccN = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
     }
 
     public void dU(boolean z) {
         if (this.mContext == null) {
-            agj();
+            agi();
             c.e("recorder", "start error, context is null");
-            agg();
+            agf();
         } else if (this.mIsBackground) {
             Q(2001, "error execute time");
             c.e("recorder", "start error, wrong execute time");
-            agg();
-        } else if (this.ccJ == -1 || TextUtils.isEmpty(this.ccH)) {
-            agj();
+            agf();
+        } else if (this.ccP == -1 || TextUtils.isEmpty(this.ccN)) {
+            agi();
             c.e("recorder", "start error, wrong state");
-            agg();
+            agf();
         } else {
             if (z) {
                 String str = null;
-                if (this.ccJ == 1) {
+                if (this.ccP == 1) {
                     str = "start fail: recorder is recording";
-                } else if (this.ccJ != 0 && this.ccJ != 3) {
+                } else if (this.ccP != 0 && this.ccP != 3) {
                     str = "start fail: recorder is paused";
                 }
                 if (str != null) {
@@ -127,50 +127,50 @@ public class a {
             try {
                 this.mAudioRecord.startRecording();
                 if (this.mAudioRecord.getRecordingState() != 3) {
-                    agj();
+                    agi();
                     c.e("recorder", "start error, no real permission");
-                    agg();
+                    agf();
                     return;
                 }
                 if (z) {
                     a(new com.baidu.swan.apps.media.b.b.b() { // from class: com.baidu.swan.apps.media.b.c.a.1
                         @Override // com.baidu.swan.apps.media.b.b.b
-                        public void RZ() {
+                        public void RY() {
                             if (a.DEBUG) {
                                 Log.d("AudioRecorderManager", "record --- timeOut");
                             }
                             c.i("recorder", "time out");
                             a.this.stopRecord();
-                            a.this.agg();
+                            a.this.agf();
                         }
                     });
-                    be(com.baidu.swan.apps.media.b.b.ccu, "recorderStart");
+                    be(com.baidu.swan.apps.media.b.b.ccA, "recorderStart");
                 } else {
-                    be(com.baidu.swan.apps.media.b.b.ccw, "recorderResume");
+                    be(com.baidu.swan.apps.media.b.b.ccC, "recorderResume");
                 }
-                d.bK("").d(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.3
+                d.bL("").d(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.3
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.f
                     /* renamed from: kD */
                     public Boolean call(String str2) {
-                        return Boolean.valueOf(a.this.agf());
+                        return Boolean.valueOf(a.this.age());
                     }
-                }).c(rx.a.b.a.dHE()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.2
+                }).c(rx.a.b.a.dHA()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.b.c.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.b
                     /* renamed from: e */
                     public void call(Boolean bool) {
                         if (!bool.booleanValue()) {
-                            a.this.agj();
+                            a.this.agi();
                             c.e("recorder", "record error");
-                            a.this.agg();
+                            a.this.agf();
                         }
                     }
                 });
             } catch (IllegalStateException e) {
-                agj();
+                agi();
                 c.e("recorder", "can't start", e);
-                agg();
+                agf();
             }
         }
     }
@@ -180,20 +180,20 @@ public class a {
             Log.d("AudioRecorderManager", "pause record");
         }
         if (this.mAudioRecord == null) {
-            agj();
+            agi();
             c.e("recorder", "none audio record");
-            agg();
+            agf();
             return;
         }
         try {
             this.mAudioRecord.stop();
-            this.ccJ = 2;
-            aeG();
-            be(com.baidu.swan.apps.media.b.b.ccv, "recorderPause");
+            this.ccP = 2;
+            aeF();
+            be(com.baidu.swan.apps.media.b.b.ccB, "recorderPause");
         } catch (IllegalStateException e) {
-            agj();
+            agi();
             c.e("recorder", "pause error", e);
-            agg();
+            agf();
         }
     }
 
@@ -202,7 +202,7 @@ public class a {
             Log.d("AudioRecorderManager", "resume record");
         }
         dU(false);
-        aeF();
+        aeE();
     }
 
     public void stopRecord() {
@@ -210,38 +210,38 @@ public class a {
             Log.d("AudioRecorderManager", "stop record");
         }
         if (this.mAudioRecord == null) {
-            agj();
+            agi();
             c.e("recorder", "none audioRecord");
-            agg();
+            agf();
             return;
         }
         try {
             this.mAudioRecord.stop();
-            RX();
-            this.ccJ = 3;
-            agk();
-            agm();
-        } catch (IllegalStateException e) {
+            RW();
+            this.ccP = 3;
             agj();
+            agl();
+        } catch (IllegalStateException e) {
+            agi();
             c.e("recorder", "stop error", e);
-            agg();
+            agf();
         }
     }
 
-    public void agd() {
-        if (this.ccJ == 0 || this.ccJ == 1) {
-            if (!this.ccQ) {
-                this.ccQ = true;
-                be(com.baidu.swan.apps.media.b.b.ccz, "recorderInterruptionBegin");
+    public void agc() {
+        if (this.ccP == 0 || this.ccP == 1) {
+            if (!this.ccW) {
+                this.ccW = true;
+                be(com.baidu.swan.apps.media.b.b.ccF, "recorderInterruptionBegin");
             }
             pauseRecord();
         }
     }
 
-    public void age() {
-        if (this.ccQ) {
-            this.ccQ = false;
-            be(com.baidu.swan.apps.media.b.b.ccA, "recorderInterruptionEnd");
+    public void agd() {
+        if (this.ccW) {
+            this.ccW = false;
+            be(com.baidu.swan.apps.media.b.b.ccG, "recorderInterruptionEnd");
         }
     }
 
@@ -255,21 +255,21 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean agf() {
+    public boolean age() {
         FileOutputStream fileOutputStream;
-        byte[] bArr = new byte[this.ccI];
-        String str = this.ccN.ccq;
-        int i = this.ccN.channel;
-        ?? r4 = this.ccN.sampleRate;
-        com.baidu.swan.apps.media.b.d.a aVar = new com.baidu.swan.apps.media.b.d.a(str, i, r4, this.ccN.bitRate);
+        byte[] bArr = new byte[this.ccO];
+        String str = this.ccT.ccx;
+        int i = this.ccT.channel;
+        ?? r4 = this.ccT.sampleRate;
+        com.baidu.swan.apps.media.b.d.a aVar = new com.baidu.swan.apps.media.b.d.a(str, i, r4, this.ccT.bitRate);
         if (this.mAudioRecord == null) {
             return false;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                File file = new File(this.ccH);
-                if (this.ccJ == 0) {
+                File file = new File(this.ccN);
+                if (this.ccP == 0) {
                     if (file.exists()) {
                         file.delete();
                     }
@@ -277,10 +277,10 @@ public class a {
                 }
                 fileOutputStream = new FileOutputStream(file, true);
                 try {
-                    this.ccJ = 1;
-                    while (this.ccJ == 1) {
-                        if (this.mAudioRecord.read(bArr, 0, this.ccI) >= 0) {
-                            byte[] A = TextUtils.equals(this.ccN.ccq, "pcm") ? bArr : aVar.A(bArr);
+                    this.ccP = 1;
+                    while (this.ccP == 1) {
+                        if (this.mAudioRecord.read(bArr, 0, this.ccO) >= 0) {
+                            byte[] A = TextUtils.equals(this.ccT.ccx, "pcm") ? bArr : aVar.A(bArr);
                             if (A != null && A.length > 0) {
                                 fileOutputStream.write(A);
                             }
@@ -293,15 +293,15 @@ public class a {
                     fileOutputStream2 = fileOutputStream;
                     fileOutputStream = fileOutputStream2;
                     c.e("recorder", "save record error", e);
-                    if (this.ccJ == 1) {
-                        this.ccJ = 3;
+                    if (this.ccP == 1) {
+                        this.ccP = 3;
                     }
                     com.baidu.swan.d.c.closeSafely(fileOutputStream);
                     return false;
                 } catch (IllegalStateException e2) {
                     e = e2;
                     c.e("recorder", "save record error", e);
-                    if (this.ccJ == 1) {
+                    if (this.ccP == 1) {
                     }
                     com.baidu.swan.d.c.closeSafely(fileOutputStream);
                     return false;
@@ -326,127 +326,127 @@ public class a {
 
     public void a(final com.baidu.swan.apps.media.b.b.b bVar) {
         if (DEBUG) {
-            Log.d("AudioRecorderManager", "start timer:" + this.ccN.ccp);
+            Log.d("AudioRecorderManager", "start timer:" + this.ccT.ccw);
         }
-        c.i("recorder", "start timer, totalTime:" + this.ccN.ccp);
-        this.ccK = bVar;
+        c.i("recorder", "start timer, totalTime:" + this.ccT.ccw);
+        this.ccQ = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.media.b.c.a.4
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.RZ();
+                    bVar.RY();
                 }
-                a.this.RX();
+                a.this.RW();
             }
-        }, this.ccN.ccp);
-        this.ccL = System.currentTimeMillis();
+        }, this.ccT.ccw);
+        this.ccR = System.currentTimeMillis();
     }
 
-    public void RX() {
+    public void RW() {
         if (DEBUG) {
             Log.d("AudioRecorderManager", "stop timer");
         }
         c.i("recorder", "stop timer");
-        this.ccK = null;
+        this.ccQ = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
             this.mTimer = null;
         }
-    }
-
-    public void aeG() {
-        if (DEBUG) {
-            Log.d("AudioRecorderManager", "pause timer, lastTime:" + this.ccM);
-        }
-        c.i("recorder", "pause timer, lastTime:" + this.ccM);
-        if (this.mTimer != null) {
-            this.mTimer.cancel();
-            this.mTimer = null;
-        }
-        this.ccM = this.ccN.ccp - (System.currentTimeMillis() - this.ccL);
     }
 
     public void aeF() {
         if (DEBUG) {
+            Log.d("AudioRecorderManager", "pause timer, lastTime:" + this.ccS);
+        }
+        c.i("recorder", "pause timer, lastTime:" + this.ccS);
+        if (this.mTimer != null) {
+            this.mTimer.cancel();
+            this.mTimer = null;
+        }
+        this.ccS = this.ccT.ccw - (System.currentTimeMillis() - this.ccR);
+    }
+
+    public void aeE() {
+        if (DEBUG) {
             Log.d("AudioRecorderManager", "resume timer");
         }
         c.i("recorder", "resume timer");
-        if (this.ccK != null) {
-            if (this.ccM <= 0) {
-                this.ccK.RZ();
+        if (this.ccQ != null) {
+            if (this.ccS <= 0) {
+                this.ccQ.RY();
                 return;
             }
             this.mTimer = new Timer();
             this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.media.b.c.a.5
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
-                    if (a.this.ccK != null) {
-                        a.this.ccK.RZ();
+                    if (a.this.ccQ != null) {
+                        a.this.ccQ.RY();
                     }
-                    a.this.RX();
+                    a.this.RW();
                 }
-            }, this.ccM);
-            this.ccL = System.currentTimeMillis();
+            }, this.ccS);
+            this.ccR = System.currentTimeMillis();
         }
     }
 
     public void cY(boolean z) {
-        if (z && this.ccJ == 1) {
+        if (z && this.ccP == 1) {
             pauseRecord();
         }
         this.mIsBackground = z;
     }
 
     public static void dV(boolean z) {
-        if (ccG != null) {
-            ccG.cY(z);
+        if (ccM != null) {
+            ccM.cY(z);
         }
     }
 
     public static void release() {
-        if (ccG != null) {
-            ccG.agg();
-            ccG.agm();
-            ccG.age();
+        if (ccM != null) {
+            ccM.agf();
+            ccM.agl();
+            ccM.agd();
         }
     }
 
     public static void releaseAll() {
         release();
-        ccG = null;
+        ccM = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agg() {
-        RX();
+    public void agf() {
+        RW();
         this.mContext = null;
-        this.ccJ = -1;
+        this.ccP = -1;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
             this.mAudioRecord = null;
         }
     }
 
-    public com.baidu.swan.apps.media.b.a agh() {
-        return this.ccN;
+    public com.baidu.swan.apps.media.b.a agg() {
+        return this.ccT;
     }
 
-    public com.baidu.swan.apps.media.b.b agi() {
-        return this.ccO;
+    public com.baidu.swan.apps.media.b.b agh() {
+        return this.ccU;
     }
 
     public boolean kC(String str) {
         String str2 = null;
         if (TextUtils.equals(str, "/swanAPI/recorder/pause")) {
-            if (this.ccJ != 1) {
+            if (this.ccP != 1) {
                 str2 = "pause fail: recorder is not recording";
             }
         } else if (TextUtils.equals(str, "/swanAPI/recorder/resume")) {
-            if (this.ccJ != 2) {
+            if (this.ccP != 2) {
                 str2 = "resume fail: recorder is not paused";
             }
-        } else if (TextUtils.equals(str, "/swanAPI/recorder/stop") && this.ccJ != 2 && this.ccJ != 1) {
+        } else if (TextUtils.equals(str, "/swanAPI/recorder/stop") && this.ccP != 2 && this.ccP != 1) {
             str2 = "stop fail: recorder is not started";
         }
         if (str2 != null) {
@@ -458,49 +458,49 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void agj() {
+    public void agi() {
         Q(2002, "error execute");
     }
 
     private void Q(int i, String str) {
-        if (this.ccO == null || TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.ccy)) {
+        if (this.ccU == null || TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.ccE)) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("errCode", i);
                 jSONObject.put("errMsg", str);
                 HashMap hashMap = new HashMap();
                 hashMap.put("data", jSONObject.toString());
-                com.baidu.swan.apps.y.f.aeK().a(new com.baidu.swan.apps.n.a.b("recorderError", hashMap));
+                com.baidu.swan.apps.y.f.aeJ().a(new com.baidu.swan.apps.n.a.b("recorderError", hashMap));
                 return;
             } catch (JSONException e) {
                 c.e("recorder", "json error", e);
-                agg();
+                agf();
                 return;
             }
         }
-        this.ccO.Q(i, str);
+        this.ccU.Q(i, str);
     }
 
     private void be(String str, String str2) {
         if (DEBUG) {
             Log.d("AudioRecorderManager", "dispatchCallback: " + str + " " + str2);
         }
-        if (this.ccO != null && !TextUtils.isEmpty(str)) {
-            this.ccO.ko(str);
+        if (this.ccU != null && !TextUtils.isEmpty(str)) {
+            this.ccU.ko(str);
             return;
         }
-        com.baidu.swan.apps.y.f.aeK().a(new com.baidu.swan.apps.n.a.b(str2));
+        com.baidu.swan.apps.y.f.aeJ().a(new com.baidu.swan.apps.n.a.b(str2));
     }
 
-    private void agk() {
+    private void agj() {
         long j;
         long j2 = -1;
-        String bA = com.baidu.swan.apps.storage.b.bA(this.ccH, this.mAppId);
-        if (TextUtils.isEmpty(this.ccH)) {
+        String bA = com.baidu.swan.apps.storage.b.bA(this.ccN, this.mAppId);
+        if (TextUtils.isEmpty(this.ccN)) {
             j = -1;
         } else {
-            j = com.baidu.swan.d.c.sw(this.ccH);
-            j2 = new File(this.ccH).length();
+            j = com.baidu.swan.d.c.sw(this.ccN);
+            j2 = new File(this.ccN).length();
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -513,33 +513,33 @@ public class a {
             if (j2 >= 0) {
                 jSONObject.put("fileSize", j2);
             }
-            if (this.ccO != null && !TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.ccx)) {
-                this.ccO.e(com.baidu.swan.apps.media.b.b.ccx, jSONObject);
+            if (this.ccU != null && !TextUtils.isEmpty(com.baidu.swan.apps.media.b.b.ccD)) {
+                this.ccU.e(com.baidu.swan.apps.media.b.b.ccD, jSONObject);
                 return;
             }
             HashMap hashMap = new HashMap();
             hashMap.put("data", jSONObject.toString());
-            com.baidu.swan.apps.y.f.aeK().a(new com.baidu.swan.apps.n.a.b("recorderStop", hashMap));
+            com.baidu.swan.apps.y.f.aeJ().a(new com.baidu.swan.apps.n.a.b("recorderStop", hashMap));
         } catch (JSONException e) {
-            agj();
+            agi();
             c.e("recorder", "json error", e);
-            agg();
+            agf();
+        }
+    }
+
+    private void agk() {
+        if (this.mContext != null) {
+            this.mTelephonyManager = (TelephonyManager) this.mContext.getSystemService("phone");
+            this.ccV = new com.baidu.swan.apps.media.b.b.a();
+            this.mTelephonyManager.listen(this.ccV, 32);
         }
     }
 
     private void agl() {
-        if (this.mContext != null) {
-            this.mTelephonyManager = (TelephonyManager) this.mContext.getSystemService("phone");
-            this.ccP = new com.baidu.swan.apps.media.b.b.a();
-            this.mTelephonyManager.listen(this.ccP, 32);
-        }
-    }
-
-    private void agm() {
-        if (this.mTelephonyManager != null && this.ccP != null) {
-            this.mTelephonyManager.listen(this.ccP, 0);
+        if (this.mTelephonyManager != null && this.ccV != null) {
+            this.mTelephonyManager.listen(this.ccV, 0);
             this.mTelephonyManager = null;
-            this.ccP = null;
+            this.ccV = null;
         }
     }
 }

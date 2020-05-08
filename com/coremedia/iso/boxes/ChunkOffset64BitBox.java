@@ -10,7 +10,7 @@ import org.aspectj.lang.a;
 /* loaded from: classes7.dex */
 public class ChunkOffset64BitBox extends ChunkOffsetBox {
     public static final String TYPE = "co64";
-    private static final /* synthetic */ a.InterfaceC0805a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0826a ajc$tjp_0 = null;
     private long[] chunkOffsets;
 
     static {

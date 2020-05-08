@@ -8,8 +8,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.b;
 import com.baidu.sapi2.utils.Log;
@@ -22,17 +24,33 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 /* loaded from: classes6.dex */
 public class SlideActiviy extends BaseActivity {
-    public static final String ADDRESS_PAGE_NAME = "address";
-    public static final String INVOICE_PAGE_NAME = "invoice";
-    private static final boolean r = true;
-    private static final String s = "SlideActivity";
+    protected static final String ACCOUNT_CENTER_PAGE_NAME = "accountCenter";
+    protected static final String ADDRESS_PAGE_NAME = "address";
+    protected static final String EXTRAS_ACTION = "action";
+    protected static final String EXTRA_PARAMS_SLIDE_PAGE = "slidePage";
+    protected static final String INVOICE_PAGE_NAME = "invoice";
+    protected static final String SLIDE_ACTION_QUIT = "quit";
+    private static final String r = "SlideActivity";
+    private static final boolean s = true;
     public SlideHelper mSlideHelper;
+    private SlideInterceptor w;
+    private SlidingPaneLayout.PanelSlideListener x;
+    private WeakReference<Activity> z;
     private boolean t = false;
     private boolean u = false;
     private boolean v = false;
-    private SlideInterceptor w;
-    private SlidingPaneLayout.PanelSlideListener x;
-    private WeakReference<Activity> y;
+    private boolean y = true;
+
+    /* loaded from: classes6.dex */
+    private class PassSlideInterceptor implements SlideInterceptor {
+        private PassSlideInterceptor() {
+        }
+
+        @Override // com.baidu.searchbox.widget.SlideInterceptor
+        public boolean isSlidable(MotionEvent motionEvent) {
+            return SlideActiviy.this.y;
+        }
+    }
 
     private void e() {
         if (this.t) {
@@ -41,7 +59,7 @@ public class SlideActiviy extends BaseActivity {
                 z = false;
             }
             if ((getWindow().getAttributes().flags & 67108864) == 0) {
-                Log.e(s, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
+                Log.e(r, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             final int i = displayMetrics != null ? displayMetrics.widthPixels : 0;
@@ -50,7 +68,7 @@ public class SlideActiviy extends BaseActivity {
             this.mSlideHelper.setCanSlide(z);
             this.mSlideHelper.forceActivityTransparent(this.v);
             this.mSlideHelper.setSlideInterceptor(this.w);
-            this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener() { // from class: com.baidu.sapi2.activity.SlideActiviy.3
+            this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener() { // from class: com.baidu.sapi2.activity.SlideActiviy.4
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelClosed(View view) {
                     if (SlideActiviy.this.x != null) {
@@ -109,7 +127,7 @@ public class SlideActiviy extends BaseActivity {
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        Log.d(s, "onConfigurationChanged: ");
+        Log.d(r, "onConfigurationChanged: ");
         SlideHelper slideHelper = this.mSlideHelper;
         if (slideHelper != null) {
             slideHelper.setCanSlide(configuration.orientation != 2);
@@ -133,37 +151,37 @@ public class SlideActiviy extends BaseActivity {
     @Override // android.app.Activity, android.view.Window.Callback
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Log.d(s, "onDetachedFromWindow: ");
+        Log.d(r, "onDetachedFromWindow: ");
     }
 
     @Override // android.app.Activity
     protected void onPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
-        Log.d(s, "onPostCreate");
+        Log.d(r, "onPostCreate");
         e();
     }
 
     @Override // android.app.Activity
     protected void onPostResume() {
         super.onPostResume();
-        Log.d(s, "onPostResume: ");
+        Log.d(r, "onPostResume: ");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        Log.d(s, "onResume: ");
+        Log.d(r, "onResume: ");
     }
 
     @Override // android.app.Activity
     protected void onStart() {
         super.onStart();
-        Log.d(s, "onStart: ");
+        Log.d(r, "onStart: ");
     }
 
     public void setCurrentActivityNoTransparent() {
-        SlideUtil.convertFromTranslucent(this, new OnTranslucentListener() { // from class: com.baidu.sapi2.activity.SlideActiviy.2
+        SlideUtil.convertFromTranslucent(this, new OnTranslucentListener() { // from class: com.baidu.sapi2.activity.SlideActiviy.3
             @Override // com.baidu.searchbox.widget.OnTranslucentListener
             public void onTranslucent(boolean z) {
             }
@@ -200,7 +218,27 @@ public class SlideActiviy extends BaseActivity {
                     Intent intent2 = new Intent(SlideActiviy.this, InvoiceBuildExternalActivity.class);
                     intent2.putExtra("extra_external_url", str3);
                     SlideActiviy.this.startActivity(intent2);
+                } else if (SlideActiviy.ACCOUNT_CENTER_PAGE_NAME.equals(str) && !TextUtils.isEmpty(str3)) {
+                    Intent intent3 = new Intent(SlideActiviy.this, AccountCenterExternalActivity.class);
+                    intent3.putExtra("extra_external_url", str3);
+                    SlideActiviy.this.startActivity(intent3);
                 }
+            }
+        });
+        this.sapiWebView.setStopSlideWebviewCallback(new SapiJsCallBacks.StopSlideWebviewCallback() { // from class: com.baidu.sapi2.activity.SlideActiviy.2
+            @Override // com.baidu.sapi2.SapiJsCallBacks.StopSlideWebviewCallback
+            public void onStopSlide(boolean z) {
+                if (z) {
+                    Log.d(SlideActiviy.r, "Slide should be opened now");
+                    SlideActiviy.this.y = false;
+                } else {
+                    Log.d(SlideActiviy.r, "Slide should be closed now");
+                    SlideActiviy.this.y = true;
+                }
+                SlideActiviy slideActiviy = SlideActiviy.this;
+                slideActiviy.w = new PassSlideInterceptor();
+                SlideActiviy slideActiviy2 = SlideActiviy.this;
+                slideActiviy2.mSlideHelper.setSlideInterceptor(slideActiviy2.w);
             }
         });
     }
@@ -213,12 +251,12 @@ public class SlideActiviy extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f) {
         try {
-            if (this.y == null || this.y.get() == null) {
-                this.y = new WeakReference<>(b.b().c());
+            if (this.z == null || this.z.get() == null) {
+                this.z = new WeakReference<>(b.b().c());
             }
-            if (this.y.get() != null) {
+            if (this.z.get() != null) {
                 Activity d = b.b().d();
-                Activity activity = this.y.get();
+                Activity activity = this.z.get();
                 if (d != null && activity != null && d.getLocalClassName().equals(activity.getLocalClassName())) {
                     a(activity, 0.0f);
                 } else {

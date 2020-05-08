@@ -82,7 +82,7 @@ public class g extends c<UnRegisterStatus> {
             UnRegisterStatus unRegisterStatus2 = new UnRegisterStatus((String) b.a());
             com.meizu.cloud.a.a.e("Strategy", "network unRegisterStatus " + unRegisterStatus2);
             if (BasicPushStatus.SUCCESS_CODE.equals(unRegisterStatus2.getCode())) {
-                com.meizu.cloud.pushsdk.util.b.f(this.e, "", this.h);
+                com.meizu.cloud.pushsdk.util.b.g(this.e, "", this.h);
                 return unRegisterStatus2;
             }
             return unRegisterStatus2;

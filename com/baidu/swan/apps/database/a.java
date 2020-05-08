@@ -4,14 +4,14 @@ public class a {
     public String appId;
     public String appKey;
     public String bRA;
-    public boolean bRB;
-    public String bRs;
-    public String bRt;
-    public int bRu;
-    public String bRv;
-    public String bRw;
+    public String bRB;
+    public String bRC;
+    public long bRD;
+    public int bRE;
+    public String bRF;
+    public boolean bRG;
     public String bRx;
-    public long bRy;
+    public String bRy;
     public int bRz;
     public String bearInfo;
     public int category;
@@ -33,7 +33,7 @@ public class a {
     public int type;
     public String version;
 
-    public String YS() {
-        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.bRs + "', minSwanVersion='" + this.bRt + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.bRu + ", targetSwanVersion='" + this.bRx + "', mAppZipSize=" + this.bRy + ", mPendingApsErrcode=" + this.bRz + ", category=" + this.category + ", versionCode='" + this.bRA + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.bRB + ", payProtected=" + this.payProtected + '}';
+    public String YR() {
+        return "SwanAppDbInfo{appId='" + this.appId + "', appKey='" + this.appKey + "', errorCode=" + this.errorCode + ", errorDetail='" + this.errorDetail + "', errorMsg='" + this.errorMsg + "', resumeDate='" + this.resumeDate + "', maxSwanVersion='" + this.bRx + "', minSwanVersion='" + this.bRy + "', name='" + this.name + "', version='" + this.version + "', type=" + this.type + ", isHaveZip=" + this.bRz + ", targetSwanVersion='" + this.bRC + "', mAppZipSize=" + this.bRD + ", mPendingApsErrcode=" + this.bRE + ", category=" + this.category + ", versionCode='" + this.bRF + "', maxAge=" + this.maxAge + ", createTime=" + this.createTime + ", forceFetchMetaInfoFlag=" + this.bRG + ", payProtected=" + this.payProtected + '}';
     }
 }

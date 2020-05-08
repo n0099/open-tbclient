@@ -4,46 +4,46 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes13.dex */
 public class c {
-    private boolean mbg;
-    private boolean mbh;
-    private boolean mbi;
-    private boolean mbj;
+    private boolean mbk;
+    private boolean mbl;
+    private boolean mbm;
+    private boolean mbn;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b mbk;
-    private int mbf = 100;
+    private com.facebook.imagepipeline.decoder.b mbo;
+    private int mbj = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int dqL() {
-        return this.mbf;
+    public int dqI() {
+        return this.mbj;
     }
 
-    public boolean dqM() {
-        return this.mbg;
+    public boolean dqJ() {
+        return this.mbk;
     }
 
-    public boolean dqN() {
-        return this.mbh;
+    public boolean dqK() {
+        return this.mbl;
     }
 
-    public boolean dqO() {
-        return this.mbi;
+    public boolean dqL() {
+        return this.mbm;
     }
 
     public c vI(boolean z) {
-        this.mbj = z;
+        this.mbn = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b dqP() {
-        return this.mbk;
+    public com.facebook.imagepipeline.decoder.b dqM() {
+        return this.mbo;
     }
 
-    public boolean dqQ() {
-        return this.mbj;
+    public boolean dqN() {
+        return this.mbn;
     }
 
-    public Bitmap.Config dqR() {
+    public Bitmap.Config dqO() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b dqS() {
+    public b dqP() {
         return new b(this);
     }
 }

@@ -11,16 +11,16 @@ import java.util.concurrent.TimeUnit;
 import tv.chushou.zues.utils.e;
 /* loaded from: classes5.dex */
 public class a {
-    private BangInfo myQ;
-    private AutoBang myR;
-    private final SparseArrayCompat<BangListInfo> myS = new SparseArrayCompat<>();
-    private IconConfig.Config myT = new IconConfig.Config();
-    private InterfaceC0725a myU;
-    private b myV;
+    private BangInfo myV;
+    private AutoBang myW;
+    private final SparseArrayCompat<BangListInfo> myX = new SparseArrayCompat<>();
+    private IconConfig.Config myY = new IconConfig.Config();
+    private InterfaceC0746a myZ;
+    private b mza;
 
     /* renamed from: com.kascend.chushou.player.ui.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0725a {
+    public interface InterfaceC0746a {
         void a(long j, BangInfo bangInfo, String str);
 
         void a(BangInfo bangInfo, String str);
@@ -28,18 +28,18 @@ public class a {
         void a(IconConfig.Config config);
     }
 
-    public a(InterfaceC0725a interfaceC0725a) {
-        this.myU = interfaceC0725a;
+    public a(InterfaceC0746a interfaceC0746a) {
+        this.myZ = interfaceC0746a;
     }
 
     public void a() {
-        this.myT = new IconConfig.Config();
-        this.myQ = null;
-        this.myR = null;
-        this.myS.clear();
-        if (this.myV != null) {
-            this.myV.dispose();
-            this.myV = null;
+        this.myY = new IconConfig.Config();
+        this.myV = null;
+        this.myW = null;
+        this.myX.clear();
+        if (this.mza != null) {
+            this.mza.dispose();
+            this.mza = null;
         }
     }
 
@@ -49,45 +49,45 @@ public class a {
 
     public void a(SparseArrayCompat<BangListInfo> sparseArrayCompat) {
         if (sparseArrayCompat != null) {
-            this.myS.clear();
+            this.myX.clear();
             for (int i = 0; i < sparseArrayCompat.size(); i++) {
-                this.myS.put(sparseArrayCompat.keyAt(i), sparseArrayCompat.valueAt(i));
+                this.myX.put(sparseArrayCompat.keyAt(i), sparseArrayCompat.valueAt(i));
             }
         }
     }
 
     public void a(IconConfig.Config config) {
         if (config != null) {
-            this.myT = config;
-            if (this.myU != null) {
-                this.myU.a(config);
+            this.myY = config;
+            if (this.myZ != null) {
+                this.myZ.a(config);
             }
         }
     }
 
     public void a(BangInfo bangInfo) {
         if (bangInfo != null) {
-            this.myQ = bangInfo;
-            if (this.myU != null) {
-                this.myU.a(bangInfo, a(bangInfo.mLevel));
+            this.myV = bangInfo;
+            if (this.myZ != null) {
+                this.myZ.a(bangInfo, a(bangInfo.mLevel));
             }
         }
     }
 
     public void a(AutoBang autoBang) {
         if (autoBang != null && autoBang.bangTime != 0) {
-            AutoBang autoBang2 = this.myR;
+            AutoBang autoBang2 = this.myW;
             if (autoBang.isDone) {
                 if (autoBang2 != null) {
-                    if (autoBang.bangTime >= autoBang2.currentTime && this.myV != null) {
-                        this.myV.dispose();
-                        this.myV = null;
+                    if (autoBang.bangTime >= autoBang2.currentTime && this.mza != null) {
+                        this.mza.dispose();
+                        this.mza = null;
                         return;
                     }
                     return;
-                } else if (this.myV != null) {
-                    this.myV.dispose();
-                    this.myV = null;
+                } else if (this.mza != null) {
+                    this.mza.dispose();
+                    this.mza = null;
                     return;
                 } else {
                     return;
@@ -103,41 +103,41 @@ public class a {
             }
             final long j = (autoBang3.bangTime - autoBang3.currentTime) / 1000;
             if (j <= 0) {
-                if (this.myV != null) {
-                    this.myV.dispose();
-                    this.myV = null;
+                if (this.mza != null) {
+                    this.mza.dispose();
+                    this.mza = null;
                     return;
                 }
                 return;
             }
-            if (this.myV != null) {
-                this.myV.dispose();
-                this.myV = null;
+            if (this.mza != null) {
+                this.mza.dispose();
+                this.mza = null;
             }
-            this.myR = autoBang3;
-            this.myV = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dDm()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.4
+            this.myW = autoBang3;
+            this.mza = g.a(1L, j, 1L, 1L, TimeUnit.SECONDS).b(io.reactivex.f.a.dDi()).b(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.4
                 @Override // io.reactivex.c.a
                 public void run() throws Exception {
-                    if (a.this.myU != null) {
-                        a.this.myU.a(0L, a.this.myQ, a.this.d());
+                    if (a.this.myZ != null) {
+                        a.this.myZ.a(0L, a.this.myV, a.this.d());
                     }
-                    a.this.myR = null;
+                    a.this.myW = null;
                 }
             }).a(new io.reactivex.c.a() { // from class: com.kascend.chushou.player.ui.a.a.3
                 @Override // io.reactivex.c.a
                 public void run() throws Exception {
-                    if (a.this.myU != null) {
-                        a.this.myU.a(0L, a.this.myQ, a.this.d());
+                    if (a.this.myZ != null) {
+                        a.this.myZ.a(0L, a.this.myV, a.this.d());
                     }
                 }
-            }).b(io.reactivex.a.b.a.dCH()).a(io.reactivex.a.b.a.dCH()).c(io.reactivex.a.b.a.dCH()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.a.a.1
+            }).b(io.reactivex.a.b.a.dCD()).a(io.reactivex.a.b.a.dCD()).c(io.reactivex.a.b.a.dCD()).a(new io.reactivex.c.g<Long>() { // from class: com.kascend.chushou.player.ui.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // io.reactivex.c.g
                 /* renamed from: a */
                 public void accept(Long l) throws Exception {
                     long longValue = j - l.longValue();
-                    if (a.this.myU != null) {
-                        a.this.myU.a(longValue, a.this.myQ, a.this.d());
+                    if (a.this.myZ != null) {
+                        a.this.myZ.a(longValue, a.this.myV, a.this.d());
                     }
                 }
             }, new io.reactivex.c.g<Throwable>() { // from class: com.kascend.chushou.player.ui.a.a.2
@@ -151,23 +151,23 @@ public class a {
         }
     }
 
-    public IconConfig.Config dyw() {
-        return this.myT;
+    public IconConfig.Config dys() {
+        return this.myY;
     }
 
     public String d() {
-        if (this.myQ == null) {
+        if (this.myV == null) {
             return null;
         }
-        return a(this.myQ.mLevel);
+        return a(this.myV.mLevel);
     }
 
-    public BangInfo dyx() {
-        return this.myQ;
+    public BangInfo dyt() {
+        return this.myV;
     }
 
     private String a(int i) {
-        BangListInfo bangListInfo = this.myS.get(i);
+        BangListInfo bangListInfo = this.myX.get(i);
         if (bangListInfo != null) {
             return bangListInfo.icon;
         }

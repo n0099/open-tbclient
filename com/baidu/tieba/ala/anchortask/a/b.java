@@ -14,74 +14,74 @@ import com.baidu.live.view.web.g;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.live.b.b {
-    private Activity caH;
-    private c eYW;
-    private CustomMessageListener eYX;
-    private PopupWindow.OnDismissListener eYY;
+    private Activity caN;
+    private c eZb;
+    private CustomMessageListener eZc;
+    private PopupWindow.OnDismissListener eZd;
 
     public b(Activity activity) {
-        this.caH = activity;
-        bmD();
+        this.caN = activity;
+        bmB();
     }
 
     @Override // com.baidu.live.b.b
     public void c(String str, long j, long j2) {
-        this.eYW = new c(this.caH);
-        this.eYW.setOnDismissListener(this.eYY);
-        this.eYW.bmE().setBackgroundColor(zq(str));
+        this.eZb = new c(this.caN);
+        this.eZb.setOnDismissListener(this.eZd);
+        this.eZb.bmC().setBackgroundColor(zt(str));
         g gVar = new g();
-        gVar.u(this.caH).a(this.eYW).a(this.eYW.bmE().getSchemeCallback());
-        com.baidu.live.view.web.a[] HN = gVar.HN();
-        for (com.baidu.live.view.web.a aVar : HN) {
-            this.eYW.bmE().addJavascriptInterface(aVar, aVar.getName());
+        gVar.u(this.caN).a(this.eZb).a(this.eZb.bmC().getSchemeCallback());
+        com.baidu.live.view.web.a[] HM = gVar.HM();
+        for (com.baidu.live.view.web.a aVar : HM) {
+            this.eZb.bmC().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.eYW.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
+        this.eZb.show(str + "?anchor_id=" + j2 + "&live_id=" + j + "&subapp_type=" + TbConfig.getSubappType());
     }
 
     @Override // com.baidu.live.b.b
     public void resume() {
-        if (this.eYW != null && this.eYW.isShowing() && this.eYW.bmE() != null) {
-            this.eYW.bmE().onResume();
+        if (this.eZb != null && this.eZb.isShowing() && this.eZb.bmC() != null) {
+            this.eZb.bmC().onResume();
         }
     }
 
     @Override // com.baidu.live.b.b
     public void pause() {
-        if (this.eYW != null && this.eYW.isShowing() && this.eYW.bmE() != null) {
-            this.eYW.bmE().onPause();
+        if (this.eZb != null && this.eZb.isShowing() && this.eZb.bmC() != null) {
+            this.eZb.bmC().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.eYW != null) {
-            this.eYW.bmF();
+        if (this.eZb != null) {
+            this.eZb.bmD();
         }
     }
 
-    public void xj() {
+    public void xi() {
         dismiss();
     }
 
     @Override // com.baidu.live.b.b
     public void release() {
-        xj();
-        MessageManager.getInstance().unRegisterListener(this.eYX);
+        xi();
+        MessageManager.getInstance().unRegisterListener(this.eZc);
     }
 
-    private void bmD() {
-        this.eYX = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
+    private void bmB() {
+        this.eZc = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.anchortask.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.eYW != null && b.this.eYW.isShowing()) {
-                    b.this.eYW.dismiss();
+                if (b.this.eZb != null && b.this.eZb.isShowing()) {
+                    b.this.eZb.dismiss();
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.eYX);
+        MessageManager.getInstance().registerListener(this.eZc);
     }
 
-    private int zq(String str) {
+    private int zt(String str) {
         int indexOf;
         String queryParameter = Uri.parse(str).getQueryParameter("background");
         if ((TextUtils.isEmpty(queryParameter) || queryParameter.length() != 8) && (indexOf = str.indexOf("background=")) >= 0 && indexOf + 19 <= str.length()) {

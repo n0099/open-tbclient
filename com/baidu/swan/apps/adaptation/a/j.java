@@ -4,19 +4,19 @@ import com.baidu.swan.apps.core.container.a.a;
 import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes11.dex */
 public interface j {
-    int OP();
+    int OO();
+
+    boolean OP();
 
     boolean OQ();
 
-    boolean OR();
+    int OR();
 
-    int OS();
+    void OS();
 
-    void OT();
+    VideoPlayerFactory OT();
 
-    VideoPlayerFactory OU();
-
-    void a(a.InterfaceC0275a interfaceC0275a);
+    void a(a.InterfaceC0296a interfaceC0296a);
 
     void dX(int i);
 }

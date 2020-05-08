@@ -19,56 +19,56 @@ import com.baidu.live.u.a;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class GiftPanelTabGalleryFragment extends GiftPanelTabBaseFragment {
-    private CustomMessageListener aDv;
-    private d aHa;
-    private CustomMessageListener aHb;
-    private long aGY = 0;
-    private long aGZ = 0;
-    private d.a aCw = new d.a() { // from class: com.baidu.live.gift.panel.GiftPanelTabGalleryFragment.3
+    private CustomMessageListener aDB;
+    private d aHg;
+    private CustomMessageListener aHh;
+    private long aHe = 0;
+    private long aHf = 0;
+    private d.a aCC = new d.a() { // from class: com.baidu.live.gift.panel.GiftPanelTabGalleryFragment.3
         @Override // com.baidu.live.gift.container.d.a
         public void b(int i, String str, boolean z, ArrayList<i> arrayList, ArrayList<com.baidu.live.data.d> arrayList2, ArrayList<e> arrayList3) {
             if (i != 0 && !StringUtils.isNull(str)) {
                 GiftPanelTabGalleryFragment.this.showToast(str);
             }
-            GiftPanelTabGalleryFragment.this.aGT.a(z, arrayList, arrayList2, arrayList3, i == 0, i);
+            GiftPanelTabGalleryFragment.this.aGZ.a(z, arrayList, arrayList2, arrayList3, i == 0, i);
         }
     };
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInflate(View view, Bundle bundle) {
         super.onInflate(view, bundle);
-        this.aGT.setType(0);
-        this.aGT.aCO.setText("赠送");
+        this.aGZ.setType(0);
+        this.aGZ.aCU.setText("赠送");
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment, com.baidu.live.tbadk.core.fragment.LazyLoadFragment
     protected void onInitial() {
         super.onInitial();
-        this.aGY = TbadkCoreApplication.getInst().currentAccountTdouNum;
-        this.aGZ = TbadkCoreApplication.getInst().currentAccountFlowerNum;
+        this.aHe = TbadkCoreApplication.getInst().currentAccountTdouNum;
+        this.aHf = TbadkCoreApplication.getInst().currentAccountFlowerNum;
+        zE();
         zF();
-        zG();
-        this.aHa = new d(getPageContext(), this.aGV.aEk);
-        this.aHa.a(this.aCw);
-        this.aHa.en(this.aGV.aEj);
+        this.aHg = new d(getPageContext(), this.aHb.aEq);
+        this.aHg.a(this.aCC);
+        this.aHg.en(this.aHb.aEp);
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment, com.baidu.live.tbadk.core.fragment.LazyLoadFragment, com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.aHb);
-        MessageManager.getInstance().unRegisterListener(this.aDv);
+        MessageManager.getInstance().unRegisterListener(this.aHh);
+        MessageManager.getInstance().unRegisterListener(this.aDB);
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment
-    protected boolean zC() {
+    protected boolean zB() {
         return true;
     }
 
     private boolean b(g gVar) {
-        if (com.baidu.live.v.a.Eo().aRw != null && com.baidu.live.v.a.Eo().aRw.avt != null) {
-            String str = com.baidu.live.v.a.Eo().aRw.avt.auJ;
-            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.wr()))) {
+        if (com.baidu.live.v.a.En().aRB != null && com.baidu.live.v.a.En().aRB.avz != null) {
+            String str = com.baidu.live.v.a.En().aRB.avz.auP;
+            if (!TextUtils.isEmpty(str) && str.equals(String.valueOf(gVar.wq()))) {
                 return true;
             }
         }
@@ -76,104 +76,104 @@ public class GiftPanelTabGalleryFragment extends GiftPanelTabBaseFragment {
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment
-    protected boolean zD() {
-        g yg = this.aGT.yg();
-        if (yg == null) {
+    protected boolean zC() {
+        g yf = this.aGZ.yf();
+        if (yf == null) {
             return false;
         }
-        if (b(yg) && !this.aCA) {
+        if (b(yf) && !this.aCG) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913179));
             return false;
         }
-        int i = this.aGV.aBp;
-        if (yg.wv()) {
-            if (yg.wr() == 6 && i < 3) {
+        int i = this.aHb.aBv;
+        if (yf.wu()) {
+            if (yf.wq() == 6 && i < 3) {
                 return false;
             }
-            if (yg.wr() == 7 && i < 7) {
+            if (yf.wq() == 7 && i < 7) {
                 return false;
             }
-            if (yg.wr() == 8 && i < 13) {
+            if (yf.wq() == 8 && i < 13) {
                 return false;
             }
-            if (yg.wr() == 9 && i < 22) {
+            if (yf.wq() == 9 && i < 22) {
                 return false;
             }
-            if (yg.wr() == 10 && i < 29) {
+            if (yf.wq() == 10 && i < 29) {
                 return false;
             }
-            if (yg.wr() == 11 && i < 39) {
+            if (yf.wq() == 11 && i < 39) {
                 return false;
             }
-            if (yg.wr() == 12 && i < 47) {
+            if (yf.wq() == 12 && i < 47) {
                 return false;
             }
         }
-        int yh = this.aGT.yh();
-        if (a(yg, yh)) {
-            if (yg.wd()) {
-                if (this.aGY <= 0 || this.aGY < JavaTypesHelper.toLong(yg.getPrice(), 0L) * yh) {
-                    zy();
+        int yg = this.aGZ.yg();
+        if (a(yf, yg)) {
+            if (yf.wc()) {
+                if (this.aHe <= 0 || this.aHe < JavaTypesHelper.toLong(yf.getPrice(), 0L) * yg) {
+                    zx();
                     return false;
                 }
-                yg.ayS = this.aGU != null ? this.aGU.xL() : null;
-                if (yg.ayS == null) {
+                yf.ayY = this.aHa != null ? this.aHa.xK() : null;
+                if (yf.ayY == null) {
                     return false;
                 }
-                yg.ayS.azT = yg.wa();
-                com.baidu.live.gift.b.b.yT().a(yg, yh, this.aGV.mUserId, this.aGV.mUserName, this.aGV.mLiveId, this.aGV.mRoomId, this.aGV.mAppId, this.aGV.aEh, this.aGV.otherParams, 0L);
-                this.aGY -= JavaTypesHelper.toLong(yg.getPrice(), 0L) * yh;
-                this.aGT.X(this.aGY);
+                yf.ayY.azZ = yf.vZ();
+                com.baidu.live.gift.b.b.yS().a(yf, yg, this.aHb.mUserId, this.aHb.mUserName, this.aHb.mLiveId, this.aHb.mRoomId, this.aHb.mAppId, this.aHb.aEn, this.aHb.otherParams, 0L);
+                this.aHe -= JavaTypesHelper.toLong(yf.getPrice(), 0L) * yg;
+                this.aGZ.X(this.aHe);
                 closeActivity();
-            } else if (yg.wg()) {
-                if (this.aGZ <= 0 || this.aGZ < JavaTypesHelper.toLong(yg.getPrice(), 0L) * yh) {
+            } else if (yf.wf()) {
+                if (this.aHf <= 0 || this.aHf < JavaTypesHelper.toLong(yf.getPrice(), 0L) * yg) {
                     BdUtilHelper.showToast(getPageContext().getPageActivity(), getResources().getString(a.i.ala_free_gift_flower_no_enough), 1000);
                     return false;
                 }
-                com.baidu.live.gift.b.b.yT().a(yg, yh, this.aGV.mUserId, this.aGV.mUserName, this.aGV.mLiveId, this.aGV.mRoomId, this.aGV.mAppId, this.aGV.aEh, this.aGV.otherParams, 0L);
-                this.aGZ -= JavaTypesHelper.toLong(yg.getPrice(), 0L) * yh;
-                this.aGT.Y(this.aGZ);
-            } else if (this.aGY <= 0 || this.aGY < JavaTypesHelper.toLong(yg.getPrice(), 0L) * yh) {
-                zy();
+                com.baidu.live.gift.b.b.yS().a(yf, yg, this.aHb.mUserId, this.aHb.mUserName, this.aHb.mLiveId, this.aHb.mRoomId, this.aHb.mAppId, this.aHb.aEn, this.aHb.otherParams, 0L);
+                this.aHf -= JavaTypesHelper.toLong(yf.getPrice(), 0L) * yg;
+                this.aGZ.Y(this.aHf);
+            } else if (this.aHe <= 0 || this.aHe < JavaTypesHelper.toLong(yf.getPrice(), 0L) * yg) {
+                zx();
                 return false;
             } else {
-                com.baidu.live.gift.b.b.yT().a(yg, yh, this.aGV.mUserId, this.aGV.mUserName, this.aGV.mLiveId, this.aGV.mRoomId, this.aGV.mAppId, this.aGV.aEh, this.aGV.otherParams, 0L);
-                this.aGY -= JavaTypesHelper.toLong(yg.getPrice(), 0L) * yh;
-                this.aGT.X(this.aGY);
+                com.baidu.live.gift.b.b.yS().a(yf, yg, this.aHb.mUserId, this.aHb.mUserName, this.aHb.mLiveId, this.aHb.mRoomId, this.aHb.mAppId, this.aHb.aEn, this.aHb.otherParams, 0L);
+                this.aHe -= JavaTypesHelper.toLong(yf.getPrice(), 0L) * yg;
+                this.aGZ.X(this.aHe);
             }
         }
         return true;
     }
 
     @Override // com.baidu.live.gift.panel.GiftPanelTabBaseFragment
-    protected void zE() {
-        this.aHa.eo(this.aGV.aEj);
+    protected void zD() {
+        this.aHg.eo(this.aHb.aEp);
     }
 
-    private void zF() {
-        this.aHb = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.live.gift.panel.GiftPanelTabGalleryFragment.1
+    private void zE() {
+        this.aHh = new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_UPDATE_GIFT_PANEL_SCORE_DATA) { // from class: com.baidu.live.gift.panel.GiftPanelTabGalleryFragment.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (GiftPanelTabGalleryFragment.this.aGT != null) {
-                    GiftPanelTabGalleryFragment.this.aGY = TbadkCoreApplication.getInst().currentAccountTdouNum;
-                    GiftPanelTabGalleryFragment.this.aGZ = TbadkCoreApplication.getInst().currentAccountFlowerNum;
-                    GiftPanelTabGalleryFragment.this.aGT.X(TbadkCoreApplication.getInst().currentAccountTdouNum);
-                    GiftPanelTabGalleryFragment.this.aGT.Y(TbadkCoreApplication.getInst().currentAccountFlowerNum);
+                if (GiftPanelTabGalleryFragment.this.aGZ != null) {
+                    GiftPanelTabGalleryFragment.this.aHe = TbadkCoreApplication.getInst().currentAccountTdouNum;
+                    GiftPanelTabGalleryFragment.this.aHf = TbadkCoreApplication.getInst().currentAccountFlowerNum;
+                    GiftPanelTabGalleryFragment.this.aGZ.X(TbadkCoreApplication.getInst().currentAccountTdouNum);
+                    GiftPanelTabGalleryFragment.this.aGZ.Y(TbadkCoreApplication.getInst().currentAccountFlowerNum);
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aHb);
+        MessageManager.getInstance().registerListener(this.aHh);
     }
 
-    private void zG() {
-        this.aDv = new CustomMessageListener(2913120) { // from class: com.baidu.live.gift.panel.GiftPanelTabGalleryFragment.2
+    private void zF() {
+        this.aDB = new CustomMessageListener(2913120) { // from class: com.baidu.live.gift.panel.GiftPanelTabGalleryFragment.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                GiftPanelTabGalleryFragment.this.aCA = true;
+                GiftPanelTabGalleryFragment.this.aCG = true;
             }
         };
-        MessageManager.getInstance().registerListener(this.aDv);
+        MessageManager.getInstance().registerListener(this.aDB);
     }
 }

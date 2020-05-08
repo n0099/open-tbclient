@@ -21,12 +21,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends ab {
-    public static final Set<String> bDh = com.facebook.common.internal.i.N("REFERER", "USER-AGENT");
-    protected ConcurrentHashMap<String, Long> ceZ;
+    public static final Set<String> bDm = com.facebook.common.internal.i.N("REFERER", "USER-AGENT");
+    protected ConcurrentHashMap<String, Long> cff;
 
     public a(com.baidu.swan.apps.scheme.j jVar, String str) {
         super(jVar, str);
-        this.ceZ = new ConcurrentHashMap<>();
+        this.cff = new ConcurrentHashMap<>();
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
@@ -40,7 +40,7 @@ public class a extends ab {
             return 0L;
         }
         try {
-            j = this.ceZ.get(str).longValue();
+            j = this.cff.get(str).longValue();
         } catch (Exception e) {
             j = 0;
         }
@@ -48,8 +48,8 @@ public class a extends ab {
     }
 
     public final void kS(String str) {
-        if (this.ceZ != null && !TextUtils.isEmpty(str)) {
-            this.ceZ.remove(str);
+        if (this.cff != null && !TextUtils.isEmpty(str)) {
+            this.cff.remove(str);
         }
     }
 
@@ -61,7 +61,7 @@ public class a extends ab {
         Iterator<String> keys = jSONObject.keys();
         while (keys.hasNext()) {
             String next = keys.next();
-            if (!TextUtils.isEmpty(next) && !bDh.contains(next.toUpperCase())) {
+            if (!TextUtils.isEmpty(next) && !bDm.contains(next.toUpperCase())) {
                 String optString = jSONObject.optString(next);
                 if (!TextUtils.isEmpty(optString)) {
                     hashMap.put(next, optString);
@@ -78,7 +78,7 @@ public class a extends ab {
             if (aE == null) {
                 aE = new HashMap<>();
             }
-            aE.put("Referer", com.baidu.swan.apps.api.module.g.c.RJ());
+            aE.put("Referer", com.baidu.swan.apps.api.module.g.c.RI());
         }
         return aE;
     }
@@ -161,8 +161,8 @@ public class a extends ab {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String ahe() {
-        return com.baidu.swan.apps.w.a.acm().Qj().getCookie(".baidu.com");
+    public String ahd() {
+        return com.baidu.swan.apps.w.a.acl().Qi().getCookie(".baidu.com");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

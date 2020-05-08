@@ -1,23 +1,15 @@
 package com.vivo.push.c;
-
-import android.content.Context;
-import com.vivo.push.sdk.PushMessageCallback;
 /* loaded from: classes8.dex */
-final class af implements Runnable {
-    final /* synthetic */ com.vivo.push.b.j a;
-    final /* synthetic */ ae b;
-
+final class af extends ab {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ae aeVar, com.vivo.push.b.j jVar) {
-        this.b = aeVar;
-        this.a = jVar;
+    public af(com.vivo.push.y yVar) {
+        super(yVar);
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        Context context;
-        PushMessageCallback pushMessageCallback = this.b.b;
-        context = this.b.a;
-        pushMessageCallback.onUnBind(context, this.a.h(), this.a.d());
+    @Override // com.vivo.push.v
+    protected final void a(com.vivo.push.y yVar) {
+        com.vivo.push.b.k kVar = (com.vivo.push.b.k) yVar;
+        com.vivo.push.p.a().a(kVar.g(), kVar.h(), new Object[0]);
+        com.vivo.push.w.b(new ag(this, kVar));
     }
 }

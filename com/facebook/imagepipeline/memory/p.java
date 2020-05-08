@@ -4,14 +4,14 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes12.dex */
 public class p {
-    private final com.facebook.common.memory.c mbT;
-    private final r mec;
-    private final s med;
-    private final r mee;
-    private final r mef;
-    private final s meg;
-    private final r meh;
-    private final s mei;
+    private final com.facebook.common.memory.c mbX;
+    private final r meg;
+    private final s meh;
+    private final r mei;
+    private final r mej;
+    private final s mek;
+    private final r mel;
+    private final s mem;
 
     private p(a aVar) {
         r rVar;
@@ -22,107 +22,107 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.mec == null) {
-            rVar = e.dts();
-        } else {
-            rVar = aVar.mec;
-        }
-        this.mec = rVar;
-        if (aVar.med == null) {
-            sVar = n.dtx();
-        } else {
-            sVar = aVar.med;
-        }
-        this.med = sVar;
-        if (aVar.mee == null) {
-            rVar2 = g.dts();
-        } else {
-            rVar2 = aVar.mee;
-        }
-        this.mee = rVar2;
-        if (aVar.mbT == null) {
-            cVar = com.facebook.common.memory.d.dnd();
-        } else {
-            cVar = aVar.mbT;
-        }
-        this.mbT = cVar;
-        if (aVar.mef == null) {
-            rVar3 = h.dts();
-        } else {
-            rVar3 = aVar.mef;
-        }
-        this.mef = rVar3;
         if (aVar.meg == null) {
-            sVar2 = n.dtx();
+            rVar = e.dtp();
         } else {
-            sVar2 = aVar.meg;
+            rVar = aVar.meg;
         }
-        this.meg = sVar2;
+        this.meg = rVar;
         if (aVar.meh == null) {
-            rVar4 = f.dts();
+            sVar = n.dtu();
         } else {
-            rVar4 = aVar.meh;
+            sVar = aVar.meh;
         }
-        this.meh = rVar4;
+        this.meh = sVar;
         if (aVar.mei == null) {
-            sVar3 = n.dtx();
+            rVar2 = g.dtp();
         } else {
-            sVar3 = aVar.mei;
+            rVar2 = aVar.mei;
         }
-        this.mei = sVar3;
+        this.mei = rVar2;
+        if (aVar.mbX == null) {
+            cVar = com.facebook.common.memory.d.dna();
+        } else {
+            cVar = aVar.mbX;
+        }
+        this.mbX = cVar;
+        if (aVar.mej == null) {
+            rVar3 = h.dtp();
+        } else {
+            rVar3 = aVar.mej;
+        }
+        this.mej = rVar3;
+        if (aVar.mek == null) {
+            sVar2 = n.dtu();
+        } else {
+            sVar2 = aVar.mek;
+        }
+        this.mek = sVar2;
+        if (aVar.mel == null) {
+            rVar4 = f.dtp();
+        } else {
+            rVar4 = aVar.mel;
+        }
+        this.mel = rVar4;
+        if (aVar.mem == null) {
+            sVar3 = n.dtu();
+        } else {
+            sVar3 = aVar.mem;
+        }
+        this.mem = sVar3;
     }
 
-    public r dtA() {
-        return this.mec;
-    }
-
-    public s dtB() {
-        return this.med;
-    }
-
-    public com.facebook.common.memory.c dru() {
-        return this.mbT;
-    }
-
-    public r dtC() {
-        return this.mef;
-    }
-
-    public s dtD() {
+    public r dtx() {
         return this.meg;
     }
 
-    public r dtE() {
-        return this.mee;
-    }
-
-    public r dtF() {
+    public s dty() {
         return this.meh;
     }
 
-    public s dtG() {
+    public com.facebook.common.memory.c drr() {
+        return this.mbX;
+    }
+
+    public r dtz() {
+        return this.mej;
+    }
+
+    public s dtA() {
+        return this.mek;
+    }
+
+    public r dtB() {
         return this.mei;
     }
 
-    public static a dtH() {
+    public r dtC() {
+        return this.mel;
+    }
+
+    public s dtD() {
+        return this.mem;
+    }
+
+    public static a dtE() {
         return new a();
     }
 
     /* loaded from: classes12.dex */
     public static class a {
-        private com.facebook.common.memory.c mbT;
-        private r mec;
-        private s med;
-        private r mee;
-        private r mef;
-        private s meg;
-        private r meh;
-        private s mei;
+        private com.facebook.common.memory.c mbX;
+        private r meg;
+        private s meh;
+        private r mei;
+        private r mej;
+        private s mek;
+        private r mel;
+        private s mem;
 
         private a() {
         }
 
-        public p dtI() {
+        public p dtF() {
             return new p(this);
         }
     }

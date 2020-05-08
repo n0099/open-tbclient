@@ -21,6 +21,10 @@ public final class p {
         return a.a(str, str2);
     }
 
+    public static int a(String str, Throwable th) {
+        return a.a(str, th);
+    }
+
     public static int a(String str, String str2, Throwable th) {
         return a.a(str, str2, th);
     }

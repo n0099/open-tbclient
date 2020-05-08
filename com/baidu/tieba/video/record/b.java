@@ -4,9 +4,9 @@ import android.hardware.Camera;
 import android.view.MotionEvent;
 /* loaded from: classes10.dex */
 class b {
-    private float lmY;
-    private int lmZ;
-    private i lna;
+    private float lnc;
+    private int lnd;
+    private i lne;
     private Camera mCamera;
     private int mode = 0;
 
@@ -15,11 +15,11 @@ class b {
     }
 
     public void setRecordController(i iVar) {
-        this.lna = iVar;
+        this.lne = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.lna == null || !this.lna.aRo()) {
+        if (this.lne == null || !this.lne.aRl()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.lmY) / 10.0f);
+                        int i = (int) ((spacing - this.lnc) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.lmZ;
+                            int i2 = i + this.lnd;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.lmY = spacing;
+                            this.lnc = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.lmY = spacing(motionEvent);
+                    this.lnc = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.lmZ = i;
+                this.lnd = i;
             }
         }
     }

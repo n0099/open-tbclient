@@ -12,7 +12,6 @@ import com.baidu.mapapi.search.route.BikingRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.sapi2.activity.SlideActiviy;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -191,8 +190,8 @@ public class a extends com.baidu.platform.base.d {
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                 if (jSONObject2 != null) {
                     PoiInfo poiInfo = new PoiInfo();
-                    if (jSONObject2.has(SlideActiviy.ADDRESS_PAGE_NAME)) {
-                        poiInfo.address = jSONObject2.optString(SlideActiviy.ADDRESS_PAGE_NAME);
+                    if (jSONObject2.has("address")) {
+                        poiInfo.address = jSONObject2.optString("address");
                     }
                     poiInfo.uid = jSONObject2.optString("uid");
                     poiInfo.name = jSONObject2.optString("name");

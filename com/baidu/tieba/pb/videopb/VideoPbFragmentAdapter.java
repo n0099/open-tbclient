@@ -12,17 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
-    private List<String> jKV;
+    private List<String> jKZ;
     private ArrayList<BaseFragment> mFragments;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.jKV == null) {
-            this.jKV = new ArrayList();
+        if (this.jKZ == null) {
+            this.jKZ = new ArrayList();
         }
-        this.jKV.clear();
-        this.jKV.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-        this.jKV.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.jKZ.clear();
+        this.jKZ.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+        this.jKZ.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         if (this.mFragments == null) {
             this.mFragments = new ArrayList<>();
         }
@@ -53,13 +53,13 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public CharSequence getPageTitle(int i) {
-        if (this.jKV == null || i < 0 || i >= this.jKV.size()) {
+        if (this.jKZ == null || i < 0 || i >= this.jKZ.size()) {
             return null;
         }
-        return this.jKV.get(i);
+        return this.jKZ.get(i);
     }
 
-    public ArrayList<BaseFragment> cEf() {
+    public ArrayList<BaseFragment> cEc() {
         return this.mFragments;
     }
 

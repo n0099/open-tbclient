@@ -62,7 +62,7 @@ public class c {
         while (it.hasNext()) {
             com.baidu.adp.lib.stats.base.d dVar = (com.baidu.adp.lib.stats.base.d) it.next();
             if (dVar != null) {
-                long j = dVar.Ms;
+                long j = dVar.Mw;
                 if (j != 0 && j + 604800000 < currentTimeMillis) {
                     arrayList3.add(dVar.mFileName);
                 } else {

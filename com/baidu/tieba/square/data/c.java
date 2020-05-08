@@ -14,8 +14,8 @@ public class c {
     private List<m> dataList = new ArrayList();
     public boolean hasMore = true;
     public int pn = 0;
-    public int kLy = 0;
-    public int dEq = 0;
+    public int kLC = 0;
+    public int dEu = 0;
 
     public List<m> getDataList() {
         return this.dataList;

@@ -20,28 +20,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class e {
-    private static List<String> cMR = new ArrayList();
-    private String cMQ = l.getBasePath();
-    private String cMS;
+    private static List<String> cMX = new ArrayList();
+    private String cMW = l.getBasePath();
+    private String cMY;
     private Context mContext;
 
     static {
-        cMR.add("ascii");
-        cMR.add("base64");
-        cMR.add("binary");
-        cMR.add("hex");
-        cMR.add("utf-8");
-        cMR.add("utf8");
-        cMR.add("latin1");
-        cMR.add("ucs2");
-        cMR.add("ucs-2");
-        cMR.add("utf16le");
-        cMR.add("utf-16le");
+        cMX.add("ascii");
+        cMX.add("base64");
+        cMX.add("binary");
+        cMX.add("hex");
+        cMX.add("utf-8");
+        cMX.add("utf8");
+        cMX.add("latin1");
+        cMX.add("ucs2");
+        cMX.add("ucs-2");
+        cMX.add("utf16le");
+        cMX.add("utf-16le");
     }
 
     public e(Context context, String str) {
         this.mContext = context;
-        this.cMS = str;
+        this.cMY = str;
     }
 
     private String pZ(String str) {
@@ -55,8 +55,8 @@ public class e {
             return l.qk(str);
         }
         if (str.startsWith("bdfile://code")) {
-            this.cMS = this.cMS.endsWith(File.separator) ? this.cMS.substring(0, this.cMS.length() - 1) : this.cMS;
-            return this.cMS + str.substring("bdfile://code".length());
+            this.cMY = this.cMY.endsWith(File.separator) ? this.cMY.substring(0, this.cMY.length() - 1) : this.cMY;
+            return this.cMY + str.substring("bdfile://code".length());
         }
         return "";
     }
@@ -199,7 +199,7 @@ public class e {
             if ("binary".equals(str2.toLowerCase())) {
                 str2 = "latin1";
             }
-            if (!cMR.contains(str2.toLowerCase())) {
+            if (!cMX.contains(str2.toLowerCase())) {
                 return aa(-1, "fail invalid encoding \"" + str2 + "\"");
             }
         }
@@ -710,7 +710,7 @@ public class e {
                     str3 = "latin1";
                 }
             }
-            if (!isEmpty && !cMR.contains(str3)) {
+            if (!isEmpty && !cMX.contains(str3)) {
                 return aa(-1, "fail Error: Unknown encoding: " + str3);
             }
             String pZ = pZ(qm);
@@ -736,7 +736,7 @@ public class e {
                     str4 = a;
                 }
                 if (TextUtils.isEmpty(str3)) {
-                    aa.cMd = bArr;
+                    aa.cMj = bArr;
                 } else {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(str4);

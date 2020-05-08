@@ -1,7 +1,15 @@
 package com.xiaomi.push;
 /* loaded from: classes8.dex */
-public interface ar {
+interface ar {
     String a();
 
-    String b();
+    /* renamed from: a  reason: collision with other method in class */
+    boolean m133a();
+
+    /* renamed from: b */
+    String mo131b();
+
+    String c();
+
+    String d();
 }

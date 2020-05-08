@@ -16,28 +16,28 @@ import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.model.UpdateGroupModel;
 /* loaded from: classes10.dex */
 public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
-    private UpdateGroupModel ivt;
-    private a ivs = null;
-    private int ivu = 1;
-    a.b iiM = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
+    private UpdateGroupModel ivz;
+    private a ivy = null;
+    private int ivA = 1;
+    a.b iiS = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.1
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-            UpdateGroupActivity.this.cjj();
+            UpdateGroupActivity.this.cjh();
         }
     };
-    a.b iiN = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
+    a.b iiT = new a.b() { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.2
         @Override // com.baidu.tbadk.core.dialog.a.b
         public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
             UpdateGroupActivity.this.setResult(0);
             UpdateGroupActivity.this.finish();
         }
     };
-    private com.baidu.adp.framework.listener.c icV = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_UPDATE_GROUP) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
+    private com.baidu.adp.framework.listener.c idb = new com.baidu.adp.framework.listener.c(CmdConfigSocket.CMD_UPDATE_GROUP) { // from class: com.baidu.tieba.im.updategroup.UpdateGroupActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103102) {
-                UpdateGroupActivity.this.ivs.setIsLoading(false);
+                UpdateGroupActivity.this.ivy.setIsLoading(false);
                 if (!(socketResponsedMessage instanceof ResponseUpdateGroupMessage)) {
                     UpdateGroupActivity.this.showToast(R.string.group_update_fail);
                     return;
@@ -49,7 +49,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
                 }
                 UpdateGroupActivity.this.showToast(R.string.group_update_success);
                 Intent intent = UpdateGroupActivity.this.getIntent();
-                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.ivs.getText());
+                intent.putExtra(UpdateGroupActivityConfig.GROUP_TEXT, UpdateGroupActivity.this.ivy.getText());
                 UpdateGroupActivity.this.setResult(-1, intent);
                 UpdateGroupActivity.this.finish();
             }
@@ -75,79 +75,79 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
         long longExtra = intent.getLongExtra("group_id", 0L);
         String stringExtra = intent.getStringExtra(UpdateGroupActivityConfig.GROUP_TEXT);
         x(intExtra, longExtra);
-        this.ivt = new UpdateGroupModel(getPageContext());
-        this.ivt.setUniqueId(getUniqueId());
-        this.ivs.Fg(stringExtra);
-        this.ivs.b(this.iiN);
-        this.ivs.c(this.iiM);
+        this.ivz = new UpdateGroupModel(getPageContext());
+        this.ivz.setUniqueId(getUniqueId());
+        this.ivy.Fj(stringExtra);
+        this.ivy.b(this.iiT);
+        this.ivy.c(this.iiS);
         initListener();
     }
 
     private void initListener() {
-        registerListener(this.icV);
+        registerListener(this.idb);
     }
 
     private void x(int i, long j) {
         if (i == 1) {
-            this.ivs = new c(this);
+            this.ivy = new c(this);
         } else if (i == 2) {
-            this.ivs = new b(this);
+            this.ivy = new b(this);
         }
-        this.ivu = i;
-        this.ivs.setGroupId(j);
+        this.ivA = i;
+        this.ivy.setGroupId(j);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.ivs.onChangeSkinType(i);
+        this.ivy.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.ivs.ceL()) {
-            if (((d) this.ivs).cjk()) {
+        if (view == this.ivy.ceJ()) {
+            if (((d) this.ivy).cji()) {
                 finish();
-            } else if (this.ivs.cjh() && this.ivs.ceB()) {
-                cjj();
+            } else if (this.ivy.cjf() && this.ivy.cez()) {
+                cjh();
             } else {
-                showToast(this.ivs.cjg());
+                showToast(this.ivy.cje());
             }
-        } else if (view == this.ivs.cdZ()) {
-            this.ivs.CP();
-        } else if (view == this.ivs.cje() && !cji()) {
+        } else if (view == this.ivy.cdX()) {
+            this.ivy.CO();
+        } else if (view == this.ivy.cjc() && !cjg()) {
             finish();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && keyEvent.getRepeatCount() == 0 && cji()) {
+        if (i == 4 && keyEvent.getRepeatCount() == 0 && cjg()) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private boolean cji() {
-        if (TextUtils.isEmpty(this.ivs.getText()) || !this.ivs.ceB() || this.ivs.getText().equals(this.ivs.cjd())) {
+    private boolean cjg() {
+        if (TextUtils.isEmpty(this.ivy.getText()) || !this.ivy.cez() || this.ivy.getText().equals(this.ivy.cjb())) {
             return false;
         }
-        this.ivs.showDialog();
+        this.ivy.showDialog();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjj() {
-        this.ivs.setIsLoading(true);
-        this.ivt.setGroupId(this.ivs.getGroupId());
-        if (this.ivu == 1) {
-            this.ivt.setName(this.ivs.getText());
-            this.ivt.sendMessage(2);
-        } else if (this.ivu == 2) {
-            this.ivt.setIntro(this.ivs.getText());
-            this.ivt.sendMessage(1);
+    public void cjh() {
+        this.ivy.setIsLoading(true);
+        this.ivz.setGroupId(this.ivy.getGroupId());
+        if (this.ivA == 1) {
+            this.ivz.setName(this.ivy.getText());
+            this.ivz.sendMessage(2);
+        } else if (this.ivA == 2) {
+            this.ivz.setIntro(this.ivy.getText());
+            this.ivz.sendMessage(1);
         }
     }
 
@@ -156,7 +156,7 @@ public class UpdateGroupActivity extends BaseActivity<UpdateGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        this.ivt.cancelMessage();
-        this.ivs.release();
+        this.ivz.cancelMessage();
+        this.ivy.release();
     }
 }

@@ -9,53 +9,53 @@ import com.baidu.adp.widget.ListView.d;
 import com.baidu.adp.widget.ListView.y;
 /* loaded from: classes.dex */
 public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements n {
-    private RecyclerView.Adapter Uf;
-    RecyclerView.AdapterDataObserver Ug;
+    private RecyclerView.Adapter Ui;
+    RecyclerView.AdapterDataObserver Uj;
     private Context mContext;
-    private BdRecyclerView.a Ui = null;
-    private BdRecyclerView.b Uj = null;
-    private d Ue = new d();
-    RecyclerView.AdapterDataObserver Uh = new RecyclerView.AdapterDataObserver() { // from class: com.baidu.adp.widget.ListView.g.1
+    private BdRecyclerView.a Ul = null;
+    private BdRecyclerView.b Um = null;
+    private d Uh = new d();
+    RecyclerView.AdapterDataObserver Uk = new RecyclerView.AdapterDataObserver() { // from class: com.baidu.adp.widget.ListView.g.1
         @Override // android.support.v7.widget.RecyclerView.AdapterDataObserver
         public void onChanged() {
             super.onChanged();
-            if (g.this.Ug != null) {
-                g.this.Ug.onChanged();
+            if (g.this.Uj != null) {
+                g.this.Uj.onChanged();
             }
-            if (g.this.Ue.TF != null) {
-                g.this.Ue.TF.onPreLoad();
+            if (g.this.Uh.TI != null) {
+                g.this.Uh.TI.onPreLoad();
             }
         }
 
         @Override // android.support.v7.widget.RecyclerView.AdapterDataObserver
         public void onItemRangeChanged(int i, int i2) {
             super.onItemRangeChanged(i, i2);
-            if (g.this.Ug != null) {
-                g.this.Ug.onItemRangeChanged(i, i2);
+            if (g.this.Uj != null) {
+                g.this.Uj.onItemRangeChanged(i, i2);
             }
         }
 
         @Override // android.support.v7.widget.RecyclerView.AdapterDataObserver
         public void onItemRangeInserted(int i, int i2) {
             super.onItemRangeInserted(i, i2);
-            if (g.this.Ug != null) {
-                g.this.Ug.onItemRangeInserted(i, i2);
+            if (g.this.Uj != null) {
+                g.this.Uj.onItemRangeInserted(i, i2);
             }
         }
 
         @Override // android.support.v7.widget.RecyclerView.AdapterDataObserver
         public void onItemRangeRemoved(int i, int i2) {
             super.onItemRangeRemoved(i, i2);
-            if (g.this.Ug != null) {
-                g.this.Ug.onItemRangeRemoved(i, i2);
+            if (g.this.Uj != null) {
+                g.this.Uj.onItemRangeRemoved(i, i2);
             }
         }
 
         @Override // android.support.v7.widget.RecyclerView.AdapterDataObserver
         public void onItemRangeMoved(int i, int i2, int i3) {
             super.onItemRangeMoved(i, i2, i3);
-            if (g.this.Ug != null) {
-                g.this.Ug.onItemRangeMoved(i, i2, i3);
+            if (g.this.Uj != null) {
+                g.this.Uj.onItemRangeMoved(i, i2, i3);
             }
         }
     };
@@ -72,19 +72,19 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
         }
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.Ue.mHeaderViewInfos.get(i).type;
+            return this.Uh.mHeaderViewInfos.get(i).type;
         }
         int i2 = i - headersCount;
         int i3 = 0;
-        if (this.Uf != null && i2 < (i3 = this.Uf.getItemCount())) {
-            return this.Uf.getItemViewType(i2);
+        if (this.Ui != null && i2 < (i3 = this.Ui.getItemCount())) {
+            return this.Ui.getItemViewType(i2);
         }
         int footersCount = getFootersCount();
         int i4 = i2 - i3;
         if (i4 < 0 || i4 >= footersCount) {
             return -1;
         }
-        return this.Ue.mFooterViewInfos.get(i4).type;
+        return this.Uh.mFooterViewInfos.get(i4).type;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -93,11 +93,11 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
         if (az == null) {
             az = aA(i);
         }
-        if (az == null && this.Uf != null) {
-            az = this.Uf.onCreateViewHolder(viewGroup, i);
+        if (az == null && this.Ui != null) {
+            az = this.Ui.onCreateViewHolder(viewGroup, i);
         }
         if (az == null) {
-            az = this.Ue.U(this.mContext);
+            az = this.Uh.H(this.mContext);
         }
         a(viewGroup, az);
         return az;
@@ -107,21 +107,21 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         if (i >= 0 && getItemViewType(i) != -1 && !(viewHolder instanceof d.b)) {
             int headersCount = getHeadersCount();
-            if (this.Uf != null && i >= headersCount && i - headersCount < this.Uf.getItemCount()) {
-                this.Uf.onBindViewHolder(viewHolder, i - headersCount);
+            if (this.Ui != null && i >= headersCount && i - headersCount < this.Ui.getItemCount()) {
+                this.Ui.onBindViewHolder(viewHolder, i - headersCount);
             }
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.Uf != null ? getFootersCount() + getHeadersCount() + this.Uf.getItemCount() : getFootersCount() + getHeadersCount();
+        return this.Ui != null ? getFootersCount() + getHeadersCount() + this.Ui.getItemCount() : getFootersCount() + getHeadersCount();
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void setHasStableIds(boolean z) {
-        if (this.Uf != null) {
-            this.Uf.setHasStableIds(z);
+        if (this.Ui != null) {
+            this.Ui.setHasStableIds(z);
         }
         super.setHasStableIds(z);
     }
@@ -138,19 +138,19 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
         }
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.Ue.mHeaderViewInfos.get(i).data;
+            return this.Uh.mHeaderViewInfos.get(i).data;
         }
         int i2 = i - headersCount;
         int i3 = 0;
-        if (this.Uf != null && i2 < (i3 = this.Uf.getItemCount()) && (this.Uf instanceof n)) {
-            return ((n) this.Uf).getItem(i2);
+        if (this.Ui != null && i2 < (i3 = this.Ui.getItemCount()) && (this.Ui instanceof n)) {
+            return ((n) this.Ui).getItem(i2);
         }
         int footersCount = getFootersCount();
         int i4 = i2 - i3;
         if (i4 < 0 || i4 >= footersCount) {
             return null;
         }
-        return this.Ue.mFooterViewInfos.get(i4).data;
+        return this.Uh.mFooterViewInfos.get(i4).data;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -161,105 +161,105 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
         }
         int headersCount = getHeadersCount();
         if (i < headersCount) {
-            return this.Ue.mHeaderViewInfos.get(i).id;
+            return this.Uh.mHeaderViewInfos.get(i).id;
         }
         int i3 = 0;
-        if (this.Uf != null && i >= headersCount && (i2 = i - headersCount) < (i3 = this.Uf.getItemCount())) {
-            return this.Uf.getItemId(i2);
+        if (this.Ui != null && i >= headersCount && (i2 = i - headersCount) < (i3 = this.Ui.getItemCount())) {
+            return this.Ui.getItemId(i2);
         }
         int i4 = (i - headersCount) - i3;
         if (i4 <= -1 || i4 >= getFootersCount()) {
             return -1L;
         }
-        return this.Ue.mFooterViewInfos.get(i4).id;
+        return this.Uh.mFooterViewInfos.get(i4).id;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
         super.onViewRecycled(viewHolder);
-        if (this.Uf != null) {
-            this.Uf.onViewRecycled(viewHolder);
+        if (this.Ui != null) {
+            this.Ui.onViewRecycled(viewHolder);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public boolean onFailedToRecycleView(RecyclerView.ViewHolder viewHolder) {
-        return this.Uf != null ? this.Uf.onFailedToRecycleView(viewHolder) : super.onFailedToRecycleView(viewHolder);
+        return this.Ui != null ? this.Ui.onFailedToRecycleView(viewHolder) : super.onFailedToRecycleView(viewHolder);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onViewAttachedToWindow(RecyclerView.ViewHolder viewHolder) {
         super.onViewAttachedToWindow(viewHolder);
-        if (this.Uf != null) {
-            this.Uf.onViewAttachedToWindow(viewHolder);
+        if (this.Ui != null) {
+            this.Ui.onViewAttachedToWindow(viewHolder);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onViewDetachedFromWindow(RecyclerView.ViewHolder viewHolder) {
         super.onViewDetachedFromWindow(viewHolder);
-        if (this.Uf != null) {
-            this.Uf.onViewDetachedFromWindow(viewHolder);
+        if (this.Ui != null) {
+            this.Ui.onViewDetachedFromWindow(viewHolder);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
-        if (this.Uf != null) {
-            this.Uf.onAttachedToRecyclerView(recyclerView);
+        if (this.Ui != null) {
+            this.Ui.onAttachedToRecyclerView(recyclerView);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
         super.onDetachedFromRecyclerView(recyclerView);
-        if (this.Uf != null) {
-            this.Uf.onDetachedFromRecyclerView(recyclerView);
+        if (this.Ui != null) {
+            this.Ui.onDetachedFromRecyclerView(recyclerView);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void registerAdapterDataObserver(RecyclerView.AdapterDataObserver adapterDataObserver) {
         super.registerAdapterDataObserver(adapterDataObserver);
-        this.Ug = adapterDataObserver;
-        if (this.Uf != null) {
-            this.Uf.registerAdapterDataObserver(this.Uh);
+        this.Uj = adapterDataObserver;
+        if (this.Ui != null) {
+            this.Ui.registerAdapterDataObserver(this.Uk);
         }
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public void unregisterAdapterDataObserver(RecyclerView.AdapterDataObserver adapterDataObserver) {
         super.unregisterAdapterDataObserver(adapterDataObserver);
-        this.Ug = adapterDataObserver;
-        if (this.Uf != null) {
-            this.Uf.unregisterAdapterDataObserver(this.Uh);
+        this.Uj = adapterDataObserver;
+        if (this.Ui != null) {
+            this.Ui.unregisterAdapterDataObserver(this.Uk);
         }
     }
 
     public void setAdapter(RecyclerView.Adapter adapter) {
-        this.Uf = adapter;
+        this.Ui = adapter;
         notifyDataSetChanged();
     }
 
     public RecyclerView.Adapter getWrappedAdapter() {
-        return this.Uf;
+        return this.Ui;
     }
 
     public void a(d.a aVar) {
-        this.Ue.a(aVar);
+        this.Uh.a(aVar);
     }
 
     public int getHeadersCount() {
-        return this.Ue.getHeadersCount();
+        return this.Uh.getHeadersCount();
     }
 
     public int getFootersCount() {
-        return this.Ue.getFootersCount();
+        return this.Uh.getFootersCount();
     }
 
     public boolean removeHeader(View view) {
-        if (this.Ue.removeHeader(view)) {
+        if (this.Uh.removeHeader(view)) {
             notifyDataSetChanged();
             return true;
         }
@@ -267,7 +267,7 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
     }
 
     public boolean removeFooter(View view) {
-        if (this.Ue.removeFooter(view)) {
+        if (this.Uh.removeFooter(view)) {
             notifyDataSetChanged();
             return true;
         }
@@ -280,7 +280,7 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
 
     public void addHeaderView(View view, Object obj, boolean z, int i) {
         if (view != null) {
-            this.Ue.addHeaderView(view, obj, z, i);
+            this.Uh.addHeaderView(view, obj, z, i);
             notifyDataSetChanged();
         }
     }
@@ -291,17 +291,17 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
 
     public void addFooterView(View view, Object obj, boolean z, int i) {
         if (view != null) {
-            this.Ue.addFooterView(view, obj, z, i);
+            this.Uh.addFooterView(view, obj, z, i);
             notifyDataSetChanged();
         }
     }
 
     public RecyclerView.ViewHolder az(int i) {
-        return this.Ue.ax(i);
+        return this.Uh.ax(i);
     }
 
     public RecyclerView.ViewHolder aA(int i) {
-        return this.Ue.ay(i);
+        return this.Uh.ay(i);
     }
 
     private void a(final ViewGroup viewGroup, final RecyclerView.ViewHolder viewHolder) {
@@ -309,18 +309,18 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.adp.widget.ListView.g.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (g.this.Ui != null) {
+                    if (g.this.Ul != null) {
                         int adapterPosition = viewHolder.getAdapterPosition();
-                        g.this.Ui.a(viewGroup, viewHolder.itemView, g.this.getItem(adapterPosition), adapterPosition, g.this.getItemId(adapterPosition));
+                        g.this.Ul.a(viewGroup, viewHolder.itemView, g.this.getItem(adapterPosition), adapterPosition, g.this.getItemId(adapterPosition));
                     }
                 }
             });
             viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.adp.widget.ListView.g.3
                 @Override // android.view.View.OnLongClickListener
                 public boolean onLongClick(View view) {
-                    if (g.this.Uj != null) {
+                    if (g.this.Um != null) {
                         int adapterPosition = viewHolder.getAdapterPosition();
-                        return g.this.Uj.b(viewGroup, viewHolder.itemView, g.this.getItem(adapterPosition), adapterPosition, g.this.getItemId(adapterPosition));
+                        return g.this.Um.b(viewGroup, viewHolder.itemView, g.this.getItem(adapterPosition), adapterPosition, g.this.getItemId(adapterPosition));
                     }
                     return false;
                 }
@@ -330,11 +330,11 @@ public class g extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements 
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setOnItemClickListener(BdRecyclerView.a aVar) {
-        this.Ui = aVar;
+        this.Ul = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setOnItemLongClickListener(BdRecyclerView.b bVar) {
-        this.Uj = bVar;
+        this.Um = bVar;
     }
 }

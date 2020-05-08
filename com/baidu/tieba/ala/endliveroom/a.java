@@ -47,12 +47,12 @@ public class a {
     private AlaLiveInfoData mLiveInfo;
     private TbPageContext mTbPageContext;
     private View mView;
-    private boolean aJg = false;
+    private boolean aJm = false;
     private String mPortrait = "";
     private String otherParams = "";
-    private AlaLiveAudienceEndView.a ffv = new AlaLiveAudienceEndView.a() { // from class: com.baidu.tieba.ala.endliveroom.a.1
+    private AlaLiveAudienceEndView.a ffA = new AlaLiveAudienceEndView.a() { // from class: com.baidu.tieba.ala.endliveroom.a.1
         @Override // com.baidu.tieba.ala.endliveroom.AlaLiveAudienceEndView.a
-        public void DE() {
+        public void DD() {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913086));
         }
 
@@ -109,7 +109,7 @@ public class a {
                 if (a.this.mView instanceof AlaLiveAudienceEndView) {
                     ((AlaLiveAudienceEndView) a.this.mView).jv(!z);
                 }
-                a.this.aJg = !z;
+                a.this.aJm = !z;
                 String valueOf = String.valueOf(a.this.mLiveInfo.user_id);
                 b bVar = new b();
                 bVar.setUserId(valueOf);
@@ -117,7 +117,7 @@ public class a {
                 bVar.setPageId(a.this.mId);
                 bVar.setIsAttention(z ? false : true);
                 bVar.setFrom("source_audience_end_page");
-                com.baidu.live.view.a.Ht().a(valueOf, bVar);
+                com.baidu.live.view.a.Hs().a(valueOf, bVar);
                 if (!z && TbadkCoreApplication.getInst().isHaokan()) {
                     AlaStaticItem alaStaticItem = new AlaStaticItem(HKStaticKeys.HK_STATIC_FOLLOW_CLICK);
                     if (a.this.mLiveInfo != null) {
@@ -125,7 +125,7 @@ public class a {
                         alaStaticItem.addParams("room_id", a.this.mLiveInfo.room_id + "");
                         alaStaticItem.addParams("feed_id", a.this.mLiveInfo.feed_id + "");
                     }
-                    alaStaticItem.addParams("other_params", a.this.Cr());
+                    alaStaticItem.addParams("other_params", a.this.Cq());
                     AlaStaticsManager.getInst().onStatic(alaStaticItem);
                 }
                 if (TbadkCoreApplication.getInst().isQuanmin()) {
@@ -136,13 +136,13 @@ public class a {
                         alaStaticItem2.addParams("feed_id", a.this.mLiveInfo.feed_id + "");
                     }
                     alaStaticItem2.addParams("loc", "live_end");
-                    alaStaticItem2.addParams("other_params", a.this.Cr());
+                    alaStaticItem2.addParams("other_params", a.this.Cq());
                     AlaStaticsManager.getInst().onStatic(alaStaticItem2);
                 }
             }
         }
     };
-    private CustomMessageListener eZZ = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.endliveroom.a.2
+    private CustomMessageListener fae = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.ala.endliveroom.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -152,7 +152,7 @@ public class a {
                     if (a.this.mView instanceof AlaLiveAudienceEndView) {
                         ((AlaLiveAudienceEndView) a.this.mView).jv(updateAttentionMessage.getData().isAttention);
                     }
-                    a.this.aJg = updateAttentionMessage.getData().isAttention;
+                    a.this.aJm = updateAttentionMessage.getData().isAttention;
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
                     if (message != null && message.getTag() != null && message.getTag().equals(a.this.mId)) {
                         if (updateAttentionMessage.getData().isAttention) {
@@ -168,9 +168,9 @@ public class a {
                 if (a.this.mView instanceof AlaLiveAudienceEndView) {
                     ((AlaLiveAudienceEndView) a.this.mView).jv(!updateAttentionMessage.getData().isAttention);
                 }
-                a.this.aJg = updateAttentionMessage.getData().isAttention ? false : true;
+                a.this.aJm = updateAttentionMessage.getData().isAttention ? false : true;
                 Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
-                if (message2 != null && message2.getTag() != null && message2.getTag().equals(a.this.mId) && !com.baidu.live.view.a.Ht().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mTbPageContext, false)) {
+                if (message2 != null && message2.getTag() != null && message2.getTag().equals(a.this.mId) && !com.baidu.live.view.a.Hs().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mTbPageContext, false)) {
                     a.this.mTbPageContext.showToast(updateAttentionMessage.getData().errorString);
                 }
             }
@@ -190,22 +190,22 @@ public class a {
     public void a(AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout, View view, n nVar, boolean z, ArrayList<AlaLiveInfoData> arrayList) {
         boolean z2;
         if (nVar != null) {
-            if (nVar.aqg != null) {
-                z2 = nVar.aqg.follow_status != 0;
+            if (nVar.aqm != null) {
+                z2 = nVar.aqm.follow_status != 0;
             } else {
                 z2 = false;
             }
             String str = "";
-            if (nVar.aqe != null) {
-                str = nVar.aqe.portrait;
+            if (nVar.aqk != null) {
+                str = nVar.aqk.portrait;
             }
             this.mLiveInfo = nVar.mLiveInfo;
             this.mPortrait = str;
-            this.aJg = z2;
+            this.aJm = z2;
             if (this.mLiveInfo == null) {
                 this.mLiveInfo = new AlaLiveInfoData();
             }
-            bnZ();
+            bnX();
             TiebaInitialize.log(new StatisticItem("c11888"));
             JSONObject jSONObject = new JSONObject();
             try {
@@ -220,8 +220,8 @@ public class a {
             }
             this.mView.setId(a.g.ala_liveroom_audience_end_view);
             if (this.mView instanceof AlaLiveAudienceEndView) {
-                ((AlaLiveAudienceEndView) this.mView).setCallback(this.ffv);
-                ((AlaLiveAudienceEndView) this.mView).setData(this.mTbPageContext, nVar, z, this.aJg, this.mPortrait, Cr());
+                ((AlaLiveAudienceEndView) this.mView).setCallback(this.ffA);
+                ((AlaLiveAudienceEndView) this.mView).setData(this.mTbPageContext, nVar, z, this.aJm, this.mPortrait, Cq());
                 ((AlaLiveAudienceEndView) this.mView).V(arrayList);
             }
             if (this.mView != null) {
@@ -237,19 +237,19 @@ public class a {
         }
     }
 
-    public void bnZ() {
+    public void bnX() {
         if (this.mView != null && this.mView.getParent() != null) {
             ((ViewGroup) this.mView).removeView(this.mView);
         }
     }
 
-    public boolean boa() {
+    public boolean bnY() {
         return (getView() == null || getView().getParent() == null) ? false : true;
     }
 
     private void initListener() {
-        this.eZZ.setTag(this.mId);
-        MessageManager.getInstance().registerListener(this.eZZ);
+        this.fae.setTag(this.mId);
+        MessageManager.getInstance().registerListener(this.fae);
     }
 
     public void bm(int i, int i2) {
@@ -266,7 +266,7 @@ public class a {
         MessageManager.getInstance().unRegisterTask(1021010);
         MessageManager.getInstance().unRegisterTask(1021026);
         MessageManager.getInstance().removeMessage(this.mId);
-        MessageManager.getInstance().unRegisterListener(this.eZZ);
+        MessageManager.getInstance().unRegisterListener(this.fae);
         if (this.mView instanceof AlaLiveAudienceEndView) {
             ((AlaLiveAudienceEndView) this.mView).onDestory();
         }
@@ -274,7 +274,7 @@ public class a {
         this.mTbPageContext = null;
     }
 
-    public String Cr() {
+    public String Cq() {
         return this.otherParams;
     }
 

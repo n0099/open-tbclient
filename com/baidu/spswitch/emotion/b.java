@@ -16,31 +16,31 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes13.dex */
 public class b {
-    private static b byi;
+    private static b byn;
     private static Context mContext;
-    private HashMap<String, a> byj = new HashMap<>();
-    private List<String> byk = new ArrayList();
+    private HashMap<String, a> byo = new HashMap<>();
+    private List<String> byp = new ArrayList();
 
-    public static b aT(Context context) {
-        if (byi == null) {
+    public static b aH(Context context) {
+        if (byn == null) {
             synchronized (c.class) {
-                if (byi == null) {
-                    byi = new b(context.getApplicationContext());
+                if (byn == null) {
+                    byn = new b(context.getApplicationContext());
                 }
             }
         }
-        return byi;
+        return byn;
     }
 
     private b(Context context) {
         mContext = context;
-        aU(context);
+        aI(context);
     }
 
-    private void aU(Context context) {
+    private void aI(Context context) {
         JSONObject optJSONObject;
         try {
-            JSONArray optJSONArray = new JSONObject(aV(context)).optJSONArray("packages");
+            JSONArray optJSONArray = new JSONObject(aJ(context)).optJSONArray("packages");
             if (optJSONArray != null && (optJSONObject = optJSONArray.optJSONObject(0)) != null) {
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
                 if (optJSONArray2 != null) {
@@ -49,7 +49,7 @@ public class b {
                         JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
                         String optString = jSONObject.optString("id");
                         String optString2 = jSONObject.optString("text");
-                        this.byj.put(optString2, new a(optString, optString2, Integer.valueOf(gk(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
+                        this.byo.put(optString2, new a(optString, optString2, Integer.valueOf(gk(jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON)))));
                     }
                 }
                 JSONArray optJSONArray3 = optJSONObject.optJSONArray("panel_emoticons");
@@ -58,7 +58,7 @@ public class b {
                     for (int i2 = 0; i2 < length2; i2++) {
                         String gj = gj((String) optJSONArray3.get(i2));
                         if (!TextUtils.isEmpty(gj)) {
-                            this.byk.add(gj);
+                            this.byp.add(gj);
                         }
                     }
                 }
@@ -70,7 +70,7 @@ public class b {
 
     private String gj(String str) {
         String str2 = "";
-        for (Map.Entry<String, a> entry : this.byj.entrySet()) {
+        for (Map.Entry<String, a> entry : this.byo.entrySet()) {
             str2 = entry.getKey();
             if (str.equals(entry.getValue().id)) {
                 break;
@@ -90,7 +90,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private String aV(Context context) {
+    private String aJ(Context context) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         StringBuilder sb = new StringBuilder();
@@ -150,9 +150,9 @@ public class b {
         Integer num;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                a aVar = this.byj.get(str);
+                a aVar = this.byo.get(str);
                 if (aVar != null) {
-                    num = aVar.bym;
+                    num = aVar.byr;
                     break;
                 }
             default:
@@ -169,26 +169,26 @@ public class b {
         a aVar = null;
         switch (emotionType) {
             case EMOTION_CLASSIC_TYPE:
-                aVar = this.byj.get(str);
+                aVar = this.byo.get(str);
                 break;
         }
         return aVar == null ? "" : aVar.id;
     }
 
-    public List Od() {
-        return this.byk;
+    public List Oc() {
+        return this.byp;
     }
 
     /* loaded from: classes13.dex */
     public static class a {
-        public Integer bym;
+        public Integer byr;
         public String id;
         public String text;
 
         public a(String str, String str2, Integer num) {
             this.id = str;
             this.text = str2;
-            this.bym = num;
+            this.byr = num;
         }
     }
 }

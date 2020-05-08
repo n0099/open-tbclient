@@ -9,19 +9,19 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private AntiData dMz = new AntiData();
-    private ArrayList<String> doP;
+    private AntiData dMD = new AntiData();
+    private ArrayList<String> doT;
     private UserData mUser;
 
     public k() {
         this.mUser = null;
-        this.doP = null;
+        this.doT = null;
         this.mUser = new UserData();
-        this.doP = new ArrayList<>(3);
+        this.doT = new ArrayList<>(3);
     }
 
-    public ArrayList<String> aRT() {
-        return this.doP;
+    public ArrayList<String> aRQ() {
+        return this.doT;
     }
 
     public void parserJson(String str) {
@@ -38,10 +38,10 @@ public class k {
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.doP.add(optJSONArray.optString(i, null));
+                    this.doT.add(optJSONArray.optString(i, null));
                 }
             }
-            this.dMz.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+            this.dMD.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

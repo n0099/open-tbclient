@@ -35,7 +35,7 @@ public final class Bimlog {
         public static Parser<LogRequest> PARSER = new AbstractParser<LogRequest>() { // from class: com.baidu.swan.facade.requred.openstat.imupload.log.model.Bimlog.LogRequest.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
-            /* renamed from: a */
+            /* renamed from: b */
             public LogRequest parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
                 return new LogRequest(codedInputStream, extensionRegistryLite);
             }
@@ -163,7 +163,7 @@ public final class Bimlog {
             public static Parser<AuthInfo> PARSER = new AbstractParser<AuthInfo>() { // from class: com.baidu.swan.facade.requred.openstat.imupload.log.model.Bimlog.LogRequest.AuthInfo.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.Parser
-                /* renamed from: b */
+                /* renamed from: c */
                 public AuthInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
                     return new AuthInfo(codedInputStream, extensionRegistryLite);
                 }
@@ -344,7 +344,7 @@ public final class Bimlog {
             }
 
             public static a newBuilder() {
-                return a.arN();
+                return a.arM();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -376,13 +376,13 @@ public final class Bimlog {
                 }
 
                 /* JADX INFO: Access modifiers changed from: private */
-                public static a arN() {
+                public static a arM() {
                     return new a();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-                /* renamed from: arO */
+                /* renamed from: arN */
                 public a clear() {
                     super.clear();
                     this.token_ = "";
@@ -392,9 +392,9 @@ public final class Bimlog {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-                /* renamed from: arP */
+                /* renamed from: arO */
                 public a clone() {
-                    return arN().mergeFrom(buildPartial());
+                    return arM().mergeFrom(buildPartial());
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -405,7 +405,7 @@ public final class Bimlog {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.MessageLite.Builder
-                /* renamed from: arQ */
+                /* renamed from: arP */
                 public AuthInfo build() {
                     AuthInfo buildPartial = buildPartial();
                     if (!buildPartial.isInitialized()) {
@@ -416,7 +416,7 @@ public final class Bimlog {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.google.protobuf.MessageLite.Builder
-                /* renamed from: arR */
+                /* renamed from: arQ */
                 public AuthInfo buildPartial() {
                     AuthInfo authInfo = new AuthInfo(this);
                     int i = (this.bitField0_ & 1) != 1 ? 0 : 1;
@@ -444,7 +444,7 @@ public final class Bimlog {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
                 @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-                /* renamed from: c */
+                /* renamed from: d */
                 /*
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
@@ -691,7 +691,7 @@ public final class Bimlog {
         }
 
         public static a newBuilder() {
-            return a.arT();
+            return a.arS();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -728,13 +728,13 @@ public final class Bimlog {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a arT() {
+            public static a arS() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: arU */
+            /* renamed from: arT */
             public a clear() {
                 super.clear();
                 this.version_ = 0L;
@@ -754,9 +754,9 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: arV */
+            /* renamed from: arU */
             public a clone() {
-                return arT().mergeFrom(buildPartial());
+                return arS().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -767,7 +767,7 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: arW */
+            /* renamed from: arV */
             public LogRequest build() {
                 LogRequest buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -778,7 +778,7 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: arX */
+            /* renamed from: arW */
             public LogRequest buildPartial() {
                 LogRequest logRequest = new LogRequest(this);
                 int i = this.bitField0_;
@@ -831,7 +831,7 @@ public final class Bimlog {
                         this.sign_ = logRequest.sign_;
                     }
                     if (logRequest.hasPayload()) {
-                        a(logRequest.getPayload());
+                        b(logRequest.getPayload());
                     }
                 }
                 return this;
@@ -845,7 +845,7 @@ public final class Bimlog {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: d */
+            /* renamed from: e */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */
@@ -930,7 +930,7 @@ public final class Bimlog {
                 return this;
             }
 
-            public a a(ByteString byteString) {
+            public a b(ByteString byteString) {
                 if (byteString == null) {
                     throw new NullPointerException();
                 }
@@ -956,7 +956,7 @@ public final class Bimlog {
         public static Parser<LogResponse> PARSER = new AbstractParser<LogResponse>() { // from class: com.baidu.swan.facade.requred.openstat.imupload.log.model.Bimlog.LogResponse.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
-            /* renamed from: e */
+            /* renamed from: f */
             public LogResponse parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
                 return new LogResponse(codedInputStream, extensionRegistryLite);
             }
@@ -1175,7 +1175,7 @@ public final class Bimlog {
         }
 
         public static a newBuilder() {
-            return a.arZ();
+            return a.arY();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1209,13 +1209,13 @@ public final class Bimlog {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
-            public static a arZ() {
+            public static a arY() {
                 return new a();
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: asa */
+            /* renamed from: arZ */
             public a clear() {
                 super.clear();
                 this.errorCode_ = 0;
@@ -1229,9 +1229,9 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: asb */
+            /* renamed from: asa */
             public a clone() {
-                return arZ().mergeFrom(buildPartial());
+                return arY().mergeFrom(buildPartial());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -1242,7 +1242,7 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: asc */
+            /* renamed from: asb */
             public LogResponse build() {
                 LogResponse buildPartial = buildPartial();
                 if (!buildPartial.isInitialized()) {
@@ -1253,7 +1253,7 @@ public final class Bimlog {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLite.Builder
-            /* renamed from: asd */
+            /* renamed from: asc */
             public LogResponse buildPartial() {
                 LogResponse logResponse = new LogResponse(this);
                 int i = this.bitField0_;
@@ -1298,7 +1298,7 @@ public final class Bimlog {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Removed duplicated region for block: B:14:0x001e  */
             @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
-            /* renamed from: f */
+            /* renamed from: g */
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
             */

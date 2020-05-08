@@ -5,19 +5,19 @@ import com.baidu.live.adp.lib.util.BdUtilHelper;
 import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class e {
-    private com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a fBT;
+    private com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a fBY;
 
     /* loaded from: classes3.dex */
     private static class a {
-        public static final e fBV = new e();
+        public static final e fCa = new e();
     }
 
-    public static e bux() {
-        return a.fBV;
+    public static e buv() {
+        return a.fCa;
     }
 
     public void a(com.baidu.live.challenge.c cVar) {
-        if (this.fBT == null || !this.fBT.isShowing()) {
+        if (this.fBY == null || !this.fBY.isShowing()) {
             final TbPageContext tbPageContext = cVar.pageContext;
             c cVar2 = new c(tbPageContext);
             cVar2.setLoadDataCallBack(new BdLoadDataCallBack() { // from class: com.baidu.tieba.ala.liveroom.challenge.rewarddialog.e.1
@@ -26,10 +26,10 @@ public class e {
                     if (obj != null && (obj instanceof AlaChallengeRewardData)) {
                         AlaChallengeRewardData alaChallengeRewardData = (AlaChallengeRewardData) obj;
                         if (alaChallengeRewardData.errno == 0) {
-                            if (e.this.fBT == null || !e.this.fBT.isShowing()) {
-                                e.this.fBT = (com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a) b.a(tbPageContext, alaChallengeRewardData);
-                                if (e.this.fBT != null) {
-                                    e.this.fBT.show();
+                            if (e.this.fBY == null || !e.this.fBY.isShowing()) {
+                                e.this.fBY = (com.baidu.tieba.ala.liveroom.challenge.rewarddialog.a) b.a(tbPageContext, alaChallengeRewardData);
+                                if (e.this.fBY != null) {
+                                    e.this.fBY.show();
                                     return;
                                 }
                                 return;
@@ -40,7 +40,7 @@ public class e {
                     }
                 }
             });
-            cVar2.b(cVar.challengeId, cVar.apl, cVar.liveId);
+            cVar2.b(cVar.challengeId, cVar.aps, cVar.liveId);
         }
     }
 }

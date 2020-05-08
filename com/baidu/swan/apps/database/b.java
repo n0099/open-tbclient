@@ -1,50 +1,50 @@
 package com.baidu.swan.apps.database;
 /* loaded from: classes11.dex */
 public final class b {
-    private String appID;
-    private String bRC;
-    private String bRD;
-    private String bRE;
-    public String bRF;
-    public int bRG;
+    private String bRH;
+    private String bRI;
+    private String bRJ;
+    private String bRK;
+    public String bRL;
+    public int bRM;
 
     public b(String str) {
-        this.appID = str;
+        this.bRH = str;
     }
 
     public String getAppID() {
-        return this.appID;
+        return this.bRH;
     }
 
     public void setAppID(String str) {
-        this.appID = str;
+        this.bRH = str;
     }
 
-    public String YT() {
-        return this.bRC;
+    public String YS() {
+        return this.bRI;
     }
 
     public void iL(String str) {
-        this.bRC = str;
+        this.bRI = str;
     }
 
-    public String YU() {
-        return this.bRE;
+    public String YT() {
+        return this.bRK;
     }
 
     public void iM(String str) {
-        this.bRE = str;
+        this.bRK = str;
     }
 
     public void iN(String str) {
-        this.bRF = str;
+        this.bRL = str;
     }
 
     public void iO(String str) {
-        this.bRD = str;
+        this.bRJ = str;
     }
 
     public void setAppFrameType(int i) {
-        this.bRG = i;
+        this.bRM = i;
     }
 }

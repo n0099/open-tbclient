@@ -5,9 +5,9 @@ import com.baidu.live.data.h;
 import com.baidu.live.data.n;
 /* loaded from: classes3.dex */
 public interface a {
-    void Aw();
+    void Av();
 
-    void Az();
+    void Ay();
 
     void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
 

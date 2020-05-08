@@ -1,75 +1,60 @@
 package com.xiaomi.push;
 
-import android.text.TextUtils;
-import com.xiaomi.push.ee;
-import com.xiaomi.push.service.al;
-import java.util.HashMap;
+import android.annotation.TargetApi;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
+import android.content.Context;
+import android.os.SystemClock;
+import com.xiaomi.push.fc;
+import com.xiaomi.push.service.XMJobService;
+@TargetApi(21)
 /* loaded from: classes8.dex */
-class fe {
-    public static void a(al.b bVar, String str, fm fmVar) {
-        String a;
-        ee.c cVar = new ee.c();
-        if (!TextUtils.isEmpty(bVar.c)) {
-            cVar.a(bVar.c);
-        }
-        if (!TextUtils.isEmpty(bVar.e)) {
-            cVar.d(bVar.e);
-        }
-        if (!TextUtils.isEmpty(bVar.f)) {
-            cVar.e(bVar.f);
-        }
-        cVar.b(bVar.f863a ? "1" : "0");
-        if (TextUtils.isEmpty(bVar.d)) {
-            cVar.c("XIAOMI-SASL");
-        } else {
-            cVar.c(bVar.d);
-        }
-        ff ffVar = new ff();
-        ffVar.c(bVar.f864b);
-        ffVar.a(Integer.parseInt(bVar.g));
-        ffVar.b(bVar.f861a);
-        ffVar.a("BIND", (String) null);
-        ffVar.a(ffVar.e());
-        com.xiaomi.channel.commonutils.logger.b.m50a("[Slim]: bind id=" + ffVar.e());
-        HashMap hashMap = new HashMap();
-        hashMap.put("challenge", str);
-        hashMap.put("token", bVar.c);
-        hashMap.put("chid", bVar.g);
-        hashMap.put("from", bVar.f864b);
-        hashMap.put("id", ffVar.e());
-        hashMap.put("to", "xiaomi.com");
-        if (bVar.f863a) {
-            hashMap.put("kick", "1");
-        } else {
-            hashMap.put("kick", "0");
-        }
-        if (TextUtils.isEmpty(bVar.e)) {
-            hashMap.put("client_attrs", "");
-        } else {
-            hashMap.put("client_attrs", bVar.e);
-        }
-        if (TextUtils.isEmpty(bVar.f)) {
-            hashMap.put("cloud_attrs", "");
-        } else {
-            hashMap.put("cloud_attrs", bVar.f);
-        }
-        if (bVar.d.equals("XIAOMI-PASS") || bVar.d.equals("XMPUSH-PASS")) {
-            a = aw.a(bVar.d, null, hashMap, bVar.h);
-        } else {
-            if (bVar.d.equals("XIAOMI-SASL")) {
-            }
-            a = null;
-        }
-        cVar.f(a);
-        ffVar.a(cVar.a(), (String) null);
-        fmVar.b(ffVar);
+public class fe implements fc.a {
+    JobScheduler a;
+
+    /* renamed from: a  reason: collision with other field name */
+    Context f315a;
+
+    /* renamed from: a  reason: collision with other field name */
+    private boolean f316a = false;
+
+    fe(Context context) {
+        this.f315a = context;
+        this.a = (JobScheduler) context.getSystemService("jobscheduler");
     }
 
-    public static void a(String str, String str2, fm fmVar) {
-        ff ffVar = new ff();
-        ffVar.c(str2);
-        ffVar.a(Integer.parseInt(str));
-        ffVar.a("UBND", (String) null);
-        fmVar.b(ffVar);
+    @Override // com.xiaomi.push.fc.a
+    public void a() {
+        this.f316a = false;
+        this.a.cancel(1);
+    }
+
+    void a(long j) {
+        JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f315a.getPackageName(), XMJobService.class.getName()));
+        builder.setMinimumLatency(j);
+        builder.setOverrideDeadline(j);
+        builder.setRequiredNetworkType(1);
+        builder.setPersisted(false);
+        com.xiaomi.channel.commonutils.logger.b.c("schedule Job = " + builder.build().getId() + " in " + j);
+        this.a.schedule(builder.build());
+    }
+
+    @Override // com.xiaomi.push.fc.a
+    public void a(boolean z) {
+        if (z || this.f316a) {
+            long b = fy.b();
+            if (z) {
+                a();
+                b -= SystemClock.elapsedRealtime() % b;
+            }
+            this.f316a = true;
+            a(b);
+        }
+    }
+
+    @Override // com.xiaomi.push.fc.a
+    public boolean a() {
+        return this.f316a;
     }
 }

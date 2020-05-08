@@ -9,7 +9,7 @@ import com.baidu.swan.apps.adaptation.b.j;
 /* loaded from: classes11.dex */
 public class a implements j {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private h bzZ = new h() { // from class: com.baidu.swan.apps.adaptation.b.a.a.1
+    private h bAe = new h() { // from class: com.baidu.swan.apps.adaptation.b.a.a.1
         @Override // com.baidu.swan.apps.adaptation.b.h
         public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
             BdSailor.getInstance().onActivityResult(activity, i, i2, intent);
@@ -17,12 +17,12 @@ public class a implements j {
     };
 
     @Override // com.baidu.swan.apps.adaptation.b.j
-    public i QL() {
-        return com.baidu.swan.apps.core.container.a.a.Vg();
+    public i QK() {
+        return com.baidu.swan.apps.core.container.a.a.Vf();
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.j
-    public h QM() {
-        return this.bzZ;
+    public h QL() {
+        return this.bAe;
     }
 }

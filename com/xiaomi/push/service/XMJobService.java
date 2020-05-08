@@ -10,13 +10,13 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import com.xiaomi.push.ew;
+import com.xiaomi.push.fc;
 /* loaded from: classes8.dex */
 public class XMJobService extends Service {
     static Service a = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private IBinder f808a = null;
+    private IBinder f794a = null;
 
     @TargetApi(21)
     /* loaded from: classes8.dex */
@@ -24,14 +24,14 @@ public class XMJobService extends Service {
         Binder a;
 
         /* renamed from: a  reason: collision with other field name */
-        private Handler f809a;
+        private Handler f795a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        private static class HandlerC0779a extends Handler {
+        private static class HandlerC0800a extends Handler {
             JobService a;
 
-            HandlerC0779a(JobService jobService) {
+            HandlerC0800a(JobService jobService) {
                 super(jobService.getMainLooper());
                 this.a = jobService;
             }
@@ -44,7 +44,7 @@ public class XMJobService extends Service {
                         com.xiaomi.channel.commonutils.logger.b.m50a("Job finished " + jobParameters.getJobId());
                         this.a.jobFinished(jobParameters, false);
                         if (jobParameters.getJobId() == 1) {
-                            ew.a(false);
+                            fc.a(false);
                             return;
                         }
                         return;
@@ -56,8 +56,8 @@ public class XMJobService extends Service {
 
         a(Service service) {
             this.a = null;
-            this.a = (Binder) com.xiaomi.push.at.a(this, "onBind", new Intent());
-            com.xiaomi.push.at.a(this, "attachBaseContext", service);
+            this.a = (Binder) com.xiaomi.push.ba.a(this, "onBind", new Intent());
+            com.xiaomi.push.ba.a(this, "attachBaseContext", service);
         }
 
         @Override // android.app.job.JobService
@@ -67,10 +67,10 @@ public class XMJobService extends Service {
             intent.setAction("com.xiaomi.push.timer");
             intent.setPackage(getPackageName());
             startService(intent);
-            if (this.f809a == null) {
-                this.f809a = new HandlerC0779a(this);
+            if (this.f795a == null) {
+                this.f795a = new HandlerC0800a(this);
             }
-            this.f809a.sendMessage(Message.obtain(this.f809a, 1, jobParameters));
+            this.f795a.sendMessage(Message.obtain(this.f795a, 1, jobParameters));
             return true;
         }
 
@@ -88,14 +88,14 @@ public class XMJobService extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return this.f808a != null ? this.f808a : new Binder();
+        return this.f794a != null ? this.f794a : new Binder();
     }
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
         if (Build.VERSION.SDK_INT >= 21) {
-            this.f808a = new a(this).a;
+            this.f794a = new a(this).a;
         }
         a = this;
     }

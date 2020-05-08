@@ -1,18 +1,18 @@
 package com.baidu.c.a.b.a;
 /* loaded from: classes6.dex */
 public class c {
-    public String bdJ;
-    public String bdK;
-    public String bdL;
     public String bdO;
-    public C0072c bdQ;
-    public String bdR;
+    public String bdP;
+    public String bdQ;
     public String bdT;
+    public C0093c bdV;
     public String bdW;
-    public String bdX;
-    public C0072c bdY;
-    public a bdZ;
-    public String bea;
+    public String bdY;
+    public String beb;
+    public String bec;
+    public C0093c bed;
+    public a bee;
+    public String bef;
     public String content;
     public long msgId;
     public String name;
@@ -20,31 +20,31 @@ public class c {
     public long time;
     public String uid;
     public String type = "0";
-    public String bdM = "0";
-    public String bdN = "1005";
-    public String bdP = "0";
-    public String bdS = "0";
+    public String bdR = "0";
+    public String bdS = "1005";
     public String bdU = "0";
-    public String bdV = "1005";
+    public String bdX = "0";
+    public String bdZ = "0";
+    public String bea = "1005";
 
     /* loaded from: classes6.dex */
     public static class a {
-        public int bej;
-        public int bek;
-        public c bel;
-        public long[] bem;
-        public int ben;
-        public String beo;
-        public String bep;
+        public int beo;
+        public int bep;
+        public c beq;
+        public long[] ber;
+        public int bes;
+        public String beu;
+        public String bev;
         public int feedback = 0;
-        public String beb = "";
-        public int bec = 0;
-        public String duration = "";
-        public String bed = "";
-        public String bee = "";
-        public String bef = "";
         public String beh = "";
-        public String bei = "";
+        public int bei = 0;
+        public String duration = "";
+        public String bej = "";
+        public String bek = "";
+        public String bel = "";
+        public String bem = "";
+        public String ben = "";
     }
 
     /* loaded from: classes6.dex */
@@ -55,17 +55,17 @@ public class c {
 
     /* renamed from: com.baidu.c.a.b.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class C0072c {
-        public e beq;
-        public d ber;
-        public f bes;
-        public b beu;
+    public static class C0093c {
+        public e bew;
+        public d bex;
+        public f bey;
+        public b bez;
     }
 
     /* loaded from: classes6.dex */
     public static class d {
-        public a bev;
-        public a bew;
+        public a beA;
+        public a beB;
 
         /* loaded from: classes6.dex */
         public static class a {
@@ -89,6 +89,6 @@ public class c {
     }
 
     public String toString() {
-        return "LiveMessageBean:{" + this.bdJ + "}";
+        return "LiveMessageBean:{" + this.bdO + "}";
     }
 }

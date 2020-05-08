@@ -7,13 +7,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class f implements d {
-    private final b mdp;
+    private final b mdt;
 
     /* loaded from: classes12.dex */
     public interface b {
-        List<Integer> dsK();
+        List<Integer> dsH();
 
-        int dsL();
+        int dsI();
     }
 
     /* loaded from: classes12.dex */
@@ -22,12 +22,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> dsK() {
+        public List<Integer> dsH() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int dsL() {
+        public int dsI() {
             return 0;
         }
     }
@@ -37,23 +37,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.mdp = (b) g.checkNotNull(bVar);
+        this.mdt = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
     public int GP(int i) {
-        List<Integer> dsK = this.mdp.dsK();
-        if (dsK == null || dsK.isEmpty()) {
+        List<Integer> dsH = this.mdt.dsH();
+        if (dsH == null || dsH.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < dsK.size()) {
-                if (dsK.get(i3).intValue() <= i) {
+            if (i3 < dsH.size()) {
+                if (dsH.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return dsK.get(i3).intValue();
+                    return dsH.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -63,6 +63,6 @@ public class f implements d {
 
     @Override // com.facebook.imagepipeline.decoder.d
     public h GQ(int i) {
-        return com.facebook.imagepipeline.g.g.i(i, i >= this.mdp.dsL(), false);
+        return com.facebook.imagepipeline.g.g.i(i, i >= this.mdt.dsI(), false);
     }
 }

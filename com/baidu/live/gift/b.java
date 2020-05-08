@@ -7,8 +7,8 @@ import org.json.JSONObject;
 public class b {
     public String giftId = "";
     public String giftName = "";
-    public e ayk = null;
-    public d ayl = null;
+    public e ayq = null;
+    public d ayr = null;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -16,22 +16,22 @@ public class b {
             this.giftName = jSONObject.optString("gift_name");
             JSONObject optJSONObject = jSONObject.optJSONObject("config_info");
             if (optJSONObject != null) {
-                this.ayl = new d();
-                this.ayl.parseJson(optJSONObject);
+                this.ayr = new d();
+                this.ayr.parseJson(optJSONObject);
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("gift_zip");
             if (optJSONObject2 != null) {
-                this.ayk = new e();
-                this.ayk.parseJson(optJSONObject2);
+                this.ayq = new e();
+                this.ayq.parseJson(optJSONObject2);
             }
         }
     }
 
-    public boolean vC() {
-        return (this.ayk == null || TextUtils.isEmpty(this.ayk.videoUrl) || TextUtils.isEmpty(this.ayk.videoMd5)) ? false : true;
+    public boolean vB() {
+        return (this.ayq == null || TextUtils.isEmpty(this.ayq.videoUrl) || TextUtils.isEmpty(this.ayq.videoMd5)) ? false : true;
     }
 
-    public boolean vD() {
-        return (this.ayk == null || TextUtils.isEmpty(this.ayk.zipDownloadUrl) || TextUtils.isEmpty(this.ayk.zipMD5)) ? false : true;
+    public boolean vC() {
+        return (this.ayq == null || TextUtils.isEmpty(this.ayq.zipDownloadUrl) || TextUtils.isEmpty(this.ayq.zipMD5)) ? false : true;
     }
 }

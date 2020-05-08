@@ -3,9 +3,9 @@ package com.baidu.swan.games.screenrecord.a;
 import android.support.annotation.NonNull;
 /* loaded from: classes11.dex */
 public class b {
-    private long cQU;
-    private long cQV;
-    private long cQW;
+    private long cQZ;
+    private long cRa;
+    private long cRb;
 
     @NonNull
     public static b a(long j, double d, double d2) {
@@ -13,9 +13,9 @@ public class b {
     }
 
     public b(long j, long j2, long j3) {
-        this.cQU = j;
-        this.cQV = j2;
-        this.cQW = j3;
+        this.cQZ = j;
+        this.cRa = j2;
+        this.cRb = j3;
     }
 
     public a axJ() {
@@ -23,16 +23,16 @@ public class b {
             return null;
         }
         a aVar = new a();
-        aVar.start = Math.max(this.cQU - this.cQV, 0L);
-        aVar.end = this.cQU + this.cQW;
+        aVar.start = Math.max(this.cQZ - this.cRa, 0L);
+        aVar.end = this.cQZ + this.cRb;
         return aVar;
     }
 
     public boolean isValid() {
-        return this.cQU >= 0 && this.cQV >= 0 && this.cQW >= 0 && this.cQV + this.cQW > 0 && this.cQU + this.cQW > 0;
+        return this.cQZ >= 0 && this.cRa >= 0 && this.cRb >= 0 && this.cRa + this.cRb > 0 && this.cQZ + this.cRb > 0;
     }
 
     public String toString() {
-        return "[ mBaseline = " + this.cQU + "; mLeftOffset = " + this.cQV + "; mRightOffset = " + this.cQW + " ]";
+        return "[ mBaseline = " + this.cQZ + "; mLeftOffset = " + this.cRa + "; mRightOffset = " + this.cRb + " ]";
     }
 }

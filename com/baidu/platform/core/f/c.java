@@ -9,7 +9,6 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.sapi2.activity.SlideActiviy;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -41,7 +40,7 @@ public class c extends com.baidu.platform.base.d {
                 poiChildrenInfo.setName(optJSONObject.optString("name"));
                 poiChildrenInfo.setShowName(optJSONObject.optString("show_name"));
                 poiChildrenInfo.setTag(optJSONObject.optString("tag"));
-                poiChildrenInfo.setAddress(optJSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME));
+                poiChildrenInfo.setAddress(optJSONObject.optString("address"));
                 arrayList.add(poiChildrenInfo);
             }
         }
@@ -103,7 +102,7 @@ public class c extends com.baidu.platform.base.d {
                 suggestionInfo.setDistrict(jSONObject2.optString("district"));
                 suggestionInfo.setUid(jSONObject2.optString("uid"));
                 suggestionInfo.setTag(jSONObject2.optString("tag"));
-                suggestionInfo.setAddress(jSONObject2.optString(SlideActiviy.ADDRESS_PAGE_NAME));
+                suggestionInfo.setAddress(jSONObject2.optString("address"));
                 suggestionInfo.setPt(a(jSONObject2.optJSONObject("location")));
                 JSONArray optJSONArray2 = jSONObject2.optJSONArray("children");
                 if (optJSONArray2 != null && optJSONArray2.length() != 0) {

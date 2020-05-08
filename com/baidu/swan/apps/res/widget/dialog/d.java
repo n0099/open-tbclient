@@ -11,48 +11,48 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Date;
 /* loaded from: classes11.dex */
 public class d extends h {
-    private int SQ;
-    private int SR;
-    private int SS;
-    private Date ciU;
-    private Date ciV;
-    private String cjd;
-    private boolean cje;
-    private BdDatePicker cmL;
+    private int ST;
+    private int SU;
+    private int SV;
+    private Date cja;
+    private Date cjb;
+    private String cjj;
+    private boolean cjk;
+    private BdDatePicker cmR;
 
     d(Context context) {
         super(context, a.i.NoTitleDialog);
     }
 
     public void setYear(int i) {
-        this.SQ = i;
+        this.ST = i;
     }
 
     public int getYear() {
-        return this.cmL.getYear();
+        return this.cmR.getYear();
     }
 
     public void setMonth(int i) {
-        this.SR = i;
+        this.SU = i;
     }
 
     public int getMonth() {
-        return this.cmL.getMonth();
+        return this.cmR.getMonth();
     }
 
     public void setDay(int i) {
-        this.SS = i;
+        this.SV = i;
     }
 
     public int getDay() {
-        return this.cmL.getDay();
+        return this.cmR.getDay();
     }
 
     private boolean lO(String str) {
-        return this.cmL.lO(str);
+        return this.cmR.lO(str);
     }
 
-    public String ako() {
+    public String akn() {
         StringBuilder sb = new StringBuilder();
         if (lO("year")) {
             sb.append(String.format("%d-", Integer.valueOf(getYear())));
@@ -70,26 +70,26 @@ public class d extends h {
         return sb2;
     }
 
-    private void akp() {
-        this.cmL = new BdDatePicker(getContext());
+    private void ako() {
+        this.cmR = new BdDatePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.cmL.setLayoutParams(layoutParams);
-        this.cmL.setScrollCycle(true);
-        this.cmL.setStartDate(this.ciU);
-        this.cmL.setEndDate(this.ciV);
-        this.cmL.setYear(this.SQ);
-        this.cmL.setMonth(this.SR);
-        this.cmL.setDay(this.SS);
-        this.cmL.ajL();
-        this.cmL.setFields(this.cjd);
-        this.cmL.setDisabled(this.cje);
+        this.cmR.setLayoutParams(layoutParams);
+        this.cmR.setScrollCycle(true);
+        this.cmR.setStartDate(this.cja);
+        this.cmR.setEndDate(this.cjb);
+        this.cmR.setYear(this.ST);
+        this.cmR.setMonth(this.SU);
+        this.cmR.setDay(this.SV);
+        this.cmR.ajK();
+        this.cmR.setFields(this.cjj);
+        this.cmR.setDisabled(this.cjk);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        akp();
-        aky().ap(this.cmL);
+        ako();
+        akx().ap(this.cmR);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.c, android.app.Dialog
@@ -98,78 +98,78 @@ public class d extends h {
     }
 
     public void setFields(String str) {
-        this.cjd = str;
+        this.cjj = str;
     }
 
     public void setDisabled(boolean z) {
-        this.cje = z;
+        this.cjk = z;
     }
 
     public void setStartDate(Date date) {
-        this.ciU = date;
+        this.cja = date;
     }
 
     public void setEndDate(Date date) {
-        this.ciV = date;
+        this.cjb = date;
     }
 
     /* loaded from: classes11.dex */
     public static class a extends h.a {
-        public Date cmM;
-        public Date cmN;
-        public Date cmO;
-        private String cmP;
-        private boolean cmQ;
+        public Date cmS;
+        public Date cmT;
+        public Date cmU;
+        private String cmV;
+        private boolean cmW;
 
         public a(Context context) {
             super(context);
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        protected h ce(Context context) {
+        protected h bS(Context context) {
             return new d(context);
         }
 
         public a d(Date date) {
-            this.cmM = date;
+            this.cmS = date;
             return this;
         }
 
         public a e(Date date) {
-            this.cmN = date;
+            this.cmT = date;
             return this;
         }
 
         public a f(Date date) {
-            this.cmO = date;
+            this.cmU = date;
             return this;
         }
 
         public a lU(String str) {
-            this.cmP = str;
+            this.cmV = str;
             return this;
         }
 
         public a ev(boolean z) {
-            this.cmQ = z;
+            this.cmW = z;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        public h akq() {
-            d dVar = (d) super.akq();
-            dVar.setFields(this.cmP);
-            dVar.setDisabled(this.cmQ);
-            if (this.cmO != null) {
-                dVar.setYear(this.cmO.getYear() + FeatureCodes.SKY_SEG);
-                dVar.setMonth(this.cmO.getMonth() + 1);
-                dVar.setDay(this.cmO.getDate());
+        public h akp() {
+            d dVar = (d) super.akp();
+            dVar.setFields(this.cmV);
+            dVar.setDisabled(this.cmW);
+            if (this.cmU != null) {
+                dVar.setYear(this.cmU.getYear() + FeatureCodes.SKY_SEG);
+                dVar.setMonth(this.cmU.getMonth() + 1);
+                dVar.setDay(this.cmU.getDate());
             }
-            if (this.cmM != null) {
-                dVar.setStartDate(this.cmM);
+            if (this.cmS != null) {
+                dVar.setStartDate(this.cmS);
             }
-            if (this.cmN != null) {
-                dVar.setEndDate(this.cmN);
+            if (this.cmT != null) {
+                dVar.setEndDate(this.cmT);
             }
             return dVar;
         }

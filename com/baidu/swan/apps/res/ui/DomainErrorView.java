@@ -40,6 +40,6 @@ public class DomainErrorView extends CommonEmptyView {
         setTitle(a.h.aiapps_emptyview_domain_error_title);
         setSubTitle(String.format("不支持跳转非业务域名，请重新配置\n%s", str));
         this.mSubTitle.setPadding(af.C(70.0f), 0, af.C(70.0f), 0);
-        f.b(new com.baidu.swan.apps.statistic.a.d().e(new com.baidu.swan.apps.ap.a().bn(5L).bo(41L).nL("domain not in white list--" + str)).mZ(f.gz(0)).na(e.akP()).bx("errorDomain", str).bx("path", ai.apv().getPage()));
+        f.b(new com.baidu.swan.apps.statistic.a.d().e(new com.baidu.swan.apps.ap.a().bn(5L).bo(41L).nL("domain not in white list--" + str)).mZ(f.gz(0)).na(e.akO()).bx("errorDomain", str).bx("path", ai.apu().getPage()));
     }
 }

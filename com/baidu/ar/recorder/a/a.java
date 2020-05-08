@@ -20,12 +20,12 @@ public class a {
 
     /* renamed from: com.baidu.ar.recorder.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0062a {
+    private class C0083a {
         ByteBuffer sM;
         int sN;
         long sO;
 
-        public C0062a(ByteBuffer byteBuffer, int i, long j) {
+        public C0083a(ByteBuffer byteBuffer, int i, long j) {
             this.sM = byteBuffer;
             this.sN = i;
             this.sO = j;
@@ -49,8 +49,8 @@ public class a {
                     a.this.eh();
                     return;
                 case 1003:
-                    C0062a c0062a = (C0062a) message.obj;
-                    a.this.b(c0062a.sM, c0062a.sN, c0062a.sO);
+                    C0083a c0083a = (C0083a) message.obj;
+                    a.this.b(c0083a.sM, c0083a.sN, c0083a.sO);
                     return;
                 case 1004:
                     a.this.ei();
@@ -132,11 +132,11 @@ public class a {
         if (byteBuffer == null || i <= 0) {
             return;
         }
-        C0062a c0062a = new C0062a(byteBuffer, i, j);
+        C0083a c0083a = new C0083a(byteBuffer, i, j);
         if (this.sK == null || !this.si) {
             return;
         }
-        this.sK.sendMessage(this.sK.obtainMessage(1003, c0062a));
+        this.sK.sendMessage(this.sK.obtainMessage(1003, c0083a));
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {

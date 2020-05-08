@@ -19,18 +19,18 @@ public class c extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String aHL() {
+    public String aHJ() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(aNH = false, value = PopItemMethodConstant.showToast)
+    @o(aNF = false, value = PopItemMethodConstant.showToast)
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).aMZ();
+            BdToast.b(getContext(), jSONObject.optString("message")).aMX();
         }
     }
 
-    @o(aNH = false, value = "showNetStatus")
+    @o(aNF = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
@@ -56,7 +56,7 @@ public class c extends n {
         return jSONObject;
     }
 
-    @o(aNH = false, value = "showDeviceInfo")
+    @o(aNF = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();

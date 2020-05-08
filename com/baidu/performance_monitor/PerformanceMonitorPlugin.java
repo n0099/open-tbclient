@@ -56,7 +56,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
             BdStatisticsManager.getInstance().performance(str2, statsItem);
             result.success((Object) null);
         } else if (methodCall.method.equals("reportPageLoadPerformance")) {
-            if (m.aZA().aZB()) {
+            if (m.aZy().aZz()) {
                 HashMap hashMap3 = (HashMap) methodCall.arguments;
                 String str3 = (String) hashMap3.get("pageName");
                 if ("SignAllForum".equals(str3)) {
@@ -69,7 +69,7 @@ public class PerformanceMonitorPlugin implements FlutterPlugin, MethodChannel.Me
                     kW.append("action", "time");
                     kW.append("ishttp", hashMap3.get("isHttp"));
                     kW.append("issuccess", hashMap3.get("errCode") == BasicPushStatus.SUCCESS_CODE ? "1" : "0");
-                    kW.append("nettype", m.aZA().getNetType());
+                    kW.append("nettype", m.aZy().getNetType());
                     kW.append("wt", String.valueOf(hashMap3.get("whiteTime")));
                     kW.append("qt", "0");
                     kW.append("connt", hashMap3.get("netConTime"));

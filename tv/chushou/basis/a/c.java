@@ -8,27 +8,27 @@ import dalvik.system.DexClassLoader;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class c {
-    private static c nqp;
+    private static c nqs;
     private Context mContext;
-    private final HashMap<String, d> nqq = new HashMap<>();
-    private String nqr;
-    private String nqs;
+    private final HashMap<String, d> nqt = new HashMap<>();
+    private String nqu;
+    private String nqv;
 
     private c(Context context) {
-        this.nqr = null;
+        this.nqu = null;
         this.mContext = context.getApplicationContext();
-        this.nqr = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
+        this.nqu = this.mContext.getDir("pluginlib", 0).getAbsolutePath();
     }
 
-    public static c ge(Context context) {
-        if (nqp == null) {
+    public static c fR(Context context) {
+        if (nqs == null) {
             synchronized (c.class) {
-                if (nqp == null) {
-                    nqp = new c(context);
+                if (nqs == null) {
+                    nqs = new c(context);
                 }
             }
         }
-        return nqp;
+        return nqs;
     }
 
     public d aR(String str, boolean z) {
@@ -38,32 +38,32 @@ public class c {
         }
         d b = b(packageArchiveInfo, str);
         if (z) {
-            PW(str);
+            PZ(str);
             return b;
         }
         return b;
     }
 
     private d b(PackageInfo packageInfo, String str) {
-        d dVar = this.nqq.get(packageInfo.packageName);
+        d dVar = this.nqt.get(packageInfo.packageName);
         if (dVar == null) {
-            d dVar2 = new d(PT(str), a(PU(str)), packageInfo);
-            this.nqq.put(packageInfo.packageName, dVar2);
+            d dVar2 = new d(PW(str), a(PX(str)), packageInfo);
+            this.nqt.put(packageInfo.packageName, dVar2);
             return dVar2;
         }
         return dVar;
     }
 
-    private DexClassLoader PT(String str) {
-        this.nqs = dJh();
-        return new DexClassLoader(str, this.nqs, this.nqr, this.mContext.getClassLoader());
+    private DexClassLoader PW(String str) {
+        this.nqv = dJd();
+        return new DexClassLoader(str, this.nqv, this.nqu, this.mContext.getClassLoader());
     }
 
-    public String dJh() {
+    public String dJd() {
         return this.mContext.getDir("dex", 0).getAbsolutePath();
     }
 
-    private AssetManager PU(String str) {
+    private AssetManager PX(String str) {
         try {
             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
             assetManager.getClass().getMethod("addAssetPath", String.class).invoke(assetManager, str);
@@ -74,8 +74,8 @@ public class c {
         }
     }
 
-    public d PV(String str) {
-        return this.nqq.get(str);
+    public d PY(String str) {
+        return this.nqt.get(str);
     }
 
     private Resources a(AssetManager assetManager) {
@@ -83,7 +83,7 @@ public class c {
         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
     }
 
-    private void PW(String str) {
-        e.dJj().v(this.mContext, str, this.nqr);
+    private void PZ(String str) {
+        e.dJf().x(this.mContext, str, this.nqu);
     }
 }

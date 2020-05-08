@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class a implements com.baidu.swan.menu.b {
-    private SparseArray<String> eGa = new SparseArray<>();
+    private SparseArray<String> eGf = new SparseArray<>();
 
     public a() {
-        this.eGa.put(38, "favor");
-        this.eGa.put(35, "launcher");
+        this.eGf.put(38, "favor");
+        this.eGf.put(35, "launcher");
     }
 
     @Override // com.baidu.swan.menu.b
@@ -33,10 +33,10 @@ public class a implements com.baidu.swan.menu.b {
     }
 
     private void j(int i, List<i> list) {
-        if (!ai.apt() && list != null && list.size() > 0) {
+        if (!ai.aps() && list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (i iVar : list) {
-                if (this.eGa.get(iVar.getItemId()) != null) {
+                if (this.eGf.get(iVar.getItemId()) != null) {
                     arrayList.add(iVar);
                 }
             }

@@ -27,13 +27,13 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static com.baidu.swan.apps.core.d.d agK() {
-        com.baidu.swan.apps.core.d.e Ou;
-        SwanAppActivity aev = com.baidu.swan.apps.y.f.aeK().aev();
-        if (aev != null && (Ou = aev.Ou()) != null) {
-            com.baidu.swan.apps.core.d.b We = Ou.We();
-            if (We instanceof com.baidu.swan.apps.core.d.d) {
-                return (com.baidu.swan.apps.core.d.d) We;
+    public static com.baidu.swan.apps.core.d.d agJ() {
+        com.baidu.swan.apps.core.d.e Ot;
+        SwanAppActivity aeu = com.baidu.swan.apps.y.f.aeJ().aeu();
+        if (aeu != null && (Ot = aeu.Ot()) != null) {
+            com.baidu.swan.apps.core.d.b Wd = Ot.Wd();
+            if (Wd instanceof com.baidu.swan.apps.core.d.d) {
+                return (com.baidu.swan.apps.core.d.d) Wd;
             }
         }
         return null;
@@ -42,9 +42,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int e(com.baidu.swan.apps.core.d.d dVar) {
         if (dVar != null) {
-            com.baidu.swan.apps.runtime.config.c VA = dVar.VA();
-            if (VA != null) {
-                return VA.backgroundColor;
+            com.baidu.swan.apps.runtime.config.c Vz = dVar.Vz();
+            if (Vz != null) {
+                return Vz.backgroundColor;
             }
             FrameLayout webViewContainer = dVar.getWebViewContainer();
             if (webViewContainer != null) {
@@ -68,17 +68,17 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static JSONObject agL() {
+    public static JSONObject agK() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (com.baidu.swan.apps.runtime.e.akN() != null) {
-                jSONObject.put("name", com.baidu.swan.apps.runtime.e.akN().getName());
+            if (com.baidu.swan.apps.runtime.e.akM() != null) {
+                jSONObject.put("name", com.baidu.swan.apps.runtime.e.akM().getName());
             } else {
                 jSONObject.put("name", RomUtils.UNKNOWN);
             }
-            jSONObject.put("zeus", com.baidu.swan.apps.w.a.aca().bg(AppRuntime.getAppContext()));
+            jSONObject.put("zeus", com.baidu.swan.apps.w.a.abZ().aU(AppRuntime.getAppContext()));
             jSONObject.put("net", SwanAppNetworkUtils.getNetworkClass());
-            jSONObject.put("swaninfo", com.baidu.swan.apps.swancore.b.gH(com.baidu.swan.apps.runtime.d.akK().Om()).toString());
+            jSONObject.put("swaninfo", com.baidu.swan.apps.swancore.b.gH(com.baidu.swan.apps.runtime.d.akJ().Ol()).toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -87,37 +87,37 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void fH(@StringRes int i) {
-        String akP = com.baidu.swan.apps.runtime.e.akP();
-        Context aev = com.baidu.swan.apps.y.f.aeK().aev();
-        if (aev == null) {
-            aev = AppRuntime.getAppContext();
+        String akO = com.baidu.swan.apps.runtime.e.akO();
+        Context aeu = com.baidu.swan.apps.y.f.aeJ().aeu();
+        if (aeu == null) {
+            aeu = AppRuntime.getAppContext();
         }
-        if (!TextUtils.isEmpty(akP)) {
-            if (akP.lastIndexOf("_dev") > 0 || akP.lastIndexOf("_trial") > 0) {
-                com.baidu.swan.apps.res.widget.b.d.k(aev, i).gp(5).gk(3).showToast();
+        if (!TextUtils.isEmpty(akO)) {
+            if (akO.lastIndexOf("_dev") > 0 || akO.lastIndexOf("_trial") > 0) {
+                com.baidu.swan.apps.res.widget.b.d.k(aeu, i).gp(5).gk(3).showToast();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void agM() {
-        com.baidu.swan.apps.core.d.e Ou = com.baidu.swan.apps.y.f.aeK().Ou();
-        if (Ou != null && Ou.We() != null) {
+    public static void agL() {
+        com.baidu.swan.apps.core.d.e Ot = com.baidu.swan.apps.y.f.aeJ().Ot();
+        if (Ot != null && Ot.Wd() != null) {
             m.postOnIO(new Runnable() { // from class: com.baidu.swan.apps.ac.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Bitmap aph = af.aph();
-                    s abX = com.baidu.swan.apps.w.a.abX();
-                    File amS = com.baidu.swan.apps.an.a.amP().amS();
-                    final File V = com.baidu.swan.apps.w.a.acx().V(AppRuntime.getAppContext(), com.baidu.swan.apps.runtime.e.akP());
-                    File[] fileArr = {amS, V};
-                    if (abX != null) {
-                        abX.a(aph, (HashMap<String, String>) null, fileArr, new s.a() { // from class: com.baidu.swan.apps.ac.c.1.1
+                    Bitmap apg = af.apg();
+                    s abW = com.baidu.swan.apps.w.a.abW();
+                    File amR = com.baidu.swan.apps.an.a.amO().amR();
+                    final File J = com.baidu.swan.apps.w.a.acw().J(AppRuntime.getAppContext(), com.baidu.swan.apps.runtime.e.akO());
+                    File[] fileArr = {amR, J};
+                    if (abW != null) {
+                        abW.a(apg, (HashMap<String, String>) null, fileArr, new s.a() { // from class: com.baidu.swan.apps.ac.c.1.1
                             @Override // com.baidu.swan.apps.adaptation.a.s.a
                             public void onResult(String str) {
                                 if (str != null && str.contains("success")) {
-                                    com.baidu.swan.apps.an.a.amP().amT();
-                                    com.baidu.swan.d.c.safeDeleteFile(V);
+                                    com.baidu.swan.apps.an.a.amO().amS();
+                                    com.baidu.swan.d.c.safeDeleteFile(J);
                                 }
                             }
                         });
@@ -128,8 +128,8 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean agN() {
-        return com.baidu.swan.apps.y.f.aeK().aev().Op().akC();
+    public static boolean agM() {
+        return com.baidu.swan.apps.y.f.aeJ().aeu().Oo().akB();
     }
 
     public static Rect a(Bitmap bitmap, com.baidu.swan.apps.core.d.d dVar, View view) {
@@ -140,11 +140,11 @@ public class c {
         view.getLocationOnScreen(iArr);
         int min = Math.min(iArr[0] + view.getMeasuredWidth(), bitmap.getWidth());
         int min2 = Math.min(iArr[1] + view.getMeasuredHeight(), bitmap.getHeight());
-        SwanAppActionBar Vt = dVar.Vt();
-        if (Vt != null) {
+        SwanAppActionBar Vs = dVar.Vs();
+        if (Vs != null) {
             int[] iArr2 = new int[2];
-            Vt.getLocationOnScreen(iArr2);
-            iArr[1] = Math.max(iArr[1], iArr2[1] + Vt.getHeight() + 1);
+            Vs.getLocationOnScreen(iArr2);
+            iArr[1] = Math.max(iArr[1], iArr2[1] + Vs.getHeight() + 1);
             return new Rect(iArr[0], iArr[1], min, min2);
         }
         return null;

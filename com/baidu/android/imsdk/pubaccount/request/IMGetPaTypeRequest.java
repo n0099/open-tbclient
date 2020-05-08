@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.pubaccount.PaManagerImpl;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -50,7 +49,7 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
                 i4 = jSONObject2.optInt("type");
             } else {
                 i2 = jSONObject.getInt("error_code");
-                str3 = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+                str3 = jSONObject.optString("error_msg", "");
             }
             i3 = i4;
             str = str3;

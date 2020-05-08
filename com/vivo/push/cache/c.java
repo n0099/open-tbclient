@@ -132,8 +132,8 @@ public abstract class c<T> {
             String a = g.a(CRPYT_IV_BYTE);
             String a2 = g.a(CRPYT_KEY_BYTE);
             byte[] bytes = appStr.getBytes("utf-8");
-            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes("utf-8"), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(a2.getBytes("utf-8"), com.baidu.sapi2.utils.h.q);
+            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.h.p);
             cipher.init(1, secretKeySpec, new IvParameterSpec(a.getBytes("utf-8")));
             String encodeToString = Base64.encodeToString(cipher.doFinal(bytes), 2);
             if (!TextUtils.isEmpty(encodeToString) && encodeToString.length() > MAX_CLIENT_SAVE_LENGTH) {

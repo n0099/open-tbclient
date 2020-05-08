@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private List<com.baidu.adp.widget.ListView.a> aMd;
-    private BdTypeListView eOe;
-    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a gcE;
-    private c gcF;
+    private List<com.baidu.adp.widget.ListView.a> aMj;
+    private BdTypeListView eOj;
+    private com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a gcJ;
+    private c gcK;
     private List<m> mDataList;
     private TbPageContext mPageContext;
 
@@ -24,23 +24,23 @@ public class b {
 
     public b(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         this.mPageContext = tbPageContext;
-        this.eOe = bdTypeListView;
-        BC();
+        this.eOj = bdTypeListView;
+        BB();
     }
 
-    private void BC() {
-        this.aMd = new ArrayList();
-        this.gcE = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
-        this.aMd.add(this.gcE);
-        this.gcF = new c(this.mPageContext.getPageActivity());
-        this.aMd.add(this.gcF);
-        this.eOe.addAdapters(this.aMd);
+    private void BB() {
+        this.aMj = new ArrayList();
+        this.gcJ = new com.baidu.tieba.ala.personcenter.privilege.entereffect.a.a(this.mPageContext.getPageActivity());
+        this.aMj.add(this.gcJ);
+        this.gcK = new c(this.mPageContext.getPageActivity());
+        this.aMj.add(this.gcK);
+        this.eOj.addAdapters(this.aMj);
     }
 
     public void setData(List<m> list) {
         if (!v.isEmpty(list)) {
-            this.eOe.setData(list);
-            this.mDataList = this.eOe.getData();
+            this.eOj.setData(list);
+            this.mDataList = this.eOj.getData();
         }
     }
 
@@ -90,7 +90,7 @@ public class b {
     }
 
     public void notifyDataSetChanged() {
-        for (com.baidu.adp.widget.ListView.a aVar : this.aMd) {
+        for (com.baidu.adp.widget.ListView.a aVar : this.aMj) {
             aVar.notifyDataSetChanged();
         }
     }

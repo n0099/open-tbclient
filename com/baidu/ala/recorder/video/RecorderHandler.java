@@ -108,7 +108,7 @@ public class RecorderHandler extends Handler {
         Message obtainMessage = obtainMessage(12);
         Bundle bundle = new Bundle();
         bundle.putInt("error_code", i);
-        bundle.putString("error_msg", str);
+        bundle.putString(KEY_ERROR_MSG, str);
         obtainMessage.setData(bundle);
         sendMessage(obtainMessage);
     }
@@ -193,7 +193,7 @@ public class RecorderHandler extends Handler {
                 return;
             case 12:
                 if (this.mRecorderCallback != null && (data = message.getData()) != null) {
-                    this.mRecorderCallback.onError(data.getInt("error_code"), data.getString("error_msg"));
+                    this.mRecorderCallback.onError(data.getInt("error_code"), data.getString(KEY_ERROR_MSG));
                     return;
                 }
                 return;

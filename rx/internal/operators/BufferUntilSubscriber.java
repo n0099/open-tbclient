@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes6.dex */
 public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
-    static final rx.e njk = new rx.e() { // from class: rx.internal.operators.BufferUntilSubscriber.1
+    static final rx.e njn = new rx.e() { // from class: rx.internal.operators.BufferUntilSubscriber.1
         @Override // rx.e
         public void onCompleted() {
         }
@@ -18,10 +18,10 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
         public void onNext(Object obj) {
         }
     };
-    final State<T> nji;
-    private boolean njj;
+    final State<T> njl;
+    private boolean njm;
 
-    public static <T> BufferUntilSubscriber<T> dHJ() {
+    public static <T> BufferUntilSubscriber<T> dHF() {
         return new BufferUntilSubscriber<>(new State());
     }
 
@@ -43,7 +43,7 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
 
     /* loaded from: classes6.dex */
     static final class a<T> implements d.a<T> {
-        final State<T> nji;
+        final State<T> njl;
 
         @Override // rx.functions.b
         public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -51,36 +51,36 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
         }
 
         public a(State<T> state) {
-            this.nji = state;
+            this.njl = state;
         }
 
         public void call(rx.j<? super T> jVar) {
             boolean z = true;
-            if (this.nji.casObserverRef(null, jVar)) {
+            if (this.njl.casObserverRef(null, jVar)) {
                 jVar.add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.BufferUntilSubscriber.a.1
                     @Override // rx.functions.a
                     public void call() {
-                        a.this.nji.set(BufferUntilSubscriber.njk);
+                        a.this.njl.set(BufferUntilSubscriber.njn);
                     }
                 }));
-                synchronized (this.nji.guard) {
-                    if (this.nji.emitting) {
+                synchronized (this.njl.guard) {
+                    if (this.njl.emitting) {
                         z = false;
                     } else {
-                        this.nji.emitting = true;
+                        this.njl.emitting = true;
                     }
                 }
                 if (!z) {
                     return;
                 }
                 while (true) {
-                    Object poll = this.nji.buffer.poll();
+                    Object poll = this.njl.buffer.poll();
                     if (poll != null) {
-                        NotificationLite.a(this.nji.get(), poll);
+                        NotificationLite.a(this.njl.get(), poll);
                     } else {
-                        synchronized (this.nji.guard) {
-                            if (this.nji.buffer.isEmpty()) {
-                                this.nji.emitting = false;
+                        synchronized (this.njl.guard) {
+                            if (this.njl.buffer.isEmpty()) {
+                                this.njl.emitting = false;
                                 return;
                             }
                         }
@@ -94,24 +94,24 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
 
     private BufferUntilSubscriber(State<T> state) {
         super(new a(state));
-        this.nji = state;
+        this.njl = state;
     }
 
-    private void bM(Object obj) {
-        synchronized (this.nji.guard) {
-            this.nji.buffer.add(obj);
-            if (this.nji.get() != null && !this.nji.emitting) {
-                this.njj = true;
-                this.nji.emitting = true;
+    private void bN(Object obj) {
+        synchronized (this.njl.guard) {
+            this.njl.buffer.add(obj);
+            if (this.njl.get() != null && !this.njl.emitting) {
+                this.njm = true;
+                this.njl.emitting = true;
             }
         }
-        if (!this.njj) {
+        if (!this.njm) {
             return;
         }
         while (true) {
-            Object poll = this.nji.buffer.poll();
+            Object poll = this.njl.buffer.poll();
             if (poll != null) {
-                NotificationLite.a(this.nji.get(), poll);
+                NotificationLite.a(this.njl.get(), poll);
             } else {
                 return;
             }
@@ -120,28 +120,28 @@ public final class BufferUntilSubscriber<T> extends rx.subjects.c<T, T> {
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.njj) {
-            this.nji.get().onCompleted();
+        if (this.njm) {
+            this.njl.get().onCompleted();
         } else {
-            bM(NotificationLite.dHK());
+            bN(NotificationLite.dHG());
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.njj) {
-            this.nji.get().onError(th);
+        if (this.njm) {
+            this.njl.get().onError(th);
         } else {
-            bM(NotificationLite.error(th));
+            bN(NotificationLite.error(th));
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.njj) {
-            this.nji.get().onNext(t);
+        if (this.njm) {
+            this.njl.get().onNext(t);
         } else {
-            bM(NotificationLite.next(t));
+            bN(NotificationLite.next(t));
         }
     }
 }

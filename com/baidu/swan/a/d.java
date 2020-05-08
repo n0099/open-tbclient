@@ -16,8 +16,8 @@ public class d {
                     if (aVar2.aBF() != null) {
                         a.putAll(aVar2.aBF());
                     }
-                    aVar2.UR();
-                    com.baidu.swan.pms.c.a.a(c.arv(), a, aVar2.aBG(), new com.baidu.swan.a.a.b(aVar, aVar2));
+                    aVar2.UQ();
+                    com.baidu.swan.pms.c.a.a(c.aru(), a, aVar2.aBG(), new com.baidu.swan.a.a.b(aVar, aVar2));
                 }
             }
         }
@@ -34,6 +34,6 @@ public class d {
         if (t == null || aVar == null) {
             return null;
         }
-        return new f(new com.baidu.swan.pms.c.a.d.e(t), t, new com.baidu.swan.pms.c.a.d.c(aVar.aru()));
+        return new f(new com.baidu.swan.pms.c.a.d.e(t), t, new com.baidu.swan.pms.c.a.d.c(aVar.art()));
     }
 }

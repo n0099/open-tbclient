@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.ugc.model.UgcConstant;
 /* loaded from: classes.dex */
 public abstract class d<T> implements k<T> {
-    protected final e IR;
+    protected final e IU;
     protected final boolean prefixNameSpaceToKey;
 
     public abstract g<T> bq(String str);
@@ -17,7 +17,7 @@ public abstract class d<T> implements k<T> {
     protected abstract void removeExpiredItem(String str);
 
     public d(e eVar, boolean z) {
-        this.IR = eVar;
+        this.IU = eVar;
         this.prefixNameSpaceToKey = z;
     }
 
@@ -41,7 +41,7 @@ public abstract class d<T> implements k<T> {
             }
             return null;
         } else {
-            if (this.IR.shouldUpdateLastHitTime()) {
+            if (this.IU.shouldUpdateLastHitTime()) {
                 bq.lastHitTime = System.currentTimeMillis();
                 c(bq);
             }
@@ -93,6 +93,6 @@ public abstract class d<T> implements k<T> {
 
     @Override // com.baidu.adp.lib.cache.k
     public e ka() {
-        return this.IR;
+        return this.IU;
     }
 }

@@ -126,7 +126,7 @@ public class b extends c<RegisterStatus> {
             registerStatus.setExpireTime((int) (b - (System.currentTimeMillis() / 1000)));
             return registerStatus;
         }
-        com.meizu.cloud.pushsdk.util.b.f(this.e, "", this.h);
+        com.meizu.cloud.pushsdk.util.b.g(this.e, "", this.h);
         this.i = o();
         if (TextUtils.isEmpty(this.i) && this.c < 3) {
             com.meizu.cloud.a.a.i("Strategy", "after " + (this.c * 10) + " seconds start register");
@@ -144,7 +144,7 @@ public class b extends c<RegisterStatus> {
             if (TextUtils.isEmpty(registerStatus2.getPushId())) {
                 return registerStatus2;
             }
-            com.meizu.cloud.pushsdk.util.b.f(this.e, registerStatus2.getPushId(), this.h);
+            com.meizu.cloud.pushsdk.util.b.g(this.e, registerStatus2.getPushId(), this.h);
             com.meizu.cloud.pushsdk.util.b.a(this.e, (int) ((System.currentTimeMillis() / 1000) + registerStatus2.getExpireTime()), this.h);
             return registerStatus2;
         }

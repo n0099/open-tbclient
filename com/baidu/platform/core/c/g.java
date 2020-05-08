@@ -12,7 +12,6 @@ import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.platform.base.SearchType;
-import com.baidu.sapi2.activity.SlideActiviy;
 import com.baidu.swan.bdprivate.invoice.model.InvoiceInfo;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.util.ArrayList;
@@ -93,7 +92,7 @@ public class g extends com.baidu.platform.base.d {
             if (jSONObject2 != null && jSONObject2.length() != 0) {
                 PoiInfo poiInfo = new PoiInfo();
                 poiInfo.setName(jSONObject2.optString("name"));
-                poiInfo.setAddress(jSONObject2.optString(SlideActiviy.ADDRESS_PAGE_NAME));
+                poiInfo.setAddress(jSONObject2.optString("address"));
                 poiInfo.setProvince(jSONObject2.optString("province"));
                 poiInfo.setCity(jSONObject2.optString("city"));
                 poiInfo.setArea(jSONObject2.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA));
@@ -167,7 +166,7 @@ public class g extends com.baidu.platform.base.d {
                 poiChildrenInfo.setShowName(optJSONObject.optString("show_name"));
                 poiChildrenInfo.setTag(optJSONObject.optString("tag"));
                 poiChildrenInfo.setLocation(a(optJSONObject.optJSONObject("location")));
-                poiChildrenInfo.setAddress(optJSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME));
+                poiChildrenInfo.setAddress(optJSONObject.optString("address"));
                 arrayList.add(poiChildrenInfo);
             }
         }

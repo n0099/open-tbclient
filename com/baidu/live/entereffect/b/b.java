@@ -23,8 +23,8 @@ import java.util.zip.ZipInputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class b {
-    private com.baidu.live.entereffect.a.a axR;
-    private String axS;
+    private com.baidu.live.entereffect.a.a axX;
+    private String axY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(final com.baidu.live.entereffect.a.a aVar, final String str, final String str2) {
@@ -37,10 +37,10 @@ public class b {
                 if (aVar == null || TextUtils.isEmpty(aVar.id) || TextUtils.isEmpty(aVar.url) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                     return null;
                 }
-                b.this.axR = aVar;
-                b.this.axS = str;
+                b.this.axX = aVar;
+                b.this.axY = str;
                 if (com.baidu.live.f.a.existFile(str)) {
-                    b.this.vs();
+                    b.this.vr();
                 } else if (!new File(str).mkdirs()) {
                     return null;
                 }
@@ -67,7 +67,7 @@ public class b {
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
-                        b.this.dT(b.this.W(b.this.axS, str2));
+                        b.this.dT(b.this.W(b.this.axY, str2));
                     }
 
                     @Override // com.baidu.live.tbadk.download.FileDownloadCallBack
@@ -92,16 +92,16 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dT(final String str) {
-        if (!TextUtils.isEmpty(this.axS) && !TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(this.axY) && !TextUtils.isEmpty(str)) {
             new BdAsyncTask<Void, Void, List<String>>() { // from class: com.baidu.live.entereffect.b.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: c */
                 public List<String> doInBackground(Void... voidArr) {
-                    List<String> X = b.this.X(b.this.axS, str);
+                    List<String> X = b.this.X(b.this.axY, str);
                     if (X == null || X.isEmpty()) {
-                        b.this.vs();
+                        b.this.vr();
                     }
                     return X;
                 }
@@ -113,7 +113,7 @@ public class b {
                 public void onPostExecute(List<String> list) {
                     super.onPostExecute(list);
                     if (list != null && !list.isEmpty()) {
-                        c.vt().a(b.this.axR, b.this.axS, list);
+                        c.vs().a(b.this.axX, b.this.axY, list);
                     }
                 }
             }.execute(new Void[0]);
@@ -352,9 +352,9 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vs() {
-        if (!TextUtils.isEmpty(this.axS)) {
-            com.baidu.live.f.a.cleanDir(new File(this.axS));
+    public void vr() {
+        if (!TextUtils.isEmpty(this.axY)) {
+            com.baidu.live.f.a.cleanDir(new File(this.axY));
         }
     }
 }

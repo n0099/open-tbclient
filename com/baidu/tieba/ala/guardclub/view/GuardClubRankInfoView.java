@@ -13,16 +13,16 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class GuardClubRankInfoView extends RelativeLayout {
-    private HeadImageView aAm;
-    private TextView aNH;
-    private TextView fnB;
-    private TextView fnC;
-    private a fnD;
-    private TextView fno;
+    private HeadImageView aAs;
+    private TextView aNN;
+    private TextView fnG;
+    private TextView fnH;
+    private a fnI;
+    private TextView fnt;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bph();
+        void bpf();
     }
 
     public GuardClubRankInfoView(Context context, AttributeSet attributeSet) {
@@ -31,19 +31,19 @@ public class GuardClubRankInfoView extends RelativeLayout {
     }
 
     public void setCallback(a aVar) {
-        this.fnD = aVar;
+        this.fnI = aVar;
     }
 
     public void setData(String str, String str2, String str3, String str4, boolean z) {
-        this.fnB.setText(str);
-        this.aAm.startLoad(str2, 12, false, false);
-        this.fno.setText(str3);
-        this.aNH.setText(str4);
-        this.fnC.setVisibility(z ? 0 : 4);
+        this.fnG.setText(str);
+        this.aAs.startLoad(str2, 12, false, false);
+        this.fnt.setText(str3);
+        this.aNN.setText(str4);
+        this.fnH.setVisibility(z ? 0 : 4);
         if (eW(str)) {
-            this.fnB.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize40));
+            this.fnG.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize40));
         } else {
-            this.fnB.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize20));
+            this.fnG.setTextSize(0, getResources().getDimensionPixelOffset(a.e.sdk_fontsize20));
         }
     }
 
@@ -62,8 +62,8 @@ public class GuardClubRankInfoView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.aAm != null) {
-            this.aAm.stopLoad();
+        if (this.aAs != null) {
+            this.aAs.stopLoad();
         }
     }
 
@@ -71,19 +71,19 @@ public class GuardClubRankInfoView extends RelativeLayout {
         setBackgroundColor(Color.parseColor("#FF201443"));
         setPadding(getResources().getDimensionPixelOffset(a.e.sdk_ds20), 0, 0, 0);
         LayoutInflater.from(getContext()).inflate(a.h.live_guard_club_rank_info, (ViewGroup) this, true);
-        this.fnB = (TextView) findViewById(a.g.tv_rank);
-        this.aAm = (HeadImageView) findViewById(a.g.iv_avatar);
-        this.fno = (TextView) findViewById(a.g.tv_name);
-        this.aNH = (TextView) findViewById(a.g.tv_content);
-        this.fnC = (TextView) findViewById(a.g.tv_hit);
-        this.aAm.setIsRound(true);
-        this.aAm.setAutoChangeStyle(false);
-        this.aAm.setDefaultBgResource(a.f.sdk_default_avatar);
-        this.fnC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
+        this.fnG = (TextView) findViewById(a.g.tv_rank);
+        this.aAs = (HeadImageView) findViewById(a.g.iv_avatar);
+        this.fnt = (TextView) findViewById(a.g.tv_name);
+        this.aNN = (TextView) findViewById(a.g.tv_content);
+        this.fnH = (TextView) findViewById(a.g.tv_hit);
+        this.aAs.setIsRound(true);
+        this.aAs.setAutoChangeStyle(false);
+        this.aAs.setDefaultBgResource(a.f.sdk_default_avatar);
+        this.fnH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (GuardClubRankInfoView.this.fnD != null) {
-                    GuardClubRankInfoView.this.fnD.bph();
+                if (GuardClubRankInfoView.this.fnI != null) {
+                    GuardClubRankInfoView.this.fnI.bpf();
                 }
             }
         });

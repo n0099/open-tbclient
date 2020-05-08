@@ -6,24 +6,24 @@ import com.baidu.swan.apps.r.c.a.e;
 import com.baidu.swan.apps.r.c.c;
 /* loaded from: classes11.dex */
 final class a extends com.baidu.swan.apps.r.b<c> {
-    private final c.a bVr;
+    private final c.a bVx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull c cVar) {
         super(cVar);
-        this.bVr = new c.a() { // from class: com.baidu.swan.apps.r.c.a.1
+        this.bVx = new c.a() { // from class: com.baidu.swan.apps.r.c.a.1
             @Override // com.baidu.swan.apps.r.c.c.a
-            public void abu() {
-                if (a.this.bUM != null) {
-                    a.this.bUM.onCallback(a.this, "onConfirmBtnClick", null);
+            public void abt() {
+                if (a.this.bUS != null) {
+                    a.this.bUS.onCallback(a.this, "onConfirmBtnClick", null);
                 }
             }
         };
-        cVar.a(this.bVr);
-        this.bUL.a(new d());
-        this.bUL.a(new com.baidu.swan.apps.r.c.a.c());
-        this.bUL.a(new e());
-        this.bUL.a(new com.baidu.swan.apps.r.c.a.a());
-        this.bUL.a(new com.baidu.swan.apps.r.c.a.b());
+        cVar.a(this.bVx);
+        this.bUR.a(new d());
+        this.bUR.a(new com.baidu.swan.apps.r.c.a.c());
+        this.bUR.a(new e());
+        this.bUR.a(new com.baidu.swan.apps.r.c.a.a());
+        this.bUR.a(new com.baidu.swan.apps.r.c.a.b());
     }
 }

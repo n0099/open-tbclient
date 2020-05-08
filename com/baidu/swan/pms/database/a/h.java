@@ -31,7 +31,7 @@ public class h extends b<com.baidu.swan.pms.model.h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: h */
-    public ContentValues aa(com.baidu.swan.pms.model.h hVar) {
+    public ContentValues ab(com.baidu.swan.pms.model.h hVar) {
         ContentValues e = super.e(hVar);
         e.put("max_age", Long.valueOf(hVar.maxAge));
         e.put("token", hVar.token);

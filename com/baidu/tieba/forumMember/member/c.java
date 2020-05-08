@@ -8,8 +8,8 @@ import com.baidu.adp.widget.ListView.y;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class c extends y.a {
-    public RelativeLayout aWM;
-    public ImageView gdj;
+    public RelativeLayout aWR;
+    public ImageView gdo;
     public View mLineView;
     public int mSkinType;
     public TextView mTitleView;
@@ -17,9 +17,9 @@ public class c extends y.a {
     public c(View view) {
         super(view);
         this.mSkinType = 3;
-        this.aWM = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
+        this.aWR = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
         this.mLineView = view.findViewById(R.id.info_complaint_diver_top);
         this.mTitleView = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.gdj = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+        this.gdo = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
     }
 }

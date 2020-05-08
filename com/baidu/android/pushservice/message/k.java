@@ -8,11 +8,12 @@ public class k implements Serializable {
     private long c;
     private int d;
     private byte[] e;
-    private long f;
-    private boolean g = false;
+    private byte[] f;
+    private long g;
+    private boolean h = false;
 
     public long a() {
-        return this.f;
+        return this.g;
     }
 
     public void a(int i) {
@@ -20,7 +21,7 @@ public class k implements Serializable {
     }
 
     public void a(long j) {
-        this.f = j;
+        this.g = j;
     }
 
     public void a(String str) {
@@ -28,7 +29,7 @@ public class k implements Serializable {
     }
 
     public void a(boolean z) {
-        this.g = z;
+        this.h = z;
     }
 
     public void a(byte[] bArr) {
@@ -45,6 +46,10 @@ public class k implements Serializable {
 
     public void b(String str) {
         this.b = str;
+    }
+
+    public void b(byte[] bArr) {
+        this.f = bArr;
     }
 
     public String c() {
@@ -67,7 +72,11 @@ public class k implements Serializable {
         return this.e;
     }
 
+    public byte[] h() {
+        return this.f;
+    }
+
     public String toString() {
-        return "type:" + this.d + " appid:" + this.a + " msgId:" + this.c + " isAlarm:  " + this.g + " pkgName:  " + this.b;
+        return "type:" + this.d + " appid:" + this.a + " msgId:" + this.c + " isAlarm:  " + this.h + " pkgName:  " + this.b;
     }
 }

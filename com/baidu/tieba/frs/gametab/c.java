@@ -33,7 +33,7 @@ public class c {
                     }
                     BdToast a = BdToast.a((Context) tbPageContext.getPageActivity(), (CharSequence) forbid_info, (int) R.drawable.icon_pure_toast_mistake40_svg, true);
                     a.setExtraTextLineSpacing(1.25f);
-                    a.aMZ();
+                    a.aMX();
                     return false;
                 }
             }
@@ -50,11 +50,11 @@ public class c {
         if (i != 1 && i != 2) {
             BdToast a = BdToast.a((Context) tbPageContext.getPageActivity(), (CharSequence) string, (int) R.drawable.icon_pure_toast_mistake40_svg, true);
             a.setExtraTextLineSpacing(1.25f);
-            a.aMZ();
+            a.aMX();
             return false;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.uf(aq.getFixedText(string, 50, true));
+        aVar.ui(aq.getFixedText(string, 50, true));
         aVar.b(aq.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(R.string.group_create_private_isee) : blockPopInfoData.ok_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.c.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -67,14 +67,14 @@ public class c {
             aVar.a(aq.getFixedText(blockPopInfoData.ahead_info, 4, true), new a.b() { // from class: com.baidu.tieba.frs.gametab.c.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    ba.aOY().b(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
+                    ba.aOV().b(TbPageContext.this, new String[]{blockPopInfoData.ahead_url});
                     if (aVar2 != null) {
                         aVar2.dismiss();
                     }
                 }
             });
         }
-        aVar.b(tbPageContext).aMU();
+        aVar.b(tbPageContext).aMS();
         return true;
     }
 }

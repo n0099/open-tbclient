@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class o extends com.baidu.tieba.frs.h<p, q> {
-    private com.baidu.tbadk.coreExtra.view.c dLU;
+    private com.baidu.tbadk.coreExtra.view.c dLY;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -28,7 +28,7 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     o.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 } else {
-                    ba.aOY().b((TbPageContext) com.baidu.adp.base.i.T(o.this.mContext), new String[]{tag.toString()});
+                    ba.aOV().b((TbPageContext) com.baidu.adp.base.i.G(o.this.mContext), new String[]{tag.toString()});
                 }
             }
         };
@@ -52,23 +52,23 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    am.setViewTextColor(qVar.gVy, R.color.cp_cont_d, 1);
-                    am.setViewTextColor(qVar.gVx, R.color.cp_cont_b, 1);
-                    am.setBackgroundResource(qVar.gVz, R.drawable.frs_member_manito_bg);
+                    am.setViewTextColor(qVar.gVE, R.color.cp_cont_d, 1);
+                    am.setViewTextColor(qVar.gVD, R.color.cp_cont_b, 1);
+                    am.setBackgroundResource(qVar.gVF, R.drawable.frs_member_manito_bg);
                 }
-                int bNg = pVar.bNg();
-                if (bNg > 0) {
-                    qVar.gVy.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bNg)));
-                    qVar.gVz.setTag(R.id.assist_apply_tip, pVar.bNh());
-                    qVar.gVz.setOnClickListener(this.mClickListener);
-                    qVar.gVz.setEnabled(true);
-                    qVar.gVz.setClickable(true);
+                int bNe = pVar.bNe();
+                if (bNe > 0) {
+                    qVar.gVE.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), aq.numberUniformFormat(bNe)));
+                    qVar.gVF.setTag(R.id.assist_apply_tip, pVar.bNf());
+                    qVar.gVF.setOnClickListener(this.mClickListener);
+                    qVar.gVF.setEnabled(true);
+                    qVar.gVF.setClickable(true);
                 } else {
-                    qVar.gVy.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.gVz.setEnabled(false);
-                    qVar.gVz.setClickable(false);
+                    qVar.gVE.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.gVF.setEnabled(false);
+                    qVar.gVF.setClickable(false);
                 }
-                qVar.gVy.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.gVE.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }
@@ -78,23 +78,23 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
         Activity activity;
-        com.baidu.adp.base.e<?> T = com.baidu.adp.base.i.T(this.mContext);
-        if (!(T instanceof TbPageContext)) {
+        com.baidu.adp.base.e<?> G = com.baidu.adp.base.i.G(this.mContext);
+        if (!(G instanceof TbPageContext)) {
             activity = null;
         } else {
-            activity = ((TbPageContext) T).getPageActivity();
+            activity = ((TbPageContext) G).getPageActivity();
         }
-        if (this.dLU == null) {
-            this.dLU = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.dLY == null) {
+            this.dLY = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.dLU.aVp();
-        this.dLU.setAccountData(accountData);
-        this.dLU.mm(1);
+        this.dLY.aVn();
+        this.dLY.setAccountData(accountData);
+        this.dLY.mm(1);
     }
 
     public void onDestroy() {
-        if (this.dLU != null) {
-            this.dLU.onDestroy();
+        if (this.dLY != null) {
+            this.dLY.onDestroy();
         }
     }
 }

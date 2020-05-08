@@ -40,7 +40,7 @@ public class i implements Runnable {
                     hashMap.put("cuid", SapiUtils.getClientId(sapiConfiguration2.context));
                     hashMap.put(Config.DEVICE_PART, Build.MODEL);
                     hashMap.put("num", this.a.size() + "");
-                    com.baidu.sapi2.utils.r.a("share_silent_account", hashMap);
+                    com.baidu.sapi2.utils.t.a("share_silent_account", hashMap);
                 }
                 sapiConfiguration = SapiShareClient.i;
                 if (!sapiConfiguration.context.bindService((Intent) this.a.get(0), new h(this, this), 1)) {

@@ -9,8 +9,8 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class AddressManageExternalActivity extends AddressManageActivity {
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
-    private static final String J = "AddressManageExternalActivity";
-    private String K;
+    private static final String K = "AddressManageExternalActivity";
+    private String L;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
@@ -23,8 +23,8 @@ public class AddressManageExternalActivity extends AddressManageActivity {
 
     @Override // com.baidu.sapi2.activity.AddressManageActivity
     public void loadAddressUrl(List<PassNameValuePair> list) {
-        this.K = getIntent().getStringExtra("extra_external_url");
-        this.sapiWebView.loadUrl(this.K);
+        this.L = getIntent().getStringExtra("extra_external_url");
+        this.sapiWebView.loadUrl(this.L);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -36,7 +36,7 @@ public class AddressManageExternalActivity extends AddressManageActivity {
     @Override // com.baidu.sapi2.activity.AddressManageActivity, com.baidu.sapi2.activity.SlideActiviy, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Log.d(J, "AddressManageExternalActivity onCreate");
+        Log.d(K, "AddressManageExternalActivity onCreate");
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.AddressManageExternalActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
@@ -53,8 +53,10 @@ public class AddressManageExternalActivity extends AddressManageActivity {
         this.sapiWebView.setOnSlidePageFinishCallback(new SapiWebView.OnSlidePageFinishCallback() { // from class: com.baidu.sapi2.activity.AddressManageExternalActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnSlidePageFinishCallback
             public void onFinish(String str) {
-                if (SlideActiviy.ADDRESS_PAGE_NAME.equals(str)) {
-                    AddressManageExternalActivity.this.startActivity(new Intent(AddressManageExternalActivity.this, AddressManageActivity.class));
+                if ("address".equals(str)) {
+                    Intent intent = new Intent(AddressManageExternalActivity.this, AddressManageActivity.class);
+                    intent.setFlags(67108864);
+                    AddressManageExternalActivity.this.startActivity(intent);
                 }
             }
         });

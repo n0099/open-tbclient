@@ -21,20 +21,20 @@ public final class h {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private h cLO = new h();
+        private h cLU = new h();
 
         public a hX(int i) {
-            this.cLO.mType = i;
+            this.cLU.mType = i;
             return this;
         }
 
         public a pV(String str) {
-            this.cLO.mID = str;
+            this.cLU.mID = str;
             return this;
         }
 
         public h avU() {
-            return this.cLO;
+            return this.cLU;
         }
     }
 }

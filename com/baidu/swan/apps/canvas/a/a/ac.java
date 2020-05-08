@@ -6,26 +6,26 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 /* loaded from: classes11.dex */
 public class ac extends a {
-    private Paint.Join bFC;
+    private Paint.Join bFH;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void parseJson(JSONArray jSONArray) {
         if (jSONArray.length() > 0) {
             String optString = jSONArray.optString(0);
             if (TextUtils.equals(optString, "bevel")) {
-                this.bFC = Paint.Join.BEVEL;
+                this.bFH = Paint.Join.BEVEL;
             } else if (TextUtils.equals(optString, "round")) {
-                this.bFC = Paint.Join.ROUND;
+                this.bFH = Paint.Join.ROUND;
             } else if (TextUtils.equals(optString, "miter")) {
-                this.bFC = Paint.Join.MITER;
+                this.bFH = Paint.Join.MITER;
             }
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.bFC != null) {
-            bVar.mStrokePaint.setStrokeJoin(this.bFC);
+        if (this.bFH != null) {
+            bVar.mStrokePaint.setStrokeJoin(this.bFH);
         }
     }
 }

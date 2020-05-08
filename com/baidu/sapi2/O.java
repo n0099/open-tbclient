@@ -1,45 +1,26 @@
 package com.baidu.sapi2;
 
 import android.content.Context;
-import com.baidu.sapi2.P;
-import com.baidu.sapi2.S;
-import com.baidu.sapi2.utils.Log;
-import com.baidu.sapi2.utils.SapiUtils;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.sapi2.V;
+import com.baidu.sapi2.X;
 /* loaded from: classes6.dex */
-public class O implements P.a {
-    final /* synthetic */ P a;
+class O implements V.a {
+    final /* synthetic */ Context a;
+    final /* synthetic */ V b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public O(P p) {
-        this.a = p;
+    public O(V v, Context context) {
+        this.b = v;
+        this.a = context;
     }
 
-    @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0203a c0203a) {
-        Context context;
-        Context context2;
-        Context context3;
-        String c = S.a.C0203a.c(c0203a.a);
-        String b = S.a.C0203a.b(c0203a.a);
-        context = this.a.d;
-        if (new File(context.getFilesDir(), c).exists()) {
-            try {
-                P p = this.a;
-                context2 = this.a.d;
-                String d = p.d(context2, c);
-                context3 = this.a.d;
-                if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", context3)) {
-                    this.a.a(b, d.getBytes());
-                }
-            } catch (Throwable th) {
-                Log.e(th);
-            }
-        }
+    @Override // com.baidu.sapi2.V.a
+    public void a(X.a.C0227a c0227a, String str) {
+        this.b.a(c0227a.a, str);
     }
 
-    @Override // com.baidu.sapi2.P.a
-    public void a(S.a.C0203a c0203a, String str) {
+    @Override // com.baidu.sapi2.V.a
+    public void a(X.a.C0227a c0227a) {
+        this.b.a(this.a, c0227a);
     }
 }

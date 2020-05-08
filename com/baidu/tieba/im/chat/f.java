@@ -19,37 +19,37 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.b<MsglistActivity<?>> {
-    private TextView iea;
-    private LinearLayout ieb;
-    private TextView iec;
-    private TextView ied;
+    private TextView ieg;
+    private LinearLayout ieh;
+    private TextView iei;
+    private TextView iej;
 
     public f(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_msgmid_view);
-        this.iea = null;
+        this.ieg = null;
         initView();
     }
 
     private void initView() {
-        this.iea = (TextView) findViewById(R.id.tex_msgcontent);
-        this.iea.setMovementMethod(LinkMovementMethod.getInstance());
-        this.ieb = (LinearLayout) findViewById(R.id.lay_add_friend);
-        this.iec = (TextView) findViewById(R.id.btn_add_friend);
-        this.ied = (TextView) findViewById(R.id.text_add_friend);
-        this.ieb.setVisibility(8);
+        this.ieg = (TextView) findViewById(R.id.tex_msgcontent);
+        this.ieg.setMovementMethod(LinkMovementMethod.getInstance());
+        this.ieh = (LinearLayout) findViewById(R.id.lay_add_friend);
+        this.iei = (TextView) findViewById(R.id.btn_add_friend);
+        this.iej = (TextView) findViewById(R.id.text_add_friend);
+        this.ieh.setVisibility(8);
     }
 
     public void setData(ChatMessage chatMessage) {
-        this.ieb.setVisibility(8);
+        this.ieh.setVisibility(8);
         if (chatMessage == null) {
-            this.iea.setText("");
+            this.ieg.setText("");
         } else if (!a(chatMessage)) {
-            this.iea.setVisibility(0);
+            this.ieg.setVisibility(0);
             String v = com.baidu.tieba.im.util.e.v(chatMessage);
             if (!TextUtils.isEmpty(v)) {
-                this.iea.setText(v);
+                this.ieg.setText(v);
             } else {
-                this.iea.setText("");
+                this.ieg.setText("");
             }
         }
     }
@@ -74,8 +74,8 @@ public class f extends com.baidu.adp.base.b<MsglistActivity<?>> {
             return false;
         }
         if (optString.equals(TbEnum.SystemMessage.EVENT_ID_ADD_FRIEND)) {
-            this.ieb.setVisibility(0);
-            this.iea.setVisibility(8);
+            this.ieh.setVisibility(0);
+            this.ieg.setVisibility(8);
             String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
             JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
             if (optJSONObject == null) {
@@ -91,11 +91,11 @@ public class f extends com.baidu.adp.base.b<MsglistActivity<?>> {
             }
             final String userName = toUserInfo.getUserName();
             final String portrait = toUserInfo.getPortrait();
-            this.ied.setText(optString2);
+            this.iej.setText(optString2);
             if (optInt == 1) {
-                this.iec.setVisibility(0);
-                this.iec.setText(optString3);
-                this.iec.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.f.1
+                this.iei.setVisibility(0);
+                this.iei.setText(optString3);
+                this.iei.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.f.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(f.this.mContext.getPageActivity(), String.valueOf(optLong), userName, portrait, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));

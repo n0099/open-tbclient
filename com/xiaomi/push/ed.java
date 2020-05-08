@@ -1,199 +1,175 @@
 package com.xiaomi.push;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import android.content.Context;
+import android.text.TextUtils;
+import com.xiaomi.push.ai;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
 /* loaded from: classes8.dex */
-public final class ed {
+public abstract class ed extends ai.a {
+    protected int a;
 
-    /* loaded from: classes8.dex */
-    public static final class a extends e {
+    /* renamed from: a  reason: collision with other field name */
+    protected Context f230a;
 
-        /* renamed from: a  reason: collision with other field name */
-        private boolean f250a;
+    public ed(Context context, int i) {
+        this.a = i;
+        this.f230a = context;
+    }
 
-        /* renamed from: b  reason: collision with other field name */
-        private boolean f251b;
-        private boolean d;
-        private boolean e;
-        private int a = 0;
-
-        /* renamed from: c  reason: collision with other field name */
-        private boolean f252c = false;
-        private int b = 0;
-        private boolean f = false;
-
-        /* renamed from: a  reason: collision with other field name */
-        private List<String> f249a = Collections.emptyList();
-        private int c = -1;
-
-        public static a a(byte[] bArr) {
-            return (a) new a().a(bArr);
+    public static void a(Context context, hu huVar) {
+        dp m228a = dq.a().m228a();
+        String a = m228a == null ? "" : m228a.a();
+        if (TextUtils.isEmpty(a) || TextUtils.isEmpty(huVar.a())) {
+            return;
         }
+        a(context, huVar, a);
+    }
 
-        public static a b(b bVar) {
-            return new a().a(bVar);
+    private static void a(Context context, hu huVar, String str) {
+        FileLock fileLock;
+        RandomAccessFile randomAccessFile;
+        BufferedOutputStream bufferedOutputStream;
+        RandomAccessFile randomAccessFile2;
+        BufferedOutputStream bufferedOutputStream2 = null;
+        bufferedOutputStream2 = null;
+        r2 = null;
+        bufferedOutputStream2 = null;
+        FileLock fileLock2 = null;
+        byte[] b = du.b(str, iw.a(huVar));
+        if (b == null || b.length == 0) {
+            return;
         }
-
-        @Override // com.xiaomi.push.e
-        public int a() {
-            if (this.c < 0) {
-                b();
-            }
-            return this.c;
-        }
-
-        public a a(int i) {
-            this.f250a = true;
-            this.a = i;
-            return this;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.xiaomi.push.e
-        public a a(b bVar) {
-            while (true) {
-                int m146a = bVar.m146a();
-                switch (m146a) {
-                    case 0:
-                        break;
-                    case 8:
-                        a(bVar.c());
-                        break;
-                    case 16:
-                        a(bVar.m152a());
-                        break;
-                    case 24:
-                        b(bVar.m155b());
-                        break;
-                    case 32:
-                        b(bVar.m152a());
-                        break;
-                    case 42:
-                        a(bVar.m149a());
-                        break;
-                    default:
-                        if (!a(bVar, m146a)) {
-                            break;
-                        } else {
-                            break;
+        synchronized (dv.a) {
+            try {
+                File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
+                y.m586a(file);
+                randomAccessFile = new RandomAccessFile(file, "rw");
+                try {
+                    fileLock = randomAccessFile.getChannel().lock();
+                    try {
+                        bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(context.getExternalFilesDir(null), "push_cdata.data"), true));
+                        try {
+                            bufferedOutputStream.write(ac.a(b.length));
+                            bufferedOutputStream.write(b);
+                            bufferedOutputStream.flush();
+                            if (fileLock != null && fileLock.isValid()) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e) {
+                                }
+                            }
+                            y.a(bufferedOutputStream);
+                            y.a(randomAccessFile);
+                        } catch (IOException e2) {
+                            e = e2;
+                            fileLock2 = fileLock;
+                            randomAccessFile2 = randomAccessFile;
+                            try {
+                                e.printStackTrace();
+                                if (fileLock2 != null && fileLock2.isValid()) {
+                                    try {
+                                        fileLock2.release();
+                                    } catch (IOException e3) {
+                                    }
+                                }
+                                y.a(bufferedOutputStream);
+                                y.a(randomAccessFile2);
+                            } catch (Throwable th) {
+                                th = th;
+                                randomAccessFile = randomAccessFile2;
+                                fileLock = fileLock2;
+                                bufferedOutputStream2 = bufferedOutputStream;
+                                if (fileLock != null && fileLock.isValid()) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException e4) {
+                                    }
+                                }
+                                y.a(bufferedOutputStream2);
+                                y.a(randomAccessFile);
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            bufferedOutputStream2 = bufferedOutputStream;
+                            if (fileLock != null) {
+                                fileLock.release();
+                            }
+                            y.a(bufferedOutputStream2);
+                            y.a(randomAccessFile);
+                            throw th;
                         }
+                    } catch (IOException e5) {
+                        e = e5;
+                        bufferedOutputStream = null;
+                        fileLock2 = fileLock;
+                        randomAccessFile2 = randomAccessFile;
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                } catch (IOException e6) {
+                    e = e6;
+                    bufferedOutputStream = null;
+                    randomAccessFile2 = randomAccessFile;
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileLock = null;
                 }
-            }
-            return this;
-        }
-
-        public a a(String str) {
-            if (str == null) {
-                throw new NullPointerException();
-            }
-            if (this.f249a.isEmpty()) {
-                this.f249a = new ArrayList();
-            }
-            this.f249a.add(str);
-            return this;
-        }
-
-        public a a(boolean z) {
-            this.f251b = true;
-            this.f252c = z;
-            return this;
-        }
-
-        @Override // com.xiaomi.push.e
-        public List<String> a() {
-            return this.f249a;
-        }
-
-        @Override // com.xiaomi.push.e
-        public void a(c cVar) {
-            if (a()) {
-                cVar.m189b(1, c());
-            }
-            if (m232c()) {
-                cVar.m181a(2, b());
-            }
-            if (m233d()) {
-                cVar.m176a(3, d());
-            }
-            if (f()) {
-                cVar.m181a(4, m234e());
-            }
-            for (String str : a()) {
-                cVar.m180a(5, str);
+            } catch (IOException e7) {
+                e = e7;
+                bufferedOutputStream = null;
+                randomAccessFile2 = null;
+            } catch (Throwable th5) {
+                th = th5;
+                fileLock = null;
+                randomAccessFile = null;
             }
         }
+    }
 
-        @Override // com.xiaomi.push.e
-        public boolean a() {
-            return this.f250a;
-        }
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public abstract ho mo162a();
 
-        @Override // com.xiaomi.push.e
-        public int b() {
-            int i = 0;
-            int b = a() ? c.b(1, c()) + 0 : 0;
-            if (m232c()) {
-                b += c.a(2, b());
-            }
-            if (m233d()) {
-                b += c.a(3, d());
-            }
-            int a = f() ? b + c.a(4, m234e()) : b;
-            for (String str : a()) {
-                i += c.a(str);
-            }
-            int size = a + i + (a().size() * 1);
-            this.c = size;
-            return size;
-        }
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public abstract String mo162a();
 
-        public a b(int i) {
-            this.d = true;
-            this.b = i;
-            return this;
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public boolean mo162a() {
+        return du.a(this.f230a, String.valueOf(mo162a()), this.a);
+    }
 
-        public a b(boolean z) {
-            this.e = true;
-            this.f = z;
-            return this;
-        }
+    protected boolean b() {
+        return true;
+    }
 
-        @Override // com.xiaomi.push.e
-        public boolean b() {
-            return this.f252c;
+    @Override // java.lang.Runnable
+    public void run() {
+        if (mo162a()) {
+            com.xiaomi.channel.commonutils.logger.b.m50a("DC run job mutual: " + mo162a());
+            return;
         }
-
-        public int c() {
-            return this.a;
+        dp m228a = dq.a().m228a();
+        String a = m228a == null ? "" : m228a.a();
+        if (TextUtils.isEmpty(a) || !b()) {
+            return;
         }
-
-        /* renamed from: c  reason: collision with other method in class */
-        public boolean m232c() {
-            return this.f251b;
+        String mo162a = mo162a();
+        if (TextUtils.isEmpty(mo162a)) {
+            return;
         }
-
-        public int d() {
-            return this.b;
-        }
-
-        /* renamed from: d  reason: collision with other method in class */
-        public boolean m233d() {
-            return this.d;
-        }
-
-        public int e() {
-            return this.f249a.size();
-        }
-
-        /* renamed from: e  reason: collision with other method in class */
-        public boolean m234e() {
-            return this.f;
-        }
-
-        public boolean f() {
-            return this.e;
-        }
+        hu huVar = new hu();
+        huVar.a(mo162a);
+        huVar.a(System.currentTimeMillis());
+        huVar.a(mo162a());
+        a(this.f230a, huVar, a);
     }
 }

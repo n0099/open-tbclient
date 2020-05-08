@@ -6,14 +6,14 @@ import kotlin.jvm.internal.q;
 @kotlin.h
 /* loaded from: classes11.dex */
 public final class h {
-    public static final a cKm = new a(null);
-    private byte[] cKf;
-    private byte[] cKg;
-    private byte cKh;
-    private byte cKi;
-    private short cKj;
-    private int cKk;
+    public static final a cKs = new a(null);
     private byte[] cKl;
+    private byte[] cKm;
+    private byte cKn;
+    private byte cKo;
+    private short cKp;
+    private int cKq;
+    private byte[] cKr;
     private byte[] content;
 
     public h() {
@@ -26,19 +26,19 @@ public final class h {
                 return false;
             }
             h hVar = (h) obj;
-            if (!q.k(this.cKf, hVar.cKf) || !q.k(this.cKg, hVar.cKg)) {
+            if (!q.k(this.cKl, hVar.cKl) || !q.k(this.cKm, hVar.cKm)) {
                 return false;
             }
-            if (!(this.cKh == hVar.cKh)) {
+            if (!(this.cKn == hVar.cKn)) {
                 return false;
             }
-            if (!(this.cKi == hVar.cKi)) {
+            if (!(this.cKo == hVar.cKo)) {
                 return false;
             }
-            if (!(this.cKj == hVar.cKj)) {
+            if (!(this.cKp == hVar.cKp)) {
                 return false;
             }
-            if (!(this.cKk == hVar.cKk) || !q.k(this.cKl, hVar.cKl) || !q.k(this.content, hVar.content)) {
+            if (!(this.cKq == hVar.cKq) || !q.k(this.cKr, hVar.cKr) || !q.k(this.content, hVar.content)) {
                 return false;
             }
         }
@@ -46,24 +46,24 @@ public final class h {
     }
 
     public int hashCode() {
-        byte[] bArr = this.cKf;
+        byte[] bArr = this.cKl;
         int hashCode = (bArr != null ? Arrays.hashCode(bArr) : 0) * 31;
-        byte[] bArr2 = this.cKg;
-        int hashCode2 = ((((((((((bArr2 != null ? Arrays.hashCode(bArr2) : 0) + hashCode) * 31) + this.cKh) * 31) + this.cKi) * 31) + this.cKj) * 31) + this.cKk) * 31;
-        byte[] bArr3 = this.cKl;
+        byte[] bArr2 = this.cKm;
+        int hashCode2 = ((((((((((bArr2 != null ? Arrays.hashCode(bArr2) : 0) + hashCode) * 31) + this.cKn) * 31) + this.cKo) * 31) + this.cKp) * 31) + this.cKq) * 31;
+        byte[] bArr3 = this.cKr;
         int hashCode3 = ((bArr3 != null ? Arrays.hashCode(bArr3) : 0) + hashCode2) * 31;
         byte[] bArr4 = this.content;
         return hashCode3 + (bArr4 != null ? Arrays.hashCode(bArr4) : 0);
     }
 
     public h(byte[] bArr, byte[] bArr2, byte b, byte b2, short s, int i, byte[] bArr3, byte[] bArr4) {
-        this.cKf = bArr;
-        this.cKg = bArr2;
-        this.cKh = b;
-        this.cKi = b2;
-        this.cKj = s;
-        this.cKk = i;
-        this.cKl = bArr3;
+        this.cKl = bArr;
+        this.cKm = bArr2;
+        this.cKn = b;
+        this.cKo = b2;
+        this.cKp = s;
+        this.cKq = i;
+        this.cKr = bArr3;
         this.content = bArr4;
     }
 
@@ -72,59 +72,59 @@ public final class h {
     }
 
     public final void H(byte[] bArr) {
-        this.cKf = bArr;
-    }
-
-    public final byte[] auQ() {
-        return this.cKf;
-    }
-
-    public final void I(byte[] bArr) {
-        this.cKg = bArr;
-    }
-
-    public final byte[] auR() {
-        return this.cKg;
-    }
-
-    public final byte auS() {
-        return this.cKh;
-    }
-
-    public final void b(byte b) {
-        this.cKh = b;
-    }
-
-    public final byte auT() {
-        return this.cKi;
-    }
-
-    public final void c(byte b) {
-        this.cKi = b;
-    }
-
-    public final short auU() {
-        return this.cKj;
-    }
-
-    public final void c(short s) {
-        this.cKj = s;
-    }
-
-    public final int auV() {
-        return this.cKk;
-    }
-
-    public final void hT(int i) {
-        this.cKk = i;
-    }
-
-    public final void J(byte[] bArr) {
         this.cKl = bArr;
     }
 
-    public final byte[] auW() {
+    public final byte[] auQ() {
         return this.cKl;
+    }
+
+    public final void I(byte[] bArr) {
+        this.cKm = bArr;
+    }
+
+    public final byte[] auR() {
+        return this.cKm;
+    }
+
+    public final byte auS() {
+        return this.cKn;
+    }
+
+    public final void b(byte b) {
+        this.cKn = b;
+    }
+
+    public final byte auT() {
+        return this.cKo;
+    }
+
+    public final void c(byte b) {
+        this.cKo = b;
+    }
+
+    public final short auU() {
+        return this.cKp;
+    }
+
+    public final void c(short s) {
+        this.cKp = s;
+    }
+
+    public final int auV() {
+        return this.cKq;
+    }
+
+    public final void hT(int i) {
+        this.cKq = i;
+    }
+
+    public final void J(byte[] bArr) {
+        this.cKr = bArr;
+    }
+
+    public final byte[] auW() {
+        return this.cKr;
     }
 
     public final byte[] getContent() {
@@ -170,6 +170,6 @@ public final class h {
     }
 
     public String toString() {
-        return "RecordParams(protocolVersion=" + Arrays.toString(this.cKf) + ", schemeType=" + ((int) this.cKh) + ", schemeExtType=" + ((int) this.cKi) + ", schemeLen=" + ((int) this.cKj) + ", contentLen=" + this.cKk + ", scheme=" + Arrays.toString(this.cKl) + ')';
+        return "RecordParams(protocolVersion=" + Arrays.toString(this.cKl) + ", schemeType=" + ((int) this.cKn) + ", schemeExtType=" + ((int) this.cKo) + ", schemeLen=" + ((int) this.cKp) + ", contentLen=" + this.cKq + ", scheme=" + Arrays.toString(this.cKr) + ')';
     }
 }

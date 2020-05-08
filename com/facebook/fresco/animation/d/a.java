@@ -3,60 +3,60 @@ package com.facebook.fresco.animation.d;
 import com.facebook.fresco.animation.a.d;
 /* loaded from: classes13.dex */
 public class a implements b {
-    private final d lXI;
-    private long lYA = -1;
+    private final d lXM;
+    private long lYE = -1;
 
     public a(d dVar) {
-        this.lXI = dVar;
+        this.lXM = dVar;
     }
 
     @Override // com.facebook.fresco.animation.d.b
     public int I(long j, long j2) {
-        if (!dpX() && j / dpW() >= this.lXI.getLoopCount()) {
+        if (!dpU() && j / dpT() >= this.lXM.getLoopCount()) {
             return -1;
         }
-        return fP(j % dpW());
+        return fP(j % dpT());
     }
 
-    public long dpW() {
-        if (this.lYA != -1) {
-            return this.lYA;
+    public long dpT() {
+        if (this.lYE != -1) {
+            return this.lYE;
         }
-        this.lYA = 0L;
-        int frameCount = this.lXI.getFrameCount();
+        this.lYE = 0L;
+        int frameCount = this.lXM.getFrameCount();
         for (int i = 0; i < frameCount; i++) {
-            this.lYA += this.lXI.GA(i);
+            this.lYE += this.lXM.GA(i);
         }
-        return this.lYA;
+        return this.lYE;
     }
 
     @Override // com.facebook.fresco.animation.d.b
     public long fO(long j) {
         long j2 = 0;
-        long dpW = dpW();
-        if (dpW == 0) {
+        long dpT = dpT();
+        if (dpT == 0) {
             return -1L;
         }
-        if (dpX() || j / dpW() < this.lXI.getLoopCount()) {
-            long j3 = j % dpW;
-            int frameCount = this.lXI.getFrameCount();
+        if (dpU() || j / dpT() < this.lXM.getLoopCount()) {
+            long j3 = j % dpT;
+            int frameCount = this.lXM.getFrameCount();
             for (int i = 0; i < frameCount && j2 <= j3; i++) {
-                j2 += this.lXI.GA(i);
+                j2 += this.lXM.GA(i);
             }
             return (j2 - j3) + j;
         }
         return -1L;
     }
 
-    public boolean dpX() {
-        return this.lXI.getLoopCount() == 0;
+    public boolean dpU() {
+        return this.lXM.getLoopCount() == 0;
     }
 
     int fP(long j) {
         int i = 0;
         long j2 = 0;
         do {
-            j2 += this.lXI.GA(i);
+            j2 += this.lXM.GA(i);
             i++;
         } while (j >= j2);
         return i - 1;

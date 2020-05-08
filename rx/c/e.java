@@ -1,12 +1,12 @@
 package rx.c;
 /* loaded from: classes6.dex */
 final class e extends d {
-    private static final e npc = new e();
+    private static final e npf = new e();
 
     private e() {
     }
 
-    public static d dIy() {
-        return npc;
+    public static d dIu() {
+        return npf;
     }
 }

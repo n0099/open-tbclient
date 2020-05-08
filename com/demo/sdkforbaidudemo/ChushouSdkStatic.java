@@ -37,14 +37,14 @@ public class ChushouSdkStatic {
                 }
             }
         });
-        ba.aOY().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
+        ba.aOV().a(new ba.a() { // from class: com.demo.sdkforbaidudemo.ChushouSdkStatic.3
             @Override // com.baidu.tbadk.core.util.ba.a
             public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null) {
                     return 3;
                 }
                 if (strArr[0].startsWith("tiebachushou://liveroom") || strArr[0].startsWith("https://chushou.tv") || strArr[0].startsWith("https://vchushou.com")) {
-                    if ((b.aNV().getInt("chushou_game_tab", 1) == 1) && CSTVSdk.INSTANCE != null && !CSTVSdk.INSTANCE.getInitialized()) {
+                    if ((b.aNT().getInt("chushou_game_tab", 1) == 1) && CSTVSdk.INSTANCE != null && !CSTVSdk.INSTANCE.getInitialized()) {
                         ChushouSdkInit.testInit(TbadkCoreApplication.getInst());
                     }
                     if (strArr[0].startsWith("tiebachushou://liveroom")) {

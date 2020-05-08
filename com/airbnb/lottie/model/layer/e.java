@@ -26,7 +26,7 @@ public class e extends a {
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.Cb.a(rectF, this.Eu);
+        this.Cb.a(rectF, this.Ex);
     }
 
     @Override // com.airbnb.lottie.model.layer.a

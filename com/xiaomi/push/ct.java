@@ -1,5 +1,5 @@
 package com.xiaomi.push;
 /* loaded from: classes8.dex */
-public interface ct {
-    boolean a(String str);
+interface ct {
+    void a(Integer num, cm cmVar);
 }

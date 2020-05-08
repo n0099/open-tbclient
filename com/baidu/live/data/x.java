@@ -7,12 +7,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class x {
-    public int atI;
-    public ArrayList<w> atJ;
+    public int atO;
+    public ArrayList<w> atP;
 
     public void parserJson(JSONObject jSONObject) {
-        this.atI = jSONObject.optInt("received");
-        this.atJ = new ArrayList<>();
+        this.atO = jSONObject.optInt("received");
+        this.atP = new ArrayList<>();
         JSONArray optJSONArray = jSONObject.optJSONArray("task_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
@@ -20,17 +20,17 @@ public class x {
                 if (optJSONObject != null) {
                     w wVar = new w();
                     wVar.parseJson(optJSONObject);
-                    this.atJ.add(wVar);
+                    this.atP.add(wVar);
                 }
             }
         }
     }
 
-    public boolean uY() {
-        if (!ListUtils.isEmpty(this.atJ)) {
-            Iterator<w> it = this.atJ.iterator();
+    public boolean uX() {
+        if (!ListUtils.isEmpty(this.atP)) {
+            Iterator<w> it = this.atP.iterator();
             while (it.hasNext()) {
-                if (it.next().uX()) {
+                if (it.next().uW()) {
                     return true;
                 }
             }
@@ -38,12 +38,12 @@ public class x {
         return false;
     }
 
-    public w uZ() {
-        if (!ListUtils.isEmpty(this.atJ)) {
-            Iterator<w> it = this.atJ.iterator();
+    public w uY() {
+        if (!ListUtils.isEmpty(this.atP)) {
+            Iterator<w> it = this.atP.iterator();
             while (it.hasNext()) {
                 w next = it.next();
-                if (next.uV()) {
+                if (next.uU()) {
                     return next;
                 }
             }

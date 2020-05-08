@@ -1,9 +1,9 @@
 package master.flame.danmaku.danmaku.model;
 /* loaded from: classes5.dex */
 public interface n<T> {
-    boolean dFK();
+    boolean dFG();
 
-    void dFL();
+    void dFH();
 
     void destroy();
 

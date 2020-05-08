@@ -53,22 +53,22 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.h.sdk_charm_list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.fcv = (CharmItemView) view.findViewById(a.g.item);
+            aVar2.fcA = (CharmItemView) view.findViewById(a.g.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (item = getItem(i)) != null) {
-            aVar.fcv.setData(1, i + 4, item.user_name, item.portrait, 0L, item.forwardDiff);
-            aVar.fcv.fcm.setupLevelIcon(item.level_id);
+            aVar.fcA.setData(1, i + 4, item.user_name, item.portrait, 0L, item.forwardDiff);
+            aVar.fcA.fcr.setupLevelIcon(item.level_id);
         }
         return view;
     }
 
     /* loaded from: classes3.dex */
     private class a {
-        private CharmItemView fcv;
+        private CharmItemView fcA;
 
         private a() {
         }

@@ -8,9 +8,9 @@ public interface h {
 
     void aR(boolean z);
 
+    void ul();
+
     void um();
 
     void un();
-
-    void uo();
 }

@@ -6,45 +6,45 @@ import com.baidu.tbadk.editortools.l;
 public class b extends l {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.dXz = false;
-        this.dXy = 3;
-        this.dWH = new EditorInfoContainer(context, str);
-        this.dXA = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+        this.dXE = false;
+        this.dXD = 3;
+        this.dWM = new EditorInfoContainer(context, str);
+        this.dXF = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
     }
 
     public void setFrom(String str) {
-        if (this.dWH instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dWH).setFrom(str);
+        if (this.dWM instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWM).setFrom(str);
         }
     }
 
     public void bJ(String str, int i) {
-        if (this.dWH instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dWH).bJ(str, i);
+        if (this.dWM instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWM).bJ(str, i);
         }
     }
 
     public void uV(boolean z) {
-        if (this.dWH instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dWH).uV(z);
+        if (this.dWM instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWM).uV(z);
         }
     }
 
-    public void bIN() {
-        if (this.dWH instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dWH).bIN();
+    public void bIL() {
+        if (this.dWM instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWM).bIL();
         }
     }
 
-    public void dfE() {
-        if (this.dWH instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dWH).dfE();
+    public void dfB() {
+        if (this.dWM instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWM).dfB();
         }
     }
 
-    public void dfI() {
-        if (this.dWH instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.dWH).hide();
+    public void dfF() {
+        if (this.dWM instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.dWM).hide();
         }
     }
 }

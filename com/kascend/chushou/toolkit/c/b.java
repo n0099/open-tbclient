@@ -20,7 +20,7 @@ public class b implements tv.chushou.basis.d.a.b.c {
     }
 
     @Override // tv.chushou.basis.d.a.b.c
-    public String dyM() {
+    public String dyI() {
         boolean z = false;
         synchronized (this) {
             if (this.a != -1 && this.b != -1 && SystemClock.uptimeMillis() - this.b <= this.c) {
@@ -38,7 +38,7 @@ public class b implements tv.chushou.basis.d.a.b.c {
     }
 
     @Override // tv.chushou.basis.d.a.b.c
-    public void dyN() {
+    public void dyJ() {
         synchronized (this) {
             this.a = -1L;
             this.b = -1L;
@@ -48,11 +48,11 @@ public class b implements tv.chushou.basis.d.a.b.c {
     private String a() {
         String valueOf;
         String valueOf2;
-        Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
+        Http http = (Http) tv.chushou.basis.d.b.dJr().S(Http.class);
         String valueOf3 = String.valueOf(System.currentTimeMillis());
         if (http != null) {
             try {
-                valueOf = http.getSync(tv.chushou.common.a.dJw(), "api/timestamp/get.htm?", null, RequestTag.thirdParty()).respString;
+                valueOf = http.getSync(tv.chushou.common.a.dJs(), "api/timestamp/get.htm?", null, RequestTag.thirdParty()).respString;
             } catch (Exception e) {
                 valueOf = String.valueOf(System.currentTimeMillis());
             }

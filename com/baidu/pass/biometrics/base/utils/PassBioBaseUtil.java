@@ -1,8 +1,8 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.content.Context;
-import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.pass.common.SecurityUtil;
 import java.util.List;
 import java.util.Random;
 /* loaded from: classes6.dex */
@@ -21,7 +21,7 @@ public class PassBioBaseUtil {
         } catch (Throwable th) {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
-            return "123456789" + MD5Util.toMd5(String.valueOf(random.nextInt(100)).getBytes(), false);
+            return "123456789" + SecurityUtil.md5(String.valueOf(random.nextInt(100)).getBytes(), false);
         }
     }
 

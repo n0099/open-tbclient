@@ -20,67 +20,67 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<l>, NetModel.b<k, l> {
-    private ReplyMessageFragment iAR;
-    private k iAS;
-    private ReplyMeNetModel iAT;
-    private ReplyMeCacheModel iAU;
-    private FeedData izL;
-    private f izM;
+    private ReplyMessageFragment iAX;
+    private k iAY;
+    private ReplyMeNetModel iAZ;
+    private ReplyMeCacheModel iBa;
+    private FeedData izR;
+    private f izS;
 
     public ReplyMeModelController(ReplyMessageFragment replyMessageFragment) {
         super(replyMessageFragment.getPageContext());
-        this.iAR = replyMessageFragment;
+        this.iAX = replyMessageFragment;
     }
 
     public void ad(Bundle bundle) {
-        this.iAS = new k();
-        this.iAT = new ReplyMeNetModel(this.iAR.getPageContext(), this.iAS);
-        this.iAT.a(this);
-        this.iAT.setUniqueId(this.iAR.getUniqueId());
-        this.iAU = new ReplyMeCacheModel(this.iAR.getPageContext());
-        this.iAU.a(this);
-        this.iAU.setUniqueId(this.iAR.getUniqueId());
-        this.izM = new f();
+        this.iAY = new k();
+        this.iAZ = new ReplyMeNetModel(this.iAX.getPageContext(), this.iAY);
+        this.iAZ.a(this);
+        this.iAZ.setUniqueId(this.iAX.getUniqueId());
+        this.iBa = new ReplyMeCacheModel(this.iAX.getPageContext());
+        this.iBa.a(this);
+        this.iBa.setUniqueId(this.iAX.getUniqueId());
+        this.izS = new f();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bFG() {
-        if (this.iAT.isLoading() || !ckk()) {
+    public boolean bFE() {
+        if (this.iAZ.isLoading() || !cki()) {
             return false;
         }
-        this.iAS.d(this.izL);
-        this.iAT.setNeedCache(false);
-        this.iAT.loadData();
+        this.iAY.d(this.izR);
+        this.iAZ.setNeedCache(false);
+        this.iAZ.loadData();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bTv() {
-        if (this.iAT.isLoading() || !ckk()) {
+    public boolean bTt() {
+        if (this.iAZ.isLoading() || !cki()) {
             return false;
         }
-        this.izL = null;
-        this.iAS.reset();
-        this.iAT.setNeedCache(true);
-        this.iAT.loadData();
+        this.izR = null;
+        this.iAY.reset();
+        this.iAZ.setNeedCache(true);
+        this.iAZ.loadData();
         return true;
     }
 
-    protected boolean ckk() {
+    protected boolean cki() {
         if (TbadkCoreApplication.isLogin()) {
             return true;
         }
-        if (this.izM != null && this.izM.iAI != null) {
-            this.izM.iAI.clear();
+        if (this.izS != null && this.izS.iAO != null) {
+            this.izS.iAO.clear();
         }
-        this.iAR.ckK();
-        this.iAR.b(false, (ArrayList<com.baidu.adp.widget.ListView.m>) null);
+        this.iAX.ckI();
+        this.iAX.b(false, (ArrayList<com.baidu.adp.widget.ListView.m>) null);
         return false;
     }
 
-    public boolean bFF() {
-        if (ckk()) {
-            this.iAU.a((com.baidu.tbadk.mvc.b.e) this.iAS);
+    public boolean bFD() {
+        if (cki()) {
+            this.iBa.a((com.baidu.tbadk.mvc.b.e) this.iAY);
             return true;
         }
         return true;
@@ -91,18 +91,18 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
         boolean z3;
         boolean z4;
         if (kVar.getUpdateType() != 4) {
-            this.izM.ckE().clear();
+            this.izS.ckC().clear();
         }
-        this.izM.a(lVar);
-        if (lVar != null && lVar.ckE() != null && lVar.ckE().size() > 0) {
-            this.izL = lVar.ckE().get(lVar.ckE().size() - 1);
-            if (this.izM.getPage() != null) {
-                z4 = this.izM.getPage().aJA() == 1;
+        this.izS.a(lVar);
+        if (lVar != null && lVar.ckC() != null && lVar.ckC().size() > 0) {
+            this.izR = lVar.ckC().get(lVar.ckC().size() - 1);
+            if (this.izS.getPage() != null) {
+                z4 = this.izS.getPage().aJy() == 1;
             } else {
                 z4 = true;
             }
             if (kVar.getUpdateType() == 1) {
-                com.baidu.tbadk.coreExtra.messageCenter.b.aTg().setMsgReplyme(0);
+                com.baidu.tbadk.coreExtra.messageCenter.b.aTe().setMsgReplyme(0);
             }
             if (kVar != null) {
                 kVar.toNextPage();
@@ -113,13 +113,13 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 z2 = z4;
             }
         } else {
-            this.izL = null;
+            this.izR = null;
             z2 = false;
             z3 = false;
         }
-        com.baidu.tbadk.coreExtra.messageCenter.b.aTg().aTu();
+        com.baidu.tbadk.coreExtra.messageCenter.b.aTe().aTs();
         ArrayList<com.baidu.adp.widget.ListView.m> arrayList = new ArrayList<>();
-        Iterator<FeedData> it = this.izM.iAI.iterator();
+        Iterator<FeedData> it = this.izS.iAO.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.imMessageCenter.mention.base.a aVar = new com.baidu.tieba.imMessageCenter.mention.base.a();
             aVar.e(it.next());
@@ -128,19 +128,19 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             }
             arrayList.add(aVar);
         }
-        this.iAR.b(z2, arrayList);
+        this.iAX.b(z2, arrayList);
         return z3;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
     public void a(ReadCacheRespMsg<List<l>> readCacheRespMsg, ReadCacheMessage<l> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.iAS, readCacheRespMsg.getData().get(0), true);
+            a(this.iAY, readCacheRespMsg.getData().get(0), true);
         }
-        this.izL = null;
-        this.iAS.reset();
-        this.iAT.setNeedCache(true);
-        this.iAT.loadData();
+        this.izR = null;
+        this.iAY.reset();
+        this.iAZ.setNeedCache(true);
+        this.iAZ.loadData();
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.a
@@ -157,7 +157,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.b.aTg().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.b.aTe().setMsgReplyme(0);
             lVar = null;
         }
         if (r1 == null || lVar == null || !a(r1, lVar, false)) {
@@ -169,7 +169,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.iAR.a(errorData);
+                this.iAX.a(errorData);
             }
         }
     }
@@ -184,7 +184,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.b.aTg().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.b.aTe().setMsgReplyme(0);
             lVar = null;
         }
         if (r1 == null || lVar == null || !a(r1, lVar, false)) {
@@ -196,7 +196,7 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             if (this.mErrorCode != 0) {
-                this.iAR.a(errorData);
+                this.iAX.a(errorData);
             }
         }
     }
@@ -212,11 +212,11 @@ public class ReplyMeModelController extends BdBaseModel implements CacheModel.a<
     }
 
     public void onDestroy() {
-        if (this.iAT != null) {
-            this.iAT.a((NetModel.b) null);
+        if (this.iAZ != null) {
+            this.iAZ.a((NetModel.b) null);
         }
-        if (this.iAU != null) {
-            this.iAU.a((CacheModel.a) null);
+        if (this.iBa != null) {
+            this.iBa.a((CacheModel.a) null);
         }
     }
 }

@@ -1,7 +1,24 @@
 package com.xiaomi.push;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public interface fr {
-    void a(ff ffVar);
+public class fr extends Thread {
+    final /* synthetic */ fq a;
 
-    void a(gd gdVar);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fr(fq fqVar, String str) {
+        super(str);
+        this.a = fqVar;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        fm fmVar;
+        try {
+            fmVar = this.a.a;
+            fmVar.m285a();
+        } catch (Exception e) {
+            this.a.c(9, e);
+        }
+    }
 }

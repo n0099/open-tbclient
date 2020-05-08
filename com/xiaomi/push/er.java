@@ -1,74 +1,76 @@
 package com.xiaomi.push;
 
-import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
 import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public class er implements en {
-    private void a(Service service, Intent intent) {
-        if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
-            String stringExtra = intent.getStringExtra("waker_pkgname");
-            String stringExtra2 = intent.getStringExtra("awake_info");
-            if (TextUtils.isEmpty(stringExtra)) {
-                eg.a(service.getApplicationContext(), "service", 1007, "old version message");
-            } else if (TextUtils.isEmpty(stringExtra2)) {
-                eg.a(service.getApplicationContext(), stringExtra, 1007, "play with service ");
-            } else {
-                String b = ef.b(stringExtra2);
-                if (TextUtils.isEmpty(b)) {
-                    eg.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
-                } else {
-                    eg.a(service.getApplicationContext(), b, 1007, "old version message ");
-                }
-            }
-        }
+public class er implements Runnable {
+    final /* synthetic */ Context a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ eq f305a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ String f306a;
+    final /* synthetic */ String b;
+    final /* synthetic */ String c;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public er(eq eqVar, String str, Context context, String str2, String str3) {
+        this.f305a = eqVar;
+        this.f306a = str;
+        this.a = context;
+        this.b = str2;
+        this.c = str3;
     }
 
-    private void a(Context context, String str, String str2, String str3) {
-        if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            if (TextUtils.isEmpty(str3)) {
-                eg.a(context, "service", 1008, "argument error");
-            } else {
-                eg.a(context, str3, 1008, "argument error");
-            }
-        } else if (!com.xiaomi.push.service.f.a(context, str)) {
-            eg.a(context, str3, 1003, "B is not ready");
-        } else {
-            eg.a(context, str3, 1002, "B is ready");
-            eg.a(context, str3, 1004, "A is ready");
-            try {
-                Intent intent = new Intent();
-                intent.setClassName(str, str2);
-                intent.setAction("com.xiaomi.mipush.sdk.WAKEUP");
-                intent.putExtra("waker_pkgname", context.getPackageName());
-                intent.putExtra("awake_info", ef.a(str3));
-                if (context.startService(intent) != null) {
-                    eg.a(context, str3, 1005, "A is successful");
-                    eg.a(context, str3, 1006, "The job is finished");
-                } else {
-                    eg.a(context, str3, 1008, "A is fail to help B's service");
-                }
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                eg.a(context, str3, 1008, "A meet a exception when help B's service");
-            }
-        }
-    }
-
-    @Override // com.xiaomi.push.en
-    public void a(Context context, Intent intent, String str) {
-        if (context == null || !(context instanceof Service)) {
+    @Override // java.lang.Runnable
+    public void run() {
+        if (TextUtils.isEmpty(this.f306a)) {
+            em.a(this.a, "null", 1008, "A receive a incorrect message with empty info");
             return;
         }
-        a((Service) context, intent);
-    }
-
-    @Override // com.xiaomi.push.en
-    public void a(Context context, ej ejVar) {
-        if (ejVar != null) {
-            a(context, ejVar.a(), ejVar.c(), ejVar.d());
+        try {
+            em.a(this.a, this.f306a, 1001, "get message");
+            JSONObject jSONObject = new JSONObject(this.f306a);
+            String optString = jSONObject.optString("action");
+            String optString2 = jSONObject.optString("awakened_app_packagename");
+            String optString3 = jSONObject.optString("awake_app_packagename");
+            String optString4 = jSONObject.optString("awake_app");
+            String optString5 = jSONObject.optString("awake_type");
+            int optInt = jSONObject.optInt("awake_foreground", 0);
+            if (!this.b.equals(optString3) || !this.c.equals(optString4)) {
+                em.a(this.a, this.f306a, 1008, "A receive a incorrect message with incorrect package info" + optString3);
+            } else if (TextUtils.isEmpty(optString5) || TextUtils.isEmpty(optString3) || TextUtils.isEmpty(optString4) || TextUtils.isEmpty(optString2)) {
+                em.a(this.a, this.f306a, 1008, "A receive a incorrect message with empty type");
+            } else {
+                this.f305a.b(optString3);
+                this.f305a.a(optString4);
+                ep epVar = new ep();
+                epVar.b(optString);
+                epVar.a(optString2);
+                epVar.a(optInt);
+                epVar.d(this.f306a);
+                if ("service".equals(optString5)) {
+                    if (TextUtils.isEmpty(optString)) {
+                        epVar.c("com.xiaomi.mipush.sdk.PushMessageHandler");
+                        this.f305a.a(es.SERVICE_COMPONENT, this.a, epVar);
+                    } else {
+                        this.f305a.a(es.SERVICE_ACTION, this.a, epVar);
+                    }
+                } else if (es.ACTIVITY.f308a.equals(optString5)) {
+                    this.f305a.a(es.ACTIVITY, this.a, epVar);
+                } else if (es.PROVIDER.f308a.equals(optString5)) {
+                    this.f305a.a(es.PROVIDER, this.a, epVar);
+                } else {
+                    em.a(this.a, this.f306a, 1008, "A receive a incorrect message with unknown type " + optString5);
+                }
+            }
+        } catch (JSONException e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            em.a(this.a, this.f306a, 1008, "A meet a exception when receive the message");
         }
     }
 }

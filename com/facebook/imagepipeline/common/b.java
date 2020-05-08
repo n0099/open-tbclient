@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes13.dex */
 public class b {
-    private static final b maX = dqK().dqS();
-    public final int maY;
-    public final boolean maZ;
-    public final boolean mba;
-    public final boolean mbb;
-    public final boolean mbc;
-    public final Bitmap.Config mbd;
+    private static final b mbb = dqH().dqP();
+    public final int mbc;
+    public final boolean mbd;
+    public final boolean mbe;
+    public final boolean mbf;
+    public final boolean mbg;
+    public final Bitmap.Config mbh;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b mbe;
+    public final com.facebook.imagepipeline.decoder.b mbi;
 
     public b(c cVar) {
-        this.maY = cVar.dqL();
-        this.maZ = cVar.dqM();
-        this.mba = cVar.dqN();
-        this.mbb = cVar.dqO();
-        this.mbc = cVar.dqQ();
-        this.mbd = cVar.dqR();
-        this.mbe = cVar.dqP();
+        this.mbc = cVar.dqI();
+        this.mbd = cVar.dqJ();
+        this.mbe = cVar.dqK();
+        this.mbf = cVar.dqL();
+        this.mbg = cVar.dqN();
+        this.mbh = cVar.dqO();
+        this.mbi = cVar.dqM();
     }
 
-    public static b dqJ() {
-        return maX;
+    public static b dqG() {
+        return mbb;
     }
 
-    public static c dqK() {
+    public static c dqH() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.maZ == bVar.maZ && this.mba == bVar.mba && this.mbb == bVar.mbb && this.mbc == bVar.mbc && this.mbd == bVar.mbd && this.mbe == bVar.mbe;
+        return this.mbd == bVar.mbd && this.mbe == bVar.mbe && this.mbf == bVar.mbf && this.mbg == bVar.mbg && this.mbh == bVar.mbh && this.mbi == bVar.mbi;
     }
 
     public int hashCode() {
-        return (((((((this.mbb ? 1 : 0) + (((this.mba ? 1 : 0) + (((this.maZ ? 1 : 0) + (this.maY * 31)) * 31)) * 31)) * 31) + (this.mbc ? 1 : 0)) * 31) + this.mbd.ordinal()) * 31) + (this.mbe != null ? this.mbe.hashCode() : 0);
+        return (((((((this.mbf ? 1 : 0) + (((this.mbe ? 1 : 0) + (((this.mbd ? 1 : 0) + (this.mbc * 31)) * 31)) * 31)) * 31) + (this.mbg ? 1 : 0)) * 31) + this.mbh.ordinal()) * 31) + (this.mbi != null ? this.mbi.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.maY), Boolean.valueOf(this.maZ), Boolean.valueOf(this.mba), Boolean.valueOf(this.mbb), Boolean.valueOf(this.mbc), this.mbd.name(), this.mbe);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.mbc), Boolean.valueOf(this.mbd), Boolean.valueOf(this.mbe), Boolean.valueOf(this.mbf), Boolean.valueOf(this.mbg), this.mbh.name(), this.mbi);
     }
 }

@@ -8,7 +8,7 @@ import android.util.SparseArray;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes.dex */
 public class d {
-    private static d Ne = null;
+    private static d Ni = null;
     private volatile SparseArray<Bitmap> mBitmapHash = new SparseArray<>();
     private Context mContext = null;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.RGB_565;
@@ -16,10 +16,10 @@ public class d {
     public static synchronized d mk() {
         d dVar;
         synchronized (d.class) {
-            if (Ne == null) {
-                Ne = new d();
+            if (Ni == null) {
+                Ni = new d();
             }
-            dVar = Ne;
+            dVar = Ni;
         }
         return dVar;
     }

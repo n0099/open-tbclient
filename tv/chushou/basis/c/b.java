@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class b implements a {
-    private final Map<String, Object> nqU = new ConcurrentHashMap();
+    private final Map<String, Object> nqX = new ConcurrentHashMap();
 
     @Override // tv.chushou.basis.c.a
     public String getString(String str, @Nullable String str2) {
@@ -17,7 +17,7 @@ public class b implements a {
     @Override // tv.chushou.basis.c.a
     public void putString(String str, String str2) {
         if (!TextUtils.isEmpty(str) && str2 != null) {
-            this.nqU.put(str, str2);
+            this.nqX.put(str, str2);
         }
     }
 
@@ -33,14 +33,14 @@ public class b implements a {
     @Override // tv.chushou.basis.c.a
     public void putInt(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
-            this.nqU.put(str, Integer.valueOf(i));
+            this.nqX.put(str, Integer.valueOf(i));
         }
     }
 
     @Override // tv.chushou.basis.c.a
     public void putBoolean(String str, boolean z) {
         if (!TextUtils.isEmpty(str)) {
-            this.nqU.put(str, Boolean.valueOf(z));
+            this.nqX.put(str, Boolean.valueOf(z));
         }
     }
 
@@ -49,7 +49,7 @@ public class b implements a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.nqU.get(str);
+        return this.nqX.get(str);
     }
 
     @Override // tv.chushou.basis.c.a
@@ -57,6 +57,6 @@ public class b implements a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.nqU.remove(str);
+        return this.nqX.remove(str);
     }
 }

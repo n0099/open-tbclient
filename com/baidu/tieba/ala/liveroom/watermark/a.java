@@ -8,39 +8,39 @@ import com.baidu.live.tbadk.TbPageContext;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class a {
-    private AlaLiveRoomWatermarkView fTi;
+    private AlaLiveRoomWatermarkView fTn;
     private TbPageContext mTbPageContext;
 
-    public void bBc() {
-        if (this.fTi != null && this.fTi.getParent() != null) {
-            ((ViewGroup) this.fTi.getParent()).removeView(this.fTi);
+    public void bBa() {
+        if (this.fTn != null && this.fTn.getParent() != null) {
+            ((ViewGroup) this.fTn.getParent()).removeView(this.fTn);
         }
     }
 
     public void setTimeTextMode(boolean z) {
-        if (this.fTi != null) {
-            this.fTi.setTimeTextMode(z);
+        if (this.fTn != null) {
+            this.fTn.setTimeTextMode(z);
         }
     }
 
-    public int bBd() {
+    public int bBb() {
         int i = 0;
-        if (this.fTi == null || this.fTi.getLayoutParams() == null) {
+        if (this.fTn == null || this.fTn.getLayoutParams() == null) {
             return 0;
         }
-        if (this.fTi.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-            i = ((FrameLayout.LayoutParams) this.fTi.getLayoutParams()).topMargin;
-        } else if (this.fTi.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            i = ((RelativeLayout.LayoutParams) this.fTi.getLayoutParams()).topMargin;
-        } else if (this.fTi.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            i = ((LinearLayout.LayoutParams) this.fTi.getLayoutParams()).topMargin;
+        if (this.fTn.getLayoutParams() instanceof FrameLayout.LayoutParams) {
+            i = ((FrameLayout.LayoutParams) this.fTn.getLayoutParams()).topMargin;
+        } else if (this.fTn.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            i = ((RelativeLayout.LayoutParams) this.fTn.getLayoutParams()).topMargin;
+        } else if (this.fTn.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            i = ((LinearLayout.LayoutParams) this.fTn.getLayoutParams()).topMargin;
         }
         return i + this.mTbPageContext.getPageActivity().getResources().getDimensionPixelOffset(a.e.sdk_ds30);
     }
 
     public void setVisibility(int i) {
-        if (this.fTi != null) {
-            this.fTi.setVisibility(i);
+        if (this.fTn != null) {
+            this.fTn.setVisibility(i);
         }
     }
 }

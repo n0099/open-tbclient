@@ -22,7 +22,7 @@ public class b {
     public static void a(Context context, String str) {
         c = str;
         d = Utils.e(context);
-        e.JN().a(context, str);
+        e.JM().a(context, str);
     }
 
     private static void a(Context context, Map<String, String> map) {
@@ -58,7 +58,7 @@ public class b {
     }
 
     public static boolean a(int i) {
-        int b2 = e.JN().b(i);
+        int b2 = e.JM().b(i);
         return (a & b2) == b2;
     }
 
@@ -81,7 +81,7 @@ public class b {
     }
 
     public static String[] a() {
-        return e.JN().JO();
+        return e.JM().JN();
     }
 
     public static String b() {
@@ -140,8 +140,8 @@ public class b {
                 }
                 try {
                     try {
-                        File file = new File(e.JN().dv(1).c());
-                        File file2 = new File(e.JN().dv(2).c());
+                        File file = new File(e.JM().dv(1).c());
+                        File file2 = new File(e.JM().dv(2).c());
                         String parent = file.getParent();
                         String parent2 = file2.getParent();
                         try {
@@ -184,18 +184,18 @@ public class b {
     }
 
     public static void d(int i, Map<String, String> map) {
-        int b2 = e.JN().b(i);
+        int b2 = e.JM().b(i);
         if ((a & b2) == b2) {
             return;
         }
         for (int i2 = (a ^ b2) & b2; i2 > 0 && e(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (a ^ b2) & b2) {
         }
-        e.JN().d();
+        e.JM().d();
     }
 
     private static boolean e(int i, Map<String, String> map) {
         boolean a2;
-        d dv = e.JN().dv(i);
+        d dv = e.JM().dv(i);
         if (dv == null) {
             CyberLog.e("CyberLibsLoader", "Unable to find (" + i + ") LibInfo");
             return false;
@@ -207,32 +207,32 @@ public class b {
             if (i == 8) {
                 i = 16;
             }
-            throw new FileNotFoundException(e.JN().c(i));
+            throw new FileNotFoundException(e.JM().c(i));
         }
-        if (e.JN().d(i)) {
+        if (e.JM().d(i)) {
             System.load(c2);
             if (i == 16) {
                 a(CyberPlayerManager.getApplicationContext(), map);
                 a2 = true;
             }
             a2 = true;
-        } else if (e.JN().e(i)) {
+        } else if (e.JM().e(i)) {
             IjkMediaPlayer.nativeSetEnableFFmpegExtend(c2);
             a2 = true;
-        } else if (e.JN().f(i)) {
+        } else if (e.JM().f(i)) {
             b = c2;
             a2 = true;
-        } else if (e.JN().h(i)) {
+        } else if (e.JM().h(i)) {
             a2 = c(i, map);
         } else {
-            if (e.JN().dw(i)) {
+            if (e.JM().dw(i)) {
                 a2 = a(i, c2);
             }
             a2 = true;
         }
         a |= i;
         if (a2) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.JN().c() + " lib:" + a3 + " ver:" + b2 + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.JM().c() + " lib:" + a3 + " ver:" + b2 + " load success");
             return true;
         }
         return true;

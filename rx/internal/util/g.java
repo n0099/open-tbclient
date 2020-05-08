@@ -9,7 +9,7 @@ import rx.k;
 /* loaded from: classes6.dex */
 public class g implements k {
     public static final int SIZE;
-    public volatile Object noa;
+    public volatile Object nod;
     private Queue<Object> queue;
     private final int size;
 
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g dIh() {
-        return ae.dIq() ? new g(false, SIZE) : new g();
+    public static g dId() {
+        return ae.dIm() ? new g(false, SIZE) : new g();
     }
 
-    public static g dIi() {
-        return ae.dIq() ? new g(true, SIZE) : new g();
+    public static g dIe() {
+        return ae.dIm() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -80,8 +80,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.noa == null) {
-            this.noa = NotificationLite.dHK();
+        if (this.nod == null) {
+            this.nod = NotificationLite.dHG();
         }
     }
 
@@ -96,9 +96,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.noa;
+                obj = this.nod;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.noa = null;
+                    this.nod = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +115,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.noa;
+                obj = this.nod;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }
@@ -124,8 +124,8 @@ public class g implements k {
         return obj;
     }
 
-    public boolean bN(Object obj) {
-        return NotificationLite.bN(obj);
+    public boolean bO(Object obj) {
+        return NotificationLite.bO(obj);
     }
 
     public Object getValue(Object obj) {

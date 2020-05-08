@@ -13,7 +13,7 @@ public abstract class l implements Iterator<Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: dDA */
+    /* renamed from: dDw */
     public final Boolean next() {
         return Boolean.valueOf(nextBoolean());
     }

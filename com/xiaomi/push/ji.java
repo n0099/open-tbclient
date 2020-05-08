@@ -1,104 +1,96 @@
 package com.xiaomi.push;
 
-import com.baidu.android.common.logging.Log;
-import com.xiaomi.push.iy;
-import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public class ji extends iy {
-    private static int b = 10000;
-    private static int c = 10000;
-    private static int d = 10000;
-    private static int e = Log.FILE_LIMETE;
-    private static int f = 104857600;
+public abstract class ji {
+    protected js a;
 
-    /* loaded from: classes8.dex */
-    public static class a extends iy.a {
-        public a() {
-            super(false, true);
-        }
-
-        public a(boolean z, boolean z2, int i) {
-            super(z, z2, i);
-        }
-
-        @Override // com.xiaomi.push.iy.a, com.xiaomi.push.je
-        public jc a(jm jmVar) {
-            ji jiVar = new ji(jmVar, this.f787a, this.b);
-            if (this.a != 0) {
-                jiVar.b(this.a);
-            }
-            return jiVar;
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    public ji(js jsVar) {
+        this.a = jsVar;
     }
 
-    public ji(jm jmVar, boolean z, boolean z2) {
-        super(jmVar, z, z2);
-    }
+    public abstract byte a();
 
-    @Override // com.xiaomi.push.iy, com.xiaomi.push.jc
-    public ja a() {
-        byte a2 = a();
-        int a3 = a();
-        if (a3 > c) {
-            throw new jd(3, "Thrift list size " + a3 + " out of range!");
-        }
-        return new ja(a2, a3);
-    }
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract double m478a();
 
-    @Override // com.xiaomi.push.iy, com.xiaomi.push.jc
-    public jb a() {
-        byte a2 = a();
-        byte a3 = a();
-        int a4 = a();
-        if (a4 > b) {
-            throw new jd(3, "Thrift map size " + a4 + " out of range!");
-        }
-        return new jb(a2, a3, a4);
-    }
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract int m479a();
 
-    @Override // com.xiaomi.push.iy, com.xiaomi.push.jc
-    public jg a() {
-        byte a2 = a();
-        int a3 = a();
-        if (a3 > d) {
-            throw new jd(3, "Thrift set size " + a3 + " out of range!");
-        }
-        return new jg(a2, a3);
-    }
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract long m480a();
 
-    @Override // com.xiaomi.push.iy, com.xiaomi.push.jc
-    public String a() {
-        int a2 = a();
-        if (a2 > e) {
-            throw new jd(3, "Thrift string size " + a2 + " out of range!");
-        }
-        if (this.a.b() >= a2) {
-            try {
-                String str = new String(this.a.m482a(), this.a.a(), a2, "UTF-8");
-                this.a.a(a2);
-                return str;
-            } catch (UnsupportedEncodingException e2) {
-                throw new iw("JVM DOES NOT SUPPORT UTF-8");
-            }
-        }
-        return a(a2);
-    }
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract jf m481a();
 
-    @Override // com.xiaomi.push.iy, com.xiaomi.push.jc
-    public ByteBuffer a() {
-        int a2 = a();
-        if (a2 > f) {
-            throw new jd(3, "Thrift binary size " + a2 + " out of range!");
-        }
-        c(a2);
-        if (this.a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.a.m482a(), this.a.a(), a2);
-            this.a.a(a2);
-            return wrap;
-        }
-        byte[] bArr = new byte[a2];
-        this.a.b(bArr, 0, a2);
-        return ByteBuffer.wrap(bArr);
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract jg m482a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract jh m483a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract jm m484a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract jn m485a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract String m486a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract ByteBuffer m487a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract short m488a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract void m489a();
+
+    public abstract void a(byte b);
+
+    public abstract void a(int i);
+
+    public abstract void a(long j);
+
+    public abstract void a(jf jfVar);
+
+    public abstract void a(jg jgVar);
+
+    public abstract void a(jh jhVar);
+
+    public abstract void a(jn jnVar);
+
+    public abstract void a(String str);
+
+    public abstract void a(ByteBuffer byteBuffer);
+
+    public abstract void a(short s);
+
+    public abstract void a(boolean z);
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract boolean m490a();
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h();
+
+    public abstract void i();
+
+    public abstract void j();
+
+    public void k() {
     }
 }

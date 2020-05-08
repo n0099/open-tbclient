@@ -5,5 +5,5 @@ public interface b {
 
     void onSuccess(String str);
 
-    void vb(String str);
+    void ve(String str);
 }

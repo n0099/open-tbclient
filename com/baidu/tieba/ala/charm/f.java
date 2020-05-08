@@ -16,14 +16,14 @@ import com.baidu.live.u.a;
 import com.baidu.live.utils.j;
 /* loaded from: classes3.dex */
 public class f implements com.baidu.live.q.a {
-    private n aDE;
-    private ViewGroup faQ;
-    private ViewGroup.LayoutParams faR;
-    private ViewGroup faS;
-    private RedPacketCharmView faT;
-    private RedPacketCharmInfo faU;
-    private CountDownTimer faV;
-    private boolean faW;
+    private n aDK;
+    private ViewGroup faV;
+    private ViewGroup.LayoutParams faW;
+    private ViewGroup faX;
+    private RedPacketCharmView faY;
+    private RedPacketCharmInfo faZ;
+    private CountDownTimer fba;
+    private boolean fbb;
     private Context mContext;
 
     public f(Context context) {
@@ -33,41 +33,41 @@ public class f implements com.baidu.live.q.a {
     @Override // com.baidu.live.q.a
     public void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         reset(true);
-        this.faQ = viewGroup;
-        this.faR = layoutParams;
-        bnk();
+        this.faV = viewGroup;
+        this.faW = layoutParams;
+        bni();
     }
 
     @Override // com.baidu.live.q.a
     public boolean m(n nVar) {
         int i;
         if (nVar == null || nVar.mLiveInfo == null) {
-            if (this.faS != null) {
-                this.faS.setVisibility(8);
+            if (this.faX != null) {
+                this.faX.setVisibility(8);
                 return false;
             }
             return false;
         }
-        this.aDE = nVar;
+        this.aDK = nVar;
         RedPacketCharmInfo redPacketCharmInfo = nVar.mLiveInfo.redpacketCharmInfo;
         if (!a(redPacketCharmInfo)) {
             reset(false);
-            if (this.faS != null) {
-                this.faS.setVisibility(8);
+            if (this.faX != null) {
+                this.faX.setVisibility(8);
                 return false;
             }
             return false;
         }
-        if (this.faS == null || this.faQ.indexOfChild(this.faS) < 0) {
-            bnk();
+        if (this.faX == null || this.faV.indexOfChild(this.faX) < 0) {
+            bni();
         }
-        if (this.faT == null || (this.faS != null && this.faS.indexOfChild(this.faT) < 0)) {
-            this.faT = new RedPacketCharmView(this.faS.getContext());
-            this.faS.addView(this.faT, new FrameLayout.LayoutParams(-2, -2));
-            this.faT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.f.1
+        if (this.faY == null || (this.faX != null && this.faX.indexOfChild(this.faY) < 0)) {
+            this.faY = new RedPacketCharmView(this.faX.getContext());
+            this.faX.addView(this.faY, new FrameLayout.LayoutParams(-2, -2));
+            this.faY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    f.this.bnl();
+                    f.this.bnj();
                 }
             });
         }
@@ -81,38 +81,38 @@ public class f implements com.baidu.live.q.a {
             i = 0;
         }
         pt(i);
-        this.faT.setAvatar(redPacketCharmInfo.senderAvatar);
+        this.faY.setAvatar(redPacketCharmInfo.senderAvatar);
         switch (redPacketCharmInfo.status) {
             case 2:
                 if (j > 60) {
-                    this.faT.pu(1);
+                    this.faY.pu(1);
                 } else {
-                    this.faT.pu(2);
+                    this.faY.pu(2);
                 }
                 if (b(redPacketCharmInfo)) {
-                    this.faT.setCountDownTimer(String.valueOf(j), j.ao(1000 * j));
+                    this.faY.setCountDownTimer(String.valueOf(j), j.ao(1000 * j));
                     dm(j * 1000);
                     break;
                 }
                 break;
             case 3:
-                bnm();
-                this.faT.pu(3);
+                bnk();
+                this.faY.pu(3);
                 break;
             default:
-                this.faT.pu(1);
+                this.faY.pu(1);
                 break;
         }
-        this.faU = redPacketCharmInfo;
-        this.faS.setVisibility(this.faW ? 0 : 8);
+        this.faZ = redPacketCharmInfo;
+        this.faX.setVisibility(this.fbb ? 0 : 8);
         return true;
     }
 
     @Override // com.baidu.live.q.a
     public void setCanVisible(boolean z) {
-        this.faW = z;
-        if (this.faS != null) {
-            this.faS.setVisibility(z ? 0 : 8);
+        this.fbb = z;
+        if (this.faX != null) {
+            this.faX.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -120,40 +120,40 @@ public class f implements com.baidu.live.q.a {
     public void cl(int i) {
         LinearLayout.LayoutParams layoutParams;
         int dimensionPixelOffset;
-        if (this.faS != null && (this.faS.getLayoutParams() instanceof LinearLayout.LayoutParams) && (layoutParams = (LinearLayout.LayoutParams) this.faS.getLayoutParams()) != null) {
+        if (this.faX != null && (this.faX.getLayoutParams() instanceof LinearLayout.LayoutParams) && (layoutParams = (LinearLayout.LayoutParams) this.faX.getLayoutParams()) != null) {
             if (i == 2) {
                 dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds10);
             } else {
                 dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(a.e.sdk_ds20);
             }
             layoutParams.topMargin = dimensionPixelOffset;
-            this.faS.setLayoutParams(layoutParams);
+            this.faX.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.live.q.a
     public void b(ViewGroup.LayoutParams layoutParams) {
-        this.faR = layoutParams;
-        if (this.faS != null) {
-            this.faS.setLayoutParams(layoutParams);
+        this.faW = layoutParams;
+        if (this.faX != null) {
+            this.faX.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.live.q.a
-    public void xj() {
+    public void xi() {
         reset(true);
     }
 
     @Override // com.baidu.live.q.a
     public void release() {
-        xj();
+        xi();
     }
 
-    private void bnk() {
-        this.faS = new FrameLayout(this.faQ.getContext());
-        this.faS.setBackgroundColor(0);
-        this.faS.setTag(a.g.sdk_pvl_layout_priority_tag_key, 3);
-        this.faQ.addView(this.faS, this.faR);
+    private void bni() {
+        this.faX = new FrameLayout(this.faV.getContext());
+        this.faX.setBackgroundColor(0);
+        this.faX.setTag(a.g.sdk_pvl_layout_priority_tag_key, 3);
+        this.faV.addView(this.faX, this.faW);
     }
 
     private boolean a(RedPacketCharmInfo redPacketCharmInfo) {
@@ -161,30 +161,30 @@ public class f implements com.baidu.live.q.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnl() {
-        if (this.aDE != null && this.faU != null) {
+    public void bnj() {
+        if (this.aDK != null && this.faZ != null) {
             ax axVar = new ax();
-            axVar.awc = this.faU.id;
-            axVar.liveId = String.valueOf(this.aDE.mLiveInfo.live_id);
-            axVar.awd = String.valueOf(this.aDE.aqe.userId);
+            axVar.awi = this.faZ.id;
+            axVar.liveId = String.valueOf(this.aDK.mLiveInfo.live_id);
+            axVar.awj = String.valueOf(this.aDK.aqk.userId);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, axVar));
         }
     }
 
     private boolean b(RedPacketCharmInfo redPacketCharmInfo) {
-        return this.faU == null || TextUtils.isEmpty(this.faU.id) || !this.faU.id.equals(redPacketCharmInfo.id) || this.faU.status != redPacketCharmInfo.status || this.faU.startTime <= 0 || this.faU.startTime != redPacketCharmInfo.startTime;
+        return this.faZ == null || TextUtils.isEmpty(this.faZ.id) || !this.faZ.id.equals(redPacketCharmInfo.id) || this.faZ.status != redPacketCharmInfo.status || this.faZ.startTime <= 0 || this.faZ.startTime != redPacketCharmInfo.startTime;
     }
 
     private void dm(long j) {
-        bnm();
-        this.faV = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.charm.f.2
+        bnk();
+        this.fba = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.charm.f.2
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
-                if (f.this.faT != null) {
+                if (f.this.faY != null) {
                     long round = Math.round(j2 / 1000.0d);
-                    f.this.faT.setCountDownTimer(String.valueOf(round), j.ao(1000 * round));
+                    f.this.faY.setCountDownTimer(String.valueOf(round), j.ao(1000 * round));
                     if (round <= 60) {
-                        f.this.faT.pu(2);
+                        f.this.faY.pu(2);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913133, Long.valueOf(round)));
                 }
@@ -193,12 +193,12 @@ public class f implements com.baidu.live.q.a {
             @Override // android.os.CountDownTimer
             public void onFinish() {
                 int i;
-                if (f.this.faT != null) {
-                    f.this.faT.pu(3);
-                    if (f.this.faU != null) {
+                if (f.this.faY != null) {
+                    f.this.faY.pu(3);
+                    if (f.this.faZ != null) {
                         f fVar = f.this;
-                        if (f.this.faU.count > 1) {
-                            i = f.this.faU.count - 1;
+                        if (f.this.faZ.count > 1) {
+                            i = f.this.faZ.count - 1;
                         } else {
                             i = 0;
                         }
@@ -208,44 +208,44 @@ public class f implements com.baidu.live.q.a {
                 }
             }
         };
-        this.faV.start();
+        this.fba.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void pt(int i) {
-        if (this.faT != null) {
+        if (this.faY != null) {
             String str = "";
             if (i > 99) {
                 str = "99+";
             } else if (i >= 1) {
                 str = String.valueOf(i);
             }
-            this.faT.setBadge(TextUtils.isEmpty(str) ? false : true, str);
+            this.faY.setBadge(TextUtils.isEmpty(str) ? false : true, str);
         }
     }
 
-    private void bnm() {
-        if (this.faV != null) {
-            this.faV.cancel();
+    private void bnk() {
+        if (this.fba != null) {
+            this.fba.cancel();
         }
     }
 
     private void reset(boolean z) {
-        this.faW = true;
-        this.faU = null;
-        bnm();
+        this.fbb = true;
+        this.faZ = null;
+        bnk();
         iS(z);
     }
 
     private void iS(boolean z) {
-        if (this.faT != null) {
-            this.faT.release();
-            if (this.faT.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.faT.getParent()).removeView(this.faT);
+        if (this.faY != null) {
+            this.faY.release();
+            if (this.faY.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.faY.getParent()).removeView(this.faY);
             }
         }
-        if (z && this.faS != null && (this.faS.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.faS.getParent()).removeView(this.faS);
+        if (z && this.faX != null && (this.faX.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.faX.getParent()).removeView(this.faX);
         }
     }
 }

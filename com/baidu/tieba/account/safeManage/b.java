@@ -10,9 +10,9 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes9.dex */
 public class b {
-    private LinearLayout eyV;
-    private TbSettingTextTipView eyW;
-    private TbSettingTextTipView eyX;
+    private LinearLayout eza;
+    private TbSettingTextTipView ezb;
+    private TbSettingTextTipView ezc;
     private BaseActivity mActivity;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
@@ -20,18 +20,18 @@ public class b {
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mActivity = baseActivity;
         this.mOnClickListener = onClickListener;
-        aVt();
+        aVr();
     }
 
-    private void aVt() {
+    private void aVr() {
         this.mRootLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.eyV = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.eyW = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.eyX = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.eyW.aVv();
-        this.eyX.aVv();
-        this.eyW.setOnClickListener(this.mOnClickListener);
-        this.eyX.setOnClickListener(this.mOnClickListener);
+        this.eza = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.ezb = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.ezc = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
+        this.ezb.aVt();
+        this.ezc.aVt();
+        this.ezb.setOnClickListener(this.mOnClickListener);
+        this.ezc.setOnClickListener(this.mOnClickListener);
     }
 
     public void ms(int i) {
@@ -41,7 +41,7 @@ public class b {
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.eyX.setTip(simpleUser.block_msg);
+            this.ezc.setTip(simpleUser.block_msg);
         }
     }
 

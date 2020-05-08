@@ -33,7 +33,17 @@ public class PermissionsHelperActivity extends Activity {
         super.onCreate(bundle);
         this.c = PassPermissions.getInstance().getPermissionsDTO();
         this.d = PassPermissions.getInstance().getPermissionsCallback();
-        requestPermissions(this.c.permissions, b);
+        PermissionsDTO permissionsDTO = this.c;
+        if (permissionsDTO == null) {
+            Log.e(Log.TAG, "PermissionDTO is null!");
+            PermissionsCallback permissionsCallback = this.d;
+            if (permissionsCallback != null) {
+                permissionsCallback.onFailure();
+            }
+            finish();
+            return;
+        }
+        requestPermissions(permissionsDTO.permissions, b);
     }
 
     @Override // android.app.Activity

@@ -3,6 +3,7 @@ package com.vivo.push.util;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Looper;
 import android.text.TextUtils;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
@@ -33,7 +34,7 @@ public class a {
         if (this.c != null) {
             SharedPreferences.Editor edit = this.c.edit();
             edit.putString(str, str2);
-            edit.apply();
+            a(edit);
         }
     }
 
@@ -43,7 +44,7 @@ public class a {
         if (this.c != null) {
             SharedPreferences.Editor edit = this.c.edit();
             edit.putInt(str, i);
-            edit.apply();
+            a(edit);
         }
     }
 
@@ -53,7 +54,7 @@ public class a {
         if (this.c != null) {
             SharedPreferences.Editor edit = this.c.edit();
             edit.putLong(str, j);
-            edit.apply();
+            a(edit);
         }
     }
 
@@ -111,7 +112,17 @@ public class a {
             SharedPreferences.Editor edit = this.c.edit();
             if (this.c.contains(str)) {
                 edit.remove(str);
-                edit.apply();
+                a(edit);
+            }
+        }
+    }
+
+    public static void a(SharedPreferences.Editor editor) {
+        if (editor != null) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                editor.apply();
+            } else {
+                editor.commit();
             }
         }
     }
@@ -123,7 +134,9 @@ public class a {
         this.d.clear();
         b();
         if (this.c != null) {
-            this.c.edit().clear().apply();
+            SharedPreferences.Editor edit = this.c.edit();
+            edit.clear();
+            a(edit);
         }
     }
 

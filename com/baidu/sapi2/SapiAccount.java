@@ -23,6 +23,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     public static final Parcelable.Creator<SapiAccount> CREATOR;
     public static final String SAPI_ACCOUNT_APP = "app";
     public static final String SAPI_ACCOUNT_EXTRA = "extra";
+    public static final String SAPI_ACCOUNT_PORTRAIT = "portrait";
     private static final String a = "uid";
     private static final String b = "displayname";
     private static final String c = "username";
@@ -41,7 +42,6 @@ public class SapiAccount implements Parcelable, Cloneable {
     private String i;
     @Deprecated
     public String phone;
-    @Deprecated
     protected String portrait;
     protected String ptoken;
     @Deprecated
@@ -51,11 +51,11 @@ public class SapiAccount implements Parcelable, Cloneable {
 
     static {
         try {
-            com.baidu.sapi2.share.k.a(new o());
+            com.baidu.sapi2.share.k.a(new q());
         } catch (Throwable th) {
             Log.e(th);
         }
-        CREATOR = new n();
+        CREATOR = new p();
     }
 
     public SapiAccount() {
@@ -63,7 +63,7 @@ public class SapiAccount implements Parcelable, Cloneable {
 
     private boolean b() {
         Context context = ServiceManager.getInstance().getIsAccountManager().getConfignation().context;
-        for (String str : SapiContext.getInstance(context).getSapiOptions().c()) {
+        for (String str : SapiContext.getInstance().getSapiOptions().c()) {
             if (context.getPackageName().matches(str)) {
                 return true;
             }
@@ -131,6 +131,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         sapiAccount.stoken = this.stoken;
         sapiAccount.app = this.app;
         sapiAccount.extra = this.extra;
+        sapiAccount.portrait = this.portrait;
         return sapiAccount;
     }
 
@@ -154,6 +155,10 @@ public class SapiAccount implements Parcelable, Cloneable {
 
     public AccountType getAccountType() {
         return AccountType.getAccountType(a("account_type", AccountType.UNKNOWN.getType()));
+    }
+
+    public String getCompletePortrait() {
+        return "https://himg.bdimg.com/sys/portrait/item/" + this.portrait + ".jpg";
     }
 
     public String getPtoken() {
@@ -240,6 +245,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             jSONObject.put(g, this.ptoken);
             jSONObject.put("stoken", this.stoken);
             jSONObject.put("extra", this.extra);
+            jSONObject.put("portrait", this.portrait);
             return jSONObject;
         } catch (JSONException e2) {
             Log.e(e2);
@@ -248,7 +254,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     public String toString() {
-        return "SapiAccount{uid='" + this.uid + "', displayname='" + this.displayname + "', username='" + this.username + "', email='" + this.email + "', phone='" + this.phone + "', bduss='" + this.bduss + "', app='" + this.app + "', ptoken='" + this.ptoken + "', stoken='" + this.stoken + "', extra='" + this.extra + "'}";
+        return "SapiAccount{uid='" + this.uid + "', displayname='" + this.displayname + "', username='" + this.username + "', email='" + this.email + "', phone='" + this.phone + "', bduss='" + this.bduss + "', app='" + this.app + "', ptoken='" + this.ptoken + "', stoken='" + this.stoken + "', extra='" + this.extra + "', portrait='" + this.portrait + "'}";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -468,6 +474,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         sapiAccount.ptoken = jSONObject.optString(g);
         sapiAccount.stoken = jSONObject.optString("stoken");
         sapiAccount.extra = jSONObject.optString("extra");
+        sapiAccount.portrait = jSONObject.optString("portrait");
         if (SapiUtils.isValidAccount(sapiAccount)) {
             return sapiAccount;
         }
@@ -477,7 +484,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         if (TextUtils.isEmpty(this.bduss) || TextUtils.isEmpty(this.ptoken)) {
-            SapiAccount accountFromBduss = SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getAccountFromBduss(this.bduss);
+            SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.bduss);
             String cookiePtoken = SapiUtils.getCookiePtoken();
             String cookieBduss = SapiUtils.getCookieBduss();
             if (accountFromBduss != null && !TextUtils.isEmpty(accountFromBduss.ptoken)) {

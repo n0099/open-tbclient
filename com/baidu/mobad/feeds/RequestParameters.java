@@ -15,7 +15,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final String TAG = "RequestParameters";
     private final String a;
     private int b;
-    protected String bkf;
+    protected String bkk;
     private boolean c;
     private Map<String, String> d;
     private int e;
@@ -133,7 +133,7 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
     public String getAdPlacementId() {
-        return this.bkf;
+        return this.bkk;
     }
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters

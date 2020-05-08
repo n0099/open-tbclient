@@ -7,25 +7,25 @@ import com.baidu.swan.games.s.a.a;
 /* loaded from: classes11.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a cRD;
-    private com.baidu.swan.games.s.a.a cRE;
+    private static volatile a cRI;
+    private com.baidu.swan.games.s.a.a cRJ;
 
     private a() {
     }
 
     public static a ayf() {
-        if (cRD == null) {
+        if (cRI == null) {
             synchronized (a.class) {
-                if (cRD == null) {
-                    cRD = new a();
+                if (cRI == null) {
+                    cRI = new a();
                 }
             }
         }
-        return cRD;
+        return cRI;
     }
 
     public void c(com.baidu.swan.games.s.a.a aVar) {
-        this.cRE = aVar;
+        this.cRJ = aVar;
     }
 
     public boolean qW(String str) {
@@ -33,22 +33,22 @@ public class a {
         if (TextUtils.isEmpty(W)) {
             return false;
         }
-        if (this.cRE != null && this.cRE.cQr != null && this.cRE.cQr.cQz != null && this.cRE.cQr.cQz.containsKey(W)) {
+        if (this.cRJ != null && this.cRJ.cQw != null && this.cRJ.cQw.cQE != null && this.cRJ.cQw.cQE.containsKey(W)) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
             }
-            return this.cRE.cQr.cQz.get(W).booleanValue();
+            return this.cRJ.cQw.cQE.get(W).booleanValue();
         }
         if (DEBUG) {
             Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
         }
-        String akP = e.akP();
-        if (e.akN() != null) {
-            String version = e.akN().getVersion();
-            if (TextUtils.isEmpty(akP) || TextUtils.isEmpty(version)) {
+        String akO = e.akO();
+        if (e.akM() != null) {
+            String version = e.akM().getVersion();
+            if (TextUtils.isEmpty(akO) || TextUtils.isEmpty(version)) {
                 return false;
             }
-            boolean Q = com.baidu.swan.pms.database.a.aBI().Q(akP, version, W);
+            boolean Q = com.baidu.swan.pms.database.a.aBI().Q(akO, version, W);
             if (Q) {
                 D(W, true);
                 return Q;
@@ -59,20 +59,20 @@ public class a {
     }
 
     public void D(String str, boolean z) {
-        if (!TextUtils.isEmpty(str) && this.cRE != null && this.cRE.cQr != null && this.cRE.cQr.cQz != null) {
+        if (!TextUtils.isEmpty(str) && this.cRJ != null && this.cRJ.cQw != null && this.cRJ.cQw.cQE != null) {
             if (DEBUG) {
                 Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
             }
-            this.cRE.cQr.cQz.put(str, Boolean.valueOf(z));
+            this.cRJ.cQw.cQE.put(str, Boolean.valueOf(z));
         }
     }
 
     public String md(String str) {
         String W = W(str, 1);
-        if (TextUtils.isEmpty(W) || this.cRE == null || this.cRE.cQs == null || this.cRE.cQs.cQA == null) {
+        if (TextUtils.isEmpty(W) || this.cRJ == null || this.cRJ.cQx == null || this.cRJ.cQx.cQF == null) {
             return null;
         }
-        return this.cRE.cQs.cQA.get(W);
+        return this.cRJ.cQx.cQF.get(W);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x002d  */
@@ -83,22 +83,22 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (this.cRE == null || this.cRE.cQr == null || this.cRE.cQr.cQy == null) {
+        if (this.cRJ == null || this.cRJ.cQw == null || this.cRJ.cQw.cQD == null) {
             return null;
         }
-        for (a.C0376a c0376a : this.cRE.cQr.cQy) {
-            if (TextUtils.equals(c0376a.name, str) || TextUtils.equals(c0376a.cQw, str)) {
+        for (a.C0397a c0397a : this.cRJ.cQw.cQD) {
+            if (TextUtils.equals(c0397a.name, str) || TextUtils.equals(c0397a.cQB, str)) {
                 switch (i) {
                     case 0:
-                        return c0376a.name;
+                        return c0397a.name;
                     case 1:
-                        return c0376a.cQw;
+                        return c0397a.cQB;
                     case 2:
-                        return c0376a.path;
+                        return c0397a.path;
                     case 3:
-                        return c0376a.cQx;
+                        return c0397a.cQC;
                     default:
-                        return c0376a.cQw;
+                        return c0397a.cQB;
                 }
             }
             while (r2.hasNext()) {

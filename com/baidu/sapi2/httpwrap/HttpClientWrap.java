@@ -3,6 +3,7 @@ package com.baidu.sapi2.httpwrap;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import com.baidu.pass.http.BinaryHttpResponseHandler;
 import com.baidu.pass.http.HttpHashMap;
 import com.baidu.pass.http.HttpResponseHandler;
@@ -11,8 +12,9 @@ import com.baidu.pass.http.PassHttpParamDTO;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
+import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.r;
+import com.baidu.sapi2.utils.t;
 import java.net.HttpCookie;
 import java.util.Collections;
 import java.util.HashMap;
@@ -54,7 +56,7 @@ public class HttpClientWrap {
         int i = -202;
         if (th != null && SSLPeerUnverifiedException.class.getSimpleName().equals(th.getClass().getSimpleName())) {
             i = -203;
-            r.a("sslerr_interface", Collections.singletonMap("na_err_code", "0"));
+            t.a("sslerr_interface", Collections.singletonMap("na_err_code", "0"));
         }
         httpHandlerWrap.onFailure(th, i, str);
     }
@@ -79,7 +81,7 @@ public class HttpClientWrap {
         get(str, httpHashMap, (HashMap<String, String>) null, list, str2, i, httpHandlerWrap);
     }
 
-    public void post(String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final HttpHandlerWrap httpHandlerWrap) {
+    public void post(final String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final HttpHandlerWrap httpHandlerWrap) {
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.4
             @Override // java.lang.Runnable
             public void run() {
@@ -106,12 +108,19 @@ public class HttpClientWrap {
 
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onSuccess(int i2, String str3, HashMap<String, String> hashMap2) {
-                httpHandlerWrap.onSuccess(i2, str3, hashMap2);
+                try {
+                    httpHandlerWrap.onSuccess(i2, str3, hashMap2);
+                } catch (Throwable th) {
+                    onFailure(th, str3);
+                    if (!TextUtils.isEmpty(str)) {
+                        t.a("http_client_response_error", Collections.singletonMap("url", SapiDeviceUtils.DeviceCrypto.base64Encode(str.getBytes())));
+                    }
+                }
             }
         });
     }
 
-    public void get(String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final HttpHandlerWrap httpHandlerWrap) {
+    public void get(final String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final HttpHandlerWrap httpHandlerWrap) {
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.httpwrap.HttpClientWrap.1
             @Override // java.lang.Runnable
             public void run() {
@@ -138,7 +147,14 @@ public class HttpClientWrap {
 
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onSuccess(int i2, String str3, HashMap<String, String> hashMap2) {
-                httpHandlerWrap.onSuccess(i2, str3, hashMap2);
+                try {
+                    httpHandlerWrap.onSuccess(i2, str3, hashMap2);
+                } catch (Throwable th) {
+                    onFailure(th, str3);
+                    if (!TextUtils.isEmpty(str)) {
+                        t.a("http_client_response_error", Collections.singletonMap("url", SapiDeviceUtils.DeviceCrypto.base64Encode(str.getBytes())));
+                    }
+                }
             }
         });
     }
@@ -162,7 +178,7 @@ public class HttpClientWrap {
         get(str, (HttpHashMap) null, (HashMap<String, String>) null, (List<HttpCookie>) null, (String) null, 0, binaryHttpHandlerWrap);
     }
 
-    public void get(String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
+    public void get(final String str, HttpHashMap httpHashMap, HashMap<String, String> hashMap, List<HttpCookie> list, String str2, int i, final BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
         binaryHttpHandlerWrap.onStart();
         if (!a(binaryHttpHandlerWrap)) {
             return;
@@ -184,7 +200,14 @@ public class HttpClientWrap {
 
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onSuccess(int i2, String str3, HashMap<String, String> hashMap2) {
-                binaryHttpHandlerWrap.onSuccess(i2, str3, hashMap2);
+                try {
+                    binaryHttpHandlerWrap.onSuccess(i2, str3, hashMap2);
+                } catch (Throwable th) {
+                    onFailure(th, str3);
+                    if (!TextUtils.isEmpty(str)) {
+                        t.a("http_client_response_error", Collections.singletonMap("url", SapiDeviceUtils.DeviceCrypto.base64Encode(str.getBytes())));
+                    }
+                }
             }
         });
     }
@@ -203,7 +226,7 @@ public class HttpClientWrap {
         passHttpParamDTO.cookie = list;
         passHttpParamDTO.userAgent = str2;
         passHttpParamDTO.connectTimeout = i;
-        passHttpParamDTO.asyncCookie = SapiContext.getInstance(this.b).getAsyncCookie();
+        passHttpParamDTO.asyncCookie = SapiContext.getInstance().getAsyncCookie();
         return passHttpParamDTO;
     }
 }

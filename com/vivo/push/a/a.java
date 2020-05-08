@@ -1,19 +1,13 @@
 package com.vivo.push.a;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.vivo.push.b;
-import com.vivo.push.cache.e;
-import com.vivo.push.sdk.LinkProxyClientActivity;
-import com.vivo.push.sdk.service.LinkProxyActivity;
-import com.vivo.push.util.k;
 import com.vivo.push.util.p;
 import com.vivo.push.util.s;
-import com.vivo.push.util.z;
 import com.vivo.push.y;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -40,87 +34,23 @@ public final class a {
         intent.setClassName(str, c ? "com.vivo.push.sdk.service.UpstageService" : "com.vivo.push.sdk.service.PushService");
         yVar.a(intent);
         try {
-            a(context, intent, false);
+            a(context, intent);
         } catch (Exception e) {
             p.a("CommandBridge", "CommandBridge startService exception: ", e);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x004f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static void a(Context context, Intent intent, boolean z) throws Exception {
-        ComponentName componentName;
-        String str;
+    private static void a(Context context, Intent intent) throws Exception {
         if (context == null) {
-            p.d("CommandBridge", "enter startLinkProxyActivityOrService context is null");
+            p.d("CommandBridge", "enter startService context is null");
             throw new Exception("context is null");
         }
-        String str2 = intent.getPackage();
-        boolean z2 = true;
-        if (!context.getPackageName().equals(str2)) {
-            e a = com.vivo.push.cache.b.a().a(context);
-            if (a != null) {
-                str = a.getSuitTag();
-                p.d("CommandBridge", "get app suit Tag success");
-            } else {
-                p.d("CommandBridge", "get app suit Tag is null");
-                str = null;
-            }
-            if (!"1".equals(str)) {
-                if ("0".equals(str)) {
-                    z2 = true;
-                } else if ((k.b() && z.c(context, str2)) || k.c()) {
-                    z2 = true;
-                }
-                if (!z2) {
-                    long a2 = z.a(context, str2);
-                    if (a2 >= 100 && a2 < 200) {
-                        a2 -= 100;
-                    } else if ((a2 / 1000) % 2 == 1) {
-                        a2 -= 1000;
-                    }
-                    if (!(a2 >= 50)) {
-                        z2 = true;
-                    }
-                }
-            }
-            z2 = false;
-            if (!z2) {
-            }
-        }
-        if (z2) {
-            try {
-                context.startService(intent);
-                return;
-            } catch (Exception e) {
-                p.a("CommandBridge", "start service error", e);
-                intent.setComponent(null);
-                context.sendBroadcast(intent);
-                return;
-            }
-        }
         try {
-            Intent intent2 = new Intent();
-            if (z) {
-                componentName = new ComponentName(str2, LinkProxyClientActivity.class.getName());
-            } else {
-                componentName = new ComponentName(str2, LinkProxyActivity.class.getName());
-            }
-            intent2.setComponent(componentName);
-            intent2.addFlags(402653184);
-            intent2.putExtra("previous_intent", intent);
-            context.startActivity(intent2);
-        } catch (Exception e2) {
-            p.d("CommandBridge", "start activity error");
-            try {
-                context.startService(intent);
-            } catch (Exception e3) {
-                p.a("CommandBridge", "start service error", e3);
-                intent.setComponent(null);
-                context.sendBroadcast(intent);
-            }
+            context.startService(intent);
+        } catch (Exception e) {
+            p.a("CommandBridge", "start service error", e);
+            intent.setComponent(null);
+            context.sendBroadcast(intent);
         }
     }
 
@@ -146,7 +76,7 @@ public final class a {
                 intent.setClassName(str, b ? "com.vivo.push.sdk.service.CommandClientService" : "com.vivo.push.sdk.service.CommandService");
                 yVar.b(intent);
                 intent.putExtra("command_type", "reflect_receiver");
-                a(context, intent, b);
+                a(context, intent);
             }
         } catch (Exception e) {
             p.a("CommandBridge", "CommandBridge sendCommandToClient exception", e);

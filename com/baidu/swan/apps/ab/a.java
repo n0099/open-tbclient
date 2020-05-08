@@ -30,12 +30,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final SwanAppActionBar swanAppActionBar, String str) {
-        final JSONObject W = com.baidu.swan.apps.w.a.acx().W(context, str);
-        if (W != null && swanAppActionBar != null) {
+        final JSONObject K = com.baidu.swan.apps.w.a.acw().K(context, str);
+        if (K != null && swanAppActionBar != null) {
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.a(swanAppActionBar, a.aB(W));
+                    a.a(swanAppActionBar, a.aB(K));
                 }
             });
         }
@@ -61,10 +61,10 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void b(Context context, final h hVar, String str) {
-        JSONObject W = com.baidu.swan.apps.w.a.acx().W(context, str);
-        if (W != null && hVar != null) {
-            aB(W);
-            final JSONArray optJSONArray = W.optJSONArray("un_read_list");
+        JSONObject K = com.baidu.swan.apps.w.a.acw().K(context, str);
+        if (K != null && hVar != null) {
+            aB(K);
+            final JSONArray optJSONArray = K.optJSONArray("un_read_list");
             d.getMainHandler().post(new Runnable() { // from class: com.baidu.swan.apps.ab.a.4
                 @Override // java.lang.Runnable
                 public void run() {
@@ -85,18 +85,18 @@ public class a {
     }
 
     public static boolean dW(boolean z) {
-        if (e.akO() == null) {
+        if (e.akN() == null) {
             return false;
         }
-        e akO = e.akO();
-        PMSAppInfo adR = e.akO().akQ().adR();
-        if (akO.ale() || adR == null || TextUtils.isEmpty(adR.paNumber)) {
+        e akN = e.akN();
+        PMSAppInfo adQ = e.akN().akP().adQ();
+        if (akN.ald() || adQ == null || TextUtils.isEmpty(adQ.paNumber)) {
             return false;
         }
         if (z) {
             return true;
         }
-        return akO.ald().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
+        return akN.alc().b("key_unread_counts_message", (Integer) 0).intValue() <= 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -116,7 +116,7 @@ public class a {
             if (optInt == 7) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
-            if (ai.apu() && (optInt == 27 || optInt == 17)) {
+            if (ai.apt() && (optInt == 27 || optInt == 17)) {
                 i += optJSONObject.optInt("pa_unread_sums");
             }
         }
@@ -129,16 +129,16 @@ public class a {
                 }
             }
         }
-        if (e.akO() != null) {
-            e.akO().ald().a("key_unread_counts_message", Integer.valueOf(i));
+        if (e.akN() != null) {
+            e.akN().alc().a("key_unread_counts_message", Integer.valueOf(i));
             return i;
         }
         return i;
     }
 
-    public static void agD() {
-        if (e.akO() != null) {
-            e.akO().ald().a("key_unread_counts_message", (Integer) 0);
+    public static void agC() {
+        if (e.akN() != null) {
+            e.akN().alc().a("key_unread_counts_message", (Integer) 0);
         }
     }
 

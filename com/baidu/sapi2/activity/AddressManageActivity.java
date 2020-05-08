@@ -31,15 +31,15 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class AddressManageActivity extends SlideActiviy {
     private static final String A = "AddressManageActivity";
-    private static final String B = "select";
-    private static final String C = "useSpeech";
-    private static final String D = "slidePage";
-    private static final String z = "AddressManageActivity";
+    private static final String B = "AddressManageActivity";
+    private static final String C = "select";
+    private static final String D = "useSpeech";
     private AddressManageDTO E;
     private AddressManageCallback F;
     private SapiJsCallBacks.SpeechRecognitionResult H;
     private AddressManageResult G = new AddressManageResult();
     private boolean I = true;
+    private boolean J = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finishActivity() {
@@ -55,7 +55,7 @@ public class AddressManageActivity extends SlideActiviy {
     public void i() {
         final o oVar = new o(this);
         final m mVar = new m(this);
-        this.F.onStartSpeech(new AddressManageCallback.VoiceRecognitionResult() { // from class: com.baidu.sapi2.activity.AddressManageActivity.6
+        this.F.onStartSpeech(new AddressManageCallback.VoiceRecognitionResult() { // from class: com.baidu.sapi2.activity.AddressManageActivity.7
             @Override // com.baidu.sapi2.callback.AddressManageCallback.VoiceRecognitionResult
             public void onVoiceResult(String str) {
                 AddressManageActivity.this.I = false;
@@ -72,11 +72,11 @@ public class AddressManageActivity extends SlideActiviy {
                 oVar.a(i);
             }
         });
-        oVar.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.sapi2.activity.AddressManageActivity.7
+        oVar.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.sapi2.activity.AddressManageActivity.8
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
                 AddressManageActivity.this.F.onStopSpeech();
-                new Handler().postDelayed(new Runnable() { // from class: com.baidu.sapi2.activity.AddressManageActivity.7.1
+                new Handler().postDelayed(new Runnable() { // from class: com.baidu.sapi2.activity.AddressManageActivity.8.1
                     @Override // java.lang.Runnable
                     public void run() {
                         if (AddressManageActivity.this.I) {
@@ -149,7 +149,7 @@ public class AddressManageActivity extends SlideActiviy {
     @Override // com.baidu.sapi2.activity.SlideActiviy, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Log.d(z, "AddressManageActivity onCreate");
+        Log.d(A, "AddressManageActivity onCreate");
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
@@ -164,7 +164,7 @@ public class AddressManageActivity extends SlideActiviy {
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        Log.d(z, "AddressManageActivity onDestroy");
+        Log.d(A, "AddressManageActivity onDestroy");
         AddressManageCallback addressManageCallback = this.F;
         if (addressManageCallback != null) {
             addressManageCallback.activityOnDestory();
@@ -181,7 +181,7 @@ public class AddressManageActivity extends SlideActiviy {
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        Log.d(z, "AddressManageActivity onPause");
+        Log.d(A, "AddressManageActivity onPause");
         AddressManageCallback addressManageCallback = this.F;
         if (addressManageCallback != null) {
             addressManageCallback.activityOnPause();
@@ -191,7 +191,7 @@ public class AddressManageActivity extends SlideActiviy {
     @Override // com.baidu.sapi2.activity.SlideActiviy, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     protected void onResume() {
         super.onResume();
-        Log.d(z, "AddressManageActivity onResume");
+        Log.d(A, "AddressManageActivity onResume");
         AddressManageCallback addressManageCallback = this.F;
         if (addressManageCallback != null) {
             addressManageCallback.activityOnResume();
@@ -245,21 +245,39 @@ public class AddressManageActivity extends SlideActiviy {
                 }
             }
         });
+        this.sapiWebView.setGetCurrentPageNameCallback(new SapiJsCallBacks.GetCurrentPageNameCallback() { // from class: com.baidu.sapi2.activity.AddressManageActivity.5
+            @Override // com.baidu.sapi2.SapiJsCallBacks.GetCurrentPageNameCallback
+            public void getCurrentPageName(String str) {
+                if (SapiJsCallBacks.GetCurrentPageNameCallback.ADDRESS_EDIT_PAGE.equals(str)) {
+                    AddressManageActivity.this.J = true;
+                }
+            }
+        });
         ArrayList arrayList = new ArrayList(1);
-        arrayList.add(new PassNameValuePair(D, "1"));
+        arrayList.add(new PassNameValuePair("slidePage", "1"));
         AddressManageDTO addressManageDTO = this.E;
         if (addressManageDTO != null) {
-            arrayList.add(new PassNameValuePair(B, addressManageDTO.type));
+            arrayList.add(new PassNameValuePair(C, addressManageDTO.type));
+            arrayList.add(new PassNameValuePair("tplse", this.E.tplse));
+            arrayList.add(new PassNameValuePair("tplt", this.E.tplt));
+            arrayList.add(new PassNameValuePair("pageName", this.E.openPageName));
+            if ("1".equals(this.E.openPageName)) {
+                this.J = true;
+            }
         }
         AddressManageCallback addressManageCallback = this.F;
         if (addressManageCallback != null && SapiUtils.isMethodOverWrited(addressManageCallback, "onStartSpeech", AddressManageCallback.class, AddressManageCallback.VoiceRecognitionResult.class)) {
-            arrayList.add(new PassNameValuePair(C, "1"));
+            arrayList.add(new PassNameValuePair(D, "1"));
         }
         loadAddressUrl(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
+        if (this.J) {
+            this.sapiWebView.loadUrl(SapiWebView.FN_SWITCH_VIEW);
+            return;
+        }
         SapiWebView sapiWebView = this.sapiWebView;
         if (sapiWebView != null && sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
@@ -276,7 +294,7 @@ public class AddressManageActivity extends SlideActiviy {
             permissionsDTO.context = this;
             permissionsDTO.dialogTitle = TextUtils.isEmpty(permissionsDTO.dialogTitle) ? "权限申请" : permissionsDTO.dialogTitle;
             permissionsDTO.dialogMsg = TextUtils.isEmpty(permissionsDTO.dialogMsg) ? "为保证您正常地使用此功能，需要获取您的语音等使用权限，请允许" : permissionsDTO.dialogMsg;
-            PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.activity.AddressManageActivity.5
+            PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback() { // from class: com.baidu.sapi2.activity.AddressManageActivity.6
                 @Override // com.baidu.sapi2.permissions.PermissionsCallback
                 public AlertDialogInterface getDialog(Activity activity) {
                     return AddressManageActivity.this.F.getDialog(activity);
@@ -295,6 +313,6 @@ public class AddressManageActivity extends SlideActiviy {
             return;
         }
         i();
-        Log.d(z, "permissionsDTO is null");
+        Log.d(A, "permissionsDTO is null");
     }
 }

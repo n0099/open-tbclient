@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public class a {
-    private static final String[] gwg = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] gwh = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] gwi = {"111.206.37.190"};
-    private static final String[] gwj = {"115.239.211.146", "180.97.33.196"};
-    private volatile int cCH;
-    private volatile String gwf;
+    private static final String[] gwm = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] gwn = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] gwo = {"111.206.37.190"};
+    private static final String[] gwp = {"115.239.211.146", "180.97.33.196"};
+    private volatile int cCN;
+    private volatile String gwl;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String bGB() {
-        bGC();
+    public String bGz() {
+        bGA();
         if (j.isWifiNet()) {
-            return gwj[new Random().nextInt(gwj.length)];
+            return gwp[new Random().nextInt(gwp.length)];
         }
         if (j.isMobileNet()) {
-            if (this.cCH == 1) {
-                return gwg[new Random().nextInt(gwg.length)];
+            if (this.cCN == 1) {
+                return gwm[new Random().nextInt(gwm.length)];
             }
-            if (this.cCH == 2) {
-                return gwh[new Random().nextInt(gwh.length)];
+            if (this.cCN == 2) {
+                return gwn[new Random().nextInt(gwn.length)];
             }
-            if (this.cCH == 3) {
-                return gwi[new Random().nextInt(gwi.length)];
+            if (this.cCN == 3) {
+                return gwo[new Random().nextInt(gwo.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void bGC() {
+    protected void bGA() {
         try {
-            this.gwf = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
+            this.gwl = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
         } catch (Exception e) {
             BdLog.e(e);
         }
-        this.cCH = 0;
-        if (this.gwf != null) {
-            if (this.gwf.startsWith("46000") || this.gwf.startsWith("46002") || this.gwf.startsWith("46007")) {
-                this.cCH = 1;
-            } else if (this.gwf.startsWith("46001") || this.gwf.startsWith("46006")) {
-                this.cCH = 2;
-            } else if (this.gwf.startsWith("46003") || this.gwf.startsWith("46005")) {
-                this.cCH = 3;
+        this.cCN = 0;
+        if (this.gwl != null) {
+            if (this.gwl.startsWith("46000") || this.gwl.startsWith("46002") || this.gwl.startsWith("46007")) {
+                this.cCN = 1;
+            } else if (this.gwl.startsWith("46001") || this.gwl.startsWith("46006")) {
+                this.cCN = 2;
+            } else if (this.gwl.startsWith("46003") || this.gwl.startsWith("46005")) {
+                this.cCN = 3;
             }
         }
     }

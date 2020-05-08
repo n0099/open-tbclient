@@ -11,8 +11,8 @@ import java.util.TreeMap;
 /* loaded from: classes11.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private Map<String, Object> cLd;
-    private Map<String, Integer> cLe;
+    private Map<String, Object> cLj;
+    private Map<String, Integer> cLk;
 
     public static c c(JsObject jsObject) {
         if (jsObject == null) {
@@ -65,18 +65,18 @@ public class c {
     }
 
     private Map<String, Object> avl() {
-        if (this.cLd == null) {
-            this.cLd = new TreeMap();
+        if (this.cLj == null) {
+            this.cLj = new TreeMap();
         }
-        return this.cLd;
+        return this.cLj;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Map<String, Integer> avm() {
-        if (this.cLe == null) {
-            this.cLe = new TreeMap();
+        if (this.cLk == null) {
+            this.cLk = new TreeMap();
         }
-        return this.cLe;
+        return this.cLk;
     }
 
     public Set<String> keySet() {
@@ -150,11 +150,11 @@ public class c {
     }
 
     public String[] pM(String str) throws JSTypeMismatchException {
-        d U = a.U(avl().get(str));
-        if (U == null) {
+        d V = a.V(avl().get(str));
+        if (V == null) {
             throw a.a(this, str, 6);
         }
-        return U.cLf.toStringArray(U.index);
+        return V.cLl.toStringArray(V.index);
     }
 
     public String[] pN(String str) {
@@ -162,16 +162,16 @@ public class c {
     }
 
     public String[] f(String str, String[] strArr) {
-        d U = a.U(avl().get(str));
-        return U != null ? U.cLf.toStringArray(U.index) : strArr;
+        d V = a.V(avl().get(str));
+        return V != null ? V.cLl.toStringArray(V.index) : strArr;
     }
 
     public JsObject[] pO(String str) throws JSTypeMismatchException {
-        d U = a.U(avl().get(str));
-        if (U == null) {
+        d V = a.V(avl().get(str));
+        if (V == null) {
             throw a.a(this, str, 6);
         }
-        return U.cLf.toObjectArray(U.index);
+        return V.cLl.toObjectArray(V.index);
     }
 
     public JsObject[] pP(String str) {
@@ -179,8 +179,8 @@ public class c {
     }
 
     public JsObject[] a(String str, JsObject[] jsObjectArr) {
-        d U = a.U(avl().get(str));
-        return U != null ? U.cLf.toObjectArray(U.index) : jsObjectArr;
+        d V = a.V(avl().get(str));
+        return V != null ? V.cLl.toObjectArray(V.index) : jsObjectArr;
     }
 
     public double[] pQ(String str) {
@@ -188,8 +188,8 @@ public class c {
     }
 
     public double[] a(String str, double[] dArr) {
-        d U = a.U(avl().get(str));
-        return U != null ? U.cLf.toDoubleArray(U.index) : dArr;
+        d V = a.V(avl().get(str));
+        return V != null ? V.cLl.toDoubleArray(V.index) : dArr;
     }
 
     public String getString(String str) throws JSTypeMismatchException {
@@ -218,8 +218,8 @@ public class c {
     }
 
     public JsFunction a(String str, JsFunction jsFunction) {
-        JsFunction V = a.V(avl().get(str));
-        return V != null ? V : jsFunction;
+        JsFunction W = a.W(avl().get(str));
+        return W != null ? W : jsFunction;
     }
 
     public c pS(String str) {
@@ -227,13 +227,13 @@ public class c {
     }
 
     public c a(String str, c cVar) {
-        c X = a.X(avl().get(str));
-        return X != null ? X : cVar;
+        c Y = a.Y(avl().get(str));
+        return Y != null ? Y : cVar;
     }
 
     public JsArrayBuffer a(String str, JsArrayBuffer jsArrayBuffer) {
-        JsArrayBuffer W = a.W(avl().get(str));
-        return W != null ? W : jsArrayBuffer;
+        JsArrayBuffer X = a.X(avl().get(str));
+        return X != null ? X : jsArrayBuffer;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -276,7 +276,7 @@ public class c {
             return null;
         }
 
-        static d U(Object obj) {
+        static d V(Object obj) {
             if (obj instanceof d) {
                 return (d) obj;
             }
@@ -290,21 +290,21 @@ public class c {
             return null;
         }
 
-        static JsFunction V(Object obj) {
+        static JsFunction W(Object obj) {
             if (obj instanceof JsFunction) {
                 return (JsFunction) obj;
             }
             return null;
         }
 
-        static JsArrayBuffer W(Object obj) {
+        static JsArrayBuffer X(Object obj) {
             if (obj instanceof JsArrayBuffer) {
                 return (JsArrayBuffer) obj;
             }
             return null;
         }
 
-        static c X(Object obj) {
+        static c Y(Object obj) {
             if (obj instanceof c) {
                 return (c) obj;
             }

@@ -191,10 +191,10 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static final class a<T> extends rx.j<T> {
-        private final LatestEmitter<T> nlD;
+        private final LatestEmitter<T> nlG;
 
         a(LatestEmitter<T> latestEmitter) {
-            this.nlD = latestEmitter;
+            this.nlG = latestEmitter;
         }
 
         @Override // rx.j
@@ -204,17 +204,17 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.nlD.onNext(t);
+            this.nlG.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.nlD.onError(th);
+            this.nlG.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.nlD.onCompleted();
+            this.nlG.onCompleted();
         }
 
         void requestMore(long j) {

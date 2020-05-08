@@ -1,304 +1,201 @@
 package com.xiaomi.push;
 
-import android.util.Pair;
-import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.al;
-import java.io.Reader;
-import java.io.Writer;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
+import android.text.TextUtils;
+import com.xiaomi.push.ek;
+import java.io.BufferedInputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.util.zip.Adler32;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public abstract class fm {
-    private static final AtomicInteger a = new AtomicInteger(0);
+public class fm {
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f372a;
+    private fq f342a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected fn f375a;
+    private InputStream f343a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected XMPushService f377a;
+    private volatile boolean f346a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected int f373a = 0;
+    private byte[] f347a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected long f374a = -1;
-
-    /* renamed from: b  reason: collision with other field name */
-    protected volatile long f382b = 0;
-
-    /* renamed from: c  reason: collision with other field name */
-    protected volatile long f385c = 0;
+    private ByteBuffer f344a = ByteBuffer.allocate(2048);
+    private ByteBuffer b = ByteBuffer.allocate(4);
 
     /* renamed from: a  reason: collision with other field name */
-    private LinkedList<Pair<Integer, Long>> f380a = new LinkedList<>();
+    private Adler32 f345a = new Adler32();
+    private fo a = new fo();
 
-    /* renamed from: a  reason: collision with other field name */
-    private final Collection<fp> f379a = new CopyOnWriteArrayList();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public fm(InputStream inputStream, fq fqVar) {
+        this.f343a = new BufferedInputStream(inputStream);
+        this.f342a = fqVar;
+    }
 
-    /* renamed from: a  reason: collision with other field name */
-    protected final Map<fr, a> f381a = new ConcurrentHashMap();
-
-    /* renamed from: b  reason: collision with other field name */
-    protected final Map<fr, a> f384b = new ConcurrentHashMap();
-
-    /* renamed from: a  reason: collision with other field name */
-    protected fy f376a = null;
-
-    /* renamed from: a  reason: collision with other field name */
-    protected String f378a = "";
-
-    /* renamed from: b  reason: collision with other field name */
-    protected String f383b = "";
-    private int c = 2;
-    protected final int b = a.getAndIncrement();
-    private long e = 0;
-    protected long d = 0;
-
-    /* loaded from: classes8.dex */
-    public static class a {
-        private fr a;
-
-        /* renamed from: a  reason: collision with other field name */
-        private fz f386a;
-
-        public a(fr frVar, fz fzVar) {
-            this.a = frVar;
-            this.f386a = fzVar;
+    private ByteBuffer a() {
+        this.f344a.clear();
+        a(this.f344a, 8);
+        short s = this.f344a.getShort(0);
+        short s2 = this.f344a.getShort(2);
+        if (s == -15618 && s2 == 5) {
+            int i = this.f344a.getInt(4);
+            int position = this.f344a.position();
+            if (i > 32768) {
+                throw new IOException("Blob size too large");
+            }
+            if (i + 4 > this.f344a.remaining()) {
+                ByteBuffer allocate = ByteBuffer.allocate(i + 2048);
+                allocate.put(this.f344a.array(), 0, this.f344a.arrayOffset() + this.f344a.position());
+                this.f344a = allocate;
+            } else if (this.f344a.capacity() > 4096 && i < 2048) {
+                ByteBuffer allocate2 = ByteBuffer.allocate(2048);
+                allocate2.put(this.f344a.array(), 0, this.f344a.arrayOffset() + this.f344a.position());
+                this.f344a = allocate2;
+            }
+            a(this.f344a, i);
+            this.b.clear();
+            a(this.b, 4);
+            this.b.position(0);
+            int i2 = this.b.getInt();
+            this.f345a.reset();
+            this.f345a.update(this.f344a.array(), 0, this.f344a.position());
+            if (i2 != ((int) this.f345a.getValue())) {
+                com.xiaomi.channel.commonutils.logger.b.m50a("CRC = " + ((int) this.f345a.getValue()) + " and " + i2);
+                throw new IOException("Corrupted Blob bad CRC");
+            }
+            if (this.f347a != null) {
+                com.xiaomi.push.service.ay.a(this.f347a, this.f344a.array(), true, position, i);
+            }
+            return this.f344a;
         }
+        throw new IOException("Malformed Input");
+    }
 
-        public void a(ff ffVar) {
-            this.a.a(ffVar);
+    private void a(ByteBuffer byteBuffer, int i) {
+        int position = byteBuffer.position();
+        do {
+            int read = this.f343a.read(byteBuffer.array(), position, i);
+            if (read == -1) {
+                throw new EOFException();
+            }
+            i -= read;
+            position += read;
+        } while (i > 0);
+        byteBuffer.position(position);
+    }
+
+    private void c() {
+        boolean z = false;
+        this.f346a = false;
+        fl m284a = m284a();
+        if ("CONN".equals(m284a.m276a())) {
+            ek.f a = ek.f.a(m284a.m280a());
+            if (a.a()) {
+                this.f342a.a(a.a());
+                z = true;
+            }
+            if (a.c()) {
+                ek.b a2 = a.a();
+                fl flVar = new fl();
+                flVar.a("SYNC", "CONF");
+                flVar.a(a2.a(), (String) null);
+                this.f342a.a(flVar);
+            }
+            com.xiaomi.channel.commonutils.logger.b.m50a("[Slim] CONN: host = " + a.b());
         }
-
-        public void a(gd gdVar) {
-            if (this.f386a == null || this.f386a.a(gdVar)) {
-                this.a.a(gdVar);
+        if (!z) {
+            com.xiaomi.channel.commonutils.logger.b.m50a("[Slim] Invalid CONN");
+            throw new IOException("Invalid Connection");
+        }
+        this.f347a = this.f342a.a();
+        while (!this.f346a) {
+            fl m284a2 = m284a();
+            this.f342a.c();
+            switch (m284a2.m278a()) {
+                case 1:
+                    this.f342a.a(m284a2);
+                    break;
+                case 2:
+                    if (!"SECMSG".equals(m284a2.m276a()) || ((m284a2.a() != 2 && m284a2.a() != 3) || !TextUtils.isEmpty(m284a2.m282b()))) {
+                        this.f342a.a(m284a2);
+                        break;
+                    } else {
+                        try {
+                            this.f342a.b(this.a.a(m284a2.m281a(com.xiaomi.push.service.ap.a().a(Integer.valueOf(m284a2.a()).toString(), m284a2.g()).h), this.f342a));
+                            break;
+                        } catch (Exception e) {
+                            com.xiaomi.channel.commonutils.logger.b.m50a("[Slim] Parse packet from Blob chid=" + m284a2.a() + "; Id=" + m284a2.e() + " failure:" + e.getMessage());
+                            break;
+                        }
+                    }
+                case 3:
+                    try {
+                        this.f342a.b(this.a.a(m284a2.m280a(), this.f342a));
+                        break;
+                    } catch (Exception e2) {
+                        com.xiaomi.channel.commonutils.logger.b.m50a("[Slim] Parse packet from Blob chid=" + m284a2.a() + "; Id=" + m284a2.e() + " failure:" + e2.getMessage());
+                        break;
+                    }
+                default:
+                    com.xiaomi.channel.commonutils.logger.b.m50a("[Slim] unknow blob type " + ((int) m284a2.m278a()));
+                    break;
             }
         }
     }
 
-    static {
-        f372a = false;
+    /* renamed from: a  reason: collision with other method in class */
+    fl m284a() {
+        IOException iOException;
+        int i;
         try {
-            f372a = Boolean.getBoolean("smack.debugEnabled");
-        } catch (Exception e) {
-        }
-        fs.m296a();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public fm(XMPushService xMPushService, fn fnVar) {
-        this.f375a = fnVar;
-        this.f377a = xMPushService;
-        m289b();
-    }
-
-    private String a(int i) {
-        return i == 1 ? "connected" : i == 0 ? "connecting" : i == 2 ? "disconnected" : "unknown";
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    private void m283a(int i) {
-        synchronized (this.f380a) {
-            if (i == 1) {
-                this.f380a.clear();
-            } else {
-                this.f380a.add(new Pair<>(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
-                if (this.f380a.size() > 6) {
-                    this.f380a.remove(0);
-                }
-            }
-        }
-    }
-
-    public int a() {
-        return this.f373a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public long m284a() {
-        return this.f385c;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public fn m285a() {
-        return this.f375a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public String m286a() {
-        return this.f375a.c();
-    }
-
-    public void a(int i, int i2, Exception exc) {
-        if (i != this.c) {
-            com.xiaomi.channel.commonutils.logger.b.m50a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(this.c), a(i), com.xiaomi.push.service.ap.a(i2)));
-        }
-        if (as.b(this.f377a)) {
-            m283a(i);
-        }
-        if (i == 1) {
-            this.f377a.a(10);
-            if (this.c != 0) {
-                com.xiaomi.channel.commonutils.logger.b.m50a("try set connected while not connecting.");
-            }
-            this.c = i;
-            for (fp fpVar : this.f379a) {
-                fpVar.a(this);
-            }
-        } else if (i == 0) {
-            if (this.c != 2) {
-                com.xiaomi.channel.commonutils.logger.b.m50a("try set connecting while not disconnected.");
-            }
-            this.c = i;
-            for (fp fpVar2 : this.f379a) {
-                fpVar2.b(this);
-            }
-        } else if (i == 2) {
-            this.f377a.a(10);
-            if (this.c == 0) {
-                for (fp fpVar3 : this.f379a) {
-                    fpVar3.a(this, exc == null ? new CancellationException("disconnect while connecting") : exc);
-                }
-            } else if (this.c == 1) {
-                for (fp fpVar4 : this.f379a) {
-                    fpVar4.a(this, i2, exc);
-                }
-            }
-            this.c = i;
-        }
-    }
-
-    public void a(fp fpVar) {
-        if (fpVar == null || this.f379a.contains(fpVar)) {
-            return;
-        }
-        this.f379a.add(fpVar);
-    }
-
-    public void a(fr frVar, fz fzVar) {
-        if (frVar == null) {
-            throw new NullPointerException("Packet listener is null.");
-        }
-        this.f381a.put(frVar, new a(frVar, fzVar));
-    }
-
-    public abstract void a(gd gdVar);
-
-    public abstract void a(al.b bVar);
-
-    public synchronized void a(String str) {
-        if (this.c == 0) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("setChallenge hash = " + ax.a(str).substring(0, 8));
-            this.f378a = str;
-            a(1, 0, null);
-        } else {
-            com.xiaomi.channel.commonutils.logger.b.m50a("ignore setChallenge because connection was disconnected");
-        }
-    }
-
-    public abstract void a(String str, String str2);
-
-    public abstract void a(ff[] ffVarArr);
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m287a() {
-        return false;
-    }
-
-    public synchronized boolean a(long j) {
-        return this.e >= j;
-    }
-
-    public int b() {
-        return this.c;
-    }
-
-    /* renamed from: b  reason: collision with other method in class */
-    public String m288b() {
-        return this.f375a.b();
-    }
-
-    /* renamed from: b  reason: collision with other method in class */
-    protected void m289b() {
-        String str;
-        Class<?> cls = null;
-        if (this.f375a.m294a() && this.f376a == null) {
+            ByteBuffer a = a();
+            int position = a.position();
             try {
-                str = System.getProperty("smack.debuggerClass");
-            } catch (Throwable th) {
-                str = null;
-            }
-            if (str != null) {
-                try {
-                    cls = Class.forName(str);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                a.flip();
+                a.position(8);
+                fl fpVar = position == 8 ? new fp() : fl.a(a.slice());
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + fpVar.m276a() + ";chid=" + fpVar.a() + ";len=" + position + "}");
+                return fpVar;
+            } catch (IOException e) {
+                i = position;
+                iOException = e;
+                if (i == 0) {
+                    i = this.f344a.position();
                 }
+                StringBuilder append = new StringBuilder().append("[Slim] read Blob [");
+                byte[] array = this.f344a.array();
+                if (i > 128) {
+                    i = 128;
+                }
+                com.xiaomi.channel.commonutils.logger.b.m50a(append.append(af.a(array, 0, i)).append("] Err:").append(iOException.getMessage()).toString());
+                throw iOException;
             }
-            if (cls == null) {
-                this.f376a = new bi(this);
-                return;
-            }
-            try {
-                this.f376a = (fy) cls.getConstructor(fm.class, Writer.class, Reader.class).newInstance(this);
-            } catch (Exception e2) {
-                throw new IllegalArgumentException("Can't initialize the configured debugger!", e2);
+        } catch (IOException e2) {
+            iOException = e2;
+            i = 0;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: a  reason: collision with other method in class */
+    public void m285a() {
+        try {
+            c();
+        } catch (IOException e) {
+            if (!this.f346a) {
+                throw e;
             }
         }
     }
 
-    public abstract void b(int i, Exception exc);
-
-    public abstract void b(ff ffVar);
-
-    public void b(fp fpVar) {
-        this.f379a.remove(fpVar);
-    }
-
-    public void b(fr frVar, fz fzVar) {
-        if (frVar == null) {
-            throw new NullPointerException("Packet listener is null.");
-        }
-        this.f384b.put(frVar, new a(frVar, fzVar));
-    }
-
-    public abstract void b(boolean z);
-
-    /* renamed from: b  reason: collision with other method in class */
-    public boolean m290b() {
-        return this.c == 0;
-    }
-
-    public synchronized void c() {
-        this.e = System.currentTimeMillis();
-    }
-
-    /* renamed from: c  reason: collision with other method in class */
-    public boolean m291c() {
-        return this.c == 1;
-    }
-
-    public void d() {
-        synchronized (this.f380a) {
-            this.f380a.clear();
-        }
-    }
-
-    /* renamed from: d  reason: collision with other method in class */
-    public synchronized boolean m292d() {
-        return System.currentTimeMillis() - this.e < ((long) fs.a());
-    }
-
-    public synchronized boolean e() {
-        return System.currentTimeMillis() - this.d < ((long) (fs.a() << 1));
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void b() {
+        this.f346a = true;
     }
 }

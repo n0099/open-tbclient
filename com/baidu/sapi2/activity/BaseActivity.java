@@ -24,9 +24,9 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.b.a;
+import com.baidu.sapi2.a.a;
+import com.baidu.sapi2.b.g;
 import com.baidu.sapi2.bio.BiometricsManager;
-import com.baidu.sapi2.c.g;
 import com.baidu.sapi2.callback.ActivityResultCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
@@ -45,7 +45,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
-import com.baidu.sapi2.utils.k;
+import com.baidu.sapi2.utils.m;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.CustomAlertDialog;
 import com.baidu.sapi2.views.f;
@@ -60,6 +60,7 @@ public class BaseActivity extends TitleActivity {
     public static final String EXTRA_PARAM_BUSINESS_FROM = "extra_params_business_from";
     public static final int EXTRA_PARAM_FROM_ACCOUNT_CENTER = 2003;
     public static final int EXTRA_PARAM_FROM_CHOICE_SHARE = 2004;
+    public static final int EXTRA_PARAM_FROM_GRANT_WAP = 2005;
     public static final int EXTRA_PARAM_FROM_LOGIN = 2001;
     public static final int EXTRA_PARAM_FROM_PASS_SDK_ENTER = 2002;
     public static final int REQUEST_CODE_FILECHOOSER = 1010;
@@ -113,8 +114,8 @@ public class BaseActivity extends TitleActivity {
                 @Override // com.baidu.sapi2.permissions.PermissionsCallback
                 public void onSuccess() {
                     BaseActivity baseActivity2 = BaseActivity.this;
-                    new g(baseActivity2, new f(baseActivity2)).a(BaseActivity.this.l.authType, new com.baidu.sapi2.c.a() { // from class: com.baidu.sapi2.activity.BaseActivity.11.1.1
-                        @Override // com.baidu.sapi2.c.a
+                    new g(baseActivity2, new f(baseActivity2)).a(BaseActivity.this.l.authType, new com.baidu.sapi2.b.a() { // from class: com.baidu.sapi2.activity.BaseActivity.11.1.1
+                        @Override // com.baidu.sapi2.b.a
                         public void onCall(int i) {
                             BaseActivity.this.l.setResult(i);
                         }
@@ -148,7 +149,7 @@ public class BaseActivity extends TitleActivity {
         PassFaceRecogType passFaceRecogType = PassFaceRecogType.RECOG_TYPE_BDUSS;
         String str2 = null;
         if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
-            SapiAccount currentAccount = SapiContext.getInstance(this).getCurrentAccount();
+            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             str2 = currentAccount == null ? "" : currentAccount.bduss;
         } else if ("authtoken".equals(biometricsIdentifyResult.livenessRecogType)) {
             passFaceRecogType = PassFaceRecogType.RECOG_TYPE_AUTHTOKEN;
@@ -181,7 +182,7 @@ public class BaseActivity extends TitleActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         ImageCropCallback b2;
         ActivityResultCallback a;
-        com.baidu.sapi2.b.a aVar;
+        com.baidu.sapi2.a.a aVar;
         super.onActivityResult(i, i2, intent);
         ImageCropCallback imageCropCallback = PassportSDK.getInstance().getImageCropCallback();
         ActivityResultCallback activityResultCallback = PassportSDK.getInstance().getActivityResultCallback();
@@ -335,7 +336,7 @@ public class BaseActivity extends TitleActivity {
         if (this.configuration.isDarkMode) {
             this.sapiWebView.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_dark_mode_color));
         }
-        k.a(this, this.sapiWebView, getWebDTO() != null && getWebDTO().sweepLightLoading);
+        m.a(this, this.sapiWebView, getWebDTO() != null && getWebDTO().sweepLightLoading);
         this.sapiWebView.setWebViewTitleCallback(new SapiWebView.WebViewTitleCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.1
             @Override // com.baidu.sapi2.SapiWebView.WebViewTitleCallback
             public void onTitleChange(String str) {
@@ -409,7 +410,7 @@ public class BaseActivity extends TitleActivity {
         this.sapiWebView.setInvokeScAppCallback(new SapiWebView.InvokeScAppCallback() { // from class: com.baidu.sapi2.activity.BaseActivity.8
             @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback
             public void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-                BaseActivity.this.m = new com.baidu.sapi2.b.a();
+                BaseActivity.this.m = new com.baidu.sapi2.a.a();
                 BaseActivity.this.m.a(BaseActivity.this, str, str2, list, invokeScAppResult);
             }
         });
@@ -561,7 +562,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
-        SapiAccount currentAccount = SapiContext.getInstance(this).getCurrentAccount();
+        SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
         if (currentAccount == null) {
             Toast.makeText(this, "请先登录", 1).show();
             return;

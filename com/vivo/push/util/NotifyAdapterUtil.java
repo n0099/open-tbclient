@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
+import com.baidu.android.util.io.ActionJsonData;
 import com.vivo.push.model.InsideNotificationItem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -48,7 +49,7 @@ public class NotifyAdapterUtil {
     private static synchronized void initAdapter(Context context) {
         synchronized (NotifyAdapterUtil.class) {
             if (sNotificationManager == null) {
-                sNotificationManager = (NotificationManager) context.getSystemService("notification");
+                sNotificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
             }
             if (Build.VERSION.SDK_INT >= 26 && sNotificationManager != null) {
                 NotificationChannel notificationChannel = sNotificationManager.getNotificationChannel("default");
@@ -168,16 +169,16 @@ public class NotifyAdapterUtil {
         intent.setPackage(context.getPackageName());
         intent.setClassName(context.getPackageName(), "com.vivo.push.sdk.service.CommandService");
         intent.putExtra("command_type", "reflect_receiver");
-        new com.vivo.push.b.p(packageName, j, insideNotificationItem).b(intent);
+        new com.vivo.push.b.r(packageName, j, insideNotificationItem).b(intent);
         notification.contentIntent = PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456);
         if (sNotificationManager != null) {
-            int s = com.vivo.push.p.a().s();
-            if (s == 0) {
+            int r = com.vivo.push.p.a().r();
+            if (r == 0) {
                 sNotificationManager.notify(sNotifyId, notification);
-            } else if (s == 1) {
+            } else if (r == 1) {
                 sNotificationManager.notify((int) j, notification);
             } else {
-                p.a(TAG, "unknow notify style " + s);
+                p.a(TAG, "unknow notify style " + r);
             }
         }
     }
@@ -285,24 +286,24 @@ public class NotifyAdapterUtil {
         intent.setPackage(context.getPackageName());
         intent.setClassName(context.getPackageName(), "com.vivo.push.sdk.service.CommandService");
         intent.putExtra("command_type", "reflect_receiver");
-        new com.vivo.push.b.p(packageName, j, insideNotificationItem).b(intent);
+        new com.vivo.push.b.r(packageName, j, insideNotificationItem).b(intent);
         builder.setContentIntent(PendingIntent.getService(context, (int) SystemClock.uptimeMillis(), intent, 268435456));
         Notification build = builder.build();
-        int s = com.vivo.push.p.a().s();
+        int r = com.vivo.push.p.a().r();
         if (sNotificationManager != null) {
-            if (s == 0) {
+            if (r == 0) {
                 sNotificationManager.notify(sNotifyId, build);
-            } else if (s == 1) {
+            } else if (r == 1) {
                 sNotificationManager.notify((int) j, build);
             } else {
-                p.a(TAG, "unknow notify style " + s);
+                p.a(TAG, "unknow notify style " + r);
             }
         }
     }
 
     public static boolean repealNotifyById(Context context, int i) {
-        int s = com.vivo.push.p.a().s();
-        if (s == 0) {
+        int r = com.vivo.push.p.a().r();
+        if (r == 0) {
             long b = w.b().b("com.vivo.push.notify_key", -1L);
             if (b == i) {
                 p.d(TAG, "undo showed message " + i);
@@ -312,10 +313,10 @@ public class NotifyAdapterUtil {
             p.d(TAG, "current showing message id " + b + " not match " + i);
             p.a(context, "与已展示的通知" + b + "与待回收的通知" + i + "不匹配");
             return false;
-        } else if (s == 1) {
+        } else if (r == 1) {
             return cancelNotify(context, i);
         } else {
-            p.a(TAG, "unknow cancle notify style " + s);
+            p.a(TAG, "unknow cancle notify style " + r);
             return false;
         }
     }

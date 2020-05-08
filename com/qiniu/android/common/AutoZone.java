@@ -14,30 +14,30 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public final class AutoZone extends Zone {
-    public static final AutoZone mLq = new AutoZone();
-    private final String mLr;
-    private Map<ZoneIndex, ZoneInfo> mLs;
-    private Client mLt;
+    public static final AutoZone mLt = new AutoZone();
+    private final String mLu;
+    private Map<ZoneIndex, ZoneInfo> mLv;
+    private Client mLw;
 
     public AutoZone() {
         this("https://uc.qbox.me");
     }
 
     AutoZone(String str) {
-        this.mLs = new ConcurrentHashMap();
-        this.mLt = new Client();
-        this.mLr = str;
+        this.mLv = new ConcurrentHashMap();
+        this.mLw = new Client();
+        this.mLu = str;
     }
 
     private void a(ZoneIndex zoneIndex, CompletionHandler completionHandler) {
-        this.mLt.a(this.mLr + "/v2/query?ak=" + zoneIndex.mLx + "&bucket=" + zoneIndex.bucket, null, UpToken.mMU, completionHandler);
+        this.mLw.a(this.mLu + "/v2/query?ak=" + zoneIndex.mLA + "&bucket=" + zoneIndex.bucket, null, UpToken.mMX, completionHandler);
     }
 
     ZoneInfo fl(String str, String str2) {
-        return this.mLs.get(new ZoneIndex(str, str2));
+        return this.mLv.get(new ZoneIndex(str, str2));
     }
 
-    ZoneInfo OU(String str) {
+    ZoneInfo OX(String str) {
         try {
             String[] split = str.split(":");
             return fl(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
@@ -50,15 +50,15 @@ public final class AutoZone extends Zone {
     void a(final ZoneIndex zoneIndex, final Zone.QueryHandler queryHandler) {
         if (zoneIndex == null) {
             queryHandler.IN(-5);
-        } else if (this.mLs.get(zoneIndex) != null) {
+        } else if (this.mLv.get(zoneIndex) != null) {
             queryHandler.onSuccess();
         } else {
             a(zoneIndex, new CompletionHandler() { // from class: com.qiniu.android.common.AutoZone.1
                 @Override // com.qiniu.android.http.CompletionHandler
                 public void a(ResponseInfo responseInfo, JSONObject jSONObject) {
-                    if (responseInfo.dAs() && jSONObject != null) {
+                    if (responseInfo.dAo() && jSONObject != null) {
                         try {
-                            AutoZone.this.mLs.put(zoneIndex, ZoneInfo.dX(jSONObject));
+                            AutoZone.this.mLv.put(zoneIndex, ZoneInfo.dX(jSONObject));
                             queryHandler.onSuccess();
                             return;
                         } catch (JSONException e) {
@@ -75,34 +75,34 @@ public final class AutoZone extends Zone {
 
     @Override // com.qiniu.android.common.Zone
     public synchronized String d(String str, boolean z, String str2) {
-        ZoneInfo OU;
-        OU = OU(str);
-        return OU != null ? super.a(OU, z, str2) : null;
+        ZoneInfo OX;
+        OX = OX(str);
+        return OX != null ? super.a(OX, z, str2) : null;
     }
 
     @Override // com.qiniu.android.common.Zone
     public void a(String str, Zone.QueryHandler queryHandler) {
-        a(ZoneIndex.OW(str), queryHandler);
+        a(ZoneIndex.OZ(str), queryHandler);
     }
 
     @Override // com.qiniu.android.common.Zone
-    public synchronized void OV(String str) {
+    public synchronized void OY(String str) {
         ZoneInfo zoneInfo;
         if (str != null) {
             String host = URI.create(str).getHost();
-            Iterator<Map.Entry<ZoneIndex, ZoneInfo>> it = this.mLs.entrySet().iterator();
+            Iterator<Map.Entry<ZoneIndex, ZoneInfo>> it = this.mLv.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     zoneInfo = null;
                     break;
                 }
                 zoneInfo = it.next().getValue();
-                if (zoneInfo.mLF.contains(host)) {
+                if (zoneInfo.mLI.contains(host)) {
                     break;
                 }
             }
             if (zoneInfo != null) {
-                zoneInfo.OV(host);
+                zoneInfo.OY(host);
             }
         }
     }
@@ -111,14 +111,14 @@ public final class AutoZone extends Zone {
     /* loaded from: classes5.dex */
     public static class ZoneIndex {
         final String bucket;
-        final String mLx;
+        final String mLA;
 
         ZoneIndex(String str, String str2) {
-            this.mLx = str;
+            this.mLA = str;
             this.bucket = str2;
         }
 
-        static ZoneIndex OW(String str) {
+        static ZoneIndex OZ(String str) {
             String[] split = str.split(":");
             try {
                 return new ZoneIndex(split[0], new JSONObject(new String(UrlSafeBase64.decode(split[2]), "utf-8")).getString("scope").split(":")[0]);
@@ -129,11 +129,11 @@ public final class AutoZone extends Zone {
         }
 
         public int hashCode() {
-            return (this.mLx.hashCode() * 37) + this.bucket.hashCode();
+            return (this.mLA.hashCode() * 37) + this.bucket.hashCode();
         }
 
         public boolean equals(Object obj) {
-            return obj == this || (obj != null && (obj instanceof ZoneIndex) && ((ZoneIndex) obj).mLx.equals(this.mLx) && ((ZoneIndex) obj).bucket.equals(this.bucket));
+            return obj == this || (obj != null && (obj instanceof ZoneIndex) && ((ZoneIndex) obj).mLA.equals(this.mLA) && ((ZoneIndex) obj).bucket.equals(this.bucket));
         }
     }
 }

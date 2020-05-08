@@ -44,7 +44,7 @@ public interface j {
 
     /* loaded from: classes3.dex */
     public interface e {
-        int uA();
+        int uz();
     }
 
     /* loaded from: classes3.dex */
@@ -79,10 +79,10 @@ public interface j {
 
     /* renamed from: com.baidu.live.challenge.j$j  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0105j {
+    public interface InterfaceC0126j {
         void l(int i, String str);
 
-        void uB();
+        void uA();
     }
 
     /* loaded from: classes3.dex */
@@ -116,7 +116,7 @@ public interface j {
 
     void a(i iVar);
 
-    void a(InterfaceC0105j interfaceC0105j);
+    void a(InterfaceC0126j interfaceC0126j);
 
     void a(k kVar);
 
@@ -140,7 +140,9 @@ public interface j {
 
     void r(int i2, int i3);
 
-    void ug();
+    void uf();
+
+    void up();
 
     void uq();
 
@@ -152,13 +154,11 @@ public interface j {
 
     void uu();
 
-    void uv();
+    ChallenfeInfoData.ChallengeStatus uv();
 
-    ChallenfeInfoData.ChallengeStatus uw();
+    boolean uw();
 
-    boolean ux();
+    void ux();
 
-    void uy();
-
-    long uz();
+    long uy();
 }

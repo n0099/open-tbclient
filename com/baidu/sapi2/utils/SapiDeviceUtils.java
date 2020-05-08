@@ -18,42 +18,45 @@ public class SapiDeviceUtils {
     public static class DeviceCrypto implements com.baidu.sapi2.c {
         public static String base64Encode(byte[] bArr) {
             int i;
-            StringBuilder sb = new StringBuilder();
-            int length = bArr.length * 8;
-            byte b = 0;
-            int i2 = 0;
-            int i3 = 0;
-            int i4 = 6;
-            int i5 = 0;
-            do {
-                if (i5 <= 0 || i4 <= 0) {
-                    if (i5 == 0) {
-                        b = (byte) ((bArr[i3] & 255) >> (8 - i4));
-                        i5 = 2;
-                        i4 = 4;
-                    } else if (i4 == 0) {
-                        b = (byte) (bArr[i3] & 63);
-                        i4 = 6;
-                        i5 = 0;
+            if (bArr != null && bArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                int length = bArr.length * 8;
+                byte b = 0;
+                int i2 = 0;
+                int i3 = 0;
+                int i4 = 6;
+                int i5 = 0;
+                do {
+                    if (i5 <= 0 || i4 <= 0) {
+                        if (i5 == 0) {
+                            b = (byte) ((bArr[i3] & 255) >> (8 - i4));
+                            i5 = 2;
+                            i4 = 4;
+                        } else if (i4 == 0) {
+                            b = (byte) (bArr[i3] & 63);
+                            i4 = 6;
+                            i5 = 0;
+                        }
+                    } else {
+                        i5 = 8 - i4;
+                        b = (byte) (((byte) (((bArr[i3] & 255) << i4) | ((bArr[i3 + 1] & 255) >> i5))) & 63);
+                        i4 = 6 - i5;
                     }
-                } else {
-                    i5 = 8 - i4;
-                    b = (byte) (((byte) (((bArr[i3] & 255) << i4) | ((bArr[i3 + 1] & 255) >> i5))) & 63);
-                    i4 = 6 - i5;
+                    sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b));
+                    i2 += 6;
+                    i3 = i2 / 8;
+                    i = length - i2;
+                } while (i >= 6);
+                if (i > 0) {
+                    sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt((byte) ((bArr[bArr.length - 1] << (6 - i)) & 63)));
                 }
-                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b));
-                i2 += 6;
-                i3 = i2 / 8;
-                i = length - i2;
-            } while (i >= 6);
-            if (i > 0) {
-                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt((byte) ((bArr[bArr.length - 1] << (6 - i)) & 63)));
+                int i6 = length % 3;
+                for (int i7 = 0; i7 < i6; i7++) {
+                    sb.append(ETAG.EQUAL);
+                }
+                return sb.toString();
             }
-            int i6 = length % 3;
-            for (int i7 = 0; i7 < i6; i7++) {
-                sb.append(ETAG.EQUAL);
-            }
-            return sb.toString();
+            return "";
         }
     }
 

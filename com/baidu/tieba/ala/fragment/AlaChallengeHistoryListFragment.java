@@ -12,19 +12,19 @@ import com.baidu.tieba.ala.f.a;
 import com.baidu.tieba.ala.message.AlaGetChallengeHistoryListResponseMessage;
 /* loaded from: classes3.dex */
 public class AlaChallengeHistoryListFragment extends BaseFragment {
-    private boolean eIg;
-    private a fge;
-    private com.baidu.tieba.ala.d.a fgf;
-    private a.InterfaceC0465a fgg = new a.InterfaceC0465a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
-        @Override // com.baidu.tieba.ala.f.a.InterfaceC0465a
+    private boolean eIl;
+    private a fgj;
+    private com.baidu.tieba.ala.d.a fgk;
+    private a.InterfaceC0486a fgl = new a.InterfaceC0486a() { // from class: com.baidu.tieba.ala.fragment.AlaChallengeHistoryListFragment.1
+        @Override // com.baidu.tieba.ala.f.a.InterfaceC0486a
         public void a(int i, String str, Object obj) {
             if (i != 0 && !StringUtils.isNull(str)) {
-                if (AlaChallengeHistoryListFragment.this.fgf != null) {
-                    AlaChallengeHistoryListFragment.this.fgf.An(AlaChallengeHistoryListFragment.this.getString(a.i.ala_rank_list_net_error));
+                if (AlaChallengeHistoryListFragment.this.fgk != null) {
+                    AlaChallengeHistoryListFragment.this.fgk.Aq(AlaChallengeHistoryListFragment.this.getString(a.i.ala_rank_list_net_error));
                 }
             } else if (obj != null && (obj instanceof AlaGetChallengeHistoryListResponseMessage)) {
                 AlaGetChallengeHistoryListResponseMessage alaGetChallengeHistoryListResponseMessage = (AlaGetChallengeHistoryListResponseMessage) obj;
-                AlaChallengeHistoryListFragment.this.fgf.a(alaGetChallengeHistoryListResponseMessage.eJE, alaGetChallengeHistoryListResponseMessage.fUc);
+                AlaChallengeHistoryListFragment.this.fgk.a(alaGetChallengeHistoryListResponseMessage.eJJ, alaGetChallengeHistoryListResponseMessage.fUh);
             }
         }
     };
@@ -44,15 +44,15 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
         super.onCreate(bundle);
         Bundle arguments = getArguments();
         this.portrait = arguments.getString("portrait");
-        this.eIg = arguments.getBoolean("is_from_host");
+        this.eIl = arguments.getBoolean("is_from_host");
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.fgf = new com.baidu.tieba.ala.d.a(getPageContext());
-        this.fge = new com.baidu.tieba.ala.f.a(getPageContext(), this.fgg);
+        this.fgk = new com.baidu.tieba.ala.d.a(getPageContext());
+        this.fgj = new com.baidu.tieba.ala.f.a(getPageContext(), this.fgl);
         refreshData();
-        return this.fgf.getView();
+        return this.fgk.getView();
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment
@@ -64,17 +64,17 @@ public class AlaChallengeHistoryListFragment extends BaseFragment {
 
     private void refreshData() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            this.fge.Be(this.portrait);
-        } else if (this.fgf != null) {
-            this.fgf.An(getString(a.i.ala_rank_list_no_net));
+            this.fgj.Bh(this.portrait);
+        } else if (this.fgk != null) {
+            this.fgk.Aq(getString(a.i.ala_rank_list_no_net));
         }
     }
 
     @Override // com.baidu.live.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.fge != null) {
-            this.fge.destroy();
+        if (this.fgj != null) {
+            this.fgj.destroy();
         }
     }
 

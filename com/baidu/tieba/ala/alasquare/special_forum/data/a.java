@@ -8,24 +8,24 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    public String eVq;
-    public String eVr;
-    public String eVs;
-    public int eVt;
-    public int eVu;
-    public List<bj> etG;
+    public String eVv;
+    public String eVw;
+    public String eVx;
+    public int eVy;
+    public int eVz;
+    public List<bj> etL;
 
     public void parse(JSONObject jSONObject) {
         int i = 0;
         if (jSONObject != null) {
-            this.eVq = jSONObject.optString("head_pic");
-            this.eVr = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
-            this.eVs = jSONObject.optString("url");
-            this.eVt = jSONObject.optInt("head_type", 0);
-            this.eVu = jSONObject.optInt("is_set", -1);
+            this.eVv = jSONObject.optString("head_pic");
+            this.eVw = jSONObject.optString(ConstantData.Logo.LOGO_JUMP_URL_TPYE);
+            this.eVx = jSONObject.optString("url");
+            this.eVy = jSONObject.optInt("head_type", 0);
+            this.eVz = jSONObject.optInt("is_set", -1);
             JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.etG = new ArrayList(optJSONArray.length());
+                this.etL = new ArrayList(optJSONArray.length());
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
@@ -33,7 +33,7 @@ public class a {
                         if (jSONObject2 != null) {
                             bj bjVar = new bj();
                             bjVar.parserJson(jSONObject2);
-                            this.etG.add(bjVar);
+                            this.etL.add(bjVar);
                         }
                         i = i2 + 1;
                     } else {

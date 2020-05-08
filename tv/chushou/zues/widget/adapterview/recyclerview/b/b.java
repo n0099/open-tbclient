@@ -10,25 +10,25 @@ import java.lang.reflect.Field;
 import tv.chushou.zues.utils.e;
 /* loaded from: classes5.dex */
 public class b extends LinearLayoutManager {
-    private static boolean nte = true;
-    private static Field ntf = null;
-    private final Rect gNg;
-    private final int[] ntg;
-    private int nth;
-    private boolean nti;
-    private int ntj;
+    private static boolean nth = true;
+    private static Field nti = null;
+    private final Rect gNm;
+    private final int[] ntj;
+    private int ntk;
+    private boolean ntl;
+    private int ntm;
     private final RecyclerView view;
 
     public b(Context context, int i, boolean z) {
         super(context, i, z);
-        this.ntg = new int[2];
-        this.nth = 100;
-        this.ntj = 0;
-        this.gNg = new Rect();
+        this.ntj = new int[2];
+        this.ntk = 100;
+        this.ntm = 0;
+        this.gNm = new Rect();
         this.view = null;
     }
 
-    public static int dKd() {
+    public static int dJZ() {
         return View.MeasureSpec.makeMeasureSpec(0, 0);
     }
 
@@ -47,7 +47,7 @@ public class b extends LinearLayoutManager {
         boolean z2 = mode2 != 0;
         boolean z3 = mode == 1073741824;
         boolean z4 = mode2 == 1073741824;
-        int dKd = dKd();
+        int dJZ = dJZ();
         if (z3 && z4) {
             super.onMeasure(recycler, state, i, i2);
             return;
@@ -66,15 +66,15 @@ public class b extends LinearLayoutManager {
                 i4 = i6;
                 break;
             } else if (z5) {
-                if (!this.nti) {
+                if (!this.ntl) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, size, dKd, this.ntg);
+                        a(recycler, i8, size, dJZ, this.ntj);
                     } else {
                         JT(i8);
                     }
                 }
-                i5 = this.ntg[1] + i7;
-                i4 = i8 == 0 ? this.ntg[0] : i6;
+                i5 = this.ntj[1] + i7;
+                i4 = i8 == 0 ? this.ntj[0] : i6;
                 if (z2 && i5 >= size2) {
                     i3 = i5;
                     break;
@@ -83,15 +83,15 @@ public class b extends LinearLayoutManager {
                 i7 = i5;
                 i6 = i4;
             } else {
-                if (!this.nti) {
+                if (!this.ntl) {
                     if (i8 < itemCount) {
-                        a(recycler, i8, dKd, size2, this.ntg);
+                        a(recycler, i8, dJZ, size2, this.ntj);
                     } else {
                         JT(i8);
                     }
                 }
-                i4 = i6 + this.ntg[0];
-                i5 = i8 == 0 ? this.ntg[1] : i7;
+                i4 = i6 + this.ntj[0];
+                i5 = i8 == 0 ? this.ntj[1] : i7;
                 if (z && i4 >= size) {
                     i3 = i5;
                     break;
@@ -116,7 +116,7 @@ public class b extends LinearLayoutManager {
             }
         }
         setMeasuredDimension(min, paddingTop);
-        if (this.view != null && this.ntj == 1) {
+        if (this.view != null && this.ntm == 1) {
             ViewCompat.setOverScrollMode(this.view, (z5 && (!z2 || paddingTop < size2)) || (!z5 && (!z || min < size)) ? 2 : 0);
         }
     }
@@ -126,22 +126,22 @@ public class b extends LinearLayoutManager {
     }
 
     private void q(int i, int i2, boolean z) {
-        if (this.ntg[0] == 0 && this.ntg[1] == 0) {
+        if (this.ntj[0] == 0 && this.ntj[1] == 0) {
             if (z) {
-                this.ntg[0] = i;
-                this.ntg[1] = this.nth;
+                this.ntj[0] = i;
+                this.ntj[1] = this.ntk;
                 return;
             }
-            this.ntg[0] = this.nth;
-            this.ntg[1] = i2;
+            this.ntj[0] = this.ntk;
+            this.ntj[1] = i2;
         }
     }
 
     @Override // android.support.v7.widget.LinearLayoutManager
     public void setOrientation(int i) {
-        if (this.ntg != null && getOrientation() != i) {
-            this.ntg[0] = 0;
-            this.ntg[1] = 0;
+        if (this.ntj != null && getOrientation() != i) {
+            this.ntj[0] = 0;
+            this.ntj[1] = 0;
         }
         super.setOrientation(i);
     }
@@ -155,7 +155,7 @@ public class b extends LinearLayoutManager {
             int i4 = layoutParams.leftMargin + layoutParams.rightMargin;
             int i5 = layoutParams.topMargin + layoutParams.bottomMargin;
             a(layoutParams);
-            calculateItemDecorationsForChild(viewForPosition, this.gNg);
+            calculateItemDecorationsForChild(viewForPosition, this.gNm);
             viewForPosition.measure(getChildMeasureSpec(i2, paddingLeft + i4 + getRightDecorationWidth(viewForPosition) + getLeftDecorationWidth(viewForPosition), layoutParams.width, canScrollHorizontally()), getChildMeasureSpec(i3, paddingTop + i5 + getTopDecorationHeight(viewForPosition) + getBottomDecorationHeight(viewForPosition), layoutParams.height, canScrollVertically()));
             iArr[0] = getDecoratedMeasuredWidth(viewForPosition) + layoutParams.leftMargin + layoutParams.rightMargin;
             iArr[1] = getDecoratedMeasuredHeight(viewForPosition) + layoutParams.bottomMargin + layoutParams.topMargin;
@@ -167,21 +167,21 @@ public class b extends LinearLayoutManager {
     }
 
     private static void a(RecyclerView.LayoutParams layoutParams) {
-        if (nte) {
+        if (nth) {
             try {
-                if (ntf == null) {
-                    ntf = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
-                    ntf.setAccessible(true);
+                if (nti == null) {
+                    nti = RecyclerView.LayoutParams.class.getDeclaredField("mInsetsDirty");
+                    nti.setAccessible(true);
                 }
-                ntf.set(layoutParams, true);
+                nti.set(layoutParams, true);
             } catch (Exception e) {
-                dKe();
+                dKa();
             }
         }
     }
 
-    private static void dKe() {
-        nte = false;
+    private static void dKa() {
+        nth = false;
         e.w("WrapContentManager", "Can't make LayoutParams insets dirty, decorations measurements might be incorrect");
     }
 

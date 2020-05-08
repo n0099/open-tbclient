@@ -4,50 +4,50 @@ import master.flame.danmaku.danmaku.model.a.c;
 /* loaded from: classes5.dex */
 class a<T extends c<T>> implements b<T> {
     private final boolean mInfinite;
-    private final d<T> ndI;
-    private final int ndJ;
-    private T ndK;
-    private int ndL;
+    private final d<T> ndL;
+    private final int ndM;
+    private T ndN;
+    private int ndO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(d<T> dVar, int i) {
         if (i <= 0) {
             throw new IllegalArgumentException("The pool limit must be > 0");
         }
-        this.ndI = dVar;
-        this.ndJ = i;
+        this.ndL = dVar;
+        this.ndM = i;
         this.mInfinite = false;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
-    public T dGi() {
-        T dGh;
-        if (this.ndK != null) {
-            T t = this.ndK;
-            this.ndK = (T) t.dGe();
-            this.ndL--;
-            dGh = t;
+    public T dGe() {
+        T dGd;
+        if (this.ndN != null) {
+            T t = this.ndN;
+            this.ndN = (T) t.dGa();
+            this.ndO--;
+            dGd = t;
         } else {
-            dGh = this.ndI.dGh();
+            dGd = this.ndL.dGd();
         }
-        if (dGh != null) {
-            dGh.bG(null);
-            dGh.wC(false);
-            this.ndI.b(dGh);
+        if (dGd != null) {
+            dGd.bH(null);
+            dGd.wC(false);
+            this.ndL.b(dGd);
         }
-        return dGh;
+        return dGd;
     }
 
     @Override // master.flame.danmaku.danmaku.model.a.b
     public void c(T t) {
-        if (!t.dGc()) {
-            if (this.mInfinite || this.ndL < this.ndJ) {
-                this.ndL++;
-                t.bG(this.ndK);
+        if (!t.dFY()) {
+            if (this.mInfinite || this.ndO < this.ndM) {
+                this.ndO++;
+                t.bH(this.ndN);
                 t.wC(true);
-                this.ndK = t;
+                this.ndN = t;
             }
-            this.ndI.a(t);
+            this.ndL.a(t);
         }
     }
 }

@@ -12,202 +12,202 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes12.dex */
 public class j {
-    private static final Class<?> lQm = j.class;
-    private static j mcu = null;
-    private g lTl;
-    private com.facebook.imagepipeline.b.f lXG;
-    private com.facebook.imagepipeline.c.e mbC;
-    private com.facebook.imagepipeline.c.e mbD;
-    private final at mbF;
-    private com.facebook.imagepipeline.decoder.b mbR;
-    private m mbx;
-    private com.facebook.cache.disk.h mcA;
-    private l mcB;
-    private com.facebook.cache.disk.h mcC;
-    private com.facebook.imagepipeline.i.e mcD;
-    private com.facebook.imagepipeline.animated.a.a mcE;
-    private final h mcv;
-    private com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> mcw;
-    private o<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> mcx;
-    private com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, PooledByteBuffer> mcy;
-    private o<com.facebook.cache.common.b, PooledByteBuffer> mcz;
+    private static final Class<?> lQq = j.class;
+    private static j mcy = null;
+    private g lTp;
+    private com.facebook.imagepipeline.b.f lXK;
+    private m mbB;
+    private com.facebook.imagepipeline.c.e mbG;
+    private com.facebook.imagepipeline.c.e mbH;
+    private final at mbJ;
+    private com.facebook.imagepipeline.decoder.b mbV;
+    private com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> mcA;
+    private o<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> mcB;
+    private com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, PooledByteBuffer> mcC;
+    private o<com.facebook.cache.common.b, PooledByteBuffer> mcD;
+    private com.facebook.cache.disk.h mcE;
+    private l mcF;
+    private com.facebook.cache.disk.h mcG;
+    private com.facebook.imagepipeline.i.e mcH;
+    private com.facebook.imagepipeline.animated.a.a mcI;
+    private final h mcz;
 
-    public static j drS() {
-        return (j) com.facebook.common.internal.g.checkNotNull(mcu, "ImagePipelineFactory was not initialized!");
+    public static j drP() {
+        return (j) com.facebook.common.internal.g.checkNotNull(mcy, "ImagePipelineFactory was not initialized!");
     }
 
     public static synchronized void initialize(Context context) {
         synchronized (j.class) {
-            a(h.fR(context).drD());
+            a(h.fF(context).drA());
         }
     }
 
     public static synchronized void a(h hVar) {
         synchronized (j.class) {
-            if (mcu != null) {
-                com.facebook.common.c.a.g(lQm, "ImagePipelineFactory has already been initialized! `ImagePipelineFactory.initialize(...)` should only be called once to avoid unexpected behavior.");
+            if (mcy != null) {
+                com.facebook.common.c.a.g(lQq, "ImagePipelineFactory has already been initialized! `ImagePipelineFactory.initialize(...)` should only be called once to avoid unexpected behavior.");
             }
-            mcu = new j(hVar);
+            mcy = new j(hVar);
         }
     }
 
     public j(h hVar) {
-        this.mcv = (h) com.facebook.common.internal.g.checkNotNull(hVar);
-        this.mbF = new at(hVar.drp().dre());
+        this.mcz = (h) com.facebook.common.internal.g.checkNotNull(hVar);
+        this.mbJ = new at(hVar.drm().drb());
     }
 
     @Nullable
-    private com.facebook.imagepipeline.animated.a.a drT() {
-        if (this.mcE == null) {
-            this.mcE = com.facebook.imagepipeline.animated.a.b.a(dsa(), this.mcv.drp(), drU());
+    private com.facebook.imagepipeline.animated.a.a drQ() {
+        if (this.mcI == null) {
+            this.mcI = com.facebook.imagepipeline.animated.a.b.a(drX(), this.mcz.drm(), drR());
         }
-        return this.mcE;
+        return this.mcI;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.f.a fP(Context context) {
-        com.facebook.imagepipeline.animated.a.a drT = drT();
-        if (drT == null) {
+    public com.facebook.imagepipeline.f.a fD(Context context) {
+        com.facebook.imagepipeline.animated.a.a drQ = drQ();
+        if (drQ == null) {
             return null;
         }
-        return drT.fP(context);
+        return drQ.fD(context);
     }
 
-    public com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> drU() {
-        if (this.mcw == null) {
-            this.mcw = com.facebook.imagepipeline.c.a.a(this.mcv.dri(), this.mcv.dru(), this.mcv.drj());
-        }
-        return this.mcw;
-    }
-
-    public o<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> drV() {
-        if (this.mcx == null) {
-            this.mcx = com.facebook.imagepipeline.c.b.a(drU(), this.mcv.drq());
-        }
-        return this.mcx;
-    }
-
-    public com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, PooledByteBuffer> drW() {
-        if (this.mcy == null) {
-            this.mcy = com.facebook.imagepipeline.c.l.a(this.mcv.dro(), this.mcv.dru());
-        }
-        return this.mcy;
-    }
-
-    public o<com.facebook.cache.common.b, PooledByteBuffer> drX() {
-        if (this.mcz == null) {
-            this.mcz = com.facebook.imagepipeline.c.m.a(drW(), this.mcv.drq());
-        }
-        return this.mcz;
-    }
-
-    private com.facebook.imagepipeline.decoder.b drr() {
-        com.facebook.imagepipeline.decoder.b bVar;
-        com.facebook.imagepipeline.decoder.b bVar2 = null;
-        if (this.mbR == null) {
-            if (this.mcv.drr() != null) {
-                this.mbR = this.mcv.drr();
-            } else {
-                com.facebook.imagepipeline.animated.a.a drT = drT();
-                if (drT != null) {
-                    bVar = drT.a(this.mcv.dqR());
-                    bVar2 = drT.b(this.mcv.dqR());
-                } else {
-                    bVar = null;
-                }
-                if (this.mcv.drB() == null) {
-                    this.mbR = new com.facebook.imagepipeline.decoder.a(bVar, bVar2, dsb());
-                } else {
-                    this.mbR = new com.facebook.imagepipeline.decoder.a(bVar, bVar2, dsb(), this.mcv.drB().dsF());
-                    com.facebook.c.d.dpZ().eU(this.mcv.drB().dsG());
-                }
-            }
-        }
-        return this.mbR;
-    }
-
-    public com.facebook.imagepipeline.c.e drY() {
-        if (this.mbC == null) {
-            this.mbC = new com.facebook.imagepipeline.c.e(drZ(), this.mcv.drw().dtN(), this.mcv.drw().dtO(), this.mcv.drp().dra(), this.mcv.drp().drb(), this.mcv.drq());
-        }
-        return this.mbC;
-    }
-
-    public com.facebook.cache.disk.h drZ() {
+    public com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> drR() {
         if (this.mcA == null) {
-            this.mcA = this.mcv.drl().a(this.mcv.drt());
+            this.mcA = com.facebook.imagepipeline.c.a.a(this.mcz.drf(), this.mcz.drr(), this.mcz.drg());
         }
         return this.mcA;
     }
 
-    public g dnR() {
-        if (this.lTl == null) {
-            this.lTl = new g(dsd(), this.mcv.dry(), this.mcv.drs(), drV(), drX(), drY(), dsf(), this.mcv.drh(), this.mbF, com.facebook.common.internal.k.aK(false), this.mcv.drC().drQ());
-        }
-        return this.lTl;
-    }
-
-    public static com.facebook.imagepipeline.b.f a(q qVar, com.facebook.imagepipeline.i.e eVar) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return new com.facebook.imagepipeline.b.a(qVar.dtJ());
-        }
-        if (Build.VERSION.SDK_INT >= 11) {
-            return new com.facebook.imagepipeline.b.e(new com.facebook.imagepipeline.b.b(qVar.dtN()), eVar);
-        }
-        return new com.facebook.imagepipeline.b.c();
-    }
-
-    public com.facebook.imagepipeline.b.f dsa() {
-        if (this.lXG == null) {
-            this.lXG = a(this.mcv.drw(), dsb());
-        }
-        return this.lXG;
-    }
-
-    public static com.facebook.imagepipeline.i.e a(q qVar, boolean z) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            int dtL = qVar.dtL();
-            return new com.facebook.imagepipeline.i.a(qVar.dtJ(), dtL, new Pools.SynchronizedPool(dtL));
-        } else if (z && Build.VERSION.SDK_INT < 19) {
-            return new com.facebook.imagepipeline.i.c();
-        } else {
-            return new com.facebook.imagepipeline.i.d(qVar.dtK());
-        }
-    }
-
-    public com.facebook.imagepipeline.i.e dsb() {
-        if (this.mcD == null) {
-            this.mcD = a(this.mcv.drw(), this.mcv.drC().drG());
-        }
-        return this.mcD;
-    }
-
-    private l dsc() {
+    public o<com.facebook.cache.common.b, com.facebook.imagepipeline.g.c> drS() {
         if (this.mcB == null) {
-            this.mcB = this.mcv.drC().drO().a(this.mcv.getContext(), this.mcv.drw().dtP(), drr(), this.mcv.drx(), this.mcv.drm(), this.mcv.drz(), this.mcv.drC().drH(), this.mcv.drp(), this.mcv.drw().dtN(), drV(), drX(), drY(), dsf(), this.mcv.drh(), dsa(), this.mcv.drC().drL(), this.mcv.drC().drM(), this.mcv.drC().drP());
+            this.mcB = com.facebook.imagepipeline.c.b.a(drR(), this.mcz.drn());
         }
         return this.mcB;
     }
 
-    private m dsd() {
-        boolean z = Build.VERSION.SDK_INT >= 24 && this.mcv.drC().drK();
-        if (this.mbx == null) {
-            this.mbx = new m(this.mcv.getContext().getApplicationContext().getContentResolver(), dsc(), this.mcv.drv(), this.mcv.drz(), this.mcv.drC().drG(), this.mbF, this.mcv.drC().drF(), z, this.mcv.drC().drN(), this.mcv.drn());
-        }
-        return this.mbx;
-    }
-
-    public com.facebook.cache.disk.h dse() {
+    public com.facebook.imagepipeline.c.h<com.facebook.cache.common.b, PooledByteBuffer> drT() {
         if (this.mcC == null) {
-            this.mcC = this.mcv.drl().a(this.mcv.drA());
+            this.mcC = com.facebook.imagepipeline.c.l.a(this.mcz.drl(), this.mcz.drr());
         }
         return this.mcC;
     }
 
-    private com.facebook.imagepipeline.c.e dsf() {
-        if (this.mbD == null) {
-            this.mbD = new com.facebook.imagepipeline.c.e(dse(), this.mcv.drw().dtN(), this.mcv.drw().dtO(), this.mcv.drp().dra(), this.mcv.drp().drb(), this.mcv.drq());
+    public o<com.facebook.cache.common.b, PooledByteBuffer> drU() {
+        if (this.mcD == null) {
+            this.mcD = com.facebook.imagepipeline.c.m.a(drT(), this.mcz.drn());
         }
-        return this.mbD;
+        return this.mcD;
+    }
+
+    private com.facebook.imagepipeline.decoder.b dro() {
+        com.facebook.imagepipeline.decoder.b bVar;
+        com.facebook.imagepipeline.decoder.b bVar2 = null;
+        if (this.mbV == null) {
+            if (this.mcz.dro() != null) {
+                this.mbV = this.mcz.dro();
+            } else {
+                com.facebook.imagepipeline.animated.a.a drQ = drQ();
+                if (drQ != null) {
+                    bVar = drQ.a(this.mcz.dqO());
+                    bVar2 = drQ.b(this.mcz.dqO());
+                } else {
+                    bVar = null;
+                }
+                if (this.mcz.dry() == null) {
+                    this.mbV = new com.facebook.imagepipeline.decoder.a(bVar, bVar2, drY());
+                } else {
+                    this.mbV = new com.facebook.imagepipeline.decoder.a(bVar, bVar2, drY(), this.mcz.dry().dsC());
+                    com.facebook.c.d.dpW().eU(this.mcz.dry().dsD());
+                }
+            }
+        }
+        return this.mbV;
+    }
+
+    public com.facebook.imagepipeline.c.e drV() {
+        if (this.mbG == null) {
+            this.mbG = new com.facebook.imagepipeline.c.e(drW(), this.mcz.drt().dtK(), this.mcz.drt().dtL(), this.mcz.drm().dqX(), this.mcz.drm().dqY(), this.mcz.drn());
+        }
+        return this.mbG;
+    }
+
+    public com.facebook.cache.disk.h drW() {
+        if (this.mcE == null) {
+            this.mcE = this.mcz.dri().a(this.mcz.drq());
+        }
+        return this.mcE;
+    }
+
+    public g dnO() {
+        if (this.lTp == null) {
+            this.lTp = new g(dsa(), this.mcz.drv(), this.mcz.drp(), drS(), drU(), drV(), dsc(), this.mcz.dre(), this.mbJ, com.facebook.common.internal.k.aL(false), this.mcz.drz().drN());
+        }
+        return this.lTp;
+    }
+
+    public static com.facebook.imagepipeline.b.f a(q qVar, com.facebook.imagepipeline.i.e eVar) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return new com.facebook.imagepipeline.b.a(qVar.dtG());
+        }
+        if (Build.VERSION.SDK_INT >= 11) {
+            return new com.facebook.imagepipeline.b.e(new com.facebook.imagepipeline.b.b(qVar.dtK()), eVar);
+        }
+        return new com.facebook.imagepipeline.b.c();
+    }
+
+    public com.facebook.imagepipeline.b.f drX() {
+        if (this.lXK == null) {
+            this.lXK = a(this.mcz.drt(), drY());
+        }
+        return this.lXK;
+    }
+
+    public static com.facebook.imagepipeline.i.e a(q qVar, boolean z) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            int dtI = qVar.dtI();
+            return new com.facebook.imagepipeline.i.a(qVar.dtG(), dtI, new Pools.SynchronizedPool(dtI));
+        } else if (z && Build.VERSION.SDK_INT < 19) {
+            return new com.facebook.imagepipeline.i.c();
+        } else {
+            return new com.facebook.imagepipeline.i.d(qVar.dtH());
+        }
+    }
+
+    public com.facebook.imagepipeline.i.e drY() {
+        if (this.mcH == null) {
+            this.mcH = a(this.mcz.drt(), this.mcz.drz().drD());
+        }
+        return this.mcH;
+    }
+
+    private l drZ() {
+        if (this.mcF == null) {
+            this.mcF = this.mcz.drz().drL().a(this.mcz.getContext(), this.mcz.drt().dtM(), dro(), this.mcz.dru(), this.mcz.drj(), this.mcz.drw(), this.mcz.drz().drE(), this.mcz.drm(), this.mcz.drt().dtK(), drS(), drU(), drV(), dsc(), this.mcz.dre(), drX(), this.mcz.drz().drI(), this.mcz.drz().drJ(), this.mcz.drz().drM());
+        }
+        return this.mcF;
+    }
+
+    private m dsa() {
+        boolean z = Build.VERSION.SDK_INT >= 24 && this.mcz.drz().drH();
+        if (this.mbB == null) {
+            this.mbB = new m(this.mcz.getContext().getApplicationContext().getContentResolver(), drZ(), this.mcz.drs(), this.mcz.drw(), this.mcz.drz().drD(), this.mbJ, this.mcz.drz().drC(), z, this.mcz.drz().drK(), this.mcz.drk());
+        }
+        return this.mbB;
+    }
+
+    public com.facebook.cache.disk.h dsb() {
+        if (this.mcG == null) {
+            this.mcG = this.mcz.dri().a(this.mcz.drx());
+        }
+        return this.mcG;
+    }
+
+    private com.facebook.imagepipeline.c.e dsc() {
+        if (this.mbH == null) {
+            this.mbH = new com.facebook.imagepipeline.c.e(dsb(), this.mcz.drt().dtK(), this.mcz.drt().dtL(), this.mcz.drm().dqX(), this.mcz.drm().dqY(), this.mcz.drn());
+        }
+        return this.mbH;
     }
 }

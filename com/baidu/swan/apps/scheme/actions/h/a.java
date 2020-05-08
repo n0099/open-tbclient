@@ -20,18 +20,18 @@ public class a extends ab {
         if (DEBUG) {
             Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        com.baidu.swan.apps.core.d.e Ou = f.aeK().Ou();
-        if (Ou == null) {
+        com.baidu.swan.apps.core.d.e Ot = f.aeJ().Ot();
+        if (Ot == null) {
             com.baidu.swan.apps.console.c.e("navigationLoading", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b We = Ou.We();
-        if (We == null) {
+        com.baidu.swan.apps.core.d.b Wd = Ot.Wd();
+        if (Wd == null) {
             com.baidu.swan.apps.console.c.e("navigationLoading", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!We.VE()) {
+        } else if (!Wd.VD()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("navigationLoading", "hide navigation loading progressbar fail");
             return false;

@@ -42,21 +42,21 @@ public class d extends com.baidu.swan.apps.api.a.c {
             com.baidu.swan.apps.console.c.e("Api-ReLaunch", "url is null");
             return new com.baidu.swan.apps.api.b.b(202, "url is null");
         }
-        final f aeK = f.aeK();
-        final e Ou = aeK.Ou();
-        if (Ou == null) {
+        final f aeJ = f.aeJ();
+        final e Ot = aeJ.Ot();
+        if (Ot == null) {
             com.baidu.swan.apps.console.c.e("Api-ReLaunch", "manager is null");
             return new com.baidu.swan.apps.api.b.b(1001, "manager is null");
         }
-        final com.baidu.swan.apps.model.b bg = com.baidu.swan.apps.model.b.bg(aX, aeK.aes());
-        if (!ai.a(aeK.aeq(), bg, true)) {
+        final com.baidu.swan.apps.model.b bg = com.baidu.swan.apps.model.b.bg(aX, aeJ.aer());
+        if (!ai.a(aeJ.aep(), bg, true)) {
             String str2 = "page params error : pageParam=" + bg.mPage;
             com.baidu.swan.apps.console.c.e("Api-ReLaunch", str2);
             return new com.baidu.swan.apps.api.b.b(202, str2);
         }
         String optString = jSONObject.optString("initData");
-        if (!TextUtils.isEmpty(optString) && bg != null && !TextUtils.isEmpty(bg.mPage) && com.baidu.swan.apps.runtime.e.akN() != null) {
-            com.baidu.swan.apps.runtime.e.akN().bp(optString, bg.mPage);
+        if (!TextUtils.isEmpty(optString) && bg != null && !TextUtils.isEmpty(bg.mPage) && com.baidu.swan.apps.runtime.e.akM() != null) {
+            com.baidu.swan.apps.runtime.e.akM().bp(optString, bg.mPage);
         }
         String optString2 = jSONObject.optString("startTime");
         if (!TextUtils.isEmpty(optString2)) {
@@ -70,35 +70,35 @@ public class d extends com.baidu.swan.apps.api.a.c {
         ai.o(new Runnable() { // from class: com.baidu.swan.apps.api.module.h.d.1
             @Override // java.lang.Runnable
             public void run() {
-                final b.a G = com.baidu.swan.apps.core.slave.b.G(aeK.aev());
-                final String QG = G.bQe.QG();
+                final b.a G = com.baidu.swan.apps.core.slave.b.G(aeJ.aeu());
+                final String QF = G.bQj.QF();
                 if (com.baidu.swan.apps.api.a.c.DEBUG) {
-                    Log.d("Api-ReLaunch", "webview idx: " + QG);
+                    Log.d("Api-ReLaunch", "webview idx: " + QF);
                 }
-                final com.baidu.swan.apps.runtime.e akN = com.baidu.swan.apps.runtime.e.akN();
-                if (akN == null) {
+                final com.baidu.swan.apps.runtime.e akM = com.baidu.swan.apps.runtime.e.akM();
+                if (akM == null) {
                     if (!com.baidu.swan.apps.api.a.c.DEBUG) {
                         d.this.a(optString3, new com.baidu.swan.apps.api.b.b(1001, "swan app is null"));
                         return;
                     }
                     throw new RuntimeException("swan app is null");
                 }
-                aeK.showLoadingView();
-                com.baidu.swan.apps.scheme.actions.k.g.a(akN, bg.mPage, QG, new g.a() { // from class: com.baidu.swan.apps.api.module.h.d.1.1
+                aeJ.showLoadingView();
+                com.baidu.swan.apps.scheme.actions.k.g.a(akM, bg.mPage, QF, new g.a() { // from class: com.baidu.swan.apps.api.module.h.d.1.1
                     @Override // com.baidu.swan.apps.scheme.actions.k.g.a
                     public void gt(String str3) {
                         com.baidu.swan.apps.performance.g.lm(uuid);
                         com.baidu.swan.apps.console.c.i("Api-ReLaunch", "check pages success");
-                        aeK.Ox();
-                        com.baidu.swan.apps.scheme.actions.k.a.a(d.this, akN, QG, bg.mPage, optString3);
-                        com.baidu.swan.apps.statistic.c.mS(QG);
-                        d.this.b(G, bg, Ou, uuid);
+                        aeJ.Ow();
+                        com.baidu.swan.apps.scheme.actions.k.a.a(d.this, akM, QF, bg.mPage, optString3);
+                        com.baidu.swan.apps.statistic.c.mS(QF);
+                        d.this.b(G, bg, Ot, uuid);
                     }
 
                     @Override // com.baidu.swan.apps.scheme.actions.k.g.a
                     public void ed(int i) {
                         com.baidu.swan.apps.console.c.e("Api-ReLaunch", "check pages failed");
-                        aeK.Ox();
+                        aeJ.Ow();
                         if (com.baidu.swan.apps.api.a.c.DEBUG) {
                             Context context = d.this.getContext();
                             com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).showToast();
@@ -118,14 +118,14 @@ public class d extends com.baidu.swan.apps.api.a.c {
         if (DEBUG) {
             Log.d("Api-ReLaunch", "tryToExecutePageRoute start. isReady : " + z);
         }
-        com.baidu.swan.apps.core.slave.b.a(aVar, new b.InterfaceC0285b() { // from class: com.baidu.swan.apps.api.module.h.d.2
-            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0285b
+        com.baidu.swan.apps.core.slave.b.a(aVar, new b.InterfaceC0306b() { // from class: com.baidu.swan.apps.api.module.h.d.2
+            @Override // com.baidu.swan.apps.core.slave.b.InterfaceC0306b
             public void onReady() {
                 if (com.baidu.swan.apps.api.a.c.DEBUG) {
                     Log.d("Api-ReLaunch", "tryToExecutePageRoute onReady start.");
                 }
                 com.baidu.swan.apps.performance.g.a(aVar, str);
-                com.baidu.swan.apps.scheme.actions.k.a.a(aVar.bQe, bVar, str);
+                com.baidu.swan.apps.scheme.actions.k.a.a(aVar.bQj, bVar, str);
                 d.a(eVar, bVar, str);
                 if (com.baidu.swan.apps.api.a.c.DEBUG) {
                     Log.d("Api-ReLaunch", "tryToExecutePageRoute onReady end.");
@@ -139,7 +139,7 @@ public class d extends com.baidu.swan.apps.api.a.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(e eVar, com.baidu.swan.apps.model.b bVar, String str) {
-        eVar.io("reLaunch").ab(0, 0).Wo().a("normal", bVar).Wq();
+        eVar.io("reLaunch").ab(0, 0).Wn().a("normal", bVar).Wp();
         com.baidu.swan.apps.performance.f.bh("route", str).f(new UbcFlowEvent("na_push_page_end"));
         com.baidu.swan.apps.performance.g.R(3, str);
         com.baidu.swan.apps.performance.g.lo(str);

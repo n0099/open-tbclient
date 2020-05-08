@@ -17,7 +17,7 @@ public final class s implements IPushActionListener {
             this.a.l = "";
             aVar2 = this.a.k;
             aVar2.a("APP_TOKEN", "");
-            this.a.u();
+            this.a.t();
             this.a.k.c("APP_TAGS");
             return;
         }

@@ -12,8 +12,8 @@ final class d extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public final void onCreate(SQLiteDatabase sQLiteDatabase) {
-        for (int i = 0; i < e.lOh.length; i++) {
-            sQLiteDatabase.execSQL(e.lOh[i]);
+        for (int i = 0; i < e.lOl.length; i++) {
+            sQLiteDatabase.execSQL(e.lOl[i]);
         }
     }
 

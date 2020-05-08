@@ -95,7 +95,7 @@ public class ActionJsonData {
         actionJsonData.setSignIn(jSONObject.optInt(TAG_SIGN_IN));
         try {
             JSONObject jSONObject2 = new JSONObject(jSONObject.optString("link"));
-            if (jSONObject2 != null && (optString = jSONObject2.optString("notification")) != null) {
+            if (jSONObject2 != null && (optString = jSONObject2.optString(TAG_NOTIFICATION)) != null) {
                 JSONObject jSONObject3 = new JSONObject(optString);
                 Notification notification = new Notification();
                 notification.mText = jSONObject3.optString("text");

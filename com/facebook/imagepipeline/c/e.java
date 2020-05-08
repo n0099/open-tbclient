@@ -10,30 +10,30 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes12.dex */
 public class e {
-    private static final Class<?> lQm = e.class;
-    private final com.facebook.common.memory.g lZS;
-    private final com.facebook.cache.disk.h mai;
-    private final com.facebook.common.memory.j maj;
-    private final Executor mak;
-    private final Executor mal;
-    private final u mam = u.dqG();
-    private final n man;
+    private static final Class<?> lQq = e.class;
+    private final com.facebook.common.memory.g lZW;
+    private final com.facebook.cache.disk.h mam;
+    private final com.facebook.common.memory.j man;
+    private final Executor mao;
+    private final Executor maq;
+    private final u mar = u.dqD();
+    private final n mas;
 
     public e(com.facebook.cache.disk.h hVar, com.facebook.common.memory.g gVar, com.facebook.common.memory.j jVar, Executor executor, Executor executor2, n nVar) {
-        this.mai = hVar;
-        this.lZS = gVar;
-        this.maj = jVar;
-        this.mak = executor;
-        this.mal = executor2;
-        this.man = nVar;
+        this.mam = hVar;
+        this.lZW = gVar;
+        this.man = jVar;
+        this.mao = executor;
+        this.maq = executor2;
+        this.mas = nVar;
     }
 
     public boolean j(com.facebook.cache.common.b bVar) {
-        return this.mam.u(bVar) || this.mai.f(bVar);
+        return this.mar.u(bVar) || this.mam.f(bVar);
     }
 
     public bolts.g<Boolean> k(com.facebook.cache.common.b bVar) {
-        return j(bVar) ? bolts.g.j(true) : l(bVar);
+        return j(bVar) ? bolts.g.k(true) : l(bVar);
     }
 
     private bolts.g<Boolean> l(final com.facebook.cache.common.b bVar) {
@@ -45,31 +45,31 @@ public class e {
                 public Boolean call() throws Exception {
                     return Boolean.valueOf(e.this.m(bVar));
                 }
-            }, this.mak);
+            }, this.mao);
         } catch (Exception e) {
-            com.facebook.common.c.a.a(lQm, e, "Failed to schedule disk-cache read for %s", bVar.dmk());
-            return bolts.g.e(e);
+            com.facebook.common.c.a.a(lQq, e, "Failed to schedule disk-cache read for %s", bVar.dmh());
+            return bolts.g.f(e);
         }
     }
 
     public bolts.g<com.facebook.imagepipeline.g.e> a(com.facebook.cache.common.b bVar, AtomicBoolean atomicBoolean) {
-        com.facebook.imagepipeline.g.e t = this.mam.t(bVar);
+        com.facebook.imagepipeline.g.e t = this.mar.t(bVar);
         return t != null ? b(bVar, t) : b(bVar, atomicBoolean);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean m(com.facebook.cache.common.b bVar) {
-        com.facebook.imagepipeline.g.e t = this.mam.t(bVar);
+        com.facebook.imagepipeline.g.e t = this.mar.t(bVar);
         if (t != null) {
             t.close();
-            com.facebook.common.c.a.a(lQm, "Found image for %s in staging area", bVar.dmk());
-            this.man.r(bVar);
+            com.facebook.common.c.a.a(lQq, "Found image for %s in staging area", bVar.dmh());
+            this.mas.r(bVar);
             return true;
         }
-        com.facebook.common.c.a.a(lQm, "Did not find image for %s in staging area", bVar.dmk());
-        this.man.dqB();
+        com.facebook.common.c.a.a(lQq, "Did not find image for %s in staging area", bVar.dmh());
+        this.mas.dqy();
         try {
-            return this.mai.g(bVar);
+            return this.mam.g(bVar);
         } catch (Exception e) {
             return false;
         }
@@ -80,16 +80,16 @@ public class e {
             return bolts.g.a(new Callable<com.facebook.imagepipeline.g.e>() { // from class: com.facebook.imagepipeline.c.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
-                /* renamed from: dqo */
+                /* renamed from: dql */
                 public com.facebook.imagepipeline.g.e call() throws Exception {
                     if (!atomicBoolean.get()) {
-                        com.facebook.imagepipeline.g.e t = e.this.mam.t(bVar);
+                        com.facebook.imagepipeline.g.e t = e.this.mar.t(bVar);
                         if (t != null) {
-                            com.facebook.common.c.a.a(e.lQm, "Found image for %s in staging area", bVar.dmk());
-                            e.this.man.r(bVar);
+                            com.facebook.common.c.a.a(e.lQq, "Found image for %s in staging area", bVar.dmh());
+                            e.this.mas.r(bVar);
                         } else {
-                            com.facebook.common.c.a.a(e.lQm, "Did not find image for %s in staging area", bVar.dmk());
-                            e.this.man.dqB();
+                            com.facebook.common.c.a.a(e.lQq, "Did not find image for %s in staging area", bVar.dmh());
+                            e.this.mas.dqy();
                             try {
                                 com.facebook.common.references.a c = com.facebook.common.references.a.c(e.this.o(bVar));
                                 t = new com.facebook.imagepipeline.g.e(c);
@@ -99,7 +99,7 @@ public class e {
                             }
                         }
                         if (Thread.interrupted()) {
-                            com.facebook.common.c.a.e(e.lQm, "Host thread was interrupted, decreasing reference count");
+                            com.facebook.common.c.a.e(e.lQq, "Host thread was interrupted, decreasing reference count");
                             if (t != null) {
                                 t.close();
                             }
@@ -109,99 +109,99 @@ public class e {
                     }
                     throw new CancellationException();
                 }
-            }, this.mak);
+            }, this.mao);
         } catch (Exception e) {
-            com.facebook.common.c.a.a(lQm, e, "Failed to schedule disk-cache read for %s", bVar.dmk());
-            return bolts.g.e(e);
+            com.facebook.common.c.a.a(lQq, e, "Failed to schedule disk-cache read for %s", bVar.dmh());
+            return bolts.g.f(e);
         }
     }
 
     public void a(final com.facebook.cache.common.b bVar, com.facebook.imagepipeline.g.e eVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
         com.facebook.common.internal.g.checkArgument(com.facebook.imagepipeline.g.e.f(eVar));
-        this.mam.a(bVar, eVar);
+        this.mar.a(bVar, eVar);
         final com.facebook.imagepipeline.g.e b = com.facebook.imagepipeline.g.e.b(eVar);
         try {
-            this.mal.execute(new Runnable() { // from class: com.facebook.imagepipeline.c.e.3
+            this.maq.execute(new Runnable() { // from class: com.facebook.imagepipeline.c.e.3
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
                         e.this.c(bVar, b);
                     } finally {
-                        e.this.mam.d(bVar, b);
+                        e.this.mar.d(bVar, b);
                         com.facebook.imagepipeline.g.e.e(b);
                     }
                 }
             });
         } catch (Exception e) {
-            com.facebook.common.c.a.a(lQm, e, "Failed to schedule disk-cache write for %s", bVar.dmk());
-            this.mam.d(bVar, eVar);
+            com.facebook.common.c.a.a(lQq, e, "Failed to schedule disk-cache write for %s", bVar.dmh());
+            this.mar.d(bVar, eVar);
             com.facebook.imagepipeline.g.e.e(b);
         }
     }
 
     public bolts.g<Void> n(final com.facebook.cache.common.b bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        this.mam.s(bVar);
+        this.mar.s(bVar);
         try {
             return bolts.g.a(new Callable<Void>() { // from class: com.facebook.imagepipeline.c.e.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // java.util.concurrent.Callable
                 public Void call() throws Exception {
-                    e.this.mam.s(bVar);
-                    e.this.mai.e(bVar);
+                    e.this.mar.s(bVar);
+                    e.this.mam.e(bVar);
                     return null;
                 }
-            }, this.mal);
+            }, this.maq);
         } catch (Exception e) {
-            com.facebook.common.c.a.a(lQm, e, "Failed to schedule disk-cache remove for %s", bVar.dmk());
-            return bolts.g.e(e);
+            com.facebook.common.c.a.a(lQq, e, "Failed to schedule disk-cache remove for %s", bVar.dmh());
+            return bolts.g.f(e);
         }
     }
 
     private bolts.g<com.facebook.imagepipeline.g.e> b(com.facebook.cache.common.b bVar, com.facebook.imagepipeline.g.e eVar) {
-        com.facebook.common.c.a.a(lQm, "Found image for %s in staging area", bVar.dmk());
-        this.man.r(bVar);
-        return bolts.g.j(eVar);
+        com.facebook.common.c.a.a(lQq, "Found image for %s in staging area", bVar.dmh());
+        this.mas.r(bVar);
+        return bolts.g.k(eVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public PooledByteBuffer o(com.facebook.cache.common.b bVar) throws IOException {
         try {
-            com.facebook.common.c.a.a(lQm, "Disk cache read for %s", bVar.dmk());
-            com.facebook.a.a d = this.mai.d(bVar);
+            com.facebook.common.c.a.a(lQq, "Disk cache read for %s", bVar.dmh());
+            com.facebook.a.a d = this.mam.d(bVar);
             if (d == null) {
-                com.facebook.common.c.a.a(lQm, "Disk cache miss for %s", bVar.dmk());
-                this.man.dqD();
+                com.facebook.common.c.a.a(lQq, "Disk cache miss for %s", bVar.dmh());
+                this.mas.dqA();
                 return null;
             }
-            com.facebook.common.c.a.a(lQm, "Found entry in disk cache for %s", bVar.dmk());
-            this.man.dqC();
-            InputStream dmj = d.dmj();
-            PooledByteBuffer c = this.lZS.c(dmj, (int) d.size());
-            dmj.close();
-            com.facebook.common.c.a.a(lQm, "Successful read from disk cache for %s", bVar.dmk());
+            com.facebook.common.c.a.a(lQq, "Found entry in disk cache for %s", bVar.dmh());
+            this.mas.dqz();
+            InputStream dmg = d.dmg();
+            PooledByteBuffer c = this.lZW.c(dmg, (int) d.size());
+            dmg.close();
+            com.facebook.common.c.a.a(lQq, "Successful read from disk cache for %s", bVar.dmh());
             return c;
         } catch (IOException e) {
-            com.facebook.common.c.a.a(lQm, e, "Exception reading from cache for %s", bVar.dmk());
-            this.man.dqE();
+            com.facebook.common.c.a.a(lQq, e, "Exception reading from cache for %s", bVar.dmh());
+            this.mas.dqB();
             throw e;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.facebook.cache.common.b bVar, final com.facebook.imagepipeline.g.e eVar) {
-        com.facebook.common.c.a.a(lQm, "About to write to disk-cache for key %s", bVar.dmk());
+        com.facebook.common.c.a.a(lQq, "About to write to disk-cache for key %s", bVar.dmh());
         try {
-            this.mai.a(bVar, new com.facebook.cache.common.h() { // from class: com.facebook.imagepipeline.c.e.5
+            this.mam.a(bVar, new com.facebook.cache.common.h() { // from class: com.facebook.imagepipeline.c.e.5
                 @Override // com.facebook.cache.common.h
                 public void write(OutputStream outputStream) throws IOException {
-                    e.this.maj.e(eVar.getInputStream(), outputStream);
+                    e.this.man.e(eVar.getInputStream(), outputStream);
                 }
             });
-            com.facebook.common.c.a.a(lQm, "Successful disk-cache write for key %s", bVar.dmk());
+            com.facebook.common.c.a.a(lQq, "Successful disk-cache write for key %s", bVar.dmh());
         } catch (IOException e) {
-            com.facebook.common.c.a.a(lQm, e, "Failed to write to disk-cache for key %s", bVar.dmk());
+            com.facebook.common.c.a.a(lQq, e, "Failed to write to disk-cache for key %s", bVar.dmh());
         }
     }
 }

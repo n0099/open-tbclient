@@ -1,16 +1,14 @@
 package com.baidu.sapi2.utils;
 /* loaded from: classes6.dex */
-class i implements Runnable {
-    final /* synthetic */ j a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(j jVar) {
-        this.a = jVar;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        this.a.b.setVisibility(4);
-        this.a.a.reload();
-    }
+public interface i {
+    public static final int a = 10001;
+    public static final int b = 10002;
+    public static final int c = 10003;
+    public static final int d = 10004;
+    public static final int e = 10005;
+    public static final int f = 10006;
+    public static final int g = 11001;
+    public static final int h = 11002;
+    public static final int i = 11003;
+    public static final int j = 12001;
 }

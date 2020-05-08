@@ -28,7 +28,7 @@ public class c extends a<MessageV3> {
         super(context, aVar);
     }
 
-    private String i(MessageV3 messageV3) {
+    private String k(MessageV3 messageV3) {
         String selfDefineContentString = MzPushMessage.fromMessageV3(messageV3).getSelfDefineContentString();
         if (TextUtils.isEmpty(selfDefineContentString)) {
             return null;
@@ -53,7 +53,7 @@ public class c extends a<MessageV3> {
     public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
         if (cVar != null) {
             cVar.e(messageV3);
-            b(messageV3);
+            c(messageV3);
         }
     }
 
@@ -81,27 +81,35 @@ public class c extends a<MessageV3> {
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: c */
+    /* renamed from: d */
     public void b(MessageV3 messageV3) {
-        com.meizu.cloud.pushsdk.util.c.c(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        com.meizu.cloud.pushsdk.util.d.c(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: d */
+    /* renamed from: e */
     public void c(MessageV3 messageV3) {
-        com.meizu.cloud.pushsdk.util.c.a(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+        com.meizu.cloud.pushsdk.util.d.a(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: e  reason: avoid collision after fix types in other method */
+    /* renamed from: f  reason: avoid collision after fix types in other method */
+    public boolean g(MessageV3 messageV3) {
+        return a(messageV3);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.meizu.cloud.pushsdk.handler.a.a
+    /* renamed from: g  reason: avoid collision after fix types in other method */
     public com.meizu.cloud.pushsdk.notification.c a(MessageV3 messageV3) {
-        PushNotificationBuilder pushNotificationBuilder = new PushNotificationBuilder();
-        pushNotificationBuilder.setClickPackageName(i(messageV3));
+        PushNotificationBuilder pushNotificationBuilder = new PushNotificationBuilder(c());
+        pushNotificationBuilder.setClickPackageName(k(messageV3));
         b().a(pushNotificationBuilder);
         com.meizu.cloud.pushsdk.notification.c cVar = null;
         if (messageV3.getmNotificationStyle() != null) {
@@ -151,6 +159,7 @@ public class c extends a<MessageV3> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
+    /* renamed from: h */
     public boolean f(MessageV3 messageV3) {
         String uriPackageName = messageV3.getUriPackageName();
         if (TextUtils.isEmpty(uriPackageName)) {
@@ -162,19 +171,19 @@ public class c extends a<MessageV3> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: g */
+    /* renamed from: i */
     public int d(MessageV3 messageV3) {
         if (messageV3.getmTimeDisplaySetting() == null || !messageV3.getmTimeDisplaySetting().isTimeDisplay()) {
             return 0;
         }
         if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getEndShowTime()).longValue()) {
-            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification expire", (int) PushConstants.EXPIRE_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.d.a(c(), "schedule notification expire", (int) PushConstants.EXPIRE_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
             return 1;
         } else if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getStartShowTime()).longValue()) {
-            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification on time", (int) PushConstants.ONTIME_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.d.a(c(), "schedule notification on time", (int) PushConstants.ONTIME_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
             return 2;
         } else {
-            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification delay", (int) PushConstants.DELAY_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.d.a(c(), "schedule notification delay", (int) PushConstants.DELAY_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
             return 3;
         }
     }
@@ -182,7 +191,15 @@ public class c extends a<MessageV3> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: h */
+    /* renamed from: j */
+    public MessageV3 c(Intent intent) {
+        return MessageV3.parse(c().getPackageName(), g(intent), h(intent), d(intent), e(intent), f(intent), PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_SHOW_V3.equals(i(intent)) ? intent.getStringExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE) : intent.getStringExtra("message"));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.meizu.cloud.pushsdk.handler.a.a
+    /* renamed from: j */
     public void e(MessageV3 messageV3) {
         Context c = c();
         c();
@@ -206,13 +223,5 @@ public class c extends a<MessageV3> {
         }
         com.meizu.cloud.a.a.i("AbstractMessageHandler", "setAlarmManager setWindow ELAPSED_REALTIME_WAKEUP");
         alarmManager.setExact(2, longValue + SystemClock.elapsedRealtime(), service);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public MessageV3 c(Intent intent) {
-        return MessageV3.parse(c().getPackageName(), g(intent), h(intent), d(intent), e(intent), f(intent), PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_SHOW_V3.equals(i(intent)) ? intent.getStringExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE) : intent.getStringExtra("message"));
     }
 }

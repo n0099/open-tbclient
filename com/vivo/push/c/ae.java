@@ -1,15 +1,30 @@
 package com.vivo.push.c;
+
+import android.content.Context;
+import com.vivo.push.sdk.PushMessageCallback;
+import java.util.List;
 /* loaded from: classes8.dex */
-final class ae extends aa {
+final class ae implements Runnable {
+    final /* synthetic */ int a;
+    final /* synthetic */ List b;
+    final /* synthetic */ List c;
+    final /* synthetic */ String d;
+    final /* synthetic */ ac e;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(com.vivo.push.y yVar) {
-        super(yVar);
+    public ae(ac acVar, int i, List list, List list2, String str) {
+        this.e = acVar;
+        this.a = i;
+        this.b = list;
+        this.c = list2;
+        this.d = str;
     }
 
-    @Override // com.vivo.push.v
-    protected final void a(com.vivo.push.y yVar) {
-        com.vivo.push.b.j jVar = (com.vivo.push.b.j) yVar;
-        com.vivo.push.p.a().a(jVar.g(), jVar.h(), new Object[0]);
-        com.vivo.push.w.b(new af(this, jVar));
+    @Override // java.lang.Runnable
+    public final void run() {
+        Context context;
+        PushMessageCallback pushMessageCallback = this.e.b;
+        context = this.e.a;
+        pushMessageCallback.onSetAlias(context, this.a, this.b, this.c, this.d);
     }
 }

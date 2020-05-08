@@ -9,10 +9,10 @@ public class ag extends SharedPrefsWrapper {
 
     /* loaded from: classes13.dex */
     private static final class a {
-        private static final ag lNV = new ag();
+        private static final ag lNZ = new ag();
     }
 
-    public static ag dkR() {
-        return a.lNV;
+    public static ag dkO() {
+        return a.lNZ;
     }
 }

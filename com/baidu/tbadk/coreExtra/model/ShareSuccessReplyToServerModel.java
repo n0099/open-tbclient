@@ -14,7 +14,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
-    private HttpMessageListener dPr = new HttpMessageListener(1003383) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
+    private HttpMessageListener dPw = new HttpMessageListener(1003383) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -23,7 +23,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData() != null) {
                     aVar.a(((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData());
                 } else {
-                    aVar.aUm();
+                    aVar.aUk();
                 }
             }
         }
@@ -33,15 +33,15 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public interface a {
         void a(CustomDialogData customDialogData);
 
-        void aUm();
+        void aUk();
     }
 
     public ShareSuccessReplyToServerModel() {
         setUniqueId(BdUniqueId.gen());
-        xC();
-        this.dPr.setTag(getUniqueId());
-        this.dPr.setSelfListener(true);
-        registerListener(this.dPr);
+        xB();
+        this.dPw.setTag(getUniqueId());
+        this.dPw.setSelfListener(true);
+        registerListener(this.dPw);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -77,7 +77,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         }
     }
 
-    private void xC() {
+    private void xB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003383, TbConfig.SERVER_ADDRESS + TbConfig.URL_SHARE_SUCCESS_TO_REPLY_SERVER);
         tbHttpMessageTask.setResponsedClass(ShareSuccessReplySeverResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -109,7 +109,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.dPr);
+        MessageManager.getInstance().unRegisterListener(this.dPw);
         return false;
     }
 }

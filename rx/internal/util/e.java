@@ -2,7 +2,7 @@ package rx.internal.util;
 /* loaded from: classes6.dex */
 public final class e<T> {
     final float loadFactor;
-    T[] mVD;
+    T[] mVG;
     int mask;
     int maxSize;
     int size;
@@ -16,12 +16,12 @@ public final class e<T> {
         int Ja = rx.internal.util.a.h.Ja(i);
         this.mask = Ja - 1;
         this.maxSize = (int) (Ja * f);
-        this.mVD = (T[]) new Object[Ja];
+        this.mVG = (T[]) new Object[Ja];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.mVD;
+        T[] tArr = this.mVG;
         int i = this.mask;
         int IZ = IZ(t.hashCode()) & i;
         T t3 = tArr[IZ];
@@ -48,7 +48,7 @@ public final class e<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.mVD;
+        T[] tArr = this.mVG;
         int i = this.mask;
         int IZ = IZ(t.hashCode()) & i;
         T t3 = tArr[IZ];
@@ -98,11 +98,11 @@ public final class e<T> {
 
     public void terminate() {
         this.size = 0;
-        this.mVD = (T[]) new Object[0];
+        this.mVG = (T[]) new Object[0];
     }
 
     void rehash() {
-        T[] tArr = this.mVD;
+        T[] tArr = this.mVG;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -126,7 +126,7 @@ public final class e<T> {
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.mVD = tArr2;
+                this.mVG = tArr2;
                 return;
             }
         }
@@ -141,7 +141,7 @@ public final class e<T> {
         return this.size == 0;
     }
 
-    public T[] dIe() {
-        return this.mVD;
+    public T[] dIa() {
+        return this.mVG;
     }
 }

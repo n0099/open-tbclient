@@ -26,180 +26,180 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements View.OnClickListener {
     private Activity activity;
-    private int awP;
-    private int awQ;
-    private int awS;
-    private int cCF;
-    private RelativeLayout fdA;
-    private RelativeLayout fdB;
-    private LinearLayout fdC;
-    private LinearLayout fdD;
-    private ScrollView fdE;
-    private View fdF;
-    private long fdH;
-    private int fdI;
-    private int fdJ;
-    private List<bf.a> fdK;
-    private String fdN;
-    private String fdO;
-    private boolean fdR;
-    private boolean fdS;
-    private int fdT;
-    private int fdU;
-    private a fdV;
-    private int fdW;
-    private int fdX;
-    private float fdY;
-    private boolean fdZ;
-    private View fdi;
-    private View fdj;
-    private TextView fdk;
-    private EditText fdl;
-    private EditText fdm;
-    private TextView fdn;
-    private TextView fdo;
-    private LinearLayout fdp;
-    private LinearLayout fdq;
-    private LinearLayout fdr;
+    private int awV;
+    private int awW;
+    private int awY;
+    private int cCL;
+    private ImageView fdA;
+    private TextView fdB;
+    private TextView fdC;
+    private TextView fdD;
+    private TextView fdE;
+    private RelativeLayout fdF;
+    private RelativeLayout fdG;
+    private LinearLayout fdH;
+    private LinearLayout fdI;
+    private ScrollView fdJ;
+    private View fdK;
+    private long fdM;
+    private int fdN;
+    private int fdO;
+    private List<bf.a> fdP;
+    private String fdS;
+    private String fdT;
+    private boolean fdW;
+    private boolean fdX;
+    private int fdY;
+    private int fdZ;
+    private View fdn;
+    private View fdo;
+    private TextView fdp;
+    private EditText fdq;
+    private EditText fdr;
     private TextView fds;
     private TextView fdt;
-    private ImageView fdu;
-    private ImageView fdv;
-    private TextView fdw;
+    private LinearLayout fdu;
+    private LinearLayout fdv;
+    private LinearLayout fdw;
     private TextView fdx;
     private TextView fdy;
-    private TextView fdz;
+    private ImageView fdz;
+    private a fea;
+    private int feb;
+    private int fec;
+    private float fed;
+    private boolean fee;
     private int screenWidth;
-    private int fdG = 2000;
-    private long fdL = 2000;
-    private long fdM = 10;
-    private boolean fdP = true;
-    private boolean fdQ = true;
+    private int fdL = 2000;
+    private long fdQ = 2000;
+    private long fdR = 10;
+    private boolean fdU = true;
+    private boolean fdV = true;
 
     public b(final Activity activity, a aVar) {
         this.activity = activity;
-        this.fdV = aVar;
+        this.fea = aVar;
         initView();
-        bnB();
-        bnC();
-        this.fdA.setVisibility(4);
-        this.fdA.post(new Runnable() { // from class: com.baidu.tieba.ala.c.b.1
+        bnz();
+        bnA();
+        this.fdF.setVisibility(4);
+        this.fdF.post(new Runnable() { // from class: com.baidu.tieba.ala.c.b.1
             @Override // java.lang.Runnable
             public void run() {
                 b.this.screenWidth = ScreenHelper.getScreenWidth(activity);
-                b.this.cCF = ScreenHelper.getScreenHeight(activity);
-                if (b.this.screenWidth > b.this.cCF) {
+                b.this.cCL = ScreenHelper.getScreenHeight(activity);
+                if (b.this.screenWidth > b.this.cCL) {
                     int i = b.this.screenWidth;
-                    b.this.screenWidth = b.this.cCF;
-                    b.this.cCF = i;
+                    b.this.screenWidth = b.this.cCL;
+                    b.this.cCL = i;
                 }
-                b.this.fdW = b.this.screenWidth;
-                b.this.fdU = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds40);
-                b.this.fdX = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds204);
-                int i2 = b.this.screenWidth - (b.this.fdU * 2);
-                b.this.fdY = (i2 * 1.0f) / b.this.fdA.getHeight();
-                if (b.this.cCF > b.this.fdA.getHeight()) {
-                    b.this.fdT = (b.this.cCF - b.this.fdA.getHeight()) / 2;
+                b.this.feb = b.this.screenWidth;
+                b.this.fdZ = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds40);
+                b.this.fec = activity.getResources().getDimensionPixelOffset(a.e.sdk_ds204);
+                int i2 = b.this.screenWidth - (b.this.fdZ * 2);
+                b.this.fed = (i2 * 1.0f) / b.this.fdF.getHeight();
+                if (b.this.cCL > b.this.fdF.getHeight()) {
+                    b.this.fdY = (b.this.cCL - b.this.fdF.getHeight()) / 2;
                 }
-                b.this.xy();
-                b.this.fdA.setVisibility(0);
+                b.this.xx();
+                b.this.fdF.setVisibility(0);
             }
         });
     }
 
-    private void bnB() {
+    private void bnz() {
         bf.a aVar;
         bf.a aVar2;
-        if (com.baidu.live.v.a.Eo() != null && com.baidu.live.v.a.Eo().aRw != null && com.baidu.live.v.a.Eo().aRw.avu != null && com.baidu.live.v.a.Eo().aRw.avu.aws != null) {
-            bf bfVar = com.baidu.live.v.a.Eo().aRw.avu.aws;
-            this.fdH = bfVar.awN;
-            this.awP = bfVar.awP;
-            this.awQ = bfVar.awQ;
-            this.fdI = bfVar.awR;
-            this.fdJ = bfVar.awO;
-            this.awS = bfVar.awS;
-            this.fdK = bfVar.awT;
+        if (com.baidu.live.v.a.En() != null && com.baidu.live.v.a.En().aRB != null && com.baidu.live.v.a.En().aRB.avA != null && com.baidu.live.v.a.En().aRB.avA.awy != null) {
+            bf bfVar = com.baidu.live.v.a.En().aRB.avA.awy;
+            this.fdM = bfVar.awT;
+            this.awV = bfVar.awV;
+            this.awW = bfVar.awW;
+            this.fdN = bfVar.awX;
+            this.fdO = bfVar.awU;
+            this.awY = bfVar.awY;
+            this.fdP = bfVar.awZ;
         }
-        this.fdk.setText(String.format(this.activity.getString(a.i.red_pkt_broad_condition), Integer.valueOf(this.fdI)));
-        this.fdx.setText(String.format(this.activity.getString(a.i.red_send_between), Integer.valueOf(this.awS)));
-        this.fdy.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule1), Integer.valueOf(this.awS)));
-        this.fdz.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule3), Integer.valueOf(this.fdJ)));
-        if (this.fdK != null && !this.fdK.isEmpty()) {
-            if (this.fdK.size() == 1) {
-                aVar = this.fdK.get(0);
+        this.fdp.setText(String.format(this.activity.getString(a.i.red_pkt_broad_condition), Integer.valueOf(this.fdN)));
+        this.fdC.setText(String.format(this.activity.getString(a.i.red_send_between), Integer.valueOf(this.awY)));
+        this.fdD.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule1), Integer.valueOf(this.awY)));
+        this.fdE.setText(String.format(this.activity.getString(a.i.red_pkt_send_rule3), Integer.valueOf(this.fdO)));
+        if (this.fdP != null && !this.fdP.isEmpty()) {
+            if (this.fdP.size() == 1) {
+                aVar = this.fdP.get(0);
                 aVar2 = null;
             } else {
-                aVar = this.fdK.get(0);
-                aVar2 = this.fdK.get(1);
+                aVar = this.fdP.get(0);
+                aVar2 = this.fdP.get(1);
             }
             if (aVar == null) {
-                this.fdq.setVisibility(8);
+                this.fdv.setVisibility(8);
             } else {
-                this.fds.setText(aVar.awU);
-                this.fdq.setVisibility(0);
-                this.fdN = aVar.awV;
+                this.fdx.setText(aVar.axa);
+                this.fdv.setVisibility(0);
+                this.fdS = aVar.axb;
             }
             if (aVar2 == null) {
-                this.fdr.setVisibility(8);
+                this.fdw.setVisibility(8);
             } else {
-                this.fdt.setText(aVar2.awU);
-                this.fdr.setVisibility(0);
-                this.fdO = aVar2.awV;
+                this.fdy.setText(aVar2.axa);
+                this.fdw.setVisibility(0);
+                this.fdT = aVar2.axb;
             }
-            if (this.fdq.getVisibility() == 0 || this.fdr.getVisibility() == 0) {
-                this.fdp.setVisibility(0);
+            if (this.fdv.getVisibility() == 0 || this.fdw.getVisibility() == 0) {
+                this.fdu.setVisibility(0);
                 return;
             } else {
-                this.fdp.setVisibility(8);
+                this.fdu.setVisibility(8);
                 return;
             }
         }
-        this.fdp.setVisibility(8);
+        this.fdu.setVisibility(8);
     }
 
     private void initView() {
-        this.fdi = LayoutInflater.from(this.activity).inflate(a.h.ala_red_pkt_send_layout, (ViewGroup) null);
-        this.fdj = this.fdi.findViewById(a.g.iv_send_red_q);
-        this.fdk = (TextView) this.fdi.findViewById(a.g.tv_red_broad_hint);
-        this.fdl = (EditText) this.fdi.findViewById(a.g.edt_t_num);
-        this.fdm = (EditText) this.fdi.findViewById(a.g.edt_pkt_num);
-        this.fdn = (TextView) this.fdi.findViewById(a.g.tv_send_t_num_hint);
-        this.fdo = (TextView) this.fdi.findViewById(a.g.tv_send_pkt_num_hint);
-        this.fdp = (LinearLayout) this.fdi.findViewById(a.g.layout_red_pkt_condition);
-        this.fdq = (LinearLayout) this.fdi.findViewById(a.g.layout_condition_first);
-        this.fdr = (LinearLayout) this.fdi.findViewById(a.g.layout_condition_second);
-        this.fdA = (RelativeLayout) this.fdi.findViewById(a.g.layout_send_red_content);
-        this.fdB = (RelativeLayout) this.fdi.findViewById(a.g.layout_send_red);
-        this.fds = (TextView) this.fdi.findViewById(a.g.tv_condition_first);
-        this.fdt = (TextView) this.fdi.findViewById(a.g.tv_condition_second);
-        this.fdu = (ImageView) this.fdi.findViewById(a.g.iv_condition_first);
-        this.fdv = (ImageView) this.fdi.findViewById(a.g.iv_condition_second);
-        this.fdw = (TextView) this.fdi.findViewById(a.g.tv_send_pkt_submit);
-        this.fdy = (TextView) this.fdi.findViewById(a.g.tv_red_send_rule1);
-        this.fdz = (TextView) this.fdi.findViewById(a.g.tv_red_send_rule3);
-        this.fdx = (TextView) this.fdi.findViewById(a.g.tv_send_pkt_time);
-        this.fdC = (LinearLayout) this.fdi.findViewById(a.g.layout_red_send_rule);
-        this.fdD = (LinearLayout) this.fdi.findViewById(a.g.layout_red_send_rule_content);
-        this.fdE = (ScrollView) this.fdi.findViewById(a.g.layout_input_scroll);
-        this.fdF = this.fdi.findViewById(a.g.layout_send_red_close);
-        this.fdi.setOnClickListener(this);
-        this.fdq.setOnClickListener(this);
-        this.fdr.setOnClickListener(this);
+        this.fdn = LayoutInflater.from(this.activity).inflate(a.h.ala_red_pkt_send_layout, (ViewGroup) null);
+        this.fdo = this.fdn.findViewById(a.g.iv_send_red_q);
+        this.fdp = (TextView) this.fdn.findViewById(a.g.tv_red_broad_hint);
+        this.fdq = (EditText) this.fdn.findViewById(a.g.edt_t_num);
+        this.fdr = (EditText) this.fdn.findViewById(a.g.edt_pkt_num);
+        this.fds = (TextView) this.fdn.findViewById(a.g.tv_send_t_num_hint);
+        this.fdt = (TextView) this.fdn.findViewById(a.g.tv_send_pkt_num_hint);
+        this.fdu = (LinearLayout) this.fdn.findViewById(a.g.layout_red_pkt_condition);
+        this.fdv = (LinearLayout) this.fdn.findViewById(a.g.layout_condition_first);
+        this.fdw = (LinearLayout) this.fdn.findViewById(a.g.layout_condition_second);
+        this.fdF = (RelativeLayout) this.fdn.findViewById(a.g.layout_send_red_content);
+        this.fdG = (RelativeLayout) this.fdn.findViewById(a.g.layout_send_red);
+        this.fdx = (TextView) this.fdn.findViewById(a.g.tv_condition_first);
+        this.fdy = (TextView) this.fdn.findViewById(a.g.tv_condition_second);
+        this.fdz = (ImageView) this.fdn.findViewById(a.g.iv_condition_first);
+        this.fdA = (ImageView) this.fdn.findViewById(a.g.iv_condition_second);
+        this.fdB = (TextView) this.fdn.findViewById(a.g.tv_send_pkt_submit);
+        this.fdD = (TextView) this.fdn.findViewById(a.g.tv_red_send_rule1);
+        this.fdE = (TextView) this.fdn.findViewById(a.g.tv_red_send_rule3);
+        this.fdC = (TextView) this.fdn.findViewById(a.g.tv_send_pkt_time);
+        this.fdH = (LinearLayout) this.fdn.findViewById(a.g.layout_red_send_rule);
+        this.fdI = (LinearLayout) this.fdn.findViewById(a.g.layout_red_send_rule_content);
+        this.fdJ = (ScrollView) this.fdn.findViewById(a.g.layout_input_scroll);
+        this.fdK = this.fdn.findViewById(a.g.layout_send_red_close);
+        this.fdn.setOnClickListener(this);
+        this.fdv.setOnClickListener(this);
         this.fdw.setOnClickListener(this);
-        this.fdj.setOnClickListener(this);
-        this.fdC.setOnClickListener(this);
-        this.fdD.setOnClickListener(this);
         this.fdB.setOnClickListener(this);
-        this.fdF.setOnClickListener(this);
-        ((ImageView) this.fdi.findViewById(a.g.img_red_send_top)).setOnClickListener(this);
-        this.fdl.setText(String.valueOf(this.fdL));
-        this.fdm.setText(String.valueOf(this.fdM));
-        this.fdl.setSelection(this.fdl.getText().toString().length());
-        this.fdm.setSelection(this.fdm.getText().toString().length());
+        this.fdo.setOnClickListener(this);
+        this.fdH.setOnClickListener(this);
+        this.fdI.setOnClickListener(this);
+        this.fdG.setOnClickListener(this);
+        this.fdK.setOnClickListener(this);
+        ((ImageView) this.fdn.findViewById(a.g.img_red_send_top)).setOnClickListener(this);
+        this.fdq.setText(String.valueOf(this.fdQ));
+        this.fdr.setText(String.valueOf(this.fdR));
+        this.fdq.setSelection(this.fdq.getText().toString().length());
+        this.fdr.setSelection(this.fdr.getText().toString().length());
     }
 
-    private void bnC() {
-        this.fdl.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.c.b.2
+    private void bnA() {
+        this.fdq.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.c.b.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -210,12 +210,12 @@ public class b implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (!b.this.bnD()) {
+                if (!b.this.bnB()) {
                     b.this.jq(true);
                 }
             }
         });
-        this.fdm.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.c.b.3
+        this.fdr.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.c.b.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -227,79 +227,79 @@ public class b implements View.OnClickListener {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 boolean z = true;
-                String obj = b.this.fdm.getText().toString();
+                String obj = b.this.fdr.getText().toString();
                 if (TextUtils.isEmpty(obj)) {
-                    b.this.fdm.setText("0");
+                    b.this.fdr.setText("0");
                     return;
                 }
                 if ("0".equals(obj)) {
-                    b.this.fdo.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.awP), Integer.valueOf(b.this.awQ)));
-                    b.this.fdo.setVisibility(0);
-                    b.this.fdM = 0L;
-                    b.this.fdQ = false;
+                    b.this.fdt.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.awV), Integer.valueOf(b.this.awW)));
+                    b.this.fdt.setVisibility(0);
+                    b.this.fdR = 0L;
+                    b.this.fdV = false;
                 } else {
                     long parseLong = Long.parseLong(obj);
                     if (obj.startsWith("0")) {
-                        b.this.fdm.setText(String.valueOf(parseLong));
+                        b.this.fdr.setText(String.valueOf(parseLong));
                         return;
                     }
-                    b.this.fdM = parseLong;
-                    if (parseLong >= b.this.awP && parseLong <= b.this.awQ) {
-                        b.this.fdo.setVisibility(8);
-                        b.this.fdQ = true;
+                    b.this.fdR = parseLong;
+                    if (parseLong >= b.this.awV && parseLong <= b.this.awW) {
+                        b.this.fdt.setVisibility(8);
+                        b.this.fdV = true;
                     } else {
-                        b.this.fdo.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.awP), Integer.valueOf(b.this.awQ)));
-                        b.this.fdo.setVisibility(0);
-                        b.this.fdQ = false;
+                        b.this.fdt.setText(String.format(b.this.activity.getString(a.i.red_pkt_num_hint), Integer.valueOf(b.this.awV), Integer.valueOf(b.this.awW)));
+                        b.this.fdt.setVisibility(0);
+                        b.this.fdV = false;
                     }
                 }
-                b.this.fdm.setSelection(b.this.fdm.getText().toString().length());
-                TextView textView = b.this.fdw;
-                if (!b.this.fdP || !b.this.fdQ) {
+                b.this.fdr.setSelection(b.this.fdr.getText().toString().length());
+                TextView textView = b.this.fdB;
+                if (!b.this.fdU || !b.this.fdV) {
                     z = false;
                 }
                 textView.setEnabled(z);
-                b.this.bnD();
+                b.this.bnB();
                 b.this.jq(false);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bnD() {
+    public boolean bnB() {
         boolean z = true;
-        String obj = this.fdl.getText().toString();
+        String obj = this.fdq.getText().toString();
         if (TextUtils.isEmpty(obj)) {
-            this.fdl.setText("0");
+            this.fdq.setText("0");
             return true;
         }
         if ("0".equals(obj)) {
-            this.fdn.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.fdG), Long.valueOf(this.fdH)));
-            this.fdn.setVisibility(0);
-            this.fdL = 0L;
-            this.fdP = false;
+            this.fds.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.fdL), Long.valueOf(this.fdM)));
+            this.fds.setVisibility(0);
+            this.fdQ = 0L;
+            this.fdU = false;
         } else {
             long parseLong = Long.parseLong(obj);
             if (obj.startsWith("0")) {
-                this.fdl.setText(String.valueOf(parseLong));
+                this.fdq.setText(String.valueOf(parseLong));
                 return true;
             }
-            this.fdL = parseLong;
-            if (parseLong < this.fdG || parseLong > this.fdH) {
+            this.fdQ = parseLong;
+            if (parseLong < this.fdL || parseLong > this.fdM) {
                 if (parseLong == 0) {
-                    this.fdl.setText("0");
+                    this.fdq.setText("0");
                 }
-                this.fdn.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.fdG), Long.valueOf(this.fdH)));
-                this.fdn.setVisibility(0);
-                this.fdP = false;
+                this.fds.setText(String.format(this.activity.getString(a.i.red_t_num_hint), Integer.valueOf(this.fdL), Long.valueOf(this.fdM)));
+                this.fds.setVisibility(0);
+                this.fdU = false;
             } else {
-                this.fdn.setVisibility(8);
-                this.fdP = true;
+                this.fds.setVisibility(8);
+                this.fdU = true;
             }
         }
-        this.fdl.setSelection(this.fdl.getText().toString().length());
-        TextView textView = this.fdw;
-        if (!this.fdP || !this.fdQ) {
+        this.fdq.setSelection(this.fdq.getText().toString().length());
+        TextView textView = this.fdB;
+        if (!this.fdU || !this.fdV) {
             z = false;
         }
         textView.setEnabled(z);
@@ -308,12 +308,12 @@ public class b implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void jq(boolean z) {
-        if (this.fdQ && this.fdP && this.fdM != 0 && this.fdL / this.fdM < this.fdJ) {
-            this.fdn.setVisibility(0);
+        if (this.fdV && this.fdU && this.fdR != 0 && this.fdQ / this.fdR < this.fdO) {
+            this.fds.setVisibility(0);
             if (z) {
-                this.fdn.setText(String.format(this.activity.getString(a.i.red_t_num_limit_by_pkt_num), Long.valueOf(this.fdM * 100)));
+                this.fds.setText(String.format(this.activity.getString(a.i.red_t_num_limit_by_pkt_num), Long.valueOf(this.fdR * 100)));
             } else {
-                this.fdn.setText(String.format(this.activity.getString(a.i.red_pkt_num_limit_by_t_num), Long.valueOf(this.fdL / 100)));
+                this.fds.setText(String.format(this.activity.getString(a.i.red_pkt_num_limit_by_t_num), Long.valueOf(this.fdQ / 100)));
             }
         }
     }
@@ -322,124 +322,124 @@ public class b implements View.OnClickListener {
     public void onClick(View view) {
         String str;
         InputMethodManager inputMethodManager;
-        if (this.fdC.getVisibility() == 0) {
-            this.fdC.setVisibility(8);
+        if (this.fdH.getVisibility() == 0) {
+            this.fdH.setVisibility(8);
             return;
         }
-        if (view == this.fdF && !this.fdZ) {
+        if (view == this.fdK && !this.fee) {
             this.activity.finish();
-        } else if (view == this.fdi && !this.fdZ) {
+        } else if (view == this.fdn && !this.fee) {
             if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
                 this.activity.finish();
             }
-        } else if (view == this.fdj) {
-            this.fdC.setVisibility(0);
-        } else if (view == this.fdq) {
-            this.fdR = this.fdR ? false : true;
-            if (this.fdR) {
-                this.fdu.setImageResource(a.f.live_red_condition_choose);
+        } else if (view == this.fdo) {
+            this.fdH.setVisibility(0);
+        } else if (view == this.fdv) {
+            this.fdW = this.fdW ? false : true;
+            if (this.fdW) {
+                this.fdz.setImageResource(a.f.live_red_condition_choose);
             } else {
-                this.fdu.setImageResource(a.f.live_red_condition_choose_false);
-            }
-        } else if (view == this.fdr) {
-            this.fdS = this.fdS ? false : true;
-            if (this.fdS) {
-                this.fdv.setImageResource(a.f.live_red_condition_choose);
-            } else {
-                this.fdv.setImageResource(a.f.live_red_condition_choose_false);
+                this.fdz.setImageResource(a.f.live_red_condition_choose_false);
             }
         } else if (view == this.fdw) {
-            if (this.fdR && this.fdS) {
-                str = this.fdN + Constants.ACCEPT_TIME_SEPARATOR_SP + this.fdO;
-            } else if (this.fdR) {
-                str = this.fdN;
-            } else if (this.fdS) {
-                str = this.fdO;
+            this.fdX = this.fdX ? false : true;
+            if (this.fdX) {
+                this.fdA.setImageResource(a.f.live_red_condition_choose);
+            } else {
+                this.fdA.setImageResource(a.f.live_red_condition_choose_false);
+            }
+        } else if (view == this.fdB) {
+            if (this.fdW && this.fdX) {
+                str = this.fdS + Constants.ACCEPT_TIME_SEPARATOR_SP + this.fdT;
+            } else if (this.fdW) {
+                str = this.fdS;
+            } else if (this.fdX) {
+                str = this.fdT;
             } else {
                 str = "";
             }
             o oVar = new o();
-            oVar.ds(this.fdL);
-            oVar.dt(this.fdM);
-            oVar.zQ(str);
-            if (this.fdV != null) {
-                this.fdV.a(oVar);
+            oVar.ds(this.fdQ);
+            oVar.dt(this.fdR);
+            oVar.zT(str);
+            if (this.fea != null) {
+                this.fea.a(oVar);
             }
         }
-        if (this.fdZ && (inputMethodManager = (InputMethodManager) this.activity.getSystemService("input_method")) != null) {
+        if (this.fee && (inputMethodManager = (InputMethodManager) this.activity.getSystemService("input_method")) != null) {
             inputMethodManager.hideSoftInputFromWindow(this.activity.getCurrentFocus().getWindowToken(), 2);
         }
     }
 
     public void jr(boolean z) {
-        if (this.fdw != null) {
-            this.fdw.setEnabled(z);
+        if (this.fdB != null) {
+            this.fdB.setEnabled(z);
         }
     }
 
     public View getView() {
-        return this.fdi;
+        return this.fdn;
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.fdZ = z;
+        this.fee = z;
         if (!z) {
-            if (this.fdm != null) {
-                this.fdm.clearFocus();
+            if (this.fdr != null) {
+                this.fdr.clearFocus();
             }
-            if (this.fdl != null) {
-                this.fdl.clearFocus();
+            if (this.fdq != null) {
+                this.fdq.clearFocus();
             }
         }
-        if (this.fdA != null && this.fdA.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fdA.getLayoutParams();
+        if (this.fdF != null && this.fdF.getLayoutParams() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fdF.getLayoutParams();
             if (UtilHelper.getRealScreenOrientation(this.activity) == 1) {
                 if (z) {
                     layoutParams.topMargin = 0;
                 } else {
-                    layoutParams.topMargin = this.fdT;
+                    layoutParams.topMargin = this.fdY;
                 }
             } else {
-                layoutParams.topMargin = this.fdU;
+                layoutParams.topMargin = this.fdZ;
             }
-            this.fdA.setLayoutParams(layoutParams);
+            this.fdF.setLayoutParams(layoutParams);
         }
         if (TbadkCoreApplication.getInst().isMobileBaidu()) {
-            this.fdF.setVisibility(0);
+            this.fdK.setVisibility(0);
         } else {
-            this.fdF.setVisibility(8);
+            this.fdK.setVisibility(8);
         }
     }
 
-    public void xy() {
+    public void xx() {
         if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-            h.U(this.fdi);
+            h.U(this.fdn);
         } else {
-            h.V(this.fdi);
+            h.V(this.fdn);
         }
-        if (this.fdE != null && this.fdE.getLayoutParams() != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fdE.getLayoutParams();
+        if (this.fdJ != null && this.fdJ.getLayoutParams() != null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fdJ.getLayoutParams();
             if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                layoutParams.height = this.fdX;
+                layoutParams.height = this.fec;
             } else {
                 layoutParams.height = -2;
             }
-            this.fdE.setLayoutParams(layoutParams);
+            this.fdJ.setLayoutParams(layoutParams);
         }
-        if (this.fdA != null && this.fdA.getLayoutParams() != null && this.fdW > 0) {
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fdA.getLayoutParams();
+        if (this.fdF != null && this.fdF.getLayoutParams() != null && this.feb > 0) {
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fdF.getLayoutParams();
             layoutParams2.width = this.screenWidth;
-            this.fdA.setPivotX(this.fdW / 2);
-            this.fdA.setPivotY(0.0f);
+            this.fdF.setPivotX(this.feb / 2);
+            this.fdF.setPivotY(0.0f);
             if (UtilHelper.getRealScreenOrientation(this.activity) == 2) {
-                this.fdA.setScaleX(this.fdY);
-                this.fdA.setScaleY(this.fdY);
+                this.fdF.setScaleX(this.fed);
+                this.fdF.setScaleY(this.fed);
             } else {
                 layoutParams2.width = -1;
-                this.fdA.setScaleX(1.0f);
-                this.fdA.setScaleY(1.0f);
+                this.fdF.setScaleX(1.0f);
+                this.fdF.setScaleY(1.0f);
             }
-            onKeyboardVisibilityChanged(this.fdZ);
+            onKeyboardVisibilityChanged(this.fee);
         }
     }
 }

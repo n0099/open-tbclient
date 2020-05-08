@@ -8,27 +8,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaViewPagerAdapter extends PagerAdapter {
-    private a bbQ;
+    private a bbV;
     private int mSkinType = 0;
     private int mPrimaryPosition = -1;
-    private final List<a> aog = new ArrayList();
+    private final List<a> aom = new ArrayList();
 
     public void setData(List<a> list) {
-        this.aog.clear();
+        this.aom.clear();
         if (!ListUtils.isEmpty(list)) {
-            this.aog.addAll(list);
+            this.aom.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.aog.size();
+        return this.aom.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        a aVar = (a) ListUtils.getItem(this.aog, i);
+        a aVar = (a) ListUtils.getItem(this.aom, i);
         if (aVar != null && aVar.getPanelView() != null) {
             View panelView = aVar.getPanelView();
             if (panelView.getParent() != null) {
@@ -51,12 +51,12 @@ public class AlaViewPagerAdapter extends PagerAdapter {
             this.mPrimaryPosition = i;
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                if (this.bbQ != viewGroup) {
-                    if (this.bbQ != null) {
-                        this.bbQ.enterBackground();
+                if (this.bbV != viewGroup) {
+                    if (this.bbV != null) {
+                        this.bbV.enterBackground();
                     }
                     aVar.enterForeground();
-                    this.bbQ = aVar;
+                    this.bbV = aVar;
                 }
             }
         }

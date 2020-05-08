@@ -7,7 +7,7 @@ import javax.crypto.spec.SecretKeySpec;
 public final class a {
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.h.q);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -28,7 +28,7 @@ public final class a {
 
     public static byte[] b(byte[] bArr, byte[] bArr2) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.h.q);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {
@@ -44,8 +44,8 @@ public final class a {
 
     public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), com.baidu.sapi2.utils.h.q);
+            Cipher cipher = Cipher.getInstance(com.baidu.sapi2.utils.h.p);
             cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
             return cipher.doFinal(bArr);
         } catch (Throwable th) {
@@ -56,7 +56,7 @@ public final class a {
 
     public static byte[] a(byte[] bArr, byte[] bArr2, boolean z) {
         try {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, com.baidu.sapi2.utils.h.q);
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7Padding");
             byte[] bArr3 = new byte[16];
             for (int i = 0; i < 16; i++) {

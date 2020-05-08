@@ -1,40 +1,50 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import com.coloros.mcssdk.mode.CommandMessage;
-import com.vivo.push.PushClientConstants;
-import java.util.HashMap;
+import com.xiaomi.push.hm;
 /* loaded from: classes8.dex */
-class ak {
-    public static HashMap<String, String> a(Context context, String str) {
-        HashMap<String, String> hashMap = new HashMap<>();
+/* synthetic */ class ak {
+    static final /* synthetic */ int[] a = new int[hm.values().length];
+
+    static {
         try {
-            hashMap.put("appToken", d.m88a(context).b());
-            hashMap.put("regId", MiPushClient.getRegId(context));
-            hashMap.put("appId", d.m88a(context).m89a());
-            hashMap.put("regResource", d.m88a(context).e());
-            if (!com.xiaomi.push.l.d()) {
-                String g = com.xiaomi.push.i.g(context);
-                if (!TextUtils.isEmpty(g)) {
-                    hashMap.put("imeiMd5", com.xiaomi.push.ay.a(g));
-                }
-            }
-            hashMap.put("isMIUI", String.valueOf(com.xiaomi.push.l.m486a()));
-            hashMap.put("miuiVersion", com.xiaomi.push.l.m483a());
-            hashMap.put("devId", com.xiaomi.push.i.a(context, true));
-            hashMap.put("model", Build.MODEL);
-            hashMap.put(PushClientConstants.TAG_PKG_NAME, context.getPackageName());
-            hashMap.put(CommandMessage.SDK_VERSION, "3_6_19");
-            hashMap.put("androidVersion", String.valueOf(Build.VERSION.SDK_INT));
-            hashMap.put("os", Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
-            hashMap.put("andId", com.xiaomi.push.i.e(context));
-            if (!TextUtils.isEmpty(str)) {
-                hashMap.put("clientInterfaceId", str);
-            }
-        } catch (Throwable th) {
+            a[hm.Registration.ordinal()] = 1;
+        } catch (NoSuchFieldError e) {
         }
-        return hashMap;
+        try {
+            a[hm.UnRegistration.ordinal()] = 2;
+        } catch (NoSuchFieldError e2) {
+        }
+        try {
+            a[hm.Subscription.ordinal()] = 3;
+        } catch (NoSuchFieldError e3) {
+        }
+        try {
+            a[hm.UnSubscription.ordinal()] = 4;
+        } catch (NoSuchFieldError e4) {
+        }
+        try {
+            a[hm.SendMessage.ordinal()] = 5;
+        } catch (NoSuchFieldError e5) {
+        }
+        try {
+            a[hm.AckMessage.ordinal()] = 6;
+        } catch (NoSuchFieldError e6) {
+        }
+        try {
+            a[hm.SetConfig.ordinal()] = 7;
+        } catch (NoSuchFieldError e7) {
+        }
+        try {
+            a[hm.ReportFeedback.ordinal()] = 8;
+        } catch (NoSuchFieldError e8) {
+        }
+        try {
+            a[hm.Notification.ordinal()] = 9;
+        } catch (NoSuchFieldError e9) {
+        }
+        try {
+            a[hm.Command.ordinal()] = 10;
+        } catch (NoSuchFieldError e10) {
+        }
     }
 }

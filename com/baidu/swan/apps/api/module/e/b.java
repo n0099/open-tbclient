@@ -80,7 +80,7 @@ public class b extends com.baidu.swan.apps.api.a.c {
                             }
                         }
                     });
-                    aVar.akx();
+                    aVar.akw();
                 }
             });
             return new com.baidu.swan.apps.api.b.b(0);

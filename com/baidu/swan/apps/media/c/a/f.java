@@ -7,14 +7,14 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.swan.apps.scheme.actions.ab;
 /* loaded from: classes11.dex */
 public class f extends ab {
-    private d cdA;
-    private i cdB;
-    private b cdC;
-    private j cdD;
-    private h cdE;
-    private c cdx;
-    private k cdy;
-    private e cdz;
+    private c cdD;
+    private k cdE;
+    private e cdF;
+    private d cdG;
+    private i cdH;
+    private b cdI;
+    private j cdJ;
+    private h cdK;
 
     public f(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swanAPI/video");
@@ -87,52 +87,52 @@ public class f extends ab {
         }
         switch (c) {
             case 0:
-                if (this.cdx == null) {
-                    this.cdx = new c("/swanAPI/video/open");
+                if (this.cdD == null) {
+                    this.cdD = new c("/swanAPI/video/open");
                 }
-                a = this.cdx.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cdD.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 1:
-                if (this.cdy == null) {
-                    this.cdy = new k("/swanAPI/video/update");
-                }
-                a = this.cdy.a(context, unitedSchemeEntity, callbackHandler, eVar);
-                break;
-            case 2:
                 if (this.cdE == null) {
-                    this.cdE = new h("/swanAPI/video/remove");
+                    this.cdE = new k("/swanAPI/video/update");
                 }
                 a = this.cdE.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
-            case 3:
-                if (this.cdz == null) {
-                    this.cdz = new e("/swanAPI/video/play");
+            case 2:
+                if (this.cdK == null) {
+                    this.cdK = new h("/swanAPI/video/remove");
                 }
-                a = this.cdz.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cdK.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                break;
+            case 3:
+                if (this.cdF == null) {
+                    this.cdF = new e("/swanAPI/video/play");
+                }
+                a = this.cdF.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 4:
-                if (this.cdA == null) {
-                    this.cdA = new d("/swanAPI/video/pause");
+                if (this.cdG == null) {
+                    this.cdG = new d("/swanAPI/video/pause");
                 }
-                a = this.cdA.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cdG.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 5:
-                if (this.cdB == null) {
-                    this.cdB = new i("/swanAPI/video/seek");
+                if (this.cdH == null) {
+                    this.cdH = new i("/swanAPI/video/seek");
                 }
-                a = this.cdB.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cdH.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 6:
-                if (this.cdC == null) {
-                    this.cdC = new b("/swanAPI/video/fullScreen");
+                if (this.cdI == null) {
+                    this.cdI = new b("/swanAPI/video/fullScreen");
                 }
-                a = this.cdC.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cdI.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             case 7:
-                if (this.cdD == null) {
-                    this.cdD = new j("/swanAPI/video/sendDanmu");
+                if (this.cdJ == null) {
+                    this.cdJ = new j("/swanAPI/video/sendDanmu");
                 }
-                a = this.cdD.a(context, unitedSchemeEntity, callbackHandler, eVar);
+                a = this.cdJ.a(context, unitedSchemeEntity, callbackHandler, eVar);
                 break;
             default:
                 a = false;

@@ -1,5 +1,6 @@
 package kascend.core.utils;
 
+import com.baidu.sapi2.utils.h;
 import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -26,22 +27,22 @@ public class KSUtils {
     }
 
     private static byte[] encrypt(byte[] bArr, byte[] bArr2) throws Exception {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-        Cipher cipher = Cipher.getInstance("AES");
+        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, h.q);
+        Cipher cipher = Cipher.getInstance(h.q);
         cipher.init(1, secretKeySpec);
         return cipher.doFinal(bArr2);
     }
 
     private static byte[] decrypt(byte[] bArr, byte[] bArr2) throws Exception {
-        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-        Cipher cipher = Cipher.getInstance("AES");
+        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, h.q);
+        Cipher cipher = Cipher.getInstance(h.q);
         cipher.init(2, secretKeySpec);
         return cipher.doFinal(bArr2);
     }
 
     private static byte[] getRawKey(byte[] bArr) throws Exception {
-        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
-        SecureRandom secureRandom = SecureRandom.getInstance(com.coloros.mcssdk.c.a.c, new CryptoProvider());
+        KeyGenerator keyGenerator = KeyGenerator.getInstance(h.q);
+        SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG", new CryptoProvider());
         secureRandom.setSeed(bArr);
         keyGenerator.init(128, secureRandom);
         return keyGenerator.generateKey().getEncoded();
@@ -68,7 +69,7 @@ public class KSUtils {
     }
 
     private static void appendHex(StringBuffer stringBuffer, byte b) {
-        stringBuffer.append(com.coloros.mcssdk.c.a.f.charAt((b >> 4) & 15)).append(com.coloros.mcssdk.c.a.f.charAt(b & 15));
+        stringBuffer.append("0123456789ABCDEF".charAt((b >> 4) & 15)).append("0123456789ABCDEF".charAt(b & 15));
     }
 
     public static String encrypt(String str) throws Exception {

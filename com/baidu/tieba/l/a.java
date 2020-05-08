@@ -15,23 +15,23 @@ import java.nio.channels.FileChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class a {
-    private static final int jcr = X(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
-    private static final int jcs = X(new byte[]{106, 117, 110, 107});
-    private static final int jct = X(new byte[]{109, 100, 97, 116});
-    private static final int jcu = X(new byte[]{109, 111, 111, 118});
-    private static final int jcv = X(new byte[]{112, 110, 111, 116});
-    private static final int jcw = X(new byte[]{115, 107, 105, 112});
-    private static final int jcx = X(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
-    private static final int jcy = X(new byte[]{80, 73, 67, 84});
-    private static final int jcz = X(new byte[]{102, 116, 121, 112});
-    private static final int jcA = X(new byte[]{117, 117, 105, 100});
-    private static final int jcB = X(new byte[]{99, 109, 111, 118});
-    private static final int jcC = X(new byte[]{115, 116, 99, 111});
-    private static final int jcD = X(new byte[]{99, 111, 54, 52});
+    private static final int jcv = X(new byte[]{102, 114, Constants.SHORT_PING_CMD_TYPE, Constants.SHORT_PING_CMD_TYPE});
+    private static final int jcw = X(new byte[]{106, 117, 110, 107});
+    private static final int jcx = X(new byte[]{109, 100, 97, 116});
+    private static final int jcy = X(new byte[]{109, 111, 111, 118});
+    private static final int jcz = X(new byte[]{112, 110, 111, 116});
+    private static final int jcA = X(new byte[]{115, 107, 105, 112});
+    private static final int jcB = X(new byte[]{119, 105, 100, Constants.SHORT_PING_CMD_TYPE});
+    private static final int jcC = X(new byte[]{80, 73, 67, 84});
+    private static final int jcD = X(new byte[]{102, 116, 121, 112});
+    private static final int jcE = X(new byte[]{117, 117, 105, 100});
+    private static final int jcF = X(new byte[]{99, 109, 111, 118});
+    private static final int jcG = X(new byte[]{115, 116, 99, 111});
+    private static final int jcH = X(new byte[]{99, 111, 54, 52});
 
     /* renamed from: com.baidu.tieba.l.a$a  reason: collision with other inner class name */
     /* loaded from: classes10.dex */
-    public interface InterfaceC0583a {
+    public interface InterfaceC0604a {
         void qc(boolean z);
     }
 
@@ -90,7 +90,7 @@ public class a {
                     if (strArr == null || strArr.length != 1) {
                         return 2;
                     }
-                    return Integer.valueOf(a.GR(strArr[0]));
+                    return Integer.valueOf(a.GU(strArr[0]));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -106,7 +106,7 @@ public class a {
         }
     }
 
-    public static int GR(String str) {
+    public static int GU(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -142,14 +142,14 @@ public class a {
             }
             long yT = yT(order.getInt());
             i = order.getInt();
-            if (i == jcz) {
+            if (i == jcD) {
                 int eV = eV(yT);
                 ByteBuffer order2 = ByteBuffer.allocate(eV).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= eV - 8) {
                     order2.flip();
-                    if ((i == jcr && i != jcs && i != jct && i != jcu && i != jcv && i != jcw && i != jcx && i != jcy && i != jcA && i != jcz) || yT < 8) {
+                    if ((i == jcv && i != jcw && i != jcx && i != jcy && i != jcz && i != jcA && i != jcB && i != jcC && i != jcE && i != jcD) || yT < 8) {
                         break;
                     }
                     i2 = i;
@@ -167,18 +167,18 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + yT) - 8);
                 }
-                if (i == jcr) {
+                if (i == jcv) {
                 }
                 i2 = i;
             }
         }
-        return i != jcu ? 0 : 1;
+        return i != jcy ? 0 : 1;
     }
 
-    public static void a(String str, String str2, final InterfaceC0583a interfaceC0583a) {
-        if (interfaceC0583a != null) {
+    public static void a(String str, String str2, final InterfaceC0604a interfaceC0604a) {
+        if (interfaceC0604a != null) {
             if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !new File(str).exists()) {
-                interfaceC0583a.qc(false);
+                interfaceC0604a.qc(false);
             } else {
                 new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.l.a.2
                     /* JADX DEBUG: Method merged with bridge method */
@@ -196,8 +196,8 @@ public class a {
                     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                     public void onPostExecute(Boolean bool) {
                         super.onPostExecute((AnonymousClass2) bool);
-                        if (InterfaceC0583a.this != null) {
-                            InterfaceC0583a.this.qc(bool.booleanValue());
+                        if (InterfaceC0604a.this != null) {
+                            InterfaceC0604a.this.qc(bool.booleanValue());
                         }
                     }
                 }.execute(str, str2);
@@ -269,7 +269,7 @@ public class a {
             }
             j2 = yT(order.getInt());
             i2 = order.getInt();
-            if (i2 == jcz) {
+            if (i2 == jcD) {
                 int eV = eV(j2);
                 byteBuffer2 = ByteBuffer.allocate(eV).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
@@ -283,7 +283,7 @@ public class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == jcr && i2 != jcs && i2 != jct && i2 != jcu && i2 != jcv && i2 != jcw && i2 != jcx && i2 != jcy && i2 != jcA && i2 != jcz) {
+                if (i2 == jcv && i2 != jcw && i2 != jcx && i2 != jcy && i2 != jcz && i2 != jcA && i2 != jcB && i2 != jcC && i2 != jcE && i2 != jcD) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -311,13 +311,13 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == jcr) {
+                if (i2 == jcv) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != jcu) {
+        if (i != jcy) {
             return false;
         }
         int eV2 = eV(j2);
@@ -326,13 +326,13 @@ public class a {
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == jcB) {
+        if (order2.getInt(12) == jcF) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != jcC && i3 != jcD) {
+            if (i3 != jcG && i3 != jcH) {
                 order2.position(order2.position() + 1);
             } else if (yT(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
@@ -342,7 +342,7 @@ public class a {
                     throw new RuntimeException("malformed atom");
                 }
                 int eV3 = eV(order2.getInt());
-                if (i3 == jcC) {
+                if (i3 == jcG) {
                     if (order2.remaining() < eV3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
@@ -355,7 +355,7 @@ public class a {
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != jcD) {
+                } else if (i3 != jcH) {
                     continue;
                 } else if (order2.remaining() < eV3 * 8) {
                     throw new RuntimeException("bad atom size/element count");

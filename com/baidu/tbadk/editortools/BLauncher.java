@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private l dWs;
-    private boolean dWt;
+    private l dWx;
+    private boolean dWy;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -21,9 +21,9 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, l lVar) {
         super(context);
         this.mSkinType = 0;
-        this.dWt = false;
+        this.dWy = false;
         if (lVar != null) {
-            this.dWs = lVar;
+            this.dWx = lVar;
             setIcon();
             setToolId(lVar.id);
         }
@@ -34,11 +34,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public void setIcon() {
-        if (this.dWs != null) {
-            if (this.dWs.dXv) {
-                setImageDrawable(SvgManager.aOU().y(this.dWs.dXt, this.dWs.dXu, this.mSkinType));
+        if (this.dWx != null) {
+            if (this.dWx.dXA) {
+                setImageDrawable(SvgManager.aOR().y(this.dWx.dXy, this.dWx.dXz, this.mSkinType));
             } else {
-                am.setImageResource(this, this.dWs.dXt, this.mSkinType);
+                am.setImageResource(this, this.dWx.dXy, this.mSkinType);
             }
         }
     }
@@ -59,11 +59,11 @@ public class BLauncher extends ImageView implements g {
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        aWO();
+        aWM();
         setVisibility(8);
     }
 
-    public void wn(String str) {
+    public void wq(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -94,7 +94,7 @@ public class BLauncher extends ImageView implements g {
         }
     }
 
-    public void aWO() {
+    public void aWM() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -109,9 +109,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                aWO();
+                aWM();
             } else if (aVar.data instanceof String) {
-                wn((String) aVar.data);
+                wq((String) aVar.data);
             }
         }
     }
@@ -131,11 +131,11 @@ public class BLauncher extends ImageView implements g {
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.dWt;
+        return this.dWy;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.dWt = z;
+        this.dWy = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

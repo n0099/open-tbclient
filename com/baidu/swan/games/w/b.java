@@ -16,28 +16,28 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void b(com.baidu.smallgame.sdk.b.b bVar) {
-        V8ExceptionInfo NY;
-        if (bVar != null && (NY = bVar.NY()) != null) {
-            String str = NY.exceptionMsg;
-            String str2 = NY.exceptionTrace;
+        V8ExceptionInfo NX;
+        if (bVar != null && (NX = bVar.NX()) != null) {
+            String str = NX.exceptionMsg;
+            String str2 = NX.exceptionTrace;
             if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
                 if (DEBUG) {
-                    Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(com.baidu.swan.games.glsurface.a.b.awN()), TimeUtils.logTimeOfDay(NY.exceptionTime)));
+                    Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(com.baidu.swan.games.glsurface.a.b.awN()), TimeUtils.logTimeOfDay(NX.exceptionTime)));
                 }
-                if (NY.exceptionTime < com.baidu.swan.games.glsurface.a.b.awN()) {
+                if (NX.exceptionTime < com.baidu.swan.games.glsurface.a.b.awN()) {
                     a aVar = new a();
                     aVar.mType = "stuck";
                     aVar.mValue = "jserror";
-                    aVar.mAppId = e.akP();
-                    if (e.akN() != null && e.akN().Ow() != null) {
-                        b.a Ow = e.akN().Ow();
-                        aVar.mSource = Ow.adB();
-                        aVar.mFrom = f.gz(Ow.getAppFrameType());
+                    aVar.mAppId = e.akO();
+                    if (e.akM() != null && e.akM().Ov() != null) {
+                        b.a Ov = e.akM().Ov();
+                        aVar.mSource = Ov.adA();
+                        aVar.mFrom = f.gz(Ov.getAppFrameType());
                     }
                     aVar.errMsg = str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2;
-                    aVar.cRt = d.axU() ? 20 : 10;
-                    aVar.cRA = com.baidu.swan.games.glsurface.a.b.awM();
-                    aVar.cRB = System.currentTimeMillis() - NY.exceptionTime;
+                    aVar.cRy = d.axU() ? 20 : 10;
+                    aVar.cRF = com.baidu.swan.games.glsurface.a.b.awM();
+                    aVar.cRG = System.currentTimeMillis() - NX.exceptionTime;
                     a(aVar);
                 }
             }
@@ -46,7 +46,7 @@ public class b {
 
     private static void a(final a aVar) {
         if (aVar != null) {
-            com.baidu.swan.apps.process.messaging.client.a.ajd().a(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.games.w.b.1
+            com.baidu.swan.apps.process.messaging.client.a.ajc().a(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.games.w.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.process.a.b.c.a
                 public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {
@@ -59,7 +59,7 @@ public class b {
                     if (b.DEBUG) {
                         Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
                     }
-                    a.this.cRz = i;
+                    a.this.cRE = i;
                     f.a("976", a.this);
                 }
             });

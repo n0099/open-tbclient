@@ -1,9 +1,9 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.text.TextUtils;
-import com.baidu.android.common.security.Base64;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pass.biometrics.base.debug.Log;
+import com.baidu.pass.common.SecurityUtil;
 import java.util.Random;
 /* loaded from: classes6.dex */
 public class PassBioDataEncryptor {
@@ -14,7 +14,7 @@ public class PassBioDataEncryptor {
             return null;
         }
         try {
-            return new String(Base64.decode(new AES().decrypt(Base64.decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
+            return new String(SecurityUtil.base64Decode(new AES().decrypt(SecurityUtil.base64Decode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2)), "UTF-8").trim();
         } catch (Throwable th) {
             Log.e(TAG, TAG, th);
             return "";
@@ -26,7 +26,7 @@ public class PassBioDataEncryptor {
             return null;
         }
         try {
-            return Base64.encode(new AES().encrypt(Base64.encode(str.getBytes(), "UTF-8"), new StringBuffer(str2).reverse().toString(), str2), "UTF-8");
+            return SecurityUtil.base64Encode(new AES().encrypt(SecurityUtil.base64Encode(str.getBytes()), new StringBuffer(str2).reverse().toString(), str2));
         } catch (Throwable th) {
             Log.e(TAG, TAG, th);
             return "";
@@ -39,17 +39,17 @@ public class PassBioDataEncryptor {
         String randomKey = getRandomKey(16);
         String str3 = "";
         try {
-            str2 = Base64.encode(new AES().encrypt(str, new StringBuffer(randomKey).reverse().toString(), randomKey), "UTF-8");
-            try {
-                str3 = Base64.encode(RSA.encrypt(randomKey), "UTF-8");
-            } catch (Exception e2) {
-                e = e2;
-                Log.e(TAG, TAG, e);
-                return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{str3, str2});
-            }
-        } catch (Exception e3) {
+            str2 = SecurityUtil.base64Encode(new AES().encrypt(str, new StringBuffer(randomKey).reverse().toString(), randomKey));
+        } catch (Exception e2) {
             str2 = "";
+            e = e2;
+        }
+        try {
+            str3 = SecurityUtil.base64Encode(RSA.encrypt(randomKey));
+        } catch (Exception e3) {
             e = e3;
+            Log.e(TAG, TAG, e);
+            return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{str3, str2});
         }
         return TextUtils.join(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, new String[]{str3, str2});
     }

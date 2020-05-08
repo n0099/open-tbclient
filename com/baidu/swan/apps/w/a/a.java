@@ -16,63 +16,63 @@ public class a implements com.baidu.swan.pms.b {
     }
 
     @Override // com.baidu.swan.pms.b
-    public String acJ() {
-        return com.baidu.swan.apps.w.a.aca().PT();
+    public String acI() {
+        return com.baidu.swan.apps.w.a.abZ().PS();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String acK() {
-        return com.baidu.swan.apps.w.a.abT().be(AppRuntime.getAppContext());
+    public String acJ() {
+        return com.baidu.swan.apps.w.a.abS().aS(AppRuntime.getAppContext());
     }
 
     @Override // com.baidu.swan.pms.b
     public String getUUID() {
-        return com.baidu.swan.uuid.b.du(AppRuntime.getAppContext()).getUUID();
+        return com.baidu.swan.uuid.b.di(AppRuntime.getAppContext()).getUUID();
+    }
+
+    @Override // com.baidu.swan.pms.b
+    public String acK() {
+        return com.baidu.swan.apps.w.a.acy().getHostName();
     }
 
     @Override // com.baidu.swan.pms.b
     public String acL() {
-        return com.baidu.swan.apps.w.a.acz().getHostName();
-    }
-
-    @Override // com.baidu.swan.pms.b
-    public String acM() {
         return ai.getVersionName();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String acN() {
+    public String acM() {
         return com.baidu.swan.apps.c.getVersion();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String acO() {
+    public String acN() {
         return com.baidu.swan.apps.swancore.b.gF(0);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String acP() {
+    public String acO() {
         return com.baidu.swan.apps.extcore.b.eU(0);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String acQ() {
+    public String acP() {
         return com.baidu.swan.apps.swancore.b.gF(1);
     }
 
     @Override // com.baidu.swan.pms.b
-    public String acR() {
+    public String acQ() {
         return com.baidu.swan.apps.extcore.b.eU(1);
     }
 
     @Override // com.baidu.swan.pms.b
-    public CookieManager acS() {
-        return com.baidu.swan.apps.w.a.acm().Qj();
+    public CookieManager acR() {
+        return com.baidu.swan.apps.w.a.acl().Qi();
     }
 
     @Override // com.baidu.swan.pms.b
-    public String acT() {
-        return com.baidu.swan.apps.w.a.abR().OW();
+    public String acS() {
+        return com.baidu.swan.apps.w.a.abQ().OV();
     }
 
     @Override // com.baidu.swan.pms.b

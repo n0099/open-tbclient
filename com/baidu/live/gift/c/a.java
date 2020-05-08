@@ -12,22 +12,22 @@ import com.baidu.live.utils.q;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes3.dex */
 public class a implements c {
-    private c.a aGD;
-    private HttpMessageListener aGE;
-    private HttpMessageListener aGF;
+    private c.a aGJ;
+    private HttpMessageListener aGK;
+    private HttpMessageListener aGL;
 
     public a() {
         registerListener();
     }
 
     public void a(c.a aVar) {
-        this.aGD = aVar;
+        this.aGJ = aVar;
     }
 
     @Override // com.baidu.live.gift.c.c
-    public void zn() {
+    public void zm() {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST);
-        httpMessage.addParam("scene_from", q.Gl());
+        httpMessage.addParam("scene_from", q.Gk());
         httpMessage.addParam("platform", "2");
         MessageManager.getInstance().sendMessage(httpMessage);
     }
@@ -35,7 +35,7 @@ public class a implements c {
     @Override // com.baidu.live.gift.c.c
     public void c(String str, String str2, String str3, String str4, int i, int i2, String str5) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        httpMessage.addParam("scene_from", q.Gl());
+        httpMessage.addParam("scene_from", q.Gk());
         httpMessage.addParam(LegoListActivityConfig.ITEM_ID, str);
         httpMessage.addParam("item_type", str2);
         httpMessage.addParam("platform", "2");
@@ -49,49 +49,49 @@ public class a implements c {
 
     @Override // com.baidu.live.gift.c.c
     public void release() {
-        this.aGD = null;
+        this.aGJ = null;
         unregisterListener();
     }
 
     private void registerListener() {
+        zn();
         zo();
-        zp();
     }
 
     private void unregisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.aGE);
-        MessageManager.getInstance().unRegisterListener(this.aGF);
+        MessageManager.getInstance().unRegisterListener(this.aGK);
+        MessageManager.getInstance().unRegisterListener(this.aGL);
     }
 
-    private void zo() {
-        this.aGE = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.live.gift.c.a.1
+    private void zn() {
+        this.aGK = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GAME_LIVE_LIST) { // from class: com.baidu.live.gift.c.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageListHttpResponsedMessage) {
                     GiftPackageListHttpResponsedMessage giftPackageListHttpResponsedMessage = (GiftPackageListHttpResponsedMessage) httpResponsedMessage;
-                    if (a.this.aGD != null) {
-                        a.this.aGD.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.zg(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.zh());
+                    if (a.this.aGJ != null) {
+                        a.this.aGJ.a(!giftPackageListHttpResponsedMessage.hasError() && giftPackageListHttpResponsedMessage.getError() == 0, giftPackageListHttpResponsedMessage.getError(), giftPackageListHttpResponsedMessage.getErrorString(), giftPackageListHttpResponsedMessage.zf(), giftPackageListHttpResponsedMessage.getCategoryList(), giftPackageListHttpResponsedMessage.zg());
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aGE);
+        MessageManager.getInstance().registerListener(this.aGK);
     }
 
-    private void zp() {
-        this.aGF = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.live.gift.c.a.2
+    private void zo() {
+        this.aGL = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.live.gift.c.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage instanceof GiftPackageConsumeHttpResponsedMessage) {
                     GiftPackageConsumeHttpResponsedMessage giftPackageConsumeHttpResponsedMessage = (GiftPackageConsumeHttpResponsedMessage) httpResponsedMessage;
-                    if (a.this.aGD != null) {
-                        a.this.aGD.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.aGv, giftPackageConsumeHttpResponsedMessage.aGw);
+                    if (a.this.aGJ != null) {
+                        a.this.aGJ.a(!giftPackageConsumeHttpResponsedMessage.hasError() && giftPackageConsumeHttpResponsedMessage.getError() == 0, giftPackageConsumeHttpResponsedMessage.getError(), giftPackageConsumeHttpResponsedMessage.getErrorString(), giftPackageConsumeHttpResponsedMessage.aGB, giftPackageConsumeHttpResponsedMessage.aGC);
                     }
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.aGF);
+        MessageManager.getInstance().registerListener(this.aGL);
     }
 }

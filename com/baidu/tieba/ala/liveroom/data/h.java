@@ -14,34 +14,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class h {
-    public String aqE;
-    public boolean aqI;
-    public AlaLiveUserInfoData aqe;
-    public a fFQ;
+    public String aqK;
+    public boolean aqO;
+    public AlaLiveUserInfoData aqk;
+    public a fFV;
     public AlaLiveInfoData mLiveInfo;
     public l mLiveSdkInfo;
     public int mErrorCode = 0;
     public String mErrorMsg = null;
-    public int fFL = 0;
-    public int fFM = 1;
-    public String fFN = null;
-    public int fFO = 1;
-    public String fFP = null;
-    public long aqG = 0;
+    public int fFQ = 0;
+    public int fFR = 1;
+    public String fFS = null;
+    public int fFT = 1;
+    public String fFU = null;
+    public long aqM = 0;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public List<String> fFR = new ArrayList();
+        public List<String> fFW = new ArrayList();
         public String notify;
     }
 
-    public boolean bvn() {
-        return this.fFL == 0;
+    public boolean bvl() {
+        return this.fFQ == 0;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aqG = jSONObject.optLong("logid");
+            this.aqM = jSONObject.optLong("logid");
             JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
             if (optJSONObject != null) {
                 this.mErrorCode = optJSONObject.optInt(BaseJsonData.TAG_ERRNO);
@@ -52,11 +52,11 @@ public class h {
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
             if (optJSONObject2 != null) {
-                this.fFL = optJSONObject2.optInt("user_status");
+                this.fFQ = optJSONObject2.optInt("user_status");
                 JSONObject optJSONObject3 = optJSONObject2.optJSONObject("user_info");
                 if (optJSONObject3 != null) {
-                    this.aqe = new AlaLiveUserInfoData();
-                    this.aqe.parserJson(optJSONObject3);
+                    this.aqk = new AlaLiveUserInfoData();
+                    this.aqk.parserJson(optJSONObject3);
                 }
                 JSONObject optJSONObject4 = optJSONObject2.optJSONObject("live_info");
                 if (optJSONObject4 != null) {
@@ -71,30 +71,30 @@ public class h {
                 if (this.mLiveInfo != null && this.mLiveSdkInfo != null && this.mLiveInfo.room_id == 0 && this.mLiveSdkInfo.mRoomId != 0) {
                     this.mLiveInfo.room_id = this.mLiveSdkInfo.mRoomId;
                 }
-                this.aqE = optJSONObject2.optString("user_watermark");
+                this.aqK = optJSONObject2.optString("user_watermark");
                 JSONObject optJSONObject6 = optJSONObject2.optJSONObject("strategy");
                 if (optJSONObject6 != null) {
                     JSONObject optJSONObject7 = optJSONObject6.optJSONObject(LogConfig.VALUE_LIVE_HK_RECORD_START);
                     if (optJSONObject7 != null) {
-                        this.fFN = optJSONObject7.optString("text");
-                        this.fFM = optJSONObject7.optInt("switch");
+                        this.fFS = optJSONObject7.optString("text");
+                        this.fFR = optJSONObject7.optInt("switch");
                     }
                     JSONObject optJSONObject8 = optJSONObject6.optJSONObject("user_verify");
                     if (optJSONObject8 != null) {
-                        this.fFO = optJSONObject8.optInt("switch");
-                        this.fFP = optJSONObject8.optString("text");
+                        this.fFT = optJSONObject8.optInt("switch");
+                        this.fFU = optJSONObject8.optString("text");
                     }
                 }
                 JSONObject optJSONObject9 = optJSONObject2.optJSONObject("live_authen_info");
                 if (optJSONObject9 != null) {
-                    this.fFQ = new a();
-                    this.fFQ.notify = optJSONObject9.optString("notify");
+                    this.fFV = new a();
+                    this.fFV.notify = optJSONObject9.optString("notify");
                     JSONArray optJSONArray = optJSONObject9.optJSONArray("questions");
                     for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
-                        this.fFQ.fFR.add(optJSONArray.optString(i));
+                        this.fFV.fFW.add(optJSONArray.optString(i));
                     }
                 }
-                this.aqI = optJSONObject2.optInt("switch_guard_seat") == 1;
+                this.aqO = optJSONObject2.optInt("switch_guard_seat") == 1;
             }
         }
     }

@@ -1,24 +1,51 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes8.dex */
-/* synthetic */ class i {
-    static final /* synthetic */ int[] a = new int[f.values().length];
 
-    static {
-        try {
-            a[f.ASSEMBLE_PUSH_HUAWEI.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+import android.content.Context;
+import android.text.TextUtils;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes8.dex */
+public final class i implements Runnable {
+    final /* synthetic */ Context a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ d f75a;
+
+    /* renamed from: a  reason: collision with other field name */
+    final /* synthetic */ String f76a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(String str, Context context, d dVar) {
+        this.f76a = str;
+        this.a = context;
+        this.f75a = dVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        if (TextUtils.isEmpty(this.f76a)) {
+            return;
         }
-        try {
-            a[f.ASSEMBLE_PUSH_FCM.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+        String str = "";
+        String[] split = this.f76a.split(Constants.WAVE_SEPARATOR);
+        int length = split.length;
+        int i = 0;
+        while (true) {
+            if (i >= length) {
+                break;
+            }
+            String str2 = split[i];
+            if (!TextUtils.isEmpty(str2) && str2.startsWith("token:")) {
+                str = str2.substring(str2.indexOf(":") + 1);
+                break;
+            }
+            i++;
         }
-        try {
-            a[f.ASSEMBLE_PUSH_COS.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+        if (TextUtils.isEmpty(str)) {
+            com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : receive incorrect token");
+            return;
         }
-        try {
-            a[f.ASSEMBLE_PUSH_FTOS.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
-        }
+        com.xiaomi.channel.commonutils.logger.b.m50a("ASSEMBLE_PUSH : receive correct token");
+        h.d(this.a, this.f75a, str);
+        h.m108a(this.a);
     }
 }

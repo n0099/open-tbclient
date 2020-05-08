@@ -6,14 +6,14 @@ import com.vivo.push.sdk.PushMessageCallback;
 /* loaded from: classes8.dex */
 final class e implements Runnable {
     final /* synthetic */ String a;
-    final /* synthetic */ com.vivo.push.b.j b;
+    final /* synthetic */ com.vivo.push.b.k b;
     final /* synthetic */ d c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, String str, com.vivo.push.b.j jVar) {
+    public e(d dVar, String str, com.vivo.push.b.k kVar) {
         this.c = dVar;
         this.a = str;
-        this.b = jVar;
+        this.b = kVar;
     }
 
     @Override // java.lang.Runnable

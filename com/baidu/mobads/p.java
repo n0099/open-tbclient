@@ -6,11 +6,11 @@ import com.baidu.mobads.component.XAdView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes10.dex */
 public class p implements XAdView.Listener {
-    final /* synthetic */ InterstitialAd bln;
+    final /* synthetic */ InterstitialAd bls;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(InterstitialAd interstitialAd) {
-        this.bln = interstitialAd;
+        this.bls = interstitialAd;
     }
 
     @Override // com.baidu.mobads.component.XAdView.Listener
@@ -28,7 +28,7 @@ public class p implements XAdView.Listener {
     @Override // com.baidu.mobads.component.XAdView.Listener
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         com.baidu.mobads.production.f.a aVar;
-        aVar = this.bln.bkW;
+        aVar = this.bls.blb;
         return aVar.a(i, keyEvent);
     }
 

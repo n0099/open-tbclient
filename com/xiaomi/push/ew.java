@@ -1,137 +1,77 @@
 package com.xiaomi.push;
 
+import android.app.Service;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.ServiceInfo;
-import android.os.Build;
-import com.xiaomi.push.service.XMJobService;
+import android.content.Intent;
+import android.text.TextUtils;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public final class ew {
-
-    /* renamed from: a  reason: collision with other field name */
-    private static a f326a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private static final String f327a = XMJobService.class.getCanonicalName();
-    private static int a = 0;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
-
-        void a(boolean z);
-
-        /* renamed from: a  reason: collision with other method in class */
-        boolean m267a();
-    }
-
-    public static synchronized void a() {
-        synchronized (ew.class) {
-            if (f326a != null) {
-                f326a.a();
-            }
-        }
-    }
-
-    public static void a(Context context) {
-        Exception e;
-        boolean z = false;
-        boolean z2 = true;
-        Context applicationContext = context.getApplicationContext();
-        if ("com.xiaomi.xmsf".equals(applicationContext.getPackageName())) {
-            f326a = new ex(applicationContext);
+public class ew implements et {
+    private void a(Service service, Intent intent) {
+        String stringExtra = intent.getStringExtra("awake_info");
+        if (TextUtils.isEmpty(stringExtra)) {
+            em.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
             return;
         }
-        try {
-            PackageInfo packageInfo = applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 4);
-            if (packageInfo.services != null) {
-                ServiceInfo[] serviceInfoArr = packageInfo.services;
-                int length = serviceInfoArr.length;
-                int i = 0;
-                while (i < length) {
-                    ServiceInfo serviceInfo = serviceInfoArr[i];
-                    if ("android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                        if (f327a.equals(serviceInfo.name)) {
-                            z = true;
-                        } else {
-                            try {
-                                if (f327a.equals(Class.forName(serviceInfo.name).getSuperclass().getCanonicalName())) {
-                                    z = true;
-                                }
-                            } catch (Exception e2) {
-                            }
-                        }
-                        if (z) {
-                            z2 = z;
-                            break;
-                        }
-                    }
-                    boolean z3 = z;
-                    try {
-                        if (f327a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                            break;
-                        }
-                        i++;
-                        z = z3;
-                    } catch (Exception e3) {
-                        e = e3;
-                        z2 = z3;
-                        com.xiaomi.channel.commonutils.logger.b.m50a("check service err : " + e.getMessage());
-                        if (z2) {
-                        }
-                        if (Build.VERSION.SDK_INT < 21) {
-                        }
-                        f326a = new ex(applicationContext);
-                    }
-                }
-            }
-            z2 = z;
-        } catch (Exception e4) {
-            z2 = z;
-            e = e4;
-        }
-        if (z2 && t.m568a(applicationContext)) {
-            throw new RuntimeException("Should export service: " + f327a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
-        }
-        if (Build.VERSION.SDK_INT < 21) {
-        }
-        f326a = new ex(applicationContext);
-    }
-
-    public static synchronized void a(Context context, int i) {
-        synchronized (ew.class) {
-            int i2 = a;
-            if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
-                if (i == 2) {
-                    a = 2;
-                } else {
-                    a = 0;
-                }
-            }
-            if (i2 != a && a == 2) {
-                a();
-                f326a = new ez(context);
-            }
+        String b = el.b(stringExtra);
+        if (TextUtils.isEmpty(b)) {
+            em.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
+        } else {
+            em.a(service.getApplicationContext(), b, 1007, "play with service successfully");
         }
     }
 
-    public static synchronized void a(boolean z) {
-        synchronized (ew.class) {
-            if (f326a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m50a("timer is not initialized");
+    private void b(Context context, ep epVar) {
+        String m262a = epVar.m262a();
+        String b = epVar.b();
+        String d = epVar.d();
+        int a = epVar.a();
+        if (context == null || TextUtils.isEmpty(m262a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+            if (TextUtils.isEmpty(d)) {
+                em.a(context, "service", 1008, "argument error");
             } else {
-                f326a.a(z);
+                em.a(context, d, 1008, "argument error");
+            }
+        } else if (!com.xiaomi.push.service.f.a(context, m262a, b)) {
+            em.a(context, d, 1003, "B is not ready");
+        } else {
+            em.a(context, d, 1002, "B is ready");
+            em.a(context, d, 1004, "A is ready");
+            try {
+                Intent intent = new Intent();
+                intent.setAction(b);
+                intent.setPackage(m262a);
+                intent.putExtra("awake_info", el.a(d));
+                if (a == 1 && !eq.m263a(context)) {
+                    em.a(context, d, 1008, "A not in foreground");
+                } else if (context.startService(intent) != null) {
+                    em.a(context, d, 1005, "A is successful");
+                    em.a(context, d, 1006, "The job is finished");
+                } else {
+                    em.a(context, d, 1008, "A is fail to help B's service");
+                }
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                em.a(context, d, 1008, "A meet a exception when help B's service");
             }
         }
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m266a() {
-        boolean m267a;
-        synchronized (ew.class) {
-            m267a = f326a == null ? false : f326a.m267a();
+    @Override // com.xiaomi.push.et
+    public void a(Context context, Intent intent, String str) {
+        if (context == null || !(context instanceof Service)) {
+            em.a(context, "service", 1008, "A receive incorrect message");
+        } else {
+            a((Service) context, intent);
         }
-        return m267a;
+    }
+
+    @Override // com.xiaomi.push.et
+    public void a(Context context, ep epVar) {
+        if (epVar != null) {
+            b(context, epVar);
+        } else {
+            em.a(context, "service", 1008, "A receive incorrect message");
+        }
     }
 }

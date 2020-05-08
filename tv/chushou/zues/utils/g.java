@@ -14,7 +14,7 @@ import tv.chushou.basis.rxjava.thread.EventThread;
 /* loaded from: classes5.dex */
 public class g {
     public static void t(CharSequence charSequence) {
-        a.d(h.dJt(), charSequence);
+        a.d(h.dJp(), charSequence);
     }
 
     public static void c(Context context, CharSequence charSequence) {
@@ -22,7 +22,7 @@ public class g {
     }
 
     public static void JO(@StringRes int i) {
-        a.showToast(h.dJt(), i);
+        a.showToast(h.dJp(), i);
     }
 
     public static void F(Context context, @StringRes int i) {
@@ -67,41 +67,41 @@ public class g {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        private static Toast nsA = null;
-        private static long nsB = 0;
-        private static CharSequence nsz;
+        private static CharSequence nsC;
+        private static Toast nsD = null;
+        private static long nsE = 0;
 
         static void d(final Context context, final CharSequence charSequence) {
             if (charSequence != null && charSequence.length() != 0) {
                 if (context == null) {
-                    context = h.dJt();
+                    context = h.dJp();
                 }
                 if (context != null) {
                     Runnable runnable = new Runnable() { // from class: tv.chushou.zues.utils.g.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (a.nsA == null) {
-                                Toast unused = a.nsA = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
-                                g.c(a.nsA);
-                                a.nsA.setText(charSequence);
-                                a.nsA.show();
-                                CharSequence unused2 = a.nsz = charSequence;
-                                long unused3 = a.nsB = System.currentTimeMillis();
+                            if (a.nsD == null) {
+                                Toast unused = a.nsD = Toast.makeText(context.getApplicationContext(), (CharSequence) null, 0);
+                                g.c(a.nsD);
+                                a.nsD.setText(charSequence);
+                                a.nsD.show();
+                                CharSequence unused2 = a.nsC = charSequence;
+                                long unused3 = a.nsE = System.currentTimeMillis();
                                 return;
                             }
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (charSequence.equals(a.nsz)) {
-                                if (currentTimeMillis - a.nsB > 2000) {
-                                    a.nsA.show();
-                                    long unused4 = a.nsB = currentTimeMillis;
+                            if (charSequence.equals(a.nsC)) {
+                                if (currentTimeMillis - a.nsE > 2000) {
+                                    a.nsD.show();
+                                    long unused4 = a.nsE = currentTimeMillis;
                                     return;
                                 }
                                 return;
                             }
-                            CharSequence unused5 = a.nsz = charSequence;
-                            a.nsA.setText(charSequence);
-                            a.nsA.show();
-                            long unused6 = a.nsB = currentTimeMillis;
+                            CharSequence unused5 = a.nsC = charSequence;
+                            a.nsD.setText(charSequence);
+                            a.nsD.show();
+                            long unused6 = a.nsE = currentTimeMillis;
                         }
                     };
                     if (Looper.myLooper() != Looper.getMainLooper()) {
@@ -115,7 +115,7 @@ public class g {
 
         static void showToast(Context context, @StringRes int i) {
             if (context != null) {
-                d(context, h.dJX().getString(i));
+                d(context, h.dJT().getString(i));
             }
         }
     }

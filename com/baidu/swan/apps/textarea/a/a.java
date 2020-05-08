@@ -32,14 +32,14 @@ public class a extends ab {
         }
         com.baidu.swan.apps.component.components.textarea.a aVar = (com.baidu.swan.apps.component.components.textarea.a) com.baidu.swan.apps.component.container.a.d(bVar);
         if (aVar == null) {
-            String str = "can't find textarea component:#" + bVar.bGI;
+            String str = "can't find textarea component:#" + bVar.bGN;
             com.baidu.swan.apps.console.c.e("CloseTextAreaAction", str);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
             return false;
         }
-        com.baidu.swan.apps.component.b.c Sy = aVar.Sy();
-        if (!Sy.isSuccess()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sy.msg);
+        com.baidu.swan.apps.component.b.c Sx = aVar.Sx();
+        if (!Sx.isSuccess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, Sx.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

@@ -7,6 +7,7 @@ import java.io.Serializable;
 public abstract class PushNotificationBuilder implements Serializable {
     protected String mChannelId;
     protected String mChannelName;
+    protected int mColor;
     protected int mNotificationDefaults;
     protected int mNotificationFlags;
     protected String mNotificationText;
@@ -23,6 +24,10 @@ public abstract class PushNotificationBuilder implements Serializable {
 
     public void setChannelName(String str) {
         this.mChannelName = str;
+    }
+
+    public void setColor(int i) {
+        this.mColor = i;
     }
 
     public void setNotificationDefaults(int i) {
@@ -43,10 +48,6 @@ public abstract class PushNotificationBuilder implements Serializable {
 
     public void setNotificationTitle(String str) {
         this.mNotificationTitle = str;
-    }
-
-    public void setNotificationVibrate(long[] jArr) {
-        this.mVibratePattern = jArr;
     }
 
     public void setStatusbarIcon(int i) {

@@ -133,7 +133,7 @@ public class l {
     public static String s(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
         try {
             Cipher cipher = Cipher.getInstance(str3);
-            cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), "AES"), new IvParameterSpec(str4.getBytes("utf-8")));
+            cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), com.baidu.sapi2.utils.h.q), new IvParameterSpec(str4.getBytes("utf-8")));
             return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
         } catch (Exception e) {
             if (DEBUG) {

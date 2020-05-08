@@ -10,14 +10,14 @@ public class b {
     public int buy_staus;
     private String description;
     private String end_time;
-    private String gbh;
-    private int gbj;
-    private int gbk;
-    private int gbl;
-    private int gbm;
-    private String gbn;
-    private String gbo;
-    private String gbp;
+    private String gbm;
+    private int gbo;
+    private int gbp;
+    private int gbq;
+    private int gbr;
+    private String gbs;
+    private String gbt;
+    private String gbu;
     private int height;
     private String mark_name;
     private String mark_pic;
@@ -30,22 +30,22 @@ public class b {
     private int weight;
     private int width;
     public int propId = -1;
-    private List<d> gbq = new ArrayList();
+    private List<d> gbv = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         this.type = jSONObject.optInt("type");
-        this.gbk = jSONObject.optInt("mark_id");
+        this.gbp = jSONObject.optInt("mark_id");
         this.mark_name = jSONObject.optString("mark_name");
         this.description = jSONObject.optString("description");
-        this.gbm = jSONObject.optInt("wear_status");
+        this.gbr = jSONObject.optInt("wear_status");
         this.mark_pic = jSONObject.optString("mark_pic");
-        this.gbl = jSONObject.optInt("mark_rank");
+        this.gbq = jSONObject.optInt("mark_rank");
         this.width = jSONObject.optInt("width");
         this.height = jSONObject.optInt("height");
         this.weight = jSONObject.optInt(TableDefine.SessionColumns.COLUMN_WEIGHT);
-        this.gbo = jSONObject.optString("next_level_diff");
-        this.gbn = jSONObject.optString("mark_dir_level");
-        this.gbp = jSONObject.optString("expire_text");
+        this.gbt = jSONObject.optString("next_level_diff");
+        this.gbs = jSONObject.optString("mark_dir_level");
+        this.gbu = jSONObject.optString("expire_text");
         this.start_time = jSONObject.optString("begin_time");
         this.end_time = jSONObject.optString("end_time");
         JSONArray optJSONArray = jSONObject.optJSONArray("mark_other");
@@ -53,7 +53,7 @@ public class b {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 d dVar = new d();
                 dVar.parseJson(optJSONArray.optJSONObject(i));
-                this.gbq.add(dVar);
+                this.gbv.add(dVar);
             }
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("props_info");
@@ -70,70 +70,70 @@ public class b {
         }
     }
 
-    public List<d> bCd() {
-        if (this.gbq == null) {
-            this.gbq = new ArrayList();
+    public List<d> bCb() {
+        if (this.gbv == null) {
+            this.gbv = new ArrayList();
         }
-        return this.gbq;
+        return this.gbv;
     }
 
-    public boolean bCe() {
-        return this.gbj == 1;
+    public boolean bCc() {
+        return this.gbo == 1;
     }
 
     public void rj(int i) {
-        this.gbj = i;
+        this.gbo = i;
     }
 
-    public String bCc() {
-        return this.gbh;
-    }
-
-    public void Bm(String str) {
-        this.gbh = str;
-    }
-
-    public int bCf() {
-        return this.gbk;
-    }
-
-    public String bCg() {
-        return this.mark_name;
-    }
-
-    public String bCh() {
-        return this.mark_pic;
-    }
-
-    public int bCi() {
+    public String bCa() {
         return this.gbm;
     }
 
+    public void Bp(String str) {
+        this.gbm = str;
+    }
+
+    public int bCd() {
+        return this.gbp;
+    }
+
+    public String bCe() {
+        return this.mark_name;
+    }
+
+    public String bCf() {
+        return this.mark_pic;
+    }
+
+    public int bCg() {
+        return this.gbr;
+    }
+
     public void rk(int i) {
-        this.gbm = i;
+        this.gbr = i;
     }
 
     public String getDescription() {
         return this.description;
     }
 
+    public String bCh() {
+        return this.gbt;
+    }
+
+    public int bCi() {
+        return this.gbq;
+    }
+
     public String bCj() {
-        return this.gbo;
+        return this.gbu;
     }
 
-    public int bCk() {
-        return this.gbl;
-    }
-
-    public String bCl() {
-        return this.gbp;
-    }
-
-    public boolean bCm() {
+    public boolean bCk() {
         return this.type == 10;
     }
 
-    public boolean bCn() {
+    public boolean bCl() {
         return this.type == 9;
     }
 }

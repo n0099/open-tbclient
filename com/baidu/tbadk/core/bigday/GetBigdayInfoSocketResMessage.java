@@ -29,7 +29,7 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
                     if (bigdayInfo != null) {
                         a aVar = new a();
                         aVar.a(bigdayInfo);
-                        if (aVar.aIl()) {
+                        if (aVar.aIj()) {
                             this.bigdayInfos.add(aVar);
                         }
                     }
@@ -43,9 +43,9 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null) {
-            l<byte[]> uc = com.baidu.tbadk.core.c.a.aMT().uc("tb.bigday_datas");
-            uc.remove("tb.bigday_datas");
-            uc.setForever("tb.bigday_datas", bArr);
+            l<byte[]> uf = com.baidu.tbadk.core.c.a.aMR().uf("tb.bigday_datas");
+            uf.remove("tb.bigday_datas");
+            uf.setForever("tb.bigday_datas", bArr);
         }
     }
 }

@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.MessageParser;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +85,7 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                     z2 = false;
                 } else {
                     i = jSONObject.optInt("error_code", -1);
-                    String optString = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+                    String optString = jSONObject.optString("error_msg", "");
                     z2 = jSONObject.optInt("has_more", 0) == 1;
                     if (i == 0) {
                         try {

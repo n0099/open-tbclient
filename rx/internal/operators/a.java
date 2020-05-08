@@ -30,11 +30,11 @@ public final class a {
     }
 
     public static <T> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super T> jVar) {
-        a(atomicLong, queue, jVar, UtilityFunctions.dIk());
+        a(atomicLong, queue, jVar, UtilityFunctions.dIg());
     }
 
     public static <T> boolean a(AtomicLong atomicLong, long j, Queue<T> queue, rx.j<? super T> jVar) {
-        return a(atomicLong, j, queue, jVar, UtilityFunctions.dIk());
+        return a(atomicLong, j, queue, jVar, UtilityFunctions.dIg());
     }
 
     public static <T, R> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {

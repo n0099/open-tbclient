@@ -23,7 +23,7 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected ViewPager dp(Context context) {
+    protected ViewPager dd(Context context) {
         return new a(context);
     }
 
@@ -43,19 +43,19 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
     protected void init(Context context) {
         setOrientation(1);
-        dr(context);
+        df(context);
         Resources resources = context.getResources();
         addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(g.b.aiapp_menu_gridview_padding_view_height1)));
-        dq(context);
+        de(context);
         addView(new View(context), new LinearLayout.LayoutParams(-1, resources.getDimensionPixelSize(g.b.aiapp_menu_gridview_padding_view_height2)));
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
-    protected void dq(Context context) {
-        this.cZa = new com.baidu.swan.menu.viewpager.a(context).au(g.c.menu_indicator_normal, g.c.menu_indicator_selected).iG((int) getResources().getDimension(g.b.common_grid_indicator_margin));
-        this.cZb[0] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
-        this.cZb[1] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
-        addView(this.cZa, aBp());
+    protected void de(Context context) {
+        this.cZf = new com.baidu.swan.menu.viewpager.a(context).au(g.c.menu_indicator_normal, g.c.menu_indicator_selected).iG((int) getResources().getDimension(g.b.common_grid_indicator_margin));
+        this.cZg[0] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
+        this.cZg[1] = (int) getResources().getDimension(g.b.aiapp_menu_gridview_indicator_height);
+        addView(this.cZf, aBp());
     }
 
     @Override // com.baidu.swan.menu.viewpager.SlideableGridView
@@ -68,13 +68,13 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         SlideableGridView.a gridItemAdapter = getGridItemAdapter();
         int pageCount = gridItemAdapter == null ? 0 : gridItemAdapter.getPageCount();
         boolean z = pageCount > 1;
-        int i = !z ? this.cZb[0] : this.cZb[1];
+        int i = !z ? this.cZg[0] : this.cZg[1];
         if (!z) {
-            this.cZa.setVisibility(8);
+            this.cZf.setVisibility(8);
             return;
         }
-        this.cZa.setVisibility(0);
-        this.cZa.iF(pageCount);
-        this.cZa.getLayoutParams().height = i;
+        this.cZf.setVisibility(0);
+        this.cZf.iF(pageCount);
+        this.cZf.getLayoutParams().height = i;
     }
 }

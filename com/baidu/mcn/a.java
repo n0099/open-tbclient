@@ -1,11 +1,11 @@
 package com.baidu.mcn;
 /* loaded from: classes.dex */
 public class a {
-    public String bhf;
-    public String bhg;
-    public String bhh;
-    public String bhi;
-    public int bhj;
+    public String bhk;
+    public String bhl;
+    public String bhm;
+    public String bhn;
+    public int bho;
     public String fid;
     public String tid;
 }

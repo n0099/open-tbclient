@@ -3,14 +3,14 @@ package com.baidu.swan.apps.ac.a;
 import android.graphics.Bitmap;
 /* loaded from: classes11.dex */
 public class d extends c {
-    private Bitmap ceU;
+    private Bitmap cfa;
 
     public d(String str, Bitmap bitmap) {
         super(5, str);
-        this.ceU = bitmap;
+        this.cfa = bitmap;
     }
 
-    public Bitmap ahd() {
-        return this.ceU;
+    public Bitmap ahc() {
+        return this.cfa;
     }
 }

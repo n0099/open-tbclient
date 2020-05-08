@@ -1,151 +1,96 @@
 package com.baidu.android.pushservice;
 
-import android.app.Notification;
 import android.content.Context;
-import android.content.SharedPreferences;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import android.os.Handler;
+import com.baidu.android.pushservice.d.g;
+import com.baidu.android.pushservice.d.j;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes8.dex */
 public class c {
-    private static String a = "NotificationBuilderManager";
-    private static String b = "notification_builder_storage";
-    private static Object c = new Object();
-    private static int d = 0;
+    private static volatile c a;
+    private Context b;
+    private Handler c;
+    private Runnable d;
+    private volatile boolean e;
 
-    public static Notification a(Context context, int i, int i2, String str, String str2, boolean z) {
-        Notification construct;
-        synchronized (c) {
-            PushNotificationBuilder a2 = a(context, i);
-            a2.setNotificationTitle(str);
-            a2.setNotificationText(str2);
-            construct = a2.construct(context);
-            if ((i2 & 1) != 0) {
-                construct.flags &= -33;
-            } else {
-                construct.flags |= 32;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(int i, String str);
+    }
+
+    private c(Context context) {
+        this.b = context.getApplicationContext();
+        this.c = new Handler(context.getMainLooper());
+    }
+
+    public static c a(Context context) {
+        if (a == null) {
+            synchronized (c.class) {
+                if (a == null) {
+                    a = new c(context);
+                }
             }
-            if (z) {
-                construct.defaults = 0;
-            } else {
-                construct.defaults = -1;
-                if ((i2 & 4) != 0) {
-                    construct.defaults |= 1;
+        }
+        return a;
+    }
+
+    private com.baidu.android.pushservice.g.c a(final a aVar, String str) {
+        return new com.baidu.android.pushservice.d.g(this.b, str, new g.a() { // from class: com.baidu.android.pushservice.c.2
+            @Override // com.baidu.android.pushservice.d.g.a
+            public void a(List<String> list) {
+                if (c.this.c != null) {
+                    c.this.c.removeCallbacksAndMessages(null);
+                }
+                if (c.this.e) {
+                    c.this.e = false;
+                } else if (list == null || list.isEmpty()) {
+                    aVar.a(-1, null);
                 } else {
-                    construct.defaults &= -2;
-                }
-                if ((i2 & 2) != 0) {
-                    construct.defaults |= 2;
-                } else {
-                    construct.defaults &= -3;
+                    aVar.a(0, list.get(new Random().nextInt(list.size())));
                 }
             }
-        }
-        return construct;
+        });
     }
 
-    public static Notification a(Context context, int i, String str, String str2, boolean z) {
-        Notification construct;
-        synchronized (c) {
-            PushNotificationBuilder a2 = a(context, i);
-            a2.setNotificationTitle(str);
-            a2.setNotificationText(str2);
-            construct = a2.construct(context);
-            if (z) {
-                construct.defaults = -1;
+    private com.baidu.android.pushservice.g.c b(final a aVar, String str) {
+        return new com.baidu.android.pushservice.d.j(this.b, str, new j.a() { // from class: com.baidu.android.pushservice.c.3
+            @Override // com.baidu.android.pushservice.d.j.a
+            public void a(int i, String[] strArr) {
+                String str2 = null;
+                if (i == 0 && strArr != null && strArr.length > 0) {
+                    str2 = strArr[0];
+                }
+                aVar.a(i, str2);
+            }
+        });
+    }
+
+    public void a(int i, final a aVar) {
+        com.baidu.android.pushservice.g.c a2;
+        if (aVar != null) {
+            if (i == 0) {
+                a2 = b(aVar, h.d(this.b));
+            } else if (i == 1) {
+                a2 = b(aVar, h.c(this.b));
+            } else if (i != 2) {
+                return;
             } else {
-                construct.defaults = 0;
-            }
-        }
-        return construct;
-    }
-
-    private static PushNotificationBuilder a(Context context) {
-        BasicPushNotificationBuilder basicPushNotificationBuilder = new BasicPushNotificationBuilder();
-        basicPushNotificationBuilder.setNotificationFlags(16);
-        basicPushNotificationBuilder.setNotificationDefaults(3);
-        basicPushNotificationBuilder.setStatusbarIcon(context.getApplicationInfo().icon);
-        return basicPushNotificationBuilder;
-    }
-
-    private static PushNotificationBuilder a(Context context, int i) {
-        String string = context.getSharedPreferences(b, 0).getString("" + i, null);
-        if (string != null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.j.b.a(string.getBytes()));
-            try {
-                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-                PushNotificationBuilder pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
-                try {
-                    objectInputStream.close();
-                    byteArrayInputStream.close();
-                    return pushNotificationBuilder;
-                } catch (Exception e) {
-                    return pushNotificationBuilder;
+                if (this.d == null) {
+                    this.d = new Runnable() { // from class: com.baidu.android.pushservice.c.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            c.this.e = true;
+                            aVar.a(-1, null);
+                        }
+                    };
                 }
-            } catch (Exception e2) {
-                return null;
+                this.c.postDelayed(this.d, 5000L);
+                a2 = a(aVar, h.c(this.b));
+            }
+            if (a2 != null) {
+                com.baidu.android.pushservice.g.d.a().a(a2);
             }
         }
-        return b(context);
-    }
-
-    public static void a(Context context, int i, PushNotificationBuilder pushNotificationBuilder) {
-        synchronized (c) {
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                objectOutputStream.writeObject(pushNotificationBuilder);
-                String a2 = com.baidu.android.pushservice.j.b.a(byteArrayOutputStream.toByteArray(), "US-ASCII");
-                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
-                edit.putString("" + i, a2);
-                edit.commit();
-                byteArrayOutputStream.close();
-                objectOutputStream.close();
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    public static void a(Context context, PushNotificationBuilder pushNotificationBuilder) {
-        synchronized (c) {
-            try {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                objectOutputStream.writeObject(pushNotificationBuilder);
-                String a2 = com.baidu.android.pushservice.j.b.a(byteArrayOutputStream.toByteArray(), "US-ASCII");
-                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
-                edit.putString("" + d, a2);
-                edit.commit();
-                byteArrayOutputStream.close();
-                objectOutputStream.close();
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    private static PushNotificationBuilder b(Context context) {
-        String string = context.getSharedPreferences(b, 0).getString("" + d, null);
-        if (string != null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.j.b.a(string.getBytes()));
-            try {
-                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-                PushNotificationBuilder pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
-                try {
-                    objectInputStream.close();
-                    byteArrayInputStream.close();
-                    return pushNotificationBuilder;
-                } catch (Exception e) {
-                    return pushNotificationBuilder;
-                }
-            } catch (Exception e2) {
-                return null;
-            }
-        }
-        return a(context);
-    }
-
-    public static void b(Context context, PushNotificationBuilder pushNotificationBuilder) {
-        a(context, 8888, pushNotificationBuilder);
     }
 }

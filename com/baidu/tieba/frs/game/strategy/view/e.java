@@ -20,16 +20,16 @@ import com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost;
 import java.util.List;
 /* loaded from: classes9.dex */
 public class e {
-    private NoNetworkView ePl;
-    private ImageView fio;
-    private FrsGameStrategyMainFragment hlt;
-    private ScrollLabelTabHost hlu;
+    private NoNetworkView ePq;
+    private ImageView fit;
+    private ScrollLabelTabHost hlA;
+    private FrsGameStrategyMainFragment hlz;
     private String mFrom;
     private NavigationBar mNavigationBar;
     private View mRootView;
 
     public e(FrsGameStrategyMainFragment frsGameStrategyMainFragment, View view) {
-        this.hlt = frsGameStrategyMainFragment;
+        this.hlz = frsGameStrategyMainFragment;
         this.mRootView = view;
         if (this.mRootView != null) {
             initUI();
@@ -39,14 +39,14 @@ public class e {
     private void initUI() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(0, 0, l.getDimens(this.hlt.getPageContext().getPageActivity(), R.dimen.ds24), 0);
-        this.fio = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_game_forum_info_item, (View.OnClickListener) null);
-        this.fio.setLayoutParams(layoutParams);
-        this.fio.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.e.1
+        layoutParams.setMargins(0, 0, l.getDimens(this.hlz.getPageContext().getPageActivity(), R.dimen.ds24), 0);
+        this.fit = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_frs_game_forum_info_item, (View.OnClickListener) null);
+        this.fit.setLayoutParams(layoutParams);
+        this.fit.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!StringUtils.isNull(e.this.hlt.getFid())) {
-                    e.this.hlt.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(e.this.hlt.getPageContext().getPageActivity(), e.this.hlt.getFid(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
+                if (!StringUtils.isNull(e.this.hlz.getFid())) {
+                    e.this.hlz.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(e.this.hlz.getPageContext().getPageActivity(), e.this.hlz.getFid(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
                 }
             }
         });
@@ -54,17 +54,17 @@ public class e {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ("from_single_act".equals(e.this.mFrom)) {
-                    e.this.hlt.getActivity().finish();
+                    e.this.hlz.getActivity().finish();
                     return;
                 }
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
-                customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, e.this.hlt.getPageContext().getUniqueId()));
+                customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, e.this.hlz.getPageContext().getUniqueId()));
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         });
-        this.ePl = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
-        this.hlu = (ScrollLabelTabHost) this.mRootView.findViewById(R.id.frs_game_tabview);
-        this.hlu.setPageId(this.hlt.getBaseFragmentActivity().getUniqueId());
+        this.ePq = (NoNetworkView) this.mRootView.findViewById(R.id.view_no_network);
+        this.hlA = (ScrollLabelTabHost) this.mRootView.findViewById(R.id.frs_game_tabview);
+        this.hlA.setPageId(this.hlz.getBaseFragmentActivity().getUniqueId());
     }
 
     public void setFrom(String str) {
@@ -75,42 +75,42 @@ public class e {
         return this.mRootView;
     }
 
-    public NavigationBar boh() {
+    public NavigationBar bof() {
         return this.mNavigationBar;
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.hlt.getPageContext(), i);
-        this.ePl.onChangeSkinType(this.hlt.getPageContext(), i);
-        this.hlu.onChangeSkinType(i);
-        if (this.fio != null) {
-            am.setNavbarIconSrc(this.fio, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
+        this.mNavigationBar.onChangeSkinType(this.hlz.getPageContext(), i);
+        this.ePq.onChangeSkinType(this.hlz.getPageContext(), i);
+        this.hlA.onChangeSkinType(i);
+        if (this.fit != null) {
+            am.setNavbarIconSrc(this.fit, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
         }
     }
 
     public void setFrsGameTabDataLoadListener(com.baidu.tieba.frs.game.strategy.tab.a aVar) {
-        this.hlu.setDelegateFrsGameTabDataLoadListener(aVar);
+        this.hlA.setDelegateFrsGameTabDataLoadListener(aVar);
     }
 
     public void setTabData(List<com.baidu.tieba.frs.game.strategy.tab.e> list, boolean z) {
-        this.hlu.setTabData(list, z);
+        this.hlA.setTabData(list, z);
     }
 
     public void b(int i, int i2, List<m> list, List<com.baidu.tieba.frs.game.strategy.tab.e> list2, boolean z, boolean z2, int i3) {
-        this.hlu.b(i, i2, list, list2, z, z2, i3);
+        this.hlA.b(i, i2, list, list2, z, z2, i3);
     }
 
     public void k(int i, int i2, String str) {
-        this.hlu.k(i, i2, str);
+        this.hlA.k(i, i2, str);
     }
 
     public void onDestory() {
-        this.hlu.onDestory();
+        this.hlA.onDestory();
     }
 
-    public void bmn() {
-        if (this.hlu != null) {
-            this.hlu.bmn();
+    public void bml() {
+        if (this.hlA != null) {
+            this.hlA.bml();
         }
     }
 }

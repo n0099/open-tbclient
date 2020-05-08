@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.data.AppData;
 import com.baidu.tieba.tbadkCore.data.m;
 /* loaded from: classes13.dex */
 public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baidu.tieba.recapp.l {
-    protected BaseFragmentActivity gCG;
+    protected BaseFragmentActivity gCM;
 
     public i(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
         super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.gCG = baseFragmentActivity;
+        this.gCM = baseFragmentActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baid
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cg */
     public j b(ViewGroup viewGroup) {
-        View view = new View(this.gCG.getPageContext().getPageActivity());
+        View view = new View(this.gCM.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new j(view);
     }
@@ -30,10 +30,10 @@ public class i extends com.baidu.adp.widget.ListView.a<m, j> implements com.baid
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, m mVar, j jVar) {
         boolean z = false;
-        AppData cWf = mVar.cWf();
-        if (cWf != null) {
-            com.baidu.tbadk.core.data.c cVar = cWf.advertAppContext;
-            if (cWf.goods != null && cWf.goods.goods_style == -1001) {
+        AppData cWc = mVar.cWc();
+        if (cWc != null) {
+            com.baidu.tbadk.core.data.c cVar = cWc.advertAppContext;
+            if (cWc.goods != null && cWc.goods.goods_style == -1001) {
                 z = true;
             }
             com.baidu.tbadk.core.data.c.b(cVar, mVar.getPosition(), z);

@@ -1,15 +1,15 @@
 package com.xiaomi.push.service;
 
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.xiaomi.push.ga;
-import com.xiaomi.push.gj;
-import com.xiaomi.push.gk;
-import com.xiaomi.push.go;
+import com.xiaomi.push.gg;
+import com.xiaomi.push.gp;
+import com.xiaomi.push.gq;
+import com.xiaomi.push.gu;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 /* loaded from: classes8.dex */
-public class e implements gj {
-    public static ga a(XmlPullParser xmlPullParser) {
+public class e implements gp {
+    public static gg a(XmlPullParser xmlPullParser) {
         String str;
         String[] strArr;
         String[] strArr2;
@@ -24,7 +24,7 @@ public class e implements gj {
             strArr = new String[xmlPullParser.getAttributeCount()];
             for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
                 strArr2[i] = xmlPullParser.getAttributeName(i);
-                strArr[i] = go.b(xmlPullParser.getAttributeValue(i));
+                strArr[i] = gu.b(xmlPullParser.getAttributeValue(i));
             }
             str = null;
         } else {
@@ -35,7 +35,7 @@ public class e implements gj {
         while (true) {
             int next = xmlPullParser.next();
             if (next == 3) {
-                return new ga(name, namespace, strArr2, strArr, str, arrayList);
+                return new gg(name, namespace, strArr2, strArr, str, arrayList);
             }
             if (next == 4) {
                 str = xmlPullParser.getText().trim();
@@ -43,7 +43,7 @@ public class e implements gj {
                 if (arrayList == null) {
                     arrayList = new ArrayList();
                 }
-                ga a = a(xmlPullParser);
+                gg a = a(xmlPullParser);
                 if (a != null) {
                     arrayList.add(a);
                 }
@@ -52,10 +52,10 @@ public class e implements gj {
     }
 
     public void a() {
-        gk.a().a(SchemeCollecter.CLASSIFY_ALL, "xm:chat", this);
+        gq.a().a(SchemeCollecter.CLASSIFY_ALL, "xm:chat", this);
     }
 
-    public ga b(XmlPullParser xmlPullParser) {
+    public gg b(XmlPullParser xmlPullParser) {
         int eventType = xmlPullParser.getEventType();
         while (eventType != 1 && eventType != 2) {
             eventType = xmlPullParser.next();

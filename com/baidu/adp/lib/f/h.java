@@ -4,11 +4,11 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes.dex */
 public class h {
-    private static h Lo = new h();
+    private static h Ls = new h();
     private final ThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1);
 
     public static h lc() {
-        return Lo;
+        return Ls;
     }
 
     public void submitTaskToSingleThread(Runnable runnable) {

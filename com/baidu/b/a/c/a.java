@@ -39,62 +39,61 @@ import org.json.JSONObject;
 @TargetApi(23)
 /* loaded from: classes13.dex */
 public class a {
-    public final int akA;
-    public final int akz;
-    protected int alA;
-    protected int alB;
-    private CriusNode alC;
-    public final CriusNode alD;
-    public final float alE;
-    private TextView alF;
-    private final CriusMeasureFunction alG;
-    public String alH;
-    public String alI;
-    public String alJ;
-    public String alK;
-    public String alL;
-    public int alM;
-    public int alN;
-    public int alO;
+    public final int akF;
+    public final int akG;
+    public String alA;
+    protected int alF;
+    protected int alG;
+    protected int alH;
+    private CriusNode alI;
+    public final CriusNode alJ;
+    public final float alK;
+    private TextView alL;
+    private final CriusMeasureFunction alM;
+    public String alN;
+    public String alO;
     public String alP;
     public String alQ;
-    public double alR;
-    public double alS;
-    private String alT;
-    private String alU;
-    private String alV;
-    private String alW;
-    private String alX;
-    private String alY;
-    private double alZ;
-    public String alu;
-    protected int alz;
-    public double amA;
-    public double amB;
+    public String alR;
+    public int alS;
+    public int alT;
+    public int alU;
+    public String alV;
+    public String alW;
+    public double alX;
+    public double alY;
+    private String alZ;
+    private double amA;
+    private double amB;
     public String amC;
-    public String amD;
-    public Typeface amE;
-    public String amF;
-    public String amG;
-    public String amH;
+    public double amD;
+    public double amE;
+    public double amF;
+    public double amG;
+    public double amH;
     public String amI;
     public String amJ;
-    public String amK;
+    public Typeface amK;
     public String amL;
     public String amM;
     public String amN;
-    public double amO;
+    public String amO;
     public String amP;
     public String amQ;
     public String amR;
     public String amS;
     public String amT;
-    public final List<a> amU;
-    private double ama;
-    private double amb;
-    private double amc;
-    private double amd;
-    private double ame;
+    public double amU;
+    public String amV;
+    public String amW;
+    public String amX;
+    public String amY;
+    public String amZ;
+    private String ama;
+    private String amb;
+    private String amc;
+    private String amd;
+    private String ame;
     private double amf;
     private double amg;
     private double amh;
@@ -112,14 +111,15 @@ public class a {
     private double amt;
     private double amu;
     private double amv;
-    public String amw;
-    public double amx;
-    public double amy;
-    public double amz;
+    private double amw;
+    private double amx;
+    private double amy;
+    private double amz;
+    public final List<a> ana;
     public String backgroundColor;
     public String borderColor;
     public double borderRadius;
-    private InterfaceC0066a businessConverter;
+    private InterfaceC0087a businessConverter;
     public String color;
     public double fontSize;
     public int gravity;
@@ -140,7 +140,7 @@ public class a {
 
     /* renamed from: com.baidu.b.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes13.dex */
-    public interface InterfaceC0066a {
+    public interface InterfaceC0087a {
         String dx(String str);
     }
 
@@ -172,14 +172,14 @@ public class a {
                 textView.setMaxLines(aVar.maxLines);
             }
             textView.setEllipsize(TextUtils.TruncateAt.END);
-            if (Double.compare(aVar.sZ(), 0.0d) > 0) {
-                textView.setTextSize(0, (float) (aVar.sZ() * textView.getContext().getResources().getDisplayMetrics().density));
+            if (Double.compare(aVar.sY(), 0.0d) > 0) {
+                textView.setTextSize(0, (float) (aVar.sY() * textView.getContext().getResources().getDisplayMetrics().density));
             }
             textView.setIncludeFontPadding(false);
-            textView.setTypeface(aVar.amE);
+            textView.setTypeface(aVar.amK);
             textView.setGravity(aVar.gravity);
-            float h = aVar.alR > 0.0d ? h(aVar.alR) : 0.0f;
-            float f = aVar.alS > 0.0d ? (float) aVar.alS : 1.0f;
+            float h = aVar.alX > 0.0d ? h(aVar.alX) : 0.0f;
+            float f = aVar.alY > 0.0d ? (float) aVar.alY : 1.0f;
             if (h > 0.0f || f > 0.0f) {
                 textView.setLineSpacing(h, f);
             }
@@ -210,156 +210,156 @@ public class a {
         this.id = c.g(jSONObject, "id");
         this.name = c.g(jSONObject, "name");
         this.type = c.g(jSONObject, "type");
-        if (tF()) {
-            this.alD.setMeasureFunction(this.alG);
+        if (tE()) {
+            this.alJ.setMeasureFunction(this.alM);
         }
-        this.alH = c.g(jSONObject, "component");
+        this.alN = c.g(jSONObject, "component");
         this.src = c.g(jSONObject, UserAccountActionItem.KEY_SRC);
         this.poster = c.g(jSONObject, "poster");
-        this.alI = c.g(jSONObject, "href");
+        this.alO = c.g(jSONObject, "href");
         this.text = c.g(jSONObject, "text");
-        if ("time".equalsIgnoreCase(this.alH) && this.businessConverter != null) {
+        if ("time".equalsIgnoreCase(this.alN) && this.businessConverter != null) {
             this.text = this.businessConverter.dx(this.text);
         }
         this.maxLines = jSONObject.optInt("max-lines", 1);
-        this.alR = c.h(jSONObject, "line-space");
-        this.alS = c.h(jSONObject, "line-multi");
+        this.alX = c.h(jSONObject, "line-space");
+        this.alY = c.h(jSONObject, "line-multi");
         this.videoDuration = jSONObject.optInt("data-video-duration");
-        this.alJ = jSONObject.optString("data-als-stat");
-        this.alK = jSONObject.optString("data-url-stat");
-        this.alL = jSONObject.optString("data-href-pop");
-        this.alM = c.i(jSONObject, "data-share-num");
-        this.alN = c.i(jSONObject, "data-reply-num");
-        this.alO = c.i(jSONObject, "data-agree-num");
+        this.alP = jSONObject.optString("data-als-stat");
+        this.alQ = jSONObject.optString("data-url-stat");
+        this.alR = jSONObject.optString("data-href-pop");
+        this.alS = c.i(jSONObject, "data-share-num");
+        this.alT = c.i(jSONObject, "data-reply-num");
+        this.alU = c.i(jSONObject, "data-agree-num");
         this.shareTitle = jSONObject.optString("data-share-title");
         this.shareContent = jSONObject.optString("data-share-content");
-        this.alP = jSONObject.optString("data-share-image");
-        this.alQ = jSONObject.optString("data-share-link");
+        this.alV = jSONObject.optString("data-share-image");
+        this.alW = jSONObject.optString("data-share-link");
     }
 
     private void j(JSONObject jSONObject) {
-        this.alT = c.g(jSONObject, "display");
-        tx();
-        this.alU = c.g(jSONObject, "flex-direction");
-        tE();
-        this.alV = c.g(jSONObject, "justify-content");
-        tD();
-        this.alW = c.g(jSONObject, "align-items");
-        tC();
-        this.alX = c.g(jSONObject, "align-self");
-        tB();
-        this.alY = c.g(jSONObject, "align-content");
-        tA();
-        this.alZ = c.h(jSONObject, "flex");
+        this.alZ = c.g(jSONObject, "display");
         tw();
-        this.ama = c.h(jSONObject, "flex-grow");
-        tv();
-        this.amb = c.h(jSONObject, "flex-shrink");
-        tu();
-        this.amc = c.h(jSONObject, "flex-basis");
-        tt();
-        this.position = c.g(jSONObject, "position");
+        this.ama = c.g(jSONObject, "flex-direction");
+        tD();
+        this.amb = c.g(jSONObject, "justify-content");
+        tC();
+        this.amc = c.g(jSONObject, "align-items");
+        tB();
+        this.amd = c.g(jSONObject, "align-self");
+        tA();
+        this.ame = c.g(jSONObject, "align-content");
         tz();
-        this.amd = c.h(jSONObject, "left");
-        this.ame = c.h(jSONObject, VerticalTranslateLayout.TOP);
-        this.amf = c.h(jSONObject, HorizontalTranslateLayout.DIRECTION_RIGHT);
-        this.amg = c.h(jSONObject, VerticalTranslateLayout.BOTTOM);
-        ty();
-        this.amh = c.h(jSONObject, "margin");
+        this.amf = c.h(jSONObject, "flex");
+        tv();
+        this.amg = c.h(jSONObject, "flex-grow");
+        tu();
+        this.amh = c.h(jSONObject, "flex-shrink");
+        tt();
+        this.ami = c.h(jSONObject, "flex-basis");
         ts();
-        this.ami = c.h(jSONObject, "margin-left");
-        tn();
-        this.amj = c.h(jSONObject, "margin-top");
+        this.position = c.g(jSONObject, "position");
+        ty();
+        this.amj = c.h(jSONObject, "left");
+        this.amk = c.h(jSONObject, VerticalTranslateLayout.TOP);
+        this.aml = c.h(jSONObject, HorizontalTranslateLayout.DIRECTION_RIGHT);
+        this.amm = c.h(jSONObject, VerticalTranslateLayout.BOTTOM);
+        tx();
+        this.amn = c.h(jSONObject, "margin");
         tr();
-        this.amk = c.h(jSONObject, "margin-right");
-        tq();
-        this.aml = c.h(jSONObject, "margin-bottom");
-        tp();
-        this.amm = c.h(jSONObject, "padding");
-        initPadding();
-        this.amn = c.h(jSONObject, "padding-left");
-        tj();
-        this.amo = c.h(jSONObject, "padding-top");
+        this.amo = c.h(jSONObject, "margin-left");
         tm();
-        this.amp = c.h(jSONObject, "padding-right");
-        tl();
-        this.amq = c.h(jSONObject, "padding-bottom");
-        tk();
-        this.width = c.h(jSONObject, "width");
+        this.amp = c.h(jSONObject, "margin-top");
+        tq();
+        this.amq = c.h(jSONObject, "margin-right");
+        tp();
+        this.amr = c.h(jSONObject, "margin-bottom");
+        tn();
+        this.ams = c.h(jSONObject, "padding");
+        initPadding();
+        this.amt = c.h(jSONObject, "padding-left");
         ti();
-        this.height = c.h(jSONObject, "height");
+        this.amu = c.h(jSONObject, "padding-top");
+        tl();
+        this.amv = c.h(jSONObject, "padding-right");
+        tk();
+        this.amw = c.h(jSONObject, "padding-bottom");
+        tj();
+        this.width = c.h(jSONObject, "width");
         th();
-        this.amr = c.h(jSONObject, "min-width");
+        this.height = c.h(jSONObject, "height");
         tg();
-        this.ams = c.h(jSONObject, "min-height");
+        this.amx = c.h(jSONObject, "min-width");
         tf();
-        this.amt = c.h(jSONObject, "max-width");
-        tc();
-        this.amu = c.h(jSONObject, "max-height");
+        this.amy = c.h(jSONObject, "min-height");
         te();
-        this.amv = c.h(jSONObject, "aspect-ratio");
+        this.amz = c.h(jSONObject, "max-width");
+        tb();
+        this.amA = c.h(jSONObject, "max-height");
         td();
+        this.amB = c.h(jSONObject, "aspect-ratio");
+        tc();
     }
 
     private void k(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SharedPrefConfig.ACTIVE_STATE)) != null) {
-            this.amQ = c.g(optJSONObject, "background-image");
-            this.amR = c.g(optJSONObject, "background-color");
-            this.amS = c.g(optJSONObject, "border-color");
-            this.amT = c.g(optJSONObject, "color");
+            this.amW = c.g(optJSONObject, "background-image");
+            this.amX = c.g(optJSONObject, "background-color");
+            this.amY = c.g(optJSONObject, "border-color");
+            this.amZ = c.g(optJSONObject, "color");
         }
     }
 
     private void l(JSONObject jSONObject) {
-        this.amL = c.g(jSONObject, "background-image");
-        this.amM = c.g(jSONObject, "background-color");
-        this.amN = c.g(jSONObject, "border-color");
-        this.amO = c.h(jSONObject, "opacity");
-        this.amP = c.g(jSONObject, "color");
+        this.amR = c.g(jSONObject, "background-image");
+        this.amS = c.g(jSONObject, "background-color");
+        this.amT = c.g(jSONObject, "border-color");
+        this.amU = c.h(jSONObject, "opacity");
+        this.amV = c.g(jSONObject, "color");
     }
 
     private void m(JSONObject jSONObject) {
         JSONObject optJSONObject;
         if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(SharedPrefConfig.ACTIVE_STATE)) != null) {
-            this.amH = c.g(optJSONObject, "background-image");
-            this.amI = c.g(optJSONObject, "background-color");
-            this.amJ = c.g(optJSONObject, "border-color");
-            this.amK = c.g(optJSONObject, "color");
+            this.amN = c.g(optJSONObject, "background-image");
+            this.amO = c.g(optJSONObject, "background-color");
+            this.amP = c.g(optJSONObject, "border-color");
+            this.amQ = c.g(optJSONObject, "color");
         }
     }
 
     private void n(JSONObject jSONObject) {
-        this.amw = c.g(jSONObject, "background-image");
+        this.amC = c.g(jSONObject, "background-image");
         this.backgroundColor = c.g(jSONObject, "background-color");
         this.borderColor = c.g(jSONObject, "border-color");
         this.opacity = c.h(jSONObject, "opacity");
         this.color = c.g(jSONObject, "color");
-        this.amx = c.h(jSONObject, "border-width");
+        this.amD = c.h(jSONObject, "border-width");
         this.borderRadius = c.h(jSONObject, "border-radius");
-        this.amy = c.h(jSONObject, "border-top-left-radius");
-        this.amz = c.h(jSONObject, "border-bottom-left-radius");
-        this.amA = c.h(jSONObject, "border-top-right-radius");
-        this.amB = c.h(jSONObject, "border-bottom-right-radius");
-        this.amC = c.g(jSONObject, "font-style");
-        this.amD = c.g(jSONObject, "font-weight");
-        this.amE = Typeface.create(Typeface.DEFAULT, ta());
+        this.amE = c.h(jSONObject, "border-top-left-radius");
+        this.amF = c.h(jSONObject, "border-bottom-left-radius");
+        this.amG = c.h(jSONObject, "border-top-right-radius");
+        this.amH = c.h(jSONObject, "border-bottom-right-radius");
+        this.amI = c.g(jSONObject, "font-style");
+        this.amJ = c.g(jSONObject, "font-weight");
+        this.amK = Typeface.create(Typeface.DEFAULT, sZ());
         this.fontSize = jSONObject.optDouble("font-size", 12.0d);
-        this.amF = c.g(jSONObject, "text-align");
-        this.amG = c.g(jSONObject, "vertical-align");
-        this.gravity = tb();
-        this.alu = c.g(jSONObject, "download-style");
+        this.amL = c.g(jSONObject, "text-align");
+        this.amM = c.g(jSONObject, "vertical-align");
+        this.gravity = ta();
+        this.alA = c.g(jSONObject, "download-style");
     }
 
-    public a(Context context, JSONObject jSONObject, InterfaceC0066a interfaceC0066a, boolean z) {
-        this.alz = Build.VERSION.SDK_INT < 23 ? 0 : 1;
+    public a(Context context, JSONObject jSONObject, InterfaceC0087a interfaceC0087a, boolean z) {
+        this.alF = Build.VERSION.SDK_INT < 23 ? 0 : 1;
         if (Build.VERSION.SDK_INT < 23) {
         }
-        this.alA = 0;
+        this.alG = 0;
         if (Build.VERSION.SDK_INT < 26) {
         }
-        this.alB = 0;
-        this.alG = new CriusMeasureFunction() { // from class: com.baidu.b.a.c.a.1
+        this.alH = 0;
+        this.alM = new CriusMeasureFunction() { // from class: com.baidu.b.a.c.a.1
             @Override // com.baidu.crius.CriusMeasureFunction
             @SuppressLint({"WrongConstant"})
             public long measure(CriusNode criusNode, float f, CriusMeasureMode criusMeasureMode, float f2, CriusMeasureMode criusMeasureMode2) {
@@ -368,25 +368,25 @@ public class a {
                 Layout build;
                 Layout build2;
                 SpannableString spannableString = new SpannableString(a.this.text);
-                a.this.a(a.this.alF, a.this);
-                TextPaint paint = a.this.alF.getPaint();
+                a.this.a(a.this.alL, a.this);
+                TextPaint paint = a.this.alL.getPaint();
                 BoringLayout.Metrics isBoring = BoringLayout.isBoring(spannableString, paint);
                 float desiredWidth = isBoring == null ? Layout.getDesiredWidth(spannableString, paint) : Float.NaN;
-                if (a.this.alR > 0.0d) {
-                    f3 = a.this.h(a.this.alR);
+                if (a.this.alX > 0.0d) {
+                    f3 = a.this.h(a.this.alX);
                 } else {
                     f3 = 0.0f;
                 }
-                float f4 = a.this.alS > 0.0d ? (float) a.this.alS : 1.0f;
+                float f4 = a.this.alY > 0.0d ? (float) a.this.alY : 1.0f;
                 boolean z3 = criusMeasureMode == CriusMeasureMode.UNDEFINED || f < 0.0f;
                 if (isBoring == null && (z3 || (!CriusConstants.isUndefined(desiredWidth) && desiredWidth <= f))) {
                     int ceil = (int) Math.ceil(desiredWidth);
                     if (Build.VERSION.SDK_INT < 23) {
                         build2 = new StaticLayout(spannableString, paint, ceil, Layout.Alignment.ALIGN_NORMAL, f4, f3, false);
                     } else {
-                        StaticLayout.Builder hyphenationFrequency = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, ceil).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(f3, f4).setIncludePad(false).setBreakStrategy(a.this.alz).setHyphenationFrequency(a.this.alA);
+                        StaticLayout.Builder hyphenationFrequency = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, ceil).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(f3, f4).setIncludePad(false).setBreakStrategy(a.this.alF).setHyphenationFrequency(a.this.alG);
                         if (Build.VERSION.SDK_INT >= 26) {
-                            hyphenationFrequency.setJustificationMode(a.this.alB);
+                            hyphenationFrequency.setJustificationMode(a.this.alH);
                         }
                         a.this.a(hyphenationFrequency, true);
                         build2 = hyphenationFrequency.build();
@@ -401,9 +401,9 @@ public class a {
                     z2 = false;
                     build = staticLayout;
                 } else {
-                    StaticLayout.Builder hyphenationFrequency2 = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, (int) f).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(f3, f4).setIncludePad(false).setBreakStrategy(a.this.alz).setHyphenationFrequency(a.this.alA);
+                    StaticLayout.Builder hyphenationFrequency2 = StaticLayout.Builder.obtain(spannableString, 0, spannableString.length(), paint, (int) f).setAlignment(Layout.Alignment.ALIGN_NORMAL).setLineSpacing(f3, f4).setIncludePad(false).setBreakStrategy(a.this.alF).setHyphenationFrequency(a.this.alG);
                     if (Build.VERSION.SDK_INT >= 26) {
-                        hyphenationFrequency2.setJustificationMode(a.this.alB);
+                        hyphenationFrequency2.setJustificationMode(a.this.alH);
                     }
                     a.this.a(hyphenationFrequency2, true);
                     z2 = false;
@@ -437,13 +437,13 @@ public class a {
                 return CriusMeasureOutput.make(f, f2);
             }
         };
-        this.amO = -10000.0d;
-        this.alD = new CriusNode();
-        this.businessConverter = interfaceC0066a;
-        this.alE = context.getResources().getDisplayMetrics().density;
-        this.akz = context.getResources().getDisplayMetrics().widthPixels;
-        this.akA = context.getResources().getDisplayMetrics().heightPixels;
-        this.alF = new TextView(context);
+        this.amU = -10000.0d;
+        this.alJ = new CriusNode();
+        this.businessConverter = interfaceC0087a;
+        this.alK = context.getResources().getDisplayMetrics().density;
+        this.akF = context.getResources().getDisplayMetrics().widthPixels;
+        this.akG = context.getResources().getDisplayMetrics().heightPixels;
+        this.alL = new TextView(context);
         i(jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject("style");
         if (optJSONObject != null) {
@@ -459,320 +459,320 @@ public class a {
         if (jSONObject.has("children")) {
             JSONArray optJSONArray = jSONObject.optJSONArray("children");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                this.amU = new ArrayList();
+                this.ana = new ArrayList();
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    a aVar = new a(context, optJSONArray.optJSONObject(i), interfaceC0066a, false);
-                    this.amU.add(aVar);
-                    this.alD.addChildAt(aVar.alD, i);
+                    a aVar = new a(context, optJSONArray.optJSONObject(i), interfaceC0087a, false);
+                    this.ana.add(aVar);
+                    this.alJ.addChildAt(aVar.alJ, i);
                 }
             } else {
-                this.amU = null;
+                this.ana = null;
             }
         } else {
-            this.amU = null;
+            this.ana = null;
         }
         if (z) {
-            this.alC = new CriusNode();
-            this.alC.addChildAt(this.alD, 0);
-            this.alC.calculateLayout(Float.NaN, Float.NaN);
+            this.alI = new CriusNode();
+            this.alI.addChildAt(this.alJ, 0);
+            this.alI.calculateLayout(Float.NaN, Float.NaN);
         }
     }
 
-    public double sZ() {
+    public double sY() {
         return this.fontSize;
     }
 
-    private int ta() {
-        return "italic".equalsIgnoreCase(this.amC) ? (TextUtils.isEmpty(this.amD) || "normal".equalsIgnoreCase(this.amD) || !"bold".equalsIgnoreCase(this.amD)) ? 2 : 3 : (TextUtils.isEmpty(this.amD) || "normal".equalsIgnoreCase(this.amD) || !"bold".equalsIgnoreCase(this.amD)) ? 0 : 1;
+    private int sZ() {
+        return "italic".equalsIgnoreCase(this.amI) ? (TextUtils.isEmpty(this.amJ) || "normal".equalsIgnoreCase(this.amJ) || !"bold".equalsIgnoreCase(this.amJ)) ? 2 : 3 : (TextUtils.isEmpty(this.amJ) || "normal".equalsIgnoreCase(this.amJ) || !"bold".equalsIgnoreCase(this.amJ)) ? 0 : 1;
     }
 
-    private int tb() {
+    private int ta() {
         int i;
-        if ("left".equalsIgnoreCase(this.amF)) {
+        if ("left".equalsIgnoreCase(this.amL)) {
             i = 3;
-        } else if (HorizontalTranslateLayout.DIRECTION_RIGHT.equalsIgnoreCase(this.amF)) {
+        } else if (HorizontalTranslateLayout.DIRECTION_RIGHT.equalsIgnoreCase(this.amL)) {
             i = 5;
-        } else if ("center".equalsIgnoreCase(this.amF)) {
+        } else if ("center".equalsIgnoreCase(this.amL)) {
             i = 1;
         } else {
             i = 0;
         }
-        if (VerticalTranslateLayout.TOP.equalsIgnoreCase(this.amG)) {
+        if (VerticalTranslateLayout.TOP.equalsIgnoreCase(this.amM)) {
             return i | 48;
         }
-        if (VerticalTranslateLayout.BOTTOM.equalsIgnoreCase(this.amG)) {
+        if (VerticalTranslateLayout.BOTTOM.equalsIgnoreCase(this.amM)) {
             return i | 80;
         }
-        if ("middle".equalsIgnoreCase(this.amG)) {
+        if ("middle".equalsIgnoreCase(this.amM)) {
             return i | 16;
         }
         return i | 0;
     }
 
+    private void tb() {
+        if (this.amz >= 0.0d) {
+            this.alJ.setMaxWidth(h(this.amz));
+        } else if (this.amz > -10000.0d) {
+            this.alJ.setMaxWidth(this.akF);
+        }
+    }
+
     private void tc() {
-        if (this.amt >= 0.0d) {
-            this.alD.setMaxWidth(h(this.amt));
-        } else if (this.amt > -10000.0d) {
-            this.alD.setMaxWidth(this.akz);
+        if (this.amB > 0.0d) {
+            this.alJ.setAspectRatio((float) this.amB);
         }
     }
 
     private void td() {
-        if (this.amv > 0.0d) {
-            this.alD.setAspectRatio((float) this.amv);
+        if (this.amA >= 0.0d) {
+            this.alJ.setMaxHeight(h(this.amA));
+        } else if (this.amA > -10000.0d) {
+            this.alJ.setMaxHeight(this.akG);
         }
     }
 
     private void te() {
-        if (this.amu >= 0.0d) {
-            this.alD.setMaxHeight(h(this.amu));
-        } else if (this.amu > -10000.0d) {
-            this.alD.setMaxHeight(this.akA);
+        if (this.amy >= 0.0d) {
+            this.alJ.setMinHeight(h(this.amy));
+        } else if (this.amy > -10000.0d) {
+            this.alJ.setMinHeight(this.akG);
         }
     }
 
     private void tf() {
-        if (this.ams >= 0.0d) {
-            this.alD.setMinHeight(h(this.ams));
-        } else if (this.ams > -10000.0d) {
-            this.alD.setMinHeight(this.akA);
+        if (this.amx >= 0.0d) {
+            this.alJ.setMinWidth(h(this.amx));
+        } else if (this.amx > -10000.0d) {
+            this.alJ.setMinWidth(this.akF);
         }
     }
 
     private void tg() {
-        if (this.amr >= 0.0d) {
-            this.alD.setMinWidth(h(this.amr));
-        } else if (this.amr > -10000.0d) {
-            this.alD.setMinWidth(this.akz);
+        if (this.height >= 0.0d) {
+            this.alJ.setHeight(h(this.height));
+        } else if (this.height > -10000.0d) {
+            this.alJ.setHeight(this.akG);
         }
     }
 
     private void th() {
-        if (this.height >= 0.0d) {
-            this.alD.setHeight(h(this.height));
-        } else if (this.height > -10000.0d) {
-            this.alD.setHeight(this.akA);
+        if (this.width >= 0.0d) {
+            this.alJ.setWidth(h(this.width));
+        } else if (this.width > -10000.0d) {
+            this.alJ.setWidth(this.akF);
         }
     }
 
     private void ti() {
-        if (this.width >= 0.0d) {
-            this.alD.setWidth(h(this.width));
-        } else if (this.width > -10000.0d) {
-            this.alD.setWidth(this.akz);
+        if (this.amt >= -1.0d) {
+            this.alJ.setPadding(CriusEdge.LEFT, h(this.amt));
         }
     }
 
     private void tj() {
-        if (this.amn >= -1.0d) {
-            this.alD.setPadding(CriusEdge.LEFT, h(this.amn));
+        if (this.amw >= -1.0d) {
+            this.alJ.setPadding(CriusEdge.BOTTOM, h(this.amw));
         }
     }
 
     private void tk() {
-        if (this.amq >= -1.0d) {
-            this.alD.setPadding(CriusEdge.BOTTOM, h(this.amq));
+        if (this.amv >= -1.0d) {
+            this.alJ.setPadding(CriusEdge.RIGHT, h(this.amv));
         }
     }
 
     private void tl() {
-        if (this.amp >= -1.0d) {
-            this.alD.setPadding(CriusEdge.RIGHT, h(this.amp));
+        if (this.amu >= -1.0d) {
+            this.alJ.setPadding(CriusEdge.TOP, h(this.amu));
+        }
+    }
+
+    private void initPadding() {
+        if (this.ams >= -1.0d) {
+            this.alJ.setPadding(CriusEdge.ALL, h(this.ams));
         }
     }
 
     private void tm() {
         if (this.amo >= -1.0d) {
-            this.alD.setPadding(CriusEdge.TOP, h(this.amo));
-        }
-    }
-
-    private void initPadding() {
-        if (this.amm >= -1.0d) {
-            this.alD.setPadding(CriusEdge.ALL, h(this.amm));
+            this.alJ.setMargin(CriusEdge.LEFT, h(this.amo));
         }
     }
 
     private void tn() {
-        if (this.ami >= -1.0d) {
-            this.alD.setMargin(CriusEdge.LEFT, h(this.ami));
+        if (this.amr >= -1.0d) {
+            this.alJ.setMargin(CriusEdge.BOTTOM, h(this.amr));
         }
     }
 
     private void tp() {
-        if (this.aml >= -1.0d) {
-            this.alD.setMargin(CriusEdge.BOTTOM, h(this.aml));
+        if (this.amq >= -1.0d) {
+            this.alJ.setMargin(CriusEdge.RIGHT, h(this.amq));
         }
     }
 
     private void tq() {
-        if (this.amk >= -1.0d) {
-            this.alD.setMargin(CriusEdge.RIGHT, h(this.amk));
+        if (this.amp >= -1.0d) {
+            this.alJ.setMargin(CriusEdge.TOP, h(this.amp));
         }
     }
 
     private void tr() {
-        if (this.amj >= -1.0d) {
-            this.alD.setMargin(CriusEdge.TOP, h(this.amj));
+        if (this.amn >= -1.0d) {
+            this.alJ.setMargin(CriusEdge.ALL, h(this.amn));
         }
     }
 
     private void ts() {
-        if (this.amh >= -1.0d) {
-            this.alD.setMargin(CriusEdge.ALL, h(this.amh));
+        if (this.ami >= -1.0d) {
+            this.alJ.setFlexBasis(h(this.ami));
         }
     }
 
     private void tt() {
-        if (this.amc >= -1.0d) {
-            this.alD.setFlexBasis(h(this.amc));
+        if (this.amh >= -1.0d) {
+            this.alJ.setFlexShrink((float) this.amh);
         }
     }
 
     private void tu() {
-        if (this.amb >= -1.0d) {
-            this.alD.setFlexShrink((float) this.amb);
+        if (this.amg >= -1.0d) {
+            this.alJ.setFlexGrow((float) this.amg);
         }
     }
 
     private void tv() {
-        if (this.ama >= -1.0d) {
-            this.alD.setFlexGrow((float) this.ama);
+        if (this.amf >= -1.0d) {
+            this.alJ.setFlex((float) this.amf);
         }
     }
 
     private void tw() {
-        if (this.alZ >= -1.0d) {
-            this.alD.setFlex((float) this.alZ);
-        }
-    }
-
-    private void tx() {
-        if (!TextUtils.isEmpty(this.alT)) {
-            if ("flex".equalsIgnoreCase(this.alT)) {
-                this.alD.setDisplay(CriusDisplay.FLEX);
-            } else if ("none".equalsIgnoreCase(this.alT)) {
-                this.alD.setDisplay(CriusDisplay.NONE);
+        if (!TextUtils.isEmpty(this.alZ)) {
+            if ("flex".equalsIgnoreCase(this.alZ)) {
+                this.alJ.setDisplay(CriusDisplay.FLEX);
+            } else if ("none".equalsIgnoreCase(this.alZ)) {
+                this.alJ.setDisplay(CriusDisplay.NONE);
             } else {
-                this.alD.setDisplay(CriusDisplay.FLEX);
+                this.alJ.setDisplay(CriusDisplay.FLEX);
             }
         }
     }
 
+    private void tx() {
+        if (!c.b(this.amj, -10000.0d)) {
+            this.alJ.setPosition(CriusEdge.LEFT, h(this.amj));
+        }
+        if (!c.b(this.amk, -10000.0d)) {
+            this.alJ.setPosition(CriusEdge.TOP, h(this.amk));
+        }
+        if (!c.b(this.aml, -10000.0d)) {
+            this.alJ.setPosition(CriusEdge.RIGHT, h(this.aml));
+        }
+        if (!c.b(this.amm, -10000.0d)) {
+            this.alJ.setPosition(CriusEdge.BOTTOM, h(this.amm));
+        }
+    }
+
     private void ty() {
-        if (!c.b(this.amd, -10000.0d)) {
-            this.alD.setPosition(CriusEdge.LEFT, h(this.amd));
-        }
-        if (!c.b(this.ame, -10000.0d)) {
-            this.alD.setPosition(CriusEdge.TOP, h(this.ame));
-        }
-        if (!c.b(this.amf, -10000.0d)) {
-            this.alD.setPosition(CriusEdge.RIGHT, h(this.amf));
-        }
-        if (!c.b(this.amg, -10000.0d)) {
-            this.alD.setPosition(CriusEdge.BOTTOM, h(this.amg));
+        if (!TextUtils.isEmpty(this.position)) {
+            if ("relative".equalsIgnoreCase(this.position)) {
+                this.alJ.setPositionType(CriusPositionType.RELATIVE);
+            } else if ("absolute".equalsIgnoreCase(this.position)) {
+                this.alJ.setPositionType(CriusPositionType.ABSOLUTE);
+            }
         }
     }
 
     private void tz() {
-        if (!TextUtils.isEmpty(this.position)) {
-            if ("relative".equalsIgnoreCase(this.position)) {
-                this.alD.setPositionType(CriusPositionType.RELATIVE);
-            } else if ("absolute".equalsIgnoreCase(this.position)) {
-                this.alD.setPositionType(CriusPositionType.ABSOLUTE);
+        if (!TextUtils.isEmpty(this.ame)) {
+            if ("flex-start".equalsIgnoreCase(this.ame)) {
+                this.alJ.setAlignSelf(CriusAlign.FLEX_START);
+            } else if ("center".equalsIgnoreCase(this.ame)) {
+                this.alJ.setAlignSelf(CriusAlign.CENTER);
+            } else if ("flex-end".equalsIgnoreCase(this.ame)) {
+                this.alJ.setAlignSelf(CriusAlign.FLEX_END);
+            } else if ("stretch".equalsIgnoreCase(this.ame)) {
+                this.alJ.setAlignSelf(CriusAlign.STRETCH);
+            } else if ("space-between".equalsIgnoreCase(this.ame)) {
+                this.alJ.setAlignSelf(CriusAlign.SPACE_BETWEEN);
+            } else if ("space-around".equalsIgnoreCase(this.ame)) {
+                this.alJ.setAlignSelf(CriusAlign.SPACE_AROUND);
+            } else {
+                this.alJ.setAlignSelf(CriusAlign.FLEX_START);
             }
         }
     }
 
     private void tA() {
-        if (!TextUtils.isEmpty(this.alY)) {
-            if ("flex-start".equalsIgnoreCase(this.alY)) {
-                this.alD.setAlignSelf(CriusAlign.FLEX_START);
-            } else if ("center".equalsIgnoreCase(this.alY)) {
-                this.alD.setAlignSelf(CriusAlign.CENTER);
-            } else if ("flex-end".equalsIgnoreCase(this.alY)) {
-                this.alD.setAlignSelf(CriusAlign.FLEX_END);
-            } else if ("stretch".equalsIgnoreCase(this.alY)) {
-                this.alD.setAlignSelf(CriusAlign.STRETCH);
-            } else if ("space-between".equalsIgnoreCase(this.alY)) {
-                this.alD.setAlignSelf(CriusAlign.SPACE_BETWEEN);
-            } else if ("space-around".equalsIgnoreCase(this.alY)) {
-                this.alD.setAlignSelf(CriusAlign.SPACE_AROUND);
+        if (!TextUtils.isEmpty(this.amd)) {
+            if ("auto".equalsIgnoreCase(this.amd)) {
+                this.alJ.setAlignSelf(CriusAlign.AUTO);
+            } else if ("flex-start".equalsIgnoreCase(this.amd)) {
+                this.alJ.setAlignSelf(CriusAlign.FLEX_START);
+            } else if ("center".equalsIgnoreCase(this.amd)) {
+                this.alJ.setAlignSelf(CriusAlign.CENTER);
+            } else if ("flex-end".equalsIgnoreCase(this.amd)) {
+                this.alJ.setAlignSelf(CriusAlign.FLEX_END);
+            } else if ("stretch".equalsIgnoreCase(this.amd)) {
+                this.alJ.setAlignSelf(CriusAlign.STRETCH);
             } else {
-                this.alD.setAlignSelf(CriusAlign.FLEX_START);
+                this.alJ.setAlignSelf(CriusAlign.AUTO);
             }
         }
     }
 
     private void tB() {
-        if (!TextUtils.isEmpty(this.alX)) {
-            if ("auto".equalsIgnoreCase(this.alX)) {
-                this.alD.setAlignSelf(CriusAlign.AUTO);
-            } else if ("flex-start".equalsIgnoreCase(this.alX)) {
-                this.alD.setAlignSelf(CriusAlign.FLEX_START);
-            } else if ("center".equalsIgnoreCase(this.alX)) {
-                this.alD.setAlignSelf(CriusAlign.CENTER);
-            } else if ("flex-end".equalsIgnoreCase(this.alX)) {
-                this.alD.setAlignSelf(CriusAlign.FLEX_END);
-            } else if ("stretch".equalsIgnoreCase(this.alX)) {
-                this.alD.setAlignSelf(CriusAlign.STRETCH);
+        if (!TextUtils.isEmpty(this.amc)) {
+            if ("flex-start".equalsIgnoreCase(this.amc)) {
+                this.alJ.setAlignItems(CriusAlign.FLEX_START);
+            } else if ("center".equalsIgnoreCase(this.amc)) {
+                this.alJ.setAlignItems(CriusAlign.CENTER);
+            } else if ("flex-end".equalsIgnoreCase(this.amc)) {
+                this.alJ.setAlignItems(CriusAlign.FLEX_END);
+            } else if ("stretch".equalsIgnoreCase(this.amc)) {
+                this.alJ.setAlignItems(CriusAlign.STRETCH);
             } else {
-                this.alD.setAlignSelf(CriusAlign.AUTO);
+                this.alJ.setAlignItems(CriusAlign.STRETCH);
             }
         }
     }
 
     private void tC() {
-        if (!TextUtils.isEmpty(this.alW)) {
-            if ("flex-start".equalsIgnoreCase(this.alW)) {
-                this.alD.setAlignItems(CriusAlign.FLEX_START);
-            } else if ("center".equalsIgnoreCase(this.alW)) {
-                this.alD.setAlignItems(CriusAlign.CENTER);
-            } else if ("flex-end".equalsIgnoreCase(this.alW)) {
-                this.alD.setAlignItems(CriusAlign.FLEX_END);
-            } else if ("stretch".equalsIgnoreCase(this.alW)) {
-                this.alD.setAlignItems(CriusAlign.STRETCH);
+        if (!TextUtils.isEmpty(this.amb)) {
+            if ("flex-start".equalsIgnoreCase(this.amb)) {
+                this.alJ.setJustifyContent(CriusJustify.FLEX_START);
+            } else if ("center".equalsIgnoreCase(this.amb)) {
+                this.alJ.setJustifyContent(CriusJustify.CENTER);
+            } else if ("flex-end".equalsIgnoreCase(this.amb)) {
+                this.alJ.setJustifyContent(CriusJustify.FLEX_END);
+            } else if ("space-between".equalsIgnoreCase(this.amb)) {
+                this.alJ.setJustifyContent(CriusJustify.SPACE_BETWEEN);
+            } else if ("space-around".equalsIgnoreCase(this.amb)) {
+                this.alJ.setJustifyContent(CriusJustify.SPACE_AROUND);
             } else {
-                this.alD.setAlignItems(CriusAlign.STRETCH);
+                this.alJ.setJustifyContent(CriusJustify.FLEX_START);
             }
         }
     }
 
     private void tD() {
-        if (!TextUtils.isEmpty(this.alV)) {
-            if ("flex-start".equalsIgnoreCase(this.alV)) {
-                this.alD.setJustifyContent(CriusJustify.FLEX_START);
-            } else if ("center".equalsIgnoreCase(this.alV)) {
-                this.alD.setJustifyContent(CriusJustify.CENTER);
-            } else if ("flex-end".equalsIgnoreCase(this.alV)) {
-                this.alD.setJustifyContent(CriusJustify.FLEX_END);
-            } else if ("space-between".equalsIgnoreCase(this.alV)) {
-                this.alD.setJustifyContent(CriusJustify.SPACE_BETWEEN);
-            } else if ("space-around".equalsIgnoreCase(this.alV)) {
-                this.alD.setJustifyContent(CriusJustify.SPACE_AROUND);
+        if (!TextUtils.isEmpty(this.ama)) {
+            if ("column".equalsIgnoreCase(this.ama)) {
+                this.alJ.setFlexDirection(CriusFlexDirection.COLUMN);
+            } else if ("column-reverse".equalsIgnoreCase(this.ama)) {
+                this.alJ.setFlexDirection(CriusFlexDirection.COLUMN_REVERSE);
+            } else if ("row".equalsIgnoreCase(this.ama)) {
+                this.alJ.setFlexDirection(CriusFlexDirection.ROW);
+            } else if ("row-reverse".equalsIgnoreCase(this.ama)) {
+                this.alJ.setFlexDirection(CriusFlexDirection.ROW_REVERSE);
             } else {
-                this.alD.setJustifyContent(CriusJustify.FLEX_START);
+                this.alJ.setFlexDirection(CriusFlexDirection.COLUMN);
             }
         }
     }
 
-    private void tE() {
-        if (!TextUtils.isEmpty(this.alU)) {
-            if ("column".equalsIgnoreCase(this.alU)) {
-                this.alD.setFlexDirection(CriusFlexDirection.COLUMN);
-            } else if ("column-reverse".equalsIgnoreCase(this.alU)) {
-                this.alD.setFlexDirection(CriusFlexDirection.COLUMN_REVERSE);
-            } else if ("row".equalsIgnoreCase(this.alU)) {
-                this.alD.setFlexDirection(CriusFlexDirection.ROW);
-            } else if ("row-reverse".equalsIgnoreCase(this.alU)) {
-                this.alD.setFlexDirection(CriusFlexDirection.ROW_REVERSE);
-            } else {
-                this.alD.setFlexDirection(CriusFlexDirection.COLUMN);
-            }
-        }
-    }
-
-    public boolean tF() {
+    public boolean tE() {
         return "text".equals(this.type);
     }
 
@@ -781,8 +781,8 @@ public class a {
             return null;
         }
         if (!str.equalsIgnoreCase(this.id)) {
-            if (this.amU != null && this.amU.size() > 0) {
-                for (a aVar : this.amU) {
+            if (this.ana != null && this.ana.size() > 0) {
+                for (a aVar : this.ana) {
                     a du = aVar.du(str);
                     if (du != null) {
                         return du;
@@ -798,9 +798,9 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (!str.equalsIgnoreCase(this.alH)) {
-            if (this.amU != null && this.amU.size() > 0) {
-                for (a aVar : this.amU) {
+        if (!str.equalsIgnoreCase(this.alN)) {
+            if (this.ana != null && this.ana.size() > 0) {
+                for (a aVar : this.ana) {
                     a dv = aVar.dv(str);
                     if (dv != null) {
                         return dv;
@@ -814,7 +814,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public float h(double d) {
-        return d < 1.0d ? (float) (10.0d * d) : (float) (this.alE * d);
+        return d < 1.0d ? (float) (10.0d * d) : (float) (this.alK * d);
     }
 
     public static float a(double d, float f) {
@@ -823,21 +823,21 @@ public class a {
 
     public boolean dw(String str) {
         a dv;
-        if (this.alC == null || (dv = dv(str)) == null || dv.alD == null) {
+        if (this.alI == null || (dv = dv(str)) == null || dv.alJ == null) {
             return false;
         }
-        dv.alD.setDisplay(CriusDisplay.NONE);
-        dv.alD.dirty();
-        this.alC.calculateLayout(Float.NaN, Float.NaN);
+        dv.alJ.setDisplay(CriusDisplay.NONE);
+        dv.alJ.dirty();
+        this.alI.calculateLayout(Float.NaN, Float.NaN);
         return true;
     }
 
     public void c(String str, float f) {
         a du;
-        if (this.alC != null && (du = du(str)) != null && du.alD != null) {
+        if (this.alI != null && (du = du(str)) != null && du.alJ != null) {
             du.fontSize = f;
-            du.alD.dirty();
-            this.alC.calculateLayout(Float.NaN, Float.NaN);
+            du.alJ.dirty();
+            this.alI.calculateLayout(Float.NaN, Float.NaN);
         }
     }
 }

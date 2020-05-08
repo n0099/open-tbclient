@@ -8,30 +8,30 @@ import com.baidu.tbadk.core.util.an;
 /* loaded from: classes11.dex */
 public class a {
     public static void a(View view, com.baidu.tbadk.core.data.a aVar, int i) {
-        if (view != null && aVar != null && aVar.aIw() != null && !StringUtils.isNull(aVar.aIw().getTid())) {
+        if (view != null && aVar != null && aVar.aIu() != null && !StringUtils.isNull(aVar.aIu().getTid())) {
             an anVar = new an("c13564");
             anVar.af("obj_source", 3);
-            bj aIw = aVar.aIw();
-            if (aIw.aJt()) {
+            bj aIu = aVar.aIu();
+            if (aIu.aJr()) {
                 anVar.af("obj_type", 1);
-            } else if (aIw.aJu()) {
+            } else if (aIu.aJs()) {
                 anVar.af("obj_type", 2);
-            } else if (aIw.aMy()) {
+            } else if (aIu.aMw()) {
                 anVar.af("obj_type", 3);
-            } else if (aIw.aMz()) {
+            } else if (aIu.aMx()) {
                 anVar.af("obj_type", 4);
-            } else if (aIw.threadType == 0) {
+            } else if (aIu.threadType == 0) {
                 anVar.af("obj_type", 5);
-            } else if (aIw.aJr()) {
+            } else if (aIu.aJp()) {
                 anVar.af("obj_type", 6);
             }
-            if (aVar.aIw().aKE() != null) {
-                anVar.cI("uid", aVar.aIw().aKE().getUserId());
+            if (aVar.aIu().aKC() != null) {
+                anVar.cI("uid", aVar.aIu().aKC().getUserId());
             }
-            if (aIw.getBaijiahaoData() != null) {
-                anVar.cI("obj_id", aIw.getBaijiahaoData().oriUgcNid);
+            if (aIu.getBaijiahaoData() != null) {
+                anVar.cI("obj_id", aIu.getBaijiahaoData().oriUgcNid);
             } else {
-                anVar.cI("obj_id", aIw.getTid());
+                anVar.cI("obj_id", aIu.getTid());
             }
             anVar.af("obj_locate", i);
             TiebaStatic.log(anVar);
@@ -40,26 +40,26 @@ public class a {
 
     public static void e(com.baidu.tbadk.core.data.a aVar) {
         an anVar = new an("c13578");
-        bj aIw = aVar.aIw();
-        if (aIw.aJt()) {
+        bj aIu = aVar.aIu();
+        if (aIu.aJr()) {
             anVar.af("obj_type", 1);
-        } else if (aIw.aJu()) {
+        } else if (aIu.aJs()) {
             anVar.af("obj_type", 2);
-        } else if (aIw.aMy()) {
+        } else if (aIu.aMw()) {
             anVar.af("obj_type", 3);
-        } else if (aIw.aMz()) {
+        } else if (aIu.aMx()) {
             anVar.af("obj_type", 4);
-        } else if (aIw.threadType == 0) {
+        } else if (aIu.threadType == 0) {
             anVar.af("obj_type", 5);
-        } else if (aIw.aJr()) {
+        } else if (aIu.aJp()) {
             anVar.af("obj_type", 6);
         }
-        if (aIw.getBaijiahaoData() != null) {
-            anVar.cI("obj_id", aIw.getBaijiahaoData().oriUgcNid);
+        if (aIu.getBaijiahaoData() != null) {
+            anVar.cI("obj_id", aIu.getBaijiahaoData().oriUgcNid);
         } else {
-            anVar.cI("obj_id", aIw.getTid());
+            anVar.cI("obj_id", aIu.getTid());
         }
-        anVar.cI("uid", aIw.aKE().getUserId());
+        anVar.cI("uid", aIu.aKC().getUserId());
         TiebaStatic.log(anVar);
     }
 }

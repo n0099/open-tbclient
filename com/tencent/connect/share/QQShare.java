@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.tencent.connect.auth.QQToken;
@@ -285,7 +284,7 @@ public class QQShare extends BaseApi {
         com.tencent.connect.a.a.a(e.a(), this.b, "requireApi", "shareToNativeQQ");
         Intent intent = new Intent("android.intent.action.VIEW");
         intent.setData(Uri.parse(stringBuffer.toString()));
-        intent.putExtra(PushConstants.PACKAGE_NAME, activity.getPackageName());
+        intent.putExtra("pkg_name", activity.getPackageName());
         if (j.f(activity, "4.6.0")) {
             f.c("openSDK_LOG.QQShare", "doShareToQQ, qqver below 4.6.");
             if (a(intent)) {

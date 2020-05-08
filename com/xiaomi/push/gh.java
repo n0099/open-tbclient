@@ -1,186 +1,139 @@
 package com.xiaomi.push;
 
 import android.os.Bundle;
-import android.os.Parcelable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class gh {
-    private int a;
+public class gh extends gj {
+    private a a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f416a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private List<ga> f417a;
-    private String b;
-    private String c;
-    private String d;
+    private final Map<String, String> f389a;
 
     /* loaded from: classes8.dex */
     public static class a {
-        public static final a a = new a("internal-server-error");
-        public static final a b = new a("forbidden");
-        public static final a c = new a("bad-request");
-        public static final a d = new a("conflict");
-        public static final a e = new a("feature-not-implemented");
-        public static final a f = new a("gone");
-        public static final a g = new a("item-not-found");
-        public static final a h = new a("jid-malformed");
-        public static final a i = new a("not-acceptable");
-        public static final a j = new a("not-allowed");
-        public static final a k = new a("not-authorized");
-        public static final a l = new a("payment-required");
-        public static final a m = new a("recipient-unavailable");
-        public static final a n = new a("redirect");
-        public static final a o = new a("registration-required");
-        public static final a p = new a("remote-server-error");
-        public static final a q = new a("remote-server-not-found");
-        public static final a r = new a("remote-server-timeout");
-        public static final a s = new a("resource-constraint");
-        public static final a t = new a("service-unavailable");
-        public static final a u = new a("subscription-required");
-        public static final a v = new a("undefined-condition");
-        public static final a w = new a("unexpected-request");
-        public static final a x = new a("request-timeout");
+        public static final a a = new a("get");
+        public static final a b = new a("set");
+        public static final a c = new a("result");
+        public static final a d = new a(BdStatsConstant.StatsType.ERROR);
+        public static final a e = new a("command");
 
         /* renamed from: a  reason: collision with other field name */
-        private String f418a;
+        private String f390a;
 
-        public a(String str) {
-            this.f418a = str;
+        private a(String str) {
+            this.f390a = str;
+        }
+
+        public static a a(String str) {
+            if (str == null) {
+                return null;
+            }
+            String lowerCase = str.toLowerCase();
+            if (a.toString().equals(lowerCase)) {
+                return a;
+            }
+            if (b.toString().equals(lowerCase)) {
+                return b;
+            }
+            if (d.toString().equals(lowerCase)) {
+                return d;
+            }
+            if (c.toString().equals(lowerCase)) {
+                return c;
+            }
+            if (e.toString().equals(lowerCase)) {
+                return e;
+            }
+            return null;
         }
 
         public String toString() {
-            return this.f418a;
+            return this.f390a;
         }
     }
 
-    public gh(int i, String str, String str2, String str3, String str4, List<ga> list) {
-        this.f417a = null;
-        this.a = i;
-        this.f416a = str;
-        this.c = str2;
-        this.b = str3;
-        this.d = str4;
-        this.f417a = list;
+    public gh() {
+        this.a = a.a;
+        this.f389a = new HashMap();
     }
 
     public gh(Bundle bundle) {
-        this.f417a = null;
-        this.a = bundle.getInt("ext_err_code");
-        if (bundle.containsKey("ext_err_type")) {
-            this.f416a = bundle.getString("ext_err_type");
-        }
-        this.b = bundle.getString("ext_err_cond");
-        this.c = bundle.getString("ext_err_reason");
-        this.d = bundle.getString("ext_err_msg");
-        Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
-        if (parcelableArray != null) {
-            this.f417a = new ArrayList(parcelableArray.length);
-            for (Parcelable parcelable : parcelableArray) {
-                ga a2 = ga.a((Bundle) parcelable);
-                if (a2 != null) {
-                    this.f417a.add(a2);
-                }
-            }
+        super(bundle);
+        this.a = a.a;
+        this.f389a = new HashMap();
+        if (bundle.containsKey("ext_iq_type")) {
+            this.a = a.a(bundle.getString("ext_iq_type"));
         }
     }
 
-    public gh(a aVar) {
-        this.f417a = null;
-        a(aVar);
-        this.d = null;
-    }
-
-    private void a(a aVar) {
-        this.b = aVar.f418a;
-    }
-
+    @Override // com.xiaomi.push.gj
     public Bundle a() {
-        Bundle bundle = new Bundle();
-        if (this.f416a != null) {
-            bundle.putString("ext_err_type", this.f416a);
+        Bundle a2 = super.a();
+        if (this.a != null) {
+            a2.putString("ext_iq_type", this.a.toString());
         }
-        bundle.putInt("ext_err_code", this.a);
-        if (this.c != null) {
-            bundle.putString("ext_err_reason", this.c);
-        }
-        if (this.b != null) {
-            bundle.putString("ext_err_cond", this.b);
-        }
-        if (this.d != null) {
-            bundle.putString("ext_err_msg", this.d);
-        }
-        if (this.f417a != null) {
-            Bundle[] bundleArr = new Bundle[this.f417a.size()];
-            int i = 0;
-            Iterator<ga> it = this.f417a.iterator();
-            while (true) {
-                int i2 = i;
-                if (!it.hasNext()) {
-                    break;
-                }
-                Bundle a2 = it.next().a();
-                if (a2 != null) {
-                    i = i2 + 1;
-                    bundleArr[i2] = a2;
-                } else {
-                    i = i2;
-                }
-            }
-            bundle.putParcelableArray("ext_exts", bundleArr);
-        }
-        return bundle;
+        return a2;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public String m310a() {
+    @Override // com.xiaomi.push.gj
+    public a a() {
+        return this.a;
+    }
+
+    @Override // com.xiaomi.push.gj
+    public String a() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<error code=\"").append(this.a).append("\"");
-        if (this.f416a != null) {
-            sb.append(" type=\"");
-            sb.append(this.f416a);
-            sb.append("\"");
+        sb.append("<iq ");
+        if (j() != null) {
+            sb.append("id=\"" + j() + "\" ");
         }
-        if (this.c != null) {
-            sb.append(" reason=\"");
-            sb.append(this.c);
-            sb.append("\"");
+        if (l() != null) {
+            sb.append("to=\"").append(gu.a(l())).append("\" ");
         }
-        sb.append(">");
-        if (this.b != null) {
-            sb.append("<").append(this.b);
-            sb.append(" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\"/>");
+        if (m() != null) {
+            sb.append("from=\"").append(gu.a(m())).append("\" ");
         }
-        if (this.d != null) {
-            sb.append("<text xml:lang=\"en\" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\">");
-            sb.append(this.d);
-            sb.append("</text>");
+        if (k() != null) {
+            sb.append("chid=\"").append(gu.a(k())).append("\" ");
         }
-        for (ga gaVar : m311a()) {
-            sb.append(gaVar.d());
+        for (Map.Entry<String, String> entry : this.f389a.entrySet()) {
+            sb.append(gu.a(entry.getKey())).append("=\"");
+            sb.append(gu.a(entry.getValue())).append("\" ");
         }
-        sb.append("</error>");
+        if (this.a == null) {
+            sb.append("type=\"get\">");
+        } else {
+            sb.append("type=\"").append(a()).append("\">");
+        }
+        String b = b();
+        if (b != null) {
+            sb.append(b);
+        }
+        sb.append(o());
+        gn a2 = a();
+        if (a2 != null) {
+            sb.append(a2.m314a());
+        }
+        sb.append("</iq>");
         return sb.toString();
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<ga> m311a() {
-        return this.f417a == null ? Collections.emptyList() : Collections.unmodifiableList(this.f417a);
+    public void a(a aVar) {
+        if (aVar == null) {
+            this.a = a.a;
+        } else {
+            this.a = aVar;
+        }
     }
 
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        if (this.b != null) {
-            sb.append(this.b);
-        }
-        sb.append("(").append(this.a).append(")");
-        if (this.d != null) {
-            sb.append(" ").append(this.d);
-        }
-        return sb.toString();
+    public synchronized void a(Map<String, String> map) {
+        this.f389a.putAll(map);
+    }
+
+    @Override // com.xiaomi.push.gj
+    public String b() {
+        return null;
     }
 }

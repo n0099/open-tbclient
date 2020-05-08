@@ -57,12 +57,12 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         TiebaStatic.log(new an(TbadkCoreStatisticKey.PUSH_CCLICK).af("obj_type", 2).cI("task_id", str).cI(TiebaInitialize.Params.OBJ_TO, str2).af("obj_source", i));
                         if (!TextUtils.isEmpty(str2)) {
                             if (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https") || str2.startsWith("com.baidu.tieba://deeplink?jump=new_hot_topic_list") || str2.startsWith("bdtiebalive://") || str2.startsWith("tiebachushou://")) {
-                                if (MO(str2)) {
+                                if (MR(str2)) {
                                     MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                     mainTabActivityConfig.setTargetScheme(str2);
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, mainTabActivityConfig));
                                 } else {
-                                    ba.aOY().b(getPageContext(), new String[]{str2, "yun_push_tag"});
+                                    ba.aOV().b(getPageContext(), new String[]{str2, "yun_push_tag"});
                                 }
                             }
                             if (str2.contains("unidispatch/hotuserrank")) {
@@ -81,7 +81,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         finish();
     }
 
-    private boolean MO(String str) {
+    private boolean MR(String str) {
         return Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find() || str.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail") || str.startsWith("bdtiebalive://") || str.startsWith("tiebachushou://");
     }
 }

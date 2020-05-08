@@ -36,53 +36,53 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes9.dex */
 public class a {
-    private h jFh;
-    private TextView jFi;
-    private View jFj;
-    private TextView jFk;
-    private TBSpecificationBtn jFl;
+    private h jFl;
     private TextView jFm;
     private View jFn;
     private TextView jFo;
-    private VoteCountDownView jFp;
-    private View jFq;
-    private TextView jFr;
-    private SelectRuleView jFs;
-    private TextView jFt;
-    private e jqC;
+    private TBSpecificationBtn jFp;
+    private TextView jFq;
+    private View jFr;
+    private TextView jFs;
+    private VoteCountDownView jFt;
+    private View jFu;
+    private TextView jFv;
+    private SelectRuleView jFw;
+    private TextView jFx;
+    private e jqG;
     private TbPageContext mPageContext;
     private View mRootView;
     private int status;
-    private VoteCountDownView.a jFu = new VoteCountDownView.a() { // from class: com.baidu.tieba.pb.pb.main.view.a.1
+    private VoteCountDownView.a jFy = new VoteCountDownView.a() { // from class: com.baidu.tieba.pb.pb.main.view.a.1
         @Override // com.baidu.tieba.view.VoteCountDownView.a
         public void onFinished() {
             if (a.this.mRootView != null) {
-                if (a.this.jqC == null || a.this.jqC.jnx == null) {
+                if (a.this.jqG == null || a.this.jqG.jnB == null) {
                     a.this.mRootView.setVisibility(8);
                     return;
                 }
-                a.this.jqC.jnx.setStatus(3);
-                a.this.setData(a.this.jqC);
+                a.this.jqG.jnB.setStatus(3);
+                a.this.setData(a.this.jqG);
             }
         }
     };
-    private View.OnClickListener dRF = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.a.2
+    private View.OnClickListener dRK = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.view.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.pb_jump_to_vote_page) {
-                if (a.this.jqC != null && a.this.mPageContext != null && bc.checkUpIsLogin(a.this.mPageContext.getPageActivity())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(a.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(a.this.jqC.getForumId(), 0L), 3)));
+                if (a.this.jqG != null && a.this.mPageContext != null && bc.checkUpIsLogin(a.this.mPageContext.getPageActivity())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921408, new BarVoteActivityConfig(a.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.f.b.toLong(a.this.jqG.getForumId(), 0L), 3)));
                 }
-            } else if (view.getId() == R.id.pb_vote_button && bc.checkUpIsLogin(a.this.mPageContext.getPageActivity()) && a.this.jqC != null && a.this.jFh != null && a.this.jqC.cvu() != null) {
-                if (a.this.jFh.bDV()) {
-                    new an("c13444").cI("forum_id", a.this.jqC.getForumId()).aOR();
+            } else if (view.getId() == R.id.pb_vote_button && bc.checkUpIsLogin(a.this.mPageContext.getPageActivity()) && a.this.jqG != null && a.this.jFl != null && a.this.jqG.cvr() != null) {
+                if (a.this.jFl.bDT()) {
+                    new an("c13444").cI("forum_id", a.this.jqG.getForumId()).aOO();
                     d dVar = new d();
-                    dVar.setThreadId(com.baidu.adp.lib.f.b.toLong(a.this.jqC.getThreadId(), 0L));
-                    dVar.setForumId(com.baidu.adp.lib.f.b.toLong(a.this.jqC.getForumId(), 0L));
+                    dVar.setThreadId(com.baidu.adp.lib.f.b.toLong(a.this.jqG.getThreadId(), 0L));
+                    dVar.setForumId(com.baidu.adp.lib.f.b.toLong(a.this.jqG.getForumId(), 0L));
                     String str = "";
-                    PostData F = a.this.F(a.this.jqC);
-                    if (F != null && F.aKE() != null) {
-                        str = F.aKE().getUserId();
+                    PostData F = a.this.F(a.this.jqG);
+                    if (F != null && F.aKC() != null) {
+                        str = F.aKC().getUserId();
                     }
                     dVar.fc(com.baidu.adp.lib.f.b.toLong(str, 0L));
                     dVar.zf(2);
@@ -96,19 +96,19 @@ public class a {
             }
         }
     };
-    private HttpMessageListener ghF = new HttpMessageListener(CmdConfigHttp.CMD_BAR_VOTE) { // from class: com.baidu.tieba.pb.pb.main.view.a.3
+    private HttpMessageListener ghL = new HttpMessageListener(CmdConfigHttp.CMD_BAR_VOTE) { // from class: com.baidu.tieba.pb.pb.main.view.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             String errorString;
             if (httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage() != null) {
                 int error = httpResponsedMessage.getError();
-                if ((httpResponsedMessage instanceof CommitVoteResMsg) && a.this.jqC != null && a.this.jqC.jnx != null && a.this.mPageContext != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.mPageContext.getUniqueId()) {
+                if ((httpResponsedMessage instanceof CommitVoteResMsg) && a.this.jqG != null && a.this.jqG.jnB != null && a.this.mPageContext != null && httpResponsedMessage.getOrginalMessage().getTag() == a.this.mPageContext.getUniqueId()) {
                     if (error == 0) {
                         l.showToast(TbadkCoreApplication.getInst(), (int) R.string.bar_manager_vote_success);
-                        a.this.jqC.jnx.zk(a.this.jqC.jnx.cwa() + 1);
-                        a.this.jqC.jnx.lm(false);
-                        a.this.setData(a.this.jqC);
+                        a.this.jqG.jnB.zk(a.this.jqG.jnB.cvX() + 1);
+                        a.this.jqG.jnB.lm(false);
+                        a.this.setData(a.this.jqG);
                     } else if (error == 3250023) {
                         f.a(error, "", (f.a) null);
                     } else if (error == 3250021) {
@@ -142,71 +142,71 @@ public class a {
             return null;
         }
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.bar_manager_select_view, (ViewGroup) null);
-        this.jFi = (TextView) this.mRootView.findViewById(R.id.pb_bar_manager_select_warn);
-        this.jFj = this.mRootView.findViewById(R.id.pb_vote_button_container);
-        this.jFo = (TextView) this.mRootView.findViewById(R.id.pb_count_down_title);
-        this.jFl = (TBSpecificationBtn) this.mRootView.findViewById(R.id.pb_vote_button);
+        this.jFm = (TextView) this.mRootView.findViewById(R.id.pb_bar_manager_select_warn);
+        this.jFn = this.mRootView.findViewById(R.id.pb_vote_button_container);
+        this.jFs = (TextView) this.mRootView.findViewById(R.id.pb_count_down_title);
+        this.jFp = (TBSpecificationBtn) this.mRootView.findViewById(R.id.pb_vote_button);
         com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
         bVar.a(GradientDrawable.Orientation.TL_BR);
-        this.jFl.setText(TbadkCoreApplication.getInst().getString(R.string.pb_vote_text));
-        this.jFl.setTextSize(R.dimen.tbfontsize44);
-        this.jFl.setConfig(bVar);
-        this.jFk = (TextView) this.mRootView.findViewById(R.id.pb_vote_num);
-        this.jFm = (TextView) this.mRootView.findViewById(R.id.pb_bar_manager_ueg_tip);
-        this.jFn = this.mRootView.findViewById(R.id.pb_count_down_container);
-        this.jFp = (VoteCountDownView) this.mRootView.findViewById(R.id.pb_vote_count_down_view);
-        this.jFq = this.mRootView.findViewById(R.id.pb_vote_rule);
-        this.jFr = (TextView) this.mRootView.findViewById(R.id.pb_vote_rule_title);
-        this.jFs = (SelectRuleView) this.mRootView.findViewById(R.id.pb_vote_rule_content);
-        this.jFt = (TextView) this.mRootView.findViewById(R.id.pb_jump_to_vote_page);
-        MessageManager.getInstance().registerListener(this.ghF);
+        this.jFp.setText(TbadkCoreApplication.getInst().getString(R.string.pb_vote_text));
+        this.jFp.setTextSize(R.dimen.tbfontsize44);
+        this.jFp.setConfig(bVar);
+        this.jFo = (TextView) this.mRootView.findViewById(R.id.pb_vote_num);
+        this.jFq = (TextView) this.mRootView.findViewById(R.id.pb_bar_manager_ueg_tip);
+        this.jFr = this.mRootView.findViewById(R.id.pb_count_down_container);
+        this.jFt = (VoteCountDownView) this.mRootView.findViewById(R.id.pb_vote_count_down_view);
+        this.jFu = this.mRootView.findViewById(R.id.pb_vote_rule);
+        this.jFv = (TextView) this.mRootView.findViewById(R.id.pb_vote_rule_title);
+        this.jFw = (SelectRuleView) this.mRootView.findViewById(R.id.pb_vote_rule_content);
+        this.jFx = (TextView) this.mRootView.findViewById(R.id.pb_jump_to_vote_page);
+        MessageManager.getInstance().registerListener(this.ghL);
         setData(eVar);
         return this.mRootView;
     }
 
     public void setData(e eVar) {
         if (this.mRootView != null) {
-            if (eVar == null || eVar.jnx == null) {
+            if (eVar == null || eVar.jnB == null) {
                 this.mRootView.setVisibility(8);
                 return;
             }
-            this.jqC = eVar;
-            this.jFh = eVar.jnx;
-            if (this.jFh.getStatus() != 0) {
-                this.status = this.jFh.getStatus();
+            this.jqG = eVar;
+            this.jFl = eVar.jnB;
+            if (this.jFl.getStatus() != 0) {
+                this.status = this.jFl.getStatus();
                 if (this.status == 2) {
-                    this.jFj.setVisibility(8);
-                    this.jFn.setVisibility(0);
-                    this.jFp.setOnCountDownFinished(this.jFu);
-                    this.jFp.setData(this.jFh.cvZ() * 1000);
-                    this.jFt.setVisibility(8);
+                    this.jFn.setVisibility(8);
+                    this.jFr.setVisibility(0);
+                    this.jFt.setOnCountDownFinished(this.jFy);
+                    this.jFt.setData(this.jFl.cvW() * 1000);
+                    this.jFx.setVisibility(8);
                 } else if (this.status == 3) {
-                    this.jFj.setVisibility(0);
-                    this.jFl.setOnClickListener(this.dRF);
-                    this.jFn.setVisibility(8);
-                    this.jFt.setVisibility(0);
-                    this.jFt.setOnClickListener(this.dRF);
-                    this.jFk.setText(this.jFh.cwa() + "票");
+                    this.jFn.setVisibility(0);
+                    this.jFp.setOnClickListener(this.dRK);
+                    this.jFr.setVisibility(8);
+                    this.jFx.setVisibility(0);
+                    this.jFx.setOnClickListener(this.dRK);
+                    this.jFo.setText(this.jFl.cvX() + "票");
                 } else if (this.status == 4 || this.status == 5) {
-                    this.jFj.setVisibility(0);
-                    this.jFl.setEnabled(false);
-                    this.jFn.setVisibility(8);
-                    this.jFt.setVisibility(0);
-                    this.jFt.setOnClickListener(this.dRF);
-                    this.jFk.setText(this.jFh.cwa() + "票");
+                    this.jFn.setVisibility(0);
+                    this.jFp.setEnabled(false);
+                    this.jFr.setVisibility(8);
+                    this.jFx.setVisibility(0);
+                    this.jFx.setOnClickListener(this.dRK);
+                    this.jFo.setText(this.jFl.cvX() + "票");
                 } else if (this.status == 6) {
-                    this.jFj.setVisibility(0);
-                    this.jFl.setEnabled(false);
-                    this.jFn.setVisibility(8);
-                    this.jFk.setText(this.jFh.cwa() + "票");
-                    this.jFt.setVisibility(8);
+                    this.jFn.setVisibility(0);
+                    this.jFp.setEnabled(false);
+                    this.jFr.setVisibility(8);
+                    this.jFo.setText(this.jFl.cvX() + "票");
+                    this.jFx.setVisibility(8);
                 } else {
                     this.mRootView.setVisibility(8);
                     return;
                 }
-                if (!v.isEmpty(this.jFh.cwb()) || !v.isEmpty(this.jFh.cwc())) {
-                    this.jFs.setColumn(2);
-                    this.jFs.setData(this.jFh.cwb(), this.jFh.cwc());
+                if (!v.isEmpty(this.jFl.cvY()) || !v.isEmpty(this.jFl.cvZ())) {
+                    this.jFw.setColumn(2);
+                    this.jFw.setData(this.jFl.cvY(), this.jFl.cvZ());
                 }
                 pH(TbadkCoreApplication.getInst().getSkinType());
             }
@@ -214,21 +214,21 @@ public class a {
     }
 
     public void pH(int i) {
-        am.setViewTextColor(this.jFk, R.color.cp_link_tip_c, 1, i);
-        am.setViewTextColor(this.jFi, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.jFo, R.color.cp_link_tip_c, 1, i);
         am.setViewTextColor(this.jFm, R.color.cp_cont_d, 1, i);
-        am.setViewTextColor(this.jFr, R.color.cp_cont_b, 1, i);
-        am.setViewTextColor(this.jFt, R.color.cp_link_tip_c, 1, i);
-        am.setViewTextColor(this.jFo, R.color.cp_cont_b, 1, i);
-        if (this.jFl != null) {
-            this.jFl.aQp();
-        }
-        am.setBackgroundColor(this.jFq, R.color.cp_bg_line_g, i);
+        am.setViewTextColor(this.jFq, R.color.cp_cont_d, 1, i);
+        am.setViewTextColor(this.jFv, R.color.cp_cont_b, 1, i);
+        am.setViewTextColor(this.jFx, R.color.cp_link_tip_c, 1, i);
+        am.setViewTextColor(this.jFs, R.color.cp_cont_b, 1, i);
         if (this.jFp != null) {
-            this.jFp.pH(i);
+            this.jFp.aQm();
         }
-        if (this.jFs != null) {
-            this.jFs.nh(i);
+        am.setBackgroundColor(this.jFu, R.color.cp_bg_line_g, i);
+        if (this.jFt != null) {
+            this.jFt.pH(i);
+        }
+        if (this.jFw != null) {
+            this.jFw.nh(i);
         }
     }
 
@@ -241,27 +241,27 @@ public class a {
         if (eVar == null) {
             return null;
         }
-        if (eVar.cvE() != null) {
-            return eVar.cvE();
+        if (eVar.cvB() != null) {
+            return eVar.cvB();
         }
-        if (!v.isEmpty(eVar.cvw())) {
-            Iterator<PostData> it = eVar.cvw().iterator();
+        if (!v.isEmpty(eVar.cvt())) {
+            Iterator<PostData> it = eVar.cvt().iterator();
             while (it.hasNext()) {
                 postData = it.next();
-                if (postData != null && postData.cWr() == 1) {
+                if (postData != null && postData.cWo() == 1) {
                     break;
                 }
             }
         }
         postData = null;
         if (postData == null) {
-            postData = eVar.cvB();
+            postData = eVar.cvy();
         }
         if (postData == null) {
             postData = a(eVar);
         }
-        if (postData != null && postData.aKE() != null && postData.aKE().getUserTbVipInfoData() != null && postData.aKE().getUserTbVipInfoData().getvipIntro() != null) {
-            postData.aKE().getGodUserData().setIntro(postData.aKE().getUserTbVipInfoData().getvipIntro());
+        if (postData != null && postData.aKC() != null && postData.aKC().getUserTbVipInfoData() != null && postData.aKC().getUserTbVipInfoData().getvipIntro() != null) {
+            postData.aKC().getGodUserData().setIntro(postData.aKC().getUserTbVipInfoData().getvipIntro());
             return postData;
         }
         return postData;
@@ -269,20 +269,20 @@ public class a {
 
     private PostData a(e eVar) {
         MetaData metaData;
-        if (eVar == null || eVar.cvu() == null || eVar.cvu().aKE() == null) {
+        if (eVar == null || eVar.cvr() == null || eVar.cvr().aKC() == null) {
             return null;
         }
         PostData postData = new PostData();
-        MetaData aKE = eVar.cvu().aKE();
-        String userId = aKE.getUserId();
-        HashMap<String, MetaData> userMap = eVar.cvu().getUserMap();
+        MetaData aKC = eVar.cvr().aKC();
+        String userId = aKC.getUserId();
+        HashMap<String, MetaData> userMap = eVar.cvr().getUserMap();
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
-            metaData = aKE;
+            metaData = aKC;
         }
         postData.Di(1);
-        postData.setId(eVar.cvu().aKU());
-        postData.setTitle(eVar.cvu().getTitle());
-        postData.setTime(eVar.cvu().getCreateTime());
+        postData.setId(eVar.cvr().aKS());
+        postData.setTitle(eVar.cvr().getTitle());
+        postData.setTime(eVar.cvr().getCreateTime());
         postData.a(metaData);
         return postData;
     }

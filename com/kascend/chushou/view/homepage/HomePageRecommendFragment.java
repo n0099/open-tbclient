@@ -186,7 +186,7 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
 
     @Override // com.kascend.chushou.view.base.b, android.support.v4.app.Fragment
     public void onDestroyView() {
-        tv.chushou.zues.a.a.ca(this);
+        tv.chushou.zues.a.a.cb(this);
         this.mPresenter.a();
         super.onDestroyView();
     }
@@ -277,9 +277,9 @@ public class HomePageRecommendFragment extends b implements View.OnClickListener
 
     public void subscribeResult(boolean z, String str, ListItem listItem) {
         if (z) {
-            int bp = this.mAdapter.bp(listItem);
-            if (bp != -1) {
-                this.mAdapter.notifyItemChanged(bp, TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE);
+            int bq = this.mAdapter.bq(listItem);
+            if (bq != -1) {
+                this.mAdapter.notifyItemChanged(bq, TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE);
                 return;
             }
             return;

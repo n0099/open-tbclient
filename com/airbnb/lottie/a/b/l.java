@@ -17,7 +17,7 @@ public class l extends a<com.airbnb.lottie.model.content.h, Path> {
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: g */
     public Path a(com.airbnb.lottie.e.a<com.airbnb.lottie.model.content.h> aVar, float f) {
-        this.Ct.a(aVar.FL, aVar.FM, f);
+        this.Ct.a(aVar.FO, aVar.FP, f);
         com.airbnb.lottie.d.e.a(this.Ct, this.Cu);
         return this.Cu;
     }

@@ -55,8 +55,8 @@ public class k extends Lifecycle {
     }
 
     private Lifecycle.State c(i iVar) {
-        Map.Entry<i, a> h = this.yc.h(iVar);
-        return a(a(this.yd, h != null ? h.getValue().yd : null), !this.yi.isEmpty() ? this.yi.get(this.yi.size() - 1) : null);
+        Map.Entry<i, a> i = this.yc.i(iVar);
+        return a(a(this.yd, i != null ? i.getValue().yd : null), !this.yi.isEmpty() ? this.yi.get(this.yi.size() - 1) : null);
     }
 
     @Override // android.arch.lifecycle.Lifecycle
@@ -208,7 +208,7 @@ public class k extends Lifecycle {
         h yk;
 
         a(i iVar, Lifecycle.State state) {
-            this.yk = m.i(iVar);
+            this.yk = m.j(iVar);
             this.yd = state;
         }
 

@@ -2,26 +2,35 @@ package com.xiaomi.push;
 
 import android.content.Context;
 /* loaded from: classes8.dex */
-public class du extends dx {
-    public du(Context context, int i) {
-        super(context, i);
+public class du {
+    private static void a(byte[] bArr) {
+        if (bArr.length >= 2) {
+            bArr[0] = 99;
+            bArr[1] = 100;
+        }
     }
 
-    @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo160a() {
-        return 5;
+    public static boolean a(Context context, String str, long j) {
+        return com.xiaomi.push.service.ak.a(context).a(hr.DCJobMutualSwitch.a(), false) && !ag.a(context, str, j);
     }
 
-    @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public hi mo160a() {
-        return hi.AppActiveList;
+    public static byte[] a(String str, byte[] bArr) {
+        byte[] m158a = bc.m158a(str);
+        try {
+            a(m158a);
+            return h.a(m158a, bArr);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
-    @Override // com.xiaomi.push.dx, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo160a() {
-        return null;
+    public static byte[] b(String str, byte[] bArr) {
+        byte[] m158a = bc.m158a(str);
+        try {
+            a(m158a);
+            return h.b(m158a, bArr);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

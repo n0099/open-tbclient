@@ -21,7 +21,7 @@ public class AlaStatSwitchManager {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021011 && (httpResponsedMessage instanceof AlaSyncHttpResponseMessage)) {
-                if ((httpResponsedMessage.getError() == 0) && ((AlaSyncHttpResponseMessage) httpResponsedMessage).DR() != null) {
+                if ((httpResponsedMessage.getError() == 0) && ((AlaSyncHttpResponseMessage) httpResponsedMessage).DQ() != null) {
                     AlaStatSwitchManager.this.isInit = false;
                     synchronized (AlaStatSwitchManager.class) {
                         AlaStatSwitchManager.this.initSwitch();
@@ -51,7 +51,7 @@ public class AlaStatSwitchManager {
     public void initSwitch() {
         JSONObject jSONObject;
         if (!this.isInit) {
-            String string = c.tH().getString("key_stat_switch", null);
+            String string = c.tG().getString("key_stat_switch", null);
             if (string != null) {
                 try {
                     jSONObject = new JSONObject(string);

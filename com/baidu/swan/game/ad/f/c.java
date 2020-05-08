@@ -13,14 +13,14 @@ import com.baidu.swan.game.ad.a;
 import com.baidu.swan.game.ad.f.f;
 import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 /* loaded from: classes11.dex */
-public class c extends EventTargetImpl implements a.InterfaceC0356a, f.a, com.baidu.swan.games.a.b {
+public class c extends EventTargetImpl implements a.InterfaceC0377a, f.a, com.baidu.swan.games.a.b {
     @V8JavascriptField
     public String adUnitId;
-    public boolean azI;
-    private String cGN;
-    private com.baidu.swan.games.e.b cHF;
-    private e cHG;
-    private h cHH;
+    public boolean azO;
+    private String cGT;
+    private com.baidu.swan.games.e.b cHL;
+    private e cHM;
+    private h cHN;
     private String mErrorCode;
     @V8JavascriptField
     public f style;
@@ -28,7 +28,7 @@ public class c extends EventTargetImpl implements a.InterfaceC0356a, f.a, com.ba
     public c(com.baidu.swan.games.e.b bVar, JsObject jsObject) {
         super(bVar);
         this.style = null;
-        this.cHH = new h() { // from class: com.baidu.swan.game.ad.f.c.2
+        this.cHN = new h() { // from class: com.baidu.swan.game.ad.f.c.2
             @Override // com.baidu.swan.game.ad.f.h
             public void onLoad() {
                 c.this.dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
@@ -48,23 +48,23 @@ public class c extends EventTargetImpl implements a.InterfaceC0356a, f.a, com.ba
                 c.this.dispatchEvent(jSEvent);
             }
         };
-        this.cHF = bVar;
+        this.cHL = bVar;
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
         if (c != null) {
             this.adUnitId = c.optString("adUnitId");
-            this.cGN = c.optString("appSid");
+            this.cGT = c.optString("appSid");
             com.baidu.swan.games.binding.model.c pS = c.pS("style");
             if (pS != null) {
                 this.style = new f(pS);
             }
         }
         if (asT()) {
-            if (c == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.cGN) || this.style == null) {
+            if (c == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.cGT) || this.style == null) {
                 bVar.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
                 return;
             }
-            this.cHG = new e(this.cGN, this.adUnitId, this.style, this);
-            this.cHG.a(this.cHH);
+            this.cHM = new e(this.cGT, this.adUnitId, this.style, this);
+            this.cHM.a(this.cHN);
             if (this.style != null) {
                 this.style.a(this);
             }
@@ -87,7 +87,7 @@ public class c extends EventTargetImpl implements a.InterfaceC0356a, f.a, com.ba
             }
         }
         if (!TextUtils.isEmpty(this.mErrorCode)) {
-            this.cHF.postOnJSThread(new Runnable() { // from class: com.baidu.swan.game.ad.f.c.1
+            this.cHL.postOnJSThread(new Runnable() { // from class: com.baidu.swan.game.ad.f.c.1
                 @Override // java.lang.Runnable
                 public void run() {
                     JSEvent jSEvent = new JSEvent(BdStatsConstant.StatsType.ERROR);
@@ -105,42 +105,42 @@ public class c extends EventTargetImpl implements a.InterfaceC0356a, f.a, com.ba
     @JavascriptInterface
     public void showAd(JsObject jsObject) {
         com.baidu.swan.games.view.a.b.re("banner");
-        if (asT() && this.cHG != null) {
+        if (asT() && this.cHM != null) {
             com.baidu.swan.games.utils.c.ayk().ayr();
-            this.cHG.a(jsObject);
+            this.cHM.a(jsObject);
         }
     }
 
     @Override // com.baidu.swan.games.a.b
     @JavascriptInterface
     public void hide() {
-        if (this.cHG != null) {
-            this.cHG.asU();
+        if (this.cHM != null) {
+            this.cHM.asU();
         }
     }
 
     @Override // com.baidu.swan.games.a.b
     @JavascriptInterface
     public void destroy() {
-        this.azI = true;
+        this.azO = true;
         removeEventListener(BdStatsConstant.StatsType.ERROR, null);
         removeEventListener(TrackLoadSettingsAtom.TYPE, null);
         removeEventListener(ResizeImageAction.ACTION_NAME, null);
-        if (this.cHG != null) {
-            this.cHG.asV();
-            this.cHG = null;
+        if (this.cHM != null) {
+            this.cHM.asV();
+            this.cHM = null;
         }
     }
 
     @Override // com.baidu.swan.game.ad.f.f.a
     public void pg(String str) {
-        if (!this.azI && !TextUtils.isEmpty(str) && !str.equals("height") && this.style != null && this.cHG != null) {
-            this.cHG.pi(str);
+        if (!this.azO && !TextUtils.isEmpty(str) && !str.equals("height") && this.style != null && this.cHM != null) {
+            this.cHM.pi(str);
         }
     }
 
-    @Override // com.baidu.swan.game.ad.a.InterfaceC0356a
-    public void asj() {
+    @Override // com.baidu.swan.game.ad.a.InterfaceC0377a
+    public void asi() {
         destroy();
     }
 }

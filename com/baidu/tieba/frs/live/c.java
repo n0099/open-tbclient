@@ -8,13 +8,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes9.dex */
 public class c {
-    private a hqJ;
-    private HttpMessageListener hqN = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
+    private a hqP;
+    private HttpMessageListener hqT = new HttpMessageListener(1001713) { // from class: com.baidu.tieba.frs.live.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.hqJ != null) {
-                c.this.hqJ.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.hqP != null) {
+                c.this.hqP.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     };
@@ -25,12 +25,12 @@ public class c {
     }
 
     public c(a aVar) {
-        this.hqJ = aVar;
-        xC();
-        MessageManager.getInstance().registerListener(this.hqN);
+        this.hqP = aVar;
+        xB();
+        MessageManager.getInstance().registerListener(this.hqT);
     }
 
-    private void xC() {
+    private void xB() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001713, TbConfig.FRS_LIVE_TIP_ADDRESS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -47,6 +47,6 @@ public class c {
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterTask(1001713);
-        MessageManager.getInstance().unRegisterListener(this.hqN);
+        MessageManager.getInstance().unRegisterListener(this.hqT);
     }
 }

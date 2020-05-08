@@ -5,42 +5,42 @@ import android.util.Log;
 /* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String bIC;
-    private static String bID;
+    private static String bIH;
+    private static String bII;
 
-    public static boolean TG() {
-        return !TextUtils.isEmpty(bIC);
+    public static boolean TF() {
+        return !TextUtils.isEmpty(bIH);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean TH() {
-        return TextUtils.equals(bID, "update_tag_by_remote_debug");
+    public static boolean TG() {
+        return TextUtils.equals(bII, "update_tag_by_remote_debug");
     }
 
     public static void hQ(String str) {
         if (DEBUG) {
             Log.d("RemoteDebugger", "Current launch mode is " + str);
         }
-        bID = str;
-        if (TextUtils.equals(bID, "update_tag_by_activity_on_new_intent")) {
-            d.Tz().TA();
+        bII = str;
+        if (TextUtils.equals(bII, "update_tag_by_activity_on_new_intent")) {
+            d.Ty().Tz();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void TI() {
-        bID = "update_tag_by_remote_debug";
+    public static void TH() {
+        bII = "update_tag_by_remote_debug";
+    }
+
+    public static String TI() {
+        return bIH + "/swan-core/master/master.html";
     }
 
     public static String TJ() {
-        return bIC + "/swan-core/master/master.html";
-    }
-
-    public static String TK() {
-        return bIC + "/swan-core/slaves/slaves.html";
+        return bIH + "/swan-core/slaves/slaves.html";
     }
 
     public static void setWebUrl(String str) {
-        bIC = str;
+        bIH = str;
     }
 }

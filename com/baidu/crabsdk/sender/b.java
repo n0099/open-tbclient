@@ -17,7 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public final class b extends a {
-    private static int akI = 5;
+    private static int akO = 5;
     private boolean by;
 
     public b(Context context) {
@@ -35,7 +35,7 @@ public final class b extends a {
             }
             String substring = str.substring(5);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("logcat -d -v time", (String[]) null, new File("/")).getInputStream()), 8192);
-            String sC = com.baidu.crabsdk.b.p.sC();
+            String sB = com.baidu.crabsdk.b.p.sB();
             boolean z = true;
             int i = 0;
             while (true) {
@@ -72,15 +72,15 @@ public final class b extends a {
                         }
                     }
                 }
-                if (readLine.contains("ActivityManager") || readLine.contains(sC)) {
+                if (readLine.contains("ActivityManager") || readLine.contains(sB)) {
                     sb.append(readLine).append("\n");
                 }
                 i = i2;
             }
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("putAnrLogcat error!", e);
+            com.baidu.crabsdk.c.a.a("putAnrLogcat error!", e);
         } catch (OutOfMemoryError e2) {
-            com.baidu.crabsdk.c.a.f("putAnrLogcat oom!", e2);
+            com.baidu.crabsdk.c.a.a("putAnrLogcat oom!", e2);
         }
     }
 
@@ -96,14 +96,14 @@ public final class b extends a {
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(str)));
             String readLine = bufferedReader.readLine();
-            String sC = com.baidu.crabsdk.b.p.sC();
+            String sB = com.baidu.crabsdk.b.p.sB();
             while (true) {
                 if (readLine == null) {
                     break;
                 }
                 if (readLine.startsWith("-----") && readLine.endsWith("-----") && readLine.contains(" pid ") && readLine.contains(" at ")) {
                     i++;
-                    if (i > akI) {
+                    if (i > akO) {
                         bufferedReader.close();
                         return null;
                     }
@@ -113,7 +113,7 @@ public final class b extends a {
                         str5 = split[2];
                     }
                 }
-                if (readLine.contains(sC)) {
+                if (readLine.contains(sB)) {
                     hashMap.put("apiType", "ANR");
                     hashMap.put("errorType", "ANR");
                     hashMap.put("pid", str4);
@@ -223,7 +223,7 @@ public final class b extends a {
             bufferedReader.close();
             a(hashMap);
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("读取traces.txt文件失败!", e);
+            com.baidu.crabsdk.c.a.a("读取traces.txt文件失败!", e);
             try {
                 StackTraceElement[] stackTrace = Looper.getMainLooper().getThread().getStackTrace();
                 if (stackTrace != null && stackTrace.length > 0) {
@@ -236,17 +236,17 @@ public final class b extends a {
                     hashMap.put("pid", "N/A");
                     hashMap.put("time", Long.valueOf(System.currentTimeMillis()));
                     hashMap.put("anrMsg", "N/A");
-                    hashMap.put("threadList", com.baidu.crabsdk.b.s.sG());
+                    hashMap.put("threadList", com.baidu.crabsdk.b.s.sF());
                     hashMap.put("traceList", "读取trace文件失败：\n" + e.getMessage());
                     hashMap.put("mainThread", sb7.toString());
                     hashMap.put("errorLine", stackTrace[0].toString());
                     hashMap.put("errorOriLine", stackTrace[0].toString());
                 }
             } catch (Exception e2) {
-                com.baidu.crabsdk.c.a.f("7.0+封装anr数据失败!", e2);
+                com.baidu.crabsdk.c.a.a("7.0+封装anr数据失败!", e2);
             }
         } catch (OutOfMemoryError e3) {
-            com.baidu.crabsdk.c.a.f("内存溢出了！", e3);
+            com.baidu.crabsdk.c.a.a("内存溢出了！", e3);
         }
         return hashMap;
     }
@@ -272,7 +272,7 @@ public final class b extends a {
         com.baidu.crabsdk.a.P.onAnrStarted(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        r1 = com.baidu.crabsdk.sender.g.a(r13.akH, (java.lang.Throwable) null, false);
+        r1 = com.baidu.crabsdk.sender.g.a(r13.akN, (java.lang.Throwable) null, false);
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x009b, code lost:
         if (r0 == null) goto L37;
@@ -283,15 +283,15 @@ public final class b extends a {
     /* JADX WARN: Code restructure failed: missing block: B:27:0x00a3, code lost:
         r1.putAll(r0);
         com.baidu.crabsdk.sender.g.b(r1);
-        com.baidu.crabsdk.sender.i.a(r13.akH, com.baidu.crabsdk.sender.i.d(r1));
+        com.baidu.crabsdk.sender.i.a(r13.akN, com.baidu.crabsdk.sender.i.d(r1));
         com.baidu.crabsdk.sender.h.ag();
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x00b9, code lost:
-        if (com.baidu.crabsdk.sender.h.sS() == false) goto L34;
+        if (com.baidu.crabsdk.sender.h.sR() == false) goto L34;
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00bb, code lost:
         com.baidu.crabsdk.c.a.v("===uploadAnr===");
-        com.baidu.crabsdk.sender.k.a(false, r13.akH);
+        com.baidu.crabsdk.sender.k.a(false, r13.akN);
      */
     /* JADX WARN: Code restructure failed: missing block: B:45:?, code lost:
         return;
@@ -325,9 +325,9 @@ public final class b extends a {
                 }
             }
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("ANR Log", e);
+            com.baidu.crabsdk.c.a.a("ANR Log", e);
         } catch (OutOfMemoryError e2) {
-            com.baidu.crabsdk.c.a.f("内存溢出了！", e2);
+            com.baidu.crabsdk.c.a.a("内存溢出了！", e2);
         }
         this.by = false;
     }

@@ -6,9 +6,9 @@ import kotlin.jvm.internal.q;
 @h
 /* loaded from: classes7.dex */
 public abstract class d {
-    public static final b mXU = new b(null);
-    private static final d mXS = kotlin.internal.b.mXB.dDR();
-    public static final a mXT = a.mXV;
+    public static final b mXX = new b(null);
+    private static final d mXV = kotlin.internal.b.mXE.dDN();
+    public static final a mXW = a.mXY;
 
     public abstract int Jg(int i);
 
@@ -118,68 +118,68 @@ public abstract class d {
 
         @Override // kotlin.random.d
         public int Jg(int i) {
-            return d.mXS.Jg(i);
+            return d.mXV.Jg(i);
         }
 
         @Override // kotlin.random.d
         public int nextInt() {
-            return d.mXS.nextInt();
+            return d.mXV.nextInt();
         }
 
         @Override // kotlin.random.d
         public int nextInt(int i) {
-            return d.mXS.nextInt(i);
+            return d.mXV.nextInt(i);
         }
 
         @Override // kotlin.random.d
         public int dF(int i, int i2) {
-            return d.mXS.dF(i, i2);
+            return d.mXV.dF(i, i2);
         }
 
         @Override // kotlin.random.d
         public long nextLong() {
-            return d.mXS.nextLong();
+            return d.mXV.nextLong();
         }
 
         @Override // kotlin.random.d
         public boolean nextBoolean() {
-            return d.mXS.nextBoolean();
+            return d.mXV.nextBoolean();
         }
 
         @Override // kotlin.random.d
         public double nextDouble() {
-            return d.mXS.nextDouble();
+            return d.mXV.nextDouble();
         }
 
         @Override // kotlin.random.d
         public float nextFloat() {
-            return d.mXS.nextFloat();
+            return d.mXV.nextFloat();
         }
 
         @Override // kotlin.random.d
         public byte[] ap(byte[] bArr) {
             q.j(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.mXS.ap(bArr);
+            return d.mXV.ap(bArr);
         }
 
         @Override // kotlin.random.d
         public byte[] u(byte[] bArr, int i, int i2) {
             q.j(bArr, com.baidu.fsg.base.statistics.b.j);
-            return d.mXS.u(bArr, i, i2);
+            return d.mXV.u(bArr, i, i2);
         }
     }
 
     @h
     /* loaded from: classes7.dex */
     public static final class a extends d {
-        public static final a mXV = new a();
+        public static final a mXY = new a();
 
         private a() {
         }
 
         @Override // kotlin.random.d
         public int Jg(int i) {
-            return d.mXU.Jg(i);
+            return d.mXX.Jg(i);
         }
     }
 }

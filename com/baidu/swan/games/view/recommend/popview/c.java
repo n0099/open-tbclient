@@ -18,8 +18,8 @@ public class c {
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.baidu.swan.games.view.recommend.popview.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public static class C0383a {
-            private static final a cTS = new a();
+        public static class C0404a {
+            private static final a cTX = new a();
         }
 
         private a() {
@@ -27,7 +27,7 @@ public class c {
         }
 
         public static final a azw() {
-            return C0383a.cTS;
+            return C0404a.cTX;
         }
     }
 

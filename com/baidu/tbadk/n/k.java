@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.r;
 /* loaded from: classes.dex */
 public class k extends l {
     public static void b(r rVar, r rVar2, r rVar3, r rVar4, r rVar5, int i) {
-        if (m.aZA().aZB()) {
+        if (m.aZy().aZz()) {
             com.baidu.adp.lib.stats.a kW = kW();
             kW.append("action", "dlStat");
             kW.append("c_dnum", String.valueOf(rVar.num));
@@ -39,7 +39,7 @@ public class k extends l {
     }
 
     public static void b(int i, int i2, long j) {
-        if (m.aZA().aZB()) {
+        if (m.aZy().aZz()) {
             com.baidu.adp.lib.stats.a kW = kW();
             kW.append("action", "dcStat");
             kW.append("dcnum", String.valueOf(i));

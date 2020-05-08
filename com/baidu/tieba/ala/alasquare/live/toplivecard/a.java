@@ -13,19 +13,19 @@ import com.baidu.tbadk.util.af;
 import com.baidu.tieba.ala.alasquare.live.b.c;
 /* loaded from: classes3.dex */
 public class a {
-    private TbPageContext<?> duG;
-    private b eOU;
-    private c eOV;
-    private final int eOT = 1000;
+    private TbPageContext<?> duK;
+    private b eOZ;
+    private c ePa;
+    private final int eOY = 1000;
     private boolean mIsBackground = false;
-    private CustomMessageListener RJ = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.1
+    private CustomMessageListener RO = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.blh();
+            a.this.blf();
         }
     };
-    private Runnable eOW = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
+    private Runnable ePb = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
         @Override // java.lang.Runnable
         public void run() {
             a.this.startPlay();
@@ -33,60 +33,60 @@ public class a {
     };
 
     public a(TbPageContext<?> tbPageContext) {
-        this.duG = null;
-        this.duG = tbPageContext;
-        this.eOU = new b(this.duG);
-        MessageManager.getInstance().registerListener(this.RJ);
+        this.duK = null;
+        this.duK = tbPageContext;
+        this.eOZ = new b(this.duK);
+        MessageManager.getInstance().registerListener(this.RO);
     }
 
     public View getView() {
-        return this.eOU.getView();
+        return this.eOZ.getView();
     }
 
     public void onChangeSkinType() {
-        this.eOU.onChangeSkinType();
+        this.eOZ.onChangeSkinType();
     }
 
     public void a(c cVar) {
-        if (cVar != null && cVar.agz != null) {
-            this.eOV = cVar;
-            if (this.eOU != null) {
-                this.eOU.a(this.eOV);
+        if (cVar != null && cVar.agC != null) {
+            this.ePa = cVar;
+            if (this.eOZ != null) {
+                this.eOZ.a(this.ePa);
                 an anVar = new an("c12644");
-                if (cVar.eOm == 0) {
+                if (cVar.eOr == 0) {
                     anVar.af("obj_type", 1);
-                } else if (cVar.eOm == 1) {
+                } else if (cVar.eOr == 1) {
                     anVar.af("obj_type", 2);
                 }
-                anVar.cI("tid", cVar.agz.getTid());
+                anVar.cI("tid", cVar.agC.getTid());
                 TiebaStatic.log(anVar);
             }
         }
     }
 
-    public void blh() {
+    public void blf() {
         if (!this.mIsBackground) {
             if (af.ng(1)) {
-                e.lb().removeCallbacks(this.eOW);
-                e.lb().postDelayed(this.eOW, 1000L);
-            } else if (this.eOU != null) {
-                this.eOU.blk();
+                e.lb().removeCallbacks(this.ePb);
+                e.lb().postDelayed(this.ePb, 1000L);
+            } else if (this.eOZ != null) {
+                this.eOZ.bli();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startPlay() {
-        if (this.eOV != null && this.eOV.agz != null && this.eOV.agz.aKX() != null && this.eOU != null) {
-            this.eOU.zn(this.eOV.agz.aKX().hls_url);
+        if (this.ePa != null && this.ePa.agC != null && this.ePa.agC.aKV() != null && this.eOZ != null) {
+            this.eOZ.zq(this.ePa.agC.aKV().hls_url);
         }
     }
 
     public void stopPlay() {
-        if (this.eOU != null) {
-            this.eOU.blk();
+        if (this.eOZ != null) {
+            this.eOZ.bli();
         }
-        e.lb().removeCallbacks(this.eOW);
+        e.lb().removeCallbacks(this.ePb);
     }
 
     public void iR(boolean z) {
@@ -94,14 +94,14 @@ public class a {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.RJ);
-        e.lb().removeCallbacks(this.eOW);
-        if (this.eOU != null) {
-            this.eOU.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.RO);
+        e.lb().removeCallbacks(this.ePb);
+        if (this.eOZ != null) {
+            this.eOZ.onDestroy();
         }
     }
 
-    public c bli() {
-        return this.eOV;
+    public c blg() {
+        return this.ePa;
     }
 }

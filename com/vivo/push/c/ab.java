@@ -1,56 +1,52 @@
 package com.vivo.push.c;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.vivo.push.sdk.PushMessageCallback;
+import java.security.PublicKey;
 /* loaded from: classes8.dex */
-final class ab extends aa {
+public abstract class ab extends com.vivo.push.v {
+    protected PushMessageCallback b;
+
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(com.vivo.push.y yVar) {
         super(yVar);
     }
 
-    @Override // com.vivo.push.v
-    protected final void a(com.vivo.push.y yVar) {
-        com.vivo.push.b.t tVar = (com.vivo.push.b.t) yVar;
-        ArrayList<String> d = tVar.d();
-        List<String> e = tVar.e();
-        ArrayList arrayList = new ArrayList();
-        ArrayList arrayList2 = new ArrayList();
-        ArrayList arrayList3 = new ArrayList();
-        ArrayList arrayList4 = new ArrayList();
-        int h = tVar.h();
-        String g = tVar.g();
-        if (d != null) {
-            for (String str : d) {
-                if (str.startsWith("ali/")) {
-                    arrayList2.add(str.replace("ali/", ""));
-                } else if (str.startsWith("tag/")) {
-                    arrayList.add(str.replace("tag/", ""));
+    public final void a(PushMessageCallback pushMessageCallback) {
+        this.b = pushMessageCallback;
+    }
+
+    public final boolean a(PublicKey publicKey, String str, String str2) {
+        boolean z = true;
+        if (!com.vivo.push.p.a().d()) {
+            com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify is not support , vertify is ignore");
+            return true;
+        } else if (publicKey == null) {
+            com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify key is null");
+            return false;
+        } else if (TextUtils.isEmpty(str)) {
+            com.vivo.push.util.p.d("OnVerifyCallBackCommand", "contentTag is null");
+            return false;
+        } else if (!TextUtils.isEmpty(str2)) {
+            try {
+                com.vivo.push.util.p.d("OnVerifyCallBackCommand", str.hashCode() + " = " + str2);
+                if (com.vivo.push.util.t.a(str.getBytes("UTF-8"), publicKey, Base64.decode(str2, 2))) {
+                    com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify id is success");
+                } else {
+                    com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
+                    com.vivo.push.util.p.c(this.a, "vertify fail srcDigest is " + str);
+                    z = false;
                 }
+                return z;
+            } catch (Exception e) {
+                e.printStackTrace();
+                com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify exception");
+                return false;
             }
-        }
-        if (e != null) {
-            for (String str2 : e) {
-                if (str2.startsWith("ali/")) {
-                    arrayList4.add(str2.replace("ali/", ""));
-                } else if (str2.startsWith("tag/")) {
-                    arrayList3.add(str2.replace("tag/", ""));
-                }
-            }
-        }
-        if (arrayList.size() > 0 || arrayList3.size() > 0) {
-            if (arrayList.size() > 0) {
-                com.vivo.push.p.a().a(arrayList);
-            }
-            com.vivo.push.p.a().a(tVar.g(), arrayList3.size() > 0 ? 10000 : h);
-            com.vivo.push.w.b(new ac(this, h, arrayList, arrayList3, g));
-        }
-        if (arrayList2.size() > 0 || arrayList4.size() > 0) {
-            if (arrayList2.size() > 0) {
-                com.vivo.push.p.a().b((String) arrayList2.get(0));
-            }
-            com.vivo.push.p.a().a(tVar.g(), h);
-            com.vivo.push.w.b(new ad(this, h, arrayList2, arrayList4, g));
+        } else {
+            com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify id is null");
+            return false;
         }
     }
 }

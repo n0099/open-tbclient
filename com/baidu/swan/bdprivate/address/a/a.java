@@ -14,9 +14,9 @@ import com.baidu.swan.bdprivate.b;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
-public class a extends RecyclerView.Adapter<C0344a> {
-    private List<com.baidu.swan.bdprivate.address.c.b> cAU = new ArrayList();
-    private b cAV;
+public class a extends RecyclerView.Adapter<C0365a> {
+    private List<com.baidu.swan.bdprivate.address.c.b> cBa = new ArrayList();
+    private b cBb;
     private Context mContext;
 
     /* loaded from: classes11.dex */
@@ -33,45 +33,45 @@ public class a extends RecyclerView.Adapter<C0344a> {
     }
 
     public void setDeliveryChooseListener(b bVar) {
-        this.cAV = bVar;
+        this.cBb = bVar;
     }
 
     public void ak(List<com.baidu.swan.bdprivate.address.c.b> list) {
-        this.cAU = list;
+        this.cBa = list;
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.cAU.size();
+        return this.cBa.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: c */
-    public C0344a onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public C0365a onCreateViewHolder(ViewGroup viewGroup, int i) {
         View inflate = LayoutInflater.from(this.mContext).inflate(b.f.delivery_choose_item_layout, viewGroup, false);
-        a(new C0344a(inflate));
-        return new C0344a(inflate);
+        a(new C0365a(inflate));
+        return new C0365a(inflate);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
-    public void onBindViewHolder(C0344a c0344a, final int i) {
-        final com.baidu.swan.bdprivate.address.c.b bVar = this.cAU.get(i);
-        c0344a.cAX.setText(bVar.userName);
-        c0344a.cAY.setText(bVar.cBy);
-        c0344a.cAZ.setText(bVar.aqC());
-        c0344a.cBa.setVisibility(bVar.cBE ? 0 : 8);
-        c0344a.cBb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.a.a.1
+    public void onBindViewHolder(C0365a c0365a, final int i) {
+        final com.baidu.swan.bdprivate.address.c.b bVar = this.cBa.get(i);
+        c0365a.cBd.setText(bVar.userName);
+        c0365a.cBe.setText(bVar.cBE);
+        c0365a.cBf.setText(bVar.aqB());
+        c0365a.cBg.setVisibility(bVar.cBK ? 0 : 8);
+        c0365a.cBh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.cAV != null) {
-                    a.this.cAV.b(bVar, IMTrack.DbBuilder.ACTION_UPDATE);
+                if (a.this.cBb != null) {
+                    a.this.cBb.b(bVar, IMTrack.DbBuilder.ACTION_UPDATE);
                 }
             }
         });
-        c0344a.cBb.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.swan.bdprivate.address.a.a.2
+        c0365a.cBh.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.swan.bdprivate.address.a.a.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int action = motionEvent.getAction();
@@ -86,19 +86,19 @@ public class a extends RecyclerView.Adapter<C0344a> {
                 }
             }
         });
-        c0344a.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.a.a.3
+        c0365a.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.bdprivate.address.a.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.cAV != null) {
-                    a.this.cAV.onItemClick(i);
+                if (a.this.cBb != null) {
+                    a.this.cBb.onItemClick(i);
                 }
             }
         });
-        c0344a.itemView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.swan.bdprivate.address.a.a.4
+        c0365a.itemView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.swan.bdprivate.address.a.a.4
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (a.this.cAV != null) {
-                    a.this.cAV.hx(i);
+                if (a.this.cBb != null) {
+                    a.this.cBb.hx(i);
                     return false;
                 }
                 return false;
@@ -106,48 +106,48 @@ public class a extends RecyclerView.Adapter<C0344a> {
         });
     }
 
-    public void a(C0344a c0344a) {
-        if (com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState()) {
-            int color = AppRuntime.getAppContext().getResources().getColor(b.C0348b.delivery_txt_color_1);
-            int color2 = AppRuntime.getAppContext().getResources().getColor(b.C0348b.delivery_txt_color_2);
-            int color3 = AppRuntime.getAppContext().getResources().getColor(b.C0348b.delivery_txt_color_3);
-            c0344a.itemView.setBackgroundResource(b.d.delivery_list_item_background_selector);
-            c0344a.cAX.setTextColor(color);
-            c0344a.cAY.setTextColor(color);
-            c0344a.cAZ.setTextColor(color2);
-            c0344a.cBa.setTextColor(color);
+    public void a(C0365a c0365a) {
+        if (com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState()) {
+            int color = AppRuntime.getAppContext().getResources().getColor(b.C0369b.delivery_txt_color_1);
+            int color2 = AppRuntime.getAppContext().getResources().getColor(b.C0369b.delivery_txt_color_2);
+            int color3 = AppRuntime.getAppContext().getResources().getColor(b.C0369b.delivery_txt_color_3);
+            c0365a.itemView.setBackgroundResource(b.d.delivery_list_item_background_selector);
+            c0365a.cBd.setTextColor(color);
+            c0365a.cBe.setTextColor(color);
+            c0365a.cBf.setTextColor(color2);
+            c0365a.cBg.setTextColor(color);
             Drawable drawable = AppRuntime.getAppContext().getResources().getDrawable(b.d.delivery_default_used);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-            c0344a.cBa.setCompoundDrawables(drawable, null, null, null);
-            c0344a.cBb.setTextColor(color);
+            c0365a.cBg.setCompoundDrawables(drawable, null, null, null);
+            c0365a.cBh.setTextColor(color);
             Drawable drawable2 = AppRuntime.getAppContext().getResources().getDrawable(b.d.delivery_edit);
             drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-            c0344a.cBb.setCompoundDrawables(drawable2, null, null, null);
-            c0344a.cBc.setBackgroundColor(color3);
+            c0365a.cBh.setCompoundDrawables(drawable2, null, null, null);
+            c0365a.cBi.setBackgroundColor(color3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.bdprivate.address.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class C0344a extends RecyclerView.ViewHolder {
-        private TextView cAX;
-        private TextView cAY;
-        private TextView cAZ;
-        private TextView cBa;
-        private TextView cBb;
-        private View cBc;
-        private View cBd;
+    public static class C0365a extends RecyclerView.ViewHolder {
+        private TextView cBd;
+        private TextView cBe;
+        private TextView cBf;
+        private TextView cBg;
+        private TextView cBh;
+        private View cBi;
+        private View cBj;
 
-        public C0344a(View view) {
+        public C0365a(View view) {
             super(view);
-            this.cBd = view;
-            this.cAX = (TextView) view.findViewById(b.e.addr_user_name);
-            this.cAY = (TextView) view.findViewById(b.e.addr_tel_number);
-            this.cAZ = (TextView) view.findViewById(b.e.addr_detail_region);
-            this.cBc = view.findViewById(b.e.addr_divided_line);
-            this.cBa = (TextView) view.findViewById(b.e.addr_current_used);
-            this.cBb = (TextView) view.findViewById(b.e.addr_edit);
+            this.cBj = view;
+            this.cBd = (TextView) view.findViewById(b.e.addr_user_name);
+            this.cBe = (TextView) view.findViewById(b.e.addr_tel_number);
+            this.cBf = (TextView) view.findViewById(b.e.addr_detail_region);
+            this.cBi = view.findViewById(b.e.addr_divided_line);
+            this.cBg = (TextView) view.findViewById(b.e.addr_current_used);
+            this.cBh = (TextView) view.findViewById(b.e.addr_edit);
         }
     }
 }

@@ -5,6 +5,7 @@ import android.support.media.ExifInterface;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.sapi2.outsdk.c;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.e;
 import com.baidu.sofire.core.g;
@@ -137,7 +138,7 @@ public class FH {
         try {
             JSONObject jSONObject = new JSONObject(str);
             String optString = jSONObject.optString("f");
-            if (TextUtils.isEmpty(optString) || "init".equals(optString) || "initDelay".equals(optString) || NotificationCompat.CATEGORY_CALL.equals(optString)) {
+            if (TextUtils.isEmpty(optString) || c.l.equals(optString) || "initDelay".equals(optString) || NotificationCompat.CATEGORY_CALL.equals(optString)) {
                 return new Pair<>(-3, "");
             }
             Method method = null;

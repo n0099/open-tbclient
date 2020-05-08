@@ -9,7 +9,7 @@ import java.util.RandomAccess;
 @kotlin.h
 /* loaded from: classes7.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a mXc = new a(null);
+    public static final a mXf = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -50,36 +50,36 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0793d(this, i, i2);
+        return new C0814d(this, i, i2);
     }
 
     @kotlin.h
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    private static final class C0793d<E> extends d<E> implements RandomAccess {
-        private int mXe;
-        private final d<E> mXf;
-        private final int mXg;
+    private static final class C0814d<E> extends d<E> implements RandomAccess {
+        private int mXh;
+        private final d<E> mXi;
+        private final int mXj;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0793d(d<? extends E> dVar, int i, int i2) {
+        public C0814d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.q.j(dVar, "list");
-            this.mXf = dVar;
-            this.mXg = i;
-            d.mXc.al(this.mXg, i2, this.mXf.size());
-            this.mXe = i2 - this.mXg;
+            this.mXi = dVar;
+            this.mXj = i;
+            d.mXf.al(this.mXj, i2, this.mXi.size());
+            this.mXh = i2 - this.mXj;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.mXc.dz(i, this.mXe);
-            return this.mXf.get(this.mXg + i);
+            d.mXf.dz(i, this.mXh);
+            return this.mXi.get(this.mXj + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.mXe;
+            return this.mXh;
         }
     }
 
@@ -89,14 +89,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return mXc.a(this, (Collection) obj);
+            return mXf.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return mXc.j(this);
+        return mXf.j(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,7 +154,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.mXc.dA(i, d.this.size());
+            d.mXf.dA(i, d.this.size());
             setIndex(i);
         }
 

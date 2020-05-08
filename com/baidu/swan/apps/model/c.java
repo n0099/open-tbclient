@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static String TAG = "SwanAppParam";
-    private boolean ceh;
+    private boolean cen;
     private String mBaseUrl;
     private String mPage;
     private String mParams;
@@ -21,12 +21,12 @@ public final class c {
         return this.mParams;
     }
 
-    public String aes() {
+    public String aer() {
         return this.mBaseUrl;
     }
 
-    public void Wd() {
-        this.ceh = false;
+    public void Wc() {
+        this.cen = false;
     }
 
     public String toJSONString() {
@@ -35,7 +35,7 @@ public final class c {
             jSONObject.put("page", this.mPage);
             jSONObject.put("params", this.mParams);
             jSONObject.put("baseUrl", this.mBaseUrl);
-            jSONObject.put("isFirstPage", this.ceh);
+            jSONObject.put("isFirstPage", this.cen);
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e(TAG, "toJSONString error: " + Log.getStackTraceString(e));
@@ -54,7 +54,7 @@ public final class c {
             cVar.mPage = jSONObject.optString("page");
             cVar.mParams = jSONObject.optString("params");
             cVar.mBaseUrl = jSONObject.optString("baseUrl");
-            cVar.ceh = jSONObject.optBoolean("isFirstPage");
+            cVar.cen = jSONObject.optBoolean("isFirstPage");
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -67,30 +67,30 @@ public final class c {
 
     /* loaded from: classes11.dex */
     public static class a {
-        private c bLP = new c();
+        private c bLU = new c();
 
         public a kJ(String str) {
-            this.bLP.mPage = str;
+            this.bLU.mPage = str;
             return this;
         }
 
         public a kK(String str) {
-            this.bLP.mParams = str;
+            this.bLU.mParams = str;
             return this;
         }
 
         public a kL(String str) {
-            this.bLP.mBaseUrl = str;
+            this.bLU.mBaseUrl = str;
             return this;
         }
 
         public a dX(boolean z) {
-            this.bLP.ceh = z;
+            this.bLU.cen = z;
             return this;
         }
 
-        public c agE() {
-            return this.bLP;
+        public c agD() {
+            return this.bLU;
         }
     }
 }

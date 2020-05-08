@@ -29,7 +29,7 @@ public class a extends c {
         if (DEBUG) {
             Log.d("Api-Base", "handle: " + str);
         }
-        if (Ru()) {
+        if (Rt()) {
             com.baidu.swan.apps.console.c.e("Api-Base", "Api-Base does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.b.b(1001, "Api-Base does not supported when app is invisible.");
         }
@@ -44,7 +44,7 @@ public class a extends c {
         }
         JSONObject jSONObject = (JSONObject) az.second;
         String optString = jSONObject.optString("filePath");
-        String by = com.baidu.swan.apps.storage.b.by(optString, e.akP());
+        String by = com.baidu.swan.apps.storage.b.by(optString, e.akO());
         if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.nm(optString) != PathType.BD_FILE || TextUtils.isEmpty(by)) {
             com.baidu.swan.apps.console.c.e("Api-Base", "a valid filePath is required");
             return new com.baidu.swan.apps.api.b.b(202, "a valid filePath is required");
@@ -59,15 +59,15 @@ public class a extends c {
             com.baidu.swan.apps.console.c.e("Api-Base", "file not exists");
             return new com.baidu.swan.apps.api.b.b(1001, "file not exists");
         }
-        SwanAppActivity aev = f.aeK().aev();
-        if (aev == null) {
+        SwanAppActivity aeu = f.aeJ().aeu();
+        if (aeu == null) {
             com.baidu.swan.apps.console.c.e("Api-Base", "activity null");
             return new com.baidu.swan.apps.api.b.b(1001, "activity null");
         }
-        ActivityResultDispatcher resultDispatcher = aev.getResultDispatcher();
+        ActivityResultDispatcher resultDispatcher = aeu.getResultDispatcher();
         Intent intent = new Intent();
         if (com.baidu.swan.apps.as.a.hasNougat()) {
-            fromFile = FileProvider.getUriForFile(aev, aev.getPackageName() + ".swan.fileprovider", file);
+            fromFile = FileProvider.getUriForFile(aeu, aeu.getPackageName() + ".swan.fileprovider", file);
             intent.setFlags(3);
         } else {
             fromFile = Uri.fromFile(file);

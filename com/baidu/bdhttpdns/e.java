@@ -19,7 +19,7 @@ final class e {
     private static String a() {
         try {
             byte[] bArr = new byte[20];
-            SecureRandom.getInstance(com.coloros.mcssdk.c.a.c).nextBytes(bArr);
+            SecureRandom.getInstance("SHA1PRNG").nextBytes(bArr);
             return a(bArr);
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ final class e {
     }
 
     private static void a(StringBuffer stringBuffer, byte b2) {
-        stringBuffer.append(com.coloros.mcssdk.c.a.f.charAt((b2 >> 4) & 15)).append(com.coloros.mcssdk.c.a.f.charAt(b2 & 15));
+        stringBuffer.append("0123456789ABCDEF".charAt((b2 >> 4) & 15)).append("0123456789ABCDEF".charAt(b2 & 15));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

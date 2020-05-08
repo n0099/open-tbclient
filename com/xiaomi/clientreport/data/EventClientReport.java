@@ -16,6 +16,7 @@ public class EventClientReport extends a {
 
     @Override // com.xiaomi.clientreport.data.a
     public JSONObject toJson() {
+        JSONObject jSONObject = null;
         try {
             JSONObject json = super.toJson();
             if (json == null) {
@@ -24,11 +25,12 @@ public class EventClientReport extends a {
             json.put(TbEnum.SystemMessage.KEY_EVENT_ID, this.eventId);
             json.put("eventType", this.eventType);
             json.put("eventTime", this.eventTime);
-            json.put("eventContent", this.eventContent);
-            return json;
+            json.put("eventContent", this.eventContent == null ? "" : this.eventContent);
+            jSONObject = json;
+            return jSONObject;
         } catch (JSONException e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
-            return null;
+            return jSONObject;
         }
     }
 

@@ -69,7 +69,7 @@ public class b {
         } else {
             a.b s = com.baidu.swan.apps.t.a.a.s(file);
             if (s.type != -1) {
-                unzipFile = com.baidu.swan.apps.t.a.a.a(s.bWc, file2, s.type).isSuccess;
+                unzipFile = com.baidu.swan.apps.t.a.a.a(s.bWi, file2, s.type).isSuccess;
             } else {
                 unzipFile = com.baidu.swan.d.c.unzipFile(file.getAbsolutePath(), file2.getAbsolutePath());
             }

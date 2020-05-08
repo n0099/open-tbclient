@@ -7,8 +7,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.common.security.MD5Util;
 import com.baidu.mobstat.Config;
+import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
@@ -32,7 +32,7 @@ public class ShareStorage {
     private static final String a = "sapi_share";
     private static final String b = ".BD_SAPI_CACHE/.sapi_temp/";
     private static final String c = ".BD_SAPI_CACHE/";
-    private static final String d = SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + com.baidu.sapi2.utils.f.D;
+    private static final String d = SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + com.baidu.sapi2.utils.h.A;
     private static final String e = "w0d4o27mh3k1e461";
     private static final String f = "2314906973403010";
     private static final int g = 5;
@@ -124,7 +124,7 @@ public class ShareStorage {
         }
 
         static void a(Context context, boolean z, a aVar) {
-            SapiAccount currentAccount = SapiContext.getInstance(context).getCurrentAccount();
+            SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             if (currentAccount == null || currentAccount.isGuestAccount()) {
                 StorageModel storageModel = new StorageModel();
                 storageModel.b = 1;
@@ -132,7 +132,7 @@ public class ShareStorage {
             } else if (z) {
                 StorageModel storageModel2 = new StorageModel();
                 storageModel2.displayname = currentAccount.displayname;
-                storageModel2.url = SapiContext.getInstance(context).getString(SapiContext.KEY_LAST_LOGIN_USER_PORTRAIT);
+                storageModel2.url = SapiContext.getInstance().getString(SapiContext.KEY_LAST_LOGIN_USER_PORTRAIT);
                 storageModel2.app = SapiUtils.getAppName(context);
                 storageModel2.pkg = context.getPackageName();
                 storageModel2.tpl = SapiAccountManager.getInstance().getSapiConfiguration().tpl;
@@ -141,7 +141,7 @@ public class ShareStorage {
                 storageModel2.d = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
                 aVar.a(storageModel2);
             } else {
-                SapiAccountManager.getInstance().getAccountService().getUserInfo(new u(aVar, context), SapiContext.getInstance(context).getCurrentAccount().bduss);
+                SapiAccountManager.getInstance().getAccountService().getUserInfo(new u(aVar, context), SapiContext.getInstance().getCurrentAccount().bduss);
             }
         }
     }
@@ -152,20 +152,20 @@ public class ShareStorage {
     }
 
     private boolean b() {
-        int i = SapiContext.getInstance(this.h).getInt(SapiContext.KEY_SHARE_INTERNAL_GRAY, -1);
+        int i = SapiContext.getInstance().getInt(SapiContext.KEY_SHARE_INTERNAL_GRAY, -1);
         if (i == -1) {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
             i = random.nextInt(100);
-            SapiContext.getInstance(this.h).put(SapiContext.KEY_SHARE_INTERNAL_GRAY, i);
+            SapiContext.getInstance().put(SapiContext.KEY_SHARE_INTERNAL_GRAY, i);
         }
-        return i <= SapiContext.getInstance(this.h).getShareInternalGray();
+        return i <= SapiContext.getInstance().getShareInternalGray();
     }
 
     @TargetApi(8)
     private StorageModel c(String str) {
         try {
-            String sp = getSp(str, MD5Util.toMd5(str.getBytes(), false));
+            String sp = getSp(str, SecurityUtil.md5(str.getBytes(), false));
             if (TextUtils.isEmpty(sp)) {
                 return null;
             }
@@ -224,22 +224,22 @@ public class ShareStorage {
             }
             return true;
         } catch (Throwable th) {
-            if (Build.VERSION.SDK_INT >= 24 && this.h.getApplicationInfo().targetSdkVersion >= 24 && b() && !SapiContext.getInstance(this.h).getResetFileExecPer()) {
+            if (Build.VERSION.SDK_INT >= 24 && this.h.getApplicationInfo().targetSdkVersion >= 24 && b() && !SapiContext.getInstance().getResetFileExecPer()) {
                 try {
                     File file = new File(this.h.getApplicationInfo().dataDir + "/" + c + str);
                     if (!file.exists()) {
                         file.getParentFile().mkdirs();
                         file.createNewFile();
-                        SapiContext.getInstance(this.h).setModifiedDirExecPer(com.baidu.sapi2.utils.e.a(this.h, file));
+                        SapiContext.getInstance().setModifiedDirExecPer(com.baidu.sapi2.utils.g.a(this.h, file));
                     }
-                    if (!SapiContext.getInstance(this.h).getModifiedDirExecPer()) {
-                        boolean a2 = com.baidu.sapi2.utils.e.a(this.h, file);
+                    if (!SapiContext.getInstance().getModifiedDirExecPer()) {
+                        boolean a2 = com.baidu.sapi2.utils.g.a(this.h, file);
                         String str3 = TAG;
                         Object[] objArr = new Object[2];
                         objArr[0] = "chmodFileSuc";
                         objArr[1] = Boolean.valueOf(a2);
                         Log.i(str3, objArr);
-                        SapiContext.getInstance(this.h).setModifiedDirExecPer(a2);
+                        SapiContext.getInstance().setModifiedDirExecPer(a2);
                     }
                     com.baidu.sapi2.utils.a.a(file, str2.getBytes(), false);
                     return true;
@@ -302,7 +302,7 @@ public class ShareStorage {
     @TargetApi(8)
     private StorageModel b(String str) {
         try {
-            String sd = getSd(MD5Util.toMd5(str.getBytes(), false));
+            String sd = getSd(SecurityUtil.md5(str.getBytes(), false));
             if (TextUtils.isEmpty(sd)) {
                 return null;
             }

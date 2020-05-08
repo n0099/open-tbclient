@@ -15,7 +15,6 @@ import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiContext;
 import java.security.NoSuchAlgorithmException;
@@ -110,7 +109,7 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
         try {
             jSONObject = new JSONObject(new String(bArr));
             i2 = jSONObject.getInt("error_code");
-            str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+            str = jSONObject.optString("error_msg", "");
         } catch (JSONException e) {
             jSONException = e;
             arrayList = null;

@@ -13,7 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes8.dex */
 public final class m {
-    private static ActivityManager ako;
+    private static ActivityManager aku;
     private static Context mContext;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x007a */
@@ -64,7 +64,7 @@ public final class m {
                             e = e2;
                             fileReader2 = fileReader;
                             try {
-                                com.baidu.crabsdk.c.a.f("getSysMemInfo fail.", e);
+                                com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e);
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
@@ -96,7 +96,7 @@ public final class m {
                         } catch (IOException e5) {
                             e = e5;
                             bufferedReader2 = bufferedReader;
-                            com.baidu.crabsdk.c.a.f("getSysMemInfo fail.", e);
+                            com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e);
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
@@ -111,7 +111,7 @@ public final class m {
                         } catch (Exception e7) {
                             e = e7;
                             bufferedReader2 = bufferedReader;
-                            com.baidu.crabsdk.c.a.f("getSysMemInfo fail.", e);
+                            com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e);
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
@@ -164,18 +164,18 @@ public final class m {
     public static String E() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (ako == null) {
+        if (aku == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            ako.getMemoryInfo(memoryInfo2);
+            aku.getMemoryInfo(memoryInfo2);
             sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : NetWorkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\navailMem: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo2.threshold)).append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = ako.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = aku.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
                 sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.Q(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("getMemInfo error!!!", e);
+            com.baidu.crabsdk.c.a.a("getMemInfo error!!!", e);
         }
         return sb.toString();
     }
@@ -183,7 +183,7 @@ public final class m {
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            ako = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            aku = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 }

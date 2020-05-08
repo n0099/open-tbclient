@@ -1,7 +1,13 @@
 package com.meizu.cloud.pushsdk.notification;
+
+import android.content.Context;
+import android.graphics.Bitmap;
 /* loaded from: classes8.dex */
 public class PushNotificationBuilder {
+    protected String appLabel;
+    protected Bitmap appLargeIcon;
     protected String clickPackageName;
+    protected Context context;
     protected int mLargIcon;
     protected int mNotificationDefaults;
     protected int mNotificationFlags;
@@ -9,8 +15,27 @@ public class PushNotificationBuilder {
     protected int mStatusbarIcon;
     protected long[] mVibratePattern;
 
+    public PushNotificationBuilder() {
+    }
+
+    public PushNotificationBuilder(Context context) {
+        this.context = context;
+    }
+
+    public String getAppLabel() {
+        return this.appLabel;
+    }
+
+    public Bitmap getAppLargeIcon() {
+        return this.appLargeIcon;
+    }
+
     public String getClickPackageName() {
         return this.clickPackageName;
+    }
+
+    public Context getContext() {
+        return this.context;
     }
 
     public int getmLargIcon() {
@@ -37,8 +62,20 @@ public class PushNotificationBuilder {
         return this.mVibratePattern;
     }
 
+    public void setAppLabel(String str) {
+        this.appLabel = str;
+    }
+
+    public void setAppLargeIcon(Bitmap bitmap) {
+        this.appLargeIcon = bitmap;
+    }
+
     public void setClickPackageName(String str) {
         this.clickPackageName = str;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     public void setmLargIcon(int i) {

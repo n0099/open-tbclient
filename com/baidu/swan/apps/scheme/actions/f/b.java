@@ -13,9 +13,9 @@ public class b {
     public final String coorType;
     public final String country;
     public final String countryCode;
-    public final double cqR;
-    public final double cqS = 0.0d;
-    public final double cqT;
+    public final double cqX;
+    public final double cqY = 0.0d;
+    public final double cqZ;
     public final String district;
     public final double latitude;
     public final double longitude;
@@ -29,9 +29,9 @@ public class b {
         this.longitude = d;
         this.latitude = d2;
         this.speed = f;
-        this.cqR = d3;
+        this.cqX = d3;
         this.altitude = d4;
-        this.cqT = d3;
+        this.cqZ = d3;
         this.country = str2;
         this.countryCode = str3;
         this.city = str4;
@@ -48,10 +48,10 @@ public class b {
             jSONObject.put("longitude", this.longitude);
             jSONObject.put("latitude", this.latitude);
             jSONObject.put("speed", this.speed);
-            jSONObject.put("accuracy", this.cqR);
+            jSONObject.put("accuracy", this.cqX);
             jSONObject.put("altitude", this.altitude);
-            jSONObject.put("verticalAccuracy", this.cqS);
-            jSONObject.put("horizontalAccuracy", this.cqT);
+            jSONObject.put("verticalAccuracy", this.cqY);
+            jSONObject.put("horizontalAccuracy", this.cqZ);
             jSONObject.put("country", this.country);
             jSONObject.put("countryCode", this.countryCode);
             jSONObject.put("city", this.city);

@@ -9,10 +9,10 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.debug.Log;
+import com.baidu.pass.common.SecurityUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -201,7 +201,7 @@ public class PassBiometricUtil {
             if (packageInfo.signatures.length <= 0) {
                 return "";
             }
-            return MD5Util.toMd5(packageInfo.signatures[0].toByteArray(), false);
+            return SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false);
         } catch (Throwable th) {
             Log.e(th);
             return "";

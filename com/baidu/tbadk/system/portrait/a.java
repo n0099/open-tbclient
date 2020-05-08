@@ -13,41 +13,41 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class a extends BaseAdapter {
-    private TbPageContext<?> duG;
-    private ArrayList<b> egf;
-    private int egh;
-    private int egi;
+    private TbPageContext<?> duK;
+    private ArrayList<b> egk;
+    private int egm;
+    private int egn;
     private int padding;
-    private int efY = -1;
+    private int egd = -1;
     private int rowSize = 0;
-    private int dCa = am.getColor(R.color.common_color_10043);
-    private int egg = am.getColor(R.color.cp_link_tip_a);
+    private int dCe = am.getColor(R.color.common_color_10043);
+    private int egl = am.getColor(R.color.cp_link_tip_a);
 
     public a(TbPageContext<?> tbPageContext) {
-        this.egf = null;
-        this.duG = null;
+        this.egk = null;
+        this.duK = null;
         this.padding = 0;
-        this.duG = tbPageContext;
-        this.egf = new ArrayList<>();
-        this.egh = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
-        this.egi = l.getDimens(this.duG.getPageActivity(), R.dimen.ds4);
-        this.padding = l.getDimens(this.duG.getPageActivity(), R.dimen.ds36);
+        this.duK = tbPageContext;
+        this.egk = new ArrayList<>();
+        this.egm = l.getDimens(tbPageContext.getPageActivity(), R.dimen.ds1);
+        this.egn = l.getDimens(this.duK.getPageActivity(), R.dimen.ds4);
+        this.padding = l.getDimens(this.duK.getPageActivity(), R.dimen.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.egf != null) {
-            return this.egf.size();
+        if (this.egk != null) {
+            return this.egk.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.egf == null || i >= this.egf.size()) {
+        if (this.egk == null || i >= this.egk.size()) {
             return null;
         }
-        return this.egf.get(i);
+        return this.egk.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -57,37 +57,37 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0426a c0426a;
+        C0447a c0447a;
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = LayoutInflater.from(this.duG.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
-            c0426a = new C0426a();
-            c0426a.dTF = (LinearLayout) view.findViewById(R.id.photo_container);
-            c0426a.egj = (TbImageView) view.findViewById(R.id.photo);
+            view = LayoutInflater.from(this.duK.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
+            c0447a = new C0447a();
+            c0447a.dTK = (LinearLayout) view.findViewById(R.id.photo_container);
+            c0447a.ego = (TbImageView) view.findViewById(R.id.photo);
         } else {
-            c0426a = (C0426a) view.getTag();
+            c0447a = (C0447a) view.getTag();
         }
         if (nc(i) == 1) {
-            c0426a.dTF.setPadding(0, this.padding, 0, 0);
+            c0447a.dTK.setPadding(0, this.padding, 0, 0);
         } else if (nc(i) == 2) {
-            c0426a.dTF.setPadding(0, 0, 0, this.padding);
+            c0447a.dTK.setPadding(0, 0, 0, this.padding);
         } else {
-            c0426a.dTF.setPadding(0, 0, 0, 0);
+            c0447a.dTK.setPadding(0, 0, 0, 0);
         }
-        c0426a.egj.setDrawerType(0);
-        c0426a.egj.setBorderSurroundContent(true);
-        c0426a.egj.setDrawBorder(true);
+        c0447a.ego.setDrawerType(0);
+        c0447a.ego.setBorderSurroundContent(true);
+        c0447a.ego.setDrawBorder(true);
         if (itemViewType == 0) {
-            c0426a.egj.setBorderColor(this.dCa);
-            c0426a.egj.setBorderWidth(this.egh);
+            c0447a.ego.setBorderColor(this.dCe);
+            c0447a.ego.setBorderWidth(this.egm);
         } else {
-            c0426a.egj.setBorderColor(this.egg);
-            c0426a.egj.setBorderWidth(this.egi);
+            c0447a.ego.setBorderColor(this.egl);
+            c0447a.ego.setBorderWidth(this.egn);
         }
-        c0426a.egj.setDefaultResource(R.drawable.transparent_bg);
-        c0426a.egj.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        c0426a.egj.startLoad(this.egf.get(i).getUrl(), 10, false);
-        view.setTag(c0426a);
+        c0447a.ego.setDefaultResource(R.drawable.transparent_bg);
+        c0447a.ego.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        c0447a.ego.startLoad(this.egk.get(i).getUrl(), 10, false);
+        view.setTag(c0447a);
         return view;
     }
 
@@ -103,7 +103,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.efY ? 1 : 0;
+        return i == this.egd ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -112,7 +112,7 @@ public class a extends BaseAdapter {
     }
 
     public void H(ArrayList<b> arrayList) {
-        this.egf = arrayList;
+        this.egk = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.rowSize = arrayList.size() / 4;
@@ -123,16 +123,16 @@ public class a extends BaseAdapter {
     }
 
     public void nd(int i) {
-        this.efY = i;
+        this.egd = i;
     }
 
     /* renamed from: com.baidu.tbadk.system.portrait.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private class C0426a {
-        LinearLayout dTF;
-        TbImageView egj;
+    private class C0447a {
+        LinearLayout dTK;
+        TbImageView ego;
 
-        private C0426a() {
+        private C0447a() {
         }
     }
 }

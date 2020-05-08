@@ -160,9 +160,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 for (int i = 0; i < childCount; i++) {
                     refreshImage(BdMultiColumnListView.this.getChildAt(i));
                 }
-                h R = i.R(BdMultiColumnListView.this.getContext());
-                if (R != null) {
-                    R.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
+                h E = i.E(BdMultiColumnListView.this.getContext());
+                if (E != null) {
+                    E.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
                 }
             }
 
@@ -184,9 +184,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
         this.preLoadRunnable = new Runnable() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.4
             @Override // java.lang.Runnable
             public void run() {
-                h R = i.R(BdMultiColumnListView.this.getContext());
-                if (R != null) {
-                    R.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
+                h E = i.E(BdMultiColumnListView.this.getContext());
+                if (E != null) {
+                    E.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
                 }
             }
         };
@@ -267,9 +267,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 for (int i = 0; i < childCount; i++) {
                     refreshImage(BdMultiColumnListView.this.getChildAt(i));
                 }
-                h R = i.R(BdMultiColumnListView.this.getContext());
-                if (R != null) {
-                    R.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
+                h E = i.E(BdMultiColumnListView.this.getContext());
+                if (E != null) {
+                    E.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
                 }
             }
 
@@ -291,9 +291,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
         this.preLoadRunnable = new Runnable() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.4
             @Override // java.lang.Runnable
             public void run() {
-                h R = i.R(BdMultiColumnListView.this.getContext());
-                if (R != null) {
-                    R.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
+                h E = i.E(BdMultiColumnListView.this.getContext());
+                if (E != null) {
+                    E.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
                 }
             }
         };
@@ -374,9 +374,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 for (int i2 = 0; i2 < childCount; i2++) {
                     refreshImage(BdMultiColumnListView.this.getChildAt(i2));
                 }
-                h R = i.R(BdMultiColumnListView.this.getContext());
-                if (R != null) {
-                    R.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
+                h E = i.E(BdMultiColumnListView.this.getContext());
+                if (E != null) {
+                    E.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
                 }
             }
 
@@ -398,9 +398,9 @@ public class BdMultiColumnListView extends MultiColumnListView {
         this.preLoadRunnable = new Runnable() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.4
             @Override // java.lang.Runnable
             public void run() {
-                h R = i.R(BdMultiColumnListView.this.getContext());
-                if (R != null) {
-                    R.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
+                h E = i.E(BdMultiColumnListView.this.getContext());
+                if (E != null) {
+                    E.onPreLoad(BdMultiColumnListView.this.mPreLoadListView);
                 }
             }
         };
@@ -455,13 +455,13 @@ public class BdMultiColumnListView extends MultiColumnListView {
         super.setOnScrollListener(new PLA_AbsListView.c() { // from class: com.baidu.ala.widget.multicolumn.BdMultiColumnListView.7
             @Override // com.huewu.pla.lib.internal.PLA_AbsListView.c
             public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i) {
-                h R = i.R(BdMultiColumnListView.this.getContext());
-                if (R != null) {
+                h E = i.E(BdMultiColumnListView.this.getContext());
+                if (E != null) {
                     if (i == 2) {
                         BdMultiColumnListView.this.removeCallbacks(BdMultiColumnListView.this.refreshRunnable);
-                        R.setIsScroll(true);
-                    } else if (R.isScroll()) {
-                        R.setIsScroll(false);
+                        E.setIsScroll(true);
+                    } else if (E.isScroll()) {
+                        E.setIsScroll(false);
                         BdMultiColumnListView.this.removeCallbacks(BdMultiColumnListView.this.refreshRunnable);
                         BdMultiColumnListView.this.postDelayed(BdMultiColumnListView.this.refreshRunnable, 100L);
                     } else if (i == 0) {

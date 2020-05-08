@@ -1,22 +1,19 @@
 package com.xiaomi.push;
 
-import com.xiaomi.push.service.al;
+import com.xiaomi.push.al;
 /* loaded from: classes8.dex */
-/* synthetic */ class gv {
-    static final /* synthetic */ int[] a = new int[al.c.values().length];
+public class gv {
+    private static al a = new al(true, 20);
 
-    static {
-        try {
-            a[al.c.unbind.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
-        }
-        try {
-            a[al.c.binding.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
-        }
-        try {
-            a[al.c.binded.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
-        }
+    public static void a(al.b bVar) {
+        a.a(bVar);
+    }
+
+    public static void a(al.b bVar, long j) {
+        a.a(bVar, j);
+    }
+
+    public static void a(Runnable runnable) {
+        a.a(new gw(runnable));
     }
 }

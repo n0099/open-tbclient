@@ -6,7 +6,7 @@ import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.swan.apps.as.ai;
 /* loaded from: classes11.dex */
 public class a implements com.baidu.swan.apps.core.container.a {
-    private BdSailorWebView cZH;
+    private BdSailorWebView cZM;
 
     @Override // com.baidu.swan.apps.core.container.a
     public boolean isWebView() {
@@ -15,18 +15,18 @@ public class a implements com.baidu.swan.apps.core.container.a {
 
     @Override // com.baidu.swan.apps.core.container.a
     public void addJavascriptInterface(@NonNull Object obj, @NonNull String str) {
-        this.cZH.addJavascriptInterface(obj, str);
+        this.cZM.addJavascriptInterface(obj, str);
     }
 
     @Override // com.baidu.swan.apps.core.container.a
     public void evaluateJavascript(final String str, final ValueCallback<String> valueCallback) {
         if (ai.isOnUiThread()) {
-            this.cZH.evaluateJavascript(str, valueCallback);
+            this.cZM.evaluateJavascript(str, valueCallback);
         } else {
             ai.runOnUiThread(new Runnable() { // from class: com.baidu.swan.mini.slave.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.cZH.evaluateJavascript(str, valueCallback);
+                    a.this.cZM.evaluateJavascript(str, valueCallback);
                 }
             });
         }
@@ -34,7 +34,7 @@ public class a implements com.baidu.swan.apps.core.container.a {
 
     @Override // com.baidu.swan.apps.core.container.a
     public boolean isDestroyed() {
-        return this.cZH.isDestroyed();
+        return this.cZM.isDestroyed();
     }
 
     @Override // com.baidu.swan.apps.core.container.a

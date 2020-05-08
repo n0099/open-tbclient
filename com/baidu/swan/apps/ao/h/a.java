@@ -25,28 +25,28 @@ public class a extends ab {
 
     @Override // com.baidu.swan.apps.scheme.actions.ab
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        com.baidu.swan.apps.adaptation.a.e abT = com.baidu.swan.apps.w.a.abT();
+        com.baidu.swan.apps.adaptation.a.e abS = com.baidu.swan.apps.w.a.abS();
         JSONObject jSONObject = new JSONObject();
         if (context == null) {
             try {
-                context = com.baidu.swan.apps.w.a.abO();
+                context = com.baidu.swan.apps.w.a.abN();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        jSONObject.put("userid", abT == null ? "" : abT.bd(context));
-        jSONObject.put("zid", abT == null ? "" : com.baidu.swan.apps.w.a.acF().bS(context));
+        jSONObject.put("userid", abS == null ? "" : abS.aR(context));
+        jSONObject.put("zid", abS == null ? "" : com.baidu.swan.apps.w.a.acE().bG(context));
         jSONObject.put("idfa", "");
-        jSONObject.put("imei", ai.aps());
+        jSONObject.put("imei", ai.apr());
         jSONObject.put("appkey", eVar == null ? "" : eVar.getAppKey());
         jSONObject.put("os", "android");
         jSONObject.put("osVersion", Build.VERSION.RELEASE);
         jSONObject.put("hostName", context.getPackageName());
         jSONObject.put("hostVersion", ai.getVersionName());
         jSONObject.put("model", Build.MODEL);
-        jSONObject.put("uuid", com.baidu.swan.uuid.b.du(context).getUUID());
+        jSONObject.put("uuid", com.baidu.swan.uuid.b.di(context).getUUID());
         jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        jSONObject.put("cuid", abT == null ? "" : abT.be(context));
+        jSONObject.put("cuid", abS == null ? "" : abS.aS(context));
         if (DEBUG) {
             Log.d("GetSystemRiskInfoAction", jSONObject.toString());
         }

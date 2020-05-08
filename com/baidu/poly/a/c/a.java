@@ -5,35 +5,35 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 /* loaded from: classes11.dex */
 public class a implements c {
-    private static a bmI;
-    private static e bmJ;
-    private static com.baidu.poly.a.d.b bmK;
-    private static com.baidu.poly.a.d.a bmL;
+    private static a bmN;
+    private static e bmO;
+    private static com.baidu.poly.a.d.b bmP;
+    private static com.baidu.poly.a.d.a bmQ;
     private Context context;
 
     private a(Context context) {
         this.context = context.getApplicationContext();
-        bmK = new com.baidu.poly.a.d.b();
-        bmL = new com.baidu.poly.a.d.a(context);
-        bmJ = new e();
+        bmP = new com.baidu.poly.a.d.b();
+        bmQ = new com.baidu.poly.a.d.a(context);
+        bmO = new e();
     }
 
-    public static com.baidu.poly.a.d.b KT() {
-        if (bmK == null) {
-            bmK = new com.baidu.poly.a.d.b();
+    public static com.baidu.poly.a.d.b KS() {
+        if (bmP == null) {
+            bmP = new com.baidu.poly.a.d.b();
         }
-        return bmK;
+        return bmP;
     }
 
-    public static a aI(Context context) {
-        if (bmI == null) {
+    public static a aw(Context context) {
+        if (bmN == null) {
             synchronized (a.class) {
-                if (bmI == null) {
-                    bmI = new a(context);
+                if (bmN == null) {
+                    bmN = new a(context);
                 }
             }
         }
-        return bmI;
+        return bmN;
     }
 
     @Override // com.baidu.poly.a.c.c
@@ -43,18 +43,18 @@ public class a implements c {
 
     public void a(ImageView imageView, String str, int i, int i2) {
         imageView.setTag(str);
-        Bitmap fH = bmK.fH(str);
+        Bitmap fH = bmP.fH(str);
         if (fH != null) {
             imageView.setImageBitmap(fH);
         } else {
-            com.baidu.poly.b.a.execute(new g(this.context, bmJ, str, imageView, i, i2));
+            com.baidu.poly.b.a.execute(new g(this.context, bmO, str, imageView, i, i2));
         }
     }
 
-    public static com.baidu.poly.a.d.a aJ(Context context) {
-        if (bmL == null) {
-            bmL = new com.baidu.poly.a.d.a(context);
+    public static com.baidu.poly.a.d.a ax(Context context) {
+        if (bmQ == null) {
+            bmQ = new com.baidu.poly.a.d.a(context);
         }
-        return bmL;
+        return bmQ;
     }
 }

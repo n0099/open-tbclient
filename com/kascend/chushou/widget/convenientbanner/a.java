@@ -6,7 +6,7 @@ public final class a {
 
     /* renamed from: com.kascend.chushou.widget.convenientbanner.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0746a {
+    public static final class C0767a {
         public static final int banner_indicator = 2131692112;
         public static final int banner_item_tag = 2131689516;
         public static final int banner_loop_viewpager = 2131692111;
@@ -14,7 +14,7 @@ public final class a {
 
     /* loaded from: classes4.dex */
     public static final class b {
-        public static final int banner_layout = 2130903494;
+        public static final int banner_layout = 2130903493;
     }
 
     /* loaded from: classes4.dex */

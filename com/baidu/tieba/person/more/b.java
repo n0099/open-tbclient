@@ -15,44 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class b {
-    private c jSA;
-    private List<m> jSB;
-    private PersonMoreData jSC;
+    private c jSE;
+    private List<m> jSF;
+    private PersonMoreData jSG;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, z<g> zVar) {
         this.mPageContext = tbPageContext;
-        this.jSA = new c(tbPageContext);
-        this.jSA.c(zVar);
+        this.jSE = new c(tbPageContext);
+        this.jSE.c(zVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.jSC = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.jSG = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(R.layout.person_center_more_layout);
-        this.jSA.ag(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
-        cGc();
-        this.jSA.setData(this.jSB);
+        this.jSE.ag(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
+        cFZ();
+        this.jSE.setData(this.jSF);
     }
 
     public void onChangeSkinType() {
-        if (this.jSA != null) {
-            this.jSA.onChangeSkinType();
+        if (this.jSE != null) {
+            this.jSE.onChangeSkinType();
         }
     }
 
-    private void cGc() {
-        this.jSB = new ArrayList();
-        if (this.jSC != null && !v.isEmpty(this.jSC.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.jSC.mUrlMaps) {
+    private void cFZ() {
+        this.jSF = new ArrayList();
+        if (this.jSG != null && !v.isEmpty(this.jSG.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.jSG.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     g gVar = new g();
                     gVar.title = personMoreItemData.mName;
                     gVar.type = 36;
-                    gVar.aqV = personMoreItemData.mUrl;
+                    gVar.arb = personMoreItemData.mUrl;
                     gVar.itemId = personMoreItemData.mId;
-                    this.jSB.add(gVar);
+                    this.jSF.add(gVar);
                 }
             }
         }

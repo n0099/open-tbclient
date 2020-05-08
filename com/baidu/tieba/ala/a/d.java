@@ -10,7 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d {
-    public File eZH = null;
+    public File eZM = null;
     public String mLoadingFile;
     public String mMd5;
     public String mType;
@@ -18,26 +18,26 @@ public class d {
     public String mVersion;
 
     public boolean isLoaded() {
-        return bmW() != null && bmW().exists();
+        return bmU() != null && bmU().exists();
     }
 
     public String getName() {
         return this.mVersion + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMd5;
     }
 
-    public File bmW() {
-        if (this.eZH == null && !TextUtils.isEmpty(this.mVersion)) {
-            this.eZH = new File(bmX(), getName());
+    public File bmU() {
+        if (this.eZM == null && !TextUtils.isEmpty(this.mVersion)) {
+            this.eZM = new File(bmV(), getName());
         }
-        return this.eZH;
+        return this.eZM;
     }
 
     public String getFilePath() {
-        return bmW().getAbsolutePath();
+        return bmU().getAbsolutePath();
     }
 
-    public String bmX() {
-        return TextUtils.equals(this.mType, "so") ? c.bmU().getAbsolutePath() : c.bmV().getAbsolutePath();
+    public String bmV() {
+        return TextUtils.equals(this.mType, "so") ? c.bmS().getAbsolutePath() : c.bmT().getAbsolutePath();
     }
 
     public String getLoadingFile() {
@@ -69,21 +69,21 @@ public class d {
                 }
             }
             com.baidu.tieba.ala.a.b.a.unzipFile(file, file2.getAbsolutePath());
-            file2.renameTo(bmW());
+            file2.renameTo(bmU());
         } catch (Exception e3) {
             z = false;
             e = e3;
         }
         if (isLoaded()) {
-            if (bmY()) {
+            if (bmW()) {
                 z = true;
                 if (!z) {
                     try {
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bmW());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bmU());
                     } catch (Exception e4) {
                         e = e4;
                         e.printStackTrace();
-                        com.baidu.tieba.ala.a.b.a.deleteDir(bmW());
+                        com.baidu.tieba.ala.a.b.a.deleteDir(bmU());
                         return z;
                     }
                 }
@@ -98,10 +98,10 @@ public class d {
         return z;
     }
 
-    public boolean bmY() {
+    public boolean bmW() {
         JSONArray optJSONArray;
         try {
-            File file = new File(bmW(), "files.json");
+            File file = new File(bmU(), "files.json");
             if (file == null || !file.exists()) {
                 return false;
             }
@@ -117,7 +117,7 @@ public class d {
             ArrayList<a> arrayList = new ArrayList<>();
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                arrayList.add(a.zs(optJSONArray.getString(i)));
+                arrayList.add(a.zv(optJSONArray.getString(i)));
             }
             return S(arrayList);
         } catch (Exception e) {
@@ -174,7 +174,7 @@ public class d {
         public String mName;
         public String mPath;
 
-        public static a zs(String str) {
+        public static a zv(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

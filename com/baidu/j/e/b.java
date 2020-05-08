@@ -28,7 +28,7 @@ import rx.j;
 public class b extends UnitedSchemeBaseDispatcher {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = b.class.getSimpleName();
-    private j bEh;
+    private j bEm;
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
     public String getDispatcherName() {
@@ -151,12 +151,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean b(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
-        final e akN = e.akN();
-        if (akN == null) {
+        final e akM = e.akM();
+        if (akM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(akN.id)) {
+        } else if (TextUtils.isEmpty(akM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -190,19 +190,19 @@ public class b extends UnitedSchemeBaseDispatcher {
                 c.e(TAG, "parse insert params, but invalid");
                 return false;
             } else {
-                this.bEh = new com.baidu.j.b.a(context, t).Sx();
-                if (this.bEh == null) {
+                this.bEm = new com.baidu.j.b.a(context, t).Sw();
+                if (this.bEm == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     c.e(TAG, "RTC component insert delayed fail");
                     return false;
                 }
-                akN.akX().b((Activity) context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.j.e.b.1
+                akM.akW().b((Activity) context, PermissionProxy.SCOPE_ID_RECORD, new com.baidu.swan.apps.as.d.b<h<b.d>>() { // from class: com.baidu.j.e.b.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.as.d.b
                     /* renamed from: a */
-                    public void E(h<b.d> hVar) {
+                    public void F(h<b.d> hVar) {
                         if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                            b.this.a(context, unitedSchemeEntity, callbackHandler, akN, m, optString, optString2);
+                            b.this.a(context, unitedSchemeEntity, callbackHandler, akM, m, optString, optString2);
                             return;
                         }
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200201);
@@ -215,12 +215,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(akN.id)) {
+        } else if (TextUtils.isEmpty(akM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -279,12 +279,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(akN.id)) {
+        } else if (TextUtils.isEmpty(akM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -323,19 +323,19 @@ public class b extends UnitedSchemeBaseDispatcher {
                         c.e(TAG, "get component is null");
                         return false;
                     }
-                    return aVar.Sy().isSuccess();
+                    return aVar.Sx().isSuccess();
                 }
             }
         }
     }
 
     private boolean z(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(akN.id)) {
+        } else if (TextUtils.isEmpty(akM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -377,12 +377,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean A(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(akN.id)) {
+        } else if (TextUtils.isEmpty(akM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -411,12 +411,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean D(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(akN.id)) {
+        } else if (TextUtils.isEmpty(akM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -445,12 +445,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean B(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(akN.id)) {
+        } else if (TextUtils.isEmpty(akM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -479,12 +479,12 @@ public class b extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean C(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        e akN = e.akN();
-        if (akN == null) {
+        e akM = e.akM();
+        if (akM == null) {
             c.e(TAG, "swan app is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (TextUtils.isEmpty(akN.id)) {
+        } else if (TextUtils.isEmpty(akM.id)) {
             c.e(TAG, "aiapp id is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -534,14 +534,14 @@ public class b extends UnitedSchemeBaseDispatcher {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, e eVar, final RtcConfig rtcConfig, final String str, final String str2) {
-        if (com.baidu.j.d.b.bu(context) && com.baidu.j.d.b.bv(context)) {
+        if (com.baidu.j.d.b.bi(context) && com.baidu.j.d.b.bj(context)) {
             if (DEBUG) {
                 Log.d(TAG, "RTC --- had system permission");
             }
             a(context, unitedSchemeEntity, callbackHandler, rtcConfig, str, str2);
             return;
         }
-        f.aeK().a(1, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, new c.a() { // from class: com.baidu.j.e.b.2
+        f.aeJ().a(1, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE, PermissionRequest.RESOURCE_AUDIO_CAPTURE}, new c.a() { // from class: com.baidu.j.e.b.2
             @Override // com.baidu.swan.apps.af.c.a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 boolean z = false;
@@ -575,11 +575,11 @@ public class b extends UnitedSchemeBaseDispatcher {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, RtcConfig rtcConfig, String str, String str2) {
         com.baidu.j.d.b.aFh().a(context, rtcConfig, str, str2);
-        if (this.bEh == null) {
+        if (this.bEm == null) {
             com.baidu.swan.apps.component.e.a.aC(TAG, "doInsert with a null subscriber");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
         }
-        this.bEh.onCompleted();
+        this.bEm.onCompleted();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 }

@@ -9,9 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TurbonetConfig {
-    private String lLy;
-    private boolean lLz = false;
-    private JSONObject lLx = new JSONObject();
+    private String lLC;
+    private boolean lLD = false;
+    private JSONObject lLB = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */
@@ -26,20 +26,20 @@ public class TurbonetConfig {
         d(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
     }
 
-    public void MX(String str) {
+    public void Na(String str) {
         if (!new File(str).isDirectory()) {
             throw new IllegalArgumentException("Storage path must be set to existing directory");
         }
-        this.lLy = str;
+        this.lLC = str;
     }
 
     public void z(int i, long j) {
         if (i == 3 || i == 2) {
-            if (djE() == null) {
+            if (djB() == null) {
                 throw new IllegalArgumentException("Storage path must be set");
             }
-            this.lLz = true;
-        } else if (djE() != null) {
+            this.lLD = true;
+        } else if (djB() != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
         d(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
@@ -64,7 +64,7 @@ public class TurbonetConfig {
         d("conn", "preconnect_enabled", Boolean.valueOf(z));
     }
 
-    public void MY(String str) {
+    public void Nb(String str) {
         d("conn", "preconnect_app_hosts", str);
     }
 
@@ -80,28 +80,28 @@ public class TurbonetConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject djD() {
-        return this.lLx;
+    public JSONObject djA() {
+        return this.lLB;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String djE() {
-        return this.lLy;
+    public String djB() {
+        return this.lLC;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean djF() {
-        return this.lLz;
+    public boolean djC() {
+        return this.lLD;
     }
 
     public void d(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.lLx.optJSONObject(str);
+            JSONObject optJSONObject = this.lLB.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.lLx.put(str, optJSONObject);
+            this.lLB.put(str, optJSONObject);
         } catch (JSONException e) {
             throw new IllegalStateException("JSON expcetion:", e);
         }

@@ -4,18 +4,18 @@ import android.graphics.Color;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class be {
-    private String awB;
-    private String awC;
-    private String awD;
-    private String awE;
-    private String awF;
-    private String awG;
     private String awH;
     private String awI;
-    private int[] awJ;
-    private int[] awK;
-    private int[] awL;
-    private int[] awM;
+    private String awJ;
+    private String awK;
+    private String awL;
+    private String awM;
+    private String awN;
+    private String awO;
+    private int[] awP;
+    private int[] awQ;
+    private int[] awR;
+    private int[] awS;
     public String id;
     public String name;
     public int price;
@@ -29,54 +29,54 @@ public class be {
         this.id = jSONObject.optString("id");
         this.price = jSONObject.optInt("price");
         this.name = jSONObject.optString("name");
-        this.awB = jSONObject.optString("barrage_start_color");
-        this.awC = jSONObject.optString("barrage_end_color");
-        this.awD = jSONObject.optString("portrait_start_color");
-        this.awE = jSONObject.optString("portrait_end_color");
-        this.awF = jSONObject.optString("portrait_frame_start_color");
-        this.awG = jSONObject.optString("portrait_frame_end_color");
-        this.awH = jSONObject.optString("btn_start_color");
-        this.awI = jSONObject.optString("btn_end_color");
+        this.awH = jSONObject.optString("barrage_start_color");
+        this.awI = jSONObject.optString("barrage_end_color");
+        this.awJ = jSONObject.optString("portrait_start_color");
+        this.awK = jSONObject.optString("portrait_end_color");
+        this.awL = jSONObject.optString("portrait_frame_start_color");
+        this.awM = jSONObject.optString("portrait_frame_end_color");
+        this.awN = jSONObject.optString("btn_start_color");
+        this.awO = jSONObject.optString("btn_end_color");
     }
 
-    public be vh() {
+    public be vg() {
         this.type = 1;
         this.price = 100;
-        this.awB = "#FF613EFB";
-        this.awC = "#FF44E3FF";
-        this.awD = "#FF623DFE";
-        this.awE = "#FF03E2F5";
-        this.awF = "#FF61A0FF";
-        this.awG = "#FF73FFEF";
+        this.awH = "#FF613EFB";
+        this.awI = "#FF44E3FF";
+        this.awJ = "#FF623DFE";
+        this.awK = "#FF03E2F5";
+        this.awL = "#FF61A0FF";
+        this.awM = "#FF73FFEF";
         return this;
     }
 
-    public int[] vi() {
-        if (this.awJ == null || this.awJ.length != 2) {
-            this.awJ = j(this.awH, this.awI, "#FF623DFE", "#FF03E2F5");
+    public int[] vh() {
+        if (this.awP == null || this.awP.length != 2) {
+            this.awP = j(this.awN, this.awO, "#FF623DFE", "#FF03E2F5");
         }
-        return this.awJ;
+        return this.awP;
+    }
+
+    public int[] vi() {
+        if (this.awQ == null || this.awQ.length != 2) {
+            this.awQ = j(this.awJ, this.awK, "#FF623DFE", "#FF03E2F5");
+        }
+        return this.awQ;
     }
 
     public int[] vj() {
-        if (this.awK == null || this.awK.length != 2) {
-            this.awK = j(this.awD, this.awE, "#FF623DFE", "#FF03E2F5");
+        if (this.awR == null || this.awR.length != 2) {
+            this.awR = j(this.awH, this.awI, "#FF613EFB", "#FF44E3FF");
         }
-        return this.awK;
+        return this.awR;
     }
 
     public int[] vk() {
-        if (this.awL == null || this.awL.length != 2) {
-            this.awL = j(this.awB, this.awC, "#FF613EFB", "#FF44E3FF");
+        if (this.awS == null || this.awS.length != 2) {
+            this.awS = j(this.awL, this.awM, "#FF61A0FF", "#FF73FFEF");
         }
-        return this.awL;
-    }
-
-    public int[] vl() {
-        if (this.awM == null || this.awM.length != 2) {
-            this.awM = j(this.awF, this.awG, "#FF61A0FF", "#FF73FFEF");
-        }
-        return this.awM;
+        return this.awS;
     }
 
     private int[] j(String str, String str2, String str3, String str4) {

@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes10.dex */
 public class m extends BaseAdapter {
-    private String[] iiD;
-    private GroupAddressLocateActivity iiP;
+    private String[] iiJ;
+    private GroupAddressLocateActivity iiV;
 
     public m(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
-        this.iiD = null;
-        this.iiP = null;
-        this.iiP = groupAddressLocateActivity;
-        this.iiD = strArr;
+        this.iiJ = null;
+        this.iiV = null;
+        this.iiV = groupAddressLocateActivity;
+        this.iiJ = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iiD != null) {
-            return this.iiD.length;
+        if (this.iiJ != null) {
+            return this.iiJ.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.iiD == null || i <= -1 || i >= this.iiD.length) ? "" : this.iiD[i];
+        return (this.iiJ == null || i <= -1 || i >= this.iiJ.length) ? "" : this.iiJ[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,20 +38,20 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.iiP);
-            view = aVar.bqc();
+            aVar = new a(this.iiV);
+            view = aVar.bqa();
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar.cdE() != null) {
+        if (aVar.cdC() != null) {
             if (i + 1 == getCount()) {
-                aVar.cdE().setVisibility(8);
+                aVar.cdC().setVisibility(8);
             } else {
-                aVar.cdE().setVisibility(0);
+                aVar.cdC().setVisibility(0);
             }
         }
-        aVar.El(getItem(i).toString());
-        if (this.iiP.getSelectedPosition() == i) {
+        aVar.Eo(getItem(i).toString());
+        if (this.iiV.getSelectedPosition() == i) {
             aVar.ow(true);
         } else {
             aVar.ow(false);
@@ -61,7 +61,7 @@ public class m extends BaseAdapter {
     }
 
     private void cf(View view) {
-        this.iiP.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.iiP.getLayoutMode().onModeChanged(view);
+        this.iiV.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.iiV.getLayoutMode().onModeChanged(view);
     }
 }

@@ -8,7 +8,7 @@ import android.view.ViewConfiguration;
 /* loaded from: classes5.dex */
 public class VpSwipeRefreshLayout extends SwipeRefreshLayout {
     private final int mTouchSlop;
-    private boolean nsR;
+    private boolean nsU;
     private float startX;
     private float startY;
 
@@ -23,21 +23,21 @@ public class VpSwipeRefreshLayout extends SwipeRefreshLayout {
             case 0:
                 this.startY = motionEvent.getY();
                 this.startX = motionEvent.getX();
-                this.nsR = false;
+                this.nsU = false;
                 break;
             case 1:
             case 3:
-                this.nsR = false;
+                this.nsU = false;
                 break;
             case 2:
-                if (this.nsR) {
+                if (this.nsU) {
                     return false;
                 }
                 float y = motionEvent.getY();
                 float abs = Math.abs(motionEvent.getX() - this.startX);
                 float abs2 = Math.abs(y - this.startY);
                 if (abs > this.mTouchSlop && abs > abs2) {
-                    this.nsR = true;
+                    this.nsU = true;
                     return false;
                 }
                 break;

@@ -16,11 +16,11 @@ import tbclient.User;
 /* loaded from: classes9.dex */
 public class d implements j {
     public boolean hasMore;
-    public int hgb;
-    public String hgc;
-    public String hgd;
-    public boolean hge;
-    public SportScheduleInfo hgf;
+    public int hgh;
+    public String hgi;
+    public String hgj;
+    public boolean hgk;
+    public SportScheduleInfo hgl;
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public ArrayList<m> threadList = new ArrayList<>();
     public int sortType = 1;
@@ -46,18 +46,18 @@ public class d implements j {
                         bj bjVar = new bj();
                         bjVar.setUserMap(this.userMap);
                         bjVar.a(threadInfo);
-                        bjVar.aLz();
+                        bjVar.aLx();
                         this.threadList.add(bjVar);
                     }
                 }
             }
-            this.hgb = dataRes.new_thread_num.intValue();
+            this.hgh = dataRes.new_thread_num.intValue();
             if (dataRes.sport_head_info != null) {
-                this.hgc = dataRes.sport_head_info.head_url;
-                this.hgd = dataRes.sport_head_info.jump_url;
-                this.hge = dataRes.sport_head_info.is_ad.intValue() == 1;
+                this.hgi = dataRes.sport_head_info.head_url;
+                this.hgj = dataRes.sport_head_info.jump_url;
+                this.hgk = dataRes.sport_head_info.is_ad.intValue() == 1;
             }
-            this.hgf = dataRes.sport_schedule_info;
+            this.hgl = dataRes.sport_schedule_info;
             this.sortType = dataRes.sort_type.intValue();
         }
     }

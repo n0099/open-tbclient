@@ -42,7 +42,7 @@ public class j {
     private static String c = "";
     private static String d = "";
     private static int e = -1;
-    private static String g = com.coloros.mcssdk.c.a.f;
+    private static String g = "0123456789ABCDEF";
 
     public static Bundle a(String str) {
         Bundle bundle = new Bundle();

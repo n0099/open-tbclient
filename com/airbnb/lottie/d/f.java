@@ -12,10 +12,10 @@ import java.io.Closeable;
 public final class f {
     private static final PathMeasure Cs = new PathMeasure();
     private static final Path Cu = new Path();
-    private static final Path FI = new Path();
+    private static final Path FL = new Path();
     private static final float[] points = new float[4];
-    private static final float FJ = (float) Math.sqrt(2.0d);
-    private static float FK = -1.0f;
+    private static final float FM = (float) Math.sqrt(2.0d);
+    private static float FN = -1.0f;
 
     public static Path a(PointF pointF, PointF pointF2, PointF pointF3, PointF pointF4) {
         Path path = new Path();
@@ -42,8 +42,8 @@ public final class f {
     public static float b(Matrix matrix) {
         points[0] = 0.0f;
         points[1] = 0.0f;
-        points[2] = FJ;
-        points[3] = FJ;
+        points[2] = FM;
+        points[3] = FM;
         matrix.mapPoints(points);
         return ((float) Math.hypot(points[2] - points[0], points[3] - points[1])) / 2.0f;
     }
@@ -91,13 +91,13 @@ public final class f {
             Cu.reset();
             Cs.getSegment(f7, f8, Cu, true);
             if (f8 > length) {
-                FI.reset();
-                Cs.getSegment(0.0f, f8 % length, FI, true);
-                Cu.addPath(FI);
+                FL.reset();
+                Cs.getSegment(0.0f, f8 % length, FL, true);
+                Cu.addPath(FL);
             } else if (f7 < 0.0f) {
-                FI.reset();
-                Cs.getSegment(f7 + length, length, FI, true);
-                Cu.addPath(FI);
+                FL.reset();
+                Cs.getSegment(f7 + length, length, FL, true);
+                Cu.addPath(FL);
             }
             path.set(Cu);
             com.airbnb.lottie.d.aV("applyTrimPathIfNeeded");
@@ -135,9 +135,9 @@ public final class f {
     }
 
     public static float jk() {
-        if (FK == -1.0f) {
-            FK = Resources.getSystem().getDisplayMetrics().density;
+        if (FN == -1.0f) {
+            FN = Resources.getSystem().getDisplayMetrics().density;
         }
-        return FK;
+        return FN;
     }
 }

@@ -33,9 +33,9 @@ public interface l {
     public interface f {
     }
 
-    void PE();
+    void PD();
 
-    void PG();
+    void PF();
 
     l a(Context context, @NonNull com.baidu.swan.apps.media.c.c cVar);
 
@@ -55,7 +55,7 @@ public interface l {
 
     void a(f fVar);
 
-    void add();
+    void adc();
 
     void b(FrameLayout frameLayout);
 

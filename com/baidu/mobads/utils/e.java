@@ -30,7 +30,6 @@ import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.activity.SlideActiviy;
 import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
@@ -224,7 +223,7 @@ public class e implements IXAdCommonUtils {
     public void sendSMS(Context context, String str, String str2) {
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
-            intent.putExtra(SlideActiviy.ADDRESS_PAGE_NAME, str);
+            intent.putExtra("address", str);
             intent.putExtra("sms_body", str2);
             intent.setType("vnd.android-dir/mms-sms");
             intent.addFlags(268435456);
@@ -655,7 +654,7 @@ public class e implements IXAdCommonUtils {
             } else if (((t) XAdSDKFoundationFacade.getInstance().getURIUitls()).a(str).booleanValue()) {
                 intent2.setType("vnd.android-dir/mms-sms");
                 String substring = str.substring(4, str.indexOf(63) > 0 ? str.indexOf(63) : str.length());
-                intent2.putExtra(SlideActiviy.ADDRESS_PAGE_NAME, substring);
+                intent2.putExtra("address", substring);
                 int length = "body=".length() + str.indexOf("body=");
                 String str2 = "";
                 if (length > "body=".length()) {

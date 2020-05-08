@@ -1,9 +1,7 @@
 package com.xiaomi.push;
 
-import android.content.Context;
+import android.database.sqlite.SQLiteOpenHelper;
 /* loaded from: classes8.dex */
-public interface bz {
-    void a(Context context, String str, String str2);
-
-    void b(Context context, String str, String str2);
+public abstract class bz extends SQLiteOpenHelper {
+    public abstract String a();
 }

@@ -4,10 +4,10 @@ public class d {
     public static boolean DEBUG = aBC().isDebug();
 
     public static b aBC() {
-        return com.baidu.swan.apps.w.a.b.acU();
+        return com.baidu.swan.apps.w.a.b.acT();
     }
 
     public static a aBD() {
-        return com.baidu.tieba.aiapps.apps.k.b.bjl();
+        return com.baidu.tieba.aiapps.apps.k.b.bjj();
     }
 }

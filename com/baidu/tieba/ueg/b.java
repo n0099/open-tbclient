@@ -14,28 +14,28 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.ueg.UEGCancelModel;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean lgf = false;
-    private UEGCancelModel.a lgd;
-    public int lge = at.a.dAc;
-    private UEGCancelModel lgc = new UEGCancelModel();
+    public static boolean lgj = false;
+    private UEGCancelModel.a lgh;
+    public int lgi = at.a.dAg;
+    private UEGCancelModel lgg = new UEGCancelModel();
 
     public b() {
-        if (this.lgd == null) {
-            this.lgd = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
+        if (this.lgh == null) {
+            this.lgh = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
                 @Override // com.baidu.tieba.ueg.UEGCancelModel.a
                 public void d(BlockPopInfoData blockPopInfoData) {
-                    if (blockPopInfoData != null && !b.lgf) {
+                    if (blockPopInfoData != null && !b.lgj) {
                         b.this.a(blockPopInfoData);
                     }
                 }
             };
         }
-        this.lgc.a(this.lgd);
+        this.lgg.a(this.lgh);
     }
 
     public void DY(int i) {
-        this.lge = i;
-        this.lgc.cancelRequest();
+        this.lgi = i;
+        this.lgg.cancelRequest();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,14 +50,14 @@ public class b {
             String str4 = blockPopInfoData.ahead_info;
             String str5 = blockPopInfoData.block_info;
             if ((i == 1 || i == 2 || i == 3 || i == 4) && !aq.isEmpty(currentAccount) && !aq.isEmpty(str)) {
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.aNV().getBoolean(str + i + currentAccount, false);
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.aNT().getBoolean(str + i + currentAccount, false);
                 if ((!aq.isEmpty(str2) || i == 4) && !aq.isEmpty(str3) && ((!aq.isEmpty(str4) || i == 4) && !aq.isEmpty(str5))) {
                     z = true;
                 }
                 if (!z2 && z) {
-                    com.baidu.tbadk.core.sharedPref.b.aNV().putBoolean(str + i + currentAccount, true);
+                    com.baidu.tbadk.core.sharedPref.b.aNT().putBoolean(str + i + currentAccount, true);
                     b(blockPopInfoData);
-                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).af("obj_locate", this.lge).af("obj_type", i));
+                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).af("obj_locate", this.lgi).af("obj_type", i));
                 }
             }
         }
@@ -67,41 +67,41 @@ public class b {
         Activity currentActivity;
         if (blockPopInfoData != null && (currentActivity = com.baidu.adp.base.a.jm().currentActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(currentActivity);
-            aVar.uf(blockPopInfoData.block_info);
+            aVar.ui(blockPopInfoData.block_info);
             aVar.b(blockPopInfoData.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).af("obj_locate", b.this.lge).af("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).af("obj_locate", b.this.lgi).af("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.a(blockPopInfoData.ahead_info, new a.b() { // from class: com.baidu.tieba.ueg.b.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     b.this.c(blockPopInfoData);
-                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).af("obj_locate", b.this.lge).af("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new an(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).af("obj_locate", b.this.lgi).af("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.b(((f) currentActivity).getPageContext());
-            aVar.aMU();
+            aVar.aMS();
         }
     }
 
     public void ur(boolean z) {
-        lgf = z;
+        lgj = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfoData blockPopInfoData) {
         Activity currentActivity;
         if (blockPopInfoData != null && (currentActivity = com.baidu.adp.base.a.jm().currentActivity()) != null) {
-            AntiHelper.bj(currentActivity, blockPopInfoData.ahead_url);
+            AntiHelper.aX(currentActivity, blockPopInfoData.ahead_url);
         }
     }
 
     public void onDestroy() {
-        if (this.lgc != null) {
-            this.lgc.onDestroy();
+        if (this.lgg != null) {
+            this.lgg.onDestroy();
         }
     }
 }

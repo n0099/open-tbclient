@@ -11,5 +11,5 @@ public interface c {
 
     void onSuccess(String str, String str2);
 
-    void yq(String str);
+    void yt(String str);
 }

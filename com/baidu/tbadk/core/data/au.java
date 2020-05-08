@@ -6,34 +6,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class au {
-    private ArrayList<UserData> dpv = new ArrayList<>();
-    private ArrayList<UserData> dpw = new ArrayList<>();
-    private ap dpx = new ap();
-    private int dpy = 0;
-    private int dpz = 0;
+    private ArrayList<UserData> dpz = new ArrayList<>();
+    private ArrayList<UserData> dpA = new ArrayList<>();
+    private ap dpB = new ap();
+    private int dpC = 0;
+    private int dpD = 0;
 
     public void setPage(ap apVar) {
-        this.dpx = apVar;
+        this.dpB = apVar;
     }
 
     public ap getPage() {
-        return this.dpx;
+        return this.dpB;
     }
 
-    public ArrayList<UserData> aJD() {
-        return this.dpv;
-    }
-
-    public ArrayList<UserData> aJE() {
-        return this.dpw;
-    }
-
-    public int aJF() {
-        return this.dpy;
-    }
-
-    public int aJG() {
+    public ArrayList<UserData> aJB() {
         return this.dpz;
+    }
+
+    public ArrayList<UserData> aJC() {
+        return this.dpA;
+    }
+
+    public int aJD() {
+        return this.dpC;
+    }
+
+    public int aJE() {
+        return this.dpD;
     }
 
     public void parserJson(String str) {
@@ -54,7 +54,7 @@ public class au {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.dpv.add(userData);
+                        this.dpz.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -62,12 +62,12 @@ public class au {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.dpw.add(userData2);
+                        this.dpA.add(userData2);
                     }
                 }
-                this.dpx.parserJson(jSONObject.optJSONObject("page"));
-                this.dpy = jSONObject.optInt("tafriendnum", 0);
-                this.dpz = jSONObject.optInt("commonfriendnum", 0);
+                this.dpB.parserJson(jSONObject.optJSONObject("page"));
+                this.dpC = jSONObject.optInt("tafriendnum", 0);
+                this.dpD = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

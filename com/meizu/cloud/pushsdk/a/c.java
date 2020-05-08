@@ -46,6 +46,10 @@ public class c {
         com.meizu.cloud.a.a.i(a, "Subject created successfully.");
     }
 
+    private void a(Context context, long j) {
+        com.meizu.cloud.pushsdk.util.b.a(context, "mz_push_preference", "upload_app_list_time", j);
+    }
+
     private void a(String str, Object obj) {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
@@ -74,23 +78,19 @@ public class c {
         this.c.put(str, str2);
     }
 
-    private void c(Context context) {
-        a(b.r, (Object) context.getPackageName());
-        a(b.s, (Object) MzSystemUtils.getAppVersionName(context));
-        a(b.t, Integer.valueOf(MzSystemUtils.getAppVersionCode(context)));
-        a(b.u, MzSystemUtils.getInstalledPackage(context));
-        a(b.p, Integer.valueOf(TextUtils.isEmpty(MzSystemUtils.findReceiver(context, "com.meizu.ups.push.intent.MESSAGE", context.getPackageName())) ? 0 : 1));
+    private long c(Context context) {
+        return com.meizu.cloud.pushsdk.util.b.c(context, "mz_push_preference", "upload_app_list_time");
     }
 
     private void d(Context context) {
-        Location c = e.c(context);
-        if (c == null) {
-            com.meizu.cloud.a.a.e(a, "Location information not available.");
-            return;
+        a(b.r, (Object) context.getPackageName());
+        a(b.s, (Object) MzSystemUtils.getAppVersionName(context));
+        a(b.t, Integer.valueOf(MzSystemUtils.getAppVersionCode(context)));
+        if (System.currentTimeMillis() - c(context) > 86400000) {
+            a(b.u, MzSystemUtils.getInstalledPackage(context));
+            a(context, System.currentTimeMillis());
         }
-        b(b.B, Double.valueOf(c.getLongitude()));
-        b(b.C, Double.valueOf(c.getAltitude()));
-        b(b.D, Double.valueOf(c.getLatitude()));
+        a(b.p, Integer.valueOf(TextUtils.isEmpty(MzSystemUtils.findReceiver(context, "com.meizu.ups.push.intent.MESSAGE", context.getPackageName())) ? 0 : 1));
     }
 
     private void e() {
@@ -102,6 +102,17 @@ public class c {
     }
 
     private void e(Context context) {
+        Location c = e.c(context);
+        if (c == null) {
+            com.meizu.cloud.a.a.e(a, "Location information not available.");
+            return;
+        }
+        b(b.B, Double.valueOf(c.getLongitude()));
+        b(b.C, Double.valueOf(c.getAltitude()));
+        b(b.D, Double.valueOf(c.getLatitude()));
+    }
+
+    private void f(Context context) {
         a(b.b, MzSystemUtils.getDeviceId(context));
         a(b.c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
         a(b.d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
@@ -109,10 +120,11 @@ public class c {
         b(b.n, MzSystemUtils.getOperator(context));
     }
 
-    private void f(Context context) {
+    private void g(Context context) {
         b(b.i, com.meizu.cloud.pushsdk.base.c.b(context));
         b(b.z, (Object) MzSystemUtils.getNetWorkType(context));
         b(b.A, (Object) MzSystemUtils.getBSSID(context));
+        b(b.E, MzSystemUtils.getWifiList(context));
     }
 
     public Map<String, String> a() {
@@ -124,11 +136,11 @@ public class c {
     }
 
     public void a(Context context) {
-        d(context);
         e(context);
-        b(context);
         f(context);
-        c(context);
+        b(context);
+        g(context);
+        d(context);
     }
 
     public Map<String, String> b() {

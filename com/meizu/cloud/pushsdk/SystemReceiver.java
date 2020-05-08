@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.base.IntentReceiver;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.meizu.cloud.pushsdk.util.c;
+import com.meizu.cloud.pushsdk.util.d;
 /* loaded from: classes8.dex */
 public class SystemReceiver extends IntentReceiver {
     public void a(Context context) {
@@ -61,7 +61,7 @@ public class SystemReceiver extends IntentReceiver {
             super.onReceive(context, intent);
         } catch (Exception e) {
             com.meizu.cloud.a.a.e("SystemReceiver", "Event core error " + e.getMessage());
-            c.a(context, context.getPackageName(), null, null, PushManager.TAG, "SystemReceiver " + e.getMessage(), 3000);
+            d.a(context, context.getPackageName(), null, null, PushManager.TAG, "SystemReceiver " + e.getMessage(), 3000);
         }
     }
 }

@@ -16,36 +16,36 @@ import com.baidu.tieba.R;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes9.dex */
 public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b> {
-    private TextView cAX;
-    private TextView eSj;
-    private HeadImageView hbs;
-    private ImageView izD;
-    private TextView izE;
-    private int izF;
+    private TextView cBd;
+    private TextView eSo;
+    private HeadImageView hby;
+    private ImageView izJ;
+    private TextView izK;
+    private int izL;
     private View mLine;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.izF = R.color.cp_cont_c;
-        this.hbs = (HeadImageView) view.findViewById(R.id.photo);
-        this.hbs.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.hbs.setAutoChangeStyle(true);
-        this.hbs.setPlaceHolder(1);
-        this.cAX = (TextView) view.findViewById(R.id.user_name);
-        this.izD = (ImageView) view.findViewById(R.id.fans_reply);
-        this.eSj = (TextView) view.findViewById(R.id.time);
-        this.izE = (TextView) view.findViewById(R.id.content);
+        this.izL = R.color.cp_cont_c;
+        this.hby = (HeadImageView) view.findViewById(R.id.photo);
+        this.hby.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.hby.setAutoChangeStyle(true);
+        this.hby.setPlaceHolder(1);
+        this.cBd = (TextView) view.findViewById(R.id.user_name);
+        this.izJ = (ImageView) view.findViewById(R.id.fans_reply);
+        this.eSo = (TextView) view.findViewById(R.id.time);
+        this.izK = (TextView) view.findViewById(R.id.content);
         this.mLine = view.findViewById(R.id.line);
-        this.hbs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
+        this.hby.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.aZe().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
+                a.this.aZc().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
             }
         });
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.aZe().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9484, a.this.getData(), null, null));
+                a.this.aZc().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9484, a.this.getData(), null, null));
             }
         });
     }
@@ -53,47 +53,47 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.f.e
     /* renamed from: a */
-    public void ai(FeedData feedData) {
-        super.ai(feedData);
+    public void aj(FeedData feedData) {
+        super.aj(feedData);
         if (feedData.getReplyer() != null) {
             MetaData replyer = feedData.getReplyer();
-            this.cAX.setText(UtilHelper.getUserName(replyer));
+            this.cBd.setText(UtilHelper.getUserName(replyer));
             if (feedData.getReplyer().isBigV()) {
-                this.izF = R.color.cp_cont_r;
+                this.izL = R.color.cp_cont_r;
             } else {
-                this.izF = R.color.cp_cont_c;
+                this.izL = R.color.cp_cont_c;
             }
-            am.setViewTextColor(this.cAX, this.izF);
-            this.hbs.setIsRound(true);
-            this.hbs.setVisibility(0);
-            UtilHelper.showHeadImageViewBigV(this.hbs, replyer, 0);
-            this.hbs.setTag(null);
+            am.setViewTextColor(this.cBd, this.izL);
+            this.hby.setIsRound(true);
+            this.hby.setVisibility(0);
+            UtilHelper.showHeadImageViewBigV(this.hby, replyer, 0);
+            this.hby.setTag(null);
             String avater = feedData.getReplyer().getAvater();
             if (avater != null && avater.length() > 0) {
-                this.hbs.startLoad(avater, 12, false);
+                this.hby.startLoad(avater, 12, false);
             } else {
-                this.hbs.setImageResource(R.drawable.photo);
+                this.hby.setImageResource(R.drawable.photo);
             }
             if (feedData.getReplyer().getIsMyFans() == 1) {
-                this.izD.setVisibility(0);
+                this.izJ.setVisibility(0);
             } else {
-                this.izD.setVisibility(8);
+                this.izJ.setVisibility(8);
             }
         }
-        this.eSj.setText(aq.getFormatTime(feedData.getTime()));
-        this.izE.setText(feedData.getContent());
+        this.eSo.setText(aq.getFormatTime(feedData.getTime()));
+        this.izK.setText(feedData.getContent());
     }
 
     @Override // com.baidu.tieba.tbadkCore.r
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         getRootView().setBackgroundDrawable(am.kC(R.color.cp_bg_line_e));
         am.setBackgroundColor(this.mLine, R.color.cp_bg_line_c);
-        am.setViewTextColor(this.eSj, (int) R.color.cp_cont_d);
-        am.setBackgroundResource(this.izD, R.drawable.icon_pb_fans);
-        am.setViewTextColor(this.izE, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.cAX, this.izF);
-        this.hbs.invalidate();
-        this.eSj.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.setViewTextColor(this.eSo, (int) R.color.cp_cont_d);
+        am.setBackgroundResource(this.izJ, R.drawable.icon_pb_fans);
+        am.setViewTextColor(this.izK, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.cBd, this.izL);
+        this.hby.invalidate();
+        this.eSo.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_little_time), (Drawable) null, (Drawable) null, (Drawable) null);
         return false;
     }
 }

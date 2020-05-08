@@ -46,7 +46,7 @@ public class NativeCrashHandler {
         } catch (Exception e) {
             this.ca = false;
             CrabSDK.NDK_VERSION = "-1";
-            com.baidu.crabsdk.c.a.f("loadSysLib Error!", e);
+            com.baidu.crabsdk.c.a.a("loadSysLib Error!", e);
         } catch (UnsatisfiedLinkError e2) {
             this.ca = false;
             CrabSDK.NDK_VERSION = "-1";
@@ -57,7 +57,7 @@ public class NativeCrashHandler {
                 this.cb.startWatching();
                 nRequiredVarParams(com.baidu.crabsdk.c.d.dj(g.h(this.mContext).toString()));
             } catch (Exception e3) {
-                com.baidu.crabsdk.c.a.f("Init gather java info error!", e3);
+                com.baidu.crabsdk.c.a.a("Init gather java info error!", e3);
             }
         }
     }

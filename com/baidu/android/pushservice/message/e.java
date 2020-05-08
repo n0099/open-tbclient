@@ -2,49 +2,50 @@ package com.baidu.android.pushservice.message;
 /* loaded from: classes8.dex */
 public class e {
     protected short a;
-    protected short b;
-    protected byte[] c;
-    protected boolean d;
-    protected boolean e = false;
-    protected boolean f;
-    private k g;
+    protected byte[] b;
+    protected boolean c;
+    protected boolean d = false;
+    protected boolean e;
+    private k f;
 
     public e(short s) {
         this.a = s;
     }
 
+    public short a() {
+        return this.a;
+    }
+
     public void a(k kVar) {
-        this.g = kVar;
+        this.f = kVar;
     }
 
     public void a(boolean z) {
-        this.f = z;
+        this.e = z;
     }
 
-    public byte[] a() {
-        return this.c;
-    }
-
-    public boolean b() {
-        return this.d;
+    public byte[] b() {
+        return this.b;
     }
 
     public boolean c() {
-        return this.f;
+        return this.c;
     }
 
-    public k d() {
-        return this.g;
+    public boolean d() {
+        return this.e;
+    }
+
+    public k e() {
+        return this.f;
     }
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("type : ");
         stringBuffer.append((int) this.a);
-        stringBuffer.append(", version: ");
-        stringBuffer.append((int) this.b);
         stringBuffer.append(", needReply: ");
-        stringBuffer.append(this.d);
+        stringBuffer.append(this.c);
         return stringBuffer.toString();
     }
 }

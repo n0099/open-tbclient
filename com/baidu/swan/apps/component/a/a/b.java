@@ -9,10 +9,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends com.baidu.swan.apps.component.a.c.b {
-    public int bGg;
-    public int bGh;
-    public String bGi;
-    public boolean bGj;
+    public int bGl;
+    public int bGm;
+    public String bGn;
+    public boolean bGo;
     protected int mViewHeight;
     public int maxLength;
     public int selectionEnd;
@@ -20,7 +20,7 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
 
     public b(String str, @NonNull String str2) {
         super(str, str2);
-        this.bGi = "";
+        this.bGn = "";
     }
 
     @Override // com.baidu.swan.apps.component.a.c.b, com.baidu.swan.apps.component.a.d.b, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
@@ -28,13 +28,13 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.maxLength = jSONObject.optInt("maxLength");
-            this.bGg = ak(jSONObject);
-            this.bGh = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
+            this.bGl = ak(jSONObject);
+            this.bGm = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR);
             this.selectionStart = jSONObject.optInt("selectionStart");
             this.selectionEnd = jSONObject.optInt("selectionEnd");
-            this.bGi = jSONObject.optString("confirmType");
-            this.bGj = jSONObject.optInt("password") == 1;
-            Sr();
+            this.bGn = jSONObject.optString("confirmType");
+            this.bGo = jSONObject.optInt("password") == 1;
+            Sq();
         }
     }
 
@@ -42,21 +42,21 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
     public void aj(JSONObject jSONObject) {
         super.aj(jSONObject);
         if (!TextUtils.isEmpty(jSONObject.optString("cursorSpacing"))) {
-            this.bGg = ak(jSONObject);
+            this.bGl = ak(jSONObject);
         }
         this.maxLength = jSONObject.optInt("maxLength", this.maxLength);
-        this.bGh = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.bGh);
+        this.bGm = jSONObject.optInt(Constants.EXTRA_CONFIG_CURSOR, this.bGm);
         this.selectionStart = jSONObject.optInt("selectionStart", this.selectionStart);
         this.selectionEnd = jSONObject.optInt("selectionEnd", this.selectionEnd);
-        this.bGi = jSONObject.optString("confirmType", this.bGi);
-        this.bGj = jSONObject.optInt("password", this.bGj ? 1 : 0) == 1;
-        Sr();
+        this.bGn = jSONObject.optString("confirmType", this.bGn);
+        this.bGo = jSONObject.optInt("password", this.bGo ? 1 : 0) == 1;
+        Sq();
     }
 
-    private void Sr() {
-        if (this.bGt != null) {
-            this.textColor = SwanAppConfigData.dA(this.bGt.optString("color"));
-            this.bGm = true;
+    private void Sq() {
+        if (this.bGy != null) {
+            this.textColor = SwanAppConfigData.dA(this.bGy.optString("color"));
+            this.bGr = true;
         }
     }
 

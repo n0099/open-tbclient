@@ -15,15 +15,15 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
 /* loaded from: classes.dex */
 class a {
-    public String lKw;
+    public String lKA;
     public long mRequestTime;
     public long mStartTime;
     public String mUrl;
-    public int lKx = -14;
-    public int lKy = -1;
-    public long lKz = -1;
-    public long lKA = -1;
-    public long bBU = -1;
+    public int lKB = -14;
+    public int lKC = -1;
+    public long lKD = -1;
+    public long lKE = -1;
+    public long bBZ = -1;
 
     public a(String str) {
         this.mRequestTime = -1L;
@@ -33,46 +33,46 @@ class a {
         this.mRequestTime = System.currentTimeMillis();
     }
 
-    public void djk() {
-        this.lKA = (System.nanoTime() / 1000) - this.mStartTime;
+    public void djh() {
+        this.lKE = (System.nanoTime() / 1000) - this.mStartTime;
     }
 
-    public void djl() {
-        this.bBU = (System.nanoTime() / 1000) - this.mStartTime;
+    public void dji() {
+        this.bBZ = (System.nanoTime() / 1000) - this.mStartTime;
     }
 
     public void a(TurbonetEngine turbonetEngine) {
-        Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.mUrl, this.lKw, Integer.valueOf(this.lKx), Integer.valueOf(this.lKy), Long.valueOf(this.lKz), Long.valueOf(this.mRequestTime), Long.valueOf(this.lKA), Long.valueOf(this.bBU)));
-        turbonetEngine.a(this.mUrl, this.lKw, this.lKx, this.lKy, this.lKz, this.mRequestTime, this.lKA, this.bBU);
+        Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.mUrl, this.lKA, Integer.valueOf(this.lKB), Integer.valueOf(this.lKC), Long.valueOf(this.lKD), Long.valueOf(this.mRequestTime), Long.valueOf(this.lKE), Long.valueOf(this.bBZ)));
+        turbonetEngine.a(this.mUrl, this.lKA, this.lKB, this.lKC, this.lKD, this.mRequestTime, this.lKE, this.bBZ);
     }
 
-    public void o(Exception exc) {
+    public void p(Exception exc) {
         if (exc instanceof SocketTimeoutException) {
-            this.lKx = -1;
+            this.lKB = -1;
         } else if (exc instanceof UnknownHostException) {
-            this.lKx = -2;
+            this.lKB = -2;
         } else if (exc instanceof ConnectException) {
-            this.lKx = -5;
+            this.lKB = -5;
         } else if (exc instanceof ProtocolException) {
-            this.lKx = -3;
+            this.lKB = -3;
         } else if (exc instanceof BindException) {
-            this.lKx = -4;
+            this.lKB = -4;
         } else if (exc instanceof SSLHandshakeException) {
-            this.lKx = -8;
+            this.lKB = -8;
         } else if (exc instanceof SSLProtocolException) {
-            this.lKx = -9;
+            this.lKB = -9;
         } else if (exc instanceof RemoteException) {
-            this.lKx = -13;
+            this.lKB = -13;
         } else if (exc instanceof NoRouteToHostException) {
-            this.lKx = -6;
+            this.lKB = -6;
         } else if (exc instanceof PortUnreachableException) {
-            this.lKx = -7;
+            this.lKB = -7;
         } else if (exc instanceof SSLKeyException) {
-            this.lKx = -10;
+            this.lKB = -10;
         } else if (exc instanceof SSLPeerUnverifiedException) {
-            this.lKx = -11;
+            this.lKB = -11;
         } else {
-            this.lKx = -14;
+            this.lKB = -14;
         }
     }
 }

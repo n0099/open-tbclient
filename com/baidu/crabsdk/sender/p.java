@@ -4,17 +4,17 @@ import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public final class p implements Runnable {
-    final /* synthetic */ Context alb;
+    final /* synthetic */ Context alh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(Context context) {
-        this.alb = context;
+        this.alh = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            k.n(this.alb);
+            k.n(this.alh);
         } catch (Exception e) {
             e.printStackTrace();
         }

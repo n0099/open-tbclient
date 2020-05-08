@@ -1,101 +1,41 @@
 package com.vivo.push.c;
 
-import com.baidu.android.imsdk.IMConstants;
-import com.baidu.mapapi.UIMsg;
+import android.text.TextUtils;
+import com.heytap.mcssdk.mode.Message;
+import com.vivo.push.util.NotifyAdapterUtil;
+import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
-public final class ah {
-    public static com.vivo.push.v a(com.vivo.push.y yVar) {
-        switch (yVar.b()) {
-            case 0:
-            case 2000:
-            case 2001:
-            case 2002:
-            case 2003:
-            case 2004:
-            case 2005:
-            case UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE /* 2008 */:
-            case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
-            case 2010:
-            case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:
-            case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
-            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME /* 2013 */:
-            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:
-                return new ai(yVar);
-            case 1:
-                return new ab(yVar);
-            case 2:
-                return new h(yVar);
-            case 3:
-                return new o(yVar);
-            case 4:
-                return new q(yVar);
-            case 5:
-                return new s(yVar);
-            case 6:
-                return new y(yVar);
-            case 7:
-                return new m(yVar);
-            case 8:
-                return new k(yVar);
-            case 9:
-                return new g(yVar);
-            case 10:
-                return new d(yVar);
-            case 11:
-                return new ae(yVar);
-            case 12:
-                return new f(yVar);
-            case 20:
-                return new ag(yVar);
-            case 100:
-                return new b(yVar);
-            case 101:
-                return new c(yVar);
-            case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND /* 2006 */:
-                return new a(yVar);
-            case UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE /* 2007 */:
-                return new aj(yVar);
-            default:
-                return null;
-        }
+public final class ah extends ab {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ah(com.vivo.push.y yVar) {
+        super(yVar);
     }
 
-    public static aa b(com.vivo.push.y yVar) {
-        switch (yVar.b()) {
-            case 1:
-                return new ab(yVar);
-            case 2:
-                return new h(yVar);
-            case 3:
-                return new o(yVar);
-            case 4:
-                return new q(yVar);
-            case 5:
-                return new s(yVar);
-            case 6:
-                return new y(yVar);
-            case 7:
-                return new m(yVar);
-            case 8:
-                return new k(yVar);
-            case 9:
-                return new g(yVar);
-            case 10:
-                return new d(yVar);
-            case 11:
-                return new ae(yVar);
-            case 12:
-            case 13:
-            case 14:
-            case 15:
-            case 16:
-            case 17:
-            case 18:
-            case 19:
-            default:
-                return null;
-            case 20:
-                return new ag(yVar);
+    @Override // com.vivo.push.v
+    protected final void a(com.vivo.push.y yVar) {
+        com.vivo.push.b.w wVar = (com.vivo.push.b.w) yVar;
+        if (com.vivo.push.p.a().g() && !a(com.vivo.push.util.z.d(this.a), wVar.e(), wVar.i())) {
+            com.vivo.push.util.p.d("OnUndoMsgTask", " vertify msg is error ");
+            com.vivo.push.b.aa aaVar = new com.vivo.push.b.aa(1021L);
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put(Message.MESSAGE_ID, String.valueOf(wVar.f()));
+            String b = com.vivo.push.util.z.b(this.a, this.a.getPackageName());
+            if (!TextUtils.isEmpty(b)) {
+                hashMap.put("remoteAppId", b);
+            }
+            aaVar.a(hashMap);
+            com.vivo.push.p.a().a(aaVar);
+            return;
         }
+        boolean repealNotifyById = NotifyAdapterUtil.repealNotifyById(this.a, (int) wVar.d());
+        com.vivo.push.util.p.d("OnUndoMsgTask", "undo message " + wVar.d() + ", " + repealNotifyById);
+        if (repealNotifyById) {
+            com.vivo.push.util.p.b(this.a, "回收client通知成功, 上报埋点 1031, messageId = " + wVar.d());
+            com.vivo.push.util.d.a(this.a, wVar.d(), 1031L);
+            return;
+        }
+        com.vivo.push.util.p.d("OnUndoMsgTask", "undo message fail，messageId = " + wVar.d());
+        com.vivo.push.util.p.c(this.a, "回收client通知失败，messageId = " + wVar.d());
     }
 }

@@ -155,16 +155,16 @@ public class PMSAppInfo implements Parcelable {
         return this.pendingErrCode != 0;
     }
 
-    public boolean arl() {
+    public boolean ark() {
         return (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge;
     }
 
     public void h(f fVar) {
         if (fVar != null) {
-            this.appId = fVar.dai;
+            this.appId = fVar.dan;
             this.versionCode = fVar.versionCode;
             this.versionName = fVar.versionName;
-            this.type = fVar.das;
+            this.type = fVar.daz;
             this.pkgSize = fVar.size;
         }
     }
@@ -174,7 +174,7 @@ public class PMSAppInfo implements Parcelable {
             this.appId = gVar.appId;
             this.versionCode = gVar.versionCode;
             this.versionName = gVar.versionName;
-            this.type = gVar.das;
+            this.type = gVar.daz;
             this.pkgSize = gVar.size;
         }
     }
@@ -197,7 +197,7 @@ public class PMSAppInfo implements Parcelable {
         this.createTime = System.currentTimeMillis();
     }
 
-    public boolean XM() {
+    public boolean XL() {
         return !TextUtils.isEmpty(this.appKey) && this.appSign > 0;
     }
 }

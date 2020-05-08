@@ -10,33 +10,33 @@ import com.baidu.live.tbadk.core.view.HeadImageView;
 import com.baidu.live.u.a;
 /* loaded from: classes3.dex */
 public class b {
-    private String eIf;
-    private boolean eIg;
-    private TextView gfI;
-    private FrameLayout gfJ;
-    private HeadImageView gfK;
-    private TextView gfL;
+    private String eIk;
+    private boolean eIl;
+    private TextView gfO;
+    private FrameLayout gfP;
+    private HeadImageView gfQ;
+    private TextView gfR;
     private Context mContext;
     private String mPortrait;
     private View view;
 
     public b(Context context, String str, boolean z, String str2) {
         this.mContext = context;
-        this.eIf = str;
-        this.eIg = z;
+        this.eIk = str;
+        this.eIl = z;
         this.mPortrait = str2;
         initView();
     }
 
     private void initView() {
         this.view = LayoutInflater.from(this.mContext).inflate(a.h.ala_rank_list_defend_bottom_view, (ViewGroup) null);
-        this.gfI = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
-        this.gfJ = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
-        this.gfK = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
-        this.gfL = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
-        if (this.gfK != null) {
-            this.gfK.setIsRound(true);
-            this.gfK.setAutoChangeStyle(false);
+        this.gfO = (TextView) this.view.findViewById(a.g.ala_rank_list_user_rank);
+        this.gfP = (FrameLayout) this.view.findViewById(a.g.ala_rank_list_header_layout);
+        this.gfQ = (HeadImageView) this.view.findViewById(a.g.ala_rank_list_user_header);
+        this.gfR = (TextView) this.view.findViewById(a.g.ala_rank_list_user_name);
+        if (this.gfQ != null) {
+            this.gfQ.setIsRound(true);
+            this.gfQ.setAutoChangeStyle(false);
         }
     }
 

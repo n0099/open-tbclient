@@ -5,11 +5,11 @@ import tbclient.Myrecord;
 /* loaded from: classes8.dex */
 public class d {
     private String apply_declaration;
-    private int giN;
-    private int giO;
-    private int giP;
-    private int giQ;
-    private boolean giR = false;
+    private int giT;
+    private int giU;
+    private int giV;
+    private int giW;
+    private boolean giX = false;
     private String nickname;
     private String portrait;
     private int post_num;
@@ -18,16 +18,16 @@ public class d {
     private long tid;
     private long uid;
 
+    public int bDI() {
+        return this.giW;
+    }
+
+    public int bDJ() {
+        return this.giT;
+    }
+
     public int bDK() {
-        return this.giQ;
-    }
-
-    public int bDL() {
-        return this.giN;
-    }
-
-    public int bDM() {
-        return this.giO;
+        return this.giU;
     }
 
     public int getPost_num() {
@@ -46,11 +46,11 @@ public class d {
         return this.uid;
     }
 
-    public int bDN() {
-        return this.giP;
+    public int bDL() {
+        return this.giV;
     }
 
-    public String bDO() {
+    public String bDM() {
         return this.apply_declaration;
     }
 
@@ -66,8 +66,8 @@ public class d {
         return this.tid;
     }
 
-    public boolean bDP() {
-        return this.giR;
+    public boolean bDN() {
+        return this.giX;
     }
 
     public static d a(ElectionList electionList) {
@@ -79,7 +79,7 @@ public class d {
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
         dVar.rx(electionList.forum_level.intValue());
-        dVar.Bw(electionList.apply_declaration);
+        dVar.Bz(electionList.apply_declaration);
         dVar.setRank(electionList.rank.intValue());
         dVar.rw(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
@@ -100,7 +100,7 @@ public class d {
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
         dVar.rx(myrecord.forum_level.intValue());
-        dVar.Bw(myrecord.apply_declaration);
+        dVar.Bz(myrecord.apply_declaration);
         dVar.setRank(myrecord.rank.intValue());
         dVar.rw(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
@@ -112,19 +112,19 @@ public class d {
     }
 
     public void rv(int i) {
-        this.giQ = i;
+        this.giW = i;
     }
 
     public void rw(int i) {
-        this.giN = i;
+        this.giT = i;
     }
 
-    public void Bw(String str) {
+    public void Bz(String str) {
         this.apply_declaration = str;
     }
 
     public void rx(int i) {
-        this.giO = i;
+        this.giU = i;
     }
 
     public void setNickname(String str) {
@@ -152,11 +152,11 @@ public class d {
     }
 
     public void ry(int i) {
-        this.giP = i;
+        this.giV = i;
     }
 
     public void ll(boolean z) {
-        this.giR = z;
+        this.giX = z;
     }
 
     public void setTid(long j) {

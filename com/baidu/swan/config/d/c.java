@@ -8,40 +8,40 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes11.dex */
 public class c {
-    private static c cEF;
-    private a cEG = new a();
-    private String cEH = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
-    private String cEI = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
+    private static c cEL;
+    private a cEM = new a();
+    private String cEN = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_dialog_msg);
+    private String cEO = AppRuntime.getAppContext().getString(c.a.swan_launch_failed_default_toast_msg);
 
-    public static c art() {
-        if (cEF == null) {
+    public static c ars() {
+        if (cEL == null) {
             synchronized (c.class) {
-                if (cEF == null) {
-                    cEF = new c();
+                if (cEL == null) {
+                    cEL = new c();
                 }
             }
         }
-        return cEF;
+        return cEL;
     }
 
     private c() {
     }
 
     public int getVersion() {
-        return this.cEG.getInt("tips_config_version", 0);
+        return this.cEM.getInt("tips_config_version", 0);
     }
 
     public String by(long j) {
-        return this.cEG.getString(String.format("%04d", Long.valueOf(j)), this.cEH);
+        return this.cEM.getString(String.format("%04d", Long.valueOf(j)), this.cEN);
     }
 
     public String bz(long j) {
-        return this.cEG.getString(String.format("%04d", Long.valueOf(j)), this.cEI);
+        return this.cEM.getString(String.format("%04d", Long.valueOf(j)), this.cEO);
     }
 
     public void c(HashMap<String, String> hashMap, int i) {
         if (hashMap != null && !hashMap.isEmpty() && i > 0) {
-            SharedPreferences.Editor edit = this.cEG.edit();
+            SharedPreferences.Editor edit = this.cEM.edit();
             edit.clear();
             edit.putInt("tips_config_version", i);
             for (Map.Entry<String, String> entry : hashMap.entrySet()) {

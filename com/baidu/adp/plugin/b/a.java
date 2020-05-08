@@ -15,31 +15,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a QS = null;
-    private HashMap<String, Integer> QR = new HashMap<>();
+    private static volatile a QV = null;
+    private HashMap<String, Integer> QU = new HashMap<>();
 
     public static synchronized a nF() {
         a aVar;
         synchronized (a.class) {
-            if (QS == null) {
+            if (QV == null) {
                 synchronized (a.class) {
-                    if (QS == null) {
-                        QS = new a();
+                    if (QV == null) {
+                        QV = new a();
                     }
                 }
             }
-            aVar = QS;
+            aVar = QV;
         }
         return aVar;
     }
 
     public void cl(String str) {
         if (str != null) {
-            Integer num = this.QR.get(str);
+            Integer num = this.QU.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.QR.put(str, Integer.valueOf(num.intValue() + 1));
+            this.QU.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -50,14 +50,14 @@ public class a {
     }
 
     public void e(String str, long j) {
-        b(str, j, 0);
+        a(str, j, 0);
     }
 
     public void b(String str, long j, String str2) {
         b(str, j, 0, str2);
     }
 
-    public void b(String str, long j, int i) {
+    public void a(String str, long j, int i) {
         b(str, j, i, (String) null);
     }
 
@@ -158,7 +158,7 @@ public class a {
     }
 
     public void nG() {
-        if (this.QR.size() != 0) {
+        if (this.QU.size() != 0) {
             com.baidu.adp.lib.stats.a kW = kW();
             d(kW);
             kW.append("appver", BdStatisticsManager.getInstance().getAppVersion());
@@ -206,10 +206,10 @@ public class a {
 
     private void d(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.QR.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.QU.entrySet()) {
                 aVar.append(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.QR.clear();
+            this.QU.clear();
         }
     }
 

@@ -11,7 +11,7 @@ public class ab {
     public static boolean checkLocationForBaiduLocation(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.h.a.KP()) {
+        if (com.baidu.h.a.KO()) {
             if (context == null) {
                 return false;
             }
@@ -36,7 +36,7 @@ public class ab {
     }
 
     public static boolean checkLocationForGoogle(Context context) {
-        if (com.baidu.h.a.KP()) {
+        if (com.baidu.h.a.KO()) {
             if (context != null) {
                 try {
                     if (!com.baidu.h.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -56,7 +56,7 @@ public class ab {
     }
 
     public static boolean checkCamera(Context context) {
-        if (!com.baidu.h.a.KP()) {
+        if (!com.baidu.h.a.KO()) {
             return true;
         }
         if (context != null) {
@@ -71,7 +71,7 @@ public class ab {
     }
 
     public static boolean checkRecodeAudio(Context context) {
-        if (!com.baidu.h.a.KP()) {
+        if (!com.baidu.h.a.KO()) {
             return true;
         }
         if (context != null) {
@@ -86,7 +86,7 @@ public class ab {
     }
 
     public static boolean checkReadPhoneState(Context context) {
-        if (!com.baidu.h.a.KP()) {
+        if (!com.baidu.h.a.KO()) {
             return true;
         }
         if (context != null) {
@@ -101,7 +101,7 @@ public class ab {
     }
 
     public static boolean checkWriteExternalStorage(Context context) {
-        if (!com.baidu.h.a.KP()) {
+        if (!com.baidu.h.a.KO()) {
             return true;
         }
         if (context != null) {
@@ -152,8 +152,8 @@ public class ab {
         return permissionJudgePolicy.a(activity, i, PermissionJudgePolicy.EXTRA_DIALOG_REFUSE_POLICY.Refuse_one_by_one);
     }
 
-    public static boolean as(Context context, String str) {
-        if (!com.baidu.h.a.KP()) {
+    public static boolean ag(Context context, String str) {
+        if (!com.baidu.h.a.KO()) {
             return true;
         }
         if (context != null) {

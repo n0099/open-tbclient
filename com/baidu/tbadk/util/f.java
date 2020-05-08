@@ -7,14 +7,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f {
-    private static LinkedList<Integer> QW;
+    private static LinkedList<Integer> QZ;
 
-    public static int bak() {
+    public static int bai() {
         return aW(null);
     }
 
     public static int aW(List<Integer> list) {
-        if (QW == null) {
+        if (QZ == null) {
             generate();
         }
         Integer aX = aX(list);
@@ -28,30 +28,30 @@ public class f {
     }
 
     private static void generate() {
-        QW = new LinkedList<>();
-        QW.offer(Integer.valueOf((int) R.color.cp_atp_a));
-        QW.offer(Integer.valueOf((int) R.color.cp_atp_b));
-        QW.offer(Integer.valueOf((int) R.color.cp_atp_c));
-        QW.offer(Integer.valueOf((int) R.color.cp_atp_d));
-        QW.offer(Integer.valueOf((int) R.color.cp_atp_e));
+        QZ = new LinkedList<>();
+        QZ.offer(Integer.valueOf((int) R.color.cp_atp_a));
+        QZ.offer(Integer.valueOf((int) R.color.cp_atp_b));
+        QZ.offer(Integer.valueOf((int) R.color.cp_atp_c));
+        QZ.offer(Integer.valueOf((int) R.color.cp_atp_d));
+        QZ.offer(Integer.valueOf((int) R.color.cp_atp_e));
     }
 
     private static Integer aX(List<Integer> list) {
-        Integer peek = QW.peek();
+        Integer peek = QZ.peek();
         if (list == null || list.size() == 0) {
-            QW.offer(QW.poll());
+            QZ.offer(QZ.poll());
             return peek;
         } else if (list.size() > 4) {
-            QW.offer(QW.poll());
+            QZ.offer(QZ.poll());
             return peek;
         } else {
             int i = 0;
             while (true) {
-                if (i >= QW.size()) {
+                if (i >= QZ.size()) {
                     i = 0;
                     break;
                 }
-                Integer num = QW.get(i);
+                Integer num = QZ.get(i);
                 boolean z = false;
                 for (Integer num2 : list) {
                     z = num2.intValue() == num.intValue() ? true : z;
@@ -61,8 +61,8 @@ public class f {
                 }
                 i++;
             }
-            Integer remove = QW.remove(i);
-            QW.offer(remove);
+            Integer remove = QZ.remove(i);
+            QZ.offer(remove);
             return remove;
         }
     }

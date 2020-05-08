@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 /* loaded from: classes8.dex */
 public class b {
-    private static SimpleDateFormat a = d.C0773d.a("yy.MM.dd.HH");
+    private static SimpleDateFormat a = d.C0794d.a("yy.MM.dd.HH");
     private File g;
     private String b = "Tracer.File";
     private int c = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;

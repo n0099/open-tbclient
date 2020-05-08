@@ -9,7 +9,7 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.aiapps.apps.media.videoplayer.a$a  reason: collision with other inner class name */
     /* loaded from: classes12.dex */
-    public interface InterfaceC0448a {
+    public interface InterfaceC0469a {
         void a(b bVar);
 
         void a(b bVar, int i, int i2);
@@ -21,14 +21,14 @@ public interface a {
     public interface b {
         void a(g gVar);
 
-        a biC();
+        a biA();
 
-        SurfaceTexture biD();
+        SurfaceTexture biB();
     }
 
-    void a(InterfaceC0448a interfaceC0448a);
+    void a(InterfaceC0469a interfaceC0469a);
 
-    void b(InterfaceC0448a interfaceC0448a);
+    void b(InterfaceC0469a interfaceC0469a);
 
     Bitmap getBitmap();
 

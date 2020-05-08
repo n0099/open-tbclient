@@ -8,6 +8,10 @@ import okio.BufferedSource;
 /* loaded from: classes11.dex */
 public abstract class b<T> implements c<T> {
     @Override // com.baidu.swan.pms.a.c
+    public void L(T t) {
+    }
+
+    @Override // com.baidu.swan.pms.a.c
     public void K(T t) {
     }
 
@@ -20,15 +24,11 @@ public abstract class b<T> implements c<T> {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public void H(T t) {
-    }
-
-    @Override // com.baidu.swan.pms.a.c
     public void a(T t, com.baidu.swan.pms.model.a aVar) {
     }
 
     @Override // com.baidu.swan.pms.a.c
-    public void Z(T t) {
+    public void aa(T t) {
     }
 
     @Override // com.baidu.swan.pms.a.c

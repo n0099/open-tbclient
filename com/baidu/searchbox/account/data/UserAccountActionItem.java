@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.sapi2.outsdk.c;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.tbadk.TbConfig;
 import org.json.JSONException;
@@ -36,7 +37,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
 
     /* loaded from: classes12.dex */
     public enum UserAccountAction {
-        LOGIN("login"),
+        LOGIN(c.k),
         LOGOUT("logout"),
         BIND("bind");
         

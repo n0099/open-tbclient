@@ -1,13 +1,13 @@
 package com.baidu.live.gift;
 /* loaded from: classes3.dex */
 public class ab {
-    private static z aAl;
+    private static z aAr;
 
-    public static z xm() {
-        return aAl;
+    public static z xl() {
+        return aAr;
     }
 
     public static void a(z zVar) {
-        aAl = zVar;
+        aAr = zVar;
     }
 }

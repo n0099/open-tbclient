@@ -23,21 +23,21 @@ public class a {
         } else if (TextUtils.isEmpty(str)) {
             d.a(AppRuntime.getAppContext(), "url is empty").showToast();
         } else if (str.startsWith(SchemeConfig.getSchemeHead())) {
-            sO(str);
+            sR(str);
             oJ(str);
         } else {
             d.a(AppRuntime.getAppContext(), "not support this uri").showToast();
         }
     }
 
-    private static void sO(String str) {
+    private static void sR(String str) {
         Uri parse = Uri.parse(str);
         if (parse != null) {
             String queryParameter = parse.getQueryParameter(f.PARAM_FROM);
             if (!TextUtils.isEmpty(queryParameter) && UbcStatConstant.ContentSource.SHOUBAI.equals(queryParameter)) {
-                com.baidu.tbadk.util.d.baf().setShow(true);
+                com.baidu.tbadk.util.d.bad().setShow(true);
             } else {
-                com.baidu.tbadk.util.d.baf().setShow(false);
+                com.baidu.tbadk.util.d.bad().setShow(false);
             }
         }
     }

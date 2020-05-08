@@ -3,16 +3,16 @@ package com.baidu.live.gift.a;
 import com.baidu.live.data.AlaLiveGiftUIInfo;
 /* loaded from: classes3.dex */
 public class d {
-    public boolean aCA;
-    public int aDe;
-    public int aDf;
-    public int aDg;
-    public String aEh;
-    public int aEi;
-    public String aEj;
-    public boolean aEl;
-    public int aEm;
-    public AlaLiveGiftUIInfo aEn;
+    public boolean aCG;
+    public int aDk;
+    public int aDl;
+    public int aDm;
+    public String aEn;
+    public int aEo;
+    public String aEp;
+    public boolean aEr;
+    public int aEs;
+    public AlaLiveGiftUIInfo aEt;
     public boolean isNewUser;
     public String mAppId;
     public String mLiveId;
@@ -21,9 +21,9 @@ public class d {
     public String mUserId;
     public String mUserName;
     public String otherParams;
-    public boolean aEk = true;
-    public boolean aBr = false;
-    public int aBp = -1;
-    public boolean aDp = false;
-    public boolean aBw = false;
+    public boolean aEq = true;
+    public boolean aBx = false;
+    public int aBv = -1;
+    public boolean aDv = false;
+    public boolean aBC = false;
 }

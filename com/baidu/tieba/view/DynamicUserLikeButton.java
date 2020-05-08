@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
-    private a luc;
+    private a lug;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -68,8 +68,8 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void bb(View view) {
-        if (this.luc != null) {
-            this.luc.G(view);
+        if (this.lug != null) {
+            this.lug.G(view);
         }
     }
 
@@ -79,10 +79,10 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void onChangeSkinType(int i) {
-        aQp();
+        aQm();
     }
 
     public void setOnClickEvent(a aVar) {
-        this.luc = aVar;
+        this.lug = aVar;
     }
 }

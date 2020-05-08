@@ -1,8 +1,8 @@
 package kotlin.jvm.internal;
 /* loaded from: classes7.dex */
 public class t {
-    private static final u mXO;
-    private static final kotlin.reflect.c[] mXP;
+    private static final u mXR;
+    private static final kotlin.reflect.c[] mXS;
 
     static {
         u uVar;
@@ -20,51 +20,51 @@ public class t {
         if (uVar == null) {
             uVar = new u();
         }
-        mXO = uVar;
-        mXP = new kotlin.reflect.c[0];
+        mXR = uVar;
+        mXS = new kotlin.reflect.c[0];
     }
 
     public static kotlin.reflect.d j(Class cls, String str) {
-        return mXO.j(cls, str);
+        return mXR.j(cls, str);
     }
 
     public static kotlin.reflect.c M(Class cls) {
-        return mXO.M(cls);
+        return mXR.M(cls);
     }
 
     public static String a(Lambda lambda) {
-        return mXO.a(lambda);
+        return mXR.a(lambda);
     }
 
     public static String a(p pVar) {
-        return mXO.a(pVar);
+        return mXR.a(pVar);
     }
 
     public static kotlin.reflect.e a(FunctionReference functionReference) {
-        return mXO.a(functionReference);
+        return mXR.a(functionReference);
     }
 
     public static kotlin.reflect.k a(PropertyReference0 propertyReference0) {
-        return mXO.a(propertyReference0);
+        return mXR.a(propertyReference0);
     }
 
     public static kotlin.reflect.g a(MutablePropertyReference0 mutablePropertyReference0) {
-        return mXO.a(mutablePropertyReference0);
+        return mXR.a(mutablePropertyReference0);
     }
 
     public static kotlin.reflect.l a(PropertyReference1 propertyReference1) {
-        return mXO.a(propertyReference1);
+        return mXR.a(propertyReference1);
     }
 
     public static kotlin.reflect.h a(MutablePropertyReference1 mutablePropertyReference1) {
-        return mXO.a(mutablePropertyReference1);
+        return mXR.a(mutablePropertyReference1);
     }
 
     public static kotlin.reflect.m a(PropertyReference2 propertyReference2) {
-        return mXO.a(propertyReference2);
+        return mXR.a(propertyReference2);
     }
 
     public static kotlin.reflect.i a(MutablePropertyReference2 mutablePropertyReference2) {
-        return mXO.a(mutablePropertyReference2);
+        return mXR.a(mutablePropertyReference2);
     }
 }

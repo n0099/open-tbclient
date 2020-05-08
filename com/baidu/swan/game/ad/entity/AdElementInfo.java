@@ -239,7 +239,7 @@ public class AdElementInfo implements Parcelable {
         return this.mTitle;
     }
 
-    public String asz() {
+    public String asy() {
         return this.mPictureUrl;
     }
 
@@ -247,7 +247,7 @@ public class AdElementInfo implements Parcelable {
         return this.mVideoUrl;
     }
 
-    public String asA() {
+    public String asz() {
         return this.mClickUrl;
     }
 
@@ -268,19 +268,19 @@ public class AdElementInfo implements Parcelable {
         return 0;
     }
 
-    public int asB() {
+    public int asA() {
         return this.mExpire;
     }
 
-    public String asC() {
+    public String asB() {
         return this.mBannerHtml;
     }
 
-    public String asD() {
+    public String asC() {
         return this.mEndFrameHtml;
     }
 
-    public List<String> asE() {
+    public List<String> asD() {
         return new ArrayList(this.mImpressionUrls);
     }
 

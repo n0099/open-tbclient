@@ -4,24 +4,24 @@ import rx.g;
 import rx.internal.operators.CompletableOnSubscribeConcatIterable;
 /* loaded from: classes6.dex */
 public class b {
-    static final b niA = new b(new a() { // from class: rx.b.1
+    static final b niD = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.dJd());
+            cVar.onSubscribe(rx.subscriptions.e.dIZ());
             cVar.onCompleted();
         }
     }, false);
-    static final b niB = new b(new a() { // from class: rx.b.2
+    static final b niE = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: a */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.dJd());
+            cVar.onSubscribe(rx.subscriptions.e.dIZ());
         }
     }, false);
-    private final a niz;
+    private final a niC;
 
     /* loaded from: classes6.dex */
     public interface a extends rx.functions.b<c> {
@@ -29,16 +29,16 @@ public class b {
 
     /* renamed from: rx.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0811b extends rx.functions.f<c, c> {
+    public interface InterfaceC0832b extends rx.functions.f<c, c> {
     }
 
-    public static b k(Iterable<? extends b> iterable) {
-        bI(iterable);
+    public static b l(Iterable<? extends b> iterable) {
+        bJ(iterable);
         return a(new CompletableOnSubscribeConcatIterable(iterable));
     }
 
     public static b a(a aVar) {
-        bI(aVar);
+        bJ(aVar);
         try {
             return new b(aVar);
         } catch (NullPointerException e) {
@@ -49,7 +49,7 @@ public class b {
         }
     }
 
-    static <T> T bI(T t) {
+    static <T> T bJ(T t) {
         if (t == null) {
             throw new NullPointerException();
         }
@@ -63,15 +63,15 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.niz = rx.c.c.b(aVar);
+        this.niC = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.niz = z ? rx.c.c.b(aVar) : aVar;
+        this.niC = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final b a(final g gVar) {
-        bI(gVar);
+        bJ(gVar);
         return a(new a() { // from class: rx.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
@@ -119,7 +119,7 @@ public class b {
         });
     }
 
-    public final k dHm() {
+    public final k dHi() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         b(new c() { // from class: rx.b.4
             @Override // rx.c
@@ -148,9 +148,9 @@ public class b {
     }
 
     public final void b(c cVar) {
-        bI(cVar);
+        bJ(cVar);
         try {
-            rx.c.c.b(this, this.niz).call(cVar);
+            rx.c.c.b(this, this.niC).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {
@@ -169,7 +169,7 @@ public class b {
     }
 
     public final b b(final g gVar) {
-        bI(gVar);
+        bJ(gVar);
         return a(new a() { // from class: rx.b.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b

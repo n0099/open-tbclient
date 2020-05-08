@@ -14,7 +14,7 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     public m() {
         this.width = 0;
         this.height = 0;
-        aPs();
+        aPp();
     }
 
     public m(int i, int i2) {
@@ -25,10 +25,10 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
             this.height = i2;
             return;
         }
-        aPs();
+        aPp();
     }
 
-    private void aPs() {
+    private void aPp() {
         this.width = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
     }
@@ -42,7 +42,7 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(uZ(str), com.baidu.tbadk.imageManager.c.aYm().wM(uZ(str)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(vc(str), com.baidu.tbadk.imageManager.c.aYk().wP(vc(str)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.getRawBitmap() == null || checkIsValidPicMemoryCache.getRawBitmap().isRecycled()) {
             return null;
         }
@@ -65,7 +65,7 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.au(i);
             aVar.av(i2);
-            com.baidu.tbadk.imageManager.c.aYm().c(uZ(str), aVar);
+            com.baidu.tbadk.imageManager.c.aYk().c(vc(str), aVar);
         }
     }
 
@@ -100,7 +100,7 @@ public class m implements com.baidu.adp.lib.e.e<com.baidu.adp.widget.ImageView.a
         }
     }
 
-    public String uZ(String str) {
+    public String vc(String str) {
         ImageOperation aO = com.baidu.tbadk.img.effect.d.aO(this.width, this.height);
         StringBuilder sb = new StringBuilder();
         sb.append("image_");

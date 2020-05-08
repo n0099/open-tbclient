@@ -1,173 +1,127 @@
 package com.xiaomi.push;
 
+import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.xiaomi.push.ai;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.nio.channels.FileLock;
 /* loaded from: classes8.dex */
-public abstract class dx extends ai.a {
-    protected int a;
+public class dx {
+    private static volatile dx a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected Context f246a;
+    private Context f229a;
 
-    public dx(Context context, int i) {
-        this.a = i;
-        this.f246a = context;
+    private dx(Context context) {
+        this.f229a = context;
     }
 
-    public static void a(Context context, ho hoVar) {
-        dk m226a = dl.a().m226a();
-        String a = m226a == null ? "" : m226a.a();
-        if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hoVar.a())) {
-            return;
-        }
-        a(context, hoVar, a);
+    private int a(int i) {
+        return Math.max(60, i);
     }
 
-    private static void a(Context context, ho hoVar, String str) {
-        FileLock fileLock;
-        RandomAccessFile randomAccessFile;
-        BufferedOutputStream bufferedOutputStream;
-        RandomAccessFile randomAccessFile2;
-        BufferedOutputStream bufferedOutputStream2 = null;
-        bufferedOutputStream2 = null;
-        r2 = null;
-        bufferedOutputStream2 = null;
-        FileLock fileLock2 = null;
-        byte[] b = dp.b(str, iq.a(hoVar));
-        if (b == null || b.length == 0) {
-            return;
-        }
-        synchronized (dq.a) {
-            try {
-                File file = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                y.m571a(file);
-                randomAccessFile = new RandomAccessFile(file, "rw");
-                try {
-                    fileLock = randomAccessFile.getChannel().lock();
-                    try {
-                        bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(context.getExternalFilesDir(null), "push_cdata.data"), true));
-                        try {
-                            bufferedOutputStream.write(ac.a(b.length));
-                            bufferedOutputStream.write(b);
-                            bufferedOutputStream.flush();
-                            if (fileLock != null && fileLock.isValid()) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException e) {
-                                }
-                            }
-                            y.a(bufferedOutputStream);
-                            y.a(randomAccessFile);
-                        } catch (IOException e2) {
-                            e = e2;
-                            fileLock2 = fileLock;
-                            randomAccessFile2 = randomAccessFile;
-                            try {
-                                e.printStackTrace();
-                                if (fileLock2 != null && fileLock2.isValid()) {
-                                    try {
-                                        fileLock2.release();
-                                    } catch (IOException e3) {
-                                    }
-                                }
-                                y.a(bufferedOutputStream);
-                                y.a(randomAccessFile2);
-                            } catch (Throwable th) {
-                                th = th;
-                                randomAccessFile = randomAccessFile2;
-                                fileLock = fileLock2;
-                                bufferedOutputStream2 = bufferedOutputStream;
-                                if (fileLock != null && fileLock.isValid()) {
-                                    try {
-                                        fileLock.release();
-                                    } catch (IOException e4) {
-                                    }
-                                }
-                                y.a(bufferedOutputStream2);
-                                y.a(randomAccessFile);
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            bufferedOutputStream2 = bufferedOutputStream;
-                            if (fileLock != null) {
-                                fileLock.release();
-                            }
-                            y.a(bufferedOutputStream2);
-                            y.a(randomAccessFile);
-                            throw th;
-                        }
-                    } catch (IOException e5) {
-                        e = e5;
-                        bufferedOutputStream = null;
-                        fileLock2 = fileLock;
-                        randomAccessFile2 = randomAccessFile;
-                    } catch (Throwable th3) {
-                        th = th3;
-                    }
-                } catch (IOException e6) {
-                    e = e6;
-                    bufferedOutputStream = null;
-                    randomAccessFile2 = randomAccessFile;
-                } catch (Throwable th4) {
-                    th = th4;
-                    fileLock = null;
+    public static dx a(Context context) {
+        if (a == null) {
+            synchronized (dx.class) {
+                if (a == null) {
+                    a = new dx(context);
                 }
-            } catch (IOException e7) {
-                e = e7;
-                bufferedOutputStream = null;
-                randomAccessFile2 = null;
-            } catch (Throwable th5) {
-                th = th5;
-                fileLock = null;
-                randomAccessFile = null;
+            }
+        }
+        return a;
+    }
+
+    private void a(com.xiaomi.push.service.ak akVar, ai aiVar, boolean z) {
+        if (akVar.a(hr.UploadSwitch.a(), true)) {
+            ei eiVar = new ei(this.f229a);
+            if (z) {
+                aiVar.a((ai.a) eiVar, a(akVar.a(hr.UploadFrequency.a(), 86400)));
+            } else {
+                aiVar.m125a((ai.a) eiVar);
             }
         }
     }
 
-    @Override // com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public abstract hi mo160a();
-
-    @Override // com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public abstract String mo160a();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public boolean mo160a() {
-        return ag.a(this.f246a, String.valueOf(mo160a()), this.a);
-    }
-
-    protected boolean b() {
-        return true;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        if (mo160a()) {
-            dk m226a = dl.a().m226a();
-            String a = m226a == null ? "" : m226a.a();
-            if (TextUtils.isEmpty(a) || !b()) {
-                return;
+    private boolean a() {
+        if (Build.VERSION.SDK_INT >= 14) {
+            try {
+                (this.f229a instanceof Application ? (Application) this.f229a : (Application) this.f229a.getApplicationContext()).registerActivityLifecycleCallbacks(new Cdo(this.f229a, String.valueOf(System.currentTimeMillis() / 1000)));
+                return true;
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                return false;
             }
-            String mo160a = mo160a();
-            if (TextUtils.isEmpty(mo160a)) {
-                return;
-            }
-            ho hoVar = new ho();
-            hoVar.a(mo160a);
-            hoVar.a(System.currentTimeMillis());
-            hoVar.a(mo160a());
-            a(this.f246a, hoVar, a);
         }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        ai a2 = ai.a(this.f229a);
+        com.xiaomi.push.service.ak a3 = com.xiaomi.push.service.ak.a(this.f229a);
+        SharedPreferences sharedPreferences = this.f229a.getSharedPreferences("mipush_extra", 0);
+        long currentTimeMillis = System.currentTimeMillis();
+        long j = sharedPreferences.getLong("first_try_ts", currentTimeMillis);
+        if (j == currentTimeMillis) {
+            sharedPreferences.edit().putLong("first_try_ts", currentTimeMillis).commit();
+        }
+        if (Math.abs(currentTimeMillis - j) < 172800000) {
+            return;
+        }
+        a(a3, a2, false);
+        if (a3.a(hr.StorageCollectionSwitch.a(), true)) {
+            int a4 = a(a3.a(hr.StorageCollectionFrequency.a(), 86400));
+            a2.a(new eg(this.f229a, a4), a4, 0);
+        }
+        boolean a5 = a3.a(hr.AppIsInstalledCollectionSwitch.a(), false);
+        String a6 = a3.a(hr.AppIsInstalledList.a(), (String) null);
+        if (a5 && !TextUtils.isEmpty(a6)) {
+            int a7 = a(a3.a(hr.AppIsInstalledCollectionFrequency.a(), 86400));
+            a2.a(new ea(this.f229a, a7, a6), a7, 0);
+        }
+        boolean a8 = a3.a(hr.ScreenSizeCollectionSwitch.a(), true);
+        boolean a9 = a3.a(hr.AndroidVnCollectionSwitch.a(), true);
+        boolean a10 = a3.a(hr.AndroidVcCollectionSwitch.a(), true);
+        boolean a11 = a3.a(hr.AndroidIdCollectionSwitch.a(), true);
+        boolean a12 = a3.a(hr.OperatorSwitch.a(), true);
+        if (a8 || a9 || a10 || a11 || a12) {
+            int a13 = a(a3.a(hr.DeviceInfoCollectionFrequency.a(), 1209600));
+            a2.a(new ef(this.f229a, a13, a8, a9, a10, a11, a12), a13, 0);
+        }
+        boolean a14 = a3.a(hr.MacCollectionSwitch.a(), false);
+        boolean a15 = a3.a(hr.IMSICollectionSwitch.a(), false);
+        boolean a16 = a3.a(hr.IccidCollectionSwitch.a(), false);
+        boolean a17 = a3.a(hr.DeviceIdSwitch.a(), false);
+        if (a14 || a15 || a16 || a17) {
+            int a18 = a(a3.a(hr.DeviceBaseInfoCollectionFrequency.a(), 1209600));
+            a2.a(new ee(this.f229a, a18, a14, a15, a16, a17), a18, 0);
+        }
+        if (Build.VERSION.SDK_INT < 21 && a3.a(hr.AppActiveListCollectionSwitch.a(), false)) {
+            int a19 = a(a3.a(hr.AppActiveListCollectionFrequency.a(), CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
+            a2.a(new dz(this.f229a, a19), a19, 0);
+        }
+        if (a3.a(hr.TopAppCollectionSwitch.a(), false)) {
+            int a20 = a(a3.a(hr.TopAppCollectionFrequency.a(), 300));
+            a2.a(new eh(this.f229a, a20), a20, 0);
+        }
+        if (a3.a(hr.BroadcastActionCollectionSwitch.a(), true)) {
+            int a21 = a(a3.a(hr.BroadcastActionCollectionFrequency.a(), CyberPlayerManager.MEDIA_INFO_TIMED_TEXT_ERROR));
+            a2.a(new ec(this.f229a, a21), a21, 0);
+        }
+        if (a3.a(hr.ActivityTSSwitch.a(), false)) {
+            a();
+        }
+        if (a3.a(hr.BatteryCollectionSwitch.a(), false)) {
+            int a22 = a(a3.a(hr.BatteryCollectionFrequency.a(), 3600));
+            a2.a(new eb(this.f229a, a22), a22, 0);
+        }
+        a(a3, a2, true);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m230a() {
+        ai.a(this.f229a).a(new dy(this));
     }
 }

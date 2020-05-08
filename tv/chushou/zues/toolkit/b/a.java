@@ -4,12 +4,12 @@ import tv.chushou.a.a.d.b;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public interface a {
-    public static final a nsu = new a() { // from class: tv.chushou.zues.toolkit.b.a.1
+    public static final a nsx = new a() { // from class: tv.chushou.zues.toolkit.b.a.1
         @Override // tv.chushou.zues.toolkit.b.a
-        public String Qh(String str) {
+        public String Qk(String str) {
             return h.isEmpty(str) ? "" : b.encrypt(str);
         }
     };
 
-    String Qh(String str);
+    String Qk(String str);
 }

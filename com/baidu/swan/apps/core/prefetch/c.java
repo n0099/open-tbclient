@@ -6,41 +6,41 @@ import com.baidu.swan.apps.core.prefetch.a;
 /* loaded from: classes11.dex */
 public final class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.apps.core.prefetch.a bPk;
-    private b bPl;
+    private com.baidu.swan.apps.core.prefetch.a bPp;
+    private b bPq;
 
     private c() {
-        this.bPk = new com.baidu.swan.apps.core.prefetch.a();
-        this.bPl = new b();
+        this.bPp = new com.baidu.swan.apps.core.prefetch.a();
+        this.bPq = new b();
     }
 
-    public static c XF() {
-        return a.bPn;
+    public static c XE() {
+        return a.bPs;
     }
 
     public void e(final PrefetchEvent prefetchEvent) {
         if (DEBUG) {
-            Log.d("SwanAppPrefetchManager", "firePrefetchEvent abSwitch: " + com.baidu.swan.apps.core.prefetch.a.a.XH());
+            Log.d("SwanAppPrefetchManager", "firePrefetchEvent abSwitch: " + com.baidu.swan.apps.core.prefetch.a.a.XG());
         }
-        if (com.baidu.swan.apps.core.prefetch.a.a.XH() != 0 && prefetchEvent != null && prefetchEvent.isValid()) {
+        if (com.baidu.swan.apps.core.prefetch.a.a.XG() != 0 && prefetchEvent != null && prefetchEvent.isValid()) {
             if (DEBUG) {
                 Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
             }
             if (TextUtils.equals("show", prefetchEvent.state)) {
-                this.bPk.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.c.1
+                this.bPp.a(prefetchEvent, new a.b() { // from class: com.baidu.swan.apps.core.prefetch.c.1
                     @Override // com.baidu.swan.apps.core.prefetch.a.b
                     public void c(com.baidu.swan.apps.process.messaging.service.c cVar) {
-                        c.this.bPl.a(prefetchEvent, cVar);
+                        c.this.bPq.a(prefetchEvent, cVar);
                     }
                 });
             } else {
-                this.bPl.e(prefetchEvent);
+                this.bPq.e(prefetchEvent);
             }
         }
     }
 
     /* loaded from: classes11.dex */
     private static class a {
-        private static final c bPn = new c();
+        private static final c bPs = new c();
     }
 }

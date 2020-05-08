@@ -4,7 +4,19 @@ import android.view.KeyEvent;
 /* loaded from: classes11.dex */
 public class a implements b {
     @Override // com.baidu.swan.apps.framework.b
+    public void aah() {
+    }
+
+    @Override // com.baidu.swan.apps.framework.b
     public void aai() {
+    }
+
+    @Override // com.baidu.swan.apps.framework.b
+    public void Rz() {
+    }
+
+    @Override // com.baidu.swan.apps.framework.b
+    public void SG() {
     }
 
     @Override // com.baidu.swan.apps.framework.b
@@ -12,19 +24,7 @@ public class a implements b {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void RA() {
-    }
-
-    @Override // com.baidu.swan.apps.framework.b
-    public void SH() {
-    }
-
-    @Override // com.baidu.swan.apps.framework.b
-    public void aak() {
-    }
-
-    @Override // com.baidu.swan.apps.framework.b
-    public void Rz() {
+    public void Ry() {
     }
 
     @Override // com.baidu.swan.apps.framework.b
@@ -33,6 +33,6 @@ public class a implements b {
     }
 
     @Override // com.baidu.swan.apps.framework.b
-    public void RB() {
+    public void RA() {
     }
 }

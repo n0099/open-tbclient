@@ -22,7 +22,6 @@ import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
-import com.baidu.sapi2.activity.SlideActiviy;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -266,7 +265,7 @@ public class VDeviceAPI {
             try {
                 String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(Uri.fromFile(new File(str4)).toString()));
                 Intent intent = new Intent("android.intent.action.SEND");
-                intent.putExtra(SlideActiviy.ADDRESS_PAGE_NAME, str);
+                intent.putExtra("address", str);
                 intent.putExtra("subject", str2);
                 intent.putExtra("sms_body", str3);
                 intent.putExtra("android.intent.extra.STREAM", Uri.parse("file://" + str4));

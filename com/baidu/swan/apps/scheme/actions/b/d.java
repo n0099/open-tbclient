@@ -16,9 +16,9 @@ public class d extends b {
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
-        SwanFavorDataManager.ZX().a(this.cqv, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.scheme.actions.b.d.1
+        SwanFavorDataManager.ZW().a(this.cqB, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.scheme.actions.b.d.1
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void aag() {
+            public void aaf() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "1");
@@ -31,7 +31,7 @@ public class d extends b {
             }
 
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void aah() {
+            public void aag() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "0");
@@ -52,8 +52,8 @@ public class d extends b {
             return false;
         }
         try {
-            this.cqv = new JSONObject(param).optString("appid");
-            return !TextUtils.isEmpty(this.cqv);
+            this.cqB = new JSONObject(param).optString("appid");
+            return !TextUtils.isEmpty(this.cqB);
         } catch (JSONException e) {
             e.printStackTrace();
             return false;

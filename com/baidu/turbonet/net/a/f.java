@@ -6,18 +6,18 @@ import java.io.OutputStream;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public abstract class f extends OutputStream {
-    private IOException lMO;
-    private boolean lMP;
+    private IOException lMS;
+    private boolean lMT;
     private boolean mClosed;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dkf() throws IOException;
+    public abstract void dkc() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void dkg() throws IOException;
+    public abstract void dkd() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider dkh();
+    public abstract UploadDataProvider dke();
 
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
@@ -26,14 +26,14 @@ public abstract class f extends OutputStream {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(IOException iOException) {
-        this.lMO = iOException;
-        this.lMP = true;
+        this.lMS = iOException;
+        this.lMT = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
-        if (this.lMP) {
-            dkv();
+        if (this.lMT) {
+            dks();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,9 +41,9 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void dkv() throws IOException {
-        if (this.lMO != null) {
-            throw this.lMO;
+    public void dks() throws IOException {
+        if (this.lMS != null) {
+            throw this.lMS;
         }
     }
 }

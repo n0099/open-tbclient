@@ -74,7 +74,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private com.baidu.platform.comapi.walknavi.g.b.a n = null;
     private Handler o = new Handler();
     private boolean p = true;
-    private CountDownTimerC0169a q = null;
+    private CountDownTimerC0191a q = null;
     private int v = 0;
     private boolean w = false;
     private boolean z = false;
@@ -539,7 +539,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
             }
             this.l = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_action_bar_home_description)).b().b(new e(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_activitychooserview_choose_application)).a(new d(this));
             if (z) {
-                this.q = new CountDownTimerC0169a(7000L, 1000L, this.i, this.l);
+                this.q = new CountDownTimerC0191a(7000L, 1000L, this.i, this.l);
                 this.q.start();
             }
             if (!this.l.isShowing() && this.i != null && !this.i.isFinishing()) {
@@ -951,11 +951,11 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class CountDownTimerC0169a extends CountDownTimer {
+    public class CountDownTimerC0191a extends CountDownTimer {
         Activity a;
         com.baidu.platform.comapi.walknavi.widget.a b;
 
-        public CountDownTimerC0169a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
+        public CountDownTimerC0191a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
             this.a = activity;
             this.b = aVar;

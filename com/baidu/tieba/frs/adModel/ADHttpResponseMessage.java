@@ -37,7 +37,7 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
                     } else {
                         cVar.mM(false);
                     }
-                    if (cVar.bQK() == 0 || cVar.bQK() == 2) {
+                    if (cVar.bQI() == 0 || cVar.bQI() == 2) {
                         this.list.add(cVar);
                     }
                 }

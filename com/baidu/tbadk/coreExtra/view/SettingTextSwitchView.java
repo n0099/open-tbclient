@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SettingTextSwitchView extends FrameLayout {
-    private LinearLayout dTF;
-    protected TextView dTG;
-    private BdSwitchView dTH;
+    private LinearLayout dTK;
+    protected TextView dTL;
+    private BdSwitchView dTM;
     private final Context mContext;
     private TextView textView;
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        aVt();
+        aVr();
         e(attributeSet);
         ms(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -32,48 +32,48 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
-        aVt();
+        aVr();
         ms(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        aVt();
+        aVr();
         e(attributeSet);
         ms(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public View getView() {
-        return this.dTF;
+        return this.dTK;
     }
 
     public void ms(int i) {
-        this.dTH.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
+        this.dTM.setBackgroundRes(am.getBitmap(R.drawable.bg_switch_open), am.getBitmap(R.drawable.bg_switch_close), am.getBitmap(R.drawable.btn_handle));
         am.setViewTextColor(this.textView, R.color.cp_cont_b, 1);
-        if (this.dTG != null) {
-            am.setViewTextColor(this.dTG, R.color.cp_cont_d, 1);
+        if (this.dTL != null) {
+            am.setViewTextColor(this.dTL, R.color.cp_cont_d, 1);
         }
     }
 
     public void turnOff() {
-        this.dTH.turnOff();
-        this.dTH.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_close));
+        this.dTM.turnOff();
+        this.dTM.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_close));
     }
 
     public void turnOn() {
-        this.dTH.turnOn();
-        this.dTH.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_open));
+        this.dTM.turnOn();
+        this.dTM.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_open));
     }
 
     public void turnOff(boolean z) {
-        this.dTH.turnOff(z);
-        this.dTH.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_close));
+        this.dTM.turnOff(z);
+        this.dTM.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_close));
     }
 
     public void turnOn(boolean z) {
-        this.dTH.turnOn(z);
-        this.dTH.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_open));
+        this.dTM.turnOn(z);
+        this.dTM.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_open));
     }
 
     public void setText(String str) {
@@ -81,22 +81,22 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.dTH.setOnSwitchStateChangeListener(aVar);
+        this.dTM.setOnSwitchStateChangeListener(aVar);
     }
 
-    private void aVt() {
+    private void aVr() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_switch_view, (ViewGroup) this, true);
-        this.dTF = (LinearLayout) findViewById(R.id.container);
+        this.dTK = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.dTH = (BdSwitchView) findViewById(R.id.button);
-        this.dTH.setFocusable(true);
-        this.dTG = (TextView) findViewById(R.id.tip);
-        if (this.dTG != null) {
-            this.dTG.setVisibility(8);
+        this.dTM = (BdSwitchView) findViewById(R.id.button);
+        this.dTM.setFocusable(true);
+        this.dTL = (TextView) findViewById(R.id.tip);
+        if (this.dTL != null) {
+            this.dTL.setVisibility(8);
         }
-        setTag(this.dTH);
-        this.dTF.setClickable(false);
-        this.dTF.setFocusable(false);
+        setTag(this.dTM);
+        this.dTK.setClickable(false);
+        this.dTK.setFocusable(false);
     }
 
     private void e(AttributeSet attributeSet) {
@@ -106,11 +106,11 @@ public class SettingTextSwitchView extends FrameLayout {
         float dimension = obtainStyledAttributes.getDimension(0, -1.0f);
         String string2 = obtainStyledAttributes.getString(1);
         int color2 = obtainStyledAttributes.getColor(4, -1);
-        if (this.dTG != null && string2 != null) {
-            this.dTG.setVisibility(0);
-            this.dTG.setText(string2);
+        if (this.dTL != null && string2 != null) {
+            this.dTL.setVisibility(0);
+            this.dTL.setText(string2);
             if (color2 > -1) {
-                this.dTG.setTextColor(color2);
+                this.dTL.setTextColor(color2);
             }
         }
         if (string != null) {
@@ -122,34 +122,34 @@ public class SettingTextSwitchView extends FrameLayout {
         if (dimension > -1.0f) {
             this.textView.setTextSize(0, dimension);
         }
-        this.dTF.setClickable(false);
-        this.dTF.setFocusable(false);
+        this.dTK.setClickable(false);
+        this.dTK.setFocusable(false);
         obtainStyledAttributes.recycle();
     }
 
     public void setTip(String str) {
-        if (str != null && this.dTG != null) {
+        if (str != null && this.dTL != null) {
             displayTip();
-            this.dTG.setText(str);
+            this.dTL.setText(str);
         }
     }
 
     public void setTip(int i) {
-        if (i != -1 && this.dTG != null) {
+        if (i != -1 && this.dTL != null) {
             displayTip();
-            this.dTG.setText(i);
+            this.dTL.setText(i);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.dTG != null) {
-            this.dTG.setTextColor(i);
+        if (this.dTL != null) {
+            this.dTL.setTextColor(i);
         }
     }
 
     public void displayTip() {
-        if (this.dTG != null) {
-            this.dTG.setVisibility(8);
+        if (this.dTL != null) {
+            this.dTL.setVisibility(8);
         }
     }
 
@@ -162,10 +162,10 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public BdSwitchView getSwitchView() {
-        return this.dTH;
+        return this.dTM;
     }
 
     public void setSwitchView(BdSwitchView bdSwitchView) {
-        this.dTH = bdSwitchView;
+        this.dTM = bdSwitchView;
     }
 }

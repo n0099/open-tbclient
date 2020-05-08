@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-import com.meizu.cloud.pushsdk.util.c;
+import com.meizu.cloud.pushsdk.util.d;
 /* loaded from: classes8.dex */
 public abstract class MzPushMessageReceiver extends IntentReceiver {
     public static final String TAG = "MzPushMessageReceiver";
@@ -138,7 +138,7 @@ public abstract class MzPushMessageReceiver extends IntentReceiver {
             super.onReceive(context, intent);
         } catch (Exception e) {
             com.meizu.cloud.a.a.e(TAG, "Event core error " + e.getMessage());
-            c.a(context, context.getPackageName(), null, null, PushManager.TAG, "MzPushMessageReceiver " + e.getMessage(), 3000);
+            d.a(context, context.getPackageName(), null, null, PushManager.TAG, "MzPushMessageReceiver " + e.getMessage(), 3000);
         }
     }
 

@@ -19,26 +19,26 @@ public class d extends a {
     @Override // com.baidu.swan.facade.provider.processor.a
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        String arI = arI();
+        String arH = arH();
         if (DEBUG) {
-            Log.i("ParamsProcessor", "params: " + arI);
+            Log.i("ParamsProcessor", "params: " + arH);
         }
-        String encryptParams = encryptParams(arI);
+        String encryptParams = encryptParams(arH);
         if (DEBUG) {
             Log.i("ParamsProcessor", "encryption params: " + encryptParams);
         }
         return oM(encryptParams);
     }
 
-    private String arI() {
+    private String arH() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("swan_sdk_version", com.baidu.swan.apps.c.getVersion());
             jSONObject.put("swan_core_version", com.baidu.swan.apps.swancore.b.gF(0));
             jSONObject.put("game_core_version", com.baidu.swan.apps.swancore.b.gF(1));
-            jSONObject.put("uid", com.baidu.swan.apps.w.a.abT().be(AppRuntime.getAppContext()));
-            jSONObject.put("puid", com.baidu.swan.apps.w.a.abT().bd(AppRuntime.getAppContext()));
-            jSONObject.put(j.c, com.baidu.swan.apps.h.c.ss());
+            jSONObject.put("uid", com.baidu.swan.apps.w.a.abS().aS(AppRuntime.getAppContext()));
+            jSONObject.put("puid", com.baidu.swan.apps.w.a.abS().aR(AppRuntime.getAppContext()));
+            jSONObject.put(j.c, com.baidu.swan.apps.h.c.sr());
             jSONObject.put("ut", com.baidu.swan.apps.h.c.getDeviceInfo());
             jSONObject.put("timestamp", System.currentTimeMillis());
         } catch (JSONException e) {

@@ -1,16 +1,16 @@
 package com.baidu.l;
 /* loaded from: classes6.dex */
 public class d {
-    private boolean lPt;
-    private int lPu;
+    private boolean lPx;
+    private int lPy;
 
     public d vs(boolean z) {
-        this.lPt = z;
+        this.lPx = z;
         return this;
     }
 
     public d FO(int i) {
-        this.lPu = i;
+        this.lPy = i;
         return this;
     }
 }

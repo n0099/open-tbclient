@@ -7,11 +7,11 @@ public class au {
     public String app_version;
     public String appendix_link;
     public String appendix_text;
-    public int avO;
-    public int avP;
-    public int avQ;
-    public int avR;
-    public int avS;
+    public int avU;
+    public int avV;
+    public int avW;
+    public int avX;
+    public int avY;
     public String changelogs;
     public String hint;
     public String n_btn_link;
@@ -21,16 +21,16 @@ public class au {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.avO = jSONObject.optInt("popup_id");
-            this.avP = jSONObject.optInt("popup_times");
-            this.avQ = jSONObject.optInt("popup_type");
+            this.avU = jSONObject.optInt("popup_id");
+            this.avV = jSONObject.optInt("popup_times");
+            this.avW = jSONObject.optInt("popup_type");
             this.hint = jSONObject.optString(TrackReferenceTypeBox.TYPE1);
             this.app_version = jSONObject.optString("app_version");
-            this.avR = jSONObject.optInt("app_size");
+            this.avX = jSONObject.optInt("app_size");
             this.changelogs = jSONObject.optString("changelogs");
             this.appendix_text = jSONObject.optString("appendix_text");
             this.appendix_link = jSONObject.optString("appendix_link");
-            this.avS = jSONObject.optInt("appendix_optional");
+            this.avY = jSONObject.optInt("appendix_optional");
             this.y_btn_text = jSONObject.optString("y_btn_text");
             this.y_btn_link = jSONObject.optString("y_btn_link");
             this.n_btn_text = jSONObject.optString("n_btn_text");

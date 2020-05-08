@@ -6,11 +6,12 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.a.b.f;
-import com.meizu.cloud.pushsdk.util.c;
+import com.meizu.cloud.pushsdk.handler.a.b.g;
+import com.meizu.cloud.pushsdk.notification.c;
+import com.meizu.cloud.pushsdk.util.d;
 import java.io.File;
 /* loaded from: classes8.dex */
-public class a extends com.meizu.cloud.pushsdk.handler.a.a<f> {
+public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
     }
@@ -24,32 +25,32 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<f> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: a */
-    public void b(f fVar) {
-        c.c(c(), c().getPackageName(), fVar.d().b().d(), fVar.d().b().a(), fVar.d().b().e(), fVar.d().b().b());
+    public void b(g gVar) {
+        d.c(c(), c().getPackageName(), gVar.d().b().d(), gVar.d().b().a(), gVar.d().b().e(), gVar.d().b().b());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(f fVar, com.meizu.cloud.pushsdk.notification.c cVar) {
+    public void a(g gVar, c cVar) {
         String message;
         File file = null;
         com.meizu.cloud.a.a.flush();
-        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + fVar.d().b().a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + fVar.d().b().d() + ".zip";
+        String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + gVar.d().b().a() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + gVar.d().b().d() + ".zip";
         try {
-            new b(str).a(fVar.c());
+            new b(str).a(gVar.c());
             message = null;
             file = new File(str);
         } catch (Exception e) {
             message = e.getMessage();
             com.meizu.cloud.a.a.e("AbstractMessageHandler", "zip error message " + message);
         }
-        if (file != null && file.length() / 1024 > fVar.a()) {
+        if (file != null && file.length() / 1024 > gVar.a()) {
             message = "the upload file exceeds the max size";
-        } else if (fVar.b() && !com.meizu.cloud.pushsdk.util.a.b(c())) {
+        } else if (gVar.b() && !com.meizu.cloud.pushsdk.util.a.b(c())) {
             message = "current network not allowed upload log file";
         }
-        com.meizu.cloud.pushsdk.b.a.c<String> a = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(fVar.d().b().a(), fVar.d().b().d(), message, file);
+        com.meizu.cloud.pushsdk.b.a.c<String> a = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
         if (a == null || !a.b()) {
             com.meizu.cloud.a.a.i("AbstractMessageHandler", "upload error code " + a.c() + a.a());
             return;
@@ -82,9 +83,9 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<f> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: j */
-    public f c(Intent intent) {
+    public g c(Intent intent) {
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_SEQ_ID);
-        return new f(intent.getStringExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE), stringExtra, intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY), stringExtra2);
+        return new g(intent.getStringExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE), stringExtra, intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY), stringExtra2);
     }
 }

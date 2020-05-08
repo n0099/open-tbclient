@@ -13,92 +13,92 @@ import java.util.concurrent.locks.ReentrantLock;
 public class c {
     private final Handler.Callback mCallback;
     private Lock mLock;
-    private final b nrY;
+    private final b nsb;
     @VisibleForTesting
-    final a nrZ;
+    final a nsc;
 
     public c() {
         this.mLock = new ReentrantLock();
-        this.nrZ = new a(this.mLock, null);
+        this.nsc = new a(this.mLock, null);
         this.mCallback = null;
-        this.nrY = new b();
+        this.nsb = new b();
     }
 
     public c(@Nullable Handler.Callback callback) {
         this.mLock = new ReentrantLock();
-        this.nrZ = new a(this.mLock, null);
+        this.nsc = new a(this.mLock, null);
         this.mCallback = callback;
-        this.nrY = new b(new WeakReference(callback));
+        this.nsb = new b(new WeakReference(callback));
     }
 
     public c(@NonNull Looper looper) {
         this.mLock = new ReentrantLock();
-        this.nrZ = new a(this.mLock, null);
+        this.nsc = new a(this.mLock, null);
         this.mCallback = null;
-        this.nrY = new b(looper);
+        this.nsb = new b(looper);
     }
 
     public c(@NonNull Looper looper, @NonNull Handler.Callback callback) {
         this.mLock = new ReentrantLock();
-        this.nrZ = new a(this.mLock, null);
+        this.nsc = new a(this.mLock, null);
         this.mCallback = callback;
-        this.nrY = new b(looper, new WeakReference(callback));
+        this.nsb = new b(looper, new WeakReference(callback));
     }
 
     public final boolean p(@NonNull Runnable runnable) {
-        return this.nrY.post(O(runnable));
+        return this.nsb.post(O(runnable));
     }
 
     public final boolean e(Runnable runnable, long j) {
-        return this.nrY.postDelayed(O(runnable), j);
+        return this.nsb.postDelayed(O(runnable), j);
     }
 
     public final void N(Runnable runnable) {
-        RunnableC0832c P = this.nrZ.P(runnable);
+        RunnableC0853c P = this.nsc.P(runnable);
         if (P != null) {
-            this.nrY.removeCallbacks(P);
+            this.nsb.removeCallbacks(P);
         }
     }
 
     public final boolean N(Message message) {
-        return this.nrY.sendMessage(message);
+        return this.nsb.sendMessage(message);
     }
 
     public final boolean JF(int i) {
-        return this.nrY.sendEmptyMessage(i);
+        return this.nsb.sendEmptyMessage(i);
     }
 
     public final boolean A(int i, long j) {
-        return this.nrY.sendEmptyMessageDelayed(i, j);
+        return this.nsb.sendEmptyMessageDelayed(i, j);
     }
 
     public final boolean a(Message message, long j) {
-        return this.nrY.sendMessageDelayed(message, j);
+        return this.nsb.sendMessageDelayed(message, j);
     }
 
     public final void removeMessages(int i) {
-        this.nrY.removeMessages(i);
+        this.nsb.removeMessages(i);
     }
 
-    public final void bZ(Object obj) {
-        this.nrY.removeCallbacksAndMessages(obj);
+    public final void ca(Object obj) {
+        this.nsb.removeCallbacksAndMessages(obj);
     }
 
     public final boolean JG(int i) {
-        return this.nrY.hasMessages(i);
+        return this.nsb.hasMessages(i);
     }
 
     public final Message JH(int i) {
-        return this.nrY.obtainMessage(i);
+        return this.nsb.obtainMessage(i);
     }
 
-    private RunnableC0832c O(@NonNull Runnable runnable) {
+    private RunnableC0853c O(@NonNull Runnable runnable) {
         if (runnable == null) {
             throw new NullPointerException("Runnable can't be null");
         }
         a aVar = new a(this.mLock, runnable);
-        this.nrZ.a(aVar);
-        return aVar.nsc;
+        this.nsc.a(aVar);
+        return aVar.nsf;
     }
 
     /* loaded from: classes5.dex */
@@ -135,21 +135,21 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: tv.chushou.zues.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class RunnableC0832c implements Runnable {
+    public static class RunnableC0853c implements Runnable {
         private final WeakReference<a> mReference;
-        private final WeakReference<Runnable> nsd;
+        private final WeakReference<Runnable> nsg;
 
-        RunnableC0832c(WeakReference<Runnable> weakReference, WeakReference<a> weakReference2) {
-            this.nsd = weakReference;
+        RunnableC0853c(WeakReference<Runnable> weakReference, WeakReference<a> weakReference2) {
+            this.nsg = weakReference;
             this.mReference = weakReference2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Runnable runnable = this.nsd.get();
+            Runnable runnable = this.nsg.get();
             a aVar = this.mReference.get();
             if (aVar != null) {
-                aVar.dJN();
+                aVar.dJJ();
             }
             if (runnable != null) {
                 runnable.run();
@@ -163,33 +163,33 @@ public class c {
         @NonNull
         Lock lock;
         @Nullable
-        a nsa;
+        a nsd;
         @Nullable
-        a nsb;
+        a nse;
         @NonNull
-        final RunnableC0832c nsc;
+        final RunnableC0853c nsf;
         @NonNull
         final Runnable runnable;
 
         public a(@NonNull Lock lock, @NonNull Runnable runnable) {
             this.runnable = runnable;
             this.lock = lock;
-            this.nsc = new RunnableC0832c(new WeakReference(runnable), new WeakReference(this));
+            this.nsf = new RunnableC0853c(new WeakReference(runnable), new WeakReference(this));
         }
 
-        public RunnableC0832c dJN() {
+        public RunnableC0853c dJJ() {
             this.lock.lock();
             try {
-                if (this.nsb != null) {
-                    this.nsb.nsa = this.nsa;
+                if (this.nse != null) {
+                    this.nse.nsd = this.nsd;
                 }
-                if (this.nsa != null) {
-                    this.nsa.nsb = this.nsb;
+                if (this.nsd != null) {
+                    this.nsd.nse = this.nse;
                 }
-                this.nsb = null;
-                this.nsa = null;
+                this.nse = null;
+                this.nsd = null;
                 this.lock.unlock();
-                return this.nsc;
+                return this.nsf;
             } catch (Throwable th) {
                 this.lock.unlock();
                 throw th;
@@ -199,24 +199,24 @@ public class c {
         public void a(@NonNull a aVar) {
             this.lock.lock();
             try {
-                if (this.nsa != null) {
-                    this.nsa.nsb = aVar;
+                if (this.nsd != null) {
+                    this.nsd.nse = aVar;
                 }
-                aVar.nsa = this.nsa;
-                this.nsa = aVar;
-                aVar.nsb = this;
+                aVar.nsd = this.nsd;
+                this.nsd = aVar;
+                aVar.nse = this;
             } finally {
                 this.lock.unlock();
             }
         }
 
         @Nullable
-        public RunnableC0832c P(Runnable runnable) {
+        public RunnableC0853c P(Runnable runnable) {
             this.lock.lock();
             try {
-                for (a aVar = this.nsa; aVar != null; aVar = aVar.nsa) {
+                for (a aVar = this.nsd; aVar != null; aVar = aVar.nsd) {
                     if (aVar.runnable == runnable) {
-                        return aVar.dJN();
+                        return aVar.dJJ();
                     }
                 }
                 this.lock.unlock();

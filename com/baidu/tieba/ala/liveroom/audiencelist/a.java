@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<g> aqj;
+    private List<g> aqp;
     private Context mContext;
 
     public a(Context context) {
@@ -27,50 +27,50 @@ public class a extends BaseAdapter {
     }
 
     public void d(h hVar) {
-        this.aqj = new ArrayList();
+        this.aqp = new ArrayList();
         if (hVar != null && hVar.getList() != null && !hVar.getList().isEmpty()) {
             for (g gVar : hVar.getList()) {
-                if (gVar != null && gVar.aqe != null) {
-                    this.aqj.add(gVar);
+                if (gVar != null && gVar.aqk != null) {
+                    this.aqp.add(gVar);
                 }
             }
         }
     }
 
     public boolean b(g gVar) {
-        if (gVar == null || gVar.aqe == null) {
+        if (gVar == null || gVar.aqk == null) {
             return false;
         }
-        if (this.aqj == null) {
+        if (this.aqp == null) {
             return false;
         }
-        if (this.aqj.size() == 0) {
-            this.aqj.add(gVar);
+        if (this.aqp.size() == 0) {
+            this.aqp.add(gVar);
             return true;
         }
-        for (g gVar2 : this.aqj) {
-            if (gVar2 != null && gVar2.aqe != null && gVar.aqe.userId == gVar2.aqe.userId) {
+        for (g gVar2 : this.aqp) {
+            if (gVar2 != null && gVar2.aqk != null && gVar.aqk.userId == gVar2.aqk.userId) {
                 return false;
             }
         }
-        this.aqj.add(gVar);
+        this.aqp.add(gVar);
         return true;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aqj == null) {
+        if (this.aqp == null) {
             return 0;
         }
-        return this.aqj.size();
+        return this.aqp.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aqj == null) {
+        if (this.aqp == null) {
             return null;
         }
-        return this.aqj.get(i);
+        return this.aqp.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -80,67 +80,67 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0490a c0490a;
+        C0511a c0511a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.h.ala_live_audience_header_image, (ViewGroup) null);
-            C0490a c0490a2 = new C0490a(view);
+            C0511a c0511a2 = new C0511a(view);
             if (TbadkCoreApplication.getInst().isHaokan()) {
-                c0490a2.fyw.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
+                c0511a2.fyB.setDefaultResource(a.f.sdk_icon_default_avatar100_hk);
             } else {
-                c0490a2.fyw.setDefaultResource(a.f.sdk_icon_default_avatar100);
+                c0511a2.fyB.setDefaultResource(a.f.sdk_icon_default_avatar100);
             }
-            c0490a2.fyw.setIsRound(true);
-            c0490a2.fyw.setDrawBorder(true);
-            c0490a2.fyw.setBorderColor(this.mContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
-            c0490a2.fyw.setAutoChangeStyle(false);
-            c0490a2.fyw.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            c0490a2.fyx.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            view.setTag(c0490a2);
-            c0490a = c0490a2;
+            c0511a2.fyB.setIsRound(true);
+            c0511a2.fyB.setDrawBorder(true);
+            c0511a2.fyB.setBorderColor(this.mContext.getResources().getColor(a.d.sdk_cp_bg_line_k_alpha10_1));
+            c0511a2.fyB.setAutoChangeStyle(false);
+            c0511a2.fyB.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            c0511a2.fyC.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            view.setTag(c0511a2);
+            c0511a = c0511a2;
         } else {
-            c0490a = (C0490a) view.getTag();
+            c0511a = (C0511a) view.getTag();
         }
         g gVar = (g) getItem(i);
-        c0490a.fyw.setDrawBorder(true);
-        if (gVar.aqh == 1 && gVar.aqe.totalPrice > 0) {
-            c0490a.fyx.setVisibility(0);
-            c0490a.fyx.setImageResource(a.f.pic_live_top1);
-            c0490a.fyy.setBackgroundResource(a.f.round_header_day_list_bg_1);
-        } else if (gVar.aqh == 2 && gVar.aqe.totalPrice > 0) {
-            c0490a.fyx.setVisibility(0);
-            c0490a.fyx.setImageResource(a.f.pic_live_top2);
-            c0490a.fyy.setBackgroundResource(a.f.round_header_day_list_bg_2);
-        } else if (gVar.aqh == 3 && gVar.aqe.totalPrice > 0) {
-            c0490a.fyx.setVisibility(0);
-            c0490a.fyx.setImageResource(a.f.pic_live_top3);
-            c0490a.fyy.setBackgroundResource(a.f.round_header_day_list_bg_3);
+        c0511a.fyB.setDrawBorder(true);
+        if (gVar.aqn == 1 && gVar.aqk.totalPrice > 0) {
+            c0511a.fyC.setVisibility(0);
+            c0511a.fyC.setImageResource(a.f.pic_live_top1);
+            c0511a.fyD.setBackgroundResource(a.f.round_header_day_list_bg_1);
+        } else if (gVar.aqn == 2 && gVar.aqk.totalPrice > 0) {
+            c0511a.fyC.setVisibility(0);
+            c0511a.fyC.setImageResource(a.f.pic_live_top2);
+            c0511a.fyD.setBackgroundResource(a.f.round_header_day_list_bg_2);
+        } else if (gVar.aqn == 3 && gVar.aqk.totalPrice > 0) {
+            c0511a.fyC.setVisibility(0);
+            c0511a.fyC.setImageResource(a.f.pic_live_top3);
+            c0511a.fyD.setBackgroundResource(a.f.round_header_day_list_bg_3);
         } else {
-            c0490a.fyx.setVisibility(8);
-            c0490a.fyy.setBackgroundResource(a.f.round_header_day_list_bg_normal);
+            c0511a.fyC.setVisibility(8);
+            c0511a.fyD.setBackgroundResource(a.f.round_header_day_list_bg_normal);
         }
-        c0490a.fyy.setText(StringHelper.formatForHeaderDayCharmValue(gVar.aqe.totalPrice));
-        if (gVar.aqe.totalPrice <= 0) {
-            c0490a.fyy.setVisibility(4);
+        c0511a.fyD.setText(StringHelper.formatForHeaderDayCharmValue(gVar.aqk.totalPrice));
+        if (gVar.aqk.totalPrice <= 0) {
+            c0511a.fyD.setVisibility(4);
         } else {
-            c0490a.fyy.setVisibility(0);
+            c0511a.fyD.setVisibility(0);
         }
-        k.a(c0490a.fyw, gVar.aqe.portrait, true, !StringUtils.isNull(gVar.aqe.appId));
+        k.a(c0511a.fyB, gVar.aqk.portrait, true, !StringUtils.isNull(gVar.aqk.appId));
         return view;
     }
 
     /* renamed from: com.baidu.tieba.ala.liveroom.audiencelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0490a {
-        public HeadImageView fyw;
-        public ImageView fyx;
-        public TextView fyy;
+    public static class C0511a {
+        public HeadImageView fyB;
+        public ImageView fyC;
+        public TextView fyD;
         public View rootView;
 
-        public C0490a(View view) {
+        public C0511a(View view) {
             this.rootView = view;
-            this.fyw = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
-            this.fyx = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);
-            this.fyy = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
+            this.fyB = (HeadImageView) view.findViewById(a.g.ala_live_room_audience_header_img);
+            this.fyC = (ImageView) view.findViewById(a.g.ala_live_room_audience_pendant);
+            this.fyD = (TextView) view.findViewById(a.g.ala_live_room_audience_charm_count);
         }
     }
 }

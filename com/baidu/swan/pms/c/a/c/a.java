@@ -28,7 +28,7 @@ public class a<T> {
         return t;
     }
 
-    public T ab(T t) {
+    public T ac(T t) {
         if (t != null) {
             for (int size = this.mQueue.size() - 1; size >= 0; size--) {
                 if (t.equals(this.mQueue.get(size))) {

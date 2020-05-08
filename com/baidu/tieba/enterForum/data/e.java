@@ -5,15 +5,15 @@ import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes9.dex */
 public class e {
-    private HotSearchInfoData gzN;
+    private HotSearchInfoData gzT;
     private boolean isSucc;
     private int sortType;
     private int time = 0;
-    private i gzI = new i();
-    private l gzJ = new l();
-    private ForumCreateInfoData gzK = new ForumCreateInfoData();
-    private PrivateForumPopInfoData gzL = new PrivateForumPopInfoData();
-    private p gzM = new p();
+    private i gzO = new i();
+    private l gzP = new l();
+    private ForumCreateInfoData gzQ = new ForumCreateInfoData();
+    private PrivateForumPopInfoData gzR = new PrivateForumPopInfoData();
+    private p gzS = new p();
 
     public e() {
         this.isSucc = true;
@@ -25,7 +25,7 @@ public class e {
     }
 
     public HotSearchInfoData getHotSearchInfoData() {
-        return this.gzN;
+        return this.gzT;
     }
 
     public void a(DataRes dataRes) {
@@ -34,23 +34,23 @@ public class e {
                 setTime(dataRes.time.intValue());
                 this.sortType = dataRes.sort_type.intValue() == 0 ? 1 : dataRes.sort_type.intValue();
                 if (dataRes.like_forum != null) {
-                    this.gzI.bT(dataRes.like_forum);
+                    this.gzO.bT(dataRes.like_forum);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.gzJ.bU(dataRes.recommend_forum_info);
+                    this.gzP.bU(dataRes.recommend_forum_info);
                 }
                 if (dataRes.forum_create_info != null) {
-                    this.gzK.a(dataRes.forum_create_info);
+                    this.gzQ.a(dataRes.forum_create_info);
                 }
                 if (dataRes.private_forum_popinfo != null) {
-                    this.gzL.a(dataRes.private_forum_popinfo);
+                    this.gzR.a(dataRes.private_forum_popinfo);
                 }
                 if (dataRes.hot_search != null) {
-                    this.gzN = new HotSearchInfoData();
-                    this.gzN.a(dataRes.hot_search);
+                    this.gzT = new HotSearchInfoData();
+                    this.gzT.a(dataRes.hot_search);
                 }
                 if (dataRes.nav_tab_info != null) {
-                    this.gzM.bV(dataRes.nav_tab_info);
+                    this.gzS.bV(dataRes.nav_tab_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -58,36 +58,36 @@ public class e {
         }
     }
 
-    public i bHz() {
-        return this.gzI;
+    public i bHx() {
+        return this.gzO;
     }
 
     public void a(i iVar) {
-        this.gzI = iVar;
+        this.gzO = iVar;
     }
 
     public void a(l lVar) {
-        this.gzJ = lVar;
+        this.gzP = lVar;
     }
 
-    public l bHA() {
-        return this.gzJ;
+    public l bHy() {
+        return this.gzP;
     }
 
     public void a(ForumCreateInfoData forumCreateInfoData) {
-        this.gzK = forumCreateInfoData;
+        this.gzQ = forumCreateInfoData;
     }
 
-    public ForumCreateInfoData bHB() {
-        return this.gzK;
+    public ForumCreateInfoData bHz() {
+        return this.gzQ;
     }
 
     public void a(PrivateForumPopInfoData privateForumPopInfoData) {
-        this.gzL = privateForumPopInfoData;
+        this.gzR = privateForumPopInfoData;
     }
 
-    public PrivateForumPopInfoData bHC() {
-        return this.gzL;
+    public PrivateForumPopInfoData bHA() {
+        return this.gzR;
     }
 
     public void setIsSuccess(boolean z) {
@@ -103,7 +103,7 @@ public class e {
     }
 
     public void a(HotSearchInfoData hotSearchInfoData) {
-        this.gzN = hotSearchInfoData;
+        this.gzT = hotSearchInfoData;
     }
 
     public int getSortType() {
@@ -115,10 +115,10 @@ public class e {
     }
 
     public void a(p pVar) {
-        this.gzM = pVar;
+        this.gzS = pVar;
     }
 
-    public p bHD() {
-        return this.gzM;
+    public p bHB() {
+        return this.gzS;
     }
 }

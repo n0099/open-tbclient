@@ -37,15 +37,15 @@ public class f extends ab {
         } else if (eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (eVar.Ru()) {
+        } else if (eVar.Rt()) {
             if (DEBUG) {
                 Log.d("NavigateToSmartProgram", "NavigateToSmartProgram does not supported when app is invisible.");
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
             return false;
         } else {
-            String akP = com.baidu.swan.apps.runtime.e.akP();
-            if (TextUtils.isEmpty(akP) || TextUtils.isEmpty(akP.trim())) {
+            String akO = com.baidu.swan.apps.runtime.e.akO();
+            if (TextUtils.isEmpty(akO) || TextUtils.isEmpty(akO.trim())) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
@@ -54,12 +54,12 @@ public class f extends ab {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            Request h = h(akP, optParamsAsJo);
+            Request h = h(akO, optParamsAsJo);
             if (h == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            eVar.akZ().a(h, new Callback() { // from class: com.baidu.swan.apps.scheme.actions.k.f.1
+            eVar.akY().a(h, new Callback() { // from class: com.baidu.swan.apps.scheme.actions.k.f.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
@@ -100,14 +100,14 @@ public class f extends ab {
     private Request h(String str, JSONObject jSONObject) {
         Request request = null;
         if (jSONObject != null && !TextUtils.isEmpty(str)) {
-            String d = com.baidu.swan.apps.model.b.d(ai.apv());
+            String d = com.baidu.swan.apps.model.b.d(ai.apu());
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("app_key", str);
                 jSONObject2.put("srcAppPage", d);
                 jSONObject2.put("params", jSONObject);
-                String Qi = com.baidu.swan.apps.w.a.aca().Qi();
-                request = new Request.Builder().url(Qi).post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
+                String Qh = com.baidu.swan.apps.w.a.abZ().Qh();
+                request = new Request.Builder().url(Qh).post(FormBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
                 if (DEBUG) {
                     Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
                 }

@@ -5,23 +5,23 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public final class m implements Runnable {
-    final /* synthetic */ Context alb;
-    final /* synthetic */ Throwable alc;
+    final /* synthetic */ Context alh;
+    final /* synthetic */ Throwable ali;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(Throwable th, Context context) {
-        this.alc = th;
-        this.alb = context;
+        this.ali = th;
+        this.alh = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            Map<String, Object> a = g.a(this.alc, this.alb);
+            Map<String, Object> a = g.a(this.ali, this.alh);
             g.b(a);
             a.put("exceptionThread", com.baidu.crabsdk.b.s.a(Thread.currentThread()));
-            i.b(this.alb, i.d(a));
-            k.n(this.alb);
+            i.b(this.alh, i.d(a));
+            k.n(this.alh);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -16,7 +16,7 @@ public class b {
             return com.baidu.h.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.h.a.KP();
+            return !com.baidu.h.a.KO();
         }
     }
 
@@ -30,11 +30,11 @@ public class b {
         }
         String str = "permission_request_code=" + String.valueOf(i);
         boolean z = sharedPreferences.getBoolean(str, true);
-        J(context, str);
+        x(context, str);
         return z;
     }
 
-    private static void J(Context context, String str) {
+    private static void x(Context context, String str) {
         SharedPreferences sharedPreferences;
         if (context != null && (sharedPreferences = context.getSharedPreferences(TAG, 0)) != null) {
             SharedPreferences.Editor edit = sharedPreferences.edit();

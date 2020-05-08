@@ -16,12 +16,12 @@ public class j extends f<PointF> {
     /* renamed from: e */
     public PointF a(com.tb.airbnb.lottie.e.a<PointF> aVar, float f) {
         PointF pointF;
-        if (aVar.FL == null || aVar.FM == null) {
+        if (aVar.FO == null || aVar.FP == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        PointF pointF2 = aVar.FL;
-        PointF pointF3 = aVar.FM;
-        if (this.mOQ == null || (pointF = (PointF) this.mOQ.b(aVar.zN, aVar.FO.floatValue(), pointF2, pointF3, f, hq(), getProgress())) == null) {
+        PointF pointF2 = aVar.FO;
+        PointF pointF3 = aVar.FP;
+        if (this.mOT == null || (pointF = (PointF) this.mOT.b(aVar.zN, aVar.FR.floatValue(), pointF2, pointF3, f, hq(), getProgress())) == null) {
             this.Cp.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
             return this.Cp;
         }

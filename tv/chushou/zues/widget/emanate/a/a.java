@@ -4,12 +4,12 @@ import android.animation.TypeEvaluator;
 import android.graphics.PointF;
 /* loaded from: classes5.dex */
 public class a implements TypeEvaluator<PointF> {
-    private PointF ntC;
-    private PointF ntD;
+    private PointF ntF;
+    private PointF ntG;
 
     public a(PointF pointF, PointF pointF2) {
-        this.ntC = pointF;
-        this.ntD = pointF2;
+        this.ntF = pointF;
+        this.ntG = pointF2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class a implements TypeEvaluator<PointF> {
         float f5 = f2 * 3.0f * f * f;
         float f6 = f * f * f;
         PointF pointF3 = new PointF();
-        pointF3.x = (pointF.x * f3) + (this.ntC.x * f4) + (this.ntD.x * f5) + (pointF2.x * f6);
-        pointF3.y = (f5 * this.ntD.y) + (f3 * pointF.y) + (f4 * this.ntC.y) + (pointF2.y * f6);
+        pointF3.x = (pointF.x * f3) + (this.ntF.x * f4) + (this.ntG.x * f5) + (pointF2.x * f6);
+        pointF3.y = (f5 * this.ntG.y) + (f3 * pointF.y) + (f4 * this.ntF.y) + (pointF2.y * f6);
         return pointF3;
     }
 }

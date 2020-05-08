@@ -1,34 +1,55 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import com.xiaomi.push.ai;
+import java.util.LinkedList;
 /* loaded from: classes8.dex */
-public class bb extends ai.a {
-    private Context a;
+public class bb {
+    private LinkedList<a> a = new LinkedList<>();
 
-    public bb(Context context) {
-        this.a = context;
-    }
+    /* loaded from: classes8.dex */
+    public static class a {
+        private static final bb a = new bb();
 
-    private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.a).a().isPerfUploadSwitchOpen();
-    }
+        /* renamed from: a  reason: collision with other field name */
+        public int f120a;
 
-    @Override // com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo160a() {
-        return 100887;
-    }
+        /* renamed from: a  reason: collision with other field name */
+        public Object f121a;
 
-    @Override // java.lang.Runnable
-    public void run() {
-        try {
-            if (a()) {
-                com.xiaomi.clientreport.manager.a.a(this.a).c();
-                com.xiaomi.channel.commonutils.logger.b.c(this.a.getPackageName() + "perf  begin upload");
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        /* renamed from: a  reason: collision with other field name */
+        public String f122a;
+
+        a(int i, Object obj) {
+            this.f120a = i;
+            this.f121a = obj;
         }
+    }
+
+    public static bb a() {
+        return a.a;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private void m155a() {
+        if (this.a.size() > 100) {
+            this.a.removeFirst();
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized int m156a() {
+        return this.a.size();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized LinkedList<a> m157a() {
+        LinkedList<a> linkedList;
+        linkedList = this.a;
+        this.a = new LinkedList<>();
+        return linkedList;
+    }
+
+    public synchronized void a(Object obj) {
+        this.a.add(new a(0, obj));
+        m155a();
     }
 }

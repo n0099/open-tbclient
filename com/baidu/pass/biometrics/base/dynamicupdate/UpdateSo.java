@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.android.common.security.MD5Util;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.pass.biometrics.base.PassBiometricConfiguration;
 import com.baidu.pass.biometrics.base.debug.Log;
@@ -20,6 +19,7 @@ import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.RSA;
 import com.baidu.pass.biometrics.base.utils.thread.TPRunnable;
 import com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService;
+import com.baidu.pass.common.SecurityUtil;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -227,7 +227,7 @@ public class UpdateSo {
     public void downloadFileSuccess(byte[] bArr) {
         try {
             Log.e(TAG, "distributeFileDownload() onSuccess" + this.newOptions.distributedSdk.downloadUrl + ",:" + LocalConfigOptions.getInternalZipPath(this.application, this.newOptions.zipVersion));
-            String md5 = MD5Util.toMd5(bArr, false);
+            String md5 = SecurityUtil.md5(bArr, false);
             String decrypt = RSA.decrypt(this.newOptions.distributedSdk.hash);
             if (decrypt != null && decrypt.equals(md5)) {
                 if (writeInternal(LocalConfigOptions.getInternalZipPath(this.application, this.newOptions.zipVersion), bArr)) {
@@ -298,7 +298,7 @@ public class UpdateSo {
         try {
             if ("mounted".equals(Environment.getExternalStorageState()) && new File(str).exists()) {
                 byte[] loadDataFromExternal = loadDataFromExternal(str);
-                String md5 = MD5Util.toMd5(loadDataFromExternal, false);
+                String md5 = SecurityUtil.md5(loadDataFromExternal, false);
                 String decrypt = RSA.decrypt(distributedFile.hash);
                 Log.e(TAG, "loadFileFromExternal() localMd5:" + md5 + ",onlineMd5" + decrypt);
                 if (decrypt != null && decrypt.equals(md5)) {

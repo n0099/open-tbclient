@@ -12,8 +12,8 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class j {
     public static void awh() {
-        if (com.baidu.swan.apps.storage.c.h.anz().getBoolean("swan_game_data_migration", true)) {
-            com.baidu.swan.apps.storage.c.h.anz().putBoolean("swan_game_data_migration", false);
+        if (com.baidu.swan.apps.storage.c.h.any().getBoolean("swan_game_data_migration", true)) {
+            com.baidu.swan.apps.storage.c.h.any().putBoolean("swan_game_data_migration", false);
             if (com.baidu.swan.apps.v.a.DEBUG) {
                 Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
             }
@@ -30,16 +30,16 @@ public class j {
 
     private static void awi() {
         File[] listFiles;
-        String di = l.di(AppRuntime.getAppContext());
-        if (!TextUtils.isEmpty(di)) {
-            File file = new File(di);
+        String cW = l.cW(AppRuntime.getAppContext());
+        if (!TextUtils.isEmpty(cW)) {
+            File file = new File(cW);
             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                 for (File file2 : listFiles) {
                     if (file2.isDirectory()) {
                         String str = file2.getAbsolutePath() + File.separator + "aigames/sandbox";
                         File file3 = new File(str);
                         if (file3.exists() && file3.isDirectory()) {
-                            String str2 = di + File.separator + "swangame/anonymous/sandbox";
+                            String str2 = cW + File.separator + "swangame/anonymous/sandbox";
                             if (!file3.renameTo(new File(str2))) {
                                 l.bU(str, str2);
                                 l.ql(str);

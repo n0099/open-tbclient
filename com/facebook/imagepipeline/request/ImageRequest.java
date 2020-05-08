@@ -12,29 +12,29 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes12.dex */
 public class ImageRequest {
-    private File eZH;
+    private File eZM;
     public String mTag;
     @Nullable
-    private final com.facebook.imagepipeline.common.d maa;
-    private final e mab;
-    private final com.facebook.imagepipeline.common.b mad;
+    private final com.facebook.imagepipeline.common.d maf;
+    private final e mag;
+    private final com.facebook.imagepipeline.common.b mah;
     @Nullable
-    private final com.facebook.imagepipeline.h.c mby;
-    private final boolean mch;
+    private final com.facebook.imagepipeline.h.c mbC;
+    private final boolean mcl;
     @Nullable
-    private final com.facebook.imagepipeline.common.a mdx;
-    private final RequestLevel meG;
+    private final com.facebook.imagepipeline.common.a mdB;
+    private final RequestLevel meK;
+    private final boolean mfl;
+    private final CacheChoice mgL;
+    private final Uri mgM;
+    private final int mgN;
+    private final boolean mgO;
+    private final Priority mgP;
+    private final boolean mgQ;
+    private final Map<String, String> mgR;
+    public String mgS;
     @Nullable
-    private final b mfZ;
-    private final boolean mfh;
-    private final CacheChoice mgH;
-    private final Uri mgI;
-    private final int mgJ;
-    private final boolean mgK;
-    private final Priority mgL;
-    private final boolean mgM;
-    private final Map<String, String> mgN;
-    public String mgO;
+    private final b mgd;
 
     /* loaded from: classes12.dex */
     public enum CacheChoice {
@@ -46,10 +46,10 @@ public class ImageRequest {
         if (uri == null) {
             return null;
         }
-        return ImageRequestBuilder.Z(uri).duW();
+        return ImageRequestBuilder.Z(uri).duT();
     }
 
-    public static ImageRequest Oq(@Nullable String str) {
+    public static ImageRequest Ot(@Nullable String str) {
         if (str == null || str.length() == 0) {
             return null;
         }
@@ -58,120 +58,120 @@ public class ImageRequest {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.mgH = imageRequestBuilder.duK();
-        this.mgI = imageRequestBuilder.duL();
-        this.mgJ = Y(this.mgI);
-        this.mch = imageRequestBuilder.drE();
-        this.mgK = imageRequestBuilder.duU();
-        this.mad = imageRequestBuilder.duP();
-        this.maa = imageRequestBuilder.duN();
-        this.mab = imageRequestBuilder.duO() == null ? e.dqT() : imageRequestBuilder.duO();
-        this.mdx = imageRequestBuilder.dsW();
-        this.mgL = imageRequestBuilder.duV();
-        this.meG = imageRequestBuilder.dtV();
-        this.mgM = imageRequestBuilder.drn();
-        this.mfh = imageRequestBuilder.duS();
-        this.mfZ = imageRequestBuilder.duT();
-        this.mby = imageRequestBuilder.dnV();
-        this.mgN = imageRequestBuilder.duk();
+        this.mgL = imageRequestBuilder.duH();
+        this.mgM = imageRequestBuilder.duI();
+        this.mgN = Y(this.mgM);
+        this.mcl = imageRequestBuilder.drB();
+        this.mgO = imageRequestBuilder.duR();
+        this.mah = imageRequestBuilder.duM();
+        this.maf = imageRequestBuilder.duK();
+        this.mag = imageRequestBuilder.duL() == null ? e.dqQ() : imageRequestBuilder.duL();
+        this.mdB = imageRequestBuilder.dsT();
+        this.mgP = imageRequestBuilder.duS();
+        this.meK = imageRequestBuilder.dtS();
+        this.mgQ = imageRequestBuilder.drk();
+        this.mfl = imageRequestBuilder.duP();
+        this.mgd = imageRequestBuilder.duQ();
+        this.mbC = imageRequestBuilder.dnS();
+        this.mgR = imageRequestBuilder.duh();
         this.mTag = imageRequestBuilder.getTag();
-        this.mgO = imageRequestBuilder.getLogTag();
+        this.mgS = imageRequestBuilder.getLogTag();
     }
 
-    public Map<String, String> duk() {
+    public Map<String, String> duh() {
+        return this.mgR;
+    }
+
+    public CacheChoice duH() {
+        return this.mgL;
+    }
+
+    public Uri duI() {
+        return this.mgM;
+    }
+
+    public int duJ() {
         return this.mgN;
     }
 
-    public CacheChoice duK() {
-        return this.mgH;
-    }
-
-    public Uri duL() {
-        return this.mgI;
-    }
-
-    public int duM() {
-        return this.mgJ;
-    }
-
     public int getPreferredWidth() {
-        if (this.maa != null) {
-            return this.maa.width;
+        if (this.maf != null) {
+            return this.maf.width;
         }
         return 2048;
     }
 
     public int getPreferredHeight() {
-        if (this.maa != null) {
-            return this.maa.height;
+        if (this.maf != null) {
+            return this.maf.height;
         }
         return 2048;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.d duN() {
-        return this.maa;
+    public com.facebook.imagepipeline.common.d duK() {
+        return this.maf;
     }
 
-    public e duO() {
-        return this.mab;
+    public e duL() {
+        return this.mag;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a dsW() {
-        return this.mdx;
+    public com.facebook.imagepipeline.common.a dsT() {
+        return this.mdB;
     }
 
-    public com.facebook.imagepipeline.common.b duP() {
-        return this.mad;
+    public com.facebook.imagepipeline.common.b duM() {
+        return this.mah;
     }
 
-    public boolean duQ() {
-        return this.mch;
+    public boolean duN() {
+        return this.mcl;
     }
 
-    public boolean duR() {
-        return this.mgK;
+    public boolean duO() {
+        return this.mgO;
     }
 
-    public Priority dtX() {
-        return this.mgL;
+    public Priority dtU() {
+        return this.mgP;
     }
 
-    public RequestLevel dtV() {
-        return this.meG;
+    public RequestLevel dtS() {
+        return this.meK;
     }
 
-    public boolean drn() {
-        return this.mgM;
+    public boolean drk() {
+        return this.mgQ;
     }
 
-    public boolean duS() {
-        return this.mfh;
+    public boolean duP() {
+        return this.mfl;
     }
 
-    public synchronized File bmW() {
-        if (this.eZH == null) {
-            this.eZH = new File(this.mgI.getPath());
+    public synchronized File bmU() {
+        if (this.eZM == null) {
+            this.eZM = new File(this.mgM.getPath());
         }
-        return this.eZH;
+        return this.eZM;
     }
 
     @Nullable
-    public b duT() {
-        return this.mfZ;
+    public b duQ() {
+        return this.mgd;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.h.c dnV() {
-        return this.mby;
+    public com.facebook.imagepipeline.h.c dnS() {
+        return this.mbC;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
-            if (f.equal(this.mgI, imageRequest.mgI) && f.equal(this.mgH, imageRequest.mgH) && f.equal(this.eZH, imageRequest.eZH) && f.equal(this.mdx, imageRequest.mdx) && f.equal(this.mad, imageRequest.mad) && f.equal(this.maa, imageRequest.maa) && f.equal(this.mab, imageRequest.mab)) {
-                return f.equal(this.mfZ != null ? this.mfZ.dtS() : null, imageRequest.mfZ != null ? imageRequest.mfZ.dtS() : null);
+            if (f.equal(this.mgM, imageRequest.mgM) && f.equal(this.mgL, imageRequest.mgL) && f.equal(this.eZM, imageRequest.eZM) && f.equal(this.mdB, imageRequest.mdB) && f.equal(this.mah, imageRequest.mah) && f.equal(this.maf, imageRequest.maf) && f.equal(this.mag, imageRequest.mag)) {
+                return f.equal(this.mgd != null ? this.mgd.dtP() : null, imageRequest.mgd != null ? imageRequest.mgd.dtP() : null);
             }
             return false;
         }
@@ -179,11 +179,11 @@ public class ImageRequest {
     }
 
     public int hashCode() {
-        return f.M(this.mgH, this.mgI, this.eZH, this.mdx, this.mad, this.maa, this.mab, this.mfZ != null ? this.mfZ.dtS() : null);
+        return f.M(this.mgL, this.mgM, this.eZM, this.mdB, this.mah, this.maf, this.mag, this.mgd != null ? this.mgd.dtP() : null);
     }
 
     public String toString() {
-        return f.aI(this).C(DownloadDataConstants.Columns.COLUMN_URI, this.mgI).C("cacheChoice", this.mgH).C("decodeOptions", this.mad).C("postprocessor", this.mfZ).C("priority", this.mgL).C("resizeOptions", this.maa).C("rotationOptions", this.mab).C("bytesRange", this.mdx).toString();
+        return f.aJ(this).C(DownloadDataConstants.Columns.COLUMN_URI, this.mgM).C("cacheChoice", this.mgL).C("decodeOptions", this.mah).C("postprocessor", this.mgd).C("priority", this.mgP).C("resizeOptions", this.maf).C("rotationOptions", this.mag).C("bytesRange", this.mdB).toString();
     }
 
     /* loaded from: classes12.dex */
@@ -216,7 +216,7 @@ public class ImageRequest {
             return 0;
         }
         if (com.facebook.common.util.d.isLocalFileUri(uri)) {
-            if (com.facebook.common.d.a.NY(com.facebook.common.d.a.NZ(uri.getPath()))) {
+            if (com.facebook.common.d.a.Ob(com.facebook.common.d.a.Oc(uri.getPath()))) {
                 return 2;
             }
             return 3;

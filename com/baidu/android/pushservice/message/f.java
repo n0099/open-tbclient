@@ -1,14 +1,16 @@
 package com.baidu.android.pushservice.message;
 
 import android.content.Context;
-import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
@@ -25,47 +27,49 @@ public class f extends d {
         super(context);
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, INVOKE, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
     private byte[] a(long j, g gVar) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        com.baidu.android.pushservice.i.f fVar = new com.baidu.android.pushservice.i.f(byteArrayOutputStream);
+        com.baidu.android.pushservice.i.e eVar = new com.baidu.android.pushservice.i.e(byteArrayOutputStream);
         try {
-            fVar.a(j);
-            fVar.b(gVar.a());
-            fVar.b(0);
-            if (gVar.b() != null) {
-                fVar.a(gVar.b());
+            try {
+                eVar.a(j);
+                eVar.b(gVar.a());
+                eVar.b(0);
+                if (gVar.b() != null) {
+                    eVar.a(gVar.b());
+                }
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                try {
+                    return byteArray;
+                } catch (IOException e) {
+                    return byteArray;
+                }
+            } catch (Exception e2) {
+                new b.c(this.a).a(Log.getStackTraceString(e2)).a();
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException e3) {
+                    new b.c(this.a).a(Log.getStackTraceString(e3)).a();
+                }
+                try {
+                    eVar.a();
+                } catch (IOException e4) {
+                    new b.c(this.a).a(Log.getStackTraceString(e4)).a();
+                }
+                return null;
             }
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
+        } finally {
             try {
                 byteArrayOutputStream.close();
-            } catch (IOException e) {
-            }
-            try {
-                fVar.a();
-                return byteArray;
-            } catch (IOException e2) {
-                return byteArray;
-            }
-        } catch (Exception e3) {
-            try {
-                byteArrayOutputStream.close();
-            } catch (IOException e4) {
-            }
-            try {
-                fVar.a();
             } catch (IOException e5) {
+                new b.c(this.a).a(Log.getStackTraceString(e5)).a();
             }
-            return null;
-        } catch (Throwable th) {
             try {
-                byteArrayOutputStream.close();
+                eVar.a();
             } catch (IOException e6) {
+                new b.c(this.a).a(Log.getStackTraceString(e6)).a();
             }
-            try {
-                fVar.a();
-            } catch (IOException e7) {
-            }
-            throw th;
         }
     }
 
@@ -80,49 +84,55 @@ public class f extends d {
 
     private byte[] a(short s, byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        com.baidu.android.pushservice.i.f fVar = new com.baidu.android.pushservice.i.f(byteArrayOutputStream);
+        com.baidu.android.pushservice.i.e eVar = new com.baidu.android.pushservice.i.e(byteArrayOutputStream);
         int length = bArr != null ? bArr.length : 0;
         try {
-            fVar.a((int) s);
-            if (s != h.MSG_ID_TINY_HEARTBEAT_CLIENT.a() && s != h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) {
-                fVar.a((int) com.baidu.android.pushservice.a.a());
-                fVar.b(0);
-                fVar.a(a(com.baidu.android.pushservice.i.l.e(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
-                fVar.b(-76508268);
-                fVar.b(1);
-                fVar.b(length);
-                if (bArr != null) {
-                    fVar.a(bArr);
+            try {
+                eVar.a((int) s);
+                if (s != h.MSG_ID_TINY_HEARTBEAT_CLIENT.b() && s != h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) {
+                    eVar.a((int) com.baidu.android.pushservice.a.a());
+                    eVar.b(0);
+                    eVar.a(a(m.d(this.a, this.a.getPackageName()) ? "BaiduApp" : "DevApp", 16));
+                    eVar.b(-76508268);
+                    eVar.b(1);
+                    eVar.b(length);
+                    if (bArr != null) {
+                        eVar.a(bArr);
+                    }
                 }
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                com.baidu.android.pushservice.e.b.a(this.a, byteArrayOutputStream);
+                try {
+                    eVar.a();
+                    return byteArray;
+                } catch (Exception e) {
+                    new b.c(this.a).a(Log.getStackTraceString(e)).a();
+                    return byteArray;
+                }
+            } catch (Throwable th) {
+                com.baidu.android.pushservice.e.b.a(this.a, byteArrayOutputStream);
+                try {
+                    eVar.a();
+                } catch (Exception e2) {
+                    new b.c(this.a).a(Log.getStackTraceString(e2)).a();
+                }
+                throw th;
             }
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            com.baidu.android.pushservice.e.b.a(byteArrayOutputStream);
+        } catch (Exception e3) {
+            new b.c(this.a).a(Log.getStackTraceString(e3)).a();
+            com.baidu.android.pushservice.e.b.a(this.a, byteArrayOutputStream);
             try {
-                fVar.a();
-                return byteArray;
-            } catch (Exception e) {
-                return byteArray;
-            }
-        } catch (Exception e2) {
-            com.baidu.android.pushservice.e.b.a(byteArrayOutputStream);
-            try {
-                fVar.a();
-            } catch (Exception e3) {
+                eVar.a();
+            } catch (Exception e4) {
+                new b.c(this.a).a(Log.getStackTraceString(e4)).a();
             }
             return null;
-        } catch (Throwable th) {
-            com.baidu.android.pushservice.e.b.a(byteArrayOutputStream);
-            try {
-                fVar.a();
-            } catch (Exception e4) {
-            }
-            throw th;
         }
     }
 
-    private String d() {
+    private String e() {
         try {
-            switch (com.baidu.android.pushservice.i.l.t(this.a)) {
+            switch (m.i(this.a)) {
                 case 1:
                     return "wifi";
                 case 2:
@@ -135,24 +145,25 @@ public class f extends d {
                     return null;
             }
         } catch (Exception e) {
+            new b.c(this.a).a(Log.getStackTraceString(e)).a();
             return null;
         }
     }
 
-    private String e() {
+    private String f() {
         try {
             WindowManager windowManager = (WindowManager) this.a.getSystemService("window");
             if (windowManager != null) {
                 Display defaultDisplay = windowManager.getDefaultDisplay();
                 return defaultDisplay.getHeight() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + defaultDisplay.getWidth();
             }
-            return null;
         } catch (Exception e) {
-            return null;
+            new b.c(this.a).a(Log.getStackTraceString(e)).a();
         }
+        return null;
     }
 
-    private String f() {
+    private String g() {
         String simOperator;
         try {
             TelephonyManager telephonyManager = (TelephonyManager) this.a.getSystemService("phone");
@@ -168,82 +179,60 @@ public class f extends d {
                 }
             }
         } catch (Exception e) {
+            new b.c(this.a).a(Log.getStackTraceString(e)).a();
         } catch (NoSuchFieldError e2) {
+            new b.c(this.a).a(Log.getStackTraceString(e2)).a();
         }
         return null;
     }
 
-    private String g() {
-        TelephonyManager telephonyManager;
-        try {
-            if (!com.baidu.android.pushservice.i.l.u(this.a, "android.permission.READ_PHONE_STATE") || (telephonyManager = (TelephonyManager) this.a.getSystemService("phone")) == null) {
-                return null;
-            }
-            return telephonyManager.getSubscriberId();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    private String h() {
-        WifiManager wifiManager;
-        try {
-            if (!com.baidu.android.pushservice.i.l.u(this.a, "android.permission.ACCESS_WIFI_STATE") || (wifiManager = (WifiManager) this.a.getSystemService("wifi")) == null) {
-                return null;
-            }
-            return wifiManager.getConnectionInfo().getMacAddress();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
     @Override // com.baidu.android.pushservice.message.d
-    public e a(byte[] bArr, int i) throws IOException {
+    public e a(byte[] bArr) throws IOException {
         byte[] bArr2;
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-        com.baidu.android.pushservice.i.e eVar = new com.baidu.android.pushservice.i.e(byteArrayInputStream);
-        short c = eVar.c();
-        e eVar2 = new e(c);
-        if (c == h.MSG_ID_TINY_HEARTBEAT_SERVER.a() || c == h.MSG_ID_TINY_HEARTBEAT_CLIENT.a()) {
+        com.baidu.android.pushservice.i.d dVar = new com.baidu.android.pushservice.i.d(byteArrayInputStream);
+        short c = dVar.c();
+        e eVar = new e(c);
+        if (c == h.MSG_ID_TINY_HEARTBEAT_SERVER.b() || c == h.MSG_ID_TINY_HEARTBEAT_CLIENT.b()) {
             byteArrayInputStream.close();
-            eVar.a();
-            return eVar2;
+            dVar.a();
+            return eVar;
         }
-        eVar.c();
-        eVar.b();
-        eVar.a(new byte[16]);
-        eVar.b();
-        eVar.b();
-        int b = eVar.b();
+        dVar.c();
+        dVar.b();
+        dVar.a(new byte[16]);
+        dVar.b();
+        dVar.b();
+        int b = dVar.b();
         if (b > 0) {
             bArr2 = new byte[b <= 20480 ? b : 20480];
-            eVar.a(bArr2);
+            dVar.a(bArr2);
         } else {
             bArr2 = null;
         }
-        eVar2.c = bArr2;
+        eVar.b = bArr2;
         byteArrayInputStream.close();
-        eVar.a();
-        return eVar2;
+        dVar.a();
+        return eVar;
     }
 
     @Override // com.baidu.android.pushservice.message.d
-    public void a(int i) {
+    public void b() {
         JSONObject jSONObject = new JSONObject();
         String str = null;
         try {
-            jSONObject.put("channel_token", com.baidu.android.pushservice.i.a(this.a).b());
-            jSONObject.put(SharedPrefConfig.CHANNEL_ID, com.baidu.android.pushservice.i.a(this.a).a());
+            jSONObject.put("channel_token", com.baidu.android.pushservice.j.a(this.a).b());
+            jSONObject.put(SharedPrefConfig.CHANNEL_ID, com.baidu.android.pushservice.j.a(this.a).a());
             if (com.baidu.android.pushservice.b.d.b(this.a)) {
-                jSONObject.put("new_channel_token", com.baidu.android.pushservice.i.a(this.a).d());
-                jSONObject.put("new_channel_id", com.baidu.android.pushservice.i.a(this.a).c());
+                jSONObject.put("new_channel_token", com.baidu.android.pushservice.j.a(this.a).d());
+                jSONObject.put("new_channel_id", com.baidu.android.pushservice.j.a(this.a).c());
             }
             jSONObject.put("sa_mode", com.baidu.android.pushservice.b.d.a(this.a).b());
-            jSONObject.put("highest_version", com.baidu.android.pushservice.b.d.a(this.a).d());
+            jSONObject.put("highest_version", com.baidu.android.pushservice.b.d.a(this.a).c());
             jSONObject.put("period", 1800);
             jSONObject.put("channel_type", 3);
             jSONObject.put("tinyheart", 1);
-            if (com.baidu.android.pushservice.i.l.D(this.a)) {
+            if (m.o(this.a)) {
                 jSONObject.put("connect_version", 3);
                 String str2 = Build.MANUFACTURER;
                 if (!TextUtils.isEmpty(str2) && str2.length() <= 128) {
@@ -252,10 +241,12 @@ public class f extends d {
             } else {
                 jSONObject.put("connect_version", 2);
             }
-            jSONObject.put("app_alone_conn", com.baidu.android.pushservice.a.d(this.a) ? 1 : 0);
-            jSONObject.put(PushConstants.PACKAGE_NAME, this.a.getPackageName());
+            jSONObject.put("app_alone_conn", com.baidu.android.pushservice.b.d.e(this.a) ? 1 : 0);
+            jSONObject.put("pkg_name", this.a.getPackageName());
+            jSONObject.put("proxy_conn", com.baidu.android.pushservice.b.d.c(this.a) ? 1 : 0);
+            jSONObject.put("noti_enable", com.baidu.android.pushservice.i.h.a(this.a));
             if (this.a.getPackageName().equals(GlobalConstants.SEARCHBOX_PACKAGE_NAME)) {
-                jSONObject.put("pkg_version", com.baidu.android.pushservice.i.l.b(this.a));
+                jSONObject.put("pkg_version", m.a(this.a));
             }
             jSONObject.put("tiny_msghead", 1);
             jSONObject.put("alarm_function", 1);
@@ -264,50 +255,40 @@ public class f extends d {
             if (!TextUtils.isEmpty(str3)) {
                 jSONObject2.put("model", str3);
             }
+            String g = g();
+            if (!TextUtils.isEmpty(g)) {
+                jSONObject2.put("carrier", g);
+            }
             String f = f();
             if (!TextUtils.isEmpty(f)) {
-                jSONObject2.put("carrier", f);
+                jSONObject2.put("resolution", f);
             }
             String e = e();
             if (!TextUtils.isEmpty(e)) {
-                jSONObject2.put("resolution", e);
-            }
-            String d = d();
-            if (!TextUtils.isEmpty(d)) {
-                jSONObject2.put("network", d);
-            }
-            String h = h();
-            if (!TextUtils.isEmpty(h)) {
-                jSONObject2.put("mac", h);
+                jSONObject2.put("network", e);
             }
             String cuid = DeviceId.getCUID(this.a);
             if (!TextUtils.isEmpty(cuid)) {
                 jSONObject2.put("cuid", cuid);
             }
-            String g = g();
-            if (!TextUtils.isEmpty(g)) {
-                jSONObject2.put("imsi", g);
-            }
             int length = jSONObject2.toString().length();
-            jSONObject.put("devinfo", com.baidu.android.pushservice.j.b.a(BaiduAppSSOJni.encryptAES(jSONObject2.toString(), 1), "utf-8"));
+            jSONObject.put("devinfo", Base64.encodeToString(BaiduAppSSOJni.encryptAES(jSONObject2.toString(), 1), 2));
             jSONObject.put("devinfolength", length);
             str = jSONObject.toString();
         } catch (Exception e2) {
+            new b.c(this.a).a(Log.getStackTraceString(e2)).a();
         } catch (UnsatisfiedLinkError e3) {
+            new b.c(this.a).a(Log.getStackTraceString(e3)).a();
         }
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        byte[] a = a(h.MSG_ID_HANDSHAKE.a(), str.getBytes());
-        e eVar = new e(h.MSG_ID_HANDSHAKE.a());
-        eVar.c = a;
-        eVar.d = true;
+        byte[] a = a(h.MSG_ID_HANDSHAKE.b(), str.getBytes());
+        e eVar = new e(h.MSG_ID_HANDSHAKE.b());
+        eVar.b = a;
+        eVar.c = true;
         eVar.a(false);
         a(eVar);
-    }
-
-    @Override // com.baidu.android.pushservice.message.d
-    public void b() {
     }
 
     @Override // com.baidu.android.pushservice.message.d
@@ -320,12 +301,12 @@ public class f extends d {
         c a2 = aVar.a(a);
         if (a2 != null) {
             g a3 = a2.a(eVar);
-            if (eVar.e) {
+            if (eVar.d) {
                 e eVar2 = new e(eVar.a);
                 if (a == h.MSG_ID_PUSH_MSG) {
-                    eVar2.c = a(h.MSG_ID_PUSH_MSG.a(), a(eVar.d().d(), a3));
+                    eVar2.b = a(h.MSG_ID_PUSH_MSG.b(), a(eVar.e().d(), a3));
                 } else if (a == h.MSG_ID_TINY_HEARTBEAT_SERVER || a == h.MSG_ID_HEARTBEAT_SERVER) {
-                    eVar2.c = a(eVar.a, (byte[]) null);
+                    eVar2.b = a(eVar.a, (byte[]) null);
                 }
                 a(eVar2);
             }
@@ -334,10 +315,14 @@ public class f extends d {
 
     @Override // com.baidu.android.pushservice.message.d
     public void c() {
-        byte[] a = a(h.MSG_ID_TINY_HEARTBEAT_CLIENT.a(), (byte[]) null);
-        e eVar = new e(h.MSG_ID_TINY_HEARTBEAT_CLIENT.a());
-        eVar.c = a;
-        eVar.d = true;
+    }
+
+    @Override // com.baidu.android.pushservice.message.d
+    public void d() {
+        byte[] a = a(h.MSG_ID_TINY_HEARTBEAT_CLIENT.b(), (byte[]) null);
+        e eVar = new e(h.MSG_ID_TINY_HEARTBEAT_CLIENT.b());
+        eVar.b = a;
+        eVar.c = true;
         eVar.a(true);
         a(eVar);
     }

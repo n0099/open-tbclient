@@ -12,12 +12,17 @@ public class PushSocket {
     private static int e = 36;
     private static int f = 32;
 
+    /* loaded from: classes8.dex */
+    public interface OnCreateSocketListener {
+        void onConnect(int i);
+    }
+
     static {
         a = false;
         try {
-            System.loadLibrary("bdpush_V2_9");
+            System.loadLibrary("bdpush_V3_3");
             a = true;
-        } catch (UnsatisfiedLinkError e2) {
+        } catch (Throwable th) {
         }
     }
 
@@ -31,13 +36,13 @@ public class PushSocket {
         closeSocket(i);
     }
 
-    public static boolean a(Context context) {
+    public static boolean a() {
         if (!a) {
             try {
-                System.loadLibrary("bdpush_V2_9");
+                System.loadLibrary("bdpush_V3_3");
                 a = true;
-            } catch (UnsatisfiedLinkError e2) {
-                Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V2_9.so into your project!");
+            } catch (Throwable th) {
+                Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V3_3.so into your project!");
             }
         }
         return a;
@@ -48,10 +53,10 @@ public class PushSocket {
         java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.b, com.baidu.android.pushservice.jni.PushSocket.c, r0, 0, r0.length);
      */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0042, code lost:
-        if (r2 != com.baidu.android.pushservice.message.h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) goto L49;
+        if (r2 != com.baidu.android.pushservice.message.h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) goto L49;
      */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0044, code lost:
-        com.baidu.android.pushservice.i.l.b("MSG_ID_TINY_HEARTBEAT_SERVER", r6);
+        com.baidu.android.pushservice.i.m.a("MSG_ID_TINY_HEARTBEAT_SERVER", r6);
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x004a, code lost:
         com.baidu.android.pushservice.jni.PushSocket.c += 2;
@@ -71,7 +76,7 @@ public class PushSocket {
                     c = 0;
                 } else if (length - c > 1) {
                     short a2 = a(b, c);
-                    if (a2 == h.MSG_ID_TINY_HEARTBEAT_CLIENT.a() || a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER.a()) {
+                    if (a2 == h.MSG_ID_TINY_HEARTBEAT_CLIENT.b() || a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) {
                         break;
                     } else if (length - c < e && !b(i)) {
                         return null;
@@ -117,9 +122,11 @@ public class PushSocket {
 
     public static native int closeSocket(int i);
 
-    public static native int createSocket(String str, int i);
+    public static native int createSocket(String str, int i, OnCreateSocketListener onCreateSocketListener);
 
     public static native int getLastSocketError();
+
+    public static native String getLastSocketIP();
 
     private static native byte[] rcvMsg(int i);
 

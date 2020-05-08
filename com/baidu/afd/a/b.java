@@ -16,22 +16,22 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> implements f {
-    private ICardInfo WT;
-    private TbPageContext WU;
-    private com.baidu.tieba.frs.aggregation.a WV;
-    private com.baidu.tieba.frs.videomiddlepage.c WW;
-    private j WX;
-    private List<j> WY;
-    private f WZ;
+    private ICardInfo WW;
+    private TbPageContext WX;
+    private com.baidu.tieba.frs.aggregation.a WY;
+    private com.baidu.tieba.frs.videomiddlepage.c WZ;
+    private j Xa;
+    private List<j> Xb;
+    private f Xc;
     private com.baidu.afd.d adFacadeData;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.frs.aggregation.a aVar, com.baidu.tieba.frs.videomiddlepage.c cVar, f fVar) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.WY = new ArrayList();
-        this.WU = tbPageContext;
-        this.WV = aVar;
-        this.WW = cVar;
-        this.WZ = fVar;
+        this.Xb = new ArrayList();
+        this.WX = tbPageContext;
+        this.WY = aVar;
+        this.WZ = cVar;
+        this.Xc = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,11 +40,11 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: d */
     public a b(ViewGroup viewGroup) {
         e a;
-        if (this.WT == null || (a = com.baidu.tieba.lego.card.b.cmE().a(this.WU, this.WT, 2)) == null) {
+        if (this.WW == null || (a = com.baidu.tieba.lego.card.b.cmB().a(this.WX, this.WW, 2)) == null) {
             return null;
         }
         if (a instanceof j) {
-            this.WY.add((j) a);
+            this.Xb.add((j) a);
         }
         a.setAfterClickSchemeListener(new com.baidu.tieba.lego.card.a() { // from class: com.baidu.afd.a.b.1
             @Override // com.baidu.tieba.lego.card.a
@@ -53,7 +53,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
             }
 
             @Override // com.baidu.tieba.lego.card.a
-            public void b(String str, String str2, HashMap<String, Object> hashMap) {
+            public void a(String str, String str2, HashMap<String, Object> hashMap) {
                 b.this.a(b.this.adFacadeData, false, b.this.adFacadeData.getPageNum(), "", (String) null);
             }
         });
@@ -67,7 +67,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
             return null;
         }
         this.adFacadeData = dVar;
-        this.WT = dVar.pn();
+        this.WW = dVar.pn();
         return b(viewGroup);
     }
 
@@ -80,8 +80,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
                 i2 = 102;
             }
             com.baidu.tieba.recapp.report.c c = g.c(po, i2, i);
-            c.JJ(str2);
-            com.baidu.tieba.recapp.report.d.cOl().a(c);
+            c.JM(str2);
+            com.baidu.tieba.recapp.report.d.cOi().a(c);
             com.baidu.tieba.lego.card.b.c.a(dVar);
         }
     }
@@ -95,14 +95,14 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
         }
         if (aVar.ps() instanceof h) {
             h hVar = (h) aVar.ps();
-            hVar.setAutoPlayCallBack(this.WV);
-            hVar.setOnVideoContainerForegroundClickListener(this.WW);
+            hVar.setAutoPlayCallBack(this.WY);
+            hVar.setOnVideoContainerForegroundClickListener(this.WZ);
             hVar.setCurrentPlayCallBack(this);
         }
         dVar.pq();
         if (aVar.ps() != null) {
             aVar.ps().setPosition(i);
-            aVar.ps().az(dVar.pn());
+            aVar.ps().aA(dVar.pn());
         }
         return aVar.getView();
     }
@@ -112,39 +112,39 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: a */
     public View getView(int i, View view, ViewGroup viewGroup, com.baidu.afd.d dVar) {
         this.adFacadeData = dVar;
-        this.WT = dVar.pn();
+        this.WW = dVar.pn();
         return super.getView(i, view, viewGroup, dVar);
     }
 
     public void pt() {
-        if (this.WX != null) {
-            this.WX.asn();
+        if (this.Xa != null) {
+            this.Xa.asl();
         }
     }
 
     public void pu() {
-        if (this.WX != null) {
-            this.WX.stopPlay();
+        if (this.Xa != null) {
+            this.Xa.stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.f
     public void a(j jVar) {
-        this.WX = jVar;
-        if (this.WZ != null) {
-            this.WZ.a(this.WX);
+        this.Xa = jVar;
+        if (this.Xc != null) {
+            this.Xc.a(this.Xa);
         }
     }
 
     public boolean pv() {
-        if (this.WX != null) {
-            return this.WX.isPlaying();
+        if (this.Xa != null) {
+            return this.Xa.isPlaying();
         }
         return false;
     }
 
     public void onDestory() {
-        for (j jVar : this.WY) {
+        for (j jVar : this.Xb) {
             if (jVar != null) {
                 jVar.onDestroy();
             }

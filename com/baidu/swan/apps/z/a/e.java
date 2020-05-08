@@ -1,16 +1,15 @@
 package com.baidu.swan.apps.z.a;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.activity.SlideActiviy;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class e extends c {
-    public String bYt = "";
-    public String bYu = "";
-    public ArrayList<String> bYv;
+    public ArrayList<String> bYB;
+    public String bYz = "";
+    public String bYA = "";
 
     @Override // com.baidu.swan.apps.z.a.c, com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
@@ -18,19 +17,19 @@ public class e extends c {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             if (jSONObject.has("scale")) {
-                this.bYe = jSONObject.optDouble("scale", 18.0d);
+                this.bYk = jSONObject.optDouble("scale", 18.0d);
             }
             if (jSONObject.has("name")) {
-                this.bYt = jSONObject.optString("name");
+                this.bYz = jSONObject.optString("name");
             }
-            if (jSONObject.has(SlideActiviy.ADDRESS_PAGE_NAME)) {
-                this.bYu = jSONObject.optString(SlideActiviy.ADDRESS_PAGE_NAME);
+            if (jSONObject.has("address")) {
+                this.bYA = jSONObject.optString("address");
             }
             if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
                 int length = optJSONArray.length();
-                this.bYv = new ArrayList<>();
+                this.bYB = new ArrayList<>();
                 for (int i = 0; i < length; i++) {
-                    this.bYv.add(optJSONArray.optString(i));
+                    this.bYB.add(optJSONArray.optString(i));
                 }
             }
         }
@@ -38,6 +37,6 @@ public class e extends c {
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.bGJ) || this.bYd == null || !this.bYd.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.bGO) || this.bYj == null || !this.bYj.isValid()) ? false : true;
     }
 }

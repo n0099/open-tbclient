@@ -21,57 +21,57 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes13.dex */
 public class a {
-    private static a bxY;
-    private Thread bxZ;
-    private Handler bya;
-    private ExecutorService byb;
-    private LinkedList<Runnable> byc;
-    private LruCache<String, Bitmap> byd;
-    private Semaphore bye = new Semaphore(0);
-    private Semaphore byf;
+    private static a byd;
+    private Thread bye;
+    private Handler byf;
+    private ExecutorService byg;
+    private LinkedList<Runnable> byh;
+    private LruCache<String, Bitmap> byi;
+    private Semaphore byj = new Semaphore(0);
+    private Semaphore byk;
 
     private a(int i) {
         dz(i);
     }
 
-    public static a Ob() {
-        if (bxY == null) {
+    public static a Oa() {
+        if (byd == null) {
             synchronized (a.class) {
-                if (bxY == null) {
-                    bxY = new a(3);
+                if (byd == null) {
+                    byd = new a(3);
                 }
             }
         }
-        return bxY;
+        return byd;
     }
 
     private void dz(int i) {
-        this.bxZ = new Thread() { // from class: com.baidu.spswitch.emotion.a.1
+        this.bye = new Thread() { // from class: com.baidu.spswitch.emotion.a.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 super.run();
                 Looper.prepare();
-                a.this.bya = new Handler() { // from class: com.baidu.spswitch.emotion.a.1.1
+                a.this.byf = new Handler() { // from class: com.baidu.spswitch.emotion.a.1.1
                     @Override // android.os.Handler
                     public void handleMessage(Message message) {
-                        a.this.byb.execute(a.this.Oc());
-                        Log.d("EmotionLoader", "thread poop execute one task, task queue size: " + a.this.byc.size());
+                        a.this.byg.execute(a.this.Ob());
+                        Log.d("EmotionLoader", "thread poop execute one task, task queue size: " + a.this.byh.size());
                         try {
-                            a.this.byf.acquire();
+                            a.this.byk.acquire();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
                 };
-                a.this.bye.release();
+                a.this.byj.release();
                 Looper.loop();
             }
         };
-        this.bxZ.start();
-        this.byf = new Semaphore(i);
-        this.byb = Executors.newFixedThreadPool(i);
-        this.byc = new LinkedList<>();
-        this.byd = new LruCache<String, Bitmap>(((int) Runtime.getRuntime().maxMemory()) / 8) { // from class: com.baidu.spswitch.emotion.a.2
+        this.bye.start();
+        this.byk = new Semaphore(i);
+        this.byg = Executors.newFixedThreadPool(i);
+        this.byh = new LinkedList<>();
+        this.byi = new LruCache<String, Bitmap>(((int) Runtime.getRuntime().maxMemory()) / 8) { // from class: com.baidu.spswitch.emotion.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.util.LruCache
@@ -92,7 +92,7 @@ public class a {
         while (matcher.find()) {
             String group = matcher.group();
             int start = matcher.start();
-            Integer valueOf = Integer.valueOf(b.aT(context).a(emotionType, group));
+            Integer valueOf = Integer.valueOf(b.aH(context).a(emotionType, group));
             if (valueOf != null) {
                 int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
                 Bitmap gi = gi(group);
@@ -120,20 +120,20 @@ public class a {
     }
 
     private Bitmap gi(String str) {
-        if (this.byd != null) {
-            return this.byd.get(str);
+        if (this.byi != null) {
+            return this.byi.get(str);
         }
         return null;
     }
 
     private void f(String str, Bitmap bitmap) {
         if (gi(str) == null && bitmap != null) {
-            this.byd.put(str, bitmap);
+            this.byi.put(str, bitmap);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Runnable Oc() {
-        return this.byc.removeLast();
+    public Runnable Ob() {
+        return this.byh.removeLast();
     }
 }

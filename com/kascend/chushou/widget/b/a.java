@@ -12,7 +12,7 @@ public class a extends Animation {
     private float d;
     private float e;
     private float f;
-    private Camera mGk;
+    private Camera mGp;
 
     public a(float f, float f2, float f3, float f4, float f5, float f6) {
         this.a = f;
@@ -26,7 +26,7 @@ public class a extends Animation {
     @Override // android.view.animation.Animation
     public void initialize(int i, int i2, int i3, int i4) {
         super.initialize(i, i2, i3, i4);
-        this.mGk = new Camera();
+        this.mGp = new Camera();
     }
 
     @Override // android.view.animation.Animation
@@ -35,10 +35,10 @@ public class a extends Animation {
         float f3 = this.c;
         float f4 = this.d;
         Matrix matrix = transformation.getMatrix();
-        this.mGk.save();
-        this.mGk.rotateY(f2);
-        this.mGk.getMatrix(matrix);
-        this.mGk.restore();
+        this.mGp.save();
+        this.mGp.rotateY(f2);
+        this.mGp.getMatrix(matrix);
+        this.mGp.restore();
         matrix.preTranslate(-f3, -f4);
         matrix.postTranslate(f3, f4);
     }

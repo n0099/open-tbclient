@@ -1,5 +1,5 @@
 package com.baidu.tieba.sdk.a;
 /* loaded from: classes3.dex */
 public interface g {
-    void FS(String str);
+    void FV(String str);
 }

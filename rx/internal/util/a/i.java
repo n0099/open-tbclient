@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.mXl;
-        long j = this.nor;
-        long dCV = dCV();
-        long gv = gv(dCV);
+        E[] eArr = this.mXo;
+        long j = this.nov;
+        long dCR = dCR();
+        long gv = gv(dCR);
         if (b(eArr, gv) != null) {
-            if (dCV - dCW() > j) {
+            if (dCR - dCS() > j) {
                 return false;
             }
             do {
             } while (b(eArr, gv) != null);
             a(eArr, gv, e);
-            gx(1 + dCV);
+            gx(1 + dCR);
             return true;
         }
         a(eArr, gv, e);
-        gx(1 + dCV);
+        gx(1 + dCR);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long dCW;
-        long dIp = dIp();
+        long dCS;
+        long dIl = dIl();
         do {
-            dCW = dCW();
-            if (dCW >= dIp) {
-                long dCV = dCV();
-                if (dCW >= dCV) {
+            dCS = dCS();
+            if (dCS >= dIl) {
+                long dCR = dCR();
+                if (dCS >= dCR) {
                     return null;
                 }
-                gy(dCV);
+                gy(dCR);
             }
-        } while (!U(dCW, 1 + dCW));
-        long gv = gv(dCW);
-        E[] eArr = this.mXl;
+        } while (!U(dCS, 1 + dCS));
+        long gv = gv(dCS);
+        E[] eArr = this.mXo;
         E a = a(eArr, gv);
         b(eArr, gv, null);
         return a;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E gw;
-        long dIp = dIp();
+        long dIl = dIl();
         do {
-            long dCW = dCW();
-            if (dCW >= dIp) {
-                long dCV = dCV();
-                if (dCW >= dCV) {
+            long dCS = dCS();
+            if (dCS >= dIl) {
+                long dCR = dCR();
+                if (dCS >= dCR) {
                     return null;
                 }
-                gy(dCV);
+                gy(dCR);
             }
-            gw = gw(gv(dCW));
+            gw = gw(gv(dCS));
         } while (gw == null);
         return gw;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long dCW = dCW();
+        long dCS = dCS();
         while (true) {
-            long dCV = dCV();
-            long dCW2 = dCW();
-            if (dCW == dCW2) {
-                return (int) (dCV - dCW2);
+            long dCR = dCR();
+            long dCS2 = dCS();
+            if (dCS == dCS2) {
+                return (int) (dCR - dCS2);
             }
-            dCW = dCW2;
+            dCS = dCS2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return dCW() == dCV();
+        return dCS() == dCR();
     }
 }

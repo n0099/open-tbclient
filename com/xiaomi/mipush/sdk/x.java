@@ -1,129 +1,264 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Process;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PermissionInfo;
+import android.content.pm.ResolveInfo;
+import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
-import com.xiaomi.push.hl;
-import java.lang.Thread;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
-public class x implements Thread.UncaughtExceptionHandler {
-    private static final Object a = new Object();
+public class x {
 
-    /* renamed from: a  reason: collision with other field name */
-    private static final String[] f79a = {"com.xiaomi.channel.commonutils", "com.xiaomi.common.logger", "com.xiaomi.measite.smack", "com.xiaomi.metoknlp", "com.xiaomi.mipush.sdk", "com.xiaomi.network", "com.xiaomi.push", "com.xiaomi.slim", "com.xiaomi.smack", "com.xiaomi.stats", "com.xiaomi.tinyData", "com.xiaomi.xmpush.thrift", "com.xiaomi.clientreport"};
-
-    /* renamed from: a  reason: collision with other field name */
-    private Context f80a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f81a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private Thread.UncaughtExceptionHandler f82a;
-
-    public x(Context context) {
-        this(context, Thread.getDefaultUncaughtExceptionHandler());
-    }
-
-    public x(Context context, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
-        this.f80a = context;
-        this.f82a = uncaughtExceptionHandler;
-    }
-
-    private String a(Throwable th) {
-        StackTraceElement[] stackTrace = th.getStackTrace();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < Math.min(3, stackTrace.length); i++) {
-            sb.append(stackTrace[i].toString() + "\r\n");
-        }
-        String sb2 = sb.toString();
-        return TextUtils.isEmpty(sb2) ? "" : com.xiaomi.push.ay.a(sb2);
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    private void m113a() {
-        com.xiaomi.push.ai.a(this.f80a).a(new y(this));
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    private void m115a(Throwable th) {
-        String b = b(th);
-        if (TextUtils.isEmpty(b)) {
-            return;
-        }
-        String a2 = a(th);
-        if (TextUtils.isEmpty(a2)) {
-            return;
-        }
-        u.a(this.f80a).a(b, a2);
-        if (m116a()) {
-            m113a();
+    /* loaded from: classes8.dex */
+    public static class a extends RuntimeException {
+        public a(String str) {
+            super(str);
         }
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    private boolean m116a() {
-        this.f81a = this.f80a.getSharedPreferences("mipush_extra", 4);
-        if (com.xiaomi.push.as.e(this.f80a)) {
-            if (com.xiaomi.push.service.ag.a(this.f80a).a(hl.Crash4GUploadSwitch.a(), true)) {
-                return ((float) Math.abs((System.currentTimeMillis() / 1000) - this.f81a.getLong("last_crash_upload_time_stamp", 0L))) >= ((float) Math.max(3600, com.xiaomi.push.service.ag.a(this.f80a).a(hl.Crash4GUploadFrequency.a(), 3600))) * 0.9f;
+    /* loaded from: classes8.dex */
+    public static class b {
+        public String a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public boolean f85a;
+        public String b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public boolean f86b;
+
+        public b(String str, boolean z, boolean z2, String str2) {
+            this.a = str;
+            this.f85a = z;
+            this.f86b = z2;
+            this.b = str2;
+        }
+    }
+
+    private static ActivityInfo a(PackageManager packageManager, Intent intent, Class<?> cls) {
+        for (ResolveInfo resolveInfo : packageManager.queryBroadcastReceivers(intent, 16384)) {
+            ActivityInfo activityInfo = resolveInfo.activityInfo;
+            if (activityInfo != null && cls.getCanonicalName().equals(activityInfo.name)) {
+                return activityInfo;
             }
-            return false;
-        } else if (com.xiaomi.push.as.d(this.f80a)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f81a.getLong("last_crash_upload_time_stamp", 0L)) >= ((long) Math.max(60, com.xiaomi.push.service.ag.a(this.f80a).a(hl.CrashWIFIUploadFrequency.a(), 1800)));
-        } else {
-            return true;
+        }
+        return null;
+    }
+
+    public static void a(Context context) {
+        new Thread(new y(context)).start();
+    }
+
+    private static void a(Context context, String str, String str2) {
+        PackageManager packageManager = context.getPackageManager();
+        String packageName = context.getPackageName();
+        Intent intent = new Intent(str);
+        intent.setPackage(packageName);
+        boolean z = false;
+        for (ResolveInfo resolveInfo : packageManager.queryBroadcastReceivers(intent, 16384)) {
+            ActivityInfo activityInfo = resolveInfo.activityInfo;
+            if (activityInfo == null || TextUtils.isEmpty(activityInfo.name) || !activityInfo.name.equals(str2)) {
+                z = false;
+                continue;
+            } else {
+                z = true;
+                continue;
+            }
+            if (z) {
+                break;
+            }
+        }
+        if (!z) {
+            throw new a(String.format("<receiver android:name=\"%1$s\" .../> is missing or disabled in AndroidManifest.", str2));
         }
     }
 
-    private boolean a(boolean z, String str) {
-        for (String str2 : f79a) {
-            if (str.contains(str2)) {
+    private static void a(ActivityInfo activityInfo, Boolean[] boolArr) {
+        if (boolArr[0].booleanValue() != activityInfo.enabled) {
+            throw new a(String.format("<receiver android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", activityInfo.name, boolArr[0]));
+        }
+        if (boolArr[1].booleanValue() != activityInfo.exported) {
+            throw new a(String.format("<receiver android:name=\"%1$s\" .../> in AndroidManifest had the wrong exported attribute, which should be android:exported=%2$b.", activityInfo.name, boolArr[1]));
+        }
+    }
+
+    private static boolean a(PackageInfo packageInfo, String[] strArr) {
+        for (ServiceInfo serviceInfo : packageInfo.services) {
+            if (a(strArr, serviceInfo.name)) {
                 return true;
             }
         }
-        return z;
+        return false;
     }
 
-    private String b(Throwable th) {
-        StackTraceElement[] stackTrace = th.getStackTrace();
-        StringBuilder sb = new StringBuilder(th.toString());
-        sb.append("\r\n");
-        boolean z = false;
-        for (StackTraceElement stackTraceElement : stackTrace) {
-            String stackTraceElement2 = stackTraceElement.toString();
-            z = a(z, stackTraceElement2);
-            sb.append(stackTraceElement2);
-            sb.append("\r\n");
+    private static boolean a(String[] strArr, String str) {
+        if (strArr == null || str == null) {
+            return false;
         }
-        return z ? sb.toString() : "";
+        for (String str2 : strArr) {
+            if (TextUtils.equals(str2, str)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        this.f81a = this.f80a.getSharedPreferences("mipush_extra", 4);
-        SharedPreferences.Editor edit = this.f81a.edit();
-        edit.putLong("last_crash_upload_time_stamp", System.currentTimeMillis() / 1000);
-        com.xiaomi.push.r.a(edit);
-    }
-
-    @Override // java.lang.Thread.UncaughtExceptionHandler
-    public void uncaughtException(Thread thread, Throwable th) {
-        m115a(th);
-        synchronized (a) {
-            try {
-                a.wait(3000L);
-            } catch (InterruptedException e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0084 A[EDGE_INSN: B:46:0x0084->B:23:0x0084 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00c6 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(Context context) {
+        boolean z;
+        PackageManager packageManager = context.getPackageManager();
+        String packageName = context.getPackageName();
+        Intent intent = new Intent(com.xiaomi.push.service.at.o);
+        intent.setPackage(packageName);
+        try {
+            ActivityInfo a2 = a(packageManager, intent, com.xiaomi.push.t.a(context, "com.xiaomi.push.service.receivers.PingReceiver"));
+            if (MiPushClient.shouldUseMIUIPush(context)) {
+                if (a2 != null) {
+                    a(a2, new Boolean[]{true, false});
+                }
+            } else if (a2 == null) {
+                throw new a(String.format("<receiver android:name=\"%1$s\" .../> is missing or disabled in AndroidManifest.", "com.xiaomi.push.service.receivers.PingReceiver"));
+            } else {
+                a(a2, new Boolean[]{true, false});
+            }
+        } catch (ClassNotFoundException e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+        }
+        Intent intent2 = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
+        intent2.setPackage(packageName);
+        Iterator<ResolveInfo> it = packageManager.queryBroadcastReceivers(intent2, 16384).iterator();
+        boolean z2 = false;
+        while (true) {
+            if (!it.hasNext()) {
+                z = z2;
+                break;
+            }
+            ActivityInfo activityInfo = it.next().activityInfo;
+            if (activityInfo != null) {
+                try {
+                } catch (ClassNotFoundException e2) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                    z = z2;
+                }
+                if (!TextUtils.isEmpty(activityInfo.name) && PushMessageReceiver.class.isAssignableFrom(com.xiaomi.push.t.a(context, activityInfo.name)) && activityInfo.enabled) {
+                    z = true;
+                    if (!z) {
+                        break;
+                    }
+                    z2 = z;
+                }
+            }
+            z = false;
+            if (!z) {
             }
         }
-        if (this.f82a != null) {
-            this.f82a.uncaughtException(thread, th);
-            return;
+        if (!z) {
+            throw new a("Receiver: none of the subclasses of PushMessageReceiver is enabled or defined.");
         }
-        Process.killProcess(Process.myPid());
-        System.exit(1);
+        if (MiPushClient.getOpenHmsPush(context)) {
+            a(context, "com.huawei.android.push.intent.RECEIVE", "com.xiaomi.assemble.control.HmsPushReceiver");
+            a(context, "com.huawei.intent.action.PUSH", "com.huawei.hms.support.api.push.PushEventReceiver");
+        }
+        if (MiPushClient.getOpenVIVOPush(context)) {
+            a(context, "com.vivo.pushclient.action.RECEIVE", "com.xiaomi.assemble.control.FTOSPushMessageReceiver");
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void c(Context context, PackageInfo packageInfo) {
+        boolean z;
+        String[] strArr;
+        HashSet hashSet = new HashSet();
+        String str = context.getPackageName() + ".permission.MIPUSH_RECEIVE";
+        hashSet.addAll(Arrays.asList("android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE", str, "android.permission.ACCESS_WIFI_STATE", "android.permission.READ_PHONE_STATE", "android.permission.GET_TASKS", "android.permission.VIBRATE"));
+        if (packageInfo.permissions != null) {
+            for (PermissionInfo permissionInfo : packageInfo.permissions) {
+                if (str.equals(permissionInfo.name)) {
+                    z = true;
+                    break;
+                }
+            }
+        }
+        z = false;
+        if (!z) {
+            throw new a(String.format("<permission android:name=\"%1$s\" .../> is undefined in AndroidManifest.", str));
+        }
+        if (packageInfo.requestedPermissions != null) {
+            for (String str2 : packageInfo.requestedPermissions) {
+                if (!TextUtils.isEmpty(str2) && hashSet.contains(str2)) {
+                    hashSet.remove(str2);
+                    if (hashSet.isEmpty()) {
+                        break;
+                    }
+                }
+            }
+        }
+        if (!hashSet.isEmpty()) {
+            throw new a(String.format("<uses-permission android:name=\"%1$s\"/> is missing in AndroidManifest.", hashSet.iterator().next()));
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static void d(Context context, PackageInfo packageInfo) {
+        ServiceInfo[] serviceInfoArr;
+        HashMap hashMap = new HashMap();
+        HashMap hashMap2 = new HashMap();
+        hashMap2.put(PushMessageHandler.class.getCanonicalName(), new b(PushMessageHandler.class.getCanonicalName(), true, true, ""));
+        hashMap2.put(MessageHandleService.class.getCanonicalName(), new b(MessageHandleService.class.getCanonicalName(), true, false, ""));
+        if (!MiPushClient.shouldUseMIUIPush(context) || a(packageInfo, new String[]{"com.xiaomi.push.service.XMJobService", "com.xiaomi.push.service.XMPushService"})) {
+            hashMap2.put("com.xiaomi.push.service.XMJobService", new b("com.xiaomi.push.service.XMJobService", true, false, "android.permission.BIND_JOB_SERVICE"));
+            hashMap2.put("com.xiaomi.push.service.XMPushService", new b("com.xiaomi.push.service.XMPushService", true, false, ""));
+        }
+        if (MiPushClient.getOpenFCMPush(context)) {
+            hashMap2.put("com.xiaomi.assemble.control.MiFireBaseInstanceIdService", new b("com.xiaomi.assemble.control.MiFireBaseInstanceIdService", true, false, ""));
+            hashMap2.put("com.xiaomi.assemble.control.MiFirebaseMessagingService", new b("com.xiaomi.assemble.control.MiFirebaseMessagingService", true, false, ""));
+        }
+        if (MiPushClient.getOpenOPPOPush(context)) {
+            hashMap2.put("com.xiaomi.assemble.control.COSPushMessageService", new b("com.xiaomi.assemble.control.COSPushMessageService", true, true, "com.coloros.mcs.permission.SEND_MCS_MESSAGE"));
+        }
+        if (packageInfo.services != null) {
+            for (ServiceInfo serviceInfo : packageInfo.services) {
+                if (!TextUtils.isEmpty(serviceInfo.name) && hashMap2.containsKey(serviceInfo.name)) {
+                    b bVar = (b) hashMap2.remove(serviceInfo.name);
+                    boolean z = bVar.f85a;
+                    boolean z2 = bVar.f86b;
+                    String str = bVar.b;
+                    if (z != serviceInfo.enabled) {
+                        throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
+                    }
+                    if (z2 != serviceInfo.exported) {
+                        throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong exported attribute, which should be android:exported=%2$b.", serviceInfo.name, Boolean.valueOf(z2)));
+                    }
+                    if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, serviceInfo.permission)) {
+                        throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong permission attribute, which should be android:permission=\"%2$s\".", serviceInfo.name, str));
+                    }
+                    hashMap.put(serviceInfo.name, serviceInfo.processName);
+                    if (hashMap2.isEmpty()) {
+                        break;
+                    }
+                }
+            }
+        }
+        if (!hashMap2.isEmpty()) {
+            throw new a(String.format("<service android:name=\"%1$s\" .../> is missing or disabled in AndroidManifest.", hashMap2.keySet().iterator().next()));
+        }
+        if (!TextUtils.equals((CharSequence) hashMap.get(PushMessageHandler.class.getCanonicalName()), (CharSequence) hashMap.get(MessageHandleService.class.getCanonicalName()))) {
+            throw new a(String.format("\"%1$s\" and \"%2$s\" must be running in the same process.", PushMessageHandler.class.getCanonicalName(), MessageHandleService.class.getCanonicalName()));
+        }
+        if (hashMap.containsKey("com.xiaomi.push.service.XMJobService") && hashMap.containsKey("com.xiaomi.push.service.XMPushService") && !TextUtils.equals((CharSequence) hashMap.get("com.xiaomi.push.service.XMJobService"), (CharSequence) hashMap.get("com.xiaomi.push.service.XMPushService"))) {
+            throw new a(String.format("\"%1$s\" and \"%2$s\" must be running in the same process.", "com.xiaomi.push.service.XMJobService", "com.xiaomi.push.service.XMPushService"));
+        }
     }
 }

@@ -14,7 +14,6 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.android.pushservice.PushConstants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -103,7 +102,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                 }
             } else {
                 int i5 = jSONObject.getInt("error_code");
-                str3 = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+                str3 = jSONObject.getString("error_msg");
                 i3 = i5;
                 hashMap2 = null;
                 str4 = null;

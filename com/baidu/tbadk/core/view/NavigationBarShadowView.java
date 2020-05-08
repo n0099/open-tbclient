@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class NavigationBarShadowView extends View {
-    private AlphaAnimation dFF;
-    private AlphaAnimation dFG;
+    private AlphaAnimation dFJ;
+    private AlphaAnimation dFK;
     private int mSkinType;
 
     public NavigationBarShadowView(Context context) {
@@ -34,22 +34,22 @@ public class NavigationBarShadowView extends View {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         if (getVisibility() != 0) {
             setVisibility(0);
-            if (this.dFF == null) {
-                this.dFF = new AlphaAnimation(0.0f, 1.0f);
-                this.dFF.setFillAfter(true);
-                this.dFF.setDuration(300L);
+            if (this.dFJ == null) {
+                this.dFJ = new AlphaAnimation(0.0f, 1.0f);
+                this.dFJ.setFillAfter(true);
+                this.dFJ.setDuration(300L);
             }
-            startAnimation(this.dFF);
+            startAnimation(this.dFJ);
         }
     }
 
     public void hide() {
         if (getVisibility() == 0) {
-            if (this.dFG == null) {
-                this.dFG = new AlphaAnimation(1.0f, 0.0f);
-                this.dFG.setFillAfter(true);
-                this.dFG.setDuration(300L);
-                this.dFG.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.view.NavigationBarShadowView.1
+            if (this.dFK == null) {
+                this.dFK = new AlphaAnimation(1.0f, 0.0f);
+                this.dFK.setFillAfter(true);
+                this.dFK.setDuration(300L);
+                this.dFK.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.view.NavigationBarShadowView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -64,7 +64,7 @@ public class NavigationBarShadowView extends View {
                     }
                 });
             }
-            startAnimation(this.dFG);
+            startAnimation(this.dFK);
         }
     }
 

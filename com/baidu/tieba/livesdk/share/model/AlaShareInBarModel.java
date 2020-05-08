@@ -12,15 +12,15 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.livesdk.share.message.AlaShareInBarResponsedMessage;
 /* loaded from: classes3.dex */
 public class AlaShareInBarModel extends BdBaseModel {
-    private a iPG;
-    private final HttpMessageListener iPH = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.1
+    private a iPK;
+    private final HttpMessageListener iPL = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR) { // from class: com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaShareInBarResponsedMessage)) {
                 AlaShareInBarResponsedMessage alaShareInBarResponsedMessage = (AlaShareInBarResponsedMessage) httpResponsedMessage;
-                if (AlaShareInBarModel.this.iPG != null) {
-                    AlaShareInBarModel.this.iPG.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
+                if (AlaShareInBarModel.this.iPK != null) {
+                    AlaShareInBarModel.this.iPK.a(alaShareInBarResponsedMessage.getError(), alaShareInBarResponsedMessage.getErrorString(), alaShareInBarResponsedMessage.getShareInBarData());
                 }
             }
         }
@@ -32,11 +32,11 @@ public class AlaShareInBarModel extends BdBaseModel {
     }
 
     public AlaShareInBarModel() {
-        coJ();
-        MessageManager.getInstance().registerListener(this.iPH);
+        coG();
+        MessageManager.getInstance().registerListener(this.iPL);
     }
 
-    private void coJ() {
+    private void coG() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_LIVE_SHARE_IN_BAR);
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setResponsedClass(AlaShareInBarResponsedMessage.class);
@@ -63,11 +63,11 @@ public class AlaShareInBarModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.iPG = aVar;
+        this.iPK = aVar;
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
-        MessageManager.getInstance().unRegisterListener(this.iPH);
+        MessageManager.getInstance().unRegisterListener(this.iPL);
     }
 }

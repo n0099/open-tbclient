@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.live.data.AlaLiveUserInfoData;
 /* loaded from: classes3.dex */
 public interface a {
-    void Gn();
+    void Gm();
 
-    void Go();
+    void Gn();
 
     void a(long j, View view, View view2);
 

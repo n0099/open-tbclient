@@ -39,16 +39,16 @@ public class b extends ab {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             com.baidu.swan.games.u.c.i(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return false;
-        } else if (!eVar.akY().isLogin(context)) {
+        } else if (!eVar.akX().isLogin(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
             com.baidu.swan.games.u.c.i(callbackHandler, unitedSchemeEntity.result.toString());
             return true;
         } else {
-            com.baidu.swan.apps.runtime.d.akK().akM().ON().PH().c((Activity) context, appKey).h(new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
+            com.baidu.swan.apps.runtime.d.akJ().akL().OM().PG().c((Activity) context, appKey).h(new com.baidu.swan.apps.as.d.b<com.baidu.swan.apps.setting.oauth.h<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.as.d.b
                 /* renamed from: a */
-                public void E(com.baidu.swan.apps.setting.oauth.h<JSONObject> hVar) {
+                public void F(com.baidu.swan.apps.setting.oauth.h<JSONObject> hVar) {
                     JSONObject wrapCallbackParams;
                     if (hVar.isOk() && com.baidu.swan.apps.api.module.a.a.Z(hVar.mData)) {
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(hVar.mData.optJSONObject("data"), hVar.getErrorCode());
@@ -58,7 +58,7 @@ public class b extends ab {
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                 }
-            }).amq();
+            }).amp();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

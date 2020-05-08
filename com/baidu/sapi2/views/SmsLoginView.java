@@ -28,6 +28,7 @@ import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.t;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
@@ -335,7 +336,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
             new Handler().postDelayed(new h(this), 100L);
         }
         if (SapiUtils.getLastLoginType() == 2) {
-            String decryptStr = SapiContext.getInstance(context).getDecryptStr(SapiContext.KEY_LAST_LOGIN_PHONE);
+            String decryptStr = SapiContext.getInstance().getDecryptStr(SapiContext.KEY_LAST_LOGIN_PHONE);
             if (!TextUtils.isEmpty(decryptStr) && decryptStr.length() == 11) {
                 this.h.setText(decryptStr);
                 this.h.setSelection(decryptStr.length());
@@ -357,7 +358,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
         HashMap hashMap = new HashMap(1);
         hashMap.put("extrajson", PassportSDK.getInstance().getSmsLoginStatExtra());
         hashMap.put(BaseJsonData.TAG_ERRNO, str2);
-        com.baidu.sapi2.utils.r.a(linkedHashMap, hashMap);
+        t.a(linkedHashMap, hashMap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -398,7 +399,7 @@ public class SmsLoginView extends FrameLayout implements com.baidu.sapi2.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Handler handler) {
         if (this.r == null) {
-            com.baidu.sapi2.utils.e.a(this.e, handler, new j(this));
+            com.baidu.sapi2.utils.g.a(this.e, handler, new j(this));
         }
     }
 

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.baidu.f.a.a;
 import com.baidu.sapi2.SapiAccountManager;
 /* loaded from: classes6.dex */
-public class f extends Dialog implements com.baidu.sapi2.c.b {
+public class f extends Dialog implements com.baidu.sapi2.b.b {
     private LinearLayout a;
     private TextView b;
     private TextView c;
@@ -52,27 +52,27 @@ public class f extends Dialog implements com.baidu.sapi2.c.b {
         }
     }
 
-    @Override // com.baidu.sapi2.c.b
-    public com.baidu.sapi2.c.b setNegativeBtn(String str, View.OnClickListener onClickListener) {
+    @Override // com.baidu.sapi2.b.b
+    public com.baidu.sapi2.b.b setNegativeBtn(String str, View.OnClickListener onClickListener) {
         this.d.setText(str);
         this.d.setOnClickListener(new d(this, onClickListener));
         return this;
     }
 
-    @Override // com.baidu.sapi2.c.b
-    public com.baidu.sapi2.c.b setPositiveBtn(String str, View.OnClickListener onClickListener) {
+    @Override // com.baidu.sapi2.b.b
+    public com.baidu.sapi2.b.b setPositiveBtn(String str, View.OnClickListener onClickListener) {
         this.e.setText(str);
         this.e.setOnClickListener(new e(this, onClickListener));
         return this;
     }
 
-    @Override // com.baidu.sapi2.c.b
+    @Override // com.baidu.sapi2.b.b
     public void showDialog() {
         show();
     }
 
-    @Override // com.baidu.sapi2.c.b
-    public com.baidu.sapi2.c.b a(int i) {
+    @Override // com.baidu.sapi2.b.b
+    public com.baidu.sapi2.b.b a(int i) {
         if (i > 2) {
             i = 2;
         } else if (i < 1) {
@@ -88,15 +88,15 @@ public class f extends Dialog implements com.baidu.sapi2.c.b {
         return this;
     }
 
-    @Override // com.baidu.sapi2.c.b
-    public com.baidu.sapi2.c.b a(String str, String str2) {
+    @Override // com.baidu.sapi2.b.b
+    public com.baidu.sapi2.b.b a(String str, String str2) {
         this.b.setText(str);
         this.c.setText(str2);
         return this;
     }
 
-    @Override // com.baidu.sapi2.c.b
-    public com.baidu.sapi2.c.b a() {
+    @Override // com.baidu.sapi2.b.b
+    public com.baidu.sapi2.b.b a() {
         findViewById(a.e.icon).setVisibility(8);
         return this;
     }

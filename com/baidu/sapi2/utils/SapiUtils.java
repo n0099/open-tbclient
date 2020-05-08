@@ -9,7 +9,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.AdaptiveIconDrawable;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -29,16 +33,18 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.live.tbadk.ubc.UbcStatConstant;
 import com.baidu.mobstat.Config;
+import com.baidu.pass.common.SecurityUtil;
 import com.baidu.pass.gid.BaiduGIDManager;
 import com.baidu.pass.gid.utils.Event;
 import com.baidu.pass.gid.utils.GIDEvent;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
@@ -107,6 +113,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
     static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     static final String d = Character.toString(2);
     static final String e = Character.toString(3);
+    private static String f;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(3)
@@ -165,6 +172,13 @@ public class SapiUtils implements com.baidu.sapi2.c {
         return a(str, "PTOKEN", str2);
     }
 
+    public static String buildSidCookie(String str, String str2) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(5, 7);
+        return a(str, UbcStatConstant.KEY_CONTENT_EXT_SID, str2, calendar.getTime(), false);
+    }
+
     public static String buildStokenCookie(String str, String str2) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
@@ -193,7 +207,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
             }
         }
         sb.append("sign_key=").append(str);
-        return MD5Util.toMd5(sb.toString().getBytes(), false);
+        return SecurityUtil.md5(sb.toString().getBytes(), false);
     }
 
     @TargetApi(23)
@@ -229,9 +243,9 @@ public class SapiUtils implements com.baidu.sapi2.c {
         return sb.toString();
     }
 
-    public static int dip2px(Context context, float f) {
+    public static int dip2px(Context context, float f2) {
         if (context != null) {
-            return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
+            return (int) ((context.getResources().getDisplayMetrics().density * f2) + 0.5f);
         }
         throw new IllegalArgumentException("Context can't be null");
     }
@@ -245,12 +259,12 @@ public class SapiUtils implements com.baidu.sapi2.c {
         }
     }
 
-    public static List<String> getAuthorizedDomains(Context context) {
-        return context == null ? Collections.emptyList() : SapiContext.getInstance(context).getAuthorizedDomains();
+    public static List<String> getAuthorizedDomains() {
+        return SapiContext.getInstance().getAuthorizedDomains();
     }
 
-    public static List<String> getAuthorizedDomainsForPtoken(Context context) {
-        return context == null ? Collections.emptyList() : SapiContext.getInstance(context).getAuthorizedDomainsForPtoken();
+    public static List<String> getAuthorizedDomainsForPtoken() {
+        return SapiContext.getInstance().getAuthorizedDomainsForPtoken();
     }
 
     public static String getClientId(Context context) {
@@ -259,11 +273,12 @@ public class SapiUtils implements com.baidu.sapi2.c {
         } catch (Throwable th) {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
-            return "123456789" + MD5Util.toMd5(String.valueOf(random.nextInt(100)).getBytes(), false);
+            return "123456789" + SecurityUtil.md5(String.valueOf(random.nextInt(100)).getBytes(), false);
         }
     }
 
     public static String getCookie(String str, String str2) {
+        int indexOf;
         try {
             CookieSyncManager.createInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context);
             String cookie = CookieManager.getInstance().getCookie(str);
@@ -272,10 +287,15 @@ public class SapiUtils implements com.baidu.sapi2.c {
             }
             for (String str3 : cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
                 String trim = str3.trim();
-                if (!TextUtils.isEmpty(trim)) {
-                    String[] split = trim.split(ETAG.EQUAL);
-                    if (split.length == 2 && split[0].equals(str2)) {
-                        return split[1];
+                if (!TextUtils.isEmpty(trim) && (indexOf = trim.indexOf(ETAG.EQUAL)) > -1) {
+                    String[] strArr = new String[2];
+                    strArr[0] = trim.substring(0, indexOf);
+                    int i = indexOf + 1;
+                    if (i < trim.length()) {
+                        strArr[1] = trim.substring(i, trim.length());
+                    }
+                    if (strArr[0].equals(str2)) {
+                        return strArr[1];
                     }
                 }
             }
@@ -287,7 +307,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
     }
 
     public static String getCookieBduss() {
-        return getCookie(h.a(h.s), "BDUSS");
+        return getCookie(j.a(j.l), "BDUSS");
     }
 
     public static String getCookiePtoken() {
@@ -313,37 +333,45 @@ public class SapiUtils implements com.baidu.sapi2.c {
         return "";
     }
 
-    public static List<String> getCuidAuthorizedDomains(Context context) {
-        return context == null ? Collections.emptyList() : SapiContext.getInstance(context).getCuidAuthorizedDomains();
+    public static List<String> getCuidAuthorizedDomains() {
+        return SapiContext.getInstance().getCuidAuthorizedDomains();
     }
 
     public static boolean getDefaultHttpsEnabled() {
-        return SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getDefaultHttpsEnabled();
+        return SapiContext.getInstance().getDefaultHttpsEnabled();
     }
 
     public static String getIccid(Context context) {
-        try {
-            if (Build.VERSION.SDK_INT >= 22) {
-                StringBuilder sb = new StringBuilder();
-                List<SubscriptionInfo> activeSubscriptionInfoList = SubscriptionManager.from(context).getActiveSubscriptionInfoList();
-                if (activeSubscriptionInfoList == null) {
-                    return null;
-                }
-                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                    sb.append(subscriptionInfo.getIccId()).append(d);
-                }
-                if (sb.length() > 0) {
-                    return sb.toString().substring(0, sb.length() - 1);
-                }
-            } else {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                if (telephonyManager != null) {
-                    return telephonyManager.getSimSerialNumber();
-                }
+        if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+            if (!TextUtils.isEmpty(f)) {
+                return f;
             }
-        } catch (Exception e2) {
+            try {
+                if (Build.VERSION.SDK_INT >= 22) {
+                    StringBuilder sb = new StringBuilder();
+                    List<SubscriptionInfo> activeSubscriptionInfoList = SubscriptionManager.from(context).getActiveSubscriptionInfoList();
+                    if (activeSubscriptionInfoList == null) {
+                        return null;
+                    }
+                    for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
+                        sb.append(subscriptionInfo.getIccId()).append(d);
+                    }
+                    if (sb.length() > 0) {
+                        f = sb.toString().substring(0, sb.length() - 1);
+                        return f;
+                    }
+                } else {
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    if (telephonyManager != null) {
+                        f = telephonyManager.getSimSerialNumber();
+                        return f;
+                    }
+                }
+            } catch (Exception e2) {
+            }
+            return null;
         }
-        return null;
+        return "";
     }
 
     public static long getInternalAvailableMemorySize() {
@@ -367,7 +395,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
     }
 
     public static int getLastLoginType() {
-        String string = SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getString(SapiContext.KEY_PRE_LOGIN_TYPE);
+        String string = SapiContext.getInstance().getString(SapiContext.KEY_PRE_LOGIN_TYPE);
         if (TextUtils.isEmpty(string)) {
             string = "none";
         }
@@ -384,6 +412,11 @@ public class SapiUtils implements com.baidu.sapi2.c {
         hashMap.put(com.baidu.sapi2.share.m.i, 8);
         hashMap.put(com.baidu.sapi2.share.m.j, 9);
         hashMap.put("oneKeyLogin", 12);
+        hashMap.put("finger_account", 15);
+        hashMap.put("CM", 16);
+        hashMap.put("CU", 17);
+        hashMap.put("CT", 18);
+        hashMap.put(SapiWebView.SWITCH_ACCOUNT_PAGE, 19);
         if (hashMap.containsKey(string)) {
             return ((Integer) hashMap.get(string)).intValue();
         }
@@ -410,7 +443,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
     }
 
     public static String getLoginType() {
-        return SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getAccountActionType();
+        return SapiContext.getInstance().getAccountActionType();
     }
 
     @TargetApi(3)
@@ -475,7 +508,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
         }
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            return packageInfo.signatures.length > 0 ? MD5Util.toMd5(packageInfo.signatures[0].toByteArray(), false) : "";
+            return packageInfo.signatures.length > 0 ? SecurityUtil.md5(packageInfo.signatures[0].toByteArray(), false) : "";
         } catch (Throwable th) {
             Log.e(th);
             return "";
@@ -487,7 +520,8 @@ public class SapiUtils implements com.baidu.sapi2.c {
         PackageManager packageManager = context.getPackageManager();
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
-            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(((BitmapDrawable) packageInfo.applicationInfo.loadIcon(packageManager)).getBitmap(), 80, 80, true);
+            strArr[1] = packageInfo.applicationInfo.loadLabel(packageManager).toString();
+            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a(packageInfo.applicationInfo.loadIcon(packageManager)), 80, 80, true);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int i = 100;
             createScaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
@@ -497,7 +531,6 @@ public class SapiUtils implements com.baidu.sapi2.c {
                 createScaledBitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
             }
             strArr[0] = "data:image/png;base64," + SapiDeviceUtils.DeviceCrypto.base64Encode(byteArrayOutputStream.toByteArray());
-            strArr[1] = packageInfo.applicationInfo.loadLabel(packageManager).toString();
             byteArrayOutputStream.close();
         } catch (Exception e2) {
             Log.e(e2);
@@ -555,27 +588,31 @@ public class SapiUtils implements com.baidu.sapi2.c {
 
     public static String getWifiInfo(Context context) {
         String str;
-        String str2;
-        String str3;
         int i;
         int i2 = 0;
         StringBuffer stringBuffer = new StringBuffer();
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-            WifiInfo connectionInfo = wifiManager.getConnectionInfo();
+            WifiInfo connectionInfo = ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() ? wifiManager.getConnectionInfo() : null;
+            String str2 = "";
+            String str3 = "";
             if (connectionInfo != null) {
-                i = StrictMath.abs(connectionInfo.getRssi());
-                str3 = connectionInfo.getSSID();
-                if (str3 != null) {
-                    str3 = str3.replace("\"", "");
+                int abs = StrictMath.abs(connectionInfo.getRssi());
+                String ssid = connectionInfo.getSSID();
+                if (ssid != null) {
+                    ssid = ssid.replace("\"", "");
                 }
-                str2 = connectionInfo.getBSSID();
-                if (str2 != null) {
-                    str2 = str2.replace(":", "");
+                String bssid = connectionInfo.getBSSID();
+                if (bssid != null) {
+                    str3 = ssid;
+                    str2 = bssid.replace(":", "");
+                    i = abs;
+                } else {
+                    str3 = ssid;
+                    str2 = bssid;
+                    i = abs;
                 }
             } else {
-                str2 = "";
-                str3 = "";
                 i = 0;
             }
             List<ScanResult> scanResults = checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) ? wifiManager.getScanResults() : null;
@@ -583,13 +620,13 @@ public class SapiUtils implements com.baidu.sapi2.c {
                 for (ScanResult scanResult : scanResults) {
                     String str4 = scanResult.BSSID;
                     String str5 = scanResult.SSID;
-                    int abs = StrictMath.abs(scanResult.level);
+                    int abs2 = StrictMath.abs(scanResult.level);
                     String replace = str4 != null ? str4.replace(":", "") : "";
-                    if (!replace.equals(str2) && abs != 0) {
+                    if (!replace.equals(str2) && abs2 != 0) {
                         if (i2 >= 10) {
                             break;
                         }
-                        stringBuffer.append(d).append(replace).append(e).append(abs).append(e).append(str5).append(e).append("2");
+                        stringBuffer.append(d).append(replace).append(e).append(abs2).append(e).append(str5).append(e).append("2");
                         i2++;
                     }
                 }
@@ -637,15 +674,17 @@ public class SapiUtils implements com.baidu.sapi2.c {
     @TargetApi(4)
     public static boolean isEmulator(Context context) {
         String str = null;
-        if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
-            if (checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
-                try {
-                    str = Build.getSerial();
-                } catch (Throwable th) {
+        if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+            if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
+                if (checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
+                    try {
+                        str = Build.getSerial();
+                    } catch (Throwable th) {
+                    }
                 }
+            } else {
+                str = Build.SERIAL;
             }
-        } else {
-            str = Build.SERIAL;
         }
         return Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.b(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || "unknown".equals(str);
     }
@@ -670,7 +709,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
         if (isDebug(context)) {
             return false;
         }
-        Map<String, String> authorizedPackages = SapiContext.getInstance(context).getAuthorizedPackages();
+        Map<String, String> authorizedPackages = SapiContext.getInstance().getAuthorizedPackages();
         String packageSign = getPackageSign(context, packageName);
         for (String str : authorizedPackages.keySet()) {
             if (packageName.matches(str) && packageSign.equals(authorizedPackages.get(str))) {
@@ -784,7 +823,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
                     hashMap2.put("islogin", "1");
                 }
                 hashMap2.put("client", "android");
-                r.a(r.a, hashMap2);
+                t.a(t.a, hashMap2);
             }
             return urlParamsToMap;
         } else {
@@ -792,19 +831,18 @@ public class SapiUtils implements com.baidu.sapi2.c {
         }
     }
 
-    public static int px2sp(Context context, float f) {
-        return (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
+    public static int px2sp(Context context, float f2) {
+        return (int) ((f2 / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
     }
 
-    public static void resetSilentShareStatus(Context context) {
-        if (context == null || SapiContext.getInstance(context).getCurrentAccount() != null) {
-            return;
+    public static void resetSilentShareStatus() {
+        if (SapiContext.getInstance().getCurrentAccount() == null) {
+            SapiContext.getInstance().resetSilentShareStatus();
         }
-        SapiContext.getInstance(context).resetSilentShareStatus();
     }
 
     public static boolean statExtraValid(String str) {
-        return !TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getLoginStatExtraLimitLen();
+        return !TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance().getLoginStatExtraLimitLen();
     }
 
     public static void syncCookies(Context context, List<PassNameValuePair> list) {
@@ -815,7 +853,7 @@ public class SapiUtils implements com.baidu.sapi2.c {
         if (TextUtils.isEmpty(confignation.clientId)) {
             confignation.clientId = getClientId(context);
         }
-        List<String> cuidAuthorizedDomains = getCuidAuthorizedDomains(context);
+        List<String> cuidAuthorizedDomains = getCuidAuthorizedDomains();
         if (confignation.getEnvironment() != Domain.DOMAIN_ONLINE) {
             String replaceAll = confignation.environment.getWap().replace("http://", "").replace(COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
             String replaceAll2 = confignation.environment.getURL().replace("http://", "").replace(COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
@@ -824,6 +862,10 @@ public class SapiUtils implements com.baidu.sapi2.c {
         }
         for (String str : cuidAuthorizedDomains) {
             cookieManager.setCookie(COOKIE_HTTPS_URL_PREFIX + str, buildCuidCookie(str, confignation.clientId));
+            String searchBoxSid = SapiContext.getInstance().getSearchBoxSid();
+            if (!TextUtils.isEmpty(searchBoxSid)) {
+                cookieManager.setCookie(COOKIE_HTTPS_URL_PREFIX + str, buildSidCookie(str, searchBoxSid));
+            }
         }
         if (list != null) {
             for (PassNameValuePair passNameValuePair : list) {
@@ -1099,14 +1141,14 @@ public class SapiUtils implements com.baidu.sapi2.c {
         }
         try {
             ArrayList arrayList = new ArrayList();
-            for (String str : getAuthorizedDomains(context)) {
+            for (String str : getAuthorizedDomains()) {
                 arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str, buildBDUSSCookie(str, "")));
             }
-            for (String str2 : getAuthorizedDomainsForPtoken(context)) {
+            for (String str2 : getAuthorizedDomainsForPtoken()) {
                 arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
                 arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
             }
-            for (String str3 : getAuthorizedDomainsForPtoken(context)) {
+            for (String str3 : getAuthorizedDomainsForPtoken()) {
                 arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str3, buildStokenCookie(str3, "")));
             }
             syncCookies(context, arrayList);
@@ -1127,5 +1169,21 @@ public class SapiUtils implements com.baidu.sapi2.c {
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
         return a(str, str2, str3, calendar.getTime(), true);
+    }
+
+    private static Bitmap a(Drawable drawable) {
+        if (drawable == null) {
+            return null;
+        }
+        if (Build.VERSION.SDK_INT >= 26 && (drawable instanceof AdaptiveIconDrawable)) {
+            AdaptiveIconDrawable adaptiveIconDrawable = (AdaptiveIconDrawable) drawable;
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{adaptiveIconDrawable.getBackground(), adaptiveIconDrawable.getForeground()});
+            Bitmap createBitmap = Bitmap.createBitmap(layerDrawable.getIntrinsicWidth(), layerDrawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(createBitmap);
+            layerDrawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            layerDrawable.draw(canvas);
+            return createBitmap;
+        }
+        return ((BitmapDrawable) drawable).getBitmap();
     }
 }

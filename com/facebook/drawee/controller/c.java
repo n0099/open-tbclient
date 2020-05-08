@@ -8,11 +8,11 @@ public interface c<INFO> {
 
     void el(String str);
 
+    void f(String str, Throwable th);
+
     void g(String str, Object obj);
 
     void g(String str, Throwable th);
 
     void h(String str, @Nullable INFO info);
-
-    void h(String str, Throwable th);
 }

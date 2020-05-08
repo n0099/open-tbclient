@@ -7,19 +7,19 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class y {
-    private View aBW;
-    private int egW;
-    private boolean egX;
+    private View aCc;
+    private int ehb;
+    private boolean ehc;
     private final Handler mHandler;
 
-    public void baA() {
+    public void bay() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void baB() {
+    public void baz() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
@@ -27,29 +27,29 @@ public class y {
     }
 
     public void ib(boolean z) {
-        if (this.aBW != null) {
-            if (z || this.aBW.getVisibility() != 8) {
-                baB();
+        if (this.aCc != null) {
+            if (z || this.aCc.getVisibility() != 8) {
+                baz();
             }
         }
     }
 
     public void ic(boolean z) {
-        if (this.aBW != null) {
-            if (z || this.aBW.getVisibility() != 0) {
-                baA();
+        if (this.aCc != null) {
+            if (z || this.aCc.getVisibility() != 0) {
+                bay();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.aBW != null) {
-            if (i != 0 && i2 > i && this.aBW.getVisibility() != 8) {
+        if (this.aCc != null) {
+            if (i != 0 && i2 > i && this.aCc.getVisibility() != 8) {
                 ib(false);
-            } else if ((i == 0 || i2 < i) && this.aBW.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.aCc.getVisibility() != 0) {
                 ic(false);
             }
-            this.egW = i;
+            this.ehb = i;
         }
     }
 
@@ -63,12 +63,12 @@ public class y {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.egW) {
+            if (firstVisiblePosition > this.ehb) {
                 ib(true);
-            } else if (firstVisiblePosition < this.egW) {
+            } else if (firstVisiblePosition < this.ehb) {
                 ic(true);
-            } else if (firstVisiblePosition == this.egW) {
-                if (firstVisiblePosition == 0 || !this.egX) {
+            } else if (firstVisiblePosition == this.ehb) {
+                if (firstVisiblePosition == 0 || !this.ehc) {
                     ic(true);
                 } else {
                     ib(true);

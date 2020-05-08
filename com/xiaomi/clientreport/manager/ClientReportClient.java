@@ -7,7 +7,6 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-import com.xiaomi.push.g;
 /* loaded from: classes8.dex */
 public class ClientReportClient {
     public static void init(Context context) {
@@ -19,11 +18,11 @@ public class ClientReportClient {
     }
 
     public static void init(Context context, Config config, IEventProcessor iEventProcessor, IPerfProcessor iPerfProcessor) {
-        com.xiaomi.channel.commonutils.logger.b.c("init in process " + g.a(context) + " pid :" + Process.myPid() + " threadId: " + Thread.currentThread().getId());
+        com.xiaomi.channel.commonutils.logger.b.c("init in process " + com.xiaomi.push.g.a(context) + " pid :" + Process.myPid() + " threadId: " + Thread.currentThread().getId());
         a.a(context).a(config, iEventProcessor, iPerfProcessor);
-        if (g.m300a(context)) {
+        if (com.xiaomi.push.g.m304a(context)) {
             com.xiaomi.channel.commonutils.logger.b.c("init in process\u3000start scheduleJob");
-            a.a(context).m54a();
+            a.a(context).m55a();
         }
     }
 

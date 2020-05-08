@@ -11,7 +11,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.pushservice.PushConstants;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,7 +47,7 @@ public class IMJoinGroupRequest extends GroupBaseHttpRequest {
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 i = jSONObject.getInt("error_code");
-                str = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
+                str = jSONObject.optString("error_msg", "");
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                 new IMTrack.CrashBuilder(IMJoinGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();

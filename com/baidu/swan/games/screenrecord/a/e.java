@@ -9,8 +9,8 @@ import java.util.Iterator;
 /* loaded from: classes11.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private ArrayList<a> cQY;
-    private int cQZ;
+    private ArrayList<a> cRd;
+    private int cRe;
     private String mSavePath;
     private String mVideoPath;
 
@@ -18,10 +18,10 @@ public class e {
         if (DEBUG) {
             Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
         }
-        this.cQY = q(arrayList);
+        this.cRd = q(arrayList);
         this.mVideoPath = str;
         this.mSavePath = str2;
-        this.cQZ = this.cQY.size();
+        this.cRe = this.cRd.size();
     }
 
     public void a(final c cVar) {
@@ -32,7 +32,7 @@ public class e {
                     ArrayList<long[]> axK = e.this.axK();
                     d dVar = new d();
                     dVar.videoPath = e.this.mVideoPath;
-                    dVar.cQX = axK;
+                    dVar.cRc = axK;
                     dVar.clipPath = e.this.mSavePath;
                     com.baidu.swan.games.l.a.awZ().a(dVar, cVar);
                 }
@@ -58,16 +58,16 @@ public class e {
 
     public ArrayList<long[]> axK() {
         ArrayList<long[]> arrayList = new ArrayList<>();
-        if (this.cQZ == 0) {
+        if (this.cRe == 0) {
             return arrayList;
         }
         if (DEBUG) {
-            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.cQY);
+            Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.cRd);
         }
-        Collections.sort(this.cQY, new a.C0377a());
-        a aVar = this.cQY.get(0);
-        for (int i = 1; i < this.cQZ; i++) {
-            a aVar2 = this.cQY.get(i);
+        Collections.sort(this.cRd, new a.C0398a());
+        a aVar = this.cRd.get(0);
+        for (int i = 1; i < this.cRe; i++) {
+            a aVar2 = this.cRd.get(i);
             if (!aVar.b(aVar2)) {
                 arrayList.add(a.a(aVar));
                 aVar = aVar2;

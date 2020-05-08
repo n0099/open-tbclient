@@ -16,19 +16,19 @@ import android.view.ViewGroup;
 import com.baidu.swan.bdprivate.b;
 /* loaded from: classes11.dex */
 public class PartingLineView extends ViewGroup {
-    private Paint aOw;
-    private View cDX;
-    private int cEc;
-    private int cEd;
-    private Paint cEe;
-    private int cEf;
-    private int cEg;
-    private Path cEh;
-    private Path cEi;
+    private Paint aOC;
+    private View cEd;
+    private int cEi;
     private int cEj;
-    private RectF cEk;
-    private RectF cEl;
-    private View cat;
+    private Paint cEk;
+    private int cEl;
+    private int cEm;
+    private Path cEn;
+    private Path cEo;
+    private int cEp;
+    private RectF cEq;
+    private RectF cEr;
+    private View caz;
     private int mBgColor;
     private int mBorderColor;
     private Paint mBorderPaint;
@@ -52,63 +52,63 @@ public class PartingLineView extends ViewGroup {
     private void b(Context context, AttributeSet attributeSet, int i) {
         this.mContext = context;
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.i.PartingLineView);
-        this.cEc = obtainStyledAttributes.getColor(b.i.PartingLineView_bgNormalColor, SupportMenu.CATEGORY_MASK);
-        this.cEd = obtainStyledAttributes.getColor(b.i.PartingLineView_bgPressedColor, SupportMenu.CATEGORY_MASK);
+        this.cEi = obtainStyledAttributes.getColor(b.i.PartingLineView_bgNormalColor, SupportMenu.CATEGORY_MASK);
+        this.cEj = obtainStyledAttributes.getColor(b.i.PartingLineView_bgPressedColor, SupportMenu.CATEGORY_MASK);
         this.mBorderColor = obtainStyledAttributes.getColor(b.i.PartingLineView_bgBorderColor, ViewCompat.MEASURED_STATE_MASK);
         this.mBorderWidth = obtainStyledAttributes.getDimensionPixelOffset(b.i.PartingLineView_bgBorderWidth, 1);
-        this.cEf = obtainStyledAttributes.getColor(b.i.PartingLineView_dividerLineColor, ViewCompat.MEASURED_STATE_MASK);
-        this.cEg = obtainStyledAttributes.getDimensionPixelOffset(b.i.PartingLineView_dividerLineHeight, 1);
-        this.cEj = obtainStyledAttributes.getDimensionPixelOffset(b.i.PartingLineView_dividerArcRadius, 30);
+        this.cEl = obtainStyledAttributes.getColor(b.i.PartingLineView_dividerLineColor, ViewCompat.MEASURED_STATE_MASK);
+        this.cEm = obtainStyledAttributes.getDimensionPixelOffset(b.i.PartingLineView_dividerLineHeight, 1);
+        this.cEp = obtainStyledAttributes.getDimensionPixelOffset(b.i.PartingLineView_dividerArcRadius, 30);
         obtainStyledAttributes.recycle();
-        db(context);
+        cP(context);
     }
 
-    private void db(Context context) {
+    private void cP(Context context) {
         setWillNotDraw(false);
-        this.mBgColor = this.cEc;
-        this.aOw = new Paint();
-        this.aOw.setStyle(Paint.Style.FILL);
-        this.aOw.setAntiAlias(true);
-        this.aOw.setColor(this.mBgColor);
+        this.mBgColor = this.cEi;
+        this.aOC = new Paint();
+        this.aOC.setStyle(Paint.Style.FILL);
+        this.aOC.setAntiAlias(true);
+        this.aOC.setColor(this.mBgColor);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.cEe = new Paint();
-        this.cEe.setStyle(Paint.Style.STROKE);
-        this.cEe.setAntiAlias(true);
-        this.cEe.setColor(this.cEf);
-        this.cEe.setPathEffect(new DashPathEffect(new float[]{9.0f, 9.0f}, 0.0f));
-        this.cEe.setStrokeWidth(this.cEg);
-        this.cEh = new Path();
-        this.cEi = new Path();
+        this.cEk = new Paint();
+        this.cEk.setStyle(Paint.Style.STROKE);
+        this.cEk.setAntiAlias(true);
+        this.cEk.setColor(this.cEl);
+        this.cEk.setPathEffect(new DashPathEffect(new float[]{9.0f, 9.0f}, 0.0f));
+        this.cEk.setStrokeWidth(this.cEm);
+        this.cEn = new Path();
+        this.cEo = new Path();
         this.mRoundPath = new Path();
-        this.cEk = new RectF();
-        this.cEl = new RectF();
+        this.cEq = new RectF();
+        this.cEr = new RectF();
     }
 
     public void setContentView(View view, View view2) {
         if (view != null && view2 != null) {
-            this.cDX = view;
-            this.cat = view2;
-            ax(this.cDX);
-            ax(this.cat);
+            this.cEd = view;
+            this.caz = view2;
+            ax(this.cEd);
+            ax(this.caz);
             invalidate();
         }
     }
 
     public void setBgNormalColor(int i) {
-        if (this.mContext != null && this.aOw != null) {
-            this.cEc = this.mContext.getResources().getColor(i);
-            this.mBgColor = this.cEc;
-            this.aOw.setColor(this.mBgColor);
+        if (this.mContext != null && this.aOC != null) {
+            this.cEi = this.mContext.getResources().getColor(i);
+            this.mBgColor = this.cEi;
+            this.aOC.setColor(this.mBgColor);
         }
     }
 
     public void setBgPressedColor(int i) {
         if (this.mContext != null) {
-            this.cEd = this.mContext.getResources().getColor(i);
+            this.cEj = this.mContext.getResources().getColor(i);
         }
     }
 
@@ -120,9 +120,9 @@ public class PartingLineView extends ViewGroup {
     }
 
     public void setDividerLineColor(int i) {
-        if (this.mContext != null && this.cEe != null) {
-            this.cEf = this.mContext.getResources().getColor(i);
-            this.cEe.setColor(this.cEf);
+        if (this.mContext != null && this.cEk != null) {
+            this.cEl = this.mContext.getResources().getColor(i);
+            this.cEk.setColor(this.cEl);
         }
     }
 
@@ -136,9 +136,9 @@ public class PartingLineView extends ViewGroup {
     }
 
     public void fs(boolean z) {
-        if (this.aOw != null) {
-            this.mBgColor = z ? this.cEd : this.cEc;
-            this.aOw.setColor(this.mBgColor);
+        if (this.aOC != null) {
+            this.mBgColor = z ? this.cEj : this.cEi;
+            this.aOC.setColor(this.mBgColor);
             invalidate();
         }
     }
@@ -158,7 +158,7 @@ public class PartingLineView extends ViewGroup {
             setMeasuredDimension(0, 0);
         }
         if (mode != 1073741824) {
-            setMeasuredDimension(size, (this.cDX != null ? this.cDX.getMeasuredHeight() : 0) + 0 + getPaddingTop() + this.cEg + (this.cat != null ? this.cat.getMeasuredHeight() : 0) + getPaddingBottom());
+            setMeasuredDimension(size, (this.cEd != null ? this.cEd.getMeasuredHeight() : 0) + 0 + getPaddingTop() + this.cEm + (this.caz != null ? this.caz.getMeasuredHeight() : 0) + getPaddingBottom());
         }
     }
 
@@ -168,58 +168,58 @@ public class PartingLineView extends ViewGroup {
         int paddingLeft = getPaddingLeft();
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
-        if (this.cDX != null) {
+        if (this.cEd != null) {
             int i6 = paddingTop + 0;
-            this.cDX.layout(0 + paddingLeft, i6, 0 + paddingRight + this.cDX.getMeasuredWidth(), this.cDX.getMeasuredHeight() + i6);
-            i5 = i6 + this.cDX.getMeasuredHeight();
+            this.cEd.layout(0 + paddingLeft, i6, 0 + paddingRight + this.cEd.getMeasuredWidth(), this.cEd.getMeasuredHeight() + i6);
+            i5 = i6 + this.cEd.getMeasuredHeight();
         } else {
             i5 = 0;
         }
-        if (this.cat != null) {
-            this.cat.layout(paddingLeft + 0, this.cEg + i5, 0 + paddingRight + this.cat.getMeasuredWidth(), i5 + this.cat.getMeasuredHeight());
+        if (this.caz != null) {
+            this.caz.layout(paddingLeft + 0, this.cEm + i5, 0 + paddingRight + this.caz.getMeasuredWidth(), i5 + this.caz.getMeasuredHeight());
         }
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.cDX != null && this.cat != null) {
+        if (this.cEd != null && this.caz != null) {
             int paddingLeft = getPaddingLeft();
             int paddingRight = getPaddingRight();
             int paddingTop = getPaddingTop();
             int paddingBottom = getPaddingBottom();
             int width = (getWidth() - paddingLeft) - paddingRight;
             int height = (getHeight() - paddingTop) - paddingBottom;
-            this.cEi.reset();
-            this.cEi.moveTo(paddingLeft, paddingTop);
-            this.cEi.lineTo(paddingLeft + width, paddingTop);
-            this.cEi.lineTo(paddingLeft + width, (this.cDX.getHeight() + paddingTop) - this.cEj);
-            this.cEk.set((paddingLeft + width) - this.cEj, (this.cDX.getHeight() + paddingTop) - this.cEj, paddingLeft + width + this.cEj, this.cDX.getHeight() + paddingTop + this.cEj);
-            this.cEi.arcTo(this.cEk, 270.0f, -180.0f);
-            this.cEi.lineTo(paddingLeft + width, paddingTop + height);
-            this.cEi.lineTo(paddingLeft, paddingTop + height);
-            this.cEi.lineTo(paddingLeft, this.cDX.getHeight() + paddingTop + this.cEj);
-            this.cEk.set(paddingLeft - this.cEj, (this.cDX.getHeight() + paddingTop) - this.cEj, this.cEj + paddingLeft, this.cDX.getHeight() + paddingTop + this.cEj);
-            this.cEi.arcTo(this.cEk, 90.0f, -180.0f);
-            this.cEi.lineTo(paddingLeft, paddingTop);
-            this.cEi.close();
+            this.cEo.reset();
+            this.cEo.moveTo(paddingLeft, paddingTop);
+            this.cEo.lineTo(paddingLeft + width, paddingTop);
+            this.cEo.lineTo(paddingLeft + width, (this.cEd.getHeight() + paddingTop) - this.cEp);
+            this.cEq.set((paddingLeft + width) - this.cEp, (this.cEd.getHeight() + paddingTop) - this.cEp, paddingLeft + width + this.cEp, this.cEd.getHeight() + paddingTop + this.cEp);
+            this.cEo.arcTo(this.cEq, 270.0f, -180.0f);
+            this.cEo.lineTo(paddingLeft + width, paddingTop + height);
+            this.cEo.lineTo(paddingLeft, paddingTop + height);
+            this.cEo.lineTo(paddingLeft, this.cEd.getHeight() + paddingTop + this.cEp);
+            this.cEq.set(paddingLeft - this.cEp, (this.cEd.getHeight() + paddingTop) - this.cEp, this.cEp + paddingLeft, this.cEd.getHeight() + paddingTop + this.cEp);
+            this.cEo.arcTo(this.cEq, 90.0f, -180.0f);
+            this.cEo.lineTo(paddingLeft, paddingTop);
+            this.cEo.close();
             int i = this.mBorderWidth / 2;
-            this.cEl.set(paddingLeft + i, paddingTop + i, (width + paddingLeft) - i, (height + paddingTop) - i);
+            this.cEr.set(paddingLeft + i, paddingTop + i, (width + paddingLeft) - i, (height + paddingTop) - i);
             this.mRoundPath.reset();
-            this.mRoundPath.addRoundRect(this.cEl, 10.0f, 10.0f, Path.Direction.CCW);
-            this.cEi.op(this.mRoundPath, Path.Op.INTERSECT);
-            if (this.aOw != null) {
-                canvas.drawPath(this.cEi, this.aOw);
+            this.mRoundPath.addRoundRect(this.cEr, 10.0f, 10.0f, Path.Direction.CCW);
+            this.cEo.op(this.mRoundPath, Path.Op.INTERSECT);
+            if (this.aOC != null) {
+                canvas.drawPath(this.cEo, this.aOC);
             }
             if (this.mBorderPaint != null) {
-                canvas.drawPath(this.cEi, this.mBorderPaint);
+                canvas.drawPath(this.cEo, this.mBorderPaint);
             }
-            if (this.cEe != null && this.cDX != null && this.cat != null) {
-                float height2 = paddingTop + this.cDX.getHeight();
-                this.cEh.reset();
-                this.cEh.moveTo(paddingLeft + this.cEj + 9, height2);
-                this.cEh.lineTo(((getWidth() - paddingRight) - this.cEj) - 9, height2);
-                canvas.drawPath(this.cEh, this.cEe);
+            if (this.cEk != null && this.cEd != null && this.caz != null) {
+                float height2 = paddingTop + this.cEd.getHeight();
+                this.cEn.reset();
+                this.cEn.moveTo(paddingLeft + this.cEp + 9, height2);
+                this.cEn.lineTo(((getWidth() - paddingRight) - this.cEp) - 9, height2);
+                canvas.drawPath(this.cEn, this.cEk);
             }
         }
     }

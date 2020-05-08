@@ -42,12 +42,12 @@ public class aq extends com.baidu.adp.lib.util.k {
     private static String TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
     private static final SimpleDateFormat FORMATE_DATE_SECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static final SimpleDateFormat FORMATE_DATE_SECOND_CHINESE = new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    private static final SimpleDateFormat dzR = new SimpleDateFormat("dd日HH:mm");
-    private static final SimpleDateFormat dzS = new SimpleDateFormat("HH:mm");
-    private static final SimpleDateFormat dzT = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
-    private static final SimpleDateFormat dzU = new SimpleDateFormat("MM-dd HH:mm");
-    private static final SimpleDateFormat dzV = new SimpleDateFormat("MM-dd");
-    private static final SimpleDateFormat dzW = new SimpleDateFormat("MM月dd日");
+    private static final SimpleDateFormat dzV = new SimpleDateFormat("dd日HH:mm");
+    private static final SimpleDateFormat dzW = new SimpleDateFormat("HH:mm");
+    private static final SimpleDateFormat dzX = new SimpleDateFormat(ControlShowManager.DAY_TIME_FORMAT);
+    private static final SimpleDateFormat dzY = new SimpleDateFormat("MM-dd HH:mm");
+    private static final SimpleDateFormat dzZ = new SimpleDateFormat("MM-dd");
+    private static final SimpleDateFormat dAa = new SimpleDateFormat("MM月dd日");
     private static Date date = new Date();
 
     static {
@@ -69,8 +69,8 @@ public class aq extends com.baidu.adp.lib.util.k {
     public static String cf(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (dzU) {
-            format = dzU.format(date2);
+        synchronized (dzY) {
+            format = dzY.format(date2);
         }
         return format;
     }
@@ -78,8 +78,8 @@ public class aq extends com.baidu.adp.lib.util.k {
     public static String cg(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (dzV) {
-            format = dzV.format(date2);
+        synchronized (dzZ) {
+            format = dzZ.format(date2);
         }
         return format;
     }
@@ -87,8 +87,8 @@ public class aq extends com.baidu.adp.lib.util.k {
     public static String ch(long j) {
         String format;
         Date date2 = new Date(j);
-        synchronized (dzW) {
-            format = dzW.format(date2);
+        synchronized (dAa) {
+            format = dAa.format(date2);
         }
         return format;
     }
@@ -373,17 +373,17 @@ public class aq extends com.baidu.adp.lib.util.k {
         }
     }
 
-    public static boolean uL(String str) {
+    public static boolean uO(String str) {
         if (str.length() != 10) {
             return false;
         }
-        return dzT.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
+        return dzX.format(new Date()).substring(0, 4).equals(str.substring(0, 4));
     }
 
     public static String k(Date date2) {
         String format;
-        synchronized (dzT) {
-            format = dzT.format(date2);
+        synchronized (dzX) {
+            format = dzX.format(date2);
         }
         return format;
     }
@@ -1136,14 +1136,14 @@ public class aq extends com.baidu.adp.lib.util.k {
         return sb.toString();
     }
 
-    public static boolean uM(String str) {
+    public static boolean uP(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        return uN(str) || nZ(str);
+        return uQ(str) || nZ(str);
     }
 
-    public static boolean uN(String str) {
+    public static boolean uQ(String str) {
         return str != null && str.length() > 6 && str.substring(0, 7).equalsIgnoreCase("http://");
     }
 

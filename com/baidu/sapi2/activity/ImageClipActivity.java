@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -26,6 +28,7 @@ import com.baidu.sapi2.views.ZoomImageView;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class ImageClipActivity extends Activity {
@@ -92,6 +95,26 @@ public class ImageClipActivity extends Activity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         c();
+    }
+
+    public Bitmap operateBitmap(String str) {
+        Bitmap a2 = a(str);
+        float f = 0.0f;
+        try {
+            int attributeInt = new ExifInterface(str).getAttributeInt(android.support.media.ExifInterface.TAG_ORIENTATION, 1);
+            if (attributeInt == 3) {
+                f = 180.0f;
+            } else if (attributeInt == 6) {
+                f = 90.0f;
+            } else if (attributeInt == 8) {
+                f = 270.0f;
+            }
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+        Matrix matrix = new Matrix();
+        matrix.setRotate(f, a2.getWidth() / 2, a2.getHeight() / 2);
+        return Bitmap.createBitmap(a2, 0, 0, a2.getWidth(), a2.getHeight(), matrix, true);
     }
 
     protected void setPendingTransition(int i, int i2, int i3, int i4) {
@@ -168,7 +191,7 @@ public class ImageClipActivity extends Activity {
             clipBoxView.aa = ClipBoxView.a;
             clipBoxView.ba = false;
         }
-        setPendingTransition(a.C0090a.sapi_sdk_slide_right_in, a.C0090a.sapi_sdk_slide_left_out, a.C0090a.sapi_sdk_slide_left_in, a.C0090a.sapi_sdk_slide_right_out);
+        setPendingTransition(a.C0111a.sapi_sdk_slide_right_in, a.C0111a.sapi_sdk_slide_left_out, a.C0111a.sapi_sdk_slide_left_in, a.C0111a.sapi_sdk_slide_right_out);
         Button button = (Button) findViewById(a.e.sure_clip_btn);
         Button button2 = (Button) findViewById(a.e.cancel_clip_btn);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -302,9 +325,9 @@ public class ImageClipActivity extends Activity {
     }
 
     private void b(String str) {
-        Bitmap a2 = a(str);
-        if (a2 != null) {
-            this.n.setImageBitmap(a2);
+        Bitmap operateBitmap = operateBitmap(str);
+        if (operateBitmap != null) {
+            this.n.setImageBitmap(operateBitmap);
             if (!TextUtils.isEmpty(this.l)) {
                 com.baidu.sapi2.utils.a.a(new File(this.l));
                 return;

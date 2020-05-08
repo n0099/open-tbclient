@@ -19,11 +19,11 @@ import tv.chushou.zues.utils.e;
 import tv.chushou.zues.utils.h;
 /* loaded from: classes5.dex */
 public class a {
-    private static final tv.chushou.zues.toolkit.b.a mCT = tv.chushou.zues.toolkit.b.a.nsu;
-    private static a mCW;
+    private static final tv.chushou.zues.toolkit.b.a mCY = tv.chushou.zues.toolkit.b.a.nsx;
+    private static a mDc;
     private final Object d = new Object();
     private Map<View, String> e = Collections.synchronizedMap(new WeakHashMap());
-    private final tv.chushou.zues.toolkit.a.b.a<Drawable> mCU = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
+    private final tv.chushou.zues.toolkit.a.b.a<Drawable> mCZ = new tv.chushou.zues.toolkit.a.b.a<>(15, new tv.chushou.zues.toolkit.a.b.b<Drawable>() { // from class: com.kascend.chushou.toolkit.b.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // tv.chushou.zues.toolkit.a.b.b
         /* renamed from: a */
@@ -31,26 +31,26 @@ public class a {
             return 1;
         }
     });
-    private tv.chushou.zues.toolkit.a.a.a mCV;
+    private tv.chushou.zues.toolkit.a.a.a mDa;
 
-    public static a dyF() {
-        if (mCW == null) {
+    public static a dyB() {
+        if (mDc == null) {
             synchronized (a.class) {
-                if (mCW == null) {
-                    mCW = new a();
+                if (mDc == null) {
+                    mDc = new a();
                 }
             }
         }
-        return mCW;
+        return mDc;
     }
 
     public static void b() {
     }
 
     private a() {
-        this.mCV = null;
+        this.mDa = null;
         try {
-            this.mCV = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.mnC.e(), 1, 1, 10485760L);
+            this.mDa = tv.chushou.zues.toolkit.a.a.a.b(com.kascend.chushou.d.c.mnH.e(), 1, 1, 10485760L);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,8 +64,8 @@ public class a {
             }
             this.e.put(view, str);
             Drawable drawable = null;
-            if (this.mCU != null) {
-                drawable = this.mCU.get(str);
+            if (this.mCZ != null) {
+                drawable = this.mCZ.get(str);
             }
             if (drawable != null) {
                 view.setBackgroundDrawable(drawable.getConstantState().newDrawable());
@@ -97,19 +97,19 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public class b implements Runnable {
-        c mDa;
+        c mDg;
 
         b(c cVar) {
-            this.mDa = cVar;
+            this.mDg = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            Drawable OL;
-            if (!a.this.a(this.mDa) && !h.isEmpty(this.mDa.a) && (OL = a.this.OL(this.mDa.a)) != null) {
-                a.this.mCU.put(this.mDa.a, OL);
-                if (!a.this.a(this.mDa)) {
-                    ((Activity) this.mDa.b.getContext()).runOnUiThread(new RunnableC0735a(OL, this.mDa));
+            Drawable OO;
+            if (!a.this.a(this.mDg) && !h.isEmpty(this.mDg.a) && (OO = a.this.OO(this.mDg.a)) != null) {
+                a.this.mCZ.put(this.mDg.a, OO);
+                if (!a.this.a(this.mDg)) {
+                    ((Activity) this.mDg.b.getContext()).runOnUiThread(new RunnableC0756a(OO, this.mDg));
                 }
             }
         }
@@ -117,25 +117,25 @@ public class a {
 
     /* renamed from: com.kascend.chushou.toolkit.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    class RunnableC0735a implements Runnable {
+    class RunnableC0756a implements Runnable {
         Drawable a;
-        c mCY;
+        c mDe;
 
-        RunnableC0735a(Drawable drawable, c cVar) {
+        RunnableC0756a(Drawable drawable, c cVar) {
             this.a = drawable;
-            this.mCY = cVar;
+            this.mDe = cVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!a.this.a(this.mCY)) {
-                this.mCY.b.setBackgroundDrawable(this.a);
+            if (!a.this.a(this.mDe)) {
+                this.mDe.b.setBackgroundDrawable(this.a);
             }
         }
     }
 
     private void b(String str, View view) {
-        tv.chushou.a.a.b.a.dJE().M(new b(new c(str, view)));
+        tv.chushou.a.a.b.a.dJA().M(new b(new c(str, view)));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [195=5, 197=4, 198=4, 199=4] */
@@ -143,16 +143,16 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Drawable OK(String str) {
+    private Drawable ON(String str) {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2 = null;
-        if (this.mCV == null) {
+        if (this.mDa == null) {
             return null;
         }
         try {
-            a.c Qf = this.mCV.Qf(str);
-            if (Qf == null) {
+            a.c Qi = this.mDa.Qi(str);
+            if (Qi == null) {
                 if (0 != 0) {
                     try {
                         inputStream2.close();
@@ -164,7 +164,7 @@ public class a {
                 }
                 return null;
             }
-            inputStream = Qf.JL(0);
+            inputStream = Qi.JL(0);
             try {
                 try {
                     BitmapFactory.Options options = new BitmapFactory.Options();
@@ -223,34 +223,34 @@ public class a {
     /* JADX WARN: Type inference failed for: r1v10 */
     /* JADX WARN: Type inference failed for: r1v4 */
     /* JADX WARN: Type inference failed for: r1v7 */
-    public Drawable OL(String str) {
-        Drawable OK;
-        a.C0833a Qg;
+    public Drawable OO(String str) {
+        Drawable ON;
+        a.C0854a Qj;
         Drawable drawable = null;
-        if (this.mCV != null) {
-            ?? r1 = mCT;
-            String Qh = r1.Qh(str);
+        if (this.mDa != null) {
+            ?? r1 = mCY;
+            String Qk = r1.Qk(str);
             try {
                 try {
                     synchronized (this.d) {
                         try {
-                            OK = OK(Qh);
+                            ON = ON(Qk);
                         } catch (Throwable th) {
                             r1 = 0;
                             th = th;
                         }
                         try {
-                            if (OK == null && (Qg = this.mCV.Qg(Qh)) != null) {
-                                OutputStream JI = Qg.JI(0);
-                                Http http = (Http) tv.chushou.basis.d.b.dJv().S(Http.class);
+                            if (ON == null && (Qj = this.mDa.Qj(Qk)) != null) {
+                                OutputStream JI = Qj.JI(0);
+                                Http http = (Http) tv.chushou.basis.d.b.dJr().S(Http.class);
                                 if (http == null) {
-                                    Qg.abort();
-                                    drawable = OK;
+                                    Qj.abort();
+                                    drawable = ON;
                                 } else if (http.downloadSync(str, JI)) {
-                                    Qg.commit();
-                                    drawable = OK(Qh);
+                                    Qj.commit();
+                                    drawable = ON(Qk);
                                 } else {
-                                    Qg.abort();
+                                    Qj.abort();
                                 }
                             }
                         } catch (Throwable th2) {
@@ -265,7 +265,7 @@ public class a {
                                 return drawable;
                             }
                         }
-                        drawable = OK;
+                        drawable = ON;
                     }
                 } catch (Throwable th3) {
                     th = th3;

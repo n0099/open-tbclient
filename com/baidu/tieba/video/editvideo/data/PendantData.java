@@ -22,7 +22,7 @@ public class PendantData extends OrmObject {
     public String size;
 
     /* renamed from: top  reason: collision with root package name */
-    public int f1033top;
+    public int f1025top;
 
     public PendantData() {
         this.pendantType = 4;
@@ -33,12 +33,12 @@ public class PendantData extends OrmObject {
         this.pendantType = i;
     }
 
-    public void dbp() {
+    public void dbm() {
         if (!TextUtils.isEmpty(this.size)) {
             String[] split = this.size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length == 4) {
                 try {
-                    this.f1033top = Integer.parseInt(split[0]);
+                    this.f1025top = Integer.parseInt(split[0]);
                     this.left = Integer.parseInt(split[1]);
                     this.bottom = Integer.parseInt(split[2]);
                     this.right = Integer.parseInt(split[3]);

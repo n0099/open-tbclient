@@ -1,47 +1,41 @@
 package com.baidu.sapi2;
 
-import com.baidu.sapi2.share.m;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.sapi2.utils.enums.AccountType;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
 /* loaded from: classes6.dex */
-public class e extends m.a {
-    final /* synthetic */ PassportSDK a;
+class e implements com.baidu.sapi2.callback.a.b {
+    final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(PassportSDK passportSDK) {
-        this.a = passportSDK;
+    public e(f fVar) {
+        this.a = fVar;
     }
 
-    @Override // com.baidu.sapi2.share.m.a
-    public void onFailed(int i, String str) {
-        WebAuthListener webAuthListener;
-        WebAuthListener webAuthListener2;
-        super.onFailed(i, str);
-        WebAuthResult webAuthResult = new WebAuthResult();
-        webAuthResult.setResultCode(i);
-        webAuthResult.setResultMsg(str);
-        webAuthListener = this.a.d;
-        if (webAuthListener != null) {
-            webAuthListener2 = this.a.d;
-            webAuthListener2.onFailure(webAuthResult);
+    @Override // com.baidu.sapi2.callback.a.b
+    public void a(String str, String str2) {
+        Context context;
+        f fVar = this.a;
+        if (fVar.c) {
+            Intent intent = new Intent(fVar.d, LoadExternalWebViewActivity.class);
+            intent.putExtra(LoadExternalWebViewActivity.EXTRA_EXTERNAL_TITLE, str);
+            String str3 = (str2 + "&adapter=3") + "&lastLoginType=oneKeyLogin";
+            if (SapiAccountManager.getInstance().getSapiConfiguration().supportFaceLogin) {
+                str3 = str3 + "&liveAbility=1";
+            }
+            intent.putExtra("extra_external_url", str3);
+            intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_FROM, "business_from_one_key_login");
+            Context context2 = this.a.d;
+            if (context2 instanceof Activity) {
+                context2.startActivity(intent);
+                return;
+            }
+            intent.setFlags(268435456);
+            context = this.a.e.E;
+            context.startActivity(intent);
+            return;
         }
-        PassportSDK.getInstance().release();
-    }
-
-    @Override // com.baidu.sapi2.share.m.a
-    public void onSuccess() {
-        WebAuthListener webAuthListener;
-        WebAuthListener webAuthListener2;
-        WebAuthResult webAuthResult = new WebAuthResult();
-        webAuthResult.accountType = AccountType.NORMAL;
-        webAuthResult.setResultCode(0);
-        webAuthListener = this.a.d;
-        if (webAuthListener != null) {
-            webAuthListener2 = this.a.d;
-            webAuthListener2.onSuccess(webAuthResult);
-        }
-        PassportSDK.getInstance().release();
+        new com.baidu.sapi2.outsdk.c().a(this.a.a, -111, (String) null);
     }
 }

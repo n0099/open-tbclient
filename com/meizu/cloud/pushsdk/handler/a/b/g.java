@@ -2,6 +2,9 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
@@ -21,39 +24,57 @@ public class g implements Parcelable {
             return new g[i];
         }
     };
-    private b a;
-    private String b;
-    private int c;
+    private int a;
+    private boolean b;
+    private List<String> c;
+    private b d;
+    private String e;
 
     protected g(Parcel parcel) {
-        this.a = (b) parcel.readParcelable(b.class.getClassLoader());
-        this.b = parcel.readString();
-        this.c = parcel.readInt();
+        this.a = parcel.readInt();
+        this.b = parcel.readByte() != 0;
+        this.c = parcel.createStringArrayList();
+        this.d = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.e = parcel.readString();
     }
 
-    public g(String str, String str2, String str3, String str4, String str5) {
-        this.b = str2;
+    public g(String str, String str2, String str3, String str4) {
+        this.e = str;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (!jSONObject.isNull("notifyId")) {
-                this.c = jSONObject.getInt("notifyId");
+            if (!jSONObject.isNull("max_size")) {
+                this.a = jSONObject.getInt("max_size");
+            }
+            if (!jSONObject.isNull("wifi_upload")) {
+                this.b = jSONObject.getBoolean("wifi_upload");
+            }
+            if (!jSONObject.isNull("upload_files")) {
+                JSONArray jSONArray = jSONObject.getJSONArray("upload_files");
+                this.c = new ArrayList();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    this.c.add(jSONArray.getString(i));
+                }
             }
         } catch (JSONException e) {
-            com.meizu.cloud.a.a.e("WithDrawMessage", "parse WithDrawMessage error " + e.getMessage());
+            com.meizu.cloud.a.a.e("UploadLogMessage", "parse upload message error " + e.getMessage());
         }
-        this.a = new b(str3, str4, str5);
+        this.d = new b(str2, str3, str4);
     }
 
-    public b a() {
+    public int a() {
         return this.a;
     }
 
-    public int b() {
+    public boolean b() {
+        return this.b;
+    }
+
+    public List<String> c() {
         return this.c;
     }
 
-    public String c() {
-        return this.b;
+    public b d() {
+        return this.d;
     }
 
     @Override // android.os.Parcelable
@@ -62,13 +83,15 @@ public class g implements Parcelable {
     }
 
     public String toString() {
-        return "WithDrawMessage{controlMessage=" + this.a + ", revokePackageName='" + this.b + "', notifyId=" + this.c + '}';
+        return "UploadLogMessage{maxSize=" + this.a + ", wifiUpload=" + this.b + ", fileList=" + this.c + ", controlMessage=" + this.d + ", uploadMessage='" + this.e + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.a, i);
-        parcel.writeString(this.b);
-        parcel.writeInt(this.c);
+        parcel.writeInt(this.a);
+        parcel.writeByte((byte) (this.b ? 1 : 0));
+        parcel.writeStringList(this.c);
+        parcel.writeParcelable(this.d, i);
+        parcel.writeString(this.e);
     }
 }

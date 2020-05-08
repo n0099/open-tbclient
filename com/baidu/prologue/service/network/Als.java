@@ -12,23 +12,23 @@ public class Als {
     private static final boolean DEBUG;
 
     static {
-        DEBUG = com.baidu.prologue.a.b.a.brQ.get() != null && com.baidu.prologue.a.b.a.brQ.get().Lr();
+        DEBUG = com.baidu.prologue.a.b.a.brU.get() != null && com.baidu.prologue.a.b.a.brU.get().Lq();
     }
 
     public static void a(@NonNull a aVar) {
-        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.brQ.get();
+        com.baidu.prologue.a.b.a aVar2 = com.baidu.prologue.a.b.a.brU.get();
         if (aVar2 == null) {
             if (DEBUG) {
                 throw new IllegalStateException("宿主App未初始化IAppContext");
             }
             return;
         }
-        Request.a aVar3 = new Request.a(aVar2.Lh(), "https://als.baidu.com/clog/clog");
+        Request.a aVar3 = new Request.a(aVar2.Lg(), "https://als.baidu.com/clog/clog");
         a(aVar3, aVar2);
         JSONArray jSONArray = new JSONArray();
-        jSONArray.put(aVar.bnx);
+        jSONArray.put(aVar.bnC);
         aVar3.aw("ad", jSONArray.toString());
-        aVar3.MC().MA().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
+        aVar3.MB().Mz().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
             /* renamed from: fO */
@@ -50,17 +50,17 @@ public class Als {
     private static void a(Request.a aVar, com.baidu.prologue.a.b.a aVar2) {
         aVar.aw("_client_type", "2");
         aVar.aw("_os_type", "2");
-        aVar.aw("_client_version", aVar2.Li());
-        aVar.aw("_os_version", aVar2.Lj());
-        aVar.aw("model", aVar2.Ll());
-        aVar.aw("cuid", aVar2.Lk());
-        aVar.aw("productId", aVar2.Ls());
-        aVar.aw("net_type", String.valueOf(new g(aVar2.Lh()).My()));
+        aVar.aw("_client_version", aVar2.Lh());
+        aVar.aw("_os_version", aVar2.Li());
+        aVar.aw("model", aVar2.Lk());
+        aVar.aw("cuid", aVar2.Lj());
+        aVar.aw("productId", aVar2.Lr());
+        aVar.aw("net_type", String.valueOf(new g(aVar2.Lg()).Mx()));
     }
 
     /* loaded from: classes6.dex */
     public static final class a {
-        private final JSONObject bnx = new JSONObject();
+        private final JSONObject bnC = new JSONObject();
 
         public a(@NonNull Type type) {
             au("da_type", type.value);
@@ -100,11 +100,11 @@ public class Als {
         }
 
         private <T> a k(String str, T t) {
-            if (Als.DEBUG && this.bnx.has(str)) {
+            if (Als.DEBUG && this.bnC.has(str)) {
                 throw new IllegalArgumentException("key " + str + " has been set!");
             }
             try {
-                this.bnx.put(str, t);
+                this.bnC.put(str, t);
             } catch (JSONException e) {
                 if (Als.DEBUG) {
                     throw new IllegalArgumentException("Json put create invalid exception");

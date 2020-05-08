@@ -17,19 +17,19 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class k {
-    private com.baidu.tieba.ala.alasquare.a.c eRT;
-    private o eRd;
-    private HeadImageView eSn;
-    private TextView eSo;
-    private TextView eSp;
-    private LinearLayout eSq;
-    private boolean eSr = false;
+    private com.baidu.tieba.ala.alasquare.a.c eRY;
+    private o eRi;
+    private HeadImageView eSs;
+    private TextView eSt;
+    private TextView eSu;
+    private LinearLayout eSv;
+    private boolean eSw = false;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.c.k.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                if (k.this.eRT != null && k.this.eRT.eNM != null && view == k.this.mRootView && k.this.eRd != null) {
-                    k.this.eRd.a(k.this.eRT);
+                if (k.this.eRY != null && k.this.eRY.eNR != null && view == k.this.mRootView && k.this.eRi != null) {
+                    k.this.eRi.a(k.this.eRY);
                     return;
                 }
                 return;
@@ -44,53 +44,53 @@ public class k {
     public k(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.tab_sub_recommend_item_view, (ViewGroup) null);
-        this.eSq = (LinearLayout) this.mRootView.findViewById(R.id.tab_sub_wrapper);
-        this.eSn = (HeadImageView) this.mRootView.findViewById(R.id.iv_anchor_avatar);
-        this.eSo = (TextView) this.mRootView.findViewById(R.id.tv_anchor_name);
-        this.eSp = (TextView) this.mRootView.findViewById(R.id.tv_live_aud_num);
+        this.eSv = (LinearLayout) this.mRootView.findViewById(R.id.tab_sub_wrapper);
+        this.eSs = (HeadImageView) this.mRootView.findViewById(R.id.iv_anchor_avatar);
+        this.eSt = (TextView) this.mRootView.findViewById(R.id.tv_anchor_name);
+        this.eSu = (TextView) this.mRootView.findViewById(R.id.tv_live_aud_num);
         this.mRootView.setOnClickListener(this.mOnClickListener);
-        this.eSn.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.eSn.setIsRound(true);
-        this.eSn.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-        this.eSn.setAutoChangeStyle(true);
-        this.eSn.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.eSq.setLayoutParams(new LinearLayout.LayoutParams((com.baidu.adp.lib.util.l.getEquipmentWidth(this.mTbPageContext.getPageActivity()) - (this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) / 3, this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds366)));
+        this.eSs.setBorderWidth(com.baidu.adp.lib.util.l.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.eSs.setIsRound(true);
+        this.eSs.setDefaultResource(R.drawable.icon_default_avatar100_bg);
+        this.eSs.setAutoChangeStyle(true);
+        this.eSs.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.eSv.setLayoutParams(new LinearLayout.LayoutParams((com.baidu.adp.lib.util.l.getEquipmentWidth(this.mTbPageContext.getPageActivity()) - (this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) / 3, this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds366)));
         onChangeSkinType(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        am.setViewTextColor(this.eSo, (int) R.color.cp_cont_b);
-        am.setViewTextColor(this.eSp, (int) R.color.cp_cont_d);
+        am.setViewTextColor(this.eSt, (int) R.color.cp_cont_b);
+        am.setViewTextColor(this.eSu, (int) R.color.cp_cont_d);
         if (i == 1) {
-            this.eSn.setBorderColor(this.mTbPageContext.getResources().getColor(R.color.cp_btn_c_1));
+            this.eSs.setBorderColor(this.mTbPageContext.getResources().getColor(R.color.cp_btn_c_1));
         } else {
-            this.eSn.setBorderColor(this.mTbPageContext.getResources().getColor(R.color.cp_btn_c));
+            this.eSs.setBorderColor(this.mTbPageContext.getResources().getColor(R.color.cp_btn_c));
         }
         Drawable drawable = am.getDrawable(this.mTbPageContext.getResources(), (int) R.drawable.tab_icon_living_seeding);
         drawable.setBounds(0, 0, this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds18), this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds18));
-        this.eSp.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.eSp.setCompoundDrawablePadding(this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+        this.eSu.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.eSu.setCompoundDrawablePadding(this.mTbPageContext.getResources().getDimensionPixelOffset(R.dimen.tbds8));
     }
 
     public void b(com.baidu.tieba.ala.alasquare.a.c cVar) {
-        if (cVar == null || cVar.eNM == null || cVar.eNM.aKE() == null) {
+        if (cVar == null || cVar.eNR == null || cVar.eNR.aKC() == null) {
             getView().setVisibility(4);
             return;
         }
         getView().setVisibility(0);
-        this.eRT = cVar;
-        this.eSr = cVar.eNO;
-        this.userId = cVar.eNM.aKE().getUserId();
-        this.eSn.startLoad(cVar.eNM.aKE().getPortrait(), 25, false, false);
-        String name_show = cVar.eNM.aKE().getName_show();
+        this.eRY = cVar;
+        this.eSw = cVar.eNT;
+        this.userId = cVar.eNR.aKC().getUserId();
+        this.eSs.startLoad(cVar.eNR.aKC().getPortrait(), 25, false, false);
+        String name_show = cVar.eNR.aKC().getName_show();
         if (!StringUtils.isNull(name_show)) {
             if (com.baidu.adp.lib.util.k.byteLength(name_show) > 16) {
                 name_show = aq.cutChineseAndEnglishWithSuffix(name_show, 16, StringHelper.STRING_MORE);
             }
-            this.eSo.setText(name_show);
+            this.eSt.setText(name_show);
         }
-        if (cVar.eNM.aKX() != null) {
-            this.eSp.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.live_tab_audience_watch_label), aq.ck(cVar.eNM.aKX().audience_count)));
+        if (cVar.eNR.aKV() != null) {
+            this.eSu.setText(String.format(this.mTbPageContext.getPageActivity().getResources().getString(R.string.live_tab_audience_watch_label), aq.ck(cVar.eNR.aKV().audience_count)));
         }
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -100,6 +100,6 @@ public class k {
     }
 
     public void a(o oVar) {
-        this.eRd = oVar;
+        this.eRi = oVar;
     }
 }

@@ -21,29 +21,29 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.z;
 /* loaded from: classes9.dex */
 public class h extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
-    private z<bj> acX;
-    private r ahv;
-    public BdUniqueId ebv;
+    private z<bj> ada;
+    private r ahy;
+    public BdUniqueId ebA;
     private TbPageContext<?> mPageContext;
     private String mTabName;
 
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.acX = new z<bj>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.h.1
+        this.ada = new z<bj>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.z
             public void a(View view, bj bjVar) {
-                com.baidu.tieba.card.r.bEY().jd(true);
+                com.baidu.tieba.card.r.bEW().jd(true);
                 h.this.e(view, bjVar);
             }
         };
         this.mPageContext = tbPageContext;
-        this.ebv = bdUniqueId2;
+        this.ebA = bdUniqueId2;
         this.mTabName = str;
     }
 
     public void a(r rVar) {
-        this.ahv = rVar;
+        this.ahy = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,7 +71,7 @@ public class h extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
     public af b(ViewGroup viewGroup) {
         ad.a aVar = new ad.a(this.mPageContext.getPageActivity());
         com.baidu.card.e eVar = new com.baidu.card.e(this.mPageContext.getPageActivity());
-        eVar.setPageUniqueId(this.ebv);
+        eVar.setPageUniqueId(this.ebA);
         eVar.aX(1024);
         eVar.a(new e.a() { // from class: com.baidu.tieba.enterForum.tabfeed.a.h.2
             @Override // com.baidu.card.e.a
@@ -89,22 +89,22 @@ public class h extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
         });
         eVar.b(this.mPageContext);
         aVar.a(eVar);
-        ad a = aVar.a(false, viewGroup, this.ahv);
+        ad a = aVar.a(false, viewGroup, this.ahy);
         a.bc(2);
         af afVar = new af(a);
-        afVar.setPageId(this.ebv);
+        afVar.setPageId(this.ebA);
         a(new v() { // from class: com.baidu.tieba.enterForum.tabfeed.a.h.3
             @Override // com.baidu.adp.widget.ListView.v
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
                 if ((mVar instanceof bi) && (view.getTag() instanceof af)) {
                     af afVar2 = (af) view.getTag();
-                    bj bjVar = ((bi) mVar).dqA;
+                    bj bjVar = ((bi) mVar).dqE;
                     bjVar.objType = 1;
-                    if (h.this.acX != null) {
-                        h.this.acX.a(afVar2.getView(), bjVar);
+                    if (h.this.ada != null) {
+                        h.this.ada.a(afVar2.getView(), bjVar);
                     }
                     au.a((com.baidu.tbadk.core.data.a) bjVar, view.getContext(), 2, false, com.baidu.card.f.a((r) viewGroup2, view, i));
-                    afVar2.rD().b(new a.C0074a(1));
+                    afVar2.rD().b(new a.C0095a(1));
                 }
             }
         });
@@ -115,14 +115,14 @@ public class h extends com.baidu.adp.widget.ListView.a<bi, af<bj>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bi biVar, af<bj> afVar) {
-        if (biVar == null || afVar == null || afVar.getView() == null || biVar.dqA == null) {
+        if (biVar == null || afVar == null || afVar.getView() == null || biVar.dqE == null) {
             return null;
         }
-        biVar.dqA.doZ = getPositionByType(i) + 1;
+        biVar.dqE.dpd = getPositionByType(i) + 1;
         afVar.rD().setPosition(i);
-        afVar.b((af<bj>) biVar.dqA);
+        afVar.b((af<bj>) biVar.dqE);
         afVar.rD().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        afVar.rD().a(this.acX);
+        afVar.rD().a(this.ada);
         return afVar.getView();
     }
 }

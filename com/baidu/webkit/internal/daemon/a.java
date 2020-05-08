@@ -11,11 +11,11 @@ public final class a {
 
     /* renamed from: com.baidu.webkit.internal.daemon.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private static class ThreadFactoryC0694a implements ThreadFactory {
-        private ThreadFactoryC0694a() {
+    private static class ThreadFactoryC0715a implements ThreadFactory {
+        private ThreadFactoryC0715a() {
         }
 
-        /* synthetic */ ThreadFactoryC0694a(byte b) {
+        /* synthetic */ ThreadFactoryC0715a(byte b) {
             this();
         }
 
@@ -32,7 +32,7 @@ public final class a {
         Log.d("SdkDaemon", "start");
         try {
             if (a == null) {
-                a = new ThreadPoolExecutor(2, 30, 50L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC0694a((byte) 0), new ThreadPoolExecutor.DiscardOldestPolicy());
+                a = new ThreadPoolExecutor(2, 30, 50L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new ThreadFactoryC0715a((byte) 0), new ThreadPoolExecutor.DiscardOldestPolicy());
             }
         } catch (Exception e) {
             com.a.a.a.a.a.a.a.a(e);

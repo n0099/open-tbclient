@@ -19,7 +19,7 @@ public class m {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
-    public static h i(Object obj) {
+    public static h j(Object obj) {
         int i = 0;
         if (obj instanceof e) {
             return new f((e) obj);
@@ -110,7 +110,7 @@ public class m {
             Class<? super Object> superclass = cls.getSuperclass();
             ArrayList arrayList = null;
             if (k(superclass)) {
-                if (i((Class<?>) superclass) == 1) {
+                if (i(superclass) == 1) {
                     return 1;
                 }
                 arrayList = new ArrayList(ym.get(superclass));

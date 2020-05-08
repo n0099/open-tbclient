@@ -3,7 +3,6 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.pushservice.PushConstants;
 import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.data.FeedForumData;
@@ -22,8 +21,8 @@ public class u {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> kRj = new ArrayList();
-    private int kRi = 0;
+    private List<FeedForumData> kRn = new ArrayList();
+    private int kRm = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -42,7 +41,7 @@ public class u {
         this.fid = str;
     }
 
-    public int cTI() {
+    public int cTF() {
         return this.user_level;
     }
 
@@ -58,7 +57,7 @@ public class u {
             parserJson(jSONObject.optJSONObject("info"));
             X(jSONObject.optJSONArray("feed_forum"));
             this.errorCode = jSONObject.optInt("error_code");
-            this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
+            this.errorMsg = jSONObject.optString("error_msg");
         } catch (Exception e) {
             BdLog.detailException(e);
         }
@@ -67,7 +66,7 @@ public class u {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.kRi = jSONObject.optInt("is_black", 0);
+                this.kRm = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
@@ -111,7 +110,7 @@ public class u {
                     feedForumData.setReason(jSONObject.optString(TiebaInitialize.LogFields.REASON));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.kRj.add(feedForumData);
+                    this.kRn.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -155,8 +154,8 @@ public class u {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> cVE() {
-        return this.kRj;
+    public List<FeedForumData> cVB() {
+        return this.kRn;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -167,7 +166,7 @@ public class u {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String cVN() {
+    public String cVK() {
         return this.blockUrl;
     }
 

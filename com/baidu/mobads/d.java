@@ -1,11 +1,11 @@
 package com.baidu.mobads;
 /* loaded from: classes10.dex */
 class d implements BaiduHybridAdViewListener {
-    final /* synthetic */ BaiduHybridAdManager blg;
+    final /* synthetic */ BaiduHybridAdManager bll;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(BaiduHybridAdManager baiduHybridAdManager) {
-        this.blg = baiduHybridAdManager;
+        this.bll = baiduHybridAdManager;
     }
 
     @Override // com.baidu.mobads.BaiduHybridAdViewListener

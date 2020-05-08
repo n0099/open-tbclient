@@ -5,8 +5,8 @@ import com.baidu.live.tbadk.core.TbadkCoreApplication;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class e {
-    private static File aoe = getPrivateCaptureRootChildDir("duFilter");
-    public static String aof;
+    private static File aok = getPrivateCaptureRootChildDir("duFilter");
+    public static String aol;
 
     public static File getPrivateCaptureRootChildDir(String str) {
         String str2 = TbadkCoreApplication.getInst().getContext().getFilesDir().getAbsoluteFile() + File.separator + "live_ar" + File.separator;
@@ -14,6 +14,6 @@ public class e {
     }
 
     public static void dG(String str) {
-        aof = str;
+        aol = str;
     }
 }

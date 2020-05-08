@@ -40,7 +40,7 @@ public final class SapiShareClient {
     private volatile boolean m = true;
     private static final SapiShareClient k = new SapiShareClient();
     private static SapiConfiguration i = SapiAccountManager.getInstance().getSapiConfiguration();
-    private static SapiContext j = SapiContext.getInstance(i.context);
+    private static SapiContext j = SapiContext.getInstance();
 
     private SapiShareClient() {
     }
@@ -98,19 +98,11 @@ public final class SapiShareClient {
     }
 
     public static void syncShareAccounts() {
-        if (j.isFirstLaunch()) {
-            if (i.loginShareStrategy() != LoginShareStrategy.DISABLED) {
-                d();
-            }
-        } else if (j.isLoginStatusChanged() || i.loginShareStrategy() != LoginShareStrategy.SILENT) {
-        } else {
-            d();
-        }
     }
 
     public List<ShareStorage.StorageModel> getShareStorageModel(Context context) {
         if (i.loginShareStrategy() != LoginShareStrategy.DISABLED && !com.baidu.sapi2.utils.enums.a.b.equals(i.loginShareDirection())) {
-            return x.c(context);
+            return x.a();
         }
         return new ArrayList(0);
     }
@@ -123,7 +115,7 @@ public final class SapiShareClient {
                 HandlerThread handlerThread = new HandlerThread("InvalidateThread");
                 handlerThread.start();
                 Handler handler = new Handler(handlerThread.getLooper());
-                handler.post(new f(this, x.e(i.context), handler, sapiAccount, handlerThread));
+                handler.post(new f(this, x.d(i.context), handler, sapiAccount, handlerThread));
             }
         }
     }
@@ -155,20 +147,20 @@ public final class SapiShareClient {
             if (i.loginShareStrategy() == LoginShareStrategy.DISABLED || sapiAccount.getAccountType() == AccountType.INCOMPLETE_USER || isInShareBlackList() || c()) {
                 return;
             }
-            a(sapiAccount, x.e(i.context), false);
+            a(sapiAccount, x.d(i.context), false);
         }
     }
 
     public void validateOtherInfo() {
-        List<Intent> e2 = x.e(i.context);
+        List<Intent> d2 = x.d(i.context);
         ArrayList arrayList = new ArrayList();
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 >= e2.size()) {
+            if (i3 >= d2.size()) {
                 break;
             }
-            Intent intent = e2.get(i3);
+            Intent intent = d2.get(i3);
             if (isInReceiveOtherInfoWhiteList(intent.getComponent().getPackageName())) {
                 arrayList.add(intent);
             }
@@ -201,7 +193,7 @@ public final class SapiShareClient {
             HandlerThread handlerThread = new HandlerThread("SyncThread");
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper());
-            handler.post(new i(x.e(i.context), (i.loginShareStrategy() == LoginShareStrategy.DISABLED || i.loginShareStrategy() == LoginShareStrategy.CHOICE) ? false : true, handler, handlerThread));
+            handler.post(new i(x.d(i.context), (i.loginShareStrategy() == LoginShareStrategy.DISABLED || i.loginShareStrategy() == LoginShareStrategy.CHOICE) ? false : true, handler, handlerThread));
         }
     }
 
@@ -221,19 +213,19 @@ public final class SapiShareClient {
         Bundle bundle = new Bundle();
         if (z) {
             bundle.putBoolean(d, true);
-            bundle.putString(e, SapiContext.getInstance(i.context).getIqiyiAccesstoken());
-        } else if (x.a()) {
+            bundle.putString(e, SapiContext.getInstance().getIqiyiAccesstoken());
+        } else if (x.b()) {
             bundle.putBoolean(f, true);
         }
-        if (SapiContext.getInstance(i.context).shareLivingunameEnable()) {
-            bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(i.context).getV2FaceLivingUnames());
+        if (SapiContext.getInstance().shareLivingunameEnable()) {
+            bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance().getV2FaceLivingUnames());
         }
         SapiConfiguration sapiConfiguration = i;
         x.a(sapiConfiguration.context, sapiConfiguration.loginShareStrategy(), shareModel);
         bundle.putString("PKG", i.context.getPackageName());
         bundle.putParcelable(a, shareModel);
         bundle.putSerializable(b, i.environment);
-        bundle.putInt("SDK_VERSION", SapiAccountManager.VERSION_CODE);
+        bundle.putInt("SDK_VERSION", 242);
         obtain.writeBundle(bundle);
         return obtain;
     }
@@ -248,7 +240,7 @@ public final class SapiShareClient {
                     boolean z = readBundle.getBoolean(f, false);
                     String string = readBundle.getString("PKG");
                     x.a(i.context, i.loginShareStrategy(), shareModel, readBundle.getInt("SDK_VERSION"), null, false, z, string);
-                    if (SapiContext.getInstance(i.context).shareLivingunameEnable()) {
+                    if (SapiContext.getInstance().shareLivingunameEnable()) {
                         ArrayList arrayList = new ArrayList();
                         String string2 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
                         if (!TextUtils.isEmpty(string2)) {

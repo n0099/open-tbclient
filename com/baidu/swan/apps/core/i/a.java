@@ -9,16 +9,16 @@ import java.io.IOException;
 /* loaded from: classes11.dex */
 class a extends b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String bPr = "swan_preset" + File.separator + "preset_list.json";
+    private static final String bPw = "swan_preset" + File.separator + "preset_list.json";
 
     @Override // com.baidu.swan.apps.core.i.b
-    protected String XK() {
-        return com.baidu.swan.apps.as.e.loadAssetsFile(com.baidu.swan.apps.w.a.abO(), bPr);
+    protected String XJ() {
+        return com.baidu.swan.apps.as.e.loadAssetsFile(com.baidu.swan.apps.w.a.abN(), bPw);
     }
 
     @Override // com.baidu.swan.apps.core.i.b
     protected String iC(String str) {
-        return com.baidu.swan.apps.as.e.loadAssetsFile(com.baidu.swan.apps.w.a.abO(), "swan_preset" + File.separator + str + File.separator + "app_info.json");
+        return com.baidu.swan.apps.as.e.loadAssetsFile(com.baidu.swan.apps.w.a.abN(), "swan_preset" + File.separator + str + File.separator + "app_info.json");
     }
 
     @Override // com.baidu.swan.apps.core.i.b
@@ -26,9 +26,9 @@ class a extends b {
         boolean z = false;
         if (cVar != null) {
             Context appContext = AppRuntime.getAppContext();
-            String str = "swan_preset" + File.separator + cVar.dai + File.separator + cVar.bPv;
+            String str = "swan_preset" + File.separator + cVar.dan + File.separator + cVar.bPA;
             try {
-                File d = d(cVar.category, cVar.dai, cVar.versionCode);
+                File d = d(cVar.category, cVar.dan, cVar.versionCode);
                 if (d == null) {
                     if (DEBUG) {
                         Log.e("AssetPresetController", "获取解压路径失败");

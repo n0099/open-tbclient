@@ -40,7 +40,7 @@ public class f extends a<Boolean> {
         String stringExtra2 = intent.getStringExtra(PushConstants.EXTRA_UNREGISTERED);
         com.meizu.cloud.a.a.i("AbstractMessageHandler", "processUnRegisterCallback 5.0:" + booleanExtra + " 4.0:" + stringExtra + " 3.0:" + stringExtra2);
         if (TextUtils.isEmpty(stringExtra) || booleanExtra || !TextUtils.isEmpty(stringExtra2)) {
-            com.meizu.cloud.pushsdk.util.b.f(c(), "", c().getPackageName());
+            com.meizu.cloud.pushsdk.util.b.g(c(), "", c().getPackageName());
             return true;
         }
         return false;

@@ -9,18 +9,18 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes12.dex */
 public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<g> cWa;
-    private e cWb;
-    private boolean cWc;
-    private String cWd;
+    private List<g> cWf;
+    private e cWg;
+    private boolean cWh;
+    private String cWi;
     private Context mContext;
     private RecyclerView mRecyclerView;
 
     public b(Context context, RecyclerView recyclerView, e eVar, boolean z) {
         this.mRecyclerView = recyclerView;
         this.mContext = context;
-        this.cWb = eVar;
-        this.cWc = z;
+        this.cWg = eVar;
+        this.cWh = z;
     }
 
     public b(Context context, RecyclerView recyclerView, e eVar) {
@@ -33,7 +33,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case 101:
                 return new d(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_footer, viewGroup, false));
             default:
-                return new c(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_item, viewGroup, false), this, this.cWb);
+                return new c(LayoutInflater.from(this.mContext).inflate(R.layout.ai_apps_location_item, viewGroup, false), this, this.cWg);
         }
     }
 
@@ -44,7 +44,7 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 ((d) viewHolder).setVisibility(aAw());
                 return;
             default:
-                ((c) viewHolder).a(this.cWa.get(i), this.cWd, aAx());
+                ((c) viewHolder).a(this.cWf.get(i), this.cWi, aAx());
                 return;
         }
     }
@@ -59,31 +59,31 @@ public class b extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public void b(List<g> list, String str) {
         if (list != null) {
-            this.cWa = list;
-            this.cWd = str;
+            this.cWf = list;
+            this.cWi = str;
             notifyDataSetChanged();
         }
     }
 
     private boolean aAx() {
-        return !TextUtils.isEmpty(this.cWd);
+        return !TextUtils.isEmpty(this.cWi);
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.cWa == null) {
+        if (this.cWf == null) {
             return 0;
         }
-        return (this.cWc ? 1 : 0) + this.cWa.size();
+        return (this.cWh ? 1 : 0) + this.cWf.size();
     }
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        return (!this.cWc || i < getItemCount() + (-1)) ? 100 : 101;
+        return (!this.cWh || i < getItemCount() + (-1)) ? 100 : 101;
     }
 
     public void aAy() {
-        for (g gVar : this.cWa) {
+        for (g gVar : this.cWf) {
             gVar.isSelected = false;
         }
     }

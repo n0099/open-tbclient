@@ -23,9 +23,9 @@ public class c {
     private void s(View.OnClickListener onClickListener) {
         this.mView = LayoutInflater.from(this.mContext).inflate(a.h.view_guardclub_im_entry, (ViewGroup) null);
         this.textView = (TextView) this.mView.findViewById(a.g.textView);
-        ak Au = g.As().Au();
-        if (Au != null && !TextUtils.isEmpty(Au.auR)) {
-            this.textView.setText(Au.auR);
+        ak At = g.Ar().At();
+        if (At != null && !TextUtils.isEmpty(At.auX)) {
+            this.textView.setText(At.auX);
         }
         this.mView.setOnClickListener(onClickListener);
     }

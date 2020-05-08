@@ -34,48 +34,48 @@ public class a {
         if (bjVar != null) {
             String str3 = null;
             int i4 = 0;
-            boolean z3 = (bjVar.aKX() == null || bjVar.aKX().user_info == null || bjVar.aKX().user_info.is_official != 2) ? false : true;
-            boolean z4 = z3 && bjVar.aKX().frsLiveStageType == 0;
+            boolean z3 = (bjVar.aKV() == null || bjVar.aKV().user_info == null || bjVar.aKV().user_info.is_official != 2) ? false : true;
+            boolean z4 = z3 && bjVar.aKV().frsLiveStageType == 0;
             if (z4) {
-                str3 = String.valueOf(bjVar.aKX().live_id);
+                str3 = String.valueOf(bjVar.aKV().live_id);
                 i4 = 4;
             }
             if (!z4) {
                 z4 = bjVar.getThreadType() == 41;
                 if (z4) {
-                    if (bjVar.aKk() != null) {
-                        str3 = bjVar.aKk().getTaskId();
+                    if (bjVar.aKi() != null) {
+                        str3 = bjVar.aKi().getTaskId();
                     }
                     boolean z5 = z4;
                     i2 = 2;
                     str = str3;
                     z = z5;
-                    if (bjVar.dtL) {
+                    if (bjVar.dtP) {
                         z = true;
                         str = bjVar.getId();
                         i2 = 14;
                     }
-                    if (bjVar.dtX) {
+                    if (bjVar.dub) {
                         z2 = z;
                         i3 = i2;
                         str2 = str;
                     } else {
                         z2 = true;
-                        str2 = bjVar.dtY;
+                        str2 = bjVar.duc;
                         i3 = 17;
                     }
-                    a = com.baidu.tieba.s.a.a(bjVar, PageStayDurationConstants.PageName.FRS, "common_click", i, bjVar.doZ, z2, str2, (String) null, i3);
+                    a = com.baidu.tieba.s.a.a(bjVar, PageStayDurationConstants.PageName.FRS, "common_click", i, bjVar.dpd, z2, str2, (String) null, i3);
                     if (a == null) {
-                        a.af("list_order", c.bUu().a(bVar));
+                        a.af("list_order", c.bUs().a(bVar));
                         a(a, bjVar, tbPageTag);
                         if (z3) {
-                            a.af("obj_isofficial", bjVar.aKX().user_info.is_official);
+                            a.af("obj_isofficial", bjVar.aKV().user_info.is_official);
                         }
-                        if (z3 || bjVar.dtL || bjVar.dtX) {
+                        if (z3 || bjVar.dtP || bjVar.dub) {
                             a.delete("thread_type");
                             a.af("thread_type", bjVar.getThreadType());
                         }
-                        com.baidu.tieba.s.c.cVr().b(bdUniqueId, a);
+                        com.baidu.tieba.s.c.cVo().b(bdUniqueId, a);
                         return;
                     }
                     return;
@@ -85,11 +85,11 @@ public class a {
             i2 = i4;
             str = str3;
             z = z6;
-            if (bjVar.dtL) {
+            if (bjVar.dtP) {
             }
-            if (bjVar.dtX) {
+            if (bjVar.dub) {
             }
-            a = com.baidu.tieba.s.a.a(bjVar, PageStayDurationConstants.PageName.FRS, "common_click", i, bjVar.doZ, z2, str2, (String) null, i3);
+            a = com.baidu.tieba.s.a.a(bjVar, PageStayDurationConstants.PageName.FRS, "common_click", i, bjVar.dpd, z2, str2, (String) null, i3);
             if (a == null) {
             }
         }
@@ -114,49 +114,49 @@ public class a {
         if (bjVar != null) {
             String str3 = null;
             int i3 = 0;
-            boolean z3 = (bjVar.aKX() == null || bjVar.aKX().user_info == null || bjVar.aKX().user_info.is_official != 2) ? false : true;
-            boolean z4 = z3 && bjVar.aKX().frsLiveStageType == 0;
+            boolean z3 = (bjVar.aKV() == null || bjVar.aKV().user_info == null || bjVar.aKV().user_info.is_official != 2) ? false : true;
+            boolean z4 = z3 && bjVar.aKV().frsLiveStageType == 0;
             if (z4) {
-                str3 = String.valueOf(bjVar.aKX().live_id);
+                str3 = String.valueOf(bjVar.aKV().live_id);
                 i3 = 4;
             }
             if (!z4) {
                 z4 = bjVar.getThreadType() == 41;
                 if (z4) {
-                    if (bjVar.aKk() != null) {
-                        str3 = bjVar.aKk().getTaskId();
+                    if (bjVar.aKi() != null) {
+                        str3 = bjVar.aKi().getTaskId();
                     }
                     boolean z5 = z4;
                     i = 2;
                     str = str3;
                     z = z5;
-                    if (bjVar.dtL) {
+                    if (bjVar.dtP) {
                         z = true;
                         str = bjVar.getId();
                         i = 14;
                     }
-                    if (bjVar.dtX) {
+                    if (bjVar.dub) {
                         z2 = z;
                         i2 = i;
                         str2 = str;
                     } else {
                         z2 = true;
-                        str2 = bjVar.dtY;
+                        str2 = bjVar.duc;
                         i2 = 17;
                     }
-                    a = com.baidu.tieba.s.a.a(bjVar, PageStayDurationConstants.PageName.FRS, "common_exp", bjVar.doZ, z2, str2, (String) null, i2);
+                    a = com.baidu.tieba.s.a.a(bjVar, PageStayDurationConstants.PageName.FRS, "common_exp", bjVar.dpd, z2, str2, (String) null, i2);
                     if (a == null) {
-                        a.af("list_order", c.bUu().a(bVar));
+                        a.af("list_order", c.bUs().a(bVar));
                         a(a, bjVar, tbPageTag);
                         if (z3) {
-                            a.af("obj_isofficial", bjVar.aKX().user_info.is_official);
+                            a.af("obj_isofficial", bjVar.aKV().user_info.is_official);
                         }
-                        if (z3 || bjVar.dtL || bjVar.dtX) {
+                        if (z3 || bjVar.dtP || bjVar.dub) {
                             a.delete("thread_type");
                             a.af("thread_type", bjVar.getThreadType());
                         }
-                        com.baidu.tieba.s.c.cVr().a(bdUniqueId, com.baidu.tieba.s.a.a(bjVar.getTid(), str2, "", bjVar.getBaijiahaoData()), a);
-                        if (bjVar.dtL) {
+                        com.baidu.tieba.s.c.cVo().a(bdUniqueId, com.baidu.tieba.s.a.a(bjVar.getTid(), str2, "", bjVar.getBaijiahaoData()), a);
+                        if (bjVar.dtP) {
                             a(bjVar, bdUniqueId, tbPageTag);
                             return;
                         }
@@ -169,11 +169,11 @@ public class a {
             i = i3;
             str = str3;
             z = z6;
-            if (bjVar.dtL) {
+            if (bjVar.dtP) {
             }
-            if (bjVar.dtX) {
+            if (bjVar.dub) {
             }
-            a = com.baidu.tieba.s.a.a(bjVar, PageStayDurationConstants.PageName.FRS, "common_exp", bjVar.doZ, z2, str2, (String) null, i2);
+            a = com.baidu.tieba.s.a.a(bjVar, PageStayDurationConstants.PageName.FRS, "common_exp", bjVar.dpd, z2, str2, (String) null, i2);
             if (a == null) {
             }
         }
@@ -213,25 +213,25 @@ public class a {
                 }
             }
             b.af("list_order", i2);
-            com.baidu.tieba.s.c.cVr().b(bdUniqueId, b);
+            com.baidu.tieba.s.c.cVo().b(bdUniqueId, b);
         }
     }
 
     public static void a(bj bjVar, TbPageTag tbPageTag) {
         if (bjVar != null) {
-            an cI = new an("common_click").cI("page_type", PageStayDurationConstants.PageName.FRS).af("obj_isad", 1).af("obj_adlocate", 15).cI("obj_id", bjVar.getId()).t("fid", bjVar.getFid()).af("obj_floor", bjVar.doZ).cI("tid", bjVar.getId()).af("thread_type", bjVar.getThreadType()).cI("first_dir", bjVar.aMk()).cI("second_dir", bjVar.aMl());
+            an cI = new an("common_click").cI("page_type", PageStayDurationConstants.PageName.FRS).af("obj_isad", 1).af("obj_adlocate", 15).cI("obj_id", bjVar.getId()).t("fid", bjVar.getFid()).af("obj_floor", bjVar.dpd).cI("tid", bjVar.getId()).af("thread_type", bjVar.getThreadType()).cI("first_dir", bjVar.aMi()).cI("second_dir", bjVar.aMj());
             a(cI, bjVar, tbPageTag);
             TiebaStatic.log(cI);
         }
     }
 
     private static void a(bj bjVar, BdUniqueId bdUniqueId, TbPageTag tbPageTag) {
-        if (bjVar != null && bdUniqueId != null && bjVar.dtL) {
-            boolean z = (bjVar.aKE() == null || bjVar.aKE().getUserId() == null || !bjVar.aKE().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (bjVar.aLQ() && bjVar.getFeedBackReasonMap() != null && !z) {
-                an cI = new an("common_exp").cI("page_type", PageStayDurationConstants.PageName.FRS).af("obj_isad", 1).af("obj_adlocate", 15).cI("obj_id", bjVar.getId()).af("obj_floor", bjVar.doZ).t("fid", bjVar.getFid()).af("thread_type", bjVar.getThreadType()).cI("tid", bjVar.getId()).cI("first_dir", bjVar.aMk()).cI("second_dir", bjVar.aMl());
+        if (bjVar != null && bdUniqueId != null && bjVar.dtP) {
+            boolean z = (bjVar.aKC() == null || bjVar.aKC().getUserId() == null || !bjVar.aKC().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+            if (bjVar.aLO() && bjVar.getFeedBackReasonMap() != null && !z) {
+                an cI = new an("common_exp").cI("page_type", PageStayDurationConstants.PageName.FRS).af("obj_isad", 1).af("obj_adlocate", 15).cI("obj_id", bjVar.getId()).af("obj_floor", bjVar.dpd).t("fid", bjVar.getFid()).af("thread_type", bjVar.getThreadType()).cI("tid", bjVar.getId()).cI("first_dir", bjVar.aMi()).cI("second_dir", bjVar.aMj());
                 a(cI, bjVar, tbPageTag);
-                com.baidu.tieba.s.c.cVr().a(bdUniqueId, com.baidu.tieba.s.a.a(bjVar.getTid(), "", "", bjVar.getBaijiahaoData()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + 15, cI);
+                com.baidu.tieba.s.c.cVo().a(bdUniqueId, com.baidu.tieba.s.a.a(bjVar.getTid(), "", "", bjVar.getBaijiahaoData()) + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + 15, cI);
             }
         }
     }
@@ -249,7 +249,7 @@ public class a {
         if (!aq.isEmpty(bjVar.mRecomAbTag)) {
             anVar.cI("recom_ab_tag", bjVar.mRecomAbTag);
         }
-        anVar.af("recom_type", bjVar.aMD());
+        anVar.af("recom_type", bjVar.aMB());
         com.baidu.tbadk.pageInfo.c.a(anVar, tbPageTag);
     }
 }

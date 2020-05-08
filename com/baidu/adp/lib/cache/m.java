@@ -7,13 +7,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 /* loaded from: classes.dex */
 public class m<T> implements l.c<T> {
-    protected final k<T> IX;
+    protected final k<T> Ja;
     protected final String nameSpace;
     private boolean strictMode = false;
 
     public m(String str, k<T> kVar) {
         this.nameSpace = str;
-        this.IX = kVar;
+        this.Ja = kVar;
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -24,7 +24,7 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.IX.get(this.nameSpace, str);
+        return this.Ja.get(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -35,7 +35,7 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        return this.IX.r(this.nameSpace, str);
+        return this.Ja.r(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -53,7 +53,7 @@ public class m<T> implements l.c<T> {
         if (currentTimeMillis <= System.currentTimeMillis()) {
             remove(str);
         } else {
-            this.IX.set(this.nameSpace, str, t, currentTimeMillis);
+            this.Ja.set(this.nameSpace, str, t, currentTimeMillis);
         }
     }
 
@@ -70,7 +70,7 @@ public class m<T> implements l.c<T> {
             }
             BdLog.detailException("access db in main thread!", new Exception());
         }
-        this.IX.remove(this.nameSpace, str);
+        this.Ja.remove(this.nameSpace, str);
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -119,11 +119,11 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l.c
     public k<T> kf() {
-        return this.IX;
+        return this.Ja;
     }
 
     public void onCacheCreated() {
-        this.IX.startup(this.nameSpace);
+        this.Ja.startup(this.nameSpace);
     }
 
     protected void releaseCacheData() {
@@ -135,7 +135,7 @@ public class m<T> implements l.c<T> {
 
     @Override // com.baidu.adp.lib.cache.l.c
     public void clearAndClose() {
-        this.IX.clearAndClose(this.nameSpace);
+        this.Ja.clearAndClose(this.nameSpace);
         releaseCacheData();
     }
 }

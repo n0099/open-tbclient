@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.R;
 /* loaded from: classes10.dex */
 public class j extends com.baidu.adp.base.c<Object> {
-    private NoNetworkView gAG;
-    private TbPageContext<Object> gNq;
-    private BdListView kOW;
-    private g kOX;
+    private NoNetworkView gAM;
+    private TbPageContext<Object> gNw;
+    private BdListView kPa;
+    private g kPb;
     private NoDataView mNoDataView;
     com.baidu.tbadk.core.view.h mPullView;
     private View mRoot;
@@ -30,22 +30,22 @@ public class j extends com.baidu.adp.base.c<Object> {
 
     public j(TbPageContext<Object> tbPageContext, View view, View.OnKeyListener onKeyListener) {
         super(tbPageContext);
-        this.gNq = null;
-        this.kOW = null;
+        this.gNw = null;
+        this.kPa = null;
         this.mPullView = null;
-        this.kOX = null;
-        this.gNq = tbPageContext;
+        this.kPb = null;
+        this.gNw = tbPageContext;
         this.mRoot = view;
-        this.kOW = (BdListView) this.mRoot.findViewById(R.id.square_list);
-        this.kOW.setOnKeyListener(onKeyListener);
-        if (this.gNq.getOrignalPage() instanceof f) {
-            this.kOW.setOnItemClickListener((f) this.gNq.getOrignalPage());
+        this.kPa = (BdListView) this.mRoot.findViewById(R.id.square_list);
+        this.kPa.setOnKeyListener(onKeyListener);
+        if (this.gNw.getOrignalPage() instanceof f) {
+            this.kPa.setOnItemClickListener((f) this.gNw.getOrignalPage());
         }
-        this.kOX = new g(tbPageContext);
-        this.kOW.setAdapter((ListAdapter) this.kOX);
+        this.kPb = new g(tbPageContext);
+        this.kPa.setAdapter((ListAdapter) this.kPb);
         this.mPullView = new com.baidu.tbadk.core.view.h(tbPageContext);
-        this.kOW.setPullRefresh(this.mPullView);
-        this.gAG = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
+        this.kPa.setPullRefresh(this.mPullView);
+        this.gAM = (NoNetworkView) this.mRoot.findViewById(R.id.view_no_network);
     }
 
     public View getRootView() {
@@ -56,8 +56,8 @@ public class j extends com.baidu.adp.base.c<Object> {
         if (hVar != null) {
             try {
                 if (!hVar.isEmpty()) {
-                    this.kOX.a(hVar);
-                    this.kOX.notifyDataSetChanged();
+                    this.kPb.a(hVar);
+                    this.kPb.notifyDataSetChanged();
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -66,38 +66,38 @@ public class j extends com.baidu.adp.base.c<Object> {
     }
 
     public void completeRefresh() {
-        this.kOW.completePullRefreshPostDelayed(0L);
+        this.kPa.completePullRefreshPostDelayed(0L);
     }
 
     public void z(boolean z, String str) {
         completeRefresh();
         if (!z && str != null) {
-            this.gNq.showToast(str, true);
+            this.gNw.showToast(str, true);
         }
     }
 
-    public void cVm() {
-        this.gAG.setVisibility(0);
+    public void cVj() {
+        this.gAM.setVisibility(0);
     }
 
-    public void cVn() {
-        this.gAG.setVisibility(8);
+    public void cVk() {
+        this.gAM.setVisibility(8);
     }
 
     public void c(NoNetworkView.a aVar) {
-        this.gAG.a(aVar);
+        this.gAM.a(aVar);
     }
 
     public void d(NoNetworkView.a aVar) {
-        this.gAG.b(aVar);
+        this.gAM.b(aVar);
     }
 
     public void onChangeSkinType(int i) {
-        this.gNq.getLayoutMode().setNightMode(i == 1);
-        this.gNq.getLayoutMode().onModeChanged(this.mRoot);
-        this.kOX.onChangeSkinType(i);
+        this.gNw.getLayoutMode().setNightMode(i == 1);
+        this.gNw.getLayoutMode().onModeChanged(this.mRoot);
+        this.kPb.onChangeSkinType(i);
         this.mPullView.changeSkin(i);
-        this.gAG.onChangeSkinType(this.mContext, i);
+        this.gAM.onChangeSkinType(this.mContext, i);
     }
 
     public void setListPullRefreshListener(g.c cVar) {
@@ -107,18 +107,18 @@ public class j extends com.baidu.adp.base.c<Object> {
     public void hideNoDataView() {
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
-            this.kOW.removeHeaderView(this.mNoDataView);
+            this.kPa.removeHeaderView(this.mNoDataView);
         }
     }
 
     public void wU(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.gNq.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds240)), NoDataViewFactory.d.lr(i), null);
+            this.mNoDataView = NoDataViewFactory.a(this.gNw.getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds240)), NoDataViewFactory.d.lr(i), null);
         }
         this.mNoDataView.setTextOption(NoDataViewFactory.d.lr(i));
-        this.mNoDataView.onChangeSkinType(this.gNq, TbadkCoreApplication.getInst().getSkinType());
+        this.mNoDataView.onChangeSkinType(this.gNw, TbadkCoreApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
-        this.kOW.removeHeaderView(this.mNoDataView);
-        this.kOW.addHeaderView(this.mNoDataView);
+        this.kPa.removeHeaderView(this.mNoDataView);
+        this.kPa.addHeaderView(this.mNoDataView);
     }
 }

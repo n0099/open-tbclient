@@ -3,7 +3,7 @@ package com.baidu.live.view.web;
 import android.webkit.JsResult;
 /* loaded from: classes3.dex */
 public interface b {
-    void HK();
+    void HJ();
 
     boolean a(String str, JsResult jsResult);
 

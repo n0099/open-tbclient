@@ -3,6 +3,7 @@ package org.conscrypt;
 import android.support.media.ExifInterface;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.live.adp.lib.util.SecureHelper;
+import com.baidu.sapi2.utils.h;
 import java.security.Provider;
 import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
 /* loaded from: classes7.dex */
@@ -30,9 +31,9 @@ public final class OpenSSLProvider extends Provider {
         put("SSLContext.TLSv1.2", str3);
         put("SSLContext.Default", PREFIX + "DefaultSSLContextImpl");
         put("AlgorithmParameters.AES", PREFIX + "IvParameters$AES");
-        put("Alg.Alias.AlgorithmParameters.2.16.840.1.101.3.4.1.2", "AES");
-        put("Alg.Alias.AlgorithmParameters.2.16.840.1.101.3.4.1.22", "AES");
-        put("Alg.Alias.AlgorithmParameters.2.16.840.1.101.3.4.1.42", "AES");
+        put("Alg.Alias.AlgorithmParameters.2.16.840.1.101.3.4.1.2", h.q);
+        put("Alg.Alias.AlgorithmParameters.2.16.840.1.101.3.4.1.22", h.q);
+        put("Alg.Alias.AlgorithmParameters.2.16.840.1.101.3.4.1.42", h.q);
         put("AlgorithmParameters.ChaCha20", PREFIX + "IvParameters$ChaCha20");
         put("AlgorithmParameters.DESEDE", PREFIX + "IvParameters$DESEDE");
         put("Alg.Alias.AlgorithmParameters.TDEA", "DESEDE");
@@ -213,8 +214,8 @@ public final class OpenSSLProvider extends Provider {
         putSymmetricCipherImplClass(SecureHelper.CIPHER_TRIPLE_AES, "OpenSSLCipher$EVP_CIPHER$AES$ECB$PKCS5Padding");
         put("Alg.Alias.Cipher.AES/ECB/PKCS7Padding", SecureHelper.CIPHER_TRIPLE_AES);
         putSymmetricCipherImplClass("AES/CBC/NoPadding", "OpenSSLCipher$EVP_CIPHER$AES$CBC$NoPadding");
-        putSymmetricCipherImplClass("AES/CBC/PKCS5Padding", "OpenSSLCipher$EVP_CIPHER$AES$CBC$PKCS5Padding");
-        put("Alg.Alias.Cipher.AES/CBC/PKCS7Padding", "AES/CBC/PKCS5Padding");
+        putSymmetricCipherImplClass(h.p, "OpenSSLCipher$EVP_CIPHER$AES$CBC$PKCS5Padding");
+        put("Alg.Alias.Cipher.AES/CBC/PKCS7Padding", h.p);
         putSymmetricCipherImplClass("AES/CTR/NoPadding", "OpenSSLCipher$EVP_CIPHER$AES$CTR");
         putSymmetricCipherImplClass("AES_128/ECB/NoPadding", "OpenSSLCipher$EVP_CIPHER$AES_128$ECB$NoPadding");
         putSymmetricCipherImplClass("AES_128/ECB/PKCS5Padding", "OpenSSLCipher$EVP_CIPHER$AES_128$ECB$PKCS5Padding");

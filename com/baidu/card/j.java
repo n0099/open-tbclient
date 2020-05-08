@@ -6,17 +6,17 @@ import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes8.dex */
 public class j extends b<com.baidu.tbadk.core.data.a> {
-    private com.baidu.tbadk.core.data.a ada;
-    private CardForumHeadLayout ado;
+    private com.baidu.tbadk.core.data.a ade;
+    private CardForumHeadLayout adr;
 
     public j(Context context) {
         super(context);
-        this.ado = new CardForumHeadLayout(context);
-        this.ado.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.j.1
+        this.adr = new CardForumHeadLayout(context);
+        this.adr.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (j.this.rl() != null) {
-                    j.this.rl().a(view, j.this.ada);
+                    j.this.rl().a(view, j.this.ade);
                 }
             }
         });
@@ -25,23 +25,23 @@ public class j extends b<com.baidu.tbadk.core.data.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.ado;
+        return this.adr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.m
     /* renamed from: b */
-    public void A(com.baidu.tbadk.core.data.a aVar) {
-        if (this.ado != null && aVar != null) {
-            this.ada = aVar;
-            this.ado.setData(aVar.aIw());
+    public void B(com.baidu.tbadk.core.data.a aVar) {
+        if (this.adr != null && aVar != null) {
+            this.ade = aVar;
+            this.adr.setData(aVar.aIu());
         }
     }
 
     @Override // com.baidu.card.n
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.ado != null) {
-            this.ado.onChangeSkinType();
+        if (this.adr != null) {
+            this.adr.onChangeSkinType();
         }
     }
 }

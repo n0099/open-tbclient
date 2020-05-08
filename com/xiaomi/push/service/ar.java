@@ -1,44 +1,28 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import com.xiaomi.push.Cif;
-import com.xiaomi.push.ef;
-import com.xiaomi.push.ek;
-import com.xiaomi.push.eo;
-import com.xiaomi.push.he;
-import com.xiaomi.push.hg;
-import com.xiaomi.push.hq;
-import com.xiaomi.push.iq;
-import java.util.HashMap;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.ap;
 /* loaded from: classes8.dex */
-public class ar implements eo {
-    @Override // com.xiaomi.push.eo
-    public void a(Context context, HashMap<String, String> hashMap) {
-        Cif cif = new Cif();
-        cif.b(ek.a(context).m261a());
-        cif.d(ek.a(context).b());
-        cif.c(hq.AwakeAppResponse.f490a);
-        cif.a(aj.a());
-        cif.f630a = hashMap;
-        byte[] a = iq.a(w.a(cif.c(), cif.b(), cif, hg.Notification));
-        if (!(context instanceof XMPushService)) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("MoleInfo : context is not correct in pushLayer " + cif.a());
-            return;
-        }
-        com.xiaomi.channel.commonutils.logger.b.m50a("MoleInfo : send data directly in pushLayer " + cif.a());
-        ((XMPushService) context).a(context.getPackageName(), a, true);
+class ar extends XMPushService.i {
+    final /* synthetic */ ap.b.c a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ar(ap.b.c cVar, int i) {
+        super(i);
+        this.a = cVar;
     }
 
-    @Override // com.xiaomi.push.eo
-    public void b(Context context, HashMap<String, String> hashMap) {
-        he a = he.a(context);
-        if (a != null) {
-            a.a("category_awake_app", "wake_up_app", 1L, ef.a(hashMap));
-        }
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String a() {
+        return "clear peer job";
     }
 
-    @Override // com.xiaomi.push.eo
-    public void c(Context context, HashMap<String, String> hashMap) {
-        com.xiaomi.channel.commonutils.logger.b.m50a("MoleInfo：\u3000" + ef.b(hashMap));
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        if (this.a.a == this.a.f865a.f852a) {
+            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f865a.g);
+            this.a.f865a.f852a = null;
+        }
     }
 }

@@ -43,10 +43,10 @@ public final class b implements Runnable {
             com.baidu.browser.sailor.webkit.update.a ri = com.baidu.browser.sailor.webkit.update.a.ri();
             Context appContext = this.a.getAppContext();
             if (com.baidu.browser.sailor.util.b.a(appContext)) {
-                a.C0070a c0070a = new a.C0070a(appContext, "https://mbrowser.baidu.com/api/update/kernel?version=");
+                a.C0091a c0091a = new a.C0091a(appContext, "https://mbrowser.baidu.com/api/update/kernel?version=");
                 BdNet bdNet = new BdNet(appContext);
-                bdNet.setEventListener(c0070a);
-                bdNet.start(c0070a, false);
+                bdNet.setEventListener(c0091a);
+                bdNet.start(c0091a, false);
             }
         }
     }

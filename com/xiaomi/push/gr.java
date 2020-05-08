@@ -1,205 +1,374 @@
 package com.xiaomi.push;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.baidu.ar.constants.HttpConstants;
-import java.io.UnsupportedEncodingException;
+import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.xiaomi.push.gh;
+import com.xiaomi.push.gl;
+import com.xiaomi.push.gn;
+import com.xiaomi.push.service.ap;
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes8.dex */
 public class gr {
+    private static XmlPullParser a = null;
 
-    /* renamed from: a  reason: collision with other field name */
-    private static al f422a = new al(true);
-    private static volatile int a = -1;
-
-    /* renamed from: a  reason: collision with other field name */
-    private static long f421a = System.currentTimeMillis();
-
-    /* renamed from: a  reason: collision with other field name */
-    private static final Object f424a = new Object();
-
-    /* renamed from: a  reason: collision with other field name */
-    private static List<a> f426a = Collections.synchronizedList(new ArrayList());
-
-    /* renamed from: a  reason: collision with other field name */
-    private static String f425a = "";
-
-    /* renamed from: a  reason: collision with other field name */
-    private static com.xiaomi.push.providers.a f423a = null;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
-    public static class a {
-        public int a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public long f427a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public String f428a;
-        public int b;
-
-        /* renamed from: b  reason: collision with other field name */
-        public long f429b;
-
-        /* renamed from: b  reason: collision with other field name */
-        public String f430b;
-
-        public a(String str, long j, int i, int i2, String str2, long j2) {
-            this.f428a = "";
-            this.f427a = 0L;
-            this.a = -1;
-            this.b = -1;
-            this.f430b = "";
-            this.f429b = 0L;
-            this.f428a = str;
-            this.f427a = j;
-            this.a = i;
-            this.b = i2;
-            this.f430b = str2;
-            this.f429b = j2;
+    public static gg a(String str, String str2, XmlPullParser xmlPullParser) {
+        Object m317a = gq.a().m317a(SchemeCollecter.CLASSIFY_ALL, "xm:chat");
+        if (m317a == null || !(m317a instanceof com.xiaomi.push.service.e)) {
+            return null;
         }
-
-        public boolean a(a aVar) {
-            return TextUtils.equals(aVar.f428a, this.f428a) && TextUtils.equals(aVar.f430b, this.f430b) && aVar.a == this.a && aVar.b == this.b && Math.abs(aVar.f427a - this.f427a) <= 5000;
-        }
+        return ((com.xiaomi.push.service.e) m317a).b(xmlPullParser);
     }
 
-    public static int a(Context context) {
-        if (a == -1) {
-            a = b(context);
+    public static gh a(XmlPullParser xmlPullParser, fs fsVar) {
+        String attributeValue = xmlPullParser.getAttributeValue("", "id");
+        String attributeValue2 = xmlPullParser.getAttributeValue("", "to");
+        String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
+        String attributeValue4 = xmlPullParser.getAttributeValue("", "chid");
+        gh.a a2 = gh.a.a(xmlPullParser.getAttributeValue("", "type"));
+        HashMap hashMap = new HashMap();
+        for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+            String attributeName = xmlPullParser.getAttributeName(i);
+            hashMap.put(attributeName, xmlPullParser.getAttributeValue("", attributeName));
         }
-        return a;
-    }
-
-    public static int a(String str) {
-        try {
-            return str.getBytes("UTF-8").length;
-        } catch (UnsupportedEncodingException e) {
-            return str.getBytes().length;
-        }
-    }
-
-    private static long a(int i, long j, boolean z, long j2, boolean z2) {
-        if (z && z2) {
-            long j3 = f421a;
-            f421a = j2;
-            if (j2 - j3 > 30000 && j > 1024) {
-                return 2 * j;
-            }
-        }
-        return ((i == 0 ? 13 : 11) * j) / 10;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    private static com.xiaomi.push.providers.a m319a(Context context) {
-        if (f423a != null) {
-            return f423a;
-        }
-        f423a = new com.xiaomi.push.providers.a(context);
-        return f423a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    private static synchronized String m320a(Context context) {
-        String str;
-        synchronized (gr.class) {
-            str = !TextUtils.isEmpty(f425a) ? f425a : "";
-        }
-        return str;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static void m322a(Context context) {
-        a = b(context);
-    }
-
-    private static void a(Context context, String str, long j, boolean z, long j2) {
-        int a2;
-        boolean isEmpty;
-        if (context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
-            return;
-        }
-        synchronized (f424a) {
-            isEmpty = f426a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m320a(context) : "", j));
-        }
-        if (isEmpty) {
-            f422a.a(new gs(context), 5000L);
-        }
-    }
-
-    public static void a(Context context, String str, long j, boolean z, boolean z2, long j2) {
-        a(context, str, a(a(context), j, z, j2, z2), z, j2);
-    }
-
-    private static void a(a aVar) {
-        for (a aVar2 : f426a) {
-            if (aVar2.a(aVar)) {
-                aVar2.f429b += aVar.f429b;
-                return;
-            }
-        }
-        f426a.add(aVar);
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m323a(String str) {
-        synchronized (gr.class) {
-            if (!l.d() && !TextUtils.isEmpty(str)) {
-                f425a = str;
-            }
-        }
-    }
-
-    private static int b(Context context) {
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null) {
-                return -1;
-            }
-            try {
-                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-                if (activeNetworkInfo == null) {
-                    return -1;
+        boolean z = false;
+        gn gnVar = null;
+        gh ghVar = null;
+        while (!z) {
+            int next = xmlPullParser.next();
+            if (next == 2) {
+                String name = xmlPullParser.getName();
+                String namespace = xmlPullParser.getNamespace();
+                if (name.equals(BdStatsConstant.StatsType.ERROR)) {
+                    gnVar = m321a(xmlPullParser);
+                } else {
+                    ghVar = new gh();
+                    ghVar.a(a(name, namespace, xmlPullParser));
                 }
-                return activeNetworkInfo.getType();
-            } catch (Exception e) {
-                return -1;
+            } else if (next == 3 && xmlPullParser.getName().equals("iq")) {
+                z = true;
+            }
+            gnVar = gnVar;
+            ghVar = ghVar;
+            z = z;
+        }
+        if (ghVar == null) {
+            if (gh.a.a == a2 || gh.a.b == a2) {
+                gs gsVar = new gs();
+                gsVar.k(attributeValue);
+                gsVar.m(attributeValue3);
+                gsVar.n(attributeValue2);
+                gsVar.a(gh.a.d);
+                gsVar.l(attributeValue4);
+                gsVar.a(new gn(gn.a.e));
+                fsVar.a(gsVar);
+                com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
+                return null;
+            }
+            ghVar = new gt();
+        }
+        ghVar.k(attributeValue);
+        ghVar.m(attributeValue2);
+        ghVar.l(attributeValue4);
+        ghVar.n(attributeValue3);
+        ghVar.a(a2);
+        ghVar.a(gnVar);
+        ghVar.a(hashMap);
+        return ghVar;
+    }
+
+    public static gj a(XmlPullParser xmlPullParser) {
+        String str;
+        if ("1".equals(xmlPullParser.getAttributeValue("", "s"))) {
+            String attributeValue = xmlPullParser.getAttributeValue("", "chid");
+            String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
+            String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
+            String attributeValue4 = xmlPullParser.getAttributeValue("", "to");
+            String attributeValue5 = xmlPullParser.getAttributeValue("", "type");
+            ap.b a2 = com.xiaomi.push.service.ap.a().a(attributeValue, attributeValue4);
+            ap.b a3 = a2 == null ? com.xiaomi.push.service.ap.a().a(attributeValue, attributeValue3) : a2;
+            if (a3 == null) {
+                throw new gd("the channel id is wrong while receiving a encrypted message");
+            }
+            boolean z = false;
+            gj gjVar = null;
+            while (!z) {
+                int next = xmlPullParser.next();
+                if (next == 2) {
+                    if (!"s".equals(xmlPullParser.getName())) {
+                        throw new gd("error while receiving a encrypted message with wrong format");
+                    }
+                    if (xmlPullParser.next() != 4) {
+                        throw new gd("error while receiving a encrypted message with wrong format");
+                    }
+                    String text = xmlPullParser.getText();
+                    if ("5".equals(attributeValue) || "6".equals(attributeValue)) {
+                        gi giVar = new gi();
+                        giVar.l(attributeValue);
+                        giVar.b(true);
+                        giVar.n(attributeValue3);
+                        giVar.m(attributeValue4);
+                        giVar.k(attributeValue2);
+                        giVar.f(attributeValue5);
+                        gg ggVar = new gg("s", null, null, null);
+                        ggVar.m309a(text);
+                        giVar.a(ggVar);
+                        return giVar;
+                    }
+                    a(com.xiaomi.push.service.ay.a(com.xiaomi.push.service.ay.a(a3.h, attributeValue2), text));
+                    a.next();
+                    gjVar = a(a);
+                } else if (next == 3 && xmlPullParser.getName().equals("message")) {
+                    z = true;
+                }
+            }
+            if (gjVar == null) {
+                throw new gd("error while receiving a encrypted message with wrong format");
+            }
+            return gjVar;
+        }
+        gi giVar2 = new gi();
+        String attributeValue6 = xmlPullParser.getAttributeValue("", "id");
+        if (attributeValue6 == null) {
+            attributeValue6 = "ID_NOT_AVAILABLE";
+        }
+        giVar2.k(attributeValue6);
+        giVar2.m(xmlPullParser.getAttributeValue("", "to"));
+        giVar2.n(xmlPullParser.getAttributeValue("", "from"));
+        giVar2.l(xmlPullParser.getAttributeValue("", "chid"));
+        giVar2.a(xmlPullParser.getAttributeValue("", "appid"));
+        try {
+            str = xmlPullParser.getAttributeValue("", "transient");
+        } catch (Exception e) {
+            str = null;
+        }
+        try {
+            String attributeValue7 = xmlPullParser.getAttributeValue("", "seq");
+            if (!TextUtils.isEmpty(attributeValue7)) {
+                giVar2.b(attributeValue7);
             }
         } catch (Exception e2) {
-            return -1;
+        }
+        try {
+            String attributeValue8 = xmlPullParser.getAttributeValue("", "mseq");
+            if (!TextUtils.isEmpty(attributeValue8)) {
+                giVar2.c(attributeValue8);
+            }
+        } catch (Exception e3) {
+        }
+        try {
+            String attributeValue9 = xmlPullParser.getAttributeValue("", "fseq");
+            if (!TextUtils.isEmpty(attributeValue9)) {
+                giVar2.d(attributeValue9);
+            }
+        } catch (Exception e4) {
+        }
+        try {
+            String attributeValue10 = xmlPullParser.getAttributeValue("", "status");
+            if (!TextUtils.isEmpty(attributeValue10)) {
+                giVar2.e(attributeValue10);
+            }
+        } catch (Exception e5) {
+        }
+        giVar2.a(!TextUtils.isEmpty(str) && str.equalsIgnoreCase("true"));
+        giVar2.f(xmlPullParser.getAttributeValue("", "type"));
+        String b = b(xmlPullParser);
+        if (b == null || "".equals(b.trim())) {
+            gj.q();
+        } else {
+            giVar2.j(b);
+        }
+        String str2 = null;
+        boolean z2 = false;
+        while (!z2) {
+            int next2 = xmlPullParser.next();
+            if (next2 == 2) {
+                String name = xmlPullParser.getName();
+                String namespace = xmlPullParser.getNamespace();
+                if (TextUtils.isEmpty(namespace)) {
+                    namespace = "xm";
+                }
+                if (name.equals("subject")) {
+                    if (b(xmlPullParser) == null) {
+                    }
+                    giVar2.g(m322a(xmlPullParser));
+                } else if (name.equals("body")) {
+                    String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
+                    String m322a = m322a(xmlPullParser);
+                    if (TextUtils.isEmpty(attributeValue11)) {
+                        giVar2.h(m322a);
+                    } else {
+                        giVar2.a(m322a, attributeValue11);
+                    }
+                } else if (name.equals("thread")) {
+                    if (str2 == null) {
+                        str2 = xmlPullParser.nextText();
+                    }
+                } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
+                    giVar2.a(m321a(xmlPullParser));
+                } else {
+                    giVar2.a(a(name, namespace, xmlPullParser));
+                }
+            } else if (next2 == 3 && xmlPullParser.getName().equals("message")) {
+                z2 = true;
+            }
+        }
+        giVar2.i(str2);
+        return giVar2;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static gl m319a(XmlPullParser xmlPullParser) {
+        gl.b bVar = gl.b.available;
+        String attributeValue = xmlPullParser.getAttributeValue("", "type");
+        if (attributeValue != null && !attributeValue.equals("")) {
+            try {
+                bVar = gl.b.valueOf(attributeValue);
+            } catch (IllegalArgumentException e) {
+                System.err.println("Found invalid presence type " + attributeValue);
+            }
+        }
+        gl glVar = new gl(bVar);
+        glVar.m(xmlPullParser.getAttributeValue("", "to"));
+        glVar.n(xmlPullParser.getAttributeValue("", "from"));
+        glVar.l(xmlPullParser.getAttributeValue("", "chid"));
+        String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
+        if (attributeValue2 == null) {
+            attributeValue2 = "ID_NOT_AVAILABLE";
+        }
+        glVar.k(attributeValue2);
+        boolean z = false;
+        while (!z) {
+            int next = xmlPullParser.next();
+            if (next == 2) {
+                String name = xmlPullParser.getName();
+                String namespace = xmlPullParser.getNamespace();
+                if (name.equals("status")) {
+                    glVar.a(xmlPullParser.nextText());
+                } else if (name.equals("priority")) {
+                    try {
+                        glVar.a(Integer.parseInt(xmlPullParser.nextText()));
+                    } catch (NumberFormatException e2) {
+                    } catch (IllegalArgumentException e3) {
+                        glVar.a(0);
+                    }
+                } else if (name.equals("show")) {
+                    String nextText = xmlPullParser.nextText();
+                    try {
+                        glVar.a(gl.a.valueOf(nextText));
+                    } catch (IllegalArgumentException e4) {
+                        System.err.println("Found invalid presence mode " + nextText);
+                    }
+                } else if (name.equals(BdStatsConstant.StatsType.ERROR)) {
+                    glVar.a(m321a(xmlPullParser));
+                } else {
+                    glVar.a(a(name, namespace, xmlPullParser));
+                }
+            } else if (next == 3 && xmlPullParser.getName().equals("presence")) {
+                z = true;
+            }
+        }
+        return glVar;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static gm m320a(XmlPullParser xmlPullParser) {
+        gm gmVar = null;
+        boolean z = false;
+        while (!z) {
+            int next = xmlPullParser.next();
+            if (next == 2) {
+                gmVar = new gm(xmlPullParser.getName());
+            } else if (next == 3 && xmlPullParser.getName().equals(BdStatsConstant.StatsType.ERROR)) {
+                z = true;
+            }
+        }
+        return gmVar;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static gn m321a(XmlPullParser xmlPullParser) {
+        ArrayList arrayList = new ArrayList();
+        String str = null;
+        String str2 = null;
+        String str3 = "-1";
+        int i = 0;
+        while (i < xmlPullParser.getAttributeCount()) {
+            String attributeValue = xmlPullParser.getAttributeName(i).equals("code") ? xmlPullParser.getAttributeValue("", "code") : str3;
+            String attributeValue2 = xmlPullParser.getAttributeName(i).equals("type") ? xmlPullParser.getAttributeValue("", "type") : str2;
+            if (xmlPullParser.getAttributeName(i).equals(TiebaInitialize.LogFields.REASON)) {
+                str = xmlPullParser.getAttributeValue("", TiebaInitialize.LogFields.REASON);
+            }
+            i++;
+            str2 = attributeValue2;
+            str3 = attributeValue;
+        }
+        boolean z = false;
+        String str4 = null;
+        String str5 = null;
+        while (!z) {
+            int next = xmlPullParser.next();
+            if (next == 2) {
+                if (xmlPullParser.getName().equals("text")) {
+                    str5 = xmlPullParser.nextText();
+                } else {
+                    String name = xmlPullParser.getName();
+                    String namespace = xmlPullParser.getNamespace();
+                    if ("urn:ietf:params:xml:ns:xmpp-stanzas".equals(namespace)) {
+                        str4 = name;
+                    } else {
+                        arrayList.add(a(name, namespace, xmlPullParser));
+                    }
+                }
+            } else if (next == 3) {
+                if (xmlPullParser.getName().equals(BdStatsConstant.StatsType.ERROR)) {
+                    z = true;
+                }
+            } else if (next == 4) {
+                str5 = xmlPullParser.getText();
+            }
+        }
+        return new gn(Integer.parseInt(str3), str2 == null ? "cancel" : str2, str, str4, str5, arrayList);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private static String m322a(XmlPullParser xmlPullParser) {
+        String str = "";
+        int depth = xmlPullParser.getDepth();
+        while (true) {
+            if (xmlPullParser.next() == 3 && xmlPullParser.getDepth() == depth) {
+                return str;
+            }
+            str = str + xmlPullParser.getText();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, List<a> list) {
-        try {
-            synchronized (com.xiaomi.push.providers.a.f805a) {
-                SQLiteDatabase writableDatabase = m319a(context).getWritableDatabase();
-                writableDatabase.beginTransaction();
-                for (a aVar : list) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("package_name", aVar.f428a);
-                    contentValues.put("message_ts", Long.valueOf(aVar.f427a));
-                    contentValues.put(HttpConstants.NETWORK_TYPE, Integer.valueOf(aVar.a));
-                    contentValues.put("bytes", Long.valueOf(aVar.f429b));
-                    contentValues.put("rcv", Integer.valueOf(aVar.b));
-                    contentValues.put("imsi", aVar.f430b);
-                    writableDatabase.insert("traffic", null, contentValues);
-                }
-                writableDatabase.setTransactionSuccessful();
-                writableDatabase.endTransaction();
+    private static void a(byte[] bArr) {
+        if (a == null) {
+            try {
+                a = XmlPullParserFactory.newInstance().newPullParser();
+                a.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
+            } catch (XmlPullParserException e) {
+                e.printStackTrace();
             }
-        } catch (SQLiteException e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
         }
+        a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));
+    }
+
+    private static String b(XmlPullParser xmlPullParser) {
+        for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+            String attributeName = xmlPullParser.getAttributeName(i);
+            if ("xml:lang".equals(attributeName) || ("lang".equals(attributeName) && "xml".equals(xmlPullParser.getAttributePrefix(i)))) {
+                return xmlPullParser.getAttributeValue(i);
+            }
+        }
+        return null;
     }
 }

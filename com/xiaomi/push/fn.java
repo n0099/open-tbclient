@@ -1,80 +1,105 @@
 package com.xiaomi.push;
 
-import java.util.Map;
+import android.os.Build;
+import com.xiaomi.push.ek;
+import java.io.BufferedOutputStream;
+import java.io.OutputStream;
+import java.nio.ByteBuffer;
+import java.util.Locale;
+import java.util.TimeZone;
+import java.util.zip.Adler32;
 /* loaded from: classes8.dex */
-public class fn implements Cloneable {
-    public static String a = "wcc-ml-test10.bj";
-    public static final String b = ae.a;
-    public static String c = null;
+public class fn {
+    private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f387a;
+    private fq f348a;
 
     /* renamed from: a  reason: collision with other field name */
-    private fq f388a;
+    private OutputStream f349a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f389a = fm.f372a;
+    private byte[] f352a;
+    private int b;
+
+    /* renamed from: a  reason: collision with other field name */
+    ByteBuffer f350a = ByteBuffer.allocate(2048);
 
     /* renamed from: b  reason: collision with other field name */
-    private boolean f390b = true;
-    private String d;
-    private String e;
-    private String f;
+    private ByteBuffer f353b = ByteBuffer.allocate(4);
 
-    public fn(Map<String, Integer> map, int i, String str, fq fqVar) {
-        a(map, i, str, fqVar);
+    /* renamed from: a  reason: collision with other field name */
+    private Adler32 f351a = new Adler32();
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public fn(OutputStream outputStream, fq fqVar) {
+        this.f349a = new BufferedOutputStream(outputStream);
+        this.f348a = fqVar;
+        TimeZone timeZone = TimeZone.getDefault();
+        this.a = timeZone.getRawOffset() / 3600000;
+        this.b = timeZone.useDaylightTime() ? 1 : 0;
     }
 
-    public static final String a() {
-        return c != null ? c : ab.m127a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
-    }
-
-    public static final void a(String str) {
-        c = str;
-    }
-
-    private void a(Map<String, Integer> map, int i, String str, fq fqVar) {
-        this.f387a = i;
-        this.d = str;
-        this.f388a = fqVar;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public int mo293a() {
-        return this.f387a;
-    }
-
-    public void a(boolean z) {
-        this.f389a = z;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m294a() {
-        return this.f389a;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public byte[] m295a() {
-        return null;
-    }
-
-    public String b() {
-        return this.f;
-    }
-
-    public void b(String str) {
-        this.f = str;
-    }
-
-    public String c() {
-        if (this.e == null) {
-            this.e = a();
+    public int a(fl flVar) {
+        int c = flVar.c();
+        if (c > 32768) {
+            com.xiaomi.channel.commonutils.logger.b.m50a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + flVar.a() + " id=" + flVar.e());
+            return 0;
         }
-        return this.e;
+        this.f350a.clear();
+        if (c + 8 + 4 > this.f350a.capacity() || this.f350a.capacity() > 4096) {
+            this.f350a = ByteBuffer.allocate(c + 8 + 4);
+        }
+        this.f350a.putShort((short) -15618);
+        this.f350a.putShort((short) 5);
+        this.f350a.putInt(c);
+        int position = this.f350a.position();
+        this.f350a = flVar.mo277a(this.f350a);
+        if (!"CONN".equals(flVar.m276a())) {
+            if (this.f352a == null) {
+                this.f352a = this.f348a.a();
+            }
+            com.xiaomi.push.service.ay.a(this.f352a, this.f350a.array(), true, position, c);
+        }
+        this.f351a.reset();
+        this.f351a.update(this.f350a.array(), 0, this.f350a.position());
+        this.f353b.putInt(0, (int) this.f351a.getValue());
+        this.f349a.write(this.f350a.array(), 0, this.f350a.position());
+        this.f349a.write(this.f353b.array(), 0, 4);
+        this.f349a.flush();
+        int position2 = this.f350a.position() + 4;
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + flVar.m276a() + ";chid=" + flVar.a() + ";len=" + position2 + "}");
+        return position2;
     }
 
-    public void c(String str) {
-        this.e = str;
+    public void a() {
+        ek.e eVar = new ek.e();
+        eVar.a(106);
+        eVar.a(Build.MODEL);
+        eVar.b(t.m580a());
+        eVar.c(com.xiaomi.push.service.be.m555a());
+        eVar.b(39);
+        eVar.d(this.f348a.b());
+        eVar.e(this.f348a.a());
+        eVar.f(Locale.getDefault().toString());
+        eVar.c(Build.VERSION.SDK_INT);
+        byte[] m299a = this.f348a.a().m299a();
+        if (m299a != null) {
+            eVar.a(ek.b.a(m299a));
+        }
+        fl flVar = new fl();
+        flVar.a(0);
+        flVar.a("CONN", (String) null);
+        flVar.a(0L, "xiaomi.com", null);
+        flVar.a(eVar.a(), (String) null);
+        a(flVar);
+        com.xiaomi.channel.commonutils.logger.b.m50a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=39 hash=" + com.xiaomi.push.service.be.m555a() + " tz=" + this.a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+    }
+
+    public void b() {
+        fl flVar = new fl();
+        flVar.a("CLOSE", (String) null);
+        a(flVar);
+        this.f349a.close();
     }
 }

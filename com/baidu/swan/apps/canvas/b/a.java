@@ -6,11 +6,11 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.swan.apps.component.b.b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public boolean bFO;
+    public boolean bFT;
 
     public a(String str) {
         super("canvas", "canvasId");
-        this.bFO = false;
+        this.bFT = false;
         try {
             parseFromJson(new JSONObject(str));
         } catch (JSONException e) {
@@ -22,12 +22,12 @@ public class a extends com.baidu.swan.apps.component.b.b {
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
         this.hidden = TextUtils.equals(jSONObject.optString("hide"), "1") || jSONObject.optBoolean("hide");
-        this.bFO = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
-        this.bGL = TextUtils.equals(jSONObject.optString("gesture"), "0") ? false : true;
+        this.bFT = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
+        this.bGQ = TextUtils.equals(jSONObject.optString("gesture"), "0") ? false : true;
     }
 
     @Override // com.baidu.swan.apps.component.b.b, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.bGI) || TextUtils.isEmpty(this.bGJ)) ? false : true;
+        return (TextUtils.isEmpty(this.bGN) || TextUtils.isEmpty(this.bGO)) ? false : true;
     }
 }

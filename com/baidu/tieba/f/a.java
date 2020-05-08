@@ -5,11 +5,11 @@ import android.os.Message;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class a {
-    private float aSg;
-    private float aSh;
-    private float aSi;
-    private float aSj;
-    private InterfaceC0536a gxd;
+    private float aSl;
+    private float aSm;
+    private float aSn;
+    private float aSo;
+    private InterfaceC0557a gxj;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.f.a.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -17,16 +17,16 @@ public class a {
             int i2 = message.arg2;
             switch (message.what) {
                 case 0:
-                    a.this.gxd.y(i, i2);
+                    a.this.gxj.y(i, i2);
                     return true;
                 case 1:
-                    a.this.gxd.z(i, i2);
+                    a.this.gxj.z(i, i2);
                     return true;
                 case 2:
-                    a.this.gxd.bG(i, i2);
+                    a.this.gxj.bG(i, i2);
                     return true;
                 case 3:
-                    a.this.gxd.A(i, i2);
+                    a.this.gxj.A(i, i2);
                     return true;
                 default:
                     return false;
@@ -37,7 +37,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0536a {
+    public interface InterfaceC0557a {
         void A(int i, int i2);
 
         void bG(int i, int i2);
@@ -47,52 +47,52 @@ public class a {
         void z(int i, int i2);
     }
 
-    public void a(InterfaceC0536a interfaceC0536a) {
-        this.gxd = interfaceC0536a;
+    public void a(InterfaceC0557a interfaceC0557a) {
+        this.gxj = interfaceC0557a;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.aSi = motionEvent.getRawX();
-                this.aSj = motionEvent.getRawY();
-                this.aSg = this.aSi;
-                this.aSh = this.aSj;
+                this.aSn = motionEvent.getRawX();
+                this.aSo = motionEvent.getRawY();
+                this.aSl = this.aSn;
+                this.aSm = this.aSo;
                 return true;
             case 1:
             case 3:
-                if (this.gxd != null) {
-                    int i = (int) (this.aSg - this.aSi);
-                    int i2 = (int) (this.aSh - this.aSj);
+                if (this.gxj != null) {
+                    int i = (int) (this.aSl - this.aSn);
+                    int i2 = (int) (this.aSm - this.aSo);
                     if (Math.abs(i) >= Math.abs(i2)) {
-                        x(i, (int) this.aSi);
+                        x(i, (int) this.aSn);
                     } else {
                         bF(i, i2);
                     }
                 }
-                this.aSi = 0.0f;
-                this.aSj = 0.0f;
+                this.aSn = 0.0f;
+                this.aSo = 0.0f;
                 return true;
             case 2:
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (this.aSi == 0.0f || this.aSj == 0.0f) {
-                    this.aSi = motionEvent.getRawX();
-                    this.aSj = motionEvent.getRawY();
-                    this.aSg = this.aSi;
-                    this.aSh = this.aSj;
+                if (this.aSn == 0.0f || this.aSo == 0.0f) {
+                    this.aSn = motionEvent.getRawX();
+                    this.aSo = motionEvent.getRawY();
+                    this.aSl = this.aSn;
+                    this.aSm = this.aSo;
                 }
-                int i3 = (int) (rawY - this.aSh);
-                int i4 = (int) (rawY - this.aSj);
-                if (this.gxd != null) {
+                int i3 = (int) (rawY - this.aSm);
+                int i4 = (int) (rawY - this.aSo);
+                if (this.gxj != null) {
                     if (i3 > 0) {
                         w(i4, i3);
                     } else {
                         v(i4, i3);
                     }
                 }
-                this.aSg = rawX;
-                this.aSh = rawY;
+                this.aSl = rawX;
+                this.aSm = rawY;
                 return true;
             default:
                 return true;

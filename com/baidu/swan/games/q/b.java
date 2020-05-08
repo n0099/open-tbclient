@@ -14,29 +14,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b extends a {
-    private com.baidu.swan.games.e.b cPO;
+    private com.baidu.swan.games.e.b cPT;
 
     public b(@NonNull com.baidu.swan.games.e.b bVar) {
-        this.cPO = bVar;
+        this.cPT = bVar;
     }
 
     @JavascriptInterface
     public void checkIsUserAdvisedToRest(JsObject jsObject) {
         final com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
-        if (c != null && this.cPO != null) {
+        if (c != null && this.cPT != null) {
             final com.baidu.swan.games.q.a.c cVar = new com.baidu.swan.games.q.a.c();
             try {
                 int i = c.getInt("todayPlayedTime");
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.akP());
+                    jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.akO());
                     jSONObject.put("todayPlayedTime", String.valueOf(i));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
                     }
                 }
-                b(com.baidu.swan.apps.w.a.aca().PU(), jSONObject.toString(), new ResponseCallback<com.baidu.swan.games.q.a.a>() { // from class: com.baidu.swan.games.q.b.1
+                b(com.baidu.swan.apps.w.a.abZ().PT(), jSONObject.toString(), new ResponseCallback<com.baidu.swan.games.q.a.a>() { // from class: com.baidu.swan.games.q.b.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.searchbox.http.callback.ResponseCallback
                     /* renamed from: d */
@@ -74,7 +74,7 @@ public class b extends a {
                         if (a.DEBUG) {
                             Log.d("CheckIsUserAdvisedToRestApi", "on success");
                         }
-                        b.this.cPO.p(new Runnable() { // from class: com.baidu.swan.games.q.b.1.1
+                        b.this.cPT.p(new Runnable() { // from class: com.baidu.swan.games.q.b.1.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(c, true, aVar);
@@ -91,7 +91,7 @@ public class b extends a {
                             cVar.errNo = "100";
                             cVar.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
                         }
-                        b.this.cPO.p(new Runnable() { // from class: com.baidu.swan.games.q.b.1.2
+                        b.this.cPT.p(new Runnable() { // from class: com.baidu.swan.games.q.b.1.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 com.baidu.swan.games.utils.b.a(c, false, cVar);

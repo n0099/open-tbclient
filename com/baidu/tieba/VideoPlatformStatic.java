@@ -26,22 +26,22 @@ import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener exW = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener eyb = new CustomMessageListener(CmdConfigCustom.MAINTAB_ONCREATE_END) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.u.e.daf().dab();
-            com.baidu.tieba.u.b.daa().dab();
+            com.baidu.tieba.u.e.dac().cZY();
+            com.baidu.tieba.u.b.cZX().cZY();
         }
     };
 
     static {
-        bfJ();
-        MessageManager.getInstance().registerListener(exW);
-        bfK();
+        bfH();
+        MessageManager.getInstance().registerListener(eyb);
+        bfI();
     }
 
-    private static void bfJ() {
+    private static void bfH() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, new CustomMessageTask.CustomRunnable<l>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -53,7 +53,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void bfK() {
+    private static void bfI() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003388, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -74,7 +74,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int xY(String str) {
+    public static int yb(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -169,7 +169,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String xZ(String str) {
+    public static String yc(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -197,7 +197,7 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject bfL() {
+    public static JSONObject bfJ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());

@@ -2,26 +2,30 @@ package com.baidu.android.pushservice;
 
 import android.app.Service;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Process;
-import com.baidu.android.pushservice.i.l;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.m;
 /* loaded from: classes8.dex */
 public class PushService extends Service {
-    private SDcardRemovedReceiver c;
     private boolean a = false;
     private Handler b = new Handler();
-    private boolean d = false;
-    private final Runnable e = new Runnable() { // from class: com.baidu.android.pushservice.PushService.1
+    private boolean c = false;
+    private final Runnable d = new Runnable() { // from class: com.baidu.android.pushservice.PushService.1
         @Override // java.lang.Runnable
         public void run() {
+            g.b();
             PushService.this.stopSelf();
-            f.b();
-            if (PushService.this.getPackageName().equals(l.v(PushService.this.getApplicationContext()))) {
-                return;
-            }
-            PushService.this.onDestroy();
+        }
+    };
+    private final Runnable e = new Runnable() { // from class: com.baidu.android.pushservice.PushService.2
+        @Override // java.lang.Runnable
+        public void run() {
+            Process.killProcess(Process.myPid());
         }
     };
 
@@ -29,11 +33,11 @@ public class PushService extends Service {
         this.a = z;
         com.baidu.android.pushservice.f.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
         if (z2) {
-            this.e.run();
+            this.d.run();
             return;
         }
-        this.b.removeCallbacks(this.e);
-        this.b.postDelayed(this.e, 1000L);
+        this.b.removeCallbacks(this.d);
+        this.b.postDelayed(this.d, 1000L);
     }
 
     @Override // android.app.Service
@@ -45,36 +49,30 @@ public class PushService extends Service {
     public void onCreate() {
         super.onCreate();
         com.baidu.android.pushservice.f.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
-        l.b("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
-        this.d = f.a(this).a();
-        if (!this.d) {
-            a(true, false);
+        m.a("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
+        this.c = g.a(this).a();
+        if (this.c) {
             return;
         }
-        try {
-            this.c = new SDcardRemovedReceiver();
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.intent.action.MEDIA_BAD_REMOVAL");
-            intentFilter.addAction("android.intent.action.MEDIA_REMOVED");
-            registerReceiver(this.c, intentFilter);
-        } catch (Exception e) {
-        }
+        a(true, false);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
         com.baidu.android.pushservice.f.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
-        l.b("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
-        if (this.c != null) {
-            try {
-                unregisterReceiver(this.c);
-            } catch (Exception e) {
-            }
-        }
-        f.b();
+        m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
+        g.b();
         if (this.a) {
-            Process.killProcess(Process.myPid());
+            this.b.removeCallbacks(this.e);
+            this.b.postDelayed(this.e, 1000L);
+        }
+        if (!this.c || g.a(this).e()) {
+            return;
+        }
+        try {
+            sendBroadcast(f.a(this));
+        } catch (Exception e) {
         }
     }
 
@@ -85,23 +83,32 @@ public class PushService extends Service {
             com.baidu.android.pushservice.f.a.c("PushService", "--- onStart by null intent!", getApplicationContext());
         } else {
             try {
-                l.b("PushService onStartCommand from " + getPackageName() + " Intent " + intent.toUri(0) + " at Time " + System.currentTimeMillis(), getApplicationContext());
+                m.a("PushService onStartCommand from " + getPackageName() + " Intent " + intent.toUri(0) + " at Time " + System.currentTimeMillis(), getApplicationContext());
+                String stringExtra = intent.getStringExtra("source");
+                if (!TextUtils.isEmpty(stringExtra) && !stringExtra.equals(getPackageName())) {
+                    if (Build.VERSION.SDK_INT <= 23 && !m.j(this)) {
+                        g.a(this).d();
+                        a(true, true);
+                        return 2;
+                    }
+                    new b.d(getApplicationContext()).d(501011L).a(System.currentTimeMillis()).c(stringExtra).a();
+                }
             } catch (Exception e) {
+                new b.c(getApplicationContext()).a(Log.getStackTraceString(e)).a();
             }
         }
+        this.b.removeCallbacks(this.d);
         this.b.removeCallbacks(this.e);
-        if ("com.baidu.android.pushservice.action.CROSS_REQUEST".equals(intent.getAction())) {
-            com.baidu.android.pushservice.i.c.a(getApplicationContext(), intent);
-        }
         try {
-            this.d = f.a(this).a(intent);
-            if (this.d) {
+            this.c = g.a(this).a(intent);
+            if (this.c) {
                 return 1;
             }
             a(true, true);
             return 2;
         } catch (Exception e2) {
             a(true, true);
+            new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
             return 2;
         }
     }

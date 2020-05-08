@@ -12,7 +12,6 @@ import com.alibaba.fastjson.util.IOUtils;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.SlideActiviy;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -75,7 +74,7 @@ public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
             InetAddress address = inetSocketAddress.getAddress();
             serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_QUERY);
             if (address != null) {
-                serializeWriter.writeFieldName(SlideActiviy.ADDRESS_PAGE_NAME);
+                serializeWriter.writeFieldName("address");
                 jSONSerializer.write(address);
                 serializeWriter.write(44);
             }
@@ -162,7 +161,7 @@ public class MiscCodec implements ObjectDeserializer, ObjectSerializer {
             while (true) {
                 String stringVal = jSONLexer.stringVal();
                 jSONLexer.nextToken(17);
-                if (stringVal.equals(SlideActiviy.ADDRESS_PAGE_NAME)) {
+                if (stringVal.equals("address")) {
                     defaultJSONParser.accept(17);
                     int i3 = i2;
                     inetAddress = (InetAddress) defaultJSONParser.parseObject((Class<Object>) InetAddress.class);

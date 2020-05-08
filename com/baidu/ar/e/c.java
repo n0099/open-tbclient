@@ -12,7 +12,7 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class c implements com.baidu.ar.lua.c {
     private Context mContext;
-    private a.InterfaceC0058a uo;
+    private a.InterfaceC0079a uo;
 
     public c(Context context) {
         this.mContext = context.getApplicationContext();
@@ -47,15 +47,15 @@ public class c implements com.baidu.ar.lua.c {
     }
 
     public void b(com.baidu.ar.lua.b bVar) {
-        this.uo = new a.InterfaceC0058a() { // from class: com.baidu.ar.e.c.1
-            @Override // com.baidu.ar.e.a.InterfaceC0058a
+        this.uo = new a.InterfaceC0079a() { // from class: com.baidu.ar.e.c.1
+            @Override // com.baidu.ar.e.a.InterfaceC0079a
             public void b(float f, float f2, float f3, float f4) {
                 com.baidu.ar.f.b.aK("acc  x " + f + " , y : " + f2 + " , z " + f3);
                 StatisticApi.onEvent(StatisticConstants.MODEL_PHONE_SHAKE);
                 c.c(f, f2, f3, f4);
             }
 
-            @Override // com.baidu.ar.e.a.InterfaceC0058a
+            @Override // com.baidu.ar.e.a.InterfaceC0079a
             public void destroy() {
             }
         };

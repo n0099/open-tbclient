@@ -6,24 +6,24 @@ import java.util.List;
 import tbclient.ManagerElection;
 /* loaded from: classes8.dex */
 public class f {
-    private BdUniqueId afA;
+    private BdUniqueId afD;
     private long fid;
-    private e giZ;
-    private d gja;
-    private List<d> gjb;
-    private ManagerElection gjc;
+    private e gjf;
+    private d gjg;
+    private List<d> gjh;
+    private ManagerElection gji;
     private boolean hasMore;
 
-    public List<d> bDW() {
-        return this.gjb;
+    public List<d> bDU() {
+        return this.gjh;
     }
 
-    public d bDX() {
-        return this.gja;
+    public d bDV() {
+        return this.gjg;
     }
 
-    public e bDY() {
-        return this.giZ;
+    public e bDW() {
+        return this.gjf;
     }
 
     public boolean getHasMore() {
@@ -35,23 +35,23 @@ public class f {
     }
 
     public BdUniqueId getUniqueId() {
-        return this.afA;
+        return this.afD;
     }
 
-    public ManagerElection bDZ() {
-        return this.gjc;
+    public ManagerElection bDX() {
+        return this.gji;
     }
 
     public void ad(ArrayList<d> arrayList) {
-        this.gjb = arrayList;
+        this.gjh = arrayList;
     }
 
     public void a(e eVar) {
-        this.giZ = eVar;
+        this.gjf = eVar;
     }
 
     public void a(d dVar) {
-        this.gja = dVar;
+        this.gjg = dVar;
     }
 
     public void setHasMore(boolean z) {
@@ -63,10 +63,10 @@ public class f {
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.afA = bdUniqueId;
+        this.afD = bdUniqueId;
     }
 
     public void a(ManagerElection managerElection) {
-        this.gjc = managerElection;
+        this.gji = managerElection;
     }
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Objects;
 /* loaded from: classes11.dex */
 public class b extends f {
-    private List<a> dbk;
+    private List<a> dbp;
 
     public b(Collection<String> collection) {
         super(-1);
@@ -31,7 +31,7 @@ public class b extends f {
                     arrayList.add(aVar);
                 }
             }
-            this.dbk = arrayList;
+            this.dbp = arrayList;
         }
     }
 
@@ -51,26 +51,26 @@ public class b extends f {
     }
 
     public List<a> aCx() {
-        return this.dbk;
+        return this.dbp;
     }
 
     /* loaded from: classes11.dex */
     public static class a {
-        private String dbl;
+        private String dbq;
         private int mCategory = -1;
-        private int dbm = 0;
-        private long dbn = 0;
+        private int dbr = 0;
+        private long dbs = 0;
 
         public a(String str) {
-            this.dbl = str;
+            this.dbq = str;
         }
 
         public String getBundleId() {
-            return this.dbl;
+            return this.dbq;
         }
 
         public int aCy() {
-            return this.dbm;
+            return this.dbr;
         }
 
         public int getCategory() {
@@ -78,15 +78,15 @@ public class b extends f {
         }
 
         public long aCz() {
-            return this.dbn;
+            return this.dbs;
         }
 
         void iP(int i) {
-            this.dbm = i;
+            this.dbr = i;
         }
 
         void bP(long j) {
-            this.dbn = j;
+            this.dbs = j;
         }
 
         void setCategory(int i) {
@@ -94,7 +94,7 @@ public class b extends f {
         }
 
         public int hashCode() {
-            return Objects.hash(this.dbl, Integer.valueOf(this.mCategory));
+            return Objects.hash(this.dbq, Integer.valueOf(this.mCategory));
         }
 
         public boolean equals(Object obj) {
@@ -103,7 +103,7 @@ public class b extends f {
             }
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return TextUtils.equals(aVar.getBundleId(), this.dbl) && aVar.getCategory() == this.mCategory;
+                return TextUtils.equals(aVar.getBundleId(), this.dbq) && aVar.getCategory() == this.mCategory;
             }
             return false;
         }

@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class x {
-    private static x kik = null;
-    private LinkedHashMap<String, Integer> kil = new LinkedHashMap<>(150, 0.75f, true);
+    private static x kio = null;
+    private LinkedHashMap<String, Integer> kip = new LinkedHashMap<>(150, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.x.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                x.this.kil.clear();
+                x.this.kip.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class x {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static x cKr() {
-        if (kik == null) {
+    public static x cKo() {
+        if (kio == null) {
             synchronized (x.class) {
-                if (kik == null) {
-                    kik = new x();
+                if (kio == null) {
+                    kio = new x();
                 }
             }
         }
-        return kik;
+        return kio;
     }
 
     public void bv(String str, int i) {
-        if (i != 0 || !this.kil.containsKey(str)) {
-            this.kil.put(str, Integer.valueOf(i));
+        if (i != 0 || !this.kip.containsKey(str)) {
+            this.kip.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.kil.remove(str);
+            this.kip.remove(str);
         }
     }
 
-    public int IL(String str) {
-        Integer num = this.kil.get(str);
+    public int IO(String str) {
+        Integer num = this.kip.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class x {
     }
 
     public void clear() {
-        this.kil.clear();
+        this.kip.clear();
     }
 }

@@ -9,17 +9,17 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes9.dex */
 public class c {
     private static final int TOUCH_SLOP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds20);
-    private boolean jpH;
-    private boolean jpI;
-    private final a jpJ;
-    private final com.baidu.tieba.f.b jpK;
-    private a.InterfaceC0536a jpL = new a.InterfaceC0536a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
-        @Override // com.baidu.tieba.f.a.InterfaceC0536a
+    private boolean jpL;
+    private boolean jpM;
+    private final a jpN;
+    private final com.baidu.tieba.f.b jpO;
+    private a.InterfaceC0557a jpP = new a.InterfaceC0557a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
+        @Override // com.baidu.tieba.f.a.InterfaceC0557a
         public void y(int i, int i2) {
-            if (c.this.jpJ.isActive() && !c.this.cwF() && !c.this.cwG()) {
+            if (c.this.jpN.isActive() && !c.this.cwC() && !c.this.cwD()) {
                 c.this.qJ(true);
                 c.this.setFullscreen(true);
-                c.this.jpJ.cwB().w(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
+                c.this.jpN.cwy().w(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.qJ(false);
@@ -28,10 +28,10 @@ public class c {
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0536a
+        @Override // com.baidu.tieba.f.a.InterfaceC0557a
         public void z(int i, int i2) {
-            if (c.this.jpJ.isActive() && !c.this.cwF() && c.this.jpJ.cwB().cwL() && Math.abs(i2) > c.TOUCH_SLOP) {
-                c.this.jpJ.v(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
+            if (c.this.jpN.isActive() && !c.this.cwC() && c.this.jpN.cwy().cwI() && Math.abs(i2) > c.TOUCH_SLOP) {
+                c.this.jpN.v(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.qJ(false);
@@ -42,48 +42,48 @@ public class c {
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0536a
+        @Override // com.baidu.tieba.f.a.InterfaceC0557a
         public void bG(int i, int i2) {
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0536a
+        @Override // com.baidu.tieba.f.a.InterfaceC0557a
         public void A(int i, int i2) {
         }
     };
-    private View.OnTouchListener jpM = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
+    private View.OnTouchListener jpQ = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.jpK.onTouchEvent(motionEvent);
+            c.this.jpO.onTouchEvent(motionEvent);
             return false;
         }
     };
 
     public c(a aVar) {
-        this.jpJ = aVar;
-        this.jpK = new com.baidu.tieba.f.b(aVar.jpl.getPageContext().getPageActivity());
-        this.jpK.a(this.jpL);
+        this.jpN = aVar;
+        this.jpO = new com.baidu.tieba.f.b(aVar.jpp.getPageContext().getPageActivity());
+        this.jpO.a(this.jpP);
     }
 
     public void initialize() {
-        d cwB = this.jpJ.cwB();
-        if (cwB.cwI()) {
-            cwB.getListView().setOnTouchListener(this.jpM);
+        d cwy = this.jpN.cwy();
+        if (cwy.cwF()) {
+            cwy.getListView().setOnTouchListener(this.jpQ);
         }
     }
 
-    public boolean cwF() {
-        return this.jpH;
+    public boolean cwC() {
+        return this.jpL;
     }
 
     public void qJ(boolean z) {
-        this.jpH = z;
+        this.jpL = z;
     }
 
-    public boolean cwG() {
-        return this.jpI;
+    public boolean cwD() {
+        return this.jpM;
     }
 
     public void setFullscreen(boolean z) {
-        this.jpI = z;
+        this.jpM = z;
     }
 }

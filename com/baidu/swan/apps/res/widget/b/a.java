@@ -334,7 +334,7 @@ final class a {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.w.a.ack().getNightModeSwitcherState() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.w.a.acj().getNightModeSwitcherState() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:

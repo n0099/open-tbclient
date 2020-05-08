@@ -12,56 +12,56 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    public static int bof = 1;
-    private static String bog;
+    public static int bok = 1;
+    private static String bol;
 
     /* loaded from: classes11.dex */
     static class a extends com.baidu.poly.a.a.a<String> {
-        final /* synthetic */ com.baidu.poly.a.j.a boe;
+        final /* synthetic */ com.baidu.poly.a.j.a boj;
 
         a(com.baidu.poly.a.j.a aVar) {
-            this.boe = aVar;
+            this.boj = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.poly.a.a.a
         /* renamed from: c */
         public void a(String str) {
-            a.C0185a c0185a = new a.C0185a();
+            a.C0207a c0207a = new a.C0207a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.optInt(BaseJsonData.TAG_ERRNO) == 0) {
-                    c0185a.statusCode = 0;
-                    c0185a.message = jSONObject.optString("msg");
+                    c0207a.statusCode = 0;
+                    c0207a.message = jSONObject.optString("msg");
                     JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    c0185a.bob = optJSONObject.optLong("totalAmount");
-                    c0185a.boc = optJSONObject.optLong("userPayAmount");
-                    c0185a.bod = optJSONObject.optString("usedhostMarketingDetail");
+                    c0207a.bog = optJSONObject.optLong("totalAmount");
+                    c0207a.boh = optJSONObject.optLong("userPayAmount");
+                    c0207a.boi = optJSONObject.optString("usedhostMarketingDetail");
                 } else {
-                    c0185a.statusCode = jSONObject.optInt("errorLevel", 2);
-                    c0185a.message = jSONObject.optString("msg");
+                    c0207a.statusCode = jSONObject.optInt("errorLevel", 2);
+                    c0207a.message = jSONObject.optString("msg");
                 }
             } catch (Exception e) {
-                c0185a.statusCode = 2;
-                c0185a.message = f.Lb().getResources().getString(b.g.calculate_price_default_error);
+                c0207a.statusCode = 2;
+                c0207a.message = f.La().getResources().getString(b.g.calculate_price_default_error);
             }
-            this.boe.a(c0185a);
+            this.boj.a(c0207a);
         }
 
         @Override // com.baidu.poly.a.a.a
         public void a(Throwable th, String str) {
-            a.C0185a c0185a = new a.C0185a();
-            c0185a.statusCode = 2;
-            c0185a.message = f.Lb().getResources().getString(b.g.calculate_price_default_error);
-            this.boe.a(c0185a);
+            a.C0207a c0207a = new a.C0207a();
+            c0207a.statusCode = 2;
+            c0207a.message = f.La().getResources().getString(b.g.calculate_price_default_error);
+            this.boj.a(c0207a);
         }
     }
 
     private static void T() {
-        if (bof == 1) {
-            bog = "https://etrade.baidu.com/trade/order/calcMoney";
+        if (bok == 1) {
+            bol = "https://etrade.baidu.com/trade/order/calcMoney";
         } else {
-            bog = "http://sandbox.y.nuomi.com/c/order/calcMoney";
+            bol = "http://sandbox.y.nuomi.com/c/order/calcMoney";
         }
     }
 
@@ -86,6 +86,6 @@ public class b {
             }
             bVar.f("hostMarketingDetail", jSONArray.toString());
         }
-        new com.baidu.poly.a.a.f().a(bog, cVar, bVar, new a(aVar));
+        new com.baidu.poly.a.a.f().a(bol, cVar, bVar, new a(aVar));
     }
 }

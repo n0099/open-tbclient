@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.media.b;
 /* loaded from: classes7.dex */
 public class e {
-    private static volatile d eEw;
+    private static volatile d eEB;
 
-    public static synchronized d bif() {
+    public static synchronized d bid() {
         d dVar;
         synchronized (e.class) {
-            if (eEw == null) {
-                eEw = new d();
+            if (eEB == null) {
+                eEB = new d();
             }
-            dVar = eEw;
+            dVar = eEB;
         }
         return dVar;
     }

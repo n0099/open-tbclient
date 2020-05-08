@@ -1,96 +1,171 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.text.TextUtils;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.tieba.myAttentionAndFans.PersonListModel;
+import com.baidu.tieba.recapp.lego.model.FormCard;
+import com.xiaomi.push.bb;
+import com.xiaomi.push.jo;
+import com.xiaomi.push.service.XMPushService;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
 /* loaded from: classes8.dex */
 public class he {
-    private static he a;
+    private int a;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Context f450a;
+    private long f427a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, hf> f451a = new HashMap();
+    private hd f429a;
 
-    private he(Context context) {
-        this.f450a = context;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    private String f430a;
 
-    public static he a(Context context) {
-        if (context == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
-            return null;
-        }
-        if (a == null) {
-            synchronized (he.class) {
-                if (a == null) {
-                    a = new he(context);
-                }
-            }
-        }
-        return a;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    private boolean f431a = false;
 
-    private boolean a(String str, String str2, String str3, String str4, long j, String str5) {
-        hk hkVar = new hk();
-        hkVar.d(str3);
-        hkVar.c(str4);
-        hkVar.a(j);
-        hkVar.b(str5);
-        hkVar.a(true);
-        hkVar.a("push_sdk_channel");
-        hkVar.e(str2);
-        com.xiaomi.channel.commonutils.logger.b.m50a("TinyData TinyDataManager.upload item:" + hkVar.d() + "   ts:" + System.currentTimeMillis());
-        return a(hkVar, str);
-    }
+    /* renamed from: a  reason: collision with other field name */
+    private bb f428a = bb.a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public hf a() {
-        hf hfVar = this.f451a.get("UPLOADER_PUSH_CHANNEL");
-        if (hfVar != null) {
-            return hfVar;
-        }
-        hf hfVar2 = this.f451a.get("UPLOADER_HTTP");
-        if (hfVar2 == null) {
+    /* loaded from: classes8.dex */
+    public static class a {
+        static final he a = new he();
+    }
+
+    private fi a(bb.a aVar) {
+        if (aVar.f120a == 0) {
+            if (aVar.f121a instanceof fi) {
+                return (fi) aVar.f121a;
+            }
             return null;
         }
-        return hfVar2;
+        fi m332a = m332a();
+        m332a.a(fh.CHANNEL_STATS_COUNTER.a());
+        m332a.c(aVar.f120a);
+        m332a.c(aVar.f122a);
+        return m332a;
+    }
+
+    private fj a(int i) {
+        ArrayList arrayList = new ArrayList();
+        fj fjVar = new fj(this.f430a, arrayList);
+        if (!az.d(this.f429a.f424a)) {
+            fjVar.a(i.m(this.f429a.f424a));
+        }
+        jq jqVar = new jq(i);
+        ji a2 = new jo.a().a(jqVar);
+        try {
+            fjVar.b(a2);
+        } catch (jc e) {
+        }
+        LinkedList<bb.a> m157a = this.f428a.m157a();
+        while (m157a.size() > 0) {
+            try {
+                fi a3 = a(m157a.getLast());
+                if (a3 != null) {
+                    a3.b(a2);
+                }
+                if (jqVar.a_() > i) {
+                    break;
+                }
+                if (a3 != null) {
+                    arrayList.add(a3);
+                }
+                m157a.removeLast();
+            } catch (jc e2) {
+            } catch (NoSuchElementException e3) {
+            }
+        }
+        return fjVar;
+    }
+
+    public static hd a() {
+        hd hdVar;
+        synchronized (a.a) {
+            hdVar = a.a.f429a;
+        }
+        return hdVar;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    Map<String, hf> m334a() {
-        return this.f451a;
+    public static he m330a() {
+        return a.a;
     }
 
-    public void a(hf hfVar, String str) {
-        if (hfVar == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: please do not add null mUploader to TinyDataManager.");
-        } else if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
-        } else {
-            m334a().put(str, hfVar);
+    /* renamed from: a  reason: collision with other method in class */
+    private void m331a() {
+        if (!this.f431a || System.currentTimeMillis() - this.f427a <= this.a) {
+            return;
         }
+        this.f431a = false;
+        this.f427a = 0L;
     }
 
-    public boolean a(hk hkVar, String str) {
-        if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m50a("pkgName is null or empty, upload ClientUploadDataItem failed.");
-            return false;
-        } else if (com.xiaomi.push.service.be.a(hkVar, false)) {
-            return false;
-        } else {
-            if (TextUtils.isEmpty(hkVar.d())) {
-                hkVar.f(com.xiaomi.push.service.be.a());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized fi m332a() {
+        fi fiVar;
+        fiVar = new fi();
+        fiVar.a(az.m136a((Context) this.f429a.f424a));
+        fiVar.f322a = (byte) 0;
+        fiVar.f326b = 1;
+        fiVar.d((int) (System.currentTimeMillis() / 1000));
+        return fiVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized fj m333a() {
+        fj fjVar;
+        fjVar = null;
+        if (b()) {
+            int i = FormCard.WIDTH_DEFAULT_SIZE;
+            if (!az.d(this.f429a.f424a)) {
+                i = 375;
             }
-            hkVar.g(str);
-            com.xiaomi.push.service.bf.a(this.f450a, hkVar);
-            return true;
+            fjVar = a(i);
+        }
+        return fjVar;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m334a(int i) {
+        int i2 = PersonListModel.CACHETIME;
+        if (i > 0) {
+            int i3 = i * 1000;
+            if (i3 <= 604800000) {
+                i2 = i3;
+            }
+            if (this.a == i2 && this.f431a) {
+                return;
+            }
+            this.f431a = true;
+            this.f427a = System.currentTimeMillis();
+            this.a = i2;
+            com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i2 + " start = " + this.f427a);
         }
     }
 
-    public boolean a(String str, String str2, long j, String str3) {
-        return a(this.f450a.getPackageName(), this.f450a.getPackageName(), str, str2, j, str3);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public synchronized void a(fi fiVar) {
+        this.f428a.a(fiVar);
+    }
+
+    public synchronized void a(XMPushService xMPushService) {
+        this.f429a = new hd(xMPushService);
+        this.f430a = "";
+        com.xiaomi.push.service.be.a().a(new hf(this));
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m335a() {
+        return this.f431a;
+    }
+
+    boolean b() {
+        m331a();
+        return this.f431a && this.f428a.m156a() > 0;
     }
 }

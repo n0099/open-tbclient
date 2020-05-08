@@ -7,10 +7,10 @@ public interface a {
 
     /* renamed from: com.baidu.live.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0132a {
-        void D(Object obj);
+    public interface InterfaceC0153a {
+        void E(Object obj);
 
-        void EA();
+        void Ey();
 
         void Ez();
 
@@ -21,7 +21,7 @@ public interface a {
 
     void a(com.baidu.live.liveroom.b.a aVar);
 
-    void a(InterfaceC0132a interfaceC0132a);
+    void a(InterfaceC0153a interfaceC0153a);
 
     void bN(boolean z);
 

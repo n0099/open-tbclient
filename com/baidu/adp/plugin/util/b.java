@@ -26,19 +26,19 @@ public class b {
             } catch (Exception e2) {
             }
         } else {
-            Object y = y(getPathList(classLoader));
-            if (y == null) {
+            Object z2 = z(getPathList(classLoader));
+            if (z2 == null) {
                 return null;
             }
             try {
-                return (DexFile) getField(Array.get(y, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
+                return (DexFile) getField(Array.get(z2, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
             } catch (Exception e3) {
             }
         }
         return null;
     }
 
-    private static Object y(Object obj) {
+    private static Object z(Object obj) {
         if (obj == null) {
             return null;
         }

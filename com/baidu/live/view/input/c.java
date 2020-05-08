@@ -8,16 +8,16 @@ public interface c {
 
     /* loaded from: classes3.dex */
     public interface a {
-        boolean Bh();
+        boolean Bg();
 
-        boolean Ce();
+        boolean Cd();
+
+        void HH();
 
         void HI();
-
-        void HJ();
     }
 
-    List<String> BU();
+    List<String> BT();
 
     void a(n nVar, String str);
 
@@ -33,5 +33,5 @@ public interface c {
 
     void release();
 
-    void xj();
+    void xi();
 }

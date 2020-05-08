@@ -10,11 +10,14 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.vivo.push.aa;
 import com.vivo.push.util.p;
+import com.vivo.push.util.s;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes8.dex */
 public final class a extends aa {
     private static a c;
+    private static final List<Integer> f = Arrays.asList(3);
     private Handler d = new Handler(Looper.getMainLooper());
     private String e;
 
@@ -53,25 +56,31 @@ public final class a extends aa {
             p.d("CommandWorker", " handleMessage error: intent : " + intent + ", mContext: " + this.a);
             return;
         }
-        String action = intent.getAction();
-        String packageName = this.a.getPackageName();
-        if (TextUtils.isEmpty(this.e)) {
-            this.e = a(this.a, packageName, action);
-            if (TextUtils.isEmpty(this.e)) {
-                p.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
-                intent.setPackage(packageName);
-                this.a.sendBroadcast(intent);
-                return;
-            }
+        int intExtra = intent.getIntExtra("command", -1);
+        if (intExtra < 0) {
+            intExtra = intent.getIntExtra("method", -1);
         }
-        try {
-            Class<?> cls = Class.forName(this.e);
-            Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
-            Method method = cls.getMethod("onReceive", Context.class, Intent.class);
-            intent.setClassName(packageName, this.e);
-            this.d.post(new b(this, method, newInstance, new Object[]{this.a.getApplicationContext(), intent}));
-        } catch (Exception e) {
-            p.b("CommandWorker", "reflect e: ", e);
+        String packageName = this.a.getPackageName();
+        if (!f.contains(Integer.valueOf(intExtra)) || !s.b(this.a, packageName) || s.d(this.a)) {
+            String action = intent.getAction();
+            if (TextUtils.isEmpty(this.e)) {
+                this.e = a(this.a, packageName, action);
+                if (TextUtils.isEmpty(this.e)) {
+                    p.d("CommandWorker", " reflectReceiver error: receiver for: " + action + " not found, package: " + packageName);
+                    intent.setPackage(packageName);
+                    this.a.sendBroadcast(intent);
+                    return;
+                }
+            }
+            try {
+                Class<?> cls = Class.forName(this.e);
+                Object newInstance = cls.getConstructor(new Class[0]).newInstance(new Object[0]);
+                Method method = cls.getMethod("onReceive", Context.class, Intent.class);
+                intent.setClassName(packageName, this.e);
+                this.d.post(new b(this, method, newInstance, new Object[]{this.a.getApplicationContext(), intent}));
+            } catch (Exception e) {
+                p.b("CommandWorker", "reflect e: ", e);
+            }
         }
     }
 

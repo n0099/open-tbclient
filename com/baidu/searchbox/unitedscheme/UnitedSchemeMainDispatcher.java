@@ -8,7 +8,6 @@ import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeInterceptChain;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -183,7 +182,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
 
     public static boolean exceedTimeLimit() {
         InvokeSchemeInfo peek = sLastInvokeSchemeQueue.peek();
-        return peek != null && Math.abs(System.currentTimeMillis() - peek.invokeTime) > KeepJobService.JOB_CHECK_PERIODIC;
+        return peek != null && Math.abs(System.currentTimeMillis() - peek.invokeTime) > 600000;
     }
 
     public boolean dispatchList(final Context context, final UnitedSchemeEntity unitedSchemeEntity, List<String> list, final JSONObject jSONObject, final CallbackHandler callbackHandler) {
@@ -191,7 +190,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             return false;
         }
         final LinkedList linkedList = new LinkedList();
-        d.l(list).a(new f<String, d<Object>>() { // from class: com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher.3
+        d.m(list).a(new f<String, d<Object>>() { // from class: com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             public d<Object> call(String str) {
